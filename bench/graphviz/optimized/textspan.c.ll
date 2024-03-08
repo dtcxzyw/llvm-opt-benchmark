@@ -1,0 +1,435 @@
+; ModuleID = 'bench/graphviz/original/textspan.c.ll'
+source_filename = "bench/graphviz/original/textspan.c.ll"
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-pc-linux-gnu"
+
+%struct._PostscriptAlias = type { ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr }
+
+@Verbose = external local_unnamed_addr global i8, align 1
+@stderr = external local_unnamed_addr global ptr, align 8
+@.str = private unnamed_addr constant [32 x i8] c"fontname: \22%s\22 resolved to: %s\0A\00", align 1
+@.str.1 = private unnamed_addr constant [34 x i8] c"fontname: unable to resolve \22%s\22\0A\00", align 1
+@Dtoset = external local_unnamed_addr global ptr, align 8
+@translate_postscript_fontname.key = internal unnamed_addr global ptr null, align 8
+@translate_postscript_fontname.result = internal unnamed_addr global ptr null, align 8
+@postscript_alias = internal global [35 x %struct._PostscriptAlias] [%struct._PostscriptAlias { ptr @.str.3, ptr @.str.4, ptr @.str.5, ptr null, ptr null, i32 4, ptr @.str.6, ptr null, ptr null }, %struct._PostscriptAlias { ptr @.str.7, ptr @.str.4, ptr @.str.5, ptr null, ptr @.str.8, i32 5, ptr @.str.6, ptr null, ptr @.str.9 }, %struct._PostscriptAlias { ptr @.str.10, ptr @.str.4, ptr @.str.11, ptr null, ptr null, i32 6, ptr @.str.6, ptr @.str.12, ptr null }, %struct._PostscriptAlias { ptr @.str.13, ptr @.str.4, ptr @.str.11, ptr null, ptr @.str.8, i32 7, ptr @.str.6, ptr @.str.12, ptr @.str.9 }, %struct._PostscriptAlias { ptr @.str.14, ptr @.str.15, ptr @.str.11, ptr null, ptr null, i32 10, ptr @.str.16, ptr @.str.12, ptr null }, %struct._PostscriptAlias { ptr @.str.17, ptr @.str.15, ptr @.str.11, ptr null, ptr @.str.9, i32 11, ptr @.str.16, ptr @.str.12, ptr @.str.9 }, %struct._PostscriptAlias { ptr @.str.18, ptr @.str.15, ptr @.str.19, ptr null, ptr null, i32 8, ptr @.str.16, ptr null, ptr null }, %struct._PostscriptAlias { ptr @.str.20, ptr @.str.15, ptr @.str.19, ptr null, ptr @.str.9, i32 9, ptr @.str.16, ptr null, ptr @.str.9 }, %struct._PostscriptAlias { ptr @.str.21, ptr @.str.21, ptr null, ptr null, ptr null, i32 12, ptr @.str.22, ptr null, ptr null }, %struct._PostscriptAlias { ptr @.str.23, ptr @.str.21, ptr @.str.12, ptr null, ptr null, i32 14, ptr @.str.22, ptr @.str.12, ptr null }, %struct._PostscriptAlias { ptr @.str.24, ptr @.str.21, ptr @.str.12, ptr null, ptr @.str.8, i32 15, ptr @.str.22, ptr @.str.12, ptr @.str.9 }, %struct._PostscriptAlias { ptr @.str.25, ptr @.str.21, ptr null, ptr null, ptr @.str.8, i32 13, ptr @.str.22, ptr null, ptr @.str.9 }, %struct._PostscriptAlias { ptr @.str.26, ptr @.str.26, ptr null, ptr null, ptr null, i32 16, ptr @.str.6, ptr null, ptr null }, %struct._PostscriptAlias { ptr @.str.27, ptr @.str.26, ptr @.str.12, ptr null, ptr null, i32 18, ptr @.str.6, ptr @.str.12, ptr null }, %struct._PostscriptAlias { ptr @.str.28, ptr @.str.26, ptr @.str.12, ptr null, ptr @.str.8, i32 19, ptr @.str.6, ptr @.str.12, ptr @.str.9 }, %struct._PostscriptAlias { ptr @.str.29, ptr @.str.26, ptr null, ptr @.str.30, ptr null, i32 20, ptr @.str.6, ptr null, ptr null }, %struct._PostscriptAlias { ptr @.str.31, ptr @.str.26, ptr @.str.12, ptr @.str.30, ptr null, i32 22, ptr @.str.6, ptr @.str.12, ptr null }, %struct._PostscriptAlias { ptr @.str.32, ptr @.str.26, ptr @.str.12, ptr @.str.30, ptr @.str.8, i32 23, ptr @.str.6, ptr @.str.12, ptr @.str.9 }, %struct._PostscriptAlias { ptr @.str.33, ptr @.str.26, ptr null, ptr @.str.30, ptr @.str.8, i32 21, ptr @.str.6, ptr null, ptr @.str.9 }, %struct._PostscriptAlias { ptr @.str.34, ptr @.str.26, ptr null, ptr null, ptr @.str.8, i32 17, ptr @.str.6, ptr null, ptr @.str.9 }, %struct._PostscriptAlias { ptr @.str.35, ptr @.str.36, ptr @.str.12, ptr null, ptr null, i32 26, ptr @.str.16, ptr @.str.12, ptr null }, %struct._PostscriptAlias { ptr @.str.37, ptr @.str.36, ptr @.str.12, ptr null, ptr @.str.9, i32 27, ptr @.str.16, ptr @.str.12, ptr @.str.9 }, %struct._PostscriptAlias { ptr @.str.38, ptr @.str.36, ptr null, ptr null, ptr @.str.9, i32 25, ptr @.str.16, ptr null, ptr @.str.9 }, %struct._PostscriptAlias { ptr @.str.39, ptr @.str.36, ptr @.str.40, ptr null, ptr null, i32 24, ptr @.str.16, ptr null, ptr null }, %struct._PostscriptAlias { ptr @.str.41, ptr @.str.42, ptr @.str.12, ptr null, ptr null, i32 30, ptr @.str.16, ptr @.str.12, ptr null }, %struct._PostscriptAlias { ptr @.str.43, ptr @.str.42, ptr @.str.12, ptr null, ptr @.str.9, i32 31, ptr @.str.16, ptr @.str.12, ptr @.str.9 }, %struct._PostscriptAlias { ptr @.str.44, ptr @.str.42, ptr null, ptr null, ptr @.str.9, i32 29, ptr @.str.16, ptr null, ptr @.str.9 }, %struct._PostscriptAlias { ptr @.str.45, ptr @.str.42, ptr @.str.40, ptr null, ptr null, i32 28, ptr @.str.16, ptr null, ptr null }, %struct._PostscriptAlias { ptr @.str.46, ptr @.str.46, ptr null, ptr null, ptr null, i32 32, ptr @.str.47, ptr null, ptr null }, %struct._PostscriptAlias { ptr @.str.48, ptr @.str.49, ptr @.str.12, ptr null, ptr null, i32 2, ptr @.str.16, ptr @.str.12, ptr null }, %struct._PostscriptAlias { ptr @.str.50, ptr @.str.49, ptr @.str.12, ptr null, ptr @.str.9, i32 3, ptr @.str.16, ptr @.str.12, ptr @.str.9 }, %struct._PostscriptAlias { ptr @.str.51, ptr @.str.49, ptr null, ptr null, ptr @.str.9, i32 1, ptr @.str.16, ptr null, ptr @.str.9 }, %struct._PostscriptAlias { ptr @.str.52, ptr @.str.49, ptr null, ptr null, ptr null, i32 0, ptr @.str.16, ptr null, ptr null }, %struct._PostscriptAlias { ptr @.str.53, ptr @.str.54, ptr @.str.55, ptr null, ptr @.str.9, i32 33, ptr @.str.16, ptr null, ptr @.str.9 }, %struct._PostscriptAlias { ptr @.str.56, ptr @.str.57, ptr null, ptr null, ptr null, i32 34, ptr @.str.47, ptr null, ptr null }], align 16
+@.str.2 = private unnamed_addr constant [49 x i8] c"out of memory when trying to allocate %zu bytes\0A\00", align 1
+@.str.3 = private unnamed_addr constant [16 x i8] c"AvantGarde-Book\00", align 1
+@.str.4 = private unnamed_addr constant [13 x i8] c"URW Gothic L\00", align 1
+@.str.5 = private unnamed_addr constant [5 x i8] c"book\00", align 1
+@.str.6 = private unnamed_addr constant [11 x i8] c"sans-Serif\00", align 1
+@.str.7 = private unnamed_addr constant [23 x i8] c"AvantGarde-BookOblique\00", align 1
+@.str.8 = private unnamed_addr constant [8 x i8] c"oblique\00", align 1
+@.str.9 = private unnamed_addr constant [7 x i8] c"italic\00", align 1
+@.str.10 = private unnamed_addr constant [16 x i8] c"AvantGarde-Demi\00", align 1
+@.str.11 = private unnamed_addr constant [5 x i8] c"demi\00", align 1
+@.str.12 = private unnamed_addr constant [5 x i8] c"bold\00", align 1
+@.str.13 = private unnamed_addr constant [23 x i8] c"AvantGarde-DemiOblique\00", align 1
+@.str.14 = private unnamed_addr constant [13 x i8] c"Bookman-Demi\00", align 1
+@.str.15 = private unnamed_addr constant [14 x i8] c"URW Bookman L\00", align 1
+@.str.16 = private unnamed_addr constant [6 x i8] c"serif\00", align 1
+@.str.17 = private unnamed_addr constant [19 x i8] c"Bookman-DemiItalic\00", align 1
+@.str.18 = private unnamed_addr constant [14 x i8] c"Bookman-Light\00", align 1
+@.str.19 = private unnamed_addr constant [6 x i8] c"light\00", align 1
+@.str.20 = private unnamed_addr constant [20 x i8] c"Bookman-LightItalic\00", align 1
+@.str.21 = private unnamed_addr constant [8 x i8] c"Courier\00", align 1
+@.str.22 = private unnamed_addr constant [10 x i8] c"monospace\00", align 1
+@.str.23 = private unnamed_addr constant [13 x i8] c"Courier-Bold\00", align 1
+@.str.24 = private unnamed_addr constant [20 x i8] c"Courier-BoldOblique\00", align 1
+@.str.25 = private unnamed_addr constant [16 x i8] c"Courier-Oblique\00", align 1
+@.str.26 = private unnamed_addr constant [10 x i8] c"Helvetica\00", align 1
+@.str.27 = private unnamed_addr constant [15 x i8] c"Helvetica-Bold\00", align 1
+@.str.28 = private unnamed_addr constant [22 x i8] c"Helvetica-BoldOblique\00", align 1
+@.str.29 = private unnamed_addr constant [17 x i8] c"Helvetica-Narrow\00", align 1
+@.str.30 = private unnamed_addr constant [10 x i8] c"condensed\00", align 1
+@.str.31 = private unnamed_addr constant [22 x i8] c"Helvetica-Narrow-Bold\00", align 1
+@.str.32 = private unnamed_addr constant [29 x i8] c"Helvetica-Narrow-BoldOblique\00", align 1
+@.str.33 = private unnamed_addr constant [25 x i8] c"Helvetica-Narrow-Oblique\00", align 1
+@.str.34 = private unnamed_addr constant [18 x i8] c"Helvetica-Oblique\00", align 1
+@.str.35 = private unnamed_addr constant [22 x i8] c"NewCenturySchlbk-Bold\00", align 1
+@.str.36 = private unnamed_addr constant [21 x i8] c"Century Schoolbook L\00", align 1
+@.str.37 = private unnamed_addr constant [28 x i8] c"NewCenturySchlbk-BoldItalic\00", align 1
+@.str.38 = private unnamed_addr constant [24 x i8] c"NewCenturySchlbk-Italic\00", align 1
+@.str.39 = private unnamed_addr constant [23 x i8] c"NewCenturySchlbk-Roman\00", align 1
+@.str.40 = private unnamed_addr constant [6 x i8] c"roman\00", align 1
+@.str.41 = private unnamed_addr constant [14 x i8] c"Palatino-Bold\00", align 1
+@.str.42 = private unnamed_addr constant [18 x i8] c"Palatino Linotype\00", align 1
+@.str.43 = private unnamed_addr constant [20 x i8] c"Palatino-BoldItalic\00", align 1
+@.str.44 = private unnamed_addr constant [16 x i8] c"Palatino-Italic\00", align 1
+@.str.45 = private unnamed_addr constant [15 x i8] c"Palatino-Roman\00", align 1
+@.str.46 = private unnamed_addr constant [7 x i8] c"Symbol\00", align 1
+@.str.47 = private unnamed_addr constant [8 x i8] c"fantasy\00", align 1
+@.str.48 = private unnamed_addr constant [11 x i8] c"Times-Bold\00", align 1
+@.str.49 = private unnamed_addr constant [6 x i8] c"Times\00", align 1
+@.str.50 = private unnamed_addr constant [17 x i8] c"Times-BoldItalic\00", align 1
+@.str.51 = private unnamed_addr constant [13 x i8] c"Times-Italic\00", align 1
+@.str.52 = private unnamed_addr constant [12 x i8] c"Times-Roman\00", align 1
+@.str.53 = private unnamed_addr constant [26 x i8] c"ZapfChancery-MediumItalic\00", align 1
+@.str.54 = private unnamed_addr constant [15 x i8] c"URW Chancery L\00", align 1
+@.str.55 = private unnamed_addr constant [7 x i8] c"medium\00", align 1
+@.str.56 = private unnamed_addr constant [13 x i8] c"ZapfDingbats\00", align 1
+@.str.57 = private unnamed_addr constant [9 x i8] c"Dingbats\00", align 1
+@.str.58 = private unnamed_addr constant [22 x i8] c"[internal hard-coded]\00", align 1
+
+; Function Attrs: nounwind uwtable
+define { double, double } @textspan_size(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+  %3 = alloca ptr, align 8
+  store ptr null, ptr %3, align 8
+  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = load ptr, ptr %4, align 8
+  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = load ptr, ptr %6, align 8
+  %.not = icmp eq ptr %7, null
+  br i1 %.not, label %8, label %24
+
+8:                                                ; preds = %2
+  %9 = load ptr, ptr %5, align 8
+  %10 = load ptr, ptr @translate_postscript_fontname.key, align 8
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %14, label %12
+
+12:                                               ; preds = %8
+  %13 = tail call i32 @strcasecmp(ptr noundef nonnull %10, ptr noundef %9) #15
+  %.not.i = icmp eq i32 %13, 0
+  br i1 %.not.i, label %._crit_edge.i, label %14
+
+._crit_edge.i:                                    ; preds = %12
+  %.pre.i = load ptr, ptr @translate_postscript_fontname.result, align 8
+  br label %translate_postscript_fontname.exit
+
+14:                                               ; preds = %12, %8
+  tail call void @free(ptr noundef %10) #16
+  %15 = tail call noalias ptr @strdup(ptr noundef %9) #16
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %17, label %gv_strdup.exit.i
+
+17:                                               ; preds = %14
+  %18 = load ptr, ptr @stderr, align 8
+  %19 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #15
+  %20 = add i64 %19, 1
+  %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.2, i64 noundef %20) #17
+  tail call fastcc void @graphviz_exit() #18
+  unreachable
+
+gv_strdup.exit.i:                                 ; preds = %14
+  store ptr %15, ptr @translate_postscript_fontname.key, align 8
+  %22 = tail call ptr @bsearch(ptr noundef nonnull %15, ptr noundef nonnull @postscript_alias, i64 noundef 35, i64 noundef 72, ptr noundef nonnull @fontcmpf) #16
+  store ptr %22, ptr @translate_postscript_fontname.result, align 8
+  br label %translate_postscript_fontname.exit
+
+translate_postscript_fontname.exit:               ; preds = %._crit_edge.i, %gv_strdup.exit.i
+  %23 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %22, %gv_strdup.exit.i ]
+  store ptr %23, ptr %6, align 8
+  br label %24
+
+24:                                               ; preds = %translate_postscript_fontname.exit, %2
+  %25 = load i8, ptr @Verbose, align 1
+  %.not15 = icmp eq i8 %25, 0
+  br i1 %.not15, label %.thread, label %26
+
+26:                                               ; preds = %24
+  %27 = load ptr, ptr %5, align 8
+  %28 = tail call zeroext i1 @emit_once(ptr noundef %27) #16
+  %spec.select = select i1 %28, ptr %3, ptr null
+  %29 = call zeroext i1 @gvtextlayout(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %spec.select) #16
+  br i1 %29, label %estimate_textspan_size.exit, label %31
+
+.thread:                                          ; preds = %24
+  %30 = tail call zeroext i1 @gvtextlayout(ptr noundef %0, ptr noundef nonnull %1, ptr noundef null) #16
+  br i1 %30, label %estimate_textspan_size.exit.thread25, label %31
+
+31:                                               ; preds = %.thread, %26
+  %.024 = phi ptr [ null, %.thread ], [ %spec.select, %26 ]
+  %32 = load ptr, ptr %4, align 8
+  %33 = getelementptr inbounds i8, ptr %32, i64 32
+  %34 = load i32, ptr %33, align 8
+  %35 = and i32 %34, 1
+  %36 = icmp ne i32 %35, 0
+  %37 = and i32 %34, 2
+  %38 = icmp ne i32 %37, 0
+  %39 = getelementptr inbounds i8, ptr %32, i64 24
+  %40 = load double, ptr %39, align 8
+  %41 = getelementptr inbounds i8, ptr %1, i64 48
+  store double 0.000000e+00, ptr %41, align 8
+  %42 = fmul double %40, 1.200000e+00
+  %43 = getelementptr inbounds i8, ptr %1, i64 56
+  store double %42, ptr %43, align 8
+  %44 = getelementptr inbounds i8, ptr %1, i64 32
+  store double 0.000000e+00, ptr %44, align 8
+  %45 = fmul double %40, 1.000000e-01
+  %46 = getelementptr inbounds i8, ptr %1, i64 40
+  store double %45, ptr %46, align 8
+  %47 = getelementptr inbounds i8, ptr %1, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %47, i8 0, i64 16, i1 false)
+  %48 = load ptr, ptr %32, align 8
+  %49 = load ptr, ptr %1, align 8
+  %50 = call double @estimate_text_width_1pt(ptr noundef %48, ptr noundef %49, i1 noundef zeroext %36, i1 noundef zeroext %38) #16
+  %51 = fmul double %40, %50
+  store double %51, ptr %41, align 8
+  %.not.i18 = icmp eq ptr %.024, null
+  br i1 %.not.i18, label %estimate_textspan_size.exit.thread25, label %estimate_textspan_size.exit.thread20
+
+estimate_textspan_size.exit.thread20:             ; preds = %31
+  store ptr @.str.58, ptr %.024, align 8
+  br label %52
+
+estimate_textspan_size.exit:                      ; preds = %26
+  br i1 %28, label %52, label %estimate_textspan_size.exit.thread25
+
+52:                                               ; preds = %estimate_textspan_size.exit.thread20, %estimate_textspan_size.exit
+  %53 = load ptr, ptr %3, align 8
+  %.not17 = icmp eq ptr %53, null
+  %54 = load ptr, ptr @stderr, align 8
+  %55 = load ptr, ptr %5, align 8
+  br i1 %.not17, label %58, label %56
+
+56:                                               ; preds = %52
+  %57 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %54, ptr noundef nonnull @.str, ptr noundef %55, ptr noundef nonnull %53) #17
+  br label %estimate_textspan_size.exit.thread25
+
+58:                                               ; preds = %52
+  %59 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %54, ptr noundef nonnull @.str.1, ptr noundef %55) #17
+  br label %estimate_textspan_size.exit.thread25
+
+estimate_textspan_size.exit.thread25:             ; preds = %31, %.thread, %56, %58, %estimate_textspan_size.exit
+  %60 = getelementptr inbounds i8, ptr %1, i64 48
+  %.sroa.0.0.copyload = load double, ptr %60, align 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 56
+  %.sroa.2.0.copyload = load double, ptr %.sroa.2.0..sroa_idx, align 8
+  %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.0.0.copyload, 0
+  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.2.0.copyload, 1
+  ret { double, double } %.fca.1.insert
+}
+
+declare zeroext i1 @emit_once(ptr noundef) local_unnamed_addr #1
+
+declare zeroext i1 @gvtextlayout(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: nofree nounwind
+declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+
+; Function Attrs: nounwind uwtable
+define void @textfont_dict_open(ptr noundef %0) local_unnamed_addr #0 {
+  %2 = getelementptr inbounds i8, ptr %0, i64 216
+  store i32 0, ptr %2, align 8
+  %3 = getelementptr inbounds i8, ptr %0, i64 220
+  store i32 40, ptr %3, align 4
+  %4 = getelementptr inbounds i8, ptr %0, i64 224
+  store i32 -1, ptr %4, align 8
+  %5 = getelementptr inbounds i8, ptr %0, i64 232
+  store ptr @textfont_makef, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 240
+  store ptr @textfont_freef, ptr %6, align 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 248
+  store ptr @textfont_comparf, ptr %7, align 8
+  %8 = load ptr, ptr @Dtoset, align 8
+  %9 = tail call ptr @dtopen(ptr noundef nonnull %2, ptr noundef %8) #16
+  %10 = getelementptr inbounds i8, ptr %0, i64 256
+  store ptr %9, ptr %10, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nofree nounwind willreturn uwtable
+define internal noalias noundef ptr @textfont_makef(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #3 {
+  %3 = tail call noalias dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef 40) #19
+  %4 = load ptr, ptr %0, align 8
+  %.not = icmp eq ptr %4, null
+  br i1 %.not, label %7, label %5
+
+5:                                                ; preds = %2
+  %6 = tail call noalias ptr @strdup(ptr noundef nonnull %4) #16
+  store ptr %6, ptr %3, align 8
+  br label %7
+
+7:                                                ; preds = %5, %2
+  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = load ptr, ptr %8, align 8
+  %.not15 = icmp eq ptr %9, null
+  br i1 %.not15, label %13, label %10
+
+10:                                               ; preds = %7
+  %11 = tail call noalias ptr @strdup(ptr noundef nonnull %9) #16
+  %12 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %11, ptr %12, align 8
+  br label %13
+
+13:                                               ; preds = %10, %7
+  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = load i32, ptr %14, align 8
+  %16 = and i32 %15, 127
+  %17 = getelementptr inbounds i8, ptr %3, i64 32
+  store i32 %16, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %19 = load double, ptr %18, align 8
+  %20 = getelementptr inbounds i8, ptr %3, i64 24
+  store double %19, ptr %20, align 8
+  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %22 = load ptr, ptr %21, align 8
+  %23 = getelementptr inbounds i8, ptr %3, i64 16
+  store ptr %22, ptr %23, align 8
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress nounwind willreturn uwtable
+define internal void @textfont_freef(ptr nocapture noundef %0, ptr nocapture readnone %1) #4 {
+  %3 = load ptr, ptr %0, align 8
+  tail call void @free(ptr noundef %3) #16
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = load ptr, ptr %4, align 8
+  tail call void @free(ptr noundef %5) #16
+  tail call void @free(ptr noundef %0) #16
+  ret void
+}
+
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define internal i32 @textfont_comparf(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3) #5 {
+  %5 = load ptr, ptr %1, align 8
+  %.not = icmp eq ptr %5, null
+  %6 = load ptr, ptr %2, align 8
+  %.not36 = icmp eq ptr %6, null
+  br i1 %.not, label %7, label %8
+
+7:                                                ; preds = %4
+  br i1 %.not36, label %11, label %.thread
+
+8:                                                ; preds = %4
+  br i1 %.not36, label %.thread, label %9
+
+9:                                                ; preds = %8
+  %10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %6) #15
+  %.not39 = icmp eq i32 %10, 0
+  br i1 %.not39, label %11, label %.thread
+
+11:                                               ; preds = %9, %7
+  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = load ptr, ptr %12, align 8
+  %.not40 = icmp eq ptr %13, null
+  %14 = getelementptr inbounds i8, ptr %2, i64 8
+  %15 = load ptr, ptr %14, align 8
+  %.not41 = icmp eq ptr %15, null
+  br i1 %.not40, label %16, label %17
+
+16:                                               ; preds = %11
+  br i1 %.not41, label %20, label %.thread
+
+17:                                               ; preds = %11
+  br i1 %.not41, label %.thread, label %18
+
+18:                                               ; preds = %17
+  %19 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(1) %15) #15
+  %.not44 = icmp eq i32 %19, 0
+  br i1 %.not44, label %20, label %.thread
+
+20:                                               ; preds = %18, %16
+  %21 = getelementptr inbounds i8, ptr %1, i64 32
+  %22 = load i32, ptr %21, align 8
+  %23 = and i32 %22, 127
+  %24 = getelementptr inbounds i8, ptr %2, i64 32
+  %25 = load i32, ptr %24, align 8
+  %26 = and i32 %25, 127
+  %27 = icmp ult i32 %23, %26
+  br i1 %27, label %.thread, label %28
+
+28:                                               ; preds = %20
+  %29 = icmp ugt i32 %23, %26
+  br i1 %29, label %.thread, label %30
+
+30:                                               ; preds = %28
+  %31 = getelementptr inbounds i8, ptr %1, i64 24
+  %32 = load double, ptr %31, align 8
+  %33 = getelementptr inbounds i8, ptr %2, i64 24
+  %34 = load double, ptr %33, align 8
+  %35 = fcmp olt double %32, %34
+  br i1 %35, label %.thread, label %36
+
+36:                                               ; preds = %30
+  %37 = fcmp ogt double %32, %34
+  %. = zext i1 %37 to i32
+  br label %.thread
+
+.thread:                                          ; preds = %16, %7, %36, %30, %28, %20, %18, %17, %9, %8
+  %.0 = phi i32 [ 1, %8 ], [ %10, %9 ], [ 1, %17 ], [ %19, %18 ], [ -1, %20 ], [ 1, %28 ], [ -1, %30 ], [ %., %36 ], [ -1, %7 ], [ -1, %16 ]
+  ret i32 %.0
+}
+
+declare ptr @dtopen(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: nounwind uwtable
+define void @textfont_dict_close(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+  %2 = getelementptr inbounds i8, ptr %0, i64 256
+  %3 = load ptr, ptr %2, align 8
+  %4 = tail call i32 @dtclose(ptr noundef %3) #16
+  ret void
+}
+
+declare i32 @dtclose(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
+declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+
+; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+
+declare ptr @bsearch(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
+define internal i32 @fontcmpf(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #8 {
+  %3 = load ptr, ptr %1, align 8
+  %4 = tail call i32 @strcasecmp(ptr noundef %0, ptr noundef %3) #15
+  ret i32 %4
+}
+
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
+declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #9
+
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
+
+; Function Attrs: noreturn nounwind uwtable
+define internal fastcc void @graphviz_exit() unnamed_addr #11 {
+  tail call void @exit(i32 noundef 1) #20
+  unreachable
+}
+
+; Function Attrs: noreturn nounwind
+declare void @exit(i32 noundef) local_unnamed_addr #12
+
+declare double @estimate_text_width_1pt(ptr noundef, ptr noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #13
+
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
+declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #10
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+
+attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nounwind willreturn memory(read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #15 = { nounwind willreturn memory(read) }
+attributes #16 = { nounwind }
+attributes #17 = { cold nounwind }
+attributes #18 = { noreturn }
+attributes #19 = { nounwind allocsize(0,1) }
+attributes #20 = { noreturn nounwind }
+
+!llvm.module.flags = !{!0, !1, !2, !3}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 8, !"PIC Level", i32 2}
+!2 = !{i32 7, !"uwtable", i32 2}
+!3 = !{i32 7, !"frame-pointer", i32 2}

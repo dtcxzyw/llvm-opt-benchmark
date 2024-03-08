@@ -1,0 +1,469 @@
+; ModuleID = 'bench/wireshark/original/i4btrace.c.ll'
+source_filename = "bench/wireshark/original/i4btrace.c.ll"
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-pc-linux-gnu"
+
+%struct.file_type_subtype_info = type { ptr, ptr, ptr, ptr, i32, i64, ptr, ptr, ptr, ptr }
+%struct.supported_block_type = type { i32, i32, i64, ptr }
+%struct.i4b_trace_hdr_t = type { i32, i32, i32, i32, i32, i32, i32, i32 }
+
+@i4btrace_file_type_subtype = internal unnamed_addr global i32 -1, align 4
+@i4btrace_info = internal constant %struct.file_type_subtype_info { ptr @.str.3, ptr @.str.4, ptr null, ptr null, i32 0, i64 1, ptr @i4btrace_blocks_supported, ptr null, ptr null, ptr null }, align 8
+@.str = private unnamed_addr constant [9 x i8] c"I4BTRACE\00", align 1
+@.str.1 = private unnamed_addr constant [47 x i8] c"i4btrace: record length %u < header length %lu\00", align 1
+@.str.2 = private unnamed_addr constant [61 x i8] c"i4btrace: File has %u-byte packet, bigger than maximum of %u\00", align 1
+@.str.3 = private unnamed_addr constant [15 x i8] c"I4B ISDN trace\00", align 1
+@.str.4 = private unnamed_addr constant [9 x i8] c"i4btrace\00", align 1
+@i4btrace_blocks_supported = internal constant [1 x %struct.supported_block_type] [%struct.supported_block_type { i32 5, i32 2, i64 0, ptr null }], align 16
+
+; Function Attrs: nounwind uwtable
+define hidden i32 @i4btrace_open(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+  %4 = alloca %struct.i4b_trace_hdr_t, align 4
+  %5 = load ptr, ptr %0, align 8
+  %6 = call i32 @wtap_read_bytes(ptr noundef %5, ptr noundef nonnull %4, i32 noundef 32, ptr noundef %1, ptr noundef %2) #4
+  %.not = icmp eq i32 %6, 0
+  br i1 %.not, label %7, label %9
+
+7:                                                ; preds = %3
+  %8 = load i32, ptr %1, align 4
+  %.not90 = icmp ne i32 %8, -12
+  %. = sext i1 %.not90 to i32
+  br label %.loopexit98
+
+9:                                                ; preds = %3
+  %10 = load i32, ptr %4, align 4
+  %11 = add i32 %10, -16385
+  %or.cond = icmp ult i32 %11, -16353
+  %12 = getelementptr inbounds i8, ptr %4, i64 4
+  %13 = load i32, ptr %12, align 4
+  %14 = icmp ugt i32 %13, 4
+  %or.cond5 = select i1 %or.cond, i1 true, i1 %14
+  %15 = getelementptr inbounds i8, ptr %4, i64 8
+  %16 = load i32, ptr %15, align 4
+  %17 = icmp ugt i32 %16, 3
+  %or.cond8 = select i1 %or.cond5, i1 true, i1 %17
+  %18 = getelementptr inbounds i8, ptr %4, i64 12
+  %19 = load i32, ptr %18, align 4
+  %20 = icmp sgt i32 %19, 1
+  %or.cond11 = select i1 %or.cond8, i1 true, i1 %20
+  %21 = getelementptr inbounds i8, ptr %4, i64 16
+  %22 = load i32, ptr %21, align 4
+  %23 = icmp ugt i32 %22, 2048
+  %or.cond14 = select i1 %or.cond11, i1 true, i1 %23
+  %24 = getelementptr inbounds i8, ptr %4, i64 28
+  %25 = load i32, ptr %24, align 4
+  %26 = icmp ugt i32 %25, 999999
+  %or.cond17 = select i1 %or.cond14, i1 true, i1 %26
+  br i1 %or.cond17, label %27, label %46
+
+27:                                               ; preds = %9
+  %28 = call i32 @llvm.bswap.i32(i32 %10)
+  store i32 %28, ptr %4, align 4
+  %29 = call i32 @llvm.bswap.i32(i32 %13)
+  store i32 %29, ptr %12, align 4
+  %30 = call i32 @llvm.bswap.i32(i32 %16)
+  store i32 %30, ptr %15, align 4
+  %31 = call i32 @llvm.bswap.i32(i32 %19)
+  store i32 %31, ptr %18, align 4
+  %32 = call i32 @llvm.bswap.i32(i32 %22)
+  store i32 %32, ptr %21, align 4
+  %33 = getelementptr inbounds i8, ptr %4, i64 20
+  %34 = load i32, ptr %33, align 4
+  %35 = call i32 @llvm.bswap.i32(i32 %34)
+  store i32 %35, ptr %33, align 4
+  %36 = getelementptr inbounds i8, ptr %4, i64 24
+  %37 = load i32, ptr %36, align 4
+  %38 = call i32 @llvm.bswap.i32(i32 %37)
+  store i32 %38, ptr %36, align 4
+  %39 = call i32 @llvm.bswap.i32(i32 %25)
+  store i32 %39, ptr %24, align 4
+  %40 = add i32 %28, -16385
+  %or.cond20 = icmp ult i32 %40, -16353
+  %41 = icmp ugt i32 %29, 4
+  %or.cond23 = select i1 %or.cond20, i1 true, i1 %41
+  %42 = icmp ugt i32 %30, 3
+  %or.cond26 = select i1 %or.cond23, i1 true, i1 %42
+  %43 = icmp sgt i32 %31, 1
+  %or.cond29 = select i1 %or.cond26, i1 true, i1 %43
+  %44 = icmp ugt i32 %32, 2048
+  %or.cond32 = select i1 %or.cond29, i1 true, i1 %44
+  %45 = icmp ugt i32 %39, 999999
+  %or.cond35 = select i1 %or.cond32, i1 true, i1 %45
+  br i1 %or.cond35, label %.loopexit98, label %46
+
+46:                                               ; preds = %27, %9
+  %47 = phi i32 [ %10, %9 ], [ %28, %27 ]
+  %.087 = phi i32 [ 0, %9 ], [ 1, %27 ]
+  %48 = load ptr, ptr %0, align 8
+  %49 = add nsw i32 %47, -32
+  %50 = call i32 @wtap_read_bytes(ptr noundef %48, ptr noundef null, i32 noundef %49, ptr noundef %1, ptr noundef %2) #4
+  %.not91 = icmp eq i32 %50, 0
+  br i1 %.not91, label %78, label %.preheader
+
+.preheader:                                       ; preds = %46
+  br i1 %or.cond17, label %.preheader.split.us, label %.preheader.split
+
+.preheader.split.us:                              ; preds = %.preheader, %53
+  %.099.us = phi i32 [ %54, %53 ], [ 1, %.preheader ]
+  %51 = load ptr, ptr %0, align 8
+  %52 = call i32 @wtap_read_bytes_or_eof(ptr noundef %51, ptr noundef nonnull %4, i32 noundef 32, ptr noundef %1, ptr noundef %2) #4
+  %.not93.us = icmp eq i32 %52, 0
+  br i1 %.not93.us, label %.split.us, label %55
+
+53:                                               ; preds = %74
+  %54 = add nuw nsw i32 %.099.us, 1
+  %exitcond106.not = icmp eq i32 %54, 5
+  br i1 %exitcond106.not, label %.loopexit, label %.preheader.split.us, !llvm.loop !4
+
+55:                                               ; preds = %.preheader.split.us
+  %56 = load i32, ptr %4, align 4
+  %57 = call i32 @llvm.bswap.i32(i32 %56)
+  store i32 %57, ptr %4, align 4
+  %58 = load i32, ptr %12, align 4
+  %59 = call i32 @llvm.bswap.i32(i32 %58)
+  store i32 %59, ptr %12, align 4
+  %60 = load i32, ptr %15, align 4
+  %61 = call i32 @llvm.bswap.i32(i32 %60)
+  store i32 %61, ptr %15, align 4
+  %62 = load <4 x i32>, ptr %18, align 4
+  %63 = call <4 x i32> @llvm.bswap.v4i32(<4 x i32> %62)
+  store <4 x i32> %63, ptr %18, align 4
+  %64 = load i32, ptr %24, align 4
+  %65 = call i32 @llvm.bswap.i32(i32 %64)
+  store i32 %65, ptr %24, align 4
+  %66 = add i32 %57, -16385
+  %or.cond38.us = icmp ult i32 %66, -16353
+  %67 = icmp ugt i32 %59, 4
+  %or.cond41.us = select i1 %or.cond38.us, i1 true, i1 %67
+  %68 = icmp ugt i32 %61, 3
+  %or.cond44.us = select i1 %or.cond41.us, i1 true, i1 %68
+  %69 = extractelement <4 x i32> %63, i64 0
+  %70 = icmp sgt i32 %69, 1
+  %or.cond47.us = select i1 %or.cond44.us, i1 true, i1 %70
+  %71 = extractelement <4 x i32> %63, i64 1
+  %72 = icmp ugt i32 %71, 2048
+  %or.cond50.us = select i1 %or.cond47.us, i1 true, i1 %72
+  %73 = icmp ugt i32 %65, 999999
+  %or.cond53.us = select i1 %or.cond50.us, i1 true, i1 %73
+  br i1 %or.cond53.us, label %.loopexit98, label %74
+
+74:                                               ; preds = %55
+  %75 = load ptr, ptr %0, align 8
+  %76 = add nsw i32 %57, -32
+  %77 = call i32 @wtap_read_bytes(ptr noundef %75, ptr noundef null, i32 noundef %76, ptr noundef %1, ptr noundef %2) #4
+  %.not96.us = icmp eq i32 %77, 0
+  br i1 %.not96.us, label %.split101.us, label %53
+
+78:                                               ; preds = %46
+  %79 = load i32, ptr %1, align 4
+  %.not92 = icmp eq i32 %79, -12
+  br i1 %.not92, label %.loopexit, label %.loopexit98
+
+80:                                               ; preds = %99
+  %81 = add nuw nsw i32 %.099, 1
+  %exitcond.not = icmp eq i32 %81, 5
+  br i1 %exitcond.not, label %.loopexit, label %.preheader.split, !llvm.loop !4
+
+.preheader.split:                                 ; preds = %.preheader, %80
+  %.099 = phi i32 [ %81, %80 ], [ 1, %.preheader ]
+  %82 = load ptr, ptr %0, align 8
+  %83 = call i32 @wtap_read_bytes_or_eof(ptr noundef %82, ptr noundef nonnull %4, i32 noundef 32, ptr noundef %1, ptr noundef %2) #4
+  %.not93 = icmp eq i32 %83, 0
+  br i1 %.not93, label %.split.us, label %86
+
+.split.us:                                        ; preds = %.preheader.split, %.preheader.split.us
+  %84 = load i32, ptr %1, align 4
+  switch i32 %84, label %.loopexit98 [
+    i32 0, label %.loopexit
+    i32 -12, label %85
+  ]
+
+85:                                               ; preds = %.split.us
+  br label %.loopexit98
+
+86:                                               ; preds = %.preheader.split
+  %87 = load i32, ptr %4, align 4
+  %88 = add i32 %87, -16385
+  %or.cond38 = icmp ult i32 %88, -16353
+  %89 = load i32, ptr %12, align 4
+  %90 = icmp ugt i32 %89, 4
+  %or.cond41 = select i1 %or.cond38, i1 true, i1 %90
+  %91 = load i32, ptr %15, align 4
+  %92 = icmp ugt i32 %91, 3
+  %or.cond44 = select i1 %or.cond41, i1 true, i1 %92
+  %93 = load i32, ptr %18, align 4
+  %94 = icmp sgt i32 %93, 1
+  %or.cond47 = select i1 %or.cond44, i1 true, i1 %94
+  %95 = load i32, ptr %21, align 4
+  %96 = icmp ugt i32 %95, 2048
+  %or.cond50 = select i1 %or.cond47, i1 true, i1 %96
+  %97 = load i32, ptr %24, align 4
+  %98 = icmp ugt i32 %97, 999999
+  %or.cond53 = select i1 %or.cond50, i1 true, i1 %98
+  br i1 %or.cond53, label %.loopexit98, label %99
+
+99:                                               ; preds = %86
+  %100 = load ptr, ptr %0, align 8
+  %101 = add nsw i32 %87, -32
+  %102 = call i32 @wtap_read_bytes(ptr noundef %100, ptr noundef null, i32 noundef %101, ptr noundef %1, ptr noundef %2) #4
+  %.not96 = icmp eq i32 %102, 0
+  br i1 %.not96, label %.split101.us, label %80
+
+.split101.us:                                     ; preds = %99, %74
+  %103 = load i32, ptr %1, align 4
+  %.not97 = icmp eq i32 %103, -12
+  br i1 %.not97, label %.loopexit, label %.loopexit98
+
+.loopexit:                                        ; preds = %80, %53, %.split.us, %.split101.us, %78
+  %104 = load ptr, ptr %0, align 8
+  %105 = call i64 @file_seek(ptr noundef %104, i64 noundef 0, i32 noundef 0, ptr noundef %1) #4
+  %106 = icmp eq i64 %105, -1
+  br i1 %106, label %.loopexit98, label %107
+
+107:                                              ; preds = %.loopexit
+  %108 = load i32, ptr @i4btrace_file_type_subtype, align 4
+  %109 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 %108, ptr %109, align 4
+  %110 = call noalias dereferenceable_or_null(4) ptr @g_malloc_n(i64 noundef 1, i64 noundef 4) #5
+  %111 = getelementptr inbounds i8, ptr %0, i64 96
+  store ptr %110, ptr %111, align 8
+  %112 = getelementptr inbounds i8, ptr %0, i64 112
+  store ptr @i4btrace_read, ptr %112, align 8
+  %113 = getelementptr inbounds i8, ptr %0, i64 120
+  store ptr @i4btrace_seek_read, ptr %113, align 8
+  %114 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 0, ptr %114, align 8
+  store i32 %.087, ptr %110, align 4
+  %115 = getelementptr inbounds i8, ptr %0, i64 144
+  store i32 17, ptr %115, align 8
+  %116 = getelementptr inbounds i8, ptr %0, i64 148
+  store i32 6, ptr %116, align 4
+  call void @wtap_add_generated_idb(ptr noundef nonnull %0) #4
+  br label %.loopexit98
+
+.loopexit98:                                      ; preds = %86, %55, %.loopexit, %.split101.us, %.split.us, %78, %27, %7, %107, %85
+  %.086 = phi i32 [ 1, %107 ], [ 0, %85 ], [ %., %7 ], [ 0, %27 ], [ -1, %78 ], [ -1, %.split.us ], [ -1, %.split101.us ], [ -1, %.loopexit ], [ 0, %55 ], [ 0, %86 ]
+  ret i32 %.086
+}
+
+declare i32 @wtap_read_bytes(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare i32 @wtap_read_bytes_or_eof(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare i64 @file_seek(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: allocsize(0,1)
+declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #2
+
+; Function Attrs: nounwind uwtable
+define internal i32 @i4btrace_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
+  %7 = load ptr, ptr %0, align 8
+  %8 = tail call i64 @file_tell(ptr noundef %7) #4
+  store i64 %8, ptr %5, align 8
+  %9 = load ptr, ptr %0, align 8
+  %10 = getelementptr i8, ptr %0, i64 96
+  %.val = load ptr, ptr %10, align 8
+  %11 = tail call fastcc i32 @i4b_read_rec(ptr %.val, ptr noundef %9, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
+  ret i32 %11
+}
+
+; Function Attrs: nounwind uwtable
+define internal noundef i32 @i4btrace_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = load ptr, ptr %7, align 8
+  %9 = tail call i64 @file_seek(ptr noundef %8, i64 noundef %1, i32 noundef 0, ptr noundef %4) #4
+  %10 = icmp eq i64 %9, -1
+  br i1 %10, label %19, label %11
+
+11:                                               ; preds = %6
+  %12 = load ptr, ptr %7, align 8
+  %13 = getelementptr i8, ptr %0, i64 96
+  %.val = load ptr, ptr %13, align 8
+  %14 = tail call fastcc i32 @i4b_read_rec(ptr %.val, ptr noundef %12, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
+  %.not = icmp eq i32 %14, 0
+  br i1 %.not, label %15, label %19
+
+15:                                               ; preds = %11
+  %16 = load i32, ptr %4, align 4
+  %17 = icmp eq i32 %16, 0
+  br i1 %17, label %18, label %19
+
+18:                                               ; preds = %15
+  store i32 -12, ptr %4, align 4
+  br label %19
+
+19:                                               ; preds = %11, %15, %18, %6
+  %.0 = phi i32 [ 0, %6 ], [ 0, %18 ], [ 0, %15 ], [ 1, %11 ]
+  ret i32 %.0
+}
+
+declare void @wtap_add_generated_idb(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: nounwind uwtable
+define hidden void @register_i4btrace() local_unnamed_addr #0 {
+  %1 = tail call i32 @wtap_register_file_type_subtype(ptr noundef nonnull @i4btrace_info) #4
+  store i32 %1, ptr @i4btrace_file_type_subtype, align 4
+  tail call void @wtap_register_backwards_compatibility_lua_name(ptr noundef nonnull @.str, i32 noundef %1) #4
+  ret void
+}
+
+declare i32 @wtap_register_file_type_subtype(ptr noundef) local_unnamed_addr #1
+
+declare void @wtap_register_backwards_compatibility_lua_name(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+declare i64 @file_tell(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: nounwind uwtable
+define internal fastcc i32 @i4b_read_rec(ptr nocapture readonly %.96.val, ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+  %6 = alloca %struct.i4b_trace_hdr_t, align 4
+  %7 = call i32 @wtap_read_bytes_or_eof(ptr noundef %0, ptr noundef nonnull %6, i32 noundef 32, ptr noundef %3, ptr noundef %4) #4
+  %.not = icmp eq i32 %7, 0
+  br i1 %.not, label %68, label %8
+
+8:                                                ; preds = %5
+  %9 = load i32, ptr %.96.val, align 4
+  %.not34 = icmp eq i32 %9, 0
+  %.pre = load i32, ptr %6, align 4
+  br i1 %.not34, label %24, label %10
+
+10:                                               ; preds = %8
+  %11 = call i32 @llvm.bswap.i32(i32 %.pre)
+  store i32 %11, ptr %6, align 4
+  %12 = getelementptr inbounds i8, ptr %6, i64 4
+  %13 = load <4 x i32>, ptr %12, align 4
+  %14 = call <4 x i32> @llvm.bswap.v4i32(<4 x i32> %13)
+  store <4 x i32> %14, ptr %12, align 4
+  %15 = getelementptr inbounds i8, ptr %6, i64 20
+  %16 = load i32, ptr %15, align 4
+  %17 = call i32 @llvm.bswap.i32(i32 %16)
+  store i32 %17, ptr %15, align 4
+  %18 = getelementptr inbounds i8, ptr %6, i64 24
+  %19 = load i32, ptr %18, align 4
+  %20 = call i32 @llvm.bswap.i32(i32 %19)
+  store i32 %20, ptr %18, align 4
+  %21 = getelementptr inbounds i8, ptr %6, i64 28
+  %22 = load i32, ptr %21, align 4
+  %23 = call i32 @llvm.bswap.i32(i32 %22)
+  store i32 %23, ptr %21, align 4
+  br label %24
+
+24:                                               ; preds = %10, %8
+  %25 = phi i32 [ %11, %10 ], [ %.pre, %8 ]
+  %26 = icmp ult i32 %25, 32
+  br i1 %26, label %27, label %29
+
+27:                                               ; preds = %24
+  store i32 -13, ptr %3, align 4
+  %28 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef %25, i64 noundef 32) #4
+  store ptr %28, ptr %4, align 8
+  br label %68
+
+29:                                               ; preds = %24
+  %30 = add i32 %25, -32
+  %31 = icmp ugt i32 %30, 262144
+  br i1 %31, label %32, label %34
+
+32:                                               ; preds = %29
+  store i32 -13, ptr %3, align 4
+  %33 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef %30, i32 noundef 262144) #4
+  store ptr %33, ptr %4, align 8
+  br label %68
+
+34:                                               ; preds = %29
+  store i32 0, ptr %1, align 8
+  %35 = call ptr @wtap_block_create(i32 noundef 5) #4
+  %36 = getelementptr inbounds i8, ptr %1, i64 232
+  store ptr %35, ptr %36, align 8
+  %37 = getelementptr inbounds i8, ptr %1, i64 4
+  store i32 1, ptr %37, align 4
+  %38 = getelementptr inbounds i8, ptr %1, i64 64
+  %39 = getelementptr inbounds i8, ptr %1, i64 68
+  store i32 %30, ptr %39, align 4
+  store i32 %30, ptr %38, align 8
+  %40 = getelementptr inbounds i8, ptr %6, i64 24
+  %41 = load i32, ptr %40, align 4
+  %42 = zext i32 %41 to i64
+  %43 = getelementptr inbounds i8, ptr %1, i64 16
+  store i64 %42, ptr %43, align 8
+  %44 = getelementptr inbounds i8, ptr %6, i64 28
+  %45 = load i32, ptr %44, align 4
+  %46 = mul i32 %45, 1000
+  %47 = getelementptr inbounds i8, ptr %1, i64 24
+  store i32 %46, ptr %47, align 8
+  %48 = getelementptr inbounds i8, ptr %6, i64 8
+  %49 = load i32, ptr %48, align 4
+  switch i32 %49, label %61 [
+    i32 0, label %50
+    i32 1, label %52
+    i32 2, label %55
+    i32 3, label %58
+  ]
+
+50:                                               ; preds = %34
+  %51 = getelementptr inbounds i8, ptr %1, i64 72
+  store i32 15, ptr %51, align 8
+  br label %61
+
+52:                                               ; preds = %34
+  %53 = getelementptr inbounds i8, ptr %1, i64 72
+  store i32 17, ptr %53, align 8
+  %54 = getelementptr inbounds i8, ptr %1, i64 84
+  store i8 0, ptr %54, align 4
+  br label %61
+
+55:                                               ; preds = %34
+  %56 = getelementptr inbounds i8, ptr %1, i64 72
+  store i32 17, ptr %56, align 8
+  %57 = getelementptr inbounds i8, ptr %1, i64 84
+  store i8 1, ptr %57, align 4
+  br label %61
+
+58:                                               ; preds = %34
+  %59 = getelementptr inbounds i8, ptr %1, i64 72
+  store i32 17, ptr %59, align 8
+  %60 = getelementptr inbounds i8, ptr %1, i64 84
+  store i8 2, ptr %60, align 4
+  br label %61
+
+61:                                               ; preds = %58, %55, %52, %50, %34
+  %62 = getelementptr inbounds i8, ptr %6, i64 12
+  %63 = load i32, ptr %62, align 4
+  %64 = icmp eq i32 %63, 0
+  %65 = zext i1 %64 to i32
+  %66 = getelementptr inbounds i8, ptr %1, i64 80
+  store i32 %65, ptr %66, align 8
+  %67 = call i32 @wtap_read_packet_bytes(ptr noundef %0, ptr noundef %2, i32 noundef %30, ptr noundef %3, ptr noundef %4) #4
+  br label %68
+
+68:                                               ; preds = %5, %61, %32, %27
+  %.0 = phi i32 [ 0, %27 ], [ 0, %32 ], [ %67, %61 ], [ 0, %5 ]
+  ret i32 %.0
+}
+
+declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
+
+declare ptr @wtap_block_create(i32 noundef) local_unnamed_addr #1
+
+declare i32 @wtap_read_packet_bytes(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.bswap.i32(i32) #3
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare <4 x i32> @llvm.bswap.v4i32(<4 x i32>) #3
+
+attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { nounwind }
+attributes #5 = { nounwind allocsize(0,1) }
+
+!llvm.module.flags = !{!0, !1, !2, !3}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 8, !"PIC Level", i32 2}
+!2 = !{i32 7, !"uwtable", i32 2}
+!3 = !{i32 7, !"frame-pointer", i32 2}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}

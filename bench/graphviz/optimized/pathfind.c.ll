@@ -1,0 +1,558 @@
+; ModuleID = 'bench/graphviz/original/pathfind.c.ll'
+source_filename = "bench/graphviz/original/pathfind.c.ll"
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-pc-linux-gnu"
+
+%struct.agxbuf = type { %union.anon }
+%union.anon = type { %struct.anon }
+%struct.anon = type { ptr, i64, i64, [7 x i8], i8 }
+%struct.__va_list_tag = type { i32, i32, ptr, ptr }
+
+@.str = private unnamed_addr constant [6 x i8] c"%s.%s\00", align 1
+@.str.3 = private unnamed_addr constant [10 x i8] c"lib/%s/%s\00", align 1
+@.str.4 = private unnamed_addr constant [13 x i8] c"lib/%s/%s.%s\00", align 1
+@stderr = external local_unnamed_addr global ptr, align 8
+@.str.6 = private unnamed_addr constant [49 x i8] c"out of memory when trying to allocate %zu bytes\0A\00", align 1
+
+; Function Attrs: nounwind uwtable
+define ptr @pathfind(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+  %4 = alloca %struct.agxbuf, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
+  %5 = tail call i32 @access(ptr noundef %0, i32 noundef 4) #15
+  %6 = icmp sgt i32 %5, -1
+  br i1 %6, label %7, label %9
+
+7:                                                ; preds = %3
+  %8 = tail call noalias ptr @strdup(ptr noundef %0) #15
+  br label %agxbfree.exit
+
+9:                                                ; preds = %3
+  %.not = icmp eq ptr %2, null
+  br i1 %.not, label %34, label %10
+
+10:                                               ; preds = %9
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %4, ptr noundef nonnull @.str, ptr noundef %0, ptr noundef nonnull %2)
+  %11 = getelementptr inbounds i8, ptr %4, i64 31
+  %.val.i = load i8, ptr %11, align 1
+  %.not.i = icmp eq i8 %.val.i, -1
+  br i1 %.not.i, label %agxbsizeof.exit.i.i, label %agxblen.exit.i
+
+agxblen.exit.i:                                   ; preds = %10
+  %12 = zext i8 %.val.i to i64
+  %13 = call noalias ptr @strndup(ptr noundef nonnull %4, i64 noundef %12) #15
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %15, label %agxbdisown.exit
+
+15:                                               ; preds = %agxblen.exit.i
+  %16 = load ptr, ptr @stderr, align 8
+  %17 = add nuw nsw i64 %12, 1
+  %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.6, i64 noundef %17) #16
+  tail call fastcc void @graphviz_exit() #17
+  unreachable
+
+agxbsizeof.exit.i.i:                              ; preds = %10
+  %19 = getelementptr inbounds i8, ptr %4, i64 8
+  %20 = load i64, ptr %19, align 8
+  %21 = getelementptr inbounds i8, ptr %4, i64 16
+  %22 = load i64, ptr %21, align 8
+  %.not.i7.i = icmp ult i64 %20, %22
+  br i1 %.not.i7.i, label %.thread.i, label %23
+
+23:                                               ; preds = %agxbsizeof.exit.i.i
+  call fastcc void @agxbmore(ptr noundef nonnull %4, i64 noundef 1)
+  %.val.i15.pre.i.i = load i8, ptr %11, align 1
+  %.not.i16.i.i = icmp eq i8 %.val.i15.pre.i.i, -1
+  br i1 %.not.i16.i.i, label %..thread_crit_edge.i, label %24
+
+..thread_crit_edge.i:                             ; preds = %23
+  %.pre.i = load i64, ptr %19, align 8
+  br label %.thread.i
+
+24:                                               ; preds = %23
+  %25 = zext i8 %.val.i15.pre.i.i to i64
+  %26 = getelementptr inbounds [31 x i8], ptr %4, i64 0, i64 %25
+  br label %agxbputc.exit.i
+
+.thread.i:                                        ; preds = %..thread_crit_edge.i, %agxbsizeof.exit.i.i
+  %27 = phi i64 [ %.pre.i, %..thread_crit_edge.i ], [ %20, %agxbsizeof.exit.i.i ]
+  %28 = load ptr, ptr %4, align 8
+  %29 = getelementptr inbounds i8, ptr %28, i64 %27
+  br label %agxbputc.exit.i
+
+agxbputc.exit.i:                                  ; preds = %.thread.i, %24
+  %.sink.i = phi ptr [ %26, %24 ], [ %29, %.thread.i ]
+  store i8 0, ptr %.sink.i, align 1
+  %30 = load ptr, ptr %4, align 8
+  br label %agxbdisown.exit
+
+agxbdisown.exit:                                  ; preds = %agxblen.exit.i, %agxbputc.exit.i
+  %.0.i = phi ptr [ %30, %agxbputc.exit.i ], [ %13, %agxblen.exit.i ]
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
+  %31 = tail call i32 @access(ptr noundef %.0.i, i32 noundef 4) #15
+  %32 = icmp sgt i32 %31, -1
+  br i1 %32, label %agxbfree.exit, label %33
+
+33:                                               ; preds = %agxbdisown.exit
+  tail call void @free(ptr noundef %.0.i) #15
+  br label %34
+
+34:                                               ; preds = %33, %9
+  %35 = load i8, ptr %0, align 1
+  %.not42 = icmp eq i8 %35, 47
+  br i1 %.not42, label %70, label %36
+
+36:                                               ; preds = %34
+  %37 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 46) #18
+  %.not43 = icmp eq ptr %37, null
+  %spec.select = select i1 %.not43, ptr %2, ptr null
+  %.not45 = icmp eq ptr %1, null
+  br i1 %.not45, label %70, label %agxbsizeof.exit.i.i87
+
+agxbsizeof.exit.i.i87:                            ; preds = %36
+  %38 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 58) #18
+  %.not46 = icmp eq ptr %38, null
+  %39 = getelementptr inbounds i8, ptr %38, i64 1
+  %spec.select53 = select i1 %.not46, ptr %1, ptr %39
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %4, ptr noundef nonnull @.str.3, ptr noundef nonnull %spec.select53, ptr noundef nonnull %0)
+  %40 = getelementptr inbounds i8, ptr %4, i64 31
+  %.val.i.i.i84 = load i8, ptr %40, align 1
+  %.not.i.i.i85 = icmp eq i8 %.val.i.i.i84, -1
+  %41 = getelementptr inbounds i8, ptr %4, i64 8
+  %42 = load i64, ptr %41, align 8
+  %43 = getelementptr inbounds i8, ptr %4, i64 16
+  %44 = load i64, ptr %43, align 8
+  %45 = zext i8 %.val.i.i.i84 to i64
+  %.0.i20.i.i88 = select i1 %.not.i.i.i85, i64 %42, i64 %45
+  %.0.i14.i.i89 = select i1 %.not.i.i.i85, i64 %44, i64 31
+  %.not.i.i90 = icmp ult i64 %.0.i20.i.i88, %.0.i14.i.i89
+  br i1 %.not.i.i90, label %47, label %46
+
+46:                                               ; preds = %agxbsizeof.exit.i.i87
+  call fastcc void @agxbmore(ptr noundef nonnull %4, i64 noundef 1)
+  %.val.i15.pre.i.i91 = load i8, ptr %40, align 1
+  br label %47
+
+47:                                               ; preds = %46, %agxbsizeof.exit.i.i87
+  %.val.i.pr.i98 = phi i8 [ %.val.i15.pre.i.i91, %46 ], [ %.val.i.i.i84, %agxbsizeof.exit.i.i87 ]
+  %.not.i16.i.i93 = icmp eq i8 %.val.i.pr.i98, -1
+  br i1 %.not.i16.i.i93, label %agxbputc.exit.i94.thread, label %agxbputc.exit.i94
+
+agxbputc.exit.i94.thread:                         ; preds = %47
+  %48 = load i64, ptr %41, align 8
+  %49 = load ptr, ptr %4, align 8
+  %50 = getelementptr inbounds i8, ptr %49, i64 %48
+  store i8 0, ptr %50, align 1
+  br label %56
+
+agxbputc.exit.i94:                                ; preds = %47
+  %51 = zext i8 %.val.i.pr.i98 to i64
+  %52 = getelementptr inbounds [31 x i8], ptr %4, i64 0, i64 %51
+  store i8 0, ptr %52, align 1
+  %53 = load i8, ptr %40, align 1
+  %54 = add i8 %53, 1
+  store i8 %54, ptr %40, align 1
+  %55 = icmp eq i8 %54, -1
+  br i1 %55, label %56, label %agxbclear.exit.thread.i97
+
+agxbclear.exit.thread.i97:                        ; preds = %agxbputc.exit.i94
+  store i8 0, ptr %40, align 1
+  br label %agxbuse.exit99
+
+56:                                               ; preds = %agxbputc.exit.i94.thread, %agxbputc.exit.i94
+  store i64 0, ptr %41, align 8
+  %57 = load ptr, ptr %4, align 8
+  br label %agxbuse.exit99
+
+agxbuse.exit99:                                   ; preds = %agxbclear.exit.thread.i97, %56
+  %58 = phi ptr [ %57, %56 ], [ %4, %agxbclear.exit.thread.i97 ]
+  %59 = call ptr @pathpath(ptr noundef %58) #15
+  %.not47 = icmp eq ptr %59, null
+  br i1 %.not47, label %63, label %60
+
+60:                                               ; preds = %agxbuse.exit99
+  %.val58 = load i8, ptr %40, align 1
+  %61 = icmp eq i8 %.val58, -1
+  br i1 %61, label %62, label %agxbfree.exit
+
+62:                                               ; preds = %60
+  %.val57 = load ptr, ptr %4, align 8
+  call void @free(ptr noundef %.val57) #15
+  br label %agxbfree.exit
+
+63:                                               ; preds = %agxbuse.exit99
+  %.not48 = icmp eq ptr %spec.select, null
+  br i1 %.not48, label %70, label %64
+
+64:                                               ; preds = %63
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %4, ptr noundef nonnull @.str.4, ptr noundef nonnull %spec.select53, ptr noundef nonnull %0, ptr noundef nonnull %spec.select)
+  %65 = call fastcc ptr @agxbuse(ptr noundef nonnull %4)
+  %66 = call ptr @pathpath(ptr noundef %65) #15
+  %.not49 = icmp eq ptr %66, null
+  br i1 %.not49, label %70, label %67
+
+67:                                               ; preds = %64
+  %.val60 = load i8, ptr %40, align 1
+  %68 = icmp eq i8 %.val60, -1
+  br i1 %68, label %69, label %agxbfree.exit
+
+69:                                               ; preds = %67
+  %.val59 = load ptr, ptr %4, align 8
+  call void @free(ptr noundef %.val59) #15
+  br label %agxbfree.exit
+
+70:                                               ; preds = %36, %64, %63, %34
+  %71 = getelementptr inbounds i8, ptr %4, i64 31
+  %.val62 = load i8, ptr %71, align 1
+  %72 = icmp eq i8 %.val62, -1
+  br i1 %72, label %73, label %agxbfree.exit
+
+73:                                               ; preds = %70
+  %.val61 = load ptr, ptr %4, align 8
+  call void @free(ptr noundef %.val61) #15
+  br label %agxbfree.exit
+
+agxbfree.exit:                                    ; preds = %73, %70, %69, %67, %62, %60, %agxbdisown.exit, %7
+  %.0 = phi ptr [ %8, %7 ], [ %.0.i, %agxbdisown.exit ], [ %59, %60 ], [ %59, %62 ], [ %66, %67 ], [ %66, %69 ], [ null, %70 ], [ null, %73 ]
+  ret ptr %.0
+}
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+
+; Function Attrs: nofree nounwind
+declare noundef i32 @access(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
+declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #3
+
+; Function Attrs: nounwind uwtable
+define internal void @agxbprint(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ...) unnamed_addr #0 {
+  %3 = alloca [1 x %struct.__va_list_tag], align 16
+  %4 = alloca [1 x %struct.__va_list_tag], align 16
+  call void @llvm.va_start(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.va_copy(ptr nonnull %3, ptr nonnull %4)
+  %5 = call i32 @vsnprintf(ptr noundef null, i64 noundef 0, ptr noundef %1, ptr noundef nonnull %3) #15
+  call void @llvm.va_end(ptr nonnull %3)
+  %6 = icmp slt i32 %5, 0
+  br i1 %6, label %7, label %8
+
+7:                                                ; preds = %2
+  call void @llvm.va_end(ptr nonnull %4)
+  br label %vagxbprint.exit
+
+8:                                                ; preds = %2
+  %narrow.i = add nuw i32 %5, 1
+  %9 = zext i32 %narrow.i to i64
+  %10 = getelementptr i8, ptr %0, i64 31
+  %.val.i.i = load i8, ptr %10, align 1
+  %.not.i.i = icmp eq i8 %.val.i.i, -1
+  br i1 %.not.i.i, label %12, label %agxbsizeof.exit.i
+
+agxbsizeof.exit.i:                                ; preds = %8
+  %11 = zext i8 %.val.i.i to i64
+  br label %agxblen.exit.i
+
+12:                                               ; preds = %8
+  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = load i64, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = load i64, ptr %15, align 8
+  br label %agxblen.exit.i
+
+agxblen.exit.i:                                   ; preds = %12, %agxbsizeof.exit.i
+  %.0.i34.i = phi i64 [ 31, %agxbsizeof.exit.i ], [ %14, %12 ]
+  %.0.i32.i = phi i64 [ %11, %agxbsizeof.exit.i ], [ %16, %12 ]
+  %17 = sub i64 %.0.i34.i, %.0.i32.i
+  %18 = icmp ult i64 %17, %9
+  br i1 %18, label %19, label %21
+
+19:                                               ; preds = %agxblen.exit.i
+  %20 = sub nsw i64 %9, %17
+  call fastcc void @agxbmore(ptr noundef nonnull %0, i64 noundef %20)
+  %.val.i.i.pre.i = load i8, ptr %10, align 1
+  br label %21
+
+21:                                               ; preds = %19, %agxblen.exit.i
+  %.val.i.i.i = phi i8 [ %.val.i.i.pre.i, %19 ], [ %.val.i.i, %agxblen.exit.i ]
+  %.not.i.i.i = icmp eq i8 %.val.i.i.i, -1
+  br i1 %.not.i.i.i, label %25, label %22
+
+22:                                               ; preds = %21
+  %23 = zext i8 %.val.i.i.i to i64
+  %24 = getelementptr inbounds [31 x i8], ptr %0, i64 0, i64 %23
+  br label %agxbnext.exit.i
+
+25:                                               ; preds = %21
+  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %27 = load i64, ptr %26, align 8
+  %28 = load ptr, ptr %0, align 8
+  %29 = getelementptr inbounds i8, ptr %28, i64 %27
+  br label %agxbnext.exit.i
+
+agxbnext.exit.i:                                  ; preds = %25, %22
+  %30 = phi ptr [ %24, %22 ], [ %29, %25 ]
+  %31 = call i32 @vsnprintf(ptr noundef %30, i64 noundef %9, ptr noundef %1, ptr noundef nonnull %4) #15
+  %32 = icmp sgt i32 %31, 0
+  br i1 %32, label %33, label %vagxbprint.exit
+
+33:                                               ; preds = %agxbnext.exit.i
+  %.val.i = load i8, ptr %10, align 1
+  %.not.i = icmp eq i8 %.val.i, -1
+  br i1 %.not.i, label %37, label %34
+
+34:                                               ; preds = %33
+  %35 = trunc i32 %31 to i8
+  %36 = add i8 %.val.i, %35
+  store i8 %36, ptr %10, align 1
+  br label %vagxbprint.exit
+
+37:                                               ; preds = %33
+  %38 = zext nneg i32 %31 to i64
+  %39 = getelementptr inbounds i8, ptr %0, i64 8
+  %40 = load i64, ptr %39, align 8
+  %41 = add i64 %40, %38
+  store i64 %41, ptr %39, align 8
+  br label %vagxbprint.exit
+
+vagxbprint.exit:                                  ; preds = %7, %agxbnext.exit.i, %34, %37
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.va_end(ptr nonnull %4)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
+declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #5
+
+declare ptr @pathpath(ptr noundef) local_unnamed_addr #6
+
+; Function Attrs: nounwind uwtable
+define internal fastcc ptr @agxbuse(ptr noundef %0) unnamed_addr #0 {
+  %2 = getelementptr i8, ptr %0, i64 31
+  %.val.i.i = load i8, ptr %2, align 1
+  %.not.i.i = icmp eq i8 %.val.i.i, -1
+  br i1 %.not.i.i, label %4, label %agxblen.exit.i
+
+agxblen.exit.i:                                   ; preds = %1
+  %3 = zext i8 %.val.i.i to i64
+  br label %agxbsizeof.exit.i
+
+4:                                                ; preds = %1
+  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = load i64, ptr %5, align 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = load i64, ptr %7, align 8
+  br label %agxbsizeof.exit.i
+
+agxbsizeof.exit.i:                                ; preds = %4, %agxblen.exit.i
+  %.0.i20.i = phi i64 [ %6, %4 ], [ %3, %agxblen.exit.i ]
+  %.0.i14.i = phi i64 [ %8, %4 ], [ 31, %agxblen.exit.i ]
+  %.not.i = icmp ult i64 %.0.i20.i, %.0.i14.i
+  br i1 %.not.i, label %10, label %9
+
+9:                                                ; preds = %agxbsizeof.exit.i
+  tail call fastcc void @agxbmore(ptr noundef nonnull %0, i64 noundef 1)
+  %.val.i15.pre.i = load i8, ptr %2, align 1
+  br label %10
+
+10:                                               ; preds = %9, %agxbsizeof.exit.i
+  %.val.i15.i = phi i8 [ %.val.i15.pre.i, %9 ], [ %.val.i.i, %agxbsizeof.exit.i ]
+  %.not.i16.i = icmp eq i8 %.val.i15.i, -1
+  br i1 %.not.i16.i, label %16, label %11
+
+11:                                               ; preds = %10
+  %12 = zext i8 %.val.i15.i to i64
+  %13 = getelementptr inbounds [31 x i8], ptr %0, i64 0, i64 %12
+  store i8 0, ptr %13, align 1
+  %14 = load i8, ptr %2, align 1
+  %15 = add i8 %14, 1
+  store i8 %15, ptr %2, align 1
+  br label %agxbputc.exit
+
+16:                                               ; preds = %10
+  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = load i64, ptr %17, align 8
+  %19 = load ptr, ptr %0, align 8
+  %20 = getelementptr inbounds i8, ptr %19, i64 %18
+  store i8 0, ptr %20, align 1
+  %21 = load i64, ptr %17, align 8
+  %22 = add i64 %21, 1
+  store i64 %22, ptr %17, align 8
+  %.val.i.pr = load i8, ptr %2, align 1
+  br label %agxbputc.exit
+
+agxbputc.exit:                                    ; preds = %11, %16
+  %.val.i4.pr = phi i8 [ %15, %11 ], [ %.val.i.pr, %16 ]
+  %.not.i3 = icmp eq i8 %.val.i4.pr, -1
+  br i1 %.not.i3, label %23, label %agxbclear.exit.thread
+
+agxbclear.exit.thread:                            ; preds = %agxbputc.exit
+  store i8 0, ptr %2, align 1
+  br label %agxbstart.exit
+
+23:                                               ; preds = %agxbputc.exit
+  %24 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 0, ptr %24, align 8
+  %25 = load ptr, ptr %0, align 8
+  br label %agxbstart.exit
+
+agxbstart.exit:                                   ; preds = %agxbclear.exit.thread, %23
+  %26 = phi ptr [ %25, %23 ], [ %0, %agxbclear.exit.thread ]
+  ret ptr %26
+}
+
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
+declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start(ptr) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end(ptr) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_copy(ptr, ptr) #7
+
+; Function Attrs: nofree nounwind
+declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: nounwind uwtable
+define internal fastcc void @agxbmore(ptr nocapture noundef %0, i64 noundef %1) unnamed_addr #0 {
+  %3 = getelementptr i8, ptr %0, i64 31
+  %.val.i = load i8, ptr %3, align 1
+  %.not.i = icmp eq i8 %.val.i, -1
+  br i1 %.not.i, label %agxbsizeof.exit, label %23
+
+agxbsizeof.exit:                                  ; preds = %2
+  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = load i64, ptr %4, align 8
+  %.fr = freeze i64 %5
+  %6 = icmp eq i64 %.fr, 0
+  %7 = shl i64 %.fr, 1
+  %spec.select44 = select i1 %6, i64 8192, i64 %7
+  %8 = add i64 %.fr, %1
+  %spec.select33 = tail call i64 @llvm.umax.i64(i64 %8, i64 %spec.select44)
+  %9 = load ptr, ptr %0, align 8
+  %10 = icmp eq i64 %spec.select33, 0
+  br i1 %10, label %11, label %12
+
+11:                                               ; preds = %agxbsizeof.exit
+  tail call void @free(ptr noundef %9) #15
+  br label %gv_recalloc.exit
+
+12:                                               ; preds = %agxbsizeof.exit
+  %13 = tail call ptr @realloc(ptr noundef %9, i64 noundef %spec.select33) #19
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %15, label %18
+
+15:                                               ; preds = %12
+  %16 = load ptr, ptr @stderr, align 8
+  %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.6, i64 noundef %spec.select33) #16
+  tail call fastcc void @graphviz_exit() #17
+  unreachable
+
+18:                                               ; preds = %12
+  %19 = icmp ugt i64 %spec.select33, %.fr
+  br i1 %19, label %20, label %gv_recalloc.exit
+
+20:                                               ; preds = %18
+  %21 = getelementptr inbounds i8, ptr %13, i64 %.fr
+  %22 = sub i64 %spec.select33, %.fr
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %21, i8 0, i64 %22, i1 false)
+  br label %gv_recalloc.exit
+
+23:                                               ; preds = %2
+  %24 = add i64 %1, 31
+  %spec.select = tail call i64 @llvm.umax.i64(i64 %24, i64 62)
+  %25 = tail call noalias ptr @calloc(i64 noundef %spec.select, i64 noundef 1) #20
+  %26 = icmp eq ptr %25, null
+  br i1 %26, label %27, label %gv_calloc.exit
+
+27:                                               ; preds = %23
+  %28 = load ptr, ptr @stderr, align 8
+  %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str.6, i64 noundef %spec.select) #16
+  tail call fastcc void @graphviz_exit() #17
+  unreachable
+
+gv_calloc.exit:                                   ; preds = %23
+  %30 = zext i8 %.val.i to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %25, ptr nonnull align 8 %0, i64 %30, i1 false)
+  %31 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %30, ptr %31, align 8
+  br label %gv_recalloc.exit
+
+gv_recalloc.exit:                                 ; preds = %20, %18, %11, %gv_calloc.exit
+  %spec.select3641 = phi i64 [ %spec.select, %gv_calloc.exit ], [ 0, %11 ], [ %spec.select33, %18 ], [ %spec.select33, %20 ]
+  %.0 = phi ptr [ %25, %gv_calloc.exit ], [ null, %11 ], [ %13, %18 ], [ %13, %20 ]
+  store ptr %.0, ptr %0, align 8
+  %32 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %spec.select3641, ptr %32, align 8
+  store i8 -1, ptr %3, align 1
+  ret void
+}
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+
+; Function Attrs: nofree nounwind
+declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+
+; Function Attrs: noreturn nounwind uwtable
+define internal fastcc void @graphviz_exit() unnamed_addr #9 {
+  tail call void @exit(i32 noundef 1) #21
+  unreachable
+}
+
+; Function Attrs: noreturn nounwind
+declare void @exit(i32 noundef) local_unnamed_addr #10
+
+; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
+declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #11
+
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #12
+
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
+declare noalias ptr @strndup(ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #3
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #13
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+
+attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #15 = { nounwind }
+attributes #16 = { cold nounwind }
+attributes #17 = { noreturn }
+attributes #18 = { nounwind willreturn memory(read) }
+attributes #19 = { nounwind allocsize(1) }
+attributes #20 = { nounwind allocsize(0,1) }
+attributes #21 = { noreturn nounwind }
+
+!llvm.module.flags = !{!0, !1, !2, !3}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 8, !"PIC Level", i32 2}
+!2 = !{i32 7, !"uwtable", i32 2}
+!3 = !{i32 7, !"frame-pointer", i32 2}

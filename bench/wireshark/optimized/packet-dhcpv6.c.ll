@@ -1,0 +1,4696 @@
+; ModuleID = 'bench/wireshark/original/packet-dhcpv6.c.ll'
+source_filename = "bench/wireshark/original/packet-dhcpv6.c.ll"
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-pc-linux-gnu"
+
+%struct.hf_register_info = type { ptr, %struct._header_field_info }
+%struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
+%struct._value_string_ext = type { ptr, i32, i32, ptr, ptr }
+%struct.true_false_string = type { ptr, ptr }
+%struct._value_string = type { i32, ptr }
+%struct.unit_name_string = type { ptr, ptr }
+%struct.ei_register_info = type { ptr, %struct.expert_field_info }
+%struct.expert_field_info = type { ptr, i32, i32, ptr, i32, ptr, i32, %struct.hf_register_info }
+%struct.expert_field = type { i32, i32 }
+%struct.hopcount_info_t = type { i8, ptr, i32 }
+%struct.nstime_t = type { i64, i32 }
+%struct.e_in6_addr = type { [16 x i8] }
+
+@proto_register_dhcpv6.hf = internal global [197 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_dhcpv6_msgtype, %struct._header_field_info { ptr @.str, ptr @.str.1, i32 4, i32 513, ptr @msgtype_vals_ext, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dhcpv6_hopcount, %struct._header_field_info { ptr @.str.2, ptr @.str.3, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dhcpv6_xid, %struct._header_field_info { ptr @.str.4, ptr @.str.5, i32 6, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dhcpv6_linkaddr, %struct._header_field_info { ptr @.str.6, ptr @.str.7, i32 33, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dhcpv6_peeraddr, %struct._header_field_info { ptr @.str.8, ptr @.str.9, i32 33, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_option_type_num, %struct._header_field_info { ptr @.str.10, ptr @.str.11, i32 5, i32 513, ptr @opttype_vals_ext, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_option_length, %struct._header_field_info { ptr @.str.12, ptr @.str.13, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_option_type_str, %struct._header_field_info { ptr @.str.10, ptr @.str.14, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_clientfqdn_bad_msgtype, %struct._header_field_info { ptr @.str.15, ptr @.str.16, i32 4, i32 514, ptr @msgtype_vals_ext, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_clientfqdn_flags, %struct._header_field_info { ptr @.str.17, ptr @.str.18, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_clientfqdn_client_s, %struct._header_field_info { ptr @.str.19, ptr @.str.20, i32 2, i32 8, ptr @fqdn_s, i64 1, ptr @.str.21, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_clientfqdn_client_n, %struct._header_field_info { ptr @.str.22, ptr @.str.23, i32 2, i32 8, ptr @fqdn_n, i64 4, ptr @.str.24, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_clientfqdn_server_s, %struct._header_field_info { ptr @.str.19, ptr @.str.25, i32 2, i32 8, ptr @fqdn_s, i64 1, ptr @.str.26, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_clientfqdn_server_o, %struct._header_field_info { ptr @.str.27, ptr @.str.28, i32 2, i32 8, ptr @fqdn_o, i64 2, ptr @.str.29, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_clientfqdn_server_n, %struct._header_field_info { ptr @.str.22, ptr @.str.30, i32 2, i32 8, ptr @fqdn_n, i64 4, ptr @.str.31, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_empty_domain_name, %struct._header_field_info { ptr @.str.32, ptr @.str.33, i32 5, i32 1, ptr null, i64 0, ptr @.str.34, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dhcpv6_non_dns_encoded_name, %struct._header_field_info { ptr @.str.35, ptr @.str.36, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dhcpv6_domain_field_len_exceeded, %struct._header_field_info { ptr @.str.37, ptr @.str.38, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dhcpv6_decoded_portion, %struct._header_field_info { ptr @.str.39, ptr @.str.40, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dhcpv6_encoded_fqdn_len_gt_255, %struct._header_field_info { ptr @.str.41, ptr @.str.42, i32 5, i32 1, ptr null, i64 0, ptr @.str.43, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dhcpv6_root_only_domain_name, %struct._header_field_info { ptr @.str.44, ptr @.str.45, i32 26, i32 0, ptr null, i64 0, ptr @.str.46, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dhcpv6_tld, %struct._header_field_info { ptr @.str.47, ptr @.str.48, i32 26, i32 0, ptr null, i64 0, ptr @.str.49, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dhcpv6_partial_name_preceded_by_fqdn, %struct._header_field_info { ptr @.str.50, ptr @.str.51, i32 26, i32 0, ptr null, i64 0, ptr @.str.52, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_remoteid_enterprise, %struct._header_field_info { ptr @.str.53, ptr @.str.54, i32 7, i32 6, ptr @enterprises_base_custom, i64 0, ptr @.str.55, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_duid_bytes, %struct._header_field_info { ptr @.str.56, ptr @.str.57, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_duid_type, %struct._header_field_info { ptr @.str.58, ptr @.str.59, i32 5, i32 1, ptr @duidtype_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_duidllt_time, %struct._header_field_info { ptr @.str.60, ptr @.str.61, i32 24, i32 18, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_duidllt_link_layer_addr, %struct._header_field_info { ptr @.str.62, ptr @.str.63, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_duidllt_link_layer_addr_ether, %struct._header_field_info { ptr @.str.64, ptr @.str.65, i32 29, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_duidllt_hwtype, %struct._header_field_info { ptr @.str.66, ptr @.str.67, i32 5, i32 1, ptr @arp_hrd_vals, i64 0, ptr @.str.68, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_duidll_hwtype, %struct._header_field_info { ptr @.str.66, ptr @.str.69, i32 5, i32 1, ptr @arp_hrd_vals, i64 0, ptr @.str.70, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_duiden_enterprise, %struct._header_field_info { ptr @.str.53, ptr @.str.71, i32 7, i32 6, ptr @enterprises_base_custom, i64 0, ptr @.str.72, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_duiden_identifier, %struct._header_field_info { ptr @.str.73, ptr @.str.74, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_duidll_link_layer_addr, %struct._header_field_info { ptr @.str.62, ptr @.str.75, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_duidll_link_layer_addr_ether, %struct._header_field_info { ptr @.str.64, ptr @.str.76, i32 29, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_duiduuid_bytes, %struct._header_field_info { ptr @.str.77, ptr @.str.78, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_iaid, %struct._header_field_info { ptr @.str.79, ptr @.str.80, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_iaid_t1, %struct._header_field_info { ptr @.str.81, ptr @.str.82, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_iaid_t2, %struct._header_field_info { ptr @.str.83, ptr @.str.84, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_iata, %struct._header_field_info { ptr @.str.85, ptr @.str.86, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_iaaddr_ip, %struct._header_field_info { ptr @.str.87, ptr @.str.88, i32 33, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_iaaddr_pref_lifetime, %struct._header_field_info { ptr @.str.89, ptr @.str.90, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_iaaddr_valid_lifetime, %struct._header_field_info { ptr @.str.91, ptr @.str.92, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_requested_option_code, %struct._header_field_info { ptr @.str.93, ptr @.str.94, i32 5, i32 513, ptr @opttype_vals_ext, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_option_preference, %struct._header_field_info { ptr @.str.95, ptr @.str.96, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_elapsed_time, %struct._header_field_info { ptr @.str.97, ptr @.str.98, i32 5, i32 4097, ptr @units_milliseconds, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_auth_protocol, %struct._header_field_info { ptr @.str.99, ptr @.str.100, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_auth_algorithm, %struct._header_field_info { ptr @.str.101, ptr @.str.102, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_auth_rdm, %struct._header_field_info { ptr @.str.103, ptr @.str.104, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_auth_replay_detection, %struct._header_field_info { ptr @.str.105, ptr @.str.106, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_auth_info, %struct._header_field_info { ptr @.str.107, ptr @.str.108, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_auth_realm, %struct._header_field_info { ptr @.str.109, ptr @.str.110, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_auth_key_id, %struct._header_field_info { ptr @.str.111, ptr @.str.112, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_auth_md5_data, %struct._header_field_info { ptr @.str.113, ptr @.str.114, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opt_unicast, %struct._header_field_info { ptr @.str.87, ptr @.str.115, i32 33, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opt_status_code, %struct._header_field_info { ptr @.str.116, ptr @.str.117, i32 5, i32 513, ptr @statuscode_vals_ext, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opt_status_msg, %struct._header_field_info { ptr @.str.118, ptr @.str.119, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_vendorclass_enterprise, %struct._header_field_info { ptr @.str.53, ptr @.str.120, i32 7, i32 6, ptr @enterprises_base_custom, i64 0, ptr @.str.121, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_vendorclass_data, %struct._header_field_info { ptr @.str.122, ptr @.str.123, i32 27, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_vendoropts_enterprise, %struct._header_field_info { ptr @.str.53, ptr @.str.124, i32 7, i32 6, ptr @enterprises_base_custom, i64 0, ptr @.str.125, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_vendoropts_enterprise_option_code, %struct._header_field_info { ptr @.str.126, ptr @.str.127, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_vendoropts_enterprise_option_length, %struct._header_field_info { ptr @.str.128, ptr @.str.129, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_vendoropts_enterprise_option_data, %struct._header_field_info { ptr @.str.130, ptr @.str.131, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_interface_id, %struct._header_field_info { ptr @.str.132, ptr @.str.133, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_reconf_msg, %struct._header_field_info { ptr @.str.134, ptr @.str.135, i32 4, i32 513, ptr @msgtype_vals_ext, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sip_server_domain_search_fqdn, %struct._header_field_info { ptr @.str.136, ptr @.str.137, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sip_server_a, %struct._header_field_info { ptr @.str.138, ptr @.str.139, i32 33, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dns_servers, %struct._header_field_info { ptr @.str.140, ptr @.str.141, i32 33, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_domain_search_list_entry, %struct._header_field_info { ptr @.str.142, ptr @.str.143, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_nis_servers, %struct._header_field_info { ptr @.str.144, ptr @.str.145, i32 33, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_nisp_servers, %struct._header_field_info { ptr @.str.146, ptr @.str.147, i32 33, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_nis_fqdn, %struct._header_field_info { ptr @.str.148, ptr @.str.149, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_nisp_fqdn, %struct._header_field_info { ptr @.str.150, ptr @.str.151, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sntp_servers, %struct._header_field_info { ptr @.str.152, ptr @.str.153, i32 33, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opt_lifetime, %struct._header_field_info { ptr @.str.154, ptr @.str.155, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bcmcs_servers_fqdn, %struct._header_field_info { ptr @.str.156, ptr @.str.157, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_bcmcs_servers_a, %struct._header_field_info { ptr @.str.158, ptr @.str.159, i32 33, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_remoteid_enterprise_id, %struct._header_field_info { ptr @.str.160, ptr @.str.161, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_subscriber_id, %struct._header_field_info { ptr @.str.162, ptr @.str.163, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_client_fqdn, %struct._header_field_info { ptr @.str.164, ptr @.str.165, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pana_agent, %struct._header_field_info { ptr @.str.166, ptr @.str.167, i32 33, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opt_timezone, %struct._header_field_info { ptr @.str.168, ptr @.str.169, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opt_tzdb, %struct._header_field_info { ptr @.str.170, ptr @.str.171, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_lq_query, %struct._header_field_info { ptr @.str.172, ptr @.str.173, i32 4, i32 1, ptr @lq_query_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_lq_query_link_address, %struct._header_field_info { ptr @.str.6, ptr @.str.174, i32 33, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_clt_time, %struct._header_field_info { ptr @.str.175, ptr @.str.176, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_lq_relay_data_peer_addr, %struct._header_field_info { ptr @.str.8, ptr @.str.177, i32 33, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_lq_relay_data_msg, %struct._header_field_info { ptr @.str.178, ptr @.str.179, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_lq_client_link, %struct._header_field_info { ptr @.str.180, ptr @.str.181, i32 33, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_capwap_ac_v6, %struct._header_field_info { ptr @.str.182, ptr @.str.183, i32 33, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_aftr_name, %struct._header_field_info { ptr @.str.184, ptr @.str.185, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_iaprefix_pref_lifetime, %struct._header_field_info { ptr @.str.89, ptr @.str.186, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_iaprefix_valid_lifetime, %struct._header_field_info { ptr @.str.91, ptr @.str.187, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_iaprefix_pref_len, %struct._header_field_info { ptr @.str.188, ptr @.str.189, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_iaprefix_pref_addr, %struct._header_field_info { ptr @.str.190, ptr @.str.191, i32 33, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mip6_ha, %struct._header_field_info { ptr @.str.192, ptr @.str.193, i32 33, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mip6_hoa, %struct._header_field_info { ptr @.str.194, ptr @.str.195, i32 33, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_nai, %struct._header_field_info { ptr @.str.196, ptr @.str.197, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pd_exclude_pref_len, %struct._header_field_info { ptr @.str.188, ptr @.str.198, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pd_exclude_subnet_id, %struct._header_field_info { ptr @.str.199, ptr @.str.200, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_option_userclass_length, %struct._header_field_info { ptr @.str.12, ptr @.str.201, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_option_userclass_opaque_data, %struct._header_field_info { ptr @.str.202, ptr @.str.203, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_option_ntpserver_type, %struct._header_field_info { ptr @.str.202, ptr @.str.204, i32 5, i32 1, ptr @ntp_server_opttype_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_option_ntpserver_length, %struct._header_field_info { ptr @.str.12, ptr @.str.205, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_option_ntpserver_addr, %struct._header_field_info { ptr @.str.206, ptr @.str.207, i32 33, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_option_ntpserver_mc_addr, %struct._header_field_info { ptr @.str.208, ptr @.str.209, i32 33, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_option_captive_portal, %struct._header_field_info { ptr @.str.210, ptr @.str.211, i32 26, i32 0, ptr null, i64 0, ptr @.str.212, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_option_s46_option_code, %struct._header_field_info { ptr @.str.213, ptr @.str.214, i32 5, i32 2, ptr @s46_opt_code_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_option_failover_binding_status, %struct._header_field_info { ptr @.str.215, ptr @.str.216, i32 4, i32 1, ptr @failover_binding_status_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_option_failover_connect_flags, %struct._header_field_info { ptr @.str.17, ptr @.str.217, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_option_failover_connect_reserved_flag, %struct._header_field_info { ptr @.str.218, ptr @.str.219, i32 2, i32 16, ptr null, i64 65534, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_option_failover_connect_f_flag, %struct._header_field_info { ptr @.str.220, ptr @.str.221, i32 2, i32 16, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_option_failover_dns_hostname, %struct._header_field_info { ptr @.str.222, ptr @.str.223, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_option_failover_dns_zonename, %struct._header_field_info { ptr @.str.224, ptr @.str.225, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_option_failover_dns_flags, %struct._header_field_info { ptr @.str.17, ptr @.str.226, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_option_failover_dns_reserved_flag, %struct._header_field_info { ptr @.str.218, ptr @.str.227, i32 2, i32 16, ptr null, i64 65520, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_option_failover_dns_u_flag, %struct._header_field_info { ptr @.str.228, ptr @.str.229, i32 2, i32 16, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_option_failover_dns_s_flag, %struct._header_field_info { ptr @.str.230, ptr @.str.231, i32 2, i32 16, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_option_failover_dns_r_flag, %struct._header_field_info { ptr @.str.232, ptr @.str.233, i32 2, i32 16, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_option_failover_dns_f_flag, %struct._header_field_info { ptr @.str.234, ptr @.str.235, i32 2, i32 16, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_option_failover_expiration_time, %struct._header_field_info { ptr @.str.236, ptr @.str.237, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_option_failover_max_unacked_bndupd, %struct._header_field_info { ptr @.str.238, ptr @.str.239, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_option_failover_mclt, %struct._header_field_info { ptr @.str.240, ptr @.str.241, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_option_failover_partner_lifetime, %struct._header_field_info { ptr @.str.242, ptr @.str.243, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_option_failover_partner_lifetime_sent, %struct._header_field_info { ptr @.str.244, ptr @.str.245, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_option_failover_partner_downtime, %struct._header_field_info { ptr @.str.246, ptr @.str.247, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_option_failover_partner_raw_clt_time, %struct._header_field_info { ptr @.str.248, ptr @.str.249, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_option_failover_major_version, %struct._header_field_info { ptr @.str.250, ptr @.str.251, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_option_failover_minor_version, %struct._header_field_info { ptr @.str.252, ptr @.str.253, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_option_failover_keepalive_time, %struct._header_field_info { ptr @.str.254, ptr @.str.255, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_option_failover_reconfigure_time, %struct._header_field_info { ptr @.str.256, ptr @.str.257, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_option_failover_reconfigure_key, %struct._header_field_info { ptr @.str.258, ptr @.str.259, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_option_failover_relationship_name, %struct._header_field_info { ptr @.str.260, ptr @.str.261, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_option_failover_server_flags, %struct._header_field_info { ptr @.str.17, ptr @.str.262, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_option_failover_server_reserved_flag, %struct._header_field_info { ptr @.str.218, ptr @.str.263, i32 2, i32 8, ptr null, i64 248, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_option_failover_server_a_flag, %struct._header_field_info { ptr @.str.264, ptr @.str.265, i32 2, i32 8, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_option_failover_server_s_flag, %struct._header_field_info { ptr @.str.266, ptr @.str.267, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_option_failover_server_c_flag, %struct._header_field_info { ptr @.str.268, ptr @.str.269, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_option_failover_server_state, %struct._header_field_info { ptr @.str.270, ptr @.str.271, i32 4, i32 1, ptr @failover_server_state_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_option_failover_start_time_of_state, %struct._header_field_info { ptr @.str.272, ptr @.str.273, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_option_failover_state_expiration_time, %struct._header_field_info { ptr @.str.274, ptr @.str.275, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_option_relay_port, %struct._header_field_info { ptr @.str.276, ptr @.str.277, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_option_ntpserver_fqdn, %struct._header_field_info { ptr @.str.278, ptr @.str.279, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_packetcable_ccc_suboption, %struct._header_field_info { ptr @.str.280, ptr @.str.281, i32 5, i32 1, ptr @pkt_ccc_opt_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_packetcable_ccc_pri_dhcp, %struct._header_field_info { ptr @.str.282, ptr @.str.283, i32 32, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_packetcable_ccc_sec_dhcp, %struct._header_field_info { ptr @.str.284, ptr @.str.285, i32 32, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_packetcable_cccV6_suboption, %struct._header_field_info { ptr @.str.280, ptr @.str.286, i32 5, i32 513, ptr @pkt_cccV6_opt_vals_ext, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_modem_capabilities_encoding_type, %struct._header_field_info { ptr @.str.287, ptr @.str.288, i32 5, i32 513, ptr @modem_capabilities_encoding_ext, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_eue_capabilities_encoding_type, %struct._header_field_info { ptr @.str.287, ptr @.str.289, i32 5, i32 513, ptr @eue_capabilities_encoding_ext, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_capabilities_encoding_length, %struct._header_field_info { ptr @.str.12, ptr @.str.290, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_capabilities_encoding_bytes, %struct._header_field_info { ptr @.str.291, ptr @.str.292, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_capabilities_encoding_number, %struct._header_field_info { ptr @.str.291, ptr @.str.293, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_packetcable_cccV6_pri_dss, %struct._header_field_info { ptr @.str.294, ptr @.str.295, i32 27, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_packetcable_cccV6_sec_dss, %struct._header_field_info { ptr @.str.296, ptr @.str.297, i32 27, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_packetcable_cccV6_prov_srv_type, %struct._header_field_info { ptr @.str.287, ptr @.str.298, i32 4, i32 1, ptr @pkt_cccV6_prov_srv_type_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_packetcable_cccV6_prov_srv_fqdn, %struct._header_field_info { ptr @.str.299, ptr @.str.300, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_packetcable_cccV6_prov_srv_ipv6, %struct._header_field_info { ptr @.str.87, ptr @.str.301, i32 33, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_packetcable_cccV6_as_krb_nominal_timeout, %struct._header_field_info { ptr @.str.302, ptr @.str.303, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_packetcable_cccV6_as_krb_max_timeout, %struct._header_field_info { ptr @.str.304, ptr @.str.305, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_packetcable_cccV6_as_krb_max_retry_count, %struct._header_field_info { ptr @.str.306, ptr @.str.307, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_packetcable_cccV6_ap_krb_nominal_timeout, %struct._header_field_info { ptr @.str.302, ptr @.str.308, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_packetcable_cccV6_ap_krb_max_timeout, %struct._header_field_info { ptr @.str.304, ptr @.str.309, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_packetcable_cccV6_ap_krb_max_retry_count, %struct._header_field_info { ptr @.str.306, ptr @.str.310, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_packetcable_cccV6_krb_realm, %struct._header_field_info { ptr @.str.311, ptr @.str.312, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_packetcable_cccV6_tgt_flag, %struct._header_field_info { ptr @.str.313, ptr @.str.314, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_packetcable_cccV6_tgt_flag_fetch, %struct._header_field_info { ptr @.str.315, ptr @.str.316, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_packetcable_cccV6_prov_timer, %struct._header_field_info { ptr @.str.317, ptr @.str.318, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_packetcable_cccV6_sec_tcm, %struct._header_field_info { ptr @.str.319, ptr @.str.320, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_packetcable_cccV6_sec_tcm_provisioning_server, %struct._header_field_info { ptr @.str.321, ptr @.str.322, i32 2, i32 16, ptr @tfs_on_off, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_packetcable_cccV6_sec_tcm_call_manager_server, %struct._header_field_info { ptr @.str.323, ptr @.str.324, i32 2, i32 16, ptr @tfs_on_off, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_cablelabs_opts, %struct._header_field_info { ptr @.str.202, ptr @.str.325, i32 5, i32 513, ptr @cl_vendor_subopt_values_ext, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_cablelabs_ipv6_server, %struct._header_field_info { ptr @.str.87, ptr @.str.326, i32 33, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_cablelabs_docsis_version_number, %struct._header_field_info { ptr @.str.327, ptr @.str.328, i32 5, i32 6, ptr @cablelabs_fmt_docsis_version, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_cablelabs_dpoe_server_version_number, %struct._header_field_info { ptr @.str.329, ptr @.str.330, i32 5, i32 6, ptr @cablelabs_fmt_dpoe_server_version, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_cablelabs_interface_id, %struct._header_field_info { ptr @.str.132, ptr @.str.331, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_cablelabs_interface_id_link_address, %struct._header_field_info { ptr @.str.332, ptr @.str.333, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_option_s46_rule_flags, %struct._header_field_info { ptr @.str.17, ptr @.str.334, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_option_s46_rule_reserved_flag, %struct._header_field_info { ptr @.str.218, ptr @.str.335, i32 2, i32 8, ptr null, i64 254, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_option_s46_rule_fmr_flag, %struct._header_field_info { ptr @.str.336, ptr @.str.337, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_option_s46_rule_ea_len, %struct._header_field_info { ptr @.str.338, ptr @.str.339, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_option_s46_rule_ipv4_pref_len, %struct._header_field_info { ptr @.str.340, ptr @.str.341, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_option_s46_rule_ipv4_prefix, %struct._header_field_info { ptr @.str.342, ptr @.str.343, i32 32, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_option_s46_rule_ipv6_pref_len, %struct._header_field_info { ptr @.str.344, ptr @.str.345, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_option_s46_rule_ipv6_prefix, %struct._header_field_info { ptr @.str.346, ptr @.str.347, i32 33, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_option_s46_br_address, %struct._header_field_info { ptr @.str.348, ptr @.str.349, i32 33, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_option_s46_dmr_pref_len, %struct._header_field_info { ptr @.str.344, ptr @.str.350, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_option_s46_dmr_prefix, %struct._header_field_info { ptr @.str.346, ptr @.str.351, i32 33, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_option_s46_v4v6bind_ipv4_address, %struct._header_field_info { ptr @.str.352, ptr @.str.353, i32 32, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_option_s46_v4v6bind_ipv6_pref_len, %struct._header_field_info { ptr @.str.344, ptr @.str.354, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_option_s46_v4v6bind_ipv6_prefix, %struct._header_field_info { ptr @.str.346, ptr @.str.355, i32 33, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_option_s46_portparam_offset, %struct._header_field_info { ptr @.str.356, ptr @.str.357, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_option_s46_portparam_psid_len, %struct._header_field_info { ptr @.str.358, ptr @.str.359, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_option_s46_portparam_psid, %struct._header_field_info { ptr @.str.360, ptr @.str.361, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_opt_mudurl, %struct._header_field_info { ptr @.str.362, ptr @.str.363, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_client_link_layer_addr, %struct._header_field_info { ptr @.str.62, ptr @.str.364, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_client_link_layer_addr_ether, %struct._header_field_info { ptr @.str.64, ptr @.str.365, i32 29, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_client_link_layer_addr_hwtype, %struct._header_field_info { ptr @.str.66, ptr @.str.366, i32 5, i32 1, ptr @arp_hrd_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
+@hf_dhcpv6_msgtype = internal global i32 0, align 4
+@.str = private unnamed_addr constant [13 x i8] c"Message type\00", align 1
+@.str.1 = private unnamed_addr constant [15 x i8] c"dhcpv6.msgtype\00", align 1
+@msgtype_vals_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 19, ptr @msgtype_vals, ptr @.str.422 }, align 8
+@hf_dhcpv6_hopcount = internal global i32 0, align 4
+@.str.2 = private unnamed_addr constant [9 x i8] c"Hopcount\00", align 1
+@.str.3 = private unnamed_addr constant [16 x i8] c"dhcpv6.hopcount\00", align 1
+@hf_dhcpv6_xid = internal global i32 0, align 4
+@.str.4 = private unnamed_addr constant [15 x i8] c"Transaction ID\00", align 1
+@.str.5 = private unnamed_addr constant [11 x i8] c"dhcpv6.xid\00", align 1
+@hf_dhcpv6_linkaddr = internal global i32 0, align 4
+@.str.6 = private unnamed_addr constant [13 x i8] c"Link address\00", align 1
+@.str.7 = private unnamed_addr constant [16 x i8] c"dhcpv6.linkaddr\00", align 1
+@hf_dhcpv6_peeraddr = internal global i32 0, align 4
+@.str.8 = private unnamed_addr constant [13 x i8] c"Peer address\00", align 1
+@.str.9 = private unnamed_addr constant [16 x i8] c"dhcpv6.peeraddr\00", align 1
+@hf_option_type_num = internal global i32 0, align 4
+@.str.10 = private unnamed_addr constant [7 x i8] c"Option\00", align 1
+@.str.11 = private unnamed_addr constant [19 x i8] c"dhcpv6.option.type\00", align 1
+@opttype_vals_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 139, ptr @opttype_vals, ptr @.str.442 }, align 8
+@hf_option_length = internal global i32 0, align 4
+@.str.12 = private unnamed_addr constant [7 x i8] c"Length\00", align 1
+@.str.13 = private unnamed_addr constant [21 x i8] c"dhcpv6.option.length\00", align 1
+@hf_option_type_str = internal global i32 0, align 4
+@.str.14 = private unnamed_addr constant [23 x i8] c"dhcpv6.option.type_str\00", align 1
+@hf_clientfqdn_bad_msgtype = internal global i32 0, align 4
+@.str.15 = private unnamed_addr constant [21 x i8] c"Illegal Message Type\00", align 1
+@.str.16 = private unnamed_addr constant [30 x i8] c"dhcpv6.clientfqdn.bad_msgtype\00", align 1
+@hf_clientfqdn_flags = internal global i32 0, align 4
+@.str.17 = private unnamed_addr constant [6 x i8] c"Flags\00", align 1
+@.str.18 = private unnamed_addr constant [25 x i8] c"dhcpv6.client_fqdn_flags\00", align 1
+@hf_clientfqdn_client_s = internal global i32 0, align 4
+@.str.19 = private unnamed_addr constant [6 x i8] c"S bit\00", align 1
+@.str.20 = private unnamed_addr constant [27 x i8] c"dhcpv6.clientfqdn.client.s\00", align 1
+@fqdn_s = internal constant %struct.true_false_string { ptr @.str.577, ptr @.str.578 }, align 8
+@.str.21 = private unnamed_addr constant [79 x i8] c"Whether or not the client prefers to perform AAAA RR (FQDN-to-address) updates\00", align 1
+@hf_clientfqdn_client_n = internal global i32 0, align 4
+@.str.22 = private unnamed_addr constant [6 x i8] c"N bit\00", align 1
+@.str.23 = private unnamed_addr constant [27 x i8] c"dhcpv6.clientfqdn.client.n\00", align 1
+@fqdn_n = internal constant %struct.true_false_string { ptr @.str.579, ptr @.str.580 }, align 8
+@.str.24 = private unnamed_addr constant [78 x i8] c"Whether or not the client prefers to perform PTR RR (address-to-FQDN) updates\00", align 1
+@hf_clientfqdn_server_s = internal global i32 0, align 4
+@.str.25 = private unnamed_addr constant [27 x i8] c"dhcpv6.clientfqdn.server.s\00", align 1
+@.str.26 = private unnamed_addr constant [74 x i8] c"Whether or not the server SHALL perform AAAA RR (FQDN-to-address) updates\00", align 1
+@hf_clientfqdn_server_o = internal global i32 0, align 4
+@.str.27 = private unnamed_addr constant [6 x i8] c"O bit\00", align 1
+@.str.28 = private unnamed_addr constant [27 x i8] c"dhcpv6.clientfqdn.server.o\00", align 1
+@fqdn_o = internal constant %struct.true_false_string { ptr @.str.581, ptr @.str.582 }, align 8
+@.str.29 = private unnamed_addr constant [71 x i8] c"Whether or not the server has overridden the client's S-bit preference\00", align 1
+@hf_clientfqdn_server_n = internal global i32 0, align 4
+@.str.30 = private unnamed_addr constant [27 x i8] c"dhcpv6.clientfqdn.server.n\00", align 1
+@.str.31 = private unnamed_addr constant [73 x i8] c"Whether or not the server SHALL perform PTR RR (address-to-FQDN) updates\00", align 1
+@hf_empty_domain_name = internal global i32 0, align 4
+@.str.32 = private unnamed_addr constant [33 x i8] c"Empty domain name - field length\00", align 1
+@.str.33 = private unnamed_addr constant [24 x i8] c"dhcpv6.domain_field_len\00", align 1
+@.str.34 = private unnamed_addr constant [70 x i8] c"Indicates that the client requests the server to provide an FQDN name\00", align 1
+@hf_dhcpv6_non_dns_encoded_name = internal global i32 0, align 4
+@.str.35 = private unnamed_addr constant [46 x i8] c"Non-DNS encoded name. Label length exceeds 63\00", align 1
+@.str.36 = private unnamed_addr constant [26 x i8] c"dhcpv6.bogus_label_length\00", align 1
+@hf_dhcpv6_domain_field_len_exceeded = internal global i32 0, align 4
+@.str.37 = private unnamed_addr constant [51 x i8] c"Remaining length in the domain name field exceeded\00", align 1
+@.str.38 = private unnamed_addr constant [33 x i8] c"dhcpv6.domain_field_len_exceeded\00", align 1
+@hf_dhcpv6_decoded_portion = internal global i32 0, align 4
+@.str.39 = private unnamed_addr constant [29 x i8] c"Portion successfully decoded\00", align 1
+@.str.40 = private unnamed_addr constant [23 x i8] c"dhcpv6.decoded_portion\00", align 1
+@hf_dhcpv6_encoded_fqdn_len_gt_255 = internal global i32 0, align 4
+@.str.41 = private unnamed_addr constant [45 x i8] c"DNS-encoded labels of FQDN exceed 255 octets\00", align 1
+@.str.42 = private unnamed_addr constant [27 x i8] c"dhcpv6.encoded_fqdn_gt_255\00", align 1
+@.str.43 = private unnamed_addr constant [51 x i8] c"Encoded length is greater than 255 [RFC 1035 3.1.]\00", align 1
+@hf_dhcpv6_root_only_domain_name = internal global i32 0, align 4
+@.str.44 = private unnamed_addr constant [22 x i8] c"Root only domain name\00", align 1
+@.str.45 = private unnamed_addr constant [29 x i8] c"dhcpv6.root_only_domain_name\00", align 1
+@.str.46 = private unnamed_addr constant [35 x i8] c"The root domain cannot be resolved\00", align 1
+@hf_dhcpv6_tld = internal global i32 0, align 4
+@.str.47 = private unnamed_addr constant [22 x i8] c"Top Level Domain name\00", align 1
+@.str.48 = private unnamed_addr constant [11 x i8] c"dhcpv6.tld\00", align 1
+@.str.49 = private unnamed_addr constant [59 x i8] c"Likely to fail because most TLDs do not have an IP address\00", align 1
+@hf_dhcpv6_partial_name_preceded_by_fqdn = internal global i32 0, align 4
+@.str.50 = private unnamed_addr constant [30 x i8] c"Partial name preceded by FQDN\00", align 1
+@.str.51 = private unnamed_addr constant [37 x i8] c"dhcpv6.partial_name_preceded_by_fqdn\00", align 1
+@.str.52 = private unnamed_addr constant [63 x i8] c"Partial domain names must be the only name in the domain field\00", align 1
+@hf_remoteid_enterprise = internal global i32 0, align 4
+@.str.53 = private unnamed_addr constant [14 x i8] c"Enterprise ID\00", align 1
+@.str.54 = private unnamed_addr constant [27 x i8] c"dhcpv6.remoteid.enterprise\00", align 1
+@.str.55 = private unnamed_addr constant [27 x i8] c"RemoteID Enterprise Number\00", align 1
+@hf_duid_bytes = internal global i32 0, align 4
+@.str.56 = private unnamed_addr constant [5 x i8] c"DUID\00", align 1
+@.str.57 = private unnamed_addr constant [18 x i8] c"dhcpv6.duid.bytes\00", align 1
+@hf_duid_type = internal global i32 0, align 4
+@.str.58 = private unnamed_addr constant [10 x i8] c"DUID Type\00", align 1
+@.str.59 = private unnamed_addr constant [17 x i8] c"dhcpv6.duid.type\00", align 1
+@duidtype_vals = internal constant [5 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.583 }, %struct._value_string { i32 2, ptr @.str.584 }, %struct._value_string { i32 3, ptr @.str.585 }, %struct._value_string { i32 4, ptr @.str.586 }, %struct._value_string zeroinitializer], align 16
+@hf_duidllt_time = internal global i32 0, align 4
+@.str.60 = private unnamed_addr constant [10 x i8] c"DUID Time\00", align 1
+@.str.61 = private unnamed_addr constant [20 x i8] c"dhcpv6.duidllt.time\00", align 1
+@hf_duidllt_link_layer_addr = internal global i32 0, align 4
+@.str.62 = private unnamed_addr constant [19 x i8] c"Link-layer address\00", align 1
+@.str.63 = private unnamed_addr constant [31 x i8] c"dhcpv6.duidllt.link_layer_addr\00", align 1
+@hf_duidllt_link_layer_addr_ether = internal global i32 0, align 4
+@.str.64 = private unnamed_addr constant [30 x i8] c"Link-layer address (Ethernet)\00", align 1
+@.str.65 = private unnamed_addr constant [37 x i8] c"dhcpv6.duidllt.link_layer_addr_ether\00", align 1
+@hf_duidllt_hwtype = internal global i32 0, align 4
+@.str.66 = private unnamed_addr constant [14 x i8] c"Hardware type\00", align 1
+@.str.67 = private unnamed_addr constant [22 x i8] c"dhcpv6.duidllt.hwtype\00", align 1
+@arp_hrd_vals = external constant [0 x %struct._value_string], align 8
+@.str.68 = private unnamed_addr constant [23 x i8] c"DUID LLT Hardware Type\00", align 1
+@hf_duidll_hwtype = internal global i32 0, align 4
+@.str.69 = private unnamed_addr constant [21 x i8] c"dhcpv6.duidll.hwtype\00", align 1
+@.str.70 = private unnamed_addr constant [22 x i8] c"DUID LL Hardware Type\00", align 1
+@hf_duiden_enterprise = internal global i32 0, align 4
+@.str.71 = private unnamed_addr constant [25 x i8] c"dhcpv6.duiden.enterprise\00", align 1
+@.str.72 = private unnamed_addr constant [26 x i8] c"DUID EN Enterprise Number\00", align 1
+@hf_duiden_identifier = internal global i32 0, align 4
+@.str.73 = private unnamed_addr constant [11 x i8] c"Identifier\00", align 1
+@.str.74 = private unnamed_addr constant [25 x i8] c"dhcpv6.duiden.identifier\00", align 1
+@hf_duidll_link_layer_addr = internal global i32 0, align 4
+@.str.75 = private unnamed_addr constant [30 x i8] c"dhcpv6.duidll.link_layer_addr\00", align 1
+@hf_duidll_link_layer_addr_ether = internal global i32 0, align 4
+@.str.76 = private unnamed_addr constant [36 x i8] c"dhcpv6.duidll.link_layer_addr_ether\00", align 1
+@hf_duiduuid_bytes = internal global i32 0, align 4
+@.str.77 = private unnamed_addr constant [5 x i8] c"UUID\00", align 1
+@.str.78 = private unnamed_addr constant [22 x i8] c"dhcpv6.duiduuid.bytes\00", align 1
+@hf_iaid = internal global i32 0, align 4
+@.str.79 = private unnamed_addr constant [5 x i8] c"IAID\00", align 1
+@.str.80 = private unnamed_addr constant [12 x i8] c"dhcpv6.iaid\00", align 1
+@hf_iaid_t1 = internal global i32 0, align 4
+@.str.81 = private unnamed_addr constant [3 x i8] c"T1\00", align 1
+@.str.82 = private unnamed_addr constant [15 x i8] c"dhcpv6.iaid.t1\00", align 1
+@hf_iaid_t2 = internal global i32 0, align 4
+@.str.83 = private unnamed_addr constant [3 x i8] c"T2\00", align 1
+@.str.84 = private unnamed_addr constant [15 x i8] c"dhcpv6.iaid.t2\00", align 1
+@hf_iata = internal global i32 0, align 4
+@.str.85 = private unnamed_addr constant [5 x i8] c"IATA\00", align 1
+@.str.86 = private unnamed_addr constant [12 x i8] c"dhcpv6.iata\00", align 1
+@hf_iaaddr_ip = internal global i32 0, align 4
+@.str.87 = private unnamed_addr constant [13 x i8] c"IPv6 address\00", align 1
+@.str.88 = private unnamed_addr constant [17 x i8] c"dhcpv6.iaaddr.ip\00", align 1
+@hf_iaaddr_pref_lifetime = internal global i32 0, align 4
+@.str.89 = private unnamed_addr constant [19 x i8] c"Preferred lifetime\00", align 1
+@.str.90 = private unnamed_addr constant [28 x i8] c"dhcpv6.iaaddr.pref_lifetime\00", align 1
+@hf_iaaddr_valid_lifetime = internal global i32 0, align 4
+@.str.91 = private unnamed_addr constant [15 x i8] c"Valid lifetime\00", align 1
+@.str.92 = private unnamed_addr constant [29 x i8] c"dhcpv6.iaaddr.valid_lifetime\00", align 1
+@hf_requested_option_code = internal global i32 0, align 4
+@.str.93 = private unnamed_addr constant [22 x i8] c"Requested Option code\00", align 1
+@.str.94 = private unnamed_addr constant [29 x i8] c"dhcpv6.requested_option_code\00", align 1
+@hf_option_preference = internal global i32 0, align 4
+@.str.95 = private unnamed_addr constant [11 x i8] c"Pref-value\00", align 1
+@.str.96 = private unnamed_addr constant [25 x i8] c"dhcpv6.option_preference\00", align 1
+@hf_elapsed_time = internal global i32 0, align 4
+@.str.97 = private unnamed_addr constant [13 x i8] c"Elapsed time\00", align 1
+@.str.98 = private unnamed_addr constant [20 x i8] c"dhcpv6.elapsed_time\00", align 1
+@units_milliseconds = external constant %struct.unit_name_string, align 8
+@hf_auth_protocol = internal global i32 0, align 4
+@.str.99 = private unnamed_addr constant [9 x i8] c"Protocol\00", align 1
+@.str.100 = private unnamed_addr constant [21 x i8] c"dhcpv6.auth.protocol\00", align 1
+@hf_auth_algorithm = internal global i32 0, align 4
+@.str.101 = private unnamed_addr constant [10 x i8] c"Algorithm\00", align 1
+@.str.102 = private unnamed_addr constant [22 x i8] c"dhcpv6.auth.algorithm\00", align 1
+@hf_auth_rdm = internal global i32 0, align 4
+@.str.103 = private unnamed_addr constant [4 x i8] c"RDM\00", align 1
+@.str.104 = private unnamed_addr constant [16 x i8] c"dhcpv6.auth.rdm\00", align 1
+@hf_auth_replay_detection = internal global i32 0, align 4
+@.str.105 = private unnamed_addr constant [17 x i8] c"Replay Detection\00", align 1
+@.str.106 = private unnamed_addr constant [29 x i8] c"dhcpv6.auth.replay_detection\00", align 1
+@hf_auth_info = internal global i32 0, align 4
+@.str.107 = private unnamed_addr constant [27 x i8] c"Authentication Information\00", align 1
+@.str.108 = private unnamed_addr constant [17 x i8] c"dhcpv6.auth.info\00", align 1
+@hf_auth_realm = internal global i32 0, align 4
+@.str.109 = private unnamed_addr constant [11 x i8] c"DHCP realm\00", align 1
+@.str.110 = private unnamed_addr constant [18 x i8] c"dhcpv6.auth.realm\00", align 1
+@hf_auth_key_id = internal global i32 0, align 4
+@.str.111 = private unnamed_addr constant [7 x i8] c"Key ID\00", align 1
+@.str.112 = private unnamed_addr constant [19 x i8] c"dhcpv6.auth.key_id\00", align 1
+@hf_auth_md5_data = internal global i32 0, align 4
+@.str.113 = private unnamed_addr constant [14 x i8] c"HMAC-MD5 data\00", align 1
+@.str.114 = private unnamed_addr constant [21 x i8] c"dhcpv6.auth.md5_data\00", align 1
+@hf_opt_unicast = internal global i32 0, align 4
+@.str.115 = private unnamed_addr constant [15 x i8] c"dhcpv6.unicast\00", align 1
+@hf_opt_status_code = internal global i32 0, align 4
+@.str.116 = private unnamed_addr constant [12 x i8] c"Status Code\00", align 1
+@.str.117 = private unnamed_addr constant [19 x i8] c"dhcpv6.status_code\00", align 1
+@statuscode_vals_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 16, ptr @statuscode_vals, ptr @.str.587 }, align 8
+@hf_opt_status_msg = internal global i32 0, align 4
+@.str.118 = private unnamed_addr constant [15 x i8] c"Status Message\00", align 1
+@.str.119 = private unnamed_addr constant [18 x i8] c"dhcpv6.status_msg\00", align 1
+@hf_vendorclass_enterprise = internal global i32 0, align 4
+@.str.120 = private unnamed_addr constant [30 x i8] c"dhcpv6.vendorclass.enterprise\00", align 1
+@.str.121 = private unnamed_addr constant [31 x i8] c"Vendor Class Enterprise Number\00", align 1
+@hf_vendorclass_data = internal global i32 0, align 4
+@.str.122 = private unnamed_addr constant [18 x i8] c"vendor-class-data\00", align 1
+@.str.123 = private unnamed_addr constant [24 x i8] c"dhcpv6.vendorclass.data\00", align 1
+@hf_vendoropts_enterprise = internal global i32 0, align 4
+@.str.124 = private unnamed_addr constant [29 x i8] c"dhcpv6.vendoropts.enterprise\00", align 1
+@.str.125 = private unnamed_addr constant [30 x i8] c"Vendor opts Enterprise Number\00", align 1
+@hf_vendoropts_enterprise_option_code = internal global i32 0, align 4
+@.str.126 = private unnamed_addr constant [12 x i8] c"Option code\00", align 1
+@.str.127 = private unnamed_addr constant [41 x i8] c"dhcpv6.vendoropts.enterprise.option_code\00", align 1
+@hf_vendoropts_enterprise_option_length = internal global i32 0, align 4
+@.str.128 = private unnamed_addr constant [14 x i8] c"Option length\00", align 1
+@.str.129 = private unnamed_addr constant [43 x i8] c"dhcpv6.vendoropts.enterprise.option_length\00", align 1
+@hf_vendoropts_enterprise_option_data = internal global i32 0, align 4
+@.str.130 = private unnamed_addr constant [12 x i8] c"Option data\00", align 1
+@.str.131 = private unnamed_addr constant [41 x i8] c"dhcpv6.vendoropts.enterprise.option_data\00", align 1
+@hf_interface_id = internal global i32 0, align 4
+@.str.132 = private unnamed_addr constant [13 x i8] c"Interface-ID\00", align 1
+@.str.133 = private unnamed_addr constant [20 x i8] c"dhcpv6.interface_id\00", align 1
+@hf_reconf_msg = internal global i32 0, align 4
+@.str.134 = private unnamed_addr constant [25 x i8] c"Reconfigure message type\00", align 1
+@.str.135 = private unnamed_addr constant [18 x i8] c"dhcpv6.reconf_msg\00", align 1
+@hf_sip_server_domain_search_fqdn = internal global i32 0, align 4
+@.str.136 = private unnamed_addr constant [30 x i8] c"SIP Server Domain Search FQDN\00", align 1
+@.str.137 = private unnamed_addr constant [37 x i8] c"dhcpv6.sip_server_domain_search_fqdn\00", align 1
+@hf_sip_server_a = internal global i32 0, align 4
+@.str.138 = private unnamed_addr constant [19 x i8] c"SIP server address\00", align 1
+@.str.139 = private unnamed_addr constant [20 x i8] c"dhcpv6.sip_server_a\00", align 1
+@hf_dns_servers = internal global i32 0, align 4
+@.str.140 = private unnamed_addr constant [19 x i8] c"DNS server address\00", align 1
+@.str.141 = private unnamed_addr constant [18 x i8] c"dhcpv6.dns_server\00", align 1
+@hf_domain_search_list_entry = internal global i32 0, align 4
+@.str.142 = private unnamed_addr constant [11 x i8] c"List entry\00", align 1
+@.str.143 = private unnamed_addr constant [25 x i8] c"dhcpv6.search_list_entry\00", align 1
+@hf_nis_servers = internal global i32 0, align 4
+@.str.144 = private unnamed_addr constant [19 x i8] c"NIS server address\00", align 1
+@.str.145 = private unnamed_addr constant [18 x i8] c"dhcpv6.nis_server\00", align 1
+@hf_nisp_servers = internal global i32 0, align 4
+@.str.146 = private unnamed_addr constant [20 x i8] c"NISP server address\00", align 1
+@.str.147 = private unnamed_addr constant [19 x i8] c"dhcpv6.nisp_server\00", align 1
+@hf_nis_fqdn = internal global i32 0, align 4
+@.str.148 = private unnamed_addr constant [9 x i8] c"NIS FQDN\00", align 1
+@.str.149 = private unnamed_addr constant [16 x i8] c"dhcpv6.nis_fqdn\00", align 1
+@hf_nisp_fqdn = internal global i32 0, align 4
+@.str.150 = private unnamed_addr constant [10 x i8] c"NISP FQDN\00", align 1
+@.str.151 = private unnamed_addr constant [17 x i8] c"dhcpv6.nisp_fqdn\00", align 1
+@hf_sntp_servers = internal global i32 0, align 4
+@.str.152 = private unnamed_addr constant [20 x i8] c"SNTP server address\00", align 1
+@.str.153 = private unnamed_addr constant [19 x i8] c"dhcpv6.sntp_server\00", align 1
+@hf_opt_lifetime = internal global i32 0, align 4
+@.str.154 = private unnamed_addr constant [9 x i8] c"Lifetime\00", align 1
+@.str.155 = private unnamed_addr constant [16 x i8] c"dhcpv6.lifetime\00", align 1
+@hf_bcmcs_servers_fqdn = internal global i32 0, align 4
+@.str.156 = private unnamed_addr constant [18 x i8] c"BCMCS server FQDN\00", align 1
+@.str.157 = private unnamed_addr constant [25 x i8] c"dhcpv6.bcmcs_server_fqdn\00", align 1
+@hf_bcmcs_servers_a = internal global i32 0, align 4
+@.str.158 = private unnamed_addr constant [21 x i8] c"BCMCS server address\00", align 1
+@.str.159 = private unnamed_addr constant [22 x i8] c"dhcpv6.bcmcs_server_a\00", align 1
+@hf_remoteid_enterprise_id = internal global i32 0, align 4
+@.str.160 = private unnamed_addr constant [10 x i8] c"Remote-ID\00", align 1
+@.str.161 = private unnamed_addr constant [30 x i8] c"dhcpv6.remoteid_enterprise_id\00", align 1
+@hf_subscriber_id = internal global i32 0, align 4
+@.str.162 = private unnamed_addr constant [14 x i8] c"Subscriber-ID\00", align 1
+@.str.163 = private unnamed_addr constant [21 x i8] c"dhcpv6.subscriber_id\00", align 1
+@hf_client_fqdn = internal global i32 0, align 4
+@.str.164 = private unnamed_addr constant [19 x i8] c"Client Domain Name\00", align 1
+@.str.165 = private unnamed_addr constant [21 x i8] c"dhcpv6.client_domain\00", align 1
+@hf_pana_agent = internal global i32 0, align 4
+@.str.166 = private unnamed_addr constant [20 x i8] c"PANA agents address\00", align 1
+@.str.167 = private unnamed_addr constant [18 x i8] c"dhcpv6.pana_agent\00", align 1
+@hf_opt_timezone = internal global i32 0, align 4
+@.str.168 = private unnamed_addr constant [10 x i8] c"Time-zone\00", align 1
+@.str.169 = private unnamed_addr constant [16 x i8] c"dhcpv6.timezone\00", align 1
+@hf_opt_tzdb = internal global i32 0, align 4
+@.str.170 = private unnamed_addr constant [12 x i8] c"TZ-database\00", align 1
+@.str.171 = private unnamed_addr constant [12 x i8] c"dhcpv6.tzdb\00", align 1
+@hf_lq_query = internal global i32 0, align 4
+@.str.172 = private unnamed_addr constant [11 x i8] c"Query-type\00", align 1
+@.str.173 = private unnamed_addr constant [16 x i8] c"dhcpv6.lq_query\00", align 1
+@lq_query_vals = internal constant [6 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.604 }, %struct._value_string { i32 2, ptr @.str.605 }, %struct._value_string { i32 3, ptr @.str.606 }, %struct._value_string { i32 4, ptr @.str.607 }, %struct._value_string { i32 5, ptr @.str.608 }, %struct._value_string zeroinitializer], align 16
+@hf_lq_query_link_address = internal global i32 0, align 4
+@.str.174 = private unnamed_addr constant [29 x i8] c"dhcpv6.lq_query_link_address\00", align 1
+@hf_clt_time = internal global i32 0, align 4
+@.str.175 = private unnamed_addr constant [9 x i8] c"Clt_time\00", align 1
+@.str.176 = private unnamed_addr constant [16 x i8] c"dhcpv6.clt_time\00", align 1
+@hf_lq_relay_data_peer_addr = internal global i32 0, align 4
+@.str.177 = private unnamed_addr constant [31 x i8] c"dhcpv6.lq_relay_data_peer_addr\00", align 1
+@hf_lq_relay_data_msg = internal global i32 0, align 4
+@.str.178 = private unnamed_addr constant [21 x i8] c"DHCPv6 relay message\00", align 1
+@.str.179 = private unnamed_addr constant [25 x i8] c"dhcpv6.lq_relay_data_msg\00", align 1
+@hf_lq_client_link = internal global i32 0, align 4
+@.str.180 = private unnamed_addr constant [24 x i8] c"LQ client links address\00", align 1
+@.str.181 = private unnamed_addr constant [22 x i8] c"dhcpv6.lq_client_link\00", align 1
+@hf_capwap_ac_v6 = internal global i32 0, align 4
+@.str.182 = private unnamed_addr constant [34 x i8] c"CAPWAP Access Controllers address\00", align 1
+@.str.183 = private unnamed_addr constant [20 x i8] c"dhcpv6.capwap_ac_v6\00", align 1
+@hf_aftr_name = internal global i32 0, align 4
+@.str.184 = private unnamed_addr constant [18 x i8] c"DS-Lite AFTR Name\00", align 1
+@.str.185 = private unnamed_addr constant [17 x i8] c"dhcpv6.aftr_name\00", align 1
+@hf_iaprefix_pref_lifetime = internal global i32 0, align 4
+@.str.186 = private unnamed_addr constant [30 x i8] c"dhcpv6.iaprefix.pref_lifetime\00", align 1
+@hf_iaprefix_valid_lifetime = internal global i32 0, align 4
+@.str.187 = private unnamed_addr constant [31 x i8] c"dhcpv6.iaprefix.valid_lifetime\00", align 1
+@hf_iaprefix_pref_len = internal global i32 0, align 4
+@.str.188 = private unnamed_addr constant [14 x i8] c"Prefix length\00", align 1
+@.str.189 = private unnamed_addr constant [25 x i8] c"dhcpv6.iaprefix.pref_len\00", align 1
+@hf_iaprefix_pref_addr = internal global i32 0, align 4
+@.str.190 = private unnamed_addr constant [15 x i8] c"Prefix address\00", align 1
+@.str.191 = private unnamed_addr constant [26 x i8] c"dhcpv6.iaprefix.pref_addr\00", align 1
+@hf_mip6_ha = internal global i32 0, align 4
+@.str.192 = private unnamed_addr constant [11 x i8] c"Home Agent\00", align 1
+@.str.193 = private unnamed_addr constant [23 x i8] c"dhcpv6.mip6_home_agent\00", align 1
+@hf_mip6_hoa = internal global i32 0, align 4
+@.str.194 = private unnamed_addr constant [13 x i8] c"Home Address\00", align 1
+@.str.195 = private unnamed_addr constant [25 x i8] c"dhcpv6.mip6_home_address\00", align 1
+@hf_nai = internal global i32 0, align 4
+@.str.196 = private unnamed_addr constant [4 x i8] c"NAI\00", align 1
+@.str.197 = private unnamed_addr constant [11 x i8] c"dhcpv6.nai\00", align 1
+@hf_pd_exclude_pref_len = internal global i32 0, align 4
+@.str.198 = private unnamed_addr constant [27 x i8] c"dhcpv6.pd_exclude.pref_len\00", align 1
+@hf_pd_exclude_subnet_id = internal global i32 0, align 4
+@.str.199 = private unnamed_addr constant [15 x i8] c"IPv6 subnet ID\00", align 1
+@.str.200 = private unnamed_addr constant [28 x i8] c"dhcpv6.pd_exclude.subnet_id\00", align 1
+@hf_option_userclass_length = internal global i32 0, align 4
+@.str.201 = private unnamed_addr constant [24 x i8] c"dhcpv6.userclass.length\00", align 1
+@hf_option_userclass_opaque_data = internal global i32 0, align 4
+@.str.202 = private unnamed_addr constant [10 x i8] c"Suboption\00", align 1
+@.str.203 = private unnamed_addr constant [29 x i8] c"dhcpv6.userclass.opaque_data\00", align 1
+@hf_option_ntpserver_type = internal global i32 0, align 4
+@.str.204 = private unnamed_addr constant [29 x i8] c"dhcpv6.ntpserver.option.type\00", align 1
+@ntp_server_opttype_vals = internal constant [4 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.206 }, %struct._value_string { i32 2, ptr @.str.208 }, %struct._value_string { i32 3, ptr @.str.278 }, %struct._value_string zeroinitializer], align 16
+@hf_option_ntpserver_length = internal global i32 0, align 4
+@.str.205 = private unnamed_addr constant [31 x i8] c"dhcpv6.ntpserver.option.length\00", align 1
+@hf_option_ntpserver_addr = internal global i32 0, align 4
+@.str.206 = private unnamed_addr constant [19 x i8] c"NTP Server Address\00", align 1
+@.str.207 = private unnamed_addr constant [22 x i8] c"dhcpv6.ntpserver.addr\00", align 1
+@hf_option_ntpserver_mc_addr = internal global i32 0, align 4
+@.str.208 = private unnamed_addr constant [22 x i8] c"NTP Multicast Address\00", align 1
+@.str.209 = private unnamed_addr constant [25 x i8] c"dhcpv6.ntpserver.mc_addr\00", align 1
+@hf_option_captive_portal = internal global i32 0, align 4
+@.str.210 = private unnamed_addr constant [15 x i8] c"Captive Portal\00", align 1
+@.str.211 = private unnamed_addr constant [22 x i8] c"dhcpv6.captive_portal\00", align 1
+@.str.212 = private unnamed_addr constant [71 x i8] c"The contact URI for the captive portal that the user should connect to\00", align 1
+@hf_option_s46_option_code = internal global i32 0, align 4
+@.str.213 = private unnamed_addr constant [16 x i8] c"S46 Option code\00", align 1
+@.str.214 = private unnamed_addr constant [19 x i8] c"dhcpv6.option_code\00", align 1
+@s46_opt_code_vals = internal constant [6 x %struct._value_string] [%struct._value_string { i32 64, ptr @.str.609 }, %struct._value_string { i32 88, ptr @.str.610 }, %struct._value_string { i32 94, ptr @.str.611 }, %struct._value_string { i32 95, ptr @.str.612 }, %struct._value_string { i32 96, ptr @.str.613 }, %struct._value_string zeroinitializer], align 16
+@hf_option_failover_binding_status = internal global i32 0, align 4
+@.str.215 = private unnamed_addr constant [24 x i8] c"Failover Binding Status\00", align 1
+@.str.216 = private unnamed_addr constant [31 x i8] c"dhcpv6.failover.binding_status\00", align 1
+@failover_binding_status_vals = internal constant [10 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.614 }, %struct._value_string { i32 1, ptr @.str.615 }, %struct._value_string { i32 2, ptr @.str.616 }, %struct._value_string { i32 3, ptr @.str.617 }, %struct._value_string { i32 4, ptr @.str.618 }, %struct._value_string { i32 5, ptr @.str.619 }, %struct._value_string { i32 6, ptr @.str.620 }, %struct._value_string { i32 7, ptr @.str.621 }, %struct._value_string { i32 8, ptr @.str.622 }, %struct._value_string zeroinitializer], align 16
+@hf_option_failover_connect_flags = internal global i32 0, align 4
+@.str.217 = private unnamed_addr constant [30 x i8] c"dhcpv6.failover.connect.flags\00", align 1
+@hf_option_failover_connect_reserved_flag = internal global i32 0, align 4
+@.str.218 = private unnamed_addr constant [9 x i8] c"Reserved\00", align 1
+@.str.219 = private unnamed_addr constant [39 x i8] c"dhcpv6.failover.connect.flags.reserved\00", align 1
+@hf_option_failover_connect_f_flag = internal global i32 0, align 4
+@.str.220 = private unnamed_addr constant [20 x i8] c"Fixed PD Length (F)\00", align 1
+@.str.221 = private unnamed_addr constant [32 x i8] c"dhcpv6.failover.connect.flags.f\00", align 1
+@hf_option_failover_dns_hostname = internal global i32 0, align 4
+@.str.222 = private unnamed_addr constant [13 x i8] c"DNS Hostname\00", align 1
+@.str.223 = private unnamed_addr constant [29 x i8] c"dhcpv6.failover.dns_hostname\00", align 1
+@hf_option_failover_dns_zonename = internal global i32 0, align 4
+@.str.224 = private unnamed_addr constant [14 x i8] c"DNS Zone Name\00", align 1
+@.str.225 = private unnamed_addr constant [29 x i8] c"dhcpv6.failover.dns_zonename\00", align 1
+@hf_option_failover_dns_flags = internal global i32 0, align 4
+@.str.226 = private unnamed_addr constant [26 x i8] c"dhcpv6.failover.dns.flags\00", align 1
+@hf_option_failover_dns_reserved_flag = internal global i32 0, align 4
+@.str.227 = private unnamed_addr constant [35 x i8] c"dhcpv6.failover.dns.flags.reserved\00", align 1
+@hf_option_failover_dns_u_flag = internal global i32 0, align 4
+@.str.228 = private unnamed_addr constant [25 x i8] c"Using Requested FQDN (U)\00", align 1
+@.str.229 = private unnamed_addr constant [28 x i8] c"dhcpv6.failover.dns.flags.u\00", align 1
+@hf_option_failover_dns_s_flag = internal global i32 0, align 4
+@.str.230 = private unnamed_addr constant [21 x i8] c"Synthesized Name (S)\00", align 1
+@.str.231 = private unnamed_addr constant [28 x i8] c"dhcpv6.failover.dns.flags.s\00", align 1
+@hf_option_failover_dns_r_flag = internal global i32 0, align 4
+@.str.232 = private unnamed_addr constant [17 x i8] c"Rev Uptodate (R)\00", align 1
+@.str.233 = private unnamed_addr constant [28 x i8] c"dhcpv6.failover.dns.flags.r\00", align 1
+@hf_option_failover_dns_f_flag = internal global i32 0, align 4
+@.str.234 = private unnamed_addr constant [17 x i8] c"Fwd Uptodate (F)\00", align 1
+@.str.235 = private unnamed_addr constant [28 x i8] c"dhcpv6.failover.dns.flags.f\00", align 1
+@hf_option_failover_expiration_time = internal global i32 0, align 4
+@.str.236 = private unnamed_addr constant [16 x i8] c"Expiration Time\00", align 1
+@.str.237 = private unnamed_addr constant [32 x i8] c"dhcpv6.failover.expiration_time\00", align 1
+@hf_option_failover_max_unacked_bndupd = internal global i32 0, align 4
+@.str.238 = private unnamed_addr constant [38 x i8] c"Max number of unacked BNDUPD messages\00", align 1
+@.str.239 = private unnamed_addr constant [35 x i8] c"dhcpv6.failover.max_unacked_bndupd\00", align 1
+@hf_option_failover_mclt = internal global i32 0, align 4
+@.str.240 = private unnamed_addr constant [32 x i8] c"Maximum Client Lead Time (MCLT)\00", align 1
+@.str.241 = private unnamed_addr constant [21 x i8] c"dhcpv6.failover.mclt\00", align 1
+@hf_option_failover_partner_lifetime = internal global i32 0, align 4
+@.str.242 = private unnamed_addr constant [17 x i8] c"Partner Lifetime\00", align 1
+@.str.243 = private unnamed_addr constant [33 x i8] c"dhcpv6.failover.partner_lifetime\00", align 1
+@hf_option_failover_partner_lifetime_sent = internal global i32 0, align 4
+@.str.244 = private unnamed_addr constant [22 x i8] c"Partner Lifetime Sent\00", align 1
+@.str.245 = private unnamed_addr constant [38 x i8] c"dhcpv6.failover.partner_lifetime_sent\00", align 1
+@hf_option_failover_partner_downtime = internal global i32 0, align 4
+@.str.246 = private unnamed_addr constant [18 x i8] c"Partner Down Time\00", align 1
+@.str.247 = private unnamed_addr constant [34 x i8] c"dhcpv6.failover.partner_down_time\00", align 1
+@hf_option_failover_partner_raw_clt_time = internal global i32 0, align 4
+@.str.248 = private unnamed_addr constant [24 x i8] c"Partner Raw Client Time\00", align 1
+@.str.249 = private unnamed_addr constant [37 x i8] c"dhcpv6.failover.partner_raw_clt_time\00", align 1
+@hf_option_failover_major_version = internal global i32 0, align 4
+@.str.250 = private unnamed_addr constant [23 x i8] c"Protocol Major Version\00", align 1
+@.str.251 = private unnamed_addr constant [39 x i8] c"dhcpv6.failover.protocol.major_version\00", align 1
+@hf_option_failover_minor_version = internal global i32 0, align 4
+@.str.252 = private unnamed_addr constant [23 x i8] c"Protocol Minor Version\00", align 1
+@.str.253 = private unnamed_addr constant [39 x i8] c"dhcpv6.failover.protocol.minor_version\00", align 1
+@hf_option_failover_keepalive_time = internal global i32 0, align 4
+@.str.254 = private unnamed_addr constant [15 x i8] c"Keepalive Time\00", align 1
+@.str.255 = private unnamed_addr constant [31 x i8] c"dhcpv6.failover.keepalive_time\00", align 1
+@hf_option_failover_reconfigure_time = internal global i32 0, align 4
+@.str.256 = private unnamed_addr constant [17 x i8] c"Reconfigure Time\00", align 1
+@.str.257 = private unnamed_addr constant [33 x i8] c"dhcpv6.failover.reconfigure_time\00", align 1
+@hf_option_failover_reconfigure_key = internal global i32 0, align 4
+@.str.258 = private unnamed_addr constant [16 x i8] c"Reconfigure Key\00", align 1
+@.str.259 = private unnamed_addr constant [32 x i8] c"dhcpv6.failover.reconfigure_key\00", align 1
+@hf_option_failover_relationship_name = internal global i32 0, align 4
+@.str.260 = private unnamed_addr constant [18 x i8] c"Relationship Name\00", align 1
+@.str.261 = private unnamed_addr constant [34 x i8] c"dhcpv6.failover.relationship_name\00", align 1
+@hf_option_failover_server_flags = internal global i32 0, align 4
+@.str.262 = private unnamed_addr constant [29 x i8] c"dhcpv6.failover.server.flags\00", align 1
+@hf_option_failover_server_reserved_flag = internal global i32 0, align 4
+@.str.263 = private unnamed_addr constant [38 x i8] c"dhcpv6.failover.server.flags.reserved\00", align 1
+@hf_option_failover_server_a_flag = internal global i32 0, align 4
+@.str.264 = private unnamed_addr constant [16 x i8] c"Ack Startup (A)\00", align 1
+@.str.265 = private unnamed_addr constant [31 x i8] c"dhcpv6.failover.server.flags.a\00", align 1
+@hf_option_failover_server_s_flag = internal global i32 0, align 4
+@.str.266 = private unnamed_addr constant [12 x i8] c"Startup (S)\00", align 1
+@.str.267 = private unnamed_addr constant [31 x i8] c"dhcpv6.failover.server.flags.s\00", align 1
+@hf_option_failover_server_c_flag = internal global i32 0, align 4
+@.str.268 = private unnamed_addr constant [17 x i8] c"Communicated (C)\00", align 1
+@.str.269 = private unnamed_addr constant [31 x i8] c"dhcpv6.failover.server.flags.c\00", align 1
+@hf_option_failover_server_state = internal global i32 0, align 4
+@.str.270 = private unnamed_addr constant [13 x i8] c"Server State\00", align 1
+@.str.271 = private unnamed_addr constant [29 x i8] c"dhcpv6.failover.server_state\00", align 1
+@failover_server_state_vals = internal constant [12 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.614 }, %struct._value_string { i32 1, ptr @.str.623 }, %struct._value_string { i32 2, ptr @.str.624 }, %struct._value_string { i32 3, ptr @.str.625 }, %struct._value_string { i32 4, ptr @.str.626 }, %struct._value_string { i32 5, ptr @.str.627 }, %struct._value_string { i32 6, ptr @.str.628 }, %struct._value_string { i32 7, ptr @.str.629 }, %struct._value_string { i32 8, ptr @.str.630 }, %struct._value_string { i32 9, ptr @.str.631 }, %struct._value_string { i32 10, ptr @.str.632 }, %struct._value_string zeroinitializer], align 16
+@hf_option_failover_start_time_of_state = internal global i32 0, align 4
+@.str.272 = private unnamed_addr constant [20 x i8] c"Start Time of State\00", align 1
+@.str.273 = private unnamed_addr constant [36 x i8] c"dhcpv6.failover.start_time_of_state\00", align 1
+@hf_option_failover_state_expiration_time = internal global i32 0, align 4
+@.str.274 = private unnamed_addr constant [22 x i8] c"State Expiration Time\00", align 1
+@.str.275 = private unnamed_addr constant [38 x i8] c"dhcpv6.failover.state_expiration_time\00", align 1
+@hf_option_relay_port = internal global i32 0, align 4
+@.str.276 = private unnamed_addr constant [23 x i8] c"Downstream Source Port\00", align 1
+@.str.277 = private unnamed_addr constant [18 x i8] c"dhcpv6.relay_port\00", align 1
+@hf_option_ntpserver_fqdn = internal global i32 0, align 4
+@.str.278 = private unnamed_addr constant [16 x i8] c"NTP Server FQDN\00", align 1
+@.str.279 = private unnamed_addr constant [22 x i8] c"dhcpv6.ntpserver.fqdn\00", align 1
+@hf_packetcable_ccc_suboption = internal global i32 0, align 4
+@.str.280 = private unnamed_addr constant [12 x i8] c"Sub element\00", align 1
+@.str.281 = private unnamed_addr constant [33 x i8] c"dhcpv6.packetcable.ccc.suboption\00", align 1
+@pkt_ccc_opt_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.633 }, %struct._value_string { i32 2, ptr @.str.634 }, %struct._value_string zeroinitializer], align 16
+@hf_packetcable_ccc_pri_dhcp = internal global i32 0, align 4
+@.str.282 = private unnamed_addr constant [13 x i8] c"Primary DHCP\00", align 1
+@.str.283 = private unnamed_addr constant [32 x i8] c"dhcpv6.packetcable.ccc.pri_dhcp\00", align 1
+@hf_packetcable_ccc_sec_dhcp = internal global i32 0, align 4
+@.str.284 = private unnamed_addr constant [15 x i8] c"Secondary DHCP\00", align 1
+@.str.285 = private unnamed_addr constant [32 x i8] c"dhcpv6.packetcable.ccc.sec_dhcp\00", align 1
+@hf_packetcable_cccV6_suboption = internal global i32 0, align 4
+@.str.286 = private unnamed_addr constant [35 x i8] c"dhcpv6.packetcable.cccV6.suboption\00", align 1
+@pkt_cccV6_opt_vals_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 9, ptr @pkt_cccV6_opt_vals, ptr @.str.635 }, align 8
+@hf_modem_capabilities_encoding_type = internal global i32 0, align 4
+@.str.287 = private unnamed_addr constant [5 x i8] c"Type\00", align 1
+@.str.288 = private unnamed_addr constant [35 x i8] c"dhcpv6.docsis.cccV6.tlv5.suboption\00", align 1
+@modem_capabilities_encoding_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 62, ptr @modem_capabilities_encoding, ptr @.str.645 }, align 8
+@hf_eue_capabilities_encoding_type = internal global i32 0, align 4
+@.str.289 = private unnamed_addr constant [40 x i8] c"dhcpv6.packetcable.cccV6.tlv5.suboption\00", align 1
+@eue_capabilities_encoding_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 27, ptr @eue_capabilities_encoding, ptr @.str.707 }, align 8
+@hf_capabilities_encoding_length = internal global i32 0, align 4
+@.str.290 = private unnamed_addr constant [35 x i8] c"dhcpv6.cccV6.tlv5.suboption.length\00", align 1
+@hf_capabilities_encoding_bytes = internal global i32 0, align 4
+@.str.291 = private unnamed_addr constant [6 x i8] c"Value\00", align 1
+@.str.292 = private unnamed_addr constant [34 x i8] c"dhcpv6.cccV6.tlv5.suboption.value\00", align 1
+@hf_capabilities_encoding_number = internal global i32 0, align 4
+@.str.293 = private unnamed_addr constant [41 x i8] c"dhcpv6.cccV6.tlv5.suboption.value_number\00", align 1
+@hf_packetcable_cccV6_pri_dss = internal global i32 0, align 4
+@.str.294 = private unnamed_addr constant [13 x i8] c"Primary SSID\00", align 1
+@.str.295 = private unnamed_addr constant [33 x i8] c"dhcpv6.packetcable.cccV6.pri_dss\00", align 1
+@hf_packetcable_cccV6_sec_dss = internal global i32 0, align 4
+@.str.296 = private unnamed_addr constant [15 x i8] c"Secondary SSID\00", align 1
+@.str.297 = private unnamed_addr constant [33 x i8] c"dhcpv6.packetcable.cccV6.sec_dss\00", align 1
+@hf_packetcable_cccV6_prov_srv_type = internal global i32 0, align 4
+@.str.298 = private unnamed_addr constant [39 x i8] c"dhcpv6.packetcable.cccV6.prov_srv.type\00", align 1
+@pkt_cccV6_prov_srv_type_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.299 }, %struct._value_string { i32 1, ptr @.str.735 }, %struct._value_string zeroinitializer], align 16
+@hf_packetcable_cccV6_prov_srv_fqdn = internal global i32 0, align 4
+@.str.299 = private unnamed_addr constant [5 x i8] c"FQDN\00", align 1
+@.str.300 = private unnamed_addr constant [39 x i8] c"dhcpv6.packetcable.cccV6.prov_srv.fqdn\00", align 1
+@hf_packetcable_cccV6_prov_srv_ipv6 = internal global i32 0, align 4
+@.str.301 = private unnamed_addr constant [39 x i8] c"dhcpv6.packetcable.cccV6.prov_srv.ipv6\00", align 1
+@hf_packetcable_cccV6_as_krb_nominal_timeout = internal global i32 0, align 4
+@.str.302 = private unnamed_addr constant [16 x i8] c"Nominal Timeout\00", align 1
+@.str.303 = private unnamed_addr constant [48 x i8] c"dhcpv6.packetcable.cccV6.as_krb.nominal_timeout\00", align 1
+@hf_packetcable_cccV6_as_krb_max_timeout = internal global i32 0, align 4
+@.str.304 = private unnamed_addr constant [16 x i8] c"Maximum Timeout\00", align 1
+@.str.305 = private unnamed_addr constant [44 x i8] c"dhcpv6.packetcable.cccV6.as_krb.max_timeout\00", align 1
+@hf_packetcable_cccV6_as_krb_max_retry_count = internal global i32 0, align 4
+@.str.306 = private unnamed_addr constant [20 x i8] c"Maximum Retry Count\00", align 1
+@.str.307 = private unnamed_addr constant [48 x i8] c"dhcpv6.packetcable.cccV6.as_krb.max_retry_count\00", align 1
+@hf_packetcable_cccV6_ap_krb_nominal_timeout = internal global i32 0, align 4
+@.str.308 = private unnamed_addr constant [48 x i8] c"dhcpv6.packetcable.cccV6.ap_krb.nominal_timeout\00", align 1
+@hf_packetcable_cccV6_ap_krb_max_timeout = internal global i32 0, align 4
+@.str.309 = private unnamed_addr constant [44 x i8] c"dhcpv6.packetcable.cccV6.ap_krb.max_timeout\00", align 1
+@hf_packetcable_cccV6_ap_krb_max_retry_count = internal global i32 0, align 4
+@.str.310 = private unnamed_addr constant [48 x i8] c"dhcpv6.packetcable.cccV6.ap_krb.max_retry_count\00", align 1
+@hf_packetcable_cccV6_krb_realm = internal global i32 0, align 4
+@.str.311 = private unnamed_addr constant [10 x i8] c"KRB Realm\00", align 1
+@.str.312 = private unnamed_addr constant [35 x i8] c"dhcpv6.packetcable.cccV6.krb_realm\00", align 1
+@hf_packetcable_cccV6_tgt_flag = internal global i32 0, align 4
+@.str.313 = private unnamed_addr constant [10 x i8] c"TGT Flags\00", align 1
+@.str.314 = private unnamed_addr constant [34 x i8] c"dhcpv6.packetcable.cccV6.tgt_flag\00", align 1
+@hf_packetcable_cccV6_tgt_flag_fetch = internal global i32 0, align 4
+@.str.315 = private unnamed_addr constant [10 x i8] c"Fetch TGT\00", align 1
+@.str.316 = private unnamed_addr constant [40 x i8] c"dhcpv6.packetcable.cccV6.tgt_flag.fetch\00", align 1
+@hf_packetcable_cccV6_prov_timer = internal global i32 0, align 4
+@.str.317 = private unnamed_addr constant [19 x i8] c"Provisioning timer\00", align 1
+@.str.318 = private unnamed_addr constant [36 x i8] c"dhcpv6.packetcable.cccV6.prov_timer\00", align 1
+@hf_packetcable_cccV6_sec_tcm = internal global i32 0, align 4
+@.str.319 = private unnamed_addr constant [14 x i8] c"SEC TCM Flags\00", align 1
+@.str.320 = private unnamed_addr constant [33 x i8] c"dhcpv6.packetcable.cccV6.sec_tcm\00", align 1
+@hf_packetcable_cccV6_sec_tcm_provisioning_server = internal global i32 0, align 4
+@.str.321 = private unnamed_addr constant [20 x i8] c"Provisioning Server\00", align 1
+@.str.322 = private unnamed_addr constant [53 x i8] c"dhcpv6.packetcable.cccV6.sec_tcm.provisioning_server\00", align 1
+@tfs_on_off = external constant %struct.true_false_string, align 8
+@hf_packetcable_cccV6_sec_tcm_call_manager_server = internal global i32 0, align 4
+@.str.323 = private unnamed_addr constant [21 x i8] c"Call Manager Servers\00", align 1
+@.str.324 = private unnamed_addr constant [54 x i8] c"dhcpv6.packetcable.cccV6.tgt_flag.call_manager_server\00", align 1
+@hf_cablelabs_opts = internal global i32 0, align 4
+@.str.325 = private unnamed_addr constant [21 x i8] c"dhcpv6.cablelabs.opt\00", align 1
+@cl_vendor_subopt_values_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 25, ptr @cl_vendor_subopt_values, ptr @.str.736 }, align 8
+@hf_cablelabs_ipv6_server = internal global i32 0, align 4
+@.str.326 = private unnamed_addr constant [29 x i8] c"dhcpv6.cablelabs.ipv6_server\00", align 1
+@hf_cablelabs_docsis_version_number = internal global i32 0, align 4
+@.str.327 = private unnamed_addr constant [22 x i8] c"DOCSIS Version Number\00", align 1
+@.str.328 = private unnamed_addr constant [39 x i8] c"dhcpv6.cablelabs.docsis_version_number\00", align 1
+@hf_cablelabs_dpoe_server_version_number = internal global i32 0, align 4
+@.str.329 = private unnamed_addr constant [27 x i8] c"DPoE Server Version Number\00", align 1
+@.str.330 = private unnamed_addr constant [44 x i8] c"dhcpv6.cablelabs.dpoe_server_version_number\00", align 1
+@hf_cablelabs_interface_id = internal global i32 0, align 4
+@.str.331 = private unnamed_addr constant [30 x i8] c"dhcpv6.cablelabs.interface_id\00", align 1
+@hf_cablelabs_interface_id_link_address = internal global i32 0, align 4
+@.str.332 = private unnamed_addr constant [13 x i8] c"Link Address\00", align 1
+@.str.333 = private unnamed_addr constant [43 x i8] c"dhcpv6.cablelabs.interface_id_link_address\00", align 1
+@hf_option_s46_rule_flags = internal global i32 0, align 4
+@.str.334 = private unnamed_addr constant [22 x i8] c"dhcpv6.s46_rule.flags\00", align 1
+@hf_option_s46_rule_reserved_flag = internal global i32 0, align 4
+@.str.335 = private unnamed_addr constant [31 x i8] c"dhcpv6.s46_rule.flags.reserved\00", align 1
+@hf_option_s46_rule_fmr_flag = internal global i32 0, align 4
+@.str.336 = private unnamed_addr constant [24 x i8] c"Forwarding Mapping Rule\00", align 1
+@.str.337 = private unnamed_addr constant [26 x i8] c"dhcpv6.s46_rule.flags.fmr\00", align 1
+@hf_option_s46_rule_ea_len = internal global i32 0, align 4
+@.str.338 = private unnamed_addr constant [14 x i8] c"EA-bit length\00", align 1
+@.str.339 = private unnamed_addr constant [23 x i8] c"dhcpv6.s46_rule.ea_len\00", align 1
+@hf_option_s46_rule_ipv4_pref_len = internal global i32 0, align 4
+@.str.340 = private unnamed_addr constant [19 x i8] c"IPv4 prefix length\00", align 1
+@.str.341 = private unnamed_addr constant [30 x i8] c"dhcpv6.s46_rule.ipv4_pref_len\00", align 1
+@hf_option_s46_rule_ipv4_prefix = internal global i32 0, align 4
+@.str.342 = private unnamed_addr constant [12 x i8] c"IPv4 prefix\00", align 1
+@.str.343 = private unnamed_addr constant [28 x i8] c"dhcpv6.s46_rule.ipv4_prefix\00", align 1
+@hf_option_s46_rule_ipv6_pref_len = internal global i32 0, align 4
+@.str.344 = private unnamed_addr constant [19 x i8] c"IPv6 prefix length\00", align 1
+@.str.345 = private unnamed_addr constant [32 x i8] c"dhcpv6.s46_rule.ipv6_prefix_len\00", align 1
+@hf_option_s46_rule_ipv6_prefix = internal global i32 0, align 4
+@.str.346 = private unnamed_addr constant [12 x i8] c"IPv6 prefix\00", align 1
+@.str.347 = private unnamed_addr constant [28 x i8] c"dhcpv6.s46_rule.ipv6_prefix\00", align 1
+@hf_option_s46_br_address = internal global i32 0, align 4
+@.str.348 = private unnamed_addr constant [11 x i8] c"BR address\00", align 1
+@.str.349 = private unnamed_addr constant [22 x i8] c"dhcpv6.s46_br.address\00", align 1
+@hf_option_s46_dmr_pref_len = internal global i32 0, align 4
+@.str.350 = private unnamed_addr constant [28 x i8] c"dhcpv6.s46_dmr.dmr_pref_len\00", align 1
+@hf_option_s46_dmr_prefix = internal global i32 0, align 4
+@.str.351 = private unnamed_addr constant [26 x i8] c"dhcpv6.s46_dmr.dmr_prefix\00", align 1
+@hf_option_s46_v4v6bind_ipv4_address = internal global i32 0, align 4
+@.str.352 = private unnamed_addr constant [13 x i8] c"IPv4 Address\00", align 1
+@.str.353 = private unnamed_addr constant [33 x i8] c"dhcpv6.s46_v4v6bind.ipv4_address\00", align 1
+@hf_option_s46_v4v6bind_ipv6_pref_len = internal global i32 0, align 4
+@.str.354 = private unnamed_addr constant [34 x i8] c"dhcpv6.s46_v4v6bind.ipv6_pref_len\00", align 1
+@hf_option_s46_v4v6bind_ipv6_prefix = internal global i32 0, align 4
+@.str.355 = private unnamed_addr constant [32 x i8] c"dhcpv6.s46_v4v6bind.ipv6_prefix\00", align 1
+@hf_option_s46_portparam_offset = internal global i32 0, align 4
+@.str.356 = private unnamed_addr constant [7 x i8] c"Offset\00", align 1
+@.str.357 = private unnamed_addr constant [28 x i8] c"dhcpv6.s46_portparam.offset\00", align 1
+@hf_option_s46_portparam_psid_len = internal global i32 0, align 4
+@.str.358 = private unnamed_addr constant [12 x i8] c"PSID length\00", align 1
+@.str.359 = private unnamed_addr constant [30 x i8] c"dhcpv6.s46_portparam.psid_len\00", align 1
+@hf_option_s46_portparam_psid = internal global i32 0, align 4
+@.str.360 = private unnamed_addr constant [5 x i8] c"PSID\00", align 1
+@.str.361 = private unnamed_addr constant [26 x i8] c"dhcpv6.s46_portparam.psid\00", align 1
+@hf_opt_mudurl = internal global i32 0, align 4
+@.str.362 = private unnamed_addr constant [7 x i8] c"MUDURL\00", align 1
+@.str.363 = private unnamed_addr constant [14 x i8] c"dhcpv6.mudurl\00", align 1
+@hf_client_link_layer_addr = internal global i32 0, align 4
+@.str.364 = private unnamed_addr constant [30 x i8] c"dhcpv6.client_link_layer_addr\00", align 1
+@hf_client_link_layer_addr_ether = internal global i32 0, align 4
+@.str.365 = private unnamed_addr constant [36 x i8] c"dhcpv6.client_link_layer_addr_ether\00", align 1
+@hf_client_link_layer_addr_hwtype = internal global i32 0, align 4
+@.str.366 = private unnamed_addr constant [37 x i8] c"dhcpv6.client_link_layer_addr_hwtype\00", align 1
+@proto_register_dhcpv6.ett = internal global [19 x ptr] [ptr @ett_dhcpv6, ptr @ett_dhcpv6_option, ptr @ett_dhcpv6_option_vsoption, ptr @ett_dhcpv6_vendor_option, ptr @ett_dhcpv6_pkt_option, ptr @ett_dhcpv6_userclass_option, ptr @ett_dhcpv6_netserver_option, ptr @ett_dhcpv6_tlv5_type, ptr @ett_dhcpv6_sip_server_domain_search_list_option, ptr @ett_dhcpv6_dns_domain_search_list_option, ptr @ett_dhcpv6_nis_domain_name_option, ptr @ett_dhcpv6_nisp_domain_name_option, ptr @ett_dhcpv6_bcmcs_servers_domain_search_list_option, ptr @ett_dhcpv6_s46_rule_flags, ptr @ett_dhcpv6_failover_connect_flags, ptr @ett_dhcpv6_failover_dns_flags, ptr @ett_dhcpv6_failover_server_flags, ptr @ett_clientfqdn_flags, ptr @ett_clientfqdn_expert], align 16
+@ett_dhcpv6 = internal global i32 0, align 4
+@ett_dhcpv6_option = internal global i32 0, align 4
+@ett_dhcpv6_option_vsoption = internal global i32 0, align 4
+@ett_dhcpv6_vendor_option = internal global i32 0, align 4
+@ett_dhcpv6_pkt_option = internal global i32 0, align 4
+@ett_dhcpv6_userclass_option = internal global i32 0, align 4
+@ett_dhcpv6_netserver_option = internal global i32 0, align 4
+@ett_dhcpv6_tlv5_type = internal global i32 0, align 4
+@ett_dhcpv6_sip_server_domain_search_list_option = internal global i32 0, align 4
+@ett_dhcpv6_dns_domain_search_list_option = internal global i32 0, align 4
+@ett_dhcpv6_nis_domain_name_option = internal global i32 0, align 4
+@ett_dhcpv6_nisp_domain_name_option = internal global i32 0, align 4
+@ett_dhcpv6_bcmcs_servers_domain_search_list_option = internal global i32 0, align 4
+@ett_dhcpv6_s46_rule_flags = internal global i32 0, align 4
+@ett_dhcpv6_failover_connect_flags = internal global i32 0, align 4
+@ett_dhcpv6_failover_dns_flags = internal global i32 0, align 4
+@ett_dhcpv6_failover_server_flags = internal global i32 0, align 4
+@ett_clientfqdn_flags = internal global i32 0, align 4
+@ett_clientfqdn_expert = internal global i32 0, align 4
+@proto_register_dhcpv6.ei = internal global [14 x %struct.ei_register_info] [%struct.ei_register_info { ptr @ei_dhcpv6_bogus_length, %struct.expert_field_info { ptr @.str.367, i32 117440512, i32 8388608, ptr @.str.368, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_dhcpv6_malformed_option, %struct.expert_field_info { ptr @.str.369, i32 117440512, i32 8388608, ptr @.str.370, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_dhcpv6_no_suboption_len, %struct.expert_field_info { ptr @.str.371, i32 150994944, i32 6291456, ptr @.str.372, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_dhcpv6_invalid_time_value, %struct.expert_field_info { ptr @.str.373, i32 150994944, i32 6291456, ptr @.str.374, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_dhcpv6_invalid_type, %struct.expert_field_info { ptr @.str.375, i32 150994944, i32 6291456, ptr @.str.376, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_dhcpv6_error_hopcount, %struct.expert_field_info { ptr @.str.377, i32 150994944, i32 6291456, ptr @.str.378, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_dhcpv6_clientfqdn_bad_msgtype, %struct.expert_field_info { ptr @.str.379, i32 150994944, i32 8388608, ptr @.str.380, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_dhcpv6_s_bit_should_be_zero, %struct.expert_field_info { ptr @.str.381, i32 150994944, i32 8388608, ptr @.str.382, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_dhcpv6_non_dns_encoded_name, %struct.expert_field_info { ptr @.str.383, i32 150994944, i32 8388608, ptr @.str.384, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_dhcpv6_domain_field_len_exceeded, %struct.expert_field_info { ptr @.str.385, i32 117440512, i32 8388608, ptr @.str.386, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_dhcpv6_encoded_fqdn_len_gt_255, %struct.expert_field_info { ptr @.str.387, i32 117440512, i32 8388608, ptr @.str.388, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_dhcpv6_root_only_domain_name, %struct.expert_field_info { ptr @.str.389, i32 150994944, i32 8388608, ptr @.str.390, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_dhcpv6_tld_lookup, %struct.expert_field_info { ptr @.str.391, i32 184549376, i32 6291456, ptr @.str.392, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_dhcpv6_partial_name_preceded_by_fqdn, %struct.expert_field_info { ptr @.str.393, i32 150994944, i32 8388608, ptr @.str.394, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
+@ei_dhcpv6_bogus_length = internal global %struct.expert_field zeroinitializer, align 4
+@.str.367 = private unnamed_addr constant [20 x i8] c"dhcpv6.bogus_length\00", align 1
+@.str.368 = private unnamed_addr constant [13 x i8] c"Bogus length\00", align 1
+@ei_dhcpv6_malformed_option = internal global %struct.expert_field zeroinitializer, align 4
+@.str.369 = private unnamed_addr constant [24 x i8] c"dhcpv6.malformed_option\00", align 1
+@.str.370 = private unnamed_addr constant [17 x i8] c"Malformed option\00", align 1
+@ei_dhcpv6_no_suboption_len = internal global %struct.expert_field zeroinitializer, align 4
+@.str.371 = private unnamed_addr constant [24 x i8] c"dhcpv6.no_suboption_len\00", align 1
+@.str.372 = private unnamed_addr constant [44 x i8] c"no room left in option for suboption length\00", align 1
+@ei_dhcpv6_invalid_time_value = internal global %struct.expert_field zeroinitializer, align 4
+@.str.373 = private unnamed_addr constant [26 x i8] c"dhcpv6.invalid_time_value\00", align 1
+@.str.374 = private unnamed_addr constant [19 x i8] c"Invalid time value\00", align 1
+@ei_dhcpv6_invalid_type = internal global %struct.expert_field zeroinitializer, align 4
+@.str.375 = private unnamed_addr constant [20 x i8] c"dhcpv6.invalid_type\00", align 1
+@.str.376 = private unnamed_addr constant [13 x i8] c"Invalid type\00", align 1
+@ei_dhcpv6_error_hopcount = internal global %struct.expert_field zeroinitializer, align 4
+@.str.377 = private unnamed_addr constant [22 x i8] c"dhcpv6.error_hopcount\00", align 1
+@.str.378 = private unnamed_addr constant [28 x i8] c"Detected error on hop-count\00", align 1
+@ei_dhcpv6_clientfqdn_bad_msgtype = internal global %struct.expert_field zeroinitializer, align 4
+@.str.379 = private unnamed_addr constant [19 x i8] c"dhcpv6.bad_msgtype\00", align 1
+@.str.380 = private unnamed_addr constant [61 x i8] c"This message type is not permitted to use OPTION_CLIENT_FQDN\00", align 1
+@ei_dhcpv6_s_bit_should_be_zero = internal global %struct.expert_field zeroinitializer, align 4
+@.str.381 = private unnamed_addr constant [28 x i8] c"dhcpv6.s_bit_should_be_zero\00", align 1
+@.str.382 = private unnamed_addr constant [54 x i8] c"ERROR: When the N-bit is set, the S-bit must be reset\00", align 1
+@ei_dhcpv6_non_dns_encoded_name = internal global %struct.expert_field zeroinitializer, align 4
+@.str.383 = private unnamed_addr constant [35 x i8] c"dhcpv6.expert.name_not_dns_encoded\00", align 1
+@.str.384 = private unnamed_addr constant [45 x i8] c"ERROR: This name is not a DNS record encoded\00", align 1
+@ei_dhcpv6_domain_field_len_exceeded = internal global %struct.expert_field zeroinitializer, align 4
+@.str.385 = private unnamed_addr constant [43 x i8] c"dhcpv6.expert.domain_field_length_exceeded\00", align 1
+@.str.386 = private unnamed_addr constant [52 x i8] c"ERROR: FQDN exceeds length of the domain name field\00", align 1
+@ei_dhcpv6_encoded_fqdn_len_gt_255 = internal global %struct.expert_field zeroinitializer, align 4
+@.str.387 = private unnamed_addr constant [34 x i8] c"dhcpv6.expert.encoded_fqdn_gt_255\00", align 1
+@.str.388 = private unnamed_addr constant [66 x i8] c"ERROR: FQDN's *encoded* length exceeds 255 octets [RFC 1035 3.1.]\00", align 1
+@ei_dhcpv6_root_only_domain_name = internal global %struct.expert_field zeroinitializer, align 4
+@.str.389 = private unnamed_addr constant [36 x i8] c"dhcpv6.expert.root_only_domain_name\00", align 1
+@.str.390 = private unnamed_addr constant [51 x i8] c"ERROR: A root-only domain name cannot be resolved.\00", align 1
+@ei_dhcpv6_tld_lookup = internal global %struct.expert_field zeroinitializer, align 4
+@.str.391 = private unnamed_addr constant [25 x i8] c"dhcpv6.expert.tld_lookup\00", align 1
+@.str.392 = private unnamed_addr constant [37 x i8] c"WARNING: TLDs are rarely resolvable \00", align 1
+@ei_dhcpv6_partial_name_preceded_by_fqdn = internal global %struct.expert_field zeroinitializer, align 4
+@.str.393 = private unnamed_addr constant [44 x i8] c"dhcpv6.expert.partial_name_preceded_by_fqdn\00", align 1
+@.str.394 = private unnamed_addr constant [43 x i8] c"ERROR: Partial name is preceded by an FQDN\00", align 1
+@proto_register_dhcpv6.bulk_leasequery_hf = internal global [4 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_dhcpv6_bulk_leasequery_size, %struct._header_field_info { ptr @.str.395, ptr @.str.396, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dhcpv6_bulk_leasequery_msgtype, %struct._header_field_info { ptr @.str, ptr @.str.397, i32 4, i32 513, ptr @msgtype_vals_ext, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dhcpv6_bulk_leasequery_reserved, %struct._header_field_info { ptr @.str.218, ptr @.str.398, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dhcpv6_bulk_leasequery_trans_id, %struct._header_field_info { ptr @.str.4, ptr @.str.399, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
+@hf_dhcpv6_bulk_leasequery_size = internal global i32 0, align 4
+@.str.395 = private unnamed_addr constant [13 x i8] c"Message size\00", align 1
+@.str.396 = private unnamed_addr constant [28 x i8] c"dhcpv6.bulk_leasequery.size\00", align 1
+@hf_dhcpv6_bulk_leasequery_msgtype = internal global i32 0, align 4
+@.str.397 = private unnamed_addr constant [31 x i8] c"dhcpv6.bulk_leasequery.msgtype\00", align 1
+@hf_dhcpv6_bulk_leasequery_reserved = internal global i32 0, align 4
+@.str.398 = private unnamed_addr constant [32 x i8] c"dhcpv6.bulk_leasequery.reserved\00", align 1
+@hf_dhcpv6_bulk_leasequery_trans_id = internal global i32 0, align 4
+@.str.399 = private unnamed_addr constant [32 x i8] c"dhcpv6.bulk_leasequery.trans_id\00", align 1
+@proto_register_dhcpv6.ett_bulk_leasequery = internal global [2 x ptr] [ptr @ett_dhcpv6_bulk_leasequery, ptr @ett_dhcpv6_bulk_leasequery_options], align 16
+@ett_dhcpv6_bulk_leasequery = internal global i32 0, align 4
+@ett_dhcpv6_bulk_leasequery_options = internal global i32 0, align 4
+@proto_register_dhcpv6.ei_bulk_leasequery = internal global [2 x %struct.ei_register_info] [%struct.ei_register_info { ptr @ei_dhcpv6_bulk_leasequery_bad_query_type, %struct.expert_field_info { ptr @.str.400, i32 117440512, i32 6291456, ptr @.str.401, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_dhcpv6_bulk_leasequery_bad_msg_type, %struct.expert_field_info { ptr @.str.402, i32 117440512, i32 6291456, ptr @.str.403, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
+@ei_dhcpv6_bulk_leasequery_bad_query_type = internal global %struct.expert_field zeroinitializer, align 4
+@.str.400 = private unnamed_addr constant [38 x i8] c"dhcpv6.bulk_leasequery.bad_query_type\00", align 1
+@.str.401 = private unnamed_addr constant [56 x i8] c"LQ-QUERY: Query types only supported by Bulk Leasequery\00", align 1
+@ei_dhcpv6_bulk_leasequery_bad_msg_type = internal global %struct.expert_field zeroinitializer, align 4
+@.str.402 = private unnamed_addr constant [36 x i8] c"dhcpv6.bulk_leasequery.bad_msg_type\00", align 1
+@.str.403 = private unnamed_addr constant [54 x i8] c"Message Type %d not allowed by DHCPv6 Bulk Leasequery\00", align 1
+@.str.404 = private unnamed_addr constant [7 x i8] c"DHCPv6\00", align 1
+@.str.405 = private unnamed_addr constant [7 x i8] c"dhcpv6\00", align 1
+@proto_dhcpv6 = internal unnamed_addr global i32 0, align 4
+@.str.406 = private unnamed_addr constant [23 x i8] c"DHCPv6 Bulk Leasequery\00", align 1
+@.str.407 = private unnamed_addr constant [23 x i8] c"dhcpv6.bulk_leasequery\00", align 1
+@proto_dhcpv6_bulk_leasequery = internal unnamed_addr global i32 0, align 4
+@dhcpv6_handle = internal unnamed_addr global ptr null, align 8
+@.str.408 = private unnamed_addr constant [23 x i8] c"cablelabs_interface_id\00", align 1
+@.str.409 = private unnamed_addr constant [52 x i8] c"Dissect Option 18 (Interface-Id) as CableLab option\00", align 1
+@.str.410 = private unnamed_addr constant [55 x i8] c"Whether Option 18 is dissected as CableLab or RFC 3315\00", align 1
+@cablelabs_interface_id = internal global i32 0, align 4
+@.str.411 = private unnamed_addr constant [10 x i8] c"desegment\00", align 1
+@.str.412 = private unnamed_addr constant [70 x i8] c"Desegment all Bulk Leasequery messages spanning multiple TCP segments\00", align 1
+@.str.413 = private unnamed_addr constant [99 x i8] c"Whether the Bulk Leasequery dissector should desegment all messages spanning multiple TCP segments\00", align 1
+@dhcpv6_bulk_leasequery_desegment = internal global i32 1, align 4
+@.str.414 = private unnamed_addr constant [23 x i8] c"dhcpv6.enterprise_opts\00", align 1
+@.str.415 = private unnamed_addr constant [23 x i8] c"DHCPv6 Enterprise OPTs\00", align 1
+@dhcpv6_enterprise_opts_dissector_table = internal unnamed_addr global ptr null, align 8
+@.str.416 = private unnamed_addr constant [17 x i8] c"DHCPv6 Cablelabs\00", align 1
+@.str.417 = private unnamed_addr constant [18 x i8] c"DHCPv6(cablelabs)\00", align 1
+@.str.418 = private unnamed_addr constant [17 x i8] c"dhcpv6_cablelabs\00", align 1
+@dhcpv6_cablelabs_handle = internal unnamed_addr global ptr null, align 8
+@.str.419 = private unnamed_addr constant [9 x i8] c"udp.port\00", align 1
+@.str.420 = private unnamed_addr constant [8 x i8] c"546-547\00", align 1
+@.str.421 = private unnamed_addr constant [9 x i8] c"tcp.port\00", align 1
+@msgtype_vals = internal constant [20 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.423 }, %struct._value_string { i32 2, ptr @.str.424 }, %struct._value_string { i32 3, ptr @.str.425 }, %struct._value_string { i32 4, ptr @.str.426 }, %struct._value_string { i32 5, ptr @.str.427 }, %struct._value_string { i32 6, ptr @.str.428 }, %struct._value_string { i32 7, ptr @.str.429 }, %struct._value_string { i32 8, ptr @.str.430 }, %struct._value_string { i32 9, ptr @.str.431 }, %struct._value_string { i32 10, ptr @.str.432 }, %struct._value_string { i32 11, ptr @.str.433 }, %struct._value_string { i32 12, ptr @.str.434 }, %struct._value_string { i32 13, ptr @.str.435 }, %struct._value_string { i32 14, ptr @.str.436 }, %struct._value_string { i32 15, ptr @.str.437 }, %struct._value_string { i32 16, ptr @.str.438 }, %struct._value_string { i32 17, ptr @.str.439 }, %struct._value_string { i32 18, ptr @.str.440 }, %struct._value_string { i32 19, ptr @.str.441 }, %struct._value_string zeroinitializer], align 16
+@.str.422 = private unnamed_addr constant [13 x i8] c"msgtype_vals\00", align 1
+@.str.423 = private unnamed_addr constant [8 x i8] c"Solicit\00", align 1
+@.str.424 = private unnamed_addr constant [10 x i8] c"Advertise\00", align 1
+@.str.425 = private unnamed_addr constant [8 x i8] c"Request\00", align 1
+@.str.426 = private unnamed_addr constant [8 x i8] c"Confirm\00", align 1
+@.str.427 = private unnamed_addr constant [6 x i8] c"Renew\00", align 1
+@.str.428 = private unnamed_addr constant [7 x i8] c"Rebind\00", align 1
+@.str.429 = private unnamed_addr constant [6 x i8] c"Reply\00", align 1
+@.str.430 = private unnamed_addr constant [8 x i8] c"Release\00", align 1
+@.str.431 = private unnamed_addr constant [8 x i8] c"Decline\00", align 1
+@.str.432 = private unnamed_addr constant [12 x i8] c"Reconfigure\00", align 1
+@.str.433 = private unnamed_addr constant [20 x i8] c"Information-request\00", align 1
+@.str.434 = private unnamed_addr constant [11 x i8] c"Relay-forw\00", align 1
+@.str.435 = private unnamed_addr constant [12 x i8] c"Relay-reply\00", align 1
+@.str.436 = private unnamed_addr constant [11 x i8] c"Leasequery\00", align 1
+@.str.437 = private unnamed_addr constant [17 x i8] c"Leasequery-reply\00", align 1
+@.str.438 = private unnamed_addr constant [16 x i8] c"Leasequery-done\00", align 1
+@.str.439 = private unnamed_addr constant [16 x i8] c"Leasequery-data\00", align 1
+@.str.440 = private unnamed_addr constant [20 x i8] c"Reconfigure-request\00", align 1
+@.str.441 = private unnamed_addr constant [18 x i8] c"Reconfigure-reply\00", align 1
+@opttype_vals = internal constant [140 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.443 }, %struct._value_string { i32 2, ptr @.str.444 }, %struct._value_string { i32 3, ptr @.str.445 }, %struct._value_string { i32 4, ptr @.str.446 }, %struct._value_string { i32 5, ptr @.str.447 }, %struct._value_string { i32 6, ptr @.str.448 }, %struct._value_string { i32 7, ptr @.str.449 }, %struct._value_string { i32 8, ptr @.str.97 }, %struct._value_string { i32 9, ptr @.str.450 }, %struct._value_string { i32 11, ptr @.str.451 }, %struct._value_string { i32 12, ptr @.str.452 }, %struct._value_string { i32 13, ptr @.str.453 }, %struct._value_string { i32 14, ptr @.str.454 }, %struct._value_string { i32 15, ptr @.str.455 }, %struct._value_string { i32 16, ptr @.str.456 }, %struct._value_string { i32 17, ptr @.str.457 }, %struct._value_string { i32 18, ptr @.str.458 }, %struct._value_string { i32 19, ptr @.str.459 }, %struct._value_string { i32 20, ptr @.str.460 }, %struct._value_string { i32 21, ptr @.str.461 }, %struct._value_string { i32 22, ptr @.str.462 }, %struct._value_string { i32 23, ptr @.str.463 }, %struct._value_string { i32 24, ptr @.str.464 }, %struct._value_string { i32 25, ptr @.str.465 }, %struct._value_string { i32 26, ptr @.str.466 }, %struct._value_string { i32 27, ptr @.str.467 }, %struct._value_string { i32 28, ptr @.str.468 }, %struct._value_string { i32 29, ptr @.str.469 }, %struct._value_string { i32 30, ptr @.str.470 }, %struct._value_string { i32 31, ptr @.str.471 }, %struct._value_string { i32 32, ptr @.str.154 }, %struct._value_string { i32 33, ptr @.str.472 }, %struct._value_string { i32 34, ptr @.str.473 }, %struct._value_string { i32 36, ptr @.str.474 }, %struct._value_string { i32 37, ptr @.str.475 }, %struct._value_string { i32 38, ptr @.str.476 }, %struct._value_string { i32 39, ptr @.str.477 }, %struct._value_string { i32 40, ptr @.str.478 }, %struct._value_string { i32 41, ptr @.str.479 }, %struct._value_string { i32 42, ptr @.str.480 }, %struct._value_string { i32 43, ptr @.str.481 }, %struct._value_string { i32 44, ptr @.str.482 }, %struct._value_string { i32 45, ptr @.str.483 }, %struct._value_string { i32 46, ptr @.str.484 }, %struct._value_string { i32 47, ptr @.str.485 }, %struct._value_string { i32 48, ptr @.str.486 }, %struct._value_string { i32 49, ptr @.str.487 }, %struct._value_string { i32 50, ptr @.str.488 }, %struct._value_string { i32 51, ptr @.str.489 }, %struct._value_string { i32 52, ptr @.str.490 }, %struct._value_string { i32 53, ptr @.str.491 }, %struct._value_string { i32 54, ptr @.str.492 }, %struct._value_string { i32 55, ptr @.str.493 }, %struct._value_string { i32 56, ptr @.str.494 }, %struct._value_string { i32 57, ptr @.str.495 }, %struct._value_string { i32 58, ptr @.str.496 }, %struct._value_string { i32 59, ptr @.str.497 }, %struct._value_string { i32 60, ptr @.str.498 }, %struct._value_string { i32 61, ptr @.str.499 }, %struct._value_string { i32 62, ptr @.str.500 }, %struct._value_string { i32 63, ptr @.str.501 }, %struct._value_string { i32 64, ptr @.str.502 }, %struct._value_string { i32 65, ptr @.str.503 }, %struct._value_string { i32 66, ptr @.str.504 }, %struct._value_string { i32 67, ptr @.str.505 }, %struct._value_string { i32 68, ptr @.str.506 }, %struct._value_string { i32 69, ptr @.str.507 }, %struct._value_string { i32 70, ptr @.str.508 }, %struct._value_string { i32 71, ptr @.str.509 }, %struct._value_string { i32 72, ptr @.str.510 }, %struct._value_string { i32 73, ptr @.str.511 }, %struct._value_string { i32 74, ptr @.str.512 }, %struct._value_string { i32 75, ptr @.str.513 }, %struct._value_string { i32 76, ptr @.str.514 }, %struct._value_string { i32 77, ptr @.str.515 }, %struct._value_string { i32 78, ptr @.str.516 }, %struct._value_string { i32 79, ptr @.str.517 }, %struct._value_string { i32 80, ptr @.str.332 }, %struct._value_string { i32 81, ptr @.str.518 }, %struct._value_string { i32 82, ptr @.str.519 }, %struct._value_string { i32 83, ptr @.str.520 }, %struct._value_string { i32 84, ptr @.str.521 }, %struct._value_string { i32 85, ptr @.str.522 }, %struct._value_string { i32 86, ptr @.str.523 }, %struct._value_string { i32 87, ptr @.str.524 }, %struct._value_string { i32 88, ptr @.str.525 }, %struct._value_string { i32 89, ptr @.str.526 }, %struct._value_string { i32 90, ptr @.str.527 }, %struct._value_string { i32 91, ptr @.str.528 }, %struct._value_string { i32 92, ptr @.str.529 }, %struct._value_string { i32 93, ptr @.str.530 }, %struct._value_string { i32 94, ptr @.str.531 }, %struct._value_string { i32 95, ptr @.str.532 }, %struct._value_string { i32 96, ptr @.str.533 }, %struct._value_string { i32 97, ptr @.str.534 }, %struct._value_string { i32 98, ptr @.str.535 }, %struct._value_string { i32 99, ptr @.str.536 }, %struct._value_string { i32 100, ptr @.str.537 }, %struct._value_string { i32 101, ptr @.str.538 }, %struct._value_string { i32 102, ptr @.str.539 }, %struct._value_string { i32 103, ptr @.str.210 }, %struct._value_string { i32 104, ptr @.str.540 }, %struct._value_string { i32 105, ptr @.str.541 }, %struct._value_string { i32 106, ptr @.str.542 }, %struct._value_string { i32 107, ptr @.str.543 }, %struct._value_string { i32 108, ptr @.str.544 }, %struct._value_string { i32 109, ptr @.str.545 }, %struct._value_string { i32 110, ptr @.str.546 }, %struct._value_string { i32 111, ptr @.str.547 }, %struct._value_string { i32 112, ptr @.str.548 }, %struct._value_string { i32 113, ptr @.str.549 }, %struct._value_string { i32 114, ptr @.str.215 }, %struct._value_string { i32 115, ptr @.str.550 }, %struct._value_string { i32 116, ptr @.str.551 }, %struct._value_string { i32 117, ptr @.str.552 }, %struct._value_string { i32 118, ptr @.str.553 }, %struct._value_string { i32 119, ptr @.str.554 }, %struct._value_string { i32 120, ptr @.str.555 }, %struct._value_string { i32 121, ptr @.str.556 }, %struct._value_string { i32 122, ptr @.str.557 }, %struct._value_string { i32 123, ptr @.str.558 }, %struct._value_string { i32 124, ptr @.str.559 }, %struct._value_string { i32 125, ptr @.str.560 }, %struct._value_string { i32 126, ptr @.str.561 }, %struct._value_string { i32 127, ptr @.str.562 }, %struct._value_string { i32 128, ptr @.str.563 }, %struct._value_string { i32 129, ptr @.str.564 }, %struct._value_string { i32 130, ptr @.str.565 }, %struct._value_string { i32 131, ptr @.str.566 }, %struct._value_string { i32 132, ptr @.str.567 }, %struct._value_string { i32 133, ptr @.str.568 }, %struct._value_string { i32 134, ptr @.str.569 }, %struct._value_string { i32 135, ptr @.str.570 }, %struct._value_string { i32 136, ptr @.str.571 }, %struct._value_string { i32 137, ptr @.str.572 }, %struct._value_string { i32 143, ptr @.str.573 }, %struct._value_string { i32 165, ptr @.str.574 }, %struct._value_string { i32 166, ptr @.str.575 }, %struct._value_string { i32 167, ptr @.str.576 }, %struct._value_string zeroinitializer], align 16
+@.str.442 = private unnamed_addr constant [13 x i8] c"opttype_vals\00", align 1
+@.str.443 = private unnamed_addr constant [18 x i8] c"Client Identifier\00", align 1
+@.str.444 = private unnamed_addr constant [18 x i8] c"Server Identifier\00", align 1
+@.str.445 = private unnamed_addr constant [47 x i8] c"Identity Association for Non-temporary Address\00", align 1
+@.str.446 = private unnamed_addr constant [43 x i8] c"Identity Association for Temporary Address\00", align 1
+@.str.447 = private unnamed_addr constant [11 x i8] c"IA Address\00", align 1
+@.str.448 = private unnamed_addr constant [15 x i8] c"Option Request\00", align 1
+@.str.449 = private unnamed_addr constant [11 x i8] c"Preference\00", align 1
+@.str.450 = private unnamed_addr constant [14 x i8] c"Relay Message\00", align 1
+@.str.451 = private unnamed_addr constant [15 x i8] c"Authentication\00", align 1
+@.str.452 = private unnamed_addr constant [15 x i8] c"Server unicast\00", align 1
+@.str.453 = private unnamed_addr constant [12 x i8] c"Status code\00", align 1
+@.str.454 = private unnamed_addr constant [13 x i8] c"Rapid Commit\00", align 1
+@.str.455 = private unnamed_addr constant [11 x i8] c"User Class\00", align 1
+@.str.456 = private unnamed_addr constant [13 x i8] c"Vendor Class\00", align 1
+@.str.457 = private unnamed_addr constant [28 x i8] c"Vendor-specific Information\00", align 1
+@.str.458 = private unnamed_addr constant [13 x i8] c"Interface-Id\00", align 1
+@.str.459 = private unnamed_addr constant [20 x i8] c"Reconfigure Message\00", align 1
+@.str.460 = private unnamed_addr constant [19 x i8] c"Reconfigure Accept\00", align 1
+@.str.461 = private unnamed_addr constant [28 x i8] c"SIP Server Domain Name List\00", align 1
+@.str.462 = private unnamed_addr constant [30 x i8] c"SIP Servers IPv6 Address List\00", align 1
+@.str.463 = private unnamed_addr constant [26 x i8] c"DNS recursive name server\00", align 1
+@.str.464 = private unnamed_addr constant [19 x i8] c"Domain Search List\00", align 1
+@.str.465 = private unnamed_addr constant [43 x i8] c"Identity Association for Prefix Delegation\00", align 1
+@.str.466 = private unnamed_addr constant [10 x i8] c"IA Prefix\00", align 1
+@.str.467 = private unnamed_addr constant [27 x i8] c"Network Information Server\00", align 1
+@.str.468 = private unnamed_addr constant [30 x i8] c"Network Information Server V2\00", align 1
+@.str.469 = private unnamed_addr constant [39 x i8] c"Network Information Server Domain Name\00", align 1
+@.str.470 = private unnamed_addr constant [42 x i8] c"Network Information Server V2 Domain Name\00", align 1
+@.str.471 = private unnamed_addr constant [36 x i8] c"Simple Network Time Protocol Server\00", align 1
+@.str.472 = private unnamed_addr constant [20 x i8] c"BCMCS Server Domain\00", align 1
+@.str.473 = private unnamed_addr constant [32 x i8] c"BCMCS Servers IPv6 Address List\00", align 1
+@.str.474 = private unnamed_addr constant [22 x i8] c"Geoconf Civic Address\00", align 1
+@.str.475 = private unnamed_addr constant [18 x i8] c"Remote Identifier\00", align 1
+@.str.476 = private unnamed_addr constant [22 x i8] c"Subscriber Identifier\00", align 1
+@.str.477 = private unnamed_addr constant [35 x i8] c"Client Fully Qualified Domain Name\00", align 1
+@.str.478 = private unnamed_addr constant [30 x i8] c"PANA Agents IPv6 Address List\00", align 1
+@.str.479 = private unnamed_addr constant [10 x i8] c"Time Zone\00", align 1
+@.str.480 = private unnamed_addr constant [19 x i8] c"Time Zone Database\00", align 1
+@.str.481 = private unnamed_addr constant [20 x i8] c"Echo Request Option\00", align 1
+@.str.482 = private unnamed_addr constant [17 x i8] c"Leasequery Query\00", align 1
+@.str.483 = private unnamed_addr constant [23 x i8] c"Leasequery Client Data\00", align 1
+@.str.484 = private unnamed_addr constant [29 x i8] c"Client Last Transaction Time\00", align 1
+@.str.485 = private unnamed_addr constant [22 x i8] c"Leasequery Relay Data\00", align 1
+@.str.486 = private unnamed_addr constant [36 x i8] c"Leasequery Client Link Address List\00", align 1
+@.str.487 = private unnamed_addr constant [29 x i8] c"Home Network Identifier FQDN\00", align 1
+@.str.488 = private unnamed_addr constant [33 x i8] c"Visited Home Network Information\00", align 1
+@.str.489 = private unnamed_addr constant [12 x i8] c"LoST Server\00", align 1
+@.str.490 = private unnamed_addr constant [26 x i8] c"CAPWAP Access Controllers\00", align 1
+@.str.491 = private unnamed_addr constant [9 x i8] c"Relay-ID\00", align 1
+@.str.492 = private unnamed_addr constant [17 x i8] c"MoS IPv6 Address\00", align 1
+@.str.493 = private unnamed_addr constant [21 x i8] c"MoS Domain Name List\00", align 1
+@.str.494 = private unnamed_addr constant [11 x i8] c"NTP Server\00", align 1
+@.str.495 = private unnamed_addr constant [27 x i8] c"Access Network Domain Name\00", align 1
+@.str.496 = private unnamed_addr constant [45 x i8] c"SIP User Agent Configuration Service Domains\00", align 1
+@.str.497 = private unnamed_addr constant [14 x i8] c"Boot File URL\00", align 1
+@.str.498 = private unnamed_addr constant [21 x i8] c"Boot File Parameters\00", align 1
+@.str.499 = private unnamed_addr constant [32 x i8] c"Client System Architecture Type\00", align 1
+@.str.500 = private unnamed_addr constant [36 x i8] c"Client Network Interface Identifier\00", align 1
+@.str.501 = private unnamed_addr constant [12 x i8] c"Geolocation\00", align 1
+@.str.502 = private unnamed_addr constant [26 x i8] c"Dual-Stack Lite AFTR Name\00", align 1
+@.str.503 = private unnamed_addr constant [22 x i8] c"ERP Local Domain Name\00", align 1
+@.str.504 = private unnamed_addr constant [23 x i8] c"Relay-Supplied Options\00", align 1
+@.str.505 = private unnamed_addr constant [15 x i8] c"Prefix Exclude\00", align 1
+@.str.506 = private unnamed_addr constant [25 x i8] c"Virtual Subnet Selection\00", align 1
+@.str.507 = private unnamed_addr constant [36 x i8] c"Identified Home Network Information\00", align 1
+@.str.508 = private unnamed_addr constant [38 x i8] c"Unrestricted Home Network Information\00", align 1
+@.str.509 = private unnamed_addr constant [20 x i8] c"Home Network Prefix\00", align 1
+@.str.510 = private unnamed_addr constant [19 x i8] c"Home Agent Address\00", align 1
+@.str.511 = private unnamed_addr constant [16 x i8] c"Home Agent FQDN\00", align 1
+@.str.512 = private unnamed_addr constant [16 x i8] c"RDNSS Selection\00", align 1
+@.str.513 = private unnamed_addr constant [24 x i8] c"Kerberos Principal Name\00", align 1
+@.str.514 = private unnamed_addr constant [20 x i8] c"Kerberos Realm Name\00", align 1
+@.str.515 = private unnamed_addr constant [28 x i8] c"Kerberos Default Realm Name\00", align 1
+@.str.516 = private unnamed_addr constant [13 x i8] c"Kerberos KDC\00", align 1
+@.str.517 = private unnamed_addr constant [26 x i8] c"Client Link-Layer Address\00", align 1
+@.str.518 = private unnamed_addr constant [7 x i8] c"RADIUS\00", align 1
+@.str.519 = private unnamed_addr constant [11 x i8] c"SOL_MAX_RT\00", align 1
+@.str.520 = private unnamed_addr constant [11 x i8] c"INF_MAX_RT\00", align 1
+@.str.521 = private unnamed_addr constant [18 x i8] c"Address Selection\00", align 1
+@.str.522 = private unnamed_addr constant [24 x i8] c"Address Selection table\00", align 1
+@.str.523 = private unnamed_addr constant [11 x i8] c"PCP Server\00", align 1
+@.str.524 = private unnamed_addr constant [15 x i8] c"DHCPv4 Message\00", align 1
+@.str.525 = private unnamed_addr constant [25 x i8] c"DHCP 4o6 Servers Address\00", align 1
+@.str.526 = private unnamed_addr constant [9 x i8] c"S46 Rule\00", align 1
+@.str.527 = private unnamed_addr constant [7 x i8] c"S46 BR\00", align 1
+@.str.528 = private unnamed_addr constant [8 x i8] c"S46 DMR\00", align 1
+@.str.529 = private unnamed_addr constant [30 x i8] c"S46 IPv4/IPv6 Address Binding\00", align 1
+@.str.530 = private unnamed_addr constant [20 x i8] c"S46 Port Parameters\00", align 1
+@.str.531 = private unnamed_addr constant [20 x i8] c"S46 MAP-E Container\00", align 1
+@.str.532 = private unnamed_addr constant [20 x i8] c"S46 MAP-T Container\00", align 1
+@.str.533 = private unnamed_addr constant [33 x i8] c"S46 Lightweight 4over6 Container\00", align 1
+@.str.534 = private unnamed_addr constant [12 x i8] c"4rd Options\00", align 1
+@.str.535 = private unnamed_addr constant [17 x i8] c"4rd Mapping Rule\00", align 1
+@.str.536 = private unnamed_addr constant [21 x i8] c"4rd Non-Mapping Rule\00", align 1
+@.str.537 = private unnamed_addr constant [20 x i8] c"LQ Server Base Time\00", align 1
+@.str.538 = private unnamed_addr constant [27 x i8] c"LQ Server Query Start Time\00", align 1
+@.str.539 = private unnamed_addr constant [25 x i8] c"LQ Server Query End Time\00", align 1
+@.str.540 = private unnamed_addr constant [28 x i8] c"MPL Parameter Configuration\00", align 1
+@.str.541 = private unnamed_addr constant [23 x i8] c"Access Technology Type\00", align 1
+@.str.542 = private unnamed_addr constant [20 x i8] c"Access Network Name\00", align 1
+@.str.543 = private unnamed_addr constant [18 x i8] c"Access Point Name\00", align 1
+@.str.544 = private unnamed_addr constant [19 x i8] c"Access Point BSSID\00", align 1
+@.str.545 = private unnamed_addr constant [27 x i8] c"Access Network Operator ID\00", align 1
+@.str.546 = private unnamed_addr constant [30 x i8] c"Access Network Operator Realm\00", align 1
+@.str.547 = private unnamed_addr constant [13 x i8] c"S46 Priority\00", align 1
+@.str.548 = private unnamed_addr constant [31 x i8] c"Manufacturer Usage Description\00", align 1
+@.str.549 = private unnamed_addr constant [29 x i8] c"IPv4/IPv6 Multicast Prefixes\00", align 1
+@.str.550 = private unnamed_addr constant [23 x i8] c"Failover Connect Flags\00", align 1
+@.str.551 = private unnamed_addr constant [26 x i8] c"Failover DNS Removal Info\00", align 1
+@.str.552 = private unnamed_addr constant [22 x i8] c"Failover DNS Hostname\00", align 1
+@.str.553 = private unnamed_addr constant [23 x i8] c"Failover DNS Zone Name\00", align 1
+@.str.554 = private unnamed_addr constant [19 x i8] c"Failover DNS Flags\00", align 1
+@.str.555 = private unnamed_addr constant [25 x i8] c"Failover Expiration Time\00", align 1
+@.str.556 = private unnamed_addr constant [48 x i8] c"Failover Maximum Number Unacked BNDUPD Messages\00", align 1
+@.str.557 = private unnamed_addr constant [41 x i8] c"Failover Maximum Client Lead Time (MCLT)\00", align 1
+@.str.558 = private unnamed_addr constant [26 x i8] c"Failover Partner Lifetime\00", align 1
+@.str.559 = private unnamed_addr constant [31 x i8] c"Failover Partner Lifetime Sent\00", align 1
+@.str.560 = private unnamed_addr constant [27 x i8] c"Failover Partner Down Time\00", align 1
+@.str.561 = private unnamed_addr constant [33 x i8] c"Failover Partner Raw Client Time\00", align 1
+@.str.562 = private unnamed_addr constant [26 x i8] c"Failover Protocol Version\00", align 1
+@.str.563 = private unnamed_addr constant [24 x i8] c"Failover Keepalive Time\00", align 1
+@.str.564 = private unnamed_addr constant [26 x i8] c"Failover Reconfigure Data\00", align 1
+@.str.565 = private unnamed_addr constant [27 x i8] c"Failover Relationship Name\00", align 1
+@.str.566 = private unnamed_addr constant [22 x i8] c"Failover Server Flags\00", align 1
+@.str.567 = private unnamed_addr constant [22 x i8] c"Failover Server State\00", align 1
+@.str.568 = private unnamed_addr constant [29 x i8] c"Failover Start Time of State\00", align 1
+@.str.569 = private unnamed_addr constant [31 x i8] c"Failover State Expiration Time\00", align 1
+@.str.570 = private unnamed_addr constant [18 x i8] c"Relay Source Port\00", align 1
+@.str.571 = private unnamed_addr constant [14 x i8] c"SZTP Redirect\00", align 1
+@.str.572 = private unnamed_addr constant [36 x i8] c"Softwire Source Binding Prefix Hint\00", align 1
+@.str.573 = private unnamed_addr constant [19 x i8] c"ANDSF IPv6 Address\00", align 1
+@.str.574 = private unnamed_addr constant [23 x i8] c"Mobile IPv6 Home Agent\00", align 1
+@.str.575 = private unnamed_addr constant [25 x i8] c"Mobile IPv6 Home Address\00", align 1
+@.str.576 = private unnamed_addr constant [26 x i8] c"Network Access Identifier\00", align 1
+@.str.577 = private unnamed_addr constant [38 x i8] c"Server SHOULD perform AAAA RR updates\00", align 1
+@.str.578 = private unnamed_addr constant [42 x i8] c"Server SHOULD NOT perform AAAA RR updates\00", align 1
+@.str.579 = private unnamed_addr constant [41 x i8] c"Server SHOULD NOT perform PTR RR updates\00", align 1
+@.str.580 = private unnamed_addr constant [37 x i8] c"Server SHOULD perform PTR RR updates\00", align 1
+@.str.581 = private unnamed_addr constant [48 x i8] c"Server HAS overridden client's S bit preference\00", align 1
+@.str.582 = private unnamed_addr constant [52 x i8] c"Server HAS NOT overridden client's S bit preference\00", align 1
+@.str.583 = private unnamed_addr constant [29 x i8] c"link-layer address plus time\00", align 1
+@.str.584 = private unnamed_addr constant [46 x i8] c"assigned by vendor based on Enterprise number\00", align 1
+@.str.585 = private unnamed_addr constant [19 x i8] c"link-layer address\00", align 1
+@.str.586 = private unnamed_addr constant [37 x i8] c"Universally Unique IDentifier (UUID)\00", align 1
+@statuscode_vals = internal constant [17 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.588 }, %struct._value_string { i32 1, ptr @.str.589 }, %struct._value_string { i32 2, ptr @.str.590 }, %struct._value_string { i32 3, ptr @.str.591 }, %struct._value_string { i32 4, ptr @.str.592 }, %struct._value_string { i32 5, ptr @.str.593 }, %struct._value_string { i32 6, ptr @.str.594 }, %struct._value_string { i32 7, ptr @.str.595 }, %struct._value_string { i32 8, ptr @.str.596 }, %struct._value_string { i32 9, ptr @.str.597 }, %struct._value_string { i32 10, ptr @.str.598 }, %struct._value_string { i32 11, ptr @.str.599 }, %struct._value_string { i32 12, ptr @.str.600 }, %struct._value_string { i32 13, ptr @.str.601 }, %struct._value_string { i32 14, ptr @.str.602 }, %struct._value_string { i32 15, ptr @.str.603 }, %struct._value_string zeroinitializer], align 16
+@.str.587 = private unnamed_addr constant [16 x i8] c"statuscode_vals\00", align 1
+@.str.588 = private unnamed_addr constant [8 x i8] c"Success\00", align 1
+@.str.589 = private unnamed_addr constant [11 x i8] c"UnspecFail\00", align 1
+@.str.590 = private unnamed_addr constant [12 x i8] c"NoAddrAvail\00", align 1
+@.str.591 = private unnamed_addr constant [10 x i8] c"NoBinding\00", align 1
+@.str.592 = private unnamed_addr constant [10 x i8] c"NotOnLink\00", align 1
+@.str.593 = private unnamed_addr constant [13 x i8] c"UseMulticast\00", align 1
+@.str.594 = private unnamed_addr constant [14 x i8] c"NoPrefixAvail\00", align 1
+@.str.595 = private unnamed_addr constant [17 x i8] c"UnknownQueryType\00", align 1
+@.str.596 = private unnamed_addr constant [15 x i8] c"MalformedQuery\00", align 1
+@.str.597 = private unnamed_addr constant [14 x i8] c"NotConfigured\00", align 1
+@.str.598 = private unnamed_addr constant [11 x i8] c"NotAllowed\00", align 1
+@.str.599 = private unnamed_addr constant [16 x i8] c"QueryTerminated\00", align 1
+@.str.600 = private unnamed_addr constant [12 x i8] c"DataMissing\00", align 1
+@.str.601 = private unnamed_addr constant [16 x i8] c"CatchUpComplete\00", align 1
+@.str.602 = private unnamed_addr constant [13 x i8] c"NotSupported\00", align 1
+@.str.603 = private unnamed_addr constant [21 x i8] c"TLSConnectionRefused\00", align 1
+@.str.604 = private unnamed_addr constant [11 x i8] c"by-address\00", align 1
+@.str.605 = private unnamed_addr constant [12 x i8] c"by-clientID\00", align 1
+@.str.606 = private unnamed_addr constant [11 x i8] c"by-relayID\00", align 1
+@.str.607 = private unnamed_addr constant [15 x i8] c"by-linkAddress\00", align 1
+@.str.608 = private unnamed_addr constant [12 x i8] c"by-remoteID\00", align 1
+@.str.609 = private unnamed_addr constant [8 x i8] c"DS-Lite\00", align 1
+@.str.610 = private unnamed_addr constant [19 x i8] c"DHCPv4 over DHCPv6\00", align 1
+@.str.611 = private unnamed_addr constant [6 x i8] c"MAP-E\00", align 1
+@.str.612 = private unnamed_addr constant [6 x i8] c"MAP-T\00", align 1
+@.str.613 = private unnamed_addr constant [19 x i8] c"Lightweight 4over6\00", align 1
+@.str.614 = private unnamed_addr constant [9 x i8] c"reserved\00", align 1
+@.str.615 = private unnamed_addr constant [7 x i8] c"ACTIVE\00", align 1
+@.str.616 = private unnamed_addr constant [8 x i8] c"EXPIRED\00", align 1
+@.str.617 = private unnamed_addr constant [9 x i8] c"RELEASED\00", align 1
+@.str.618 = private unnamed_addr constant [13 x i8] c"PENDING-FREE\00", align 1
+@.str.619 = private unnamed_addr constant [5 x i8] c"FREE\00", align 1
+@.str.620 = private unnamed_addr constant [12 x i8] c"FREE-BACKUP\00", align 1
+@.str.621 = private unnamed_addr constant [10 x i8] c"ABANDONED\00", align 1
+@.str.622 = private unnamed_addr constant [6 x i8] c"RESET\00", align 1
+@.str.623 = private unnamed_addr constant [18 x i8] c"Startup state (1)\00", align 1
+@.str.624 = private unnamed_addr constant [13 x i8] c"Normal state\00", align 1
+@.str.625 = private unnamed_addr constant [27 x i8] c"Communications interrupted\00", align 1
+@.str.626 = private unnamed_addr constant [13 x i8] c"Partner down\00", align 1
+@.str.627 = private unnamed_addr constant [14 x i8] c"Synchronizing\00", align 1
+@.str.628 = private unnamed_addr constant [33 x i8] c"Recovering bindings from partner\00", align 1
+@.str.629 = private unnamed_addr constant [31 x i8] c"Waiting out MCLT after RECOVER\00", align 1
+@.str.630 = private unnamed_addr constant [32 x i8] c"Interlock state prior to NORMAL\00", align 1
+@.str.631 = private unnamed_addr constant [31 x i8] c"Comm. failed during resolution\00", align 1
+@.str.632 = private unnamed_addr constant [31 x i8] c"Primary resolved its conflicts\00", align 1
+@.str.633 = private unnamed_addr constant [26 x i8] c"TSP's Primary DHCP Server\00", align 1
+@.str.634 = private unnamed_addr constant [28 x i8] c"TSP's Secondary DHCP Server\00", align 1
+@pkt_cccV6_opt_vals = internal constant [10 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.636 }, %struct._value_string { i32 2, ptr @.str.637 }, %struct._value_string { i32 3, ptr @.str.638 }, %struct._value_string { i32 4, ptr @.str.639 }, %struct._value_string { i32 5, ptr @.str.640 }, %struct._value_string { i32 6, ptr @.str.641 }, %struct._value_string { i32 7, ptr @.str.642 }, %struct._value_string { i32 8, ptr @.str.643 }, %struct._value_string { i32 9, ptr @.str.644 }, %struct._value_string zeroinitializer], align 16
+@.str.635 = private unnamed_addr constant [19 x i8] c"pkt_cccV6_opt_vals\00", align 1
+@.str.636 = private unnamed_addr constant [40 x i8] c"TSP's Primary DHCPv6 Server Selector ID\00", align 1
+@.str.637 = private unnamed_addr constant [43 x i8] c"TSP's Secondary DHCPv6 Server Selector ID \00", align 1
+@.str.638 = private unnamed_addr constant [26 x i8] c"TSP's Provisioning Server\00", align 1
+@.str.639 = private unnamed_addr constant [38 x i8] c"TSP's AS-REQ/AS-REP Backoff and Retry\00", align 1
+@.str.640 = private unnamed_addr constant [38 x i8] c"TSP's AP-REQ/AP-REP Backoff and Retry\00", align 1
+@.str.641 = private unnamed_addr constant [26 x i8] c"TSP's Kerberos Realm Name\00", align 1
+@.str.642 = private unnamed_addr constant [41 x i8] c"TSP's Ticket Granting Server Utilization\00", align 1
+@.str.643 = private unnamed_addr constant [31 x i8] c"TSP's Provisioning Timer Value\00", align 1
+@.str.644 = private unnamed_addr constant [36 x i8] c"PacketCable Security Ticket Control\00", align 1
+@modem_capabilities_encoding = internal constant [63 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.646 }, %struct._value_string { i32 2, ptr @.str.647 }, %struct._value_string { i32 3, ptr @.str.648 }, %struct._value_string { i32 4, ptr @.str.649 }, %struct._value_string { i32 5, ptr @.str.650 }, %struct._value_string { i32 6, ptr @.str.651 }, %struct._value_string { i32 7, ptr @.str.652 }, %struct._value_string { i32 8, ptr @.str.653 }, %struct._value_string { i32 9, ptr @.str.654 }, %struct._value_string { i32 10, ptr @.str.655 }, %struct._value_string { i32 11, ptr @.str.656 }, %struct._value_string { i32 12, ptr @.str.657 }, %struct._value_string { i32 13, ptr @.str.658 }, %struct._value_string { i32 14, ptr @.str.659 }, %struct._value_string { i32 15, ptr @.str.660 }, %struct._value_string { i32 16, ptr @.str.661 }, %struct._value_string { i32 17, ptr @.str.662 }, %struct._value_string { i32 18, ptr @.str.663 }, %struct._value_string { i32 19, ptr @.str.664 }, %struct._value_string { i32 20, ptr @.str.665 }, %struct._value_string { i32 21, ptr @.str.666 }, %struct._value_string { i32 22, ptr @.str.667 }, %struct._value_string { i32 23, ptr @.str.668 }, %struct._value_string { i32 24, ptr @.str.669 }, %struct._value_string { i32 25, ptr @.str.670 }, %struct._value_string { i32 26, ptr @.str.671 }, %struct._value_string { i32 27, ptr @.str.672 }, %struct._value_string { i32 28, ptr @.str.673 }, %struct._value_string { i32 29, ptr @.str.674 }, %struct._value_string { i32 30, ptr @.str.675 }, %struct._value_string { i32 31, ptr @.str.676 }, %struct._value_string { i32 32, ptr @.str.677 }, %struct._value_string { i32 33, ptr @.str.678 }, %struct._value_string { i32 34, ptr @.str.679 }, %struct._value_string { i32 35, ptr @.str.680 }, %struct._value_string { i32 36, ptr @.str.681 }, %struct._value_string { i32 37, ptr @.str.682 }, %struct._value_string { i32 38, ptr @.str.683 }, %struct._value_string { i32 39, ptr @.str.684 }, %struct._value_string { i32 40, ptr @.str.685 }, %struct._value_string { i32 41, ptr @.str.686 }, %struct._value_string { i32 42, ptr @.str.687 }, %struct._value_string { i32 43, ptr @.str.218 }, %struct._value_string { i32 44, ptr @.str.688 }, %struct._value_string { i32 45, ptr @.str.689 }, %struct._value_string { i32 46, ptr @.str.690 }, %struct._value_string { i32 47, ptr @.str.691 }, %struct._value_string { i32 48, ptr @.str.692 }, %struct._value_string { i32 49, ptr @.str.693 }, %struct._value_string { i32 50, ptr @.str.694 }, %struct._value_string { i32 51, ptr @.str.695 }, %struct._value_string { i32 52, ptr @.str.696 }, %struct._value_string { i32 53, ptr @.str.697 }, %struct._value_string { i32 54, ptr @.str.698 }, %struct._value_string { i32 55, ptr @.str.699 }, %struct._value_string { i32 56, ptr @.str.700 }, %struct._value_string { i32 57, ptr @.str.701 }, %struct._value_string { i32 58, ptr @.str.702 }, %struct._value_string { i32 59, ptr @.str.703 }, %struct._value_string { i32 60, ptr @.str.704 }, %struct._value_string { i32 61, ptr @.str.705 }, %struct._value_string { i32 62, ptr @.str.706 }, %struct._value_string zeroinitializer], align 16
+@.str.645 = private unnamed_addr constant [28 x i8] c"modem_capabilities_encoding\00", align 1
+@.str.646 = private unnamed_addr constant [22 x i8] c"Concatenation Support\00", align 1
+@.str.647 = private unnamed_addr constant [15 x i8] c"DOCSIS Version\00", align 1
+@.str.648 = private unnamed_addr constant [22 x i8] c"Fragmentation Support\00", align 1
+@.str.649 = private unnamed_addr constant [35 x i8] c"Payload Header Suppression Support\00", align 1
+@.str.650 = private unnamed_addr constant [13 x i8] c"IGMP Support\00", align 1
+@.str.651 = private unnamed_addr constant [16 x i8] c"Privacy Support\00", align 1
+@.str.652 = private unnamed_addr constant [24 x i8] c"Downstream SAID Support\00", align 1
+@.str.653 = private unnamed_addr constant [30 x i8] c"Upstream Service Flow Support\00", align 1
+@.str.654 = private unnamed_addr constant [27 x i8] c"Optional Filtering Support\00", align 1
+@.str.655 = private unnamed_addr constant [52 x i8] c"Transmit Pre-Equalizer Taps per Modulation Interval\00", align 1
+@.str.656 = private unnamed_addr constant [34 x i8] c"Number of Transmit Equalizer Taps\00", align 1
+@.str.657 = private unnamed_addr constant [12 x i8] c"DCC Support\00", align 1
+@.str.658 = private unnamed_addr constant [19 x i8] c"IP Filters Support\00", align 1
+@.str.659 = private unnamed_addr constant [20 x i8] c"LLC Filters Support\00", align 1
+@.str.660 = private unnamed_addr constant [27 x i8] c"Expanded Unicast SID Space\00", align 1
+@.str.661 = private unnamed_addr constant [25 x i8] c"Ranging Hold-Off Support\00", align 1
+@.str.662 = private unnamed_addr constant [17 x i8] c"L2VPN Capability\00", align 1
+@.str.663 = private unnamed_addr constant [28 x i8] c"L2VPN eSAFE Host Capability\00", align 1
+@.str.664 = private unnamed_addr constant [47 x i8] c"Downstream Unencrypted Traffic (DUT) Filtering\00", align 1
+@.str.665 = private unnamed_addr constant [33 x i8] c"Upstream Frequency Range Support\00", align 1
+@.str.666 = private unnamed_addr constant [29 x i8] c"Upstream Symbol Rate Support\00", align 1
+@.str.667 = private unnamed_addr constant [38 x i8] c"Selectable Active Code Mode 2 Support\00", align 1
+@.str.668 = private unnamed_addr constant [28 x i8] c"Code Hopping Mode 2 Support\00", align 1
+@.str.669 = private unnamed_addr constant [34 x i8] c"Multiple Transmit Channel Support\00", align 1
+@.str.670 = private unnamed_addr constant [43 x i8] c"5.12 Msps UpstreamTransmit Channel Support\00", align 1
+@.str.671 = private unnamed_addr constant [44 x i8] c"2.56 Msps Upstream Transmit Channel Support\00", align 1
+@.str.672 = private unnamed_addr constant [26 x i8] c"Total SID Cluster Support\00", align 1
+@.str.673 = private unnamed_addr constant [38 x i8] c"SID Clusters per Service Flow Support\00", align 1
+@.str.674 = private unnamed_addr constant [33 x i8] c"Multiple Receive Channel Support\00", align 1
+@.str.675 = private unnamed_addr constant [43 x i8] c"Total Downstream Service ID (DSID) Support\00", align 1
+@.str.676 = private unnamed_addr constant [50 x i8] c"Resequencing Downstream Service ID (DSID) Support\00", align 1
+@.str.677 = private unnamed_addr constant [47 x i8] c"Multicast Downstream Service ID (DSID) Support\00", align 1
+@.str.678 = private unnamed_addr constant [26 x i8] c"Multicast DSID Forwarding\00", align 1
+@.str.679 = private unnamed_addr constant [41 x i8] c"Frame Control Type Forwarding Capability\00", align 1
+@.str.680 = private unnamed_addr constant [15 x i8] c"DPV Capability\00", align 1
+@.str.681 = private unnamed_addr constant [56 x i8] c"Unsolicited Grant Service/Upstream Service Flow Support\00", align 1
+@.str.682 = private unnamed_addr constant [28 x i8] c"MAP and UCD Receipt Support\00", align 1
+@.str.683 = private unnamed_addr constant [33 x i8] c"Upstream Drop Classifier Support\00", align 1
+@.str.684 = private unnamed_addr constant [13 x i8] c"IPv6 Support\00", align 1
+@.str.685 = private unnamed_addr constant [44 x i8] c"Extended Upstream Transmit Power Capability\00", align 1
+@.str.686 = private unnamed_addr constant [55 x i8] c"Optional 802.1ad, 802.1ah, MPLS Classification Support\00", align 1
+@.str.687 = private unnamed_addr constant [28 x i8] c"D-ONU Capabilities Encoding\00", align 1
+@.str.688 = private unnamed_addr constant [31 x i8] c"Energy Management Capabilities\00", align 1
+@.str.689 = private unnamed_addr constant [29 x i8] c"C-DOCSIS Capability Encoding\00", align 1
+@.str.690 = private unnamed_addr constant [14 x i8] c"CM-STATUS-ACK\00", align 1
+@.str.691 = private unnamed_addr constant [30 x i8] c"Energy Management Preferences\00", align 1
+@.str.692 = private unnamed_addr constant [42 x i8] c"Extended Packet Length Support Capability\00", align 1
+@.str.693 = private unnamed_addr constant [38 x i8] c"Multiple Receive OFDM Channel Support\00", align 1
+@.str.694 = private unnamed_addr constant [40 x i8] c"Multiple Transmit OFDMA Channel Support\00", align 1
+@.str.695 = private unnamed_addr constant [32 x i8] c"Downstream OFDM Profile Support\00", align 1
+@.str.696 = private unnamed_addr constant [58 x i8] c"Downstream OFDM channel subcarrier QAM modulation support\00", align 1
+@.str.697 = private unnamed_addr constant [56 x i8] c"Upstream OFDM channel subcarrier QAM modulation support\00", align 1
+@.str.698 = private unnamed_addr constant [35 x i8] c"Downstream Lower Band Edge Support\00", align 1
+@.str.699 = private unnamed_addr constant [35 x i8] c"Downstream Upper Band Edge Support\00", align 1
+@.str.700 = private unnamed_addr constant [33 x i8] c"Upstream Upper Band Edge Support\00", align 1
+@.str.701 = private unnamed_addr constant [29 x i8] c"DOCSIS Time Protocol Support\00", align 1
+@.str.702 = private unnamed_addr constant [41 x i8] c"DOCSIS Time Protocol Performance Support\00", align 1
+@.str.703 = private unnamed_addr constant [5 x i8] c"Pmax\00", align 1
+@.str.704 = private unnamed_addr constant [36 x i8] c"Diplexer Downstream Lower Band Edge\00", align 1
+@.str.705 = private unnamed_addr constant [36 x i8] c"Diplexer Downstream Upper Band Edge\00", align 1
+@.str.706 = private unnamed_addr constant [34 x i8] c"Diplexer Upstream Upper Band Edge\00", align 1
+@eue_capabilities_encoding = internal constant [28 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.708 }, %struct._value_string { i32 2, ptr @.str.709 }, %struct._value_string { i32 3, ptr @.str.710 }, %struct._value_string { i32 4, ptr @.str.711 }, %struct._value_string { i32 5, ptr @.str.712 }, %struct._value_string { i32 6, ptr @.str.713 }, %struct._value_string { i32 7, ptr @.str.714 }, %struct._value_string { i32 8, ptr @.str.715 }, %struct._value_string { i32 9, ptr @.str.716 }, %struct._value_string { i32 10, ptr @.str.717 }, %struct._value_string { i32 11, ptr @.str.718 }, %struct._value_string { i32 12, ptr @.str.719 }, %struct._value_string { i32 13, ptr @.str.720 }, %struct._value_string { i32 14, ptr @.str.721 }, %struct._value_string { i32 15, ptr @.str.722 }, %struct._value_string { i32 16, ptr @.str.723 }, %struct._value_string { i32 17, ptr @.str.724 }, %struct._value_string { i32 18, ptr @.str.725 }, %struct._value_string { i32 19, ptr @.str.726 }, %struct._value_string { i32 20, ptr @.str.727 }, %struct._value_string { i32 21, ptr @.str.728 }, %struct._value_string { i32 22, ptr @.str.729 }, %struct._value_string { i32 23, ptr @.str.730 }, %struct._value_string { i32 24, ptr @.str.731 }, %struct._value_string { i32 25, ptr @.str.732 }, %struct._value_string { i32 26, ptr @.str.733 }, %struct._value_string { i32 38, ptr @.str.734 }, %struct._value_string zeroinitializer], align 16
+@.str.707 = private unnamed_addr constant [26 x i8] c"eue_capabilities_encoding\00", align 1
+@.str.708 = private unnamed_addr constant [20 x i8] c"PacketCable Version\00", align 1
+@.str.709 = private unnamed_addr constant [30 x i8] c"Number Of Telephony Endpoints\00", align 1
+@.str.710 = private unnamed_addr constant [12 x i8] c"TGT Support\00", align 1
+@.str.711 = private unnamed_addr constant [41 x i8] c"HTTP Download File Access Method Support\00", align 1
+@.str.712 = private unnamed_addr constant [41 x i8] c"MTA-24 Event SYSLOG Notification Support\00", align 1
+@.str.713 = private unnamed_addr constant [25 x i8] c"NCS Service Flow Support\00", align 1
+@.str.714 = private unnamed_addr constant [21 x i8] c"Primary Line Support\00", align 1
+@.str.715 = private unnamed_addr constant [28 x i8] c"Vendor Specific TLV Type(s)\00", align 1
+@.str.716 = private unnamed_addr constant [48 x i8] c"NVRAM Ticket/Ticket Information Storage Support\00", align 1
+@.str.717 = private unnamed_addr constant [37 x i8] c"Provisioning Event Reporting Support\00", align 1
+@.str.718 = private unnamed_addr constant [19 x i8] c"Supported CODEC(s)\00", align 1
+@.str.719 = private unnamed_addr constant [28 x i8] c"Silence Suppression Support\00", align 1
+@.str.720 = private unnamed_addr constant [26 x i8] c"Echo Cancellation Support\00", align 1
+@.str.721 = private unnamed_addr constant [13 x i8] c"RSVP Support\00", align 1
+@.str.722 = private unnamed_addr constant [15 x i8] c"UGS-AD Support\00", align 1
+@.str.723 = private unnamed_addr constant [45 x i8] c"MTA's \22ifIndex\22 starting number in \22ifTable\22\00", align 1
+@.str.724 = private unnamed_addr constant [34 x i8] c"Provisioning Flow Logging Support\00", align 1
+@.str.725 = private unnamed_addr constant [29 x i8] c"Supported Provisioning Flows\00", align 1
+@.str.726 = private unnamed_addr constant [20 x i8] c"T38 Version Support\00", align 1
+@.str.727 = private unnamed_addr constant [29 x i8] c"T38 Error Correction Support\00", align 1
+@.str.728 = private unnamed_addr constant [21 x i8] c"RFC2833 DTMF Support\00", align 1
+@.str.729 = private unnamed_addr constant [22 x i8] c"Voice Metrics Support\00", align 1
+@.str.730 = private unnamed_addr constant [19 x i8] c"Device MIB Support\00", align 1
+@.str.731 = private unnamed_addr constant [37 x i8] c"Multiple Grants Per Interval Support\00", align 1
+@.str.732 = private unnamed_addr constant [14 x i8] c"V.152 Support\00", align 1
+@.str.733 = private unnamed_addr constant [34 x i8] c"Certificate Bootstrapping Support\00", align 1
+@.str.734 = private unnamed_addr constant [35 x i8] c"IP Address Provisioning Capability\00", align 1
+@.str.735 = private unnamed_addr constant [5 x i8] c"IPv6\00", align 1
+@cl_vendor_subopt_values = internal constant [26 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.737 }, %struct._value_string { i32 2, ptr @.str.738 }, %struct._value_string { i32 3, ptr @.str.739 }, %struct._value_string { i32 4, ptr @.str.740 }, %struct._value_string { i32 5, ptr @.str.741 }, %struct._value_string { i32 6, ptr @.str.742 }, %struct._value_string { i32 7, ptr @.str.743 }, %struct._value_string { i32 8, ptr @.str.744 }, %struct._value_string { i32 9, ptr @.str.745 }, %struct._value_string { i32 10, ptr @.str.746 }, %struct._value_string { i32 32, ptr @.str.747 }, %struct._value_string { i32 33, ptr @.str.748 }, %struct._value_string { i32 34, ptr @.str.749 }, %struct._value_string { i32 35, ptr @.str.750 }, %struct._value_string { i32 36, ptr @.str.751 }, %struct._value_string { i32 37, ptr @.str.752 }, %struct._value_string { i32 38, ptr @.str.753 }, %struct._value_string { i32 39, ptr @.str.754 }, %struct._value_string { i32 61, ptr @.str.755 }, %struct._value_string { i32 1025, ptr @.str.756 }, %struct._value_string { i32 1026, ptr @.str.757 }, %struct._value_string { i32 1027, ptr @.str.758 }, %struct._value_string { i32 2170, ptr @.str.759 }, %struct._value_string { i32 2171, ptr @.str.760 }, %struct._value_string { i32 2172, ptr @.str.761 }, %struct._value_string zeroinitializer], align 16
+@.str.736 = private unnamed_addr constant [24 x i8] c"cl_vendor_subopt_values\00", align 1
+@.str.737 = private unnamed_addr constant [18 x i8] c"Option Request = \00", align 1
+@.str.738 = private unnamed_addr constant [15 x i8] c"Device Type = \00", align 1
+@.str.739 = private unnamed_addr constant [23 x i8] c"Embedded Components = \00", align 1
+@.str.740 = private unnamed_addr constant [17 x i8] c"Serial Number = \00", align 1
+@.str.741 = private unnamed_addr constant [20 x i8] c"Hardware Version = \00", align 1
+@.str.742 = private unnamed_addr constant [20 x i8] c"Software Version = \00", align 1
+@.str.743 = private unnamed_addr constant [20 x i8] c"Boot ROM Version = \00", align 1
+@.str.744 = private unnamed_addr constant [34 x i8] c"Organization Unique Identifier = \00", align 1
+@.str.745 = private unnamed_addr constant [16 x i8] c"Model Number = \00", align 1
+@.str.746 = private unnamed_addr constant [15 x i8] c"Vendor Name = \00", align 1
+@.str.747 = private unnamed_addr constant [25 x i8] c"TFTP Server Addresses : \00", align 1
+@.str.748 = private unnamed_addr constant [27 x i8] c"Configuration File Name = \00", align 1
+@.str.749 = private unnamed_addr constant [18 x i8] c"Syslog Servers : \00", align 1
+@.str.750 = private unnamed_addr constant [8 x i8] c"TLV5 = \00", align 1
+@.str.751 = private unnamed_addr constant [21 x i8] c"Device Identifier = \00", align 1
+@.str.752 = private unnamed_addr constant [25 x i8] c"Time Protocol Servers : \00", align 1
+@.str.753 = private unnamed_addr constant [15 x i8] c"Time Offset = \00", align 1
+@.str.754 = private unnamed_addr constant [17 x i8] c"IP preference : \00", align 1
+@.str.755 = private unnamed_addr constant [14 x i8] c"CCAP-CORES : \00", align 1
+@.str.756 = private unnamed_addr constant [28 x i8] c"CMTS Capabilities Option : \00", align 1
+@.str.757 = private unnamed_addr constant [25 x i8] c"CM MAC Address Option = \00", align 1
+@.str.758 = private unnamed_addr constant [28 x i8] c"eRouter Container Option : \00", align 1
+@.str.759 = private unnamed_addr constant [34 x i8] c"CableLabs Client Configuration : \00", align 1
+@.str.760 = private unnamed_addr constant [39 x i8] c"CableLabs Client Configuration IPv6 : \00", align 1
+@.str.761 = private unnamed_addr constant [28 x i8] c"CableLabs Correlation ID = \00", align 1
+@.str.762 = private unnamed_addr constant [8 x i8] c"%d.%02d\00", align 1
+@.str.763 = private unnamed_addr constant [17 x i8] c"DHCPv6 BulkLease\00", align 1
+@.str.764 = private unnamed_addr constant [24 x i8] c"%s, Transaction ID: %5u\00", align 1
+@.str.765 = private unnamed_addr constant [8 x i8] c"Unknown\00", align 1
+@.str.766 = private unnamed_addr constant [15 x i8] c"DHCPv6 Options\00", align 1
+@.str.767 = private unnamed_addr constant [15 x i8] c"DHCP option %u\00", align 1
+@.str.768 = private unnamed_addr constant [3 x i8] c"%s\00", align 1
+@.str.769 = private unnamed_addr constant [9 x i8] c"CID: %s \00", align 1
+@.str.770 = private unnamed_addr constant [23 x i8] c"DUID: malformed option\00", align 1
+@.str.771 = private unnamed_addr constant [31 x i8] c"User Class: suboption too long\00", align 1
+@.str.772 = private unnamed_addr constant [21 x i8] c"User Class suboption\00", align 1
+@.str.773 = private unnamed_addr constant [29 x i8] c"NTP Server: malformed option\00", align 1
+@.str.774 = private unnamed_addr constant [31 x i8] c"NTP Server: suboption too long\00", align 1
+@.str.775 = private unnamed_addr constant [24 x i8] c"NTP Server suboption %u\00", align 1
+@.str.776 = private unnamed_addr constant [27 x i8] c"S46_RULE: malformed option\00", align 1
+@dhcpv6_s46_rule_flags_fields = internal constant [3 x ptr] [ptr @hf_option_s46_rule_reserved_flag, ptr @hf_option_s46_rule_fmr_flag, ptr null], align 16
+@.str.777 = private unnamed_addr constant [25 x i8] c"S46_BR: malformed option\00", align 1
+@.str.778 = private unnamed_addr constant [26 x i8] c"S46_DMR: malformed option\00", align 1
+@.str.779 = private unnamed_addr constant [31 x i8] c"S46_V4V6BIND: malformed option\00", align 1
+@.str.780 = private unnamed_addr constant [33 x i8] c"S46_PORTPARAMS: malformed option\00", align 1
+@.str.781 = private unnamed_addr constant [24 x i8] c"IA_NA: malformed option\00", align 1
+@.str.782 = private unnamed_addr constant [24 x i8] c"IA_PD: malformed option\00", align 1
+@.str.783 = private unnamed_addr constant [9 x i8] c"infinity\00", align 1
+@.str.784 = private unnamed_addr constant [24 x i8] c"IA_TA: malformed option\00", align 1
+@.str.785 = private unnamed_addr constant [9 x i8] c"IAA: %s \00", align 1
+@.str.786 = private unnamed_addr constant [29 x i8] c"Preferred lifetime: infinity\00", align 1
+@.str.787 = private unnamed_addr constant [29 x i8] c"PREFERENCE: malformed option\00", align 1
+@.str.788 = private unnamed_addr constant [31 x i8] c"ELAPSED-TIME: malformed option\00", align 1
+@.str.789 = private unnamed_addr constant [28 x i8] c"RELAY-MSG: malformed option\00", align 1
+@.str.790 = private unnamed_addr constant [23 x i8] c"AUTH: malformed option\00", align 1
+@.str.791 = private unnamed_addr constant [38 x i8] c"DHCP realm: probably malformed option\00", align 1
+@.str.792 = private unnamed_addr constant [26 x i8] c"UNICAST: malformed option\00", align 1
+@.str.793 = private unnamed_addr constant [31 x i8] c"VENDOR_CLASS: malformed option\00", align 1
+@.str.794 = private unnamed_addr constant [30 x i8] c"VENDOR_OPTS: malformed option\00", align 1
+@.str.795 = private unnamed_addr constant [7 x i8] c"option\00", align 1
+@.str.796 = private unnamed_addr constant [31 x i8] c"INTERFACE_ID: malformed option\00", align 1
+@.str.797 = private unnamed_addr constant [29 x i8] c"RECONF_MSG: malformed option\00", align 1
+@.str.798 = private unnamed_addr constant [32 x i8] c"RECONF_ACCEPT: malformed option\00", align 1
+@.str.799 = private unnamed_addr constant [31 x i8] c"SIP Servers Domain Search List\00", align 1
+@.str.800 = private unnamed_addr constant [38 x i8] c"SIP servers address: malformed option\00", align 1
+@.str.801 = private unnamed_addr constant [38 x i8] c"DNS servers address: malformed option\00", align 1
+@.str.802 = private unnamed_addr constant [5 x i8] c" %d \00", align 1
+@.str.803 = private unnamed_addr constant [31 x i8] c"Domain name suffix search list\00", align 1
+@.str.804 = private unnamed_addr constant [38 x i8] c"NIS servers address: malformed option\00", align 1
+@.str.805 = private unnamed_addr constant [39 x i8] c"NISP servers address: malformed option\00", align 1
+@.str.806 = private unnamed_addr constant [16 x i8] c"nis-domain-name\00", align 1
+@.str.807 = private unnamed_addr constant [17 x i8] c"nisp-domain-name\00", align 1
+@.str.808 = private unnamed_addr constant [39 x i8] c"SNTP servers address: malformed option\00", align 1
+@.str.809 = private unnamed_addr constant [27 x i8] c"LIFETIME: malformed option\00", align 1
+@.str.810 = private unnamed_addr constant [33 x i8] c"BCMCS Servers Domain Search List\00", align 1
+@.str.811 = private unnamed_addr constant [40 x i8] c"BCMCS servers address: malformed option\00", align 1
+@.str.812 = private unnamed_addr constant [28 x i8] c"REMOTE_ID: malformed option\00", align 1
+@.str.813 = private unnamed_addr constant [32 x i8] c"SUBSCRIBER_ID: malformed option\00", align 1
+@.str.814 = private unnamed_addr constant [23 x i8] c"FQDN: malformed option\00", align 1
+@.str.815 = private unnamed_addr constant [128 x i8] c"Only the following message types are permitted to use OPTION_CLIENT_FQDN:\0ASOLICIT, REQUEST, RENEW, REBIND, ADVERTISE, and REPLY\00", align 1
+@.str.816 = private unnamed_addr constant [2 x i8] c"]\00", align 1
+@.str.817 = private unnamed_addr constant [70 x i8] c"[CLIENT wants to update its AAAA RRs and SERVER to update its PTR RRs\00", align 1
+@.str.818 = private unnamed_addr constant [57 x i8] c"[CLIENT wants SERVER to update both its AAAA and PTR RRs\00", align 1
+@.str.819 = private unnamed_addr constant [62 x i8] c"[CLIENT prefers that the server not perform *any* DNS updates\00", align 1
+@.str.820 = private unnamed_addr constant [113 x i8] c"[ERROR: CLIENT prefers that the server not perform *any* DNS updates\0A        In which case the 'S' bit MUST be 0\00", align 1
+@.str.821 = private unnamed_addr constant [59 x i8] c"[CLIENT SHALL update AAAA RRs; SERVER SHALL update PTR RRs\00", align 1
+@.str.822 = private unnamed_addr constant [43 x i8] c"[SERVER SHALL update both AAAA and PTR RRs\00", align 1
+@.str.823 = private unnamed_addr constant [72 x i8] c"[CLIENT SHALL update AAAA RRs; SERVER SHALL NOT perform any DNS updates\00", align 1
+@.str.824 = private unnamed_addr constant [95 x i8] c"[ERROR: SERVER SHALL NOT perform *any* DNS updates in which case         the 'S' bit MUST be 0\00", align 1
+@.str.825 = private unnamed_addr constant [45 x i8] c"]\0A[Server has overridden the client's S bit]\00", align 1
+@.str.826 = private unnamed_addr constant [20 x i8] c"Flags: 0x%02x  %s%s\00", align 1
+@.str.827 = private unnamed_addr constant [37 x i8] c"PANA agent address: malformed option\00", align 1
+@.str.828 = private unnamed_addr constant [27 x i8] c"LQ-QUERY: malformed option\00", align 1
+@.str.829 = private unnamed_addr constant [27 x i8] c"CLT_TIME: malformed option\00", align 1
+@.str.830 = private unnamed_addr constant [32 x i8] c"LQ_RELAY_DATA: malformed option\00", align 1
+@.str.831 = private unnamed_addr constant [42 x i8] c"LQ client links address: malformed option\00", align 1
+@.str.832 = private unnamed_addr constant [52 x i8] c"CAPWAP Access Controllers address: malformed option\00", align 1
+@.str.833 = private unnamed_addr constant [27 x i8] c"IAPREFIX: malformed option\00", align 1
+@.str.834 = private unnamed_addr constant [26 x i8] c"MIP6_HA: malformed option\00", align 1
+@.str.835 = private unnamed_addr constant [27 x i8] c"MIP6_HOA: malformed option\00", align 1
+@.str.836 = private unnamed_addr constant [22 x i8] c"NAI: malformed option\00", align 1
+@.str.837 = private unnamed_addr constant [29 x i8] c"PD_EXCLUDE: malformed option\00", align 1
+@.str.838 = private unnamed_addr constant [27 x i8] c"Failover: malformed option\00", align 1
+@dhcpv6_failover_connect_flags_fields = internal constant [3 x ptr] [ptr @hf_option_failover_connect_reserved_flag, ptr @hf_option_failover_connect_f_flag, ptr null], align 16
+@dhcpv6_failover_dns_flags_fields = internal constant [6 x ptr] [ptr @hf_option_failover_dns_reserved_flag, ptr @hf_option_failover_dns_u_flag, ptr @hf_option_failover_dns_s_flag, ptr @hf_option_failover_dns_r_flag, ptr @hf_option_failover_dns_f_flag, ptr null], align 16
+@dhcpv6_failover_server_flags_fields = internal constant [5 x ptr] [ptr @hf_option_failover_server_reserved_flag, ptr @hf_option_failover_server_a_flag, ptr @hf_option_failover_server_s_flag, ptr @hf_option_failover_server_c_flag, ptr null], align 16
+@.str.839 = private unnamed_addr constant [29 x i8] c"Relay Port: malformed option\00", align 1
+@.str.840 = private unnamed_addr constant [44 x i8] c"Client link-layer address: malformed option\00", align 1
+@.str.841 = private unnamed_addr constant [76 x i8] c"Empty domain field: the client requests the server to provide a domain name\00", align 1
+@.str.842 = private unnamed_addr constant [256 x i8] c"Label Length: %u\0AThis is not a DNS record encoded domain name. The value in the first octet of\0Aa label is the length of the name that follows and must be 63 octets or less.\0AHowever, in this case it is %u which typically means the name is not DNS encoded.\0A\00", align 1
+@.str.843 = private unnamed_addr constant [56 x i8] c"The decoded portion of this FQDN to this point is [%s]\0A\00", align 1
+@.str.844 = private unnamed_addr constant [29 x i8] c" [DOMAIN FIELD LEN EXCEEDED]\00", align 1
+@.str.845 = private unnamed_addr constant [97 x i8] c"ERROR: The length of this name, %u, exceeds the remaining length, %d, in the\0Adomain name field.\0A\00", align 1
+@.str.846 = private unnamed_addr constant [53 x i8] c"The successfully decoded portion of this FQDN: [%s]\0A\00", align 1
+@.str.847 = private unnamed_addr constant [14 x i8] c" [FQDN > 255]\00", align 1
+@.str.848 = private unnamed_addr constant [108 x i8] c"FQDN: %s%s\0AERROR: The total length of DNS-encoded names of this FQDN, %d, exceeds 255,\0Athe maximum allowed.\00", align 1
+@.str.849 = private unnamed_addr constant [13 x i8] c"<incomplete>\00", align 1
+@.str.850 = private unnamed_addr constant [2 x i8] c" \00", align 1
+@.str.851 = private unnamed_addr constant [25 x i8] c" [ROOT-ONLY DOMAIN NAME]\00", align 1
+@.str.852 = private unnamed_addr constant [10 x i8] c"['.' (0)]\00", align 1
+@.str.853 = private unnamed_addr constant [32 x i8] c"Top Level Domain name (TLD): %s\00", align 1
+@.str.854 = private unnamed_addr constant [22 x i8] c" [PROTOCOL VIOLATION]\00", align 1
+@.str.855 = private unnamed_addr constant [102 x i8] c"Partial name: %s\0AERROR: A single or multi-part partial name must be the only name in the domain field\00", align 1
+@.str.856 = private unnamed_addr constant [24 x i8] c"Partial domain name: %s\00", align 1
+@.str.857 = private unnamed_addr constant [47 x i8] c"Multi-part partially qualified Domain Name: %s\00", align 1
+@.str.858 = private unnamed_addr constant [4 x i8] c"%s \00", align 1
+@.str.859 = private unnamed_addr constant [16 x i8] c"Message Type %u\00", align 1
+@.str.860 = private unnamed_addr constant [61 x i8] c"Hopcount (%d) exceeds the maximum limit HOP_COUNT_LIMIT (%d)\00", align 1
+@.str.861 = private unnamed_addr constant [72 x i8] c"hopcount is not correctly incremented by 1 (expected : %d, actual : %d)\00", align 1
+@.str.862 = private unnamed_addr constant [7 x i8] c"L: %s \00", align 1
+@.str.863 = private unnamed_addr constant [60 x i8] c"Hopcount of most inner message has to equal 0 instead of %d\00", align 1
+@.str.864 = private unnamed_addr constant [13 x i8] c"XID: 0x%06x \00", align 1
+@.str.865 = private unnamed_addr constant [37 x i8] c"Packet does not contain Device Type.\00", align 1
+@.str.866 = private unnamed_addr constant [5 x i8] c"\22%s\22\00", align 1
+@.str.867 = private unnamed_addr constant [44 x i8] c"Suboption %d: suboption length isn't 3 or 6\00", align 1
+@.str.868 = private unnamed_addr constant [4 x i8] c" %d\00", align 1
+@.str.869 = private unnamed_addr constant [17 x i8] c"Bogus length: %d\00", align 1
+@.str.870 = private unnamed_addr constant [4 x i8] c"ecm\00", align 1
+@.str.871 = private unnamed_addr constant [5 x i8] c"edva\00", align 1
+@.str.872 = private unnamed_addr constant [3 x i8] c"%d\00", align 1
+@.str.873 = private unnamed_addr constant [5 x i8] c"IPv4\00", align 1
+@.str.874 = private unnamed_addr constant [11 x i8] c"Dual Stack\00", align 1
+@.str.875 = private unnamed_addr constant [5 x i8] c"%s%d\00", align 1
+@.str.876 = private unnamed_addr constant [29 x i8] c"Invalid IP Preference value \00", align 1
+@.str.877 = private unnamed_addr constant [9 x i8] c" (empty)\00", align 1
+@.str.878 = private unnamed_addr constant [13 x i8] c" %s (len=%d)\00", align 1
+@.str.879 = private unnamed_addr constant [12 x i8] c" (%d bytes)\00", align 1
+@.str.880 = private unnamed_addr constant [22 x i8] c"Bogus value length=%d\00", align 1
+@.str.881 = private unnamed_addr constant [3 x i8] c"%u\00", align 1
+@.str.882 = private unnamed_addr constant [60 x i8] c"Sub element %d: no room left in option for suboption length\00", align 1
+@.str.883 = private unnamed_addr constant [29 x i8] c"Invalid type: %u (%u byte%s)\00", align 1
+@.str.884 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
+@.str.885 = private unnamed_addr constant [2 x i8] c"s\00", align 1
+
+; Function Attrs: nounwind uwtable
+define hidden void @proto_register_dhcpv6() local_unnamed_addr #0 {
+  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.404, ptr noundef nonnull @.str.404, ptr noundef nonnull @.str.405) #6
+  store i32 %1, ptr @proto_dhcpv6, align 4
+  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_dhcpv6.hf, i32 noundef 197) #6
+  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_dhcpv6.ett, i32 noundef 19) #6
+  %2 = load i32, ptr @proto_dhcpv6, align 4
+  %3 = tail call ptr @expert_register_protocol(i32 noundef %2) #6
+  tail call void @expert_register_field_array(ptr noundef %3, ptr noundef nonnull @proto_register_dhcpv6.ei, i32 noundef 14) #6
+  %4 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.406, ptr noundef nonnull @.str.406, ptr noundef nonnull @.str.407) #6
+  store i32 %4, ptr @proto_dhcpv6_bulk_leasequery, align 4
+  %5 = tail call ptr @register_dissector(ptr noundef nonnull @.str.407, ptr noundef nonnull @dissect_dhcpv6_bulk_leasequery, i32 noundef %4) #6
+  %6 = load i32, ptr @proto_dhcpv6_bulk_leasequery, align 4
+  tail call void @proto_register_field_array(i32 noundef %6, ptr noundef nonnull @proto_register_dhcpv6.bulk_leasequery_hf, i32 noundef 4) #6
+  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_dhcpv6.ett_bulk_leasequery, i32 noundef 2) #6
+  %7 = load i32, ptr @proto_dhcpv6_bulk_leasequery, align 4
+  %8 = tail call ptr @expert_register_protocol(i32 noundef %7) #6
+  tail call void @expert_register_field_array(ptr noundef %8, ptr noundef nonnull @proto_register_dhcpv6.ei_bulk_leasequery, i32 noundef 2) #6
+  %9 = load i32, ptr @proto_dhcpv6, align 4
+  %10 = tail call ptr @register_dissector(ptr noundef nonnull @.str.405, ptr noundef nonnull @dissect_dhcpv6_stream, i32 noundef %9) #6
+  store ptr %10, ptr @dhcpv6_handle, align 8
+  %11 = load i32, ptr @proto_dhcpv6, align 4
+  %12 = tail call ptr @prefs_register_protocol(i32 noundef %11, ptr noundef null) #6
+  tail call void @prefs_register_bool_preference(ptr noundef %12, ptr noundef nonnull @.str.408, ptr noundef nonnull @.str.409, ptr noundef nonnull @.str.410, ptr noundef nonnull @cablelabs_interface_id) #6
+  %13 = load i32, ptr @proto_dhcpv6_bulk_leasequery, align 4
+  %14 = tail call ptr @prefs_register_protocol(i32 noundef %13, ptr noundef null) #6
+  tail call void @prefs_register_bool_preference(ptr noundef %14, ptr noundef nonnull @.str.411, ptr noundef nonnull @.str.412, ptr noundef nonnull @.str.413, ptr noundef nonnull @dhcpv6_bulk_leasequery_desegment) #6
+  %15 = load i32, ptr @proto_dhcpv6, align 4
+  %16 = tail call ptr @register_dissector_table(ptr noundef nonnull @.str.414, ptr noundef nonnull @.str.415, i32 noundef %15, i32 noundef 7, i32 noundef 1) #6
+  store ptr %16, ptr @dhcpv6_enterprise_opts_dissector_table, align 8
+  %17 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.416, ptr noundef nonnull @.str.417, ptr noundef nonnull @.str.418) #6
+  %18 = tail call ptr @register_dissector(ptr noundef nonnull @.str.418, ptr noundef nonnull @dissect_cablelabs_specific_opts, i32 noundef %17) #6
+  store ptr %18, ptr @dhcpv6_cablelabs_handle, align 8
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.414, i32 noundef 4491, ptr noundef %18) #6
+  ret void
+}
+
+declare void @enterprises_base_custom(ptr noundef, i32 noundef) #1
+
+; Function Attrs: nofree nounwind uwtable
+define internal void @cablelabs_fmt_docsis_version(ptr nocapture noundef writeonly %0, i32 noundef %1) #2 {
+  %3 = lshr i32 %1, 8
+  %4 = and i32 %3, 255
+  %5 = and i32 %1, 255
+  %6 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.762, i32 noundef %4, i32 noundef %5) #6
+  ret void
+}
+
+; Function Attrs: nofree nounwind uwtable
+define internal void @cablelabs_fmt_dpoe_server_version(ptr nocapture noundef writeonly %0, i32 noundef %1) #2 {
+  %3 = lshr i32 %1, 8
+  %4 = and i32 %3, 255
+  %5 = and i32 %1, 255
+  %6 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.762, i32 noundef %4, i32 noundef %5) #6
+  ret void
+}
+
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #1
+
+declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+
+declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: nounwind uwtable
+define internal i32 @dissect_dhcpv6_bulk_leasequery(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+  %5 = load i32, ptr @dhcpv6_bulk_leasequery_desegment, align 4
+  tail call void @tcp_dissect_pdus(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %5, i32 noundef 2, ptr noundef nonnull @get_dhcpv6_bulk_leasequery_pdu_len, ptr noundef nonnull @dissect_dhcpv6_bulk_leasequery_pdu, ptr noundef %3) #6
+  %6 = tail call i32 @tvb_reported_length(ptr noundef %0) #6
+  ret i32 %6
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @dissect_dhcpv6_stream(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+  %5 = alloca %struct.hopcount_info_t, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
+  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = load ptr, ptr %6, align 8
+  tail call void @col_set_str(ptr noundef %7, i32 noundef 34, ptr noundef nonnull @.str.404) #6
+  %8 = load ptr, ptr %6, align 8
+  tail call void @col_clear(ptr noundef %8, i32 noundef 25) #6
+  %9 = tail call i32 @tvb_reported_length(ptr noundef %0) #6
+  tail call fastcc void @dissect_dhcpv6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0, i32 noundef %9, ptr noundef nonnull byval(%struct.hopcount_info_t) align 8 %5)
+  %10 = tail call i32 @tvb_captured_length(ptr noundef %0) #6
+  ret i32 %10
+}
+
+declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) local_unnamed_addr #1
+
+declare void @prefs_register_bool_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare ptr @register_dissector_table(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: nounwind uwtable
+define internal i32 @dissect_cablelabs_specific_opts(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+  %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #6
+  %6 = load i32, ptr @hf_vendoropts_enterprise, align 4
+  %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #6
+  %8 = add i32 %5, -4
+  %9 = icmp sgt i32 %8, 4
+  br i1 %9, label %.preheader274, label %323
+
+.preheader274:                                    ; preds = %4
+  %10 = getelementptr inbounds i8, ptr %1, i64 408
+  br label %11
+
+11:                                               ; preds = %.preheader274, %.loopexit
+  %.0295 = phi ptr [ null, %.preheader274 ], [ %.1, %.loopexit ]
+  %.0246294 = phi i32 [ 4, %.preheader274 ], [ %321, %.loopexit ]
+  %12 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.0246294) #6
+  %13 = load i32, ptr @hf_cablelabs_opts, align 4
+  %14 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %13, ptr noundef %0, i32 noundef %.0246294, i32 noundef 2, i32 noundef 0) #6
+  %15 = add i32 %.0246294, 2
+  %16 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %15) #6
+  %17 = zext i16 %16 to i32
+  %18 = add i32 %.0246294, 4
+  switch i16 %12, label %.loopexit [
+    i16 2, label %19
+    i16 4, label %27
+    i16 5, label %27
+    i16 6, label %27
+    i16 7, label %27
+    i16 9, label %27
+    i16 10, label %27
+    i16 33, label %27
+    i16 3, label %27
+    i16 8, label %30
+    i16 1, label %39
+    i16 32, label %45
+    i16 34, label %45
+    i16 37, label %45
+    i16 61, label %45
+    i16 36, label %55
+    i16 35, label %61
+    i16 38, label %88
+    i16 39, label %90
+    i16 1025, label %97
+    i16 1026, label %124
+    i16 1027, label %130
+    i16 2170, label %133
+    i16 2171, label %172
+    i16 2172, label %317
+  ]
+
+19:                                               ; preds = %11
+  %20 = load ptr, ptr %10, align 8
+  %21 = tail call ptr @tvb_get_string_enc(ptr noundef %20, ptr noundef %0, i32 noundef %18, i32 noundef %17, i32 noundef 0) #6
+  %22 = icmp eq ptr %21, null
+  br i1 %22, label %25, label %23
+
+23:                                               ; preds = %19
+  %char0 = load i8, ptr %21, align 1
+  %24 = icmp eq i8 %char0, 0
+  br i1 %24, label %25, label %26
+
+25:                                               ; preds = %23, %19
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %14, ptr noundef nonnull @.str.865) #6
+  br label %.loopexit
+
+26:                                               ; preds = %23
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %14, ptr noundef nonnull @.str.866, ptr noundef nonnull %21) #6
+  br label %.loopexit
+
+27:                                               ; preds = %11, %11, %11, %11, %11, %11, %11, %11
+  %28 = load ptr, ptr %10, align 8
+  %29 = tail call ptr @tvb_format_stringzpad(ptr noundef %28, ptr noundef %0, i32 noundef %18, i32 noundef %17) #6
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %14, ptr noundef nonnull @.str.866, ptr noundef %29) #6
+  br label %.loopexit
+
+30:                                               ; preds = %11
+  switch i16 %16, label %37 [
+    i16 3, label %31
+    i16 6, label %34
+  ]
+
+31:                                               ; preds = %30
+  %32 = load ptr, ptr %10, align 8
+  %33 = tail call ptr @tvb_bytes_to_str_punct(ptr noundef %32, ptr noundef %0, i32 noundef %18, i32 noundef 3, i8 noundef signext 58) #6
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %14, ptr noundef nonnull @.str.768, ptr noundef %33) #6
+  br label %.loopexit
+
+34:                                               ; preds = %30
+  %35 = load ptr, ptr %10, align 8
+  %36 = tail call ptr @tvb_format_stringzpad(ptr noundef %35, ptr noundef %0, i32 noundef %18, i32 noundef 6) #6
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %14, ptr noundef nonnull @.str.866, ptr noundef %36) #6
+  br label %.loopexit
+
+37:                                               ; preds = %30
+  %38 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %14, ptr noundef nonnull @ei_dhcpv6_bogus_length, ptr noundef nonnull @.str.867, i32 noundef 8) #6
+  br label %.loopexit
+
+39:                                               ; preds = %11
+  %.not266 = icmp eq i16 %16, 0
+  br i1 %.not266, label %.loopexit, label %.preheader
+
+.preheader:                                       ; preds = %39, %.preheader
+  %.0240293 = phi i32 [ %43, %.preheader ], [ 0, %39 ]
+  %.0243292 = phi i32 [ %42, %.preheader ], [ %18, %39 ]
+  %40 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.0243292) #6
+  %41 = zext i16 %40 to i32
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %14, ptr noundef nonnull @.str.868, i32 noundef %41) #6
+  %42 = add i32 %.0243292, 2
+  %43 = add nuw nsw i32 %.0240293, 2
+  %44 = icmp ult i32 %43, %17
+  br i1 %44, label %.preheader, label %.loopexit, !llvm.loop !4
+
+45:                                               ; preds = %11, %11, %11, %11
+  %46 = load i32, ptr @ett_dhcpv6_vendor_option, align 4
+  %47 = tail call ptr @proto_item_add_subtree(ptr noundef %14, i32 noundef %46) #6
+  %48 = and i32 %17, 15
+  %49 = icmp ne i32 %48, 0
+  %.not299 = icmp eq i16 %16, 0
+  %or.cond312 = select i1 %49, i1 true, i1 %.not299
+  br i1 %or.cond312, label %.loopexit, label %.lr.ph291.preheader
+
+.lr.ph291.preheader:                              ; preds = %45
+  %50 = lshr exact i32 %17, 4
+  %umax = tail call i32 @llvm.umax.i32(i32 %50, i32 1)
+  br label %.lr.ph291
+
+.lr.ph291:                                        ; preds = %.lr.ph291.preheader, %.lr.ph291
+  %.1241290 = phi i32 [ %53, %.lr.ph291 ], [ 0, %.lr.ph291.preheader ]
+  %.1244289 = phi i32 [ %54, %.lr.ph291 ], [ %18, %.lr.ph291.preheader ]
+  %51 = load i32, ptr @hf_cablelabs_ipv6_server, align 4
+  %52 = tail call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %51, ptr noundef %0, i32 noundef %.1244289, i32 noundef 16, i32 noundef 0) #6
+  %53 = add nuw nsw i32 %.1241290, 1
+  tail call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef %52, ptr noundef nonnull @.str.802, i32 noundef %53) #6
+  %54 = add i32 %.1244289, 16
+  %exitcond.not = icmp eq i32 %53, %umax
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph291, !llvm.loop !6
+
+55:                                               ; preds = %11
+  %.not265 = icmp eq i16 %16, 6
+  br i1 %.not265, label %58, label %56
+
+56:                                               ; preds = %55
+  %57 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %14, ptr noundef nonnull @ei_dhcpv6_bogus_length, ptr noundef nonnull @.str.869, i32 noundef %17) #6
+  br label %.loopexit
+
+58:                                               ; preds = %55
+  %59 = load ptr, ptr %10, align 8
+  %60 = tail call ptr @tvb_bytes_to_str(ptr noundef %59, ptr noundef %0, i32 noundef %18, i32 noundef 6) #6
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %14, ptr noundef nonnull @.str.768, ptr noundef %60) #6
+  br label %.loopexit
+
+61:                                               ; preds = %11
+  %62 = load i32, ptr @ett_dhcpv6_tlv5_type, align 4
+  %63 = tail call ptr @proto_item_add_subtree(ptr noundef %14, i32 noundef %62) #6
+  %.not298 = icmp eq i16 %16, 0
+  br i1 %.not298, label %.loopexit, label %.lr.ph287
+
+.lr.ph287:                                        ; preds = %61
+  %64 = icmp eq ptr %.0295, null
+  br label %65
+
+65:                                               ; preds = %.lr.ph287, %70
+  %.0248286 = phi i32 [ 0, %.lr.ph287 ], [ %86, %70 ]
+  %.0249285 = phi i32 [ %18, %.lr.ph287 ], [ %84, %70 ]
+  br i1 %64, label %70, label %66
+
+66:                                               ; preds = %65
+  %67 = tail call i32 @g_ascii_strncasecmp(ptr noundef nonnull %.0295, ptr noundef nonnull @.str.870, i64 noundef 3) #6
+  %.not263 = icmp eq i32 %67, 0
+  br i1 %.not263, label %70, label %68
+
+68:                                               ; preds = %66
+  %69 = tail call i32 @g_ascii_strncasecmp(ptr noundef nonnull %.0295, ptr noundef nonnull @.str.871, i64 noundef 3) #6
+  %.not264 = icmp eq i32 %69, 0
+  br i1 %.not264, label %70, label %.loopexit
+
+70:                                               ; preds = %68, %65, %66
+  %hf_eue_capabilities_encoding_type.sink = phi ptr [ @hf_modem_capabilities_encoding_type, %66 ], [ @hf_modem_capabilities_encoding_type, %65 ], [ @hf_eue_capabilities_encoding_type, %68 ]
+  %71 = load i32, ptr %hf_eue_capabilities_encoding_type.sink, align 4
+  %72 = tail call ptr @proto_tree_add_item(ptr noundef %63, i32 noundef %71, ptr noundef %0, i32 noundef %.0249285, i32 noundef 1, i32 noundef 0) #6
+  %73 = add i32 %.0249285, 1
+  %74 = load i32, ptr @ett_dhcpv6_tlv5_type, align 4
+  %75 = tail call ptr @proto_item_add_subtree(ptr noundef %72, i32 noundef %74) #6
+  %76 = load i32, ptr @hf_capabilities_encoding_length, align 4
+  %77 = tail call ptr @proto_tree_add_item(ptr noundef %75, i32 noundef %76, ptr noundef %0, i32 noundef %73, i32 noundef 1, i32 noundef 0) #6
+  %78 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %73) #6
+  %79 = zext i8 %78 to i32
+  %80 = add i32 %.0249285, 2
+  %81 = icmp ugt i8 %78, 2
+  %hf_capabilities_encoding_bytes.val = load i32, ptr @hf_capabilities_encoding_bytes, align 4
+  %hf_capabilities_encoding_number.val = load i32, ptr @hf_capabilities_encoding_number, align 4
+  %82 = select i1 %81, i32 %hf_capabilities_encoding_bytes.val, i32 %hf_capabilities_encoding_number.val
+  %83 = tail call ptr @proto_tree_add_item(ptr noundef %75, i32 noundef %82, ptr noundef %0, i32 noundef %80, i32 noundef %79, i32 noundef 0) #6
+  %84 = add i32 %80, %79
+  %85 = add i32 %.0248286, 2
+  %86 = add i32 %85, %79
+  %87 = icmp slt i32 %86, %17
+  br i1 %87, label %65, label %.loopexit, !llvm.loop !7
+
+88:                                               ; preds = %11
+  %89 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %18) #6
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %14, ptr noundef nonnull @.str.872, i32 noundef %89) #6
+  br label %.loopexit
+
+90:                                               ; preds = %11
+  %91 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %18) #6
+  switch i8 %91, label %95 [
+    i8 1, label %92
+    i8 2, label %93
+    i8 6, label %94
+  ]
+
+92:                                               ; preds = %90
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %14, ptr noundef nonnull @.str.768, ptr noundef nonnull @.str.873) #6
+  br label %.loopexit
+
+93:                                               ; preds = %90
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %14, ptr noundef nonnull @.str.768, ptr noundef nonnull @.str.735) #6
+  br label %.loopexit
+
+94:                                               ; preds = %90
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %14, ptr noundef nonnull @.str.768, ptr noundef nonnull @.str.874) #6
+  br label %.loopexit
+
+95:                                               ; preds = %90
+  %96 = zext i8 %91 to i32
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %14, ptr noundef nonnull @.str.875, ptr noundef nonnull @.str.876, i32 noundef %96) #6
+  br label %.loopexit
+
+97:                                               ; preds = %11
+  %98 = load i32, ptr @ett_dhcpv6_vendor_option, align 4
+  %99 = tail call ptr @proto_item_add_subtree(ptr noundef %14, i32 noundef %98) #6
+  %.not262 = icmp eq i16 %16, 0
+  br i1 %.not262, label %123, label %.preheader270
+
+.preheader270:                                    ; preds = %97, %119
+  %.0238284 = phi i32 [ %121, %119 ], [ 0, %97 ]
+  %.2245283 = phi i32 [ %.3, %119 ], [ %18, %97 ]
+  %100 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.2245283) #6
+  %101 = add i32 %.2245283, 1
+  %102 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %101) #6
+  %103 = zext i8 %102 to i32
+  %104 = add i32 %.2245283, 2
+  %105 = icmp eq i8 %100, 1
+  %106 = icmp eq i8 %102, 2
+  %or.cond = select i1 %105, i1 %106, i1 false
+  br i1 %or.cond, label %107, label %111
+
+107:                                              ; preds = %.preheader270
+  %108 = load i32, ptr @hf_cablelabs_docsis_version_number, align 4
+  %109 = tail call ptr @proto_tree_add_item(ptr noundef %99, i32 noundef %108, ptr noundef %0, i32 noundef %104, i32 noundef 2, i32 noundef 0) #6
+  %110 = add i32 %.2245283, 4
+  br label %119
+
+111:                                              ; preds = %.preheader270
+  %112 = icmp eq i8 %100, 2
+  %or.cond3 = select i1 %112, i1 %106, i1 false
+  br i1 %or.cond3, label %113, label %117
+
+113:                                              ; preds = %111
+  %114 = load i32, ptr @hf_cablelabs_dpoe_server_version_number, align 4
+  %115 = tail call ptr @proto_tree_add_item(ptr noundef %99, i32 noundef %114, ptr noundef %0, i32 noundef %104, i32 noundef 2, i32 noundef 0) #6
+  %116 = add i32 %.2245283, 4
+  br label %119
+
+117:                                              ; preds = %111
+  %118 = add i32 %104, %103
+  br label %119
+
+119:                                              ; preds = %113, %117, %107
+  %.3 = phi i32 [ %110, %107 ], [ %116, %113 ], [ %118, %117 ]
+  %120 = add nuw i32 %.0238284, 2
+  %121 = add nuw i32 %120, %103
+  %122 = icmp ult i32 %121, %17
+  br i1 %122, label %.preheader270, label %.loopexit, !llvm.loop !8
+
+123:                                              ; preds = %97
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %14, ptr noundef nonnull @.str.877) #6
+  br label %.loopexit
+
+124:                                              ; preds = %11
+  %.not261 = icmp eq i16 %16, 6
+  br i1 %.not261, label %127, label %125
+
+125:                                              ; preds = %124
+  %126 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %14, ptr noundef nonnull @ei_dhcpv6_bogus_length, ptr noundef nonnull @.str.869, i32 noundef %17) #6
+  br label %.loopexit
+
+127:                                              ; preds = %124
+  %128 = load ptr, ptr %10, align 8
+  %129 = tail call ptr @tvb_bytes_to_str_punct(ptr noundef %128, ptr noundef %0, i32 noundef %18, i32 noundef 6, i8 noundef signext 58) #6
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %14, ptr noundef nonnull @.str.768, ptr noundef %129) #6
+  br label %.loopexit
+
+130:                                              ; preds = %11
+  %131 = load ptr, ptr %10, align 8
+  %132 = tail call ptr @tvb_bytes_to_str(ptr noundef %131, ptr noundef %0, i32 noundef %18, i32 noundef %17) #6
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %14, ptr noundef nonnull @.str.878, ptr noundef %132, i32 noundef %17) #6
+  br label %.loopexit
+
+133:                                              ; preds = %11
+  %134 = load i32, ptr @ett_dhcpv6_vendor_option, align 4
+  %135 = tail call ptr @proto_item_add_subtree(ptr noundef %14, i32 noundef %134) #6
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %14, ptr noundef nonnull @.str.879, i32 noundef %17) #6
+  %.not297 = icmp eq i16 %16, 0
+  br i1 %.not297, label %.loopexit, label %.lr.ph282
+
+.lr.ph282:                                        ; preds = %133, %dissect_packetcable_ccc_option.exit
+  %.1239281 = phi i32 [ %170, %dissect_packetcable_ccc_option.exit ], [ 0, %133 ]
+  %.4280 = phi i32 [ %.pre-phi, %dissect_packetcable_ccc_option.exit ], [ %18, %133 ]
+  %136 = sub i32 %17, %.1239281
+  %137 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.4280) #6
+  %138 = add i32 %.4280, 2
+  %139 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %138) #6
+  %140 = add i32 %.4280, 4
+  %141 = icmp slt i32 %136, 1
+  br i1 %141, label %142, label %145
+
+142:                                              ; preds = %.lr.ph282
+  %143 = zext i16 %137 to i32
+  %144 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %14, ptr noundef nonnull @ei_dhcpv6_no_suboption_len, ptr noundef nonnull @.str.882, i32 noundef %143) #6
+  br label %dissect_packetcable_ccc_option.exit
+
+145:                                              ; preds = %.lr.ph282
+  %146 = load i32, ptr @hf_packetcable_ccc_suboption, align 4
+  %147 = tail call ptr @proto_tree_add_item(ptr noundef %135, i32 noundef %146, ptr noundef %0, i32 noundef %.4280, i32 noundef 2, i32 noundef 0) #6
+  %148 = load i32, ptr @ett_dhcpv6_pkt_option, align 4
+  %149 = tail call ptr @proto_item_add_subtree(ptr noundef %147, i32 noundef %148) #6
+  switch i16 %137, label %166 [
+    i16 1, label %150
+    i16 2, label %158
+  ]
+
+150:                                              ; preds = %145
+  %151 = icmp eq i16 %139, 4
+  br i1 %151, label %152, label %155
+
+152:                                              ; preds = %150
+  %153 = load i32, ptr @hf_packetcable_ccc_pri_dhcp, align 4
+  %154 = tail call ptr @proto_tree_add_item(ptr noundef %149, i32 noundef %153, ptr noundef %0, i32 noundef %140, i32 noundef 4, i32 noundef 0) #6
+  br label %168
+
+155:                                              ; preds = %150
+  %156 = zext i16 %139 to i32
+  %157 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %147, ptr noundef nonnull @ei_dhcpv6_bogus_length, ptr noundef nonnull @.str.869, i32 noundef %156) #6
+  br label %168
+
+158:                                              ; preds = %145
+  %159 = icmp eq i16 %139, 4
+  br i1 %159, label %160, label %163
+
+160:                                              ; preds = %158
+  %161 = load i32, ptr @hf_packetcable_ccc_sec_dhcp, align 4
+  %162 = tail call ptr @proto_tree_add_item(ptr noundef %149, i32 noundef %161, ptr noundef %0, i32 noundef %140, i32 noundef 4, i32 noundef 0) #6
+  br label %168
+
+163:                                              ; preds = %158
+  %164 = zext i16 %139 to i32
+  %165 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %147, ptr noundef nonnull @ei_dhcpv6_bogus_length, ptr noundef nonnull @.str.869, i32 noundef %164) #6
+  br label %168
+
+166:                                              ; preds = %145
+  %167 = zext i16 %139 to i32
+  br label %168
+
+168:                                              ; preds = %166, %163, %160, %155, %152
+  %.pn.i = phi i32 [ %167, %166 ], [ %156, %155 ], [ 4, %152 ], [ %164, %163 ], [ 4, %160 ]
+  %169 = add nuw nsw i32 %.pn.i, 4
+  %.pre = add i32 %169, %.4280
+  br label %dissect_packetcable_ccc_option.exit
+
+dissect_packetcable_ccc_option.exit:              ; preds = %142, %168
+  %.pre-phi = phi i32 [ %140, %142 ], [ %.pre, %168 ]
+  %.0.i = phi i32 [ 4, %142 ], [ %169, %168 ]
+  %170 = add i32 %.0.i, %.1239281
+  %171 = icmp slt i32 %170, %17
+  br i1 %171, label %.lr.ph282, label %.loopexit, !llvm.loop !9
+
+172:                                              ; preds = %11
+  %173 = load i32, ptr @ett_dhcpv6_vendor_option, align 4
+  %174 = tail call ptr @proto_item_add_subtree(ptr noundef %14, i32 noundef %173) #6
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %14, ptr noundef nonnull @.str.879, i32 noundef %17) #6
+  %.not296 = icmp eq i16 %16, 0
+  br i1 %.not296, label %.loopexit, label %.lr.ph
+
+.lr.ph:                                           ; preds = %172, %dissect_packetcable_cccV6_option.exit
+  %.2279 = phi i32 [ %315, %dissect_packetcable_cccV6_option.exit ], [ 0, %172 ]
+  %.5276 = phi i32 [ %.pre-phi306, %dissect_packetcable_cccV6_option.exit ], [ %18, %172 ]
+  %175 = sub i32 %17, %.2279
+  %176 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.5276) #6
+  %177 = add i32 %.5276, 2
+  %178 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %177) #6
+  %179 = add i32 %.5276, 4
+  %180 = icmp slt i32 %175, 1
+  br i1 %180, label %181, label %184
+
+181:                                              ; preds = %.lr.ph
+  %182 = zext i16 %176 to i32
+  %183 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %14, ptr noundef nonnull @ei_dhcpv6_no_suboption_len, ptr noundef nonnull @.str.882, i32 noundef %182) #6
+  br label %dissect_packetcable_cccV6_option.exit
+
+184:                                              ; preds = %.lr.ph
+  %185 = load i32, ptr @hf_packetcable_cccV6_suboption, align 4
+  %186 = tail call ptr @proto_tree_add_item(ptr noundef %174, i32 noundef %185, ptr noundef %0, i32 noundef %.5276, i32 noundef 2, i32 noundef 0) #6
+  %187 = load i32, ptr @ett_dhcpv6_pkt_option, align 4
+  %188 = tail call ptr @proto_item_add_subtree(ptr noundef %186, i32 noundef %187) #6
+  switch i16 %176, label %310 [
+    i16 1, label %189
+    i16 2, label %199
+    i16 3, label %209
+    i16 4, label %234
+    i16 5, label %249
+    i16 6, label %264
+    i16 7, label %270
+    i16 8, label %282
+    i16 9, label %296
+  ]
+
+189:                                              ; preds = %184
+  %190 = zext i16 %178 to i32
+  %191 = icmp ult i16 %178, 35
+  br i1 %191, label %192, label %195
+
+192:                                              ; preds = %189
+  %193 = load i32, ptr @hf_packetcable_cccV6_pri_dss, align 4
+  %194 = tail call ptr @proto_tree_add_item(ptr noundef %188, i32 noundef %193, ptr noundef %0, i32 noundef %179, i32 noundef %190, i32 noundef 0) #6
+  br label %197
+
+195:                                              ; preds = %189
+  %196 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %186, ptr noundef nonnull @ei_dhcpv6_bogus_length, ptr noundef nonnull @.str.869, i32 noundef %190) #6
+  br label %197
+
+197:                                              ; preds = %195, %192
+  %198 = add i32 %179, %190
+  br label %313
+
+199:                                              ; preds = %184
+  %200 = zext i16 %178 to i32
+  %201 = icmp ult i16 %178, 35
+  br i1 %201, label %202, label %205
+
+202:                                              ; preds = %199
+  %203 = load i32, ptr @hf_packetcable_cccV6_sec_dss, align 4
+  %204 = tail call ptr @proto_tree_add_item(ptr noundef %188, i32 noundef %203, ptr noundef %0, i32 noundef %179, i32 noundef %200, i32 noundef 0) #6
+  br label %207
+
+205:                                              ; preds = %199
+  %206 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %186, ptr noundef nonnull @ei_dhcpv6_bogus_length, ptr noundef nonnull @.str.869, i32 noundef %200) #6
+  br label %207
+
+207:                                              ; preds = %205, %202
+  %208 = add i32 %179, %200
+  br label %313
+
+209:                                              ; preds = %184
+  %210 = load i32, ptr @hf_packetcable_cccV6_prov_srv_type, align 4
+  %211 = tail call ptr @proto_tree_add_item(ptr noundef %188, i32 noundef %210, ptr noundef %0, i32 noundef %179, i32 noundef 1, i32 noundef 0) #6
+  %212 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %179) #6
+  switch i8 %212, label %227 [
+    i8 0, label %213
+    i8 1, label %217
+  ]
+
+213:                                              ; preds = %209
+  %214 = load i32, ptr @hf_packetcable_cccV6_prov_srv_fqdn, align 4
+  %215 = add i32 %.5276, 5
+  %216 = add i16 %178, -1
+  tail call fastcc void @dhcpv6_domain(ptr noundef %188, ptr noundef %1, i32 noundef %214, ptr noundef %0, i32 noundef %215, i16 noundef zeroext %216)
+  %.pre.i = zext i16 %178 to i32
+  br label %.loopexit.i
+
+217:                                              ; preds = %209
+  %218 = zext i16 %178 to i32
+  %219 = and i32 %218, 15
+  %220 = icmp eq i32 %219, 0
+  br i1 %220, label %.preheader.i, label %.loopexit.i
+
+.preheader.i:                                     ; preds = %217
+  %.not161.i = icmp eq i16 %178, 0
+  br i1 %.not161.i, label %.loopexit.i, label %.lr.ph.preheader.i
+
+.lr.ph.preheader.i:                               ; preds = %.preheader.i
+  %221 = lshr exact i32 %218, 4
+  %umax.i = tail call i32 @llvm.umax.i32(i32 %221, i32 1)
+  br label %.lr.ph.i
+
+.lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
+  %.0160.i = phi i32 [ %226, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
+  %.0148159.i = phi i32 [ %225, %.lr.ph.i ], [ %179, %.lr.ph.preheader.i ]
+  %222 = load i32, ptr @hf_packetcable_cccV6_prov_srv_ipv6, align 4
+  %223 = add i32 %.0148159.i, 1
+  %224 = tail call ptr @proto_tree_add_item(ptr noundef %188, i32 noundef %222, ptr noundef %0, i32 noundef %223, i32 noundef 4, i32 noundef 0) #6
+  %225 = add i32 %.0148159.i, 16
+  %226 = add nuw nsw i32 %.0160.i, 1
+  %exitcond.not.i = icmp eq i32 %226, %umax.i
+  br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !10
+
+227:                                              ; preds = %209
+  %228 = zext i8 %212 to i32
+  %229 = zext i16 %178 to i32
+  %230 = icmp eq i16 %178, 1
+  %231 = select i1 %230, ptr @.str.884, ptr @.str.885
+  %232 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %186, ptr noundef nonnull @ei_dhcpv6_invalid_type, ptr noundef nonnull @.str.883, i32 noundef %228, i32 noundef %229, ptr noundef nonnull %231) #6
+  br label %.loopexit.i
+
+.loopexit.i:                                      ; preds = %.lr.ph.i, %227, %.preheader.i, %217, %213
+  %.pre-phi.i = phi i32 [ 0, %.preheader.i ], [ %229, %227 ], [ %218, %217 ], [ %.pre.i, %213 ], [ %218, %.lr.ph.i ]
+  %.1.i = phi i32 [ %179, %.preheader.i ], [ %179, %227 ], [ %179, %217 ], [ %179, %213 ], [ %225, %.lr.ph.i ]
+  %233 = add i32 %.1.i, %.pre-phi.i
+  br label %313
+
+234:                                              ; preds = %184
+  %235 = zext i16 %178 to i32
+  %236 = icmp eq i16 %178, 12
+  br i1 %236, label %237, label %246
+
+237:                                              ; preds = %234
+  %238 = load i32, ptr @hf_packetcable_cccV6_as_krb_nominal_timeout, align 4
+  %239 = tail call ptr @proto_tree_add_item(ptr noundef %188, i32 noundef %238, ptr noundef %0, i32 noundef %179, i32 noundef 4, i32 noundef 0) #6
+  %240 = load i32, ptr @hf_packetcable_cccV6_as_krb_max_timeout, align 4
+  %241 = add i32 %.5276, 8
+  %242 = tail call ptr @proto_tree_add_item(ptr noundef %188, i32 noundef %240, ptr noundef %0, i32 noundef %241, i32 noundef 4, i32 noundef 0) #6
+  %243 = load i32, ptr @hf_packetcable_cccV6_as_krb_max_retry_count, align 4
+  %244 = add i32 %.5276, 12
+  %245 = tail call ptr @proto_tree_add_item(ptr noundef %188, i32 noundef %243, ptr noundef %0, i32 noundef %244, i32 noundef 4, i32 noundef 0) #6
+  br label %247
+
+246:                                              ; preds = %234
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %186, ptr noundef nonnull @.str.869, i32 noundef %235) #6
+  br label %247
+
+247:                                              ; preds = %246, %237
+  %248 = add i32 %179, %235
+  br label %313
+
+249:                                              ; preds = %184
+  %250 = zext i16 %178 to i32
+  %251 = icmp eq i16 %178, 12
+  br i1 %251, label %252, label %261
+
+252:                                              ; preds = %249
+  %253 = load i32, ptr @hf_packetcable_cccV6_ap_krb_nominal_timeout, align 4
+  %254 = tail call ptr @proto_tree_add_item(ptr noundef %188, i32 noundef %253, ptr noundef %0, i32 noundef %179, i32 noundef 4, i32 noundef 0) #6
+  %255 = load i32, ptr @hf_packetcable_cccV6_ap_krb_max_timeout, align 4
+  %256 = add i32 %.5276, 8
+  %257 = tail call ptr @proto_tree_add_item(ptr noundef %188, i32 noundef %255, ptr noundef %0, i32 noundef %256, i32 noundef 4, i32 noundef 0) #6
+  %258 = load i32, ptr @hf_packetcable_cccV6_ap_krb_max_retry_count, align 4
+  %259 = add i32 %.5276, 12
+  %260 = tail call ptr @proto_tree_add_item(ptr noundef %188, i32 noundef %258, ptr noundef %0, i32 noundef %259, i32 noundef 4, i32 noundef 0) #6
+  br label %262
+
+261:                                              ; preds = %249
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %186, ptr noundef nonnull @.str.869, i32 noundef %250) #6
+  br label %262
+
+262:                                              ; preds = %261, %252
+  %263 = add i32 %179, %250
+  br label %313
+
+264:                                              ; preds = %184
+  %265 = zext i16 %178 to i32
+  %.not.i = icmp eq i16 %178, 0
+  br i1 %.not.i, label %268, label %266
+
+266:                                              ; preds = %264
+  %267 = load i32, ptr @hf_packetcable_cccV6_krb_realm, align 4
+  tail call fastcc void @dhcpv6_domain(ptr noundef %188, ptr noundef %1, i32 noundef %267, ptr noundef %0, i32 noundef %179, i16 noundef zeroext %178)
+  br label %268
+
+268:                                              ; preds = %266, %264
+  %269 = add i32 %179, %265
+  br label %313
+
+270:                                              ; preds = %184
+  %271 = zext i16 %178 to i32
+  %272 = icmp eq i16 %178, 1
+  br i1 %272, label %273, label %278
+
+273:                                              ; preds = %270
+  %274 = load i32, ptr @hf_packetcable_cccV6_tgt_flag, align 4
+  %275 = tail call ptr @proto_tree_add_item(ptr noundef %188, i32 noundef %274, ptr noundef %0, i32 noundef %179, i32 noundef 1, i32 noundef 0) #6
+  %276 = load i32, ptr @hf_packetcable_cccV6_tgt_flag_fetch, align 4
+  %277 = tail call ptr @proto_tree_add_item(ptr noundef %188, i32 noundef %276, ptr noundef %0, i32 noundef %179, i32 noundef 1, i32 noundef 0) #6
+  br label %280
+
+278:                                              ; preds = %270
+  %279 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %186, ptr noundef nonnull @ei_dhcpv6_bogus_length, ptr noundef nonnull @.str.869, i32 noundef %271) #6
+  br label %280
+
+280:                                              ; preds = %278, %273
+  %281 = add i32 %179, %271
+  br label %313
+
+282:                                              ; preds = %184
+  %283 = zext i16 %178 to i32
+  %284 = icmp eq i16 %178, 1
+  br i1 %284, label %285, label %292
+
+285:                                              ; preds = %282
+  %286 = load i32, ptr @hf_packetcable_cccV6_prov_timer, align 4
+  %287 = tail call ptr @proto_tree_add_item(ptr noundef %188, i32 noundef %286, ptr noundef %0, i32 noundef %179, i32 noundef 1, i32 noundef 0) #6
+  %288 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %179) #6
+  %289 = icmp ugt i8 %288, 30
+  br i1 %289, label %290, label %294
+
+290:                                              ; preds = %285
+  %291 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %287, ptr noundef nonnull @ei_dhcpv6_invalid_time_value) #6
+  br label %294
+
+292:                                              ; preds = %282
+  %293 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %186, ptr noundef nonnull @ei_dhcpv6_bogus_length, ptr noundef nonnull @.str.869, i32 noundef %283) #6
+  br label %294
+
+294:                                              ; preds = %292, %290, %285
+  %295 = add i32 %179, %283
+  br label %313
+
+296:                                              ; preds = %184
+  %297 = load i32, ptr @hf_packetcable_cccV6_sec_tcm, align 4
+  %298 = tail call ptr @proto_tree_add_item(ptr noundef %188, i32 noundef %297, ptr noundef %0, i32 noundef %179, i32 noundef 2, i32 noundef 0) #6
+  %299 = zext i16 %178 to i32
+  %300 = icmp eq i16 %178, 2
+  br i1 %300, label %301, label %306
+
+301:                                              ; preds = %296
+  %302 = load i32, ptr @hf_packetcable_cccV6_sec_tcm_provisioning_server, align 4
+  %303 = tail call ptr @proto_tree_add_item(ptr noundef %188, i32 noundef %302, ptr noundef %0, i32 noundef %179, i32 noundef 2, i32 noundef 0) #6
+  %304 = load i32, ptr @hf_packetcable_cccV6_sec_tcm_call_manager_server, align 4
+  %305 = tail call ptr @proto_tree_add_item(ptr noundef %188, i32 noundef %304, ptr noundef %0, i32 noundef %179, i32 noundef 2, i32 noundef 0) #6
+  br label %308
+
+306:                                              ; preds = %296
+  %307 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %186, ptr noundef nonnull @ei_dhcpv6_bogus_length, ptr noundef nonnull @.str.869, i32 noundef %299) #6
+  br label %308
+
+308:                                              ; preds = %306, %301
+  %309 = add i32 %179, %299
+  br label %313
+
+310:                                              ; preds = %184
+  %311 = zext i16 %178 to i32
+  %312 = add i32 %179, %311
+  br label %313
+
+313:                                              ; preds = %310, %308, %294, %280, %268, %262, %247, %.loopexit.i, %207, %197
+  %.2.i = phi i32 [ %312, %310 ], [ %309, %308 ], [ %295, %294 ], [ %281, %280 ], [ %269, %268 ], [ %263, %262 ], [ %248, %247 ], [ %233, %.loopexit.i ], [ %208, %207 ], [ %198, %197 ]
+  %314 = sub i32 %.2.i, %.5276
+  br label %dissect_packetcable_cccV6_option.exit
+
+dissect_packetcable_cccV6_option.exit:            ; preds = %181, %313
+  %.pre-phi306 = phi i32 [ %179, %181 ], [ %.2.i, %313 ]
+  %.0147.i = phi i32 [ 4, %181 ], [ %314, %313 ]
+  %315 = add i32 %.0147.i, %.2279
+  %316 = icmp slt i32 %315, %17
+  br i1 %316, label %.lr.ph, label %.loopexit, !llvm.loop !11
+
+317:                                              ; preds = %11
+  %.not = icmp eq i16 %16, 4
+  br i1 %.not, label %319, label %318
+
+318:                                              ; preds = %317
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %14, ptr noundef nonnull @.str.880, i32 noundef %17) #6
+  br label %.loopexit
+
+319:                                              ; preds = %317
+  %320 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %18) #6
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %14, ptr noundef nonnull @.str.881, i32 noundef %320) #6
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %dissect_packetcable_cccV6_option.exit, %dissect_packetcable_ccc_option.exit, %119, %68, %70, %.lr.ph291, %.preheader, %172, %133, %61, %11, %318, %319, %125, %127, %123, %92, %94, %95, %93, %56, %58, %45, %39, %31, %37, %34, %25, %26, %130, %88, %27
+  %.1 = phi ptr [ %.0295, %318 ], [ %.0295, %319 ], [ %.0295, %130 ], [ %.0295, %125 ], [ %.0295, %127 ], [ %.0295, %123 ], [ %.0295, %92 ], [ %.0295, %93 ], [ %.0295, %94 ], [ %.0295, %95 ], [ %.0295, %88 ], [ %.0295, %56 ], [ %.0295, %58 ], [ %.0295, %45 ], [ %.0295, %39 ], [ %.0295, %31 ], [ %.0295, %34 ], [ %.0295, %37 ], [ %.0295, %27 ], [ %21, %25 ], [ %21, %26 ], [ %.0295, %11 ], [ %.0295, %61 ], [ %.0295, %133 ], [ %.0295, %172 ], [ %.0295, %.preheader ], [ %.0295, %.lr.ph291 ], [ %.0295, %70 ], [ %.0295, %68 ], [ %.0295, %119 ], [ %.0295, %dissect_packetcable_ccc_option.exit ], [ %.0295, %dissect_packetcable_cccV6_option.exit ]
+  %321 = add i32 %18, %17
+  %322 = icmp slt i32 %321, %8
+  br i1 %322, label %11, label %.loopexit275, !llvm.loop !12
+
+323:                                              ; preds = %4
+  %324 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %7, ptr noundef nonnull @ei_dhcpv6_bogus_length, ptr noundef nonnull @.str.869, i32 noundef %8) #6
+  br label %.loopexit275
+
+.loopexit275:                                     ; preds = %.loopexit, %323
+  %325 = tail call i32 @tvb_reported_length(ptr noundef %0) #6
+  ret i32 %325
+}
+
+declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: nounwind uwtable
+define hidden void @proto_reg_handoff_dhcpv6() local_unnamed_addr #0 {
+  %1 = load ptr, ptr @dhcpv6_handle, align 8
+  tail call void @dissector_add_uint_range_with_preference(ptr noundef nonnull @.str.419, ptr noundef nonnull @.str.420, ptr noundef %1) #6
+  %2 = tail call ptr @find_dissector(ptr noundef nonnull @.str.407) #6
+  tail call void @dissector_add_uint_with_preference(ptr noundef nonnull @.str.421, i32 noundef 547, ptr noundef %2) #6
+  ret void
+}
+
+declare void @dissector_add_uint_range_with_preference(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare void @dissector_add_uint_with_preference(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+
+declare ptr @find_dissector(ptr noundef) local_unnamed_addr #1
+
+declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #1
+
+; Function Attrs: nofree nounwind
+declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+
+declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: nounwind uwtable
+define internal i32 @get_dhcpv6_bulk_leasequery_pdu_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
+  %5 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %2) #6
+  %6 = zext i16 %5 to i32
+  %7 = add nuw nsw i32 %6, 2
+  ret i32 %7
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @dissect_dhcpv6_bulk_leasequery_pdu(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+  %5 = alloca i32, align 4
+  %6 = alloca %struct.hopcount_info_t, align 8
+  store i32 0, ptr %5, align 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
+  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = load ptr, ptr %7, align 8
+  tail call void @col_set_str(ptr noundef %8, i32 noundef 34, ptr noundef nonnull @.str.763) #6
+  %9 = load ptr, ptr %7, align 8
+  tail call void @col_clear(ptr noundef %9, i32 noundef 25) #6
+  %10 = load i32, ptr @proto_dhcpv6_bulk_leasequery, align 4
+  %11 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
+  %12 = load i32, ptr @ett_dhcpv6_bulk_leasequery, align 4
+  %13 = tail call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #6
+  %14 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 0) #6
+  %15 = load i32, ptr @hf_dhcpv6_bulk_leasequery_size, align 4
+  %16 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %15, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0) #6
+  %17 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #6
+  %18 = load i32, ptr @hf_dhcpv6_bulk_leasequery_msgtype, align 4
+  %19 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %18, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #6
+  %20 = zext i8 %17 to i32
+  %21 = add i8 %17, -18
+  %or.cond8 = icmp ult i8 %21, -4
+  br i1 %or.cond8, label %22, label %24
+
+22:                                               ; preds = %4
+  %23 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %19, ptr noundef nonnull @ei_dhcpv6_bulk_leasequery_bad_msg_type, ptr noundef nonnull @.str.403, i32 noundef %20) #6
+  br label %24
+
+24:                                               ; preds = %22, %4
+  %25 = load i32, ptr @hf_dhcpv6_bulk_leasequery_reserved, align 4
+  %26 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %25, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #6
+  %27 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 4) #6
+  %28 = load i32, ptr @hf_dhcpv6_bulk_leasequery_trans_id, align 4
+  %29 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %28, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef 0) #6
+  %30 = load ptr, ptr %7, align 8
+  %31 = tail call ptr @val_to_str_ext_const(i32 noundef %20, ptr noundef nonnull @msgtype_vals_ext, ptr noundef nonnull @.str.765) #6
+  %32 = zext i16 %27 to i32
+  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %30, i32 noundef 25, ptr noundef nonnull @.str.764, ptr noundef %31, i32 noundef %32) #6
+  %33 = load i32, ptr @ett_dhcpv6_bulk_leasequery_options, align 4
+  %34 = tail call ptr @proto_tree_add_subtree(ptr noundef %13, ptr noundef %0, i32 noundef 6, i32 noundef -1, i32 noundef %33, ptr noundef null, ptr noundef nonnull @.str.766) #6
+  %35 = zext i16 %14 to i32
+  %36 = add nuw nsw i32 %35, 2
+  %37 = icmp ugt i16 %14, 4
+  br i1 %37, label %.lr.ph, label %._crit_edge
+
+.lr.ph:                                           ; preds = %24, %.lr.ph
+  %.061 = phi i32 [ %40, %.lr.ph ], [ 6, %24 ]
+  %38 = load i32, ptr @proto_dhcpv6_bulk_leasequery, align 4
+  %39 = call fastcc i32 @dhcpv6_option(ptr noundef %0, ptr noundef %1, ptr noundef %34, i32 noundef %.061, i32 noundef %36, ptr noundef nonnull %5, i32 noundef %38, ptr noundef nonnull byval(%struct.hopcount_info_t) align 8 %6, i8 noundef zeroext %17), !range !13
+  %40 = add nuw nsw i32 %39, %.061
+  %41 = icmp ult i32 %40, %36
+  %42 = load i32, ptr %5, align 4
+  %.not = icmp eq i32 %42, 0
+  %43 = select i1 %41, i1 %.not, i1 false
+  br i1 %43, label %.lr.ph, label %._crit_edge, !llvm.loop !14
+
+._crit_edge:                                      ; preds = %.lr.ph, %24
+  %44 = call i32 @tvb_reported_length(ptr noundef %0) #6
+  ret i32 %44
+}
+
+declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1
+
+declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+
+declare void @col_clear(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
+
+declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
+
+declare ptr @val_to_str_ext_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: nounwind uwtable
+define internal fastcc i32 @dhcpv6_option(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, ptr nocapture noundef byval(%struct.hopcount_info_t) align 8 %7, i8 noundef zeroext %8) unnamed_addr #0 {
+  %10 = alloca i8, align 1
+  %11 = alloca ptr, align 8
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca %struct.nstime_t, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca i32, align 4
+  %17 = alloca ptr, align 8
+  %18 = alloca i32, align 4
+  store i8 %8, ptr %10, align 1
+  store ptr null, ptr %11, align 8
+  %19 = sub i32 %4, %3
+  %20 = icmp slt i32 %19, 4
+  br i1 %20, label %21, label %22
+
+21:                                               ; preds = %9
+  store i32 1, ptr %5, align 4
+  br label %1073
+
+22:                                               ; preds = %9
+  %23 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %3) #6
+  %24 = add i32 %3, 2
+  %25 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %24) #6
+  %26 = zext i16 %25 to i32
+  %27 = add nuw nsw i32 %26, 4
+  %28 = icmp ult i32 %19, %27
+  br i1 %28, label %29, label %30
+
+29:                                               ; preds = %22
+  store i32 1, ptr %5, align 4
+  br label %1073
+
+30:                                               ; preds = %22
+  %31 = load i32, ptr @hf_option_type_str, align 4
+  %32 = zext i16 %23 to i32
+  %33 = tail call ptr @val_to_str_ext(i32 noundef %32, ptr noundef nonnull @opttype_vals_ext, ptr noundef nonnull @.str.767) #6
+  %34 = tail call ptr @val_to_str_ext(i32 noundef %32, ptr noundef nonnull @opttype_vals_ext, ptr noundef nonnull @.str.767) #6
+  %35 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %2, i32 noundef %31, ptr noundef %0, i32 noundef %3, i32 noundef %27, ptr noundef %33, ptr noundef nonnull @.str.768, ptr noundef %34) #6
+  %36 = load i32, ptr @ett_dhcpv6_option, align 4
+  %37 = tail call ptr @proto_item_add_subtree(ptr noundef %35, i32 noundef %36) #6
+  %38 = load i32, ptr @hf_option_type_num, align 4
+  %39 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %38, ptr noundef %0, i32 noundef %3, i32 noundef 2, i32 noundef 0) #6
+  %40 = load i32, ptr @hf_option_length, align 4
+  %41 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %40, ptr noundef %0, i32 noundef %24, i32 noundef 2, i32 noundef 0) #6
+  %42 = add i32 %3, 4
+  tail call void @increment_dissection_depth(ptr noundef %1) #6
+  switch i16 %23, label %proto_item_set_url.exit [
+    i16 1, label %45
+    i16 2, label %52
+    i16 53, label %52
+    i16 15, label %.preheader
+    i16 56, label %150
+    i16 89, label %191
+    i16 90, label %235
+    i16 91, label %241
+    i16 92, label %257
+    i16 93, label %286
+    i16 94, label %313
+    i16 95, label %313
+    i16 96, label %313
+    i16 3, label %322
+    i16 25, label %322
+    i16 4, label %362
+    i16 5, label %380
+    i16 6, label %418
+    i16 43, label %418
+    i16 7, label %424
+    i16 8, label %430
+    i16 9, label %439
+    i16 11, label %445
+    i16 12, label %486
+    i16 13, label %492
+    i16 16, label %501
+    i16 17, label %513
+    i16 18, label %544
+    i16 19, label %571
+    i16 20, label %577
+    i16 21, label %580
+    i16 22, label %585
+    i16 23, label %594
+    i16 24, label %605
+    i16 27, label %610
+    i16 28, label %619
+    i16 29, label %628
+    i16 30, label %633
+    i16 31, label %638
+    i16 32, label %649
+    i16 33, label %655
+    i16 34, label %660
+    i16 37, label %669
+    i16 38, label %680
+    i16 39, label %687
+    i16 40, label %737
+    i16 41, label %746
+    i16 42, label %750
+    i16 112, label %754
+    i16 44, label %758
+    i16 45, label %.preheader1350
+    i16 46, label %790
+    i16 47, label %796
+    i16 48, label %807
+    i16 52, label %816
+    i16 64, label %825
+    i16 26, label %827
+    i16 165, label %863
+    i16 166, label %869
+    i16 167, label %875
+    i16 67, label %883
+    i16 103, label %894
+    i16 111, label %.preheader1357
+    i16 114, label %909
+    i16 115, label %915
+    i16 117, label %922
+    i16 118, label %932
+    i16 119, label %942
+    i16 120, label %949
+    i16 121, label %955
+    i16 122, label %961
+    i16 123, label %967
+    i16 124, label %973
+    i16 125, label %979
+    i16 126, label %985
+    i16 127, label %991
+    i16 128, label %1000
+    i16 129, label %1006
+    i16 130, label %1017
+    i16 131, label %1020
+    i16 132, label %1027
+    i16 133, label %1033
+    i16 134, label %1039
+    i16 135, label %1045
+    i16 79, label %1051
+  ]
+
+.preheader1357:                                   ; preds = %30
+  %43 = icmp ugt i16 %25, 1
+  br i1 %43, label %.lr.ph, label %proto_item_set_url.exit
+
+.preheader1350:                                   ; preds = %30
+  %.not1410 = icmp eq i16 %25, 0
+  br i1 %.not1410, label %proto_item_set_url.exit, label %.lr.ph1368
+
+.lr.ph1368:                                       ; preds = %.preheader1350
+  %44 = add i32 %42, %26
+  br label %783
+
+.preheader:                                       ; preds = %30
+  %.not1425 = icmp eq i16 %25, 0
+  br i1 %.not1425, label %proto_item_set_url.exit, label %.lr.ph1406
+
+45:                                               ; preds = %30
+  %.not1307 = icmp eq i16 %25, 0
+  br i1 %.not1307, label %.thread, label %46
+
+46:                                               ; preds = %45
+  %47 = getelementptr inbounds i8, ptr %1, i64 8
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds i8, ptr %1, i64 408
+  %50 = load ptr, ptr %49, align 8
+  %51 = tail call ptr @tvb_bytes_to_str(ptr noundef %50, ptr noundef %0, i32 noundef %42, i32 noundef %26) #6
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %48, i32 noundef 25, ptr noundef nonnull @.str.769, ptr noundef %51) #6
+  br label %52
+
+52:                                               ; preds = %46, %30, %30
+  %53 = icmp ult i16 %25, 2
+  br i1 %53, label %.thread, label %55
+
+.thread:                                          ; preds = %45, %52
+  %54 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %35, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.770) #6
+  br label %proto_item_set_url.exit
+
+55:                                               ; preds = %52
+  %56 = load i32, ptr @hf_duid_bytes, align 4
+  %57 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %56, ptr noundef %0, i32 noundef %42, i32 noundef %26, i32 noundef 0) #6
+  %58 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %42) #6
+  %59 = load i32, ptr @hf_duid_type, align 4
+  %60 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %59, ptr noundef %0, i32 noundef %42, i32 noundef 2, i32 noundef 0) #6
+  switch i16 %58, label %proto_item_set_url.exit [
+    i16 1, label %61
+    i16 2, label %90
+    i16 3, label %103
+    i16 4, label %125
+  ]
+
+61:                                               ; preds = %55
+  %62 = icmp ult i16 %25, 8
+  br i1 %62, label %63, label %65
+
+63:                                               ; preds = %61
+  %64 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %35, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.770) #6
+  br label %proto_item_set_url.exit
+
+65:                                               ; preds = %61
+  %66 = load i32, ptr @hf_duidllt_hwtype, align 4
+  %67 = add i32 %3, 6
+  %68 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %66, ptr noundef %0, i32 noundef %67, i32 noundef 2, i32 noundef 0) #6
+  %69 = add i32 %3, 8
+  %70 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %69) #6
+  %71 = add i32 %70, 946684800
+  %72 = zext i32 %71 to i64
+  store i64 %72, ptr %14, align 8
+  %73 = getelementptr inbounds i8, ptr %14, i64 8
+  store i32 0, ptr %73, align 8
+  %74 = load i32, ptr @hf_duidllt_time, align 4
+  %75 = call ptr @proto_tree_add_time(ptr noundef %37, i32 noundef %74, ptr noundef %0, i32 noundef %69, i32 noundef 4, ptr noundef nonnull %14) #6
+  %.not1311 = icmp eq i16 %25, 8
+  br i1 %.not1311, label %proto_item_set_url.exit, label %76
+
+76:                                               ; preds = %65
+  %77 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %67) #6
+  %78 = load i32, ptr @hf_duidllt_link_layer_addr, align 4
+  %79 = add i32 %3, 12
+  %80 = add nsw i32 %26, -8
+  %81 = getelementptr inbounds i8, ptr %1, i64 408
+  %82 = load ptr, ptr %81, align 8
+  %83 = call ptr @tvb_arphrdaddr_to_str(ptr noundef %82, ptr noundef %0, i32 noundef %79, i32 noundef %80, i16 noundef zeroext %77) #6
+  %84 = call ptr @proto_tree_add_string(ptr noundef %37, i32 noundef %78, ptr noundef %0, i32 noundef %79, i32 noundef %80, ptr noundef %83) #6
+  switch i16 %77, label %proto_item_set_url.exit [
+    i16 6, label %85
+    i16 1, label %85
+  ]
+
+85:                                               ; preds = %76, %76
+  %86 = icmp eq i32 %80, 6
+  br i1 %86, label %87, label %proto_item_set_url.exit
+
+87:                                               ; preds = %85
+  %88 = load i32, ptr @hf_duidllt_link_layer_addr_ether, align 4
+  %89 = call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %88, ptr noundef %0, i32 noundef %79, i32 noundef 6, i32 noundef 0) #6
+  br label %proto_item_set_url.exit
+
+90:                                               ; preds = %55
+  %91 = icmp ult i16 %25, 6
+  br i1 %91, label %92, label %94
+
+92:                                               ; preds = %90
+  %93 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %35, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.770) #6
+  br label %proto_item_set_url.exit
+
+94:                                               ; preds = %90
+  %95 = load i32, ptr @hf_duiden_enterprise, align 4
+  %96 = add i32 %3, 6
+  %97 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %95, ptr noundef %0, i32 noundef %96, i32 noundef 4, i32 noundef 0) #6
+  %.not1310 = icmp eq i16 %25, 6
+  br i1 %.not1310, label %proto_item_set_url.exit, label %98
+
+98:                                               ; preds = %94
+  %99 = load i32, ptr @hf_duiden_identifier, align 4
+  %100 = add i32 %3, 10
+  %101 = add nsw i32 %26, -6
+  %102 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %99, ptr noundef %0, i32 noundef %100, i32 noundef %101, i32 noundef 0) #6
+  br label %proto_item_set_url.exit
+
+103:                                              ; preds = %55
+  %104 = icmp ult i16 %25, 4
+  br i1 %104, label %105, label %107
+
+105:                                              ; preds = %103
+  %106 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %35, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.770) #6
+  br label %proto_item_set_url.exit
+
+107:                                              ; preds = %103
+  %108 = load i32, ptr @hf_duidll_hwtype, align 4
+  %109 = add i32 %3, 6
+  %110 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %108, ptr noundef %0, i32 noundef %109, i32 noundef 2, i32 noundef 0) #6
+  %.not1309 = icmp eq i16 %25, 4
+  br i1 %.not1309, label %proto_item_set_url.exit, label %111
+
+111:                                              ; preds = %107
+  %112 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %109) #6
+  %113 = load i32, ptr @hf_duidll_link_layer_addr, align 4
+  %114 = add i32 %3, 8
+  %115 = add nsw i32 %26, -4
+  %116 = getelementptr inbounds i8, ptr %1, i64 408
+  %117 = load ptr, ptr %116, align 8
+  %118 = tail call ptr @tvb_arphrdaddr_to_str(ptr noundef %117, ptr noundef %0, i32 noundef %114, i32 noundef %115, i16 noundef zeroext %112) #6
+  %119 = tail call ptr @proto_tree_add_string(ptr noundef %37, i32 noundef %113, ptr noundef %0, i32 noundef %114, i32 noundef %115, ptr noundef %118) #6
+  switch i16 %112, label %proto_item_set_url.exit [
+    i16 6, label %120
+    i16 1, label %120
+  ]
+
+120:                                              ; preds = %111, %111
+  %121 = icmp eq i32 %115, 6
+  br i1 %121, label %122, label %proto_item_set_url.exit
+
+122:                                              ; preds = %120
+  %123 = load i32, ptr @hf_duidll_link_layer_addr_ether, align 4
+  %124 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %123, ptr noundef %0, i32 noundef %114, i32 noundef 6, i32 noundef 0) #6
+  br label %proto_item_set_url.exit
+
+125:                                              ; preds = %55
+  %.not1308 = icmp eq i16 %25, 18
+  br i1 %.not1308, label %128, label %126
+
+126:                                              ; preds = %125
+  %127 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %35, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.770) #6
+  br label %proto_item_set_url.exit
+
+128:                                              ; preds = %125
+  %129 = load i32, ptr @hf_duiduuid_bytes, align 4
+  %130 = add i32 %3, 6
+  %131 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %129, ptr noundef %0, i32 noundef %130, i32 noundef 16, i32 noundef 0) #6
+  br label %proto_item_set_url.exit
+
+.lr.ph1406:                                       ; preds = %.preheader, %139
+  %.011971405 = phi i32 [ %148, %139 ], [ 0, %.preheader ]
+  %132 = add i32 %.011971405, %42
+  %133 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %132) #6
+  %134 = zext i16 %133 to i32
+  %135 = sub nsw i32 %26, %.011971405
+  %136 = icmp slt i32 %135, %134
+  br i1 %136, label %137, label %139
+
+137:                                              ; preds = %.lr.ph1406
+  %138 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %35, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.771) #6
+  br label %proto_item_set_url.exit
+
+139:                                              ; preds = %.lr.ph1406
+  %140 = load i32, ptr @ett_dhcpv6_userclass_option, align 4
+  %141 = call ptr @proto_tree_add_subtree(ptr noundef %37, ptr noundef %0, i32 noundef %132, i32 noundef %134, i32 noundef %140, ptr noundef nonnull %11, ptr noundef nonnull @.str.772) #6
+  %142 = load i32, ptr @hf_option_userclass_length, align 4
+  %143 = call ptr @proto_tree_add_item(ptr noundef %141, i32 noundef %142, ptr noundef %0, i32 noundef %132, i32 noundef 2, i32 noundef 0) #6
+  %144 = load i32, ptr @hf_option_userclass_opaque_data, align 4
+  %145 = add i32 %132, 2
+  %146 = call ptr @proto_tree_add_item(ptr noundef %141, i32 noundef %144, ptr noundef %0, i32 noundef %145, i32 noundef %134, i32 noundef 0) #6
+  %147 = add nuw i32 %.011971405, 2
+  %148 = add nuw i32 %147, %134
+  %149 = icmp ult i32 %148, %26
+  br i1 %149, label %.lr.ph1406, label %proto_item_set_url.exit, !llvm.loop !15
+
+150:                                              ; preds = %30
+  %151 = icmp ult i16 %25, 4
+  br i1 %151, label %153, label %.preheader1325
+
+.preheader1325:                                   ; preds = %150
+  %152 = add i32 %3, 6
+  br label %155
+
+153:                                              ; preds = %150
+  %154 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %35, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.773) #6
+  br label %proto_item_set_url.exit
+
+155:                                              ; preds = %.preheader1325, %188
+  %.11404 = phi i32 [ 0, %.preheader1325 ], [ %189, %188 ]
+  %156 = add i32 %.11404, %42
+  %157 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %156) #6
+  %158 = add i32 %152, %.11404
+  %159 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %158) #6
+  %160 = zext i16 %159 to i32
+  %161 = sub nsw i32 %26, %.11404
+  %162 = icmp slt i32 %161, %160
+  br i1 %162, label %163, label %165
+
+163:                                              ; preds = %155
+  %164 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %35, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.774) #6
+  br label %proto_item_set_url.exit
+
+165:                                              ; preds = %155
+  %166 = add nuw nsw i32 %160, 4
+  %167 = load i32, ptr @ett_dhcpv6_netserver_option, align 4
+  %168 = zext i16 %157 to i32
+  %169 = call ptr @val_to_str(i32 noundef %168, ptr noundef nonnull @ntp_server_opttype_vals, ptr noundef nonnull @.str.775) #6
+  %170 = call ptr @proto_tree_add_subtree(ptr noundef %37, ptr noundef %0, i32 noundef %156, i32 noundef %166, i32 noundef %167, ptr noundef nonnull %11, ptr noundef %169) #6
+  %171 = load i32, ptr @hf_option_ntpserver_type, align 4
+  %172 = call ptr @proto_tree_add_item(ptr noundef %170, i32 noundef %171, ptr noundef %0, i32 noundef %156, i32 noundef 2, i32 noundef 0) #6
+  %173 = load i32, ptr @hf_option_ntpserver_length, align 4
+  %174 = add i32 %156, 2
+  %175 = call ptr @proto_tree_add_item(ptr noundef %170, i32 noundef %173, ptr noundef %0, i32 noundef %174, i32 noundef 2, i32 noundef 0) #6
+  %176 = add nuw nsw i32 %.11404, 4
+  switch i16 %157, label %188 [
+    i16 1, label %177
+    i16 2, label %181
+    i16 3, label %185
+  ]
+
+177:                                              ; preds = %165
+  %178 = load i32, ptr @hf_option_ntpserver_addr, align 4
+  %179 = add i32 %176, %42
+  %180 = call ptr @proto_tree_add_item(ptr noundef %170, i32 noundef %178, ptr noundef %0, i32 noundef %179, i32 noundef 16, i32 noundef 0) #6
+  br label %188
+
+181:                                              ; preds = %165
+  %182 = load i32, ptr @hf_option_ntpserver_mc_addr, align 4
+  %183 = add i32 %176, %42
+  %184 = call ptr @proto_tree_add_item(ptr noundef %170, i32 noundef %182, ptr noundef %0, i32 noundef %183, i32 noundef 16, i32 noundef 0) #6
+  br label %188
+
+185:                                              ; preds = %165
+  %186 = load i32, ptr @hf_option_ntpserver_fqdn, align 4
+  %187 = add i32 %176, %42
+  call fastcc void @dhcpv6_domain(ptr noundef %170, ptr noundef %1, i32 noundef %186, ptr noundef %0, i32 noundef %187, i16 noundef zeroext %159)
+  br label %188
+
+188:                                              ; preds = %185, %181, %177, %165
+  %189 = add nuw nsw i32 %176, %160
+  %190 = icmp slt i32 %189, %26
+  br i1 %190, label %155, label %proto_item_set_url.exit, !llvm.loop !16
+
+191:                                              ; preds = %30
+  %192 = icmp ult i16 %25, 8
+  br i1 %192, label %193, label %195
+
+193:                                              ; preds = %191
+  %194 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %35, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.776) #6
+  br label %proto_item_set_url.exit
+
+195:                                              ; preds = %191
+  %196 = load i32, ptr @hf_option_s46_rule_flags, align 4
+  %197 = load i32, ptr @ett_dhcpv6_s46_rule_flags, align 4
+  %198 = tail call ptr @proto_tree_add_bitmask(ptr noundef %37, ptr noundef %0, i32 noundef %42, i32 noundef %196, i32 noundef %197, ptr noundef nonnull @dhcpv6_s46_rule_flags_fields, i32 noundef 0) #6
+  %199 = load i32, ptr @hf_option_s46_rule_ea_len, align 4
+  %200 = add i32 %3, 5
+  %201 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %199, ptr noundef %0, i32 noundef %200, i32 noundef 1, i32 noundef 0) #6
+  %202 = load i32, ptr @hf_option_s46_rule_ipv4_pref_len, align 4
+  %203 = add i32 %3, 6
+  %204 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %202, ptr noundef %0, i32 noundef %203, i32 noundef 1, i32 noundef 0) #6
+  %205 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %203) #6
+  %206 = icmp ugt i8 %205, 32
+  br i1 %206, label %207, label %209
+
+207:                                              ; preds = %195
+  %208 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %35, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.776) #6
+  br label %proto_item_set_url.exit
+
+209:                                              ; preds = %195
+  %210 = load i32, ptr @hf_option_s46_rule_ipv4_prefix, align 4
+  %211 = add i32 %3, 7
+  %212 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %210, ptr noundef %0, i32 noundef %211, i32 noundef 4, i32 noundef 0) #6
+  %213 = load i32, ptr @hf_option_s46_rule_ipv6_pref_len, align 4
+  %214 = add i32 %3, 11
+  %215 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %213, ptr noundef %0, i32 noundef %214, i32 noundef 1, i32 noundef 0) #6
+  %216 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %214) #6
+  %217 = icmp ugt i8 %216, -128
+  br i1 %217, label %218, label %220
+
+218:                                              ; preds = %209
+  %219 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %35, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.776) #6
+  br label %proto_item_set_url.exit
+
+220:                                              ; preds = %209
+  %221 = zext i8 %216 to i32
+  %222 = load i32, ptr @hf_option_s46_rule_ipv6_prefix, align 4
+  %223 = add i32 %3, 12
+  %224 = tail call fastcc i32 @dissect_dhcpv6_s46_ipv6_prefix(ptr noundef %0, i32 noundef %222, i32 noundef %223, i32 noundef %221, ptr noundef %37), !range !17
+  %225 = add nuw nsw i32 %224, 8
+  %226 = icmp ult i32 %225, %26
+  br i1 %226, label %.lr.ph1403, label %proto_item_set_url.exit
+
+.lr.ph1403:                                       ; preds = %220
+  %227 = add i32 %42, %26
+  br label %228
+
+228:                                              ; preds = %.lr.ph1403, %228
+  %.21402 = phi i32 [ %225, %.lr.ph1403 ], [ %spec.select, %228 ]
+  %229 = add i32 %.21402, %42
+  %230 = tail call fastcc i32 @dhcpv6_option(ptr noundef %0, ptr noundef %1, ptr noundef %37, i32 noundef %229, i32 noundef %227, ptr noundef %5, i32 noundef %6, ptr noundef nonnull byval(%struct.hopcount_info_t) align 8 %7, i8 noundef zeroext %8), !range !13
+  %231 = add i32 %230, %.21402
+  %232 = load i32, ptr %5, align 4
+  %.not1306 = icmp eq i32 %232, 0
+  %spec.select = select i1 %.not1306, i32 %231, i32 %26
+  %233 = sub i32 %26, %spec.select
+  %234 = icmp sgt i32 %233, 0
+  br i1 %234, label %228, label %proto_item_set_url.exit, !llvm.loop !18
+
+235:                                              ; preds = %30
+  %.not1305 = icmp eq i16 %25, 16
+  br i1 %.not1305, label %238, label %236
+
+236:                                              ; preds = %235
+  %237 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %35, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.777) #6
+  br label %proto_item_set_url.exit
+
+238:                                              ; preds = %235
+  %239 = load i32, ptr @hf_option_s46_br_address, align 4
+  %240 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %239, ptr noundef %0, i32 noundef %42, i32 noundef 16, i32 noundef 0) #6
+  br label %proto_item_set_url.exit
+
+241:                                              ; preds = %30
+  %242 = add i16 %25, -18
+  %or.cond7 = icmp ult i16 %242, -17
+  br i1 %or.cond7, label %243, label %245
+
+243:                                              ; preds = %241
+  %244 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %35, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.778) #6
+  br label %proto_item_set_url.exit
+
+245:                                              ; preds = %241
+  %246 = load i32, ptr @hf_option_s46_dmr_pref_len, align 4
+  %247 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %246, ptr noundef %0, i32 noundef %42, i32 noundef 1, i32 noundef 0) #6
+  %248 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %42) #6
+  %249 = icmp ugt i8 %248, -128
+  br i1 %249, label %250, label %252
+
+250:                                              ; preds = %245
+  %251 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %35, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.778) #6
+  br label %proto_item_set_url.exit
+
+252:                                              ; preds = %245
+  %253 = zext i8 %248 to i32
+  %254 = load i32, ptr @hf_option_s46_dmr_prefix, align 4
+  %255 = add i32 %3, 5
+  %256 = tail call fastcc i32 @dissect_dhcpv6_s46_ipv6_prefix(ptr noundef %0, i32 noundef %254, i32 noundef %255, i32 noundef %253, ptr noundef %37), !range !17
+  br label %proto_item_set_url.exit
+
+257:                                              ; preds = %30
+  %258 = icmp ult i16 %25, 5
+  br i1 %258, label %259, label %261
+
+259:                                              ; preds = %257
+  %260 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %35, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.779) #6
+  br label %proto_item_set_url.exit
+
+261:                                              ; preds = %257
+  %262 = load i32, ptr @hf_option_s46_v4v6bind_ipv4_address, align 4
+  %263 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %262, ptr noundef %0, i32 noundef %42, i32 noundef 4, i32 noundef 0) #6
+  %264 = load i32, ptr @hf_option_s46_v4v6bind_ipv6_pref_len, align 4
+  %265 = add i32 %3, 8
+  %266 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %264, ptr noundef %0, i32 noundef %265, i32 noundef 1, i32 noundef 0) #6
+  %267 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %265) #6
+  %268 = icmp ugt i8 %267, -128
+  br i1 %268, label %269, label %271
+
+269:                                              ; preds = %261
+  %270 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %35, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.779) #6
+  br label %proto_item_set_url.exit
+
+271:                                              ; preds = %261
+  %272 = zext i8 %267 to i32
+  %273 = load i32, ptr @hf_option_s46_v4v6bind_ipv6_prefix, align 4
+  %274 = add i32 %3, 9
+  %275 = tail call fastcc i32 @dissect_dhcpv6_s46_ipv6_prefix(ptr noundef %0, i32 noundef %273, i32 noundef %274, i32 noundef %272, ptr noundef %37), !range !17
+  %276 = add nuw nsw i32 %275, 5
+  %277 = icmp ult i32 %276, %26
+  br i1 %277, label %.lr.ph1401, label %proto_item_set_url.exit
+
+.lr.ph1401:                                       ; preds = %271
+  %278 = add i32 %42, %26
+  br label %279
+
+279:                                              ; preds = %.lr.ph1401, %279
+  %.41400 = phi i32 [ %276, %.lr.ph1401 ], [ %spec.select1312, %279 ]
+  %280 = add i32 %.41400, %42
+  %281 = tail call fastcc i32 @dhcpv6_option(ptr noundef %0, ptr noundef %1, ptr noundef %37, i32 noundef %280, i32 noundef %278, ptr noundef %5, i32 noundef %6, ptr noundef nonnull byval(%struct.hopcount_info_t) align 8 %7, i8 noundef zeroext %8), !range !13
+  %282 = add i32 %281, %.41400
+  %283 = load i32, ptr %5, align 4
+  %.not1304 = icmp eq i32 %283, 0
+  %spec.select1312 = select i1 %.not1304, i32 %282, i32 %26
+  %284 = sub i32 %26, %spec.select1312
+  %285 = icmp sgt i32 %284, 0
+  br i1 %285, label %279, label %proto_item_set_url.exit, !llvm.loop !19
+
+286:                                              ; preds = %30
+  %.not1303 = icmp eq i16 %25, 4
+  br i1 %.not1303, label %289, label %287
+
+287:                                              ; preds = %286
+  %288 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %35, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.780) #6
+  br label %proto_item_set_url.exit
+
+289:                                              ; preds = %286
+  %290 = load i32, ptr @hf_option_s46_portparam_offset, align 4
+  %291 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %290, ptr noundef %0, i32 noundef %42, i32 noundef 1, i32 noundef 0) #6
+  %292 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %42) #6
+  %293 = icmp ugt i8 %292, 15
+  br i1 %293, label %294, label %296
+
+294:                                              ; preds = %289
+  %295 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %35, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.780) #6
+  br label %proto_item_set_url.exit
+
+296:                                              ; preds = %289
+  %297 = load i32, ptr @hf_option_s46_portparam_psid_len, align 4
+  %298 = add i32 %3, 5
+  %299 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %297, ptr noundef %0, i32 noundef %298, i32 noundef 1, i32 noundef 0) #6
+  %300 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %298) #6
+  %301 = icmp ugt i8 %300, 16
+  br i1 %301, label %302, label %304
+
+302:                                              ; preds = %296
+  %303 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %35, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.780) #6
+  br label %proto_item_set_url.exit
+
+304:                                              ; preds = %296
+  %305 = zext nneg i8 %300 to i32
+  %306 = add i32 %3, 6
+  %307 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %306) #6
+  %308 = load i32, ptr @hf_option_s46_portparam_psid, align 4
+  %309 = zext i16 %307 to i32
+  %310 = sub nuw nsw i32 16, %305
+  %311 = lshr i32 %309, %310
+  %312 = tail call ptr @proto_tree_add_uint(ptr noundef %37, i32 noundef %308, ptr noundef %0, i32 noundef %306, i32 noundef 2, i32 noundef %311) #6
+  br label %proto_item_set_url.exit
+
+313:                                              ; preds = %30, %30, %30
+  %.not1424 = icmp eq i16 %25, 0
+  br i1 %.not1424, label %proto_item_set_url.exit, label %.lr.ph1399
+
+.lr.ph1399:                                       ; preds = %313
+  %314 = add i32 %42, %26
+  br label %315
+
+315:                                              ; preds = %.lr.ph1399, %315
+  %.61398 = phi i32 [ 0, %.lr.ph1399 ], [ %spec.select1313, %315 ]
+  %316 = add i32 %.61398, %42
+  %317 = tail call fastcc i32 @dhcpv6_option(ptr noundef %0, ptr noundef %1, ptr noundef %37, i32 noundef %316, i32 noundef %314, ptr noundef %5, i32 noundef %6, ptr noundef nonnull byval(%struct.hopcount_info_t) align 8 %7, i8 noundef zeroext %8), !range !13
+  %318 = add i32 %317, %.61398
+  %319 = load i32, ptr %5, align 4
+  %.not1302 = icmp eq i32 %319, 0
+  %spec.select1313 = select i1 %.not1302, i32 %318, i32 %26
+  %320 = sub i32 %26, %spec.select1313
+  %321 = icmp sgt i32 %320, 0
+  br i1 %321, label %315, label %proto_item_set_url.exit, !llvm.loop !20
+
+322:                                              ; preds = %30, %30
+  %323 = icmp ult i16 %25, 12
+  br i1 %323, label %324, label %330
+
+324:                                              ; preds = %322
+  %325 = icmp eq i16 %23, 3
+  br i1 %325, label %326, label %328
+
+326:                                              ; preds = %324
+  %327 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %35, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.781) #6
+  br label %proto_item_set_url.exit
+
+328:                                              ; preds = %324
+  %329 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %35, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.782) #6
+  br label %proto_item_set_url.exit
+
+330:                                              ; preds = %322
+  %331 = load i32, ptr @hf_iaid, align 4
+  %332 = getelementptr inbounds i8, ptr %1, i64 408
+  %333 = load ptr, ptr %332, align 8
+  %334 = tail call ptr @tvb_arphrdaddr_to_str(ptr noundef %333, ptr noundef %0, i32 noundef %42, i32 noundef 4, i16 noundef zeroext %23) #6
+  %335 = tail call ptr @proto_tree_add_string(ptr noundef %37, i32 noundef %331, ptr noundef %0, i32 noundef %42, i32 noundef 4, ptr noundef %334) #6
+  %336 = add i32 %3, 8
+  %337 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %336) #6
+  %338 = icmp eq i32 %337, -1
+  %339 = load i32, ptr @hf_iaid_t1, align 4
+  br i1 %338, label %340, label %342
+
+340:                                              ; preds = %330
+  %341 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %37, i32 noundef %339, ptr noundef %0, i32 noundef %336, i32 noundef 4, i32 noundef -1, ptr noundef nonnull @.str.783) #6
+  br label %344
+
+342:                                              ; preds = %330
+  %343 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %339, ptr noundef %0, i32 noundef %336, i32 noundef 4, i32 noundef 0) #6
+  br label %344
+
+344:                                              ; preds = %342, %340
+  %345 = add i32 %3, 12
+  %346 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %345) #6
+  %347 = icmp eq i32 %346, -1
+  %348 = load i32, ptr @hf_iaid_t2, align 4
+  br i1 %347, label %349, label %351
+
+349:                                              ; preds = %344
+  %350 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %37, i32 noundef %348, ptr noundef %0, i32 noundef %345, i32 noundef 4, i32 noundef -1, ptr noundef nonnull @.str.783) #6
+  br label %353
+
+351:                                              ; preds = %344
+  %352 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %348, ptr noundef %0, i32 noundef %345, i32 noundef 4, i32 noundef 0) #6
+  br label %353
+
+353:                                              ; preds = %351, %349
+  %.not1423 = icmp eq i16 %25, 12
+  br i1 %.not1423, label %proto_item_set_url.exit, label %.lr.ph1397
+
+.lr.ph1397:                                       ; preds = %353
+  %354 = add i32 %42, %26
+  br label %355
+
+355:                                              ; preds = %.lr.ph1397, %355
+  %.81396 = phi i32 [ 12, %.lr.ph1397 ], [ %spec.select1314, %355 ]
+  %356 = add i32 %.81396, %42
+  %357 = tail call fastcc i32 @dhcpv6_option(ptr noundef %0, ptr noundef %1, ptr noundef %37, i32 noundef %356, i32 noundef %354, ptr noundef %5, i32 noundef %6, ptr noundef nonnull byval(%struct.hopcount_info_t) align 8 %7, i8 noundef zeroext %8), !range !13
+  %358 = add i32 %357, %.81396
+  %359 = load i32, ptr %5, align 4
+  %.not1301 = icmp eq i32 %359, 0
+  %spec.select1314 = select i1 %.not1301, i32 %358, i32 %26
+  %360 = sub i32 %26, %spec.select1314
+  %361 = icmp sgt i32 %360, 0
+  br i1 %361, label %355, label %proto_item_set_url.exit, !llvm.loop !21
+
+362:                                              ; preds = %30
+  %363 = icmp ult i16 %25, 4
+  br i1 %363, label %364, label %366
+
+364:                                              ; preds = %362
+  %365 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %35, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.784) #6
+  br label %proto_item_set_url.exit
+
+366:                                              ; preds = %362
+  %367 = load i32, ptr @hf_iata, align 4
+  %368 = getelementptr inbounds i8, ptr %1, i64 408
+  %369 = load ptr, ptr %368, align 8
+  %370 = tail call ptr @tvb_arphrdaddr_to_str(ptr noundef %369, ptr noundef %0, i32 noundef %42, i32 noundef 4, i16 noundef zeroext 4) #6
+  %371 = tail call ptr @proto_tree_add_string(ptr noundef %37, i32 noundef %367, ptr noundef %0, i32 noundef %42, i32 noundef 4, ptr noundef %370) #6
+  %.not1422 = icmp eq i16 %25, 4
+  br i1 %.not1422, label %proto_item_set_url.exit, label %.lr.ph1395
+
+.lr.ph1395:                                       ; preds = %366
+  %372 = add i32 %42, %26
+  br label %373
+
+373:                                              ; preds = %.lr.ph1395, %373
+  %.101394 = phi i32 [ 4, %.lr.ph1395 ], [ %spec.select1315, %373 ]
+  %374 = add i32 %.101394, %42
+  %375 = tail call fastcc i32 @dhcpv6_option(ptr noundef %0, ptr noundef %1, ptr noundef %37, i32 noundef %374, i32 noundef %372, ptr noundef %5, i32 noundef %6, ptr noundef nonnull byval(%struct.hopcount_info_t) align 8 %7, i8 noundef zeroext %8), !range !13
+  %376 = add i32 %375, %.101394
+  %377 = load i32, ptr %5, align 4
+  %.not1300 = icmp eq i32 %377, 0
+  %spec.select1315 = select i1 %.not1300, i32 %376, i32 %26
+  %378 = sub i32 %26, %spec.select1315
+  %379 = icmp sgt i32 %378, 0
+  br i1 %379, label %373, label %proto_item_set_url.exit, !llvm.loop !22
+
+380:                                              ; preds = %30
+  %381 = icmp ult i16 %25, 24
+  br i1 %381, label %382, label %384
+
+382:                                              ; preds = %380
+  %383 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %35, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.784) #6
+  br label %proto_item_set_url.exit
+
+384:                                              ; preds = %380
+  %385 = load i32, ptr @hf_iaaddr_ip, align 4
+  %386 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %385, ptr noundef %0, i32 noundef %42, i32 noundef 16, i32 noundef 0) #6
+  %387 = getelementptr inbounds i8, ptr %1, i64 8
+  %388 = load ptr, ptr %387, align 8
+  %389 = getelementptr inbounds i8, ptr %1, i64 408
+  %390 = load ptr, ptr %389, align 8
+  %391 = tail call ptr @tvb_address_to_str(ptr noundef %390, ptr noundef %0, i32 noundef 3, i32 noundef %42) #6
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %388, i32 noundef 25, ptr noundef nonnull @.str.785, ptr noundef %391) #6
+  %392 = add i32 %3, 20
+  %393 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %392) #6
+  %394 = add i32 %3, 24
+  %395 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %394) #6
+  %396 = icmp eq i32 %393, -1
+  %397 = load i32, ptr @hf_iaaddr_pref_lifetime, align 4
+  br i1 %396, label %398, label %400
+
+398:                                              ; preds = %384
+  %399 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %37, i32 noundef %397, ptr noundef %0, i32 noundef %392, i32 noundef 4, i32 noundef -1, ptr noundef nonnull @.str.783) #6
+  br label %402
+
+400:                                              ; preds = %384
+  %401 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %397, ptr noundef %0, i32 noundef %392, i32 noundef 4, i32 noundef 0) #6
+  br label %402
+
+402:                                              ; preds = %400, %398
+  %403 = icmp eq i32 %395, -1
+  %404 = load i32, ptr @hf_iaaddr_valid_lifetime, align 4
+  br i1 %403, label %405, label %407
+
+405:                                              ; preds = %402
+  %406 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %37, i32 noundef %404, ptr noundef %0, i32 noundef %394, i32 noundef 4, i32 noundef -1, ptr noundef nonnull @.str.786) #6
+  br label %409
+
+407:                                              ; preds = %402
+  %408 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %404, ptr noundef %0, i32 noundef %394, i32 noundef 4, i32 noundef 0) #6
+  br label %409
+
+409:                                              ; preds = %407, %405
+  %.not1421 = icmp eq i16 %25, 24
+  br i1 %.not1421, label %proto_item_set_url.exit, label %.lr.ph1393
+
+.lr.ph1393:                                       ; preds = %409
+  %410 = add i32 %42, %26
+  br label %411
+
+411:                                              ; preds = %.lr.ph1393, %411
+  %.121392 = phi i32 [ 24, %.lr.ph1393 ], [ %spec.select1316, %411 ]
+  %412 = add i32 %.121392, %42
+  %413 = tail call fastcc i32 @dhcpv6_option(ptr noundef %0, ptr noundef %1, ptr noundef %37, i32 noundef %412, i32 noundef %410, ptr noundef %5, i32 noundef %6, ptr noundef nonnull byval(%struct.hopcount_info_t) align 8 %7, i8 noundef zeroext %8), !range !13
+  %414 = add i32 %413, %.121392
+  %415 = load i32, ptr %5, align 4
+  %.not1299 = icmp eq i32 %415, 0
+  %spec.select1316 = select i1 %.not1299, i32 %414, i32 %26
+  %416 = sub i32 %26, %spec.select1316
+  %417 = icmp sgt i32 %416, 0
+  br i1 %417, label %411, label %proto_item_set_url.exit, !llvm.loop !23
+
+418:                                              ; preds = %30, %30
+  %.not1420 = icmp eq i16 %25, 0
+  br i1 %.not1420, label %proto_item_set_url.exit, label %.lr.ph1391
+
+.lr.ph1391:                                       ; preds = %418, %.lr.ph1391
+  %.012081390 = phi i32 [ %422, %.lr.ph1391 ], [ 0, %418 ]
+  %419 = load i32, ptr @hf_requested_option_code, align 4
+  %420 = add i32 %.012081390, %42
+  %421 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %419, ptr noundef %0, i32 noundef %420, i32 noundef 2, i32 noundef 0) #6
+  %422 = add nuw nsw i32 %.012081390, 2
+  %423 = icmp ult i32 %422, %26
+  br i1 %423, label %.lr.ph1391, label %proto_item_set_url.exit, !llvm.loop !24
+
+424:                                              ; preds = %30
+  %.not1298 = icmp eq i16 %25, 1
+  br i1 %.not1298, label %427, label %425
+
+425:                                              ; preds = %424
+  %426 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %35, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.787) #6
+  br label %proto_item_set_url.exit
+
+427:                                              ; preds = %424
+  %428 = load i32, ptr @hf_option_preference, align 4
+  %429 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %428, ptr noundef %0, i32 noundef %42, i32 noundef 1, i32 noundef 0) #6
+  br label %proto_item_set_url.exit
+
+430:                                              ; preds = %30
+  %.not1297 = icmp eq i16 %25, 2
+  br i1 %.not1297, label %433, label %431
+
+431:                                              ; preds = %430
+  %432 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %35, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.788) #6
+  br label %proto_item_set_url.exit
+
+433:                                              ; preds = %430
+  %434 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %42) #6
+  %435 = zext i16 %434 to i32
+  %436 = load i32, ptr @hf_elapsed_time, align 4
+  %437 = mul nuw nsw i32 %435, 10
+  %438 = tail call ptr @proto_tree_add_uint(ptr noundef %37, i32 noundef %436, ptr noundef %0, i32 noundef %42, i32 noundef 2, i32 noundef %437) #6
+  br label %proto_item_set_url.exit
+
+439:                                              ; preds = %30
+  %440 = icmp eq i16 %25, 0
+  br i1 %440, label %441, label %443
+
+441:                                              ; preds = %439
+  %442 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %35, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.789) #6
+  br label %proto_item_set_url.exit
+
+443:                                              ; preds = %439
+  %444 = add i32 %42, %26
+  tail call fastcc void @dissect_dhcpv6(ptr noundef %0, ptr noundef %1, ptr noundef %37, i32 noundef %42, i32 noundef %444, ptr noundef nonnull byval(%struct.hopcount_info_t) align 8 %7)
+  br label %proto_item_set_url.exit
+
+445:                                              ; preds = %30
+  %446 = icmp ult i16 %25, 11
+  br i1 %446, label %447, label %449
+
+447:                                              ; preds = %445
+  %448 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %35, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.790) #6
+  br label %proto_item_set_url.exit
+
+449:                                              ; preds = %445
+  %450 = load i32, ptr @hf_auth_protocol, align 4
+  %451 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %450, ptr noundef %0, i32 noundef %42, i32 noundef 1, i32 noundef 0) #6
+  %452 = load i32, ptr @hf_auth_algorithm, align 4
+  %453 = add i32 %3, 5
+  %454 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %37, i32 noundef %452, ptr noundef %0, i32 noundef %453, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %13) #6
+  %455 = load i32, ptr @hf_auth_rdm, align 4
+  %456 = add i32 %3, 6
+  %457 = call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %455, ptr noundef %0, i32 noundef %456, i32 noundef 1, i32 noundef 0) #6
+  %458 = load i32, ptr @hf_auth_replay_detection, align 4
+  %459 = add i32 %3, 7
+  %460 = call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %458, ptr noundef %0, i32 noundef %459, i32 noundef 8, i32 noundef 0) #6
+  %461 = icmp ugt i16 %25, 31
+  %462 = load i32, ptr %13, align 4
+  %463 = icmp eq i32 %462, 1
+  %or.cond9 = select i1 %461, i1 %463, i1 false
+  br i1 %or.cond9, label %464, label %481
+
+464:                                              ; preds = %449
+  %465 = icmp ult i16 %25, 287
+  br i1 %465, label %466, label %471
+
+466:                                              ; preds = %464
+  %467 = add nsw i32 %26, -31
+  %468 = load i32, ptr @hf_auth_realm, align 4
+  %469 = add i32 %3, 15
+  %470 = call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %468, ptr noundef %0, i32 noundef %469, i32 noundef %467, i32 noundef 0) #6
+  br label %473
+
+471:                                              ; preds = %464
+  %472 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %35, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.791) #6
+  br label %473
+
+473:                                              ; preds = %471, %466
+  %474 = load i32, ptr @hf_auth_key_id, align 4
+  %475 = add i32 %42, %26
+  %476 = add i32 %475, -16
+  %477 = add i32 %475, -20
+  %478 = call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %474, ptr noundef %0, i32 noundef %477, i32 noundef 4, i32 noundef 0) #6
+  %479 = load i32, ptr @hf_auth_md5_data, align 4
+  %480 = call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %479, ptr noundef %0, i32 noundef %476, i32 noundef 16, i32 noundef 0) #6
+  br label %proto_item_set_url.exit
+
+481:                                              ; preds = %449
+  %482 = load i32, ptr @hf_auth_info, align 4
+  %483 = add i32 %3, 15
+  %484 = add nsw i32 %26, -11
+  %485 = call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %482, ptr noundef %0, i32 noundef %483, i32 noundef %484, i32 noundef 0) #6
+  br label %proto_item_set_url.exit
+
+486:                                              ; preds = %30
+  %.not1296 = icmp eq i16 %25, 16
+  br i1 %.not1296, label %489, label %487
+
+487:                                              ; preds = %486
+  %488 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %35, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.792) #6
+  br label %proto_item_set_url.exit
+
+489:                                              ; preds = %486
+  %490 = load i32, ptr @hf_opt_unicast, align 4
+  %491 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %490, ptr noundef %0, i32 noundef %42, i32 noundef 16, i32 noundef 0) #6
+  br label %proto_item_set_url.exit
+
+492:                                              ; preds = %30
+  %493 = load i32, ptr @hf_opt_status_code, align 4
+  %494 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %493, ptr noundef %0, i32 noundef %42, i32 noundef 2, i32 noundef 0) #6
+  %495 = icmp ugt i16 %25, 2
+  br i1 %495, label %496, label %proto_item_set_url.exit
+
+496:                                              ; preds = %492
+  %497 = load i32, ptr @hf_opt_status_msg, align 4
+  %498 = add i32 %3, 6
+  %499 = add nsw i32 %26, -2
+  %500 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %497, ptr noundef %0, i32 noundef %498, i32 noundef %499, i32 noundef 0) #6
+  br label %proto_item_set_url.exit
+
+501:                                              ; preds = %30
+  %502 = icmp ult i16 %25, 4
+  br i1 %502, label %503, label %505
+
+503:                                              ; preds = %501
+  %504 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %35, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.793) #6
+  br label %proto_item_set_url.exit
+
+505:                                              ; preds = %501
+  %506 = load i32, ptr @hf_vendorclass_enterprise, align 4
+  %507 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %506, ptr noundef %0, i32 noundef %42, i32 noundef 4, i32 noundef 0) #6
+  %.not1295 = icmp eq i16 %25, 4
+  br i1 %.not1295, label %proto_item_set_url.exit, label %508
+
+508:                                              ; preds = %505
+  %509 = load i32, ptr @hf_vendorclass_data, align 4
+  %510 = add i32 %3, 10
+  %511 = add nsw i32 %26, -6
+  %512 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %509, ptr noundef %0, i32 noundef %510, i32 noundef %511, i32 noundef 0) #6
+  br label %proto_item_set_url.exit
+
+513:                                              ; preds = %30
+  %514 = icmp ult i16 %25, 4
+  br i1 %514, label %515, label %517
+
+515:                                              ; preds = %513
+  %516 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %35, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.794) #6
+  br label %proto_item_set_url.exit
+
+517:                                              ; preds = %513
+  %518 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %42) #6
+  %519 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %42, i32 noundef %26) #6
+  %520 = load ptr, ptr @dhcpv6_enterprise_opts_dissector_table, align 8
+  %521 = call i32 @dissector_try_uint_new(ptr noundef %520, i32 noundef %518, ptr noundef %519, ptr noundef %1, ptr noundef %37, i32 noundef 0, ptr noundef nonnull %10) #6
+  %.not1294 = icmp eq i32 %521, 0
+  br i1 %.not1294, label %522, label %proto_item_set_url.exit
+
+522:                                              ; preds = %517
+  %523 = load i32, ptr @hf_vendoropts_enterprise, align 4
+  %524 = call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %523, ptr noundef %0, i32 noundef %42, i32 noundef 4, i32 noundef 0) #6
+  %525 = add nsw i32 %26, -4
+  %.not1419 = icmp eq i16 %25, 4
+  br i1 %.not1419, label %proto_item_set_url.exit, label %.lr.ph1389
+
+.lr.ph1389:                                       ; preds = %522, %.lr.ph1389
+  %.012181388 = phi i32 [ %541, %.lr.ph1389 ], [ 0, %522 ]
+  %526 = add i32 %.012181388, %42
+  %527 = add i32 %526, 6
+  %528 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %527) #6
+  %529 = zext i16 %528 to i32
+  %530 = add i32 %526, 4
+  %531 = add nuw nsw i32 %529, 4
+  %532 = load i32, ptr @ett_dhcpv6_option_vsoption, align 4
+  %533 = call ptr @proto_tree_add_subtree(ptr noundef %37, ptr noundef %0, i32 noundef %530, i32 noundef %531, i32 noundef %532, ptr noundef null, ptr noundef nonnull @.str.795) #6
+  %534 = load i32, ptr @hf_vendoropts_enterprise_option_code, align 4
+  %535 = call ptr @proto_tree_add_item(ptr noundef %533, i32 noundef %534, ptr noundef %0, i32 noundef %530, i32 noundef 2, i32 noundef 0) #6
+  %536 = load i32, ptr @hf_vendoropts_enterprise_option_length, align 4
+  %537 = call ptr @proto_tree_add_item(ptr noundef %533, i32 noundef %536, ptr noundef %0, i32 noundef %527, i32 noundef 2, i32 noundef 0) #6
+  %538 = load i32, ptr @hf_vendoropts_enterprise_option_data, align 4
+  %539 = add i32 %526, 8
+  %540 = call ptr @proto_tree_add_item(ptr noundef %533, i32 noundef %538, ptr noundef %0, i32 noundef %539, i32 noundef %529, i32 noundef 0) #6
+  %541 = add i32 %531, %.012181388
+  %542 = sub i32 %525, %541
+  %543 = icmp sgt i32 %542, 0
+  br i1 %543, label %.lr.ph1389, label %proto_item_set_url.exit, !llvm.loop !25
+
+544:                                              ; preds = %30
+  %545 = icmp eq i16 %25, 0
+  br i1 %545, label %546, label %548
+
+546:                                              ; preds = %544
+  %547 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %35, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.796) #6
+  br label %proto_item_set_url.exit
+
+548:                                              ; preds = %544
+  %549 = load i32, ptr @cablelabs_interface_id, align 4
+  %.not1293 = icmp eq i32 %549, 0
+  br i1 %.not1293, label %568, label %550
+
+550:                                              ; preds = %548
+  %551 = tail call i32 @tvb_strnlen(ptr noundef %0, i32 noundef %42, i32 noundef %26) #6
+  %552 = add i32 %551, 1
+  %553 = icmp eq i32 %552, 0
+  %554 = load i32, ptr @hf_cablelabs_interface_id, align 4
+  br i1 %553, label %555, label %557
+
+555:                                              ; preds = %550
+  %556 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %554, ptr noundef %0, i32 noundef %42, i32 noundef %26, i32 noundef 0) #6
+  br label %proto_item_set_url.exit
+
+557:                                              ; preds = %550
+  %558 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %554, ptr noundef %0, i32 noundef %42, i32 noundef %551, i32 noundef 0) #6
+  %559 = sub i32 %26, %552
+  %560 = icmp sgt i32 %559, 5
+  br i1 %560, label %561, label %proto_item_set_url.exit
+
+561:                                              ; preds = %557
+  %562 = add i32 %552, %42
+  %563 = load i32, ptr @hf_cablelabs_interface_id_link_address, align 4
+  %564 = getelementptr inbounds i8, ptr %1, i64 408
+  %565 = load ptr, ptr %564, align 8
+  %566 = tail call ptr @tvb_arphrdaddr_to_str(ptr noundef %565, ptr noundef %0, i32 noundef %562, i32 noundef 6, i16 noundef zeroext 1) #6
+  %567 = tail call ptr @proto_tree_add_string(ptr noundef %37, i32 noundef %563, ptr noundef %0, i32 noundef %562, i32 noundef %559, ptr noundef %566) #6
+  br label %proto_item_set_url.exit
+
+568:                                              ; preds = %548
+  %569 = load i32, ptr @hf_interface_id, align 4
+  %570 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %569, ptr noundef %0, i32 noundef %42, i32 noundef %26, i32 noundef 0) #6
+  br label %proto_item_set_url.exit
+
+571:                                              ; preds = %30
+  %.not1292 = icmp eq i16 %25, 1
+  br i1 %.not1292, label %574, label %572
+
+572:                                              ; preds = %571
+  %573 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %35, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.797) #6
+  br label %proto_item_set_url.exit
+
+574:                                              ; preds = %571
+  %575 = load i32, ptr @hf_reconf_msg, align 4
+  %576 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %575, ptr noundef %0, i32 noundef %42, i32 noundef 1, i32 noundef 0) #6
+  br label %proto_item_set_url.exit
+
+577:                                              ; preds = %30
+  %.not1291 = icmp eq i16 %25, 0
+  br i1 %.not1291, label %proto_item_set_url.exit, label %578
+
+578:                                              ; preds = %577
+  %579 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %35, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.798) #6
+  br label %proto_item_set_url.exit
+
+580:                                              ; preds = %30
+  %.not1290 = icmp eq i16 %25, 0
+  br i1 %.not1290, label %proto_item_set_url.exit, label %581
+
+581:                                              ; preds = %580
+  %582 = load i32, ptr @ett_dhcpv6_sip_server_domain_search_list_option, align 4
+  %583 = call ptr @proto_tree_add_subtree(ptr noundef %37, ptr noundef %0, i32 noundef %42, i32 noundef %26, i32 noundef %582, ptr noundef nonnull %11, ptr noundef nonnull @.str.799) #6
+  %584 = load i32, ptr @hf_sip_server_domain_search_fqdn, align 4
+  call fastcc void @dhcpv6_domain(ptr noundef %583, ptr noundef %1, i32 noundef %584, ptr noundef %0, i32 noundef %42, i16 noundef zeroext %25)
+  br label %proto_item_set_url.exit
+
+585:                                              ; preds = %30
+  %586 = and i32 %26, 15
+  %.not1289 = icmp eq i32 %586, 0
+  br i1 %.not1289, label %.preheader1335, label %587
+
+.preheader1335:                                   ; preds = %585
+  %.not1418 = icmp eq i16 %25, 0
+  br i1 %.not1418, label %proto_item_set_url.exit, label %.lr.ph1387
+
+587:                                              ; preds = %585
+  %588 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %35, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.800) #6
+  br label %proto_item_set_url.exit
+
+.lr.ph1387:                                       ; preds = %.preheader1335, %.lr.ph1387
+  %.112091386 = phi i32 [ %592, %.lr.ph1387 ], [ 0, %.preheader1335 ]
+  %589 = load i32, ptr @hf_sip_server_a, align 4
+  %590 = add i32 %.112091386, %42
+  %591 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %589, ptr noundef %0, i32 noundef %590, i32 noundef 16, i32 noundef 0) #6
+  %592 = add nuw nsw i32 %.112091386, 16
+  %593 = icmp ult i32 %592, %26
+  br i1 %593, label %.lr.ph1387, label %proto_item_set_url.exit, !llvm.loop !26
+
+594:                                              ; preds = %30
+  %595 = and i32 %26, 15
+  %.not1288 = icmp eq i32 %595, 0
+  br i1 %.not1288, label %.preheader1337, label %596
+
+.preheader1337:                                   ; preds = %594
+  %.not1417 = icmp eq i16 %25, 0
+  br i1 %.not1417, label %proto_item_set_url.exit.loopexit1338, label %.lr.ph1384
+
+596:                                              ; preds = %594
+  %597 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %35, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.801) #6
+  br label %proto_item_set_url.exit
+
+.lr.ph1384:                                       ; preds = %.preheader1337, %.lr.ph1384
+  %.212101383 = phi i32 [ %603, %.lr.ph1384 ], [ 0, %.preheader1337 ]
+  %598 = load i32, ptr @hf_dns_servers, align 4
+  %599 = add i32 %.212101383, %42
+  %600 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %598, ptr noundef %0, i32 noundef %599, i32 noundef 16, i32 noundef 0) #6
+  %601 = lshr exact i32 %.212101383, 4
+  %602 = add nuw nsw i32 %601, 1
+  tail call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef %600, ptr noundef nonnull @.str.802, i32 noundef %602) #6
+  %603 = add nuw nsw i32 %.212101383, 16
+  %604 = icmp ult i32 %603, %26
+  br i1 %604, label %.lr.ph1384, label %proto_item_set_url.exit.loopexit1338, !llvm.loop !27
+
+605:                                              ; preds = %30
+  %.not1287 = icmp eq i16 %25, 0
+  br i1 %.not1287, label %proto_item_set_url.exit, label %606
+
+606:                                              ; preds = %605
+  %607 = load i32, ptr @ett_dhcpv6_dns_domain_search_list_option, align 4
+  %608 = call ptr @proto_tree_add_subtree(ptr noundef %37, ptr noundef %0, i32 noundef %42, i32 noundef %26, i32 noundef %607, ptr noundef nonnull %11, ptr noundef nonnull @.str.803) #6
+  %609 = load i32, ptr @hf_domain_search_list_entry, align 4
+  call fastcc void @dhcpv6_domain(ptr noundef %608, ptr noundef %1, i32 noundef %609, ptr noundef %0, i32 noundef %42, i16 noundef zeroext %25)
+  br label %proto_item_set_url.exit
+
+610:                                              ; preds = %30
+  %611 = and i32 %26, 15
+  %.not1286 = icmp eq i32 %611, 0
+  br i1 %.not1286, label %.preheader1339, label %612
+
+.preheader1339:                                   ; preds = %610
+  %.not1416 = icmp eq i16 %25, 0
+  br i1 %.not1416, label %proto_item_set_url.exit, label %.lr.ph1380
+
+612:                                              ; preds = %610
+  %613 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %35, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.804) #6
+  br label %proto_item_set_url.exit
+
+.lr.ph1380:                                       ; preds = %.preheader1339, %.lr.ph1380
+  %.312111379 = phi i32 [ %617, %.lr.ph1380 ], [ 0, %.preheader1339 ]
+  %614 = load i32, ptr @hf_nis_servers, align 4
+  %615 = add i32 %.312111379, %42
+  %616 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %614, ptr noundef %0, i32 noundef %615, i32 noundef 16, i32 noundef 0) #6
+  %617 = add nuw nsw i32 %.312111379, 16
+  %618 = icmp ult i32 %617, %26
+  br i1 %618, label %.lr.ph1380, label %proto_item_set_url.exit, !llvm.loop !28
+
+619:                                              ; preds = %30
+  %620 = and i32 %26, 15
+  %.not1285 = icmp eq i32 %620, 0
+  br i1 %.not1285, label %.preheader1341, label %621
+
+.preheader1341:                                   ; preds = %619
+  %.not1415 = icmp eq i16 %25, 0
+  br i1 %.not1415, label %proto_item_set_url.exit, label %.lr.ph1378
+
+621:                                              ; preds = %619
+  %622 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %35, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.805) #6
+  br label %proto_item_set_url.exit
+
+.lr.ph1378:                                       ; preds = %.preheader1341, %.lr.ph1378
+  %.412121377 = phi i32 [ %626, %.lr.ph1378 ], [ 0, %.preheader1341 ]
+  %623 = load i32, ptr @hf_nisp_servers, align 4
+  %624 = add i32 %.412121377, %42
+  %625 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %623, ptr noundef %0, i32 noundef %624, i32 noundef 16, i32 noundef 0) #6
+  %626 = add nuw nsw i32 %.412121377, 16
+  %627 = icmp ult i32 %626, %26
+  br i1 %627, label %.lr.ph1378, label %proto_item_set_url.exit, !llvm.loop !29
+
+628:                                              ; preds = %30
+  %.not1284 = icmp eq i16 %25, 0
+  br i1 %.not1284, label %proto_item_set_url.exit, label %629
+
+629:                                              ; preds = %628
+  %630 = load i32, ptr @ett_dhcpv6_nis_domain_name_option, align 4
+  %631 = call ptr @proto_tree_add_subtree(ptr noundef %37, ptr noundef %0, i32 noundef %42, i32 noundef %26, i32 noundef %630, ptr noundef nonnull %11, ptr noundef nonnull @.str.806) #6
+  %632 = load i32, ptr @hf_nis_fqdn, align 4
+  call fastcc void @dhcpv6_domain(ptr noundef %631, ptr noundef %1, i32 noundef %632, ptr noundef %0, i32 noundef %42, i16 noundef zeroext %25)
+  br label %proto_item_set_url.exit
+
+633:                                              ; preds = %30
+  %.not1283 = icmp eq i16 %25, 0
+  br i1 %.not1283, label %proto_item_set_url.exit, label %634
+
+634:                                              ; preds = %633
+  %635 = load i32, ptr @ett_dhcpv6_nisp_domain_name_option, align 4
+  %636 = call ptr @proto_tree_add_subtree(ptr noundef %37, ptr noundef %0, i32 noundef %42, i32 noundef %26, i32 noundef %635, ptr noundef nonnull %11, ptr noundef nonnull @.str.807) #6
+  %637 = load i32, ptr @hf_nisp_fqdn, align 4
+  call fastcc void @dhcpv6_domain(ptr noundef %636, ptr noundef %1, i32 noundef %637, ptr noundef %0, i32 noundef %42, i16 noundef zeroext %25)
+  br label %proto_item_set_url.exit
+
+638:                                              ; preds = %30
+  %639 = and i32 %26, 15
+  %.not1282 = icmp eq i32 %639, 0
+  br i1 %.not1282, label %.preheader1343, label %640
+
+.preheader1343:                                   ; preds = %638
+  %.not1414 = icmp eq i16 %25, 0
+  br i1 %.not1414, label %proto_item_set_url.exit.loopexit1344, label %.lr.ph1376
+
+640:                                              ; preds = %638
+  %641 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %35, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.808) #6
+  br label %proto_item_set_url.exit
+
+.lr.ph1376:                                       ; preds = %.preheader1343, %.lr.ph1376
+  %.512131375 = phi i32 [ %647, %.lr.ph1376 ], [ 0, %.preheader1343 ]
+  %642 = load i32, ptr @hf_sntp_servers, align 4
+  %643 = add i32 %.512131375, %42
+  %644 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %642, ptr noundef %0, i32 noundef %643, i32 noundef 16, i32 noundef 0) #6
+  %645 = lshr exact i32 %.512131375, 4
+  %646 = add nuw nsw i32 %645, 1
+  tail call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef %644, ptr noundef nonnull @.str.802, i32 noundef %646) #6
+  %647 = add nuw nsw i32 %.512131375, 16
+  %648 = icmp ult i32 %647, %26
+  br i1 %648, label %.lr.ph1376, label %proto_item_set_url.exit.loopexit1344, !llvm.loop !30
+
+649:                                              ; preds = %30
+  %.not1281 = icmp eq i16 %25, 4
+  br i1 %.not1281, label %652, label %650
+
+650:                                              ; preds = %649
+  %651 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %35, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.809) #6
+  br label %proto_item_set_url.exit
+
+652:                                              ; preds = %649
+  %653 = load i32, ptr @hf_opt_lifetime, align 4
+  %654 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %653, ptr noundef %0, i32 noundef %42, i32 noundef 4, i32 noundef 0) #6
+  br label %proto_item_set_url.exit
+
+655:                                              ; preds = %30
+  %.not1280 = icmp eq i16 %25, 0
+  br i1 %.not1280, label %proto_item_set_url.exit, label %656
+
+656:                                              ; preds = %655
+  %657 = load i32, ptr @ett_dhcpv6_bcmcs_servers_domain_search_list_option, align 4
+  %658 = call ptr @proto_tree_add_subtree(ptr noundef %37, ptr noundef %0, i32 noundef %42, i32 noundef %26, i32 noundef %657, ptr noundef nonnull %11, ptr noundef nonnull @.str.810) #6
+  %659 = load i32, ptr @hf_bcmcs_servers_fqdn, align 4
+  call fastcc void @dhcpv6_domain(ptr noundef %658, ptr noundef %1, i32 noundef %659, ptr noundef %0, i32 noundef %42, i16 noundef zeroext %25)
+  br label %proto_item_set_url.exit
+
+660:                                              ; preds = %30
+  %661 = and i32 %26, 15
+  %.not1279 = icmp eq i32 %661, 0
+  br i1 %.not1279, label %.preheader1345, label %662
+
+.preheader1345:                                   ; preds = %660
+  %.not1413 = icmp eq i16 %25, 0
+  br i1 %.not1413, label %proto_item_set_url.exit, label %.lr.ph1374
+
+662:                                              ; preds = %660
+  %663 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %35, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.811) #6
+  br label %proto_item_set_url.exit
+
+.lr.ph1374:                                       ; preds = %.preheader1345, %.lr.ph1374
+  %.612141373 = phi i32 [ %667, %.lr.ph1374 ], [ 0, %.preheader1345 ]
+  %664 = load i32, ptr @hf_bcmcs_servers_a, align 4
+  %665 = add i32 %.612141373, %42
+  %666 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %664, ptr noundef %0, i32 noundef %665, i32 noundef 16, i32 noundef 0) #6
+  %667 = add nuw nsw i32 %.612141373, 16
+  %668 = icmp ult i32 %667, %26
+  br i1 %668, label %.lr.ph1374, label %proto_item_set_url.exit, !llvm.loop !31
+
+669:                                              ; preds = %30
+  %670 = icmp ult i16 %25, 4
+  br i1 %670, label %671, label %673
+
+671:                                              ; preds = %669
+  %672 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %35, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.812) #6
+  br label %proto_item_set_url.exit
+
+673:                                              ; preds = %669
+  %674 = load i32, ptr @hf_remoteid_enterprise, align 4
+  %675 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %674, ptr noundef %0, i32 noundef %42, i32 noundef 4, i32 noundef 0) #6
+  %676 = add i32 %3, 8
+  %677 = load i32, ptr @hf_remoteid_enterprise_id, align 4
+  %678 = add nsw i32 %26, -4
+  %679 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %677, ptr noundef %0, i32 noundef %676, i32 noundef %678, i32 noundef 0) #6
+  br label %proto_item_set_url.exit
+
+680:                                              ; preds = %30
+  %681 = icmp eq i16 %25, 0
+  br i1 %681, label %682, label %684
+
+682:                                              ; preds = %680
+  %683 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %35, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.813) #6
+  br label %proto_item_set_url.exit
+
+684:                                              ; preds = %680
+  %685 = load i32, ptr @hf_subscriber_id, align 4
+  %686 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %685, ptr noundef %0, i32 noundef %42, i32 noundef %26, i32 noundef 0) #6
+  br label %proto_item_set_url.exit
+
+687:                                              ; preds = %30
+  %688 = icmp eq i16 %25, 0
+  br i1 %688, label %689, label %691
+
+689:                                              ; preds = %687
+  %690 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %35, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.814) #6
+  br label %proto_item_set_url.exit
+
+691:                                              ; preds = %687
+  switch i8 %8, label %692 [
+    i8 6, label %699
+    i8 5, label %699
+    i8 3, label %699
+    i8 1, label %699
+    i8 7, label %699
+    i8 2, label %699
+  ]
+
+692:                                              ; preds = %691
+  %693 = zext i8 %8 to i32
+  %694 = load i32, ptr @hf_clientfqdn_bad_msgtype, align 4
+  %695 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %37, i32 noundef %694, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef %693, ptr noundef nonnull @.str.815) #6
+  %696 = load i32, ptr @ett_clientfqdn_expert, align 4
+  %697 = tail call ptr @proto_item_add_subtree(ptr noundef %695, i32 noundef %696) #6
+  %698 = tail call ptr @proto_tree_add_expert(ptr noundef %697, ptr noundef %1, ptr noundef nonnull @ei_dhcpv6_clientfqdn_bad_msgtype, ptr noundef %0, i32 noundef %3, i32 noundef 1) #6
+  br label %proto_item_set_url.exit
+
+699:                                              ; preds = %691, %691, %691, %691, %691, %691
+  %700 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %42) #6
+  switch i8 %8, label %707 [
+    i8 6, label %701
+    i8 5, label %701
+    i8 3, label %701
+    i8 1, label %701
+  ]
+
+701:                                              ; preds = %699, %699, %699, %699
+  %702 = and i8 %700, 5
+  %703 = icmp eq i8 %702, 0
+  %spec.select1317 = select i1 %703, ptr @.str.817, ptr null
+  %704 = icmp eq i8 %702, 1
+  %.11201 = select i1 %704, ptr @.str.818, ptr %spec.select1317
+  %705 = icmp eq i8 %702, 4
+  %.21202 = select i1 %705, ptr @.str.819, ptr %.11201
+  %706 = icmp eq i8 %702, 5
+  %spec.select1322 = select i1 %706, ptr @.str.820, ptr %.21202
+  %.pre = zext i8 %700 to i32
+  br label %715
+
+707:                                              ; preds = %699
+  %708 = zext i8 %700 to i32
+  %709 = and i32 %708, 5
+  %710 = icmp eq i32 %709, 0
+  %spec.select1318 = select i1 %710, ptr @.str.821, ptr null
+  %711 = icmp eq i32 %709, 1
+  %.41204 = select i1 %711, ptr @.str.822, ptr %spec.select1318
+  %712 = icmp eq i32 %709, 4
+  %.51205 = select i1 %712, ptr @.str.823, ptr %.41204
+  %713 = icmp eq i32 %709, 5
+  %.61206 = select i1 %713, ptr @.str.824, ptr %.51205
+  %714 = and i32 %708, 2
+  %.not1278 = icmp ne i32 %714, 0
+  %switch = icmp ult i32 %709, 2
+  %or.cond1323 = and i1 %.not1278, %switch
+  %spec.select1324 = select i1 %or.cond1323, ptr @.str.825, ptr @.str.816
+  br label %715
+
+715:                                              ; preds = %707, %701
+  %.pre-phi = phi i32 [ %708, %707 ], [ %.pre, %701 ]
+  %.71207 = phi ptr [ %.61206, %707 ], [ %spec.select1322, %701 ]
+  %.01199 = phi ptr [ %spec.select1324, %707 ], [ @.str.816, %701 ]
+  %716 = load i32, ptr @hf_clientfqdn_flags, align 4
+  %717 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %37, i32 noundef %716, ptr noundef %0, i32 noundef %42, i32 noundef 1, i32 noundef %.pre-phi, ptr noundef nonnull @.str.826, i32 noundef %.pre-phi, ptr noundef %.71207, ptr noundef nonnull %.01199) #6
+  %718 = load i32, ptr @ett_clientfqdn_flags, align 4
+  %719 = tail call ptr @proto_item_add_subtree(ptr noundef %717, i32 noundef %718) #6
+  %switch.tableidx = add i8 %8, -1
+  %720 = icmp ult i8 %switch.tableidx, 6
+  br i1 %720, label %switch.hole_check, label %721
+
+721:                                              ; preds = %switch.hole_check, %715
+  %722 = load i32, ptr @hf_clientfqdn_server_n, align 4
+  %723 = tail call ptr @proto_tree_add_item(ptr noundef %719, i32 noundef %722, ptr noundef %0, i32 noundef %42, i32 noundef 1, i32 noundef 0) #6
+  br label %switch.lookup
+
+switch.hole_check:                                ; preds = %715
+  %switch.shifted = lshr i8 53, %switch.tableidx
+  %724 = and i8 %switch.shifted, 1
+  %switch.lobit.not = icmp eq i8 %724, 0
+  br i1 %switch.lobit.not, label %721, label %switch.lookup
+
+switch.lookup:                                    ; preds = %switch.hole_check, %721
+  %hf_clientfqdn_server_o.sink = phi ptr [ @hf_clientfqdn_server_o, %721 ], [ @hf_clientfqdn_client_n, %switch.hole_check ]
+  %hf_clientfqdn_server_s.sink = phi ptr [ @hf_clientfqdn_server_s, %721 ], [ @hf_clientfqdn_client_s, %switch.hole_check ]
+  %725 = load i32, ptr %hf_clientfqdn_server_o.sink, align 4
+  %726 = tail call ptr @proto_tree_add_item(ptr noundef %719, i32 noundef %725, ptr noundef %0, i32 noundef %42, i32 noundef 1, i32 noundef 0) #6
+  %727 = load i32, ptr %hf_clientfqdn_server_s.sink, align 4
+  %728 = tail call ptr @proto_tree_add_item(ptr noundef %719, i32 noundef %727, ptr noundef %0, i32 noundef %42, i32 noundef 1, i32 noundef 0) #6
+  %729 = and i32 %.pre-phi, 5
+  %730 = icmp eq i32 %729, 5
+  br i1 %730, label %731, label %733
+
+731:                                              ; preds = %switch.lookup
+  %732 = tail call ptr @proto_tree_add_expert(ptr noundef %37, ptr noundef %1, ptr noundef nonnull @ei_dhcpv6_s_bit_should_be_zero, ptr noundef %0, i32 noundef %42, i32 noundef 1) #6
+  br label %733
+
+733:                                              ; preds = %731, %switch.lookup
+  %734 = load i32, ptr @hf_client_fqdn, align 4
+  %735 = add i32 %3, 5
+  %736 = add i16 %25, -1
+  tail call fastcc void @dhcpv6_domain(ptr noundef %37, ptr noundef %1, i32 noundef %734, ptr noundef %0, i32 noundef %735, i16 noundef zeroext %736)
+  br label %proto_item_set_url.exit
+
+737:                                              ; preds = %30
+  %738 = and i32 %26, 15
+  %.not1275 = icmp eq i32 %738, 0
+  br i1 %.not1275, label %.preheader1347, label %739
+
+.preheader1347:                                   ; preds = %737
+  %.not1412 = icmp eq i16 %25, 0
+  br i1 %.not1412, label %proto_item_set_url.exit, label %.lr.ph1372
+
+739:                                              ; preds = %737
+  %740 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %35, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.827) #6
+  br label %proto_item_set_url.exit
+
+.lr.ph1372:                                       ; preds = %.preheader1347, %.lr.ph1372
+  %.712151371 = phi i32 [ %744, %.lr.ph1372 ], [ 0, %.preheader1347 ]
+  %741 = load i32, ptr @hf_pana_agent, align 4
+  %742 = add i32 %.712151371, %42
+  %743 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %741, ptr noundef %0, i32 noundef %742, i32 noundef 16, i32 noundef 0) #6
+  %744 = add nuw nsw i32 %.712151371, 16
+  %745 = icmp ult i32 %744, %26
+  br i1 %745, label %.lr.ph1372, label %proto_item_set_url.exit, !llvm.loop !32
+
+746:                                              ; preds = %30
+  %.not1274 = icmp eq i16 %25, 0
+  br i1 %.not1274, label %proto_item_set_url.exit, label %747
+
+747:                                              ; preds = %746
+  %748 = load i32, ptr @hf_opt_timezone, align 4
+  %749 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %748, ptr noundef %0, i32 noundef %42, i32 noundef %26, i32 noundef 0) #6
+  br label %proto_item_set_url.exit
+
+750:                                              ; preds = %30
+  %.not1273 = icmp eq i16 %25, 0
+  br i1 %.not1273, label %proto_item_set_url.exit, label %751
+
+751:                                              ; preds = %750
+  %752 = load i32, ptr @hf_opt_tzdb, align 4
+  %753 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %752, ptr noundef %0, i32 noundef %42, i32 noundef %26, i32 noundef 0) #6
+  br label %proto_item_set_url.exit
+
+754:                                              ; preds = %30
+  %.not1272 = icmp eq i16 %25, 0
+  br i1 %.not1272, label %proto_item_set_url.exit, label %755
+
+755:                                              ; preds = %754
+  %756 = load i32, ptr @hf_opt_mudurl, align 4
+  %757 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %756, ptr noundef %0, i32 noundef %42, i32 noundef %26, i32 noundef 0) #6
+  br label %proto_item_set_url.exit
+
+758:                                              ; preds = %30
+  %759 = icmp ult i16 %25, 17
+  br i1 %759, label %760, label %762
+
+760:                                              ; preds = %758
+  %761 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %35, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.828) #6
+  br label %proto_item_set_url.exit
+
+762:                                              ; preds = %758
+  %763 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %42) #6
+  %764 = load i32, ptr @hf_lq_query, align 4
+  %765 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %764, ptr noundef %0, i32 noundef %42, i32 noundef 1, i32 noundef 0) #6
+  store ptr %765, ptr %11, align 8
+  %766 = load i32, ptr @proto_dhcpv6, align 4
+  %767 = icmp eq i32 %766, %6
+  %768 = add i8 %763, -3
+  %or.cond27 = icmp ult i8 %768, 3
+  %or.cond = select i1 %767, i1 %or.cond27, i1 false
+  br i1 %or.cond, label %769, label %771
+
+769:                                              ; preds = %762
+  %770 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %765, ptr noundef nonnull @ei_dhcpv6_bulk_leasequery_bad_query_type) #6
+  br label %771
+
+771:                                              ; preds = %769, %762
+  %772 = load i32, ptr @hf_lq_query_link_address, align 4
+  %773 = add i32 %3, 5
+  %774 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %772, ptr noundef %0, i32 noundef %773, i32 noundef 16, i32 noundef 0) #6
+  %.not1411 = icmp eq i16 %25, 17
+  br i1 %.not1411, label %proto_item_set_url.exit, label %.lr.ph1370
+
+.lr.ph1370:                                       ; preds = %771
+  %775 = add i32 %42, %26
+  br label %776
+
+776:                                              ; preds = %.lr.ph1370, %776
+  %.141369 = phi i32 [ 17, %.lr.ph1370 ], [ %spec.select1319, %776 ]
+  %777 = add i32 %.141369, %42
+  %778 = tail call fastcc i32 @dhcpv6_option(ptr noundef %0, ptr noundef %1, ptr noundef %37, i32 noundef %777, i32 noundef %775, ptr noundef %5, i32 noundef %6, ptr noundef nonnull byval(%struct.hopcount_info_t) align 8 %7, i8 noundef zeroext %8), !range !13
+  %779 = add i32 %778, %.141369
+  %780 = load i32, ptr %5, align 4
+  %.not1271 = icmp eq i32 %780, 0
+  %spec.select1319 = select i1 %.not1271, i32 %779, i32 %26
+  %781 = sub i32 %26, %spec.select1319
+  %782 = icmp sgt i32 %781, 0
+  br i1 %782, label %776, label %proto_item_set_url.exit, !llvm.loop !33
+
+783:                                              ; preds = %.lr.ph1368, %783
+  %.161367 = phi i32 [ 0, %.lr.ph1368 ], [ %spec.select1320, %783 ]
+  %784 = add i32 %.161367, %42
+  %785 = tail call fastcc i32 @dhcpv6_option(ptr noundef %0, ptr noundef %1, ptr noundef %37, i32 noundef %784, i32 noundef %44, ptr noundef %5, i32 noundef %6, ptr noundef nonnull byval(%struct.hopcount_info_t) align 8 %7, i8 noundef zeroext %8), !range !13
+  %786 = add i32 %785, %.161367
+  %787 = load i32, ptr %5, align 4
+  %.not1270 = icmp eq i32 %787, 0
+  %spec.select1320 = select i1 %.not1270, i32 %786, i32 %26
+  %788 = sub i32 %26, %spec.select1320
+  %789 = icmp sgt i32 %788, 0
+  br i1 %789, label %783, label %proto_item_set_url.exit, !llvm.loop !34
+
+790:                                              ; preds = %30
+  %.not1269 = icmp eq i16 %25, 4
+  br i1 %.not1269, label %793, label %791
+
+791:                                              ; preds = %790
+  %792 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %35, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.829) #6
+  br label %proto_item_set_url.exit
+
+793:                                              ; preds = %790
+  %794 = load i32, ptr @hf_clt_time, align 4
+  %795 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %794, ptr noundef %0, i32 noundef %42, i32 noundef 4, i32 noundef 0) #6
+  br label %proto_item_set_url.exit
+
+796:                                              ; preds = %30
+  %797 = icmp ult i16 %25, 16
+  br i1 %797, label %798, label %800
+
+798:                                              ; preds = %796
+  %799 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %35, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.830) #6
+  br label %proto_item_set_url.exit
+
+800:                                              ; preds = %796
+  %801 = load i32, ptr @hf_lq_relay_data_peer_addr, align 4
+  %802 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %801, ptr noundef %0, i32 noundef %42, i32 noundef 16, i32 noundef 0) #6
+  %803 = load i32, ptr @hf_lq_relay_data_msg, align 4
+  %804 = add i32 %3, 20
+  %805 = add nsw i32 %26, -16
+  %806 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %803, ptr noundef %0, i32 noundef %804, i32 noundef %805, i32 noundef 0) #6
+  br label %proto_item_set_url.exit
+
+807:                                              ; preds = %30
+  %808 = and i32 %26, 15
+  %.not1268 = icmp eq i32 %808, 0
+  br i1 %.not1268, label %.preheader1352, label %809
+
+.preheader1352:                                   ; preds = %807
+  %.not1409 = icmp eq i16 %25, 0
+  br i1 %.not1409, label %proto_item_set_url.exit, label %.lr.ph1366
+
+809:                                              ; preds = %807
+  %810 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %35, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.831) #6
+  br label %proto_item_set_url.exit
+
+.lr.ph1366:                                       ; preds = %.preheader1352, %.lr.ph1366
+  %.812161365 = phi i32 [ %814, %.lr.ph1366 ], [ 0, %.preheader1352 ]
+  %811 = load i32, ptr @hf_lq_client_link, align 4
+  %812 = add i32 %.812161365, %42
+  %813 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %811, ptr noundef %0, i32 noundef %812, i32 noundef 16, i32 noundef 0) #6
+  %814 = add nuw nsw i32 %.812161365, 16
+  %815 = icmp ult i32 %814, %26
+  br i1 %815, label %.lr.ph1366, label %proto_item_set_url.exit, !llvm.loop !35
+
+816:                                              ; preds = %30
+  %817 = and i32 %26, 15
+  %.not1267 = icmp eq i32 %817, 0
+  br i1 %.not1267, label %.preheader1354, label %818
+
+.preheader1354:                                   ; preds = %816
+  %.not1408 = icmp eq i16 %25, 0
+  br i1 %.not1408, label %proto_item_set_url.exit, label %.lr.ph1364
+
+818:                                              ; preds = %816
+  %819 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %35, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.832) #6
+  br label %proto_item_set_url.exit
+
+.lr.ph1364:                                       ; preds = %.preheader1354, %.lr.ph1364
+  %.912171363 = phi i32 [ %823, %.lr.ph1364 ], [ 0, %.preheader1354 ]
+  %820 = load i32, ptr @hf_capwap_ac_v6, align 4
+  %821 = add i32 %.912171363, %42
+  %822 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %820, ptr noundef %0, i32 noundef %821, i32 noundef 16, i32 noundef 0) #6
+  %823 = add nuw nsw i32 %.912171363, 16
+  %824 = icmp ult i32 %823, %26
+  br i1 %824, label %.lr.ph1364, label %proto_item_set_url.exit, !llvm.loop !36
+
+825:                                              ; preds = %30
+  %826 = load i32, ptr @hf_aftr_name, align 4
+  tail call fastcc void @dhcpv6_domain(ptr noundef %37, ptr noundef %1, i32 noundef %826, ptr noundef %0, i32 noundef %42, i16 noundef zeroext %25)
+  br label %proto_item_set_url.exit
+
+827:                                              ; preds = %30
+  %828 = icmp ult i16 %25, 25
+  br i1 %828, label %829, label %831
+
+829:                                              ; preds = %827
+  %830 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %35, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.833) #6
+  br label %proto_item_set_url.exit
+
+831:                                              ; preds = %827
+  %832 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %42) #6
+  %833 = icmp eq i32 %832, -1
+  %834 = load i32, ptr @hf_iaprefix_pref_lifetime, align 4
+  br i1 %833, label %835, label %837
+
+835:                                              ; preds = %831
+  %836 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %37, i32 noundef %834, ptr noundef %0, i32 noundef %42, i32 noundef 4, i32 noundef -1, ptr noundef nonnull @.str.783) #6
+  br label %839
+
+837:                                              ; preds = %831
+  %838 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %834, ptr noundef %0, i32 noundef %42, i32 noundef 4, i32 noundef 0) #6
+  br label %839
+
+839:                                              ; preds = %837, %835
+  %840 = add i32 %3, 8
+  %841 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %840) #6
+  %842 = icmp eq i32 %841, -1
+  %843 = load i32, ptr @hf_iaprefix_valid_lifetime, align 4
+  br i1 %842, label %844, label %846
+
+844:                                              ; preds = %839
+  %845 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %37, i32 noundef %843, ptr noundef %0, i32 noundef %840, i32 noundef 4, i32 noundef -1, ptr noundef nonnull @.str.783) #6
+  br label %848
+
+846:                                              ; preds = %839
+  %847 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %843, ptr noundef %0, i32 noundef %840, i32 noundef 4, i32 noundef 0) #6
+  br label %848
+
+848:                                              ; preds = %846, %844
+  %849 = load i32, ptr @hf_iaprefix_pref_len, align 4
+  %850 = add i32 %3, 12
+  %851 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %849, ptr noundef %0, i32 noundef %850, i32 noundef 1, i32 noundef 0) #6
+  %852 = load i32, ptr @hf_iaprefix_pref_addr, align 4
+  %853 = add i32 %3, 13
+  %854 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %852, ptr noundef %0, i32 noundef %853, i32 noundef 16, i32 noundef 0) #6
+  %.not1407 = icmp eq i16 %25, 25
+  br i1 %.not1407, label %proto_item_set_url.exit, label %.lr.ph1362
+
+.lr.ph1362:                                       ; preds = %848
+  %855 = add i32 %42, %26
+  br label %856
+
+856:                                              ; preds = %.lr.ph1362, %856
+  %.181361 = phi i32 [ 25, %.lr.ph1362 ], [ %spec.select1321, %856 ]
+  %857 = add i32 %.181361, %42
+  %858 = tail call fastcc i32 @dhcpv6_option(ptr noundef %0, ptr noundef %1, ptr noundef %37, i32 noundef %857, i32 noundef %855, ptr noundef %5, i32 noundef %6, ptr noundef nonnull byval(%struct.hopcount_info_t) align 8 %7, i8 noundef zeroext %8), !range !13
+  %859 = add i32 %858, %.181361
+  %860 = load i32, ptr %5, align 4
+  %.not1266 = icmp eq i32 %860, 0
+  %spec.select1321 = select i1 %.not1266, i32 %859, i32 %26
+  %861 = sub i32 %26, %spec.select1321
+  %862 = icmp sgt i32 %861, 0
+  br i1 %862, label %856, label %proto_item_set_url.exit, !llvm.loop !37
+
+863:                                              ; preds = %30
+  %.not1265 = icmp eq i16 %25, 16
+  br i1 %.not1265, label %866, label %864
+
+864:                                              ; preds = %863
+  %865 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %35, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.834) #6
+  br label %proto_item_set_url.exit
+
+866:                                              ; preds = %863
+  %867 = load i32, ptr @hf_mip6_ha, align 4
+  %868 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %867, ptr noundef %0, i32 noundef %42, i32 noundef 16, i32 noundef 0) #6
+  br label %proto_item_set_url.exit
+
+869:                                              ; preds = %30
+  %.not1264 = icmp eq i16 %25, 16
+  br i1 %.not1264, label %872, label %870
+
+870:                                              ; preds = %869
+  %871 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %35, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.835) #6
+  br label %proto_item_set_url.exit
+
+872:                                              ; preds = %869
+  %873 = load i32, ptr @hf_mip6_hoa, align 4
+  %874 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %873, ptr noundef %0, i32 noundef %42, i32 noundef 16, i32 noundef 0) #6
+  br label %proto_item_set_url.exit
+
+875:                                              ; preds = %30
+  %876 = icmp ult i16 %25, 4
+  br i1 %876, label %877, label %879
+
+877:                                              ; preds = %875
+  %878 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %35, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.836) #6
+  br label %proto_item_set_url.exit
+
+879:                                              ; preds = %875
+  %880 = load i32, ptr @hf_nai, align 4
+  %881 = add nsw i32 %26, -2
+  %882 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %880, ptr noundef %0, i32 noundef %42, i32 noundef %881, i32 noundef 0) #6
+  br label %proto_item_set_url.exit
+
+883:                                              ; preds = %30
+  %884 = add i16 %25, -18
+  %or.cond29 = icmp ult i16 %884, -16
+  br i1 %or.cond29, label %885, label %887
+
+885:                                              ; preds = %883
+  %886 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %35, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.837) #6
+  br label %proto_item_set_url.exit
+
+887:                                              ; preds = %883
+  %888 = load i32, ptr @hf_pd_exclude_pref_len, align 4
+  %889 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %888, ptr noundef %0, i32 noundef %42, i32 noundef 1, i32 noundef 0) #6
+  %890 = load i32, ptr @hf_pd_exclude_subnet_id, align 4
+  %891 = add i32 %3, 5
+  %892 = add nsw i32 %26, -1
+  %893 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %890, ptr noundef %0, i32 noundef %891, i32 noundef %892, i32 noundef 0) #6
+  br label %proto_item_set_url.exit
+
+894:                                              ; preds = %30
+  %895 = load i32, ptr @hf_option_captive_portal, align 4
+  %896 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %895, ptr noundef %0, i32 noundef %42, i32 noundef %26, i32 noundef 0) #6
+  %.not.i = icmp eq ptr %896, null
+  br i1 %.not.i, label %proto_item_set_url.exit, label %897
+
+897:                                              ; preds = %894
+  %898 = getelementptr inbounds i8, ptr %896, i64 32
+  %899 = load ptr, ptr %898, align 8
+  %.not5.i = icmp eq ptr %899, null
+  br i1 %.not5.i, label %proto_item_set_url.exit, label %900
+
+900:                                              ; preds = %897
+  %901 = getelementptr inbounds i8, ptr %899, i64 28
+  %902 = load i32, ptr %901, align 4
+  %903 = or i32 %902, 4
+  store i32 %903, ptr %901, align 4
+  br label %proto_item_set_url.exit
+
+.lr.ph:                                           ; preds = %.preheader1357, %.lr.ph
+  %.011961360 = phi i32 [ %907, %.lr.ph ], [ %42, %.preheader1357 ]
+  %.201359 = phi i32 [ %906, %.lr.ph ], [ %26, %.preheader1357 ]
+  %904 = load i32, ptr @hf_option_s46_option_code, align 4
+  %905 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %904, ptr noundef %0, i32 noundef %.011961360, i32 noundef 2, i32 noundef 0) #6
+  %906 = add nsw i32 %.201359, -2
+  %907 = add i32 %.011961360, 2
+  %908 = icmp ugt i32 %.201359, 3
+  br i1 %908, label %.lr.ph, label %proto_item_set_url.exit, !llvm.loop !38
+
+909:                                              ; preds = %30
+  %.not1263 = icmp eq i16 %25, 1
+  br i1 %.not1263, label %912, label %910
+
+910:                                              ; preds = %909
+  %911 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %35, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.838) #6
+  br label %proto_item_set_url.exit
+
+912:                                              ; preds = %909
+  %913 = load i32, ptr @hf_option_failover_binding_status, align 4
+  %914 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %913, ptr noundef %0, i32 noundef %42, i32 noundef 1, i32 noundef 0) #6
+  br label %proto_item_set_url.exit
+
+915:                                              ; preds = %30
+  %.not1262 = icmp eq i16 %25, 2
+  br i1 %.not1262, label %918, label %916
+
+916:                                              ; preds = %915
+  %917 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %35, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.838) #6
+  br label %proto_item_set_url.exit
+
+918:                                              ; preds = %915
+  %919 = load i32, ptr @hf_option_failover_connect_flags, align 4
+  %920 = load i32, ptr @ett_dhcpv6_failover_connect_flags, align 4
+  %921 = tail call ptr @proto_tree_add_bitmask(ptr noundef %37, ptr noundef %0, i32 noundef %42, i32 noundef %919, i32 noundef %920, ptr noundef nonnull @dhcpv6_failover_connect_flags_fields, i32 noundef 0) #6
+  br label %proto_item_set_url.exit
+
+922:                                              ; preds = %30
+  %923 = call i32 @get_dns_name(ptr noundef %0, i32 noundef %42, i32 noundef %26, i32 noundef %42, ptr noundef nonnull %15, ptr noundef nonnull %16) #6
+  %924 = load i32, ptr @hf_option_failover_dns_hostname, align 4
+  %925 = getelementptr inbounds i8, ptr %1, i64 408
+  %926 = load ptr, ptr %925, align 8
+  %927 = load ptr, ptr %15, align 8
+  %928 = load i32, ptr %16, align 4
+  %929 = sext i32 %928 to i64
+  %930 = call ptr @format_text(ptr noundef %926, ptr noundef %927, i64 noundef %929) #6
+  %931 = call ptr @proto_tree_add_string(ptr noundef %37, i32 noundef %924, ptr noundef %0, i32 noundef %42, i32 noundef %26, ptr noundef %930) #6
+  br label %proto_item_set_url.exit
+
+932:                                              ; preds = %30
+  %933 = call i32 @get_dns_name(ptr noundef %0, i32 noundef %42, i32 noundef %26, i32 noundef %42, ptr noundef nonnull %17, ptr noundef nonnull %18) #6
+  %934 = load i32, ptr @hf_option_failover_dns_zonename, align 4
+  %935 = getelementptr inbounds i8, ptr %1, i64 408
+  %936 = load ptr, ptr %935, align 8
+  %937 = load ptr, ptr %17, align 8
+  %938 = load i32, ptr %18, align 4
+  %939 = sext i32 %938 to i64
+  %940 = call ptr @format_text(ptr noundef %936, ptr noundef %937, i64 noundef %939) #6
+  %941 = call ptr @proto_tree_add_string(ptr noundef %37, i32 noundef %934, ptr noundef %0, i32 noundef %42, i32 noundef %26, ptr noundef %940) #6
+  br label %proto_item_set_url.exit
+
+942:                                              ; preds = %30
+  %.not1261 = icmp eq i16 %25, 2
+  br i1 %.not1261, label %945, label %943
+
+943:                                              ; preds = %942
+  %944 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %35, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.838) #6
+  br label %proto_item_set_url.exit
+
+945:                                              ; preds = %942
+  %946 = load i32, ptr @hf_option_failover_dns_flags, align 4
+  %947 = load i32, ptr @ett_dhcpv6_failover_dns_flags, align 4
+  %948 = tail call ptr @proto_tree_add_bitmask(ptr noundef %37, ptr noundef %0, i32 noundef %42, i32 noundef %946, i32 noundef %947, ptr noundef nonnull @dhcpv6_failover_dns_flags_fields, i32 noundef 0) #6
+  br label %proto_item_set_url.exit
+
+949:                                              ; preds = %30
+  %.not1260 = icmp eq i16 %25, 4
+  br i1 %.not1260, label %952, label %950
+
+950:                                              ; preds = %949
+  %951 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %35, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.838) #6
+  br label %proto_item_set_url.exit
+
+952:                                              ; preds = %949
+  %953 = load i32, ptr @hf_option_failover_expiration_time, align 4
+  %954 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %953, ptr noundef %0, i32 noundef %42, i32 noundef 4, i32 noundef 0) #6
+  br label %proto_item_set_url.exit
+
+955:                                              ; preds = %30
+  %.not1259 = icmp eq i16 %25, 4
+  br i1 %.not1259, label %958, label %956
+
+956:                                              ; preds = %955
+  %957 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %35, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.838) #6
+  br label %proto_item_set_url.exit
+
+958:                                              ; preds = %955
+  %959 = load i32, ptr @hf_option_failover_max_unacked_bndupd, align 4
+  %960 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %959, ptr noundef %0, i32 noundef %42, i32 noundef 4, i32 noundef 0) #6
+  br label %proto_item_set_url.exit
+
+961:                                              ; preds = %30
+  %.not1258 = icmp eq i16 %25, 4
+  br i1 %.not1258, label %964, label %962
+
+962:                                              ; preds = %961
+  %963 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %35, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.838) #6
+  br label %proto_item_set_url.exit
+
+964:                                              ; preds = %961
+  %965 = load i32, ptr @hf_option_failover_mclt, align 4
+  %966 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %965, ptr noundef %0, i32 noundef %42, i32 noundef 4, i32 noundef 0) #6
+  br label %proto_item_set_url.exit
+
+967:                                              ; preds = %30
+  %.not1257 = icmp eq i16 %25, 4
+  br i1 %.not1257, label %970, label %968
+
+968:                                              ; preds = %967
+  %969 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %35, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.838) #6
+  br label %proto_item_set_url.exit
+
+970:                                              ; preds = %967
+  %971 = load i32, ptr @hf_option_failover_partner_lifetime, align 4
+  %972 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %971, ptr noundef %0, i32 noundef %42, i32 noundef 4, i32 noundef 0) #6
+  br label %proto_item_set_url.exit
+
+973:                                              ; preds = %30
+  %.not1256 = icmp eq i16 %25, 4
+  br i1 %.not1256, label %976, label %974
+
+974:                                              ; preds = %973
+  %975 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %35, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.838) #6
+  br label %proto_item_set_url.exit
+
+976:                                              ; preds = %973
+  %977 = load i32, ptr @hf_option_failover_partner_lifetime_sent, align 4
+  %978 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %977, ptr noundef %0, i32 noundef %42, i32 noundef 4, i32 noundef 0) #6
+  br label %proto_item_set_url.exit
+
+979:                                              ; preds = %30
+  %.not1255 = icmp eq i16 %25, 4
+  br i1 %.not1255, label %982, label %980
+
+980:                                              ; preds = %979
+  %981 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %35, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.838) #6
+  br label %proto_item_set_url.exit
+
+982:                                              ; preds = %979
+  %983 = load i32, ptr @hf_option_failover_partner_downtime, align 4
+  %984 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %983, ptr noundef %0, i32 noundef %42, i32 noundef 4, i32 noundef 0) #6
+  br label %proto_item_set_url.exit
+
+985:                                              ; preds = %30
+  %.not1254 = icmp eq i16 %25, 4
+  br i1 %.not1254, label %988, label %986
+
+986:                                              ; preds = %985
+  %987 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %35, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.838) #6
+  br label %proto_item_set_url.exit
+
+988:                                              ; preds = %985
+  %989 = load i32, ptr @hf_option_failover_partner_raw_clt_time, align 4
+  %990 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %989, ptr noundef %0, i32 noundef %42, i32 noundef 4, i32 noundef 0) #6
+  br label %proto_item_set_url.exit
+
+991:                                              ; preds = %30
+  %.not1253 = icmp eq i16 %25, 4
+  br i1 %.not1253, label %994, label %992
+
+992:                                              ; preds = %991
+  %993 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %35, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.838) #6
+  br label %proto_item_set_url.exit
+
+994:                                              ; preds = %991
+  %995 = load i32, ptr @hf_option_failover_major_version, align 4
+  %996 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %995, ptr noundef %0, i32 noundef %42, i32 noundef 2, i32 noundef 0) #6
+  %997 = load i32, ptr @hf_option_failover_minor_version, align 4
+  %998 = add i32 %3, 6
+  %999 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %997, ptr noundef %0, i32 noundef %998, i32 noundef 2, i32 noundef 0) #6
+  br label %proto_item_set_url.exit
+
+1000:                                             ; preds = %30
+  %.not1252 = icmp eq i16 %25, 4
+  br i1 %.not1252, label %1003, label %1001
+
+1001:                                             ; preds = %1000
+  %1002 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %35, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.838) #6
+  br label %proto_item_set_url.exit
+
+1003:                                             ; preds = %1000
+  %1004 = load i32, ptr @hf_option_failover_keepalive_time, align 4
+  %1005 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %1004, ptr noundef %0, i32 noundef %42, i32 noundef 4, i32 noundef 0) #6
+  br label %proto_item_set_url.exit
+
+1006:                                             ; preds = %30
+  %1007 = icmp ult i16 %25, 4
+  br i1 %1007, label %1008, label %1010
+
+1008:                                             ; preds = %1006
+  %1009 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %35, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.838) #6
+  br label %proto_item_set_url.exit
+
+1010:                                             ; preds = %1006
+  %1011 = load i32, ptr @hf_option_failover_reconfigure_time, align 4
+  %1012 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %1011, ptr noundef %0, i32 noundef %42, i32 noundef 4, i32 noundef 0) #6
+  %1013 = load i32, ptr @hf_option_failover_reconfigure_key, align 4
+  %1014 = add i32 %3, 8
+  %1015 = add nsw i32 %26, -4
+  %1016 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %1013, ptr noundef %0, i32 noundef %1014, i32 noundef %1015, i32 noundef 0) #6
+  br label %proto_item_set_url.exit
+
+1017:                                             ; preds = %30
+  %1018 = load i32, ptr @hf_option_failover_relationship_name, align 4
+  %1019 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %1018, ptr noundef %0, i32 noundef %42, i32 noundef %26, i32 noundef 2) #6
+  br label %proto_item_set_url.exit
+
+1020:                                             ; preds = %30
+  %.not1251 = icmp eq i16 %25, 1
+  br i1 %.not1251, label %1023, label %1021
+
+1021:                                             ; preds = %1020
+  %1022 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %35, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.838) #6
+  br label %proto_item_set_url.exit
+
+1023:                                             ; preds = %1020
+  %1024 = load i32, ptr @hf_option_failover_server_flags, align 4
+  %1025 = load i32, ptr @ett_dhcpv6_failover_server_flags, align 4
+  %1026 = tail call ptr @proto_tree_add_bitmask(ptr noundef %37, ptr noundef %0, i32 noundef %42, i32 noundef %1024, i32 noundef %1025, ptr noundef nonnull @dhcpv6_failover_server_flags_fields, i32 noundef 0) #6
+  br label %proto_item_set_url.exit
+
+1027:                                             ; preds = %30
+  %.not1250 = icmp eq i16 %25, 1
+  br i1 %.not1250, label %1030, label %1028
+
+1028:                                             ; preds = %1027
+  %1029 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %35, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.838) #6
+  br label %proto_item_set_url.exit
+
+1030:                                             ; preds = %1027
+  %1031 = load i32, ptr @hf_option_failover_server_state, align 4
+  %1032 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %1031, ptr noundef %0, i32 noundef %42, i32 noundef 1, i32 noundef 0) #6
+  br label %proto_item_set_url.exit
+
+1033:                                             ; preds = %30
+  %.not1249 = icmp eq i16 %25, 4
+  br i1 %.not1249, label %1036, label %1034
+
+1034:                                             ; preds = %1033
+  %1035 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %35, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.838) #6
+  br label %proto_item_set_url.exit
+
+1036:                                             ; preds = %1033
+  %1037 = load i32, ptr @hf_option_failover_start_time_of_state, align 4
+  %1038 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %1037, ptr noundef %0, i32 noundef %42, i32 noundef 4, i32 noundef 0) #6
+  br label %proto_item_set_url.exit
+
+1039:                                             ; preds = %30
+  %.not1248 = icmp eq i16 %25, 4
+  br i1 %.not1248, label %1042, label %1040
+
+1040:                                             ; preds = %1039
+  %1041 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %35, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.838) #6
+  br label %proto_item_set_url.exit
+
+1042:                                             ; preds = %1039
+  %1043 = load i32, ptr @hf_option_failover_state_expiration_time, align 4
+  %1044 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %1043, ptr noundef %0, i32 noundef %42, i32 noundef 4, i32 noundef 0) #6
+  br label %proto_item_set_url.exit
+
+1045:                                             ; preds = %30
+  %.not1247 = icmp eq i16 %25, 2
+  br i1 %.not1247, label %1048, label %1046
+
+1046:                                             ; preds = %1045
+  %1047 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %35, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.839) #6
+  br label %proto_item_set_url.exit
+
+1048:                                             ; preds = %1045
+  %1049 = load i32, ptr @hf_option_relay_port, align 4
+  %1050 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %1049, ptr noundef %0, i32 noundef %42, i32 noundef 2, i32 noundef 0) #6
+  br label %proto_item_set_url.exit
+
+1051:                                             ; preds = %30
+  %1052 = icmp ult i16 %25, 2
+  br i1 %1052, label %1053, label %1055
+
+1053:                                             ; preds = %1051
+  %1054 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %35, ptr noundef nonnull @ei_dhcpv6_malformed_option, ptr noundef nonnull @.str.840) #6
+  br label %proto_item_set_url.exit
+
+1055:                                             ; preds = %1051
+  %1056 = load i32, ptr @hf_client_link_layer_addr_hwtype, align 4
+  %1057 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %37, i32 noundef %1056, ptr noundef %0, i32 noundef %42, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %12) #6
+  %.not = icmp eq i16 %25, 2
+  br i1 %.not, label %proto_item_set_url.exit, label %1058
+
+1058:                                             ; preds = %1055
+  %1059 = load i32, ptr %12, align 4
+  %1060 = trunc i32 %1059 to i16
+  %1061 = load i32, ptr @hf_client_link_layer_addr, align 4
+  %1062 = add i32 %3, 6
+  %1063 = add nsw i32 %26, -2
+  %1064 = getelementptr inbounds i8, ptr %1, i64 408
+  %1065 = load ptr, ptr %1064, align 8
+  %1066 = call ptr @tvb_arphrdaddr_to_str(ptr noundef %1065, ptr noundef %0, i32 noundef %1062, i32 noundef %1063, i16 noundef zeroext %1060) #6
+  %1067 = call ptr @proto_tree_add_string(ptr noundef %37, i32 noundef %1061, ptr noundef %0, i32 noundef %1062, i32 noundef %1063, ptr noundef %1066) #6
+  switch i16 %1060, label %proto_item_set_url.exit [
+    i16 6, label %1068
+    i16 1, label %1068
+  ]
+
+1068:                                             ; preds = %1058, %1058
+  %1069 = icmp eq i32 %1063, 6
+  br i1 %1069, label %1070, label %proto_item_set_url.exit
+
+1070:                                             ; preds = %1068
+  %1071 = load i32, ptr @hf_client_link_layer_addr_ether, align 4
+  %1072 = call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %1071, ptr noundef %0, i32 noundef %1062, i32 noundef 6, i32 noundef 0) #6
+  br label %proto_item_set_url.exit
+
+proto_item_set_url.exit.loopexit1338:             ; preds = %.lr.ph1384, %.preheader1337
+  %.lcssa1382 = phi ptr [ null, %.preheader1337 ], [ %600, %.lr.ph1384 ]
+  store ptr %.lcssa1382, ptr %11, align 8
+  br label %proto_item_set_url.exit
+
+proto_item_set_url.exit.loopexit1344:             ; preds = %.lr.ph1376, %.preheader1343
+  %.lcssa = phi ptr [ null, %.preheader1343 ], [ %644, %.lr.ph1376 ]
+  store ptr %.lcssa, ptr %11, align 8
+  br label %proto_item_set_url.exit
+
+proto_item_set_url.exit:                          ; preds = %.lr.ph, %856, %.lr.ph1364, %.lr.ph1366, %783, %776, %.lr.ph1372, %.lr.ph1374, %.lr.ph1378, %.lr.ph1380, %.lr.ph1387, %.lr.ph1389, %.lr.ph1391, %411, %373, %355, %315, %279, %228, %188, %139, %.preheader1357, %848, %.preheader1354, %.preheader1352, %.preheader1350, %771, %.preheader1347, %.preheader1345, %.preheader1341, %.preheader1339, %.preheader1335, %522, %418, %409, %366, %353, %313, %271, %220, %.preheader, %proto_item_set_url.exit.loopexit1344, %proto_item_set_url.exit.loopexit1338, %900, %897, %894, %1058, %111, %76, %1055, %1070, %1068, %754, %755, %750, %751, %746, %747, %689, %733, %655, %656, %633, %634, %628, %629, %605, %606, %580, %581, %577, %578, %568, %557, %561, %555, %517, %505, %508, %492, %496, %473, %481, %441, %443, %326, %328, %163, %137, %55, %63, %92, %105, %126, %128, %85, %87, %65, %98, %94, %120, %122, %107, %1053, %1048, %1046, %1042, %1040, %1036, %1034, %1030, %1028, %1023, %1021, %1017, %1010, %1008, %1003, %1001, %994, %992, %988, %986, %982, %980, %976, %974, %970, %968, %964, %962, %958, %956, %952, %950, %945, %943, %932, %922, %918, %916, %912, %910, %887, %885, %879, %877, %872, %870, %866, %864, %829, %825, %818, %809, %800, %798, %793, %791, %760, %739, %692, %684, %682, %673, %671, %662, %652, %650, %640, %621, %612, %596, %587, %574, %572, %546, %515, %503, %489, %487, %447, %433, %431, %427, %425, %382, %364, %304, %302, %294, %287, %269, %259, %252, %250, %243, %238, %236, %218, %207, %193, %153, %.thread, %30
+  call void @decrement_dissection_depth(ptr noundef %1) #6
+  br label %1073
+
+1073:                                             ; preds = %proto_item_set_url.exit, %29, %21
+  %.0 = phi i32 [ 0, %21 ], [ 0, %29 ], [ %27, %proto_item_set_url.exit ]
+  ret i32 %.0
+}
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+
+declare ptr @proto_tree_add_string_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
+
+declare ptr @val_to_str_ext(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare void @increment_dissection_depth(ptr noundef) local_unnamed_addr #1
+
+declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
+
+declare ptr @tvb_bytes_to_str(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+
+declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+declare ptr @proto_tree_add_time(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+
+declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+
+declare ptr @tvb_arphrdaddr_to_str(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i16 noundef zeroext) local_unnamed_addr #1
+
+declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: nounwind uwtable
+define internal fastcc void @dhcpv6_domain(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i16 noundef zeroext %5) unnamed_addr #0 {
+  %7 = zext i16 %5 to i32
+  %8 = icmp eq i16 %5, 0
+  br i1 %8, label %9, label %13
+
+9:                                                ; preds = %6
+  %10 = load i32, ptr @hf_empty_domain_name, align 4
+  %11 = add i32 %4, -3
+  %12 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %0, i32 noundef %10, ptr noundef %3, i32 noundef %11, i32 noundef 2, i32 noundef 0, ptr noundef nonnull @.str.841) #6
+  br label %.loopexit
+
+13:                                               ; preds = %6
+  %14 = add i32 %4, -1
+  %15 = add i32 %14, %7
+  %16 = getelementptr inbounds i8, ptr %1, i64 408
+  %17 = load ptr, ptr %16, align 8
+  %18 = tail call noalias ptr @wmem_strbuf_new(ptr noundef %17, ptr noundef null) #6
+  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  br label %.lr.ph
+
+.lr.ph:                                           ; preds = %13, %.outer.backedge
+  %.not197 = phi i1 [ true, %13 ], [ false, %.outer.backedge ]
+  %.0182.ph52 = phi i32 [ %4, %13 ], [ %37, %.outer.backedge ]
+  %.0184.ph51 = phi i32 [ %4, %13 ], [ %spec.select, %.outer.backedge ]
+  %.0187.ph50 = phi i32 [ %7, %13 ], [ %38, %.outer.backedge ]
+  br label %20
+
+20:                                               ; preds = %.lr.ph, %128
+  %.018249 = phi i32 [ %.0182.ph52, %.lr.ph ], [ %101, %128 ]
+  %.018348 = phi i32 [ 0, %.lr.ph ], [ %.pre-phi, %128 ]
+  %.018447 = phi i32 [ %.0184.ph51, %.lr.ph ], [ %spec.select, %128 ]
+  %.018646 = phi i8 [ 0, %.lr.ph ], [ %132, %128 ]
+  %.018745 = phi i32 [ %.0187.ph50, %.lr.ph ], [ %131, %128 ]
+  %21 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %3, i32 noundef %.018249) #6
+  %22 = zext i8 %21 to i32
+  %23 = icmp ugt i8 %21, 63
+  br i1 %23, label %24, label %35
+
+24:                                               ; preds = %20
+  %25 = load i32, ptr @hf_dhcpv6_non_dns_encoded_name, align 4
+  %26 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %0, i32 noundef %25, ptr noundef %3, i32 noundef %.018249, i32 noundef 1, i32 noundef %22, ptr noundef nonnull @.str.842, i32 noundef %22, i32 noundef %22) #6
+  %27 = load i32, ptr @ett_clientfqdn_expert, align 4
+  %28 = tail call ptr @proto_item_add_subtree(ptr noundef %26, i32 noundef %27) #6
+  %.not200 = icmp eq i8 %.018646, 0
+  br i1 %.not200, label %33, label %29
+
+29:                                               ; preds = %24
+  %30 = load i32, ptr @hf_dhcpv6_decoded_portion, align 4
+  %31 = load ptr, ptr %19, align 8
+  %32 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %28, i32 noundef %30, ptr noundef %3, i32 noundef %.018447, i32 noundef %.018348, ptr noundef %31, ptr noundef nonnull @.str.843, ptr noundef %31) #6
+  br label %33
+
+33:                                               ; preds = %29, %24
+  %34 = tail call ptr @proto_tree_add_expert(ptr noundef %28, ptr noundef %1, ptr noundef nonnull @ei_dhcpv6_non_dns_encoded_name, ptr noundef %3, i32 noundef %.018249, i32 noundef 1) #6
+  br label %.loopexit
+
+35:                                               ; preds = %20
+  %36 = icmp eq i32 %.018348, 0
+  %spec.select = select i1 %36, i32 %.018249, i32 %.018447
+  %37 = add i32 %.018249, 1
+  %38 = add nsw i32 %.018745, -1
+  %.not195 = icmp sgt i32 %.018745, %22
+  br i1 %.not195, label %52, label %39
+
+39:                                               ; preds = %35
+  %40 = getelementptr inbounds i8, ptr %1, i64 8
+  %41 = load ptr, ptr %40, align 8
+  tail call void @col_append_str(ptr noundef %41, i32 noundef 25, ptr noundef nonnull @.str.844) #6
+  %42 = load i32, ptr @hf_dhcpv6_domain_field_len_exceeded, align 4
+  %43 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %0, i32 noundef %42, ptr noundef %3, i32 noundef %.018249, i32 noundef 1, i32 noundef %22, ptr noundef nonnull @.str.845, i32 noundef %22, i32 noundef %38) #6
+  %44 = load i32, ptr @ett_clientfqdn_expert, align 4
+  %45 = tail call ptr @proto_item_add_subtree(ptr noundef %43, i32 noundef %44) #6
+  %.not199 = icmp eq i8 %.018646, 0
+  br i1 %.not199, label %50, label %46
+
+46:                                               ; preds = %39
+  %47 = load i32, ptr @hf_dhcpv6_decoded_portion, align 4
+  %48 = load ptr, ptr %19, align 8
+  %49 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %45, i32 noundef %47, ptr noundef %3, i32 noundef %spec.select, i32 noundef %.018348, ptr noundef %48, ptr noundef nonnull @.str.846, ptr noundef %48) #6
+  br label %50
+
+50:                                               ; preds = %46, %39
+  %51 = tail call ptr @proto_tree_add_expert(ptr noundef %45, ptr noundef nonnull %1, ptr noundef nonnull @ei_dhcpv6_domain_field_len_exceeded, ptr noundef %3, i32 noundef %4, i32 noundef %7) #6
+  br label %.loopexit
+
+52:                                               ; preds = %35
+  %53 = add i32 %.018348, %22
+  %54 = add i32 %53, 2
+  %55 = icmp sgt i32 %54, 255
+  br i1 %55, label %56, label %77
+
+56:                                               ; preds = %52
+  %57 = getelementptr inbounds i8, ptr %1, i64 8
+  %58 = load ptr, ptr %57, align 8
+  tail call void @col_append_str(ptr noundef %58, i32 noundef 25, ptr noundef nonnull @.str.847) #6
+  tail call void @wmem_strbuf_append_c(ptr noundef %18, i8 noundef signext 46) #6
+  %59 = add i32 %.018348, 1
+  %60 = load ptr, ptr %16, align 8
+  %61 = tail call ptr @tvb_get_string_enc(ptr noundef %60, ptr noundef %3, i32 noundef %37, i32 noundef %22, i32 noundef 0) #6
+  tail call void @wmem_strbuf_append(ptr noundef %18, ptr noundef %61) #6
+  %62 = add i32 %37, %22
+  %63 = add i32 %59, %22
+  %64 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %3, i32 noundef %62) #6
+  %65 = icmp eq i8 %64, 0
+  br i1 %65, label %66, label %68
+
+66:                                               ; preds = %56
+  tail call void @wmem_strbuf_append_c(ptr noundef %18, i8 noundef signext 46) #6
+  %67 = add i32 %63, 1
+  br label %68
+
+68:                                               ; preds = %66, %56
+  %69 = phi ptr [ @.str.850, %66 ], [ @.str.849, %56 ]
+  %.1 = phi i32 [ %67, %66 ], [ %63, %56 ]
+  %70 = load i32, ptr @hf_dhcpv6_encoded_fqdn_len_gt_255, align 4
+  %71 = add i32 %.1, -1
+  %72 = load ptr, ptr %19, align 8
+  %73 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %0, i32 noundef %70, ptr noundef %3, i32 noundef %spec.select, i32 noundef %71, i32 noundef %.1, ptr noundef nonnull @.str.848, ptr noundef %72, ptr noundef nonnull %69, i32 noundef %.1) #6
+  %74 = load i32, ptr @ett_clientfqdn_expert, align 4
+  %75 = tail call ptr @proto_item_add_subtree(ptr noundef %73, i32 noundef %74) #6
+  %76 = tail call ptr @proto_tree_add_expert(ptr noundef %75, ptr noundef nonnull %1, ptr noundef nonnull @ei_dhcpv6_encoded_fqdn_len_gt_255, ptr noundef %3, i32 noundef %spec.select, i32 noundef %71) #6
+  br label %.loopexit
+
+77:                                               ; preds = %52
+  %78 = icmp eq i8 %21, 0
+  br i1 %78, label %79, label %100
+
+79:                                               ; preds = %77
+  tail call void @wmem_strbuf_append_c(ptr noundef %18, i8 noundef signext 46) #6
+  switch i8 %.018646, label %96 [
+    i8 0, label %80
+    i8 1, label %88
+  ]
+
+80:                                               ; preds = %79
+  %81 = getelementptr inbounds i8, ptr %1, i64 8
+  %82 = load ptr, ptr %81, align 8
+  tail call void @col_append_str(ptr noundef %82, i32 noundef 25, ptr noundef nonnull @.str.851) #6
+  %83 = load i32, ptr @hf_dhcpv6_root_only_domain_name, align 4
+  %84 = tail call ptr @proto_tree_add_string(ptr noundef %0, i32 noundef %83, ptr noundef %3, i32 noundef %.018249, i32 noundef 1, ptr noundef nonnull @.str.852) #6
+  %85 = load i32, ptr @ett_clientfqdn_expert, align 4
+  %86 = tail call ptr @proto_item_add_subtree(ptr noundef %84, i32 noundef %85) #6
+  %87 = tail call ptr @proto_tree_add_expert(ptr noundef %86, ptr noundef %1, ptr noundef nonnull @ei_dhcpv6_root_only_domain_name, ptr noundef %3, i32 noundef %.018249, i32 noundef 1) #6
+  br label %.loopexit
+
+88:                                               ; preds = %79
+  %89 = load i32, ptr @hf_dhcpv6_tld, align 4
+  %90 = add i32 %.018348, 2
+  %91 = load ptr, ptr %19, align 8
+  %92 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %0, i32 noundef %89, ptr noundef %3, i32 noundef %spec.select, i32 noundef %90, ptr noundef %91, ptr noundef nonnull @.str.853, ptr noundef %91) #6
+  %93 = load i32, ptr @ett_clientfqdn_expert, align 4
+  %94 = tail call ptr @proto_item_add_subtree(ptr noundef %92, i32 noundef %93) #6
+  %95 = tail call ptr @proto_tree_add_expert(ptr noundef %94, ptr noundef %1, ptr noundef nonnull @ei_dhcpv6_tld_lookup, ptr noundef %3, i32 noundef %spec.select, i32 noundef %90) #6
+  br label %.outer.backedge
+
+.outer.backedge:                                  ; preds = %88, %96
+  %.not44 = icmp eq i32 %38, 0
+  br i1 %.not44, label %.loopexit, label %.lr.ph, !llvm.loop !39
+
+96:                                               ; preds = %79
+  %97 = add i32 %.018348, 2
+  %98 = load ptr, ptr %19, align 8
+  %99 = tail call ptr @proto_tree_add_string(ptr noundef %0, i32 noundef %2, ptr noundef %3, i32 noundef %spec.select, i32 noundef %97, ptr noundef %98) #6
+  br label %.outer.backedge
+
+100:                                              ; preds = %77
+  %101 = add i32 %37, %22
+  %102 = add i32 %.018249, %22
+  %103 = icmp eq i32 %102, %15
+  br i1 %103, label %104, label %125
+
+104:                                              ; preds = %100
+  %105 = load ptr, ptr %16, align 8
+  %106 = add i32 %spec.select, 1
+  %107 = tail call ptr @tvb_get_string_enc(ptr noundef %105, ptr noundef %3, i32 noundef %106, i32 noundef %22, i32 noundef 0) #6
+  tail call void @wmem_strbuf_append(ptr noundef %18, ptr noundef %107) #6
+  br i1 %.not197, label %117, label %108
+
+108:                                              ; preds = %104
+  %109 = getelementptr inbounds i8, ptr %1, i64 8
+  %110 = load ptr, ptr %109, align 8
+  tail call void @col_append_str(ptr noundef %110, i32 noundef 25, ptr noundef nonnull @.str.854) #6
+  %111 = load i32, ptr @hf_dhcpv6_partial_name_preceded_by_fqdn, align 4
+  %112 = load ptr, ptr %19, align 8
+  %113 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %0, i32 noundef %111, ptr noundef %3, i32 noundef %spec.select, i32 noundef %22, ptr noundef %112, ptr noundef nonnull @.str.855, ptr noundef %112) #6
+  %114 = load i32, ptr @ett_clientfqdn_expert, align 4
+  %115 = tail call ptr @proto_item_add_subtree(ptr noundef %113, i32 noundef %114) #6
+  %116 = tail call ptr @proto_tree_add_expert(ptr noundef %115, ptr noundef nonnull %1, ptr noundef nonnull @ei_dhcpv6_partial_name_preceded_by_fqdn, ptr noundef %3, i32 noundef %spec.select, i32 noundef %22) #6
+  br label %.loopexit
+
+117:                                              ; preds = %104
+  %118 = icmp eq i8 %.018646, 0
+  %119 = add i32 %53, 1
+  %120 = load ptr, ptr %19, align 8
+  br i1 %118, label %121, label %123
+
+121:                                              ; preds = %117
+  %122 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %0, i32 noundef %2, ptr noundef %3, i32 noundef %spec.select, i32 noundef %119, ptr noundef %120, ptr noundef nonnull @.str.856, ptr noundef %120) #6
+  br label %.loopexit
+
+123:                                              ; preds = %117
+  %124 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %0, i32 noundef %2, ptr noundef %3, i32 noundef %spec.select, i32 noundef %119, ptr noundef %120, ptr noundef nonnull @.str.857, ptr noundef %120) #6
+  br label %.loopexit
+
+125:                                              ; preds = %100
+  %.not196 = icmp eq i8 %.018646, 0
+  br i1 %.not196, label %128, label %126
+
+126:                                              ; preds = %125
+  tail call void @wmem_strbuf_append_c(ptr noundef %18, i8 noundef signext 46) #6
+  %127 = add i32 %.018348, 1
+  %.pre = add i32 %127, %22
+  br label %128
+
+128:                                              ; preds = %126, %125
+  %.pre-phi = phi i32 [ %.pre, %126 ], [ %53, %125 ]
+  %129 = load ptr, ptr %16, align 8
+  %130 = tail call ptr @tvb_get_string_enc(ptr noundef %129, ptr noundef %3, i32 noundef %37, i32 noundef %22, i32 noundef 0) #6
+  tail call void @wmem_strbuf_append(ptr noundef %18, ptr noundef %130) #6
+  %131 = sub nsw i32 %38, %22
+  %132 = add i8 %.018646, 1
+  %.not = icmp eq i32 %131, 0
+  br i1 %.not, label %.loopexit, label %20, !llvm.loop !39
+
+.loopexit:                                        ; preds = %.outer.backedge, %128, %121, %123, %108, %80, %68, %50, %33, %9
+  ret void
+}
+
+declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: nounwind uwtable
+define internal fastcc i32 @dissect_dhcpv6_s46_ipv6_prefix(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
+  %6 = alloca %struct.e_in6_addr, align 1
+  %7 = add nuw nsw i32 %3, 7
+  %8 = lshr i32 %7, 3
+  %9 = and i32 %8, 31
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %6, i8 0, i64 16, i1 false)
+  %.not = icmp eq i32 %9, 0
+  br i1 %.not, label %13, label %10
+
+10:                                               ; preds = %5
+  %11 = zext nneg i32 %9 to i64
+  %12 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %6, i32 noundef %2, i64 noundef %11) #6
+  br label %13
+
+13:                                               ; preds = %10, %5
+  %14 = call ptr @proto_tree_add_ipv6(ptr noundef %4, i32 noundef %1, ptr noundef %0, i32 noundef %2, i32 noundef %9, ptr noundef nonnull %6) #6
+  ret i32 %9
+}
+
+declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+
+declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
+
+declare ptr @tvb_address_to_str(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+
+declare ptr @proto_tree_add_uint_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
+
+; Function Attrs: nounwind uwtable
+define internal fastcc void @dissect_dhcpv6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef byval(%struct.hopcount_info_t) align 8 %5) unnamed_addr #0 {
+  %7 = alloca i32, align 4
+  %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #6
+  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = load ptr, ptr %9, align 8
+  %11 = zext i8 %8 to i32
+  %12 = tail call ptr @val_to_str_ext(i32 noundef %11, ptr noundef nonnull @msgtype_vals_ext, ptr noundef nonnull @.str.859) #6
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.858, ptr noundef %12) #6
+  %.not = icmp eq ptr %2, null
+  br i1 %.not, label %13, label %.thread
+
+13:                                               ; preds = %6
+  %14 = and i8 %8, -2
+  %or.cond = icmp eq i8 %14, 12
+  br i1 %or.cond, label %21, label %66
+
+.thread:                                          ; preds = %6
+  %15 = load i32, ptr @proto_dhcpv6, align 4
+  %16 = sub i32 %4, %3
+  %17 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %15, ptr noundef %0, i32 noundef %3, i32 noundef %16, i32 noundef 0) #6
+  %18 = load i32, ptr @ett_dhcpv6, align 4
+  %19 = tail call ptr @proto_item_add_subtree(ptr noundef %17, i32 noundef %18) #6
+  %20 = and i8 %8, -2
+  %or.cond71 = icmp eq i8 %20, 12
+  br i1 %or.cond71, label %25, label %66
+
+21:                                               ; preds = %13
+  %22 = load i8, ptr %5, align 8
+  %23 = getelementptr inbounds i8, ptr %5, i64 8
+  %24 = load ptr, ptr %23, align 8
+  %.pre = add i32 %3, 1
+  br label %40
+
+25:                                               ; preds = %.thread
+  %26 = load i8, ptr %5, align 8
+  %27 = getelementptr inbounds i8, ptr %5, i64 8
+  %28 = load ptr, ptr %27, align 8
+  %29 = load i32, ptr @hf_dhcpv6_msgtype, align 4
+  %30 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %29, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #6
+  %31 = load i32, ptr @hf_dhcpv6_hopcount, align 4
+  %32 = add i32 %3, 1
+  %33 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %31, ptr noundef %0, i32 noundef %32, i32 noundef 1, i32 noundef 0) #6
+  store ptr %33, ptr %27, align 8
+  %34 = load i32, ptr @hf_dhcpv6_linkaddr, align 4
+  %35 = add i32 %3, 2
+  %36 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %34, ptr noundef %0, i32 noundef %35, i32 noundef 16, i32 noundef 0) #6
+  %37 = load i32, ptr @hf_dhcpv6_peeraddr, align 4
+  %38 = add i32 %3, 18
+  %39 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %37, ptr noundef %0, i32 noundef %38, i32 noundef 16, i32 noundef 0) #6
+  br label %40
+
+40:                                               ; preds = %21, %25
+  %.pre-phi = phi i32 [ %.pre, %21 ], [ %32, %25 ]
+  %41 = phi ptr [ %24, %21 ], [ %28, %25 ]
+  %42 = phi ptr [ %23, %21 ], [ %27, %25 ]
+  %43 = phi i8 [ %22, %21 ], [ %26, %25 ]
+  %.0607278 = phi ptr [ null, %21 ], [ %19, %25 ]
+  %44 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.pre-phi) #6
+  store i8 %44, ptr %5, align 8
+  %45 = icmp ugt i8 %44, 32
+  br i1 %45, label %46, label %50
+
+46:                                               ; preds = %40
+  %47 = zext i8 %44 to i32
+  %48 = load ptr, ptr %42, align 8
+  %49 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %48, ptr noundef nonnull @ei_dhcpv6_error_hopcount, ptr noundef nonnull @.str.860, i32 noundef %47, i32 noundef 32) #6
+  br label %50
+
+50:                                               ; preds = %46, %40
+  %51 = getelementptr inbounds i8, ptr %5, i64 16
+  %52 = load i32, ptr %51, align 8
+  %.not67 = icmp eq i32 %52, 0
+  br i1 %.not67, label %60, label %53
+
+53:                                               ; preds = %50
+  %54 = zext i8 %44 to i32
+  %55 = zext i8 %43 to i32
+  %56 = add nsw i32 %55, -1
+  %.not68 = icmp eq i32 %56, %54
+  br i1 %.not68, label %60, label %57
+
+57:                                               ; preds = %53
+  %58 = add nuw nsw i32 %54, 1
+  %59 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %41, ptr noundef nonnull @ei_dhcpv6_error_hopcount, ptr noundef nonnull @.str.861, i32 noundef %58, i32 noundef %55) #6
+  br label %60
+
+60:                                               ; preds = %57, %53, %50
+  store i32 1, ptr %51, align 8
+  %61 = load ptr, ptr %9, align 8
+  %62 = getelementptr inbounds i8, ptr %1, i64 408
+  %63 = load ptr, ptr %62, align 8
+  %64 = add i32 %3, 2
+  %65 = tail call ptr @tvb_address_to_str(ptr noundef %63, ptr noundef %0, i32 noundef 3, i32 noundef %64) #6
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %61, i32 noundef 25, ptr noundef nonnull @.str.862, ptr noundef %65) #6
+  br label %83
+
+66:                                               ; preds = %.thread, %13
+  %.06074 = phi ptr [ %19, %.thread ], [ null, %13 ]
+  %67 = load i8, ptr %5, align 8
+  %.not66 = icmp eq i8 %67, 0
+  br i1 %.not66, label %73, label %68
+
+68:                                               ; preds = %66
+  %69 = getelementptr inbounds i8, ptr %5, i64 8
+  %70 = load ptr, ptr %69, align 8
+  %71 = zext i8 %67 to i32
+  %72 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %70, ptr noundef nonnull @ei_dhcpv6_error_hopcount, ptr noundef nonnull @.str.863, i32 noundef %71) #6
+  br label %73
+
+73:                                               ; preds = %68, %66
+  br i1 %.not, label %._crit_edge81, label %74
+
+._crit_edge81:                                    ; preds = %73
+  %.pre82 = add i32 %3, 1
+  br label %80
+
+74:                                               ; preds = %73
+  %75 = load i32, ptr @hf_dhcpv6_msgtype, align 4
+  %76 = tail call ptr @proto_tree_add_item(ptr noundef %.06074, i32 noundef %75, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #6
+  %77 = load i32, ptr @hf_dhcpv6_xid, align 4
+  %78 = add i32 %3, 1
+  %79 = tail call ptr @proto_tree_add_item(ptr noundef %.06074, i32 noundef %77, ptr noundef %0, i32 noundef %78, i32 noundef 3, i32 noundef 0) #6
+  br label %80
+
+80:                                               ; preds = %._crit_edge81, %74
+  %.pre-phi83 = phi i32 [ %.pre82, %._crit_edge81 ], [ %78, %74 ]
+  %81 = load ptr, ptr %9, align 8
+  %82 = tail call i32 @tvb_get_ntoh24(ptr noundef %0, i32 noundef %.pre-phi83) #6
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %81, i32 noundef 25, ptr noundef nonnull @.str.864, i32 noundef %82) #6
+  br label %83
+
+83:                                               ; preds = %80, %60
+  %.sink = phi i32 [ 4, %80 ], [ 34, %60 ]
+  %.06073 = phi ptr [ %.06074, %80 ], [ %.0607278, %60 ]
+  %84 = add i32 %.sink, %3
+  store i32 0, ptr %7, align 4
+  %85 = icmp slt i32 %84, %4
+  br i1 %85, label %.lr.ph, label %._crit_edge
+
+.lr.ph:                                           ; preds = %83, %.lr.ph
+  %.180 = phi i32 [ %88, %.lr.ph ], [ %84, %83 ]
+  %86 = load i32, ptr @proto_dhcpv6, align 4
+  %87 = call fastcc i32 @dhcpv6_option(ptr noundef %0, ptr noundef %1, ptr noundef %.06073, i32 noundef %.180, i32 noundef %4, ptr noundef nonnull %7, i32 noundef %86, ptr noundef nonnull byval(%struct.hopcount_info_t) align 8 %5, i8 noundef zeroext %8), !range !13
+  %88 = add i32 %87, %.180
+  %89 = icmp slt i32 %88, %4
+  %90 = load i32, ptr %7, align 4
+  %.not69 = icmp eq i32 %90, 0
+  %91 = select i1 %89, i1 %.not69, i1 false
+  br i1 %91, label %.lr.ph, label %._crit_edge, !llvm.loop !40
+
+._crit_edge:                                      ; preds = %.lr.ph, %83
+  ret void
+}
+
+declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+
+declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+
+declare i32 @dissector_try_uint_new(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+
+declare i32 @tvb_strnlen(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+
+declare void @proto_item_prepend_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
+
+declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+
+declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare i32 @get_dns_name(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare ptr @format_text(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+
+declare void @decrement_dissection_depth(ptr noundef) local_unnamed_addr #1
+
+declare noalias ptr @wmem_strbuf_new(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+
+declare void @wmem_strbuf_append_c(ptr noundef, i8 noundef signext) local_unnamed_addr #1
+
+declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+
+declare void @wmem_strbuf_append(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare ptr @tvb_memcpy(ptr noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
+
+declare ptr @proto_tree_add_ipv6(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+
+declare i32 @tvb_get_ntoh24(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
+
+declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
+
+declare ptr @tvb_format_stringzpad(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+
+declare ptr @tvb_bytes_to_str_punct(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i8 noundef signext) local_unnamed_addr #1
+
+declare i32 @g_ascii_strncasecmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #5
+
+attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nounwind }
+
+!llvm.module.flags = !{!0, !1, !2, !3}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 8, !"PIC Level", i32 2}
+!2 = !{i32 7, !"uwtable", i32 2}
+!3 = !{i32 7, !"frame-pointer", i32 2}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = !{i32 0, i32 65540}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}
+!16 = distinct !{!16, !5}
+!17 = !{i32 0, i32 17}
+!18 = distinct !{!18, !5}
+!19 = distinct !{!19, !5}
+!20 = distinct !{!20, !5}
+!21 = distinct !{!21, !5}
+!22 = distinct !{!22, !5}
+!23 = distinct !{!23, !5}
+!24 = distinct !{!24, !5}
+!25 = distinct !{!25, !5}
+!26 = distinct !{!26, !5}
+!27 = distinct !{!27, !5}
+!28 = distinct !{!28, !5}
+!29 = distinct !{!29, !5}
+!30 = distinct !{!30, !5}
+!31 = distinct !{!31, !5}
+!32 = distinct !{!32, !5}
+!33 = distinct !{!33, !5}
+!34 = distinct !{!34, !5}
+!35 = distinct !{!35, !5}
+!36 = distinct !{!36, !5}
+!37 = distinct !{!37, !5}
+!38 = distinct !{!38, !5}
+!39 = distinct !{!39, !5}
+!40 = distinct !{!40, !5}

@@ -1,0 +1,1233 @@
+; ModuleID = 'bench/wireshark/original/packet-mtp3mg.c.ll'
+source_filename = "bench/wireshark/original/packet-mtp3mg.c.ll"
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-pc-linux-gnu"
+
+%struct.hf_register_info = type { ptr, %struct._header_field_info }
+%struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
+%struct._value_string = type { i32, ptr }
+%struct.ei_register_info = type { ptr, %struct.expert_field_info }
+%struct.expert_field_info = type { ptr, i32, i32, ptr, i32, ptr, i32, %struct.hf_register_info }
+%struct.expert_field = type { i32, i32 }
+
+@proto_register_mtp3mg.hf = internal global [52 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_mtp3mg_h0, %struct._header_field_info { ptr @.str, ptr @.str.1, i32 4, i32 2, ptr @h0_message_type_values, i64 15, ptr @.str.2, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mtp3mg_chm_h1, %struct._header_field_info { ptr @.str.3, ptr @.str.4, i32 4, i32 2, ptr @chm_h1_message_type_values, i64 240, ptr @.str.5, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mtp3mg_ecm_h1, %struct._header_field_info { ptr @.str.3, ptr @.str.4, i32 4, i32 2, ptr @ecm_h1_message_type_values, i64 240, ptr @.str.5, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mtp3mg_fcm_h1, %struct._header_field_info { ptr @.str.3, ptr @.str.4, i32 4, i32 2, ptr @fcm_h1_message_type_values, i64 240, ptr @.str.5, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mtp3mg_tfm_h1, %struct._header_field_info { ptr @.str.3, ptr @.str.4, i32 4, i32 2, ptr @tfm_h1_message_type_values, i64 240, ptr @.str.5, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mtp3mg_rsm_h1, %struct._header_field_info { ptr @.str.3, ptr @.str.4, i32 4, i32 2, ptr @rsm_h1_message_type_values, i64 240, ptr @.str.5, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mtp3mg_mim_h1, %struct._header_field_info { ptr @.str.3, ptr @.str.4, i32 4, i32 2, ptr @mim_h1_message_type_values, i64 240, ptr @.str.5, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mtp3mg_trm_h1, %struct._header_field_info { ptr @.str.3, ptr @.str.4, i32 4, i32 2, ptr @trm_h1_message_type_values, i64 240, ptr @.str.5, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mtp3mg_dlm_h1, %struct._header_field_info { ptr @.str.3, ptr @.str.4, i32 4, i32 2, ptr @dlm_h1_message_type_values, i64 240, ptr @.str.5, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mtp3mg_ufc_h1, %struct._header_field_info { ptr @.str.3, ptr @.str.4, i32 4, i32 2, ptr @ufc_h1_message_type_values, i64 240, ptr @.str.5, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mtp3mg_coo_ansi_slc, %struct._header_field_info { ptr @.str.6, ptr @.str.7, i32 5, i32 1, ptr null, i64 15, ptr @.str.8, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mtp3mg_coo_ansi_fsn, %struct._header_field_info { ptr @.str.9, ptr @.str.10, i32 5, i32 1, ptr null, i64 2032, ptr @.str.11, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mtp3mg_coo_itu_fsn, %struct._header_field_info { ptr @.str.9, ptr @.str.10, i32 4, i32 1, ptr null, i64 127, ptr @.str.11, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mtp3mg_xco_ansi_slc, %struct._header_field_info { ptr @.str.6, ptr @.str.7, i32 7, i32 1, ptr null, i64 15, ptr @.str.8, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mtp3mg_xco_ansi_fsn, %struct._header_field_info { ptr @.str.9, ptr @.str.10, i32 7, i32 1, ptr null, i64 268435440, ptr @.str.11, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mtp3mg_xco_itu_fsn, %struct._header_field_info { ptr @.str.9, ptr @.str.10, i32 6, i32 1, ptr null, i64 0, ptr @.str.11, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mtp3mg_cbd_ansi_slc, %struct._header_field_info { ptr @.str.6, ptr @.str.7, i32 5, i32 1, ptr null, i64 15, ptr @.str.8, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mtp3mg_cbd_ansi_cbc, %struct._header_field_info { ptr @.str.12, ptr @.str.13, i32 5, i32 1, ptr null, i64 4080, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mtp3mg_cbd_itu_cbc, %struct._header_field_info { ptr @.str.12, ptr @.str.13, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mtp3mg_cbd_japan_cbc, %struct._header_field_info { ptr @.str.12, ptr @.str.13, i32 4, i32 1, ptr null, i64 3, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mtp3mg_eco_ansi_slc, %struct._header_field_info { ptr @.str.6, ptr @.str.7, i32 4, i32 1, ptr null, i64 15, ptr @.str.8, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mtp3mg_ansi_apc, %struct._header_field_info { ptr @.str.14, ptr @.str.15, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mtp3mg_apc_member, %struct._header_field_info { ptr @.str.16, ptr @.str.17, i32 6, i32 1, ptr null, i64 255, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mtp3mg_apc_cluster, %struct._header_field_info { ptr @.str.18, ptr @.str.19, i32 6, i32 1, ptr null, i64 65280, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mtp3mg_apc_network, %struct._header_field_info { ptr @.str.20, ptr @.str.21, i32 6, i32 1, ptr null, i64 16711680, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mtp3mg_tfc_ansi_status, %struct._header_field_info { ptr @.str.22, ptr @.str.23, i32 4, i32 1, ptr null, i64 3, ptr @.str.24, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mtp3mg_itu_apc, %struct._header_field_info { ptr @.str.25, ptr @.str.26, i32 5, i32 1, ptr null, i64 16383, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mtp3mg_tfc_itu_status, %struct._header_field_info { ptr @.str.22, ptr @.str.23, i32 5, i32 1, ptr null, i64 49152, ptr @.str.24, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mtp3mg_chinese_apc, %struct._header_field_info { ptr @.str.14, ptr @.str.27, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mtp3mg_tfc_japan_spare, %struct._header_field_info { ptr @.str.28, ptr @.str.29, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mtp3mg_japan_apc, %struct._header_field_info { ptr @.str.14, ptr @.str.30, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mtp3mg_tfc_japan_status, %struct._header_field_info { ptr @.str.22, ptr @.str.31, i32 4, i32 1, ptr null, i64 3, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mtp3mg_tfc_japan_status_spare, %struct._header_field_info { ptr @.str.32, ptr @.str.29, i32 4, i32 2, ptr null, i64 252, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mtp3mg_tfm_japan_count, %struct._header_field_info { ptr @.str.33, ptr @.str.34, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mtp3mg_tfm_japan_spare, %struct._header_field_info { ptr @.str.32, ptr @.str.29, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mtp3mg_rsm_japan_count, %struct._header_field_info { ptr @.str.33, ptr @.str.34, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mtp3mg_rsm_japan_spare, %struct._header_field_info { ptr @.str.32, ptr @.str.29, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mtp3mg_mim_ansi_slc, %struct._header_field_info { ptr @.str.6, ptr @.str.7, i32 4, i32 1, ptr null, i64 15, ptr @.str.8, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mtp3mg_dlc_ansi_slc, %struct._header_field_info { ptr @.str.6, ptr @.str.7, i32 6, i32 1, ptr null, i64 15, ptr @.str.8, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mtp3mg_dlc_ansi_link, %struct._header_field_info { ptr @.str.35, ptr @.str.36, i32 6, i32 1, ptr null, i64 262128, ptr @.str.37, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mtp3mg_dlc_itu_link, %struct._header_field_info { ptr @.str.35, ptr @.str.36, i32 5, i32 1, ptr null, i64 4095, ptr @.str.37, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mtp3mg_upu_user, %struct._header_field_info { ptr @.str.38, ptr @.str.39, i32 4, i32 2, ptr @service_indicator_code_vals, i64 15, ptr @.str.40, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mtp3mg_upu_cause, %struct._header_field_info { ptr @.str.41, ptr @.str.42, i32 4, i32 2, ptr @upu_cause_values, i64 240, ptr @.str.43, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mtp3test_h0, %struct._header_field_info { ptr @.str, ptr @.str.44, i32 4, i32 2, ptr @test_h0_message_type_values, i64 15, ptr @.str.2, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mtp3mg_test_h1, %struct._header_field_info { ptr @.str.3, ptr @.str.45, i32 4, i32 2, ptr @test_h1_message_type_values, i64 240, ptr @.str.46, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mtp3mg_test_length, %struct._header_field_info { ptr @.str.47, ptr @.str.48, i32 4, i32 1, ptr null, i64 240, ptr @.str.49, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mtp3mg_japan_test, %struct._header_field_info { ptr @.str.50, ptr @.str.51, i32 4, i32 2, ptr @japan_test_message_type_values, i64 0, ptr @.str.52, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mtp3mg_japan_test_spare, %struct._header_field_info { ptr @.str.53, ptr @.str.54, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mtp3mg_japan_test_pattern, %struct._header_field_info { ptr @.str.55, ptr @.str.56, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mtp3mg_japan_spare, %struct._header_field_info { ptr @.str.57, ptr @.str.58, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mtp3mg_test_ansi_slc, %struct._header_field_info { ptr @.str.6, ptr @.str.7, i32 4, i32 1, ptr null, i64 15, ptr @.str.8, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mtp3mg_test_pattern, %struct._header_field_info { ptr @.str.59, ptr @.str.60, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
+@hf_mtp3mg_h0 = internal global i32 0, align 4
+@.str = private unnamed_addr constant [19 x i8] c"H0 (Message Group)\00", align 1
+@.str.1 = private unnamed_addr constant [10 x i8] c"mtp3mg.h0\00", align 1
+@h0_message_type_values = internal constant [10 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.67 }, %struct._value_string { i32 2, ptr @.str.68 }, %struct._value_string { i32 3, ptr @.str.69 }, %struct._value_string { i32 4, ptr @.str.70 }, %struct._value_string { i32 5, ptr @.str.71 }, %struct._value_string { i32 6, ptr @.str.72 }, %struct._value_string { i32 7, ptr @.str.73 }, %struct._value_string { i32 8, ptr @.str.74 }, %struct._value_string { i32 10, ptr @.str.75 }, %struct._value_string zeroinitializer], align 16
+@.str.2 = private unnamed_addr constant [25 x i8] c"Message group identifier\00", align 1
+@hf_mtp3mg_chm_h1 = internal global i32 0, align 4
+@.str.3 = private unnamed_addr constant [13 x i8] c"H1 (Message)\00", align 1
+@.str.4 = private unnamed_addr constant [10 x i8] c"mtp3mg.h1\00", align 1
+@chm_h1_message_type_values = internal constant [7 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.76 }, %struct._value_string { i32 2, ptr @.str.77 }, %struct._value_string { i32 3, ptr @.str.78 }, %struct._value_string { i32 4, ptr @.str.79 }, %struct._value_string { i32 5, ptr @.str.80 }, %struct._value_string { i32 6, ptr @.str.81 }, %struct._value_string zeroinitializer], align 16
+@.str.5 = private unnamed_addr constant [13 x i8] c"Message type\00", align 1
+@hf_mtp3mg_ecm_h1 = internal global i32 0, align 4
+@ecm_h1_message_type_values = internal constant [3 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.82 }, %struct._value_string { i32 2, ptr @.str.83 }, %struct._value_string zeroinitializer], align 16
+@hf_mtp3mg_fcm_h1 = internal global i32 0, align 4
+@fcm_h1_message_type_values = internal constant [3 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.84 }, %struct._value_string { i32 2, ptr @.str.85 }, %struct._value_string zeroinitializer], align 16
+@hf_mtp3mg_tfm_h1 = internal global i32 0, align 4
+@tfm_h1_message_type_values = internal constant [7 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.86 }, %struct._value_string { i32 2, ptr @.str.87 }, %struct._value_string { i32 3, ptr @.str.88 }, %struct._value_string { i32 4, ptr @.str.89 }, %struct._value_string { i32 5, ptr @.str.90 }, %struct._value_string { i32 6, ptr @.str.91 }, %struct._value_string zeroinitializer], align 16
+@hf_mtp3mg_rsm_h1 = internal global i32 0, align 4
+@rsm_h1_message_type_values = internal constant [5 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.92 }, %struct._value_string { i32 2, ptr @.str.93 }, %struct._value_string { i32 3, ptr @.str.94 }, %struct._value_string { i32 4, ptr @.str.95 }, %struct._value_string zeroinitializer], align 16
+@hf_mtp3mg_mim_h1 = internal global i32 0, align 4
+@mim_h1_message_type_values = internal constant [9 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.96 }, %struct._value_string { i32 2, ptr @.str.97 }, %struct._value_string { i32 3, ptr @.str.98 }, %struct._value_string { i32 4, ptr @.str.99 }, %struct._value_string { i32 5, ptr @.str.100 }, %struct._value_string { i32 6, ptr @.str.101 }, %struct._value_string { i32 7, ptr @.str.102 }, %struct._value_string { i32 8, ptr @.str.103 }, %struct._value_string zeroinitializer], align 16
+@hf_mtp3mg_trm_h1 = internal global i32 0, align 4
+@trm_h1_message_type_values = internal constant [3 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.104 }, %struct._value_string { i32 2, ptr @.str.105 }, %struct._value_string zeroinitializer], align 16
+@hf_mtp3mg_dlm_h1 = internal global i32 0, align 4
+@dlm_h1_message_type_values = internal constant [5 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.106 }, %struct._value_string { i32 2, ptr @.str.107 }, %struct._value_string { i32 3, ptr @.str.108 }, %struct._value_string { i32 4, ptr @.str.109 }, %struct._value_string zeroinitializer], align 16
+@hf_mtp3mg_ufc_h1 = internal global i32 0, align 4
+@ufc_h1_message_type_values = internal constant [2 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.110 }, %struct._value_string zeroinitializer], align 16
+@hf_mtp3mg_coo_ansi_slc = internal global i32 0, align 4
+@.str.6 = private unnamed_addr constant [21 x i8] c"Signalling Link Code\00", align 1
+@.str.7 = private unnamed_addr constant [11 x i8] c"mtp3mg.slc\00", align 1
+@.str.8 = private unnamed_addr constant [21 x i8] c"SLC of affected link\00", align 1
+@hf_mtp3mg_coo_ansi_fsn = internal global i32 0, align 4
+@.str.9 = private unnamed_addr constant [24 x i8] c"Forward Sequence Number\00", align 1
+@.str.10 = private unnamed_addr constant [11 x i8] c"mtp3mg.fsn\00", align 1
+@.str.11 = private unnamed_addr constant [49 x i8] c"Forward Sequence Number of last accepted message\00", align 1
+@hf_mtp3mg_coo_itu_fsn = internal global i32 0, align 4
+@hf_mtp3mg_xco_ansi_slc = internal global i32 0, align 4
+@hf_mtp3mg_xco_ansi_fsn = internal global i32 0, align 4
+@hf_mtp3mg_xco_itu_fsn = internal global i32 0, align 4
+@hf_mtp3mg_cbd_ansi_slc = internal global i32 0, align 4
+@hf_mtp3mg_cbd_ansi_cbc = internal global i32 0, align 4
+@.str.12 = private unnamed_addr constant [17 x i8] c"Change Back Code\00", align 1
+@.str.13 = private unnamed_addr constant [11 x i8] c"mtp3mg.cbc\00", align 1
+@hf_mtp3mg_cbd_itu_cbc = internal global i32 0, align 4
+@hf_mtp3mg_cbd_japan_cbc = internal global i32 0, align 4
+@hf_mtp3mg_eco_ansi_slc = internal global i32 0, align 4
+@hf_mtp3mg_ansi_apc = internal global i32 0, align 4
+@.str.14 = private unnamed_addr constant [20 x i8] c"Affected Point Code\00", align 1
+@.str.15 = private unnamed_addr constant [16 x i8] c"mtp3mg.ansi_apc\00", align 1
+@hf_mtp3mg_apc_member = internal global i32 0, align 4
+@.str.16 = private unnamed_addr constant [27 x i8] c"Affected Point Code member\00", align 1
+@.str.17 = private unnamed_addr constant [18 x i8] c"mtp3mg.apc.member\00", align 1
+@hf_mtp3mg_apc_cluster = internal global i32 0, align 4
+@.str.18 = private unnamed_addr constant [28 x i8] c"Affected Point Code cluster\00", align 1
+@.str.19 = private unnamed_addr constant [19 x i8] c"mtp3mg.apc.cluster\00", align 1
+@hf_mtp3mg_apc_network = internal global i32 0, align 4
+@.str.20 = private unnamed_addr constant [28 x i8] c"Affected Point Code network\00", align 1
+@.str.21 = private unnamed_addr constant [19 x i8] c"mtp3mg.apc.network\00", align 1
+@hf_mtp3mg_tfc_ansi_status = internal global i32 0, align 4
+@.str.22 = private unnamed_addr constant [7 x i8] c"Status\00", align 1
+@.str.23 = private unnamed_addr constant [14 x i8] c"mtp3mg.status\00", align 1
+@.str.24 = private unnamed_addr constant [18 x i8] c"Congestion status\00", align 1
+@hf_mtp3mg_itu_apc = internal global i32 0, align 4
+@.str.25 = private unnamed_addr constant [26 x i8] c"Affected Point Code (ITU)\00", align 1
+@.str.26 = private unnamed_addr constant [11 x i8] c"mtp3mg.apc\00", align 1
+@hf_mtp3mg_tfc_itu_status = internal global i32 0, align 4
+@hf_mtp3mg_chinese_apc = internal global i32 0, align 4
+@.str.27 = private unnamed_addr constant [19 x i8] c"mtp3mg.chinese_apc\00", align 1
+@hf_mtp3mg_tfc_japan_spare = internal global i32 0, align 4
+@.str.28 = private unnamed_addr constant [18 x i8] c"TFC spare (Japan)\00", align 1
+@.str.29 = private unnamed_addr constant [19 x i8] c"mtp3mg.japan_spare\00", align 1
+@hf_mtp3mg_japan_apc = internal global i32 0, align 4
+@.str.30 = private unnamed_addr constant [17 x i8] c"mtp3mg.japan_apc\00", align 1
+@hf_mtp3mg_tfc_japan_status = internal global i32 0, align 4
+@.str.31 = private unnamed_addr constant [20 x i8] c"mtp3mg.japan_status\00", align 1
+@hf_mtp3mg_tfc_japan_status_spare = internal global i32 0, align 4
+@.str.32 = private unnamed_addr constant [14 x i8] c"Spare (Japan)\00", align 1
+@hf_mtp3mg_tfm_japan_count = internal global i32 0, align 4
+@.str.33 = private unnamed_addr constant [38 x i8] c"Count of Affected Point Codes (Japan)\00", align 1
+@.str.34 = private unnamed_addr constant [19 x i8] c"mtp3mg.japan_count\00", align 1
+@hf_mtp3mg_tfm_japan_spare = internal global i32 0, align 4
+@hf_mtp3mg_rsm_japan_count = internal global i32 0, align 4
+@hf_mtp3mg_rsm_japan_spare = internal global i32 0, align 4
+@hf_mtp3mg_mim_ansi_slc = internal global i32 0, align 4
+@hf_mtp3mg_dlc_ansi_slc = internal global i32 0, align 4
+@hf_mtp3mg_dlc_ansi_link = internal global i32 0, align 4
+@.str.35 = private unnamed_addr constant [5 x i8] c"Link\00", align 1
+@.str.36 = private unnamed_addr constant [12 x i8] c"mtp3mg.link\00", align 1
+@.str.37 = private unnamed_addr constant [30 x i8] c"CIC of BIC used to carry data\00", align 1
+@hf_mtp3mg_dlc_itu_link = internal global i32 0, align 4
+@hf_mtp3mg_upu_user = internal global i32 0, align 4
+@.str.38 = private unnamed_addr constant [5 x i8] c"User\00", align 1
+@.str.39 = private unnamed_addr constant [12 x i8] c"mtp3mg.user\00", align 1
+@service_indicator_code_vals = internal constant [17 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.111 }, %struct._value_string { i32 1, ptr @.str.111 }, %struct._value_string { i32 2, ptr @.str.111 }, %struct._value_string { i32 3, ptr @.str.112 }, %struct._value_string { i32 4, ptr @.str.113 }, %struct._value_string { i32 5, ptr @.str.114 }, %struct._value_string { i32 6, ptr @.str.115 }, %struct._value_string { i32 7, ptr @.str.116 }, %struct._value_string { i32 8, ptr @.str.117 }, %struct._value_string { i32 9, ptr @.str.118 }, %struct._value_string { i32 10, ptr @.str.119 }, %struct._value_string { i32 11, ptr @.str.111 }, %struct._value_string { i32 12, ptr @.str.111 }, %struct._value_string { i32 13, ptr @.str.111 }, %struct._value_string { i32 14, ptr @.str.111 }, %struct._value_string { i32 15, ptr @.str.111 }, %struct._value_string zeroinitializer], align 16
+@.str.40 = private unnamed_addr constant [22 x i8] c"Unavailable user part\00", align 1
+@hf_mtp3mg_upu_cause = internal global i32 0, align 4
+@.str.41 = private unnamed_addr constant [6 x i8] c"Cause\00", align 1
+@.str.42 = private unnamed_addr constant [13 x i8] c"mtp3mg.cause\00", align 1
+@upu_cause_values = internal constant [4 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.120 }, %struct._value_string { i32 1, ptr @.str.121 }, %struct._value_string { i32 2, ptr @.str.122 }, %struct._value_string zeroinitializer], align 16
+@.str.43 = private unnamed_addr constant [29 x i8] c"Cause of user unavailability\00", align 1
+@hf_mtp3test_h0 = internal global i32 0, align 4
+@.str.44 = private unnamed_addr constant [15 x i8] c"mtp3mg.test.h0\00", align 1
+@test_h0_message_type_values = internal constant [2 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.123 }, %struct._value_string zeroinitializer], align 16
+@hf_mtp3mg_test_h1 = internal global i32 0, align 4
+@.str.45 = private unnamed_addr constant [15 x i8] c"mtp3mg.test.h1\00", align 1
+@test_h1_message_type_values = internal constant [3 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.124 }, %struct._value_string { i32 2, ptr @.str.125 }, %struct._value_string zeroinitializer], align 16
+@.str.46 = private unnamed_addr constant [17 x i8] c"SLT message type\00", align 1
+@hf_mtp3mg_test_length = internal global i32 0, align 4
+@.str.47 = private unnamed_addr constant [12 x i8] c"Test length\00", align 1
+@.str.48 = private unnamed_addr constant [19 x i8] c"mtp3mg.test.length\00", align 1
+@.str.49 = private unnamed_addr constant [36 x i8] c"Signalling link test pattern length\00", align 1
+@hf_mtp3mg_japan_test = internal global i32 0, align 4
+@.str.50 = private unnamed_addr constant [19 x i8] c"Japan test message\00", align 1
+@.str.51 = private unnamed_addr constant [12 x i8] c"mtp3mg.test\00", align 1
+@japan_test_message_type_values = internal constant [3 x %struct._value_string] [%struct._value_string { i32 35, ptr @.str.126 }, %struct._value_string { i32 132, ptr @.str.127 }, %struct._value_string zeroinitializer], align 16
+@.str.52 = private unnamed_addr constant [24 x i8] c"Japan test message type\00", align 1
+@hf_mtp3mg_japan_test_spare = internal global i32 0, align 4
+@.str.53 = private unnamed_addr constant [25 x i8] c"Japan test message spare\00", align 1
+@.str.54 = private unnamed_addr constant [18 x i8] c"mtp3mg.test.spare\00", align 1
+@hf_mtp3mg_japan_test_pattern = internal global i32 0, align 4
+@.str.55 = private unnamed_addr constant [27 x i8] c"Japan test message pattern\00", align 1
+@.str.56 = private unnamed_addr constant [20 x i8] c"mtp3mg.test.pattern\00", align 1
+@hf_mtp3mg_japan_spare = internal global i32 0, align 4
+@.str.57 = private unnamed_addr constant [23 x i8] c"Japan management spare\00", align 1
+@.str.58 = private unnamed_addr constant [13 x i8] c"mtp3mg.spare\00", align 1
+@hf_mtp3mg_test_ansi_slc = internal global i32 0, align 4
+@hf_mtp3mg_test_pattern = internal global i32 0, align 4
+@.str.59 = private unnamed_addr constant [13 x i8] c"Test pattern\00", align 1
+@.str.60 = private unnamed_addr constant [20 x i8] c"mtp3mg.test_pattern\00", align 1
+@proto_register_mtp3mg.ett = internal global [5 x ptr] [ptr @ett_mtp3mg, ptr @ett_mtp3mg_fcm_apc, ptr @ett_mtp3mg_tfm_apc, ptr @ett_mtp3mg_rsm_apc, ptr @ett_mtp3mg_upu_apc], align 16
+@ett_mtp3mg = internal global i32 0, align 4
+@ett_mtp3mg_fcm_apc = internal global i32 0, align 4
+@ett_mtp3mg_tfm_apc = internal global i32 0, align 4
+@ett_mtp3mg_rsm_apc = internal global i32 0, align 4
+@ett_mtp3mg_upu_apc = internal global i32 0, align 4
+@proto_register_mtp3mg.ei = internal global [1 x %struct.ei_register_info] [%struct.ei_register_info { ptr @ei_mtp3mg_unknown_message, %struct.expert_field_info { ptr @.str.61, i32 150994944, i32 6291456, ptr @.str.62, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
+@ei_mtp3mg_unknown_message = internal global %struct.expert_field zeroinitializer, align 4
+@.str.61 = private unnamed_addr constant [23 x i8] c"mtp3mg.unknown_message\00", align 1
+@.str.62 = private unnamed_addr constant [16 x i8] c"Unknown message\00", align 1
+@.str.63 = private unnamed_addr constant [41 x i8] c"Message Transfer Part Level 3 Management\00", align 1
+@.str.64 = private unnamed_addr constant [7 x i8] c"MTP3MG\00", align 1
+@.str.65 = private unnamed_addr constant [7 x i8] c"mtp3mg\00", align 1
+@proto_mtp3mg = internal unnamed_addr global i32 0, align 4
+@mtp3mg_handle = internal unnamed_addr global ptr null, align 8
+@.str.66 = private unnamed_addr constant [23 x i8] c"mtp3.service_indicator\00", align 1
+@.str.67 = private unnamed_addr constant [35 x i8] c"Changeover and changeback messages\00", align 1
+@.str.68 = private unnamed_addr constant [30 x i8] c"Emergency changeover messages\00", align 1
+@.str.69 = private unnamed_addr constant [65 x i8] c"Transfer-controlled and signalling route set congestion messages\00", align 1
+@.str.70 = private unnamed_addr constant [48 x i8] c"Transfer prohibited-allowed-restricted messages\00", align 1
+@.str.71 = private unnamed_addr constant [35 x i8] c"Signalling-route-set-test messages\00", align 1
+@.str.72 = private unnamed_addr constant [28 x i8] c"Management inhibit messages\00", align 1
+@.str.73 = private unnamed_addr constant [25 x i8] c"Traffic restart messages\00", align 1
+@.str.74 = private unnamed_addr constant [41 x i8] c"Signalling-data-link-connection messages\00", align 1
+@.str.75 = private unnamed_addr constant [32 x i8] c"User part flow control messages\00", align 1
+@.str.76 = private unnamed_addr constant [24 x i8] c"Changeover-order signal\00", align 1
+@.str.77 = private unnamed_addr constant [22 x i8] c"Changeover-ack signal\00", align 1
+@.str.78 = private unnamed_addr constant [33 x i8] c"Extended changeover-order signal\00", align 1
+@.str.79 = private unnamed_addr constant [31 x i8] c"Extended changeover-ack signal\00", align 1
+@.str.80 = private unnamed_addr constant [30 x i8] c"Changeback-declaration signal\00", align 1
+@.str.81 = private unnamed_addr constant [22 x i8] c"Changeback-ack signal\00", align 1
+@.str.82 = private unnamed_addr constant [34 x i8] c"Emergency-changeover-order signal\00", align 1
+@.str.83 = private unnamed_addr constant [32 x i8] c"Emergency-changeover-ack signal\00", align 1
+@.str.84 = private unnamed_addr constant [44 x i8] c"Signalling-route-set-congestion-test signal\00", align 1
+@.str.85 = private unnamed_addr constant [27 x i8] c"Transfer-controlled signal\00", align 1
+@.str.86 = private unnamed_addr constant [27 x i8] c"Transfer-prohibited signal\00", align 1
+@.str.87 = private unnamed_addr constant [47 x i8] c"Transfer-cluster-prohibited signal (ANSI only)\00", align 1
+@.str.88 = private unnamed_addr constant [27 x i8] c"Transfer-restricted signal\00", align 1
+@.str.89 = private unnamed_addr constant [47 x i8] c"Transfer-cluster-restricted signal (ANSI only)\00", align 1
+@.str.90 = private unnamed_addr constant [24 x i8] c"Transfer-allowed signal\00", align 1
+@.str.91 = private unnamed_addr constant [44 x i8] c"Transfer-cluster-allowed signal (ANSI only)\00", align 1
+@.str.92 = private unnamed_addr constant [44 x i8] c"Signalling-route-set-test prohibited signal\00", align 1
+@.str.93 = private unnamed_addr constant [44 x i8] c"Signalling-route-set-test restricted signal\00", align 1
+@.str.94 = private unnamed_addr constant [64 x i8] c"Signalling-route-set-test cluster-prohibited signal (ANSI only)\00", align 1
+@.str.95 = private unnamed_addr constant [64 x i8] c"Signalling-route-set-test cluster-restricted signal (ANSI only)\00", align 1
+@.str.96 = private unnamed_addr constant [20 x i8] c"Link inhibit signal\00", align 1
+@.str.97 = private unnamed_addr constant [22 x i8] c"Link uninhibit signal\00", align 1
+@.str.98 = private unnamed_addr constant [24 x i8] c"Link inhibit ack signal\00", align 1
+@.str.99 = private unnamed_addr constant [26 x i8] c"Link uninhibit ack signal\00", align 1
+@.str.100 = private unnamed_addr constant [27 x i8] c"Link inhibit denied signal\00", align 1
+@.str.101 = private unnamed_addr constant [29 x i8] c"Link forced uninhibit signal\00", align 1
+@.str.102 = private unnamed_addr constant [31 x i8] c"Link local inhibit test signal\00", align 1
+@.str.103 = private unnamed_addr constant [32 x i8] c"Link remote inhibit test signal\00", align 1
+@.str.104 = private unnamed_addr constant [31 x i8] c"Traffic-restart-allowed signal\00", align 1
+@.str.105 = private unnamed_addr constant [43 x i8] c"Traffic-restart-waiting signal (ANSI only)\00", align 1
+@.str.106 = private unnamed_addr constant [45 x i8] c"Signalling-data-link-connection-order signal\00", align 1
+@.str.107 = private unnamed_addr constant [29 x i8] c"Connection-successful signal\00", align 1
+@.str.108 = private unnamed_addr constant [33 x i8] c"Connection-not-successful signal\00", align 1
+@.str.109 = private unnamed_addr constant [31 x i8] c"Connection-not-possible signal\00", align 1
+@.str.110 = private unnamed_addr constant [29 x i8] c"User part unavailable signal\00", align 1
+@.str.111 = private unnamed_addr constant [6 x i8] c"Spare\00", align 1
+@.str.112 = private unnamed_addr constant [5 x i8] c"SCCP\00", align 1
+@.str.113 = private unnamed_addr constant [4 x i8] c"TUP\00", align 1
+@.str.114 = private unnamed_addr constant [5 x i8] c"ISUP\00", align 1
+@.str.115 = private unnamed_addr constant [40 x i8] c"DUP (call and circuit related messages)\00", align 1
+@.str.116 = private unnamed_addr constant [53 x i8] c"DUP (facility registration and cancellation message)\00", align 1
+@.str.117 = private unnamed_addr constant [22 x i8] c"MTP testing user part\00", align 1
+@.str.118 = private unnamed_addr constant [7 x i8] c"ISUP-b\00", align 1
+@.str.119 = private unnamed_addr constant [7 x i8] c"ISUP-s\00", align 1
+@.str.120 = private unnamed_addr constant [8 x i8] c"Unknown\00", align 1
+@.str.121 = private unnamed_addr constant [23 x i8] c"Unequipped remote user\00", align 1
+@.str.122 = private unnamed_addr constant [25 x i8] c"Inaccessible remote user\00", align 1
+@.str.123 = private unnamed_addr constant [14 x i8] c"Test messages\00", align 1
+@.str.124 = private unnamed_addr constant [29 x i8] c"Signalling link test message\00", align 1
+@.str.125 = private unnamed_addr constant [45 x i8] c"Signalling link test acknowledgement message\00", align 1
+@.str.126 = private unnamed_addr constant [32 x i8] c"Signalling routing test message\00", align 1
+@.str.127 = private unnamed_addr constant [48 x i8] c"Signalling routing test acknowledgement message\00", align 1
+@mtp3_standard = external local_unnamed_addr global i32, align 4
+@.str.128 = private unnamed_addr constant [18 x i8] c"MTP3MG (Int. ITU)\00", align 1
+@.str.129 = private unnamed_addr constant [14 x i8] c"MTP3MG (ANSI)\00", align 1
+@.str.130 = private unnamed_addr constant [19 x i8] c"MTP3MG (Chin. ITU)\00", align 1
+@.str.131 = private unnamed_addr constant [15 x i8] c"MTP3MG (Japan)\00", align 1
+@.str.132 = private unnamed_addr constant [4 x i8] c"%s \00", align 1
+@japan_test_message_type_acro_values = internal constant [3 x %struct._value_string] [%struct._value_string { i32 35, ptr @.str.137 }, %struct._value_string { i32 132, ptr @.str.138 }, %struct._value_string zeroinitializer], align 16
+@.str.133 = private unnamed_addr constant [6 x i8] c" (%s)\00", align 1
+@.str.134 = private unnamed_addr constant [8 x i8] c"correct\00", align 1
+@.str.135 = private unnamed_addr constant [10 x i8] c"incorrect\00", align 1
+@.str.136 = private unnamed_addr constant [9 x i8] c"Unknown \00", align 1
+@.str.137 = private unnamed_addr constant [4 x i8] c"SRT\00", align 1
+@.str.138 = private unnamed_addr constant [4 x i8] c"SRA\00", align 1
+@.str.139 = private unnamed_addr constant [28 x i8] c"Unknown message (%u byte%s)\00", align 1
+@.str.140 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
+@.str.141 = private unnamed_addr constant [2 x i8] c"s\00", align 1
+@test_h1_message_type_acro_values = internal constant [3 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.142 }, %struct._value_string { i32 2, ptr @.str.143 }, %struct._value_string zeroinitializer], align 16
+@.str.142 = private unnamed_addr constant [5 x i8] c"SLTM\00", align 1
+@.str.143 = private unnamed_addr constant [5 x i8] c"SLTA\00", align 1
+@chm_h1_message_type_acro_values = internal constant [7 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.144 }, %struct._value_string { i32 2, ptr @.str.145 }, %struct._value_string { i32 3, ptr @.str.146 }, %struct._value_string { i32 4, ptr @.str.147 }, %struct._value_string { i32 5, ptr @.str.148 }, %struct._value_string { i32 6, ptr @.str.149 }, %struct._value_string zeroinitializer], align 16
+@.str.144 = private unnamed_addr constant [4 x i8] c"COO\00", align 1
+@.str.145 = private unnamed_addr constant [4 x i8] c"COA\00", align 1
+@.str.146 = private unnamed_addr constant [4 x i8] c"XCO\00", align 1
+@.str.147 = private unnamed_addr constant [4 x i8] c"XCA\00", align 1
+@.str.148 = private unnamed_addr constant [4 x i8] c"CBD\00", align 1
+@.str.149 = private unnamed_addr constant [4 x i8] c"CBA\00", align 1
+@ecm_h1_message_type_acro_values = internal constant [3 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.150 }, %struct._value_string { i32 2, ptr @.str.151 }, %struct._value_string zeroinitializer], align 16
+@.str.150 = private unnamed_addr constant [4 x i8] c"ECO\00", align 1
+@.str.151 = private unnamed_addr constant [4 x i8] c"ECA\00", align 1
+@fcm_h1_message_type_acro_values = internal constant [3 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.152 }, %struct._value_string { i32 2, ptr @.str.153 }, %struct._value_string zeroinitializer], align 16
+@.str.152 = private unnamed_addr constant [4 x i8] c"RCT\00", align 1
+@.str.153 = private unnamed_addr constant [4 x i8] c"TFC\00", align 1
+@tfm_h1_message_type_acro_values = internal constant [7 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.154 }, %struct._value_string { i32 2, ptr @.str.155 }, %struct._value_string { i32 3, ptr @.str.156 }, %struct._value_string { i32 4, ptr @.str.157 }, %struct._value_string { i32 5, ptr @.str.158 }, %struct._value_string { i32 6, ptr @.str.159 }, %struct._value_string zeroinitializer], align 16
+@.str.154 = private unnamed_addr constant [4 x i8] c"TFP\00", align 1
+@.str.155 = private unnamed_addr constant [4 x i8] c"TCP\00", align 1
+@.str.156 = private unnamed_addr constant [4 x i8] c"TFR\00", align 1
+@.str.157 = private unnamed_addr constant [4 x i8] c"TCR\00", align 1
+@.str.158 = private unnamed_addr constant [4 x i8] c"TFA\00", align 1
+@.str.159 = private unnamed_addr constant [4 x i8] c"TCA\00", align 1
+@rsm_h1_message_type_acro_values = internal constant [5 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.160 }, %struct._value_string { i32 2, ptr @.str.161 }, %struct._value_string { i32 3, ptr @.str.162 }, %struct._value_string { i32 4, ptr @.str.163 }, %struct._value_string zeroinitializer], align 16
+@.str.160 = private unnamed_addr constant [4 x i8] c"RST\00", align 1
+@.str.161 = private unnamed_addr constant [4 x i8] c"RSR\00", align 1
+@.str.162 = private unnamed_addr constant [4 x i8] c"RCP\00", align 1
+@.str.163 = private unnamed_addr constant [4 x i8] c"RCR\00", align 1
+@mim_h1_message_type_acro_values = internal constant [9 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.164 }, %struct._value_string { i32 2, ptr @.str.165 }, %struct._value_string { i32 3, ptr @.str.166 }, %struct._value_string { i32 4, ptr @.str.167 }, %struct._value_string { i32 5, ptr @.str.168 }, %struct._value_string { i32 6, ptr @.str.169 }, %struct._value_string { i32 7, ptr @.str.170 }, %struct._value_string { i32 8, ptr @.str.171 }, %struct._value_string zeroinitializer], align 16
+@.str.164 = private unnamed_addr constant [4 x i8] c"LIN\00", align 1
+@.str.165 = private unnamed_addr constant [4 x i8] c"LUN\00", align 1
+@.str.166 = private unnamed_addr constant [4 x i8] c"LIA\00", align 1
+@.str.167 = private unnamed_addr constant [4 x i8] c"LUA\00", align 1
+@.str.168 = private unnamed_addr constant [4 x i8] c"LID\00", align 1
+@.str.169 = private unnamed_addr constant [4 x i8] c"LFU\00", align 1
+@.str.170 = private unnamed_addr constant [10 x i8] c"LLT (LLI)\00", align 1
+@.str.171 = private unnamed_addr constant [10 x i8] c"LRT (LRI)\00", align 1
+@trm_h1_message_type_acro_values = internal constant [3 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.172 }, %struct._value_string { i32 2, ptr @.str.173 }, %struct._value_string zeroinitializer], align 16
+@.str.172 = private unnamed_addr constant [4 x i8] c"TRA\00", align 1
+@.str.173 = private unnamed_addr constant [4 x i8] c"TRW\00", align 1
+@dlm_h1_message_type_acro_values = internal constant [5 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.174 }, %struct._value_string { i32 2, ptr @.str.175 }, %struct._value_string { i32 3, ptr @.str.176 }, %struct._value_string { i32 4, ptr @.str.177 }, %struct._value_string zeroinitializer], align 16
+@.str.174 = private unnamed_addr constant [4 x i8] c"DLC\00", align 1
+@.str.175 = private unnamed_addr constant [4 x i8] c"CSS\00", align 1
+@.str.176 = private unnamed_addr constant [4 x i8] c"CNS\00", align 1
+@.str.177 = private unnamed_addr constant [4 x i8] c"CNP\00", align 1
+@ufc_h1_message_type_acro_values = internal constant [2 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.178 }, %struct._value_string zeroinitializer], align 16
+@.str.178 = private unnamed_addr constant [4 x i8] c"UPU\00", align 1
+@switch.table.dissect_mtp3mg = private unnamed_addr constant [4 x ptr] [ptr @.str.128, ptr @.str.129, ptr @.str.130, ptr @.str.131], align 8
+
+; Function Attrs: nounwind uwtable
+define hidden void @proto_register_mtp3mg() local_unnamed_addr #0 {
+  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.65) #2
+  store i32 %1, ptr @proto_mtp3mg, align 4
+  %2 = tail call ptr @register_dissector(ptr noundef nonnull @.str.65, ptr noundef nonnull @dissect_mtp3mg, i32 noundef %1) #2
+  store ptr %2, ptr @mtp3mg_handle, align 8
+  %3 = load i32, ptr @proto_mtp3mg, align 4
+  tail call void @proto_register_field_array(i32 noundef %3, ptr noundef nonnull @proto_register_mtp3mg.hf, i32 noundef 52) #2
+  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_mtp3mg.ett, i32 noundef 5) #2
+  %4 = load i32, ptr @proto_mtp3mg, align 4
+  %5 = tail call ptr @expert_register_protocol(i32 noundef %4) #2
+  tail call void @expert_register_field_array(ptr noundef %5, ptr noundef nonnull @proto_register_mtp3mg.ei, i32 noundef 1) #2
+  ret void
+}
+
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: nounwind uwtable
+define internal i32 @dissect_mtp3mg(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+  %5 = load i32, ptr @mtp3_standard, align 4
+  %switch.tableidx = add i32 %5, -1
+  %6 = icmp ult i32 %switch.tableidx, 4
+  br i1 %6, label %switch.lookup, label %10
+
+switch.lookup:                                    ; preds = %4
+  %7 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.dissect_mtp3mg, i64 0, i64 %7
+  %switch.load = load ptr, ptr %switch.gep, align 8
+  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = load ptr, ptr %8, align 8
+  tail call void @col_set_str(ptr noundef %9, i32 noundef 34, ptr noundef nonnull %switch.load) #2
+  br label %10
+
+10:                                               ; preds = %4, %switch.lookup
+  %11 = load i32, ptr @proto_mtp3mg, align 4
+  %12 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %11, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #2
+  %13 = load i32, ptr @ett_mtp3mg, align 4
+  %14 = tail call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %13) #2
+  %15 = getelementptr inbounds i8, ptr %1, i64 292
+  %16 = load i32, ptr %15, align 4
+  %.off = add i32 %16, -1
+  %switch = icmp ult i32 %.off, 2
+  %17 = load i32, ptr @mtp3_standard, align 4
+  %18 = icmp eq i32 %17, 4
+  br i1 %switch, label %19, label %87
+
+19:                                               ; preds = %10
+  br i1 %18, label %20, label %44
+
+20:                                               ; preds = %19
+  %21 = load i32, ptr @hf_mtp3mg_japan_spare, align 4
+  %22 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %21, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %23 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #2
+  %24 = load i32, ptr @hf_mtp3mg_japan_test, align 4
+  %25 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %24, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef -2147483648) #2
+  %26 = getelementptr inbounds i8, ptr %1, i64 8
+  %27 = load ptr, ptr %26, align 8
+  %28 = zext i8 %23 to i32
+  %29 = tail call ptr @val_to_str_const(i32 noundef %28, ptr noundef nonnull @japan_test_message_type_acro_values, ptr noundef nonnull @.str.120) #2
+  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %27, i32 noundef 25, ptr noundef nonnull @.str.132, ptr noundef %29) #2
+  switch i8 %23, label %38 [
+    i8 35, label %30
+    i8 -124, label %30
+  ]
+
+30:                                               ; preds = %20, %20
+  %31 = load i32, ptr @hf_mtp3mg_japan_test_spare, align 4
+  %32 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %31, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648) #2
+  %33 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 3) #2
+  %34 = load i32, ptr @hf_mtp3mg_japan_test_pattern, align 4
+  %35 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %34, ptr noundef %0, i32 noundef 3, i32 noundef 2, i32 noundef -2147483648) #2
+  %36 = icmp eq i16 %33, 30481
+  %37 = select i1 %36, ptr @.str.134, ptr @.str.135
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %35, ptr noundef nonnull @.str.133, ptr noundef nonnull %37) #2
+  br label %dissect_mtp3mg_test.exit
+
+38:                                               ; preds = %20
+  %39 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
+  %40 = and i32 %39, 255
+  %41 = icmp eq i32 %40, 1
+  %42 = select i1 %41, ptr @.str.140, ptr @.str.141
+  %43 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %14, ptr noundef nonnull %1, ptr noundef nonnull @ei_mtp3mg_unknown_message, ptr noundef %0, i32 noundef 0, i32 noundef %40, ptr noundef nonnull @.str.139, i32 noundef %40, ptr noundef nonnull %42) #2
+  br label %dissect_mtp3mg_test.exit
+
+44:                                               ; preds = %19
+  %45 = load i32, ptr @hf_mtp3test_h0, align 4
+  %46 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %45, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %47 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #2
+  %48 = and i8 %47, 15
+  %49 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #2
+  %50 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 1) #2
+  %cond = icmp eq i8 %48, 1
+  br i1 %cond, label %51, label %79
+
+51:                                               ; preds = %44
+  %52 = lshr i8 %49, 4
+  %53 = load i32, ptr @hf_mtp3mg_test_h1, align 4
+  %54 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %53, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %55 = getelementptr inbounds i8, ptr %1, i64 8
+  %56 = load ptr, ptr %55, align 8
+  %57 = zext nneg i8 %52 to i32
+  %58 = tail call ptr @val_to_str_const(i32 noundef %57, ptr noundef nonnull @test_h1_message_type_acro_values, ptr noundef nonnull @.str.120) #2
+  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %56, i32 noundef 25, ptr noundef nonnull @.str.132, ptr noundef %58) #2
+  %.off.i = add nsw i8 %52, -1
+  %switch.i = icmp ult i8 %.off.i, 2
+  br i1 %switch.i, label %59, label %73
+
+59:                                               ; preds = %51
+  %60 = load i32, ptr @mtp3_standard, align 4
+  %61 = icmp eq i32 %60, 2
+  br i1 %61, label %62, label %65
+
+62:                                               ; preds = %59
+  %63 = load i32, ptr @hf_mtp3mg_test_ansi_slc, align 4
+  %64 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %63, ptr noundef %50, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  br label %65
+
+65:                                               ; preds = %62, %59
+  %66 = load i32, ptr @hf_mtp3mg_test_length, align 4
+  %67 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %66, ptr noundef %50, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %68 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %50, i32 noundef 0) #2
+  %69 = lshr i8 %68, 4
+  %70 = load i32, ptr @hf_mtp3mg_test_pattern, align 4
+  %71 = zext nneg i8 %69 to i32
+  %72 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %70, ptr noundef %50, i32 noundef 1, i32 noundef %71, i32 noundef 0) #2
+  br label %dissect_mtp3mg_test.exit
+
+73:                                               ; preds = %51
+  %74 = tail call i32 @tvb_captured_length(ptr noundef %50) #2
+  %75 = and i32 %74, 255
+  %76 = icmp eq i32 %75, 1
+  %77 = select i1 %76, ptr @.str.140, ptr @.str.141
+  %78 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %14, ptr noundef nonnull %1, ptr noundef nonnull @ei_mtp3mg_unknown_message, ptr noundef %50, i32 noundef 0, i32 noundef %75, ptr noundef nonnull @.str.139, i32 noundef %75, ptr noundef nonnull %77) #2
+  br label %dissect_mtp3mg_test.exit
+
+79:                                               ; preds = %44
+  %80 = getelementptr inbounds i8, ptr %1, i64 8
+  %81 = load ptr, ptr %80, align 8
+  tail call void @col_set_str(ptr noundef %81, i32 noundef 25, ptr noundef nonnull @.str.136) #2
+  %82 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
+  %83 = and i32 %82, 255
+  %84 = icmp eq i32 %83, 1
+  %85 = select i1 %84, ptr @.str.140, ptr @.str.141
+  %86 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %14, ptr noundef nonnull %1, ptr noundef nonnull @ei_mtp3mg_unknown_message, ptr noundef %0, i32 noundef 0, i32 noundef %83, ptr noundef nonnull @.str.139, i32 noundef %83, ptr noundef nonnull %85) #2
+  br label %dissect_mtp3mg_test.exit
+
+87:                                               ; preds = %10
+  br i1 %18, label %88, label %92
+
+88:                                               ; preds = %87
+  %89 = load i32, ptr @hf_mtp3mg_japan_spare, align 4
+  %90 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %89, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %91 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 1) #2
+  br label %92
+
+92:                                               ; preds = %88, %87
+  %.0 = phi ptr [ %91, %88 ], [ %0, %87 ]
+  %93 = load i32, ptr @hf_mtp3mg_h0, align 4
+  %94 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %93, ptr noundef %.0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %95 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %.0, i32 noundef 0) #2
+  %96 = and i8 %95, 15
+  %97 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %.0, i32 noundef 0) #2
+  %98 = lshr i8 %97, 4
+  %99 = tail call ptr @tvb_new_subset_remaining(ptr noundef %.0, i32 noundef 1) #2
+  switch i8 %96, label %506 [
+    i8 1, label %100
+    i8 2, label %148
+    i8 3, label %167
+    i8 4, label %217
+    i8 5, label %285
+    i8 6, label %355
+    i8 7, label %382
+    i8 8, label %411
+    i8 10, label %443
+  ]
+
+100:                                              ; preds = %92
+  %101 = load i32, ptr @hf_mtp3mg_chm_h1, align 4
+  %102 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %101, ptr noundef %.0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %103 = getelementptr inbounds i8, ptr %1, i64 8
+  %104 = load ptr, ptr %103, align 8
+  %105 = zext nneg i8 %98 to i32
+  %106 = tail call ptr @val_to_str_const(i32 noundef %105, ptr noundef nonnull @chm_h1_message_type_acro_values, ptr noundef nonnull @.str.120) #2
+  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %104, i32 noundef 25, ptr noundef nonnull @.str.132, ptr noundef %106) #2
+  switch i8 %98, label %142 [
+    i8 1, label %107
+    i8 2, label %107
+    i8 3, label %118
+    i8 4, label %118
+    i8 5, label %129
+    i8 6, label %129
+  ]
+
+107:                                              ; preds = %100, %100
+  %108 = load i32, ptr @mtp3_standard, align 4
+  %109 = icmp eq i32 %108, 2
+  br i1 %109, label %110, label %115
+
+110:                                              ; preds = %107
+  %111 = load i32, ptr @hf_mtp3mg_coo_ansi_slc, align 4
+  %112 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %111, ptr noundef %99, i32 noundef 0, i32 noundef 2, i32 noundef -2147483648) #2
+  %113 = load i32, ptr @hf_mtp3mg_coo_ansi_fsn, align 4
+  %114 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %113, ptr noundef %99, i32 noundef 0, i32 noundef 2, i32 noundef -2147483648) #2
+  br label %dissect_mtp3mg_test.exit
+
+115:                                              ; preds = %107
+  %116 = load i32, ptr @hf_mtp3mg_coo_itu_fsn, align 4
+  %117 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %116, ptr noundef %99, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  br label %dissect_mtp3mg_test.exit
+
+118:                                              ; preds = %100, %100
+  %119 = load i32, ptr @mtp3_standard, align 4
+  %120 = icmp eq i32 %119, 2
+  br i1 %120, label %121, label %126
+
+121:                                              ; preds = %118
+  %122 = load i32, ptr @hf_mtp3mg_xco_ansi_slc, align 4
+  %123 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %122, ptr noundef %99, i32 noundef 0, i32 noundef 4, i32 noundef -2147483648) #2
+  %124 = load i32, ptr @hf_mtp3mg_xco_ansi_fsn, align 4
+  %125 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %124, ptr noundef %99, i32 noundef 0, i32 noundef 4, i32 noundef -2147483648) #2
+  br label %dissect_mtp3mg_test.exit
+
+126:                                              ; preds = %118
+  %127 = load i32, ptr @hf_mtp3mg_xco_itu_fsn, align 4
+  %128 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %127, ptr noundef %99, i32 noundef 0, i32 noundef 3, i32 noundef -2147483648) #2
+  br label %dissect_mtp3mg_test.exit
+
+129:                                              ; preds = %100, %100
+  %130 = load i32, ptr @mtp3_standard, align 4
+  switch i32 %130, label %139 [
+    i32 2, label %131
+    i32 4, label %136
+  ]
+
+131:                                              ; preds = %129
+  %132 = load i32, ptr @hf_mtp3mg_cbd_ansi_slc, align 4
+  %133 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %132, ptr noundef %99, i32 noundef 0, i32 noundef 2, i32 noundef -2147483648) #2
+  %134 = load i32, ptr @hf_mtp3mg_cbd_ansi_cbc, align 4
+  %135 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %134, ptr noundef %99, i32 noundef 0, i32 noundef 2, i32 noundef -2147483648) #2
+  br label %dissect_mtp3mg_test.exit
+
+136:                                              ; preds = %129
+  %137 = load i32, ptr @hf_mtp3mg_cbd_japan_cbc, align 4
+  %138 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %137, ptr noundef %99, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  br label %dissect_mtp3mg_test.exit
+
+139:                                              ; preds = %129
+  %140 = load i32, ptr @hf_mtp3mg_cbd_itu_cbc, align 4
+  %141 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %140, ptr noundef %99, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  br label %dissect_mtp3mg_test.exit
+
+142:                                              ; preds = %100
+  %143 = tail call i32 @tvb_captured_length(ptr noundef %99) #2
+  %144 = and i32 %143, 255
+  %145 = icmp eq i32 %144, 1
+  %146 = select i1 %145, ptr @.str.140, ptr @.str.141
+  %147 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %14, ptr noundef nonnull %1, ptr noundef nonnull @ei_mtp3mg_unknown_message, ptr noundef %99, i32 noundef 0, i32 noundef %144, ptr noundef nonnull @.str.139, i32 noundef %144, ptr noundef nonnull %146) #2
+  br label %dissect_mtp3mg_test.exit
+
+148:                                              ; preds = %92
+  %149 = load i32, ptr @hf_mtp3mg_ecm_h1, align 4
+  %150 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %149, ptr noundef %.0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %151 = getelementptr inbounds i8, ptr %1, i64 8
+  %152 = load ptr, ptr %151, align 8
+  %153 = zext nneg i8 %98 to i32
+  %154 = tail call ptr @val_to_str_const(i32 noundef %153, ptr noundef nonnull @ecm_h1_message_type_acro_values, ptr noundef nonnull @.str.120) #2
+  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %152, i32 noundef 25, ptr noundef nonnull @.str.132, ptr noundef %154) #2
+  %.off.i126 = add nsw i8 %98, -1
+  %switch.i127 = icmp ult i8 %.off.i126, 2
+  br i1 %switch.i127, label %155, label %161
+
+155:                                              ; preds = %148
+  %156 = load i32, ptr @mtp3_standard, align 4
+  %157 = icmp eq i32 %156, 2
+  br i1 %157, label %158, label %dissect_mtp3mg_test.exit
+
+158:                                              ; preds = %155
+  %159 = load i32, ptr @hf_mtp3mg_eco_ansi_slc, align 4
+  %160 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %159, ptr noundef %99, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  br label %dissect_mtp3mg_test.exit
+
+161:                                              ; preds = %148
+  %162 = tail call i32 @tvb_captured_length(ptr noundef %99) #2
+  %163 = and i32 %162, 255
+  %164 = icmp eq i32 %163, 1
+  %165 = select i1 %164, ptr @.str.140, ptr @.str.141
+  %166 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %14, ptr noundef nonnull %1, ptr noundef nonnull @ei_mtp3mg_unknown_message, ptr noundef %99, i32 noundef 0, i32 noundef %163, ptr noundef nonnull @.str.139, i32 noundef %163, ptr noundef nonnull %165) #2
+  br label %dissect_mtp3mg_test.exit
+
+167:                                              ; preds = %92
+  %168 = load i32, ptr @hf_mtp3mg_fcm_h1, align 4
+  %169 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %168, ptr noundef %.0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %170 = getelementptr inbounds i8, ptr %1, i64 8
+  %171 = load ptr, ptr %170, align 8
+  %172 = zext nneg i8 %98 to i32
+  %173 = tail call ptr @val_to_str_const(i32 noundef %172, ptr noundef nonnull @fcm_h1_message_type_acro_values, ptr noundef nonnull @.str.120) #2
+  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %171, i32 noundef 25, ptr noundef nonnull @.str.132, ptr noundef %173) #2
+  switch i8 %98, label %211 [
+    i8 1, label %dissect_mtp3mg_test.exit
+    i8 2, label %174
+  ]
+
+174:                                              ; preds = %167
+  %175 = load i32, ptr @mtp3_standard, align 4
+  switch i32 %175, label %203 [
+    i32 1, label %176
+    i32 4, label %188
+    i32 2, label %204
+  ]
+
+176:                                              ; preds = %174
+  %177 = load i32, ptr @hf_mtp3mg_itu_apc, align 4
+  %178 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %177, ptr noundef %99, i32 noundef 0, i32 noundef 2, i32 noundef -2147483648) #2
+  %179 = tail call i32 @mtp3_pc_structured() #2
+  %.not29.i = icmp eq i32 %179, 0
+  br i1 %.not29.i, label %185, label %180
+
+180:                                              ; preds = %176
+  %181 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %99, i32 noundef 0) #2
+  %182 = and i16 %181, 16383
+  %183 = zext nneg i16 %182 to i32
+  %184 = tail call ptr @mtp3_pc_to_str(i32 noundef %183) #2
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %178, ptr noundef nonnull @.str.133, ptr noundef %184) #2
+  br label %185
+
+185:                                              ; preds = %180, %176
+  %186 = load i32, ptr @hf_mtp3mg_tfc_itu_status, align 4
+  %187 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %186, ptr noundef %99, i32 noundef 0, i32 noundef 2, i32 noundef -2147483648) #2
+  br label %dissect_mtp3mg_test.exit
+
+188:                                              ; preds = %174
+  %189 = load i32, ptr @hf_mtp3mg_tfc_japan_spare, align 4
+  %190 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %189, ptr noundef %99, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %191 = load i32, ptr @hf_mtp3mg_japan_apc, align 4
+  %192 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %191, ptr noundef %99, i32 noundef 1, i32 noundef 2, i32 noundef -2147483648) #2
+  %193 = tail call i32 @mtp3_pc_structured() #2
+  %.not.i = icmp eq i32 %193, 0
+  br i1 %.not.i, label %198, label %194
+
+194:                                              ; preds = %188
+  %195 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %99, i32 noundef 1) #2
+  %196 = zext i16 %195 to i32
+  %197 = tail call ptr @mtp3_pc_to_str(i32 noundef %196) #2
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %192, ptr noundef nonnull @.str.133, ptr noundef %197) #2
+  br label %198
+
+198:                                              ; preds = %194, %188
+  %199 = load i32, ptr @hf_mtp3mg_tfc_japan_status, align 4
+  %200 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %199, ptr noundef %99, i32 noundef 3, i32 noundef 1, i32 noundef -2147483648) #2
+  %201 = load i32, ptr @hf_mtp3mg_tfc_japan_status_spare, align 4
+  %202 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %201, ptr noundef %99, i32 noundef 3, i32 noundef 1, i32 noundef -2147483648) #2
+  br label %dissect_mtp3mg_test.exit
+
+203:                                              ; preds = %174
+  br label %204
+
+204:                                              ; preds = %203, %174
+  %.0.in.i = phi ptr [ @hf_mtp3mg_chinese_apc, %203 ], [ @hf_mtp3mg_ansi_apc, %174 ]
+  %.0.i = load i32, ptr %.0.in.i, align 4
+  %205 = load i32, ptr @ett_mtp3mg_fcm_apc, align 4
+  %206 = load i32, ptr @hf_mtp3mg_apc_network, align 4
+  %207 = load i32, ptr @hf_mtp3mg_apc_cluster, align 4
+  %208 = load i32, ptr @hf_mtp3mg_apc_member, align 4
+  tail call void @dissect_mtp3_3byte_pc(ptr noundef %99, i32 noundef 0, ptr noundef %14, i32 noundef %205, i32 noundef %.0.i, i32 noundef %206, i32 noundef %207, i32 noundef %208, i32 noundef 0, i32 noundef 0) #2
+  %209 = load i32, ptr @hf_mtp3mg_tfc_ansi_status, align 4
+  %210 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %209, ptr noundef %99, i32 noundef 3, i32 noundef 1, i32 noundef -2147483648) #2
+  br label %dissect_mtp3mg_test.exit
+
+211:                                              ; preds = %167
+  %212 = tail call i32 @tvb_captured_length(ptr noundef %99) #2
+  %213 = and i32 %212, 255
+  %214 = icmp eq i32 %213, 1
+  %215 = select i1 %214, ptr @.str.140, ptr @.str.141
+  %216 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %14, ptr noundef nonnull %1, ptr noundef nonnull @ei_mtp3mg_unknown_message, ptr noundef %99, i32 noundef 0, i32 noundef %213, ptr noundef nonnull @.str.139, i32 noundef %213, ptr noundef nonnull %215) #2
+  br label %dissect_mtp3mg_test.exit
+
+217:                                              ; preds = %92
+  %218 = load i32, ptr @hf_mtp3mg_tfm_h1, align 4
+  %219 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %218, ptr noundef %.0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %220 = getelementptr inbounds i8, ptr %1, i64 8
+  %221 = load ptr, ptr %220, align 8
+  %222 = zext nneg i8 %98 to i32
+  %223 = tail call ptr @val_to_str_const(i32 noundef %222, ptr noundef nonnull @tfm_h1_message_type_acro_values, ptr noundef nonnull @.str.120) #2
+  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %221, i32 noundef 25, ptr noundef nonnull @.str.132, ptr noundef %223) #2
+  %.off.i128 = add nsw i8 %98, -1
+  %switch.i129 = icmp ult i8 %.off.i128, 6
+  br i1 %switch.i129, label %224, label %279
+
+224:                                              ; preds = %217
+  %225 = load i32, ptr @mtp3_standard, align 4
+  switch i32 %225, label %256 [
+    i32 2, label %226
+    i32 4, label %232
+  ]
+
+226:                                              ; preds = %224
+  %227 = load i32, ptr @ett_mtp3mg_tfm_apc, align 4
+  %228 = load i32, ptr @hf_mtp3mg_ansi_apc, align 4
+  %229 = load i32, ptr @hf_mtp3mg_apc_network, align 4
+  %230 = load i32, ptr @hf_mtp3mg_apc_cluster, align 4
+  %231 = load i32, ptr @hf_mtp3mg_apc_member, align 4
+  tail call void @dissect_mtp3_3byte_pc(ptr noundef %99, i32 noundef 0, ptr noundef %14, i32 noundef %227, i32 noundef %228, i32 noundef %229, i32 noundef %230, i32 noundef %231, i32 noundef 0, i32 noundef 0) #2
+  br label %dissect_mtp3mg_test.exit
+
+232:                                              ; preds = %224
+  switch i8 %98, label %239 [
+    i8 6, label %233
+    i8 4, label %233
+    i8 3, label %233
+    i8 2, label %233
+  ]
+
+233:                                              ; preds = %232, %232, %232, %232
+  %234 = tail call i32 @tvb_captured_length(ptr noundef %99) #2
+  %235 = and i32 %234, 255
+  %236 = icmp eq i32 %235, 1
+  %237 = select i1 %236, ptr @.str.140, ptr @.str.141
+  %238 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %14, ptr noundef nonnull %1, ptr noundef nonnull @ei_mtp3mg_unknown_message, ptr noundef %99, i32 noundef 0, i32 noundef %235, ptr noundef nonnull @.str.139, i32 noundef %235, ptr noundef nonnull %237) #2
+  br label %239
+
+239:                                              ; preds = %233, %232
+  %240 = load i32, ptr @hf_mtp3mg_tfm_japan_count, align 4
+  %241 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %240, ptr noundef %99, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %242 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %99, i32 noundef 0) #2
+  %.not64.i = icmp eq i8 %242, 0
+  br i1 %.not64.i, label %dissect_mtp3mg_test.exit, label %.lr.ph.i
+
+.lr.ph.i:                                         ; preds = %239, %250
+  %.063.i = phi i8 [ %255, %250 ], [ 0, %239 ]
+  %.05962.i = phi i32 [ %254, %250 ], [ 1, %239 ]
+  %243 = load i32, ptr @hf_mtp3mg_japan_apc, align 4
+  %244 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %243, ptr noundef %99, i32 noundef %.05962.i, i32 noundef 2, i32 noundef -2147483648) #2
+  %245 = tail call i32 @mtp3_pc_structured() #2
+  %.not61.i = icmp eq i32 %245, 0
+  br i1 %.not61.i, label %250, label %246
+
+246:                                              ; preds = %.lr.ph.i
+  %247 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %99, i32 noundef %.05962.i) #2
+  %248 = zext i16 %247 to i32
+  %249 = tail call ptr @mtp3_pc_to_str(i32 noundef %248) #2
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %244, ptr noundef nonnull @.str.133, ptr noundef %249) #2
+  br label %250
+
+250:                                              ; preds = %246, %.lr.ph.i
+  %251 = add nuw nsw i32 %.05962.i, 2
+  %252 = load i32, ptr @hf_mtp3mg_tfm_japan_spare, align 4
+  %253 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %252, ptr noundef %99, i32 noundef %251, i32 noundef 2, i32 noundef -2147483648) #2
+  %254 = add nuw nsw i32 %.05962.i, 4
+  %255 = add nuw i8 %.063.i, 1
+  %exitcond.not.i = icmp eq i8 %255, %242
+  br i1 %exitcond.not.i, label %dissect_mtp3mg_test.exit, label %.lr.ph.i, !llvm.loop !4
+
+256:                                              ; preds = %224
+  switch i8 %98, label %263 [
+    i8 6, label %257
+    i8 4, label %257
+    i8 2, label %257
+  ]
+
+257:                                              ; preds = %256, %256, %256
+  %258 = tail call i32 @tvb_captured_length(ptr noundef %99) #2
+  %259 = and i32 %258, 255
+  %260 = icmp eq i32 %259, 1
+  %261 = select i1 %260, ptr @.str.140, ptr @.str.141
+  %262 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %14, ptr noundef nonnull %1, ptr noundef nonnull @ei_mtp3mg_unknown_message, ptr noundef %99, i32 noundef 0, i32 noundef %259, ptr noundef nonnull @.str.139, i32 noundef %259, ptr noundef nonnull %261) #2
+  br label %dissect_mtp3mg_test.exit
+
+263:                                              ; preds = %256
+  switch i32 %225, label %dissect_mtp3mg_test.exit [
+    i32 1, label %264
+    i32 3, label %273
+  ]
+
+264:                                              ; preds = %263
+  %265 = load i32, ptr @hf_mtp3mg_itu_apc, align 4
+  %266 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %265, ptr noundef %99, i32 noundef 0, i32 noundef 2, i32 noundef -2147483648) #2
+  %267 = tail call i32 @mtp3_pc_structured() #2
+  %.not.i130 = icmp eq i32 %267, 0
+  br i1 %.not.i130, label %dissect_mtp3mg_test.exit, label %268
+
+268:                                              ; preds = %264
+  %269 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %99, i32 noundef 0) #2
+  %270 = and i16 %269, 16383
+  %271 = zext nneg i16 %270 to i32
+  %272 = tail call ptr @mtp3_pc_to_str(i32 noundef %271) #2
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %266, ptr noundef nonnull @.str.133, ptr noundef %272) #2
+  br label %dissect_mtp3mg_test.exit
+
+273:                                              ; preds = %263
+  %274 = load i32, ptr @ett_mtp3mg_tfm_apc, align 4
+  %275 = load i32, ptr @hf_mtp3mg_chinese_apc, align 4
+  %276 = load i32, ptr @hf_mtp3mg_apc_network, align 4
+  %277 = load i32, ptr @hf_mtp3mg_apc_cluster, align 4
+  %278 = load i32, ptr @hf_mtp3mg_apc_member, align 4
+  tail call void @dissect_mtp3_3byte_pc(ptr noundef %99, i32 noundef 0, ptr noundef %14, i32 noundef %274, i32 noundef %275, i32 noundef %276, i32 noundef %277, i32 noundef %278, i32 noundef 0, i32 noundef 0) #2
+  br label %dissect_mtp3mg_test.exit
+
+279:                                              ; preds = %217
+  %280 = tail call i32 @tvb_captured_length(ptr noundef %99) #2
+  %281 = and i32 %280, 255
+  %282 = icmp eq i32 %281, 1
+  %283 = select i1 %282, ptr @.str.140, ptr @.str.141
+  %284 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %14, ptr noundef nonnull %1, ptr noundef nonnull @ei_mtp3mg_unknown_message, ptr noundef %99, i32 noundef 0, i32 noundef %281, ptr noundef nonnull @.str.139, i32 noundef %281, ptr noundef nonnull %283) #2
+  br label %dissect_mtp3mg_test.exit
+
+285:                                              ; preds = %92
+  %286 = load i32, ptr @hf_mtp3mg_rsm_h1, align 4
+  %287 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %286, ptr noundef %.0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %288 = getelementptr inbounds i8, ptr %1, i64 8
+  %289 = load ptr, ptr %288, align 8
+  %290 = zext nneg i8 %98 to i32
+  %291 = tail call ptr @val_to_str_const(i32 noundef %290, ptr noundef nonnull @rsm_h1_message_type_acro_values, ptr noundef nonnull @.str.120) #2
+  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %289, i32 noundef 25, ptr noundef nonnull @.str.132, ptr noundef %291) #2
+  %.off.i131 = add nsw i8 %98, -1
+  %switch.i132 = icmp ult i8 %.off.i131, 4
+  br i1 %switch.i132, label %292, label %349
+
+292:                                              ; preds = %285
+  %293 = load i32, ptr @mtp3_standard, align 4
+  switch i32 %293, label %325 [
+    i32 2, label %294
+    i32 4, label %300
+  ]
+
+294:                                              ; preds = %292
+  %295 = load i32, ptr @ett_mtp3mg_rsm_apc, align 4
+  %296 = load i32, ptr @hf_mtp3mg_ansi_apc, align 4
+  %297 = load i32, ptr @hf_mtp3mg_apc_network, align 4
+  %298 = load i32, ptr @hf_mtp3mg_apc_cluster, align 4
+  %299 = load i32, ptr @hf_mtp3mg_apc_member, align 4
+  tail call void @dissect_mtp3_3byte_pc(ptr noundef %99, i32 noundef 0, ptr noundef %14, i32 noundef %295, i32 noundef %296, i32 noundef %297, i32 noundef %298, i32 noundef %299, i32 noundef 0, i32 noundef 0) #2
+  br label %dissect_mtp3mg_test.exit
+
+300:                                              ; preds = %292
+  %301 = icmp eq i8 %98, 1
+  br i1 %301, label %302, label %319
+
+302:                                              ; preds = %300
+  %303 = load i32, ptr @hf_mtp3mg_rsm_japan_count, align 4
+  %304 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %303, ptr noundef %99, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %305 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %99, i32 noundef 0) #2
+  %.not47.i = icmp eq i8 %305, 0
+  br i1 %.not47.i, label %dissect_mtp3mg_test.exit, label %.lr.ph.i133
+
+.lr.ph.i133:                                      ; preds = %302, %313
+  %.046.i = phi i32 [ %317, %313 ], [ 1, %302 ]
+  %.04245.i = phi i8 [ %318, %313 ], [ 0, %302 ]
+  %306 = load i32, ptr @hf_mtp3mg_japan_apc, align 4
+  %307 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %306, ptr noundef %99, i32 noundef %.046.i, i32 noundef 2, i32 noundef -2147483648) #2
+  %308 = tail call i32 @mtp3_pc_structured() #2
+  %.not44.i = icmp eq i32 %308, 0
+  br i1 %.not44.i, label %313, label %309
+
+309:                                              ; preds = %.lr.ph.i133
+  %310 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %99, i32 noundef 0) #2
+  %311 = zext i16 %310 to i32
+  %312 = tail call ptr @mtp3_pc_to_str(i32 noundef %311) #2
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %307, ptr noundef nonnull @.str.133, ptr noundef %312) #2
+  br label %313
+
+313:                                              ; preds = %309, %.lr.ph.i133
+  %314 = add nuw nsw i32 %.046.i, 2
+  %315 = load i32, ptr @hf_mtp3mg_rsm_japan_spare, align 4
+  %316 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %315, ptr noundef %99, i32 noundef %314, i32 noundef 2, i32 noundef -2147483648) #2
+  %317 = add nuw nsw i32 %.046.i, 4
+  %318 = add nuw i8 %.04245.i, 1
+  %exitcond.not.i134 = icmp eq i8 %318, %305
+  br i1 %exitcond.not.i134, label %dissect_mtp3mg_test.exit, label %.lr.ph.i133, !llvm.loop !6
+
+319:                                              ; preds = %300
+  %320 = tail call i32 @tvb_captured_length(ptr noundef %99) #2
+  %321 = and i32 %320, 255
+  %322 = icmp eq i32 %321, 1
+  %323 = select i1 %322, ptr @.str.140, ptr @.str.141
+  %324 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %14, ptr noundef nonnull %1, ptr noundef nonnull @ei_mtp3mg_unknown_message, ptr noundef %99, i32 noundef 0, i32 noundef %321, ptr noundef nonnull @.str.139, i32 noundef %321, ptr noundef nonnull %323) #2
+  br label %dissect_mtp3mg_test.exit
+
+325:                                              ; preds = %292
+  %or.cond.i = icmp ult i8 %.off.i131, 2
+  br i1 %or.cond.i, label %326, label %343
+
+326:                                              ; preds = %325
+  %327 = icmp eq i32 %293, 1
+  br i1 %327, label %328, label %337
+
+328:                                              ; preds = %326
+  %329 = load i32, ptr @hf_mtp3mg_itu_apc, align 4
+  %330 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %329, ptr noundef %99, i32 noundef 0, i32 noundef 2, i32 noundef -2147483648) #2
+  %331 = tail call i32 @mtp3_pc_structured() #2
+  %.not.i135 = icmp eq i32 %331, 0
+  br i1 %.not.i135, label %dissect_mtp3mg_test.exit, label %332
+
+332:                                              ; preds = %328
+  %333 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %99, i32 noundef 0) #2
+  %334 = and i16 %333, 16383
+  %335 = zext nneg i16 %334 to i32
+  %336 = tail call ptr @mtp3_pc_to_str(i32 noundef %335) #2
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %330, ptr noundef nonnull @.str.133, ptr noundef %336) #2
+  br label %dissect_mtp3mg_test.exit
+
+337:                                              ; preds = %326
+  %338 = load i32, ptr @ett_mtp3mg_rsm_apc, align 4
+  %339 = load i32, ptr @hf_mtp3mg_chinese_apc, align 4
+  %340 = load i32, ptr @hf_mtp3mg_apc_network, align 4
+  %341 = load i32, ptr @hf_mtp3mg_apc_cluster, align 4
+  %342 = load i32, ptr @hf_mtp3mg_apc_member, align 4
+  tail call void @dissect_mtp3_3byte_pc(ptr noundef %99, i32 noundef 0, ptr noundef %14, i32 noundef %338, i32 noundef %339, i32 noundef %340, i32 noundef %341, i32 noundef %342, i32 noundef 0, i32 noundef 0) #2
+  br label %dissect_mtp3mg_test.exit
+
+343:                                              ; preds = %325
+  %344 = tail call i32 @tvb_captured_length(ptr noundef %99) #2
+  %345 = and i32 %344, 255
+  %346 = icmp eq i32 %345, 1
+  %347 = select i1 %346, ptr @.str.140, ptr @.str.141
+  %348 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %14, ptr noundef nonnull %1, ptr noundef nonnull @ei_mtp3mg_unknown_message, ptr noundef %99, i32 noundef 0, i32 noundef %345, ptr noundef nonnull @.str.139, i32 noundef %345, ptr noundef nonnull %347) #2
+  br label %dissect_mtp3mg_test.exit
+
+349:                                              ; preds = %285
+  %350 = tail call i32 @tvb_captured_length(ptr noundef %99) #2
+  %351 = and i32 %350, 255
+  %352 = icmp eq i32 %351, 1
+  %353 = select i1 %352, ptr @.str.140, ptr @.str.141
+  %354 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %14, ptr noundef nonnull %1, ptr noundef nonnull @ei_mtp3mg_unknown_message, ptr noundef %99, i32 noundef 0, i32 noundef %351, ptr noundef nonnull @.str.139, i32 noundef %351, ptr noundef nonnull %353) #2
+  br label %dissect_mtp3mg_test.exit
+
+355:                                              ; preds = %92
+  %356 = load i32, ptr @mtp3_standard, align 4
+  %.not125 = icmp eq i32 %356, 4
+  br i1 %.not125, label %376, label %357
+
+357:                                              ; preds = %355
+  %358 = load i32, ptr @hf_mtp3mg_mim_h1, align 4
+  %359 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %358, ptr noundef %.0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %360 = getelementptr inbounds i8, ptr %1, i64 8
+  %361 = load ptr, ptr %360, align 8
+  %362 = zext nneg i8 %98 to i32
+  %363 = tail call ptr @val_to_str_const(i32 noundef %362, ptr noundef nonnull @mim_h1_message_type_acro_values, ptr noundef nonnull @.str.120) #2
+  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %361, i32 noundef 25, ptr noundef nonnull @.str.132, ptr noundef %363) #2
+  %.off.i136 = add nsw i8 %98, -1
+  %switch.i137 = icmp ult i8 %.off.i136, 8
+  br i1 %switch.i137, label %364, label %370
+
+364:                                              ; preds = %357
+  %365 = load i32, ptr @mtp3_standard, align 4
+  %366 = icmp eq i32 %365, 2
+  br i1 %366, label %367, label %dissect_mtp3mg_test.exit
+
+367:                                              ; preds = %364
+  %368 = load i32, ptr @hf_mtp3mg_mim_ansi_slc, align 4
+  %369 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %368, ptr noundef %99, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  br label %dissect_mtp3mg_test.exit
+
+370:                                              ; preds = %357
+  %371 = tail call i32 @tvb_captured_length(ptr noundef %99) #2
+  %372 = and i32 %371, 255
+  %373 = icmp eq i32 %372, 1
+  %374 = select i1 %373, ptr @.str.140, ptr @.str.141
+  %375 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %14, ptr noundef nonnull %1, ptr noundef nonnull @ei_mtp3mg_unknown_message, ptr noundef %99, i32 noundef 0, i32 noundef %372, ptr noundef nonnull @.str.139, i32 noundef %372, ptr noundef nonnull %374) #2
+  br label %dissect_mtp3mg_test.exit
+
+376:                                              ; preds = %355
+  %377 = tail call i32 @tvb_captured_length(ptr noundef %.0) #2
+  %378 = and i32 %377, 255
+  %379 = icmp eq i32 %378, 1
+  %380 = select i1 %379, ptr @.str.140, ptr @.str.141
+  %381 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %14, ptr noundef nonnull %1, ptr noundef nonnull @ei_mtp3mg_unknown_message, ptr noundef %.0, i32 noundef 0, i32 noundef %378, ptr noundef nonnull @.str.139, i32 noundef %378, ptr noundef nonnull %380) #2
+  br label %dissect_mtp3mg_test.exit
+
+382:                                              ; preds = %92
+  %383 = load i32, ptr @mtp3_standard, align 4
+  %.not124 = icmp eq i32 %383, 4
+  br i1 %.not124, label %405, label %384
+
+384:                                              ; preds = %382
+  %385 = load i32, ptr @hf_mtp3mg_trm_h1, align 4
+  %386 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %385, ptr noundef %.0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %387 = getelementptr inbounds i8, ptr %1, i64 8
+  %388 = load ptr, ptr %387, align 8
+  %389 = zext nneg i8 %98 to i32
+  %390 = tail call ptr @val_to_str_const(i32 noundef %389, ptr noundef nonnull @trm_h1_message_type_acro_values, ptr noundef nonnull @.str.120) #2
+  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %388, i32 noundef 25, ptr noundef nonnull @.str.132, ptr noundef %390) #2
+  switch i8 %98, label %399 [
+    i8 1, label %dissect_mtp3mg_test.exit
+    i8 2, label %391
+  ]
+
+391:                                              ; preds = %384
+  %392 = load i32, ptr @mtp3_standard, align 4
+  %.not.i138 = icmp eq i32 %392, 2
+  br i1 %.not.i138, label %dissect_mtp3mg_test.exit, label %393
+
+393:                                              ; preds = %391
+  %394 = tail call i32 @tvb_captured_length(ptr noundef %99) #2
+  %395 = and i32 %394, 255
+  %396 = icmp eq i32 %395, 1
+  %397 = select i1 %396, ptr @.str.140, ptr @.str.141
+  %398 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %14, ptr noundef nonnull %1, ptr noundef nonnull @ei_mtp3mg_unknown_message, ptr noundef %99, i32 noundef 0, i32 noundef %395, ptr noundef nonnull @.str.139, i32 noundef %395, ptr noundef nonnull %397) #2
+  br label %dissect_mtp3mg_test.exit
+
+399:                                              ; preds = %384
+  %400 = tail call i32 @tvb_captured_length(ptr noundef %99) #2
+  %401 = and i32 %400, 255
+  %402 = icmp eq i32 %401, 1
+  %403 = select i1 %402, ptr @.str.140, ptr @.str.141
+  %404 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %14, ptr noundef nonnull %1, ptr noundef nonnull @ei_mtp3mg_unknown_message, ptr noundef %99, i32 noundef 0, i32 noundef %401, ptr noundef nonnull @.str.139, i32 noundef %401, ptr noundef nonnull %403) #2
+  br label %dissect_mtp3mg_test.exit
+
+405:                                              ; preds = %382
+  %406 = tail call i32 @tvb_captured_length(ptr noundef %.0) #2
+  %407 = and i32 %406, 255
+  %408 = icmp eq i32 %407, 1
+  %409 = select i1 %408, ptr @.str.140, ptr @.str.141
+  %410 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %14, ptr noundef nonnull %1, ptr noundef nonnull @ei_mtp3mg_unknown_message, ptr noundef %.0, i32 noundef 0, i32 noundef %407, ptr noundef nonnull @.str.139, i32 noundef %407, ptr noundef nonnull %409) #2
+  br label %dissect_mtp3mg_test.exit
+
+411:                                              ; preds = %92
+  %412 = load i32, ptr @mtp3_standard, align 4
+  %.not123 = icmp eq i32 %412, 4
+  br i1 %.not123, label %437, label %413
+
+413:                                              ; preds = %411
+  %414 = load i32, ptr @hf_mtp3mg_dlm_h1, align 4
+  %415 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %414, ptr noundef %.0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %416 = getelementptr inbounds i8, ptr %1, i64 8
+  %417 = load ptr, ptr %416, align 8
+  %418 = zext nneg i8 %98 to i32
+  %419 = tail call ptr @val_to_str_const(i32 noundef %418, ptr noundef nonnull @dlm_h1_message_type_acro_values, ptr noundef nonnull @.str.120) #2
+  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %417, i32 noundef 25, ptr noundef nonnull @.str.132, ptr noundef %419) #2
+  switch i8 %98, label %431 [
+    i8 1, label %420
+    i8 2, label %dissect_mtp3mg_test.exit
+    i8 3, label %dissect_mtp3mg_test.exit
+    i8 4, label %dissect_mtp3mg_test.exit
+  ]
+
+420:                                              ; preds = %413
+  %421 = load i32, ptr @mtp3_standard, align 4
+  %422 = icmp eq i32 %421, 2
+  br i1 %422, label %423, label %428
+
+423:                                              ; preds = %420
+  %424 = load i32, ptr @hf_mtp3mg_dlc_ansi_slc, align 4
+  %425 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %424, ptr noundef %99, i32 noundef 0, i32 noundef 3, i32 noundef -2147483648) #2
+  %426 = load i32, ptr @hf_mtp3mg_dlc_ansi_link, align 4
+  %427 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %426, ptr noundef %99, i32 noundef 0, i32 noundef 3, i32 noundef -2147483648) #2
+  br label %dissect_mtp3mg_test.exit
+
+428:                                              ; preds = %420
+  %429 = load i32, ptr @hf_mtp3mg_dlc_itu_link, align 4
+  %430 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %429, ptr noundef %99, i32 noundef 0, i32 noundef 2, i32 noundef -2147483648) #2
+  br label %dissect_mtp3mg_test.exit
+
+431:                                              ; preds = %413
+  %432 = tail call i32 @tvb_captured_length(ptr noundef %99) #2
+  %433 = and i32 %432, 255
+  %434 = icmp eq i32 %433, 1
+  %435 = select i1 %434, ptr @.str.140, ptr @.str.141
+  %436 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %14, ptr noundef nonnull %1, ptr noundef nonnull @ei_mtp3mg_unknown_message, ptr noundef %99, i32 noundef 0, i32 noundef %433, ptr noundef nonnull @.str.139, i32 noundef %433, ptr noundef nonnull %435) #2
+  br label %dissect_mtp3mg_test.exit
+
+437:                                              ; preds = %411
+  %438 = tail call i32 @tvb_captured_length(ptr noundef %.0) #2
+  %439 = and i32 %438, 255
+  %440 = icmp eq i32 %439, 1
+  %441 = select i1 %440, ptr @.str.140, ptr @.str.141
+  %442 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %14, ptr noundef nonnull %1, ptr noundef nonnull @ei_mtp3mg_unknown_message, ptr noundef %.0, i32 noundef 0, i32 noundef %439, ptr noundef nonnull @.str.139, i32 noundef %439, ptr noundef nonnull %441) #2
+  br label %dissect_mtp3mg_test.exit
+
+443:                                              ; preds = %92
+  %444 = load i32, ptr @mtp3_standard, align 4
+  %.not = icmp eq i32 %444, 4
+  br i1 %.not, label %500, label %445
+
+445:                                              ; preds = %443
+  %446 = load i32, ptr @hf_mtp3mg_ufc_h1, align 4
+  %447 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %446, ptr noundef %.0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #2
+  %448 = getelementptr inbounds i8, ptr %1, i64 8
+  %449 = load ptr, ptr %448, align 8
+  %450 = zext nneg i8 %98 to i32
+  %451 = tail call ptr @val_to_str_const(i32 noundef %450, ptr noundef nonnull @ufc_h1_message_type_acro_values, ptr noundef nonnull @.str.120) #2
+  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %449, i32 noundef 25, ptr noundef nonnull @.str.132, ptr noundef %451) #2
+  %cond.i = icmp eq i8 %98, 1
+  br i1 %cond.i, label %452, label %494
+
+452:                                              ; preds = %445
+  %453 = load i32, ptr @mtp3_standard, align 4
+  %454 = and i32 %453, -2
+  %or.cond.i139 = icmp eq i32 %454, 2
+  br i1 %or.cond.i139, label %455, label %465
+
+455:                                              ; preds = %452
+  %456 = icmp eq i32 %453, 2
+  %hf_mtp3mg_ansi_apc.val.i = load i32, ptr @hf_mtp3mg_ansi_apc, align 4
+  %hf_mtp3mg_chinese_apc.val.i = load i32, ptr @hf_mtp3mg_chinese_apc, align 4
+  %.0.i141 = select i1 %456, i32 %hf_mtp3mg_ansi_apc.val.i, i32 %hf_mtp3mg_chinese_apc.val.i
+  %457 = load i32, ptr @ett_mtp3mg_upu_apc, align 4
+  %458 = load i32, ptr @hf_mtp3mg_apc_network, align 4
+  %459 = load i32, ptr @hf_mtp3mg_apc_cluster, align 4
+  %460 = load i32, ptr @hf_mtp3mg_apc_member, align 4
+  tail call void @dissect_mtp3_3byte_pc(ptr noundef %99, i32 noundef 0, ptr noundef %14, i32 noundef %457, i32 noundef %.0.i141, i32 noundef %458, i32 noundef %459, i32 noundef %460, i32 noundef 0, i32 noundef 0) #2
+  %461 = load i32, ptr @hf_mtp3mg_upu_user, align 4
+  %462 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %461, ptr noundef %99, i32 noundef 3, i32 noundef 1, i32 noundef -2147483648) #2
+  %463 = load i32, ptr @hf_mtp3mg_upu_cause, align 4
+  %464 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %463, ptr noundef %99, i32 noundef 3, i32 noundef 1, i32 noundef -2147483648) #2
+  br label %dissect_mtp3mg_test.exit
+
+465:                                              ; preds = %452
+  %466 = icmp eq i32 %453, 1
+  br i1 %466, label %467, label %481
+
+467:                                              ; preds = %465
+  %468 = load i32, ptr @hf_mtp3mg_itu_apc, align 4
+  %469 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %468, ptr noundef %99, i32 noundef 0, i32 noundef 2, i32 noundef -2147483648) #2
+  %470 = tail call i32 @mtp3_pc_structured() #2
+  %.not32.i = icmp eq i32 %470, 0
+  br i1 %.not32.i, label %476, label %471
+
+471:                                              ; preds = %467
+  %472 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %99, i32 noundef 0) #2
+  %473 = and i16 %472, 16383
+  %474 = zext nneg i16 %473 to i32
+  %475 = tail call ptr @mtp3_pc_to_str(i32 noundef %474) #2
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %469, ptr noundef nonnull @.str.133, ptr noundef %475) #2
+  br label %476
+
+476:                                              ; preds = %471, %467
+  %477 = load i32, ptr @hf_mtp3mg_upu_user, align 4
+  %478 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %477, ptr noundef %99, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648) #2
+  %479 = load i32, ptr @hf_mtp3mg_upu_cause, align 4
+  %480 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %479, ptr noundef %99, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648) #2
+  br label %dissect_mtp3mg_test.exit
+
+481:                                              ; preds = %465
+  %482 = load i32, ptr @hf_mtp3mg_japan_apc, align 4
+  %483 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %482, ptr noundef %99, i32 noundef 0, i32 noundef 2, i32 noundef -2147483648) #2
+  %484 = tail call i32 @mtp3_pc_structured() #2
+  %.not.i140 = icmp eq i32 %484, 0
+  br i1 %.not.i140, label %489, label %485
+
+485:                                              ; preds = %481
+  %486 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %99, i32 noundef 0) #2
+  %487 = zext i16 %486 to i32
+  %488 = tail call ptr @mtp3_pc_to_str(i32 noundef %487) #2
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %483, ptr noundef nonnull @.str.133, ptr noundef %488) #2
+  br label %489
+
+489:                                              ; preds = %485, %481
+  %490 = load i32, ptr @hf_mtp3mg_upu_user, align 4
+  %491 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %490, ptr noundef %99, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648) #2
+  %492 = load i32, ptr @hf_mtp3mg_upu_cause, align 4
+  %493 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %492, ptr noundef %99, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648) #2
+  br label %dissect_mtp3mg_test.exit
+
+494:                                              ; preds = %445
+  %495 = tail call i32 @tvb_captured_length(ptr noundef %99) #2
+  %496 = and i32 %495, 255
+  %497 = icmp eq i32 %496, 1
+  %498 = select i1 %497, ptr @.str.140, ptr @.str.141
+  %499 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %14, ptr noundef nonnull %1, ptr noundef nonnull @ei_mtp3mg_unknown_message, ptr noundef %99, i32 noundef 0, i32 noundef %496, ptr noundef nonnull @.str.139, i32 noundef %496, ptr noundef nonnull %498) #2
+  br label %dissect_mtp3mg_test.exit
+
+500:                                              ; preds = %443
+  %501 = tail call i32 @tvb_captured_length(ptr noundef %.0) #2
+  %502 = and i32 %501, 255
+  %503 = icmp eq i32 %502, 1
+  %504 = select i1 %503, ptr @.str.140, ptr @.str.141
+  %505 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %14, ptr noundef nonnull %1, ptr noundef nonnull @ei_mtp3mg_unknown_message, ptr noundef %.0, i32 noundef 0, i32 noundef %502, ptr noundef nonnull @.str.139, i32 noundef %502, ptr noundef nonnull %504) #2
+  br label %dissect_mtp3mg_test.exit
+
+506:                                              ; preds = %92
+  %507 = getelementptr inbounds i8, ptr %1, i64 8
+  %508 = load ptr, ptr %507, align 8
+  tail call void @col_set_str(ptr noundef %508, i32 noundef 25, ptr noundef nonnull @.str.136) #2
+  %509 = tail call i32 @tvb_captured_length(ptr noundef %.0) #2
+  %510 = and i32 %509, 255
+  %511 = icmp eq i32 %510, 1
+  %512 = select i1 %511, ptr @.str.140, ptr @.str.141
+  %513 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %14, ptr noundef nonnull %1, ptr noundef nonnull @ei_mtp3mg_unknown_message, ptr noundef %.0, i32 noundef 0, i32 noundef %510, ptr noundef nonnull @.str.139, i32 noundef %510, ptr noundef nonnull %512) #2
+  br label %dissect_mtp3mg_test.exit
+
+dissect_mtp3mg_test.exit:                         ; preds = %313, %250, %494, %489, %476, %455, %431, %428, %423, %413, %413, %413, %399, %393, %391, %384, %370, %367, %364, %349, %343, %337, %332, %328, %319, %302, %294, %279, %273, %268, %264, %263, %257, %239, %226, %211, %204, %198, %185, %167, %161, %158, %155, %142, %139, %136, %131, %126, %121, %115, %110, %73, %65, %506, %376, %405, %437, %500, %38, %30, %79
+  %.1 = phi ptr [ %0, %38 ], [ %0, %30 ], [ %0, %79 ], [ %.0, %506 ], [ %.0, %500 ], [ %.0, %437 ], [ %.0, %405 ], [ %.0, %376 ], [ %0, %65 ], [ %0, %73 ], [ %.0, %110 ], [ %.0, %115 ], [ %.0, %121 ], [ %.0, %126 ], [ %.0, %131 ], [ %.0, %136 ], [ %.0, %139 ], [ %.0, %142 ], [ %.0, %155 ], [ %.0, %158 ], [ %.0, %161 ], [ %.0, %167 ], [ %.0, %185 ], [ %.0, %198 ], [ %.0, %204 ], [ %.0, %211 ], [ %.0, %226 ], [ %.0, %239 ], [ %.0, %257 ], [ %.0, %263 ], [ %.0, %264 ], [ %.0, %268 ], [ %.0, %273 ], [ %.0, %279 ], [ %.0, %294 ], [ %.0, %302 ], [ %.0, %319 ], [ %.0, %328 ], [ %.0, %332 ], [ %.0, %337 ], [ %.0, %343 ], [ %.0, %349 ], [ %.0, %364 ], [ %.0, %367 ], [ %.0, %370 ], [ %.0, %384 ], [ %.0, %391 ], [ %.0, %393 ], [ %.0, %399 ], [ %.0, %413 ], [ %.0, %413 ], [ %.0, %413 ], [ %.0, %423 ], [ %.0, %428 ], [ %.0, %431 ], [ %.0, %455 ], [ %.0, %476 ], [ %.0, %489 ], [ %.0, %494 ], [ %.0, %250 ], [ %.0, %313 ]
+  %514 = tail call i32 @tvb_captured_length(ptr noundef %.1) #2
+  ret i32 %514
+}
+
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #1
+
+declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: nounwind uwtable
+define hidden void @proto_reg_handoff_mtp3mg() local_unnamed_addr #0 {
+  %1 = load ptr, ptr @mtp3mg_handle, align 8
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.66, i32 noundef 0, ptr noundef %1) #2
+  %2 = load ptr, ptr @mtp3mg_handle, align 8
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.66, i32 noundef 1, ptr noundef %2) #2
+  %3 = load ptr, ptr @mtp3mg_handle, align 8
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.66, i32 noundef 2, ptr noundef %3) #2
+  ret void
+}
+
+declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+
+declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
+
+declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare zeroext i16 @tvb_get_letohs(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
+
+declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
+
+declare ptr @proto_tree_add_expert_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
+
+declare i32 @mtp3_pc_structured() local_unnamed_addr #1
+
+declare ptr @mtp3_pc_to_str(i32 noundef) local_unnamed_addr #1
+
+declare void @dissect_mtp3_3byte_pc(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+
+attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind }
+
+!llvm.module.flags = !{!0, !1, !2, !3}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 8, !"PIC Level", i32 2}
+!2 = !{i32 7, !"uwtable", i32 2}
+!3 = !{i32 7, !"frame-pointer", i32 2}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}

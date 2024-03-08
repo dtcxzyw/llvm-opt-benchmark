@@ -1,0 +1,147 @@
+; ModuleID = 'bench/graphviz/original/chresc.c.ll'
+source_filename = "bench/graphviz/original/chresc.c.ll"
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-pc-linux-gnu"
+
+@switch.table.chresc = private unnamed_addr constant [55 x i32] [i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -48, i32 -87, i32 -87, i32 -87, i32 -87, i32 -87, i32 -87, i32 -87, i32 -55, i32 -55, i32 -55, i32 -55, i32 -55, i32 -55, i32 -87, i32 -87, i32 -87, i32 -87, i32 -87, i32 -87, i32 -87, i32 -87, i32 -87, i32 -87, i32 -87, i32 -87, i32 -87, i32 -87, i32 -87, i32 -87, i32 -87, i32 -87, i32 -87, i32 -87, i32 -87, i32 -87, i32 -87, i32 -87, i32 -87, i32 -87, i32 -87, i32 -87, i32 -87, i32 -87, i32 -87, i32 -87], align 4
+
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define i32 @chresc(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+  %3 = getelementptr inbounds i8, ptr %0, i64 1
+  %4 = load i8, ptr %0, align 1
+  %5 = sext i8 %4 to i32
+  switch i8 %4, label %.loopexit [
+    i8 0, label %6
+    i8 92, label %7
+  ]
+
+6:                                                ; preds = %2
+  br label %.loopexit
+
+7:                                                ; preds = %2
+  %8 = getelementptr inbounds i8, ptr %0, i64 2
+  %9 = load i8, ptr %3, align 1
+  %10 = sext i8 %9 to i32
+  switch i8 %9, label %.loopexit [
+    i8 48, label %11
+    i8 49, label %11
+    i8 50, label %11
+    i8 51, label %11
+    i8 52, label %11
+    i8 53, label %11
+    i8 54, label %11
+    i8 55, label %11
+    i8 97, label %22
+    i8 98, label %23
+    i8 102, label %24
+    i8 110, label %25
+    i8 114, label %26
+    i8 115, label %27
+    i8 116, label %28
+    i8 118, label %29
+    i8 120, label %.preheader
+    i8 69, label %39
+    i8 0, label %40
+  ]
+
+11:                                               ; preds = %7, %7, %7, %7, %7, %7, %7, %7
+  %12 = add nsw i32 %10, -48
+  %13 = getelementptr inbounds i8, ptr %0, i64 4
+  br label %14
+
+14:                                               ; preds = %11, %14
+  %.043 = phi i32 [ %12, %11 ], [ %.1, %14 ]
+  %.02442 = phi ptr [ %13, %11 ], [ %.125, %14 ]
+  %.02841 = phi ptr [ %8, %11 ], [ %.129, %14 ]
+  %15 = load i8, ptr %.02841, align 1
+  %16 = and i8 %15, -8
+  %switch = icmp eq i8 %16, 48
+  %17 = shl i32 %.043, 3
+  %18 = zext nneg i8 %15 to i32
+  %19 = add i32 %17, -48
+  %20 = add i32 %19, %18
+  %.129.idx = zext i1 %switch to i64
+  %.129 = getelementptr inbounds i8, ptr %.02841, i64 %.129.idx
+  %.125 = select i1 %switch, ptr %.02442, ptr %.02841
+  %.1 = select i1 %switch, i32 %20, i32 %.043
+  %21 = icmp ult ptr %.129, %.125
+  br i1 %21, label %14, label %.loopexit
+
+22:                                               ; preds = %7
+  br label %.loopexit
+
+23:                                               ; preds = %7
+  br label %.loopexit
+
+24:                                               ; preds = %7
+  br label %.loopexit
+
+25:                                               ; preds = %7
+  br label %.loopexit
+
+26:                                               ; preds = %7
+  br label %.loopexit
+
+27:                                               ; preds = %7
+  br label %.loopexit
+
+28:                                               ; preds = %7
+  br label %.loopexit
+
+29:                                               ; preds = %7
+  br label %.loopexit
+
+.preheader:                                       ; preds = %7, %switch.lookup
+  %.240 = phi i32 [ %38, %switch.lookup ], [ 0, %7 ]
+  %.23038 = phi ptr [ %35, %switch.lookup ], [ %8, %7 ]
+  %30 = load i8, ptr %.23038, align 1
+  %switch.tableidx = add i8 %30, -48
+  %31 = icmp ult i8 %switch.tableidx, 55
+  br i1 %31, label %switch.hole_check, label %.loopexit
+
+switch.hole_check:                                ; preds = %.preheader
+  %switch.maskindex = zext nneg i8 %switch.tableidx to i64
+  %switch.shifted = lshr i64 35465847073801215, %switch.maskindex
+  %32 = and i64 %switch.shifted, 1
+  %switch.lobit.not = icmp eq i64 %32, 0
+  br i1 %switch.lobit.not, label %.loopexit, label %switch.lookup
+
+switch.lookup:                                    ; preds = %switch.hole_check
+  %33 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [55 x i32], ptr @switch.table.chresc, i64 0, i64 %33
+  %switch.load = load i32, ptr %switch.gep, align 4
+  %34 = shl i32 %.240, 4
+  %35 = getelementptr inbounds i8, ptr %.23038, i64 1
+  %36 = zext nneg i8 %30 to i32
+  %37 = add i32 %34, %switch.load
+  %38 = add i32 %37, %36
+  br label %.preheader
+
+39:                                               ; preds = %7
+  br label %.loopexit
+
+40:                                               ; preds = %7
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %.preheader, %switch.hole_check, %14, %7, %22, %23, %24, %25, %26, %27, %28, %29, %39, %40, %6, %2
+  %.432 = phi ptr [ %3, %2 ], [ %8, %7 ], [ %3, %40 ], [ %8, %39 ], [ %8, %29 ], [ %8, %28 ], [ %8, %27 ], [ %8, %26 ], [ %8, %25 ], [ %8, %24 ], [ %8, %23 ], [ %8, %22 ], [ %0, %6 ], [ %.129, %14 ], [ %.23038, %switch.hole_check ], [ %.23038, %.preheader ]
+  %.4 = phi i32 [ %5, %2 ], [ %10, %7 ], [ 0, %40 ], [ 27, %39 ], [ 11, %29 ], [ 9, %28 ], [ 32, %27 ], [ 13, %26 ], [ 10, %25 ], [ 12, %24 ], [ 8, %23 ], [ 7, %22 ], [ 0, %6 ], [ %.1, %14 ], [ %.240, %switch.hole_check ], [ %.240, %.preheader ]
+  %.not36 = icmp eq ptr %1, null
+  br i1 %.not36, label %42, label %41
+
+41:                                               ; preds = %.loopexit
+  store ptr %.432, ptr %1, align 8
+  br label %42
+
+42:                                               ; preds = %41, %.loopexit
+  ret i32 %.4
+}
+
+attributes #0 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+
+!llvm.module.flags = !{!0, !1, !2, !3}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 8, !"PIC Level", i32 2}
+!2 = !{i32 7, !"uwtable", i32 2}
+!3 = !{i32 7, !"frame-pointer", i32 2}
