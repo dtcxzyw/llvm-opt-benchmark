@@ -1,0 +1,106 @@
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-pc-linux-gnu"
+
+%"struct.(anonymous namespace)::initializer" = type { i8 }
+
+$__clang_call_terminate = comdat any
+
+@_ZL18qt_resource_struct = internal constant [154 x i8] c"\00\00\00\00\00\02\00\00\00\01\00\00\00\01\00\00\00\00\00\00\00\00\00\00\00\00\00\02\00\00\00\01\00\00\00\02\00\00\00\00\00\00\00\00\00\00\00\12\00\02\00\00\00\04\00\00\00\03\00\00\00\00\00\00\00\00\00\00\00\88\00\00\00\00\00\01\00\00\0E\C7\00\00\01\8E\1D\F6\B0`\00\00\00\B8\00\00\00\00\00\01\00\00\10.\00\00\01\8E\1D\F6\B0`\00\00\00b\00\00\00\00\00\01\00\00\00\8D\00\00\01\8E\1D\F6\B0`\00\00\00&\00\00\00\00\00\01\00\00\00\00\00\00\01\8E\1D\F6\B0`", align 16
+@_ZL16qt_resource_name = internal constant [224 x i8] c"\00\06\05\9A\AEu\00S\00d\00f\00G\00p\00u\00\07\09\E7\ACs\00s\00h\00a\00d\00e\00r\00s\00\1B\0E\8E%\F3\00v\00e\00r\00t\00e\00x\00S\00h\00a\00d\00e\00r\00D\00e\00p\00t\00h\00P\00e\00e\00l\00i\00n\00g\00.\00v\00s\00\10\09\E977\00o\00b\00s\00c\00u\00r\00a\00n\00c\00e\00s\00.\00f\00r\00a\00g\00\15\03,Ws\00s\00h\00a\00d\00e\00r\00D\00e\00p\00t\00h\00P\00e\00e\00l\00i\00n\00g\00.\00f\00s\00\11\03c\87\F7\00c\00a\00l\00c\00u\00l\00a\00t\00e\00S\00d\00f\00.\00f\00r\00a\00g", align 16
+@_ZL16qt_resource_data = internal constant [10110 x i8] c"\00\00\00\89varying vec3 N;\0D\0A\0D\0A\0D\0Avoid main(void)\0D\0A{\0D\0A\0D\0A    \0D\0A   N = gl_Normal;\0D\0A\0D\0A   gl_Position = gl_ModelViewProjectionMatrix * gl_Vertex;\0D\0A\0D\0A\0D\0A}\0D\0A\00\00\0E6/****************************************************************************\0D\0A* MeshLab                                                           o o     *\0D\0A* An extendible mesh processor                                    o     o   *\0D\0A*                                                                _   O  _   *\0D\0A* Copyright(C) 2005, 2009                                          \\/)\\/    *\0D\0A* Visual Computing Lab                                            /\\/|      *\0D\0A* ISTI - Italian National Research Council                           |      *\0D\0A*                                                                    \\      *\0D\0A* All rights reserved.                                                      *\0D\0A*                                                                           *\0D\0A* This program is free software; you can redistribute it and/or modify      *\0D\0A* it under the terms of the GNU General Public License as published by      *\0D\0A* the Free Software Foundation; either version 2 of the License, or         *\0D\0A* (at your option) any later version.                                       *\0D\0A*                                                                           *\0D\0A* This program is distributed in the hope that it will be useful,           *\0D\0A* but WITHOUT ANY WARRANTY; without even the implied warranty of            *\0D\0A* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the             *\0D\0A* GNU General Public License (http://www.gnu.org/licenses/gpl.txt)          *\0D\0A* for more details.                                                         *\0D\0A*                                                                           *\0D\0A****************************************************************************/\0D\0A\0D\0A#version 110\0D\0A\0D\0A\0D\0A\0D\0Auniform sampler2D \09vTexture;\0D\0Auniform sampler2D \09nTexture;\0D\0Auniform sampler2D\09depthTextureFront;\0D\0Auniform sampler2D\09depthTextureBack;\0D\0Auniform sampler2D\09depthTextureNextBack;\0D\0Auniform vec3 \09\09viewDirection;\0D\0Auniform mat4 \09\09mvprMatrix;\0D\0Auniform float \09\09viewpSize;\0D\0Auniform float \09\09texSize;\0D\0Auniform float\09\09tau;\0D\0A\0D\0Auniform int \09\09firstRendering;\0D\0Auniform float\09\09maxDist;\0D\0A\0D\0Avec4 project(vec4 coords)\0D\0A{\0D\0A   coords = mvprMatrix * coords; // clip space [-1 .. 1]   \0D\0A   return vec4(coords.xyz * 0.5+0.5, coords.w);\0D\0A}\0D\0A\0D\0A\0D\0Avoid main(void)\0D\0A{\0D\0A\09\09\0D\0A    float obscurance = 0.0;\0D\0A    vec2  coords     = vec2(gl_FragCoord.xy/viewpSize);\0D\0A    vec4 V \09     = texture2D(vTexture, coords);\0D\0A    vec4 N \09     = texture2D(nTexture, coords);\0D\0A \0D\0A    N = normalize(N);\0D\0A\0D\0A    float cosAngle  = max(0.0,dot(N.xyz, viewDirection));\0D\0A\0D\0A    //Only front facing vertices\0D\0A    if( cosAngle > 0.0 )\0D\0A    {\0D\0A    \09vec4 P = project(V); //* (viewpSize/texSize);\0D\0A     \0D\0A    \09float zBack = texture2D(depthTextureBack,  P.xy).r;\0D\0A    \09\0D\0A\09//We are interested in vertices belonging to the \22front\22 depth layer,\0D\0A\09// we check vertex's depth against the previous layer and the next one\0D\0A    \09if( firstRendering != 1 )\0D\0A    \09{\09\09 \0D\0A\09\09float zFront    = texture2D(depthTextureFront,     P.xy).r;\0D\0A\09\09float zNextBack = texture2D(depthTextureNextBack,  P.xy).r;   \0D\0A\0D\0A\09\09if ( zBack <=  P.z && P.z <= zNextBack )\0D\0A\09\09{\0D\0A \09\09\09float dist = max(0.0,(zFront-zBack))*maxDist;\0D\0A\09\09\09\0D\0A\09\09\09obscurance = max(0.0, 1.0 - exp(-tau*dist))*cosAngle;\0D\0A\09\09}\0D\0A    \09}//first hit of the ray on the mesh. We compare vertex's depth to the next depth layer (back faces),\0D\0A\09// this technique is called second-depth shadow mapping\0D\0A    \09else if( P.z <= zBack )  \0D\0A\09\09obscurance = cosAngle;\0D\0A    \0D\0A    \09\0D\0A    }\0D\0A\09 \0D\0A    \0D\0A    gl_FragData[0] = vec4(obscurance , obscurance , obscurance , 1.0);\0D\0A    gl_FragData[1] = vec4(viewDirection,1.0)*obscurance;\0D\0A\0D\0A}\00\00\01c\0D\0A\0D\0Auniform sampler2D textureLastDepth;\0D\0Auniform float tolerance;\0D\0Auniform vec2 oneOverBufSize;\0D\0Avarying vec3 N;\0D\0A\0D\0Avoid main()\0D\0A{\0D\0A  vec2 tc =  gl_FragCoord.xy * oneOverBufSize ;\0D\0A  \0D\0A  float lastDepth = texture2D(textureLastDepth, tc ).x;\0D\0A  if (gl_FragCoord.z<=lastDepth + tolerance) discard;\0D\0A  \0D\0A  gl_FragColor = vec4(normalize(N),1.0); \0D\0A    //\0D\0A}\0D\0A\00\00\17L/****************************************************************************\0D\0A* MeshLab                                                           o o     *\0D\0A* An extendible mesh processor                                    o     o   *\0D\0A*                                                                _   O  _   *\0D\0A* Copyright(C) 2005, 2009                                          \\/)\\/    *\0D\0A* Visual Computing Lab                                            /\\/|      *\0D\0A* ISTI - Italian National Research Council                           |      *\0D\0A*                                                                    \\      *\0D\0A* All rights reserved.                                                      *\0D\0A*                                                                           *\0D\0A* This program is free software; you can redistribute it and/or modify      *\0D\0A* it under the terms of the GNU General Public License as published by      *\0D\0A* the Free Software Foundation; either version 2 of the License, or         *\0D\0A* (at your option) any later version.                                       *\0D\0A*                                                                           *\0D\0A* This program is distributed in the hope that it will be useful,           *\0D\0A* but WITHOUT ANY WARRANTY; without even the implied warranty of            *\0D\0A* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the             *\0D\0A* GNU General Public License (http://www.gnu.org/licenses/gpl.txt)          *\0D\0A* for more details.                                                         *\0D\0A*                                                                           *\0D\0A****************************************************************************/\0D\0A\0D\0A/*\0D\0AAuthor: Andrea Baldacci baldacci85@hotmail.it\0D\0A*/\0D\0A\0D\0A\0D\0A#define MEDIAN_SEARCH_ITERATIONS 64\0D\0A#define EXTRA_VALS 81\0D\0A\0D\0Auniform sampler2D \09vTexture;\0D\0Auniform sampler2D \09nTexture;\0D\0Auniform sampler2D\09depthTextureFront;\0D\0Auniform sampler2D\09depthTextureBack;\0D\0Auniform sampler2D\09normalTextureBack;\0D\0Auniform sampler2D       depthTexturePrevBack;\0D\0Auniform vec3 \09\09viewDirection;\0D\0Auniform mat4 \09\09mvprMatrix;\0D\0Auniform float \09\09viewpSize;\0D\0Auniform float \09\09texSize;\0D\0Auniform float\09\09minCos;\0D\0Auniform int\09\09firstRendering;\0D\0Auniform mat4\09\09mvprMatrixINV;\0D\0Auniform int \09\09removeFalse;\0D\0Auniform int\09\09removeOutliers;\0D\0Afloat\09\09\09extraVals[EXTRA_VALS];\0D\0A\0D\0A\0D\0A\0D\0Avec4 project(vec4 coords)\0D\0A{\0D\0A   coords = mvprMatrix * coords; // clip space [-1 .. 1]   \0D\0A   return vec4(coords.xyz * 0.5+0.5, coords.w);\0D\0A}\0D\0A\0D\0A\0D\0A/*\0D\0AReconstruct normal at the point of intersection and check for false intersection.\0D\0AFor each ray we check the normal at the point of intersection,\0D\0Aand ignore intersections where the normal at the intersection\0D\0Apoints is in the same direction as the point-of-origin\0D\0A(the same direction is defined as an angle difference less than 90 degrees)\0D\0A*/\0D\0Abool isFalseIntersection(vec3 P, vec3 objSpaceNormal)\0D\0A{\0D\0A\0D\0A    //normal at intersection point\0D\0A    vec3 intersectionNormal = texture2D(normalTextureBack, P.xy).rgb;\0D\0A\0D\0A    //if angles don't differ at least 90 degrees reject intersection\0D\0A    if(dot(intersectionNormal, objSpaceNormal) > 0.0) return true;\0D\0A\0D\0A    return false;\0D\0A}\0D\0A\0D\0A\0D\0A\0D\0Afloat calculateSdf(vec3 P, vec3 objSpacePos, vec3 objSpaceNormal)\0D\0A{\0D\0A\0D\0A    \0D\0A\0D\0A    float sdf = 0.0;\0D\0A\0D\0A    float zFront    = texture2D(depthTextureFront,    P.xy).r;\0D\0A    float zBack     = texture2D(depthTextureBack,     P.xy).r;\0D\0A    float zPrevBack = texture2D(depthTexturePrevBack, P.xy).r;\0D\0A\0D\0A    \0D\0A    //first hit of the ray on the mesh. We compare vertex's depth to the next depth layer (back faces),\0D\0A    // this technique is called second-depth shadow mapping\0D\0A    if(firstRendering==1)\0D\0A    {\0D\0A    \09if (  P.z <= zBack )\0D\0A\09{\0D\0A    \09\09sdf = max(0.0,(zBack-zFront) ) ; \0D\0A    \09\09\09\0D\0A\09}\0D\0A    }//We have are interested in vertices belonging to the \22front\22 depth layer\0D\0A     //, so we check vertex's depth against the previous layer and the next one\0D\0A    else if ( zPrevBack <= P.z && P.z <= zBack )\0D\0A    \09\09sdf =  max(0.0,(zBack-zFront) ) ; \0D\0A\0D\0A\0D\0A     if(removeFalse==1)\0D\0A\09if( isFalseIntersection(P,objSpaceNormal) ) return 0.0;\09\0D\0A    \0D\0A\0D\0A   if( sdf != 0.0 && removeOutliers == 1)\0D\0A   {\0D\0A\0D\0A\09float mean = 0.0;\0D\0A\09float min_val = 100000.0;\0D\0A\09float max_val = 0.0;\0D\0A\0D\0A\09int index = 0;\0D\0A\0D\0A\09for( float j = -4.0; j <= 4.0; j += 1.0 )\0D\0A\09{\0D\0A\09\09for( float i = -4.0; i <= 4.0 ; i += 1.0 )\0D\0A\09\09{\0D\0A\09\09\09if(index >= EXTRA_VALS) return 0.0;\0D\0A\0D\0A\0D\0A\09\09\09float s =  texture2D(depthTextureBack, P.xy + vec2(j/texSize,i/texSize)).r;\0D\0A\09\09\09\0D\0A\09\09\09if(s == 1.0) break;\0D\0A\09\09\09\0D\0A\09\09\09extraVals[index] = s; \09\0D\0A\09\0D\0A\09\09\09mean   += extraVals[index];\0D\0A\09\09\09min_val = min(extraVals[index],min_val);\0D\0A\09\09\09max_val = max(extraVals[index], max_val);\0D\0A\0D\0A\09\09\09index++;\0D\0A\09\09\09\09\09\0D\0A\09\09}\0D\0A\0D\0A\09}\0D\0A\0D\0A\09index += 1;\09\0D\0A\0D\0A\09float trialMedian = mean/float(index);\0D\0A\09\0D\0A\09int counter = 0;\0D\0A\09\0D\0A\09\0D\0A\09for(int n = 0; n < MEDIAN_SEARCH_ITERATIONS; n++)\0D\0A\09{\0D\0A\09\09for(int j = 0; j < index; j++ )\0D\0A\09\09\09if( extraVals[j] > trialMedian ) counter++; \09\0D\0A\09\0D\0A\0D\0A\09\09if( counter > (index/2) )\0D\0A\09\09{\09\09\0D\0A\09\09\09trialMedian += (max_val - trialMedian)/2.0;\0D\0A\09\09\09min_val = trialMedian;\0D\0A\09\09}\0D\0A\09\09else if( counter < (index/2) )\0D\0A\09\09{\0D\0A\09\09\09trialMedian -= (trialMedian - min_val)/2.0;\0D\0A\09\09\09max_val = trialMedian;\0D\0A\09\09}\0D\0A\09\09else\0D\0A\09\09    break;\0D\0A\09\09\0D\0A\0D\0A\09\09counter = 0;\0D\0A\09}\0D\0A\0D\0A\09\0D\0A\09sdf = max(0.0, trialMedian - zFront);\0D\0A  \0D\0A    }   \0D\0A\0D\0A\0D\0A    return sdf;\0D\0A}\0D\0A\0D\0Avoid main(void)\0D\0A{\0D\0A\09\09\0D\0A    float sdf = 0.0;\0D\0A\0D\0A    vec2 coords = vec2(gl_FragCoord.xy/viewpSize);\0D\0A\0D\0A    vec4 V = texture2D(vTexture, coords);\0D\0A    vec4 N = texture2D(nTexture, coords);\0D\0A    \0D\0A    N = normalize(N);\0D\0A\0D\0A    vec4 P = project(V); //* (viewpSize/texSize);\0D\0A     \0D\0A  \0D\0A    float cosAngle  = max(0.0,dot(N.xyz, viewDirection));\0D\0A\0D\0A       \0D\0A    if( cosAngle  >= minCos )\0D\0A    {\0D\0A     \0D\0A\09sdf =  calculateSdf( P.xyz , V.xyz, N.xyz ) * cosAngle;\0D\0A    }\0D\0A    \0D\0A\0D\0A    if(sdf == 0.0) cosAngle = 0.0;\0D\0A      \0D\0A\0D\0A\09\0D\0A    gl_FragData[0] = vec4(sdf, cosAngle , 0.0, 1.0);\0D\0A    gl_FragData[1] = vec4(viewDirection,1.0) * sdf;\0D\0A}\0D\0A", align 16
+@_ZN12_GLOBAL__N_15dummyE = internal global %"struct.(anonymous namespace)::initializer" zeroinitializer, align 1
+@__dso_handle = external hidden global i8
+@llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_qrc_filter_sdfgpu.cpp, ptr null }]
+
+; Function Attrs: mustprogress uwtable
+define noundef i32 @_Z28qInitResources_filter_sdfgpuv() #0 {
+  %1 = alloca i32, align 4
+  store i32 3, ptr %1, align 4
+  %2 = load i32, ptr %1, align 4
+  %3 = call noundef zeroext i1 @_Z21qRegisterResourceDataiPKhS0_S0_(i32 noundef %2, ptr noundef @_ZL18qt_resource_struct, ptr noundef @_ZL16qt_resource_name, ptr noundef @_ZL16qt_resource_data)
+  ret i32 1
+}
+
+declare noundef zeroext i1 @_Z21qRegisterResourceDataiPKhS0_S0_(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #1
+
+; Function Attrs: mustprogress uwtable
+define noundef i32 @_Z31qCleanupResources_filter_sdfgpuv() #0 {
+  %1 = alloca i32, align 4
+  store i32 3, ptr %1, align 4
+  %2 = load i32, ptr %1, align 4
+  %3 = call noundef zeroext i1 @_Z23qUnregisterResourceDataiPKhS0_S0_(i32 noundef %2, ptr noundef @_ZL18qt_resource_struct, ptr noundef @_ZL16qt_resource_name, ptr noundef @_ZL16qt_resource_data)
+  ret i32 1
+}
+
+declare noundef zeroext i1 @_Z23qUnregisterResourceDataiPKhS0_S0_(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #1
+
+; Function Attrs: uwtable
+define internal void @__cxx_global_var_init() #2 section ".text.startup" {
+  call void @_ZN12_GLOBAL__N_111initializerC2Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN12_GLOBAL__N_15dummyE)
+  %1 = call i32 @__cxa_atexit(ptr @_ZN12_GLOBAL__N_111initializerD2Ev, ptr @_ZN12_GLOBAL__N_15dummyE, ptr @__dso_handle) #4
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define internal void @_ZN12_GLOBAL__N_111initializerC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = call noundef i32 @_Z28qInitResources_filter_sdfgpuv()
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @_ZN12_GLOBAL__N_111initializerD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = invoke noundef i32 @_Z31qCleanupResources_filter_sdfgpuv()
+          to label %4 unwind label %5
+
+4:                                                ; preds = %1
+  ret void
+
+5:                                                ; preds = %1
+  %6 = landingpad { ptr, i32 }
+          catch ptr null
+  %7 = extractvalue { ptr, i32 } %6, 0
+  call void @__clang_call_terminate(ptr %7) #6
+  unreachable
+}
+
+; Function Attrs: nounwind
+declare i32 @__cxa_atexit(ptr, ptr, ptr) #4
+
+declare i32 @__gxx_personality_v0(...)
+
+; Function Attrs: noreturn nounwind uwtable
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #5 comdat {
+  %2 = call ptr @__cxa_begin_catch(ptr %0) #4
+  call void @_ZSt9terminatev() #6
+  unreachable
+}
+
+declare ptr @__cxa_begin_catch(ptr)
+
+declare void @_ZSt9terminatev()
+
+; Function Attrs: uwtable
+define internal void @_GLOBAL__sub_I_qrc_filter_sdfgpu.cpp() #2 section ".text.startup" {
+  call void @__cxx_global_var_init()
+  ret void
+}
+
+attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind }
+attributes #5 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { noreturn nounwind }
+
+!llvm.module.flags = !{!0, !1, !2, !3, !4}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 7, !"openmp", i32 51}
+!2 = !{i32 8, !"PIC Level", i32 2}
+!3 = !{i32 7, !"uwtable", i32 2}
+!4 = !{i32 7, !"frame-pointer", i32 2}

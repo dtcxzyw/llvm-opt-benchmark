@@ -394,3 +394,6 @@
 [submodule "bench/cjson/cJSON"]
 	path = bench/cjson/cJSON
 	url = git@github.com:DaveGamble/cJSON.git
+[submodule "bench/meshlab/meshlab"]
+	path = bench/meshlab/meshlab
+	url = git@github.com:cnr-isti-vclab/meshlab.git
