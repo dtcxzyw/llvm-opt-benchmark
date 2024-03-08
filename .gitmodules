@@ -409,3 +409,6 @@
 [submodule "bench/tev/tev"]
 	path = bench/tev/tev
 	url = git@github.com:Tom94/tev.git
+[submodule "bench/ipopt/Ipopt"]
+	path = bench/ipopt/Ipopt
+	url = git@github.com:coin-or/Ipopt.git
