@@ -1,0 +1,161 @@
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-pc-linux-gnu"
+
+%struct.archive_read_filter_bidder_vtable = type { ptr, ptr, ptr }
+%struct.archive_read_filter = type { i64, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, ptr, i64, ptr, i64, ptr, i64, ptr, i64, i8, i8, i8 }
+
+@.str = private unnamed_addr constant [6 x i8] c"lrzip\00", align 1
+@lrzip_bidder_vtable = internal constant %struct.archive_read_filter_bidder_vtable { ptr @lrzip_bidder_bid, ptr @lrzip_bidder_init, ptr null }, align 8
+@.str.1 = private unnamed_addr constant [53 x i8] c"Using external lrzip program for lrzip decompression\00", align 1
+@.str.2 = private unnamed_addr constant [5 x i8] c"LRZI\00", align 1
+@.str.3 = private unnamed_addr constant [12 x i8] c"lrzip -d -q\00", align 1
+
+; Function Attrs: nounwind uwtable
+define dso_local i32 @archive_read_support_filter_lrzip(ptr noundef %0) #0 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  %5 = load ptr, ptr %3, align 8
+  store ptr %5, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8
+  %7 = call i32 @__archive_read_register_bidder(ptr noundef %6, ptr noundef null, ptr noundef @.str, ptr noundef @lrzip_bidder_vtable)
+  %8 = icmp ne i32 %7, 0
+  br i1 %8, label %9, label %10
+
+9:                                                ; preds = %1
+  store i32 -30, ptr %2, align 4
+  br label %12
+
+10:                                               ; preds = %1
+  %11 = load ptr, ptr %3, align 8
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %11, i32 noundef -1, ptr noundef @.str.1)
+  store i32 -20, ptr %2, align 4
+  br label %12
+
+12:                                               ; preds = %10, %9
+  %13 = load i32, ptr %2, align 4
+  ret i32 %13
+}
+
+declare i32 @__archive_read_register_bidder(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
+
+declare void @archive_set_error(ptr noundef, i32 noundef, ptr noundef, ...) #1
+
+; Function Attrs: nounwind uwtable
+define internal i32 @lrzip_bidder_bid(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i64 6, ptr %8, align 8
+  %10 = load ptr, ptr %5, align 8
+  %11 = load i64, ptr %8, align 8
+  %12 = call ptr @__archive_read_filter_ahead(ptr noundef %10, i64 noundef %11, ptr noundef %7)
+  store ptr %12, ptr %6, align 8
+  %13 = load ptr, ptr %6, align 8
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %18, label %15
+
+15:                                               ; preds = %2
+  %16 = load i64, ptr %7, align 8
+  %17 = icmp eq i64 %16, 0
+  br i1 %17, label %18, label %19
+
+18:                                               ; preds = %15, %2
+  store i32 0, ptr %3, align 4
+  br label %44
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %6, align 8
+  %21 = call i32 @memcmp(ptr noundef %20, ptr noundef @.str.2, i64 noundef 4) #3
+  %22 = icmp ne i32 %21, 0
+  br i1 %22, label %23, label %24
+
+23:                                               ; preds = %19
+  store i32 0, ptr %3, align 4
+  br label %44
+
+24:                                               ; preds = %19
+  %25 = load ptr, ptr %6, align 8
+  %26 = getelementptr inbounds i8, ptr %25, i64 4
+  %27 = load i8, ptr %26, align 1
+  %28 = icmp ne i8 %27, 0
+  br i1 %28, label %29, label %30
+
+29:                                               ; preds = %24
+  store i32 0, ptr %3, align 4
+  br label %44
+
+30:                                               ; preds = %24
+  %31 = load ptr, ptr %6, align 8
+  %32 = getelementptr inbounds i8, ptr %31, i64 5
+  %33 = load i8, ptr %32, align 1
+  %34 = zext i8 %33 to i32
+  store i32 %34, ptr %9, align 4
+  %35 = load i32, ptr %9, align 4
+  %36 = icmp slt i32 %35, 6
+  br i1 %36, label %40, label %37
+
+37:                                               ; preds = %30
+  %38 = load i32, ptr %9, align 4
+  %39 = icmp sgt i32 %38, 10
+  br i1 %39, label %40, label %41
+
+40:                                               ; preds = %37, %30
+  store i32 0, ptr %3, align 4
+  br label %44
+
+41:                                               ; preds = %37
+  %42 = load i64, ptr %8, align 8
+  %43 = trunc i64 %42 to i32
+  store i32 %43, ptr %3, align 4
+  br label %44
+
+44:                                               ; preds = %41, %40, %29, %23, %18
+  %45 = load i32, ptr %3, align 4
+  ret i32 %45
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @lrzip_bidder_init(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8
+  %4 = load ptr, ptr %2, align 8
+  %5 = call i32 @__archive_read_program(ptr noundef %4, ptr noundef @.str.3)
+  store i32 %5, ptr %3, align 4
+  %6 = load ptr, ptr %2, align 8
+  %7 = getelementptr inbounds %struct.archive_read_filter, ptr %6, i32 0, i32 7
+  store i32 10, ptr %7, align 8
+  %8 = load ptr, ptr %2, align 8
+  %9 = getelementptr inbounds %struct.archive_read_filter, ptr %8, i32 0, i32 6
+  store ptr @.str, ptr %9, align 8
+  %10 = load i32, ptr %3, align 4
+  ret i32 %10
+}
+
+declare ptr @__archive_read_filter_ahead(ptr noundef, i64 noundef, ptr noundef) #1
+
+; Function Attrs: nounwind willreturn memory(read)
+declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #2
+
+declare i32 @__archive_read_program(ptr noundef, ptr noundef) #1
+
+attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind willreturn memory(read) }
+
+!llvm.module.flags = !{!0, !1, !2, !3, !4}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 8, !"PIC Level", i32 2}
+!2 = !{i32 7, !"PIE Level", i32 2}
+!3 = !{i32 7, !"uwtable", i32 2}
+!4 = !{i32 7, !"frame-pointer", i32 2}

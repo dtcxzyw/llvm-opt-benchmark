@@ -400,3 +400,6 @@
 [submodule "bench/bdwgc/bdwgc"]
 	path = bench/bdwgc/bdwgc
 	url = git@github.com:ivmai/bdwgc.git
+[submodule "bench/cmake/CMake"]
+	path = bench/cmake/CMake
+	url = git@github.com:Kitware/CMake.git
