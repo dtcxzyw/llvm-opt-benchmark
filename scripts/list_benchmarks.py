@@ -21,6 +21,8 @@ def get_url(name, dir):
         return url
     raise Exception('Unknown url for ' + name + ' : ' + url)
 
+filters = ['third-party','third_party','thirdparty','deps']
+
 def guess_language(dir):
     for subdir in os.listdir(dir):
         if subdir == 'original' or subdir == 'optimized' or subdir == 'build.sh':
@@ -35,12 +37,14 @@ def guess_language(dir):
         count_c = 0
         count_cpp = 0
         for r,ds,fs in os.walk(os.path.join(dir, subdir)):
+            if any(key in r for key in filters):
+                continue
             for f in fs:
                 if f.endswith('.c'):
-                    count_c += 1
+                    count_c += os.stat(os.path.join(r, f)).st_size
                 elif f.endswith('.cpp') or f.endswith('.cc') or f.endswith('.cxx'):
-                    count_cpp += 1
-        if count_cpp >= count_c:
+                    count_cpp += os.stat(os.path.join(r, f)).st_size
+        if count_cpp > count_c:
             return (name, 'C++', url)
         return (name, 'C', url)
 
@@ -56,7 +60,7 @@ for dir in os.listdir(bench_dir):
     bench_list.append(guess_language(os.path.join(bench_dir, dir)))
 
 bench_list.sort(key=lambda x: (priority[x[1]], x[0]))
-print('|Benchmark|Language|')
+print('|Name|Language|')
 print('|---|---|')
 for name, lang, url in bench_list:
     print('|[{}]({})|{}|'.format(name, url, lang))

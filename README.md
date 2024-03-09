@@ -28,6 +28,7 @@ Currently, this repository contains the following libraries/applications:
 |[brotli](https://github.com/google/brotli)|C|
 |[chibicc](https://github.com/rui314/chibicc)|C|
 |[cjson](https://github.com/DaveGamble/cJSON)|C|
+|[cmake](https://github.com/Kitware/CMake)|C|
 |[coremark](https://github.com/eembc/coremark)|C|
 |[cpython](https://github.com/python/cpython)|C|
 |[curl](https://github.com/curl/curl)|C|
@@ -37,8 +38,10 @@ Currently, this repository contains the following libraries/applications:
 |[hwloc](https://github.com/open-mpi/hwloc)|C|
 |[jemalloc](https://github.com/jemalloc/jemalloc)|C|
 |[jq](https://github.com/jqlang/jq)|C|
+|[kcp](https://github.com/skywind3000/kcp)|C|
 |[libdeflate](https://github.com/ebiggers/libdeflate)|C|
 |[libevent](https://github.com/libevent/libevent)|C|
+|[libquic](https://github.com/devsisters/libquic)|C|
 |[libsodium](https://github.com/jedisct1/libsodium)|C|
 |[libuv](https://github.com/libuv/libuv)|C|
 |[linux](https://github.com/torvalds/linux)|C|
@@ -48,7 +51,6 @@ Currently, this repository contains the following libraries/applications:
 |[memcached](https://github.com/memcached/memcached)|C|
 |[mimalloc](https://github.com/microsoft/mimalloc)|C|
 |[miniaudio](https://github.com/mackron/miniaudio)|C|
-|[node](https://github.com/nodejs/node)|C|
 |[nuklear](https://github.com/Immediate-Mode-UI/Nuklear)|C|
 |[nuttx](https://github.com/apache/nuttx)|C|
 |[ompi](https://github.com/open-mpi/ompi)|C|
@@ -75,7 +77,6 @@ Currently, this repository contains the following libraries/applications:
 |[bullet3](https://github.com/bulletphysics/bullet3)|C++|
 |[casadi](https://github.com/casadi/casadi)|C++|
 |[ceres-solver](https://github.com/ceres-solver/ceres-solver)|C++|
-|[cmake](https://github.com/Kitware/CMake)|C++|
 |[cpp-httplib](https://github.com/yhirose/cpp-httplib)|C++|
 |[csmith](https://github.com/csmith-project/csmith)|C++|
 |[cvc5](https://github.com/cvc5/cvc5)|C++|
@@ -99,9 +100,7 @@ Currently, this repository contains the following libraries/applications:
 |[imgui](https://github.com/ocornut/imgui)|C++|
 |[ipopt](https://github.com/coin-or/Ipopt)|C++|
 |[json](https://github.com/nlohmann/json)|C++|
-|[kcp](https://github.com/skywind3000/kcp)|C++|
 |[libphonenumber](https://github.com/google/libphonenumber)|C++|
-|[libquic](https://github.com/devsisters/libquic)|C++|
 |[libzmq](https://github.com/zeromq/libzmq)|C++|
 |[lief](https://github.com/lief-project/LIEF)|C++|
 |[llama.cpp](https://github.com/ggerganov/llama.cpp)|C++|
@@ -114,6 +113,7 @@ Currently, this repository contains the following libraries/applications:
 |[nghttp2](https://github.com/nghttp2/nghttp2)|C++|
 |[ninja](https://github.com/ninja-build/ninja)|C++|
 |[nix](https://github.com/NixOS/nix)|C++|
+|[node](https://github.com/nodejs/node)|C++|
 |[nori](https://github.com/wjakob/nori)|C++|
 |[opencolorio](https://github.com/AcademySoftwareFoundation/OpenColorIO)|C++|
 |[openexr](https://github.com/AcademySoftwareFoundation/openexr)|C++|
