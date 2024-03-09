@@ -5665,22 +5665,19 @@ define internal noundef i32 @VSC_Scroll_Line_Forward(ptr nocapture noundef %0) #
   %10 = sext i16 %9 to i32
   %11 = sub nsw i32 %7, %10
   %.not = icmp slt i32 %5, %11
-  %12 = sub nsw i32 %11, %5
-  %spec.select.i = select i1 %.not, i32 1, i32 %12
-  %13 = icmp sgt i32 %spec.select.i, 0
-  br i1 %13, label %14, label %VSC_Generic.exit
+  br i1 %.not, label %12, label %VSC_Generic.exit
 
-14:                                               ; preds = %1
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
-  %16 = load i32, ptr %15, align 8
-  %17 = add nsw i32 %16, %spec.select.i
-  store i32 %17, ptr %15, align 8
-  %18 = add nsw i32 %spec.select.i, %5
-  store i32 %18, ptr %4, align 8
+12:                                               ; preds = %1
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = load i32, ptr %13, align 8
+  %15 = add nsw i32 %14, 1
+  store i32 %15, ptr %13, align 8
+  %16 = add nsw i32 %5, 1
+  store i32 %16, ptr %4, align 8
   br label %VSC_Generic.exit
 
-VSC_Generic.exit:                                 ; preds = %1, %14
-  %.025.i = phi i32 [ 0, %14 ], [ -12, %1 ]
+VSC_Generic.exit:                                 ; preds = %1, %12
+  %.025.i = phi i32 [ 0, %12 ], [ -12, %1 ]
   ret i32 %.025.i
 }
 
@@ -5942,22 +5939,19 @@ define internal noundef i32 @HSC_Scroll_Char_Forward(ptr nocapture noundef %0) #
   %10 = sext i16 %9 to i32
   %11 = sub nsw i32 %7, %10
   %.not = icmp slt i32 %5, %11
-  %12 = sub nsw i32 %11, %5
-  %spec.select.i = select i1 %.not, i32 1, i32 %12
-  %13 = icmp sgt i32 %spec.select.i, 0
-  br i1 %13, label %14, label %HSC_Generic.exit
+  br i1 %.not, label %12, label %HSC_Generic.exit
 
-14:                                               ; preds = %1
-  %15 = getelementptr inbounds i8, ptr %0, i64 12
-  %16 = load i32, ptr %15, align 4
-  %17 = add nsw i32 %16, %spec.select.i
-  store i32 %17, ptr %15, align 4
-  %18 = add nsw i32 %spec.select.i, %5
-  store i32 %18, ptr %4, align 4
+12:                                               ; preds = %1
+  %13 = getelementptr inbounds i8, ptr %0, i64 12
+  %14 = load i32, ptr %13, align 4
+  %15 = add nsw i32 %14, 1
+  store i32 %15, ptr %13, align 4
+  %16 = add nsw i32 %5, 1
+  store i32 %16, ptr %4, align 4
   br label %HSC_Generic.exit
 
-HSC_Generic.exit:                                 ; preds = %1, %14
-  %.025.i = phi i32 [ 0, %14 ], [ -12, %1 ]
+HSC_Generic.exit:                                 ; preds = %1, %12
+  %.025.i = phi i32 [ 0, %12 ], [ -12, %1 ]
   ret i32 %.025.i
 }
 
