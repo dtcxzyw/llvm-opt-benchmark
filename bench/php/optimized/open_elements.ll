@@ -115,18 +115,17 @@ define hidden void @lxb_html_tree_open_elements_pop_until_h123456(ptr nocapture 
   %16 = load i64, ptr %15, align 8
   %.off = add i64 %16, -91
   %switch = icmp ult i64 %.off, 6
+  %.not.old = icmp eq i64 %12, 0
   br i1 %switch, label %17, label %21
 
 17:                                               ; preds = %.lr.ph
   %18 = getelementptr inbounds i8, ptr %14, i64 24
   %19 = load i64, ptr %18, align 8
   %20 = icmp eq i64 %19, 2
-  %.not = icmp eq i64 %12, 0
-  %or.cond = or i1 %20, %.not
+  %or.cond = or i1 %20, %.not.old
   br i1 %or.cond, label %._crit_edge, label %.lr.ph.backedge
 
 21:                                               ; preds = %.lr.ph
-  %.not.old = icmp eq i64 %12, 0
   br i1 %.not.old, label %._crit_edge, label %.lr.ph.backedge
 
 .lr.ph.backedge:                                  ; preds = %21, %17

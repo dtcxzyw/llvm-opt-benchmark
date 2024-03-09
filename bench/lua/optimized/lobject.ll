@@ -1482,18 +1482,17 @@ if.else:                                          ; preds = %if.then
 
 if.then13:                                        ; preds = %entry
   %cmp14 = icmp ult i64 %srclen, 61
+  %add.ptr17 = getelementptr inbounds i8, ptr %source, i64 1
   br i1 %cmp14, label %if.then16, label %if.else19
 
 if.then16:                                        ; preds = %if.then13
-  %add.ptr17 = getelementptr inbounds i8, ptr %source, i64 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %out, ptr nonnull align 1 %add.ptr17, i64 %srclen, i1 false)
   br label %if.end51
 
 if.else19:                                        ; preds = %if.then13
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %out, ptr noundef nonnull align 1 dereferenceable(3) @.str.4, i64 3, i1 false)
   %add.ptr20 = getelementptr inbounds i8, ptr %out, i64 3
-  %add.ptr22 = getelementptr inbounds i8, ptr %source, i64 1
-  %add.ptr23 = getelementptr inbounds i8, ptr %add.ptr22, i64 %srclen
+  %add.ptr23 = getelementptr inbounds i8, ptr %add.ptr17, i64 %srclen
   %add.ptr24 = getelementptr inbounds i8, ptr %add.ptr23, i64 -57
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(57) %add.ptr20, ptr noundef nonnull align 1 dereferenceable(57) %add.ptr24, i64 57, i1 false)
   br label %if.end51

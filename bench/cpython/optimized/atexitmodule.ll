@@ -55,17 +55,16 @@ if.end:                                           ; preds = %entry
   %atexit = getelementptr inbounds i8, ptr %interp, i64 4288
   %0 = load ptr, ptr %atexit, align 8
   %cmp4 = icmp eq ptr %0, null
+  %last_ll_callback = getelementptr inbounds i8, ptr %interp, i64 4296
   br i1 %cmp4, label %if.then5, label %if.else
 
 if.then5:                                         ; preds = %if.end
   store ptr %call, ptr %atexit, align 8
-  %last_ll_callback = getelementptr inbounds i8, ptr %interp, i64 4296
   store ptr %call, ptr %last_ll_callback, align 8
   br label %return
 
 if.else:                                          ; preds = %if.end
-  %last_ll_callback7 = getelementptr inbounds i8, ptr %interp, i64 4296
-  %1 = load ptr, ptr %last_ll_callback7, align 8
+  %1 = load ptr, ptr %last_ll_callback, align 8
   %next8 = getelementptr inbounds i8, ptr %1, i64 16
   store ptr %call, ptr %next8, align 8
   br label %return

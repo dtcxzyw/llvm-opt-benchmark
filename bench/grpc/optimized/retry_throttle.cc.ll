@@ -50,6 +50,7 @@ entry:
   %replacement_ = getelementptr inbounds i8, ptr %this, i64 40
   store i64 0, ptr %replacement_, align 8
   %cmp.not = icmp eq ptr %old_throttle_data, null
+  %milli_tokens_6.c = getelementptr inbounds i8, ptr %this, i64 32
   br i1 %cmp.not, label %if.end13.critedge, label %_ZN9grpc_core13RefCountedPtrINS_8internal23ServerRetryThrottleDataEED2Ev.exit
 
 _ZN9grpc_core13RefCountedPtrINS_8internal23ServerRetryThrottleDataEED2Ev.exit: ; preds = %entry
@@ -63,8 +64,7 @@ _ZN9grpc_core13RefCountedPtrINS_8internal23ServerRetryThrottleDataEED2Ev.exit: ;
   %conv4 = uitofp i64 %max_milli_tokens to double
   %mul = fmul double %div, %conv4
   %conv5 = fptoui double %mul to i64
-  %milli_tokens_6 = getelementptr inbounds i8, ptr %this, i64 32
-  store atomic i64 %conv5, ptr %milli_tokens_6 release, align 8
+  store atomic i64 %conv5, ptr %milli_tokens_6.c release, align 8
   %2 = atomicrmw add ptr %refs_.i, i64 1 monotonic, align 8, !noalias !4
   %replacement_11 = getelementptr inbounds i8, ptr %old_throttle_data, i64 40
   %3 = ptrtoint ptr %this to i64
@@ -72,7 +72,6 @@ _ZN9grpc_core13RefCountedPtrINS_8internal23ServerRetryThrottleDataEED2Ev.exit: ;
   br label %if.end13
 
 if.end13.critedge:                                ; preds = %entry
-  %milli_tokens_6.c = getelementptr inbounds i8, ptr %this, i64 32
   store atomic i64 %max_milli_tokens, ptr %milli_tokens_6.c release, align 8
   br label %if.end13
 

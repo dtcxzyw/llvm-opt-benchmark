@@ -2810,19 +2810,18 @@ do.end15.i:                                       ; preds = %land.lhs.true.i
 if.else18.i:                                      ; preds = %if.then12
   %prev_26.i = getelementptr inbounds i8, ptr %iter.057, i64 24
   %8 = load ptr, ptr %prev_26.i, align 8, !tbaa !156
+  %next_29.i = getelementptr inbounds i8, ptr %8, i64 16
   br i1 %cmp2.i, label %do.end25.i, label %do.end34.i
 
 do.end25.i:                                       ; preds = %if.else18.i
   store ptr %8, ptr %tail_.i, align 8, !tbaa !155
-  %next_29.i = getelementptr inbounds i8, ptr %8, i64 16
   store ptr null, ptr %next_29.i, align 8, !tbaa !149
   br label %_ZN5folly18parking_lot_detail6Bucket5eraseEPNS0_12WaitNodeBaseE.exit
 
 do.end34.i:                                       ; preds = %if.else18.i
   %prev_37.i = getelementptr inbounds i8, ptr %4, i64 24
   store ptr %8, ptr %prev_37.i, align 8, !tbaa !156
-  %next_40.i = getelementptr inbounds i8, ptr %8, i64 16
-  store ptr %4, ptr %next_40.i, align 8, !tbaa !149
+  store ptr %4, ptr %next_29.i, align 8, !tbaa !149
   br label %_ZN5folly18parking_lot_detail6Bucket5eraseEPNS0_12WaitNodeBaseE.exit
 
 _ZN5folly18parking_lot_detail6Bucket5eraseEPNS0_12WaitNodeBaseE.exit: ; preds = %do.end34.i, %do.end25.i, %do.end15.i, %do.end6.i

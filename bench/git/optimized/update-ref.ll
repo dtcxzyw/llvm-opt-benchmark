@@ -1225,19 +1225,18 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref, ptr noundef nonnull align 8 dereferenceable(24) @__const.parse_cmd_commit.error, i64 24, i1 false)
   %.b = load i1, ptr @line_termination, align 1
   %0 = load ptr, ptr %next, align 8
+  %len1.phi.trans.insert = getelementptr inbounds i8, ptr %ref, i64 8
   br i1 %.b, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
   %call = call fastcc ptr @parse_arg(ptr noundef %0, ptr noundef nonnull %ref)
-  %len1.phi.trans.insert = getelementptr inbounds i8, ptr %ref, i64 8
   %.pre = load i64, ptr %len1.phi.trans.insert, align 8
   br label %if.end
 
 if.else:                                          ; preds = %entry
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #13
   call void @strbuf_add(ptr noundef nonnull %ref, ptr noundef %0, i64 noundef %call.i) #11
-  %len = getelementptr inbounds i8, ptr %ref, i64 8
-  %1 = load i64, ptr %len, align 8
+  %1 = load i64, ptr %len1.phi.trans.insert, align 8
   %2 = load ptr, ptr %next, align 8
   %add.ptr = getelementptr inbounds i8, ptr %2, i64 %1
   br label %if.end

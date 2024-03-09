@@ -648,14 +648,14 @@ if.end12:                                         ; preds = %if.end6
 if.end15:                                         ; preds = %gz_skip.exit, %if.end12
   %9 = load i32, ptr %file, align 8
   %cmp16 = icmp eq i32 %9, 0
+  %size28 = getelementptr inbounds i8, ptr %file, i64 40
   br i1 %cmp16, label %if.then17, label %if.end25
 
 if.then17:                                        ; preds = %if.end15
   store i32 1, ptr %file, align 8
   %out = getelementptr inbounds i8, ptr %file, i64 56
   %10 = load ptr, ptr %out, align 8
-  %size = getelementptr inbounds i8, ptr %file, i64 40
-  %11 = load i32, ptr %size, align 8
+  %11 = load i32, ptr %size28, align 8
   %shl = shl i32 %11, 1
   %idx.ext = zext i32 %shl to i64
   %add.ptr = getelementptr inbounds i8, ptr %10, i64 %idx.ext
@@ -673,7 +673,6 @@ if.then17:                                        ; preds = %if.end15
   br label %return
 
 if.end25:                                         ; preds = %if.end15
-  %size28 = getelementptr inbounds i8, ptr %file, i64 40
   %13 = load i32, ptr %size28, align 8
   %shl29 = shl i32 %13, 1
   %cmp30 = icmp eq i32 %9, %shl29

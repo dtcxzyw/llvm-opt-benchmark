@@ -426,11 +426,11 @@ if.then:                                          ; preds = %entry
   %fCurrCase = getelementptr inbounds i8, ptr %this, i64 32
   %3 = load ptr, ptr %fCurrCase, align 8
   %cmp = icmp eq ptr %3, null
+  %fHeaders = getelementptr inbounds i8, ptr %this, i64 64
   br i1 %cmp, label %if.then3, label %if.else
 
 if.then3:                                         ; preds = %if.then
   %call4 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #14
-  %fHeaders = getelementptr inbounds i8, ptr %this, i64 64
   %4 = load ptr, ptr %fHeaders, align 8
   invoke void @_ZN9RBDataMapC1EP15UResourceBundleS1_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(16) %call4, ptr noundef %4, ptr noundef %call, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont unwind label %lpad
@@ -446,8 +446,7 @@ lpad:                                             ; preds = %if.then3
   resume { ptr, i32 } %5
 
 if.else:                                          ; preds = %if.then
-  %fHeaders7 = getelementptr inbounds i8, ptr %this, i64 64
-  %6 = load ptr, ptr %fHeaders7, align 8
+  %6 = load ptr, ptr %fHeaders, align 8
   call void @_ZN9RBDataMap4initEP15UResourceBundleS1_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef %6, ptr noundef %call, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %if.end
 

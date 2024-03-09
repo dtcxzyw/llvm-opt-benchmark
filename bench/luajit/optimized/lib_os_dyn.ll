@@ -276,10 +276,10 @@ if.end.i:                                         ; preds = %if.then17
 if.else21:                                        ; preds = %if.else13
   %11 = load i8, ptr %s.0, align 1
   %tobool.not = icmp eq i8 %11, 0
+  %glref = getelementptr inbounds i8, ptr %L, i64 16
   br i1 %tobool.not, label %if.else57, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %if.else21
-  %glref = getelementptr inbounds i8, ptr %L, i64 16
   %12 = load i64, ptr %glref, align 8
   %13 = inttoptr i64 %12 to ptr
   %tmpbuf = getelementptr inbounds i8, ptr %13, i64 200
@@ -368,8 +368,7 @@ if.else57:                                        ; preds = %if.else21
   %25 = load ptr, ptr %top58, align 8
   %incdec.ptr59 = getelementptr inbounds i8, ptr %25, i64 8
   store ptr %incdec.ptr59, ptr %top58, align 8
-  %glref60 = getelementptr inbounds i8, ptr %L, i64 16
-  %26 = load i64, ptr %glref60, align 8
+  %26 = load i64, ptr %glref, align 8
   %27 = inttoptr i64 %26 to ptr
   %strempty = getelementptr inbounds i8, ptr %27, i64 120
   %28 = ptrtoint ptr %strempty to i64

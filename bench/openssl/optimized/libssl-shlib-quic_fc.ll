@@ -464,10 +464,10 @@ entry:
   %epoch_start = getelementptr inbounds i8, ptr %rxfc, i64 56
   %0 = load i64, ptr %epoch_start, align 8
   %cmp.i.not.not.i.not = icmp eq i64 %0, 0
+  %rwm.phi.trans.insert = getelementptr inbounds i8, ptr %rxfc, i64 16
   br i1 %cmp.i.not.not.i.not, label %if.then, label %entry.if.end_crit_edge
 
 entry.if.end_crit_edge:                           ; preds = %entry
-  %rwm.phi.trans.insert = getelementptr inbounds i8, ptr %rxfc, i64 16
   %.pre = load i64, ptr %rwm.phi.trans.insert, align 8
   br label %if.end
 
@@ -478,8 +478,7 @@ if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %now_arg.i, align 8
   %call.i = tail call i64 %1(ptr noundef %2) #9
   store i64 %call.i, ptr %epoch_start, align 8
-  %rwm.i = getelementptr inbounds i8, ptr %rxfc, i64 16
-  %3 = load i64, ptr %rwm.i, align 8
+  %3 = load i64, ptr %rwm.phi.trans.insert, align 8
   %esrwm.i = getelementptr inbounds i8, ptr %rxfc, i64 24
   store i64 %3, ptr %esrwm.i, align 8
   br label %if.end

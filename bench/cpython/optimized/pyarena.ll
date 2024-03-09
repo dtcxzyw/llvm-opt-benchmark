@@ -20,6 +20,7 @@ if.then6:                                         ; preds = %if.end
   br label %return.sink.split.sink.split
 
 if.end8:                                          ; preds = %if.end
+  %a_cur13 = getelementptr inbounds i8, ptr %call, i64 8
   store i64 8192, ptr %call.i, align 8
   %add.ptr.i = getelementptr i8, ptr %call.i, i64 32
   %ab_mem.i = getelementptr inbounds i8, ptr %call.i, i64 24
@@ -33,8 +34,7 @@ if.end8:                                          ; preds = %if.end
   %ab_offset.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i64 %sub.ptr.sub.i, ptr %ab_offset.i, align 8
   store ptr %call.i, ptr %call, align 8
-  %a_cur = getelementptr inbounds i8, ptr %call, i64 8
-  store ptr %call.i, ptr %a_cur, align 8
+  store ptr %call.i, ptr %a_cur13, align 8
   %call9 = tail call ptr @PyList_New(i64 noundef 0) #4
   %a_objects = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %call9, ptr %a_objects, align 8

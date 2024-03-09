@@ -478,10 +478,10 @@ invoke.cont57:                                    ; preds = %invoke.cont48
 if.end62:                                         ; preds = %invoke.cont57, %if.end45
   %group.2 = phi i32 [ %spec.store.select1, %invoke.cont57 ], [ %group.1, %if.end45 ]
   %cmp63.not = icmp eq i32 %rem, 0
+  %tobool65.not = icmp eq i32 %verbose, 0
   br i1 %cmp63.not, label %if.else113, label %if.then64
 
 if.then64:                                        ; preds = %if.end62
-  %tobool65.not = icmp eq i32 %verbose, 0
   br i1 %tobool65.not, label %if.else, label %if.then66
 
 if.then66:                                        ; preds = %if.then64
@@ -534,8 +534,7 @@ if.else113:                                       ; preds = %if.end62
   %conv120 = uitofp i32 %mul119 to double
   %neg122 = fneg double %conv120
   %2 = call double @llvm.fmuladd.f64(double %neg122, double 1.000000e+03, double %milliseconds)
-  %tobool123.not = icmp eq i32 %verbose, 0
-  br i1 %tobool123.not, label %if.else140, label %if.then124
+  br i1 %tobool65.not, label %if.else140, label %if.then124
 
 if.then124:                                       ; preds = %if.else113
   %call131 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St5_Setw(ptr noundef nonnull align 8 dereferenceable(8) %ostr, i32 %width)

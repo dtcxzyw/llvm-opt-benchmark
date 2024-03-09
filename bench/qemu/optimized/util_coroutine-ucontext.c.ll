@@ -117,17 +117,16 @@ entry:
   %env = getelementptr inbounds i8, ptr %0, i64 104
   %call = call i32 @__sigsetjmp(ptr noundef nonnull %env, i32 noundef 0) #9
   %tobool.not = icmp eq i32 %call, 0
+  %entry_arg5 = getelementptr inbounds i8, ptr %0, i64 8
   br i1 %tobool.not, label %if.then, label %while.body.preheader
 
 while.body.preheader:                             ; preds = %entry
-  %entry_arg5 = getelementptr inbounds i8, ptr %0, i64 8
   %caller = getelementptr inbounds i8, ptr %0, i64 16
   br label %while.body
 
 if.then:                                          ; preds = %entry
   call fastcc void @get_ptr_leader()
-  %entry_arg = getelementptr inbounds i8, ptr %0, i64 8
-  %1 = load ptr, ptr %entry_arg, align 8
+  %1 = load ptr, ptr %entry_arg5, align 8
   call void @siglongjmp(ptr noundef %1, i32 noundef 1) #10
   unreachable
 

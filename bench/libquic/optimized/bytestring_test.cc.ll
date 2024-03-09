@@ -559,16 +559,15 @@ if.end19.i:                                       ; preds = %lor.lhs.false15.i
   %17 = load ptr, ptr %buf.i, align 8
   %18 = load i64, ptr %buf_len.i, align 8
   %cmp.i56 = icmp eq i64 %18, 8
+  %cmp.not.i.i63 = icmp eq ptr %17, null
   br i1 %cmp.i56, label %land.end.i, label %land.end.i.thread
 
 land.end.i:                                       ; preds = %if.end19.i
   %bcmp.i59 = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %17, ptr noundef nonnull dereferenceable(8) @_ZZL12TestCBBBasicvE9kExpected, i64 8)
   %cmp21.i = icmp eq i32 %bcmp.i59, 0
-  %cmp.not.i.i = icmp eq ptr %17, null
-  br i1 %cmp.not.i.i, label %_ZL12TestCBBBasicv.exit, label %if.then.i.i
+  br i1 %cmp.not.i.i63, label %_ZL12TestCBBBasicv.exit, label %if.then.i.i
 
 land.end.i.thread:                                ; preds = %if.end19.i
-  %cmp.not.i.i63 = icmp eq ptr %17, null
   br i1 %cmp.not.i.i63, label %_ZL12TestCBBBasicv.exit.thread64, label %if.then.i.i.thread
 
 _ZL12TestCBBBasicv.exit.thread64:                 ; preds = %land.end.i.thread

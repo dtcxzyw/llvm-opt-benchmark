@@ -57,12 +57,12 @@ define void @pmix_mca_base_component_close(ptr noundef %0, i32 noundef %1) local
   %3 = getelementptr inbounds i8, ptr %0, i64 168
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
+  %or.cond.i = icmp ult i32 %1, 64
   br i1 %.not, label %14, label %5
 
 5:                                                ; preds = %2
   %6 = tail call i32 %4() #7
-  %or.cond = icmp ult i32 %1, 64
-  br i1 %or.cond, label %7, label %.thread11
+  br i1 %or.cond.i, label %7, label %.thread11
 
 7:                                                ; preds = %5
   %8 = zext nneg i32 %1 to i64
@@ -77,7 +77,6 @@ define void @pmix_mca_base_component_close(ptr noundef %0, i32 noundef %1) local
   br label %.thread
 
 14:                                               ; preds = %2
-  %or.cond.i = icmp ult i32 %1, 64
   br i1 %or.cond.i, label %..thread_crit_edge, label %.thread11
 
 ..thread_crit_edge:                               ; preds = %14

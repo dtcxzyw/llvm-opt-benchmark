@@ -235,6 +235,7 @@ define dso_local ptr @Curl_he2ai(ptr noundef readonly %0, i32 noundef %1) local_
   %16 = add i64 %15, %.
   %17 = tail call ptr %14(i64 noundef 1, i64 noundef %16) #7
   %.not55 = icmp eq ptr %17, null
+  %.not5.i = icmp eq ptr %.05062, null
   br i1 %.not55, label %48, label %18
 
 18:                                               ; preds = %8
@@ -247,8 +248,7 @@ define dso_local ptr @Curl_he2ai(ptr noundef readonly %0, i32 noundef %1) local_
   store ptr %22, ptr %23, align 8
   %24 = load ptr, ptr %0, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %22, ptr align 1 %24, i64 %19, i1 false)
-  %.not57 = icmp eq ptr %.05062, null
-  %spec.select = select i1 %.not57, ptr %17, ptr %.05062
+  %spec.select = select i1 %.not5.i, ptr %17, ptr %.05062
   %.not58 = icmp eq ptr %.04764, null
   br i1 %.not58, label %27, label %25
 
@@ -303,7 +303,6 @@ define dso_local ptr @Curl_he2ai(ptr noundef readonly %0, i32 noundef %1) local_
   br i1 %.not54, label %.critedge, label %8, !llvm.loop !8
 
 48:                                               ; preds = %8
-  %.not5.i = icmp eq ptr %.05062, null
   br i1 %.not5.i, label %.critedge, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %48, %.lr.ph.i

@@ -475,19 +475,18 @@ entry:
   %call3 = tail call noundef zeroext i8 @_ZNK3zmq5msg_t5flagsEv(ptr noundef nonnull align 8 dereferenceable(64) %msg_)
   %2 = and i8 %call3, 1
   store i8 %2, ptr %_more_send, align 8
+  %_process_subscribe10 = getelementptr inbounds i8, ptr %this, i64 2026
   br i1 %tobool.not, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
   %_only_first_subscribe = getelementptr inbounds i8, ptr %this, i64 2027
   %3 = load i8, ptr %_only_first_subscribe, align 1
   %4 = and i8 %3, 1
-  %_process_subscribe = getelementptr inbounds i8, ptr %this, i64 2026
   %frombool9 = xor i8 %4, 1
-  store i8 %frombool9, ptr %_process_subscribe, align 2
+  store i8 %frombool9, ptr %_process_subscribe10, align 2
   br label %if.end14
 
 if.else:                                          ; preds = %entry
-  %_process_subscribe10 = getelementptr inbounds i8, ptr %this, i64 2026
   %5 = load i8, ptr %_process_subscribe10, align 2
   %6 = and i8 %5, 1
   %tobool11.not = icmp eq i8 %6, 0

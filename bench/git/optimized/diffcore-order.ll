@@ -89,6 +89,7 @@ for.end.us45.i:                                   ; preds = %for.inc.us42.i, %la
 if.else.us48.i:                                   ; preds = %for.end.us45.i
   %2 = load i8, ptr %incdec.ptr.us43.i, align 1
   %cmp24.us.i = icmp eq i8 %2, 10
+  %idxprom.us.i = sext i32 %cnt.032.us55.i to i64
   br i1 %cmp24.us.i, label %if.then26.us.i, label %if.else27.us.i
 
 if.else27.us.i:                                   ; preds = %if.else.us48.i
@@ -105,7 +106,6 @@ if.then26.us.i:                                   ; preds = %if.else.us48.i
 if.end31.us.i:                                    ; preds = %if.then26.us.i, %if.else27.us.i
   %cp.031.us56.sink.i = phi ptr [ %cp.031.us56.i, %if.then26.us.i ], [ %call28.us.i, %if.else27.us.i ]
   %3 = load ptr, ptr @order, align 8
-  %idxprom.us.i = sext i32 %cnt.032.us55.i to i64
   %arrayidx.us.i = getelementptr inbounds ptr, ptr %3, i64 %idxprom.us.i
   store ptr %cp.031.us56.sink.i, ptr %arrayidx.us.i, align 8
   %inc32.us.i = add nsw i32 %cnt.032.us55.i, 1

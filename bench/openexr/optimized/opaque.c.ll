@@ -215,13 +215,13 @@ if.end:                                           ; preds = %entry
   %packed_data = getelementptr inbounds i8, ptr %srcud, i64 16
   %0 = load ptr, ptr %packed_data, align 8
   %tobool1.not = icmp eq ptr %0, null
+  %tobool.not.i = icmp eq ptr %ctxt, null
   br i1 %tobool1.not, label %if.end4, label %if.then2
 
 if.then2:                                         ; preds = %if.end
   %1 = load i32, ptr %srcud, align 8
   %conv = sext i32 %1 to i64
-  %tobool.not.i.i = icmp eq ptr %ctxt, null
-  br i1 %tobool.not.i.i, label %return, label %if.end.i.i
+  br i1 %tobool.not.i, label %return, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then2
   %tobool1.not.i.i = icmp eq ptr %ud, null
@@ -290,7 +290,6 @@ if.then2.i:                                       ; preds = %land.lhs.true.i
   br label %return
 
 if.end4:                                          ; preds = %if.end
-  %tobool.not.i = icmp eq ptr %ctxt, null
   br i1 %tobool.not.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end4

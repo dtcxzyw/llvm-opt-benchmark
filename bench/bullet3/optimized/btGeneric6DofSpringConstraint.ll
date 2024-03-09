@@ -243,6 +243,7 @@ define dso_local void @_ZN29btGeneric6DofSpringConstraint19setEquilibriumPointEi
 entry:
   tail call void @_ZN23btGeneric6DofConstraint19calculateTransformsEv(ptr noundef nonnull align 8 dereferenceable(1333) %this)
   %cmp = icmp slt i32 %index, 3
+  %m_equilibriumPoint = getelementptr inbounds i8, ptr %this, i64 1340
   %m_calculatedAxisAngleDiff = getelementptr inbounds i8, ptr %this, i64 1216
   %0 = zext nneg i32 %index to i64
   %1 = getelementptr float, ptr %m_calculatedAxisAngleDiff, i64 %0
@@ -253,8 +254,7 @@ entry:
   %arrayidx6.sink = select i1 %cmp, ptr %arrayidx, ptr %arrayidx6
   %.sink5 = select i1 %cmp, i64 %idxprom, i64 %0
   %2 = load float, ptr %arrayidx6.sink, align 4
-  %m_equilibriumPoint7 = getelementptr inbounds i8, ptr %this, i64 1340
-  %arrayidx9 = getelementptr inbounds [6 x float], ptr %m_equilibriumPoint7, i64 0, i64 %.sink5
+  %arrayidx9 = getelementptr inbounds [6 x float], ptr %m_equilibriumPoint, i64 0, i64 %.sink5
   store float %2, ptr %arrayidx9, align 4
   ret void
 }

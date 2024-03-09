@@ -33,8 +33,8 @@ define noundef zeroext i1 @nxsched_add_prioritized(ptr noundef %0, ptr nocapture
   br label %22
 
 14:                                               ; preds = %9
-  store ptr null, ptr %0, align 16
   %15 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr null, ptr %0, align 16
   store ptr %11, ptr %15, align 8
   store ptr %0, ptr %11, align 16
   br label %22

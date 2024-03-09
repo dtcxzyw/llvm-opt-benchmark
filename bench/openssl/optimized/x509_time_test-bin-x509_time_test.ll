@@ -261,10 +261,10 @@ if.end2:                                          ; preds = %if.then, %entry
   %2 = load i32, ptr %expected, align 4
   %call8 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.7, i32 noundef 368, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.42, i32 noundef %call5, i32 noundef %2) #4
   %tobool9.not = icmp eq i32 %call8, 0
+  %cmp15.not = icmp eq ptr %t.0, null
   br i1 %tobool9.not, label %out, label %if.end14
 
 if.end14:                                         ; preds = %if.end2
-  %cmp15.not = icmp eq ptr %t.0, null
   br i1 %cmp15.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end14
@@ -309,8 +309,7 @@ if.then48:                                        ; preds = %if.then37
 
 out:                                              ; preds = %if.end2
   tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.7, i32 noundef 370, ptr noundef nonnull @.str.43, i32 noundef %idx, i32 noundef %2, i32 noundef %call5) #4
-  %cmp56.not = icmp eq ptr %t.0, null
-  br i1 %cmp56.not, label %return, label %if.then58
+  br i1 %cmp15.not, label %return, label %if.then58
 
 if.then58:                                        ; preds = %if.then25, %if.then48, %if.then37, %land.lhs.true33, %out
   %rv.030 = phi i32 [ 0, %out ], [ 1, %land.lhs.true33 ], [ 1, %if.then37 ], [ 0, %if.then25 ], [ 0, %if.then48 ]

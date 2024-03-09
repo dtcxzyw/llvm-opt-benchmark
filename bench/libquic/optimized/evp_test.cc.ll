@@ -449,6 +449,7 @@ if.end95:                                         ; preds = %invoke.cont90, %inv
 invoke.cont96:                                    ; preds = %if.end95
   %call.i44 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %call97, ptr noundef nonnull @.str.5) #18
   %cmp.i45 = icmp eq i32 %call.i44, 0
+  %_M_finish.i50 = getelementptr inbounds i8, ptr %input, i64 8
   br i1 %cmp.i45, label %if.then100, label %if.end112
 
 if.then100:                                       ; preds = %invoke.cont96
@@ -459,8 +460,7 @@ if.then100:                                       ; preds = %invoke.cont96
   %sub.ptr.rhs.cast.i = ptrtoint ptr %16 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %18 = load ptr, ptr %input, align 8
-  %_M_finish.i46 = getelementptr inbounds i8, ptr %input, i64 8
-  %19 = load ptr, ptr %_M_finish.i46, align 8
+  %19 = load ptr, ptr %_M_finish.i50, align 8
   %sub.ptr.lhs.cast.i47 = ptrtoint ptr %19 to i64
   %sub.ptr.rhs.cast.i48 = ptrtoint ptr %18 to i64
   %sub.ptr.sub.i49 = sub i64 %sub.ptr.lhs.cast.i47, %sub.ptr.rhs.cast.i48
@@ -478,7 +478,6 @@ if.then109:                                       ; preds = %invoke.cont106
 if.end112:                                        ; preds = %invoke.cont96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %actual, i8 0, i64 24, i1 false)
   %20 = load ptr, ptr %input, align 8
-  %_M_finish.i50 = getelementptr inbounds i8, ptr %input, i64 8
   %21 = load ptr, ptr %_M_finish.i50, align 8
   %sub.ptr.lhs.cast.i51 = ptrtoint ptr %21 to i64
   %sub.ptr.rhs.cast.i52 = ptrtoint ptr %20 to i64

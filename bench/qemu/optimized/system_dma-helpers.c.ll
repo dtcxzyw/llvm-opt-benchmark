@@ -162,6 +162,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %3 = load i8, ptr @message_with_timestamp, align 1
   %4 = and i8 %3, 1
   %tobool7.not.i.i = icmp eq i8 %4, 0
+  %conv14.i.i = zext i1 %cmp to i32
   br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
@@ -170,12 +171,10 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %5 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
-  %conv12.i.i = zext i1 %cmp to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.4, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %call, ptr noundef %io_func_opaque, i64 noundef %offset, i32 noundef %conv12.i.i) #10
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.4, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %call, ptr noundef %io_func_opaque, i64 noundef %offset, i32 noundef %conv14.i.i) #10
   br label %trace_dma_blk_io.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  %conv14.i.i = zext i1 %cmp to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.5, ptr noundef %call, ptr noundef %io_func_opaque, i64 noundef %offset, i32 noundef %conv14.i.i) #10
   br label %trace_dma_blk_io.exit
 

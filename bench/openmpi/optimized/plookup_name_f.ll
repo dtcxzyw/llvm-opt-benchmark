@@ -26,10 +26,10 @@ define void @ompi_lookup_name_f(ptr noundef %0, ptr nocapture noundef readonly %
   %12 = sext i32 %11 to i64
   %13 = call noalias ptr @malloc(i64 noundef %12) #5
   %14 = icmp eq ptr %13, null
+  %.not17 = icmp eq ptr %3, null
   br i1 %14, label %15, label %19
 
 15:                                               ; preds = %6
-  %.not17 = icmp eq ptr %3, null
   br i1 %.not17, label %17, label %16
 
 16:                                               ; preds = %15
@@ -44,8 +44,7 @@ define void @ompi_lookup_name_f(ptr noundef %0, ptr nocapture noundef readonly %
 19:                                               ; preds = %6
   %20 = load ptr, ptr %7, align 8
   %21 = call i32 @PMPI_Lookup_name(ptr noundef %20, ptr noundef %9, ptr noundef nonnull %13) #4
-  %.not = icmp eq ptr %3, null
-  br i1 %.not, label %23, label %22
+  br i1 %.not17, label %23, label %22
 
 22:                                               ; preds = %19
   store i32 %21, ptr %3, align 4

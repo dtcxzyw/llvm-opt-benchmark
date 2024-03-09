@@ -134,10 +134,10 @@ if.end:                                           ; preds = %entry
   %cmp = icmp ugt i64 %sub, 500000
   %cmp4.not = icmp ult i64 %or.i, %1
   %or.cond = or i1 %cmp4.not, %cmp
+  %_last_time = getelementptr inbounds i8, ptr %this, i64 8
   br i1 %or.cond, label %if.end6, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  %_last_time = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %_last_time, align 8
   br label %return
 
@@ -145,8 +145,7 @@ if.end6:                                          ; preds = %if.end
   store i64 %or.i, ptr %this, align 8
   %call8 = tail call noundef i64 @_ZN3zmq7clock_t6now_usEv()
   %div9 = udiv i64 %call8, 1000
-  %_last_time10 = getelementptr inbounds i8, ptr %this, i64 8
-  store i64 %div9, ptr %_last_time10, align 8
+  store i64 %div9, ptr %_last_time, align 8
   br label %return
 
 return:                                           ; preds = %if.end6, %if.then5, %if.then

@@ -1506,18 +1506,17 @@ if.end6:                                          ; preds = %entry
   %2 = load i8, ptr %has_mode, align 8
   %3 = and i8 %2, 1
   %tobool7.not = icmp eq i8 %3, 0
+  %mode11.phi.trans.insert = getelementptr inbounds i8, ptr %opts, i64 12
   br i1 %tobool7.not, label %if.then8, label %if.end6.if.end10_crit_edge
 
 if.end6.if.end10_crit_edge:                       ; preds = %if.end6
-  %mode11.phi.trans.insert = getelementptr inbounds i8, ptr %opts, i64 12
   %.pre = load i32, ptr %mode11.phi.trans.insert, align 4
   br label %if.end10
 
 if.then8:                                         ; preds = %if.end6
   %not.allow_hmp = xor i1 %allow_hmp, true
   %cond = zext i1 %not.allow_hmp to i32
-  %mode = getelementptr inbounds i8, ptr %opts, i64 12
-  store i32 %cond, ptr %mode, align 4
+  store i32 %cond, ptr %mode11.phi.trans.insert, align 4
   br label %if.end10
 
 if.end10:                                         ; preds = %if.end6.if.end10_crit_edge, %if.then8

@@ -173,10 +173,10 @@ if.end56:                                         ; preds = %if.end48
   %call59 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %call50, i64 noundef %add, ptr noundef nonnull @.str.5, ptr noundef nonnull %path) #12
   %cmp62 = icmp eq i32 %6, 7247
   %cmp73 = icmp sgt i32 %fd, -1
+  %fd8056 = getelementptr inbounds i8, ptr %call, i64 28
   br i1 %cmp73, label %cond.end78.thread, label %cond.end78
 
 cond.end78.thread:                                ; preds = %if.end56
-  %fd8056 = getelementptr inbounds i8, ptr %call, i64 28
   store i32 %fd, ptr %fd8056, align 4
   br label %if.end86
 
@@ -187,8 +187,7 @@ cond.end78:                                       ; preds = %if.end56
   %cond71 = select i1 %cmp62, i32 0, i32 %or70
   %or72 = or disjoint i32 %cond71, %9
   %call77 = tail call i32 (ptr, i32, ...) @open(ptr noundef nonnull %path, i32 noundef %or72, i32 noundef 438) #12
-  %fd80 = getelementptr inbounds i8, ptr %call, i64 28
-  store i32 %call77, ptr %fd80, align 4
+  store i32 %call77, ptr %fd8056, align 4
   %cmp82 = icmp eq i32 %call77, -1
   br i1 %cmp82, label %if.then84, label %if.end86
 

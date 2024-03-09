@@ -1075,9 +1075,9 @@ entry:
   br i1 %call5, label %if.then, label %entry.if.end_crit_edge
 
 entry.if.end_crit_edge:                           ; preds = %entry
+  %y3.i.phi.trans.insert = getelementptr inbounds i8, ptr %fileChr, i64 28
   %white.phi.trans.insert = getelementptr inbounds i8, ptr %fileChr, i64 24
   %.pre = load float, ptr %white.phi.trans.insert, align 8
-  %y3.i.phi.trans.insert = getelementptr inbounds i8, ptr %fileChr, i64 28
   %.pre245 = load float, ptr %y3.i.phi.trans.insert, align 4
   br label %if.end
 

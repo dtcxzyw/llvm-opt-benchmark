@@ -525,10 +525,10 @@ entry:
   %consumed = alloca i64, align 8
   %and = and i32 %type, 1
   %tobool.not = icmp eq i32 %and, 0
+  %next = getelementptr inbounds i8, ptr %writer, i64 8
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %next = getelementptr inbounds i8, ptr %writer, i64 8
   %0 = load ptr, ptr %next, align 8
   %call = tail call i32 @Curl_cwriter_write(ptr noundef %data, ptr noundef %0, i32 noundef %type, ptr noundef %buf, i64 noundef %blen) #3
   br label %return
@@ -536,8 +536,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   store i64 0, ptr %consumed, align 8
   %ch = getelementptr inbounds i8, ptr %writer, i64 24
-  %next1 = getelementptr inbounds i8, ptr %writer, i64 8
-  %1 = load ptr, ptr %next1, align 8
+  %1 = load ptr, ptr %next, align 8
   %call2 = call fastcc i32 @httpchunk_readwrite(ptr noundef %data, ptr noundef nonnull %ch, ptr noundef %1, ptr noundef %buf, i64 noundef %blen, ptr noundef nonnull %consumed)
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %if.end11, label %if.then4

@@ -976,20 +976,19 @@ _PyEval_ThreadsInitialized.exit:                  ; preds = %entry, %if.end.i, %
 define hidden void @_PyEval_InitGIL(ptr noundef %tstate, i32 noundef %own_gil) local_unnamed_addr #3 {
 entry:
   %tobool.not = icmp eq i32 %own_gil, 0
+  %interp = getelementptr inbounds i8, ptr %tstate, i64 16
   br i1 %tobool.not, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 8, i32 2), align 8
   %gil1 = getelementptr inbounds i8, ptr %0, i64 72
   %1 = load ptr, ptr %gil1, align 8
-  %interp = getelementptr inbounds i8, ptr %tstate, i64 16
   %2 = load ptr, ptr %interp, align 8
   br label %if.end
 
 if.else:                                          ; preds = %entry
   tail call void @PyThread_init_thread() #15
-  %interp2 = getelementptr inbounds i8, ptr %tstate, i64 16
-  %3 = load ptr, ptr %interp2, align 8
+  %3 = load ptr, ptr %interp, align 8
   %_gil = getelementptr inbounds i8, ptr %3, i64 1352
   tail call fastcc void @create_gil(ptr noundef nonnull %_gil)
   br label %if.end

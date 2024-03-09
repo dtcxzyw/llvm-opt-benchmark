@@ -847,18 +847,17 @@ if.then7:                                         ; preds = %land.lhs.true.i
   %get_value = getelementptr inbounds i8, ptr %md.025, i64 16
   %3 = load ptr, ptr %get_value, align 8
   %tobool8.not = icmp eq ptr %3, null
+  %offset = getelementptr inbounds i8, ptr %md.025, i64 8
   br i1 %tobool8.not, label %if.else, label %if.then9
 
 if.then9:                                         ; preds = %if.then7
-  %offset = getelementptr inbounds i8, ptr %md.025, i64 8
   %4 = load i32, ptr %offset, align 8
   %call11 = tail call i64 %3(ptr noundef %mon, ptr noundef nonnull %md.025, i32 noundef %4) #11
   br label %return.sink.split
 
 if.else:                                          ; preds = %if.then7
   %call12 = tail call ptr @mon_get_cpu_env(ptr noundef %mon) #11
-  %offset13 = getelementptr inbounds i8, ptr %md.025, i64 8
-  %5 = load i32, ptr %offset13, align 8
+  %5 = load i32, ptr %offset, align 8
   %idx.ext = sext i32 %5 to i64
   %add.ptr = getelementptr i8, ptr %call12, i64 %idx.ext
   %type = getelementptr inbounds i8, ptr %md.025, i64 24

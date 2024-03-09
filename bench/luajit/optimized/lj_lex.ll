@@ -543,19 +543,18 @@ entry:
   %lookahead = getelementptr inbounds i8, ptr %ls, i64 56
   %1 = load i32, ptr %lookahead, align 8
   %cmp = icmp eq i32 %1, 289
+  %tokval = getelementptr inbounds i8, ptr %ls, i64 16
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %tokval = getelementptr inbounds i8, ptr %ls, i64 16
   %call = tail call fastcc i32 @lex_scan(ptr noundef nonnull %ls, ptr noundef nonnull %tokval)
   br label %if.end
 
 if.else:                                          ; preds = %entry
   store i32 289, ptr %lookahead, align 8
-  %tokval5 = getelementptr inbounds i8, ptr %ls, i64 16
   %lookaheadval = getelementptr inbounds i8, ptr %ls, i64 24
   %2 = load i64, ptr %lookaheadval, align 8
-  store i64 %2, ptr %tokval5, align 8
+  store i64 %2, ptr %tokval, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then

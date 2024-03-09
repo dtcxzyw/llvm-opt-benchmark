@@ -121,16 +121,15 @@ define noalias ptr @pmix_path_find(ptr noundef %0, ptr nocapture noundef readonl
 
 list_env_get.exit:                                ; preds = %35, %.loopexit.i
   %.0.i = phi ptr [ %37, %35 ], [ %41, %.loopexit.i ]
+  %.not46 = icmp eq ptr %.0.i, null
   br i1 %.not, label %42, label %.thread
 
 42:                                               ; preds = %list_env_get.exit
-  %.not46 = icmp eq ptr %.0.i, null
   br i1 %.not46, label %pmix_path_access.exit51, label %43
 
 .thread:                                          ; preds = %list_env_get.exit
   store i8 47, ptr %20, align 1
-  %.not4660 = icmp eq ptr %.0.i, null
-  br i1 %.not4660, label %pmix_path_access.exit51, label %48
+  br i1 %.not46, label %pmix_path_access.exit51, label %48
 
 43:                                               ; preds = %42
   %44 = tail call noalias ptr (i32, ...) @pmix_os_path(i32 noundef 0, ptr noundef nonnull %.0.i, ptr noundef nonnull %0, ptr noundef null) #13

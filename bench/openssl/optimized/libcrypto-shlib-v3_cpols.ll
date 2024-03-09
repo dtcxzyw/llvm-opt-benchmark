@@ -344,10 +344,10 @@ if.else50.i:                                      ; preds = %if.else.i
   %14 = load ptr, ptr %name.i, align 8
   %call52.i = tail call i32 @ossl_v3_name_cmp(ptr noundef %14, ptr noundef nonnull @.str.32) #4
   %tobool53.not.i = icmp eq i32 %call52.i, 0
+  %value55.i = getelementptr inbounds i8, ptr %call5.i, i64 16
   br i1 %tobool53.not.i, label %if.then54.i, label %if.else90.i
 
 if.then54.i:                                      ; preds = %if.else50.i
-  %value55.i = getelementptr inbounds i8, ptr %call5.i, i64 16
   %15 = load ptr, ptr %value55.i, align 8
   %16 = load i8, ptr %15, align 1
   %cmp57.not.i = icmp eq i8 %16, 64
@@ -728,8 +728,7 @@ if.else90.i:                                      ; preds = %if.else50.i
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef 138, ptr noundef null) #4
   %43 = load ptr, ptr %call5.i, align 8
   %44 = load ptr, ptr %name.i, align 8
-  %value93.i = getelementptr inbounds i8, ptr %call5.i, i64 16
-  %45 = load ptr, ptr %value93.i, align 8
+  %45 = load ptr, ptr %value55.i, align 8
   tail call void (i32, ...) @ERR_add_error_data(i32 noundef 6, ptr noundef nonnull @.str.28, ptr noundef %43, ptr noundef nonnull @.str.29, ptr noundef %44, ptr noundef nonnull @.str.30, ptr noundef %45) #4
   br label %policy_section.exit.thread
 

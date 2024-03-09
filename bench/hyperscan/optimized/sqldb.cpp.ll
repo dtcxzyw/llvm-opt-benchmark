@@ -1029,11 +1029,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit: ; preds
   %4 = load ptr, ptr %call.i.i, align 8
   %5 = getelementptr inbounds i8, ptr %call.i.i, i64 16
   %cmp.i.i = icmp eq ptr %4, %5
+  %_M_string_length.i31.i.phi.trans.insert = getelementptr inbounds i8, ptr %call.i.i, i64 8
   br i1 %cmp.i.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit
-  %_M_string_length.i.i1 = getelementptr inbounds i8, ptr %call.i.i, i64 8
-  %6 = load i64, ptr %_M_string_length.i.i1, align 8
+  %6 = load i64, ptr %_M_string_length.i31.i.phi.trans.insert, align 8
   %cmp3.i.i = icmp ult i64 %6, 16
   tail call void @llvm.assume(i1 %cmp3.i.i)
   %add.i = add nuw nsw i64 %6, 1
@@ -1044,7 +1044,6 @@ if.else.i:                                        ; preds = %_ZNSt7__cxx1112basi
   store ptr %4, ptr %agg.result, align 8
   %7 = load i64, ptr %5, align 8
   store i64 %7, ptr %3, align 8
-  %_M_string_length.i31.i.phi.trans.insert = getelementptr inbounds i8, ptr %call.i.i, i64 8
   %.pre = load i64, ptr %_M_string_length.i31.i.phi.trans.insert, align 8
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit
 

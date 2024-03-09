@@ -359,6 +359,7 @@ sw.epilog:                                        ; preds = %sw.bb35, %sw.bb44, 
   %49 = tail call float @llvm.fmuladd.f32(float %48, float %48, float %mul63)
   %sqrt = tail call float @llvm.sqrt.f32(float %49)
   %cmp = fcmp une float %sqrt, 0.000000e+00
+  %fneg98 = fneg float %47
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %sw.epilog
@@ -367,8 +368,7 @@ if.then:                                          ; preds = %sw.epilog
   store float %mul, ptr %XX.0.sroa.phi, align 4
   %50 = load float, ptr %YY.0.sroa.phi244, align 4
   %cmp74 = fcmp olt float %50, 0.000000e+00
-  %fneg75 = fneg float %47
-  %cond = select i1 %cmp74, float %fneg75, float %47
+  %cond = select i1 %cmp74, float %fneg98, float %47
   store float %cond, ptr %YY.0.sroa.phi, align 4
   %mul82 = fmul float %div, %45
   store float %mul82, ptr %ZZ.0.sroa.phi, align 4
@@ -384,7 +384,6 @@ if.else:                                          ; preds = %sw.epilog
   store float %46, ptr %XX.0.sroa.phi, align 4
   %51 = load float, ptr %YY.0.sroa.phi244, align 4
   %cmp96 = fcmp olt float %51, 0.000000e+00
-  %fneg98 = fneg float %47
   %cond101 = select i1 %cmp96, float %fneg98, float %47
   store float %cond101, ptr %YY.0.sroa.phi, align 4
   store float 0.000000e+00, ptr %ZZ.0.sroa.phi, align 4

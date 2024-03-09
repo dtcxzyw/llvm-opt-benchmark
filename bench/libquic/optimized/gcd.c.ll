@@ -120,17 +120,16 @@ if.end47.i:                                       ; preds = %if.end45.i, %if.end
 
 while.end.i:                                      ; preds = %if.end47.i
   %tobool48.not.i = icmp eq i32 %shifts.1.i, 0
+  %cmp17.old = icmp eq ptr %a.addr.1.i, null
   br i1 %tobool48.not.i, label %euclid.exit, label %if.then49.i
 
 if.then49.i:                                      ; preds = %while.end.i
   %call50.i = tail call i32 @BN_lshift(ptr noundef %a.addr.1.i, ptr noundef %a.addr.1.i, i32 noundef %shifts.1.i) #3
   %tobool51.not.i = icmp eq i32 %call50.i, 0
-  %cmp17 = icmp eq ptr %a.addr.1.i, null
-  %or.cond24 = select i1 %tobool51.not.i, i1 true, i1 %cmp17
+  %or.cond24 = select i1 %tobool51.not.i, i1 true, i1 %cmp17.old
   br i1 %or.cond24, label %err, label %if.end19
 
 euclid.exit:                                      ; preds = %while.end.i
-  %cmp17.old = icmp eq ptr %a.addr.1.i, null
   br i1 %cmp17.old, label %err, label %if.end19
 
 if.end19:                                         ; preds = %if.then49.i, %if.end10, %euclid.exit

@@ -27,20 +27,19 @@ target triple = "x86_64-pc-linux-gnu"
 define void @ompi_win_create_errhandler_f(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef writeonly %2) #0 {
   %4 = tail call ptr @ompi_errhandler_create(i32 noundef 2, ptr noundef %0, i32 noundef 1) #2
   %.not = icmp eq ptr %4, @ompi_mpi_errhandler_null
+  %.not9 = icmp eq ptr %2, null
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %3
   %6 = tail call i32 @PMPI_Errhandler_c2f(ptr noundef %4) #2
   store i32 %6, ptr %1, align 4
-  %.not10 = icmp eq ptr %2, null
-  br i1 %.not10, label %12, label %7
+  br i1 %.not9, label %12, label %7
 
 7:                                                ; preds = %5
   store i32 0, ptr %2, align 4
   br label %12
 
 8:                                                ; preds = %3
-  %.not9 = icmp eq ptr %2, null
   br i1 %.not9, label %10, label %9
 
 9:                                                ; preds = %8

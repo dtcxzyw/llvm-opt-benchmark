@@ -16,6 +16,7 @@ entry:
   %add.ptr17 = getelementptr i8, ptr %outbuf, i64 2
   %min_io_size18 = getelementptr inbounds i8, ptr %bl, i64 2
   %3 = load i16, ptr %min_io_size18, align 2
+  %opt_io_size20 = getelementptr inbounds i8, ptr %bl, i64 8
   br i1 %tobool1.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -28,8 +29,7 @@ if.then:                                          ; preds = %entry
   %5 = load i32, ptr %max_io_sectors, align 4
   %6 = tail call i32 @llvm.bswap.i32(i32 %5)
   store i32 %6, ptr %add.ptr6, align 1
-  %opt_io_size = getelementptr inbounds i8, ptr %bl, i64 8
-  %7 = load i32, ptr %opt_io_size, align 4
+  %7 = load i32, ptr %opt_io_size20, align 4
   %8 = load i32, ptr %max_io_sectors, align 4
   %cond16 = tail call i32 @llvm.umin.i32(i32 %7, i32 %8)
   br label %if.end
@@ -37,7 +37,6 @@ if.then:                                          ; preds = %entry
 if.else:                                          ; preds = %entry
   %9 = tail call i16 @llvm.bswap.i16(i16 %3)
   store i16 %9, ptr %add.ptr17, align 1
-  %opt_io_size20 = getelementptr inbounds i8, ptr %bl, i64 8
   %10 = load i32, ptr %opt_io_size20, align 4
   br label %if.end
 

@@ -584,16 +584,15 @@ if.then4:                                         ; preds = %edata_list_inactive
   %decay_extents.sroa.0.131 = phi ptr [ %decay_extents.sroa.0.0, %pac_stash_decayed.exit ], [ %12, %edata_list_inactive_append.exit.i ]
   %pac.val.i15 = load ptr, ptr %2, align 8
   %call.i.i16 = tail call ptr @base_ehooks_get(ptr noundef %pac.val.i15) #8
+  %cmp4.not214.i = icmp eq ptr %decay_extents.sroa.0.131, null
   br i1 %fully_decay, label %land.end.thread.i, label %land.end.i
 
 land.end.i:                                       ; preds = %if.then4
   %time_ms.i.i.i = getelementptr inbounds i8, ptr %pac, i64 60552
   %14 = load atomic i64, ptr %time_ms.i.i.i monotonic, align 8
-  %cmp4.not2.i = icmp eq ptr %decay_extents.sroa.0.131, null
-  br i1 %cmp4.not2.i, label %pac_decay_stashed.exit, label %for.body.lr.ph.i
+  br i1 %cmp4.not214.i, label %pac_decay_stashed.exit, label %for.body.lr.ph.i
 
 land.end.thread.i:                                ; preds = %if.then4
-  %cmp4.not214.i = icmp eq ptr %decay_extents.sroa.0.131, null
   br i1 %cmp4.not214.i, label %pac_decay_stashed.exit, label %if.end.i.us.i.preheader
 
 for.body.lr.ph.i:                                 ; preds = %land.end.i

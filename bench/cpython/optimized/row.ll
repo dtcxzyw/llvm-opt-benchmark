@@ -429,6 +429,7 @@ entry:
   %RowType = getelementptr inbounds i8, ptr %call.i.i, i64 144
   %0 = load ptr, ptr %RowType, align 8
   %cmp = icmp eq ptr %0, %type
+  %cmp3.old = icmp eq ptr %kwargs, null
   br i1 %cmp, label %land.lhs.true, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
@@ -437,12 +438,10 @@ lor.lhs.false:                                    ; preds = %entry
   %tp_init1 = getelementptr inbounds i8, ptr %0, i64 296
   %2 = load ptr, ptr %tp_init1, align 8
   %cmp2 = icmp ne ptr %1, %2
-  %cmp3 = icmp eq ptr %kwargs, null
-  %or.cond = or i1 %cmp3, %cmp2
+  %or.cond = or i1 %cmp3.old, %cmp2
   br i1 %or.cond, label %if.end, label %lor.lhs.false4
 
 land.lhs.true:                                    ; preds = %entry
-  %cmp3.old = icmp eq ptr %kwargs, null
   br i1 %cmp3.old, label %if.end, label %lor.lhs.false4
 
 lor.lhs.false4:                                   ; preds = %lor.lhs.false, %land.lhs.true

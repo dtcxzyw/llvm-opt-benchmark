@@ -1059,19 +1059,18 @@ define internal i32 @fork_proc(ptr nocapture noundef readonly %0, ptr noundef %1
   %127 = load i8, ptr %4, align 4
   %128 = and i8 %127, 1
   %.not58.i = icmp eq i8 %128, 0
+  %.not59.i = icmp eq ptr %.2.i, null
   br i1 %.not58.i, label %132, label %129
 
 129:                                              ; preds = %.thread.i
   %130 = call i32 @close(i32 noundef %38) #16
-  %.not60.i = icmp eq ptr %.2.i, null
-  br i1 %.not60.i, label %do_parent.exit, label %131
+  br i1 %.not59.i, label %do_parent.exit, label %131
 
 131:                                              ; preds = %129
   call void @free(ptr noundef nonnull %.2.i) #16
   br label %do_parent.exit
 
 132:                                              ; preds = %.thread.i
-  %.not59.i = icmp eq ptr %.2.i, null
   br i1 %.not59.i, label %.backedge, label %133
 
 133:                                              ; preds = %132

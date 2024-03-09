@@ -53,13 +53,13 @@ entry:
   %bf.load = load i32, ptr %upload, align 4
   %1 = and i32 %bf.load, 1048576
   %tobool.not = icmp eq i32 %1, 0
+  %p = getelementptr inbounds i8, ptr %data, i64 392
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %file_stat.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %readcount.i)
-  %p.i = getelementptr inbounds i8, ptr %data, i64 392
-  %2 = load ptr, ptr %p.i, align 8
+  %2 = load ptr, ptr %p, align 8
   %3 = load ptr, ptr %2, align 8
   %call.i = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %3, i32 noundef 47) #10
   %4 = load ptr, ptr %buffer, align 8
@@ -197,7 +197,6 @@ file_upload.exit:                                 ; preds = %if.then, %if.end.i,
   br label %return
 
 if.end:                                           ; preds = %entry
-  %p = getelementptr inbounds i8, ptr %data, i64 392
   %19 = load ptr, ptr %p, align 8
   %fd2 = getelementptr inbounds i8, ptr %19, i64 16
   %20 = load i32, ptr %fd2, align 8

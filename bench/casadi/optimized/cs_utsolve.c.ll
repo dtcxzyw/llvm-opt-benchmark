@@ -42,16 +42,15 @@ define noundef i32 @cs_utsolve(ptr noundef readonly %0, ptr noundef %1) local_un
   %22 = add nsw i32 %21, -1
   %23 = icmp slt i32 %19, %22
   %24 = getelementptr inbounds double, ptr %1, i64 %indvars.iv42
+  %.pre = load double, ptr %24, align 8
   br i1 %23, label %.lr.ph, label %.lr.ph39.._crit_edge_crit_edge
 
 .lr.ph39.._crit_edge_crit_edge:                   ; preds = %.lr.ph39
-  %.pre45 = load double, ptr %24, align 8
   %.pre46 = sext i32 %22 to i64
   br label %._crit_edge
 
 .lr.ph:                                           ; preds = %.lr.ph39
   %25 = sext i32 %19 to i64
-  %.pre = load double, ptr %24, align 8
   br label %26
 
 26:                                               ; preds = %.lr.ph, %26
@@ -76,7 +75,7 @@ define noundef i32 @cs_utsolve(ptr noundef readonly %0, ptr noundef %1) local_un
 
 ._crit_edge:                                      ; preds = %26, %.lr.ph39.._crit_edge_crit_edge
   %.pre-phi = phi i64 [ %.pre46, %.lr.ph39.._crit_edge_crit_edge ], [ %39, %26 ]
-  %41 = phi double [ %.pre45, %.lr.ph39.._crit_edge_crit_edge ], [ %36, %26 ]
+  %41 = phi double [ %.pre, %.lr.ph39.._crit_edge_crit_edge ], [ %36, %26 ]
   %42 = getelementptr inbounds double, ptr %16, i64 %.pre-phi
   %43 = load double, ptr %42, align 8
   %44 = getelementptr inbounds double, ptr %1, i64 %indvars.iv42

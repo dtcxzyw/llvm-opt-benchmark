@@ -292,17 +292,16 @@ if.end3:                                          ; preds = %if.end
   %call.val = load ptr, ptr %1, align 8
   %call.i = tail call ptr @g_hash_table_lookup(ptr noundef %call.val, ptr noundef %name) #10
   %tobool.not.i = icmp ne ptr %call.i, null
+  %repeated_opts = getelementptr inbounds i8, ptr %v, i64 248
   br i1 %tobool.not.i, label %if.end8, label %lookup_distinct.exit
 
 lookup_distinct.exit:                             ; preds = %if.end3
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 221, ptr noundef nonnull @__func__.lookup_distinct, ptr noundef nonnull @.str.7, ptr noundef %name) #10
-  %repeated_opts = getelementptr inbounds i8, ptr %v, i64 248
   store ptr null, ptr %repeated_opts, align 8
   br label %return
 
 if.end8:                                          ; preds = %if.end3
-  %repeated_opts7 = getelementptr inbounds i8, ptr %v, i64 248
-  store ptr %call.i, ptr %repeated_opts7, align 8
+  store ptr %call.i, ptr %repeated_opts, align 8
   store i32 1, ptr %list_mode, align 8
   %call10 = tail call noalias ptr @g_malloc0(i64 noundef %size) #9
   br label %return

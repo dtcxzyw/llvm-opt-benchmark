@@ -39,6 +39,7 @@ if.end.i:                                         ; preds = %entry
 
 if.end11.i:                                       ; preds = %if.end.i
   %cmp13.i = icmp ult i16 %call3.i, 4160
+  %device_type21.i = getelementptr inbounds i8, ptr %dev, i64 48
   br i1 %cmp13.i, label %if.then15.i, label %if.else.i
 
 if.then15.i:                                      ; preds = %if.end11.i
@@ -52,8 +53,7 @@ if.else.i:                                        ; preds = %if.end11.i
 
 if.end:                                           ; preds = %if.else.i, %if.then15.i
   %call17.sink.i = phi i16 [ %call17.i, %if.then15.i ], [ %sub.i, %if.else.i ]
-  %device_type.i = getelementptr inbounds i8, ptr %dev, i64 48
-  store i16 %call17.sink.i, ptr %device_type.i, align 8
+  store i16 %call17.sink.i, ptr %device_type21.i, align 8
   %common_cfg_offset.i = getelementptr inbounds i8, ptr %dev, i64 128
   br label %while.cond.i.i
 

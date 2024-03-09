@@ -526,10 +526,10 @@ if.then232:                                       ; preds = %if.end230
   %add.ptr234 = getelementptr inbounds i8, ptr %34, i64 %conv202
   store ptr %add.ptr234, ptr %p, align 8
   %cmp235.not = icmp eq ptr %it.0, null
+  %conv239 = zext i32 %length.2 to i64
   br i1 %cmp235.not, label %if.else248, label %if.then237
 
 if.then237:                                       ; preds = %if.then232
-  %conv239 = zext i32 %length.2 to i64
   %call240 = call ptr @ASN1_item_d2i(ptr noundef null, ptr noundef nonnull %p, i64 noundef %conv239, ptr noundef nonnull %it.0) #3
   %cmp241 = icmp eq ptr %call240, null
   br i1 %cmp241, label %if.then243, label %if.end246
@@ -551,8 +551,7 @@ if.end246:                                        ; preds = %if.then237
 
 if.else248:                                       ; preds = %if.then232
   %39 = load ptr, ptr @bio_out, align 8
-  %conv249 = zext i32 %length.2 to i64
-  %call250 = call i32 @ASN1_parse_dump(ptr noundef %39, ptr noundef %add.ptr234, i64 noundef %conv249, i32 noundef %indent.0, i32 noundef %dump.0) #3
+  %call250 = call i32 @ASN1_parse_dump(ptr noundef %39, ptr noundef %add.ptr234, i64 noundef %conv239, i32 noundef %indent.0, i32 noundef %dump.0) #3
   %tobool251.not = icmp eq i32 %call250, 0
   br i1 %tobool251.not, label %if.then252, label %end
 

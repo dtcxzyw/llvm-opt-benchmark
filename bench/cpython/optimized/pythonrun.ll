@@ -1175,10 +1175,10 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
 
 Py_DECREF.exit.i:                                 ; preds = %if.then1.i.i, %if.end.i.i, %if.end.i37
   %tobool.not.i = icmp eq i64 %call1.i, 0
+  %tobool4.not.i = icmp eq i32 %closeit, 0
   br i1 %tobool.not.i, label %if.end3.i, label %if.then21
 
 if.end3.i:                                        ; preds = %Py_DECREF.exit.i
-  %tobool4.not.i = icmp eq i32 %closeit, 0
   br i1 %tobool4.not.i, label %if.end19.thread, label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.end3.i
@@ -1208,8 +1208,7 @@ if.end19:                                         ; preds = %if.end6.i
 
 if.then21:                                        ; preds = %Py_DECREF.exit.i
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %buf.i)
-  %tobool22.not = icmp eq i32 %closeit, 0
-  br i1 %tobool22.not, label %if.end25, label %if.then23
+  br i1 %tobool4.not.i, label %if.end25, label %if.then23
 
 if.then23:                                        ; preds = %if.end19, %if.then21
   %call24 = tail call i32 @fclose(ptr noundef %fp)

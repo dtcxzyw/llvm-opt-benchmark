@@ -543,11 +543,11 @@ if.then24:                                        ; preds = %if.end
 
 if.end26:                                         ; preds = %if.end
   %cmp = icmp eq i32 %mode, 0
+  %cmp.i99 = icmp eq i64 %24, 0
   br i1 %cmp, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.end26
   call void @llvm.experimental.noalias.scope.decl(metadata !6)
-  %cmp.i99 = icmp eq i64 %24, 0
   br i1 %cmp.i99, label %if.then.i103, label %if.end.i100
 
 if.then.i103:                                     ; preds = %cond.true
@@ -579,13 +579,12 @@ _ZNO4node6crypto10ByteSource7Builder7releaseESt8optionalImE.exit.i: ; preds = %i
   br label %cond.end
 
 cond.false:                                       ; preds = %if.end26
-  %cmp.i.i104 = icmp eq i64 %24, 0
   %data_.i.i105 = getelementptr inbounds i8, ptr %pass, i64 24
   %31 = load ptr, ptr %data_.i.i105, align 8, !noalias !9
   %offset_.i.i106 = getelementptr inbounds i8, ptr %pass, i64 8
   %32 = load i64, ptr %offset_.i.i106, align 8, !noalias !9
   %add.ptr.i.i107 = getelementptr inbounds i8, ptr %31, i64 %32
-  %retval.0.i.i108 = select i1 %cmp.i.i104, ptr %pass, ptr %add.ptr.i.i107
+  %retval.0.i.i108 = select i1 %cmp.i99, ptr %pass, ptr %add.ptr.i.i107
   call void @_ZN4node6crypto10ByteSource7ForeignEPKvm(ptr nonnull sret(%"class.node::crypto::ByteSource") align 8 %ref.tmp, ptr noundef %retval.0.i.i108, i64 noundef %24) #14
   br label %cond.end
 

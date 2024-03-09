@@ -1131,6 +1131,7 @@ _ZN3zmq6blob_t5clearEv.exit:                      ; preds = %entry, %if.then.i
   %tobool.not = icmp ne i64 %size_, 0
   %tobool3 = icmp eq ptr %call, null
   %spec.select = and i1 %tobool.not, %tobool3
+  %_size = getelementptr inbounds i8, ptr %this, i64 8
   br i1 %spec.select, label %do.end.thread, label %do.end
 
 do.end.thread:                                    ; preds = %_ZN3zmq6blob_t5clearEv.exit
@@ -1139,13 +1140,11 @@ do.end.thread:                                    ; preds = %_ZN3zmq6blob_t5clea
   %5 = load ptr, ptr @stderr, align 8
   %call5 = tail call i32 @fflush(ptr noundef %5)
   tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef nonnull @.str.11)
-  %_size5 = getelementptr inbounds i8, ptr %this, i64 8
-  store i64 %size_, ptr %_size5, align 8
+  store i64 %size_, ptr %_size, align 8
   store i8 1, ptr %_owned.i, align 8
   br label %land.lhs.true
 
 do.end:                                           ; preds = %_ZN3zmq6blob_t5clearEv.exit
-  %_size = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %size_, ptr %_size, align 8
   store i8 1, ptr %_owned.i, align 8
   br i1 %tobool.not, label %land.lhs.true, label %if.end11

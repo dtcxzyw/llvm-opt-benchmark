@@ -97,17 +97,16 @@ if.then17:                                        ; preds = %if.end15
 
 if.end18:                                         ; preds = %if.then17, %if.end15
   %tobool19.not = icmp eq ptr %id.0, null
+  %valid_policy = getelementptr inbounds i8, ptr %call7, i64 8
   br i1 %tobool19.not, label %if.end24.thread, label %if.end24
 
 if.end24.thread:                                  ; preds = %if.end18
   %0 = load ptr, ptr %policy, align 8
-  %valid_policy22 = getelementptr inbounds i8, ptr %call7, i64 8
-  store ptr %0, ptr %valid_policy22, align 8
+  store ptr %0, ptr %valid_policy, align 8
   store ptr null, ptr %policy, align 8
   br label %if.then26
 
 if.end24:                                         ; preds = %if.end18
-  %valid_policy = getelementptr inbounds i8, ptr %call7, i64 8
   store ptr %id.0, ptr %valid_policy, align 8
   br i1 %cmp, label %return, label %if.then26
 

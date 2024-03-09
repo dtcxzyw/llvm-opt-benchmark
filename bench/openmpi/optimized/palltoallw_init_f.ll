@@ -103,6 +103,7 @@ define void @ompi_alltoallw_init_f(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 45:                                               ; preds = %44, %._crit_edge
   %46 = icmp eq i32 %43, 0
+  %.not75 = icmp eq ptr %.07290, null
   br i1 %46, label %47, label %56
 
 47:                                               ; preds = %45
@@ -112,8 +113,7 @@ define void @ompi_alltoallw_init_f(ptr noundef %0, ptr noundef %1, ptr noundef %
   %50 = load ptr, ptr %13, align 8
   %51 = getelementptr inbounds i8, ptr %50, i64 200
   store ptr %37, ptr %51, align 8
-  %.not76 = icmp eq ptr %.07290, null
-  br i1 %.not76, label %54, label %52
+  br i1 %.not75, label %54, label %52
 
 52:                                               ; preds = %47
   %53 = getelementptr inbounds i8, ptr %50, i64 208
@@ -127,7 +127,6 @@ define void @ompi_alltoallw_init_f(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %59
 
 56:                                               ; preds = %45
-  %.not75 = icmp eq ptr %.07290, null
   br i1 %.not75, label %58, label %57
 
 57:                                               ; preds = %56

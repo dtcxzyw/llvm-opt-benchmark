@@ -231,10 +231,10 @@ if.end7.i:                                        ; preds = %entry
   %data_size.i = getelementptr inbounds i8, ptr %param.i, i64 24
   %0 = load i64, ptr %data_size.i, align 8
   %cmp.i = icmp eq i64 %0, 0
+  %data.i = getelementptr inbounds i8, ptr %param.i, i64 16
   br i1 %cmp.i, label %if.then8.i, label %if.end11.i
 
 if.then8.i:                                       ; preds = %if.end7.i
-  %data.i = getelementptr inbounds i8, ptr %param.i, i64 16
   %1 = load ptr, ptr %data.i, align 8
   call void @CRYPTO_free(ptr noundef %1, ptr noundef nonnull @.str.2, i32 noundef 630) #6
   call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.2, i32 noundef 632, ptr noundef nonnull @.str.85, ptr noundef %arrayidx1.sroa.0.0.copyload, ptr noundef %arrayidx1.sroa.4.0.copyload) #6
@@ -242,8 +242,7 @@ if.then8.i:                                       ; preds = %if.end7.i
 
 if.end11.i:                                       ; preds = %if.end7.i
   %call12.i = call i32 @OSSL_PARAM_get_long(ptr noundef nonnull %param.i, ptr noundef nonnull %val.i) #6
-  %data13.i = getelementptr inbounds i8, ptr %param.i, i64 16
-  %2 = load ptr, ptr %data13.i, align 8
+  %2 = load ptr, ptr %data.i, align 8
   call void @CRYPTO_free(ptr noundef %2, ptr noundef nonnull @.str.2, i32 noundef 636) #6
   %tobool15.not.i = icmp eq i32 %call12.i, %arrayidx1.sroa.6.0.copyload
   br i1 %tobool15.not.i, label %if.end20.i, label %if.then16.i

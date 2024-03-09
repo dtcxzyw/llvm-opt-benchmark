@@ -1028,6 +1028,7 @@ invoke.cont133:                                   ; preds = %for.body
   %49 = load i32, ptr %fLength.i79, align 4
   %cond.i80 = select i1 %cmp.i.i77, i32 %49, i32 %shr.i.i78
   %cmp135 = icmp eq i32 %cond.i80, 1
+  %fCharOrStrTableIndex = getelementptr inbounds i8, ptr %call.i75, i64 8
   br i1 %cmp135, label %invoke.cont140, label %if.else
 
 invoke.cont140:                                   ; preds = %invoke.cont133
@@ -1039,7 +1040,6 @@ invoke.cont140:                                   ; preds = %invoke.cont133
   %cond.i2.i.i = select i1 %tobool.not.i.i.i, ptr %51, ptr %fBuffer.i.i.i
   %52 = load i16, ptr %cond.i2.i.i, align 2
   %conv142 = zext i16 %52 to i32
-  %fCharOrStrTableIndex = getelementptr inbounds i8, ptr %call.i75, i64 8
   store i32 %conv142, ptr %fCharOrStrTableIndex, align 8
   br label %for.inc
 
@@ -1053,8 +1053,7 @@ if.else:                                          ; preds = %invoke.cont133
   %56 = ashr i16 %54, 5
   %shr.i.i83 = sext i16 %56 to i32
   %cond.i85 = select i1 %cmp.i.i82, i32 %55, i32 %shr.i.i83
-  %fCharOrStrTableIndex143 = getelementptr inbounds i8, ptr %call.i75, i64 8
-  store i32 %cond.i85, ptr %fCharOrStrTableIndex143, align 8
+  store i32 %cond.i85, ptr %fCharOrStrTableIndex, align 8
   %57 = load ptr, ptr %fStringTable, align 8
   %58 = load i16, ptr %fUnion.i.i76, align 8
   %cmp.i.i.i = icmp slt i16 %58, 0

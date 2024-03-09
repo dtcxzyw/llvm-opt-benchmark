@@ -57,16 +57,15 @@ if.end18:                                         ; preds = %if.end14
   %div.i = udiv i128 %mul.i, %conv2.i
   %conv3.i = trunc i128 %div.i to i64
   %cmp21 = icmp ult i32 %1, 1000000000
+  %cmp25.old = icmp slt i64 %conv3.i, 0
   br i1 %cmp21, label %land.lhs.true, label %lor.lhs.false
 
 land.lhs.true:                                    ; preds = %if.end18
   %cmp23 = icmp ugt i64 %sub, %conv3.i
-  %cmp25 = icmp slt i64 %conv3.i, 0
-  %or.cond = or i1 %cmp23, %cmp25
+  %or.cond = or i1 %cmp23, %cmp25.old
   br i1 %or.cond, label %if.end33, label %if.else28
 
 lor.lhs.false:                                    ; preds = %if.end18
-  %cmp25.old = icmp slt i64 %conv3.i, 0
   br i1 %cmp25.old, label %if.end33, label %if.else28
 
 if.else28:                                        ; preds = %land.lhs.true, %lor.lhs.false

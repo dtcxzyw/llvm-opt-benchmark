@@ -736,6 +736,8 @@ if.end:                                           ; preds = %entry
   %call2 = tail call i32 @ossl_cmp_ctx_set0_newCert(ptr noundef %0, ptr noundef %call1) #4
   %tobool.not = icmp eq i32 %call2, 0
   %2 = load ptr, ptr %cmp_ctx, align 8
+  %srv_ctx.i = getelementptr inbounds i8, ptr %call, i64 16
+  %caPubs.i = getelementptr inbounds i8, ptr %call, i64 32
   br i1 %tobool.not, label %return.sink.split, label %if.then6
 
 if.then6:                                         ; preds = %if.end
@@ -749,10 +751,8 @@ return.sink.split:                                ; preds = %if.end, %if.then6
   %.sink = phi ptr [ %4, %if.then6 ], [ %2, %if.end ]
   %retval.0.ph = phi i32 [ %call1.i, %if.then6 ], [ 0, %if.end ]
   tail call void @OSSL_CMP_CTX_free(ptr noundef %.sink) #4
-  %srv_ctx.i = getelementptr inbounds i8, ptr %call, i64 16
   %5 = load ptr, ptr %srv_ctx.i, align 8
   tail call void @ossl_cmp_mock_srv_free(ptr noundef %5) #4
-  %caPubs.i = getelementptr inbounds i8, ptr %call, i64 32
   %6 = load ptr, ptr %caPubs.i, align 8
   tail call void @OPENSSL_sk_free(ptr noundef %6) #4
   tail call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str.14, i32 noundef 51) #4

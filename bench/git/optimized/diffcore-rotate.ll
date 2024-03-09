@@ -19,10 +19,10 @@ entry:
 
 for.cond.preheader:                               ; preds = %entry
   %cmp28 = icmp sgt i32 %0, 0
+  %rotate_to_strict14.phi.trans.insert = getelementptr inbounds i8, ptr %opt, i64 20
   br i1 %cmp28, label %for.body.lr.ph, label %for.cond.preheader.if.then13_crit_edge
 
 for.cond.preheader.if.then13_crit_edge:           ; preds = %for.cond.preheader
-  %rotate_to_strict14.phi.trans.insert = getelementptr inbounds i8, ptr %opt, i64 20
   %.pre = load i32, ptr %rotate_to_strict14.phi.trans.insert, align 4
   br label %if.then13
 
@@ -30,7 +30,6 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %rotate_to3 = getelementptr inbounds i8, ptr %opt, i64 8
   %1 = load ptr, ptr %rotate_to3, align 8
   %2 = load ptr, ptr @diff_queued_diff, align 8
-  %rotate_to_strict = getelementptr inbounds i8, ptr %opt, i64 20
   %wide.trip.count = zext nneg i32 %0 to i64
   br label %for.body
 
@@ -48,7 +47,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %tobool4.not, label %do.body, label %if.end6
 
 if.end6:                                          ; preds = %for.body
-  %6 = load i32, ptr %rotate_to_strict, align 4
+  %6 = load i32, ptr %rotate_to_strict14.phi.trans.insert, align 4
   %tobool7 = icmp eq i32 %6, 0
   %cmp8 = icmp slt i32 %call, 0
   %or.cond = and i1 %cmp8, %tobool7

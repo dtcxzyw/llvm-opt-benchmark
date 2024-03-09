@@ -155,13 +155,13 @@ land.rhs18:                                       ; preds = %land.end, %for.inc
 for.body:                                         ; preds = %land.rhs18
   %5 = load i32, ptr %arrayidx20, align 8
   %tobool28.not = icmp eq i32 %5, 0
+  %key_bin_len51 = getelementptr inbounds i8, ptr %arrayidx20, i64 16
   br i1 %tobool28.not, label %land.rhs45, label %if.then29
 
 if.then29:                                        ; preds = %for.body
   %call30 = call i32 @ERR_set_mark() #2
   %6 = load ptr, ptr %in_key, align 8
-  %key_bin_len = getelementptr inbounds i8, ptr %arrayidx20, i64 16
-  %7 = load i64, ptr %key_bin_len, align 8
+  %7 = load i64, ptr %key_bin_len51, align 8
   %call38 = call i32 @EVP_PKEY_set1_encoded_public_key(ptr noundef %6, ptr noundef nonnull %4, i64 noundef %7) #2
   %call39 = call i32 @test_int_le(ptr noundef nonnull @.str.2, i32 noundef 296, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.7, i32 noundef %call38, i32 noundef 0) #2
   %call43 = call i32 @ERR_pop_to_mark() #2
@@ -169,7 +169,6 @@ if.then29:                                        ; preds = %for.body
 
 land.rhs45:                                       ; preds = %for.body
   %8 = load ptr, ptr %in_key, align 8
-  %key_bin_len51 = getelementptr inbounds i8, ptr %arrayidx20, i64 16
   %9 = load i64, ptr %key_bin_len51, align 8
   %call52 = call i32 @EVP_PKEY_set1_encoded_public_key(ptr noundef %8, ptr noundef nonnull %4, i64 noundef %9) #2
   %call53 = call i32 @test_int_gt(ptr noundef nonnull @.str.2, i32 noundef 303, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.7, i32 noundef %call52, i32 noundef 0) #2

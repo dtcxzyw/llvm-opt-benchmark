@@ -34,18 +34,17 @@ entry:
   %1 = load i32, ptr %type1, align 4
   %and2 = and i32 %1, 256
   %cmp.not = icmp eq i32 %and, %and2
+  %tobool.not = icmp eq i32 %and, 0
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %tobool.not = icmp eq i32 %and, 0
   %. = select i1 %tobool.not, i32 1, i32 -1
   br label %return
 
 if.end:                                           ; preds = %entry
   %call = tail call i32 @ASN1_STRING_cmp(ptr noundef nonnull %x, ptr noundef nonnull %y) #6
-  %tobool4.not = icmp eq i32 %and, 0
   %sub = sub nsw i32 0, %call
-  %spec.select = select i1 %tobool4.not, i32 %call, i32 %sub
+  %spec.select = select i1 %tobool.not, i32 %call, i32 %sub
   br label %return
 
 return:                                           ; preds = %if.end, %if.then

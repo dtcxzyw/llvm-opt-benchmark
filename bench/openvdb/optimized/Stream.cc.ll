@@ -860,6 +860,7 @@ if.then.i:                                        ; preds = %invoke.cont144
 if.end.i:                                         ; preds = %invoke.cont144
   %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %descriptors, i64 16
   %cmp3.i.not = icmp eq i32 %call139, 0
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %descriptors, i64 8
   br i1 %cmp3.i.not, label %invoke.cont146.thread, label %if.then4.i
 
 invoke.cont146.thread:                            ; preds = %if.end.i
@@ -873,11 +874,9 @@ invoke.cont146.thread:                            ; preds = %if.end.i
   store ptr %52, ptr %_M_right.i.i.i.i.i220, align 8
   %_M_node_count.i.i.i.i.i221 = getelementptr inbounds i8, ptr %namedGrids, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i221, align 8
-  %_M_finish.i135226 = getelementptr inbounds i8, ptr %descriptors, i64 8
   br label %for.end175
 
 if.then4.i:                                       ; preds = %if.end.i
-  %_M_finish.i.i = getelementptr inbounds i8, ptr %descriptors, i64 8
   %call9.i57 = invoke noundef ptr @_ZNSt6vectorIN7openvdb5v11_02io14GridDescriptorESaIS3_EE20_M_allocate_and_copyIPKS3_EEPS3_mT_SA_(ptr noundef nonnull align 8 dereferenceable(24) %descriptors, i64 noundef %conv, ptr noundef null, ptr noundef null)
           to label %call9.i.noexc unwind label %lpad145
 
@@ -1347,7 +1346,7 @@ for.inc173:                                       ; preds = %for.body170
   br i1 %exitcond216.not, label %for.end175, label %for.body170, !llvm.loop !10
 
 for.end175:                                       ; preds = %for.inc173, %invoke.cont146.thread, %for.end
-  %_M_finish.i135229 = phi ptr [ %_M_finish.i135226, %invoke.cont146.thread ], [ %_M_finish.i135, %for.end ], [ %_M_finish.i135, %for.inc173 ]
+  %_M_finish.i135229 = phi ptr [ %_M_finish.i.i, %invoke.cont146.thread ], [ %_M_finish.i135, %for.end ], [ %_M_finish.i135, %for.inc173 ]
   %_M_parent.i.i.i.i.i223228 = phi ptr [ %_M_parent.i.i.i.i.i218, %invoke.cont146.thread ], [ %_M_parent.i.i.i.i.i, %for.end ], [ %_M_parent.i.i.i.i.i, %for.inc173 ]
   %117 = load ptr, ptr %_M_parent.i.i.i.i.i223228, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIN7openvdb5v11_08GridBaseEEESt10_Select1stISD_ESt4lessIS5_ESaISD_EE8_M_eraseEPSt13_Rb_tree_nodeISD_E(ptr noundef nonnull align 8 dereferenceable(48) %namedGrids, ptr noundef %117)

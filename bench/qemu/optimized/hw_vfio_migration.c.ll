@@ -1326,22 +1326,21 @@ if.then:                                          ; preds = %entry
   %4 = load i32, ptr %data_fd.i, align 4
   %call.i10 = call i32 (i32, i64, ...) @ioctl(i32 noundef %4, i64 noundef 15225, ptr noundef nonnull %precopy.i) #16
   %tobool.not.i11 = icmp eq i32 %call.i10, 0
+  %precopy_dirty_size.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 80
   br i1 %tobool.not.i11, label %if.end.i15, label %if.then.vfio_query_precopy_size.exit_crit_edge
 
 if.then.vfio_query_precopy_size.exit_crit_edge:   ; preds = %if.then
   %.pre = load i64, ptr %precopy_init_size.i, align 8
-  %precopy_dirty_size.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 80
   %.pre17 = load i64, ptr %precopy_dirty_size.phi.trans.insert, align 8
   br label %vfio_query_precopy_size.exit
 
 if.end.i15:                                       ; preds = %if.then
-  %precopy_dirty_size.i = getelementptr inbounds i8, ptr %0, i64 80
   %initial_bytes.i = getelementptr inbounds i8, ptr %precopy.i, i64 8
   %5 = load i64, ptr %initial_bytes.i, align 8
   store i64 %5, ptr %precopy_init_size.i, align 8
   %dirty_bytes.i = getelementptr inbounds i8, ptr %precopy.i, i64 16
   %6 = load i64, ptr %dirty_bytes.i, align 8
-  store i64 %6, ptr %precopy_dirty_size.i, align 8
+  store i64 %6, ptr %precopy_dirty_size.phi.trans.insert, align 8
   br label %vfio_query_precopy_size.exit
 
 vfio_query_precopy_size.exit:                     ; preds = %if.then.vfio_query_precopy_size.exit_crit_edge, %if.end.i15

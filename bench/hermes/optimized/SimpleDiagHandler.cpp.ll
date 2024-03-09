@@ -485,12 +485,12 @@ if.end13:                                         ; preds = %if.end
   %Capacity.i = getelementptr inbounds i8, ptr %this, i64 12
   %5 = load i32, ptr %Capacity.i, align 4
   %cmp15 = icmp ult i32 %5, %0
+  %tobool20.not = icmp eq i32 %1, 0
   br i1 %cmp15, label %if.then16, label %if.else19
 
 if.then16:                                        ; preds = %if.end13
   %6 = load ptr, ptr %this, align 8
-  %cmp.not3.i25 = icmp eq i32 %1, 0
-  br i1 %cmp.not3.i25, label %_ZN4llvh23SmallVectorTemplateBaseINS_7SMFixItELb0EE13destroy_rangeEPS1_S3_.exit31, label %while.body.i26.preheader
+  br i1 %tobool20.not, label %_ZN4llvh23SmallVectorTemplateBaseINS_7SMFixItELb0EE13destroy_rangeEPS1_S3_.exit31, label %while.body.i26.preheader
 
 while.body.i26.preheader:                         ; preds = %if.then16
   %add.ptr.i = getelementptr inbounds %"class.llvh::SMFixIt", ptr %6, i64 %conv.i19
@@ -510,7 +510,6 @@ _ZN4llvh23SmallVectorTemplateBaseINS_7SMFixItELb0EE13destroy_rangeEPS1_S3_.exit3
   br label %if.end28
 
 if.else19:                                        ; preds = %if.end13
-  %tobool20.not = icmp eq i32 %1, 0
   br i1 %tobool20.not, label %if.end28, label %for.body.preheader.i.i.i.i.i38
 
 for.body.preheader.i.i.i.i.i38:                   ; preds = %if.else19

@@ -400,10 +400,10 @@ if.else54:                                        ; preds = %if.end38
   %field_decode56 = getelementptr inbounds i8, ptr %6, i64 80
   %7 = load ptr, ptr %field_decode56, align 8
   %tobool57.not = icmp eq ptr %7, null
+  %a = getelementptr inbounds i8, ptr %group, i64 104
   br i1 %tobool57.not, label %if.else69, label %if.then58
 
 if.then58:                                        ; preds = %if.else54
-  %a = getelementptr inbounds i8, ptr %group, i64 104
   %call61 = tail call i32 %7(ptr noundef nonnull %group, ptr noundef %call11, ptr noundef nonnull %a, ptr noundef nonnull %ctx.addr.0) #2
   %tobool62.not = icmp eq i32 %call61, 0
   br i1 %tobool62.not, label %err157, label %lor.lhs.false63
@@ -416,8 +416,7 @@ lor.lhs.false63:                                  ; preds = %if.then58
 if.else69:                                        ; preds = %if.else54
   %field_mul71 = getelementptr inbounds i8, ptr %6, i64 56
   %8 = load ptr, ptr %field_mul71, align 8
-  %a72 = getelementptr inbounds i8, ptr %group, i64 104
-  %call73 = tail call i32 %8(ptr noundef nonnull %group, ptr noundef %call11, ptr noundef nonnull %a72, ptr noundef %x, ptr noundef nonnull %ctx.addr.0) #2
+  %call73 = tail call i32 %8(ptr noundef nonnull %group, ptr noundef %call11, ptr noundef nonnull %a, ptr noundef %x, ptr noundef nonnull %ctx.addr.0) #2
   %tobool74.not = icmp eq i32 %call73, 0
   br i1 %tobool74.not, label %err157, label %if.end77
 

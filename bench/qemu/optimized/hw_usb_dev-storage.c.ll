@@ -974,17 +974,16 @@ if.end22:                                         ; preds = %if.end14
   %data_len26 = getelementptr inbounds i8, ptr %dev, i64 5876
   store i32 %11, ptr %data_len26, align 4
   %cmp28 = icmp eq i32 %11, 0
+  %flags42.phi.trans.insert = getelementptr inbounds i8, ptr %cbw, i64 12
   br i1 %cmp28, label %if.then30, label %if.else
 
 if.then30:                                        ; preds = %if.end22
   store i32 3, ptr %mode, align 8
-  %flags42.phi.trans.insert = getelementptr inbounds i8, ptr %cbw, i64 12
   %.pre = load i8, ptr %flags42.phi.trans.insert, align 4
   br label %if.end39
 
 if.else:                                          ; preds = %if.end22
-  %flags = getelementptr inbounds i8, ptr %cbw, i64 12
-  %12 = load i8, ptr %flags, align 4
+  %12 = load i8, ptr %flags42.phi.trans.insert, align 4
   %tobool33.not = icmp sgt i8 %12, -1
   br i1 %tobool33.not, label %if.else36, label %if.then34
 

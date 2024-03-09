@@ -142,14 +142,14 @@ entry:
   store i64 %new_size, ptr %new_size.addr, align 8
   %0 = load ptr, ptr %ptr, align 8
   %cmp = icmp eq ptr %0, @_ZN5arrow11memory_pool8internal14zero_size_areaE
+  %cmp7 = icmp eq i64 %new_size, 0
   br i1 %cmp, label %while.end6, label %if.end
 
 while.end6:                                       ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %size.addr.i)
   store i64 %new_size, ptr %size.addr.i, align 8, !noalias !11
-  %cmp.i = icmp eq i64 %new_size, 0
-  br i1 %cmp.i, label %if.then.i, label %if.end.i
+  br i1 %cmp7, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %while.end6
   store ptr @_ZN5arrow11memory_pool8internal14zero_size_areaE, ptr %ptr, align 8, !noalias !11
@@ -196,7 +196,6 @@ _ZN5arrow11memory_pool8internal17JemallocAllocator15AllocateAlignedEllPPh.exit: 
   br label %return
 
 if.end:                                           ; preds = %entry
-  %cmp7 = icmp eq i64 %new_size, 0
   %cmp7.i = icmp ult i64 %alignment, 2147483647
   br i1 %cmp7, label %if.else.i, label %if.end9
 

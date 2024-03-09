@@ -2910,10 +2910,10 @@ if.end:                                           ; preds = %entry
   %return_size = getelementptr inbounds i8, ptr %p, i64 32
   store i64 0, ptr %return_size, align 8
   %cmp1 = icmp eq ptr %val, null
+  %data_type.i = getelementptr inbounds i8, ptr %p, i64 8
   br i1 %cmp1, label %if.end.split, label %cond.false.split
 
 if.end.split:                                     ; preds = %if.end
-  %data_type.i = getelementptr inbounds i8, ptr %p, i64 8
   %0 = load i32, ptr %data_type.i, align 8
   %cmp.not.i = icmp eq i32 %0, 6
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
@@ -2937,8 +2937,7 @@ if.then2.i:                                       ; preds = %if.end.i
 cond.false.split:                                 ; preds = %if.end
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %val) #12
   store i64 %call, ptr %return_size, align 8
-  %data_type.i8 = getelementptr inbounds i8, ptr %p, i64 8
-  %2 = load i32, ptr %data_type.i8, align 8
+  %2 = load i32, ptr %data_type.i, align 8
   %cmp.not.i9 = icmp eq i32 %2, 6
   br i1 %cmp.not.i9, label %if.end.i12, label %if.then.i10
 

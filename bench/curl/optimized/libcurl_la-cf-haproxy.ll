@@ -106,10 +106,10 @@ sw.bb:                                            ; preds = %if.end7
   %unix_domain_socket.i = getelementptr inbounds i8, ptr %cf.val24, i64 1120
   %8 = load ptr, ptr %unix_domain_socket.i, align 8
   %tobool.not.i = icmp eq ptr %8, null
+  %data_out.i = getelementptr inbounds i8, ptr %cf.val, i64 8
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %sw.bb
-  %data_out.i = getelementptr inbounds i8, ptr %cf.val, i64 8
   %call.i = tail call i32 @Curl_dyn_addn(ptr noundef nonnull %data_out.i, ptr noundef nonnull @.str.2, i64 noundef 15) #3
   br label %cf_haproxy_date_out_set.exit
 
@@ -124,13 +124,12 @@ if.else.i:                                        ; preds = %sw.bb
   %tobool6.not.i = icmp eq ptr %10, null
   %conn_local_ip.i = getelementptr inbounds i8, ptr %data, i64 5196
   %client_ip.0.i = select i1 %tobool6.not.i, ptr %conn_local_ip.i, ptr %10
-  %data_out12.i = getelementptr inbounds i8, ptr %cf.val, i64 8
   %conn_primary_ip.i = getelementptr inbounds i8, ptr %data, i64 5140
   %conn_local_port.i = getelementptr inbounds i8, ptr %data, i64 5244
   %11 = load i32, ptr %conn_local_port.i, align 4
   %conn_primary_port.i = getelementptr inbounds i8, ptr %data, i64 5188
   %12 = load i32, ptr %conn_primary_port.i, align 4
-  %call17.i = tail call i32 (ptr, ptr, ...) @Curl_dyn_addf(ptr noundef nonnull %data_out12.i, ptr noundef nonnull @.str.5, ptr noundef nonnull %cond.i, ptr noundef nonnull %client_ip.0.i, ptr noundef nonnull %conn_primary_ip.i, i32 noundef %11, i32 noundef %12) #3
+  %call17.i = tail call i32 (ptr, ptr, ...) @Curl_dyn_addf(ptr noundef nonnull %data_out.i, ptr noundef nonnull @.str.5, ptr noundef nonnull %cond.i, ptr noundef nonnull %client_ip.0.i, ptr noundef nonnull %conn_primary_ip.i, i32 noundef %11, i32 noundef %12) #3
   br label %cf_haproxy_date_out_set.exit
 
 cf_haproxy_date_out_set.exit:                     ; preds = %if.then.i, %if.else.i

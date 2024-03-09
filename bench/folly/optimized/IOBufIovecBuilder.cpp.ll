@@ -948,11 +948,11 @@ cleanup.done18:                                   ; preds = %while.body
   %6 = load i64, ptr %used_.i, align 8, !tbaa !40
   %sub.i = sub i64 %5, %6
   %cmp26.not = icmp ult i64 %len.addr.0146, %sub.i
+  %mem_.i = getelementptr inbounds i8, ptr %4, i64 8
   br i1 %cmp26.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %cleanup.done18
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp27) #20
-  %mem_.i = getelementptr inbounds i8, ptr %4, i64 8
   %7 = load ptr, ptr %mem_.i, align 8, !tbaa !36
   %add.ptr.i = getelementptr inbounds i8, ptr %7, i64 %6
   invoke void @_ZN5folly5IOBuf13takeOwnershipEPvmmmPFvS1_S1_ES1_bNS0_19TakeOwnershipOptionE(ptr nonnull sret(%"class.std::unique_ptr") align 8 %ref.tmp27, ptr noundef %add.ptr.i, i64 noundef %sub.i, i64 noundef 0, i64 noundef %sub.i, ptr noundef nonnull @_ZN5folly17IOBufIovecBuilder11RefCountMem7freeMemEPvS2_, ptr noundef nonnull %4, i1 noundef zeroext true, i32 noundef 0)
@@ -1017,8 +1017,7 @@ lpad29:                                           ; preds = %if.then
 if.else:                                          ; preds = %cleanup.done18
   %16 = atomicrmw add ptr %4, i64 1 acq_rel, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp36) #20
-  %mem_.i115 = getelementptr inbounds i8, ptr %4, i64 8
-  %17 = load ptr, ptr %mem_.i115, align 8, !tbaa !36
+  %17 = load ptr, ptr %mem_.i, align 8, !tbaa !36
   %18 = load i64, ptr %used_.i, align 8, !tbaa !40
   %add.ptr.i117 = getelementptr inbounds i8, ptr %17, i64 %18
   invoke void @_ZN5folly5IOBuf13takeOwnershipEPvmmmPFvS1_S1_ES1_bNS0_19TakeOwnershipOptionE(ptr nonnull sret(%"class.std::unique_ptr") align 8 %ref.tmp36, ptr noundef %add.ptr.i117, i64 noundef %len.addr.0146, i64 noundef 0, i64 noundef %len.addr.0146, ptr noundef nonnull @_ZN5folly17IOBufIovecBuilder11RefCountMem7freeMemEPvS2_, ptr noundef nonnull %4, i1 noundef zeroext true, i32 noundef 0)

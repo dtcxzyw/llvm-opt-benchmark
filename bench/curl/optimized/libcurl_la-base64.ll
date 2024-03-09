@@ -289,13 +289,13 @@ if.then35:                                        ; preds = %while.end
   %22 = load i8, ptr %in.0.lcssa, align 1
   %23 = shl i8 %22, 4
   %24 = and i8 %23, 48
+  %incdec.ptr51 = getelementptr inbounds i8, ptr %output.0.lcssa, i64 2
   br i1 %cmp42, label %if.then44, label %if.else
 
 if.then44:                                        ; preds = %if.then35
   %idxprom49 = zext nneg i8 %24 to i64
   %arrayidx50 = getelementptr inbounds i8, ptr %table64, i64 %idxprom49
   %25 = load i8, ptr %arrayidx50, align 1
-  %incdec.ptr51 = getelementptr inbounds i8, ptr %output.0.lcssa, i64 2
   store i8 %25, ptr %incdec.ptr41, align 1
   %26 = load i8, ptr %arrayidx, align 1
   %tobool52.not = icmp eq i8 %26, 0
@@ -317,7 +317,6 @@ if.else:                                          ; preds = %if.then35
   %idxprom66 = zext nneg i8 %or6547 to i64
   %arrayidx67 = getelementptr inbounds i8, ptr %table64, i64 %idxprom66
   %30 = load i8, ptr %arrayidx67, align 1
-  %incdec.ptr68 = getelementptr inbounds i8, ptr %output.0.lcssa, i64 2
   store i8 %30, ptr %incdec.ptr41, align 1
   %31 = load i8, ptr %arrayidx61, align 1
   %32 = shl i8 %31, 2
@@ -326,7 +325,7 @@ if.else:                                          ; preds = %if.then35
   %arrayidx74 = getelementptr inbounds i8, ptr %table64, i64 %idxprom73
   %34 = load i8, ptr %arrayidx74, align 1
   %incdec.ptr75 = getelementptr inbounds i8, ptr %output.0.lcssa, i64 3
-  store i8 %34, ptr %incdec.ptr68, align 1
+  store i8 %34, ptr %incdec.ptr51, align 1
   %35 = load i8, ptr %arrayidx, align 1
   %tobool76.not = icmp eq i8 %35, 0
   br i1 %tobool76.not, label %if.end81, label %if.then77

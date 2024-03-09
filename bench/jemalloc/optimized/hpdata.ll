@@ -1034,10 +1034,10 @@ if.then.i:                                        ; preds = %entry
   %lchild.i487 = getelementptr inbounds i8, ptr %phn, i64 56
   %1 = load ptr, ptr %lchild.i487, align 8
   %cmp2.i = icmp eq ptr %1, null
+  %next.i17 = getelementptr inbounds i8, ptr %phn, i64 48
   br i1 %cmp2.i, label %if.then3.i, label %if.end.i
 
 if.then3.i:                                       ; preds = %if.then.i
-  %next.i17 = getelementptr inbounds i8, ptr %phn, i64 48
   %2 = load ptr, ptr %next.i17, align 8
   store ptr %2, ptr %ph, align 8
   br label %ph_remove.exit
@@ -1045,8 +1045,7 @@ if.then3.i:                                       ; preds = %if.then.i
 if.end.i:                                         ; preds = %if.then.i
   %auxcount.i = getelementptr inbounds i8, ptr %ph, i64 8
   store i64 0, ptr %auxcount.i, align 8
-  %next.i13 = getelementptr inbounds i8, ptr %phn, i64 48
-  %3 = load ptr, ptr %next.i13, align 8
+  %3 = load ptr, ptr %next.i17, align 8
   %cmp1.i6.not = icmp eq ptr %3, null
   br i1 %cmp1.i6.not, label %if.then8.i, label %if.then.i8
 

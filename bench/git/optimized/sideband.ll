@@ -142,11 +142,11 @@ while.body.lr.ph:                                 ; preds = %while.cond.preheade
 
 sw.bb:                                            ; preds = %if.end22
   %tobool24.not = icmp eq i32 %die_on_error, 0
+  %add.ptr = getelementptr inbounds i8, ptr %buf, i64 1
   br i1 %tobool24.not, label %cleanup.thread, label %if.then25
 
 if.then25:                                        ; preds = %sw.bb
   %call26 = tail call fastcc ptr @_()
-  %add.ptr = getelementptr inbounds i8, ptr %buf, i64 1
   tail call void (ptr, ...) @die(ptr noundef %call26, ptr noundef nonnull %add.ptr) #10
   unreachable
 
@@ -156,8 +156,7 @@ cleanup.thread:                                   ; preds = %sw.bb
   %tobool29.not = icmp eq i64 %4, 0
   %cond30 = select i1 %tobool29.not, ptr @.str.4, ptr @.str.3
   tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %scratch, ptr noundef nonnull @.str.9, ptr noundef nonnull %cond30, ptr noundef nonnull @.str.10) #9
-  %add.ptr31 = getelementptr inbounds i8, ptr %buf, i64 1
-  tail call fastcc void @maybe_colorize_sideband(ptr noundef %scratch, ptr noundef nonnull %add.ptr31, i32 noundef %dec)
+  tail call fastcc void @maybe_colorize_sideband(ptr noundef %scratch, ptr noundef nonnull %add.ptr, i32 noundef %dec)
   br label %if.end74.sink.split
 
 while.body:                                       ; preds = %while.body.lr.ph, %strbuf_setlen.exit

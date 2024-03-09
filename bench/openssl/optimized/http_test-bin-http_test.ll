@@ -643,16 +643,15 @@ if.end29:                                         ; preds = %if.end19
   tail call void @BIO_set_callback_ex(ptr noundef nonnull %call1, ptr noundef nonnull @http_bio_cb_ex) #7
   call void @BIO_set_callback_arg(ptr noundef nonnull %call1, ptr noundef nonnull %mock_args) #7
   %tobool31.not = icmp eq i32 %do_get, 0
+  %lnot.ext56 = zext i1 %tobool4.not to i32
   br i1 %tobool31.not, label %cond.false53, label %cond.true
 
 cond.true:                                        ; preds = %if.end29
   %cond = select i1 %tobool4.not, ptr @.str.92, ptr @.str.91
-  %lnot.ext = zext i1 %tobool4.not to i32
-  %call52 = call ptr @OSSL_HTTP_get(ptr noundef nonnull %cond, ptr noundef null, ptr noundef null, ptr noundef nonnull %call1, ptr noundef nonnull %call3, ptr noundef null, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef nonnull %content_type.0, i32 noundef %lnot.ext, i64 noundef 102400, i32 noundef 0) #7
+  %call52 = call ptr @OSSL_HTTP_get(ptr noundef nonnull %cond, ptr noundef null, ptr noundef null, ptr noundef nonnull %call1, ptr noundef nonnull %call3, ptr noundef null, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef nonnull %content_type.0, i32 noundef %lnot.ext56, i64 noundef 102400, i32 noundef 0) #7
   br label %cond.end58
 
 cond.false53:                                     ; preds = %if.end29
-  %lnot.ext56 = zext i1 %tobool4.not to i32
   %call57 = call ptr @OSSL_HTTP_transfer(ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull @.str.91, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef nonnull %call1, ptr noundef nonnull %call3, ptr noundef null, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef nonnull %content_type.0, ptr noundef nonnull %req.1, ptr noundef nonnull %content_type.0, i32 noundef %lnot.ext56, i64 noundef 102400, i32 noundef 0, i32 noundef 0) #7
   br label %cond.end58
 

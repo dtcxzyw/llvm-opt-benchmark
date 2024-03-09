@@ -89,18 +89,17 @@ entry:
   %1 = load i8, ptr %usedMalloc, align 4
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
+  %size4.phi.trans.insert = getelementptr inbounds i8, ptr %add.ptr, i64 -8
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
   tail call void @_Z14b2Free_DefaultPv(ptr noundef %p)
-  %size4.phi.trans.insert = getelementptr inbounds i8, ptr %add.ptr, i64 -8
   %.pre = load i32, ptr %size4.phi.trans.insert, align 8
   %.pre3 = load i32, ptr %m_entryCount, align 8
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %size = getelementptr inbounds i8, ptr %add.ptr, i64 -8
-  %3 = load i32, ptr %size, align 8
+  %3 = load i32, ptr %size4.phi.trans.insert, align 8
   %m_index = getelementptr inbounds i8, ptr %this, i64 102400
   %4 = load i32, ptr %m_index, align 8
   %sub = sub nsw i32 %4, %3

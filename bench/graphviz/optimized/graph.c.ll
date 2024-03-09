@@ -511,10 +511,10 @@ define i32 @agissimple(ptr nocapture noundef readonly %0) local_unnamed_addr #4 
 define i32 @agcountuniqedges(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = tail call ptr @agsubrep(ptr noundef %0, ptr noundef %1) #12
   %.not = icmp eq i32 %3, 0
+  %.not19 = icmp eq i32 %2, 0
   br i1 %.not, label %6, label %.thread
 
 6:                                                ; preds = %4
-  %.not19 = icmp eq i32 %2, 0
   br i1 %.not19, label %.loopexit, label %14
 
 .thread:                                          ; preds = %4
@@ -526,8 +526,7 @@ define i32 @agcountuniqedges(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32
   %12 = tail call i32 @dtsize(ptr noundef %8) #12
   %13 = tail call ptr @dtextract(ptr noundef %8) #12
   store ptr %13, ptr %9, align 8
-  %.not1923 = icmp eq i32 %2, 0
-  br i1 %.not1923, label %.loopexit, label %22
+  br i1 %.not19, label %.loopexit, label %22
 
 14:                                               ; preds = %6
   %15 = getelementptr inbounds i8, ptr %0, i64 80

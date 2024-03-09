@@ -620,12 +620,12 @@ invoke.cont2:                                     ; preds = %call6.i.i.noexc, %i
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp) #10
   %9 = load ptr, ptr %agg.tmp, align 8
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %9) #10, !srcloc !4
+  %fTrailingZeroDisplay.i5 = getelementptr inbounds i8, ptr %agg.result, i64 24
   br i1 %tobool4.not, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %invoke.cont2
   store i32 3, ptr %status, align 4
   store i32 0, ptr %agg.result, align 8
-  %fTrailingZeroDisplay.i5 = getelementptr inbounds i8, ptr %agg.result, i64 24
   store i32 0, ptr %fTrailingZeroDisplay.i5, align 8
   br label %return
 
@@ -650,8 +650,7 @@ if.end6:                                          ; preds = %invoke.cont2
   call void @_ZN6icu_7513StringSegmentC1ERKNS_13UnicodeStringEb(ptr noundef nonnull align 8 dereferenceable(17) %segment, ptr noundef nonnull align 8 dereferenceable(64) %precisionSkeleton, i1 noundef zeroext false)
   call void @_ZN6icu_7513StringSegment12adjustOffsetEi(ptr noundef nonnull align 8 dereferenceable(17) %segment, i32 noundef 20)
   store i32 0, ptr %agg.result, align 8
-  %fTrailingZeroDisplay.i6 = getelementptr inbounds i8, ptr %agg.result, i64 24
-  store i32 0, ptr %fTrailingZeroDisplay.i6, align 8
+  store i32 0, ptr %fTrailingZeroDisplay.i5, align 8
   call void @_ZN6icu_756number4impl20parseIncrementOptionERKNS_13StringSegmentERNS0_9PrecisionER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(17) %segment, ptr noundef nonnull align 8 dereferenceable(28) %agg.result, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %return
 

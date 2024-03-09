@@ -415,15 +415,14 @@ for.body:                                         ; preds = %entry, %for.inc
   %i.012 = phi i32 [ 0, %entry ], [ %inc, %for.inc ]
   %0 = load atomic i8, ptr %once seq_cst, align 1
   %cmp.i = icmp eq i8 %0, 4
+  %cmp15 = icmp ult i32 %i.012, 4
   br i1 %cmp.i, label %_PyOnceFlag_CallOnce.exit.thread, label %_PyOnceFlag_CallOnce.exit
 
 _PyOnceFlag_CallOnce.exit:                        ; preds = %for.body
   %call2.i = call i32 @_PyOnceFlag_CallOnceSlow(ptr noundef nonnull %once, ptr noundef nonnull @init_maybe_fail, ptr noundef nonnull %counter) #5
-  %cmp1 = icmp ult i32 %i.012, 4
-  br i1 %cmp1, label %if.then, label %if.else
+  br i1 %cmp15, label %if.then, label %if.else
 
 _PyOnceFlag_CallOnce.exit.thread:                 ; preds = %for.body
-  %cmp15 = icmp ult i32 %i.012, 4
   br i1 %cmp15, label %cond.false, label %cond.end6
 
 if.then:                                          ; preds = %_PyOnceFlag_CallOnce.exit

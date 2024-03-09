@@ -283,10 +283,10 @@ if.else48.i:                                      ; preds = %if.else.i
   %17 = load ptr, ptr %name.i, align 8
   %call50.i = tail call i32 @name_cmp(ptr noundef %17, ptr noundef nonnull @.str.29) #4
   %tobool51.not.i = icmp eq i32 %call50.i, 0
+  %value53.i = getelementptr inbounds i8, ptr %call2.i, i64 16
   br i1 %tobool51.not.i, label %if.then52.i, label %if.else85.i
 
 if.then52.i:                                      ; preds = %if.else48.i
-  %value53.i = getelementptr inbounds i8, ptr %call2.i, i64 16
   %18 = load ptr, ptr %value53.i, align 8
   %19 = load i8, ptr %18, align 1
   %cmp55.not.i = icmp eq i8 %19, 64
@@ -556,8 +556,7 @@ if.else85.i:                                      ; preds = %if.else48.i
   tail call void @ERR_put_error(i32 noundef 20, i32 noundef 0, i32 noundef 130, ptr noundef nonnull @.str.22, i32 noundef 272) #4
   %47 = load ptr, ptr %call2.i, align 8
   %48 = load ptr, ptr %name.i, align 8
-  %value88.i = getelementptr inbounds i8, ptr %call2.i, i64 16
-  %49 = load ptr, ptr %value88.i, align 8
+  %49 = load ptr, ptr %value53.i, align 8
   tail call void (i32, ...) @ERR_add_error_data(i32 noundef 6, ptr noundef nonnull @.str.23, ptr noundef %47, ptr noundef nonnull @.str.24, ptr noundef %48, ptr noundef nonnull @.str.25, ptr noundef %49) #4
   br label %policy_section.exit.thread
 

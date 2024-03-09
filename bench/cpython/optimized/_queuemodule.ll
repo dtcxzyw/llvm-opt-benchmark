@@ -405,6 +405,7 @@ entry:
   %call.val = load ptr, ptr %0, align 8
   %1 = load ptr, ptr %call.val, align 8
   %cmp = icmp eq ptr %1, %type
+  %cmp4.old = icmp eq ptr %args, null
   br i1 %cmp, label %land.lhs.true, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
@@ -413,12 +414,10 @@ lor.lhs.false:                                    ; preds = %entry
   %tp_init2 = getelementptr inbounds i8, ptr %1, i64 296
   %3 = load ptr, ptr %tp_init2, align 8
   %cmp3 = icmp ne ptr %2, %3
-  %cmp4 = icmp eq ptr %args, null
-  %or.cond = or i1 %cmp4, %cmp3
+  %or.cond = or i1 %cmp4.old, %cmp3
   br i1 %or.cond, label %lor.lhs.false8, label %lor.lhs.false5.thread
 
 land.lhs.true:                                    ; preds = %entry
-  %cmp4.old = icmp eq ptr %args, null
   br i1 %cmp4.old, label %land.lhs.true12, label %lor.lhs.false5
 
 lor.lhs.false5:                                   ; preds = %land.lhs.true

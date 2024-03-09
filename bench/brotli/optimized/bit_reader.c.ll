@@ -120,16 +120,15 @@ if.then:                                          ; preds = %while.body.i14, %wh
   store ptr %add.ptr.i, ptr %last_in.i, align 8
   %13 = add i64 %sub.ptr.sub.i, -28
   %cmp2.i = icmp ult i64 %13, -29
+  %guard_in5.i = getelementptr inbounds i8, ptr %br, i64 24
   br i1 %cmp2.i, label %if.then.i84, label %if.else.i82
 
 if.then.i84:                                      ; preds = %if.then
   %add.ptr4.i = getelementptr i8, ptr %add.ptr.i, i64 -27
-  %guard_in.i = getelementptr inbounds i8, ptr %br, i64 24
-  store ptr %add.ptr4.i, ptr %guard_in.i, align 8
+  store ptr %add.ptr4.i, ptr %guard_in5.i, align 8
   br label %return
 
 if.else.i82:                                      ; preds = %if.then
-  %guard_in5.i = getelementptr inbounds i8, ptr %br, i64 24
   store ptr %2, ptr %guard_in5.i, align 8
   br label %return
 

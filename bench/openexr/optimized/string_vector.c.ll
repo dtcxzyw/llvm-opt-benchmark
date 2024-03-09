@@ -403,10 +403,10 @@ return:                                           ; preds = %entry, %if.end9, %i
 define hidden i32 @exr_attr_string_vector_set_entry(ptr noundef %ctxt, ptr noundef readonly %sv, i32 noundef %idx, ptr noundef %s) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %s, null
+  %tobool.not.i = icmp eq ptr %ctxt, null
   br i1 %tobool.not, label %entry.split, label %if.then.split
 
 entry.split:                                      ; preds = %entry
-  %tobool.not.i = icmp eq ptr %ctxt, null
   br i1 %tobool.not.i, label %if.end, label %if.end.i
 
 if.end.i:                                         ; preds = %entry.split
@@ -443,8 +443,7 @@ if.end9.i:                                        ; preds = %if.end3.i
 if.then.split:                                    ; preds = %entry
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %s) #6
   %conv = trunc i64 %call to i32
-  %tobool.not.i5 = icmp eq ptr %ctxt, null
-  br i1 %tobool.not.i5, label %if.end, label %if.end.i6
+  br i1 %tobool.not.i, label %if.end, label %if.end.i6
 
 if.end.i6:                                        ; preds = %if.then.split
   %tobool1.not.i7 = icmp eq ptr %sv, null

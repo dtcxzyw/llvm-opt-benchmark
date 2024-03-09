@@ -1419,10 +1419,10 @@ entry:
 if.end:                                           ; preds = %entry
   %call2 = tail call i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef %ctx) #8
   %tobool3.not = icmp eq i32 %call2, 0
+  %cmp = icmp eq i64 %0, -1
   br i1 %tobool3.not, label %if.else19, label %if.then4
 
 if.then4:                                         ; preds = %if.end
-  %cmp = icmp eq i64 %0, -1
   br i1 %cmp, label %if.end10.thread, label %if.else
 
 if.end10.thread:                                  ; preds = %if.then4
@@ -1470,8 +1470,7 @@ for.body.preheader:                               ; preds = %fill_known_data.exi
 
 if.else19:                                        ; preds = %if.end
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %out, ptr align 1 %in, i64 %len, i1 false)
-  %cmp20.not = icmp eq i64 %0, -1
-  br i1 %cmp20.not, label %return, label %if.then22
+  br i1 %cmp, label %return, label %if.then22
 
 if.then22:                                        ; preds = %if.else19
   %tls_ver = getelementptr inbounds i8, ptr %call, i64 8

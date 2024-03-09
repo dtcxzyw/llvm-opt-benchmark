@@ -308,17 +308,16 @@ if.end9:                                          ; preds = %if.then6
   %data10 = getelementptr inbounds i8, ptr %a, i64 8
   %3 = load ptr, ptr %data10, align 8
   %cmp11 = icmp eq ptr %3, null
+  %conv = sext i32 %add to i64
   br i1 %cmp11, label %if.then12, label %if.else
 
 if.then12:                                        ; preds = %if.end9
-  %conv = sext i32 %add to i64
   %call = tail call noalias ptr @malloc(i64 noundef %conv) #10
   br label %if.end20
 
 if.else:                                          ; preds = %if.end9
   %conv16 = sext i32 %1 to i64
-  %conv18 = sext i32 %add to i64
-  %call19 = tail call ptr @OPENSSL_realloc_clean(ptr noundef nonnull %3, i64 noundef %conv16, i64 noundef %conv18) #9
+  %call19 = tail call ptr @OPENSSL_realloc_clean(ptr noundef nonnull %3, i64 noundef %conv16, i64 noundef %conv) #9
   br label %if.end20
 
 if.end20:                                         ; preds = %if.else, %if.then12

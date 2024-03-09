@@ -1365,18 +1365,17 @@ malloc_mutex_lock.exit.i:                         ; preds = %if.then.i.i.i, %if.
   %edata_avail.i = getelementptr inbounds i8, ptr %0, i64 3880
   %call.i = tail call ptr @edata_avail_first(ptr noundef nonnull %edata_avail.i) #10
   %cmp.not.i = icmp eq ptr %call.i, null
+  %locked.i10.i = getelementptr inbounds i8, ptr %0, i64 96
   br i1 %cmp.not.i, label %if.then4.i, label %base_alloc_base_edata.exit.thread
 
 base_alloc_base_edata.exit.thread:                ; preds = %malloc_mutex_lock.exit.i
   tail call void @edata_avail_remove(ptr noundef nonnull %edata_avail.i, ptr noundef nonnull %call.i) #10
-  %locked.i10.i = getelementptr inbounds i8, ptr %0, i64 96
   store atomic i8 0, ptr %locked.i10.i monotonic, align 1
   %call1.i.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %lock.i.i.i) #10
   br label %if.end
 
 if.then4.i:                                       ; preds = %malloc_mutex_lock.exit.i
-  %locked.i1012.i = getelementptr inbounds i8, ptr %0, i64 96
-  store atomic i8 0, ptr %locked.i1012.i monotonic, align 1
+  store atomic i8 0, ptr %locked.i10.i monotonic, align 1
   %call1.i13.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %lock.i.i.i) #10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %esn.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %usize.i.i)

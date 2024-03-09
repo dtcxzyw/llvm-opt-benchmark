@@ -2311,12 +2311,12 @@ invoke.cont7:                                     ; preds = %if.end.i.i.i.i, %ca
   %exec_.i.i.i26 = getelementptr inbounds i8, ptr %0, i64 72
   %14 = load ptr, ptr %exec_.i.i.i26, align 8, !tbaa !124
   %tobool.not.i.i.i = icmp eq ptr %14, null
+  %call_6.i.i58 = getelementptr inbounds i8, ptr %0, i64 64
   br i1 %tobool.not.i.i.i, label %_ZN5folly8FunctionIFvPNS_11AsyncBaseOpEEED2Ev.exit.thread, label %_ZN5folly8FunctionIFvPNS_11AsyncBaseOpEEED2Ev.exit
 
 _ZN5folly8FunctionIFvPNS_11AsyncBaseOpEEED2Ev.exit.thread: ; preds = %invoke.cont7
   store ptr %call2.i25, ptr %cb_.i, align 16, !tbaa !140
   store ptr @"_ZN5folly6detail8function11DispatchBig4execIZNS_13SimpleAsyncIO8submitOpENS_8FunctionIFvPNS_11AsyncBaseOpEEEENS5_IFviEEEE3$_0EEmNS1_2OpEPNS1_4DataESF_", ptr %exec_.i.i.i26, align 8, !tbaa !124
-  %call_6.i.i58 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr @"_ZN5folly6detail8function14FunctionTraitsIFvPNS_11AsyncBaseOpEEE7callBigIZNS_13SimpleAsyncIO8submitOpENS_8FunctionIS5_EENS9_IFviEEEE3$_0EEvS4_RNS1_4DataE", ptr %call_6.i.i58, align 16, !tbaa !122
   br label %_ZNSt10unique_ptrIN5folly11AsyncBaseOpESt14default_deleteIS1_EED2Ev.exit.i
 
@@ -2325,8 +2325,7 @@ _ZN5folly8FunctionIFvPNS_11AsyncBaseOpEEED2Ev.exit: ; preds = %invoke.cont7
   %.pre57 = load ptr, ptr %7, align 16, !tbaa !7
   store ptr %call2.i25, ptr %cb_.i, align 16, !tbaa !140
   store ptr @"_ZN5folly6detail8function11DispatchBig4execIZNS_13SimpleAsyncIO8submitOpENS_8FunctionIFvPNS_11AsyncBaseOpEEEENS5_IFviEEEE3$_0EEmNS1_2OpEPNS1_4DataESF_", ptr %exec_.i.i.i26, align 8, !tbaa !124
-  %call_6.i.i = getelementptr inbounds i8, ptr %0, i64 64
-  store ptr @"_ZN5folly6detail8function14FunctionTraitsIFvPNS_11AsyncBaseOpEEE7callBigIZNS_13SimpleAsyncIO8submitOpENS_8FunctionIS5_EENS9_IFviEEEE3$_0EEvS4_RNS1_4DataE", ptr %call_6.i.i, align 16, !tbaa !122
+  store ptr @"_ZN5folly6detail8function14FunctionTraitsIFvPNS_11AsyncBaseOpEEE7callBigIZNS_13SimpleAsyncIO8submitOpENS_8FunctionIS5_EENS9_IFviEEEE3$_0EEvS4_RNS1_4DataE", ptr %call_6.i.i58, align 16, !tbaa !122
   %cmp.not.i.i30 = icmp eq ptr %.pre57, null
   br i1 %cmp.not.i.i30, label %_ZNSt10unique_ptrIN5folly11AsyncBaseOpESt14default_deleteIS1_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN5folly11AsyncBaseOpEEclEPS1_.exit.i.i
 

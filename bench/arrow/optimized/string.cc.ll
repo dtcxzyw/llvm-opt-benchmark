@@ -390,6 +390,7 @@ while.cond:                                       ; preds = %invoke.cont5, %entr
   %0 = phi ptr [ null, %entry ], [ %incdec.ptr.i.i.i27, %invoke.cont5 ]
   %cond.i10.i.i.i25 = phi ptr [ null, %entry ], [ %cond.i10.i.i.i24, %invoke.cont5 ]
   %start.0 = phi i64 [ 0, %entry ], [ %add, %invoke.cont5 ]
+  %cmp.i.old = icmp ult i64 %start.0, %v.coerce0
   br i1 %cmp, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %while.cond
@@ -398,12 +399,10 @@ land.lhs.true:                                    ; preds = %while.cond
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
   %cmp1.not = icmp ugt i64 %sub, %sub.ptr.div.i
-  %cmp.i = icmp ult i64 %start.0, %v.coerce0
-  %or.cond = select i1 %cmp1.not, i1 %cmp.i, i1 false
+  %or.cond = select i1 %cmp1.not, i1 %cmp.i.old, i1 false
   br i1 %or.cond, label %if.then.i, label %if.end
 
 if.else:                                          ; preds = %while.cond
-  %cmp.i.old = icmp ult i64 %start.0, %v.coerce0
   br i1 %cmp.i.old, label %if.then.i, label %if.end
 
 if.then.i:                                        ; preds = %land.lhs.true, %if.else

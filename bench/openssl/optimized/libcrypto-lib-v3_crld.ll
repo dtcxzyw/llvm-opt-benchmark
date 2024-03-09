@@ -1200,11 +1200,11 @@ entry:
   %ntmp = alloca %struct.X509_name_st, align 8
   %0 = load i32, ptr %dpn, align 8
   %cmp = icmp eq i32 %0, 0
+  %name = getelementptr inbounds i8, ptr %dpn, i64 8
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
   %call = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.46, i32 noundef %indent, ptr noundef nonnull @.str.40) #4
-  %name = getelementptr inbounds i8, ptr %dpn, i64 8
   %1 = load ptr, ptr %name, align 8
   %call17.i = tail call i32 @OPENSSL_sk_num(ptr noundef %1) #4
   %cmp8.i = icmp sgt i32 %call17.i, 0
@@ -1233,8 +1233,7 @@ if.end.i:                                         ; preds = %if.then.i, %for.bod
   br i1 %cmp.i, label %for.body.i, label %if.end, !llvm.loop !10
 
 if.else:                                          ; preds = %entry
-  %name2 = getelementptr inbounds i8, ptr %dpn, i64 8
-  %2 = load ptr, ptr %name2, align 8
+  %2 = load ptr, ptr %name, align 8
   store ptr %2, ptr %ntmp, align 8
   %add = add nsw i32 %indent, 2
   %call3 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.47, i32 noundef %indent, ptr noundef nonnull @.str.40, i32 noundef %add, ptr noundef nonnull @.str.40) #4

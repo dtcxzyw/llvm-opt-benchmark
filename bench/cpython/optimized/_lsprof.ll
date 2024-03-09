@@ -156,10 +156,10 @@ if.end.i.i:                                       ; preds = %PyObject_TypeCheck.
   %m_self.i.i = getelementptr inbounds i8, ptr %userObj, i64 24
   %3 = load ptr, ptr %m_self.i.i, align 8
   %cmp.i.i = icmp eq ptr %3, null
+  %m_module.i.i = getelementptr inbounds i8, ptr %userObj, i64 32
   br i1 %cmp.i.i, label %if.then2.i.i, label %if.else31.i.i
 
 if.then2.i.i:                                     ; preds = %if.end.i.i
-  %m_module.i.i = getelementptr inbounds i8, ptr %userObj, i64 32
   %4 = load ptr, ptr %m_module.i.i, align 8
   %cmp3.not.i.i = icmp eq ptr %4, null
   br i1 %cmp3.not.i.i, label %if.end27.i.i, label %if.then4.i.i
@@ -255,8 +255,7 @@ if.else31.i.i:                                    ; preds = %if.end.i.i
   %17 = load ptr, ptr %m_ml33.i.i, align 8
   %18 = load ptr, ptr %17, align 8
   %call35.i.i = tail call ptr @PyUnicode_FromString(ptr noundef %18) #4
-  %m_module37.i.i = getelementptr inbounds i8, ptr %userObj, i64 32
-  %19 = load ptr, ptr %m_module37.i.i, align 8
+  %19 = load ptr, ptr %m_module.i.i, align 8
   %cmp38.not.i.i = icmp eq ptr %call35.i.i, null
   br i1 %cmp38.not.i.i, label %if.end49.i.i, label %if.then39.i.i
 

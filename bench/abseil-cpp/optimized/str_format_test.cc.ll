@@ -56982,6 +56982,7 @@ if.end10:                                         ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp10.i.i)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp11.i.i)
   %cmp.i.i = icmp eq i64 %0, 1
+  %y12.i.i = getelementptr inbounds i8, ptr %arg.coerce, i64 4
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.end10
@@ -57000,8 +57001,7 @@ if.then.i.i:                                      ; preds = %if.end10
   store i64 3, ptr %ref.tmp3.i.i, align 8
   %3 = getelementptr inbounds i8, ptr %ref.tmp3.i.i, i64 8
   store ptr @.str.680, ptr %3, align 8
-  %y.i.i = getelementptr inbounds i8, ptr %arg.coerce, i64 4
-  %4 = load i32, ptr %y.i.i, align 4
+  %4 = load i32, ptr %y12.i.i, align 4
   %digits_.i7.i.i = getelementptr inbounds i8, ptr %ref.tmp4.i.i, i64 16
   %call.i8.i.i = call noundef ptr @_ZN4absl16numbers_internal15FastIntToBufferEiPc(i32 noundef %4, ptr noundef nonnull %digits_.i7.i.i)
   %sub.ptr.lhs.cast.i9.i.i = ptrtoint ptr %call.i8.i.i to i64
@@ -57070,7 +57070,6 @@ if.else.i.i:                                      ; preds = %if.end10
   store i64 1, ptr %ref.tmp10.i.i, align 8
   %15 = getelementptr inbounds i8, ptr %ref.tmp10.i.i, i64 8
   store ptr @.str.681, ptr %15, align 8
-  %y12.i.i = getelementptr inbounds i8, ptr %arg.coerce, i64 4
   %16 = load i32, ptr %y12.i.i, align 4
   %digits_.i21.i.i = getelementptr inbounds i8, ptr %ref.tmp11.i.i, i64 16
   %call.i22.i.i = call noundef ptr @_ZN4absl16numbers_internal15FastIntToBufferEiPc(i32 noundef %16, ptr noundef nonnull %digits_.i21.i.i)

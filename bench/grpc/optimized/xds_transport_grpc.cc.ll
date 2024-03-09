@@ -1163,6 +1163,7 @@ _ZNSt8functionIFvN4absl12lts_202308026StatusEEEC2EOS4_.exit: ; preds = %do.end24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %on_connectivity_failure_.i, i8 0, i64 24, i1 false)
   store ptr %33, ptr %_M_invoker.i.i, align 8
   %tobool.not.i.i.not.i.i = icmp eq ptr %34, null
+  %watcher_34 = getelementptr inbounds i8, ptr %this, i64 32
   br i1 %tobool.not.i.i.not.i.i, label %_ZNSt8functionIFvN4absl12lts_202308026StatusEEED2Ev.exit, label %invoke.cont29
 
 invoke.cont29:                                    ; preds = %_ZNSt8functionIFvN4absl12lts_202308026StatusEEEC2EOS4_.exit
@@ -1172,8 +1173,7 @@ invoke.cont29:                                    ; preds = %_ZNSt8functionIFvN4
   br label %_ZNSt8functionIFvN4absl12lts_202308026StatusEEED2Ev.exit
 
 _ZNSt8functionIFvN4absl12lts_202308026StatusEEED2Ev.exit: ; preds = %_ZNSt8functionIFvN4absl12lts_202308026StatusEEEC2EOS4_.exit, %invoke.cont29
-  %watcher_ = getelementptr inbounds i8, ptr %this, i64 32
-  store ptr %call26, ptr %watcher_, align 8
+  store ptr %call26, ptr %watcher_34, align 8
   store ptr %call26, ptr %agg.tmp30, align 8
   invoke void @_ZN9grpc_core13ClientChannel22AddConnectivityWatcherE23grpc_connectivity_stateSt10unique_ptrINS_38AsyncConnectivityStateWatcherInterfaceENS_16OrphanableDeleteEE(ptr noundef nonnull align 8 dereferenceable(616) %call16, i32 noundef 0, ptr noundef nonnull %agg.tmp30)
           to label %invoke.cont33 unwind label %lpad32

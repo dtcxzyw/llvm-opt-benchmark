@@ -255,11 +255,11 @@ if.end17:                                         ; preds = %if.end12
   %wmask26 = getelementptr inbounds i8, ptr %dev, i64 184
   %3 = load ptr, ptr %wmask26, align 8
   %add.ptr28 = getelementptr i8, ptr %3, i64 %idx.ext
+  %cmask = getelementptr inbounds i8, ptr %dev, i64 176
   br i1 %or.cond.not, label %if.then25, label %if.else31
 
 if.then25:                                        ; preds = %if.end17
   store i64 %not, ptr %add.ptr28, align 1
-  %cmask = getelementptr inbounds i8, ptr %dev, i64 176
   %4 = load ptr, ptr %cmask, align 16
   %add.ptr30 = getelementptr i8, ptr %4, i64 %idx.ext
   store i64 -1, ptr %add.ptr30, align 1
@@ -268,8 +268,7 @@ if.then25:                                        ; preds = %if.end17
 if.else31:                                        ; preds = %if.end17
   %conv36 = trunc i64 %not to i32
   store i32 %conv36, ptr %add.ptr28, align 1
-  %cmask37 = getelementptr inbounds i8, ptr %dev, i64 176
-  %5 = load ptr, ptr %cmask37, align 16
+  %5 = load ptr, ptr %cmask, align 16
   %add.ptr39 = getelementptr i8, ptr %5, i64 %idx.ext
   store i32 -1, ptr %add.ptr39, align 1
   br label %if.end40

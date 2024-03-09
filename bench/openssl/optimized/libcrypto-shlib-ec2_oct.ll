@@ -199,10 +199,10 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry, %entry, %entry
   %call = tail call i32 @EC_POINT_is_at_infinity(ptr noundef %group, ptr noundef %point) #3
   %tobool.not = icmp eq i32 %call, 0
+  %cmp5.not = icmp eq ptr %buf, null
   br i1 %tobool.not, label %if.end11, label %if.then4
 
 if.then4:                                         ; preds = %if.end
-  %cmp5.not = icmp eq ptr %buf, null
   br i1 %cmp5.not, label %return, label %if.then6
 
 if.then6:                                         ; preds = %if.then4
@@ -229,8 +229,7 @@ if.end11:                                         ; preds = %if.end
   %mul = shl nsw i64 %conv, 1
   %add16 = or disjoint i64 %mul, 1
   %cond = select i1 %cmp13, i64 %add15, i64 %add16
-  %cmp17.not = icmp eq ptr %buf, null
-  br i1 %cmp17.not, label %if.end116, label %if.then19
+  br i1 %cmp5.not, label %if.end116, label %if.then19
 
 if.then19:                                        ; preds = %if.end11
   %cmp20 = icmp ugt i64 %cond, %len

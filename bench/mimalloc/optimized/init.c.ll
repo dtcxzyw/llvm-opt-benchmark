@@ -365,16 +365,15 @@ if.then3:                                         ; preds = %mi_heap_main_init.e
   %call4 = tail call i64 @mi_option_get_clamp(i32 noundef 7, i64 noundef 0, i64 noundef 131072) #13
   %call5 = tail call i64 @mi_option_get(i32 noundef 8) #13
   %cmp.not = icmp eq i64 %call5, -1
+  %mul8 = mul i64 %call4, 500
   br i1 %cmp.not, label %if.else, label %if.then6
 
 if.then6:                                         ; preds = %if.then3
   %conv = trunc i64 %call5 to i32
-  %mul = mul i64 %call4, 500
-  %call7 = tail call i32 @mi_reserve_huge_os_pages_at(i64 noundef %call4, i32 noundef %conv, i64 noundef %mul) #13
+  %call7 = tail call i32 @mi_reserve_huge_os_pages_at(i64 noundef %call4, i32 noundef %conv, i64 noundef %mul8) #13
   br label %if.end11
 
 if.else:                                          ; preds = %if.then3
-  %mul8 = mul i64 %call4, 500
   %call9 = tail call i32 @mi_reserve_huge_os_pages_interleave(i64 noundef %call4, i64 noundef 0, i64 noundef %mul8) #13
   br label %if.end11
 

@@ -3752,13 +3752,13 @@ entry:
   %3 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !30
   %cmp.i.i = icmp eq ptr %2, %3
   %subErrors_ = getelementptr inbounds i8, ptr %0, i64 80
+  %_M_finish.i.i50 = getelementptr inbounds i8, ptr %0, i64 88
   br i1 %cmp.i.i, label %while.cond, label %if.else
 
 while.cond:                                       ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %_result) #24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp) #24
-  %_M_finish.i = getelementptr inbounds i8, ptr %0, i64 88
-  %4 = load ptr, ptr %_M_finish.i, align 8, !tbaa !54
+  %4 = load ptr, ptr %_M_finish.i.i50, align 8, !tbaa !54
   %5 = load ptr, ptr %subErrors_, align 8, !tbaa !55
   %sub.ptr.lhs.cast.i = ptrtoint ptr %4 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %5 to i64
@@ -3822,7 +3822,6 @@ if.else:                                          ; preds = %entry
   %incdec.ptr.i49 = getelementptr inbounds i8, ptr %3, i64 -8
   store ptr %incdec.ptr.i49, ptr %_M_finish.i.i, align 8, !tbaa !46
   %8 = load ptr, ptr %subErrors_, align 8, !tbaa !30
-  %_M_finish.i.i50 = getelementptr inbounds i8, ptr %0, i64 88
   %9 = load ptr, ptr %_M_finish.i.i50, align 8, !tbaa !30
   %cmp.i.i51 = icmp eq ptr %8, %9
   br i1 %cmp.i.i51, label %cond.false, label %if.end, !prof !44

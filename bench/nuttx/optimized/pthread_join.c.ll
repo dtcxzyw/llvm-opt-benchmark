@@ -43,10 +43,10 @@ define i32 @pthread_join(i32 noundef %0, ptr noundef writeonly %1) local_unnamed
   %26 = load i8, ptr %25, align 2
   %27 = and i8 %26, 1
   %.not20 = icmp eq i8 %27, 0
+  %.not22 = icmp eq ptr %1, null
   br i1 %.not20, label %32, label %28
 
 28:                                               ; preds = %19
-  %.not22 = icmp eq ptr %1, null
   br i1 %.not22, label %44, label %29
 
 29:                                               ; preds = %28
@@ -60,9 +60,8 @@ define i32 @pthread_join(i32 noundef %0, ptr noundef writeonly %1) local_unnamed
   %34 = load ptr, ptr %3, align 8
   %35 = getelementptr inbounds i8, ptr %34, i64 16
   %36 = call i32 @nxsem_wait_uninterruptible(ptr noundef nonnull %35) #2
-  %.not21 = icmp eq ptr %1, null
   %.pre = load ptr, ptr %3, align 8
-  br i1 %.not21, label %40, label %37
+  br i1 %.not22, label %40, label %37
 
 37:                                               ; preds = %32
   %38 = getelementptr inbounds i8, ptr %.pre, i64 80

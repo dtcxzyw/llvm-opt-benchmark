@@ -7026,10 +7026,10 @@ if.end.i26:                                       ; preds = %lor.lhs.false
   %db.i = getelementptr inbounds i8, ptr %self, i64 16
   %5 = load ptr, ptr %db.i, align 8
   %tobool2.not.i = icmp eq ptr %5, null
+  %state4.i = getelementptr inbounds i8, ptr %self, i64 24
   br i1 %tobool2.not.i, label %if.then3.i, label %if.end
 
 if.then3.i:                                       ; preds = %if.end.i26
-  %state4.i = getelementptr inbounds i8, ptr %self, i64 24
   %6 = load ptr, ptr %state4.i, align 8
   br label %pysqlite_check_connection.exit.thread
 
@@ -7048,8 +7048,7 @@ if.end:                                           ; preds = %if.end.i26
   %lnot.ext = zext i1 %tobool4.not to i32
   %call5 = call i32 @sqlite3_blob_open(ptr noundef %8, ptr noundef %name, ptr noundef %table, ptr noundef %col, i64 noundef %row, i32 noundef %lnot.ext, ptr noundef nonnull %blob) #6
   call void @PyEval_RestoreThread(ptr noundef %call3) #6
-  %state11 = getelementptr inbounds i8, ptr %self, i64 24
-  %9 = load ptr, ptr %state11, align 8
+  %9 = load ptr, ptr %state4.i, align 8
   switch i32 %call5, label %if.then10 [
     i32 21, label %if.then6
     i32 0, label %if.end15

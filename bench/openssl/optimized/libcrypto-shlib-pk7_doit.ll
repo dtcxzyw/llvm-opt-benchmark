@@ -761,17 +761,16 @@ PKCS7_get_octet_string.exit:                      ; preds = %if.end.i, %land.lhs
   %10 = load ptr, ptr %type, align 8
   %call10 = tail call i32 @OBJ_obj2nid(ptr noundef %10) #4
   %cmp11 = icmp eq i32 %call10, 22
+  %cmp14.old = icmp eq ptr %retval.0.i, null
   br i1 %cmp11, label %land.lhs.true, label %land.lhs.true13
 
 land.lhs.true:                                    ; preds = %PKCS7_get_octet_string.exit
   %call12 = tail call i64 @PKCS7_ctrl(ptr noundef nonnull %p7, i32 noundef 2, i64 noundef 0, ptr noundef null) #4
   %tobool = icmp eq i64 %call12, 0
-  %cmp14 = icmp eq ptr %retval.0.i, null
-  %or.cond = select i1 %tobool, i1 %cmp14, i1 false
+  %or.cond = select i1 %tobool, i1 %cmp14.old, i1 false
   br i1 %or.cond, label %if.then15, label %if.end16
 
 land.lhs.true13:                                  ; preds = %PKCS7_get_octet_string.exit
-  %cmp14.old = icmp eq ptr %retval.0.i, null
   br i1 %cmp14.old, label %if.then15, label %if.end16
 
 if.then15:                                        ; preds = %land.lhs.true, %land.lhs.true13

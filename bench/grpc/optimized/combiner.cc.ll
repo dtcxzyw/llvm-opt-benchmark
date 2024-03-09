@@ -1103,11 +1103,11 @@ if.end11:                                         ; preds = %if.then10, %if.end7
   store i64 %12, ptr %agg.tmp13, align 8
   %and.i.i.i13 = and i64 %12, 1
   %cmp.i.i.i14 = icmp eq i64 %and.i.i.i13, 0
+  %cmp.i18 = icmp eq ptr %closure, null
   br i1 %cmp.i.i.i14, label %_ZN4absl12lts_202308026StatusC2ERKS1_.exit17, label %_ZN4absl12lts_202308026StatusC2ERKS1_.exit17.thread
 
 _ZN4absl12lts_202308026StatusC2ERKS1_.exit17:     ; preds = %if.end11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
-  %cmp.i18 = icmp eq ptr %closure, null
   br i1 %cmp.i18, label %invoke.cont15, label %if.end.i
 
 _ZN4absl12lts_202308026StatusC2ERKS1_.exit17.thread: ; preds = %if.end11
@@ -1115,8 +1115,7 @@ _ZN4absl12lts_202308026StatusC2ERKS1_.exit17.thread: ; preds = %if.end11
   %13 = inttoptr i64 %sub.i.i.i16 to ptr
   %14 = atomicrmw add ptr %13, i32 1 monotonic, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
-  %cmp.i1826 = icmp eq ptr %closure, null
-  br i1 %cmp.i1826, label %invoke.cont15.thread, label %if.then.i.i.i
+  br i1 %cmp.i18, label %invoke.cont15.thread, label %if.then.i.i.i
 
 invoke.cont15.thread:                             ; preds = %_ZN4absl12lts_202308026StatusC2ERKS1_.exit17.thread
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i)

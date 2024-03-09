@@ -23,16 +23,15 @@ define void @ompi_cart_rank_f(ptr nocapture noundef readonly %0, ptr noundef %1,
   %7 = tail call ptr @PMPI_Comm_f2c(i32 noundef %6) #2
   %8 = call i32 @PMPI_Cartdim_get(ptr noundef %7, ptr noundef nonnull %5) #2
   %.not = icmp eq i32 %8, 0
+  %.not13 = icmp eq ptr %3, null
   br i1 %.not, label %10, label %9
 
 9:                                                ; preds = %4
-  %.not13 = icmp eq ptr %3, null
   br i1 %.not13, label %12, label %.sink.split
 
 10:                                               ; preds = %4
   %11 = call i32 @PMPI_Cart_rank(ptr noundef %7, ptr noundef %1, ptr noundef %2) #2
-  %.not12 = icmp eq ptr %3, null
-  br i1 %.not12, label %12, label %.sink.split
+  br i1 %.not13, label %12, label %.sink.split
 
 .sink.split:                                      ; preds = %10, %9
   %.sink = phi i32 [ %8, %9 ], [ %11, %10 ]

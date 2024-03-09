@@ -108,13 +108,13 @@ land.end.i:                                       ; preds = %invoke.cont3.i, %in
   %6 = load ptr, ptr %certs, align 8, !noalias !5
   %7 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !5
   %cmp.i10.not106.i = icmp eq ptr %6, %7
+  %8 = getelementptr inbounds i8, ptr %entries, i64 8
   br i1 %cmp.i10.not106.i, label %if.end.thread, label %for.body.lr.ph.i
 
 if.end.thread:                                    ; preds = %land.end.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %client_cached_cert_hashes.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %entry9.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i)
-  %8 = getelementptr inbounds i8, ptr %entries, i64 8
   br label %if.end73.thread
 
 for.body.lr.ph.i:                                 ; preds = %land.end.i
@@ -122,7 +122,6 @@ for.body.lr.ph.i:                                 ; preds = %land.end.i
   %set_hash.i = getelementptr inbounds i8, ptr %entry9.i, i64 16
   %index.i = getelementptr inbounds i8, ptr %entry9.i, i64 24
   %9 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
-  %_M_finish.i18.i = getelementptr inbounds i8, ptr %entries, i64 8
   %hash25.i = getelementptr inbounds i8, ptr %entry9.i, i64 8
   br label %for.body.i
 
@@ -406,7 +405,7 @@ for.inc43.i:                                      ; preds = %_ZNSt6vectorIN3net1
 
 if.end:                                           ; preds = %for.inc43.i
   store ptr %add.ptr19.i.i.i148, ptr %3, align 8, !alias.scope !5
-  store ptr %17, ptr %_M_finish.i18.i, align 8, !alias.scope !5
+  store ptr %17, ptr %8, align 8, !alias.scope !5
   store ptr %cond.i12.i.i.i156, ptr %entries, align 8, !alias.scope !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %client_cached_cert_hashes.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %entry9.i)

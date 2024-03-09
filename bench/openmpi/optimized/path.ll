@@ -167,16 +167,15 @@ opal_path_access.exit:                            ; preds = %17, %32, %.sink.spl
 
 list_env_get.exit:                                ; preds = %56, %.loopexit.i
   %.0.i40 = phi ptr [ %58, %56 ], [ %62, %.loopexit.i ]
+  %.not38 = icmp eq ptr %.0.i40, null
   br i1 %.not, label %63, label %.thread
 
 63:                                               ; preds = %list_env_get.exit
-  %.not38 = icmp eq ptr %.0.i40, null
   br i1 %.not38, label %102, label %64
 
 .thread:                                          ; preds = %list_env_get.exit
   store i8 47, ptr %41, align 1
-  %.not3870 = icmp eq ptr %.0.i40, null
-  br i1 %.not3870, label %102, label %81
+  br i1 %.not38, label %102, label %81
 
 64:                                               ; preds = %63
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %6)

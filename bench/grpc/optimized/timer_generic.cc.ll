@@ -140,11 +140,11 @@ if.end:                                           ; preds = %_ZN9grpc_core9Times
   %10 = load i8, ptr getelementptr inbounds (%struct.shared_mutables, ptr @_ZL17g_shared_mutables, i64 0, i32 2), align 16
   %11 = and i8 %10, 1
   %tobool.not = icmp eq i8 %11, 0
+  %pending18 = getelementptr inbounds i8, ptr %timer, i64 12
   br i1 %tobool.not, label %if.then9, label %if.end17
 
 if.then9:                                         ; preds = %if.end
-  %pending = getelementptr inbounds i8, ptr %timer, i64 12
-  store i8 0, ptr %pending, align 4
+  store i8 0, ptr %pending18, align 4
   %12 = load ptr, ptr %closure1, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp14, i8 0, i64 24, i1 false)
   invoke void @_ZN9grpc_core12StatusCreateEN4absl12lts_2023080210StatusCodeESt17basic_string_viewIcSt11char_traitsIcEERKNS_13DebugLocationESt6vectorINS1_6StatusESaISB_EE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %agg.tmp, i32 noundef 2, i64 45, ptr nonnull @.str.7, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp13, ptr noundef nonnull %agg.tmp14)
@@ -232,7 +232,6 @@ ehcleanup:                                        ; preds = %lpad15, %lpad
 
 if.end17:                                         ; preds = %if.end
   tail call void @gpr_mu_lock(ptr noundef %arrayidx)
-  %pending18 = getelementptr inbounds i8, ptr %timer, i64 12
   store i8 1, ptr %pending18, align 4
   br i1 icmp ne (ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, ptr null), label %24, label %_ZN9grpc_core9Timestamp3NowEv.exit34
 

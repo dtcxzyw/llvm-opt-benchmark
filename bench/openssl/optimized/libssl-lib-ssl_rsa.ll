@@ -964,17 +964,16 @@ entry:
   %ca = alloca ptr, align 8
   store ptr null, ptr %x, align 8
   %cmp = icmp eq ptr %ssl, null
+  %cmp2 = icmp eq ptr %ctx, null
   br i1 %cmp, label %cond.end, label %cond.end.thread
 
 cond.end.thread:                                  ; preds = %entry
   %ctx1 = getelementptr inbounds i8, ptr %ssl, i64 8
   %0 = load ptr, ptr %ctx1, align 8
-  %cmp239 = icmp eq ptr %ctx, null
   tail call void @ERR_clear_error() #6
-  br i1 %cmp239, label %cond.false8, label %if.then5
+  br i1 %cmp2, label %cond.false8, label %if.then5
 
 cond.end:                                         ; preds = %entry
-  %cmp2 = icmp eq ptr %ctx, null
   br i1 %cmp2, label %return, label %if.end
 
 if.end:                                           ; preds = %cond.end

@@ -636,6 +636,7 @@ if.end:                                           ; preds = %entry
   %2 = load ptr, ptr %fLeftChild, align 8
   %3 = load i32, ptr %2, align 8
   %cmp2 = icmp eq i32 %3, 0
+  %fCachedSetLookup5 = getelementptr inbounds i8, ptr %this, i64 96
   br i1 %cmp2, label %if.then3, label %if.else
 
 if.then3:                                         ; preds = %if.end
@@ -643,14 +644,12 @@ if.then3:                                         ; preds = %if.end
   %4 = load ptr, ptr %fLeftChild4, align 8
   %fInputSet = getelementptr inbounds i8, ptr %4, i64 32
   %5 = load ptr, ptr %fInputSet, align 8
-  %fCachedSetLookup = getelementptr inbounds i8, ptr %this, i64 96
-  store ptr %5, ptr %fCachedSetLookup, align 8
+  store ptr %5, ptr %fCachedSetLookup5, align 8
   %ffffString = getelementptr inbounds i8, ptr %this, i64 32
   br label %return
 
 if.else:                                          ; preds = %if.end
   %fText = getelementptr inbounds i8, ptr %2, i64 48
-  %fCachedSetLookup5 = getelementptr inbounds i8, ptr %this, i64 96
   store ptr null, ptr %fCachedSetLookup5, align 8
   br label %return
 

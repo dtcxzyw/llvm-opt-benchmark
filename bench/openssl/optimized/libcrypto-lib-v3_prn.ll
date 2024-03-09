@@ -193,10 +193,10 @@ if.end:                                           ; preds = %entry
   %it = getelementptr inbounds i8, ptr %call3, i64 8
   %1 = load ptr, ptr %it, align 8
   %tobool.not = icmp eq ptr %1, null
+  %conv = sext i32 %call2 to i64
   br i1 %tobool.not, label %if.else, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  %conv = sext i32 %call2 to i64
   %call7 = tail call ptr %1() #2
   %call8 = call ptr @ASN1_item_d2i(ptr noundef null, ptr noundef nonnull %p, i64 noundef %conv, ptr noundef %call7) #2
   br label %if.end11
@@ -204,8 +204,7 @@ if.then5:                                         ; preds = %if.end
 if.else:                                          ; preds = %if.end
   %d2i = getelementptr inbounds i8, ptr %call3, i64 32
   %2 = load ptr, ptr %d2i, align 8
-  %conv9 = sext i32 %call2 to i64
-  %call10 = call ptr %2(ptr noundef null, ptr noundef nonnull %p, i64 noundef %conv9) #2
+  %call10 = call ptr %2(ptr noundef null, ptr noundef nonnull %p, i64 noundef %conv) #2
   br label %if.end11
 
 if.end11:                                         ; preds = %if.else, %if.then5

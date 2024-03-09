@@ -2363,16 +2363,15 @@ do.end77:                                         ; preds = %_ZN2v810MaybeLocalI
 
 do.end89:                                         ; preds = %do.end77
   %cmp97 = icmp eq ptr %async_context, null
+  %conv117 = trunc i64 %argc to i32
   br i1 %cmp97, label %if.then98, label %if.else
 
 if.then98:                                        ; preds = %do.end89
   %7 = load ptr, ptr %isolate.i, align 8
-  %conv = trunc i64 %argc to i32
-  %call109 = call ptr @_ZN4node12MakeCallbackEPN2v87IsolateENS0_5LocalINS0_6ObjectEEENS3_INS0_8FunctionEEEiPNS3_INS0_5ValueEEENS_13async_contextE(ptr noundef %7, ptr nonnull %call51, ptr nonnull %func, i32 noundef %conv, ptr noundef %argv, double 0.000000e+00, double 0.000000e+00) #21
+  %call109 = call ptr @_ZN4node12MakeCallbackEPN2v87IsolateENS0_5LocalINS0_6ObjectEEENS3_INS0_8FunctionEEEiPNS3_INS0_5ValueEEENS_13async_contextE(ptr noundef %7, ptr nonnull %call51, ptr nonnull %func, i32 noundef %conv117, ptr noundef %argv, double 0.000000e+00, double 0.000000e+00) #21
   br label %if.end129
 
 if.else:                                          ; preds = %do.end89
-  %conv117 = trunc i64 %argc to i32
   %call124 = call fastcc ptr @_ZN6v8impl12_GLOBAL__N_112AsyncContext12MakeCallbackEN2v85LocalINS2_6ObjectEEENS3_INS2_8FunctionEEEiPNS3_INS2_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(33) %async_context, ptr nonnull %call51, ptr nonnull %func, i32 noundef %conv117, ptr noundef %argv)
   br label %if.end129
 

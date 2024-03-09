@@ -761,12 +761,12 @@ if.else:                                          ; preds = %for.body
 
 if.end:                                           ; preds = %for.body
   %cmp7 = icmp ugt i32 %5, %off_high.041
+  %len15 = getelementptr i8, ptr %.pn38, i64 44
   br i1 %cmp7, label %if.then8, label %if.else14
 
 if.then8:                                         ; preds = %if.end
   tail call fastcc void @portio_list_add_1(ptr noundef nonnull %piolist, ptr noundef %pio_start.039, i32 noundef %count.043, i32 noundef %start, i32 noundef %off_low.040, i32 noundef %off_high.041)
-  %len9 = getelementptr i8, ptr %.pn38, i64 44
-  %6 = load i32, ptr %len9, align 4
+  %6 = load i32, ptr %len15, align 4
   %7 = load i32, ptr %size345, align 8
   %add10 = add i32 %5, -1
   %add12 = add i32 %add10, %6
@@ -774,7 +774,6 @@ if.then8:                                         ; preds = %if.end
   br label %for.inc
 
 if.else14:                                        ; preds = %if.end
-  %len15 = getelementptr i8, ptr %.pn38, i64 44
   %8 = load i32, ptr %len15, align 4
   %add16 = add i32 %8, %5
   %cmp17 = icmp ugt i32 %add16, %off_high.041

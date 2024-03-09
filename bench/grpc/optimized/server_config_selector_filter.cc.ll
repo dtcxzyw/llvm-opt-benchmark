@@ -720,10 +720,10 @@ do.end.i.i:                                       ; preds = %.noexc.i
           to label %if.then.i.i.i.i.i.i unwind label %lpad3.i.i, !noalias !7
 
 if.then.i.i.i.i.i.i:                              ; preds = %do.end.i.i
-  %8 = load i8, ptr @__libc_single_threaded, align 1, !noalias !18
-  %tobool.i.not.i.i.i.i.i.i.i = icmp eq i8 %8, 0
   %state_.i1.i.i.i = getelementptr inbounds i8, ptr %call.i12.i.i, i64 8
   %_M_refcount.i.i.i2.i.i.i = getelementptr inbounds i8, ptr %call.i12.i.i, i64 16
+  %8 = load i8, ptr @__libc_single_threaded, align 1, !noalias !18
+  %tobool.i.not.i.i.i.i.i.i.i = icmp eq i8 %8, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %if.then.i.i.i.i.thread.i.i.i
 
 if.then.i.i.i.i.thread.i.i.i:                     ; preds = %if.then.i.i.i.i.i.i

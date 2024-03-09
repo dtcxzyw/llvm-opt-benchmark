@@ -26,17 +26,16 @@ if.end:                                           ; preds = %entry
   %call1 = tail call ptr @EVP_MAC_fetch(ptr noundef %libctx, ptr noundef nonnull @.str.1, ptr noundef %propq) #3
   store ptr %call1, ptr %call, align 8
   %cmp2 = icmp eq ptr %call1, null
+  %mac_ctx.i.phi.trans.insert = getelementptr inbounds i8, ptr %call, i64 8
   br i1 %cmp2, label %if.end.ossl_quic_srt_gen_free.exit_crit_edge, label %if.end4
 
 if.end.ossl_quic_srt_gen_free.exit_crit_edge:     ; preds = %if.end
-  %mac_ctx.i.phi.trans.insert = getelementptr inbounds i8, ptr %call, i64 8
   %.pre = load ptr, ptr %mac_ctx.i.phi.trans.insert, align 8
   br label %ossl_quic_srt_gen_free.exit
 
 if.end4:                                          ; preds = %if.end
   %call6 = tail call ptr @EVP_MAC_CTX_new(ptr noundef nonnull %call1) #3
-  %mac_ctx = getelementptr inbounds i8, ptr %call, i64 8
-  store ptr %call6, ptr %mac_ctx, align 8
+  store ptr %call6, ptr %mac_ctx.i.phi.trans.insert, align 8
   %cmp7 = icmp eq ptr %call6, null
   br i1 %cmp7, label %ossl_quic_srt_gen_free.exit, label %if.end9
 

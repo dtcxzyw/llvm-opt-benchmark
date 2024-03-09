@@ -245,6 +245,7 @@ if.end305.i:                                      ; preds = %if.then301.i, %if.t
 while.end307.i:                                   ; preds = %while.cond221.i
   %sub309.i = add i16 %14, -32
   %cmp312.i = icmp ult i16 %sub309.i, 108
+  %arrayidx320.i = getelementptr inbounds i32, ptr %call.i, i64 %idxprom.i
   br i1 %cmp312.i, label %if.then313.i, label %if.end321.i
 
 if.then313.i:                                     ; preds = %while.end307.i
@@ -255,7 +256,6 @@ if.then313.i:                                     ; preds = %while.end307.i
 
 if.end321.i:                                      ; preds = %if.then313.i, %while.end307.i
   %.sink.i = phi i32 [ %17, %if.then313.i ], [ 0, %while.end307.i ]
-  %arrayidx320.i = getelementptr inbounds i32, ptr %call.i, i64 %idxprom.i
   store i32 %.sink.i, ptr %arrayidx320.i, align 4
   br label %for.cond133.i, !llvm.loop !11
 

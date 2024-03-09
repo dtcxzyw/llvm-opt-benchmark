@@ -520,6 +520,7 @@ if.end91:                                         ; preds = %if.end83, %invoke.c
 
 invoke.cont95:                                    ; preds = %if.end91
   %isempty97 = icmp eq i32 %76, 0
+  %configMaxAngle218 = getelementptr inbounds i8, ptr %this, i64 24
   br i1 %isempty97, label %arrayctor.cont104.thread, label %new.ctorloop98
 
 new.ctorloop98:                                   ; preds = %invoke.cont95
@@ -528,13 +529,11 @@ new.ctorloop98:                                   ; preds = %invoke.cont95
   %80 = sub nuw nsw i64 %78, %79
   %81 = add nsw i64 %80, 12
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %call96, i8 0, i64 %81, i1 false)
-  %configMaxAngle = getelementptr inbounds i8, ptr %this, i64 24
-  %82 = load float, ptr %configMaxAngle, align 8
+  %82 = load float, ptr %configMaxAngle218, align 8
   %cmp105 = fcmp ult float %82, 0x40086F4280000000
   br i1 %cmp105, label %if.else, label %if.then.i.i
 
 arrayctor.cont104.thread:                         ; preds = %invoke.cont95
-  %configMaxAngle218 = getelementptr inbounds i8, ptr %this, i64 24
   %83 = load float, ptr %configMaxAngle218, align 8
   %cmp105219 = fcmp ult float %83, 0x40086F4280000000
   br i1 %cmp105219, label %if.else, label %if.end224

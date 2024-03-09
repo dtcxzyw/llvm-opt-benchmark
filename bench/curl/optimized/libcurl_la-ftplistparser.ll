@@ -1545,17 +1545,16 @@ if.then1034:                                      ; preds = %sw.bb1028
   %add.ptr1042 = getelementptr inbounds i8, ptr %.us-phi478, i64 %192
   %call1043 = call i32 @strcmp(ptr noundef nonnull dereferenceable(6) @.str.4, ptr noundef nonnull dereferenceable(1) %add.ptr1042) #8
   %cmp1044 = icmp eq i32 %call1043, 0
+  %size1053 = getelementptr inbounds i8, ptr %.us-phi479, i64 40
   br i1 %cmp1044, label %if.then1046, label %if.else1049
 
 if.then1046:                                      ; preds = %if.then1034
   %filetype1047 = getelementptr inbounds i8, ptr %.us-phi479, i64 8
   store i32 1, ptr %filetype1047, align 8
-  %size1048 = getelementptr inbounds i8, ptr %.us-phi479, i64 40
-  store i64 0, ptr %size1048, align 8
+  store i64 0, ptr %size1053, align 8
   br label %if.end1062
 
 if.else1049:                                      ; preds = %if.then1034
-  %size1053 = getelementptr inbounds i8, ptr %.us-phi479, i64 40
   %call1054 = call i32 @curlx_strtoofft(ptr noundef nonnull %add.ptr1042, ptr noundef nonnull %endptr1050, i32 noundef 10, ptr noundef nonnull %size1053) #7
   %tobool1055.not = icmp eq i32 %call1054, 0
   br i1 %tobool1055.not, label %if.end1058, label %if.then1056

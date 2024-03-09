@@ -332,10 +332,10 @@ define dso_local noundef i32 @Curl_headers_push(ptr noundef %0, ptr noundef %1, 
   %14 = getelementptr inbounds i8, ptr %0, i64 4800
   %15 = load ptr, ptr %14, align 8
   %.not58 = icmp eq ptr %15, null
+  %.not5982 = icmp eq i64 %12, 0
   br i1 %.not58, label %.preheader, label %16
 
 .preheader:                                       ; preds = %13
-  %.not5982 = icmp eq i64 %12, 0
   br i1 %.not5982, label %.critedge62, label %.lr.ph
 
 16:                                               ; preds = %13
@@ -347,8 +347,7 @@ define dso_local noundef i32 @Curl_headers_push(ptr noundef %0, ptr noundef %1, 
   %22 = ptrtoint ptr %20 to i64
   %23 = sub i64 %21, %22
   %invariant.gep.i = getelementptr i8, ptr %1, i64 -1
-  %.not60.i = icmp eq i64 %12, 0
-  br i1 %.not60.i, label %.critedge4.i, label %.lr.ph.i
+  br i1 %.not5982, label %.critedge4.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %16, %.critedge2.i
   %.05461.i = phi i64 [ %27, %.critedge2.i ], [ %12, %16 ]

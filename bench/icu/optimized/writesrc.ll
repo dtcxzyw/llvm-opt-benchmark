@@ -920,10 +920,10 @@ entry:
   %1 = load ptr, ptr %pTrie, align 8
   %indexLength = getelementptr inbounds i8, ptr %pTrie, i64 24
   %2 = load i32, ptr %indexLength, align 8
+  %dataLength = getelementptr inbounds i8, ptr %pTrie, i64 28
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %dataLength = getelementptr inbounds i8, ptr %pTrie, i64 28
   %3 = load i32, ptr %dataLength, align 4
   %add = add nsw i32 %3, %2
   tail call void @usrc_writeArray(ptr noundef %f, ptr noundef %indexPrefix, ptr noundef %1, i32 noundef 16, i32 noundef %add, ptr noundef nonnull @.str.10, ptr noundef %postfix)
@@ -932,8 +932,7 @@ if.then:                                          ; preds = %entry
 if.else:                                          ; preds = %entry
   tail call void @usrc_writeArray(ptr noundef %f, ptr noundef %indexPrefix, ptr noundef %1, i32 noundef 16, i32 noundef %2, ptr noundef nonnull @.str.10, ptr noundef %postfix)
   %4 = load ptr, ptr %data32, align 8
-  %dataLength4 = getelementptr inbounds i8, ptr %pTrie, i64 28
-  %5 = load i32, ptr %dataLength4, align 4
+  %5 = load i32, ptr %dataLength, align 4
   tail call void @usrc_writeArray(ptr noundef %f, ptr noundef %data32Prefix, ptr noundef %4, i32 noundef 32, i32 noundef %5, ptr noundef nonnull @.str.10, ptr noundef %postfix)
   br label %if.end
 

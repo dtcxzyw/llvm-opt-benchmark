@@ -169,6 +169,7 @@ do.end18:                                         ; preds = %do.body7, %land.lhs
   %7 = load i8, ptr %enabled, align 4
   %8 = and i8 %7, 1
   %tobool19.not = icmp eq i8 %8, 0
+  %enabled27 = getelementptr inbounds i8, ptr %0, i64 132
   br i1 %tobool19.not, label %if.else, label %if.then20
 
 if.then20:                                        ; preds = %do.end18
@@ -194,8 +195,7 @@ if.then20:                                        ; preds = %do.end18
   %cf6.i = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %14, ptr %cf6.i, align 8
   store ptr %10, ptr %next.i, align 8
-  %enabled22 = getelementptr inbounds i8, ptr %0, i64 132
-  %15 = load i8, ptr %enabled22, align 4
+  %15 = load i8, ptr %enabled27, align 4
   %16 = and i8 %15, 1
   %tobool23.not = icmp eq i8 %16, 0
   br i1 %tobool23.not, label %if.end33, label %if.then24
@@ -208,7 +208,6 @@ if.then24:                                        ; preds = %if.then20
   br label %if.end33
 
 if.else:                                          ; preds = %do.end18
-  %enabled27 = getelementptr inbounds i8, ptr %0, i64 132
   %18 = load i8, ptr %enabled27, align 4
   %19 = and i8 %18, 1
   %tobool28.not = icmp eq i8 %19, 0

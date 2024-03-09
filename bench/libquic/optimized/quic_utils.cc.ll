@@ -464,16 +464,15 @@ for.body:                                         ; preds = %entry, %if.end12
   store i8 %conv, ptr %arrayidx, align 1
   %sext = shl i32 %tag.addr.013, 24
   %cmp3 = icmp eq i32 %sext, 0
+  %cmp7.old = icmp eq i64 %i.011, 3
   br i1 %cmp3, label %land.lhs.true, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %for.body
   %cmp6 = icmp eq i32 %sext, -16777216
-  %cmp7 = icmp eq i64 %i.011, 3
-  %or.cond = and i1 %cmp7, %cmp6
+  %or.cond = and i1 %cmp7.old, %cmp6
   br i1 %or.cond, label %if.then, label %if.end
 
 land.lhs.true:                                    ; preds = %for.body
-  %cmp7.old = icmp eq i64 %i.011, 3
   br i1 %cmp7.old, label %if.then, label %if.end
 
 if.then:                                          ; preds = %lor.lhs.false, %land.lhs.true

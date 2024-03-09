@@ -1052,10 +1052,10 @@ entry:
   %conv = trunc i64 %call to i32
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp sgt i32 %0, 0
+  %cmp3.not = icmp eq ptr %target, null
   br i1 %cmp.i, label %if.else, label %if.then2
 
 if.then2:                                         ; preds = %entry
-  %cmp3.not = icmp eq ptr %target, null
   br i1 %cmp3.not, label %if.end18, label %if.then4
 
 if.then4:                                         ; preds = %if.then2
@@ -1068,8 +1068,7 @@ if.else:                                          ; preds = %entry
   %call9 = tail call ptr @u_errorName_75(i32 noundef %0)
   %call10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call9) #25
   %conv11 = trunc i64 %call10 to i32
-  %cmp12.not = icmp eq ptr %target, null
-  br i1 %cmp12.not, label %if.end18, label %if.then13
+  br i1 %cmp3.not, label %if.end18, label %if.then13
 
 if.then13:                                        ; preds = %if.else
   %call14 = tail call i32 @uprv_min_75(i32 noundef %conv11, i32 noundef %targetCapacity)

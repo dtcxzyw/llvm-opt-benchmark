@@ -494,6 +494,7 @@ entry:
   %1 = load i16, ptr %m_flags, align 4
   %2 = and i16 %1, 2
   %tobool.not = icmp eq i16 %2, 0
+  %m_fixtureList9 = getelementptr inbounds i8, ptr %this, i64 112
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -522,8 +523,7 @@ if.then:                                          ; preds = %entry
   %15 = load <2 x float>, ptr %c0, align 4
   %16 = fsub <2 x float> %15, %14
   store <2 x float> %16, ptr %xf1, align 8
-  %m_fixtureList = getelementptr inbounds i8, ptr %this, i64 112
-  %f.011 = load ptr, ptr %m_fixtureList, align 8
+  %f.011 = load ptr, ptr %m_fixtureList9, align 8
   %tobool7.not12 = icmp eq ptr %f.011, null
   br i1 %tobool7.not12, label %if.end, label %for.body.lr.ph
 
@@ -540,7 +540,6 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %tobool7.not, label %if.end, label %for.body, !llvm.loop !10
 
 if.else:                                          ; preds = %entry
-  %m_fixtureList9 = getelementptr inbounds i8, ptr %this, i64 112
   %f8.014 = load ptr, ptr %m_fixtureList9, align 8
   %tobool11.not15 = icmp eq ptr %f8.014, null
   br i1 %tobool11.not15, label %if.end, label %for.body12.lr.ph

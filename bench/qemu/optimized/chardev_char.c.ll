@@ -1942,10 +1942,10 @@ if.end35:                                         ; preds = %if.then34, %land.lh
   %14 = load ptr, ptr %opaque, align 8
   %call39 = tail call i32 %13(ptr noundef %14) #13
   %cmp = icmp slt i32 %call39, 0
+  %label = getelementptr inbounds i8, ptr %call27, i64 96
   br i1 %cmp, label %if.then40, label %if.end46
 
 if.then40:                                        ; preds = %if.end35
-  %label = getelementptr inbounds i8, ptr %call27, i64 96
   %15 = load ptr, ptr %label, align 8
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.2, i32 noundef 1108, ptr noundef nonnull @__func__.qmp_chardev_change, ptr noundef nonnull @.str.97, ptr noundef %15) #13
   %be41 = getelementptr inbounds i8, ptr %call27, i64 88
@@ -1969,8 +1969,7 @@ if.end46:                                         ; preds = %if.end35
   tail call void @object_unparent(ptr noundef nonnull %call.i2.i) #13
   %call.i48 = tail call ptr @object_get_root() #13
   %call1.i49 = tail call ptr @container_get(ptr noundef %call.i48, ptr noundef nonnull @.str) #13
-  %label52 = getelementptr inbounds i8, ptr %call27, i64 96
-  %16 = load ptr, ptr %label52, align 8
+  %16 = load ptr, ptr %label, align 8
   %call53 = tail call ptr @object_property_add_child(ptr noundef %call1.i49, ptr noundef %16, ptr noundef nonnull %call27) #13
   tail call void @object_unref(ptr noundef nonnull %call27) #13
   %call54 = tail call noalias dereferenceable_or_null(8) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 8) #17

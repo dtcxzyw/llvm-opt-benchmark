@@ -202,6 +202,7 @@ for.body51:                                       ; preds = %for.body51.preheade
   %43 = load i8, ptr %warmStarting, align 4
   %44 = and i8 %43, 1
   %tobool.not = icmp eq i8 %44, 0
+  %normalImpulse66 = getelementptr inbounds i8, ptr %add.ptr57, i64 16
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %for.body51
@@ -209,8 +210,7 @@ if.then:                                          ; preds = %for.body51
   %normalImpulse = getelementptr inbounds i8, ptr %add.ptr53, i64 8
   %46 = load float, ptr %normalImpulse, align 4
   %mul60 = fmul float %45, %46
-  %normalImpulse61 = getelementptr inbounds i8, ptr %add.ptr57, i64 16
-  store float %mul60, ptr %normalImpulse61, align 4
+  store float %mul60, ptr %normalImpulse66, align 4
   %47 = load float, ptr %dtRatio, align 8
   %tangentImpulse = getelementptr inbounds i8, ptr %add.ptr53, i64 12
   %48 = load float, ptr %tangentImpulse, align 4
@@ -218,7 +218,6 @@ if.then:                                          ; preds = %for.body51
   br label %if.end
 
 if.else:                                          ; preds = %for.body51
-  %normalImpulse66 = getelementptr inbounds i8, ptr %add.ptr57, i64 16
   store float 0.000000e+00, ptr %normalImpulse66, align 4
   br label %if.end
 

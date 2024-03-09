@@ -1130,18 +1130,17 @@ if.then472:                                       ; preds = %if.else469
 if.then474:                                       ; preds = %if.then472
   %and475 = and i32 %flags.0.lcssa, 64
   %tobool476.not = icmp eq i32 %and475, 0
+  %or485 = or i32 %flags.0.lcssa, 4096
   br i1 %tobool476.not, label %if.else482, label %if.then477
 
 if.then477:                                       ; preds = %if.then474
   %32 = load i32, ptr %outformat, align 4
   %cmp478 = icmp eq i32 %32, 32775
-  %or480 = or i32 %flags.0.lcssa, 4096
-  %spec.select214 = select i1 %cmp478, i32 %or480, i32 %flags.0.lcssa
+  %spec.select214 = select i1 %cmp478, i32 %or485, i32 %flags.0.lcssa
   br label %if.end487
 
 if.else482:                                       ; preds = %if.then474
   %tobool483.not = icmp eq i32 %indef.0.lcssa, 0
-  %or485 = or i32 %flags.0.lcssa, 4096
   %spec.select215 = select i1 %tobool483.not, i32 %flags.0.lcssa, i32 %or485
   br label %if.end487
 

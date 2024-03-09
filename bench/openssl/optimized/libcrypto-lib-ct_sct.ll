@@ -632,10 +632,10 @@ if.end35:                                         ; preds = %if.end30, %if.end17
   %11 = load ptr, ptr %ctx, align 8
   %call36 = call i32 @SCT_CTX_set1_cert(ptr noundef nonnull %call5, ptr noundef %11, ptr noundef null) #6
   %cmp37.not = icmp eq i32 %call36, 1
+  %validation_status39 = getelementptr inbounds i8, ptr %sct, i64 96
   br i1 %cmp37.not, label %if.else, label %if.then38
 
 if.then38:                                        ; preds = %if.end35
-  %validation_status39 = getelementptr inbounds i8, ptr %sct, i64 96
   store i32 4, ptr %validation_status39, align 8
   br label %err
 
@@ -643,8 +643,7 @@ if.else:                                          ; preds = %if.end35
   %call40 = call i32 @SCT_CTX_verify(ptr noundef nonnull %call5, ptr noundef nonnull %sct) #6
   %cmp41 = icmp eq i32 %call40, 1
   %cond = select i1 %cmp41, i32 2, i32 3
-  %validation_status42 = getelementptr inbounds i8, ptr %sct, i64 96
-  store i32 %cond, ptr %validation_status42, align 8
+  store i32 %cond, ptr %validation_status39, align 8
   %12 = zext i1 %cmp41 to i32
   br label %err
 

@@ -2141,11 +2141,11 @@ if.end57:                                         ; preds = %if.end3
   %idxprom.i142 = sext i32 %25 to i64
   %arrayidx.i143 = getelementptr inbounds %struct.btCell32, ptr %50, i64 %idxprom.i142
   %tobool84.not = icmp eq ptr %gradient, null
+  %m_data.i144 = getelementptr inbounds i8, ptr %this, i64 120
   br i1 %tobool84.not, label %if.then85, label %if.end95
 
 if.then85:                                        ; preds = %if.end57
   call void @_ZNK9btMiniSDF15shape_function_ERK9btVector3P16btShapeGradients(ptr nonnull sret(%struct.btShapeMatrix) align 8 %N, ptr nonnull align 8 poison, ptr noundef nonnull align 4 dereferenceable(16) %xi, ptr noundef null)
-  %m_data.i144 = getelementptr inbounds i8, ptr %this, i64 120
   %51 = load ptr, ptr %m_data.i144, align 8
   %m_data.i147 = getelementptr inbounds %class.btAlignedObjectArray.8, ptr %51, i64 %idxprom.i, i32 5
   %52 = load ptr, ptr %m_data.i147, align 8
@@ -2177,7 +2177,6 @@ for.end:                                          ; preds = %if.end93
 if.end95:                                         ; preds = %if.end57
   call void @_ZNK9btMiniSDF15shape_function_ERK9btVector3P16btShapeGradients(ptr nonnull sret(%struct.btShapeMatrix) align 8 %N96, ptr nonnull align 8 poison, ptr noundef nonnull align 4 dereferenceable(16) %xi, ptr noundef nonnull %dN)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %gradient, i8 0, i64 16, i1 false)
-  %m_data.i152 = getelementptr inbounds i8, ptr %this, i64 120
   %arrayidx129 = getelementptr inbounds i8, ptr %gradient, i64 8
   br label %for.body101
 
@@ -2188,7 +2187,7 @@ for.body101:                                      ; preds = %if.end95, %if.end11
   %58 = phi <2 x float> [ zeroinitializer, %if.end95 ], [ %71, %if.end112 ]
   %arrayidx105 = getelementptr inbounds [32 x i32], ptr %arrayidx.i143, i64 0, i64 %indvars.iv
   %59 = load i32, ptr %arrayidx105, align 4
-  %60 = load ptr, ptr %m_data.i152, align 8
+  %60 = load ptr, ptr %m_data.i144, align 8
   %m_data.i155 = getelementptr inbounds %class.btAlignedObjectArray.8, ptr %60, i64 %idxprom.i, i32 5
   %61 = load ptr, ptr %m_data.i155, align 8
   %idxprom.i156 = sext i32 %59 to i64

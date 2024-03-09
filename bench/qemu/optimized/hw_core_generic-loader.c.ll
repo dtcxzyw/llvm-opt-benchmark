@@ -198,11 +198,11 @@ if.end72:                                         ; preds = %if.end72.sink.split
   %cpu_num73 = getelementptr inbounds i8, ptr %call.i, i64 188
   %14 = load i32, ptr %cpu_num73, align 4
   %cmp74.not = icmp eq i32 %14, -1
+  %cpu = getelementptr inbounds i8, ptr %call.i, i64 160
   br i1 %cmp74.not, label %while.end, label %if.then76
 
 if.then76:                                        ; preds = %if.end72
   %call78 = tail call ptr @qemu_get_cpu(i32 noundef %14) #4
-  %cpu = getelementptr inbounds i8, ptr %call.i, i64 160
   store ptr %call78, ptr %cpu, align 8
   %tobool80.not = icmp eq ptr %call78, null
   br i1 %tobool80.not, label %if.then81, label %if.end86
@@ -216,8 +216,7 @@ while.end:                                        ; preds = %if.end72
   %16 = load atomic i64, ptr @cpus_queue monotonic, align 8
   %17 = inttoptr i64 %16 to ptr
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !5
-  %cpu85 = getelementptr inbounds i8, ptr %call.i, i64 160
-  store ptr %17, ptr %cpu85, align 8
+  store ptr %17, ptr %cpu, align 8
   br label %if.end86
 
 if.end86:                                         ; preds = %if.then76, %while.end

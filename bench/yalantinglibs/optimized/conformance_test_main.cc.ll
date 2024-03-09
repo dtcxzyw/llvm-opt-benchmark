@@ -102,10 +102,10 @@ lpad.i:                                           ; preds = %entry
   br label %ehcleanup
 
 invoke.cont:                                      ; preds = %entry
+  %_M_end_of_storage6.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store ptr %call5.i.i.i.i2.i, ptr %ref.tmp, align 8
   %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 8
-  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i, align 8
+  store ptr %add.ptr.i1.i, ptr %_M_end_of_storage6.i.i, align 8
   store ptr %binary_and_json_suite, ptr %call5.i.i.i.i2.i, align 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store ptr %add.ptr.i1.i, ptr %_M_finish.i.i, align 8

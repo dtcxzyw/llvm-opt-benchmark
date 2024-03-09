@@ -114,16 +114,15 @@ for.body23:                                       ; preds = %for.body, %for.inc
   %3 = load ptr, ptr %v28, align 8
   %call29 = tail call i32 @test_str_eq(ptr noundef nonnull @.str.11, i32 noundef 55, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, ptr noundef %call.i20, ptr noundef %3) #3
   %tobool30.not = icmp eq i32 %call29, 0
+  %inc = add nuw nsw i64 %j.024, 1
   br i1 %tobool30.not, label %if.then31, label %for.inc
 
 if.then31:                                        ; preds = %for.body23
   %add32 = add nuw nsw i64 %i.025, 1
-  %add33 = add nuw nsw i64 %j.024, 1
-  tail call void (ptr, ...) @test_note(ptr noundef nonnull @.str.20, i64 noundef %add32, i64 noundef %add33) #3
+  tail call void (ptr, ...) @test_note(ptr noundef nonnull @.str.20, i64 noundef %add32, i64 noundef %inc) #3
   br label %err
 
 for.inc:                                          ; preds = %for.body23
-  %inc = add nuw nsw i64 %j.024, 1
   %exitcond.not = icmp eq i64 %inc, %indvars.iv
   br i1 %exitcond.not, label %for.inc35, label %for.body23, !llvm.loop !5
 

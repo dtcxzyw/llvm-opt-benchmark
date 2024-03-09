@@ -162,6 +162,7 @@ if.then.i:                                        ; preds = %trspeed.exit53.i
   %inc.i = add nsw i32 %10, 1
   store i32 %inc.i, ptr %speeder_c.i, align 8
   %11 = icmp eq i32 %10, 0
+  %current_speed49.i = getelementptr inbounds i8, ptr %data, i64 2784
   br i1 %11, label %if.else45.i, label %if.then15.i
 
 if.then15.i:                                      ; preds = %if.then.i
@@ -201,7 +202,6 @@ if.else45.i:                                      ; preds = %if.then.i
 
 if.end51.sink.split.i:                            ; preds = %if.else45.i, %if.else.i, %if.then38.i
   %add48.sink.i = phi i64 [ %add48.i, %if.else45.i ], [ %div42.i, %if.else.i ], [ %conv41.i, %if.then38.i ]
-  %current_speed49.i = getelementptr inbounds i8, ptr %data, i64 2784
   store i64 %add48.sink.i, ptr %current_speed49.i, align 8
   br label %progress_calc.exit
 

@@ -131,12 +131,12 @@ if.end:                                           ; preds = %entry
   %frame_obj = getelementptr inbounds i8, ptr %frame, i64 48
   %2 = load ptr, ptr %frame_obj, align 8
   %tobool.not = icmp eq ptr %2, null
+  %f_frame9 = getelementptr inbounds i8, ptr %call2, i64 24
   br i1 %tobool.not, label %if.end8, label %if.then3
 
 if.then3:                                         ; preds = %if.end
   %_f_frame_data = getelementptr inbounds i8, ptr %call2, i64 48
-  %f_frame = getelementptr inbounds i8, ptr %call2, i64 24
-  store ptr %_f_frame_data, ptr %f_frame, align 8
+  store ptr %_f_frame_data, ptr %f_frame9, align 8
   %owner = getelementptr inbounds i8, ptr %call2, i64 118
   store i8 4, ptr %owner, align 2
   %frame_obj6 = getelementptr inbounds i8, ptr %call2, i64 96
@@ -161,7 +161,6 @@ Py_DECREF.exit:                                   ; preds = %if.then3, %if.then1
   br label %return
 
 if.end8:                                          ; preds = %if.end
-  %f_frame9 = getelementptr inbounds i8, ptr %call2, i64 24
   store ptr %frame, ptr %f_frame9, align 8
   store ptr %call2, ptr %frame_obj, align 8
   br label %return

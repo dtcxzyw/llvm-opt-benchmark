@@ -2590,10 +2590,10 @@ _ZNK5arrow5Datum10make_arrayEv.exit:              ; preds = %if.end
           to label %call5.i.i.i.i.noexc.i unwind label %lpad6.body
 
 call5.i.i.i.i.noexc.i:                            ; preds = %_ZNK5arrow5Datum10make_arrayEv.exit
+  %_M_end_of_storage6.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %call5.i.i.i.i2.i, ptr %agg.result, align 8
   %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 16
-  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
-  store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i, align 8
+  store ptr %add.ptr.i1.i, ptr %_M_end_of_storage6.i.i, align 8
   %2 = load <2 x ptr>, ptr %ref.tmp, align 16
   store <2 x ptr> %2, ptr %call5.i.i.i.i2.i, align 8
   %3 = extractelement <2 x ptr> %2, i64 1

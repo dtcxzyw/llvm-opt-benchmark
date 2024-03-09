@@ -624,6 +624,7 @@ if.end:                                           ; preds = %entry
   %and = and i32 %shr, 15
   %shr10 = lshr i32 %3, 28
   %cmp.not = icmp eq i32 %and, %shr10
+  %state151 = getelementptr inbounds i8, ptr %arrayidx, i64 64
   br i1 %cmp.not, label %if.end13, label %error
 
 if.end13:                                         ; preds = %if.end
@@ -631,8 +632,7 @@ if.end13:                                         ; preds = %if.end
   %shl = shl nuw nsw i32 1, %spec.store.select
   %conv = zext nneg i32 %shl to i64
   %4 = add nuw nsw i64 %conv, 4294967295
-  %state = getelementptr inbounds i8, ptr %arrayidx, i64 64
-  store i32 1, ptr %state, align 8
+  store i32 1, ptr %state151, align 8
   %5 = load i32, ptr %arrayidx, align 8
   %6 = and i32 %5, 1073741823
   store i32 %6, ptr %arrayidx, align 8
@@ -711,7 +711,6 @@ done:                                             ; preds = %if.end109, %if.then
   br label %return
 
 error:                                            ; preds = %if.end
-  %state151 = getelementptr inbounds i8, ptr %arrayidx, i64 64
   store i32 2, ptr %state151, align 8
   %26 = load i32, ptr %arrayidx, align 8
   %27 = or i32 %26, -2147483648

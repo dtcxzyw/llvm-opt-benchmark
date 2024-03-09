@@ -203,11 +203,11 @@ if.end:                                           ; preds = %entry
   %2 = load i8, ptr %tt_.i, align 8
   %3 = and i8 %2, 15
   %cmp.i = icmp eq i8 %3, 0
+  %sub.ptr.lhs.cast = ptrtoint ptr %level to i64
   br i1 %cmp.i, label %if.then.i, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %if.end
   %tbclist = getelementptr inbounds i8, ptr %L, i64 64
-  %sub.ptr.lhs.cast = ptrtoint ptr %level to i64
   %4 = load ptr, ptr %tbclist, align 8
   %sub.ptr.rhs.cast12 = ptrtoint ptr %4 to i64
   %sub.ptr.sub13 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast12
@@ -219,9 +219,8 @@ if.then.i:                                        ; preds = %if.end
   %ci.i = getelementptr inbounds i8, ptr %L, i64 32
   %6 = load ptr, ptr %ci.i, align 8
   %7 = load ptr, ptr %6, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %level to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %7 to i64
-  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
+  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = lshr exact i64 %sub.ptr.sub.i, 4
   %conv2.i = trunc i64 %sub.ptr.div.i to i32
   %call4.i = tail call ptr @luaG_findlocal(ptr noundef %L, ptr noundef nonnull %6, i32 noundef %conv2.i, ptr noundef null) #6

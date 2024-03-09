@@ -6149,20 +6149,19 @@ declare void @_ZN9grpc_core4Fork17DoDecExecCtxCountEv() local_unnamed_addr #0
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZN4absl12lts_2023080222internal_any_invocable22LocalManagerNontrivialIZN9grpc_core12experimental28DirectoryReloaderCrlProvider19UpdateAndStartTimerEvE3$_0EEvNS1_14FunctionToCallEPNS1_15TypeErasedStateES9_"(i1 noundef zeroext %operation, ptr nocapture noundef %from, ptr nocapture noundef writeonly %to) #4 personality ptr @__gxx_personality_v0 {
 entry:
+  %.phi.trans.insert = getelementptr i8, ptr %from, i64 8
   br i1 %operation, label %sw.bb1, label %sw.bb1.thread
 
 sw.bb1.thread:                                    ; preds = %entry
   %0 = load ptr, ptr %from, align 8
   store ptr %0, ptr %to, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %to, i64 8
-  %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %from, i64 8
-  %1 = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  %1 = load ptr, ptr %.phi.trans.insert, align 8
   store ptr %1, ptr %_M_refcount.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %from, i8 0, i64 16, i1 false)
   br label %"_ZZN9grpc_core12experimental28DirectoryReloaderCrlProvider19UpdateAndStartTimerEvEN3$_0D2Ev.exit"
 
 sw.bb1:                                           ; preds = %entry
-  %.phi.trans.insert = getelementptr i8, ptr %from, i64 8
   %call.val.pre = load ptr, ptr %.phi.trans.insert, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %call.val.pre, null
   br i1 %cmp.not.i.i.i.i, label %"_ZZN9grpc_core12experimental28DirectoryReloaderCrlProvider19UpdateAndStartTimerEvEN3$_0D2Ev.exit", label %if.then.i.i.i.i

@@ -124,10 +124,10 @@ for.body38:                                       ; preds = %for.body38.preheade
   %arrayidx.i = getelementptr inbounds float, ptr %float_weights.coerce0, i64 %i.0164
   %2 = load float, ptr %arrayidx.i, align 4
   %cmp40 = fcmp oeq float %2, 0.000000e+00
+  %cmp.not.i = icmp eq ptr %weights.sroa.12.1162, %weights.sroa.24.1163
   br i1 %cmp40, label %if.then41, label %if.else
 
 if.then41:                                        ; preds = %for.body38
-  %cmp.not.i = icmp eq ptr %weights.sroa.12.1162, %weights.sroa.24.1163
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i27
 
 if.then.i27:                                      ; preds = %if.then41
@@ -189,8 +189,7 @@ if.else:                                          ; preds = %for.body38
   %mul48 = fmul double %conv25, %conv46
   %call49 = tail call i64 @lround(double noundef %mul48) #9
   %conv50 = trunc i64 %call49 to i16
-  %cmp.not.i38 = icmp eq ptr %weights.sroa.12.1162, %weights.sroa.24.1163
-  br i1 %cmp.not.i38, label %if.else.i42, label %if.then.i39
+  br i1 %cmp.not.i, label %if.else.i42, label %if.then.i39
 
 if.then.i39:                                      ; preds = %if.else
   %.sroa.speculated91 = tail call i16 @llvm.umax.i16(i16 %.sroa.speculated113, i16 %conv50)

@@ -262,11 +262,11 @@ if.then.i.i:                                      ; preds = %entry
 
 _ZNSt6vectorISt4pairIS0_IN8proxygen28HTTPTransactionIngressSMData5StateENS2_5EventEES3_ESaIS6_EE17_S_check_init_lenEmRKS7_.exit.i: ; preds = %entry
   %cmp.not.i.i = icmp eq i64 %__l.coerce1, 0
+  %_M_end_of_storage9.i = getelementptr inbounds i8, ptr %this, i64 16
   br i1 %cmp.not.i.i, label %_ZNSt12_Vector_baseISt4pairIS0_IN8proxygen28HTTPTransactionIngressSMData5StateENS2_5EventEES3_ESaIS6_EE11_M_allocateEm.exit.thread.i, label %for.body.i.i.i.i.preheader.i
 
 _ZNSt12_Vector_baseISt4pairIS0_IN8proxygen28HTTPTransactionIngressSMData5StateENS2_5EventEES3_ESaIS6_EE11_M_allocateEm.exit.thread.i: ; preds = %_ZNSt6vectorISt4pairIS0_IN8proxygen28HTTPTransactionIngressSMData5StateENS2_5EventEES3_ESaIS6_EE17_S_check_init_lenEmRKS7_.exit.i
   %add.ptr8.i = getelementptr inbounds i8, ptr null, i64 %add.ptr.i.idx
-  %_M_end_of_storage9.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %add.ptr8.i, ptr %_M_end_of_storage9.i, align 8
   br label %invoke.cont
 
@@ -277,8 +277,7 @@ for.body.i.i.i.i.preheader.i:                     ; preds = %_ZNSt6vectorISt4pai
 call5.i.i.i.i.noexc:                              ; preds = %for.body.i.i.i.i.preheader.i
   store ptr %call5.i.i.i.i2, ptr %this, align 8
   %add.ptr.i1 = getelementptr inbounds i8, ptr %call5.i.i.i.i2, i64 %add.ptr.i.idx
-  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
-  store ptr %add.ptr.i1, ptr %_M_end_of_storage.i, align 8
+  store ptr %add.ptr.i1, ptr %_M_end_of_storage9.i, align 8
   %0 = add nsw i64 %add.ptr.i.idx, -3
   %1 = urem i64 %0, 3
   %2 = sub nuw i64 %0, %1

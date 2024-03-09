@@ -77,10 +77,10 @@ while.end:                                        ; preds = %if.end27, %if.end
   %out.addr.0.lcssa = phi ptr [ %out, %if.end ], [ %add.ptr23, %if.end27 ]
   %inp.addr.0.lcssa = phi ptr [ %inp, %if.end ], [ %add.ptr, %if.end27 ]
   %15 = phi <2 x i64> [ undef, %if.end ], [ %10, %if.end27 ]
+  %cmp4257.not = icmp eq i64 %len.addr.1.lcssa, 0
   br i1 %tobool.not, label %for.cond.preheader, label %if.else
 
 for.cond.preheader:                               ; preds = %while.end
-  %cmp4257.not = icmp eq i64 %len.addr.1.lcssa, 0
   br i1 %cmp4257.not, label %for.end, label %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %for.body
@@ -148,8 +148,7 @@ if.else:                                          ; preds = %while.end
   %35 = load i64, ptr %arrayidx94, align 8
   %xor104 = xor i64 %35, %or85
   store i64 %xor104, ptr %arrayidx94, align 8
-  %cmp10754.not = icmp eq i64 %len.addr.1.lcssa, 0
-  br i1 %cmp10754.not, label %for.end122, label %for.body109
+  br i1 %cmp4257.not, label %for.end122, label %for.body109
 
 for.body109:                                      ; preds = %if.else, %for.body109
   %conv10656 = phi i64 [ %conv106, %for.body109 ], [ 0, %if.else ]

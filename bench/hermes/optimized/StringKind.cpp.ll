@@ -39,11 +39,11 @@ if.then:                                          ; preds = %entry
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %0, %2
+  %or.i.i.i.i.i = or i32 %k, 1
   br i1 %cmp.not.i, label %_ZNSt6vectorIN6hermes10StringKind5EntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
-  %or.i.i.i.i = or i32 %k, 1
-  store i32 %or.i.i.i.i, ptr %0, align 4
+  store i32 %or.i.i.i.i.i, ptr %0, align 4
   %3 = load ptr, ptr %_M_finish.i.i, align 8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %3, i64 4
   store ptr %incdec.ptr.i, ptr %_M_finish.i.i, align 8
@@ -51,7 +51,6 @@ if.then.i:                                        ; preds = %if.then
 
 _ZNSt6vectorIN6hermes10StringKind5EntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i: ; preds = %if.then
   %call5.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #8
-  %or.i.i.i.i.i = or i32 %k, 1
   store i32 %or.i.i.i.i.i, ptr %call5.i.i.i.i.i, align 4
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 4
   %tobool.not.i.i.i = icmp eq ptr %0, null

@@ -416,17 +416,16 @@ entry:
 
 if.then:                                          ; preds = %entry
   %tobool2.not = icmp eq ptr %pCallbackManager, null
+  %mpCallbackManager4 = getelementptr inbounds i8, ptr %this, i64 24
   br i1 %tobool2.not, label %if.end, label %if.end.thread
 
 if.end.thread:                                    ; preds = %if.then
-  %mpCallbackManager4 = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %pCallbackManager, ptr %mpCallbackManager4, align 8
   br label %if.then6
 
 if.end:                                           ; preds = %if.then
   %1 = load ptr, ptr @_ZN2EA4StdCL17gpCallbackManagerE, align 8
-  %mpCallbackManager = getelementptr inbounds i8, ptr %this, i64 24
-  store ptr %1, ptr %mpCallbackManager, align 8
+  store ptr %1, ptr %mpCallbackManager4, align 8
   %tobool5.not = icmp eq ptr %1, null
   br i1 %tobool5.not, label %if.end13, label %if.then6
 

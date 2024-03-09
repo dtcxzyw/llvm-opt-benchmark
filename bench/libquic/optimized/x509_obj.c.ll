@@ -242,14 +242,14 @@ if.end146:                                        ; preds = %for.body140
   %21 = load i8, ptr %arrayidx148, align 1
   %22 = add i8 %21, -127
   %or.cond = icmp ult i8 %22, -95
+  %incdec.ptr168 = getelementptr inbounds i8, ptr %p.1102, i64 1
   br i1 %or.cond, label %if.then155, label %if.else166
 
 if.then155:                                       ; preds = %if.end146
   %conv149 = zext i8 %21 to i32
-  %incdec.ptr156 = getelementptr inbounds i8, ptr %p.1102, i64 1
   store i8 92, ptr %p.1102, align 1
   %incdec.ptr157 = getelementptr inbounds i8, ptr %p.1102, i64 2
-  store i8 120, ptr %incdec.ptr156, align 1
+  store i8 120, ptr %incdec.ptr168, align 1
   %shr = lshr i32 %conv149, 4
   %idxprom159 = zext nneg i32 %shr to i64
   %arrayidx160 = getelementptr inbounds [17 x i8], ptr @X509_NAME_oneline.hex, i64 0, i64 %idxprom159
@@ -265,7 +265,6 @@ if.then155:                                       ; preds = %if.end146
   br label %for.inc170
 
 if.else166:                                       ; preds = %if.end146
-  %incdec.ptr168 = getelementptr inbounds i8, ptr %p.1102, i64 1
   store i8 %21, ptr %p.1102, align 1
   br label %for.inc170
 

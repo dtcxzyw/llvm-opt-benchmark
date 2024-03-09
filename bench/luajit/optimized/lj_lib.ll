@@ -172,6 +172,7 @@ if.end33:                                         ; preds = %if.then27, %if.then
   %idx.ext = zext nneg i32 %and14 to i64
   %add.ptr36 = getelementptr inbounds i8, ptr %incdec.ptr12, i64 %idx.ext
   %cmp37 = icmp eq i32 %and15, 0
+  %pc44 = getelementptr inbounds i8, ptr %call25, i64 32
   br i1 %cmp37, label %if.end46.thread, label %if.end46
 
 if.end46.thread:                                  ; preds = %if.end33
@@ -179,14 +180,12 @@ if.end46.thread:                                  ; preds = %if.end33
   %29 = inttoptr i64 %28 to ptr
   %bc_cfunc_int = getelementptr inbounds i8, ptr %29, i64 360
   %30 = ptrtoint ptr %bc_cfunc_int to i64
-  %pc = getelementptr inbounds i8, ptr %call25, i64 32
-  store i64 %30, ptr %pc, align 8
+  store i64 %30, ptr %pc44, align 8
   br label %if.else51
 
 if.end46:                                         ; preds = %if.end33
   %incdec.ptr43 = getelementptr inbounds i8, ptr %bcff.0, i64 4
   %31 = ptrtoint ptr %bcff.0 to i64
-  %pc44 = getelementptr inbounds i8, ptr %call25, i64 32
   store i64 %31, ptr %pc44, align 8
   %cmp47 = icmp eq i32 %and15, 128
   br i1 %cmp47, label %if.then49, label %if.else51

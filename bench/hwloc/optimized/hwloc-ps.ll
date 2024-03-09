@@ -1066,18 +1066,17 @@ define internal void @foreach_process_cb(ptr noundef %0, ptr noundef %1, ptr nou
   %7 = getelementptr inbounds i8, ptr %1, i64 1116
   %8 = load i32, ptr %7, align 4
   %.not17 = icmp eq i32 %8, 0
+  %.old.b = load i1, ptr @show_all, align 4
   br i1 %.not17, label %13, label %9
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds i8, ptr %1, i64 1120
   %11 = load i32, ptr %10, align 8
   %12 = icmp ne i32 %11, 0
-  %.b = load i1, ptr @show_all, align 4
-  %or.cond = select i1 %12, i1 true, i1 %.b
+  %or.cond = select i1 %12, i1 true, i1 %.old.b
   br i1 %or.cond, label %19, label %14
 
 13:                                               ; preds = %6
-  %.old.b = load i1, ptr @show_all, align 4
   br i1 %.old.b, label %19, label %14
 
 14:                                               ; preds = %9, %13

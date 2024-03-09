@@ -1010,6 +1010,7 @@ if.end12:                                         ; preds = %if.end5, %if.end
   %call14 = call i32 @uhash_getiAndFound_75(ptr noundef %3, ptr noundef nonnull %locale, ptr noundef nonnull %found)
   %4 = load i8, ptr %found, align 1
   %tobool15.not = icmp eq i8 %4, 0
+  %cmp24 = icmp slt i32 %weight, 1
   br i1 %tobool15.not, label %if.end23, label %if.end23.thread
 
 lpad.thread:                                      ; preds = %if.end71, %if.then.i.i, %if.then.i
@@ -1037,7 +1038,6 @@ _ZN6icu_7512LocalPointerINS_6LocaleEED2Ev.exit:   ; preds = %lpad, %delete.notnu
   resume { ptr, i32 } %lpad.phi69
 
 if.end23:                                         ; preds = %if.end12
-  %cmp24 = icmp slt i32 %weight, 1
   br i1 %cmp24, label %return, label %if.then36
 
 if.end23.thread:                                  ; preds = %if.end12
@@ -1053,8 +1053,7 @@ if.end23.thread:                                  ; preds = %if.end12
   %8 = load i32, ptr %numRemoved, align 4
   %inc = add nsw i32 %8, 1
   store i32 %inc, ptr %numRemoved, align 4
-  %cmp2475 = icmp slt i32 %weight, 1
-  br i1 %cmp2475, label %if.then27, label %if.end32
+  br i1 %cmp24, label %if.then27, label %if.end32
 
 if.then27:                                        ; preds = %if.end23.thread
   %9 = load ptr, ptr %map, align 8

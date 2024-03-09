@@ -554,10 +554,10 @@ lpad.i:                                           ; preds = %invoke.cont10
   br label %ehcleanup22
 
 invoke.cont16:                                    ; preds = %invoke.cont10
+  %_M_end_of_storage6.i.i = getelementptr inbounds i8, ptr %agg.tmp11, i64 16
   store ptr %call5.i.i.i.i2.i, ptr %agg.tmp11, align 8
   %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 8
-  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %agg.tmp11, i64 16
-  store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i, align 8
+  store ptr %add.ptr.i1.i, ptr %_M_end_of_storage6.i.i, align 8
   store ptr @_ZN9grpc_core16LameClientFilter7kFilterE, ptr %call5.i.i.i.i2.i, align 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %agg.tmp11, i64 8
   store ptr %add.ptr.i1.i, ptr %_M_finish.i.i, align 8

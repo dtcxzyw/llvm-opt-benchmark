@@ -193,6 +193,7 @@ if.end10:                                         ; preds = %if.then1
 if.end11:                                         ; preds = %if.end10, %if.end
   %3 = load ptr, ptr @app_methods, align 8
   %tobool.not.i = icmp eq ptr %3, null
+  %conv2423 = sext i32 %len.addr.0 to i64
   br i1 %tobool.not.i, label %if.end.i.preheader, label %EVP_PKEY_asn1_get_count.exit
 
 EVP_PKEY_asn1_get_count.exit:                     ; preds = %if.end11
@@ -203,7 +204,6 @@ EVP_PKEY_asn1_get_count.exit:                     ; preds = %if.end11
 
 if.end.i.preheader:                               ; preds = %if.end11, %EVP_PKEY_asn1_get_count.exit
   %num.0.i25 = phi i32 [ %add.i, %EVP_PKEY_asn1_get_count.exit ], [ 16, %if.end11 ]
-  %conv2426 = sext i32 %len.addr.0 to i64
   %4 = zext nneg i32 %num.0.i25 to i64
   br label %if.end.i
 
@@ -242,7 +242,7 @@ if.end18:                                         ; preds = %EVP_PKEY_asn1_get0.
   br i1 %cmp21, label %land.lhs.true, label %for.cond.backedge
 
 land.lhs.true:                                    ; preds = %if.end18
-  %call25 = call i32 @OPENSSL_strncasecmp(ptr noundef %10, ptr noundef %str, i64 noundef %conv2426) #10
+  %call25 = call i32 @OPENSSL_strncasecmp(ptr noundef %10, ptr noundef %str, i64 noundef %conv2423) #10
   %cmp26 = icmp eq i32 %call25, 0
   br i1 %cmp26, label %return, label %for.cond.backedge
 

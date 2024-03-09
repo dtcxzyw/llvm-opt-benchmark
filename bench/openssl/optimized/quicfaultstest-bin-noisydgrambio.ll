@@ -249,6 +249,7 @@ if.end.i:                                         ; preds = %if.end54
   %7 = or i1 %cmp3.i, %cmp4.i
   %8 = add nsw i32 %rem2.i, -1
   %or.cond.i = icmp ult i32 %8, 2
+  %conv11.i = zext i1 %cmp4.i to i64
   br i1 %or.cond.i, label %cond.end.thread.i, label %cond.end.i
 
 cond.end.thread.i:                                ; preds = %if.end.i
@@ -256,12 +257,10 @@ cond.end.thread.i:                                ; preds = %if.end.i
   %rem8.i = and i32 %call7.i, 3
   %add.i = add nuw nsw i32 %rem8.i, 1
   %conv.i = zext nneg i32 %add.i to i64
-  %conv1111.i = zext i1 %cmp4.i to i64
-  %add1212.i = add nuw nsw i64 %conv.i, %conv1111.i
+  %add1212.i = add nuw nsw i64 %conv.i, %conv11.i
   br label %get_noise.exit
 
 cond.end.i:                                       ; preds = %if.end.i
-  %conv11.i = zext i1 %cmp4.i to i64
   %cmp13.i = icmp eq i32 %rem2.i, 3
   br i1 %cmp13.i, label %if.then15.i, label %get_noise.exit
 

@@ -624,6 +624,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   %5 = load i8, ptr @message_with_timestamp, align 1
   %6 = and i8 %5, 1
   %tobool7.not.i.i = icmp eq i8 %6, 0
+  %conv12.i.i = and i32 %code, 255
   br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
@@ -632,12 +633,10 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %7 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
-  %conv11.i.i = and i32 %code, 255
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, i32 noundef %conv11.i.i) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, i32 noundef %conv12.i.i) #14
   br label %trace_gdbstub_op_exiting.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  %conv12.i.i = and i32 %code, 255
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, i32 noundef %conv12.i.i) #14
   br label %trace_gdbstub_op_exiting.exit
 

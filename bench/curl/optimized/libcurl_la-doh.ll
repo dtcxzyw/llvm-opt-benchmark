@@ -1477,6 +1477,8 @@ if.end20.i:                                       ; preds = %if.then19.i, %if.en
   store i32 %conv21.i79, ptr %ai_addrlen.i, align 8
   %89 = load ptr, ptr %ai_addr.i, align 8
   %ip38.i = getelementptr inbounds i8, ptr %arrayidx.i76, i64 4
+  %call40.i = call zeroext i16 @htons(i16 noundef zeroext %conv29.i) #10
+  %sin6_port.i = getelementptr inbounds i8, ptr %89, i64 2
   br i1 %cmp3.i, label %sw.bb31.i, label %sw.bb.i
 
 sw.bb.i:                                          ; preds = %if.end20.i
@@ -1493,8 +1495,6 @@ sw.bb31.i:                                        ; preds = %if.end20.i
 sw.epilog.i:                                      ; preds = %sw.bb31.i, %sw.bb.i
   %.sink.i = phi i16 [ 10, %sw.bb31.i ], [ 2, %sw.bb.i ]
   store i16 %.sink.i, ptr %89, align 4
-  %call40.i = call zeroext i16 @htons(i16 noundef zeroext %conv29.i) #10
-  %sin6_port.i = getelementptr inbounds i8, ptr %89, i64 2
   store i16 %call40.i, ptr %sin6_port.i, align 2
   %indvars.iv.next.i80 = add nuw nsw i64 %indvars.iv.i75, 1
   %91 = load i32, ptr %numaddr.i, align 8

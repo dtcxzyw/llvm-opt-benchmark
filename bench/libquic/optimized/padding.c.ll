@@ -1035,10 +1035,10 @@ if.end24:                                         ; preds = %if.then23, %if.end1
   %emLen.0 = phi i64 [ %dec, %if.then23 ], [ %conv20, %if.end15 ]
   %EM.addr.0 = phi ptr [ %incdec.ptr, %if.then23 ], [ %EM, %if.end15 ]
   %cmp25 = icmp eq i32 %sLen.addr.0, -2
+  %add = add i64 %call, 2
   br i1 %cmp25, label %if.then27, label %if.else35
 
 if.then27:                                        ; preds = %if.end24
-  %add = add i64 %call, 2
   %cmp28 = icmp ult i64 %emLen.0, %add
   br i1 %cmp28, label %if.then30, label %if.end31
 
@@ -1054,8 +1054,7 @@ if.end31:                                         ; preds = %if.then27
 
 if.else35:                                        ; preds = %if.end24
   %conv36 = sext i32 %sLen.addr.0 to i64
-  %add37 = add i64 %call, 2
-  %add38 = add i64 %add37, %conv36
+  %add38 = add i64 %add, %conv36
   %cmp39 = icmp ult i64 %emLen.0, %add38
   br i1 %cmp39, label %if.then41, label %if.end43
 

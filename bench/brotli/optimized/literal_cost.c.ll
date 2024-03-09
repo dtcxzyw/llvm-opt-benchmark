@@ -12,14 +12,14 @@ entry:
   %in_window_utf8.i = alloca [3 x i64], align 16
   %call = tail call i32 @BrotliIsMostlyUTF8(ptr noundef %data, i64 noundef %pos, i64 noundef %mask, i64 noundef %len, double noundef 7.500000e-01) #7
   %tobool.not = icmp eq i32 %call, 0
+  %cmp58.not = icmp eq i64 %len, 0
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %in_window_utf8.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %counts.i.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %counts.i.i, i8 0, i64 24, i1 false)
-  %cmp4.not.i.i = icmp eq i64 %len, 0
-  br i1 %cmp4.not.i.i, label %for.cond8.preheader.thread.i, label %for.body.i.i
+  br i1 %cmp58.not, label %for.cond8.preheader.thread.i, label %for.body.i.i
 
 for.cond8.preheader.thread.i:                     ; preds = %if.then
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %counts.i.i)
@@ -330,7 +330,6 @@ EstimateBitCostsForLiteralsUTF8.exit:             ; preds = %if.end139.i, %for.c
 if.else:                                          ; preds = %entry
   %cond.i = tail call i64 @llvm.umin.i64(i64 %len, i64 2000)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2048) %histogram, i8 0, i64 2048, i1 false)
-  %cmp58.not = icmp eq i64 %len, 0
   br i1 %cmp58.not, label %if.end47, label %for.body
 
 for.cond4.preheader:                              ; preds = %for.body

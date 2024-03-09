@@ -8107,8 +8107,8 @@ return.sink.split:                                ; preds = %if.else, %entry
 
 return:                                           ; preds = %return.sink.split, %if.else
   %.sink = phi i64 [ 0, %if.else ], [ %3, %return.sink.split ]
-  store i64 %.sink, ptr %agg.result, align 8
   %_M_index.i.i.i.i.i.i.i.i2 = getelementptr inbounds i8, ptr %agg.result, i64 48
+  store i64 %.sink, ptr %agg.result, align 8
   store i8 0, ptr %_M_index.i.i.i.i.i.i.i.i2, align 8
   ret void
 }

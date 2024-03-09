@@ -1672,11 +1672,11 @@ if.then429:                                       ; preds = %land.lhs.true424
   %shl441 = shl nuw nsw i32 1, %and440
   %and442 = and i32 %shl441, %conv438
   %tobool443.not = icmp ne i32 %and442, 0
+  %arrayidx457 = getelementptr inbounds [32 x [32 x i16]], ptr %label105, i64 0, i64 %indvars.iv357, i64 %indvars.iv352
   %conv446 = trunc i32 %label.7307 to i16
   %.sink = select i1 %tobool443.not, i16 %conv446, i16 512
   %inc445 = zext i1 %tobool443.not to i32
   %label.8.ph = add nsw i32 %label.7307, %inc445
-  %arrayidx457 = getelementptr inbounds [32 x [32 x i16]], ptr %label105, i64 0, i64 %indvars.iv357, i64 %indvars.iv352
   store i16 %.sink, ptr %arrayidx457, align 2
   br label %for.inc460
 

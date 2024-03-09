@@ -360,10 +360,10 @@ if.then3:                                         ; preds = %if.end
   %1 = load ptr, ptr %data, align 8
   %call4 = tail call i32 @OPENSSL_strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.6) #7
   %cmp5 = icmp eq i32 %call4, 0
+  %P_hash = getelementptr inbounds i8, ptr %vctx, i64 8
   br i1 %cmp5, label %if.then6, label %if.else
 
 if.then6:                                         ; preds = %if.then3
-  %P_hash = getelementptr inbounds i8, ptr %vctx, i64 8
   %call7 = tail call i32 @ossl_prov_macctx_load_from_params(ptr noundef nonnull %P_hash, ptr noundef nonnull %params, ptr noundef nonnull @.str.7, ptr noundef null, ptr noundef nonnull @.str.8, ptr noundef %call) #7
   %tobool.not = icmp eq i32 %call7, 0
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -378,8 +378,7 @@ if.else:                                          ; preds = %if.then3
   %P_sha112 = getelementptr inbounds i8, ptr %vctx, i64 16
   %2 = load ptr, ptr %P_sha112, align 8
   tail call void @EVP_MAC_CTX_free(ptr noundef %2) #7
-  %P_hash13 = getelementptr inbounds i8, ptr %vctx, i64 8
-  %call14 = tail call i32 @ossl_prov_macctx_load_from_params(ptr noundef nonnull %P_hash13, ptr noundef nonnull %params, ptr noundef nonnull @.str.7, ptr noundef null, ptr noundef null, ptr noundef %call) #7
+  %call14 = tail call i32 @ossl_prov_macctx_load_from_params(ptr noundef nonnull %P_hash, ptr noundef nonnull %params, ptr noundef nonnull @.str.7, ptr noundef null, ptr noundef null, ptr noundef %call) #7
   %tobool15.not = icmp eq i32 %call14, 0
   br i1 %tobool15.not, label %return, label %if.end19
 

@@ -84,10 +84,10 @@ if.end14:                                         ; preds = %if.then2
 if.end17:                                         ; preds = %if.end14, %if.end
   %4 = load i32, ptr %idx_, align 4
   %cmp18 = icmp sgt i32 %4, 0
+  %event_set21 = getelementptr inbounds i8, ptr %0, i64 16
   br i1 %cmp18, label %if.then20, label %if.else22
 
 if.then20:                                        ; preds = %if.end17
-  %event_set21 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %event_set21, align 8
   %6 = zext nneg i32 %4 to i64
   %7 = getelementptr %struct.pollfd, ptr %5, i64 %6
@@ -98,8 +98,7 @@ if.else22:                                        ; preds = %if.end17
   %8 = load i32, ptr %nfds, align 4
   %inc = add nsw i32 %8, 1
   store i32 %inc, ptr %nfds, align 4
-  %event_set24 = getelementptr inbounds i8, ptr %0, i64 16
-  %9 = load ptr, ptr %event_set24, align 8
+  %9 = load ptr, ptr %event_set21, align 8
   %idxprom25 = sext i32 %8 to i64
   %arrayidx26 = getelementptr inbounds %struct.pollfd, ptr %9, i64 %idxprom25
   %events27 = getelementptr inbounds i8, ptr %arrayidx26, i64 4

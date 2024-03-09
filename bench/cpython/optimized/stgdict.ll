@@ -1541,6 +1541,7 @@ if.then60:                                        ; preds = %if.end58
   br label %if.end63
 
 if.end63:                                         ; preds = %if.then60, %if.end58
+  %type108 = getelementptr inbounds i8, ptr %11, i64 82
   br i1 %tobool53385, label %if.then65, label %if.else106
 
 if.then65:                                        ; preds = %if.end63
@@ -1552,8 +1553,7 @@ if.then65:                                        ; preds = %if.end63
   %27 = load i64, ptr %align67, align 8
   store i64 %27, ptr %align, align 8
   %cond = call i64 @llvm.umax.i64(i64 %27, i64 1)
-  %type70 = getelementptr inbounds i8, ptr %11, i64 82
-  store i16 13, ptr %type70, align 2
+  store i16 13, ptr %type108, align 2
   %length = getelementptr inbounds i8, ptr %retval.0.i297384, i64 64
   %28 = load i64, ptr %length, align 8
   %add = add nuw i64 %call27, 1
@@ -1599,7 +1599,6 @@ if.else106:                                       ; preds = %if.end63
   store i64 0, ptr %offset, align 8
   store i64 0, ptr %size, align 8
   store i64 0, ptr %align, align 8
-  %type108 = getelementptr inbounds i8, ptr %11, i64 82
   store i16 13, ptr %type108, align 2
   %cmp110 = icmp ugt i64 %call27, 1152921504606846974
   br i1 %cmp110, label %cond.end116.thread, label %cond.end116

@@ -760,10 +760,10 @@ entry:
   %buf = getelementptr inbounds i8, ptr %hw, i64 192
   %0 = load ptr, ptr %buf, align 8
   %tobool.not = icmp eq ptr %0, null
+  %buf_pos4.phi.trans.insert = getelementptr inbounds i8, ptr %hw, i64 200
   br i1 %tobool.not, label %if.then, label %entry.if.end_crit_edge
 
 entry.if.end_crit_edge:                           ; preds = %entry
-  %buf_pos4.phi.trans.insert = getelementptr inbounds i8, ptr %hw, i64 200
   %.pre = load i64, ptr %buf_pos4.phi.trans.insert, align 8
   br label %if.end
 
@@ -778,8 +778,7 @@ if.then:                                          ; preds = %entry
   store i64 %mul, ptr %buf_size, align 8
   %call = tail call noalias ptr @g_malloc(i64 noundef %mul) #15
   store ptr %call, ptr %buf, align 8
-  %buf_pos = getelementptr inbounds i8, ptr %hw, i64 200
-  store i64 0, ptr %buf_pos, align 8
+  store i64 0, ptr %buf_pos4.phi.trans.insert, align 8
   br label %if.end
 
 if.end:                                           ; preds = %entry.if.end_crit_edge, %if.then

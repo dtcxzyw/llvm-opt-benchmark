@@ -240,18 +240,17 @@ land.lhs.true:                                    ; preds = %EVP_MD_CTX_cleanup.
 
 if.then13:                                        ; preds = %land.lhs.true
   %tobool14.not = icmp eq ptr %tmp_buf.0, null
+  %md_data16 = getelementptr inbounds i8, ptr %out, i64 8
   br i1 %tobool14.not, label %if.else, label %if.then15
 
 if.then15:                                        ; preds = %if.then13
-  %md_data16 = getelementptr inbounds i8, ptr %out, i64 8
   store ptr %tmp_buf.0, ptr %md_data16, align 8
   br label %if.end25
 
 if.else:                                          ; preds = %if.then13
   %conv = zext i32 %11 to i64
   %call19 = tail call noalias ptr @malloc(i64 noundef %conv) #14
-  %md_data20 = getelementptr inbounds i8, ptr %out, i64 8
-  store ptr %call19, ptr %md_data20, align 8
+  store ptr %call19, ptr %md_data16, align 8
   %tobool22.not = icmp eq ptr %call19, null
   br i1 %tobool22.not, label %if.then23, label %if.end25
 

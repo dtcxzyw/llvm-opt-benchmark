@@ -705,6 +705,7 @@ if.end185.sink.split.i:                           ; preds = %if.else180.i, %if.e
 
 if.end185.i:                                      ; preds = %if.end185.sink.split.i, %if.else180.i
   %p.1.i = phi ptr [ %call170.i, %if.else180.i ], [ %incdec.ptr183.i, %if.end185.sink.split.i ]
+  %cmp204.not.i = icmp sgt i64 %spec.select135.i, %sub.ptr.sub.i
   br i1 %cmp138.i, label %if.end200.thread.i, label %if.end200.i
 
 if.end200.thread.i:                               ; preds = %if.end185.i
@@ -715,13 +716,11 @@ if.end200.thread.i:                               ; preds = %if.end185.i
   %sub193.i = sub nsw i64 0, %spec.select135.i
   call void @llvm.memset.p0.i64(ptr align 1 %incdec.ptr192.i, i8 48, i64 %sub193.i, i1 false)
   %add.ptr195.i = getelementptr i8, ptr %incdec.ptr192.i, i64 %sub193.i
-  %cmp204.not145.i = icmp sgt i64 %spec.select135.i, %sub.ptr.sub.i
   %call218152.i = call ptr @strncpy(ptr noundef %add.ptr195.i, ptr noundef nonnull %call5140.i, i64 noundef %sub.ptr.sub.i) #13
   %add.ptr219153.i = getelementptr i8, ptr %add.ptr195.i, i64 %sub.ptr.sub.i
-  br i1 %cmp204.not145.i, label %if.then223.i, label %if.else231.i
+  br i1 %cmp204.not.i, label %if.then223.i, label %if.else231.i
 
 if.end200.i:                                      ; preds = %if.end185.i
-  %cmp204.not.i = icmp sgt i64 %spec.select135.i, %sub.ptr.sub.i
   br i1 %cmp204.not.i, label %if.end220.i, label %if.then206.i
 
 if.then206.i:                                     ; preds = %if.end200.i

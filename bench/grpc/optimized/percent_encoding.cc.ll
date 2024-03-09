@@ -118,10 +118,10 @@ invoke.cont25:                                    ; preds = %invoke.cont15, %for
   %shl.i.i40 = shl nuw i64 1, %rem.i.i39
   %and.i41 = and i64 %shl.i.i40, %11
   %cmp.i42.not = icmp eq i64 %and.i41, 0
+  %incdec.ptr28 = getelementptr inbounds i8, ptr %q.055, i64 1
   br i1 %cmp.i42.not, label %if.else, label %if.then27
 
 if.then27:                                        ; preds = %invoke.cont25
-  %incdec.ptr28 = getelementptr inbounds i8, ptr %q.055, i64 1
   store i8 %10, ptr %q.055, align 1
   br label %for.inc37
 
@@ -133,14 +133,13 @@ lpad:                                             ; preds = %if.then45
 
 if.else:                                          ; preds = %invoke.cont25
   %conv24 = zext i8 %10 to i32
-  %incdec.ptr29 = getelementptr inbounds i8, ptr %q.055, i64 1
   store i8 37, ptr %q.055, align 1
   %shr = lshr i32 %conv24, 4
   %idxprom = zext nneg i32 %shr to i64
   %arrayidx = getelementptr inbounds [17 x i8], ptr @_ZZN9grpc_core18PercentEncodeSliceENS_5SliceENS_19PercentEncodingTypeEE3hex, i64 0, i64 %idxprom
   %13 = load i8, ptr %arrayidx, align 1
   %incdec.ptr31 = getelementptr inbounds i8, ptr %q.055, i64 2
-  store i8 %13, ptr %incdec.ptr29, align 1
+  store i8 %13, ptr %incdec.ptr28, align 1
   %and = and i32 %conv24, 15
   %idxprom33 = zext nneg i32 %and to i64
   %arrayidx34 = getelementptr inbounds [17 x i8], ptr @_ZZN9grpc_core18PercentEncodeSliceENS_5SliceENS_19PercentEncodingTypeEE3hex, i64 0, i64 %idxprom33

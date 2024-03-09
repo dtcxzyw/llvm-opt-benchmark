@@ -67,17 +67,16 @@ if.end.i.i:                                       ; preds = %if.end10.i
   %maskGenFunc.i.i = getelementptr inbounds i8, ptr %call1.i.i, i64 8
   %4 = load ptr, ptr %maskGenFunc.i.i, align 8
   %cmp2.not.i.i = icmp eq ptr %4, null
+  %maskHash.phi.trans.insert.i = getelementptr inbounds i8, ptr %call1.i.i, i64 24
   br i1 %cmp2.not.i.i, label %if.end.i.if.end14_crit_edge.i, label %if.then3.i.i
 
 if.end.i.if.end14_crit_edge.i:                    ; preds = %if.end.i.i
-  %maskHash.phi.trans.insert.i = getelementptr inbounds i8, ptr %call1.i.i, i64 24
   %.pre.i = load ptr, ptr %maskHash.phi.trans.insert.i, align 8
   br label %if.end14.i
 
 if.then3.i.i:                                     ; preds = %if.end.i.i
   %call5.i.i = call ptr @ossl_x509_algor_mgf1_decode(ptr noundef nonnull %4) #4
-  %maskHash.i.i = getelementptr inbounds i8, ptr %call1.i.i, i64 24
-  store ptr %call5.i.i, ptr %maskHash.i.i, align 8
+  store ptr %call5.i.i, ptr %maskHash.phi.trans.insert.i, align 8
   %cmp7.i.i = icmp eq ptr %call5.i.i, null
   br i1 %cmp7.i.i, label %if.then8.i.i, label %if.end14.i
 

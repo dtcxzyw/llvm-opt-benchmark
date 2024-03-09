@@ -250,18 +250,17 @@ if.end94:                                         ; preds = %if.end89
 
 if.then97:                                        ; preds = %if.end94
   %cmp98 = icmp eq ptr %s.0115, null
+  %add101 = add i32 %sub90, %num.0116
   br i1 %cmp98, label %if.then100, label %if.else
 
 if.then100:                                       ; preds = %if.then97
-  %add101 = add i32 %sub90, %num.0116
   %conv102 = zext i32 %add101 to i64
   %call103 = tail call noalias ptr @malloc(i64 noundef %conv102) #5
   br label %if.end109
 
 if.else:                                          ; preds = %if.then97
   %conv104 = sext i32 %slen.0118 to i64
-  %add106 = add nsw i32 %sub90, %num.0116
-  %conv107 = sext i32 %add106 to i64
+  %conv107 = sext i32 %add101 to i64
   %call108 = tail call ptr @OPENSSL_realloc_clean(ptr noundef nonnull %s.0115, i64 noundef %conv104, i64 noundef %conv107) #4
   br label %if.end109
 

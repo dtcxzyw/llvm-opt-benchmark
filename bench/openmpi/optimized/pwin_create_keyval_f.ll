@@ -23,15 +23,14 @@ define void @ompi_win_create_keyval_f(ptr noundef %0, ptr noundef %1, ptr nounde
   %6 = load i64, ptr %3, align 8
   %7 = tail call i32 @ompi_attr_create_keyval_aint(i32 noundef 3, ptr %0, ptr %1, ptr noundef %2, i64 noundef %6, i32 noundef 2, ptr noundef null) #2
   %.not = icmp eq i32 %7, 0
+  %.not10 = icmp eq ptr %4, null
   br i1 %.not, label %10, label %8
 
 8:                                                ; preds = %5
   %9 = tail call i32 @ompi_errhandler_invoke(ptr noundef null, ptr noundef null, i32 noundef -1, i32 noundef 16, ptr noundef nonnull @FUNC_NAME) #2
-  %.not11 = icmp eq ptr %4, null
-  br i1 %.not11, label %11, label %.sink.split
+  br i1 %.not10, label %11, label %.sink.split
 
 10:                                               ; preds = %5
-  %.not10 = icmp eq ptr %4, null
   br i1 %.not10, label %11, label %.sink.split
 
 .sink.split:                                      ; preds = %10, %8

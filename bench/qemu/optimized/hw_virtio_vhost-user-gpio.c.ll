@@ -356,6 +356,7 @@ if.then.i.i8:                                     ; preds = %land.lhs.true5.i.i
   %10 = load i8, ptr @message_with_timestamp, align 1
   %11 = and i8 %10, 1
   %tobool7.not.i.i = icmp eq i8 %11, 0
+  %conv12.i.i = zext i8 %status to i32
   br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i8
@@ -364,12 +365,10 @@ if.then8.i.i:                                     ; preds = %if.then.i.i8
   %12 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %13 = load i64, ptr %tv_usec.i.i, align 8
-  %conv11.i.i = zext i8 %status to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.24, i32 noundef %call10.i.i, i64 noundef %12, i64 noundef %13, i32 noundef %conv11.i.i) #7
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.24, i32 noundef %call10.i.i, i64 noundef %12, i64 noundef %13, i32 noundef %conv12.i.i) #7
   br label %trace_virtio_gpio_set_status.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i8
-  %conv12.i.i = zext i8 %status to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.25, i32 noundef %conv12.i.i) #7
   br label %trace_virtio_gpio_set_status.exit
 

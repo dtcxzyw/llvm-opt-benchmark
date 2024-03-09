@@ -16,12 +16,12 @@ if.end2:                                          ; preds = %entry
   br i1 %cmp3.not, label %if.else, label %if.then4
 
 if.then4:                                         ; preds = %if.end2
+  %tv_usec8 = getelementptr inbounds i8, ptr %tv, i64 8
   %div = udiv i64 %ms, 1000
   %rem = urem i64 %ms, 1000
   %mul = mul nuw nsw i64 %rem, 1000
   store i64 %div, ptr %tv, align 8
-  %tv_usec6 = getelementptr inbounds i8, ptr %tv, i64 8
-  store i64 %mul, ptr %tv_usec6, align 8
+  store i64 %mul, ptr %tv_usec8, align 8
   br label %return
 
 if.else:                                          ; preds = %if.end2

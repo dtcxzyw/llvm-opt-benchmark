@@ -243,17 +243,16 @@ do.end:                                           ; preds = %do.body, %if.then1
 if.end6:                                          ; preds = %do.end
   %2 = load ptr, ptr %s, align 8
   %cmp7 = icmp eq ptr %2, null
+  %3 = load i64, ptr %size, align 8
   br i1 %cmp7, label %if.then8, label %if.else
 
 if.then8:                                         ; preds = %if.end6
-  %3 = load i64, ptr %size, align 8
   %call9 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.19, ptr noundef nonnull @_Py_NoneStruct, i64 noundef %3) #3
   br label %return
 
 if.else:                                          ; preds = %if.end6
   %4 = load i64, ptr %buflen, align 8
-  %5 = load i64, ptr %size, align 8
-  %call10 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.20, ptr noundef nonnull %2, i64 noundef %4, i64 noundef %5) #3
+  %call10 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.20, ptr noundef nonnull %2, i64 noundef %4, i64 noundef %3) #3
   br label %return
 
 return:                                           ; preds = %do.end, %entry, %if.else, %if.then8

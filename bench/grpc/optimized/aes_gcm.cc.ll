@@ -111,6 +111,7 @@ if.then.i.i.i:                                    ; preds = %entry
 
 _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %entry
   %cmp.not.i.i.i = icmp eq i64 %key.coerce1, 0
+  %_M_end_of_storage6.i.i = getelementptr inbounds i8, ptr %this, i64 24
   br i1 %cmp.not.i.i.i, label %invoke.cont, label %if.then.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i
@@ -120,8 +121,7 @@ if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %_ZNSt6vectorIhSaIhE
 call5.i.i.i.i.noexc.i:                            ; preds = %if.then.i.i.i.i.i.i.i.i.i.i
   store ptr %call5.i.i.i.i1.i, ptr %key_, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i, i64 %key.coerce1
-  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  store ptr %add.ptr.i.i, ptr %_M_end_of_storage.i.i, align 8
+  store ptr %add.ptr.i.i, ptr %_M_end_of_storage6.i.i, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call5.i.i.i.i1.i, ptr align 1 %key.coerce0, i64 %key.coerce1, i1 false)
   br label %invoke.cont
 

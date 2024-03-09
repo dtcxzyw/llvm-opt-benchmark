@@ -619,18 +619,17 @@ for.body:                                         ; preds = %entry, %if.end7
   %0 = trunc i64 %indvars.iv to i32
   %and = and i32 %0, 1
   %cmp1 = icmp eq i32 %and, 0
+  %arrayidx = getelementptr inbounds [10 x %union.SU], ptr %v, i64 0, i64 %indvars.iv
   br i1 %cmp1, label %if.then, label %if.else
 
 if.then:                                          ; preds = %for.body
-  %arrayidx = getelementptr inbounds [10 x %union.SU], ptr %v, i64 0, i64 %indvars.iv
   store i32 %0, ptr %arrayidx, align 4
   br label %if.end
 
 if.else:                                          ; preds = %for.body
   %1 = trunc i64 %indvars.iv to i8
   %conv = add nuw nsw i8 %1, 65
-  %arrayidx3 = getelementptr inbounds [10 x %union.SU], ptr %v, i64 0, i64 %indvars.iv
-  store i8 %conv, ptr %arrayidx3, align 4
+  store i8 %conv, ptr %arrayidx, align 4
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then

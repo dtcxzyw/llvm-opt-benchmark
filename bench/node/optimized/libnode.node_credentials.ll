@@ -2009,12 +2009,12 @@ _ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIjSaI
   br label %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit
 
 if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i
+  %_M_end_of_storage.i.i6.i = getelementptr inbounds i8, ptr %groups, i64 16
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %conv, 2
   %call5.i.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #22
   store ptr %call5.i.i.i.i.i.i, ptr %groups, align 8
   %add.ptr.i.i.i = getelementptr inbounds i32, ptr %call5.i.i.i.i.i.i, i64 %conv
-  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %groups, i64 16
-  store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
+  store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i6.i, align 8
   store i32 0, ptr %call5.i.i.i.i.i.i, align 4
   %incdec.ptr.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i.i.i, i64 4
   %sub.i.i.i.i.i13 = add nsw i64 %conv, -1

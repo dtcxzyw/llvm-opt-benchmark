@@ -70,11 +70,11 @@ entry:
   %2 = load i8, ptr %marker, align 8
   %3 = and i8 %2, 1
   %tobool.not = icmp eq i8 %3, 0
+  %sleep_state12 = getelementptr inbounds i8, ptr %opaque, i64 16
   br i1 %tobool.not, label %if.else10, label %if.then
 
 if.then:                                          ; preds = %entry
-  %sleep_state = getelementptr inbounds i8, ptr %opaque, i64 16
-  %4 = load ptr, ptr %sleep_state, align 8
+  %4 = load ptr, ptr %sleep_state12, align 8
   %tobool3.not = icmp eq ptr %4, null
   br i1 %tobool3.not, label %if.end, label %if.else
 
@@ -99,7 +99,6 @@ if.end9:                                          ; preds = %if.then6, %if.end
 
 if.else10:                                        ; preds = %entry
   store i8 1, ptr %marker, align 8
-  %sleep_state12 = getelementptr inbounds i8, ptr %opaque, i64 16
   tail call void @qemu_co_sleep_wake(ptr noundef nonnull %sleep_state12) #4
   br label %if.end13
 

@@ -186,6 +186,7 @@ if.end.i:                                         ; preds = %if.end
   %cmp.i = fcmp ogt double %2, 0x7FCFFFFFFFFFFFFF
   %cmp10.i = fcmp ogt double %4, 0x7FCFFFFFFFFFFFFF
   %or.cond26.i = select i1 %cmp.i, i1 true, i1 %cmp10.i
+  %12 = fneg double %0
   br i1 %or.cond26.i, label %if.then11.i, label %if.else37.i
 
 if.then11.i:                                      ; preds = %if.end.i
@@ -195,14 +196,12 @@ if.then11.i:                                      ; preds = %if.end.i
   %call22.i = tail call double @hypot(double noundef %div.i, double noundef %div21.i) #10
   %call23.i = tail call double @log(double noundef %call22.i) #10
   %add.i = fadd double %call23.i, 0x3FF62E42FEFA39EF
-  %12 = fneg double %0
   %fneg.i = tail call double @llvm.copysign.f64(double %add.i, double %12)
   br label %cmath_acos_impl.exit.thread
 
 if.else37.i:                                      ; preds = %if.end.i
   %sub.i = fsub double 1.000000e+00, %1
-  %fneg41.i = fneg double %0
-  %call43.i = tail call fastcc { double, double } @cmath_sqrt_impl(double %sub.i, double %fneg41.i)
+  %call43.i = tail call fastcc { double, double } @cmath_sqrt_impl(double %sub.i, double %12)
   %13 = extractvalue { double, double } %call43.i, 0
   %14 = extractvalue { double, double } %call43.i, 1
   %add45.i = fadd double %1, 1.000000e+00

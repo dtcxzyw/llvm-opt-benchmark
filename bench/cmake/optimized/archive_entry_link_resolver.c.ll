@@ -807,13 +807,13 @@ define dso_local ptr @archive_entry_partial_links(ptr nocapture noundef %0, ptr 
 12:                                               ; preds = %5, %2
   %13 = tail call fastcc ptr @next_entry(ptr noundef nonnull %0, i32 noundef 2)
   %.not18 = icmp eq ptr %13, null
+  %.not19 = icmp eq ptr %1, null
   br i1 %.not18, label %21, label %14
 
 14:                                               ; preds = %12
   %15 = getelementptr inbounds i8, ptr %13, i64 16
   %16 = load ptr, ptr %15, align 8
-  %.not20 = icmp eq ptr %1, null
-  br i1 %.not20, label %20, label %17
+  br i1 %.not19, label %20, label %17
 
 17:                                               ; preds = %14
   %18 = getelementptr inbounds i8, ptr %13, i64 40
@@ -826,7 +826,6 @@ define dso_local ptr @archive_entry_partial_links(ptr nocapture noundef %0, ptr 
   br label %23
 
 21:                                               ; preds = %12
-  %.not19 = icmp eq ptr %1, null
   br i1 %.not19, label %23, label %22
 
 22:                                               ; preds = %21

@@ -84,13 +84,13 @@ entry:
   %_M_next_resize.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %sampledStackDepth_.i = getelementptr inbounds i8, ptr %this, i64 108
   %stack.i.i = getelementptr inbounds i8, ptr %this, i64 128
+  %_M_end_of_storage.i.i6.i.i.i = getelementptr inbounds i8, ptr %this, i64 144
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %_M_next_resize.i.i.i.i, i8 0, i64 17, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %sampledStackDepth_.i, i8 0, i64 20, i1 false)
   %call5.i.i.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(12000) ptr @_Znwm(i64 noundef 12000) #15
   store ptr %call5.i.i.i.i.i.i.i.i, ptr %stack.i.i, align 8
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i, i64 12000
-  %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 144
-  store ptr %add.ptr.i.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i.i, align 8
+  store ptr %add.ptr.i.i.i.i.i, ptr %_M_end_of_storage.i.i6.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call5.i.i.i.i.i.i.i.i, i8 0, i64 24, i1 false)
   br label %for.body.i.i.i.i.i.i.i.i.i.i.i
 

@@ -4421,18 +4421,17 @@ do.end.i:                                         ; preds = %land.lhs.true4.i, %
 if.end96:                                         ; preds = %do.end.i
   %29 = and i8 %bSplitYear.0.ph532, 1
   %tobool97.not = icmp eq i8 %29, 0
+  %mul100 = mul nuw nsw i32 %add.i, 100
   br i1 %tobool97.not, label %if.else, label %if.then98
 
 if.then98:                                        ; preds = %if.end96
   %30 = load i32, ptr %tm_year226, align 4
   %rem = srem i32 %30, 100
-  %mul = mul nuw nsw i32 %add.i, 100
-  %add = add nsw i32 %rem, %mul
+  %add = add nsw i32 %rem, %mul100
   store i32 %add, ptr %tm_year226, align 4
   br label %sw.epilog
 
 if.else:                                          ; preds = %if.end96
-  %mul100 = mul nuw nsw i32 %add.i, 100
   store i32 %mul100, ptr %tm_year226, align 4
   br label %sw.epilog
 

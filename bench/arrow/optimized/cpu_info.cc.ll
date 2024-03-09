@@ -1584,11 +1584,11 @@ entry:
 define void @_ZN5arrow8internal7CpuInfo13EnableFeatureElb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i64 noundef %flag, i1 noundef zeroext %enable) local_unnamed_addr #8 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
+  %1 = load i64, ptr %0, align 8
   br i1 %enable, label %while.end9.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   %not.i = xor i64 %flag, -1
-  %1 = load i64, ptr %0, align 8
   %and.i = and i64 %1, %not.i
   br label %_ZN5arrow8internal7CpuInfo4Impl13EnableFeatureElb.exit
 
@@ -1596,8 +1596,7 @@ while.end9.i:                                     ; preds = %entry
   %original_hardware_flags10.i = getelementptr inbounds i8, ptr %0, i64 16
   %2 = load i64, ptr %original_hardware_flags10.i, align 8
   %and11.i = and i64 %2, %flag
-  %3 = load i64, ptr %0, align 8
-  %or.i = or i64 %3, %and11.i
+  %or.i = or i64 %and11.i, %1
   br label %_ZN5arrow8internal7CpuInfo4Impl13EnableFeatureElb.exit
 
 _ZN5arrow8internal7CpuInfo4Impl13EnableFeatureElb.exit: ; preds = %if.then.i, %while.end9.i

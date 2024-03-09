@@ -4018,10 +4018,10 @@ lpad.i:                                           ; preds = %if.end
   br label %ehcleanup14
 
 invoke.cont6:                                     ; preds = %if.end
+  %_M_end_of_storage6.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store ptr %call5.i.i.i.i2.i, ptr %ref.tmp, align 8
   %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 16
-  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i, align 8
+  store ptr %add.ptr.i1.i, ptr %_M_end_of_storage6.i.i, align 8
   store ptr @.str.34, ptr %call5.i.i.i.i2.i, align 8
   %ref.tmp3.sroa.2.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 8
   store ptr @.str.35, ptr %ref.tmp3.sroa.2.0.call5.i.i.i.i2.i.sroa_idx, align 8

@@ -512,16 +512,15 @@ while.body:                                       ; preds = %while.body.backedge
   %conv = trunc i64 %call to i32
   %call2 = call noundef i32 @_ZNK3zmq13poller_base_t8get_loadEv(ptr noundef nonnull align 8 dereferenceable(80) %this)
   %cmp = icmp eq i32 %call2, 0
+  %cmp3 = icmp eq i32 %conv, 0
   br i1 %cmp, label %if.then, label %if.end5
 
 if.then:                                          ; preds = %while.body
-  %cmp3 = icmp eq i32 %conv, 0
   br i1 %cmp3, label %while.end, label %while.body.backedge
 
 if.end5:                                          ; preds = %while.body
   %0 = load i32, ptr %_epoll_fd, align 8
-  %tobool.not = icmp eq i32 %conv, 0
-  %cond = select i1 %tobool.not, i32 -1, i32 %conv
+  %cond = select i1 %cmp3, i32 -1, i32 %conv
   %call6 = call i32 @epoll_wait(i32 noundef %0, ptr noundef nonnull %ev_buf, i32 noundef 256, i32 noundef %cond)
   %cmp7 = icmp eq i32 %call6, -1
   br i1 %cmp7, label %do.body, label %for.cond.preheader

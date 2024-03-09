@@ -1710,10 +1710,10 @@ if.else.i9:                                       ; preds = %if.then38.i
   %no_extms_on_reneg.i = getelementptr inbounds i8, ptr %test_ctx, i64 92
   %15 = load i32, ptr %no_extms_on_reneg.i, align 4
   %tobool45.not.i = icmp eq i32 %15, 0
+  %reneg_ciphers.i = getelementptr inbounds i8, ptr %test_ctx, i64 64
   br i1 %tobool45.not.i, label %if.end49.i, label %if.end49.thread.i
 
 if.end49.i:                                       ; preds = %if.else.i9
-  %reneg_ciphers.i = getelementptr inbounds i8, ptr %test_ctx, i64 64
   %16 = load ptr, ptr %reneg_ciphers.i, align 8
   %cmp52.not.i = icmp eq ptr %16, null
   br i1 %cmp52.not.i, label %if.else69.i, label %if.then54.i
@@ -1721,8 +1721,7 @@ if.end49.i:                                       ; preds = %if.else.i9
 if.end49.thread.i:                                ; preds = %if.else.i9
   %17 = load ptr, ptr %peer, align 8
   %call48.i = tail call i64 @SSL_set_options(ptr noundef %17, i64 noundef 1) #10
-  %reneg_ciphers114.i = getelementptr inbounds i8, ptr %test_ctx, i64 64
-  %18 = load ptr, ptr %reneg_ciphers114.i, align 8
+  %18 = load ptr, ptr %reneg_ciphers.i, align 8
   %cmp52.not115.i = icmp eq ptr %18, null
   br i1 %cmp52.not115.i, label %if.then66.i, label %if.then54.i
 

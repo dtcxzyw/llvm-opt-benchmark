@@ -3013,6 +3013,7 @@ if.else.i:                                        ; preds = %if.then
   %conv.i = zext i8 %1 to i64
   %call.i3 = tail call ptr @safe_malloc_mul_2op_p(i64 noundef %conv.i, i64 noundef 16) #28
   %cmp1.i = icmp eq ptr %call.i3, null
+  %indices.i.i = getelementptr inbounds i8, ptr %call.i, i64 24
   br i1 %cmp1.i, label %if.then2, label %if.end.i
 
 if.end.i:                                         ; preds = %if.else.i
@@ -3021,12 +3022,10 @@ if.end.i:                                         ; preds = %if.else.i
   %conv6.i = zext i8 %3 to i64
   %mul.i = shl nuw nsw i64 %conv6.i, 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i3, ptr align 8 %2, i64 %mul.i, i1 false)
-  %indices7.i = getelementptr inbounds i8, ptr %call.i, i64 24
-  store ptr %call.i3, ptr %indices7.i, align 8
+  store ptr %call.i3, ptr %indices.i.i, align 8
   br label %return
 
 if.then2:                                         ; preds = %if.else.i
-  %indices.i.i = getelementptr inbounds i8, ptr %call.i, i64 24
   %4 = load ptr, ptr %indices.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %4, null
   br i1 %cmp.not.i.i, label %FLAC__metadata_object_cuesheet_track_delete.exit, label %if.then.i.i

@@ -1622,6 +1622,7 @@ sw.bb:                                            ; preds = %entry, %entry
   %_ = getelementptr inbounds i8, ptr %uis, i64 40
   %2 = load i32, ptr %_, align 8
   %cmp = icmp sgt i32 %2, %len
+  %result_maxsize6 = getelementptr inbounds i8, ptr %uis, i64 44
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %sw.bb
@@ -1630,13 +1631,11 @@ if.then:                                          ; preds = %sw.bb
   tail call void @ERR_new() #7
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 875, ptr noundef nonnull @__func__.UI_set_result_ex) #7
   %3 = load i32, ptr %_, align 8
-  %result_maxsize = getelementptr inbounds i8, ptr %uis, i64 44
-  %4 = load i32, ptr %result_maxsize, align 4
+  %4 = load i32, ptr %result_maxsize6, align 4
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 40, i32 noundef 101, ptr noundef nonnull @.str.8, i32 noundef %3, i32 noundef %4) #7
   br label %return
 
 if.end:                                           ; preds = %sw.bb
-  %result_maxsize6 = getelementptr inbounds i8, ptr %uis, i64 44
   %5 = load i32, ptr %result_maxsize6, align 4
   %cmp7 = icmp slt i32 %5, %len
   br i1 %cmp7, label %if.then8, label %if.end15

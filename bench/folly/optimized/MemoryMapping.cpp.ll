@@ -596,10 +596,10 @@ while.exit178:                                    ; preds = %_ZN6google12Check_G
   %mapLength_ = getelementptr inbounds i8, ptr %this, i64 16
   store i64 %length, ptr %mapLength_, align 8, !tbaa !43
   %cmp187.not = icmp eq i64 %length, -1
+  %st_size465 = getelementptr inbounds i8, ptr %st, i64 48
   br i1 %cmp187.not, label %if.end194.thread, label %if.end194
 
 if.end194.thread:                                 ; preds = %while.exit178
-  %st_size465 = getelementptr inbounds i8, ptr %st, i64 48
   %15 = load i64, ptr %st_size465, align 8
   %sub198466 = sub nsw i64 %15, %sub185
   %cond467 = select i1 %cmp.i, i64 %sub198466, i64 -1
@@ -629,8 +629,7 @@ if.end194:                                        ; preds = %while.exit178
   %17 = srem i64 %sub192, %14
   %mul = sub nsw i64 %sub192, %17
   store i64 %mul, ptr %mapLength_, align 8, !tbaa !43
-  %st_size = getelementptr inbounds i8, ptr %st, i64 48
-  %18 = load i64, ptr %st_size, align 8
+  %18 = load i64, ptr %st_size465, align 8
   %sub198 = sub nsw i64 %18, %sub185
   %cond = select i1 %cmp.i, i64 %sub198, i64 %length
   %cmp201 = icmp eq i64 %mul, -1

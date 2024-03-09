@@ -174,6 +174,7 @@ sw.bb30:                                          ; preds = %if.end6
   %arglen31 = getelementptr inbounds i8, ptr %call.i, i64 204
   %1 = load i32, ptr %arglen31, align 4
   %cmp32 = icmp eq i32 %1, 4
+  %cmdarg224 = getelementptr inbounds i8, ptr %call.i, i64 184
   br i1 %cmp32, label %if.then33, label %if.else222
 
 if.then33:                                        ; preds = %sw.bb30
@@ -181,8 +182,7 @@ if.then33:                                        ; preds = %sw.bb30
   %2 = load i32, ptr %cmd34, align 4
   %conv = trunc i32 %2 to i8
   store i8 %conv, ptr %request, align 4
-  %cmdarg = getelementptr inbounds i8, ptr %call.i, i64 184
-  %cmdarg.val = load i32, ptr %cmdarg, align 1
+  %cmdarg.val = load i32, ptr %cmdarg224, align 1
   %3 = tail call i32 @llvm.bswap.i32(i32 %cmdarg.val)
   %arg38 = getelementptr inbounds i8, ptr %request, i64 4
   store i32 %3, ptr %arg38, align 4
@@ -302,7 +302,6 @@ if.end220:                                        ; preds = %do.end63, %if.end10
 
 if.else222:                                       ; preds = %sw.bb30
   %conv223 = trunc i32 %val to i8
-  %cmdarg224 = getelementptr inbounds i8, ptr %call.i, i64 184
   %inc = add i32 %1, 1
   store i32 %inc, ptr %arglen31, align 4
   %idxprom = sext i32 %1 to i64

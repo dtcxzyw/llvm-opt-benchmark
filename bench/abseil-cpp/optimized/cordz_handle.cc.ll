@@ -137,10 +137,10 @@ invoke.cont2:                                     ; preds = %if.then
   %dq_prev_ = getelementptr inbounds i8, ptr %this, i64 16
   %7 = load ptr, ptr %dq_prev_, align 8
   %cmp = icmp eq ptr %7, null
+  %tobool4.not46 = icmp eq ptr %6, null
   br i1 %cmp, label %while.cond.preheader, label %if.end
 
 while.cond.preheader:                             ; preds = %invoke.cont2
-  %tobool4.not46 = icmp eq ptr %6, null
   br i1 %tobool4.not46, label %if.else15, label %land.rhs
 
 land.rhs:                                         ; preds = %while.cond.preheader, %invoke.cont7
@@ -228,8 +228,7 @@ invoke.cont7:                                     ; preds = %_ZNSt6vectorIPN4abs
 if.end:                                           ; preds = %invoke.cont2
   %dq_next_10 = getelementptr inbounds i8, ptr %7, i64 24
   store ptr %6, ptr %dq_next_10, align 8
-  %tobool11.not = icmp eq ptr %6, null
-  br i1 %tobool11.not, label %if.else15, label %if.then12
+  br i1 %tobool4.not46, label %if.else15, label %if.then12
 
 if.then12:                                        ; preds = %land.rhs, %if.end
   %to_delete.sroa.0.236 = phi ptr [ null, %if.end ], [ %to_delete.sroa.0.050, %land.rhs ]

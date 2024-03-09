@@ -756,16 +756,15 @@ partition.exit:                                   ; preds = %while.end24.i
   %sub45 = sub i32 %inc.i, %lo.addr.079
   %sub46 = sub i32 %up.addr.080, %inc.i
   %cmp47 = icmp ult i32 %sub45, %sub46
+  %add52 = add i32 %i.1.i, 2
   br i1 %cmp47, label %if.then49, label %if.else53
 
 if.then49:                                        ; preds = %partition.exit
   tail call fastcc void @auxsort(ptr noundef %L, i32 noundef %lo.addr.079, i32 noundef %i.1.i, i32 noundef %rnd.addr.081)
-  %add52 = add i32 %i.1.i, 2
   br label %if.end57
 
 if.else53:                                        ; preds = %partition.exit
-  %add54 = add i32 %i.1.i, 2
-  tail call fastcc void @auxsort(ptr noundef %L, i32 noundef %add54, i32 noundef %up.addr.080, i32 noundef %rnd.addr.081)
+  tail call fastcc void @auxsort(ptr noundef %L, i32 noundef %add52, i32 noundef %up.addr.080, i32 noundef %rnd.addr.081)
   br label %if.end57
 
 if.end57:                                         ; preds = %if.else53, %if.then49

@@ -224,11 +224,11 @@ _ZNKSt6vectorI11aiVectorKeySaIS0_EE2atEm.exit30:  ; preds = %_ZNKSt6vectorI11aiV
   %add.ptr.i.i29 = getelementptr inbounds %struct.aiVectorKey, ptr %10, i64 %conv12
   %13 = load double, ptr %add.ptr.i.i29, align 8
   %cmp = fcmp oeq double %7, %13
+  %curTime46 = getelementptr inbounds i8, ptr %this, i64 32
   br i1 %cmp, label %if.then15, label %if.else
 
 if.then15:                                        ; preds = %_ZNKSt6vectorI11aiVectorKeySaIS0_EE2atEm.exit30
-  %curTime = getelementptr inbounds i8, ptr %this, i64 32
-  store double %7, ptr %curTime, align 8
+  store double %7, ptr %curTime46, align 8
   %conv18 = zext i32 %6 to i64
   %14 = load ptr, ptr %_M_finish.i, align 8
   %15 = load ptr, ptr %2, align 8
@@ -301,7 +301,6 @@ if.then40:                                        ; preds = %if.end33
 
 if.else:                                          ; preds = %_ZNKSt6vectorI11aiVectorKeySaIS0_EE2atEm.exit30
   %cmp44 = fcmp olt double %7, %13
-  %curTime46 = getelementptr inbounds i8, ptr %this, i64 32
   br i1 %cmp44, label %if.then45, label %if.else90
 
 if.then45:                                        ; preds = %if.else

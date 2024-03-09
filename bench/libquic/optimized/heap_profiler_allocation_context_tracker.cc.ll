@@ -416,6 +416,7 @@ entry:
   %ignore_scope_depth_ = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load i32, ptr %ignore_scope_depth_, align 8
   %tobool.not = icmp eq i32 %0, 0
+  %add.ptr.i = getelementptr inbounds i8, ptr %agg.result, i64 768
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -424,13 +425,11 @@ if.then:                                          ; preds = %entry
   store ptr @_ZN4base11trace_event12_GLOBAL__N_116kTracingOverheadE, ptr %ref.tmp.sroa.215.0.arrayidx.sroa_idx, align 8
   %type_name = getelementptr inbounds i8, ptr %agg.result, i64 776
   store ptr @_ZN4base11trace_event12_GLOBAL__N_116kTracingOverheadE, ptr %type_name, align 8
-  %frame_count = getelementptr inbounds i8, ptr %agg.result, i64 768
-  store i64 1, ptr %frame_count, align 8
+  store i64 1, ptr %add.ptr.i, align 8
   br label %return
 
 if.end:                                           ; preds = %entry
   %1 = load atomic volatile i32, ptr @_ZN4base11trace_event24AllocationContextTracker13capture_mode_E monotonic, align 4
-  %add.ptr.i = getelementptr inbounds i8, ptr %agg.result, i64 768
   %thread_name_ = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load ptr, ptr %thread_name_, align 8
   %tobool11.not = icmp eq ptr %2, null

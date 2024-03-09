@@ -1083,15 +1083,14 @@ entry:
   %mHeight = getelementptr inbounds i8, ptr %call, i64 4
   %1 = load <2 x i32>, ptr %szData, align 4
   store <2 x i32> %1, ptr %call, align 8
+  %cmp439 = icmp eq i32 %iType, 6
   br i1 %cmp, label %if.end, label %if.end.thread
 
 if.end:                                           ; preds = %entry
   store ptr inttoptr (i64 -1 to ptr), ptr %pcData.i, align 8
-  %cmp4 = icmp eq i32 %iType, 6
-  br i1 %cmp4, label %if.else66.critedge, label %if.end24
+  br i1 %cmp439, label %if.else66.critedge, label %if.end24
 
 if.end.thread:                                    ; preds = %entry
-  %cmp439 = icmp eq i32 %iType, 6
   br i1 %cmp439, label %if.end24.thread, label %if.end24
 
 if.end24.thread:                                  ; preds = %if.end.thread

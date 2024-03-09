@@ -5344,6 +5344,7 @@ entry:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %0 = load ptr, ptr %ptr, align 8
   %cmp = icmp eq ptr %0, @_ZN5arrow11memory_pool8internal14zero_size_areaE
+  %cmp7 = icmp eq i64 %new_size, 0
   br i1 %cmp, label %while.end6, label %if.end
 
 while.end6:                                       ; preds = %entry
@@ -5351,8 +5352,7 @@ while.end6:                                       ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %size.addr.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i64 %new_size, ptr %size.addr.i, align 8, !noalias !107
-  %cmp.i = icmp eq i64 %new_size, 0
-  br i1 %cmp.i, label %if.then.i, label %if.end.i
+  br i1 %cmp7, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %while.end6
   store ptr @_ZN5arrow11memory_pool8internal14zero_size_areaE, ptr %ptr, align 8, !noalias !107
@@ -5385,7 +5385,6 @@ _ZN5arrow12_GLOBAL__N_115SystemAllocator15AllocateAlignedEllPPh.exit: ; preds = 
   br label %return
 
 if.end:                                           ; preds = %entry
-  %cmp7 = icmp eq i64 %new_size, 0
   br i1 %cmp7, label %_ZN5arrow12_GLOBAL__N_115SystemAllocator17DeallocateAlignedEPhll.exit, label %if.end.i14
 
 _ZN5arrow12_GLOBAL__N_115SystemAllocator17DeallocateAlignedEPhll.exit: ; preds = %if.end

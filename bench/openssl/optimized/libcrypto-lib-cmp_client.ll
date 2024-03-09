@@ -367,6 +367,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %cmp1 = icmp eq ptr %call, null
+  %propq6 = getelementptr inbounds i8, ptr %ctx, i64 8
   br i1 %cmp1, label %if.then2, label %if.else
 
 if.then2:                                         ; preds = %if.end
@@ -374,15 +375,13 @@ if.then2:                                         ; preds = %if.end
   %untrusted = getelementptr inbounds i8, ptr %ctx, i64 176
   %0 = load ptr, ptr %untrusted, align 8
   %1 = load ptr, ptr %ctx, align 8
-  %propq = getelementptr inbounds i8, ptr %ctx, i64 8
-  %2 = load ptr, ptr %propq, align 8
+  %2 = load ptr, ptr %propq6, align 8
   %call4 = tail call ptr @X509_build_chain(ptr noundef %cert, ptr noundef %0, ptr noundef null, i32 noundef 0, ptr noundef %1, ptr noundef %2) #4
   store ptr %call4, ptr %chain, align 8
   br label %if.end28
 
 if.else:                                          ; preds = %if.end
   %3 = load ptr, ptr %ctx, align 8
-  %propq6 = getelementptr inbounds i8, ptr %ctx, i64 8
   %4 = load ptr, ptr %propq6, align 8
   %call7 = tail call ptr @X509_STORE_CTX_new_ex(ptr noundef %3, ptr noundef %4) #4
   %call8 = tail call i32 (i32, ptr, ptr, ptr, i32, ptr, ptr, ...) @ossl_cmp_print_log(i32 noundef 7, ptr noundef nonnull %ctx, ptr noundef nonnull @__func__.OSSL_CMP_certConf_cb, ptr noundef nonnull @.str, i32 noundef 504, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.4) #4

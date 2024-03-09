@@ -1531,10 +1531,10 @@ if.then273:                                       ; preds = %land.lhs.true270
   %bn_mod_exp275 = getelementptr inbounds i8, ptr %69, i64 48
   %70 = load ptr, ptr %bn_mod_exp275, align 8
   %cmp276 = icmp eq ptr %70, @BN_mod_exp_mont
+  %_method_mod_n280 = getelementptr inbounds i8, ptr %rsa, i64 168
   br i1 %cmp276, label %if.then277, label %if.else
 
 if.then277:                                       ; preds = %if.then273
-  %_method_mod_n280 = getelementptr inbounds i8, ptr %rsa, i64 168
   %71 = load ptr, ptr %_method_mod_n280, align 8
   %call281 = tail call i32 @BN_mod_exp_mont(ptr noundef nonnull %call3, ptr noundef %r0, ptr noundef nonnull %67, ptr noundef nonnull %68, ptr noundef %ctx, ptr noundef %71) #8
   %tobool282.not = icmp eq i32 %call281, 0
@@ -1547,8 +1547,7 @@ if.else:                                          ; preds = %if.then273
   %73 = load ptr, ptr %bn_mod_exp286, align 8
   %74 = load ptr, ptr %e, align 8
   %75 = load ptr, ptr %n271, align 8
-  %_method_mod_n289 = getelementptr inbounds i8, ptr %rsa, i64 168
-  %76 = load ptr, ptr %_method_mod_n289, align 8
+  %76 = load ptr, ptr %_method_mod_n280, align 8
   %call290 = tail call i32 %73(ptr noundef nonnull %call3, ptr noundef %r0, ptr noundef %74, ptr noundef %75, ptr noundef %ctx, ptr noundef %76) #8
   %tobool291.not = icmp eq i32 %call290, 0
   br i1 %tobool291.not, label %err, label %if.end294

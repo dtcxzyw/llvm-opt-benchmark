@@ -64,10 +64,10 @@ if.then.i.i:                                      ; preds = %if.end.i
 malloc_mutex_lock.exit:                           ; preds = %if.end.i, %if.then.i.i
   %call = tail call ptr @edata_avail_first(ptr noundef nonnull %edata_cache) #4
   %cmp = icmp eq ptr %call, null
+  %locked.i15 = getelementptr inbounds i8, ptr %edata_cache, i64 88
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %malloc_mutex_lock.exit
-  %locked.i15 = getelementptr inbounds i8, ptr %edata_cache, i64 88
   store atomic i8 0, ptr %locked.i15 monotonic, align 1
   %call1.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %lock.i.i) #4
   %base = getelementptr inbounds i8, ptr %edata_cache, i64 136
@@ -81,8 +81,7 @@ if.end:                                           ; preds = %malloc_mutex_lock.e
   %4 = load atomic i64, ptr %count monotonic, align 8
   %sub.i = add i64 %4, -1
   store atomic i64 %sub.i, ptr %count monotonic, align 8
-  %locked.i16 = getelementptr inbounds i8, ptr %edata_cache, i64 88
-  store atomic i8 0, ptr %locked.i16 monotonic, align 1
+  store atomic i8 0, ptr %locked.i15 monotonic, align 1
   %call1.i18 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %lock.i.i) #4
   br label %return
 

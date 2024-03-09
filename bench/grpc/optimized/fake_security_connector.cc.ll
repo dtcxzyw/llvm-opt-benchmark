@@ -761,6 +761,7 @@ entry:
   %2 = load i8, ptr %_M_engaged.i.i, align 8
   %3 = and i8 %2, 1
   %tobool.i.i.not = icmp eq i8 %3, 0
+  %agg.tmp23.sroa.2.0.authority_hostname.sroa_idx = getelementptr inbounds i8, ptr %authority_hostname, i64 8
   br i1 %tobool.i.i.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -771,8 +772,7 @@ if.then:                                          ; preds = %entry
   %call.i.i2 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call8) #19
   %call9 = call noundef zeroext i1 @_ZN9grpc_core13SplitHostPortESt17basic_string_viewIcSt11char_traitsIcEEPS3_S4_(i64 %call.i.i2, ptr %call8, ptr noundef nonnull %fake_security_target_name_override_hostname, ptr noundef nonnull %fake_security_target_name_override_ignored_port)
   %agg.tmp10.sroa.0.0.copyload = load i64, ptr %authority_hostname, align 8
-  %agg.tmp10.sroa.2.0.authority_hostname.sroa_idx = getelementptr inbounds i8, ptr %authority_hostname, i64 8
-  %agg.tmp10.sroa.2.0.copyload = load ptr, ptr %agg.tmp10.sroa.2.0.authority_hostname.sroa_idx, align 8
+  %agg.tmp10.sroa.2.0.copyload = load ptr, ptr %agg.tmp23.sroa.2.0.authority_hostname.sroa_idx, align 8
   %agg.tmp11.sroa.0.0.copyload = load i64, ptr %fake_security_target_name_override_hostname, align 8
   %agg.tmp11.sroa.2.0.fake_security_target_name_override_hostname.sroa_idx = getelementptr inbounds i8, ptr %fake_security_target_name_override_hostname, i64 8
   %agg.tmp11.sroa.2.0.copyload = load ptr, ptr %agg.tmp11.sroa.2.0.fake_security_target_name_override_hostname.sroa_idx, align 8
@@ -815,7 +815,6 @@ lpad:                                             ; preds = %if.then13
 
 if.else:                                          ; preds = %entry
   %agg.tmp23.sroa.0.0.copyload = load i64, ptr %authority_hostname, align 8
-  %agg.tmp23.sroa.2.0.authority_hostname.sroa_idx = getelementptr inbounds i8, ptr %authority_hostname, i64 8
   %agg.tmp23.sroa.2.0.copyload = load ptr, ptr %agg.tmp23.sroa.2.0.authority_hostname.sroa_idx, align 8
   %agg.tmp24.sroa.0.0.copyload = load i64, ptr %target_hostname, align 8
   %agg.tmp24.sroa.2.0.target_hostname.sroa_idx = getelementptr inbounds i8, ptr %target_hostname, i64 8

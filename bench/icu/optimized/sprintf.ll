@@ -355,10 +355,10 @@ entry:
   %cmp = icmp eq ptr %0, null
   %fWidth = getelementptr inbounds i8, ptr %info, i64 4
   %1 = load i32, ptr %fWidth, align 4
+  %cmp1.not = icmp ne i32 %1, -1
   br i1 %cmp, label %land.lhs.true, label %if.end.thread
 
 land.lhs.true:                                    ; preds = %entry
-  %cmp1.not = icmp ne i32 %1, -1
   %cmp4 = icmp sgt i32 %1, %resultLen
   %or.cond = and i1 %cmp1.not, %cmp4
   br i1 %or.cond, label %return, label %if.end
@@ -376,9 +376,8 @@ if.end.thread:                                    ; preds = %entry
   %available79 = getelementptr inbounds i8, ptr %context, i64 8
   %3 = load i32, ptr %available79, align 8
   %resultLen.80 = tail call i32 @llvm.smin.i32(i32 %3, i32 %resultLen)
-  %cmp9.not81 = icmp ne i32 %1, -1
   %cmp1282 = icmp slt i32 %resultLen.80, %1
-  %or.cond5183 = select i1 %cmp9.not81, i1 %cmp1282, i1 false
+  %or.cond5183 = select i1 %cmp1.not, i1 %cmp1282, i1 false
   br i1 %or.cond5183, label %if.then13, label %if.end.i66
 
 if.then13:                                        ; preds = %if.end.thread, %if.end

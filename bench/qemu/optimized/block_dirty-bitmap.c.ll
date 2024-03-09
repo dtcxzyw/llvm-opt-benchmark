@@ -1844,6 +1844,7 @@ if.end15:                                         ; preds = %if.then9, %if.then1
   %tobool16.not = icmp eq ptr %backup, null
   %bitmap24 = getelementptr inbounds i8, ptr %dest, i64 8
   %13 = load ptr, ptr %bitmap24, align 8
+  %bitmap25 = getelementptr inbounds i8, ptr %src, i64 8
   br i1 %tobool16.not, label %if.else23, label %if.then17
 
 if.then17:                                        ; preds = %if.end15
@@ -1854,13 +1855,11 @@ if.then17:                                        ; preds = %if.end15
   %call19 = tail call ptr @hbitmap_alloc(i64 noundef %14, i32 noundef %call18) #14
   store ptr %call19, ptr %bitmap24, align 8
   %15 = load ptr, ptr %backup, align 8
-  %bitmap21 = getelementptr inbounds i8, ptr %src, i64 8
-  %16 = load ptr, ptr %bitmap21, align 8
+  %16 = load ptr, ptr %bitmap25, align 8
   tail call void @hbitmap_merge(ptr noundef %15, ptr noundef %16, ptr noundef %call19) #14
   br label %if.end27
 
 if.else23:                                        ; preds = %if.end15
-  %bitmap25 = getelementptr inbounds i8, ptr %src, i64 8
   %17 = load ptr, ptr %bitmap25, align 8
   tail call void @hbitmap_merge(ptr noundef %13, ptr noundef %17, ptr noundef %13) #14
   br label %if.end27

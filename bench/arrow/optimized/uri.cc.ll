@@ -3500,16 +3500,15 @@ land.rhs:                                         ; preds = %land.rhs.preheader,
   %s.addr.019 = phi ptr [ %incdec.ptr, %while.body ], [ %s, %land.rhs.preheader ]
   %11 = load i8, ptr %s.addr.019, align 1
   %cmp19 = icmp eq i8 %11, 48
+  %incdec.ptr = getelementptr inbounds i8, ptr %s.addr.019, i64 1
   br i1 %cmp19, label %while.body, label %if.then.i
 
 while.body:                                       ; preds = %land.rhs
   %dec = add i64 %length.addr.020, -1
-  %incdec.ptr = getelementptr inbounds i8, ptr %s.addr.019, i64 1
   %cmp17.not = icmp eq i64 %dec, 0
   br i1 %cmp17.not, label %return.sink.split, label %land.rhs, !llvm.loop !56
 
 if.then.i:                                        ; preds = %land.rhs
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %s.addr.019, i64 1
   %sub.i.i = add i8 %11, -48
   %cmp3.i = icmp ugt i8 %sub.i.i, 9
   br i1 %cmp3.i, label %return, label %if.end.i
@@ -3521,7 +3520,7 @@ if.end.i:                                         ; preds = %if.then.i
 
 if.then12.i:                                      ; preds = %if.end.i
   %incdec.ptr14.i = getelementptr inbounds i8, ptr %s.addr.019, i64 2
-  %12 = load i8, ptr %incdec.ptr.i, align 1
+  %12 = load i8, ptr %incdec.ptr, align 1
   %sub.i34.i = add i8 %12, -48
   %cmp21.i = icmp ugt i8 %sub.i34.i, 9
   br i1 %cmp21.i, label %return, label %if.end26.i

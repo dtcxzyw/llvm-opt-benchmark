@@ -211,10 +211,10 @@ entry:
 if.end:                                           ; preds = %entry
   %0 = load i8, ptr %this, align 8
   %cmp.not = icmp eq i8 %0, 0
+  %stats = getelementptr inbounds i8, ptr %streamingCb, i64 8
   br i1 %cmp.not, label %if.else19, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %stats = getelementptr inbounds i8, ptr %streamingCb, i64 8
   %1 = load ptr, ptr %stats, align 8
   %tobool3.not = icmp eq ptr %1, null
   br i1 %tobool3.not, label %if.end15, label %if.then4
@@ -244,8 +244,7 @@ if.else19:                                        ; preds = %if.end
   store i32 %compressedSize, ptr %decodedSize, align 8
   store i32 %compressedBlockSize, ptr %compressedBlock.i, align 8
   store i32 %emittedSize, ptr %uncompressed.i, align 4
-  %stats20 = getelementptr inbounds i8, ptr %streamingCb, i64 8
-  %7 = load ptr, ptr %stats20, align 8
+  %7 = load ptr, ptr %stats, align 8
   %tobool21.not = icmp eq ptr %7, null
   br i1 %tobool21.not, label %if.end26, label %if.then22
 

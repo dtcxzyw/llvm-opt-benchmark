@@ -352,6 +352,7 @@ if.then.i.i17:                                    ; preds = %land.lhs.true5.i.i1
   %18 = load i8, ptr @message_with_timestamp, align 1
   %19 = and i8 %18, 1
   %tobool7.not.i.i18 = icmp eq i8 %19, 0
+  %conv14.i.i = zext i1 %ok.0.in to i32
   br i1 %tobool7.not.i.i18, label %if.else.i.i23, label %if.then8.i.i19
 
 if.then8.i.i19:                                   ; preds = %if.then.i.i17
@@ -360,12 +361,10 @@ if.then8.i.i19:                                   ; preds = %if.then.i.i17
   %20 = load i64, ptr %_now.i.i10, align 8
   %tv_usec.i.i22 = getelementptr inbounds i8, ptr %_now.i.i10, i64 8
   %21 = load i64, ptr %tv_usec.i.i22, align 8
-  %conv12.i.i = zext i1 %ok.0.in to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.3, i32 noundef %call10.i.i21, i64 noundef %20, i64 noundef %21, i32 noundef %14, i32 noundef %13, i32 noundef %conv12.i.i) #9
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.3, i32 noundef %call10.i.i21, i64 noundef %20, i64 noundef %21, i32 noundef %14, i32 noundef %13, i32 noundef %conv14.i.i) #9
   br label %trace_clipboard_check_serial.exit24
 
 if.else.i.i23:                                    ; preds = %if.then.i.i17
-  %conv14.i.i = zext i1 %ok.0.in to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.4, i32 noundef %14, i32 noundef %13, i32 noundef %conv14.i.i) #9
   br label %trace_clipboard_check_serial.exit24
 

@@ -688,16 +688,15 @@ sw.bb59:                                          ; preds = %entry
   tail call void @CRYPTO_free(ptr noundef %10, ptr noundef nonnull @.str, i32 noundef 195) #6
   store ptr %p2, ptr %kdf_ukm, align 8
   %tobool.not = icmp eq ptr %p2, null
+  %kdf_ukmlen63 = getelementptr inbounds i8, ptr %0, i64 72
   br i1 %tobool.not, label %if.else, label %if.then61
 
 if.then61:                                        ; preds = %sw.bb59
   %conv62 = sext i32 %p1 to i64
-  %kdf_ukmlen = getelementptr inbounds i8, ptr %0, i64 72
-  store i64 %conv62, ptr %kdf_ukmlen, align 8
+  store i64 %conv62, ptr %kdf_ukmlen63, align 8
   br label %return
 
 if.else:                                          ; preds = %sw.bb59
-  %kdf_ukmlen63 = getelementptr inbounds i8, ptr %0, i64 72
   store i64 0, ptr %kdf_ukmlen63, align 8
   br label %return
 

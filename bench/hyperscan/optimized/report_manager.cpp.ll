@@ -3365,17 +3365,16 @@ if.then.i:                                        ; preds = %entry
 
 if.end.i:                                         ; preds = %entry
   %cmp.i.i = icmp ult i64 %2, 2305843009213693952
+  %mul.i.i = shl i64 %2, 3
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
-  %mul.i.i = shl nuw i64 %2, 3
   %div.i.i = udiv i64 %mul.i.i, 5
   br label %_ZNK5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIjSaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE13next_capacityINS0_16growth_factor_60EEEmm.exit
 
 if.else.i.i:                                      ; preds = %if.end.i
   %cmp3.i.i = icmp ugt i64 %2, -6917529027641081857
-  %mul6.i.i = shl i64 %2, 3
-  %spec.select.i.i = select i1 %cmp3.i.i, i64 -1, i64 %mul6.i.i
+  %spec.select.i.i = select i1 %cmp3.i.i, i64 -1, i64 %mul.i.i
   br label %_ZNK5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIjSaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE13next_capacityINS0_16growth_factor_60EEEmm.exit
 
 _ZNK5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIjSaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE13next_capacityINS0_16growth_factor_60EEEmm.exit: ; preds = %if.else.i.i, %if.then.i.i

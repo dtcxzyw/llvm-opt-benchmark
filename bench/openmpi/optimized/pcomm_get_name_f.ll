@@ -24,17 +24,16 @@ define void @ompi_comm_get_name_f(ptr nocapture noundef readonly %0, ptr noundef
   %9 = tail call ptr @PMPI_Comm_f2c(i32 noundef %8) #2
   %10 = call i32 @PMPI_Comm_get_name(ptr noundef %9, ptr noundef nonnull %7, ptr noundef nonnull %6) #2
   %11 = icmp eq i32 %10, 0
+  %.not = icmp eq ptr %3, null
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %5
   %13 = call i32 @ompi_fortran_string_c2f(ptr noundef nonnull %7, ptr noundef %1, i32 noundef %4) #2
   %14 = load i32, ptr %6, align 4
   store i32 %14, ptr %2, align 4
-  %.not11 = icmp eq ptr %3, null
-  br i1 %.not11, label %16, label %.sink.split
+  br i1 %.not, label %16, label %.sink.split
 
 15:                                               ; preds = %5
-  %.not = icmp eq ptr %3, null
   br i1 %.not, label %16, label %.sink.split
 
 .sink.split:                                      ; preds = %15, %12

@@ -2263,10 +2263,10 @@ if.end:                                           ; preds = %_ZN4node10StreamBas
   %20 = load ptr, ptr %vfn, align 8
   %call14 = tail call noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(64) %retval.0.i) #20
   %21 = load ptr, ptr %args, align 8
+  %arrayidx.i36 = getelementptr inbounds i8, ptr %21, i64 24
   br i1 %call14, label %if.end19, label %if.then.i55
 
 if.then.i55:                                      ; preds = %if.end
-  %arrayidx.i36 = getelementptr inbounds i8, ptr %21, i64 24
   store i64 -94489280512, ptr %arrayidx.i36, align 8
   br label %return
 
@@ -2276,9 +2276,8 @@ if.end19:                                         ; preds = %if.end
   %22 = load ptr, ptr %vfn24, align 8
   %call25 = tail call noundef i32 %22(ptr noundef nonnull align 8 dereferenceable(64) %retval.0.i) #20
   %conv.i = sext i32 %call25 to i64
-  %arrayidx.i = getelementptr inbounds i8, ptr %21, i64 24
   %shl.i = shl nsw i64 %conv.i, 32
-  store i64 %shl.i, ptr %arrayidx.i, align 8
+  store i64 %shl.i, ptr %arrayidx.i36, align 8
   br label %return
 
 return:                                           ; preds = %if.end19, %if.then.i55, %if.then.i68

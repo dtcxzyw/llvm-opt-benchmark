@@ -1176,14 +1176,14 @@ if.end:                                           ; preds = %lor.lhs.false
   %count = getelementptr inbounds i8, ptr %uenum, i64 60
   %2 = load i32, ptr %count, align 4
   %cmp2 = icmp slt i32 %1, %2
+  %cmp12.not = icmp eq ptr %resultLength, null
   br i1 %cmp2, label %if.then3, label %if.end11
 
 if.then3:                                         ; preds = %if.end
   %call4 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7514Transliterator14getAvailableIDEi(i32 noundef %1)
   %add = add nsw i32 %1, 1
   store i32 %add, ptr %index1, align 8
-  %cmp6.not = icmp eq ptr %resultLength, null
-  br i1 %cmp6.not, label %if.end9, label %if.then7
+  br i1 %cmp12.not, label %if.end9, label %if.then7
 
 if.then7:                                         ; preds = %if.then3
   %fUnion.i.i = getelementptr inbounds i8, ptr %call4, i64 8
@@ -1220,7 +1220,6 @@ if.else9.i:                                       ; preds = %if.else.i
   br label %return
 
 if.end11:                                         ; preds = %if.end
-  %cmp12.not = icmp eq ptr %resultLength, null
   br i1 %cmp12.not, label %return, label %if.then13
 
 if.then13:                                        ; preds = %if.end11

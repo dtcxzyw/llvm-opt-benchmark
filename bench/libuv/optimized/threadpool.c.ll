@@ -302,18 +302,17 @@ entry:
   %wq1 = getelementptr inbounds i8, ptr %handle, i64 -56
   %0 = load ptr, ptr %wq1, align 8
   %cmp.i.not.i = icmp eq ptr %0, %wq1
+  %prev.i.i = getelementptr inbounds i8, ptr %wq, i64 8
   br i1 %cmp.i.not.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
   store ptr %wq, ptr %wq, align 8
-  %prev.i.i = getelementptr inbounds i8, ptr %wq, i64 8
   br label %uv__queue_move.exit
 
 if.else.i:                                        ; preds = %entry
   %prev.i4.i = getelementptr inbounds i8, ptr %handle, i64 -48
   %1 = load ptr, ptr %prev.i4.i, align 8
-  %prev1.i.i = getelementptr inbounds i8, ptr %wq, i64 8
-  store ptr %1, ptr %prev1.i.i, align 8
+  store ptr %1, ptr %prev.i.i, align 8
   store ptr %wq, ptr %1, align 8
   store ptr %0, ptr %wq, align 8
   %prev4.i.i = getelementptr inbounds i8, ptr %0, i64 8

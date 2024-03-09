@@ -1801,14 +1801,14 @@ _ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE12emplace_backIJNS1_INS0_7BooleanEE
   %address164 = getelementptr inbounds %struct.uv_interface_address_s, ptr %60, i64 %indvars.iv, i32 3
   %61 = load i16, ptr %address164, align 4
   %cmp167 = icmp eq i16 %61, 10
+  %cmp.not.i311 = icmp eq ptr %result.sroa.22.7, %result.sroa.57.7
   br i1 %cmp167, label %if.then168, label %if.else178
 
 if.then168:                                       ; preds = %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE12emplace_backIJNS1_INS0_7BooleanEEEEEERS3_DpOT_.exit
   %sin6_scope_id = getelementptr inbounds i8, ptr %address164, i64 24
   %62 = load i32, ptr %sin6_scope_id, align 4
   %call173 = call ptr @_ZN2v87Integer15NewFromUnsignedEPNS_7IsolateEj(ptr noundef %12, i32 noundef %62) #15
-  %cmp.not.i271 = icmp eq ptr %result.sroa.22.7, %result.sroa.57.7
-  br i1 %cmp.not.i271, label %if.else.i276, label %if.then.i272
+  br i1 %cmp.not.i311, label %if.else.i276, label %if.then.i272
 
 if.then.i272:                                     ; preds = %if.then168
   store ptr %call173, ptr %result.sroa.22.7, align 8
@@ -1875,7 +1875,6 @@ _ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE17_M_realloc_insertIJNS1_INS0_7Inte
   br label %for.inc
 
 if.else178:                                       ; preds = %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE12emplace_backIJNS1_INS0_7BooleanEEEEEERS3_DpOT_.exit
-  %cmp.not.i311 = icmp eq ptr %result.sroa.22.7, %result.sroa.57.7
   br i1 %cmp.not.i311, label %if.else.i315, label %if.then.i312
 
 if.then.i312:                                     ; preds = %if.else178

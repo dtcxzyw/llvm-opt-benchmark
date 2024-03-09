@@ -29,11 +29,11 @@ if.end5:                                          ; preds = %entry, %if.then3
   %sign.0 = phi i32 [ -1, %if.then3 ], [ 1, %entry ]
   %x.addr.0 = phi double [ %fneg, %if.then3 ], [ %x, %entry ]
   %cmp6 = fcmp ult double %x.addr.0, 0x41DFFFFFFFE00000
+  %d9 = getelementptr inbounds i8, ptr %this, i64 4
   br i1 %cmp6, label %if.end10, label %if.then7
 
 if.then7:                                         ; preds = %if.end5
   store i32 %sign.0, ptr %this, align 4
-  %d9 = getelementptr inbounds i8, ptr %this, i64 4
   store i32 0, ptr %d9, align 4
   br label %return
 
@@ -43,8 +43,7 @@ if.end10:                                         ; preds = %if.end5
   %div = fmul double %cond, 0x3E10000000000000
   %call = tail call fastcc noundef double @_ZN7Imf_3_212_GLOBAL__N_15denomEdd(double noundef %x.addr.0, double noundef %div)
   %conv = fptoui double %call to i32
-  %d12 = getelementptr inbounds i8, ptr %this, i64 4
-  store i32 %conv, ptr %d12, align 4
+  store i32 %conv, ptr %d9, align 4
   %conv14 = uitofp i32 %conv to double
   %0 = tail call double @llvm.fmuladd.f64(double %x.addr.0, double %conv14, double 5.000000e-01)
   %1 = tail call double @llvm.floor.f64(double %0)

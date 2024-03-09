@@ -590,10 +590,10 @@ if.end:                                           ; preds = %sw.bb35
   %convert = getelementptr inbounds i8, ptr %add.ptr43, i64 32
   %23 = load ptr, ptr %convert, align 8
   %cmp44.not = icmp eq ptr %23, null
+  %idxprom = sext i32 %to_host to i64
   br i1 %cmp44.not, label %if.else49, label %if.then46
 
 if.then46:                                        ; preds = %if.end
-  %idxprom = sext i32 %to_host to i64
   %arrayidx48 = getelementptr [2 x ptr], ptr %convert, i64 0, i64 %idxprom
   %24 = load ptr, ptr %arrayidx48, align 8
   tail call void %24(ptr noundef %dst, ptr noundef %src) #11
@@ -601,8 +601,7 @@ if.then46:                                        ; preds = %if.end
 
 if.else49:                                        ; preds = %if.end
   %field_offsets = getelementptr inbounds i8, ptr %add.ptr43, i64 16
-  %idxprom51 = sext i32 %to_host to i64
-  %arrayidx52 = getelementptr [2 x ptr], ptr %field_offsets, i64 0, i64 %idxprom51
+  %arrayidx52 = getelementptr [2 x ptr], ptr %field_offsets, i64 0, i64 %idxprom
   %25 = load ptr, ptr %arrayidx52, align 8
   %sub54 = sub i32 1, %to_host
   %idxprom55 = sext i32 %sub54 to i64

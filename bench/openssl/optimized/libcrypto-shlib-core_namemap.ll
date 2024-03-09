@@ -361,17 +361,16 @@ sw.default.i:                                     ; preds = %sw.bb.i, %if.then2.
 
 if.else.i:                                        ; preds = %if.then.i
   %cond.i = icmp eq i32 %1, 1172
+  %5 = load ptr, ptr %pem_name.i, align 8
   br i1 %cond.i, label %sw.bb3.i, label %sw.default4.i
 
 sw.bb3.i:                                         ; preds = %if.else.i
-  %5 = load ptr, ptr %pem_name.i, align 8
   call fastcc void @get_legacy_evp_names(i32 noundef 0, i32 noundef 1172, ptr noundef %5, ptr noundef nonnull %call)
   br label %get_legacy_pkey_meth_names.exit
 
 sw.default4.i:                                    ; preds = %if.else.i
   %6 = load i32, ptr %base_nid.i, align 4
-  %7 = load ptr, ptr %pem_name.i, align 8
-  call fastcc void @get_legacy_evp_names(i32 noundef %6, i32 noundef %1, ptr noundef %7, ptr noundef nonnull %call)
+  call fastcc void @get_legacy_evp_names(i32 noundef %6, i32 noundef %1, ptr noundef %5, ptr noundef nonnull %call)
   br label %get_legacy_pkey_meth_names.exit
 
 get_legacy_pkey_meth_names.exit:                  ; preds = %for.body, %sw.default.i, %sw.bb3.i, %sw.default4.i

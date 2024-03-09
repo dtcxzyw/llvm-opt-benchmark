@@ -10,18 +10,17 @@ define dso_local void @strarray_push(ptr nocapture noundef %arr, ptr noundef %s)
 entry:
   %0 = load ptr, ptr %arr, align 8
   %tobool.not = icmp eq ptr %0, null
+  %capacity2.phi.trans.insert = getelementptr inbounds i8, ptr %arr, i64 8
   br i1 %tobool.not, label %if.then, label %entry.if.end_crit_edge
 
 entry.if.end_crit_edge:                           ; preds = %entry
-  %capacity2.phi.trans.insert = getelementptr inbounds i8, ptr %arr, i64 8
   %.pre = load i32, ptr %capacity2.phi.trans.insert, align 8
   br label %if.end
 
 if.then:                                          ; preds = %entry
   %call = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 8, i64 noundef 8) #6
   store ptr %call, ptr %arr, align 8
-  %capacity = getelementptr inbounds i8, ptr %arr, i64 8
-  store i32 8, ptr %capacity, align 8
+  store i32 8, ptr %capacity2.phi.trans.insert, align 8
   br label %if.end
 
 if.end:                                           ; preds = %entry.if.end_crit_edge, %if.then

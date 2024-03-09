@@ -134,6 +134,7 @@ for.body:                                         ; preds = %if.end11, %for.inc7
   %call17 = tail call ptr @NCONF_get_section(ptr noundef %cnf, ptr noundef %1) #7
   %call19 = tail call i32 @OPENSSL_sk_num(ptr noundef %call17) #7
   %cmp20 = icmp slt i32 %call19, 1
+  %name29 = getelementptr inbounds i8, ptr %call16, i64 8
   br i1 %cmp20, label %if.then22, label %if.end28
 
 if.then22:                                        ; preds = %for.body
@@ -142,14 +143,12 @@ if.then22:                                        ; preds = %for.body
   %cond26 = select i1 %cmp24, i32 118, i32 117
   tail call void @ERR_new() #7
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 96, ptr noundef nonnull @__func__.ssl_module_init) #7
-  %name = getelementptr inbounds i8, ptr %call16, i64 8
-  %2 = load ptr, ptr %name, align 8
+  %2 = load ptr, ptr %name29, align 8
   %3 = load ptr, ptr %value.le, align 8
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 14, i32 noundef %cond26, ptr noundef nonnull @.str.3, ptr noundef %2, ptr noundef %3) #7
   br label %if.then82
 
 if.end28:                                         ; preds = %for.body
-  %name29 = getelementptr inbounds i8, ptr %call16, i64 8
   %4 = load ptr, ptr %name29, align 8
   %call30 = tail call noalias ptr @CRYPTO_strdup(ptr noundef %4, ptr noundef nonnull @.str.1, i32 noundef 100) #7
   store ptr %call30, ptr %add.ptr, align 8

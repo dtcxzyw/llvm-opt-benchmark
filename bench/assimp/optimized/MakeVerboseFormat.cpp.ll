@@ -954,6 +954,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %mNumVertices.i = getelementptr inbounds i8, ptr %3, i64 4
   %4 = load i32, ptr %mNumVertices.i, align 4
   %cmp.not.i.i.i.i.i = icmp eq i32 %4, 0
+  %mNumFaces.i16 = getelementptr inbounds i8, ptr %3, i64 8
   br i1 %cmp.not.i.i.i.i.i, label %invoke.cont.i.thread, label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %for.body
@@ -961,8 +962,7 @@ invoke.cont.i:                                    ; preds = %for.body
   %mul.i.i.i.i.i.i.i = shl nuw nsw i64 %conv.i, 2
   %call5.i.i.i.i2.i.i8.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i.i) #11
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %call5.i.i.i.i2.i.i8.i, i8 0, i64 %mul.i.i.i.i.i.i.i, i1 false)
-  %mNumFaces.i = getelementptr inbounds i8, ptr %3, i64 8
-  %5 = load i32, ptr %mNumFaces.i, align 8
+  %5 = load i32, ptr %mNumFaces.i16, align 8
   %cmp19.i = icmp eq i32 %5, 0
   br i1 %cmp19.i, label %if.then.i.i.i.i.thread, label %for.body.lr.ph.i
 
@@ -971,7 +971,6 @@ if.then.i.i.i.i.thread:                           ; preds = %invoke.cont.i
   br label %if.then.i.i.i.i.for.inc_crit_edge
 
 invoke.cont.i.thread:                             ; preds = %for.body
-  %mNumFaces.i16 = getelementptr inbounds i8, ptr %3, i64 8
   %6 = load i32, ptr %mNumFaces.i16, align 8
   %cmp19.i17 = icmp eq i32 %6, 0
   br i1 %cmp19.i17, label %for.inc, label %for.body.lr.ph.i

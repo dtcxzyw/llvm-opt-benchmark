@@ -977,10 +977,10 @@ entry:
   %containing_type_.i = getelementptr inbounds i8, ptr %descriptor, i64 24
   %0 = load ptr, ptr %containing_type_.i, align 8
   %cmp = icmp eq ptr %0, null
+  %all_names_.i = getelementptr inbounds i8, ptr %descriptor, i64 8
   br i1 %cmp, label %if.then, label %invoke.cont4
 
 if.then:                                          ; preds = %entry
-  %all_names_.i = getelementptr inbounds i8, ptr %descriptor, i64 8
   %1 = load ptr, ptr %all_names_.i, align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %1)
   br label %return
@@ -996,8 +996,7 @@ invoke.cont4:                                     ; preds = %entry
   store i64 1, ptr %ref.tmp3, align 8
   %5 = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
   store ptr @.str.3, ptr %5, align 8
-  %all_names_.i4 = getelementptr inbounds i8, ptr %descriptor, i64 8
-  %6 = load ptr, ptr %all_names_.i4, align 8
+  %6 = load ptr, ptr %all_names_.i, align 8
   %call.i5 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #18
   %7 = extractvalue { i64, ptr } %call.i5, 0
   store i64 %7, ptr %ref.tmp5, align 8

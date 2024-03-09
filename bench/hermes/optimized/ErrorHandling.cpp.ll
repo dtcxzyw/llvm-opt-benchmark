@@ -128,21 +128,20 @@ _ZN4llvhplERKNS_5TwineES2_.exit33:
   %call11 = call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %code.coerce1) #11
   %2 = load i8, ptr %call11, align 1
   %cmp.not.i = icmp eq i8 %2, 0
+  %LHSKind.i.i.i.i69.phi.trans.insert = getelementptr inbounds i8, ptr %ref.tmp3, i64 16
   br i1 %cmp.not.i, label %_ZN4llvhplERKNS_5TwineES2_.exit64, label %_ZN4llvhplERKNS_5TwineES2_.exit64.thread
 
 _ZN4llvhplERKNS_5TwineES2_.exit64.thread:         ; preds = %_ZN4llvhplERKNS_5TwineES2_.exit33
   store ptr %ref.tmp4, ptr %ref.tmp3, align 8, !alias.scope !15
   %RHS4.i.i.i56 = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
   store ptr %call11, ptr %RHS4.i.i.i56, align 8, !alias.scope !15
-  %LHSKind5.i.i.i57 = getelementptr inbounds i8, ptr %ref.tmp3, i64 16
-  store i8 2, ptr %LHSKind5.i.i.i57, align 8, !alias.scope !15
+  store i8 2, ptr %LHSKind.i.i.i.i69.phi.trans.insert, align 8, !alias.scope !15
   %RHSKind6.i.i.i58 = getelementptr inbounds i8, ptr %ref.tmp3, i64 17
   store i8 3, ptr %RHSKind6.i.i.i58, align 1, !alias.scope !15
   br label %_ZN4llvhplERKNS_5TwineES2_.exit97
 
 _ZN4llvhplERKNS_5TwineES2_.exit64:                ; preds = %_ZN4llvhplERKNS_5TwineES2_.exit33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp3, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp4, i64 24, i1 false)
-  %LHSKind.i.i.i.i69.phi.trans.insert = getelementptr inbounds i8, ptr %ref.tmp3, i64 16
   %.pre = load i8, ptr %LHSKind.i.i.i.i69.phi.trans.insert, align 8, !noalias !20
   call void @llvm.experimental.noalias.scope.decl(metadata !25)
   call void @llvm.experimental.noalias.scope.decl(metadata !26)

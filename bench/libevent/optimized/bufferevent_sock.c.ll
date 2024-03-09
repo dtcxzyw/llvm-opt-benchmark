@@ -834,10 +834,10 @@ entry:
   %lock = getelementptr inbounds i8, ptr %bev, i64 448
   %0 = load ptr, ptr %lock, align 8
   %tobool.not = icmp eq ptr %0, null
+  %dns_error6 = getelementptr inbounds i8, ptr %bev, i64 396
   br i1 %tobool.not, label %do.end4.thread, label %do.end4
 
 do.end4.thread:                                   ; preds = %entry
-  %dns_error6 = getelementptr inbounds i8, ptr %bev, i64 396
   %1 = load i32, ptr %dns_error6, align 4
   br label %do.end16
 
@@ -845,8 +845,7 @@ do.end4:                                          ; preds = %entry
   %2 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 4), align 8
   %call = tail call i32 %2(i32 noundef 0, ptr noundef nonnull %0) #10
   %.pr = load ptr, ptr %lock, align 8
-  %dns_error = getelementptr inbounds i8, ptr %bev, i64 396
-  %3 = load i32, ptr %dns_error, align 4
+  %3 = load i32, ptr %dns_error6, align 4
   %tobool10.not = icmp eq ptr %.pr, null
   br i1 %tobool10.not, label %do.end16, label %if.then11
 

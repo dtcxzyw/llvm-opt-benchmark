@@ -6710,10 +6710,10 @@ entry:
           to label %call5.i.i.i.i.noexc.i.i unwind label %lpad.body.i
 
 call5.i.i.i.i.noexc.i.i:                          ; preds = %entry
+  %_M_end_of_storage6.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %call5.i.i.i.i1.i.i, ptr %sinks_.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i.i, i64 16
-  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
-  store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
+  store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage6.i.i.i, align 8
   store ptr %0, ptr %call5.i.i.i.i1.i.i, align 8
   %_M_refcount.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i.i, i64 8
   store ptr %1, ptr %_M_refcount.i.i.i.i.i.i.i.i.i.i, align 8

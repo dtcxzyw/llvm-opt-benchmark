@@ -281,19 +281,18 @@ entry:
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %language, align 8
   %tobool.not = icmp eq ptr %1, null
+  %value3 = getelementptr inbounds i8, ptr %val, i64 16
   br i1 %tobool.not, label %if.end, label %if.then1
 
 if.then1:                                         ; preds = %if.then
   tail call void @ERR_put_error(i32 noundef 20, i32 noundef 0, i32 noundef 149, ptr noundef nonnull @.str.6, i32 noundef 89) #6
   %2 = load ptr, ptr %val, align 8
   %3 = load ptr, ptr %name, align 8
-  %value = getelementptr inbounds i8, ptr %val, i64 16
-  %4 = load ptr, ptr %value, align 8
+  %4 = load ptr, ptr %value3, align 8
   tail call void (i32, ...) @ERR_add_error_data(i32 noundef 6, ptr noundef nonnull @.str.7, ptr noundef %2, ptr noundef nonnull @.str.8, ptr noundef %3, ptr noundef nonnull @.str.9, ptr noundef %4) #6
   br label %return
 
 if.end:                                           ; preds = %if.then
-  %value3 = getelementptr inbounds i8, ptr %val, i64 16
   %5 = load ptr, ptr %value3, align 8
   %call4 = tail call ptr @OBJ_txt2obj(ptr noundef %5, i32 noundef 0) #6
   store ptr %call4, ptr %language, align 8

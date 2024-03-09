@@ -745,10 +745,10 @@ land.lhs.true.us.i.i:                             ; preds = %for.body.us.i.i
   %call.i.i.us.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #18
   %bcmp.i.i.us.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %trial.sroa.2.0.copyload.i, ptr noundef nonnull dereferenceable(3) @.str.3, i64 3)
   %cmp.i.i.i.us.i.i = icmp eq i32 %bcmp.i.i.us.i.i, 0
+  %cmp.i29.i.us.i.i = icmp eq i64 %call.i.i.us.i.i, 3
   br i1 %cmp.i.i.i.us.i.i, label %land.lhs.true4.thread.us.i.i, label %lor.rhs.thread.i.us.i.i
 
 lor.rhs.thread.i.us.i.i:                          ; preds = %land.lhs.true.us.i.i
-  %cmp.i29.i.us.i.i = icmp eq i64 %call.i.i.us.i.i, 3
   br i1 %cmp.i29.i.us.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5.i.us.i.i, label %for.inc.us.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5.i.us.i.i: ; preds = %lor.rhs.thread.i.us.i.i
@@ -764,8 +764,7 @@ land.lhs.true4.us.i.i:                            ; preds = %_ZNSt11char_traitsI
 land.lhs.true4.thread.us.i.i:                     ; preds = %land.lhs.true.us.i.i
   %check_engine_available11.us.i.i = getelementptr inbounds i8, ptr %8, i64 232
   %11 = load ptr, ptr %check_engine_available11.us.i.i, align 8
-  %cmp.i12.us.i.i = icmp eq i64 %call.i.i.us.i.i, 3
-  br i1 %cmp.i12.us.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.us.i.i, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.us.i.i
+  br i1 %cmp.i29.i.us.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.us.i.i, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.us.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.us.i.i: ; preds = %land.lhs.true4.thread.us.i.i, %land.lhs.true4.us.i.i
   %12 = phi ptr [ %11, %land.lhs.true4.thread.us.i.i ], [ %10, %land.lhs.true4.us.i.i ]

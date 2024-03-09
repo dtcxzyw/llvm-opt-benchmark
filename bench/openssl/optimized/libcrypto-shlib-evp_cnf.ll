@@ -71,11 +71,11 @@ if.then17:                                        ; preds = %if.end12
 if.else:                                          ; preds = %for.body
   %call20 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(19) @.str.3) #4
   %cmp21 = icmp eq i32 %call20, 0
+  %value = getelementptr inbounds i8, ptr %call6, i64 16
   br i1 %cmp21, label %if.then23, label %if.else29
 
 if.then23:                                        ; preds = %if.else
   %call24 = call ptr @NCONF_get0_libctx(ptr noundef %cnf) #3
-  %value = getelementptr inbounds i8, ptr %call6, i64 16
   %2 = load ptr, ptr %value, align 8
   %call25 = call i32 @evp_set_default_properties_int(ptr noundef %call24, ptr noundef %2, i32 noundef 0, i32 noundef 0) #3
   %tobool26.not = icmp eq i32 %call25, 0
@@ -92,8 +92,7 @@ if.else29:                                        ; preds = %if.else
   call void @ERR_new() #3
   call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 61, ptr noundef nonnull @__func__.alg_module_init) #3
   %3 = load ptr, ptr %name.le, align 8
-  %value31 = getelementptr inbounds i8, ptr %call6, i64 16
-  %4 = load ptr, ptr %value31, align 8
+  %4 = load ptr, ptr %value, align 8
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 169, ptr noundef nonnull @.str.4, ptr noundef %3, ptr noundef %4) #3
   br label %return
 

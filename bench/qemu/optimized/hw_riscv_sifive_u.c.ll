@@ -416,10 +416,10 @@ entry:
   %indvars.iv100.i.sroa.gep72 = getelementptr inbounds i8, ptr %qdt_tmp579.i, i64 4
   %indvars.iv69.i.sroa.gep73 = getelementptr inbounds i8, ptr %qdt_tmp359.i, i64 4
   %indvars.iv58.i.sroa.gep74 = getelementptr inbounds i8, ptr %qdt_tmp207.i, i64 4
+  %fdt_size = getelementptr inbounds i8, ptr %call, i64 98912
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %fdt_size = getelementptr inbounds i8, ptr %call, i64 98912
   %call19 = tail call ptr @load_device_tree(ptr noundef nonnull %3, ptr noundef nonnull %fdt_size) #7
   %fdt = getelementptr inbounds i8, ptr %machine, i64 40
   store ptr %call19, ptr %fdt, align 8
@@ -468,8 +468,7 @@ if.else:                                          ; preds = %entry
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.12, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #7
   %ram_size.i = getelementptr inbounds i8, ptr %call.i.i, i64 144
   %4 = load i64, ptr %ram_size.i, align 8
-  %fdt_size.i = getelementptr inbounds i8, ptr %call, i64 98912
-  %call1.i = tail call ptr @create_device_tree(ptr noundef nonnull %fdt_size.i) #7
+  %call1.i = tail call ptr @create_device_tree(ptr noundef nonnull %fdt_size) #7
   %fdt2.i = getelementptr inbounds i8, ptr %call.i.i, i64 40
   store ptr %call1.i, ptr %fdt2.i, align 8
   %tobool.not.i = icmp eq ptr %call1.i, null

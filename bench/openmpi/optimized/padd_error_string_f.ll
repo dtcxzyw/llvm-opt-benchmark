@@ -22,11 +22,11 @@ target triple = "x86_64-pc-linux-gnu"
 define void @ompi_add_error_string_f(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef writeonly %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = icmp sgt i32 %3, 256
+  %.not10 = icmp eq ptr %2, null
   br i1 %6, label %7, label %10
 
 7:                                                ; preds = %4
   %8 = tail call i32 @ompi_errhandler_invoke(ptr noundef null, ptr noundef null, i32 noundef -1, i32 noundef 13, ptr noundef nonnull @.str) #3
-  %.not10 = icmp eq ptr %2, null
   br i1 %.not10, label %18, label %9
 
 9:                                                ; preds = %7
@@ -38,8 +38,7 @@ define void @ompi_add_error_string_f(ptr nocapture noundef readonly %0, ptr noun
   %12 = load i32, ptr %0, align 4
   %13 = load ptr, ptr %5, align 8
   %14 = call i32 @PMPI_Add_error_string(i32 noundef %12, ptr noundef %13) #3
-  %.not = icmp eq ptr %2, null
-  br i1 %.not, label %16, label %15
+  br i1 %.not10, label %16, label %15
 
 15:                                               ; preds = %10
   store i32 %14, ptr %2, align 4

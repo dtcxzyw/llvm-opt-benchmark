@@ -125,18 +125,17 @@ entry:
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZZN5folly13getOSThreadIDEvE5cache)
   %2 = load i64, ptr %1, align 8, !tbaa !7
   %cmp.not = icmp eq i64 %0, %2
+  %second.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 8
   br i1 %cmp.not, label %entry.if.end_crit_edge, label %if.then, !prof !12
 
 entry.if.end_crit_edge:                           ; preds = %entry
-  %second.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 8
   %.pre = load i64, ptr %second.phi.trans.insert, align 8, !tbaa !13
   br label %if.end
 
 if.then:                                          ; preds = %entry
   %call.i = tail call noundef i64 (i64, ...) @syscall(i64 noundef 186) #14
   store i64 %0, ptr %1, align 8, !tbaa !7
-  %second3.i = getelementptr inbounds i8, ptr %1, i64 8
-  store i64 %call.i, ptr %second3.i, align 8, !tbaa !13
+  store i64 %call.i, ptr %second.phi.trans.insert, align 8, !tbaa !13
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry.if.end_crit_edge

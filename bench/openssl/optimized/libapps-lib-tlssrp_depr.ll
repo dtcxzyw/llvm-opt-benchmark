@@ -325,10 +325,10 @@ entry:
   %cmp = icmp eq ptr %0, null
   %user = getelementptr inbounds i8, ptr %arg, i64 16
   %1 = load ptr, ptr %user, align 8
+  %cmp1 = icmp eq ptr %1, null
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %cmp1 = icmp eq ptr %1, null
   br i1 %cmp1, label %if.then, label %if.end.thread
 
 if.end.thread:                                    ; preds = %land.lhs.true
@@ -344,8 +344,7 @@ if.then:                                          ; preds = %land.lhs.true
 
 if.end:                                           ; preds = %entry
   %user5 = getelementptr inbounds i8, ptr %arg, i64 16
-  %cmp6 = icmp eq ptr %1, null
-  br i1 %cmp6, label %if.then7, label %if.end10
+  br i1 %cmp1, label %if.then7, label %if.end10
 
 if.then7:                                         ; preds = %if.end
   %3 = load ptr, ptr @bio_err, align 8

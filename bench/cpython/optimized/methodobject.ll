@@ -1964,6 +1964,7 @@ if.end:                                           ; preds = %lor.lhs.false2, %Py
   %m_self5 = getelementptr inbounds i8, ptr %other, i64 24
   %4 = load ptr, ptr %m_self5, align 8
   %cmp6 = icmp eq ptr %3, %4
+  %cmp1420 = icmp eq i32 %op, 2
   br i1 %cmp6, label %if.end13, label %.thread
 
 if.end13:                                         ; preds = %if.end
@@ -1984,8 +1985,7 @@ if.end13:                                         ; preds = %if.end
 .thread:                                          ; preds = %if.end13, %if.end
   %9 = phi ptr [ @_Py_FalseStruct, %if.end ], [ %spec.select, %if.end13 ]
   %10 = phi ptr [ @_Py_TrueStruct, %if.end ], [ %spec.select31, %if.end13 ]
-  %cmp142328 = icmp eq i32 %op, 2
-  %res.0 = select i1 %cmp142328, ptr %9, ptr %10
+  %res.0 = select i1 %cmp1420, ptr %9, ptr %10
   %11 = load i32, ptr %res.0, align 8
   %add.i.i = add i32 %11, 1
   %cmp.i.i = icmp eq i32 %add.i.i, 0

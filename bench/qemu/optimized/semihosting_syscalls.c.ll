@@ -836,10 +836,10 @@ entry:
   %buf.i = alloca %struct.stat, align 8
   %call = tail call i32 @use_gdb_syscalls() #12
   %tobool.not = icmp eq i32 %call, 0
+  %cmp.i.i = icmp eq i64 %fname_len, 0
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %cmp.i.i = icmp eq i64 %fname_len, 0
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end7.i.i
 
 if.then.i.i:                                      ; preds = %if.then
@@ -885,8 +885,7 @@ if.end.i:                                         ; preds = %if.end20.i.i, %if.e
 
 if.else:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %buf.i)
-  %cmp.i.i.i = icmp eq i64 %fname_len, 0
-  br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end7.i.i.i
+  br i1 %cmp.i.i, label %if.then.i.i.i, label %if.end7.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.else
   %call1.i.i.i = tail call i64 @target_strlen(i64 noundef %fname) #12

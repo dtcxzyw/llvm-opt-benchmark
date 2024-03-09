@@ -335,10 +335,10 @@ if.then21:                                        ; preds = %if.end11, %if.end11
   %prevhead = getelementptr inbounds i8, ptr %data, i64 4904
   %1 = load ptr, ptr %prevhead, align 8
   %tobool22.not = icmp eq ptr %1, null
+  %tobool25.not53 = icmp eq i64 %sub.ptr.sub, 0
   br i1 %tobool22.not, label %while.cond.preheader, label %if.then23
 
 while.cond.preheader:                             ; preds = %if.then21
-  %tobool25.not53 = icmp eq i64 %sub.ptr.sub, 0
   br i1 %tobool25.not53, label %return, label %land.rhs
 
 if.then23:                                        ; preds = %if.then21
@@ -350,8 +350,7 @@ if.then23:                                        ; preds = %if.then21
   %sub.ptr.rhs.cast.i = ptrtoint ptr %buffer.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %invariant.gep.i = getelementptr i8, ptr %header, i64 -1
-  %tobool.not40.i = icmp eq i64 %sub.ptr.sub, 0
-  br i1 %tobool.not40.i, label %while.end48.i, label %land.rhs.i
+  br i1 %tobool25.not53, label %while.end48.i, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %if.then23, %while.body.i
   %vlen.addr.041.i = phi i64 [ %dec.i, %while.body.i ], [ %sub.ptr.sub, %if.then23 ]

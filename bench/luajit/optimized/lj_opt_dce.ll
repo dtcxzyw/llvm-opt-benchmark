@@ -112,20 +112,19 @@ for.body5.i:                                      ; preds = %for.inc53.i, %for.b
   %conv.i = zext i8 %13 to i32
   %and.i10 = and i32 %conv.i, 32
   %tobool.not.i = icmp eq i32 %and.i10, 0
+  %o21.phi.trans.insert.i = getelementptr inbounds i8, ptr %arrayidx9.i, i64 5
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i11
 
 if.then.i11:                                      ; preds = %for.body5.i
   %and13.i = and i8 %13, -33
   store i8 %and13.i, ptr %t.i9, align 4
-  %o21.phi.trans.insert.i = getelementptr inbounds i8, ptr %arrayidx9.i, i64 5
   %.pre.i = load i8, ptr %o21.phi.trans.insert.i, align 1
   %.pre33.i = zext i8 %.pre.i to i64
   br label %if.end19.i
 
 if.else.i:                                        ; preds = %for.body5.i
   %or.i.i = or i32 %conv.i, 96
-  %o.i.i = getelementptr inbounds i8, ptr %arrayidx9.i, i64 5
-  %14 = load i8, ptr %o.i.i, align 1
+  %14 = load i8, ptr %o21.phi.trans.insert.i, align 1
   %idxprom.i.i = zext i8 %14 to i64
   %arrayidx.i.i = getelementptr inbounds [102 x i8], ptr @lj_ir_mode, i64 0, i64 %idxprom.i.i
   %15 = load i8, ptr %arrayidx.i.i, align 1

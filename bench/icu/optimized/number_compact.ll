@@ -1426,12 +1426,12 @@ if.end11:                                         ; preds = %invoke.cont6
   %capacity.i = getelementptr inbounds i8, ptr %this, i64 32
   %6 = load i32, ptr %capacity.i, align 8
   %cmp = icmp slt i32 %6, %5
+  %cmp3053.old = icmp sgt i32 %5, 0
   br i1 %cmp, label %if.then17, label %if.end28
 
 if.then17:                                        ; preds = %if.end11
   %7 = load i32, ptr %status, align 4
-  %cmp.i28 = icmp sgt i32 %5, 0
-  br i1 %cmp.i28, label %if.then.i, label %invoke.cont21
+  br i1 %cmp3053.old, label %if.then.i, label %invoke.cont21
 
 if.then.i:                                        ; preds = %if.then17
   %conv.i29 = zext nneg i32 %5 to i64
@@ -1483,7 +1483,6 @@ invoke.cont21:                                    ; preds = %_ZN6icu_7515MaybeSt
   br i1 %or.cond, label %for.body.lr.ph, label %cleanup60
 
 if.end28:                                         ; preds = %if.end11
-  %cmp3053.old = icmp sgt i32 %5, 0
   br i1 %cmp3053.old, label %for.body.lr.ph, label %cleanup60
 
 for.body.lr.ph:                                   ; preds = %invoke.cont21, %if.end28

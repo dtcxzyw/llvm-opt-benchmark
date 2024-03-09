@@ -88,6 +88,7 @@ if.then39:                                        ; preds = %land.lhs.true37
   %14 = mul nuw nsw i64 %conv41, 12
   %call42 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %14) #4
   %isempty43 = icmp eq i32 %0, 0
+  %mTangents5162 = getelementptr inbounds i8, ptr %call, i64 1048
   br i1 %isempty43, label %land.lhs.true59.sink.split, label %new.ctorloop44
 
 new.ctorloop44:                                   ; preds = %if.then39
@@ -99,8 +100,7 @@ new.ctorloop44:                                   ; preds = %if.then39
   br label %land.lhs.true59.sink.split
 
 land.lhs.true59.sink.split:                       ; preds = %if.then39, %new.ctorloop44
-  %mTangents51 = getelementptr inbounds i8, ptr %call, i64 1048
-  store ptr %call42, ptr %mTangents51, align 8
+  store ptr %call42, ptr %mTangents5162, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %call42, ptr nonnull align 4 %13, i64 %14, i1 false)
   br label %land.lhs.true59
 

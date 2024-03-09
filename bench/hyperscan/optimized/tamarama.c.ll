@@ -291,6 +291,7 @@ do.end:                                           ; preds = %for.inc.i, %land.lh
   %cmp25 = icmp ne i32 %retval.i.0.i, %12
   %or.cond = and i1 %cmp25, %cmp
   %or.cond61 = select i1 %cmp23.not, i1 %or.cond, i1 false
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %t, i64 32
   br i1 %or.cond61, label %if.then29, label %if.end36
 
 if.then29:                                        ; preds = %do.end
@@ -307,11 +308,10 @@ if.then29:                                        ; preds = %do.end
   store i64 0, ptr %som.i48, align 8
   %add.i49 = add i32 %33, 1
   store i32 %add.i49, ptr %end, align 4
-  %add.ptr.i.i62 = getelementptr inbounds i8, ptr %t, i64 32
   %34 = load i32, ptr %t, align 32
   %conv.i.i63 = zext i32 %34 to i64
   %mul.i.i = shl nuw nsw i64 %conv.i.i63, 2
-  %add.ptr1.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i62, i64 %mul.i.i
+  %add.ptr1.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %mul.i.i
   %idxprom.i.i = zext i32 %retval.i.0.i to i64
   %arrayidx.i.i = getelementptr inbounds i32, ptr %add.ptr1.i.i, i64 %idxprom.i.i
   %35 = load i32, ptr %arrayidx.i.i, align 4
@@ -321,7 +321,6 @@ if.then29:                                        ; preds = %do.end
   br label %do.end38
 
 if.end36:                                         ; preds = %do.end
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %t, i64 32
   %36 = load i32, ptr %t, align 32
   %conv.i.i.i = zext i32 %36 to i64
   %mul.i.i.i = shl nuw nsw i64 %conv.i.i.i, 2

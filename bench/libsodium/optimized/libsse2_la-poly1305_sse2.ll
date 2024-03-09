@@ -808,6 +808,7 @@ if.end399:                                        ; preds = %if.end376, %if.end2
   %H1.3 = phi <2 x i64> [ %add.i1005, %if.end376 ], [ %H1.2, %if.end282 ]
   %H0.3 = phi <2 x i64> [ %and.i625, %if.end376 ], [ %H0.2, %if.end282 ]
   %tobool400.not = icmp eq ptr %m.addr.2, null
+  %arrayidx412 = getelementptr i8, ptr %st, i64 16
   br i1 %tobool400.not, label %if.else415, label %if.then401
 
 if.then401:                                       ; preds = %if.end399
@@ -829,7 +830,6 @@ if.then401:                                       ; preds = %if.end399
   %shuffle.i573 = shufflevector <2 x i64> %195, <2 x i64> %197, <2 x i32> <i32 0, i32 2>
   %shuffle.i = shufflevector <2 x i64> %199, <2 x i64> %201, <2 x i32> <i32 0, i32 2>
   store <2 x i64> %shuffle.i573, ptr %st, align 1
-  %arrayidx412 = getelementptr i8, ptr %st, i64 16
   store <2 x i64> %shuffle.i, ptr %arrayidx412, align 1
   %arrayidx414 = getelementptr i8, ptr %st, i64 32
   %vecext.i = extractelement <2 x i64> %203, i64 0
@@ -925,8 +925,7 @@ if.else415:                                       ; preds = %if.end399
   store i64 %or496, ptr %st, align 8
   %arrayidx506 = getelementptr i8, ptr %st, i64 8
   store i64 %or499, ptr %arrayidx506, align 8
-  %arrayidx508 = getelementptr i8, ptr %st, i64 16
-  store i64 %or502, ptr %arrayidx508, align 8
+  store i64 %or502, ptr %arrayidx412, align 8
   br label %if.end509
 
 if.end509:                                        ; preds = %if.else415, %if.then401

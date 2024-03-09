@@ -305,6 +305,7 @@ define internal fastcc i32 @RTreeInsert2(ptr noundef %0, ptr noundef %1, ptr nou
   %18 = load ptr, ptr %17, align 8
   %19 = call fastcc i32 @RTreeInsert2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %18, ptr noundef nonnull %8, i32 noundef %5)
   %.not = icmp eq i32 %19, 0
+  %.sroa.24.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 8
   br i1 %.not, label %20, label %24
 
 20:                                               ; preds = %12
@@ -312,7 +313,6 @@ define internal fastcc i32 @RTreeInsert2(ptr noundef %0, ptr noundef %1, ptr nou
   %22 = extractvalue { i64, i64 } %21, 0
   %23 = extractvalue { i64, i64 } %21, 1
   store i64 %22, ptr %16, align 8
-  %.sroa.24.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 8
   store i64 %23, ptr %.sroa.24.0..sroa_idx, align 8
   br label %40
 
@@ -322,8 +322,7 @@ define internal fastcc i32 @RTreeInsert2(ptr noundef %0, ptr noundef %1, ptr nou
   %27 = extractvalue { i64, i64 } %26, 0
   %28 = extractvalue { i64, i64 } %26, 1
   store i64 %27, ptr %16, align 8
-  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 8
-  store i64 %28, ptr %.sroa.22.0..sroa_idx, align 8
+  store i64 %28, ptr %.sroa.24.0..sroa_idx, align 8
   %29 = load ptr, ptr %8, align 8
   %30 = getelementptr inbounds i8, ptr %7, i64 16
   store ptr %29, ptr %30, align 8

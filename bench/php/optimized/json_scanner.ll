@@ -855,10 +855,10 @@ define hidden noundef i32 @php_json_scan(ptr noundef %0) local_unnamed_addr #1 {
   %388 = load i32, ptr %14, align 8
   %.not1491 = icmp eq i32 %388, 0
   %.pre = load i32, ptr %13, align 8
+  %.not1492 = icmp eq i32 %.pre, 0
   br i1 %.not1491, label %389, label %392
 
 389:                                              ; preds = %376
-  %.not1492 = icmp eq i32 %.pre, 0
   br i1 %.not1492, label %395, label %.thread1749
 
 .thread1749:                                      ; preds = %389
@@ -873,8 +873,7 @@ define hidden noundef i32 @php_json_scan(ptr noundef %0) local_unnamed_addr #1 {
   store ptr %383, ptr %393, align 8
   %394 = load ptr, ptr %361, align 8
   store ptr %394, ptr %0, align 8
-  %.not1493 = icmp eq i32 %.pre, 0
-  br i1 %.not1493, label %.preheader1626, label %.preheader
+  br i1 %.not1492, label %.preheader1626, label %.preheader
 
 395:                                              ; preds = %389
   %396 = load ptr, ptr %361, align 8
