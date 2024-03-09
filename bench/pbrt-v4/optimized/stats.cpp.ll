@@ -6290,24 +6290,25 @@ invoke.cont4:                                     ; preds = %invoke.cont
   %5 = insertelement <2 x double> %4, double %max, i64 1
   %6 = insertelement <2 x double> %4, double %min, i64 0
   %7 = fcmp ogt <2 x double> %5, %6
-  %8 = insertelement <2 x double> %5, double %min, i64 0
-  %9 = select <2 x i1> %7, <2 x double> %8, <2 x double> %4
-  store <2 x double> %9, ptr %min8, align 8
+  %8 = insertelement <2 x double> poison, double %min, i64 0
+  %9 = insertelement <2 x double> %8, double %max, i64 1
+  %10 = select <2 x i1> %7, <2 x double> %9, <2 x double> %4
+  store <2 x double> %10, ptr %min8, align 8
   ret void
 
 lpad:                                             ; preds = %call.i.noexc, %entry
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad3:                                            ; preds = %invoke.cont
-  %11 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #22
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad, %lpad.i, %lpad3
-  %.pn = phi { ptr, i32 } [ %11, %lpad3 ], [ %10, %lpad ], [ %1, %lpad.i ]
+  %.pn = phi { ptr, i32 } [ %12, %lpad3 ], [ %11, %lpad ], [ %1, %lpad.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #22
   resume { ptr, i32 } %.pn
 }

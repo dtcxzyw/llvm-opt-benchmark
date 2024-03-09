@@ -19585,107 +19585,104 @@ define hidden noundef i32 @ma_lpf2_init_preallocated(ptr noundef readonly %0, pt
   %22 = fsub double 1.000000e+00, %19
   %23 = fmul double %22, 5.000000e-01
   %24 = fadd double %21, 1.000000e+00
-  %25 = insertelement <2 x double> poison, double %19, i64 0
-  %26 = insertelement <2 x double> %25, double %21, i64 1
-  %27 = fmul <2 x double> %26, <double -2.000000e+00, double poison>
-  %28 = fsub <2 x double> <double poison, double 1.000000e+00>, %26
-  %29 = shufflevector <2 x double> %27, <2 x double> %28, <2 x i32> <i32 0, i32 3>
-  %30 = load i32, ptr %0, align 8, !noalias !18
-  %31 = getelementptr inbounds i8, ptr %0, i64 4
-  %32 = load i32, ptr %31, align 4, !noalias !18
+  %25 = fmul double %19, -2.000000e+00
+  %26 = fadd double %21, -1.000000e+00
+  %27 = insertelement <2 x double> poison, double %25, i64 0
+  %28 = insertelement <2 x double> %27, double %26, i64 1
+  %29 = load i32, ptr %0, align 8, !noalias !18
+  %30 = getelementptr inbounds i8, ptr %0, i64 4
+  %31 = load i32, ptr %30, align 4, !noalias !18
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %2, i8 0, i64 64, i1 false)
-  %33 = icmp eq i32 %32, 0
-  br i1 %33, label %ma_biquad_init_preallocated.exit, label %34
+  %32 = icmp eq i32 %31, 0
+  br i1 %32, label %ma_biquad_init_preallocated.exit, label %33
 
-34:                                               ; preds = %7
-  %35 = zext i32 %32 to i64
-  %36 = shl nuw nsw i64 %35, 2
-  %37 = getelementptr inbounds i8, ptr %2, i64 48
-  store ptr %1, ptr %37, align 8
+33:                                               ; preds = %7
+  %34 = zext i32 %31 to i64
+  %35 = shl nuw nsw i64 %34, 2
+  %36 = getelementptr inbounds i8, ptr %2, i64 48
+  store ptr %1, ptr %36, align 8
   %.not.i = icmp eq ptr %1, null
-  br i1 %.not.i, label %40, label %38
+  br i1 %.not.i, label %39, label %37
 
-38:                                               ; preds = %34
-  %39 = shl nuw nsw i64 %35, 3
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %1, i8 0, i64 %39, i1 false)
-  br label %40
+37:                                               ; preds = %33
+  %38 = shl nuw nsw i64 %34, 3
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %1, i8 0, i64 %38, i1 false)
+  br label %39
 
-40:                                               ; preds = %34, %38
-  %41 = getelementptr inbounds i8, ptr %2, i64 32
-  store ptr %1, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %1, i64 %36
-  %43 = getelementptr inbounds i8, ptr %2, i64 40
-  store ptr %42, ptr %43, align 8
-  %44 = fcmp oeq double %24, 0.000000e+00
-  br i1 %44, label %ma_biquad_init_preallocated.exit, label %45
+39:                                               ; preds = %33, %37
+  %40 = getelementptr inbounds i8, ptr %2, i64 32
+  store ptr %1, ptr %40, align 8
+  %41 = getelementptr inbounds i8, ptr %1, i64 %35
+  %42 = getelementptr inbounds i8, ptr %2, i64 40
+  store ptr %41, ptr %42, align 8
+  %43 = fcmp oeq double %24, 0.000000e+00
+  br i1 %43, label %ma_biquad_init_preallocated.exit, label %44
 
-45:                                               ; preds = %40
-  switch i32 %30, label %ma_biquad_init_preallocated.exit [
-    i32 5, label %46
-    i32 2, label %46
+44:                                               ; preds = %39
+  switch i32 %29, label %ma_biquad_init_preallocated.exit [
+    i32 5, label %45
+    i32 2, label %45
   ]
 
-46:                                               ; preds = %45, %45
-  %47 = load i32, ptr %2, align 8
-  %.not53.i = icmp eq i32 %47, 0
-  %.not54.i = icmp eq i32 %47, %30
+45:                                               ; preds = %44, %44
+  %46 = load i32, ptr %2, align 8
+  %.not53.i = icmp eq i32 %46, 0
+  %.not54.i = icmp eq i32 %46, %29
   %or.cond57.i = or i1 %.not53.i, %.not54.i
-  br i1 %or.cond57.i, label %48, label %ma_biquad_init_preallocated.exit
+  br i1 %or.cond57.i, label %47, label %ma_biquad_init_preallocated.exit
 
-48:                                               ; preds = %46
-  %49 = getelementptr inbounds i8, ptr %2, i64 4
-  %50 = load i32, ptr %49, align 4
-  %.not55.i = icmp eq i32 %50, 0
-  %.not56.i = icmp eq i32 %50, %32
+47:                                               ; preds = %45
+  %48 = getelementptr inbounds i8, ptr %2, i64 4
+  %49 = load i32, ptr %48, align 4
+  %.not55.i = icmp eq i32 %49, 0
+  %.not56.i = icmp eq i32 %49, %31
   %or.cond = or i1 %.not55.i, %.not56.i
-  br i1 %or.cond, label %51, label %ma_biquad_init_preallocated.exit
+  br i1 %or.cond, label %50, label %ma_biquad_init_preallocated.exit
 
-51:                                               ; preds = %48
-  store i32 %30, ptr %2, align 8
-  store i32 %32, ptr %49, align 4
-  %52 = icmp eq i32 %30, 5
-  %53 = fdiv double %23, %24
-  br i1 %52, label %54, label %67
+50:                                               ; preds = %47
+  store i32 %29, ptr %2, align 8
+  store i32 %31, ptr %48, align 4
+  %51 = icmp eq i32 %29, 5
+  %52 = fdiv double %23, %24
+  br i1 %51, label %53, label %66
 
-54:                                               ; preds = %51
-  %55 = getelementptr inbounds i8, ptr %2, i64 8
-  %56 = fdiv double %22, %24
-  %57 = getelementptr inbounds i8, ptr %2, i64 12
-  %58 = insertelement <2 x double> poison, double %24, i64 0
-  %59 = shufflevector <2 x double> %58, <2 x double> poison, <2 x i32> zeroinitializer
-  %60 = fdiv <2 x double> %29, %59
-  %61 = insertelement <4 x double> poison, double %56, i64 0
-  %62 = insertelement <4 x double> %61, double %53, i64 1
-  %63 = shufflevector <2 x double> %60, <2 x double> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %64 = shufflevector <4 x double> %62, <4 x double> %63, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
-  %65 = fptrunc <4 x double> %64 to <4 x float>
-  %66 = extractelement <4 x float> %65, i64 1
-  store float %66, ptr %55, align 8
-  store <4 x float> %65, ptr %57, align 4
+53:                                               ; preds = %50
+  %54 = getelementptr inbounds i8, ptr %2, i64 8
+  %55 = fdiv double %22, %24
+  %56 = getelementptr inbounds i8, ptr %2, i64 12
+  %57 = insertelement <2 x double> poison, double %24, i64 0
+  %58 = shufflevector <2 x double> %57, <2 x double> poison, <2 x i32> zeroinitializer
+  %59 = fdiv <2 x double> %28, %58
+  %60 = insertelement <4 x double> poison, double %55, i64 0
+  %61 = insertelement <4 x double> %60, double %52, i64 1
+  %62 = shufflevector <2 x double> %59, <2 x double> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
+  %63 = shufflevector <4 x double> %61, <4 x double> %62, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
+  %64 = fptrunc <4 x double> %63 to <4 x float>
+  %65 = extractelement <4 x float> %64, i64 1
+  store float %65, ptr %54, align 8
+  store <4 x float> %64, ptr %56, align 4
   br label %ma_biquad_init_preallocated.exit
 
-67:                                               ; preds = %51
-  %68 = getelementptr inbounds i8, ptr %2, i64 8
-  %69 = fdiv double %22, %24
-  %70 = extractelement <2 x double> %27, i64 0
-  %71 = fdiv double %70, %24
-  %72 = insertelement <4 x double> poison, double %53, i64 0
-  %73 = insertelement <4 x double> %72, double %69, i64 1
-  %74 = insertelement <4 x double> %73, double %71, i64 3
-  %75 = fmul <4 x double> %74, <double 1.638400e+04, double 1.638400e+04, double poison, double 1.638400e+04>
-  %76 = shufflevector <4 x double> %75, <4 x double> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 3>
-  %77 = fptosi <4 x double> %76 to <4 x i32>
-  store <4 x i32> %77, ptr %68, align 8
-  %78 = extractelement <2 x double> %28, i64 1
-  %79 = fdiv double %78, %24
-  %80 = fmul double %79, 1.638400e+04
-  %81 = fptosi double %80 to i32
-  %82 = getelementptr inbounds i8, ptr %2, i64 24
-  store i32 %81, ptr %82, align 8
+66:                                               ; preds = %50
+  %67 = getelementptr inbounds i8, ptr %2, i64 8
+  %68 = fdiv double %22, %24
+  %69 = fdiv double %25, %24
+  %70 = insertelement <4 x double> poison, double %52, i64 0
+  %71 = insertelement <4 x double> %70, double %68, i64 1
+  %72 = insertelement <4 x double> %71, double %69, i64 3
+  %73 = fmul <4 x double> %72, <double 1.638400e+04, double 1.638400e+04, double poison, double 1.638400e+04>
+  %74 = shufflevector <4 x double> %73, <4 x double> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 3>
+  %75 = fptosi <4 x double> %74 to <4 x i32>
+  store <4 x i32> %75, ptr %67, align 8
+  %76 = fdiv double %26, %24
+  %77 = fmul double %76, 1.638400e+04
+  %78 = fptosi double %77 to i32
+  %79 = getelementptr inbounds i8, ptr %2, i64 24
+  store i32 %78, ptr %79, align 8
   br label %ma_biquad_init_preallocated.exit
 
-ma_biquad_init_preallocated.exit:                 ; preds = %7, %40, %45, %46, %54, %67, %48, %5, %3
-  %.0 = phi i32 [ -2, %3 ], [ -2, %5 ], [ -2, %7 ], [ -2, %40 ], [ -2, %45 ], [ 0, %67 ], [ 0, %54 ], [ -3, %46 ], [ -3, %48 ]
+ma_biquad_init_preallocated.exit:                 ; preds = %7, %39, %44, %45, %53, %66, %47, %5, %3
+  %.0 = phi i32 [ -2, %3 ], [ -2, %5 ], [ -2, %7 ], [ -2, %39 ], [ -2, %44 ], [ 0, %66 ], [ 0, %53 ], [ -3, %45 ], [ -3, %47 ]
   ret i32 %.0
 }
 
@@ -20443,130 +20440,127 @@ cdce.end21.i:                                     ; preds = %cdce.call221, %cdce
   %188 = fsub double 1.000000e+00, %185
   %189 = fmul double %188, 5.000000e-01
   %190 = fadd double %187, 1.000000e+00
-  %191 = insertelement <2 x double> poison, double %185, i64 0
-  %192 = insertelement <2 x double> %191, double %187, i64 1
-  %193 = fmul <2 x double> %192, <double -2.000000e+00, double poison>
-  %194 = fsub <2 x double> <double poison, double 1.000000e+00>, %192
-  %195 = shufflevector <2 x double> %193, <2 x double> %194, <2 x i32> <i32 0, i32 3>
-  %196 = load i32, ptr %5, align 8, !noalias !36
-  %197 = load i32, ptr %.sroa.2.0..sroa_idx, align 4, !noalias !36
-  %198 = fcmp oeq double %190, 0.000000e+00
-  br i1 %198, label %.preheader224, label %199
+  %191 = fmul double %185, -2.000000e+00
+  %192 = fadd double %187, -1.000000e+00
+  %193 = insertelement <2 x double> poison, double %191, i64 0
+  %194 = insertelement <2 x double> %193, double %192, i64 1
+  %195 = load i32, ptr %5, align 8, !noalias !36
+  %196 = load i32, ptr %.sroa.2.0..sroa_idx, align 4, !noalias !36
+  %197 = fcmp oeq double %190, 0.000000e+00
+  br i1 %197, label %.preheader224, label %198
 
-199:                                              ; preds = %179
-  switch i32 %196, label %.preheader224 [
-    i32 5, label %200
-    i32 2, label %200
+198:                                              ; preds = %179
+  switch i32 %195, label %.preheader224 [
+    i32 5, label %199
+    i32 2, label %199
   ]
 
-200:                                              ; preds = %199, %199
-  %201 = load i32, ptr %177, align 8
-  %.not53.i = icmp eq i32 %201, 0
-  %.not54.i = icmp eq i32 %201, %196
+199:                                              ; preds = %198, %198
+  %200 = load i32, ptr %177, align 8
+  %.not53.i = icmp eq i32 %200, 0
+  %.not54.i = icmp eq i32 %200, %195
   %or.cond57.i = or i1 %.not53.i, %.not54.i
-  br i1 %or.cond57.i, label %202, label %.preheader224
+  br i1 %or.cond57.i, label %201, label %.preheader224
 
-202:                                              ; preds = %200
-  %203 = getelementptr inbounds i8, ptr %177, i64 4
-  %204 = load i32, ptr %203, align 4
-  %.not55.i = icmp eq i32 %204, 0
-  %.not56.i = icmp eq i32 %204, %197
+201:                                              ; preds = %199
+  %202 = getelementptr inbounds i8, ptr %177, i64 4
+  %203 = load i32, ptr %202, align 4
+  %.not55.i = icmp eq i32 %203, 0
+  %.not56.i = icmp eq i32 %203, %196
   %or.cond216 = select i1 %.not55.i, i1 true, i1 %.not56.i
-  br i1 %or.cond216, label %205, label %.preheader224
+  br i1 %or.cond216, label %204, label %.preheader224
 
-205:                                              ; preds = %202
-  store i32 %196, ptr %177, align 8
-  store i32 %197, ptr %203, align 4
-  %206 = icmp eq i32 %196, 5
-  %207 = fdiv double %189, %190
-  br i1 %206, label %208, label %221
+204:                                              ; preds = %201
+  store i32 %195, ptr %177, align 8
+  store i32 %196, ptr %202, align 4
+  %205 = icmp eq i32 %195, 5
+  %206 = fdiv double %189, %190
+  br i1 %205, label %207, label %220
 
-208:                                              ; preds = %205
-  %209 = getelementptr inbounds i8, ptr %177, i64 8
-  %210 = fdiv double %188, %190
-  %211 = getelementptr inbounds i8, ptr %177, i64 12
-  %212 = insertelement <2 x double> poison, double %190, i64 0
-  %213 = shufflevector <2 x double> %212, <2 x double> poison, <2 x i32> zeroinitializer
-  %214 = fdiv <2 x double> %195, %213
-  %215 = insertelement <4 x double> poison, double %210, i64 0
-  %216 = insertelement <4 x double> %215, double %207, i64 1
-  %217 = shufflevector <2 x double> %214, <2 x double> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %218 = shufflevector <4 x double> %216, <4 x double> %217, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
-  %219 = fptrunc <4 x double> %218 to <4 x float>
-  %220 = extractelement <4 x float> %219, i64 1
-  store float %220, ptr %209, align 8
-  store <4 x float> %219, ptr %211, align 4
+207:                                              ; preds = %204
+  %208 = getelementptr inbounds i8, ptr %177, i64 8
+  %209 = fdiv double %188, %190
+  %210 = getelementptr inbounds i8, ptr %177, i64 12
+  %211 = insertelement <2 x double> poison, double %190, i64 0
+  %212 = shufflevector <2 x double> %211, <2 x double> poison, <2 x i32> zeroinitializer
+  %213 = fdiv <2 x double> %194, %212
+  %214 = insertelement <4 x double> poison, double %209, i64 0
+  %215 = insertelement <4 x double> %214, double %206, i64 1
+  %216 = shufflevector <2 x double> %213, <2 x double> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
+  %217 = shufflevector <4 x double> %215, <4 x double> %216, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
+  %218 = fptrunc <4 x double> %217 to <4 x float>
+  %219 = extractelement <4 x float> %218, i64 1
+  store float %219, ptr %208, align 8
+  store <4 x float> %218, ptr %210, align 4
   br label %ma_lpf2_get_heap_size.exit.thread210
 
-221:                                              ; preds = %205
-  %222 = getelementptr inbounds i8, ptr %177, i64 8
-  %223 = fdiv double %188, %190
-  %224 = extractelement <2 x double> %193, i64 0
-  %225 = fdiv double %224, %190
-  %226 = insertelement <4 x double> poison, double %207, i64 0
-  %227 = insertelement <4 x double> %226, double %223, i64 1
-  %228 = insertelement <4 x double> %227, double %225, i64 3
-  %229 = fmul <4 x double> %228, <double 1.638400e+04, double 1.638400e+04, double poison, double 1.638400e+04>
-  %230 = shufflevector <4 x double> %229, <4 x double> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 3>
-  %231 = fptosi <4 x double> %230 to <4 x i32>
-  store <4 x i32> %231, ptr %222, align 8
-  %232 = extractelement <2 x double> %194, i64 1
-  %233 = fdiv double %232, %190
-  %234 = fmul double %233, 1.638400e+04
-  %235 = fptosi double %234 to i32
-  %236 = getelementptr inbounds i8, ptr %177, i64 24
-  store i32 %235, ptr %236, align 8
+220:                                              ; preds = %204
+  %221 = getelementptr inbounds i8, ptr %177, i64 8
+  %222 = fdiv double %188, %190
+  %223 = fdiv double %191, %190
+  %224 = insertelement <4 x double> poison, double %206, i64 0
+  %225 = insertelement <4 x double> %224, double %222, i64 1
+  %226 = insertelement <4 x double> %225, double %223, i64 3
+  %227 = fmul <4 x double> %226, <double 1.638400e+04, double 1.638400e+04, double poison, double 1.638400e+04>
+  %228 = shufflevector <4 x double> %227, <4 x double> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 3>
+  %229 = fptosi <4 x double> %228 to <4 x i32>
+  store <4 x i32> %229, ptr %221, align 8
+  %230 = fdiv double %192, %190
+  %231 = fmul double %230, 1.638400e+04
+  %232 = fptosi double %231 to i32
+  %233 = getelementptr inbounds i8, ptr %177, i64 24
+  store i32 %232, ptr %233, align 8
   br label %ma_lpf2_get_heap_size.exit.thread210
 
 ma_lpf2_get_heap_size.exit:                       ; preds = %cdce.end21.i
-  %237 = zext i32 %173 to i64
-  %238 = shl nuw nsw i64 %indvars.iv260, 3
-  %239 = mul i64 %238, %237
-  %240 = getelementptr i8, ptr %120, i64 %239
-  %241 = load ptr, ptr %121, align 8
-  %242 = getelementptr inbounds %struct.ma_lpf2, ptr %241, i64 %indvars.iv260
-  %243 = call i32 @ma_lpf2_init_preallocated(ptr noundef nonnull %5, ptr noundef %240, ptr noundef %242)
-  %.not128 = icmp eq i32 %243, 0
+  %234 = zext i32 %173 to i64
+  %235 = shl nuw nsw i64 %indvars.iv260, 3
+  %236 = mul i64 %235, %234
+  %237 = getelementptr i8, ptr %120, i64 %236
+  %238 = load ptr, ptr %121, align 8
+  %239 = getelementptr inbounds %struct.ma_lpf2, ptr %238, i64 %indvars.iv260
+  %240 = call i32 @ma_lpf2_init_preallocated(ptr noundef nonnull %5, ptr noundef %237, ptr noundef %239)
+  %.not128 = icmp eq i32 %240, 0
   br i1 %.not128, label %ma_lpf2_get_heap_size.exit.thread210, label %.preheader224
 
-.preheader224:                                    ; preds = %202, %200, %199, %179, %175, %cdce.end21.i, %ma_lpf2_get_heap_size.exit
-  %.1288 = phi i32 [ %243, %ma_lpf2_get_heap_size.exit ], [ -3, %202 ], [ -3, %200 ], [ -2, %199 ], [ -2, %179 ], [ -2, %175 ], [ -2, %cdce.end21.i ]
+.preheader224:                                    ; preds = %201, %199, %198, %179, %175, %cdce.end21.i, %ma_lpf2_get_heap_size.exit
+  %.1288 = phi i32 [ %240, %ma_lpf2_get_heap_size.exit ], [ -3, %201 ], [ -3, %199 ], [ -2, %198 ], [ -2, %179 ], [ -2, %175 ], [ -2, %cdce.end21.i ]
   br i1 %.not241280, label %.preheader, label %.lr.ph236
 
 .lr.ph236:                                        ; preds = %.preheader224
-  %244 = getelementptr inbounds i8, ptr %2, i64 24
-  %245 = load ptr, ptr %244, align 8
-  %246 = icmp eq ptr %245, null
-  br i1 %246, label %.preheader, label %.lr.ph236.split.preheader
+  %241 = getelementptr inbounds i8, ptr %2, i64 24
+  %242 = load ptr, ptr %241, align 8
+  %243 = icmp eq ptr %242, null
+  br i1 %243, label %.preheader, label %.lr.ph236.split.preheader
 
-.preheader:                                       ; preds = %256, %252, %.lr.ph236.split.preheader, %.lr.ph236, %.preheader224
-  %247 = and i64 %indvars.iv260, 4294967295
-  %.not244 = icmp eq i64 %247, 0
+.preheader:                                       ; preds = %253, %249, %.lr.ph236.split.preheader, %.lr.ph236, %.preheader224
+  %244 = and i64 %indvars.iv260, 4294967295
+  %.not244 = icmp eq i64 %244, 0
   br i1 %.not244, label %ma_lpf_get_heap_layout.exit.thread, label %.lr.ph238
 
 .lr.ph238:                                        ; preds = %.preheader
-  %248 = load ptr, ptr %121, align 8
-  %249 = icmp eq ptr %248, null
-  br i1 %249, label %ma_lpf_get_heap_layout.exit.thread, label %.lr.ph238.split.preheader
+  %245 = load ptr, ptr %121, align 8
+  %246 = icmp eq ptr %245, null
+  br i1 %246, label %ma_lpf_get_heap_layout.exit.thread, label %.lr.ph238.split.preheader
 
 .lr.ph238.split.preheader:                        ; preds = %.lr.ph238
   %wide.trip.count272 = zext nneg i32 %indvars.iv269 to i64
   br label %.lr.ph238.split
 
 .lr.ph236.split.preheader:                        ; preds = %.lr.ph236
-  %250 = getelementptr inbounds i8, ptr %245, i64 32
-  %251 = load i32, ptr %250, align 8
-  %.not.i134 = icmp eq i32 %251, 0
-  br i1 %.not.i134, label %.preheader, label %252
+  %247 = getelementptr inbounds i8, ptr %242, i64 32
+  %248 = load i32, ptr %247, align 8
+  %.not.i134 = icmp eq i32 %248, 0
+  br i1 %.not.i134, label %.preheader, label %249
 
-252:                                              ; preds = %.lr.ph236.split.preheader
-  %253 = getelementptr inbounds i8, ptr %245, i64 24
-  %254 = load ptr, ptr %253, align 8
-  %255 = icmp eq ptr %254, null
-  br i1 %255, label %.preheader, label %256
+249:                                              ; preds = %.lr.ph236.split.preheader
+  %250 = getelementptr inbounds i8, ptr %242, i64 24
+  %251 = load ptr, ptr %250, align 8
+  %252 = icmp eq ptr %251, null
+  br i1 %252, label %.preheader, label %253
 
-256:                                              ; preds = %252
-  call void @free(ptr noundef nonnull %254) #69
+253:                                              ; preds = %249
+  call void @free(ptr noundef nonnull %251) #69
   br label %.preheader
 
 .lr.ph238.splitthread-pre-split:                  ; preds = %ma_lpf2_uninit.exit
@@ -20574,53 +20568,53 @@ ma_lpf2_get_heap_size.exit:                       ; preds = %cdce.end21.i
   br label %.lr.ph238.split
 
 .lr.ph238.split:                                  ; preds = %.lr.ph238.splitthread-pre-split, %.lr.ph238.split.preheader
-  %257 = phi ptr [ %.pr, %.lr.ph238.splitthread-pre-split ], [ %248, %.lr.ph238.split.preheader ]
+  %254 = phi ptr [ %.pr, %.lr.ph238.splitthread-pre-split ], [ %245, %.lr.ph238.split.preheader ]
   %indvars.iv266 = phi i64 [ %indvars.iv.next267, %.lr.ph238.splitthread-pre-split ], [ 0, %.lr.ph238.split.preheader ]
-  %258 = getelementptr inbounds %struct.ma_lpf2, ptr %257, i64 %indvars.iv266
-  %259 = icmp eq ptr %257, null
-  br i1 %259, label %ma_lpf2_uninit.exit, label %260
+  %255 = getelementptr inbounds %struct.ma_lpf2, ptr %254, i64 %indvars.iv266
+  %256 = icmp eq ptr %254, null
+  br i1 %256, label %ma_lpf2_uninit.exit, label %257
 
-260:                                              ; preds = %.lr.ph238.split
-  %261 = getelementptr inbounds i8, ptr %258, i64 56
-  %262 = load i32, ptr %261, align 8
-  %.not.i.i = icmp eq i32 %262, 0
-  br i1 %.not.i.i, label %ma_lpf2_uninit.exit, label %263
+257:                                              ; preds = %.lr.ph238.split
+  %258 = getelementptr inbounds i8, ptr %255, i64 56
+  %259 = load i32, ptr %258, align 8
+  %.not.i.i = icmp eq i32 %259, 0
+  br i1 %.not.i.i, label %ma_lpf2_uninit.exit, label %260
 
-263:                                              ; preds = %260
-  %264 = getelementptr inbounds i8, ptr %258, i64 48
-  %265 = load ptr, ptr %264, align 8
-  %266 = icmp eq ptr %265, null
-  br i1 %266, label %ma_lpf2_uninit.exit, label %267
+260:                                              ; preds = %257
+  %261 = getelementptr inbounds i8, ptr %255, i64 48
+  %262 = load ptr, ptr %261, align 8
+  %263 = icmp eq ptr %262, null
+  br i1 %263, label %ma_lpf2_uninit.exit, label %264
 
-267:                                              ; preds = %263
-  call void @free(ptr noundef nonnull %265) #69
+264:                                              ; preds = %260
+  call void @free(ptr noundef nonnull %262) #69
   br label %ma_lpf2_uninit.exit
 
-ma_lpf2_uninit.exit:                              ; preds = %.lr.ph238.split, %260, %263, %267
+ma_lpf2_uninit.exit:                              ; preds = %.lr.ph238.split, %257, %260, %264
   %indvars.iv.next267 = add nuw nsw i64 %indvars.iv266, 1
   %exitcond273.not = icmp eq i64 %indvars.iv.next267, %wide.trip.count272
   br i1 %exitcond273.not, label %ma_lpf_get_heap_layout.exit.thread, label %.lr.ph238.splitthread-pre-split, !llvm.loop !39
 
-ma_lpf2_get_heap_size.exit.thread210:             ; preds = %208, %221, %ma_lpf2_get_heap_size.exit
+ma_lpf2_get_heap_size.exit.thread210:             ; preds = %207, %220, %ma_lpf2_get_heap_size.exit
   %indvars.iv.next261 = add nuw nsw i64 %indvars.iv260, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next261, %wide.trip.count
   %indvars.iv.next270 = add nuw nsw i32 %indvars.iv269, 1
   br i1 %exitcond.not, label %._crit_edge, label %141
 
 ._crit_edge:                                      ; preds = %ma_lpf2_get_heap_size.exit.thread210, %.preheader225
-  %268 = getelementptr inbounds i8, ptr %2, i64 12
-  store i32 %23, ptr %268, align 4
-  %269 = getelementptr inbounds i8, ptr %2, i64 16
-  store i32 %24, ptr %269, align 8
-  %270 = load i32, ptr %0, align 8
-  store i32 %270, ptr %2, align 8
-  %271 = getelementptr inbounds i8, ptr %0, i64 4
-  %272 = load i32, ptr %271, align 4
-  store i32 %272, ptr %13, align 4
-  %273 = getelementptr inbounds i8, ptr %0, i64 8
-  %274 = load i32, ptr %273, align 8
-  %275 = getelementptr inbounds i8, ptr %2, i64 8
-  store i32 %274, ptr %275, align 8
+  %265 = getelementptr inbounds i8, ptr %2, i64 12
+  store i32 %23, ptr %265, align 4
+  %266 = getelementptr inbounds i8, ptr %2, i64 16
+  store i32 %24, ptr %266, align 8
+  %267 = load i32, ptr %0, align 8
+  store i32 %267, ptr %2, align 8
+  %268 = getelementptr inbounds i8, ptr %0, i64 4
+  %269 = load i32, ptr %268, align 4
+  store i32 %269, ptr %13, align 4
+  %270 = getelementptr inbounds i8, ptr %0, i64 8
+  %271 = load i32, ptr %270, align 8
+  %272 = getelementptr inbounds i8, ptr %2, i64 8
+  store i32 %271, ptr %272, align 8
   br label %ma_lpf_get_heap_layout.exit.thread
 
 ma_lpf_get_heap_layout.exit.thread:               ; preds = %cdce.end21.i.i, %ma_lpf2_uninit.exit, %.lr.ph238, %102, %100, %99, %.lr.ph.split.us.preheader, %138, %136, %134, %122, %.lr.ph.split.preheader, %.preheader, %10, %.critedge, %25, %28, %18, %15, %8, %4, %._crit_edge
@@ -22119,107 +22113,104 @@ define hidden noundef i32 @ma_hpf2_init_preallocated(ptr noundef readonly %0, pt
   %23 = fmul double %22, 5.000000e-01
   %24 = fneg double %22
   %25 = fadd double %21, 1.000000e+00
-  %26 = insertelement <2 x double> poison, double %19, i64 0
-  %27 = insertelement <2 x double> %26, double %21, i64 1
-  %28 = fmul <2 x double> %27, <double -2.000000e+00, double poison>
-  %29 = fsub <2 x double> <double poison, double 1.000000e+00>, %27
-  %30 = shufflevector <2 x double> %28, <2 x double> %29, <2 x i32> <i32 0, i32 3>
-  %31 = load i32, ptr %0, align 8, !noalias !51
-  %32 = getelementptr inbounds i8, ptr %0, i64 4
-  %33 = load i32, ptr %32, align 4, !noalias !51
+  %26 = fmul double %19, -2.000000e+00
+  %27 = fadd double %21, -1.000000e+00
+  %28 = insertelement <2 x double> poison, double %26, i64 0
+  %29 = insertelement <2 x double> %28, double %27, i64 1
+  %30 = load i32, ptr %0, align 8, !noalias !51
+  %31 = getelementptr inbounds i8, ptr %0, i64 4
+  %32 = load i32, ptr %31, align 4, !noalias !51
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %2, i8 0, i64 64, i1 false)
-  %34 = icmp eq i32 %33, 0
-  br i1 %34, label %ma_biquad_init_preallocated.exit, label %35
+  %33 = icmp eq i32 %32, 0
+  br i1 %33, label %ma_biquad_init_preallocated.exit, label %34
 
-35:                                               ; preds = %7
-  %36 = zext i32 %33 to i64
-  %37 = shl nuw nsw i64 %36, 2
-  %38 = getelementptr inbounds i8, ptr %2, i64 48
-  store ptr %1, ptr %38, align 8
+34:                                               ; preds = %7
+  %35 = zext i32 %32 to i64
+  %36 = shl nuw nsw i64 %35, 2
+  %37 = getelementptr inbounds i8, ptr %2, i64 48
+  store ptr %1, ptr %37, align 8
   %.not.i = icmp eq ptr %1, null
-  br i1 %.not.i, label %41, label %39
+  br i1 %.not.i, label %40, label %38
 
-39:                                               ; preds = %35
-  %40 = shl nuw nsw i64 %36, 3
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %1, i8 0, i64 %40, i1 false)
-  br label %41
+38:                                               ; preds = %34
+  %39 = shl nuw nsw i64 %35, 3
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %1, i8 0, i64 %39, i1 false)
+  br label %40
 
-41:                                               ; preds = %35, %39
-  %42 = getelementptr inbounds i8, ptr %2, i64 32
-  store ptr %1, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %1, i64 %37
-  %44 = getelementptr inbounds i8, ptr %2, i64 40
-  store ptr %43, ptr %44, align 8
-  %45 = fcmp oeq double %25, 0.000000e+00
-  br i1 %45, label %ma_biquad_init_preallocated.exit, label %46
+40:                                               ; preds = %34, %38
+  %41 = getelementptr inbounds i8, ptr %2, i64 32
+  store ptr %1, ptr %41, align 8
+  %42 = getelementptr inbounds i8, ptr %1, i64 %36
+  %43 = getelementptr inbounds i8, ptr %2, i64 40
+  store ptr %42, ptr %43, align 8
+  %44 = fcmp oeq double %25, 0.000000e+00
+  br i1 %44, label %ma_biquad_init_preallocated.exit, label %45
 
-46:                                               ; preds = %41
-  switch i32 %31, label %ma_biquad_init_preallocated.exit [
-    i32 5, label %47
-    i32 2, label %47
+45:                                               ; preds = %40
+  switch i32 %30, label %ma_biquad_init_preallocated.exit [
+    i32 5, label %46
+    i32 2, label %46
   ]
 
-47:                                               ; preds = %46, %46
-  %48 = load i32, ptr %2, align 8
-  %.not53.i = icmp eq i32 %48, 0
-  %.not54.i = icmp eq i32 %48, %31
+46:                                               ; preds = %45, %45
+  %47 = load i32, ptr %2, align 8
+  %.not53.i = icmp eq i32 %47, 0
+  %.not54.i = icmp eq i32 %47, %30
   %or.cond57.i = or i1 %.not53.i, %.not54.i
-  br i1 %or.cond57.i, label %49, label %ma_biquad_init_preallocated.exit
+  br i1 %or.cond57.i, label %48, label %ma_biquad_init_preallocated.exit
 
-49:                                               ; preds = %47
-  %50 = getelementptr inbounds i8, ptr %2, i64 4
-  %51 = load i32, ptr %50, align 4
-  %.not55.i = icmp eq i32 %51, 0
-  %.not56.i = icmp eq i32 %51, %33
+48:                                               ; preds = %46
+  %49 = getelementptr inbounds i8, ptr %2, i64 4
+  %50 = load i32, ptr %49, align 4
+  %.not55.i = icmp eq i32 %50, 0
+  %.not56.i = icmp eq i32 %50, %32
   %or.cond = or i1 %.not55.i, %.not56.i
-  br i1 %or.cond, label %52, label %ma_biquad_init_preallocated.exit
+  br i1 %or.cond, label %51, label %ma_biquad_init_preallocated.exit
 
-52:                                               ; preds = %49
-  store i32 %31, ptr %2, align 8
-  store i32 %33, ptr %50, align 4
-  %53 = icmp eq i32 %31, 5
-  %54 = fdiv double %23, %25
-  br i1 %53, label %55, label %68
+51:                                               ; preds = %48
+  store i32 %30, ptr %2, align 8
+  store i32 %32, ptr %49, align 4
+  %52 = icmp eq i32 %30, 5
+  %53 = fdiv double %23, %25
+  br i1 %52, label %54, label %67
 
-55:                                               ; preds = %52
-  %56 = getelementptr inbounds i8, ptr %2, i64 8
-  %57 = fdiv double %24, %25
-  %58 = getelementptr inbounds i8, ptr %2, i64 12
-  %59 = insertelement <2 x double> poison, double %25, i64 0
-  %60 = shufflevector <2 x double> %59, <2 x double> poison, <2 x i32> zeroinitializer
-  %61 = fdiv <2 x double> %30, %60
-  %62 = insertelement <4 x double> poison, double %57, i64 0
-  %63 = insertelement <4 x double> %62, double %54, i64 1
-  %64 = shufflevector <2 x double> %61, <2 x double> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %65 = shufflevector <4 x double> %63, <4 x double> %64, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
-  %66 = fptrunc <4 x double> %65 to <4 x float>
-  %67 = extractelement <4 x float> %66, i64 1
-  store float %67, ptr %56, align 8
-  store <4 x float> %66, ptr %58, align 4
+54:                                               ; preds = %51
+  %55 = getelementptr inbounds i8, ptr %2, i64 8
+  %56 = fdiv double %24, %25
+  %57 = getelementptr inbounds i8, ptr %2, i64 12
+  %58 = insertelement <2 x double> poison, double %25, i64 0
+  %59 = shufflevector <2 x double> %58, <2 x double> poison, <2 x i32> zeroinitializer
+  %60 = fdiv <2 x double> %29, %59
+  %61 = insertelement <4 x double> poison, double %56, i64 0
+  %62 = insertelement <4 x double> %61, double %53, i64 1
+  %63 = shufflevector <2 x double> %60, <2 x double> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
+  %64 = shufflevector <4 x double> %62, <4 x double> %63, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
+  %65 = fptrunc <4 x double> %64 to <4 x float>
+  %66 = extractelement <4 x float> %65, i64 1
+  store float %66, ptr %55, align 8
+  store <4 x float> %65, ptr %57, align 4
   br label %ma_biquad_init_preallocated.exit
 
-68:                                               ; preds = %52
-  %69 = getelementptr inbounds i8, ptr %2, i64 8
-  %70 = fdiv double %24, %25
-  %71 = extractelement <2 x double> %28, i64 0
-  %72 = fdiv double %71, %25
-  %73 = insertelement <4 x double> poison, double %54, i64 0
-  %74 = insertelement <4 x double> %73, double %70, i64 1
-  %75 = insertelement <4 x double> %74, double %72, i64 3
-  %76 = fmul <4 x double> %75, <double 1.638400e+04, double 1.638400e+04, double poison, double 1.638400e+04>
-  %77 = shufflevector <4 x double> %76, <4 x double> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 3>
-  %78 = fptosi <4 x double> %77 to <4 x i32>
-  store <4 x i32> %78, ptr %69, align 8
-  %79 = extractelement <2 x double> %29, i64 1
-  %80 = fdiv double %79, %25
-  %81 = fmul double %80, 1.638400e+04
-  %82 = fptosi double %81 to i32
-  %83 = getelementptr inbounds i8, ptr %2, i64 24
-  store i32 %82, ptr %83, align 8
+67:                                               ; preds = %51
+  %68 = getelementptr inbounds i8, ptr %2, i64 8
+  %69 = fdiv double %24, %25
+  %70 = fdiv double %26, %25
+  %71 = insertelement <4 x double> poison, double %53, i64 0
+  %72 = insertelement <4 x double> %71, double %69, i64 1
+  %73 = insertelement <4 x double> %72, double %70, i64 3
+  %74 = fmul <4 x double> %73, <double 1.638400e+04, double 1.638400e+04, double poison, double 1.638400e+04>
+  %75 = shufflevector <4 x double> %74, <4 x double> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 3>
+  %76 = fptosi <4 x double> %75 to <4 x i32>
+  store <4 x i32> %76, ptr %68, align 8
+  %77 = fdiv double %27, %25
+  %78 = fmul double %77, 1.638400e+04
+  %79 = fptosi double %78 to i32
+  %80 = getelementptr inbounds i8, ptr %2, i64 24
+  store i32 %79, ptr %80, align 8
   br label %ma_biquad_init_preallocated.exit
 
-ma_biquad_init_preallocated.exit:                 ; preds = %7, %41, %46, %47, %55, %68, %49, %5, %3
-  %.0 = phi i32 [ -2, %3 ], [ -2, %5 ], [ -2, %7 ], [ -2, %41 ], [ -2, %46 ], [ 0, %68 ], [ 0, %55 ], [ -3, %47 ], [ -3, %49 ]
+ma_biquad_init_preallocated.exit:                 ; preds = %7, %40, %45, %46, %54, %67, %48, %5, %3
+  %.0 = phi i32 [ -2, %3 ], [ -2, %5 ], [ -2, %7 ], [ -2, %40 ], [ -2, %45 ], [ 0, %67 ], [ 0, %54 ], [ -3, %46 ], [ -3, %48 ]
   ret i32 %.0
 }
 
@@ -22949,130 +22940,127 @@ cdce.end21.i:                                     ; preds = %cdce.call222, %cdce
   %189 = fmul double %188, 5.000000e-01
   %190 = fneg double %188
   %191 = fadd double %187, 1.000000e+00
-  %192 = insertelement <2 x double> poison, double %185, i64 0
-  %193 = insertelement <2 x double> %192, double %187, i64 1
-  %194 = fmul <2 x double> %193, <double -2.000000e+00, double poison>
-  %195 = fsub <2 x double> <double poison, double 1.000000e+00>, %193
-  %196 = shufflevector <2 x double> %194, <2 x double> %195, <2 x i32> <i32 0, i32 3>
-  %197 = load i32, ptr %5, align 8, !noalias !69
-  %198 = load i32, ptr %.sroa.2.0..sroa_idx, align 4, !noalias !69
-  %199 = fcmp oeq double %191, 0.000000e+00
-  br i1 %199, label %.preheader225, label %200
+  %192 = fmul double %185, -2.000000e+00
+  %193 = fadd double %187, -1.000000e+00
+  %194 = insertelement <2 x double> poison, double %192, i64 0
+  %195 = insertelement <2 x double> %194, double %193, i64 1
+  %196 = load i32, ptr %5, align 8, !noalias !69
+  %197 = load i32, ptr %.sroa.2.0..sroa_idx, align 4, !noalias !69
+  %198 = fcmp oeq double %191, 0.000000e+00
+  br i1 %198, label %.preheader225, label %199
 
-200:                                              ; preds = %179
-  switch i32 %197, label %.preheader225 [
-    i32 5, label %201
-    i32 2, label %201
+199:                                              ; preds = %179
+  switch i32 %196, label %.preheader225 [
+    i32 5, label %200
+    i32 2, label %200
   ]
 
-201:                                              ; preds = %200, %200
-  %202 = load i32, ptr %177, align 8
-  %.not53.i = icmp eq i32 %202, 0
-  %.not54.i = icmp eq i32 %202, %197
+200:                                              ; preds = %199, %199
+  %201 = load i32, ptr %177, align 8
+  %.not53.i = icmp eq i32 %201, 0
+  %.not54.i = icmp eq i32 %201, %196
   %or.cond57.i = or i1 %.not53.i, %.not54.i
-  br i1 %or.cond57.i, label %203, label %.preheader225
+  br i1 %or.cond57.i, label %202, label %.preheader225
 
-203:                                              ; preds = %201
-  %204 = getelementptr inbounds i8, ptr %177, i64 4
-  %205 = load i32, ptr %204, align 4
-  %.not55.i = icmp eq i32 %205, 0
-  %.not56.i = icmp eq i32 %205, %198
+202:                                              ; preds = %200
+  %203 = getelementptr inbounds i8, ptr %177, i64 4
+  %204 = load i32, ptr %203, align 4
+  %.not55.i = icmp eq i32 %204, 0
+  %.not56.i = icmp eq i32 %204, %197
   %or.cond217 = select i1 %.not55.i, i1 true, i1 %.not56.i
-  br i1 %or.cond217, label %206, label %.preheader225
+  br i1 %or.cond217, label %205, label %.preheader225
 
-206:                                              ; preds = %203
-  store i32 %197, ptr %177, align 8
-  store i32 %198, ptr %204, align 4
-  %207 = icmp eq i32 %197, 5
-  %208 = fdiv double %189, %191
-  br i1 %207, label %209, label %222
+205:                                              ; preds = %202
+  store i32 %196, ptr %177, align 8
+  store i32 %197, ptr %203, align 4
+  %206 = icmp eq i32 %196, 5
+  %207 = fdiv double %189, %191
+  br i1 %206, label %208, label %221
 
-209:                                              ; preds = %206
-  %210 = getelementptr inbounds i8, ptr %177, i64 8
-  %211 = fdiv double %190, %191
-  %212 = getelementptr inbounds i8, ptr %177, i64 12
-  %213 = insertelement <2 x double> poison, double %191, i64 0
-  %214 = shufflevector <2 x double> %213, <2 x double> poison, <2 x i32> zeroinitializer
-  %215 = fdiv <2 x double> %196, %214
-  %216 = insertelement <4 x double> poison, double %211, i64 0
-  %217 = insertelement <4 x double> %216, double %208, i64 1
-  %218 = shufflevector <2 x double> %215, <2 x double> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %219 = shufflevector <4 x double> %217, <4 x double> %218, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
-  %220 = fptrunc <4 x double> %219 to <4 x float>
-  %221 = extractelement <4 x float> %220, i64 1
-  store float %221, ptr %210, align 8
-  store <4 x float> %220, ptr %212, align 4
+208:                                              ; preds = %205
+  %209 = getelementptr inbounds i8, ptr %177, i64 8
+  %210 = fdiv double %190, %191
+  %211 = getelementptr inbounds i8, ptr %177, i64 12
+  %212 = insertelement <2 x double> poison, double %191, i64 0
+  %213 = shufflevector <2 x double> %212, <2 x double> poison, <2 x i32> zeroinitializer
+  %214 = fdiv <2 x double> %195, %213
+  %215 = insertelement <4 x double> poison, double %210, i64 0
+  %216 = insertelement <4 x double> %215, double %207, i64 1
+  %217 = shufflevector <2 x double> %214, <2 x double> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
+  %218 = shufflevector <4 x double> %216, <4 x double> %217, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
+  %219 = fptrunc <4 x double> %218 to <4 x float>
+  %220 = extractelement <4 x float> %219, i64 1
+  store float %220, ptr %209, align 8
+  store <4 x float> %219, ptr %211, align 4
   br label %ma_hpf2_get_heap_size.exit.thread211
 
-222:                                              ; preds = %206
-  %223 = getelementptr inbounds i8, ptr %177, i64 8
-  %224 = fdiv double %190, %191
-  %225 = extractelement <2 x double> %194, i64 0
-  %226 = fdiv double %225, %191
-  %227 = insertelement <4 x double> poison, double %208, i64 0
-  %228 = insertelement <4 x double> %227, double %224, i64 1
-  %229 = insertelement <4 x double> %228, double %226, i64 3
-  %230 = fmul <4 x double> %229, <double 1.638400e+04, double 1.638400e+04, double poison, double 1.638400e+04>
-  %231 = shufflevector <4 x double> %230, <4 x double> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 3>
-  %232 = fptosi <4 x double> %231 to <4 x i32>
-  store <4 x i32> %232, ptr %223, align 8
-  %233 = extractelement <2 x double> %195, i64 1
-  %234 = fdiv double %233, %191
-  %235 = fmul double %234, 1.638400e+04
-  %236 = fptosi double %235 to i32
-  %237 = getelementptr inbounds i8, ptr %177, i64 24
-  store i32 %236, ptr %237, align 8
+221:                                              ; preds = %205
+  %222 = getelementptr inbounds i8, ptr %177, i64 8
+  %223 = fdiv double %190, %191
+  %224 = fdiv double %192, %191
+  %225 = insertelement <4 x double> poison, double %207, i64 0
+  %226 = insertelement <4 x double> %225, double %223, i64 1
+  %227 = insertelement <4 x double> %226, double %224, i64 3
+  %228 = fmul <4 x double> %227, <double 1.638400e+04, double 1.638400e+04, double poison, double 1.638400e+04>
+  %229 = shufflevector <4 x double> %228, <4 x double> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 3>
+  %230 = fptosi <4 x double> %229 to <4 x i32>
+  store <4 x i32> %230, ptr %222, align 8
+  %231 = fdiv double %193, %191
+  %232 = fmul double %231, 1.638400e+04
+  %233 = fptosi double %232 to i32
+  %234 = getelementptr inbounds i8, ptr %177, i64 24
+  store i32 %233, ptr %234, align 8
   br label %ma_hpf2_get_heap_size.exit.thread211
 
 ma_hpf2_get_heap_size.exit:                       ; preds = %cdce.end21.i
-  %238 = zext i32 %173 to i64
-  %239 = shl nuw nsw i64 %indvars.iv261, 3
-  %240 = mul i64 %239, %238
-  %241 = getelementptr i8, ptr %120, i64 %240
-  %242 = load ptr, ptr %121, align 8
-  %243 = getelementptr inbounds %struct.ma_hpf2, ptr %242, i64 %indvars.iv261
-  %244 = call i32 @ma_hpf2_init_preallocated(ptr noundef nonnull %5, ptr noundef %241, ptr noundef %243)
-  %.not128 = icmp eq i32 %244, 0
+  %235 = zext i32 %173 to i64
+  %236 = shl nuw nsw i64 %indvars.iv261, 3
+  %237 = mul i64 %236, %235
+  %238 = getelementptr i8, ptr %120, i64 %237
+  %239 = load ptr, ptr %121, align 8
+  %240 = getelementptr inbounds %struct.ma_hpf2, ptr %239, i64 %indvars.iv261
+  %241 = call i32 @ma_hpf2_init_preallocated(ptr noundef nonnull %5, ptr noundef %238, ptr noundef %240)
+  %.not128 = icmp eq i32 %241, 0
   br i1 %.not128, label %ma_hpf2_get_heap_size.exit.thread211, label %.preheader225
 
-.preheader225:                                    ; preds = %203, %201, %200, %179, %175, %cdce.end21.i, %ma_hpf2_get_heap_size.exit
-  %.1289 = phi i32 [ %244, %ma_hpf2_get_heap_size.exit ], [ -3, %203 ], [ -3, %201 ], [ -2, %200 ], [ -2, %179 ], [ -2, %175 ], [ -2, %cdce.end21.i ]
+.preheader225:                                    ; preds = %202, %200, %199, %179, %175, %cdce.end21.i, %ma_hpf2_get_heap_size.exit
+  %.1289 = phi i32 [ %241, %ma_hpf2_get_heap_size.exit ], [ -3, %202 ], [ -3, %200 ], [ -2, %199 ], [ -2, %179 ], [ -2, %175 ], [ -2, %cdce.end21.i ]
   br i1 %.not242281, label %.preheader, label %.lr.ph237
 
 .lr.ph237:                                        ; preds = %.preheader225
-  %245 = getelementptr inbounds i8, ptr %2, i64 24
-  %246 = load ptr, ptr %245, align 8
-  %247 = icmp eq ptr %246, null
-  br i1 %247, label %.preheader, label %.lr.ph237.split.preheader
+  %242 = getelementptr inbounds i8, ptr %2, i64 24
+  %243 = load ptr, ptr %242, align 8
+  %244 = icmp eq ptr %243, null
+  br i1 %244, label %.preheader, label %.lr.ph237.split.preheader
 
-.preheader:                                       ; preds = %257, %253, %.lr.ph237.split.preheader, %.lr.ph237, %.preheader225
-  %248 = and i64 %indvars.iv261, 4294967295
-  %.not245 = icmp eq i64 %248, 0
+.preheader:                                       ; preds = %254, %250, %.lr.ph237.split.preheader, %.lr.ph237, %.preheader225
+  %245 = and i64 %indvars.iv261, 4294967295
+  %.not245 = icmp eq i64 %245, 0
   br i1 %.not245, label %ma_hpf_get_heap_layout.exit.thread, label %.lr.ph239
 
 .lr.ph239:                                        ; preds = %.preheader
-  %249 = load ptr, ptr %121, align 8
-  %250 = icmp eq ptr %249, null
-  br i1 %250, label %ma_hpf_get_heap_layout.exit.thread, label %.lr.ph239.split.preheader
+  %246 = load ptr, ptr %121, align 8
+  %247 = icmp eq ptr %246, null
+  br i1 %247, label %ma_hpf_get_heap_layout.exit.thread, label %.lr.ph239.split.preheader
 
 .lr.ph239.split.preheader:                        ; preds = %.lr.ph239
   %wide.trip.count273 = zext nneg i32 %indvars.iv270 to i64
   br label %.lr.ph239.split
 
 .lr.ph237.split.preheader:                        ; preds = %.lr.ph237
-  %251 = getelementptr inbounds i8, ptr %246, i64 32
-  %252 = load i32, ptr %251, align 8
-  %.not.i134 = icmp eq i32 %252, 0
-  br i1 %.not.i134, label %.preheader, label %253
+  %248 = getelementptr inbounds i8, ptr %243, i64 32
+  %249 = load i32, ptr %248, align 8
+  %.not.i134 = icmp eq i32 %249, 0
+  br i1 %.not.i134, label %.preheader, label %250
 
-253:                                              ; preds = %.lr.ph237.split.preheader
-  %254 = getelementptr inbounds i8, ptr %246, i64 24
-  %255 = load ptr, ptr %254, align 8
-  %256 = icmp eq ptr %255, null
-  br i1 %256, label %.preheader, label %257
+250:                                              ; preds = %.lr.ph237.split.preheader
+  %251 = getelementptr inbounds i8, ptr %243, i64 24
+  %252 = load ptr, ptr %251, align 8
+  %253 = icmp eq ptr %252, null
+  br i1 %253, label %.preheader, label %254
 
-257:                                              ; preds = %253
-  call void @free(ptr noundef nonnull %255) #69
+254:                                              ; preds = %250
+  call void @free(ptr noundef nonnull %252) #69
   br label %.preheader
 
 .lr.ph239.splitthread-pre-split:                  ; preds = %ma_hpf2_uninit.exit
@@ -23080,53 +23068,53 @@ ma_hpf2_get_heap_size.exit:                       ; preds = %cdce.end21.i
   br label %.lr.ph239.split
 
 .lr.ph239.split:                                  ; preds = %.lr.ph239.splitthread-pre-split, %.lr.ph239.split.preheader
-  %258 = phi ptr [ %.pr, %.lr.ph239.splitthread-pre-split ], [ %249, %.lr.ph239.split.preheader ]
+  %255 = phi ptr [ %.pr, %.lr.ph239.splitthread-pre-split ], [ %246, %.lr.ph239.split.preheader ]
   %indvars.iv267 = phi i64 [ %indvars.iv.next268, %.lr.ph239.splitthread-pre-split ], [ 0, %.lr.ph239.split.preheader ]
-  %259 = getelementptr inbounds %struct.ma_hpf2, ptr %258, i64 %indvars.iv267
-  %260 = icmp eq ptr %258, null
-  br i1 %260, label %ma_hpf2_uninit.exit, label %261
+  %256 = getelementptr inbounds %struct.ma_hpf2, ptr %255, i64 %indvars.iv267
+  %257 = icmp eq ptr %255, null
+  br i1 %257, label %ma_hpf2_uninit.exit, label %258
 
-261:                                              ; preds = %.lr.ph239.split
-  %262 = getelementptr inbounds i8, ptr %259, i64 56
-  %263 = load i32, ptr %262, align 8
-  %.not.i.i = icmp eq i32 %263, 0
-  br i1 %.not.i.i, label %ma_hpf2_uninit.exit, label %264
+258:                                              ; preds = %.lr.ph239.split
+  %259 = getelementptr inbounds i8, ptr %256, i64 56
+  %260 = load i32, ptr %259, align 8
+  %.not.i.i = icmp eq i32 %260, 0
+  br i1 %.not.i.i, label %ma_hpf2_uninit.exit, label %261
 
-264:                                              ; preds = %261
-  %265 = getelementptr inbounds i8, ptr %259, i64 48
-  %266 = load ptr, ptr %265, align 8
-  %267 = icmp eq ptr %266, null
-  br i1 %267, label %ma_hpf2_uninit.exit, label %268
+261:                                              ; preds = %258
+  %262 = getelementptr inbounds i8, ptr %256, i64 48
+  %263 = load ptr, ptr %262, align 8
+  %264 = icmp eq ptr %263, null
+  br i1 %264, label %ma_hpf2_uninit.exit, label %265
 
-268:                                              ; preds = %264
-  call void @free(ptr noundef nonnull %266) #69
+265:                                              ; preds = %261
+  call void @free(ptr noundef nonnull %263) #69
   br label %ma_hpf2_uninit.exit
 
-ma_hpf2_uninit.exit:                              ; preds = %.lr.ph239.split, %261, %264, %268
+ma_hpf2_uninit.exit:                              ; preds = %.lr.ph239.split, %258, %261, %265
   %indvars.iv.next268 = add nuw nsw i64 %indvars.iv267, 1
   %exitcond274.not = icmp eq i64 %indvars.iv.next268, %wide.trip.count273
   br i1 %exitcond274.not, label %ma_hpf_get_heap_layout.exit.thread, label %.lr.ph239.splitthread-pre-split, !llvm.loop !72
 
-ma_hpf2_get_heap_size.exit.thread211:             ; preds = %209, %222, %ma_hpf2_get_heap_size.exit
+ma_hpf2_get_heap_size.exit.thread211:             ; preds = %208, %221, %ma_hpf2_get_heap_size.exit
   %indvars.iv.next262 = add nuw nsw i64 %indvars.iv261, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next262, %wide.trip.count
   %indvars.iv.next271 = add nuw nsw i32 %indvars.iv270, 1
   br i1 %exitcond.not, label %._crit_edge, label %141
 
 ._crit_edge:                                      ; preds = %ma_hpf2_get_heap_size.exit.thread211, %.preheader226
-  %269 = getelementptr inbounds i8, ptr %2, i64 12
-  store i32 %23, ptr %269, align 4
-  %270 = getelementptr inbounds i8, ptr %2, i64 16
-  store i32 %24, ptr %270, align 8
-  %271 = load i32, ptr %0, align 8
-  store i32 %271, ptr %2, align 8
-  %272 = getelementptr inbounds i8, ptr %0, i64 4
-  %273 = load i32, ptr %272, align 4
-  store i32 %273, ptr %13, align 4
-  %274 = getelementptr inbounds i8, ptr %0, i64 8
-  %275 = load i32, ptr %274, align 8
-  %276 = getelementptr inbounds i8, ptr %2, i64 8
-  store i32 %275, ptr %276, align 8
+  %266 = getelementptr inbounds i8, ptr %2, i64 12
+  store i32 %23, ptr %266, align 4
+  %267 = getelementptr inbounds i8, ptr %2, i64 16
+  store i32 %24, ptr %267, align 8
+  %268 = load i32, ptr %0, align 8
+  store i32 %268, ptr %2, align 8
+  %269 = getelementptr inbounds i8, ptr %0, i64 4
+  %270 = load i32, ptr %269, align 4
+  store i32 %270, ptr %13, align 4
+  %271 = getelementptr inbounds i8, ptr %0, i64 8
+  %272 = load i32, ptr %271, align 8
+  %273 = getelementptr inbounds i8, ptr %2, i64 8
+  store i32 %272, ptr %273, align 8
   br label %ma_hpf_get_heap_layout.exit.thread
 
 ma_hpf_get_heap_layout.exit.thread:               ; preds = %cdce.end21.i.i, %ma_hpf2_uninit.exit, %.lr.ph239, %102, %100, %99, %.lr.ph.split.us.preheader, %138, %136, %134, %122, %.lr.ph.split.preheader, %.preheader, %10, %.critedge, %25, %28, %18, %15, %8, %4, %._crit_edge

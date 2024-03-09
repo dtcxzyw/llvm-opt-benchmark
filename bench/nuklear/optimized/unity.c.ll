@@ -3217,10 +3217,10 @@ entry:
   %col.sroa.3.8.vec.insert.i = insertelement <2 x float> poison, float %mul7.i.i, i64 0
   %cmp.i.i = fcmp olt float %mul4.i.i, %mul7.i.i
   %in.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %col.sroa.0.0.vec.insert.i, float %mul7.i.i, i64 1
-  %in.sroa.18.8.vec.insert.i.i = insertelement <2 x float> poison, float %mul4.i.i, i64 0
+  %0 = insertelement <2 x float> poison, float %mul4.i.i, i64 0
   %K.0.i.i = select i1 %cmp.i.i, float -1.000000e+00, float 0.000000e+00
   %in.sroa.0.0.i.i = select i1 %cmp.i.i, <2 x float> %in.sroa.0.4.vec.insert.i.i, <2 x float> %col.sroa.0.4.vec.insert.i
-  %in.sroa.18.0.i.i = select i1 %cmp.i.i, <2 x float> %in.sroa.18.8.vec.insert.i.i, <2 x float> %col.sroa.3.8.vec.insert.i
+  %in.sroa.18.0.i.i = select i1 %cmp.i.i, <2 x float> %0, <2 x float> %col.sroa.3.8.vec.insert.i
   %in.sroa.0.0.vec.extract.i.i = extractelement <2 x float> %in.sroa.0.0.i.i, i64 0
   %in.sroa.0.4.vec.extract20.i.i = extractelement <2 x float> %in.sroa.0.0.i.i, i64 1
   %cmp6.i.i = fcmp olt float %in.sroa.0.0.vec.extract.i.i, %in.sroa.0.4.vec.extract20.i.i
@@ -3235,8 +3235,8 @@ entry:
   %cond.i.i = select i1 %cmp17.i.i, float %in.sroa.0.4.vec.extract26.i.i, float %in.sroa.18.8.vec.extract39.i.i
   %sub20.i.i = fsub float %in.sroa.0.0.vec.extract11.i.i, %cond.i.i
   %sub23.i.i = fsub float %in.sroa.0.4.vec.extract26.i.i, %in.sroa.18.8.vec.extract39.i.i
-  %0 = tail call float @llvm.fmuladd.f32(float %sub20.i.i, float 6.000000e+00, float 0x3BC79CA100000000)
-  %div.i.i = fdiv float %sub23.i.i, %0
+  %1 = tail call float @llvm.fmuladd.f32(float %sub20.i.i, float 6.000000e+00, float 0x3BC79CA100000000)
+  %div.i.i = fdiv float %sub23.i.i, %1
   %add.i.i = fadd float %K.1.i.i, %div.i.i
   %cmp24.i.i = fcmp olt float %add.i.i, 0.000000e+00
   %fneg.i.i = fneg float %add.i.i
@@ -3273,7 +3273,8 @@ entry:
   %col.sroa.3.12.vec.insert = insertelement <2 x float> %col.sroa.3.8.vec.insert, float %mul10.i, i64 1
   %cmp.i = fcmp olt float %mul4.i, %mul7.i
   %in.sroa.0.4.vec.insert.i = insertelement <2 x float> %col.sroa.0.0.vec.insert, float %mul7.i, i64 1
-  %in.sroa.18.8.vec.insert.i = insertelement <2 x float> %col.sroa.3.12.vec.insert, float %mul4.i, i64 0
+  %0 = insertelement <2 x float> poison, float %mul4.i, i64 0
+  %in.sroa.18.8.vec.insert.i = insertelement <2 x float> %0, float %mul10.i, i64 1
   %K.0.i = select i1 %cmp.i, float -1.000000e+00, float 0.000000e+00
   %in.sroa.0.0.i = select i1 %cmp.i, <2 x float> %in.sroa.0.4.vec.insert.i, <2 x float> %col.sroa.0.4.vec.insert
   %in.sroa.18.0.i = select i1 %cmp.i, <2 x float> %in.sroa.18.8.vec.insert.i, <2 x float> %col.sroa.3.12.vec.insert
@@ -3291,8 +3292,8 @@ entry:
   %cond.i = select i1 %cmp17.i, float %in.sroa.0.4.vec.extract26.i, float %in.sroa.18.8.vec.extract39.i
   %sub20.i = fsub float %in.sroa.0.0.vec.extract11.i, %cond.i
   %sub23.i = fsub float %in.sroa.0.4.vec.extract26.i, %in.sroa.18.8.vec.extract39.i
-  %0 = tail call float @llvm.fmuladd.f32(float %sub20.i, float 6.000000e+00, float 0x3BC79CA100000000)
-  %div.i = fdiv float %sub23.i, %0
+  %1 = tail call float @llvm.fmuladd.f32(float %sub20.i, float 6.000000e+00, float 0x3BC79CA100000000)
+  %div.i = fdiv float %sub23.i, %1
   %add.i = fadd float %K.1.i, %div.i
   %cmp24.i = fcmp olt float %add.i, 0.000000e+00
   %fneg.i = fneg float %add.i
@@ -3328,10 +3329,10 @@ entry:
   %col.sroa.3.8.vec.insert.i = insertelement <2 x float> poison, float %mul7.i.i, i64 0
   %cmp.i.i = fcmp olt float %mul4.i.i, %mul7.i.i
   %in.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %col.sroa.0.0.vec.insert.i, float %mul7.i.i, i64 1
-  %in.sroa.18.8.vec.insert.i.i = insertelement <2 x float> poison, float %mul4.i.i, i64 0
+  %0 = insertelement <2 x float> poison, float %mul4.i.i, i64 0
   %K.0.i.i = select i1 %cmp.i.i, float -1.000000e+00, float 0.000000e+00
   %in.sroa.0.0.i.i = select i1 %cmp.i.i, <2 x float> %in.sroa.0.4.vec.insert.i.i, <2 x float> %col.sroa.0.4.vec.insert.i
-  %in.sroa.18.0.i.i = select i1 %cmp.i.i, <2 x float> %in.sroa.18.8.vec.insert.i.i, <2 x float> %col.sroa.3.8.vec.insert.i
+  %in.sroa.18.0.i.i = select i1 %cmp.i.i, <2 x float> %0, <2 x float> %col.sroa.3.8.vec.insert.i
   %in.sroa.0.0.vec.extract.i.i = extractelement <2 x float> %in.sroa.0.0.i.i, i64 0
   %in.sroa.0.4.vec.extract20.i.i = extractelement <2 x float> %in.sroa.0.0.i.i, i64 1
   %cmp6.i.i = fcmp olt float %in.sroa.0.0.vec.extract.i.i, %in.sroa.0.4.vec.extract20.i.i
@@ -3346,8 +3347,8 @@ entry:
   %cond.i.i = select i1 %cmp17.i.i, float %in.sroa.0.4.vec.extract26.i.i, float %in.sroa.18.8.vec.extract39.i.i
   %sub20.i.i = fsub float %in.sroa.0.0.vec.extract11.i.i, %cond.i.i
   %sub23.i.i = fsub float %in.sroa.0.4.vec.extract26.i.i, %in.sroa.18.8.vec.extract39.i.i
-  %0 = tail call float @llvm.fmuladd.f32(float %sub20.i.i, float 6.000000e+00, float 0x3BC79CA100000000)
-  %div.i.i = fdiv float %sub23.i.i, %0
+  %1 = tail call float @llvm.fmuladd.f32(float %sub20.i.i, float 6.000000e+00, float 0x3BC79CA100000000)
+  %div.i.i = fdiv float %sub23.i.i, %1
   %add.i.i = fadd float %K.1.i.i, %div.i.i
   %cmp24.i.i = fcmp olt float %add.i.i, 0.000000e+00
   %fneg.i.i = fneg float %add.i.i
@@ -3472,7 +3473,8 @@ entry:
   %col.sroa.3.12.vec.insert.i = insertelement <2 x float> %col.sroa.3.8.vec.insert.i, float %mul10.i.i, i64 1
   %cmp.i.i = fcmp olt float %mul4.i.i, %mul7.i.i
   %in.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %col.sroa.0.0.vec.insert.i, float %mul7.i.i, i64 1
-  %in.sroa.18.8.vec.insert.i.i = insertelement <2 x float> %col.sroa.3.12.vec.insert.i, float %mul4.i.i, i64 0
+  %0 = insertelement <2 x float> poison, float %mul4.i.i, i64 0
+  %in.sroa.18.8.vec.insert.i.i = insertelement <2 x float> %0, float %mul10.i.i, i64 1
   %K.0.i.i = select i1 %cmp.i.i, float -1.000000e+00, float 0.000000e+00
   %in.sroa.0.0.i.i = select i1 %cmp.i.i, <2 x float> %in.sroa.0.4.vec.insert.i.i, <2 x float> %col.sroa.0.4.vec.insert.i
   %in.sroa.18.0.i.i = select i1 %cmp.i.i, <2 x float> %in.sroa.18.8.vec.insert.i.i, <2 x float> %col.sroa.3.12.vec.insert.i
@@ -3490,8 +3492,8 @@ entry:
   %cond.i.i = select i1 %cmp17.i.i, float %in.sroa.0.4.vec.extract26.i.i, float %in.sroa.18.8.vec.extract39.i.i
   %sub20.i.i = fsub float %in.sroa.0.0.vec.extract11.i.i, %cond.i.i
   %sub23.i.i = fsub float %in.sroa.0.4.vec.extract26.i.i, %in.sroa.18.8.vec.extract39.i.i
-  %0 = tail call float @llvm.fmuladd.f32(float %sub20.i.i, float 6.000000e+00, float 0x3BC79CA100000000)
-  %div.i.i = fdiv float %sub23.i.i, %0
+  %1 = tail call float @llvm.fmuladd.f32(float %sub20.i.i, float 6.000000e+00, float 0x3BC79CA100000000)
+  %div.i.i = fdiv float %sub23.i.i, %1
   %add.i.i = fadd float %K.1.i.i, %div.i.i
   %cmp24.i.i = fcmp olt float %add.i.i, 0.000000e+00
   %fneg.i.i = fneg float %add.i.i
@@ -3530,7 +3532,8 @@ entry:
   %col.sroa.3.12.vec.insert.i = insertelement <2 x float> %col.sroa.3.8.vec.insert.i, float %mul10.i.i, i64 1
   %cmp.i.i = fcmp olt float %mul4.i.i, %mul7.i.i
   %in.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %col.sroa.0.0.vec.insert.i, float %mul7.i.i, i64 1
-  %in.sroa.18.8.vec.insert.i.i = insertelement <2 x float> %col.sroa.3.12.vec.insert.i, float %mul4.i.i, i64 0
+  %0 = insertelement <2 x float> poison, float %mul4.i.i, i64 0
+  %in.sroa.18.8.vec.insert.i.i = insertelement <2 x float> %0, float %mul10.i.i, i64 1
   %K.0.i.i = select i1 %cmp.i.i, float -1.000000e+00, float 0.000000e+00
   %in.sroa.0.0.i.i = select i1 %cmp.i.i, <2 x float> %in.sroa.0.4.vec.insert.i.i, <2 x float> %col.sroa.0.4.vec.insert.i
   %in.sroa.18.0.i.i = select i1 %cmp.i.i, <2 x float> %in.sroa.18.8.vec.insert.i.i, <2 x float> %col.sroa.3.12.vec.insert.i
@@ -3548,8 +3551,8 @@ entry:
   %cond.i.i = select i1 %cmp17.i.i, float %in.sroa.0.4.vec.extract26.i.i, float %in.sroa.18.8.vec.extract39.i.i
   %sub20.i.i = fsub float %in.sroa.0.0.vec.extract11.i.i, %cond.i.i
   %sub23.i.i = fsub float %in.sroa.0.4.vec.extract26.i.i, %in.sroa.18.8.vec.extract39.i.i
-  %0 = tail call float @llvm.fmuladd.f32(float %sub20.i.i, float 6.000000e+00, float 0x3BC79CA100000000)
-  %div.i.i = fdiv float %sub23.i.i, %0
+  %1 = tail call float @llvm.fmuladd.f32(float %sub20.i.i, float 6.000000e+00, float 0x3BC79CA100000000)
+  %div.i.i = fdiv float %sub23.i.i, %1
   %add.i.i = fadd float %K.1.i.i, %div.i.i
   %cmp24.i.i = fcmp olt float %add.i.i, 0.000000e+00
   %fneg.i.i = fneg float %add.i.i
@@ -3600,7 +3603,8 @@ entry:
   %col.sroa.3.12.vec.insert.i.i = insertelement <2 x float> %col.sroa.3.8.vec.insert.i.i, float %mul10.i.i.i, i64 1
   %cmp.i.i.i = fcmp olt float %mul4.i.i.i, %mul7.i.i.i
   %in.sroa.0.4.vec.insert.i.i.i = insertelement <2 x float> %col.sroa.0.0.vec.insert.i.i, float %mul7.i.i.i, i64 1
-  %in.sroa.18.8.vec.insert.i.i.i = insertelement <2 x float> %col.sroa.3.12.vec.insert.i.i, float %mul4.i.i.i, i64 0
+  %0 = insertelement <2 x float> poison, float %mul4.i.i.i, i64 0
+  %in.sroa.18.8.vec.insert.i.i.i = insertelement <2 x float> %0, float %mul10.i.i.i, i64 1
   %K.0.i.i.i = select i1 %cmp.i.i.i, float -1.000000e+00, float 0.000000e+00
   %in.sroa.0.0.i.i.i = select i1 %cmp.i.i.i, <2 x float> %in.sroa.0.4.vec.insert.i.i.i, <2 x float> %col.sroa.0.4.vec.insert.i.i
   %in.sroa.18.0.i.i.i = select i1 %cmp.i.i.i, <2 x float> %in.sroa.18.8.vec.insert.i.i.i, <2 x float> %col.sroa.3.12.vec.insert.i.i
@@ -3618,21 +3622,21 @@ entry:
   %cond.i.i.i = select i1 %cmp17.i.i.i, float %in.sroa.0.4.vec.extract26.i.i.i, float %in.sroa.18.8.vec.extract39.i.i.i
   %sub20.i.i.i = fsub float %in.sroa.0.0.vec.extract11.i.i.i, %cond.i.i.i
   %sub23.i.i.i = fsub float %in.sroa.0.4.vec.extract26.i.i.i, %in.sroa.18.8.vec.extract39.i.i.i
-  %0 = tail call float @llvm.fmuladd.f32(float %sub20.i.i.i, float 6.000000e+00, float 0x3BC79CA100000000)
-  %div.i.i.i = fdiv float %sub23.i.i.i, %0
+  %1 = tail call float @llvm.fmuladd.f32(float %sub20.i.i.i, float 6.000000e+00, float 0x3BC79CA100000000)
+  %div.i.i.i = fdiv float %sub23.i.i.i, %1
   %add.i.i.i = fadd float %K.1.i.i.i, %div.i.i.i
   %cmp24.i.i.i = fcmp olt float %add.i.i.i, 0.000000e+00
   %fneg.i.i.i = fneg float %add.i.i.i
   %cond38.i.i.i = select i1 %cmp24.i.i.i, float %fneg.i.i.i, float %add.i.i.i
   %add40.i.i.i = fadd float %in.sroa.0.0.vec.extract11.i.i.i, 0x3BC79CA100000000
   %div41.i.i.i = fdiv float %sub20.i.i.i, %add40.i.i.i
-  %1 = shufflevector <2 x float> %in.sroa.0.1.i.i.i, <2 x float> %in.sroa.18.0.i.i.i, <4 x i32> <i32 poison, i32 poison, i32 0, i32 3>
-  %2 = insertelement <4 x float> %1, float %cond38.i.i.i, i64 0
-  %3 = insertelement <4 x float> %2, float %div41.i.i.i, i64 1
-  %4 = fmul <4 x float> %3, <float 2.550000e+02, float 2.550000e+02, float 2.550000e+02, float 2.550000e+02>
-  %5 = fptoui <4 x float> %4 to <4 x i8>
-  %6 = zext <4 x i8> %5 to <4 x i32>
-  store <4 x i32> %6, ptr %out, align 4
+  %2 = shufflevector <2 x float> %in.sroa.0.1.i.i.i, <2 x float> %in.sroa.18.0.i.i.i, <4 x i32> <i32 poison, i32 poison, i32 0, i32 3>
+  %3 = insertelement <4 x float> %2, float %cond38.i.i.i, i64 0
+  %4 = insertelement <4 x float> %3, float %div41.i.i.i, i64 1
+  %5 = fmul <4 x float> %4, <float 2.550000e+02, float 2.550000e+02, float 2.550000e+02, float 2.550000e+02>
+  %6 = fptoui <4 x float> %5 to <4 x i8>
+  %7 = zext <4 x i8> %6 to <4 x i32>
+  store <4 x i32> %7, ptr %out, align 4
   ret void
 }
 
@@ -3660,7 +3664,8 @@ entry:
   %col.sroa.3.12.vec.insert.i.i = insertelement <2 x float> %col.sroa.3.8.vec.insert.i.i, float %mul10.i.i.i, i64 1
   %cmp.i.i.i = fcmp olt float %mul4.i.i.i, %mul7.i.i.i
   %in.sroa.0.4.vec.insert.i.i.i = insertelement <2 x float> %col.sroa.0.0.vec.insert.i.i, float %mul7.i.i.i, i64 1
-  %in.sroa.18.8.vec.insert.i.i.i = insertelement <2 x float> %col.sroa.3.12.vec.insert.i.i, float %mul4.i.i.i, i64 0
+  %0 = insertelement <2 x float> poison, float %mul4.i.i.i, i64 0
+  %in.sroa.18.8.vec.insert.i.i.i = insertelement <2 x float> %0, float %mul10.i.i.i, i64 1
   %K.0.i.i.i = select i1 %cmp.i.i.i, float -1.000000e+00, float 0.000000e+00
   %in.sroa.0.0.i.i.i = select i1 %cmp.i.i.i, <2 x float> %in.sroa.0.4.vec.insert.i.i.i, <2 x float> %col.sroa.0.4.vec.insert.i.i
   %in.sroa.18.0.i.i.i = select i1 %cmp.i.i.i, <2 x float> %in.sroa.18.8.vec.insert.i.i.i, <2 x float> %col.sroa.3.12.vec.insert.i.i
@@ -3678,20 +3683,20 @@ entry:
   %cond.i.i.i = select i1 %cmp17.i.i.i, float %in.sroa.0.4.vec.extract26.i.i.i, float %in.sroa.18.8.vec.extract39.i.i.i
   %sub20.i.i.i = fsub float %in.sroa.0.0.vec.extract11.i.i.i, %cond.i.i.i
   %sub23.i.i.i = fsub float %in.sroa.0.4.vec.extract26.i.i.i, %in.sroa.18.8.vec.extract39.i.i.i
-  %0 = tail call float @llvm.fmuladd.f32(float %sub20.i.i.i, float 6.000000e+00, float 0x3BC79CA100000000)
-  %div.i.i.i = fdiv float %sub23.i.i.i, %0
+  %1 = tail call float @llvm.fmuladd.f32(float %sub20.i.i.i, float 6.000000e+00, float 0x3BC79CA100000000)
+  %div.i.i.i = fdiv float %sub23.i.i.i, %1
   %add.i.i.i = fadd float %K.1.i.i.i, %div.i.i.i
   %cmp24.i.i.i = fcmp olt float %add.i.i.i, 0.000000e+00
   %fneg.i.i.i = fneg float %add.i.i.i
   %cond38.i.i.i = select i1 %cmp24.i.i.i, float %fneg.i.i.i, float %add.i.i.i
   %add40.i.i.i = fadd float %in.sroa.0.0.vec.extract11.i.i.i, 0x3BC79CA100000000
   %div41.i.i.i = fdiv float %sub20.i.i.i, %add40.i.i.i
-  %1 = shufflevector <2 x float> %in.sroa.0.1.i.i.i, <2 x float> %in.sroa.18.0.i.i.i, <4 x i32> <i32 poison, i32 poison, i32 0, i32 3>
-  %2 = insertelement <4 x float> %1, float %cond38.i.i.i, i64 0
-  %3 = insertelement <4 x float> %2, float %div41.i.i.i, i64 1
-  %4 = fmul <4 x float> %3, <float 2.550000e+02, float 2.550000e+02, float 2.550000e+02, float 2.550000e+02>
-  %5 = fptoui <4 x float> %4 to <4 x i8>
-  store <4 x i8> %5, ptr %out, align 1
+  %2 = shufflevector <2 x float> %in.sroa.0.1.i.i.i, <2 x float> %in.sroa.18.0.i.i.i, <4 x i32> <i32 poison, i32 poison, i32 0, i32 3>
+  %3 = insertelement <4 x float> %2, float %cond38.i.i.i, i64 0
+  %4 = insertelement <4 x float> %3, float %div41.i.i.i, i64 1
+  %5 = fmul <4 x float> %4, <float 2.550000e+02, float 2.550000e+02, float 2.550000e+02, float 2.550000e+02>
+  %6 = fptoui <4 x float> %5 to <4 x i8>
+  store <4 x i8> %6, ptr %out, align 1
   ret void
 }
 
@@ -3719,7 +3724,8 @@ entry:
   %col.sroa.3.12.vec.insert.i.i = insertelement <2 x float> %col.sroa.3.8.vec.insert.i.i, float %mul10.i.i.i, i64 1
   %cmp.i.i.i = fcmp olt float %mul4.i.i.i, %mul7.i.i.i
   %in.sroa.0.4.vec.insert.i.i.i = insertelement <2 x float> %col.sroa.0.0.vec.insert.i.i, float %mul7.i.i.i, i64 1
-  %in.sroa.18.8.vec.insert.i.i.i = insertelement <2 x float> %col.sroa.3.12.vec.insert.i.i, float %mul4.i.i.i, i64 0
+  %0 = insertelement <2 x float> poison, float %mul4.i.i.i, i64 0
+  %in.sroa.18.8.vec.insert.i.i.i = insertelement <2 x float> %0, float %mul10.i.i.i, i64 1
   %K.0.i.i.i = select i1 %cmp.i.i.i, float -1.000000e+00, float 0.000000e+00
   %in.sroa.0.0.i.i.i = select i1 %cmp.i.i.i, <2 x float> %in.sroa.0.4.vec.insert.i.i.i, <2 x float> %col.sroa.0.4.vec.insert.i.i
   %in.sroa.18.0.i.i.i = select i1 %cmp.i.i.i, <2 x float> %in.sroa.18.8.vec.insert.i.i.i, <2 x float> %col.sroa.3.12.vec.insert.i.i
@@ -3737,8 +3743,8 @@ entry:
   %cond.i.i.i = select i1 %cmp17.i.i.i, float %in.sroa.0.4.vec.extract26.i.i.i, float %in.sroa.18.8.vec.extract39.i.i.i
   %sub20.i.i.i = fsub float %in.sroa.0.0.vec.extract11.i.i.i, %cond.i.i.i
   %sub23.i.i.i = fsub float %in.sroa.0.4.vec.extract26.i.i.i, %in.sroa.18.8.vec.extract39.i.i.i
-  %0 = tail call float @llvm.fmuladd.f32(float %sub20.i.i.i, float 6.000000e+00, float 0x3BC79CA100000000)
-  %div.i.i.i = fdiv float %sub23.i.i.i, %0
+  %1 = tail call float @llvm.fmuladd.f32(float %sub20.i.i.i, float 6.000000e+00, float 0x3BC79CA100000000)
+  %div.i.i.i = fdiv float %sub23.i.i.i, %1
   %add.i.i.i = fadd float %K.1.i.i.i, %div.i.i.i
   %cmp24.i.i.i = fcmp olt float %add.i.i.i, 0.000000e+00
   %fneg.i.i.i = fneg float %add.i.i.i
@@ -3780,10 +3786,10 @@ entry:
   %col.sroa.3.8.vec.insert.i.i = insertelement <2 x float> poison, float %mul7.i.i.i, i64 0
   %cmp.i.i.i = fcmp olt float %mul4.i.i.i, %mul7.i.i.i
   %in.sroa.0.4.vec.insert.i.i.i = insertelement <2 x float> %col.sroa.0.0.vec.insert.i.i, float %mul7.i.i.i, i64 1
-  %in.sroa.18.8.vec.insert.i.i.i = insertelement <2 x float> poison, float %mul4.i.i.i, i64 0
+  %0 = insertelement <2 x float> poison, float %mul4.i.i.i, i64 0
   %K.0.i.i.i = select i1 %cmp.i.i.i, float -1.000000e+00, float 0.000000e+00
   %in.sroa.0.0.i.i.i = select i1 %cmp.i.i.i, <2 x float> %in.sroa.0.4.vec.insert.i.i.i, <2 x float> %col.sroa.0.4.vec.insert.i.i
-  %in.sroa.18.0.i.i.i = select i1 %cmp.i.i.i, <2 x float> %in.sroa.18.8.vec.insert.i.i.i, <2 x float> %col.sroa.3.8.vec.insert.i.i
+  %in.sroa.18.0.i.i.i = select i1 %cmp.i.i.i, <2 x float> %0, <2 x float> %col.sroa.3.8.vec.insert.i.i
   %in.sroa.0.0.vec.extract.i.i.i = extractelement <2 x float> %in.sroa.0.0.i.i.i, i64 0
   %in.sroa.0.4.vec.extract20.i.i.i = extractelement <2 x float> %in.sroa.0.0.i.i.i, i64 1
   %cmp6.i.i.i = fcmp olt float %in.sroa.0.0.vec.extract.i.i.i, %in.sroa.0.4.vec.extract20.i.i.i
@@ -3798,8 +3804,8 @@ entry:
   %cond.i.i.i = select i1 %cmp17.i.i.i, float %in.sroa.0.4.vec.extract26.i.i.i, float %in.sroa.18.8.vec.extract39.i.i.i
   %sub20.i.i.i = fsub float %in.sroa.0.0.vec.extract11.i.i.i, %cond.i.i.i
   %sub23.i.i.i = fsub float %in.sroa.0.4.vec.extract26.i.i.i, %in.sroa.18.8.vec.extract39.i.i.i
-  %0 = tail call float @llvm.fmuladd.f32(float %sub20.i.i.i, float 6.000000e+00, float 0x3BC79CA100000000)
-  %div.i.i.i = fdiv float %sub23.i.i.i, %0
+  %1 = tail call float @llvm.fmuladd.f32(float %sub20.i.i.i, float 6.000000e+00, float 0x3BC79CA100000000)
+  %div.i.i.i = fdiv float %sub23.i.i.i, %1
   %add.i.i.i = fadd float %K.1.i.i.i, %div.i.i.i
   %cmp24.i.i.i = fcmp olt float %add.i.i.i, 0.000000e+00
   %fneg.i.i.i = fneg float %add.i.i.i
@@ -3840,10 +3846,10 @@ entry:
   %col.sroa.3.8.vec.insert.i.i = insertelement <2 x float> poison, float %mul7.i.i.i, i64 0
   %cmp.i.i.i = fcmp olt float %mul4.i.i.i, %mul7.i.i.i
   %in.sroa.0.4.vec.insert.i.i.i = insertelement <2 x float> %col.sroa.0.0.vec.insert.i.i, float %mul7.i.i.i, i64 1
-  %in.sroa.18.8.vec.insert.i.i.i = insertelement <2 x float> poison, float %mul4.i.i.i, i64 0
+  %0 = insertelement <2 x float> poison, float %mul4.i.i.i, i64 0
   %K.0.i.i.i = select i1 %cmp.i.i.i, float -1.000000e+00, float 0.000000e+00
   %in.sroa.0.0.i.i.i = select i1 %cmp.i.i.i, <2 x float> %in.sroa.0.4.vec.insert.i.i.i, <2 x float> %col.sroa.0.4.vec.insert.i.i
-  %in.sroa.18.0.i.i.i = select i1 %cmp.i.i.i, <2 x float> %in.sroa.18.8.vec.insert.i.i.i, <2 x float> %col.sroa.3.8.vec.insert.i.i
+  %in.sroa.18.0.i.i.i = select i1 %cmp.i.i.i, <2 x float> %0, <2 x float> %col.sroa.3.8.vec.insert.i.i
   %in.sroa.0.0.vec.extract.i.i.i = extractelement <2 x float> %in.sroa.0.0.i.i.i, i64 0
   %in.sroa.0.4.vec.extract20.i.i.i = extractelement <2 x float> %in.sroa.0.0.i.i.i, i64 1
   %cmp6.i.i.i = fcmp olt float %in.sroa.0.0.vec.extract.i.i.i, %in.sroa.0.4.vec.extract20.i.i.i
@@ -3858,8 +3864,8 @@ entry:
   %cond.i.i.i = select i1 %cmp17.i.i.i, float %in.sroa.0.4.vec.extract26.i.i.i, float %in.sroa.18.8.vec.extract39.i.i.i
   %sub20.i.i.i = fsub float %in.sroa.0.0.vec.extract11.i.i.i, %cond.i.i.i
   %sub23.i.i.i = fsub float %in.sroa.0.4.vec.extract26.i.i.i, %in.sroa.18.8.vec.extract39.i.i.i
-  %0 = tail call float @llvm.fmuladd.f32(float %sub20.i.i.i, float 6.000000e+00, float 0x3BC79CA100000000)
-  %div.i.i.i = fdiv float %sub23.i.i.i, %0
+  %1 = tail call float @llvm.fmuladd.f32(float %sub20.i.i.i, float 6.000000e+00, float 0x3BC79CA100000000)
+  %div.i.i.i = fdiv float %sub23.i.i.i, %1
   %add.i.i.i = fadd float %K.1.i.i.i, %div.i.i.i
   %cmp24.i.i.i = fcmp olt float %add.i.i.i, 0.000000e+00
   %fneg.i.i.i = fneg float %add.i.i.i
@@ -3898,10 +3904,10 @@ entry:
   %col.sroa.3.8.vec.insert.i.i.i = insertelement <2 x float> poison, float %mul7.i.i.i.i, i64 0
   %cmp.i.i.i.i = fcmp olt float %mul4.i.i.i.i, %mul7.i.i.i.i
   %in.sroa.0.4.vec.insert.i.i.i.i = insertelement <2 x float> %col.sroa.0.0.vec.insert.i.i.i, float %mul7.i.i.i.i, i64 1
-  %in.sroa.18.8.vec.insert.i.i.i.i = insertelement <2 x float> poison, float %mul4.i.i.i.i, i64 0
+  %0 = insertelement <2 x float> poison, float %mul4.i.i.i.i, i64 0
   %K.0.i.i.i.i = select i1 %cmp.i.i.i.i, float -1.000000e+00, float 0.000000e+00
   %in.sroa.0.0.i.i.i.i = select i1 %cmp.i.i.i.i, <2 x float> %in.sroa.0.4.vec.insert.i.i.i.i, <2 x float> %col.sroa.0.4.vec.insert.i.i.i
-  %in.sroa.18.0.i.i.i.i = select i1 %cmp.i.i.i.i, <2 x float> %in.sroa.18.8.vec.insert.i.i.i.i, <2 x float> %col.sroa.3.8.vec.insert.i.i.i
+  %in.sroa.18.0.i.i.i.i = select i1 %cmp.i.i.i.i, <2 x float> %0, <2 x float> %col.sroa.3.8.vec.insert.i.i.i
   %in.sroa.0.0.vec.extract.i.i.i.i = extractelement <2 x float> %in.sroa.0.0.i.i.i.i, i64 0
   %in.sroa.0.4.vec.extract20.i.i.i.i = extractelement <2 x float> %in.sroa.0.0.i.i.i.i, i64 1
   %cmp6.i.i.i.i = fcmp olt float %in.sroa.0.0.vec.extract.i.i.i.i, %in.sroa.0.4.vec.extract20.i.i.i.i
@@ -3916,20 +3922,20 @@ entry:
   %cond.i.i.i.i = select i1 %cmp17.i.i.i.i, float %in.sroa.0.4.vec.extract26.i.i.i.i, float %in.sroa.18.8.vec.extract39.i.i.i.i
   %sub20.i.i.i.i = fsub float %in.sroa.0.0.vec.extract11.i.i.i.i, %cond.i.i.i.i
   %sub23.i.i.i.i = fsub float %in.sroa.0.4.vec.extract26.i.i.i.i, %in.sroa.18.8.vec.extract39.i.i.i.i
-  %0 = tail call float @llvm.fmuladd.f32(float %sub20.i.i.i.i, float 6.000000e+00, float 0x3BC79CA100000000)
-  %div.i.i.i.i = fdiv float %sub23.i.i.i.i, %0
+  %1 = tail call float @llvm.fmuladd.f32(float %sub20.i.i.i.i, float 6.000000e+00, float 0x3BC79CA100000000)
+  %div.i.i.i.i = fdiv float %sub23.i.i.i.i, %1
   %add.i.i.i.i = fadd float %K.1.i.i.i.i, %div.i.i.i.i
   %cmp24.i.i.i.i = fcmp olt float %add.i.i.i.i, 0.000000e+00
   %fneg.i.i.i.i = fneg float %add.i.i.i.i
   %cond38.i.i.i.i = select i1 %cmp24.i.i.i.i, float %fneg.i.i.i.i, float %add.i.i.i.i
   %add40.i.i.i.i = fadd float %in.sroa.0.0.vec.extract11.i.i.i.i, 0x3BC79CA100000000
   %div41.i.i.i.i = fdiv float %sub20.i.i.i.i, %add40.i.i.i.i
-  %1 = insertelement <2 x float> poison, float %cond38.i.i.i.i, i64 0
-  %2 = insertelement <2 x float> %1, float %div41.i.i.i.i, i64 1
-  %3 = fmul <2 x float> %2, <float 2.550000e+02, float 2.550000e+02>
-  %4 = fptoui <2 x float> %3 to <2 x i8>
-  %5 = zext <2 x i8> %4 to <2 x i32>
-  store <2 x i32> %5, ptr %out, align 4
+  %2 = insertelement <2 x float> poison, float %cond38.i.i.i.i, i64 0
+  %3 = insertelement <2 x float> %2, float %div41.i.i.i.i, i64 1
+  %4 = fmul <2 x float> %3, <float 2.550000e+02, float 2.550000e+02>
+  %5 = fptoui <2 x float> %4 to <2 x i8>
+  %6 = zext <2 x i8> %5 to <2 x i32>
+  store <2 x i32> %6, ptr %out, align 4
   %mul5.i.i = fmul float %in.sroa.0.0.vec.extract11.i.i.i.i, 2.550000e+02
   %conv6.i.i = fptoui float %mul5.i.i to i8
   %conv7.i.i = zext i8 %conv6.i.i to i32
@@ -3956,10 +3962,10 @@ entry:
   %col.sroa.3.8.vec.insert.i.i.i = insertelement <2 x float> poison, float %mul7.i.i.i.i, i64 0
   %cmp.i.i.i.i = fcmp olt float %mul4.i.i.i.i, %mul7.i.i.i.i
   %in.sroa.0.4.vec.insert.i.i.i.i = insertelement <2 x float> %col.sroa.0.0.vec.insert.i.i.i, float %mul7.i.i.i.i, i64 1
-  %in.sroa.18.8.vec.insert.i.i.i.i = insertelement <2 x float> poison, float %mul4.i.i.i.i, i64 0
+  %0 = insertelement <2 x float> poison, float %mul4.i.i.i.i, i64 0
   %K.0.i.i.i.i = select i1 %cmp.i.i.i.i, float -1.000000e+00, float 0.000000e+00
   %in.sroa.0.0.i.i.i.i = select i1 %cmp.i.i.i.i, <2 x float> %in.sroa.0.4.vec.insert.i.i.i.i, <2 x float> %col.sroa.0.4.vec.insert.i.i.i
-  %in.sroa.18.0.i.i.i.i = select i1 %cmp.i.i.i.i, <2 x float> %in.sroa.18.8.vec.insert.i.i.i.i, <2 x float> %col.sroa.3.8.vec.insert.i.i.i
+  %in.sroa.18.0.i.i.i.i = select i1 %cmp.i.i.i.i, <2 x float> %0, <2 x float> %col.sroa.3.8.vec.insert.i.i.i
   %in.sroa.0.0.vec.extract.i.i.i.i = extractelement <2 x float> %in.sroa.0.0.i.i.i.i, i64 0
   %in.sroa.0.4.vec.extract20.i.i.i.i = extractelement <2 x float> %in.sroa.0.0.i.i.i.i, i64 1
   %cmp6.i.i.i.i = fcmp olt float %in.sroa.0.0.vec.extract.i.i.i.i, %in.sroa.0.4.vec.extract20.i.i.i.i
@@ -3974,8 +3980,8 @@ entry:
   %cond.i.i.i.i = select i1 %cmp17.i.i.i.i, float %in.sroa.0.4.vec.extract26.i.i.i.i, float %in.sroa.18.8.vec.extract39.i.i.i.i
   %sub20.i.i.i.i = fsub float %in.sroa.0.0.vec.extract11.i.i.i.i, %cond.i.i.i.i
   %sub23.i.i.i.i = fsub float %in.sroa.0.4.vec.extract26.i.i.i.i, %in.sroa.18.8.vec.extract39.i.i.i.i
-  %0 = tail call float @llvm.fmuladd.f32(float %sub20.i.i.i.i, float 6.000000e+00, float 0x3BC79CA100000000)
-  %div.i.i.i.i = fdiv float %sub23.i.i.i.i, %0
+  %1 = tail call float @llvm.fmuladd.f32(float %sub20.i.i.i.i, float 6.000000e+00, float 0x3BC79CA100000000)
+  %div.i.i.i.i = fdiv float %sub23.i.i.i.i, %1
   %add.i.i.i.i = fadd float %K.1.i.i.i.i, %div.i.i.i.i
   %cmp24.i.i.i.i = fcmp olt float %add.i.i.i.i, 0.000000e+00
   %fneg.i.i.i.i = fneg float %add.i.i.i.i
@@ -9173,9 +9179,9 @@ if.end3:                                          ; preds = %if.end
   %7 = insertelement <4 x float> %6, float %x0, i64 1
   %8 = insertelement <4 x float> %7, float %y0, i64 2
   %9 = insertelement <4 x float> %8, float %x1, i64 3
-  %10 = fptoui <4 x float> %9 to <4 x i16>
-  %11 = fptosi <4 x float> %9 to <4 x i16>
-  %12 = shufflevector <4 x i16> %10, <4 x i16> %11, <4 x i32> <i32 0, i32 5, i32 6, i32 7>
+  %10 = fptosi <4 x float> %9 to <4 x i16>
+  %11 = fptoui float %line_thickness to i16
+  %12 = insertelement <4 x i16> %10, i16 %11, i64 0
   %line_thickness4 = getelementptr inbounds i8, ptr %call.i, i64 16
   store <4 x i16> %12, ptr %line_thickness4, align 8
   %conv10 = fptosi float %y1 to i16
@@ -9240,9 +9246,9 @@ if.end7:                                          ; preds = %if.end
   %11 = insertelement <8 x float> %10, float %ctrl0x, i64 5
   %12 = insertelement <8 x float> %11, float %ctrl0y, i64 6
   %13 = insertelement <8 x float> %12, float %ctrl1x, i64 7
-  %14 = fptoui <8 x float> %13 to <8 x i16>
-  %15 = fptosi <8 x float> %13 to <8 x i16>
-  %16 = shufflevector <8 x i16> %14, <8 x i16> %15, <8 x i32> <i32 0, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
+  %14 = fptosi <8 x float> %13 to <8 x i16>
+  %15 = fptoui float %line_thickness to i16
+  %16 = insertelement <8 x i16> %14, i16 %15, i64 0
   %line_thickness9 = getelementptr inbounds i8, ptr %call.i, i64 16
   %conv23 = fptosi float %ctrl1y to i16
   %y26 = getelementptr inbounds i8, ptr %call.i, i64 32
@@ -10039,9 +10045,9 @@ if.end66:                                         ; preds = %if.end63
   %18 = insertelement <4 x float> %17, float %x0, i64 1
   %19 = insertelement <4 x float> %18, float %y0, i64 2
   %20 = insertelement <4 x float> %19, float %x1, i64 3
-  %21 = fptoui <4 x float> %20 to <4 x i16>
-  %22 = fptosi <4 x float> %20 to <4 x i16>
-  %23 = shufflevector <4 x i16> %21, <4 x i16> %22, <4 x i32> <i32 0, i32 5, i32 6, i32 7>
+  %21 = fptosi <4 x float> %20 to <4 x i16>
+  %22 = fptoui float %line_thickness to i16
+  %23 = insertelement <4 x i16> %21, i16 %22, i64 0
   %line_thickness68 = getelementptr inbounds i8, ptr %call.i, i64 16
   store <4 x i16> %23, ptr %line_thickness68, align 8
   %24 = insertelement <2 x float> poison, float %y1, i64 0

@@ -20244,20 +20244,19 @@ if.then2.i11.i:                                   ; preds = %if.then2.i
   %sub.i = fsub double 1.000000e+00, %call.i.i
   %div5.i = fmul double %sub.i, 5.000000e-01
   %add.i = fadd double %div4.i, 1.000000e+00
-  %3 = insertelement <2 x double> poison, double %call.i.i, i64 0
-  %4 = insertelement <2 x double> %3, double %div4.i, i64 1
-  %5 = fmul <2 x double> %4, <double -2.000000e+00, double poison>
-  %6 = fsub <2 x double> <double poison, double 1.000000e+00>, %4
-  %7 = shufflevector <2 x double> %5, <2 x double> %6, <2 x i32> <i32 0, i32 3>
-  %8 = load i32, ptr %pConfig, align 8, !noalias !152
+  %3 = fmul double %call.i.i, -2.000000e+00
+  %4 = fadd double %div4.i, -1.000000e+00
+  %5 = insertelement <2 x double> poison, double %3, i64 0
+  %6 = insertelement <2 x double> %5, double %4, i64 1
+  %7 = load i32, ptr %pConfig, align 8, !noalias !152
   %channels.i = getelementptr inbounds i8, ptr %pConfig, i64 4
-  %9 = load i32, ptr %channels.i, align 4, !noalias !152
+  %8 = load i32, ptr %channels.i, align 4, !noalias !152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %pLPF, i8 0, i64 64, i1 false)
-  %cmp1.i17.i = icmp eq i32 %9, 0
+  %cmp1.i17.i = icmp eq i32 %8, 0
   br i1 %cmp1.i17.i, label %return, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.then2.i11.i
-  %conv.i.i = zext i32 %9 to i64
+  %conv.i.i = zext i32 %8 to i64
   %mul.i.i = shl nuw nsw i64 %conv.i.i, 2
   %_pHeap.i = getelementptr inbounds i8, ptr %pLPF, i64 48
   store ptr %pHeap, ptr %_pHeap.i, align 8
@@ -20279,30 +20278,30 @@ if.end.i:                                         ; preds = %if.end3.i, %if.then
   br i1 %cmp2.i, label %return, label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.end.i
-  switch i32 %8, label %return [
+  switch i32 %7, label %return [
     i32 5, label %if.end9.i
     i32 2, label %if.end9.i
   ]
 
 if.end9.i:                                        ; preds = %if.end4.i, %if.end4.i
-  %10 = load i32, ptr %pLPF, align 8
-  %cmp11.not.i = icmp eq i32 %10, 0
-  %cmp15.not.i = icmp eq i32 %10, %8
+  %9 = load i32, ptr %pLPF, align 8
+  %cmp11.not.i = icmp eq i32 %9, 0
+  %cmp15.not.i = icmp eq i32 %9, %7
   %or.cond55.i = or i1 %cmp11.not.i, %cmp15.not.i
   br i1 %or.cond55.i, label %if.end17.i, label %return
 
 if.end17.i:                                       ; preds = %if.end9.i
   %channels.i18 = getelementptr inbounds i8, ptr %pLPF, i64 4
-  %11 = load i32, ptr %channels.i18, align 4
-  %cmp18.not.i = icmp eq i32 %11, 0
-  %cmp22.not.i = icmp eq i32 %11, %9
+  %10 = load i32, ptr %channels.i18, align 4
+  %cmp18.not.i = icmp eq i32 %10, 0
+  %cmp22.not.i = icmp eq i32 %10, %8
   %or.cond = or i1 %cmp18.not.i, %cmp22.not.i
   br i1 %or.cond, label %if.end24.i, label %return
 
 if.end24.i:                                       ; preds = %if.end17.i
-  store i32 %8, ptr %pLPF, align 8
-  store i32 %9, ptr %channels.i18, align 4
-  %cmp30.i = icmp eq i32 %8, 5
+  store i32 %7, ptr %pLPF, align 8
+  store i32 %8, ptr %channels.i18, align 4
+  %cmp30.i = icmp eq i32 %7, 5
   %div.i19 = fdiv double %div5.i, %add.i
   br i1 %cmp30.i, label %if.then31.i, label %if.else.i
 
@@ -20310,33 +20309,31 @@ if.then31.i:                                      ; preds = %if.end24.i
   %b033.i = getelementptr inbounds i8, ptr %pLPF, i64 8
   %div35.i = fdiv double %sub.i, %add.i
   %b137.i = getelementptr inbounds i8, ptr %pLPF, i64 12
-  %12 = insertelement <2 x double> poison, double %add.i, i64 0
-  %13 = shufflevector <2 x double> %12, <2 x double> poison, <2 x i32> zeroinitializer
-  %14 = fdiv <2 x double> %7, %13
-  %15 = insertelement <4 x double> poison, double %div35.i, i64 0
-  %16 = insertelement <4 x double> %15, double %div.i19, i64 1
-  %17 = shufflevector <2 x double> %14, <2 x double> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %18 = shufflevector <4 x double> %16, <4 x double> %17, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
-  %19 = fptrunc <4 x double> %18 to <4 x float>
-  %20 = extractelement <4 x float> %19, i64 1
-  store float %20, ptr %b033.i, align 8
-  store <4 x float> %19, ptr %b137.i, align 4
+  %11 = insertelement <2 x double> poison, double %add.i, i64 0
+  %12 = shufflevector <2 x double> %11, <2 x double> poison, <2 x i32> zeroinitializer
+  %13 = fdiv <2 x double> %6, %12
+  %14 = insertelement <4 x double> poison, double %div35.i, i64 0
+  %15 = insertelement <4 x double> %14, double %div.i19, i64 1
+  %16 = shufflevector <2 x double> %13, <2 x double> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
+  %17 = shufflevector <4 x double> %15, <4 x double> %16, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
+  %18 = fptrunc <4 x double> %17 to <4 x float>
+  %19 = extractelement <4 x float> %18, i64 1
+  store float %19, ptr %b033.i, align 8
+  store <4 x float> %18, ptr %b137.i, align 4
   br label %return
 
 if.else.i:                                        ; preds = %if.end24.i
   %b053.i = getelementptr inbounds i8, ptr %pLPF, i64 8
   %div56.i = fdiv double %sub.i, %add.i
-  %21 = extractelement <2 x double> %5, i64 0
-  %div66.i = fdiv double %21, %add.i
-  %22 = insertelement <4 x double> poison, double %div.i19, i64 0
-  %23 = insertelement <4 x double> %22, double %div56.i, i64 1
-  %24 = insertelement <4 x double> %23, double %div66.i, i64 3
-  %25 = fmul <4 x double> %24, <double 1.638400e+04, double 1.638400e+04, double poison, double 1.638400e+04>
-  %26 = shufflevector <4 x double> %25, <4 x double> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 3>
-  %27 = fptosi <4 x double> %26 to <4 x i32>
-  store <4 x i32> %27, ptr %b053.i, align 8
-  %28 = extractelement <2 x double> %6, i64 1
-  %div71.i = fdiv double %28, %add.i
+  %div66.i = fdiv double %3, %add.i
+  %20 = insertelement <4 x double> poison, double %div.i19, i64 0
+  %21 = insertelement <4 x double> %20, double %div56.i, i64 1
+  %22 = insertelement <4 x double> %21, double %div66.i, i64 3
+  %23 = fmul <4 x double> %22, <double 1.638400e+04, double 1.638400e+04, double poison, double 1.638400e+04>
+  %24 = shufflevector <4 x double> %23, <4 x double> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 3>
+  %25 = fptosi <4 x double> %24 to <4 x i32>
+  store <4 x i32> %25, ptr %b053.i, align 8
+  %div71.i = fdiv double %4, %add.i
   %mul.i53.i = fmul double %div71.i, 1.638400e+04
   %conv.i54.i = fptosi double %mul.i53.i to i32
   %a273.i = getelementptr inbounds i8, ptr %pLPF, i64 24
@@ -21112,41 +21109,40 @@ if.end.i148:                                      ; preds = %if.else129
   %sub.i.i = fsub double 1.000000e+00, %call.i.i.i133
   %div5.i.i = fmul double %sub.i.i, 5.000000e-01
   %add.i.i = fadd double %div4.i.i, 1.000000e+00
-  %51 = insertelement <2 x double> poison, double %call.i.i.i133, i64 0
-  %52 = insertelement <2 x double> %51, double %div4.i.i, i64 1
-  %53 = fmul <2 x double> %52, <double -2.000000e+00, double poison>
-  %54 = fsub <2 x double> <double poison, double 1.000000e+00>, %52
-  %55 = shufflevector <2 x double> %53, <2 x double> %54, <2 x i32> <i32 0, i32 3>
-  %56 = load i32, ptr %lpf2Config, align 8, !noalias !171
-  %57 = load i32, ptr %tmp.sroa.2.0.lpf2Config.sroa_idx, align 4, !noalias !171
+  %51 = fmul double %call.i.i.i133, -2.000000e+00
+  %52 = fadd double %div4.i.i, -1.000000e+00
+  %53 = insertelement <2 x double> poison, double %51, i64 0
+  %54 = insertelement <2 x double> %53, double %52, i64 1
+  %55 = load i32, ptr %lpf2Config, align 8, !noalias !171
+  %56 = load i32, ptr %tmp.sroa.2.0.lpf2Config.sroa_idx, align 4, !noalias !171
   %cmp2.i = fcmp oeq double %add.i.i, 0.000000e+00
   br i1 %cmp2.i, label %for.cond139.preheader, label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.end.i148
-  switch i32 %56, label %for.cond139.preheader [
+  switch i32 %55, label %for.cond139.preheader [
     i32 5, label %if.end9.i
     i32 2, label %if.end9.i
   ]
 
 if.end9.i:                                        ; preds = %if.end4.i, %if.end4.i
-  %58 = load i32, ptr %arrayidx132, align 8
-  %cmp11.not.i = icmp eq i32 %58, 0
-  %cmp15.not.i149 = icmp eq i32 %58, %56
+  %57 = load i32, ptr %arrayidx132, align 8
+  %cmp11.not.i = icmp eq i32 %57, 0
+  %cmp15.not.i149 = icmp eq i32 %57, %55
   %or.cond55.i = or i1 %cmp11.not.i, %cmp15.not.i149
   br i1 %or.cond55.i, label %if.end17.i, label %for.cond139.preheader
 
 if.end17.i:                                       ; preds = %if.end9.i
   %channels.i151 = getelementptr inbounds i8, ptr %arrayidx132, i64 4
-  %59 = load i32, ptr %channels.i151, align 4
-  %cmp18.not.i = icmp eq i32 %59, 0
-  %cmp22.not.i = icmp eq i32 %59, %57
+  %58 = load i32, ptr %channels.i151, align 4
+  %cmp18.not.i = icmp eq i32 %58, 0
+  %cmp22.not.i = icmp eq i32 %58, %56
   %or.cond222 = select i1 %cmp18.not.i, i1 true, i1 %cmp22.not.i
   br i1 %or.cond222, label %if.end24.i, label %for.cond139.preheader
 
 if.end24.i:                                       ; preds = %if.end17.i
-  store i32 %56, ptr %arrayidx132, align 8
-  store i32 %57, ptr %channels.i151, align 4
-  %cmp30.i = icmp eq i32 %56, 5
+  store i32 %55, ptr %arrayidx132, align 8
+  store i32 %56, ptr %channels.i151, align 4
+  %cmp30.i = icmp eq i32 %55, 5
   %div.i152 = fdiv double %div5.i.i, %add.i.i
   br i1 %cmp30.i, label %if.then31.i, label %if.else.i153
 
@@ -21154,33 +21150,31 @@ if.then31.i:                                      ; preds = %if.end24.i
   %b033.i = getelementptr inbounds i8, ptr %arrayidx132, i64 8
   %div35.i = fdiv double %sub.i.i, %add.i.i
   %b137.i = getelementptr inbounds i8, ptr %arrayidx132, i64 12
-  %60 = insertelement <2 x double> poison, double %add.i.i, i64 0
-  %61 = shufflevector <2 x double> %60, <2 x double> poison, <2 x i32> zeroinitializer
-  %62 = fdiv <2 x double> %55, %61
-  %63 = insertelement <4 x double> poison, double %div35.i, i64 0
-  %64 = insertelement <4 x double> %63, double %div.i152, i64 1
-  %65 = shufflevector <2 x double> %62, <2 x double> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %66 = shufflevector <4 x double> %64, <4 x double> %65, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
-  %67 = fptrunc <4 x double> %66 to <4 x float>
-  %68 = extractelement <4 x float> %67, i64 1
-  store float %68, ptr %b033.i, align 8
-  store <4 x float> %67, ptr %b137.i, align 4
+  %59 = insertelement <2 x double> poison, double %add.i.i, i64 0
+  %60 = shufflevector <2 x double> %59, <2 x double> poison, <2 x i32> zeroinitializer
+  %61 = fdiv <2 x double> %54, %60
+  %62 = insertelement <4 x double> poison, double %div35.i, i64 0
+  %63 = insertelement <4 x double> %62, double %div.i152, i64 1
+  %64 = shufflevector <2 x double> %61, <2 x double> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
+  %65 = shufflevector <4 x double> %63, <4 x double> %64, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
+  %66 = fptrunc <4 x double> %65 to <4 x float>
+  %67 = extractelement <4 x float> %66, i64 1
+  store float %67, ptr %b033.i, align 8
+  store <4 x float> %66, ptr %b137.i, align 4
   br label %for.inc160
 
 if.else.i153:                                     ; preds = %if.end24.i
   %b053.i = getelementptr inbounds i8, ptr %arrayidx132, i64 8
   %div56.i = fdiv double %sub.i.i, %add.i.i
-  %69 = extractelement <2 x double> %53, i64 0
-  %div66.i = fdiv double %69, %add.i.i
-  %70 = insertelement <4 x double> poison, double %div.i152, i64 0
-  %71 = insertelement <4 x double> %70, double %div56.i, i64 1
-  %72 = insertelement <4 x double> %71, double %div66.i, i64 3
-  %73 = fmul <4 x double> %72, <double 1.638400e+04, double 1.638400e+04, double poison, double 1.638400e+04>
-  %74 = shufflevector <4 x double> %73, <4 x double> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 3>
-  %75 = fptosi <4 x double> %74 to <4 x i32>
-  store <4 x i32> %75, ptr %b053.i, align 8
-  %76 = extractelement <2 x double> %54, i64 1
-  %div71.i = fdiv double %76, %add.i.i
+  %div66.i = fdiv double %51, %add.i.i
+  %68 = insertelement <4 x double> poison, double %div.i152, i64 0
+  %69 = insertelement <4 x double> %68, double %div56.i, i64 1
+  %70 = insertelement <4 x double> %69, double %div66.i, i64 3
+  %71 = fmul <4 x double> %70, <double 1.638400e+04, double 1.638400e+04, double poison, double 1.638400e+04>
+  %72 = shufflevector <4 x double> %71, <4 x double> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 3>
+  %73 = fptosi <4 x double> %72 to <4 x i32>
+  store <4 x i32> %73, ptr %b053.i, align 8
+  %div71.i = fdiv double %52, %add.i.i
   %mul.i53.i = fmul double %div71.i, 1.638400e+04
   %conv.i54.i = fptosi double %mul.i53.i to i32
   %a273.i = getelementptr inbounds i8, ptr %arrayidx132, i64 24
@@ -21192,8 +21186,8 @@ if.end134:                                        ; preds = %cdce.end11.i
   %mul15.i.i.i = shl nuw nsw i64 %indvars.iv260, 3
   %mul121 = mul i64 %mul15.i.i.i, %conv.i.i.i123
   %add.ptr123 = getelementptr i8, ptr %33, i64 %mul121
-  %77 = load ptr, ptr %pLPF2124, align 8
-  %arrayidx126 = getelementptr inbounds %struct.ma_lpf2, ptr %77, i64 %indvars.iv260
+  %74 = load ptr, ptr %pLPF2124, align 8
+  %arrayidx126 = getelementptr inbounds %struct.ma_lpf2, ptr %74, i64 %indvars.iv260
   %call127 = call i32 @ma_lpf2_init_preallocated(ptr noundef nonnull %lpf2Config, ptr noundef %add.ptr123, ptr noundef %arrayidx126)
   %cmp135.not = icmp eq i32 %call127, 0
   br i1 %cmp135.not, label %for.inc160, label %for.cond139.preheader
@@ -21204,38 +21198,38 @@ for.cond139.preheader:                            ; preds = %if.end17.i, %if.end
 
 for.body142.lr.ph:                                ; preds = %for.cond139.preheader
   %pLPF1143 = getelementptr inbounds i8, ptr %pLPF, i64 24
-  %78 = load ptr, ptr %pLPF1143, align 8
-  %79 = icmp eq ptr %78, null
-  br i1 %79, label %for.cond149.preheader, label %if.end.i137
+  %75 = load ptr, ptr %pLPF1143, align 8
+  %76 = icmp eq ptr %75, null
+  br i1 %76, label %for.cond149.preheader, label %if.end.i137
 
 for.cond149.preheader:                            ; preds = %if.end.i.i143, %if.then1.i140, %if.end.i137, %for.body142.lr.ph, %for.cond139.preheader
-  %80 = and i64 %indvars.iv260, 4294967295
-  %cmp150242.not = icmp eq i64 %80, 0
+  %77 = and i64 %indvars.iv260, 4294967295
+  %cmp150242.not = icmp eq i64 %77, 0
   br i1 %cmp150242.not, label %return, label %for.body152.lr.ph
 
 for.body152.lr.ph:                                ; preds = %for.cond149.preheader
-  %81 = load ptr, ptr %pLPF2124, align 8
-  %82 = icmp eq ptr %81, null
-  br i1 %82, label %return, label %for.body152.preheader
+  %78 = load ptr, ptr %pLPF2124, align 8
+  %79 = icmp eq ptr %78, null
+  br i1 %79, label %return, label %for.body152.preheader
 
 for.body152.preheader:                            ; preds = %for.body152.lr.ph
   %wide.trip.count275 = zext nneg i32 %indvars.iv272 to i64
   br label %for.body152
 
 if.end.i137:                                      ; preds = %for.body142.lr.ph
-  %_ownsHeap.i138 = getelementptr inbounds i8, ptr %78, i64 32
-  %83 = load i32, ptr %_ownsHeap.i138, align 8
-  %tobool.not.i139 = icmp eq i32 %83, 0
+  %_ownsHeap.i138 = getelementptr inbounds i8, ptr %75, i64 32
+  %80 = load i32, ptr %_ownsHeap.i138, align 8
+  %tobool.not.i139 = icmp eq i32 %80, 0
   br i1 %tobool.not.i139, label %for.cond149.preheader, label %if.then1.i140
 
 if.then1.i140:                                    ; preds = %if.end.i137
-  %_pHeap.i141 = getelementptr inbounds i8, ptr %78, i64 24
-  %84 = load ptr, ptr %_pHeap.i141, align 8
-  %cmp.i.i142 = icmp eq ptr %84, null
+  %_pHeap.i141 = getelementptr inbounds i8, ptr %75, i64 24
+  %81 = load ptr, ptr %_pHeap.i141, align 8
+  %cmp.i.i142 = icmp eq ptr %81, null
   br i1 %cmp.i.i142, label %for.cond149.preheader, label %if.end.i.i143
 
 if.end.i.i143:                                    ; preds = %if.then1.i140
-  call void @free(ptr noundef nonnull %84) #65
+  call void @free(ptr noundef nonnull %81) #65
   br label %for.cond149.preheader
 
 for.body152thread-pre-split:                      ; preds = %ma_lpf2_uninit.exit
@@ -21243,26 +21237,26 @@ for.body152thread-pre-split:                      ; preds = %ma_lpf2_uninit.exit
   br label %for.body152
 
 for.body152:                                      ; preds = %for.body152thread-pre-split, %for.body152.preheader
-  %85 = phi ptr [ %.pr, %for.body152thread-pre-split ], [ %81, %for.body152.preheader ]
+  %82 = phi ptr [ %.pr, %for.body152thread-pre-split ], [ %78, %for.body152.preheader ]
   %indvars.iv269 = phi i64 [ %indvars.iv.next270, %for.body152thread-pre-split ], [ 0, %for.body152.preheader ]
-  %arrayidx155 = getelementptr inbounds %struct.ma_lpf2, ptr %85, i64 %indvars.iv269
-  %cmp.i145 = icmp eq ptr %85, null
+  %arrayidx155 = getelementptr inbounds %struct.ma_lpf2, ptr %82, i64 %indvars.iv269
+  %cmp.i145 = icmp eq ptr %82, null
   br i1 %cmp.i145, label %ma_lpf2_uninit.exit, label %if.end.i.i146
 
 if.end.i.i146:                                    ; preds = %for.body152
   %_ownsHeap.i.i = getelementptr inbounds i8, ptr %arrayidx155, i64 56
-  %86 = load i32, ptr %_ownsHeap.i.i, align 8
-  %tobool.not.i.i = icmp eq i32 %86, 0
+  %83 = load i32, ptr %_ownsHeap.i.i, align 8
+  %tobool.not.i.i = icmp eq i32 %83, 0
   br i1 %tobool.not.i.i, label %ma_lpf2_uninit.exit, label %if.then1.i.i
 
 if.then1.i.i:                                     ; preds = %if.end.i.i146
   %_pHeap.i.i = getelementptr inbounds i8, ptr %arrayidx155, i64 48
-  %87 = load ptr, ptr %_pHeap.i.i, align 8
-  %cmp.i.i.i = icmp eq ptr %87, null
+  %84 = load ptr, ptr %_pHeap.i.i, align 8
+  %cmp.i.i.i = icmp eq ptr %84, null
   br i1 %cmp.i.i.i, label %ma_lpf2_uninit.exit, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then1.i.i
-  call void @free(ptr noundef nonnull %87) #65
+  call void @free(ptr noundef nonnull %84) #65
   br label %ma_lpf2_uninit.exit
 
 ma_lpf2_uninit.exit:                              ; preds = %for.body152, %if.end.i.i146, %if.then1.i.i, %if.end.i.i.i
@@ -21281,15 +21275,15 @@ for.end162:                                       ; preds = %for.inc160, %for.co
   store i32 %rem.i, ptr %lpf1Count163, align 4
   %lpf2Count164 = getelementptr inbounds i8, ptr %pLPF, i64 16
   store i32 %div2.i, ptr %lpf2Count164, align 8
-  %88 = load i32, ptr %pConfig, align 8
-  store i32 %88, ptr %pLPF, align 8
+  %85 = load i32, ptr %pConfig, align 8
+  store i32 %85, ptr %pLPF, align 8
   %channels167 = getelementptr inbounds i8, ptr %pConfig, i64 4
-  %89 = load i32, ptr %channels167, align 4
-  store i32 %89, ptr %channels, align 4
+  %86 = load i32, ptr %channels167, align 4
+  store i32 %86, ptr %channels, align 4
   %sampleRate169 = getelementptr inbounds i8, ptr %pConfig, i64 8
-  %90 = load i32, ptr %sampleRate169, align 8
+  %87 = load i32, ptr %sampleRate169, align 8
   %sampleRate170 = getelementptr inbounds i8, ptr %pLPF, i64 8
-  store i32 %90, ptr %sampleRate170, align 8
+  store i32 %87, ptr %sampleRate170, align 8
   br label %return
 
 return:                                           ; preds = %cdce.end11.i.i, %ma_lpf2_uninit.exit, %for.body152.lr.ph, %if.end14.i.us, %if.end6.i100.us, %if.end.i99.us, %for.body.us.preheader, %if.end14.i.i, %if.end6.i.i, %if.end.i18.i, %if.then49, %for.body.preheader, %for.cond149.preheader, %if.end6, %if.end.i, %if.then26, %lor.lhs.false29, %if.end21, %land.lhs.true16, %if.end, %entry, %for.end162
@@ -22805,20 +22799,19 @@ if.then2.i11.i:                                   ; preds = %if.then2.i
   %div5.i = fmul double %add.i, 5.000000e-01
   %fneg.i = fneg double %add.i
   %add9.i = fadd double %div4.i, 1.000000e+00
-  %3 = insertelement <2 x double> poison, double %call.i.i, i64 0
-  %4 = insertelement <2 x double> %3, double %div4.i, i64 1
-  %5 = fmul <2 x double> %4, <double -2.000000e+00, double poison>
-  %6 = fsub <2 x double> <double poison, double 1.000000e+00>, %4
-  %7 = shufflevector <2 x double> %5, <2 x double> %6, <2 x i32> <i32 0, i32 3>
-  %8 = load i32, ptr %pConfig, align 8, !noalias !199
+  %3 = fmul double %call.i.i, -2.000000e+00
+  %4 = fadd double %div4.i, -1.000000e+00
+  %5 = insertelement <2 x double> poison, double %3, i64 0
+  %6 = insertelement <2 x double> %5, double %4, i64 1
+  %7 = load i32, ptr %pConfig, align 8, !noalias !199
   %channels.i = getelementptr inbounds i8, ptr %pConfig, i64 4
-  %9 = load i32, ptr %channels.i, align 4, !noalias !199
+  %8 = load i32, ptr %channels.i, align 4, !noalias !199
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %pHPF, i8 0, i64 64, i1 false)
-  %cmp1.i17.i = icmp eq i32 %9, 0
+  %cmp1.i17.i = icmp eq i32 %8, 0
   br i1 %cmp1.i17.i, label %return, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.then2.i11.i
-  %conv.i.i = zext i32 %9 to i64
+  %conv.i.i = zext i32 %8 to i64
   %mul.i.i = shl nuw nsw i64 %conv.i.i, 2
   %_pHeap.i = getelementptr inbounds i8, ptr %pHPF, i64 48
   store ptr %pHeap, ptr %_pHeap.i, align 8
@@ -22840,30 +22833,30 @@ if.end.i:                                         ; preds = %if.end3.i, %if.then
   br i1 %cmp2.i, label %return, label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.end.i
-  switch i32 %8, label %return [
+  switch i32 %7, label %return [
     i32 5, label %if.end9.i
     i32 2, label %if.end9.i
   ]
 
 if.end9.i:                                        ; preds = %if.end4.i, %if.end4.i
-  %10 = load i32, ptr %pHPF, align 8
-  %cmp11.not.i = icmp eq i32 %10, 0
-  %cmp15.not.i = icmp eq i32 %10, %8
+  %9 = load i32, ptr %pHPF, align 8
+  %cmp11.not.i = icmp eq i32 %9, 0
+  %cmp15.not.i = icmp eq i32 %9, %7
   %or.cond55.i = or i1 %cmp11.not.i, %cmp15.not.i
   br i1 %or.cond55.i, label %if.end17.i, label %return
 
 if.end17.i:                                       ; preds = %if.end9.i
   %channels.i18 = getelementptr inbounds i8, ptr %pHPF, i64 4
-  %11 = load i32, ptr %channels.i18, align 4
-  %cmp18.not.i = icmp eq i32 %11, 0
-  %cmp22.not.i = icmp eq i32 %11, %9
+  %10 = load i32, ptr %channels.i18, align 4
+  %cmp18.not.i = icmp eq i32 %10, 0
+  %cmp22.not.i = icmp eq i32 %10, %8
   %or.cond = or i1 %cmp18.not.i, %cmp22.not.i
   br i1 %or.cond, label %if.end24.i, label %return
 
 if.end24.i:                                       ; preds = %if.end17.i
-  store i32 %8, ptr %pHPF, align 8
-  store i32 %9, ptr %channels.i18, align 4
-  %cmp30.i = icmp eq i32 %8, 5
+  store i32 %7, ptr %pHPF, align 8
+  store i32 %8, ptr %channels.i18, align 4
+  %cmp30.i = icmp eq i32 %7, 5
   %div.i19 = fdiv double %div5.i, %add9.i
   br i1 %cmp30.i, label %if.then31.i, label %if.else.i
 
@@ -22871,33 +22864,31 @@ if.then31.i:                                      ; preds = %if.end24.i
   %b033.i = getelementptr inbounds i8, ptr %pHPF, i64 8
   %div35.i = fdiv double %fneg.i, %add9.i
   %b137.i = getelementptr inbounds i8, ptr %pHPF, i64 12
-  %12 = insertelement <2 x double> poison, double %add9.i, i64 0
-  %13 = shufflevector <2 x double> %12, <2 x double> poison, <2 x i32> zeroinitializer
-  %14 = fdiv <2 x double> %7, %13
-  %15 = insertelement <4 x double> poison, double %div35.i, i64 0
-  %16 = insertelement <4 x double> %15, double %div.i19, i64 1
-  %17 = shufflevector <2 x double> %14, <2 x double> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %18 = shufflevector <4 x double> %16, <4 x double> %17, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
-  %19 = fptrunc <4 x double> %18 to <4 x float>
-  %20 = extractelement <4 x float> %19, i64 1
-  store float %20, ptr %b033.i, align 8
-  store <4 x float> %19, ptr %b137.i, align 4
+  %11 = insertelement <2 x double> poison, double %add9.i, i64 0
+  %12 = shufflevector <2 x double> %11, <2 x double> poison, <2 x i32> zeroinitializer
+  %13 = fdiv <2 x double> %6, %12
+  %14 = insertelement <4 x double> poison, double %div35.i, i64 0
+  %15 = insertelement <4 x double> %14, double %div.i19, i64 1
+  %16 = shufflevector <2 x double> %13, <2 x double> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
+  %17 = shufflevector <4 x double> %15, <4 x double> %16, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
+  %18 = fptrunc <4 x double> %17 to <4 x float>
+  %19 = extractelement <4 x float> %18, i64 1
+  store float %19, ptr %b033.i, align 8
+  store <4 x float> %18, ptr %b137.i, align 4
   br label %return
 
 if.else.i:                                        ; preds = %if.end24.i
   %b053.i = getelementptr inbounds i8, ptr %pHPF, i64 8
   %div56.i = fdiv double %fneg.i, %add9.i
-  %21 = extractelement <2 x double> %5, i64 0
-  %div66.i = fdiv double %21, %add9.i
-  %22 = insertelement <4 x double> poison, double %div.i19, i64 0
-  %23 = insertelement <4 x double> %22, double %div56.i, i64 1
-  %24 = insertelement <4 x double> %23, double %div66.i, i64 3
-  %25 = fmul <4 x double> %24, <double 1.638400e+04, double 1.638400e+04, double poison, double 1.638400e+04>
-  %26 = shufflevector <4 x double> %25, <4 x double> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 3>
-  %27 = fptosi <4 x double> %26 to <4 x i32>
-  store <4 x i32> %27, ptr %b053.i, align 8
-  %28 = extractelement <2 x double> %6, i64 1
-  %div71.i = fdiv double %28, %add9.i
+  %div66.i = fdiv double %3, %add9.i
+  %20 = insertelement <4 x double> poison, double %div.i19, i64 0
+  %21 = insertelement <4 x double> %20, double %div56.i, i64 1
+  %22 = insertelement <4 x double> %21, double %div66.i, i64 3
+  %23 = fmul <4 x double> %22, <double 1.638400e+04, double 1.638400e+04, double poison, double 1.638400e+04>
+  %24 = shufflevector <4 x double> %23, <4 x double> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 3>
+  %25 = fptosi <4 x double> %24 to <4 x i32>
+  store <4 x i32> %25, ptr %b053.i, align 8
+  %div71.i = fdiv double %4, %add9.i
   %mul.i53.i = fmul double %div71.i, 1.638400e+04
   %conv.i54.i = fptosi double %mul.i53.i to i32
   %a273.i = getelementptr inbounds i8, ptr %pHPF, i64 24
@@ -23644,41 +23635,40 @@ if.end.i148:                                      ; preds = %if.else129
   %div5.i.i = fmul double %add.i.i, 5.000000e-01
   %fneg.i.i = fneg double %add.i.i
   %add9.i.i = fadd double %div4.i.i, 1.000000e+00
-  %51 = insertelement <2 x double> poison, double %call.i.i.i133, i64 0
-  %52 = insertelement <2 x double> %51, double %div4.i.i, i64 1
-  %53 = fmul <2 x double> %52, <double -2.000000e+00, double poison>
-  %54 = fsub <2 x double> <double poison, double 1.000000e+00>, %52
-  %55 = shufflevector <2 x double> %53, <2 x double> %54, <2 x i32> <i32 0, i32 3>
-  %56 = load i32, ptr %hpf2Config, align 8, !noalias !218
-  %57 = load i32, ptr %tmp.sroa.2.0.hpf2Config.sroa_idx, align 4, !noalias !218
+  %51 = fmul double %call.i.i.i133, -2.000000e+00
+  %52 = fadd double %div4.i.i, -1.000000e+00
+  %53 = insertelement <2 x double> poison, double %51, i64 0
+  %54 = insertelement <2 x double> %53, double %52, i64 1
+  %55 = load i32, ptr %hpf2Config, align 8, !noalias !218
+  %56 = load i32, ptr %tmp.sroa.2.0.hpf2Config.sroa_idx, align 4, !noalias !218
   %cmp2.i = fcmp oeq double %add9.i.i, 0.000000e+00
   br i1 %cmp2.i, label %for.cond139.preheader, label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.end.i148
-  switch i32 %56, label %for.cond139.preheader [
+  switch i32 %55, label %for.cond139.preheader [
     i32 5, label %if.end9.i
     i32 2, label %if.end9.i
   ]
 
 if.end9.i:                                        ; preds = %if.end4.i, %if.end4.i
-  %58 = load i32, ptr %arrayidx132, align 8
-  %cmp11.not.i = icmp eq i32 %58, 0
-  %cmp15.not.i149 = icmp eq i32 %58, %56
+  %57 = load i32, ptr %arrayidx132, align 8
+  %cmp11.not.i = icmp eq i32 %57, 0
+  %cmp15.not.i149 = icmp eq i32 %57, %55
   %or.cond55.i = or i1 %cmp11.not.i, %cmp15.not.i149
   br i1 %or.cond55.i, label %if.end17.i, label %for.cond139.preheader
 
 if.end17.i:                                       ; preds = %if.end9.i
   %channels.i151 = getelementptr inbounds i8, ptr %arrayidx132, i64 4
-  %59 = load i32, ptr %channels.i151, align 4
-  %cmp18.not.i = icmp eq i32 %59, 0
-  %cmp22.not.i = icmp eq i32 %59, %57
+  %58 = load i32, ptr %channels.i151, align 4
+  %cmp18.not.i = icmp eq i32 %58, 0
+  %cmp22.not.i = icmp eq i32 %58, %56
   %or.cond223 = select i1 %cmp18.not.i, i1 true, i1 %cmp22.not.i
   br i1 %or.cond223, label %if.end24.i, label %for.cond139.preheader
 
 if.end24.i:                                       ; preds = %if.end17.i
-  store i32 %56, ptr %arrayidx132, align 8
-  store i32 %57, ptr %channels.i151, align 4
-  %cmp30.i = icmp eq i32 %56, 5
+  store i32 %55, ptr %arrayidx132, align 8
+  store i32 %56, ptr %channels.i151, align 4
+  %cmp30.i = icmp eq i32 %55, 5
   %div.i152 = fdiv double %div5.i.i, %add9.i.i
   br i1 %cmp30.i, label %if.then31.i, label %if.else.i153
 
@@ -23686,33 +23676,31 @@ if.then31.i:                                      ; preds = %if.end24.i
   %b033.i = getelementptr inbounds i8, ptr %arrayidx132, i64 8
   %div35.i = fdiv double %fneg.i.i, %add9.i.i
   %b137.i = getelementptr inbounds i8, ptr %arrayidx132, i64 12
-  %60 = insertelement <2 x double> poison, double %add9.i.i, i64 0
-  %61 = shufflevector <2 x double> %60, <2 x double> poison, <2 x i32> zeroinitializer
-  %62 = fdiv <2 x double> %55, %61
-  %63 = insertelement <4 x double> poison, double %div35.i, i64 0
-  %64 = insertelement <4 x double> %63, double %div.i152, i64 1
-  %65 = shufflevector <2 x double> %62, <2 x double> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %66 = shufflevector <4 x double> %64, <4 x double> %65, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
-  %67 = fptrunc <4 x double> %66 to <4 x float>
-  %68 = extractelement <4 x float> %67, i64 1
-  store float %68, ptr %b033.i, align 8
-  store <4 x float> %67, ptr %b137.i, align 4
+  %59 = insertelement <2 x double> poison, double %add9.i.i, i64 0
+  %60 = shufflevector <2 x double> %59, <2 x double> poison, <2 x i32> zeroinitializer
+  %61 = fdiv <2 x double> %54, %60
+  %62 = insertelement <4 x double> poison, double %div35.i, i64 0
+  %63 = insertelement <4 x double> %62, double %div.i152, i64 1
+  %64 = shufflevector <2 x double> %61, <2 x double> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
+  %65 = shufflevector <4 x double> %63, <4 x double> %64, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
+  %66 = fptrunc <4 x double> %65 to <4 x float>
+  %67 = extractelement <4 x float> %66, i64 1
+  store float %67, ptr %b033.i, align 8
+  store <4 x float> %66, ptr %b137.i, align 4
   br label %for.inc160
 
 if.else.i153:                                     ; preds = %if.end24.i
   %b053.i = getelementptr inbounds i8, ptr %arrayidx132, i64 8
   %div56.i = fdiv double %fneg.i.i, %add9.i.i
-  %69 = extractelement <2 x double> %53, i64 0
-  %div66.i = fdiv double %69, %add9.i.i
-  %70 = insertelement <4 x double> poison, double %div.i152, i64 0
-  %71 = insertelement <4 x double> %70, double %div56.i, i64 1
-  %72 = insertelement <4 x double> %71, double %div66.i, i64 3
-  %73 = fmul <4 x double> %72, <double 1.638400e+04, double 1.638400e+04, double poison, double 1.638400e+04>
-  %74 = shufflevector <4 x double> %73, <4 x double> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 3>
-  %75 = fptosi <4 x double> %74 to <4 x i32>
-  store <4 x i32> %75, ptr %b053.i, align 8
-  %76 = extractelement <2 x double> %54, i64 1
-  %div71.i = fdiv double %76, %add9.i.i
+  %div66.i = fdiv double %51, %add9.i.i
+  %68 = insertelement <4 x double> poison, double %div.i152, i64 0
+  %69 = insertelement <4 x double> %68, double %div56.i, i64 1
+  %70 = insertelement <4 x double> %69, double %div66.i, i64 3
+  %71 = fmul <4 x double> %70, <double 1.638400e+04, double 1.638400e+04, double poison, double 1.638400e+04>
+  %72 = shufflevector <4 x double> %71, <4 x double> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 3>
+  %73 = fptosi <4 x double> %72 to <4 x i32>
+  store <4 x i32> %73, ptr %b053.i, align 8
+  %div71.i = fdiv double %52, %add9.i.i
   %mul.i53.i = fmul double %div71.i, 1.638400e+04
   %conv.i54.i = fptosi double %mul.i53.i to i32
   %a273.i = getelementptr inbounds i8, ptr %arrayidx132, i64 24
@@ -23724,8 +23712,8 @@ if.end134:                                        ; preds = %cdce.end11.i
   %mul15.i.i.i = shl nuw nsw i64 %indvars.iv261, 3
   %mul121 = mul i64 %mul15.i.i.i, %conv.i.i.i123
   %add.ptr123 = getelementptr i8, ptr %33, i64 %mul121
-  %77 = load ptr, ptr %pHPF2124, align 8
-  %arrayidx126 = getelementptr inbounds %struct.ma_hpf2, ptr %77, i64 %indvars.iv261
+  %74 = load ptr, ptr %pHPF2124, align 8
+  %arrayidx126 = getelementptr inbounds %struct.ma_hpf2, ptr %74, i64 %indvars.iv261
   %call127 = call i32 @ma_hpf2_init_preallocated(ptr noundef nonnull %hpf2Config, ptr noundef %add.ptr123, ptr noundef %arrayidx126)
   %cmp135.not = icmp eq i32 %call127, 0
   br i1 %cmp135.not, label %for.inc160, label %for.cond139.preheader
@@ -23736,38 +23724,38 @@ for.cond139.preheader:                            ; preds = %if.end17.i, %if.end
 
 for.body142.lr.ph:                                ; preds = %for.cond139.preheader
   %pHPF1143 = getelementptr inbounds i8, ptr %pHPF, i64 24
-  %78 = load ptr, ptr %pHPF1143, align 8
-  %79 = icmp eq ptr %78, null
-  br i1 %79, label %for.cond149.preheader, label %if.end.i137
+  %75 = load ptr, ptr %pHPF1143, align 8
+  %76 = icmp eq ptr %75, null
+  br i1 %76, label %for.cond149.preheader, label %if.end.i137
 
 for.cond149.preheader:                            ; preds = %if.end.i.i143, %if.then1.i140, %if.end.i137, %for.body142.lr.ph, %for.cond139.preheader
-  %80 = and i64 %indvars.iv261, 4294967295
-  %cmp150243.not = icmp eq i64 %80, 0
+  %77 = and i64 %indvars.iv261, 4294967295
+  %cmp150243.not = icmp eq i64 %77, 0
   br i1 %cmp150243.not, label %return, label %for.body152.lr.ph
 
 for.body152.lr.ph:                                ; preds = %for.cond149.preheader
-  %81 = load ptr, ptr %pHPF2124, align 8
-  %82 = icmp eq ptr %81, null
-  br i1 %82, label %return, label %for.body152.preheader
+  %78 = load ptr, ptr %pHPF2124, align 8
+  %79 = icmp eq ptr %78, null
+  br i1 %79, label %return, label %for.body152.preheader
 
 for.body152.preheader:                            ; preds = %for.body152.lr.ph
   %wide.trip.count276 = zext nneg i32 %indvars.iv273 to i64
   br label %for.body152
 
 if.end.i137:                                      ; preds = %for.body142.lr.ph
-  %_ownsHeap.i138 = getelementptr inbounds i8, ptr %78, i64 32
-  %83 = load i32, ptr %_ownsHeap.i138, align 8
-  %tobool.not.i139 = icmp eq i32 %83, 0
+  %_ownsHeap.i138 = getelementptr inbounds i8, ptr %75, i64 32
+  %80 = load i32, ptr %_ownsHeap.i138, align 8
+  %tobool.not.i139 = icmp eq i32 %80, 0
   br i1 %tobool.not.i139, label %for.cond149.preheader, label %if.then1.i140
 
 if.then1.i140:                                    ; preds = %if.end.i137
-  %_pHeap.i141 = getelementptr inbounds i8, ptr %78, i64 24
-  %84 = load ptr, ptr %_pHeap.i141, align 8
-  %cmp.i.i142 = icmp eq ptr %84, null
+  %_pHeap.i141 = getelementptr inbounds i8, ptr %75, i64 24
+  %81 = load ptr, ptr %_pHeap.i141, align 8
+  %cmp.i.i142 = icmp eq ptr %81, null
   br i1 %cmp.i.i142, label %for.cond149.preheader, label %if.end.i.i143
 
 if.end.i.i143:                                    ; preds = %if.then1.i140
-  call void @free(ptr noundef nonnull %84) #65
+  call void @free(ptr noundef nonnull %81) #65
   br label %for.cond149.preheader
 
 for.body152thread-pre-split:                      ; preds = %ma_hpf2_uninit.exit
@@ -23775,26 +23763,26 @@ for.body152thread-pre-split:                      ; preds = %ma_hpf2_uninit.exit
   br label %for.body152
 
 for.body152:                                      ; preds = %for.body152thread-pre-split, %for.body152.preheader
-  %85 = phi ptr [ %.pr, %for.body152thread-pre-split ], [ %81, %for.body152.preheader ]
+  %82 = phi ptr [ %.pr, %for.body152thread-pre-split ], [ %78, %for.body152.preheader ]
   %indvars.iv270 = phi i64 [ %indvars.iv.next271, %for.body152thread-pre-split ], [ 0, %for.body152.preheader ]
-  %arrayidx155 = getelementptr inbounds %struct.ma_hpf2, ptr %85, i64 %indvars.iv270
-  %cmp.i145 = icmp eq ptr %85, null
+  %arrayidx155 = getelementptr inbounds %struct.ma_hpf2, ptr %82, i64 %indvars.iv270
+  %cmp.i145 = icmp eq ptr %82, null
   br i1 %cmp.i145, label %ma_hpf2_uninit.exit, label %if.end.i.i146
 
 if.end.i.i146:                                    ; preds = %for.body152
   %_ownsHeap.i.i = getelementptr inbounds i8, ptr %arrayidx155, i64 56
-  %86 = load i32, ptr %_ownsHeap.i.i, align 8
-  %tobool.not.i.i = icmp eq i32 %86, 0
+  %83 = load i32, ptr %_ownsHeap.i.i, align 8
+  %tobool.not.i.i = icmp eq i32 %83, 0
   br i1 %tobool.not.i.i, label %ma_hpf2_uninit.exit, label %if.then1.i.i
 
 if.then1.i.i:                                     ; preds = %if.end.i.i146
   %_pHeap.i.i = getelementptr inbounds i8, ptr %arrayidx155, i64 48
-  %87 = load ptr, ptr %_pHeap.i.i, align 8
-  %cmp.i.i.i = icmp eq ptr %87, null
+  %84 = load ptr, ptr %_pHeap.i.i, align 8
+  %cmp.i.i.i = icmp eq ptr %84, null
   br i1 %cmp.i.i.i, label %ma_hpf2_uninit.exit, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then1.i.i
-  call void @free(ptr noundef nonnull %87) #65
+  call void @free(ptr noundef nonnull %84) #65
   br label %ma_hpf2_uninit.exit
 
 ma_hpf2_uninit.exit:                              ; preds = %for.body152, %if.end.i.i146, %if.then1.i.i, %if.end.i.i.i
@@ -23813,15 +23801,15 @@ for.end162:                                       ; preds = %for.inc160, %for.co
   store i32 %rem.i, ptr %hpf1Count163, align 4
   %hpf2Count164 = getelementptr inbounds i8, ptr %pHPF, i64 16
   store i32 %div2.i, ptr %hpf2Count164, align 8
-  %88 = load i32, ptr %pConfig, align 8
-  store i32 %88, ptr %pHPF, align 8
+  %85 = load i32, ptr %pConfig, align 8
+  store i32 %85, ptr %pHPF, align 8
   %channels167 = getelementptr inbounds i8, ptr %pConfig, i64 4
-  %89 = load i32, ptr %channels167, align 4
-  store i32 %89, ptr %channels, align 4
+  %86 = load i32, ptr %channels167, align 4
+  store i32 %86, ptr %channels, align 4
   %sampleRate169 = getelementptr inbounds i8, ptr %pConfig, i64 8
-  %90 = load i32, ptr %sampleRate169, align 8
+  %87 = load i32, ptr %sampleRate169, align 8
   %sampleRate170 = getelementptr inbounds i8, ptr %pHPF, i64 8
-  store i32 %90, ptr %sampleRate170, align 8
+  store i32 %87, ptr %sampleRate170, align 8
   br label %return
 
 return:                                           ; preds = %cdce.end11.i.i, %ma_hpf2_uninit.exit, %for.body152.lr.ph, %if.end14.i.us, %if.end6.i100.us, %if.end.i99.us, %for.body.us.preheader, %if.end14.i.i, %if.end6.i.i, %if.end.i18.i, %if.then49, %for.body.preheader, %for.cond149.preheader, %if.end6, %if.end.i, %if.then26, %lor.lhs.false29, %if.end21, %land.lhs.true16, %if.end, %entry, %for.end162
