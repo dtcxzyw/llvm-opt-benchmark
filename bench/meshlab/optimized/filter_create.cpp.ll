@@ -15339,8 +15339,8 @@ _ZN3vcg3tri9AllocatorI6CMeshOE9AddVertexERS2_RKNS_6Point3IfEE.exit: ; preds = %1
 
 22:                                               ; preds = %_ZN3vcg3tri9AllocatorI6CMeshOE9AddVertexERS2_RKNS_6Point3IfEE.exit, %_ZN3vcg3tri9AllocatorI6CMeshOE9AddVertexERS2_RKNS_6Point3IfEE.exit50
   %.086 = phi i32 [ 0, %_ZN3vcg3tri9AllocatorI6CMeshOE9AddVertexERS2_RKNS_6Point3IfEE.exit ], [ %40, %_ZN3vcg3tri9AllocatorI6CMeshOE9AddVertexERS2_RKNS_6Point3IfEE.exit50 ]
-  %23 = sitofp i32 %.086 to double
-  %24 = fmul double %23, 6.000000e+01
+  %23 = mul nuw nsw i32 %.086, 60
+  %24 = uitofp i32 %23 to double
   %25 = fmul double %24, 0x400921FB54442D18
   %26 = fdiv double %25, 1.800000e+02
   %27 = call double @cos(double noundef %26) #26

@@ -116,20 +116,20 @@ define void @_Z10duIntToColiPf(i32 noundef %0, ptr nocapture noundef writeonly %
   %15 = or disjoint i32 %12, %14
   %16 = mul nuw nsw i32 %6, 63
   %17 = add nuw nsw i32 %16, 63
-  %18 = sitofp i32 %17 to float
+  %18 = uitofp i32 %17 to float
   %19 = fdiv float %18, 2.550000e+02
   %20 = fsub float 1.000000e+00, %19
   store float %20, ptr %1, align 4
   %21 = mul nuw nsw i32 %11, 63
   %22 = add nuw nsw i32 %21, 63
-  %23 = sitofp i32 %22 to float
+  %23 = uitofp i32 %22 to float
   %24 = fdiv float %23, 2.550000e+02
   %25 = fsub float 1.000000e+00, %24
   %26 = getelementptr inbounds i8, ptr %1, i64 4
   store float %25, ptr %26, align 4
   %27 = mul nuw nsw i32 %15, 63
   %28 = add nuw nsw i32 %27, 63
-  %29 = sitofp i32 %28 to float
+  %29 = uitofp i32 %28 to float
   %30 = fdiv float %29, 2.550000e+02
   %31 = fsub float 1.000000e+00, %30
   %32 = getelementptr inbounds i8, ptr %1, i64 8

@@ -7160,8 +7160,8 @@ define i32 @Nf_ManSetMapRefs(ptr nocapture noundef %0) local_unnamed_addr #1 {
   %5 = load i32, ptr %4, align 4
   %6 = add nsw i32 %5, 1
   %7 = mul nsw i32 %6, %6
-  %8 = sitofp i32 %7 to double
-  %9 = fadd double %8, 1.000000e+00
+  %8 = add nuw i32 %7, 1
+  %9 = uitofp i32 %8 to double
   %10 = fdiv double 1.000000e+00, %9
   %11 = fptrunc double %10 to float
   %12 = getelementptr i8, ptr %0, i64 112

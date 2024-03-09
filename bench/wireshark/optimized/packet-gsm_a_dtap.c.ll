@@ -2718,38 +2718,36 @@ define internal noundef zeroext i16 @de_time_zone_time(ptr noundef %0, ptr nound
   %39 = insertelement <4 x i8> %38, i8 %35, i64 1
   %40 = insertelement <4 x i8> %39, i8 %33, i64 2
   %41 = insertelement <4 x i8> %40, i8 %31, i64 3
-  %42 = and <4 x i8> %41, <i8 15, i8 15, i8 15, i8 15>
-  %narrow = mul nuw <4 x i8> %42, <i8 10, i8 10, i8 10, i8 10>
-  %43 = zext <4 x i8> %narrow to <4 x i16>
-  %44 = lshr <4 x i8> %41, <i8 4, i8 4, i8 4, i8 4>
-  %45 = zext nneg <4 x i8> %44 to <4 x i16>
-  %46 = add nuw nsw <4 x i16> %43, %45
-  %47 = zext nneg <4 x i16> %46 to <4 x i32>
-  store <4 x i32> %47, ptr %9, align 16
-  %48 = call i64 @mktime(ptr noundef nonnull %9) #6
-  store i64 %48, ptr %8, align 8
-  %49 = getelementptr inbounds i8, ptr %8, i64 8
-  store i32 0, ptr %49, align 8
-  %50 = load i32, ptr @hf_gsm_a_dtap_time_zone_time, align 4
-  %51 = getelementptr inbounds i8, ptr %2, i64 408
-  %52 = load ptr, ptr %51, align 8
-  %53 = call ptr @abs_time_to_str_ex(ptr noundef %52, ptr noundef nonnull %8, i32 noundef 18, i32 noundef 0) #6
-  %54 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_time_format_value(ptr noundef %1, i32 noundef %50, ptr noundef %0, i32 noundef %3, i32 noundef 6, ptr noundef nonnull %8, ptr noundef nonnull @.str.150, ptr noundef %53) #6
-  %55 = add i32 %3, 6
-  %56 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %55) #6
-  %57 = and i8 %56, 8
-  %.not = icmp eq i8 %57, 0
-  %58 = select i1 %.not, i32 43, i32 45
-  %59 = lshr i8 %56, 4
-  %60 = and i8 %56, 7
-  %61 = mul nuw nsw i8 %60, 10
-  %62 = add nuw nsw i8 %61, %59
-  %63 = load i32, ptr @hf_gsm_a_dtap_timezone, align 4
-  %64 = zext nneg i8 %62 to i32
-  %65 = lshr i32 %64, 2
-  %66 = and i32 %64, 3
-  %67 = mul nuw nsw i32 %66, 15
-  %68 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1, i32 noundef %63, ptr noundef %0, i32 noundef %55, i32 noundef 1, i32 noundef %64, ptr noundef nonnull @.str.137, i32 noundef %58, i32 noundef %65, i32 noundef %67) #6
+  %42 = zext <4 x i8> %41 to <4 x i32>
+  %43 = and <4 x i32> %42, <i32 15, i32 15, i32 15, i32 15>
+  %44 = mul nuw nsw <4 x i32> %43, <i32 10, i32 10, i32 10, i32 10>
+  %45 = lshr <4 x i32> %42, <i32 4, i32 4, i32 4, i32 4>
+  %46 = add nuw nsw <4 x i32> %44, %45
+  store <4 x i32> %46, ptr %9, align 16
+  %47 = call i64 @mktime(ptr noundef nonnull %9) #6
+  store i64 %47, ptr %8, align 8
+  %48 = getelementptr inbounds i8, ptr %8, i64 8
+  store i32 0, ptr %48, align 8
+  %49 = load i32, ptr @hf_gsm_a_dtap_time_zone_time, align 4
+  %50 = getelementptr inbounds i8, ptr %2, i64 408
+  %51 = load ptr, ptr %50, align 8
+  %52 = call ptr @abs_time_to_str_ex(ptr noundef %51, ptr noundef nonnull %8, i32 noundef 18, i32 noundef 0) #6
+  %53 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_time_format_value(ptr noundef %1, i32 noundef %49, ptr noundef %0, i32 noundef %3, i32 noundef 6, ptr noundef nonnull %8, ptr noundef nonnull @.str.150, ptr noundef %52) #6
+  %54 = add i32 %3, 6
+  %55 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %54) #6
+  %56 = and i8 %55, 8
+  %.not = icmp eq i8 %56, 0
+  %57 = select i1 %.not, i32 43, i32 45
+  %58 = lshr i8 %55, 4
+  %59 = and i8 %55, 7
+  %60 = mul nuw nsw i8 %59, 10
+  %61 = add nuw nsw i8 %60, %58
+  %62 = load i32, ptr @hf_gsm_a_dtap_timezone, align 4
+  %63 = zext nneg i8 %61 to i32
+  %64 = lshr i32 %63, 2
+  %65 = and i32 %63, 3
+  %66 = mul nuw nsw i32 %65, 15
+  %67 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1, i32 noundef %62, ptr noundef %0, i32 noundef %54, i32 noundef 1, i32 noundef %63, ptr noundef nonnull @.str.137, i32 noundef %57, i32 noundef %64, i32 noundef %66) #6
   ret i16 7
 }
 

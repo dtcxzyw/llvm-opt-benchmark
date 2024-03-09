@@ -186,8 +186,8 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden double @rmt_decode_send_rate(i16 noundef zeroext %0) local_unnamed_addr #0 {
   %2 = zext i16 %0 to i32
   %3 = lshr i32 %2, 4
-  %4 = sitofp i32 %3 to double
-  %5 = fmul double %4, 1.000000e+01
+  %4 = mul nuw nsw i32 %3, 10
+  %5 = uitofp i32 %4 to double
   %6 = fmul double %5, 0x3F30000000000000
   %7 = and i32 %2, 15
   %8 = sitofp i32 %7 to double
@@ -340,8 +340,8 @@ define hidden i32 @lct_ext_decode(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %86 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %85) #4
   %87 = zext i16 %86 to i32
   %88 = lshr i32 %87, 4
-  %89 = sitofp i32 %88 to double
-  %90 = fmul double %89, 1.000000e+01
+  %89 = mul nuw nsw i32 %88, 10
+  %90 = uitofp i32 %89 to double
   %91 = fmul double %90, 0x3F30000000000000
   %92 = and i32 %87, 15
   %93 = sitofp i32 %92 to double

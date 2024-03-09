@@ -2546,7 +2546,7 @@ for.body:                                         ; preds = %_ZN7testing15Assert
   %neg3.i = fmul double %div.i, %36
   %37 = call noundef double @llvm.fmuladd.f64(double %neg3.i, double %div.i, double %35)
   %38 = add nuw nsw i32 %i.091, 1
-  %add = sitofp i32 %38 to double
+  %add = uitofp i32 %38 to double
   %call51 = call double @lgamma(double noundef %add) #13
   call void @_ZN7testing8internal20DoubleNearPredFormatEPKcS2_S2_ddd(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar49, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.47, double noundef %37, double noundef %call51, double noundef 3.000000e-05)
   %39 = load i8, ptr %gtest_ar49, align 8

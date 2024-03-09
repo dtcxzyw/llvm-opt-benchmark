@@ -136,8 +136,8 @@ define internal ptr @weighted_reachable(ptr noundef %0, ptr noundef %1) #1 {
   %50 = sitofp i32 %49 to double
   %51 = sub nsw i32 %46, %48
   %52 = call i32 @llvm.abs.i32(i32 %51, i1 true)
-  %53 = sitofp i32 %52 to double
-  %54 = fadd double %53, 1.000000e+00
+  %53 = add nuw i32 %52, 1
+  %54 = uitofp i32 %53 to double
   %55 = fdiv double 1.000000e+00, %54
   %56 = fadd double %55, %50
   br i1 %45, label %57, label %60
@@ -170,8 +170,8 @@ define internal ptr @weighted_reachable(ptr noundef %0, ptr noundef %1) #1 {
   %74 = sitofp i32 %73 to double
   %75 = sub nsw i32 %70, %72
   %76 = call i32 @llvm.abs.i32(i32 %75, i1 true)
-  %77 = sitofp i32 %76 to double
-  %78 = fadd double %77, 1.000000e+00
+  %77 = add nuw i32 %76, 1
+  %78 = uitofp i32 %77 to double
   %79 = fdiv double 1.000000e+00, %78
   %80 = fadd double %79, %74
   br i1 %69, label %81, label %84
@@ -194,8 +194,8 @@ define internal ptr @weighted_reachable(ptr noundef %0, ptr noundef %1) #1 {
   %92 = sitofp i32 %91 to double
   %93 = sub nsw i32 %88, %90
   %94 = call i32 @llvm.abs.i32(i32 %93, i1 true)
-  %95 = sitofp i32 %94 to double
-  %96 = fadd double %95, 1.000000e+00
+  %95 = add nuw i32 %94, 1
+  %96 = uitofp i32 %95 to double
   %97 = fdiv double 1.000000e+00, %96
   %98 = fadd double %97, %92
   %99 = fmul double %98, 0.000000e+00

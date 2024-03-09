@@ -4098,10 +4098,10 @@ define void @Extra_ZddTest() local_unnamed_addr #0 {
   %7 = fmul double %6, 2.000000e+01
   %8 = fmul double %7, 0x3EB0000000000000
   %9 = mul nuw nsw i32 %.020, 8000
-  %10 = sitofp i32 %9 to double
+  %10 = uitofp i32 %9 to double
   %11 = fmul double %10, 0x3EB0000000000000
   %12 = mul nuw nsw i32 %.020, 800000
-  %13 = sitofp i32 %12 to double
+  %13 = uitofp i32 %12 to double
   %14 = fdiv double %13, %7
   %15 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, i32 noundef 64, i32 noundef %3, i32 noundef %5, double noundef %8, double noundef %11, double noundef %14)
   tail call void @Cudd_RecursiveDerefZdd(ptr noundef %1, ptr noundef %4) #18

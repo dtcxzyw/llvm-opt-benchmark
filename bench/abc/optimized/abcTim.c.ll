@@ -489,73 +489,72 @@ Vec_FltAlloc.exit:                                ; preds = %1, %5
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %Vec_FltAlloc.exit, %Vec_FltPush.exit
-  %.06 = phi i32 [ %42, %Vec_FltPush.exit ], [ 0, %Vec_FltAlloc.exit ]
-  %12 = sitofp i32 %.06 to double
-  %13 = fadd double %12, 1.000000e+02
-  %14 = fptrunc double %13 to float
-  %15 = load i32, ptr %4, align 4
-  %16 = load i32, ptr %2, align 8
-  %17 = icmp eq i32 %15, %16
-  br i1 %17, label %18, label %.Vec_FltGrow.exit11_crit_edge.i
+  %.06 = phi i32 [ %41, %Vec_FltPush.exit ], [ 0, %Vec_FltAlloc.exit ]
+  %12 = add nuw i32 %.06, 100
+  %13 = uitofp i32 %12 to float
+  %14 = load i32, ptr %4, align 4
+  %15 = load i32, ptr %2, align 8
+  %16 = icmp eq i32 %14, %15
+  br i1 %16, label %17, label %.Vec_FltGrow.exit11_crit_edge.i
 
 .Vec_FltGrow.exit11_crit_edge.i:                  ; preds = %.lr.ph
   %.pre.i = load ptr, ptr %10, align 8
   br label %Vec_FltPush.exit
 
-18:                                               ; preds = %.lr.ph
-  %19 = icmp slt i32 %15, 16
-  br i1 %19, label %20, label %27
+17:                                               ; preds = %.lr.ph
+  %18 = icmp slt i32 %14, 16
+  br i1 %18, label %19, label %26
 
-20:                                               ; preds = %18
-  %21 = load ptr, ptr %10, align 8
-  %.not9.i.i = icmp eq ptr %21, null
-  br i1 %.not9.i.i, label %24, label %22
+19:                                               ; preds = %17
+  %20 = load ptr, ptr %10, align 8
+  %.not9.i.i = icmp eq ptr %20, null
+  br i1 %.not9.i.i, label %23, label %21
 
-22:                                               ; preds = %20
-  %23 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %21, i64 noundef 64) #12
+21:                                               ; preds = %19
+  %22 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %20, i64 noundef 64) #12
   br label %Vec_FltGrow.exit.i
 
-24:                                               ; preds = %20
-  %25 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #13
+23:                                               ; preds = %19
+  %24 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #13
   br label %Vec_FltGrow.exit.i
 
-Vec_FltGrow.exit.i:                               ; preds = %24, %22
-  %26 = phi ptr [ %23, %22 ], [ %25, %24 ]
-  store ptr %26, ptr %10, align 8
+Vec_FltGrow.exit.i:                               ; preds = %23, %21
+  %25 = phi ptr [ %22, %21 ], [ %24, %23 ]
+  store ptr %25, ptr %10, align 8
   store i32 16, ptr %2, align 8
   br label %Vec_FltPush.exit
 
-27:                                               ; preds = %18
-  %28 = shl nuw nsw i32 %15, 1
-  %29 = load ptr, ptr %10, align 8
-  %.not9.i10.i = icmp eq ptr %29, null
-  %30 = zext nneg i32 %28 to i64
-  %31 = shl nuw nsw i64 %30, 2
-  br i1 %.not9.i10.i, label %34, label %32
+26:                                               ; preds = %17
+  %27 = shl nuw nsw i32 %14, 1
+  %28 = load ptr, ptr %10, align 8
+  %.not9.i10.i = icmp eq ptr %28, null
+  %29 = zext nneg i32 %27 to i64
+  %30 = shl nuw nsw i64 %29, 2
+  br i1 %.not9.i10.i, label %33, label %31
 
-32:                                               ; preds = %27
-  %33 = tail call ptr @realloc(ptr noundef nonnull %29, i64 noundef %31) #12
-  br label %36
+31:                                               ; preds = %26
+  %32 = tail call ptr @realloc(ptr noundef nonnull %28, i64 noundef %30) #12
+  br label %35
 
-34:                                               ; preds = %27
-  %35 = tail call noalias ptr @malloc(i64 noundef %31) #13
-  br label %36
+33:                                               ; preds = %26
+  %34 = tail call noalias ptr @malloc(i64 noundef %30) #13
+  br label %35
 
-36:                                               ; preds = %34, %32
-  %37 = phi ptr [ %33, %32 ], [ %35, %34 ]
-  store ptr %37, ptr %10, align 8
-  store i32 %28, ptr %2, align 8
+35:                                               ; preds = %33, %31
+  %36 = phi ptr [ %32, %31 ], [ %34, %33 ]
+  store ptr %36, ptr %10, align 8
+  store i32 %27, ptr %2, align 8
   br label %Vec_FltPush.exit
 
-Vec_FltPush.exit:                                 ; preds = %.Vec_FltGrow.exit11_crit_edge.i, %Vec_FltGrow.exit.i, %36
-  %38 = phi ptr [ %.pre.i, %.Vec_FltGrow.exit11_crit_edge.i ], [ %37, %36 ], [ %26, %Vec_FltGrow.exit.i ]
-  %39 = add nsw i32 %15, 1
-  store i32 %39, ptr %4, align 4
-  %40 = sext i32 %15 to i64
-  %41 = getelementptr inbounds float, ptr %38, i64 %40
-  store float %14, ptr %41, align 4
-  %42 = add nuw nsw i32 %.06, 1
-  %exitcond.not = icmp eq i32 %42, %0
+Vec_FltPush.exit:                                 ; preds = %.Vec_FltGrow.exit11_crit_edge.i, %Vec_FltGrow.exit.i, %35
+  %37 = phi ptr [ %.pre.i, %.Vec_FltGrow.exit11_crit_edge.i ], [ %36, %35 ], [ %25, %Vec_FltGrow.exit.i ]
+  %38 = add nsw i32 %14, 1
+  store i32 %38, ptr %4, align 4
+  %39 = sext i32 %14 to i64
+  %40 = getelementptr inbounds float, ptr %37, i64 %39
+  store float %13, ptr %40, align 4
+  %41 = add nuw nsw i32 %.06, 1
+  %exitcond.not = icmp eq i32 %41, %0
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %Vec_FltPush.exit, %Vec_FltAlloc.exit
