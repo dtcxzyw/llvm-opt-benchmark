@@ -35,8 +35,7 @@ if.end.i:                                         ; preds = %entry
   %1 = add nsw i64 %and, -1
   %2 = tail call i64 @llvm.ctlz.i64(i64 %1, i1 true), !range !5
   %3 = trunc i64 %2 to i32
-  %add.i36 = sub nuw nsw i32 64, %3
-  %cond.i = tail call i32 @llvm.usub.sat.i32(i32 %add.i36, i32 14)
+  %cond.i = tail call i32 @llvm.usub.sat.i32(i32 50, i32 %3)
   %cmp4.i = icmp ugt i32 %3, 49
   %add.i = add nuw nsw i32 %cond.i, 11
   %cond10.i = select i1 %cmp4.i, i32 12, i32 %add.i
@@ -69,7 +68,6 @@ if.end:                                           ; preds = %sz_psz2ind.exit
 
 for.body.preheader:                               ; preds = %if.end
   %arrayidx = getelementptr inbounds %struct.sec_shard_s, ptr %call6, i64 %7
-  %wide.trip.count = zext nneg i32 %retval.i.0 to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.end
@@ -97,7 +95,7 @@ for.body18:                                       ; preds = %if.end14, %for.body
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %bytes_cur.i, i8 0, i64 16, i1 false)
   %incdec.ptr21 = getelementptr inbounds i8, ptr %bin_cur.137, i64 24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %conv
   br i1 %exitcond.not, label %for.end, label %for.body18, !llvm.loop !6
 
 for.end:                                          ; preds = %for.body18
@@ -180,8 +178,7 @@ if.end.i:                                         ; preds = %if.end
   %4 = add nsw i64 %size, -1
   %5 = tail call i64 @llvm.ctlz.i64(i64 %4, i1 false), !range !5
   %6 = trunc i64 %5 to i32
-  %add.i39 = sub nuw nsw i32 64, %6
-  %cond.i = tail call i32 @llvm.usub.sat.i32(i32 %add.i39, i32 14)
+  %cond.i = tail call i32 @llvm.usub.sat.i32(i32 50, i32 %6)
   %cmp4.i = icmp ugt i32 %6, 49
   %add.i = add nuw nsw i32 %cond.i, 11
   %cond10.i = select i1 %cmp4.i, i32 12, i32 %add.i
@@ -657,8 +654,7 @@ if.end.i.i:                                       ; preds = %if.then4
   %16 = add nsw i64 %and.i.i, -1
   %17 = tail call i64 @llvm.ctlz.i64(i64 %16, i1 true), !range !5
   %18 = trunc i64 %17 to i32
-  %add.i20.i = sub nuw nsw i32 64, %18
-  %cond.i.i = tail call i32 @llvm.usub.sat.i32(i32 %add.i20.i, i32 14)
+  %cond.i.i = tail call i32 @llvm.usub.sat.i32(i32 50, i32 %18)
   %cmp4.i.i = icmp ugt i32 %18, 49
   %add.i.i21 = add nuw nsw i32 %cond.i.i, 11
   %cond10.i.i = select i1 %cmp4.i.i, i32 12, i32 %add.i.i21
