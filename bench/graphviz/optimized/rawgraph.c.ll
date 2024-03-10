@@ -169,7 +169,7 @@ define void @top_sort(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca %struct.int_stack_t, align 8
   %3 = load i32, ptr %0, align 8
   switch i32 %3, label %8 [
-    i32 0, label %45
+    i32 0, label %46
     i32 1, label %4
   ]
 
@@ -178,94 +178,95 @@ define void @top_sort(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 4
   store i32 0, ptr %7, align 4
-  br label %45
+  br label %46
 
 8:                                                ; preds = %1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 16, i1 false)
-  %9 = sext i32 %3 to i64
-  %10 = getelementptr inbounds i8, ptr %2, i64 16
-  %11 = icmp slt i32 %3, 0
-  br i1 %11, label %12, label %15
+  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  store i64 0, ptr %9, align 8
+  %10 = sext i32 %3 to i64
+  %11 = getelementptr inbounds i8, ptr %2, i64 16
+  %12 = icmp slt i32 %3, 0
+  br i1 %12, label %13, label %16
 
-12:                                               ; preds = %8
-  %13 = load ptr, ptr @stderr, align 8
-  %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str, i64 noundef %9, i64 noundef 4) #11
+13:                                               ; preds = %8
+  %14 = load ptr, ptr @stderr, align 8
+  %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str, i64 noundef %10, i64 noundef 4) #11
   tail call fastcc void @graphviz_exit() #12
   unreachable
 
-15:                                               ; preds = %8
-  %16 = shl nuw nsw i64 %9, 2
-  %calloc = tail call ptr @calloc(i64 1, i64 %16)
-  %17 = icmp eq ptr %calloc, null
-  br i1 %17, label %18, label %.lr.ph
+16:                                               ; preds = %8
+  %17 = shl nuw nsw i64 %10, 2
+  %calloc = tail call ptr @calloc(i64 1, i64 %17)
+  %18 = icmp eq ptr %calloc, null
+  br i1 %18, label %19, label %.lr.ph
 
-18:                                               ; preds = %15
-  %19 = load ptr, ptr @stderr, align 8
-  %20 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef nonnull @.str.1, i64 noundef %16) #11
+19:                                               ; preds = %16
+  %20 = load ptr, ptr @stderr, align 8
+  %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str.1, i64 noundef %17) #11
   tail call fastcc void @graphviz_exit() #12
   unreachable
 
-.lr.ph:                                           ; preds = %15
+.lr.ph:                                           ; preds = %16
   store ptr %calloc, ptr %2, align 8
-  store i64 %9, ptr %10, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
-  br label %24
+  store i64 %10, ptr %11, align 8
+  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  br label %25
 
-.preheader:                                       ; preds = %33
+.preheader:                                       ; preds = %34
   %.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 8
   %.promoted.pre = load i64, ptr %.phi.trans.insert, align 8
   %.pre28.pre = load ptr, ptr %2, align 8
-  %22 = icmp eq i64 %.promoted.pre, 0
-  br i1 %22, label %._crit_edge, label %.lr.ph24
+  %23 = icmp eq i64 %.promoted.pre, 0
+  br i1 %23, label %._crit_edge, label %.lr.ph24
 
 .lr.ph24:                                         ; preds = %.preheader
   %invariant.gep = getelementptr i8, ptr %.pre28.pre, i64 -4
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
-  br label %37
+  %24 = getelementptr inbounds i8, ptr %0, i64 8
+  br label %38
 
-24:                                               ; preds = %.lr.ph, %33
-  %25 = phi i32 [ %3, %.lr.ph ], [ %34, %33 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %33 ]
-  %.01719 = phi i32 [ 0, %.lr.ph ], [ %.1, %33 ]
-  %26 = load ptr, ptr %21, align 8
-  %27 = getelementptr inbounds %struct.vertex, ptr %26, i64 %indvars.iv
-  %28 = load i32, ptr %27, align 8
-  %29 = icmp eq i32 %28, 0
-  br i1 %29, label %30, label %33
+25:                                               ; preds = %.lr.ph, %34
+  %26 = phi i32 [ %3, %.lr.ph ], [ %35, %34 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %34 ]
+  %.01719 = phi i32 [ 0, %.lr.ph ], [ %.1, %34 ]
+  %27 = load ptr, ptr %22, align 8
+  %28 = getelementptr inbounds %struct.vertex, ptr %27, i64 %indvars.iv
+  %29 = load i32, ptr %28, align 8
+  %30 = icmp eq i32 %29, 0
+  br i1 %30, label %31, label %34
 
-30:                                               ; preds = %24
-  %31 = trunc i64 %indvars.iv to i32
-  %32 = call fastcc i32 @DFS_visit(ptr noundef nonnull %0, i32 noundef %31, i32 noundef %.01719, ptr noundef nonnull %2)
+31:                                               ; preds = %25
+  %32 = trunc i64 %indvars.iv to i32
+  %33 = call fastcc i32 @DFS_visit(ptr noundef nonnull %0, i32 noundef %32, i32 noundef %.01719, ptr noundef nonnull %2)
   %.pre = load i32, ptr %0, align 8
-  br label %33
+  br label %34
 
-33:                                               ; preds = %24, %30
-  %34 = phi i32 [ %.pre, %30 ], [ %25, %24 ]
-  %.1 = phi i32 [ %32, %30 ], [ %.01719, %24 ]
+34:                                               ; preds = %25, %31
+  %35 = phi i32 [ %.pre, %31 ], [ %26, %25 ]
+  %.1 = phi i32 [ %33, %31 ], [ %.01719, %25 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %35 = sext i32 %34 to i64
-  %36 = icmp slt i64 %indvars.iv.next, %35
-  br i1 %36, label %24, label %.preheader
+  %36 = sext i32 %35 to i64
+  %37 = icmp slt i64 %indvars.iv.next, %36
+  br i1 %37, label %25, label %.preheader
 
-37:                                               ; preds = %.lr.ph24, %37
-  %.01623 = phi i32 [ 0, %.lr.ph24 ], [ %43, %37 ]
-  %.val2122 = phi i64 [ %.promoted.pre, %.lr.ph24 ], [ %39, %37 ]
+38:                                               ; preds = %.lr.ph24, %38
+  %.01623 = phi i32 [ 0, %.lr.ph24 ], [ %44, %38 ]
+  %.val2122 = phi i64 [ %.promoted.pre, %.lr.ph24 ], [ %40, %38 ]
   %gep = getelementptr i32, ptr %invariant.gep, i64 %.val2122
-  %38 = load i32, ptr %gep, align 4
-  %39 = add i64 %.val2122, -1
-  %40 = load ptr, ptr %23, align 8
-  %41 = sext i32 %38 to i64
-  %42 = getelementptr inbounds %struct.vertex, ptr %40, i64 %41, i32 1
-  store i32 %.01623, ptr %42, align 4
-  %43 = add nuw nsw i32 %.01623, 1
-  %44 = icmp eq i64 %39, 0
-  br i1 %44, label %._crit_edge, label %37
+  %39 = load i32, ptr %gep, align 4
+  %40 = add i64 %.val2122, -1
+  %41 = load ptr, ptr %24, align 8
+  %42 = sext i32 %39 to i64
+  %43 = getelementptr inbounds %struct.vertex, ptr %41, i64 %42, i32 1
+  store i32 %.01623, ptr %43, align 4
+  %44 = add nuw nsw i32 %.01623, 1
+  %45 = icmp eq i64 %40, 0
+  br i1 %45, label %._crit_edge, label %38
 
-._crit_edge:                                      ; preds = %37, %.preheader
+._crit_edge:                                      ; preds = %38, %.preheader
   tail call void @free(ptr noundef %.pre28.pre) #13
-  br label %45
+  br label %46
 
-45:                                               ; preds = %1, %._crit_edge, %4
+46:                                               ; preds = %1, %._crit_edge, %4
   ret void
 }
 
