@@ -10839,20 +10839,20 @@ define internal fastcc void @xfrm_policy_inexact_list_reinsert(ptr noundef reado
   %11 = getelementptr inbounds i8, ptr %1, i64 40
   br label %12
 
-12:                                               ; preds = %167, %8
-  %13 = phi ptr [ %6, %8 ], [ %171, %167 ]
-  %14 = phi i32 [ 0, %8 ], [ %169, %167 ]
-  %15 = phi i32 [ 0, %8 ], [ %168, %167 ]
+12:                                               ; preds = %165, %8
+  %13 = phi ptr [ %6, %8 ], [ %169, %165 ]
+  %14 = phi i32 [ 0, %8 ], [ %167, %165 ]
+  %15 = phi i32 [ 0, %8 ], [ %166, %165 ]
   %16 = getelementptr inbounds i8, ptr %13, i64 16
   %17 = load i8, ptr %16, align 8
   %18 = icmp eq i8 %17, 0
-  br i1 %18, label %19, label %167
+  br i1 %18, label %19, label %165
 
 19:                                               ; preds = %12
   %20 = getelementptr i8, ptr %13, i64 96
   %21 = load i8, ptr %20, align 8, !range !128, !noundef !129
   %22 = icmp eq i8 %21, 0
-  br i1 %22, label %167, label %23
+  br i1 %22, label %165, label %23
 
 23:                                               ; preds = %19
   %24 = getelementptr i8, ptr %13, i64 102
@@ -10953,7 +10953,7 @@ define internal fastcc void @xfrm_policy_inexact_list_reinsert(ptr noundef reado
   %79 = getelementptr i8, ptr %13, i64 -152
   %80 = getelementptr i8, ptr %13, i64 -136
   %81 = load i8, ptr %11, align 8
-  switch i16 %2, label %114 [
+  switch i16 %2, label %113 [
     i16 2, label %82
     i16 10, label %86
   ]
@@ -10995,42 +10995,41 @@ define internal fastcc void @xfrm_policy_inexact_list_reinsert(ptr noundef reado
   %104 = phi ptr [ %100, %98 ], [ %80, %84 ]
   %105 = phi i32 [ %89, %98 ], [ %85, %84 ]
   %106 = sub nsw i32 32, %105
-  %107 = shl nsw i32 -1, %106
-  %108 = load i32, ptr %104, align 4
-  %109 = load i32, ptr %103, align 4
-  %110 = xor i32 %109, %108
-  %111 = tail call i32 @llvm.bswap.i32(i32 %110)
-  %112 = and i32 %111, %107
-  %113 = icmp ne i32 %112, 0
-  br label %114
+  %107 = load i32, ptr %104, align 4
+  %108 = load i32, ptr %103, align 4
+  %109 = xor i32 %108, %107
+  %110 = tail call i32 @llvm.bswap.i32(i32 %109)
+  %111 = lshr i32 %110, %106
+  %112 = icmp ne i32 %111, 0
+  br label %113
 
-114:                                              ; preds = %102, %78
-  %115 = phi i1 [ false, %78 ], [ %113, %102 ]
+113:                                              ; preds = %102, %78
+  %114 = phi i1 [ false, %78 ], [ %112, %102 ]
   switch i16 %2, label %.thread17 [
-    i16 2, label %116
+    i16 2, label %115
     i16 10, label %..thread15_crit_edge
   ]
 
-..thread15_crit_edge:                             ; preds = %114
+..thread15_crit_edge:                             ; preds = %113
   %.pre = zext i8 %81 to i32
   %.pre19 = lshr i32 %.pre, 5
   %.pre21 = and i32 %.pre, 31
   br label %.thread15
 
-116:                                              ; preds = %114
-  %117 = icmp eq i8 %81, 0
-  br i1 %117, label %.thread17, label %118
+115:                                              ; preds = %113
+  %116 = icmp eq i8 %81, 0
+  br i1 %116, label %.thread17, label %117
 
-118:                                              ; preds = %116
-  %119 = zext i8 %81 to i32
-  br label %136
+117:                                              ; preds = %115
+  %118 = zext i8 %81 to i32
+  br label %135
 
 .thread15:                                        ; preds = %..thread15_crit_edge, %96
   %.pre-phi22 = phi i32 [ %.pre21, %..thread15_crit_edge ], [ 0, %96 ]
   %.pre-phi20 = phi i32 [ %.pre19, %..thread15_crit_edge ], [ %88, %96 ]
-  %120 = phi i1 [ %115, %..thread15_crit_edge ], [ false, %96 ]
-  %121 = icmp ult i8 %81, 32
-  br i1 %121, label %127, label %.thread15._crit_edge
+  %119 = phi i1 [ %114, %..thread15_crit_edge ], [ false, %96 ]
+  %120 = icmp ult i8 %81, 32
+  br i1 %120, label %126, label %.thread15._crit_edge
 
 .thread15._crit_edge:                             ; preds = %.thread15
   %.pre23 = shl nuw nsw i32 %.pre-phi20, 2
@@ -11039,86 +11038,85 @@ define internal fastcc void @xfrm_policy_inexact_list_reinsert(ptr noundef reado
 
 .thread15.thread:                                 ; preds = %91, %.thread15._crit_edge
   %.pre-phi26 = phi i64 [ %.pre25, %.thread15._crit_edge ], [ %93, %91 ]
-  %122 = phi i32 [ %.pre-phi22, %.thread15._crit_edge ], [ %89, %91 ]
-  %123 = phi i32 [ %.pre-phi20, %.thread15._crit_edge ], [ %88, %91 ]
-  %124 = phi i1 [ %120, %.thread15._crit_edge ], [ true, %91 ]
-  %125 = tail call i32 @bcmp(ptr %79, ptr %10, i64 %.pre-phi26)
-  %126 = icmp eq i32 %125, 0
-  br i1 %126, label %127, label %.thread18
+  %121 = phi i32 [ %.pre-phi22, %.thread15._crit_edge ], [ %89, %91 ]
+  %122 = phi i32 [ %.pre-phi20, %.thread15._crit_edge ], [ %88, %91 ]
+  %123 = phi i1 [ %119, %.thread15._crit_edge ], [ true, %91 ]
+  %124 = tail call i32 @bcmp(ptr %79, ptr %10, i64 %.pre-phi26)
+  %125 = icmp eq i32 %124, 0
+  br i1 %125, label %126, label %.thread18
 
-127:                                              ; preds = %.thread15.thread, %.thread15
-  %128 = phi i32 [ %122, %.thread15.thread ], [ %.pre-phi22, %.thread15 ]
-  %129 = phi i32 [ %123, %.thread15.thread ], [ %.pre-phi20, %.thread15 ]
-  %130 = phi i1 [ %124, %.thread15.thread ], [ %120, %.thread15 ]
-  %131 = icmp eq i32 %128, 0
-  br i1 %131, label %.thread17, label %132
+126:                                              ; preds = %.thread15.thread, %.thread15
+  %127 = phi i32 [ %121, %.thread15.thread ], [ %.pre-phi22, %.thread15 ]
+  %128 = phi i32 [ %122, %.thread15.thread ], [ %.pre-phi20, %.thread15 ]
+  %129 = phi i1 [ %123, %.thread15.thread ], [ %119, %.thread15 ]
+  %130 = icmp eq i32 %127, 0
+  br i1 %130, label %.thread17, label %131
 
-132:                                              ; preds = %127
-  %133 = zext nneg i32 %129 to i64
-  %134 = getelementptr [4 x i32], ptr %79, i64 0, i64 %133
-  %135 = getelementptr [4 x i32], ptr %10, i64 0, i64 %133
-  br label %136
+131:                                              ; preds = %126
+  %132 = zext nneg i32 %128 to i64
+  %133 = getelementptr [4 x i32], ptr %79, i64 0, i64 %132
+  %134 = getelementptr [4 x i32], ptr %10, i64 0, i64 %132
+  br label %135
 
-136:                                              ; preds = %132, %118
-  %137 = phi i1 [ %130, %132 ], [ %115, %118 ]
-  %138 = phi ptr [ %135, %132 ], [ %10, %118 ]
-  %139 = phi ptr [ %134, %132 ], [ %79, %118 ]
-  %140 = phi i32 [ %128, %132 ], [ %119, %118 ]
-  %141 = sub nsw i32 32, %140
-  %142 = shl nsw i32 -1, %141
-  %143 = load i32, ptr %139, align 4
-  %144 = load i32, ptr %138, align 4
-  %145 = xor i32 %144, %143
-  %146 = tail call i32 @llvm.bswap.i32(i32 %145)
-  %147 = and i32 %146, %142
-  %148 = icmp ne i32 %147, 0
+135:                                              ; preds = %131, %117
+  %136 = phi i1 [ %129, %131 ], [ %114, %117 ]
+  %137 = phi ptr [ %134, %131 ], [ %10, %117 ]
+  %138 = phi ptr [ %133, %131 ], [ %79, %117 ]
+  %139 = phi i32 [ %127, %131 ], [ %118, %117 ]
+  %140 = sub nsw i32 32, %139
+  %141 = load i32, ptr %138, align 4
+  %142 = load i32, ptr %137, align 4
+  %143 = xor i32 %142, %141
+  %144 = tail call i32 @llvm.bswap.i32(i32 %143)
+  %145 = lshr i32 %144, %140
+  %146 = icmp ne i32 %145, 0
   br label %.thread17
 
-.thread17:                                        ; preds = %82, %136, %127, %116, %114
-  %149 = phi i1 [ %115, %116 ], [ %115, %114 ], [ %130, %127 ], [ %137, %136 ], [ false, %82 ]
-  %150 = phi i1 [ false, %116 ], [ false, %114 ], [ false, %127 ], [ %148, %136 ], [ false, %82 ]
-  %151 = or i1 %149, %150
-  br i1 %151, label %.thread18, label %167
+.thread17:                                        ; preds = %82, %135, %126, %115, %113
+  %147 = phi i1 [ %114, %115 ], [ %114, %113 ], [ %129, %126 ], [ %136, %135 ], [ false, %82 ]
+  %148 = phi i1 [ false, %115 ], [ false, %113 ], [ false, %126 ], [ %146, %135 ], [ false, %82 ]
+  %149 = or i1 %147, %148
+  br i1 %149, label %.thread18, label %165
 
 .thread18:                                        ; preds = %.thread15.thread, %.thread17
-  %152 = phi i1 [ %150, %.thread17 ], [ true, %.thread15.thread ]
-  %153 = phi i1 [ %149, %.thread17 ], [ %124, %.thread15.thread ]
-  %154 = and i1 %152, %153
-  br i1 %154, label %155, label %156, !prof !6
+  %150 = phi i1 [ %148, %.thread17 ], [ true, %.thread15.thread ]
+  %151 = phi i1 [ %147, %.thread17 ], [ %123, %.thread15.thread ]
+  %152 = and i1 %150, %151
+  br i1 %152, label %153, label %154, !prof !6
 
-155:                                              ; preds = %.thread18
+153:                                              ; preds = %.thread18
   tail call void asm sideeffect "929: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 929b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 929) #23, !srcloc !147
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 909, i32 2307, i64 12) #23, !srcloc !148
   tail call void asm sideeffect "930: nop\0A\09.pushsection .discard.instr_end\0A\09.long 930b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 930) #23, !srcloc !149
-  br label %156
+  br label %154
 
-156:                                              ; preds = %155, %.thread18
-  %157 = xor i1 %153, true
-  %158 = zext i1 %157 to i32
-  %159 = add i32 %14, %158
-  %160 = xor i1 %152, true
-  %161 = zext i1 %160 to i32
-  %162 = add i32 %15, %161
-  %163 = icmp ne i32 %159, 0
-  %164 = icmp ne i32 %162, 0
-  %165 = select i1 %163, i1 %164, i1 false
-  br i1 %165, label %166, label %167, !prof !6
+154:                                              ; preds = %153, %.thread18
+  %155 = xor i1 %151, true
+  %156 = zext i1 %155 to i32
+  %157 = add i32 %14, %156
+  %158 = xor i1 %150, true
+  %159 = zext i1 %158 to i32
+  %160 = add i32 %15, %159
+  %161 = icmp ne i32 %157, 0
+  %162 = icmp ne i32 %160, 0
+  %163 = select i1 %161, i1 %162, i1 false
+  br i1 %163, label %164, label %165, !prof !6
 
-166:                                              ; preds = %156
+164:                                              ; preds = %154
   tail call void asm sideeffect "931: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 931b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 931) #23, !srcloc !150
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 914, i32 2307, i64 12) #23, !srcloc !151
   tail call void asm sideeffect "932: nop\0A\09.pushsection .discard.instr_end\0A\09.long 932b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 932) #23, !srcloc !152
-  br label %167
+  br label %165
 
-167:                                              ; preds = %166, %156, %.thread17, %19, %12
-  %168 = phi i32 [ %15, %19 ], [ %15, %12 ], [ %15, %.thread17 ], [ %162, %166 ], [ %162, %156 ]
-  %169 = phi i32 [ %14, %19 ], [ %14, %12 ], [ %14, %.thread17 ], [ %159, %166 ], [ %159, %156 ]
-  %170 = getelementptr inbounds i8, ptr %13, i64 8
-  %171 = load ptr, ptr %170, align 8
-  %172 = icmp eq ptr %171, %4
-  br i1 %172, label %.loopexit, label %12, !llvm.loop !153
+165:                                              ; preds = %164, %154, %.thread17, %19, %12
+  %166 = phi i32 [ %15, %19 ], [ %15, %12 ], [ %15, %.thread17 ], [ %160, %164 ], [ %160, %154 ]
+  %167 = phi i32 [ %14, %19 ], [ %14, %12 ], [ %14, %.thread17 ], [ %157, %164 ], [ %157, %154 ]
+  %168 = getelementptr inbounds i8, ptr %13, i64 8
+  %169 = load ptr, ptr %168, align 8
+  %170 = icmp eq ptr %169, %4
+  br i1 %170, label %.loopexit, label %12, !llvm.loop !153
 
-.loopexit:                                        ; preds = %167, %3
+.loopexit:                                        ; preds = %165, %3
   ret void
 }
 

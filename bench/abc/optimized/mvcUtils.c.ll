@@ -1792,15 +1792,15 @@ define noundef i32 @Mvc_UtilsCheckUnusedZeros(ptr noundef %0) local_unnamed_addr
   %.not14 = icmp eq ptr %.01013, null
   br i1 %.not14, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %1, %22
-  %.01016 = phi ptr [ %.010, %22 ], [ %.01013, %1 ]
-  %.015 = phi i32 [ %.1, %22 ], [ 0, %1 ]
+.lr.ph:                                           ; preds = %1, %21
+  %.01016 = phi ptr [ %.010, %21 ], [ %.01013, %1 ]
+  %.015 = phi i32 [ %.1, %21 ], [ 0, %1 ]
   %3 = getelementptr inbounds i8, ptr %.01016, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = lshr i32 %4, 24
   %6 = and i32 %5, 63
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %22, label %8
+  br i1 %7, label %21, label %8
 
 8:                                                ; preds = %.lr.ph
   %9 = getelementptr inbounds i8, ptr %.01016, i64 16
@@ -1809,27 +1809,26 @@ define noundef i32 @Mvc_UtilsCheckUnusedZeros(ptr noundef %0) local_unnamed_addr
   %12 = getelementptr inbounds [1 x i32], ptr %9, i64 0, i64 %11
   %13 = load i32, ptr %12, align 4
   %14 = sub nsw i32 32, %6
-  %15 = shl nsw i32 -1, %14
-  %16 = and i32 %13, %15
-  %.not12 = icmp eq i32 %16, 0
-  br i1 %.not12, label %20, label %17
+  %15 = lshr i32 %13, %14
+  %.not12 = icmp eq i32 %15, 0
+  br i1 %.not12, label %19, label %16
 
-17:                                               ; preds = %8
-  %18 = tail call i32 @Mvc_CoverReadCubeNum(ptr noundef %0) #7
-  %19 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %.015, i32 noundef %18)
-  br label %20
+16:                                               ; preds = %8
+  %17 = tail call i32 @Mvc_CoverReadCubeNum(ptr noundef %0) #7
+  %18 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %.015, i32 noundef %17)
+  br label %19
 
-20:                                               ; preds = %17, %8
-  %21 = add nsw i32 %.015, 1
-  br label %22
+19:                                               ; preds = %16, %8
+  %20 = add nsw i32 %.015, 1
+  br label %21
 
-22:                                               ; preds = %.lr.ph, %20
-  %.1 = phi i32 [ %.015, %.lr.ph ], [ %21, %20 ]
+21:                                               ; preds = %.lr.ph, %19
+  %.1 = phi i32 [ %.015, %.lr.ph ], [ %20, %19 ]
   %.010 = load ptr, ptr %.01016, align 8
   %.not = icmp eq ptr %.010, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !34
 
-._crit_edge:                                      ; preds = %22, %1
+._crit_edge:                                      ; preds = %21, %1
   ret i32 1
 }
 

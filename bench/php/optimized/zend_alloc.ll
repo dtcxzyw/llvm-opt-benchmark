@@ -1240,11 +1240,11 @@ define ptr @_zend_mm_realloc(ptr noundef %0, ptr noundef %1, i64 noundef %2) loc
 
 9:                                                ; preds = %7
   %10 = tail call noalias ptr @_zend_mm_alloc(ptr noundef %0, i64 noundef %2) #40
-  br label %343
+  br label %342
 
 11:                                               ; preds = %7
   %12 = tail call fastcc ptr @zend_mm_realloc_huge(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %2, i64 noundef %2)
-  br label %343
+  br label %342
 
 13:                                               ; preds = %3
   %14 = and i64 %4, -2097152
@@ -1277,7 +1277,7 @@ define ptr @_zend_mm_realloc(ptr noundef %0, ptr noundef %1, i64 noundef %2) loc
 
 30:                                               ; preds = %24
   %.not371 = icmp eq i32 %25, 0
-  br i1 %.not371, label %343, label %31
+  br i1 %.not371, label %342, label %31
 
 31:                                               ; preds = %30
   %32 = add nsw i32 %25, -1
@@ -1286,7 +1286,7 @@ define ptr @_zend_mm_realloc(ptr noundef %0, ptr noundef %1, i64 noundef %2) loc
   %35 = load i32, ptr %34, align 4
   %36 = zext i32 %35 to i64
   %37 = icmp ugt i64 %36, %2
-  br i1 %37, label %38, label %343
+  br i1 %37, label %38, label %342
 
 38:                                               ; preds = %31
   %39 = icmp ult i64 %2, 65
@@ -1350,7 +1350,7 @@ define ptr @_zend_mm_realloc(ptr noundef %0, ptr noundef %1, i64 noundef %2) loc
   %74 = load ptr, ptr %73, align 8
   store ptr %74, ptr %1, align 8
   store ptr %1, ptr %73, align 8
-  br label %343
+  br label %342
 
 75:                                               ; preds = %24
   %76 = icmp ult i64 %2, 3073
@@ -1480,7 +1480,7 @@ zend_mm_alloc_small_slow.exit:                    ; preds = %141, %106, %104
   %146 = load i64, ptr %94, align 8
   %.375 = tail call i64 @llvm.umax.i64(i64 %79, i64 %146)
   store i64 %.375, ptr %78, align 8
-  br label %343
+  br label %342
 
 147:                                              ; preds = %23
   %148 = and i64 %4, 4095
@@ -1503,7 +1503,7 @@ zend_mm_alloc_small_slow.exit:                    ; preds = %141, %106, %104
   %156 = add nuw nsw i64 %2, 4095
   %157 = and i64 %156, 4190208
   %158 = icmp eq i64 %157, %153
-  br i1 %158, label %343, label %159
+  br i1 %158, label %342, label %159
 
 159:                                              ; preds = %155
   %160 = icmp ult i64 %157, %153
@@ -1542,7 +1542,7 @@ zend_mm_alloc_small_slow.exit:                    ; preds = %141, %106, %104
   %186 = load i64, ptr %185, align 8
   %187 = and i64 %186, %183
   store i64 %187, ptr %185, align 8
-  br label %343
+  br label %342
 
 188:                                              ; preds = %163
   %189 = lshr i32 %177, 6
@@ -1591,7 +1591,7 @@ zend_mm_alloc_small_slow.exit:                    ; preds = %141, %106, %104
   %216 = load i64, ptr %215, align 8
   %217 = and i64 %216, %214
   store i64 %217, ptr %215, align 8
-  br label %343
+  br label %342
 
 218:                                              ; preds = %188
   %219 = and i32 %191, 63
@@ -1607,7 +1607,7 @@ zend_mm_alloc_small_slow.exit:                    ; preds = %141, %106, %104
   %229 = load i64, ptr %228, align 8
   %230 = and i64 %229, %226
   store i64 %230, ptr %228, align 8
-  br label %343
+  br label %342
 
 231:                                              ; preds = %159
   %232 = add nuw nsw i64 %16, %161
@@ -1631,7 +1631,7 @@ zend_mm_alloc_small_slow.exit:                    ; preds = %141, %106, %104
   %246 = shl nuw i64 1, %245
   %247 = and i64 %244, %246
   %.not363 = icmp eq i64 %247, 0
-  br i1 %.not363, label %287, label %.critedge
+  br i1 %.not363, label %286, label %.critedge
 
 248:                                              ; preds = %234
   %249 = lshr i32 %237, 6
@@ -1640,156 +1640,155 @@ zend_mm_alloc_small_slow.exit:                    ; preds = %141, %106, %104
   %252 = lshr i32 %251, 6
   %253 = and i32 %237, 63
   %.not359 = icmp eq i32 %249, %252
-  br i1 %.not359, label %275, label %254
+  br i1 %.not359, label %274, label %254
 
 254:                                              ; preds = %248
   %255 = zext nneg i32 %253 to i64
-  %256 = shl nsw i64 -1, %255
-  %257 = zext nneg i32 %249 to i64
-  %258 = getelementptr inbounds i64, ptr %236, i64 %257
-  %259 = load i64, ptr %258, align 8
-  %260 = and i64 %259, %256
-  %.not360 = icmp eq i64 %260, 0
+  %256 = zext nneg i32 %249 to i64
+  %257 = getelementptr inbounds i64, ptr %236, i64 %256
+  %258 = load i64, ptr %257, align 8
+  %259 = lshr i64 %258, %255
+  %.not360 = icmp eq i64 %259, 0
   br i1 %.not360, label %.preheader.preheader, label %.critedge
 
 .preheader.preheader:                             ; preds = %254
-  %261 = lshr i32 %237, 6
-  %262 = zext nneg i32 %261 to i64
-  %263 = zext nneg i32 %252 to i64
+  %260 = lshr i32 %237, 6
+  %261 = zext nneg i32 %260 to i64
+  %262 = zext nneg i32 %252 to i64
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.preheader, %264
-  %indvars.iv = phi i64 [ %262, %.preheader.preheader ], [ %indvars.iv.next, %264 ]
+.preheader:                                       ; preds = %.preheader.preheader, %263
+  %indvars.iv = phi i64 [ %261, %.preheader.preheader ], [ %indvars.iv.next, %263 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.not361 = icmp eq i64 %indvars.iv.next, %263
-  br i1 %.not361, label %267, label %264
+  %.not361 = icmp eq i64 %indvars.iv.next, %262
+  br i1 %.not361, label %266, label %263
 
-264:                                              ; preds = %.preheader
-  %265 = getelementptr inbounds i64, ptr %236, i64 %indvars.iv.next
-  %266 = load i64, ptr %265, align 8
-  %.not362 = icmp eq i64 %266, 0
+263:                                              ; preds = %.preheader
+  %264 = getelementptr inbounds i64, ptr %236, i64 %indvars.iv.next
+  %265 = load i64, ptr %264, align 8
+  %.not362 = icmp eq i64 %265, 0
   br i1 %.not362, label %.preheader, label %.critedge
 
-267:                                              ; preds = %.preheader
-  %268 = and i64 %250, 63
-  %269 = xor i64 %268, 63
-  %270 = lshr i64 -1, %269
-  %271 = getelementptr inbounds i64, ptr %236, i64 %263
-  %272 = load i64, ptr %271, align 8
-  %273 = and i64 %272, %270
-  %274 = icmp eq i64 %273, 0
-  br i1 %274, label %287, label %.critedge
+266:                                              ; preds = %.preheader
+  %267 = and i64 %250, 63
+  %268 = xor i64 %267, 63
+  %269 = lshr i64 -1, %268
+  %270 = getelementptr inbounds i64, ptr %236, i64 %262
+  %271 = load i64, ptr %270, align 8
+  %272 = and i64 %271, %269
+  %273 = icmp eq i64 %272, 0
+  br i1 %273, label %286, label %.critedge
 
-275:                                              ; preds = %248
-  %276 = and i64 %250, 63
-  %277 = zext nneg i32 %253 to i64
-  %278 = shl nsw i64 -1, %277
-  %279 = xor i64 %276, 63
-  %280 = lshr i64 -1, %279
-  %281 = and i64 %278, %280
-  %282 = zext nneg i32 %249 to i64
-  %283 = getelementptr inbounds i64, ptr %236, i64 %282
-  %284 = load i64, ptr %283, align 8
-  %285 = and i64 %281, %284
-  %286 = icmp eq i64 %285, 0
-  br i1 %286, label %287, label %.critedge
+274:                                              ; preds = %248
+  %275 = and i64 %250, 63
+  %276 = zext nneg i32 %253 to i64
+  %277 = shl nsw i64 -1, %276
+  %278 = xor i64 %275, 63
+  %279 = lshr i64 -1, %278
+  %280 = and i64 %277, %279
+  %281 = zext nneg i32 %249 to i64
+  %282 = getelementptr inbounds i64, ptr %236, i64 %281
+  %283 = load i64, ptr %282, align 8
+  %284 = and i64 %280, %283
+  %285 = icmp eq i64 %284, 0
+  br i1 %285, label %286, label %.critedge
 
-287:                                              ; preds = %267, %240, %275
-  %288 = getelementptr inbounds i8, ptr %0, i64 16
-  %289 = load i64, ptr %288, align 8
-  %290 = sub nsw i64 %157, %153
-  %291 = add i64 %289, %290
-  %292 = getelementptr inbounds i8, ptr %0, i64 24
-  %293 = load i64, ptr %292, align 8
-  %.376 = tail call i64 @llvm.umax.i64(i64 %293, i64 %291)
-  store i64 %291, ptr %288, align 8
-  store i64 %.376, ptr %292, align 8
-  %294 = getelementptr inbounds i8, ptr %15, i64 24
-  %295 = load i32, ptr %294, align 8
-  %296 = sub i32 %295, %238
-  store i32 %296, ptr %294, align 8
-  br i1 %239, label %297, label %302
+286:                                              ; preds = %266, %240, %274
+  %287 = getelementptr inbounds i8, ptr %0, i64 16
+  %288 = load i64, ptr %287, align 8
+  %289 = sub nsw i64 %157, %153
+  %290 = add i64 %288, %289
+  %291 = getelementptr inbounds i8, ptr %0, i64 24
+  %292 = load i64, ptr %291, align 8
+  %.376 = tail call i64 @llvm.umax.i64(i64 %292, i64 %290)
+  store i64 %290, ptr %287, align 8
+  store i64 %.376, ptr %291, align 8
+  %293 = getelementptr inbounds i8, ptr %15, i64 24
+  %294 = load i32, ptr %293, align 8
+  %295 = sub i32 %294, %238
+  store i32 %295, ptr %293, align 8
+  br i1 %239, label %296, label %301
 
-297:                                              ; preds = %287
-  %298 = zext nneg i32 %237 to i64
-  %299 = and i64 %298, 63
-  %300 = shl nuw i64 1, %299
-  %301 = lshr i64 %298, 6
-  br label %336
+296:                                              ; preds = %286
+  %297 = zext nneg i32 %237 to i64
+  %298 = and i64 %297, 63
+  %299 = shl nuw i64 1, %298
+  %300 = lshr i64 %297, 6
+  br label %335
 
-302:                                              ; preds = %287
-  %303 = lshr i32 %237, 6
-  %304 = shl nuw nsw i64 %232, 32
-  %sext364 = add nsw i64 %304, -4294967296
-  %305 = ashr exact i64 %sext364, 32
-  %306 = lshr i64 %305, 6
-  %307 = trunc i64 %306 to i32
-  %308 = and i32 %237, 63
-  %.not365 = icmp eq i32 %303, %307
-  br i1 %.not365, label %328, label %309
+301:                                              ; preds = %286
+  %302 = lshr i32 %237, 6
+  %303 = shl nuw nsw i64 %232, 32
+  %sext364 = add nsw i64 %303, -4294967296
+  %304 = ashr exact i64 %sext364, 32
+  %305 = lshr i64 %304, 6
+  %306 = trunc i64 %305 to i32
+  %307 = and i32 %237, 63
+  %.not365 = icmp eq i32 %302, %306
+  br i1 %.not365, label %327, label %308
 
-309:                                              ; preds = %302
-  %310 = zext nneg i32 %308 to i64
-  %311 = shl nsw i64 -1, %310
-  %312 = zext nneg i32 %303 to i64
-  %313 = getelementptr inbounds i64, ptr %236, i64 %312
-  %314 = load i64, ptr %313, align 8
-  %315 = or i64 %314, %311
-  store i64 %315, ptr %313, align 8
-  %.0380 = add nuw nsw i32 %303, 1
-  %.not366381 = icmp eq i32 %.0380, %307
+308:                                              ; preds = %301
+  %309 = zext nneg i32 %307 to i64
+  %310 = shl nsw i64 -1, %309
+  %311 = zext nneg i32 %302 to i64
+  %312 = getelementptr inbounds i64, ptr %236, i64 %311
+  %313 = load i64, ptr %312, align 8
+  %314 = or i64 %313, %310
+  store i64 %314, ptr %312, align 8
+  %.0380 = add nuw nsw i32 %302, 1
+  %.not366381 = icmp eq i32 %.0380, %306
   br i1 %.not366381, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %309
-  %316 = lshr i32 %237, 3
-  %317 = and i32 %316, 248
-  %318 = zext nneg i32 %317 to i64
-  %319 = getelementptr i8, ptr %15, i64 %318
-  %scevgep = getelementptr i8, ptr %319, i64 464
-  %320 = add i32 %307, -2
-  %321 = sub i32 %320, %303
-  %322 = zext i32 %321 to i64
-  %323 = shl nuw nsw i64 %322, 3
-  %324 = add nuw nsw i64 %323, 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, i8 -1, i64 %324, i1 false)
+.lr.ph.preheader:                                 ; preds = %308
+  %315 = lshr i32 %237, 3
+  %316 = and i32 %315, 248
+  %317 = zext nneg i32 %316 to i64
+  %318 = getelementptr i8, ptr %15, i64 %317
+  %scevgep = getelementptr i8, ptr %318, i64 464
+  %319 = add i32 %306, -2
+  %320 = sub i32 %319, %302
+  %321 = zext i32 %320 to i64
+  %322 = shl nuw nsw i64 %321, 3
+  %323 = add nuw nsw i64 %322, 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, i8 -1, i64 %323, i1 false)
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %309, %.lr.ph.preheader
-  %.pre-phi403 = and i64 %306, 4294967295
-  %325 = and i64 %305, 63
-  %326 = xor i64 %325, 63
-  %327 = lshr i64 -1, %326
-  br label %336
+._crit_edge:                                      ; preds = %308, %.lr.ph.preheader
+  %.pre-phi403 = and i64 %305, 4294967295
+  %324 = and i64 %304, 63
+  %325 = xor i64 %324, 63
+  %326 = lshr i64 -1, %325
+  br label %335
 
-328:                                              ; preds = %302
-  %329 = and i64 %305, 63
-  %330 = zext nneg i32 %308 to i64
-  %331 = shl nsw i64 -1, %330
-  %332 = xor i64 %329, 63
-  %333 = lshr i64 -1, %332
-  %334 = and i64 %331, %333
-  %335 = zext nneg i32 %303 to i64
-  br label %336
+327:                                              ; preds = %301
+  %328 = and i64 %304, 63
+  %329 = zext nneg i32 %307 to i64
+  %330 = shl nsw i64 -1, %329
+  %331 = xor i64 %328, 63
+  %332 = lshr i64 -1, %331
+  %333 = and i64 %330, %332
+  %334 = zext nneg i32 %302 to i64
+  br label %335
 
-336:                                              ; preds = %._crit_edge, %328, %297
-  %.pre-phi403.sink = phi i64 [ %.pre-phi403, %._crit_edge ], [ %335, %328 ], [ %301, %297 ]
-  %.sink406 = phi i64 [ %327, %._crit_edge ], [ %334, %328 ], [ %300, %297 ]
-  %337 = getelementptr inbounds i64, ptr %236, i64 %.pre-phi403.sink
-  %338 = load i64, ptr %337, align 8
-  %339 = or i64 %338, %.sink406
-  store i64 %339, ptr %337, align 8
-  %340 = or disjoint i32 %162, 1073741824
-  store i32 %340, ptr %19, align 4
-  br label %343
+335:                                              ; preds = %._crit_edge, %327, %296
+  %.pre-phi403.sink = phi i64 [ %.pre-phi403, %._crit_edge ], [ %334, %327 ], [ %300, %296 ]
+  %.sink406 = phi i64 [ %326, %._crit_edge ], [ %333, %327 ], [ %299, %296 ]
+  %336 = getelementptr inbounds i64, ptr %236, i64 %.pre-phi403.sink
+  %337 = load i64, ptr %336, align 8
+  %338 = or i64 %337, %.sink406
+  store i64 %338, ptr %336, align 8
+  %339 = or disjoint i32 %162, 1073741824
+  store i32 %339, ptr %19, align 4
+  br label %342
 
-.critedge:                                        ; preds = %264, %267, %240, %254, %150, %275, %231, %75
-  %.0328 = phi i64 [ %29, %75 ], [ %153, %275 ], [ %153, %231 ], [ %153, %150 ], [ %153, %254 ], [ %153, %240 ], [ %153, %267 ], [ %153, %264 ]
-  %341 = tail call i64 @llvm.umin.i64(i64 %.0328, i64 %2)
-  %342 = tail call fastcc ptr @zend_mm_realloc_slow(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %341)
-  br label %343
+.critedge:                                        ; preds = %263, %266, %240, %254, %150, %274, %231, %75
+  %.0328 = phi i64 [ %29, %75 ], [ %153, %274 ], [ %153, %231 ], [ %153, %150 ], [ %153, %254 ], [ %153, %240 ], [ %153, %266 ], [ %153, %263 ]
+  %340 = tail call i64 @llvm.umin.i64(i64 %.0328, i64 %2)
+  %341 = tail call fastcc ptr @zend_mm_realloc_slow(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %340)
+  br label %342
 
-343:                                              ; preds = %179, %218, %._crit_edge388, %155, %zend_mm_alloc_small_slow.exit, %70, %31, %30, %.critedge, %336, %11, %9
-  %.0327 = phi ptr [ %10, %9 ], [ %12, %11 ], [ %342, %.critedge ], [ %1, %336 ], [ %.0325, %70 ], [ %.0324, %zend_mm_alloc_small_slow.exit ], [ %1, %31 ], [ %1, %30 ], [ %1, %155 ], [ %1, %._crit_edge388 ], [ %1, %218 ], [ %1, %179 ]
+342:                                              ; preds = %179, %218, %._crit_edge388, %155, %zend_mm_alloc_small_slow.exit, %70, %31, %30, %.critedge, %335, %11, %9
+  %.0327 = phi ptr [ %10, %9 ], [ %12, %11 ], [ %341, %.critedge ], [ %1, %335 ], [ %.0325, %70 ], [ %.0324, %zend_mm_alloc_small_slow.exit ], [ %1, %31 ], [ %1, %30 ], [ %1, %155 ], [ %1, %._crit_edge388 ], [ %1, %218 ], [ %1, %179 ]
   ret ptr %.0327
 }
 
@@ -1806,11 +1805,11 @@ define ptr @_zend_mm_realloc2(ptr noundef %0, ptr noundef %1, i64 noundef %2, i6
 
 10:                                               ; preds = %8
   %11 = tail call noalias ptr @_zend_mm_alloc(ptr noundef %0, i64 noundef %2) #40
-  br label %346
+  br label %345
 
 12:                                               ; preds = %8
   %13 = tail call fastcc ptr @zend_mm_realloc_huge(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %2, i64 noundef %3)
-  br label %346
+  br label %345
 
 14:                                               ; preds = %4
   %15 = and i64 %5, -2097152
@@ -1843,7 +1842,7 @@ define ptr @_zend_mm_realloc2(ptr noundef %0, ptr noundef %1, i64 noundef %2, i6
 
 31:                                               ; preds = %25
   %.not371 = icmp eq i32 %26, 0
-  br i1 %.not371, label %346, label %32
+  br i1 %.not371, label %345, label %32
 
 32:                                               ; preds = %31
   %33 = add nsw i32 %26, -1
@@ -1852,7 +1851,7 @@ define ptr @_zend_mm_realloc2(ptr noundef %0, ptr noundef %1, i64 noundef %2, i6
   %36 = load i32, ptr %35, align 4
   %37 = zext i32 %36 to i64
   %38 = icmp ugt i64 %37, %2
-  br i1 %38, label %39, label %346
+  br i1 %38, label %39, label %345
 
 39:                                               ; preds = %32
   %40 = icmp ult i64 %2, 65
@@ -1917,7 +1916,7 @@ define ptr @_zend_mm_realloc2(ptr noundef %0, ptr noundef %1, i64 noundef %2, i6
   %76 = load ptr, ptr %75, align 8
   store ptr %76, ptr %1, align 8
   store ptr %1, ptr %75, align 8
-  br label %346
+  br label %345
 
 77:                                               ; preds = %25
   %78 = icmp ult i64 %2, 3073
@@ -2048,7 +2047,7 @@ zend_mm_alloc_small_slow.exit:                    ; preds = %143, %108, %106
   %149 = load i64, ptr %96, align 8
   %.375 = tail call i64 @llvm.umax.i64(i64 %81, i64 %149)
   store i64 %.375, ptr %80, align 8
-  br label %346
+  br label %345
 
 150:                                              ; preds = %24
   %151 = and i64 %5, 4095
@@ -2071,7 +2070,7 @@ zend_mm_alloc_small_slow.exit:                    ; preds = %143, %108, %106
   %159 = add nuw nsw i64 %2, 4095
   %160 = and i64 %159, 4190208
   %161 = icmp eq i64 %160, %156
-  br i1 %161, label %346, label %162
+  br i1 %161, label %345, label %162
 
 162:                                              ; preds = %158
   %163 = icmp ult i64 %160, %156
@@ -2110,7 +2109,7 @@ zend_mm_alloc_small_slow.exit:                    ; preds = %143, %108, %106
   %189 = load i64, ptr %188, align 8
   %190 = and i64 %189, %186
   store i64 %190, ptr %188, align 8
-  br label %346
+  br label %345
 
 191:                                              ; preds = %166
   %192 = lshr i32 %180, 6
@@ -2159,7 +2158,7 @@ zend_mm_alloc_small_slow.exit:                    ; preds = %143, %108, %106
   %219 = load i64, ptr %218, align 8
   %220 = and i64 %219, %217
   store i64 %220, ptr %218, align 8
-  br label %346
+  br label %345
 
 221:                                              ; preds = %191
   %222 = and i32 %194, 63
@@ -2175,7 +2174,7 @@ zend_mm_alloc_small_slow.exit:                    ; preds = %143, %108, %106
   %232 = load i64, ptr %231, align 8
   %233 = and i64 %232, %229
   store i64 %233, ptr %231, align 8
-  br label %346
+  br label %345
 
 234:                                              ; preds = %162
   %235 = add nuw nsw i64 %17, %164
@@ -2199,7 +2198,7 @@ zend_mm_alloc_small_slow.exit:                    ; preds = %143, %108, %106
   %249 = shl nuw i64 1, %248
   %250 = and i64 %247, %249
   %.not363 = icmp eq i64 %250, 0
-  br i1 %.not363, label %290, label %.critedge
+  br i1 %.not363, label %289, label %.critedge
 
 251:                                              ; preds = %237
   %252 = lshr i32 %240, 6
@@ -2208,156 +2207,155 @@ zend_mm_alloc_small_slow.exit:                    ; preds = %143, %108, %106
   %255 = lshr i32 %254, 6
   %256 = and i32 %240, 63
   %.not359 = icmp eq i32 %252, %255
-  br i1 %.not359, label %278, label %257
+  br i1 %.not359, label %277, label %257
 
 257:                                              ; preds = %251
   %258 = zext nneg i32 %256 to i64
-  %259 = shl nsw i64 -1, %258
-  %260 = zext nneg i32 %252 to i64
-  %261 = getelementptr inbounds i64, ptr %239, i64 %260
-  %262 = load i64, ptr %261, align 8
-  %263 = and i64 %262, %259
-  %.not360 = icmp eq i64 %263, 0
+  %259 = zext nneg i32 %252 to i64
+  %260 = getelementptr inbounds i64, ptr %239, i64 %259
+  %261 = load i64, ptr %260, align 8
+  %262 = lshr i64 %261, %258
+  %.not360 = icmp eq i64 %262, 0
   br i1 %.not360, label %.preheader.preheader, label %.critedge
 
 .preheader.preheader:                             ; preds = %257
-  %264 = lshr i32 %240, 6
-  %265 = zext nneg i32 %264 to i64
-  %266 = zext nneg i32 %255 to i64
+  %263 = lshr i32 %240, 6
+  %264 = zext nneg i32 %263 to i64
+  %265 = zext nneg i32 %255 to i64
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.preheader, %267
-  %indvars.iv = phi i64 [ %265, %.preheader.preheader ], [ %indvars.iv.next, %267 ]
+.preheader:                                       ; preds = %.preheader.preheader, %266
+  %indvars.iv = phi i64 [ %264, %.preheader.preheader ], [ %indvars.iv.next, %266 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.not361 = icmp eq i64 %indvars.iv.next, %266
-  br i1 %.not361, label %270, label %267
+  %.not361 = icmp eq i64 %indvars.iv.next, %265
+  br i1 %.not361, label %269, label %266
 
-267:                                              ; preds = %.preheader
-  %268 = getelementptr inbounds i64, ptr %239, i64 %indvars.iv.next
-  %269 = load i64, ptr %268, align 8
-  %.not362 = icmp eq i64 %269, 0
+266:                                              ; preds = %.preheader
+  %267 = getelementptr inbounds i64, ptr %239, i64 %indvars.iv.next
+  %268 = load i64, ptr %267, align 8
+  %.not362 = icmp eq i64 %268, 0
   br i1 %.not362, label %.preheader, label %.critedge
 
-270:                                              ; preds = %.preheader
-  %271 = and i64 %253, 63
-  %272 = xor i64 %271, 63
-  %273 = lshr i64 -1, %272
-  %274 = getelementptr inbounds i64, ptr %239, i64 %266
-  %275 = load i64, ptr %274, align 8
-  %276 = and i64 %275, %273
-  %277 = icmp eq i64 %276, 0
-  br i1 %277, label %290, label %.critedge
+269:                                              ; preds = %.preheader
+  %270 = and i64 %253, 63
+  %271 = xor i64 %270, 63
+  %272 = lshr i64 -1, %271
+  %273 = getelementptr inbounds i64, ptr %239, i64 %265
+  %274 = load i64, ptr %273, align 8
+  %275 = and i64 %274, %272
+  %276 = icmp eq i64 %275, 0
+  br i1 %276, label %289, label %.critedge
 
-278:                                              ; preds = %251
-  %279 = and i64 %253, 63
-  %280 = zext nneg i32 %256 to i64
-  %281 = shl nsw i64 -1, %280
-  %282 = xor i64 %279, 63
-  %283 = lshr i64 -1, %282
-  %284 = and i64 %281, %283
-  %285 = zext nneg i32 %252 to i64
-  %286 = getelementptr inbounds i64, ptr %239, i64 %285
-  %287 = load i64, ptr %286, align 8
-  %288 = and i64 %284, %287
-  %289 = icmp eq i64 %288, 0
-  br i1 %289, label %290, label %.critedge
+277:                                              ; preds = %251
+  %278 = and i64 %253, 63
+  %279 = zext nneg i32 %256 to i64
+  %280 = shl nsw i64 -1, %279
+  %281 = xor i64 %278, 63
+  %282 = lshr i64 -1, %281
+  %283 = and i64 %280, %282
+  %284 = zext nneg i32 %252 to i64
+  %285 = getelementptr inbounds i64, ptr %239, i64 %284
+  %286 = load i64, ptr %285, align 8
+  %287 = and i64 %283, %286
+  %288 = icmp eq i64 %287, 0
+  br i1 %288, label %289, label %.critedge
 
-290:                                              ; preds = %270, %243, %278
-  %291 = getelementptr inbounds i8, ptr %0, i64 16
-  %292 = load i64, ptr %291, align 8
-  %293 = sub nsw i64 %160, %156
-  %294 = add i64 %292, %293
-  %295 = getelementptr inbounds i8, ptr %0, i64 24
-  %296 = load i64, ptr %295, align 8
-  %.376 = tail call i64 @llvm.umax.i64(i64 %296, i64 %294)
-  store i64 %294, ptr %291, align 8
-  store i64 %.376, ptr %295, align 8
-  %297 = getelementptr inbounds i8, ptr %16, i64 24
-  %298 = load i32, ptr %297, align 8
-  %299 = sub i32 %298, %241
-  store i32 %299, ptr %297, align 8
-  br i1 %242, label %300, label %305
+289:                                              ; preds = %269, %243, %277
+  %290 = getelementptr inbounds i8, ptr %0, i64 16
+  %291 = load i64, ptr %290, align 8
+  %292 = sub nsw i64 %160, %156
+  %293 = add i64 %291, %292
+  %294 = getelementptr inbounds i8, ptr %0, i64 24
+  %295 = load i64, ptr %294, align 8
+  %.376 = tail call i64 @llvm.umax.i64(i64 %295, i64 %293)
+  store i64 %293, ptr %290, align 8
+  store i64 %.376, ptr %294, align 8
+  %296 = getelementptr inbounds i8, ptr %16, i64 24
+  %297 = load i32, ptr %296, align 8
+  %298 = sub i32 %297, %241
+  store i32 %298, ptr %296, align 8
+  br i1 %242, label %299, label %304
 
-300:                                              ; preds = %290
-  %301 = zext nneg i32 %240 to i64
-  %302 = and i64 %301, 63
-  %303 = shl nuw i64 1, %302
-  %304 = lshr i64 %301, 6
-  br label %339
+299:                                              ; preds = %289
+  %300 = zext nneg i32 %240 to i64
+  %301 = and i64 %300, 63
+  %302 = shl nuw i64 1, %301
+  %303 = lshr i64 %300, 6
+  br label %338
 
-305:                                              ; preds = %290
-  %306 = lshr i32 %240, 6
-  %307 = shl nuw nsw i64 %235, 32
-  %sext364 = add nsw i64 %307, -4294967296
-  %308 = ashr exact i64 %sext364, 32
-  %309 = lshr i64 %308, 6
-  %310 = trunc i64 %309 to i32
-  %311 = and i32 %240, 63
-  %.not365 = icmp eq i32 %306, %310
-  br i1 %.not365, label %331, label %312
+304:                                              ; preds = %289
+  %305 = lshr i32 %240, 6
+  %306 = shl nuw nsw i64 %235, 32
+  %sext364 = add nsw i64 %306, -4294967296
+  %307 = ashr exact i64 %sext364, 32
+  %308 = lshr i64 %307, 6
+  %309 = trunc i64 %308 to i32
+  %310 = and i32 %240, 63
+  %.not365 = icmp eq i32 %305, %309
+  br i1 %.not365, label %330, label %311
 
-312:                                              ; preds = %305
-  %313 = zext nneg i32 %311 to i64
-  %314 = shl nsw i64 -1, %313
-  %315 = zext nneg i32 %306 to i64
-  %316 = getelementptr inbounds i64, ptr %239, i64 %315
-  %317 = load i64, ptr %316, align 8
-  %318 = or i64 %317, %314
-  store i64 %318, ptr %316, align 8
-  %.0380 = add nuw nsw i32 %306, 1
-  %.not366381 = icmp eq i32 %.0380, %310
+311:                                              ; preds = %304
+  %312 = zext nneg i32 %310 to i64
+  %313 = shl nsw i64 -1, %312
+  %314 = zext nneg i32 %305 to i64
+  %315 = getelementptr inbounds i64, ptr %239, i64 %314
+  %316 = load i64, ptr %315, align 8
+  %317 = or i64 %316, %313
+  store i64 %317, ptr %315, align 8
+  %.0380 = add nuw nsw i32 %305, 1
+  %.not366381 = icmp eq i32 %.0380, %309
   br i1 %.not366381, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %312
-  %319 = lshr i32 %240, 3
-  %320 = and i32 %319, 248
-  %321 = zext nneg i32 %320 to i64
-  %322 = getelementptr i8, ptr %16, i64 %321
-  %scevgep = getelementptr i8, ptr %322, i64 464
-  %323 = add i32 %310, -2
-  %324 = sub i32 %323, %306
-  %325 = zext i32 %324 to i64
-  %326 = shl nuw nsw i64 %325, 3
-  %327 = add nuw nsw i64 %326, 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, i8 -1, i64 %327, i1 false)
+.lr.ph.preheader:                                 ; preds = %311
+  %318 = lshr i32 %240, 3
+  %319 = and i32 %318, 248
+  %320 = zext nneg i32 %319 to i64
+  %321 = getelementptr i8, ptr %16, i64 %320
+  %scevgep = getelementptr i8, ptr %321, i64 464
+  %322 = add i32 %309, -2
+  %323 = sub i32 %322, %305
+  %324 = zext i32 %323 to i64
+  %325 = shl nuw nsw i64 %324, 3
+  %326 = add nuw nsw i64 %325, 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, i8 -1, i64 %326, i1 false)
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %312, %.lr.ph.preheader
-  %.pre-phi403 = and i64 %309, 4294967295
-  %328 = and i64 %308, 63
-  %329 = xor i64 %328, 63
-  %330 = lshr i64 -1, %329
-  br label %339
+._crit_edge:                                      ; preds = %311, %.lr.ph.preheader
+  %.pre-phi403 = and i64 %308, 4294967295
+  %327 = and i64 %307, 63
+  %328 = xor i64 %327, 63
+  %329 = lshr i64 -1, %328
+  br label %338
 
-331:                                              ; preds = %305
-  %332 = and i64 %308, 63
-  %333 = zext nneg i32 %311 to i64
-  %334 = shl nsw i64 -1, %333
-  %335 = xor i64 %332, 63
-  %336 = lshr i64 -1, %335
-  %337 = and i64 %334, %336
-  %338 = zext nneg i32 %306 to i64
-  br label %339
+330:                                              ; preds = %304
+  %331 = and i64 %307, 63
+  %332 = zext nneg i32 %310 to i64
+  %333 = shl nsw i64 -1, %332
+  %334 = xor i64 %331, 63
+  %335 = lshr i64 -1, %334
+  %336 = and i64 %333, %335
+  %337 = zext nneg i32 %305 to i64
+  br label %338
 
-339:                                              ; preds = %._crit_edge, %331, %300
-  %.pre-phi403.sink = phi i64 [ %.pre-phi403, %._crit_edge ], [ %338, %331 ], [ %304, %300 ]
-  %.sink406 = phi i64 [ %330, %._crit_edge ], [ %337, %331 ], [ %303, %300 ]
-  %340 = getelementptr inbounds i64, ptr %239, i64 %.pre-phi403.sink
-  %341 = load i64, ptr %340, align 8
-  %342 = or i64 %341, %.sink406
-  store i64 %342, ptr %340, align 8
-  %343 = or disjoint i32 %165, 1073741824
-  store i32 %343, ptr %20, align 4
-  br label %346
+338:                                              ; preds = %._crit_edge, %330, %299
+  %.pre-phi403.sink = phi i64 [ %.pre-phi403, %._crit_edge ], [ %337, %330 ], [ %303, %299 ]
+  %.sink406 = phi i64 [ %329, %._crit_edge ], [ %336, %330 ], [ %302, %299 ]
+  %339 = getelementptr inbounds i64, ptr %239, i64 %.pre-phi403.sink
+  %340 = load i64, ptr %339, align 8
+  %341 = or i64 %340, %.sink406
+  store i64 %341, ptr %339, align 8
+  %342 = or disjoint i32 %165, 1073741824
+  store i32 %342, ptr %20, align 4
+  br label %345
 
-.critedge:                                        ; preds = %267, %270, %243, %257, %153, %278, %234, %77
-  %.0328 = phi i64 [ %30, %77 ], [ %156, %278 ], [ %156, %234 ], [ %156, %153 ], [ %156, %257 ], [ %156, %243 ], [ %156, %270 ], [ %156, %267 ]
-  %344 = tail call i64 @llvm.umin.i64(i64 %.0328, i64 %3)
-  %345 = tail call fastcc ptr @zend_mm_realloc_slow(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %344)
-  br label %346
+.critedge:                                        ; preds = %266, %269, %243, %257, %153, %277, %234, %77
+  %.0328 = phi i64 [ %30, %77 ], [ %156, %277 ], [ %156, %234 ], [ %156, %153 ], [ %156, %257 ], [ %156, %243 ], [ %156, %269 ], [ %156, %266 ]
+  %343 = tail call i64 @llvm.umin.i64(i64 %.0328, i64 %3)
+  %344 = tail call fastcc ptr @zend_mm_realloc_slow(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %343)
+  br label %345
 
-346:                                              ; preds = %182, %221, %._crit_edge388, %158, %zend_mm_alloc_small_slow.exit, %71, %32, %31, %.critedge, %339, %12, %10
-  %.0326 = phi ptr [ %11, %10 ], [ %13, %12 ], [ %345, %.critedge ], [ %1, %339 ], [ %.0325, %71 ], [ %.0324, %zend_mm_alloc_small_slow.exit ], [ %1, %32 ], [ %1, %31 ], [ %1, %158 ], [ %1, %._crit_edge388 ], [ %1, %221 ], [ %1, %182 ]
+345:                                              ; preds = %182, %221, %._crit_edge388, %158, %zend_mm_alloc_small_slow.exit, %71, %32, %31, %.critedge, %338, %12, %10
+  %.0326 = phi ptr [ %11, %10 ], [ %13, %12 ], [ %344, %.critedge ], [ %1, %338 ], [ %.0325, %71 ], [ %.0324, %zend_mm_alloc_small_slow.exit ], [ %1, %32 ], [ %1, %31 ], [ %1, %158 ], [ %1, %._crit_edge388 ], [ %1, %221 ], [ %1, %182 ]
   ret ptr %.0326
 }
 
@@ -6736,7 +6734,7 @@ define ptr @_erealloc(ptr noundef %0, i64 noundef %1) local_unnamed_addr #7 {
   %6 = getelementptr inbounds i8, ptr %3, i64 376
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr %7(ptr noundef %0, i64 noundef %1) #35
-  br label %316
+  br label %315
 
 9:                                                ; preds = %2
   %10 = ptrtoint ptr %0 to i64
@@ -6750,11 +6748,11 @@ define ptr @_erealloc(ptr noundef %0, i64 noundef %1) local_unnamed_addr #7 {
 
 15:                                               ; preds = %13
   %16 = tail call noalias ptr @_zend_mm_alloc(ptr noundef nonnull %3, i64 noundef %1) #40
-  br label %316
+  br label %315
 
 17:                                               ; preds = %13
   %18 = tail call fastcc ptr @zend_mm_realloc_huge(ptr noundef nonnull %3, ptr noundef nonnull %0, i64 noundef %1, i64 noundef %1)
-  br label %316
+  br label %315
 
 19:                                               ; preds = %9
   %20 = and i64 %10, -2097152
@@ -6787,7 +6785,7 @@ define ptr @_erealloc(ptr noundef %0, i64 noundef %1) local_unnamed_addr #7 {
 
 36:                                               ; preds = %30
   %.not375 = icmp eq i32 %31, 0
-  br i1 %.not375, label %316, label %37
+  br i1 %.not375, label %315, label %37
 
 37:                                               ; preds = %36
   %38 = add nsw i32 %31, -1
@@ -6796,7 +6794,7 @@ define ptr @_erealloc(ptr noundef %0, i64 noundef %1) local_unnamed_addr #7 {
   %41 = load i32, ptr %40, align 4
   %42 = zext i32 %41 to i64
   %43 = icmp ugt i64 %42, %1
-  br i1 %43, label %44, label %316
+  br i1 %43, label %44, label %315
 
 44:                                               ; preds = %37
   %45 = icmp ult i64 %1, 65
@@ -6860,7 +6858,7 @@ define ptr @_erealloc(ptr noundef %0, i64 noundef %1) local_unnamed_addr #7 {
   %80 = load ptr, ptr %79, align 8
   store ptr %80, ptr %0, align 8
   store ptr %0, ptr %79, align 8
-  br label %316
+  br label %315
 
 81:                                               ; preds = %30
   %82 = icmp ult i64 %1, 3073
@@ -6929,7 +6927,7 @@ define ptr @_erealloc(ptr noundef %0, i64 noundef %1) local_unnamed_addr #7 {
   %119 = load i64, ptr %100, align 8
   %.379 = tail call i64 @llvm.umax.i64(i64 %85, i64 %119)
   store i64 %.379, ptr %84, align 8
-  br label %316
+  br label %315
 
 120:                                              ; preds = %29
   %121 = and i64 %10, 4095
@@ -6952,7 +6950,7 @@ define ptr @_erealloc(ptr noundef %0, i64 noundef %1) local_unnamed_addr #7 {
   %129 = add nuw nsw i64 %1, 4095
   %130 = and i64 %129, 4190208
   %131 = icmp eq i64 %130, %126
-  br i1 %131, label %316, label %132
+  br i1 %131, label %315, label %132
 
 132:                                              ; preds = %128
   %133 = icmp ult i64 %130, %126
@@ -6991,7 +6989,7 @@ define ptr @_erealloc(ptr noundef %0, i64 noundef %1) local_unnamed_addr #7 {
   %159 = load i64, ptr %158, align 8
   %160 = and i64 %159, %156
   store i64 %160, ptr %158, align 8
-  br label %316
+  br label %315
 
 161:                                              ; preds = %136
   %162 = lshr i32 %150, 6
@@ -7040,7 +7038,7 @@ define ptr @_erealloc(ptr noundef %0, i64 noundef %1) local_unnamed_addr #7 {
   %189 = load i64, ptr %188, align 8
   %190 = and i64 %189, %187
   store i64 %190, ptr %188, align 8
-  br label %316
+  br label %315
 
 191:                                              ; preds = %161
   %192 = and i32 %164, 63
@@ -7056,7 +7054,7 @@ define ptr @_erealloc(ptr noundef %0, i64 noundef %1) local_unnamed_addr #7 {
   %202 = load i64, ptr %201, align 8
   %203 = and i64 %202, %199
   store i64 %203, ptr %201, align 8
-  br label %316
+  br label %315
 
 204:                                              ; preds = %132
   %205 = add nuw nsw i64 %22, %134
@@ -7080,7 +7078,7 @@ define ptr @_erealloc(ptr noundef %0, i64 noundef %1) local_unnamed_addr #7 {
   %219 = shl nuw i64 1, %218
   %220 = and i64 %217, %219
   %.not367 = icmp eq i64 %220, 0
-  br i1 %.not367, label %260, label %.critedge
+  br i1 %.not367, label %259, label %.critedge
 
 221:                                              ; preds = %207
   %222 = lshr i32 %210, 6
@@ -7089,156 +7087,155 @@ define ptr @_erealloc(ptr noundef %0, i64 noundef %1) local_unnamed_addr #7 {
   %225 = lshr i32 %224, 6
   %226 = and i32 %210, 63
   %.not363 = icmp eq i32 %222, %225
-  br i1 %.not363, label %248, label %227
+  br i1 %.not363, label %247, label %227
 
 227:                                              ; preds = %221
   %228 = zext nneg i32 %226 to i64
-  %229 = shl nsw i64 -1, %228
-  %230 = zext nneg i32 %222 to i64
-  %231 = getelementptr inbounds i64, ptr %209, i64 %230
-  %232 = load i64, ptr %231, align 8
-  %233 = and i64 %232, %229
-  %.not364 = icmp eq i64 %233, 0
+  %229 = zext nneg i32 %222 to i64
+  %230 = getelementptr inbounds i64, ptr %209, i64 %229
+  %231 = load i64, ptr %230, align 8
+  %232 = lshr i64 %231, %228
+  %.not364 = icmp eq i64 %232, 0
   br i1 %.not364, label %.preheader.preheader, label %.critedge
 
 .preheader.preheader:                             ; preds = %227
-  %234 = lshr i32 %210, 6
-  %235 = zext nneg i32 %234 to i64
-  %236 = zext nneg i32 %225 to i64
+  %233 = lshr i32 %210, 6
+  %234 = zext nneg i32 %233 to i64
+  %235 = zext nneg i32 %225 to i64
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.preheader, %237
-  %indvars.iv = phi i64 [ %235, %.preheader.preheader ], [ %indvars.iv.next, %237 ]
+.preheader:                                       ; preds = %.preheader.preheader, %236
+  %indvars.iv = phi i64 [ %234, %.preheader.preheader ], [ %indvars.iv.next, %236 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.not365 = icmp eq i64 %indvars.iv.next, %236
-  br i1 %.not365, label %240, label %237
+  %.not365 = icmp eq i64 %indvars.iv.next, %235
+  br i1 %.not365, label %239, label %236
 
-237:                                              ; preds = %.preheader
-  %238 = getelementptr inbounds i64, ptr %209, i64 %indvars.iv.next
-  %239 = load i64, ptr %238, align 8
-  %.not366 = icmp eq i64 %239, 0
+236:                                              ; preds = %.preheader
+  %237 = getelementptr inbounds i64, ptr %209, i64 %indvars.iv.next
+  %238 = load i64, ptr %237, align 8
+  %.not366 = icmp eq i64 %238, 0
   br i1 %.not366, label %.preheader, label %.critedge
 
-240:                                              ; preds = %.preheader
-  %241 = and i64 %223, 63
-  %242 = xor i64 %241, 63
-  %243 = lshr i64 -1, %242
-  %244 = getelementptr inbounds i64, ptr %209, i64 %236
-  %245 = load i64, ptr %244, align 8
-  %246 = and i64 %245, %243
-  %247 = icmp eq i64 %246, 0
-  br i1 %247, label %260, label %.critedge
+239:                                              ; preds = %.preheader
+  %240 = and i64 %223, 63
+  %241 = xor i64 %240, 63
+  %242 = lshr i64 -1, %241
+  %243 = getelementptr inbounds i64, ptr %209, i64 %235
+  %244 = load i64, ptr %243, align 8
+  %245 = and i64 %244, %242
+  %246 = icmp eq i64 %245, 0
+  br i1 %246, label %259, label %.critedge
 
-248:                                              ; preds = %221
-  %249 = and i64 %223, 63
-  %250 = zext nneg i32 %226 to i64
-  %251 = shl nsw i64 -1, %250
-  %252 = xor i64 %249, 63
-  %253 = lshr i64 -1, %252
-  %254 = and i64 %251, %253
-  %255 = zext nneg i32 %222 to i64
-  %256 = getelementptr inbounds i64, ptr %209, i64 %255
-  %257 = load i64, ptr %256, align 8
-  %258 = and i64 %254, %257
-  %259 = icmp eq i64 %258, 0
-  br i1 %259, label %260, label %.critedge
+247:                                              ; preds = %221
+  %248 = and i64 %223, 63
+  %249 = zext nneg i32 %226 to i64
+  %250 = shl nsw i64 -1, %249
+  %251 = xor i64 %248, 63
+  %252 = lshr i64 -1, %251
+  %253 = and i64 %250, %252
+  %254 = zext nneg i32 %222 to i64
+  %255 = getelementptr inbounds i64, ptr %209, i64 %254
+  %256 = load i64, ptr %255, align 8
+  %257 = and i64 %253, %256
+  %258 = icmp eq i64 %257, 0
+  br i1 %258, label %259, label %.critedge
 
-260:                                              ; preds = %240, %213, %248
-  %261 = getelementptr inbounds i8, ptr %3, i64 16
-  %262 = load i64, ptr %261, align 8
-  %263 = sub nsw i64 %130, %126
-  %264 = add i64 %262, %263
-  %265 = getelementptr inbounds i8, ptr %3, i64 24
-  %266 = load i64, ptr %265, align 8
-  %.380 = tail call i64 @llvm.umax.i64(i64 %266, i64 %264)
-  store i64 %264, ptr %261, align 8
-  store i64 %.380, ptr %265, align 8
-  %267 = getelementptr inbounds i8, ptr %21, i64 24
-  %268 = load i32, ptr %267, align 8
-  %269 = sub i32 %268, %211
-  store i32 %269, ptr %267, align 8
-  br i1 %212, label %270, label %275
+259:                                              ; preds = %239, %213, %247
+  %260 = getelementptr inbounds i8, ptr %3, i64 16
+  %261 = load i64, ptr %260, align 8
+  %262 = sub nsw i64 %130, %126
+  %263 = add i64 %261, %262
+  %264 = getelementptr inbounds i8, ptr %3, i64 24
+  %265 = load i64, ptr %264, align 8
+  %.380 = tail call i64 @llvm.umax.i64(i64 %265, i64 %263)
+  store i64 %263, ptr %260, align 8
+  store i64 %.380, ptr %264, align 8
+  %266 = getelementptr inbounds i8, ptr %21, i64 24
+  %267 = load i32, ptr %266, align 8
+  %268 = sub i32 %267, %211
+  store i32 %268, ptr %266, align 8
+  br i1 %212, label %269, label %274
 
-270:                                              ; preds = %260
-  %271 = zext nneg i32 %210 to i64
-  %272 = and i64 %271, 63
-  %273 = shl nuw i64 1, %272
-  %274 = lshr i64 %271, 6
-  br label %309
+269:                                              ; preds = %259
+  %270 = zext nneg i32 %210 to i64
+  %271 = and i64 %270, 63
+  %272 = shl nuw i64 1, %271
+  %273 = lshr i64 %270, 6
+  br label %308
 
-275:                                              ; preds = %260
-  %276 = lshr i32 %210, 6
-  %277 = shl nuw nsw i64 %205, 32
-  %sext368 = add nsw i64 %277, -4294967296
-  %278 = ashr exact i64 %sext368, 32
-  %279 = lshr i64 %278, 6
-  %280 = trunc i64 %279 to i32
-  %281 = and i32 %210, 63
-  %.not369 = icmp eq i32 %276, %280
-  br i1 %.not369, label %301, label %282
+274:                                              ; preds = %259
+  %275 = lshr i32 %210, 6
+  %276 = shl nuw nsw i64 %205, 32
+  %sext368 = add nsw i64 %276, -4294967296
+  %277 = ashr exact i64 %sext368, 32
+  %278 = lshr i64 %277, 6
+  %279 = trunc i64 %278 to i32
+  %280 = and i32 %210, 63
+  %.not369 = icmp eq i32 %275, %279
+  br i1 %.not369, label %300, label %281
 
-282:                                              ; preds = %275
-  %283 = zext nneg i32 %281 to i64
-  %284 = shl nsw i64 -1, %283
-  %285 = zext nneg i32 %276 to i64
-  %286 = getelementptr inbounds i64, ptr %209, i64 %285
-  %287 = load i64, ptr %286, align 8
-  %288 = or i64 %287, %284
-  store i64 %288, ptr %286, align 8
-  %.0384 = add nuw nsw i32 %276, 1
-  %.not370385 = icmp eq i32 %.0384, %280
+281:                                              ; preds = %274
+  %282 = zext nneg i32 %280 to i64
+  %283 = shl nsw i64 -1, %282
+  %284 = zext nneg i32 %275 to i64
+  %285 = getelementptr inbounds i64, ptr %209, i64 %284
+  %286 = load i64, ptr %285, align 8
+  %287 = or i64 %286, %283
+  store i64 %287, ptr %285, align 8
+  %.0384 = add nuw nsw i32 %275, 1
+  %.not370385 = icmp eq i32 %.0384, %279
   br i1 %.not370385, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %282
-  %289 = lshr i32 %210, 3
-  %290 = and i32 %289, 248
-  %291 = zext nneg i32 %290 to i64
-  %292 = getelementptr i8, ptr %21, i64 %291
-  %scevgep = getelementptr i8, ptr %292, i64 464
-  %293 = add i32 %280, -2
-  %294 = sub i32 %293, %276
-  %295 = zext i32 %294 to i64
-  %296 = shl nuw nsw i64 %295, 3
-  %297 = add nuw nsw i64 %296, 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, i8 -1, i64 %297, i1 false)
+.lr.ph.preheader:                                 ; preds = %281
+  %288 = lshr i32 %210, 3
+  %289 = and i32 %288, 248
+  %290 = zext nneg i32 %289 to i64
+  %291 = getelementptr i8, ptr %21, i64 %290
+  %scevgep = getelementptr i8, ptr %291, i64 464
+  %292 = add i32 %279, -2
+  %293 = sub i32 %292, %275
+  %294 = zext i32 %293 to i64
+  %295 = shl nuw nsw i64 %294, 3
+  %296 = add nuw nsw i64 %295, 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, i8 -1, i64 %296, i1 false)
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %282, %.lr.ph.preheader
-  %.pre-phi407 = and i64 %279, 4294967295
-  %298 = and i64 %278, 63
-  %299 = xor i64 %298, 63
-  %300 = lshr i64 -1, %299
-  br label %309
+._crit_edge:                                      ; preds = %281, %.lr.ph.preheader
+  %.pre-phi407 = and i64 %278, 4294967295
+  %297 = and i64 %277, 63
+  %298 = xor i64 %297, 63
+  %299 = lshr i64 -1, %298
+  br label %308
 
-301:                                              ; preds = %275
-  %302 = and i64 %278, 63
-  %303 = zext nneg i32 %281 to i64
-  %304 = shl nsw i64 -1, %303
-  %305 = xor i64 %302, 63
-  %306 = lshr i64 -1, %305
-  %307 = and i64 %304, %306
-  %308 = zext nneg i32 %276 to i64
-  br label %309
+300:                                              ; preds = %274
+  %301 = and i64 %277, 63
+  %302 = zext nneg i32 %280 to i64
+  %303 = shl nsw i64 -1, %302
+  %304 = xor i64 %301, 63
+  %305 = lshr i64 -1, %304
+  %306 = and i64 %303, %305
+  %307 = zext nneg i32 %275 to i64
+  br label %308
 
-309:                                              ; preds = %._crit_edge, %301, %270
-  %.pre-phi407.sink = phi i64 [ %.pre-phi407, %._crit_edge ], [ %308, %301 ], [ %274, %270 ]
-  %.sink410 = phi i64 [ %300, %._crit_edge ], [ %307, %301 ], [ %273, %270 ]
-  %310 = getelementptr inbounds i64, ptr %209, i64 %.pre-phi407.sink
-  %311 = load i64, ptr %310, align 8
-  %312 = or i64 %311, %.sink410
-  store i64 %312, ptr %310, align 8
-  %313 = or disjoint i32 %135, 1073741824
-  store i32 %313, ptr %25, align 4
-  br label %316
+308:                                              ; preds = %._crit_edge, %300, %269
+  %.pre-phi407.sink = phi i64 [ %.pre-phi407, %._crit_edge ], [ %307, %300 ], [ %273, %269 ]
+  %.sink410 = phi i64 [ %299, %._crit_edge ], [ %306, %300 ], [ %272, %269 ]
+  %309 = getelementptr inbounds i64, ptr %209, i64 %.pre-phi407.sink
+  %310 = load i64, ptr %309, align 8
+  %311 = or i64 %310, %.sink410
+  store i64 %311, ptr %309, align 8
+  %312 = or disjoint i32 %135, 1073741824
+  store i32 %312, ptr %25, align 4
+  br label %315
 
-.critedge:                                        ; preds = %237, %240, %213, %227, %123, %248, %204, %81
-  %.0330 = phi i64 [ %35, %81 ], [ %126, %248 ], [ %126, %204 ], [ %126, %123 ], [ %126, %227 ], [ %126, %213 ], [ %126, %240 ], [ %126, %237 ]
-  %314 = tail call i64 @llvm.umin.i64(i64 %.0330, i64 %1)
-  %315 = tail call fastcc ptr @zend_mm_realloc_slow(ptr noundef nonnull %3, ptr noundef %0, i64 noundef %1, i64 noundef %314)
-  br label %316
+.critedge:                                        ; preds = %236, %239, %213, %227, %123, %247, %204, %81
+  %.0330 = phi i64 [ %35, %81 ], [ %126, %247 ], [ %126, %204 ], [ %126, %123 ], [ %126, %227 ], [ %126, %213 ], [ %126, %239 ], [ %126, %236 ]
+  %313 = tail call i64 @llvm.umin.i64(i64 %.0330, i64 %1)
+  %314 = tail call fastcc ptr @zend_mm_realloc_slow(ptr noundef nonnull %3, ptr noundef %0, i64 noundef %1, i64 noundef %313)
+  br label %315
 
-316:                                              ; preds = %15, %17, %309, %.critedge, %36, %37, %76, %114, %128, %._crit_edge392, %191, %152, %5
-  %.0321 = phi ptr [ %8, %5 ], [ %16, %15 ], [ %18, %17 ], [ %315, %.critedge ], [ %0, %309 ], [ %.0329, %76 ], [ %.0327, %114 ], [ %0, %37 ], [ %0, %36 ], [ %0, %128 ], [ %0, %._crit_edge392 ], [ %0, %191 ], [ %0, %152 ]
+315:                                              ; preds = %15, %17, %308, %.critedge, %36, %37, %76, %114, %128, %._crit_edge392, %191, %152, %5
+  %.0321 = phi ptr [ %8, %5 ], [ %16, %15 ], [ %18, %17 ], [ %314, %.critedge ], [ %0, %308 ], [ %.0329, %76 ], [ %.0327, %114 ], [ %0, %37 ], [ %0, %36 ], [ %0, %128 ], [ %0, %._crit_edge392 ], [ %0, %191 ], [ %0, %152 ]
   ret ptr %.0321
 }
 
@@ -7253,7 +7250,7 @@ define ptr @_erealloc2(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unn
   %7 = getelementptr inbounds i8, ptr %4, i64 376
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr %8(ptr noundef %0, i64 noundef %1) #35
-  br label %319
+  br label %318
 
 10:                                               ; preds = %3
   %11 = ptrtoint ptr %0 to i64
@@ -7267,11 +7264,11 @@ define ptr @_erealloc2(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unn
 
 16:                                               ; preds = %14
   %17 = tail call noalias ptr @_zend_mm_alloc(ptr noundef nonnull %4, i64 noundef %1) #40
-  br label %319
+  br label %318
 
 18:                                               ; preds = %14
   %19 = tail call fastcc ptr @zend_mm_realloc_huge(ptr noundef nonnull %4, ptr noundef nonnull %0, i64 noundef %1, i64 noundef %2)
-  br label %319
+  br label %318
 
 20:                                               ; preds = %10
   %21 = and i64 %11, -2097152
@@ -7304,7 +7301,7 @@ define ptr @_erealloc2(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unn
 
 37:                                               ; preds = %31
   %.not375 = icmp eq i32 %32, 0
-  br i1 %.not375, label %319, label %38
+  br i1 %.not375, label %318, label %38
 
 38:                                               ; preds = %37
   %39 = add nsw i32 %32, -1
@@ -7313,7 +7310,7 @@ define ptr @_erealloc2(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unn
   %42 = load i32, ptr %41, align 4
   %43 = zext i32 %42 to i64
   %44 = icmp ugt i64 %43, %1
-  br i1 %44, label %45, label %319
+  br i1 %44, label %45, label %318
 
 45:                                               ; preds = %38
   %46 = icmp ult i64 %1, 65
@@ -7378,7 +7375,7 @@ define ptr @_erealloc2(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unn
   %82 = load ptr, ptr %81, align 8
   store ptr %82, ptr %0, align 8
   store ptr %0, ptr %81, align 8
-  br label %319
+  br label %318
 
 83:                                               ; preds = %31
   %84 = icmp ult i64 %1, 3073
@@ -7448,7 +7445,7 @@ define ptr @_erealloc2(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unn
   %122 = load i64, ptr %102, align 8
   %.379 = tail call i64 @llvm.umax.i64(i64 %87, i64 %122)
   store i64 %.379, ptr %86, align 8
-  br label %319
+  br label %318
 
 123:                                              ; preds = %30
   %124 = and i64 %11, 4095
@@ -7471,7 +7468,7 @@ define ptr @_erealloc2(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unn
   %132 = add nuw nsw i64 %1, 4095
   %133 = and i64 %132, 4190208
   %134 = icmp eq i64 %133, %129
-  br i1 %134, label %319, label %135
+  br i1 %134, label %318, label %135
 
 135:                                              ; preds = %131
   %136 = icmp ult i64 %133, %129
@@ -7510,7 +7507,7 @@ define ptr @_erealloc2(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unn
   %162 = load i64, ptr %161, align 8
   %163 = and i64 %162, %159
   store i64 %163, ptr %161, align 8
-  br label %319
+  br label %318
 
 164:                                              ; preds = %139
   %165 = lshr i32 %153, 6
@@ -7559,7 +7556,7 @@ define ptr @_erealloc2(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unn
   %192 = load i64, ptr %191, align 8
   %193 = and i64 %192, %190
   store i64 %193, ptr %191, align 8
-  br label %319
+  br label %318
 
 194:                                              ; preds = %164
   %195 = and i32 %167, 63
@@ -7575,7 +7572,7 @@ define ptr @_erealloc2(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unn
   %205 = load i64, ptr %204, align 8
   %206 = and i64 %205, %202
   store i64 %206, ptr %204, align 8
-  br label %319
+  br label %318
 
 207:                                              ; preds = %135
   %208 = add nuw nsw i64 %23, %137
@@ -7599,7 +7596,7 @@ define ptr @_erealloc2(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unn
   %222 = shl nuw i64 1, %221
   %223 = and i64 %220, %222
   %.not367 = icmp eq i64 %223, 0
-  br i1 %.not367, label %263, label %.critedge
+  br i1 %.not367, label %262, label %.critedge
 
 224:                                              ; preds = %210
   %225 = lshr i32 %213, 6
@@ -7608,156 +7605,155 @@ define ptr @_erealloc2(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unn
   %228 = lshr i32 %227, 6
   %229 = and i32 %213, 63
   %.not363 = icmp eq i32 %225, %228
-  br i1 %.not363, label %251, label %230
+  br i1 %.not363, label %250, label %230
 
 230:                                              ; preds = %224
   %231 = zext nneg i32 %229 to i64
-  %232 = shl nsw i64 -1, %231
-  %233 = zext nneg i32 %225 to i64
-  %234 = getelementptr inbounds i64, ptr %212, i64 %233
-  %235 = load i64, ptr %234, align 8
-  %236 = and i64 %235, %232
-  %.not364 = icmp eq i64 %236, 0
+  %232 = zext nneg i32 %225 to i64
+  %233 = getelementptr inbounds i64, ptr %212, i64 %232
+  %234 = load i64, ptr %233, align 8
+  %235 = lshr i64 %234, %231
+  %.not364 = icmp eq i64 %235, 0
   br i1 %.not364, label %.preheader.preheader, label %.critedge
 
 .preheader.preheader:                             ; preds = %230
-  %237 = lshr i32 %213, 6
-  %238 = zext nneg i32 %237 to i64
-  %239 = zext nneg i32 %228 to i64
+  %236 = lshr i32 %213, 6
+  %237 = zext nneg i32 %236 to i64
+  %238 = zext nneg i32 %228 to i64
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.preheader, %240
-  %indvars.iv = phi i64 [ %238, %.preheader.preheader ], [ %indvars.iv.next, %240 ]
+.preheader:                                       ; preds = %.preheader.preheader, %239
+  %indvars.iv = phi i64 [ %237, %.preheader.preheader ], [ %indvars.iv.next, %239 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.not365 = icmp eq i64 %indvars.iv.next, %239
-  br i1 %.not365, label %243, label %240
+  %.not365 = icmp eq i64 %indvars.iv.next, %238
+  br i1 %.not365, label %242, label %239
 
-240:                                              ; preds = %.preheader
-  %241 = getelementptr inbounds i64, ptr %212, i64 %indvars.iv.next
-  %242 = load i64, ptr %241, align 8
-  %.not366 = icmp eq i64 %242, 0
+239:                                              ; preds = %.preheader
+  %240 = getelementptr inbounds i64, ptr %212, i64 %indvars.iv.next
+  %241 = load i64, ptr %240, align 8
+  %.not366 = icmp eq i64 %241, 0
   br i1 %.not366, label %.preheader, label %.critedge
 
-243:                                              ; preds = %.preheader
-  %244 = and i64 %226, 63
-  %245 = xor i64 %244, 63
-  %246 = lshr i64 -1, %245
-  %247 = getelementptr inbounds i64, ptr %212, i64 %239
-  %248 = load i64, ptr %247, align 8
-  %249 = and i64 %248, %246
-  %250 = icmp eq i64 %249, 0
-  br i1 %250, label %263, label %.critedge
+242:                                              ; preds = %.preheader
+  %243 = and i64 %226, 63
+  %244 = xor i64 %243, 63
+  %245 = lshr i64 -1, %244
+  %246 = getelementptr inbounds i64, ptr %212, i64 %238
+  %247 = load i64, ptr %246, align 8
+  %248 = and i64 %247, %245
+  %249 = icmp eq i64 %248, 0
+  br i1 %249, label %262, label %.critedge
 
-251:                                              ; preds = %224
-  %252 = and i64 %226, 63
-  %253 = zext nneg i32 %229 to i64
-  %254 = shl nsw i64 -1, %253
-  %255 = xor i64 %252, 63
-  %256 = lshr i64 -1, %255
-  %257 = and i64 %254, %256
-  %258 = zext nneg i32 %225 to i64
-  %259 = getelementptr inbounds i64, ptr %212, i64 %258
-  %260 = load i64, ptr %259, align 8
-  %261 = and i64 %257, %260
-  %262 = icmp eq i64 %261, 0
-  br i1 %262, label %263, label %.critedge
+250:                                              ; preds = %224
+  %251 = and i64 %226, 63
+  %252 = zext nneg i32 %229 to i64
+  %253 = shl nsw i64 -1, %252
+  %254 = xor i64 %251, 63
+  %255 = lshr i64 -1, %254
+  %256 = and i64 %253, %255
+  %257 = zext nneg i32 %225 to i64
+  %258 = getelementptr inbounds i64, ptr %212, i64 %257
+  %259 = load i64, ptr %258, align 8
+  %260 = and i64 %256, %259
+  %261 = icmp eq i64 %260, 0
+  br i1 %261, label %262, label %.critedge
 
-263:                                              ; preds = %243, %216, %251
-  %264 = getelementptr inbounds i8, ptr %4, i64 16
-  %265 = load i64, ptr %264, align 8
-  %266 = sub nsw i64 %133, %129
-  %267 = add i64 %265, %266
-  %268 = getelementptr inbounds i8, ptr %4, i64 24
-  %269 = load i64, ptr %268, align 8
-  %.380 = tail call i64 @llvm.umax.i64(i64 %269, i64 %267)
-  store i64 %267, ptr %264, align 8
-  store i64 %.380, ptr %268, align 8
-  %270 = getelementptr inbounds i8, ptr %22, i64 24
-  %271 = load i32, ptr %270, align 8
-  %272 = sub i32 %271, %214
-  store i32 %272, ptr %270, align 8
-  br i1 %215, label %273, label %278
+262:                                              ; preds = %242, %216, %250
+  %263 = getelementptr inbounds i8, ptr %4, i64 16
+  %264 = load i64, ptr %263, align 8
+  %265 = sub nsw i64 %133, %129
+  %266 = add i64 %264, %265
+  %267 = getelementptr inbounds i8, ptr %4, i64 24
+  %268 = load i64, ptr %267, align 8
+  %.380 = tail call i64 @llvm.umax.i64(i64 %268, i64 %266)
+  store i64 %266, ptr %263, align 8
+  store i64 %.380, ptr %267, align 8
+  %269 = getelementptr inbounds i8, ptr %22, i64 24
+  %270 = load i32, ptr %269, align 8
+  %271 = sub i32 %270, %214
+  store i32 %271, ptr %269, align 8
+  br i1 %215, label %272, label %277
 
-273:                                              ; preds = %263
-  %274 = zext nneg i32 %213 to i64
-  %275 = and i64 %274, 63
-  %276 = shl nuw i64 1, %275
-  %277 = lshr i64 %274, 6
-  br label %312
+272:                                              ; preds = %262
+  %273 = zext nneg i32 %213 to i64
+  %274 = and i64 %273, 63
+  %275 = shl nuw i64 1, %274
+  %276 = lshr i64 %273, 6
+  br label %311
 
-278:                                              ; preds = %263
-  %279 = lshr i32 %213, 6
-  %280 = shl nuw nsw i64 %208, 32
-  %sext368 = add nsw i64 %280, -4294967296
-  %281 = ashr exact i64 %sext368, 32
-  %282 = lshr i64 %281, 6
-  %283 = trunc i64 %282 to i32
-  %284 = and i32 %213, 63
-  %.not369 = icmp eq i32 %279, %283
-  br i1 %.not369, label %304, label %285
+277:                                              ; preds = %262
+  %278 = lshr i32 %213, 6
+  %279 = shl nuw nsw i64 %208, 32
+  %sext368 = add nsw i64 %279, -4294967296
+  %280 = ashr exact i64 %sext368, 32
+  %281 = lshr i64 %280, 6
+  %282 = trunc i64 %281 to i32
+  %283 = and i32 %213, 63
+  %.not369 = icmp eq i32 %278, %282
+  br i1 %.not369, label %303, label %284
 
-285:                                              ; preds = %278
-  %286 = zext nneg i32 %284 to i64
-  %287 = shl nsw i64 -1, %286
-  %288 = zext nneg i32 %279 to i64
-  %289 = getelementptr inbounds i64, ptr %212, i64 %288
-  %290 = load i64, ptr %289, align 8
-  %291 = or i64 %290, %287
-  store i64 %291, ptr %289, align 8
-  %.0384 = add nuw nsw i32 %279, 1
-  %.not370385 = icmp eq i32 %.0384, %283
+284:                                              ; preds = %277
+  %285 = zext nneg i32 %283 to i64
+  %286 = shl nsw i64 -1, %285
+  %287 = zext nneg i32 %278 to i64
+  %288 = getelementptr inbounds i64, ptr %212, i64 %287
+  %289 = load i64, ptr %288, align 8
+  %290 = or i64 %289, %286
+  store i64 %290, ptr %288, align 8
+  %.0384 = add nuw nsw i32 %278, 1
+  %.not370385 = icmp eq i32 %.0384, %282
   br i1 %.not370385, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %285
-  %292 = lshr i32 %213, 3
-  %293 = and i32 %292, 248
-  %294 = zext nneg i32 %293 to i64
-  %295 = getelementptr i8, ptr %22, i64 %294
-  %scevgep = getelementptr i8, ptr %295, i64 464
-  %296 = add i32 %283, -2
-  %297 = sub i32 %296, %279
-  %298 = zext i32 %297 to i64
-  %299 = shl nuw nsw i64 %298, 3
-  %300 = add nuw nsw i64 %299, 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, i8 -1, i64 %300, i1 false)
+.lr.ph.preheader:                                 ; preds = %284
+  %291 = lshr i32 %213, 3
+  %292 = and i32 %291, 248
+  %293 = zext nneg i32 %292 to i64
+  %294 = getelementptr i8, ptr %22, i64 %293
+  %scevgep = getelementptr i8, ptr %294, i64 464
+  %295 = add i32 %282, -2
+  %296 = sub i32 %295, %278
+  %297 = zext i32 %296 to i64
+  %298 = shl nuw nsw i64 %297, 3
+  %299 = add nuw nsw i64 %298, 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, i8 -1, i64 %299, i1 false)
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %285, %.lr.ph.preheader
-  %.pre-phi407 = and i64 %282, 4294967295
-  %301 = and i64 %281, 63
-  %302 = xor i64 %301, 63
-  %303 = lshr i64 -1, %302
-  br label %312
+._crit_edge:                                      ; preds = %284, %.lr.ph.preheader
+  %.pre-phi407 = and i64 %281, 4294967295
+  %300 = and i64 %280, 63
+  %301 = xor i64 %300, 63
+  %302 = lshr i64 -1, %301
+  br label %311
 
-304:                                              ; preds = %278
-  %305 = and i64 %281, 63
-  %306 = zext nneg i32 %284 to i64
-  %307 = shl nsw i64 -1, %306
-  %308 = xor i64 %305, 63
-  %309 = lshr i64 -1, %308
-  %310 = and i64 %307, %309
-  %311 = zext nneg i32 %279 to i64
-  br label %312
+303:                                              ; preds = %277
+  %304 = and i64 %280, 63
+  %305 = zext nneg i32 %283 to i64
+  %306 = shl nsw i64 -1, %305
+  %307 = xor i64 %304, 63
+  %308 = lshr i64 -1, %307
+  %309 = and i64 %306, %308
+  %310 = zext nneg i32 %278 to i64
+  br label %311
 
-312:                                              ; preds = %._crit_edge, %304, %273
-  %.pre-phi407.sink = phi i64 [ %.pre-phi407, %._crit_edge ], [ %311, %304 ], [ %277, %273 ]
-  %.sink410 = phi i64 [ %303, %._crit_edge ], [ %310, %304 ], [ %276, %273 ]
-  %313 = getelementptr inbounds i64, ptr %212, i64 %.pre-phi407.sink
-  %314 = load i64, ptr %313, align 8
-  %315 = or i64 %314, %.sink410
-  store i64 %315, ptr %313, align 8
-  %316 = or disjoint i32 %138, 1073741824
-  store i32 %316, ptr %26, align 4
-  br label %319
+311:                                              ; preds = %._crit_edge, %303, %272
+  %.pre-phi407.sink = phi i64 [ %.pre-phi407, %._crit_edge ], [ %310, %303 ], [ %276, %272 ]
+  %.sink410 = phi i64 [ %302, %._crit_edge ], [ %309, %303 ], [ %275, %272 ]
+  %312 = getelementptr inbounds i64, ptr %212, i64 %.pre-phi407.sink
+  %313 = load i64, ptr %312, align 8
+  %314 = or i64 %313, %.sink410
+  store i64 %314, ptr %312, align 8
+  %315 = or disjoint i32 %138, 1073741824
+  store i32 %315, ptr %26, align 4
+  br label %318
 
-.critedge:                                        ; preds = %240, %243, %216, %230, %126, %251, %207, %83
-  %.0331 = phi i64 [ %36, %83 ], [ %129, %251 ], [ %129, %207 ], [ %129, %126 ], [ %129, %230 ], [ %129, %216 ], [ %129, %243 ], [ %129, %240 ]
-  %317 = tail call i64 @llvm.umin.i64(i64 %.0331, i64 %2)
-  %318 = tail call fastcc ptr @zend_mm_realloc_slow(ptr noundef nonnull %4, ptr noundef %0, i64 noundef %1, i64 noundef %317)
-  br label %319
+.critedge:                                        ; preds = %239, %242, %216, %230, %126, %250, %207, %83
+  %.0331 = phi i64 [ %36, %83 ], [ %129, %250 ], [ %129, %207 ], [ %129, %126 ], [ %129, %230 ], [ %129, %216 ], [ %129, %242 ], [ %129, %239 ]
+  %316 = tail call i64 @llvm.umin.i64(i64 %.0331, i64 %2)
+  %317 = tail call fastcc ptr @zend_mm_realloc_slow(ptr noundef nonnull %4, ptr noundef %0, i64 noundef %1, i64 noundef %316)
+  br label %318
 
-319:                                              ; preds = %16, %18, %312, %.critedge, %37, %38, %77, %116, %131, %._crit_edge392, %194, %155, %6
-  %.0321 = phi ptr [ %9, %6 ], [ %17, %16 ], [ %19, %18 ], [ %318, %.critedge ], [ %0, %312 ], [ %.0328, %77 ], [ %.0327, %116 ], [ %0, %38 ], [ %0, %37 ], [ %0, %131 ], [ %0, %._crit_edge392 ], [ %0, %194 ], [ %0, %155 ]
+318:                                              ; preds = %16, %18, %311, %.critedge, %37, %38, %77, %116, %131, %._crit_edge392, %194, %155, %6
+  %.0321 = phi ptr [ %9, %6 ], [ %17, %16 ], [ %19, %18 ], [ %317, %.critedge ], [ %0, %311 ], [ %.0328, %77 ], [ %.0327, %116 ], [ %0, %38 ], [ %0, %37 ], [ %0, %131 ], [ %0, %._crit_edge392 ], [ %0, %194 ], [ %0, %155 ]
   ret ptr %.0321
 }
 

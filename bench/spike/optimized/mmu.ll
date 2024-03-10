@@ -2976,7 +2976,7 @@ define noundef i64 @_ZN5mmu_t7s2xlateEmm11access_typeS0_bbb(ptr noundef nonnull 
   unreachable
 
 28:                                               ; preds = %22, %20, %25, %24
-  %.sink190 = phi i64 [ 72057594037923840, %25 ], [ 72057594037923840, %24 ], [ 17179865088, %20 ], [ 72057594037923840, %22 ]
+  %.sink189 = phi i64 [ 72057594037923840, %25 ], [ 72057594037923840, %24 ], [ 17179865088, %20 ], [ 72057594037923840, %22 ]
   %.sroa.0.0.ph = phi i32 [ 5, %25 ], [ 4, %24 ], [ 2, %20 ], [ 3, %22 ]
   %.sroa.9.0.ph = phi i32 [ 9, %25 ], [ 9, %24 ], [ 10, %20 ], [ 9, %22 ]
   %29 = phi i1 [ false, %25 ], [ false, %24 ], [ true, %20 ], [ false, %22 ]
@@ -2984,7 +2984,6 @@ define noundef i64 @_ZN5mmu_t7s2xlateEmm11access_typeS0_bbb(ptr noundef nonnull 
   %30 = mul nuw nsw i32 %.sroa.9.0.ph, %.sroa.0.0.ph
   %31 = add nuw nsw i32 %30, 14
   %32 = zext nneg i32 %31 to i64
-  %notmask = shl nsw i64 -1, %32
   %33 = load ptr, ptr %10, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 2024
   %35 = load ptr, ptr %34, align 8
@@ -3003,20 +3002,20 @@ define noundef i64 @_ZN5mmu_t7s2xlateEmm11access_typeS0_bbb(ptr noundef nonnull 
   %47 = select i1 %46, i32 32, i32 0
   %48 = or disjoint i32 %47, %38
   %49 = or disjoint i32 %48, %44
-  %50 = and i64 %notmask, %2
+  %50 = lshr i64 %2, %32
   %51 = icmp eq i64 %50, 0
   br i1 %51, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %28
   %52 = shl i64 %19, 12
-  %53 = and i64 %52, %.sink190
+  %53 = and i64 %52, %.sink189
   %54 = zext nneg i32 %.sroa.0.0.ph to i64
   %55 = zext nneg i32 %.sroa.9.0.ph to i64
   br label %56
 
 56:                                               ; preds = %99, %.preheader
   %indvars.iv = phi i64 [ %54, %.preheader ], [ %indvars.iv.next, %99 ]
-  %.096169 = phi i64 [ %53, %.preheader ], [ %101, %99 ]
+  %.096168 = phi i64 [ %53, %.preheader ], [ %101, %99 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %57 = mul nsw i64 %indvars.iv.next, %55
   %58 = icmp eq i64 %indvars.iv, %54
@@ -3025,11 +3024,11 @@ define noundef i64 @_ZN5mmu_t7s2xlateEmm11access_typeS0_bbb(ptr noundef nonnull 
   %61 = add nsw i64 %57, 12
   %62 = lshr i64 %2, %61
   %63 = zext nneg i32 %60 to i64
-  %notmask102 = shl nsw i64 -1, %63
-  %64 = xor i64 %notmask102, -1
+  %notmask = shl nsw i64 -1, %63
+  %64 = xor i64 %notmask, -1
   %65 = and i64 %62, %64
   %66 = mul nuw nsw i64 %65, %.sroa.21.0.ph
-  %67 = add i64 %66, %.096169
+  %67 = add i64 %66, %.096168
   br i1 %29, label %68, label %70
 
 68:                                               ; preds = %56
@@ -3051,7 +3050,7 @@ _ZN5mmu_t8pte_loadEmmb11access_typem.exit:        ; preds = %68, %70
   %78 = load ptr, ptr %77, align 8
   %79 = tail call noundef i64 %78(ptr noundef nonnull align 8 dereferenceable(37) %75) #21
   %80 = and i64 %79, 4611686018427387904
-  %.not103 = icmp eq i64 %80, 0
+  %.not102 = icmp eq i64 %80, 0
   %81 = load ptr, ptr %10, align 8
   %82 = getelementptr inbounds i8, ptr %81, i64 3328
   %83 = load ptr, ptr %82, align 8
@@ -3060,26 +3059,26 @@ _ZN5mmu_t8pte_loadEmmb11access_typem.exit:        ; preds = %68, %70
   %86 = load ptr, ptr %85, align 8
   %87 = tail call noundef i64 %86(ptr noundef nonnull align 8 dereferenceable(37) %83) #21
   %88 = and i64 %.0.i, 2287828610704211968
-  %.not105 = icmp eq i64 %88, 0
-  br i1 %.not105, label %89, label %.loopexit
+  %.not104 = icmp eq i64 %88, 0
+  br i1 %.not104, label %89, label %.loopexit
 
 89:                                               ; preds = %_ZN5mmu_t8pte_loadEmmb11access_typem.exit
   %90 = load ptr, ptr %10, align 8
   %91 = getelementptr inbounds i8, ptr %90, i64 4144
   %.sink.i = load i64, ptr %91, align 8
   %92 = and i64 %.sink.i, 576460752303423488
-  %.0.i131 = icmp ne i64 %92, 0
-  %.not106 = icmp sgt i64 %.0.i, -1
-  %or.cond122 = or i1 %.not106, %.0.i131
-  br i1 %or.cond122, label %93, label %.loopexit
+  %.0.i130 = icmp ne i64 %92, 0
+  %.not105 = icmp sgt i64 %.0.i, -1
+  %or.cond121 = or i1 %.not105, %.0.i130
+  br i1 %or.cond121, label %93, label %.loopexit
 
 93:                                               ; preds = %89
   %94 = and i64 %.0.i, 6917529027641081856
-  %.not107 = icmp ne i64 %94, 0
-  %or.cond123.not157 = and i1 %.not107, %.not103
+  %.not106 = icmp ne i64 %94, 0
+  %or.cond122.not156 = and i1 %.not106, %.not102
   %95 = icmp eq i64 %94, 6917529027641081856
-  %or.cond125 = or i1 %95, %or.cond123.not157
-  br i1 %or.cond125, label %.loopexit, label %96
+  %or.cond124 = or i1 %95, %or.cond122.not156
+  br i1 %or.cond124, label %.loopexit, label %96
 
 96:                                               ; preds = %93
   %97 = and i64 %.0.i, 15
@@ -3088,29 +3087,29 @@ _ZN5mmu_t8pte_loadEmmb11access_typem.exit:        ; preds = %68, %70
 
 99:                                               ; preds = %96
   %100 = and i64 %.0.i, -2305843009213693744
-  %.not120 = icmp eq i64 %100, 0
+  %.not119 = icmp eq i64 %100, 0
   %101 = shl nuw nsw i64 %72, 12
   %102 = icmp ugt i64 %indvars.iv, 1
-  %or.cond = select i1 %.not120, i1 %102, i1 false
+  %or.cond = select i1 %.not119, i1 %102, i1 false
   br i1 %or.cond, label %56, label %.loopexit, !llvm.loop !35
 
 103:                                              ; preds = %96
   %104 = and i64 %72, 17592186044415
   %105 = and i64 %87, 2305843009213693952
-  %.not104.le = icmp eq i64 %105, 0
+  %.not103.le = icmp eq i64 %105, 0
   %106 = and i64 %.0.i, 1
-  %.not108 = icmp eq i64 %106, 0
-  br i1 %.not108, label %.loopexit, label %107
+  %.not107 = icmp eq i64 %106, 0
+  br i1 %.not107, label %.loopexit, label %107
 
 107:                                              ; preds = %103
   %108 = and i64 %.0.i, 2
-  %.not109 = icmp eq i64 %108, 0
+  %.not108 = icmp eq i64 %108, 0
   %109 = and i64 %.0.i, 6
-  %or.cond126.not = icmp eq i64 %109, 4
+  %or.cond125.not = icmp eq i64 %109, 4
   %110 = and i64 %.0.i, 16
-  %.not111 = icmp eq i64 %110, 0
-  %or.cond127 = or i1 %or.cond126.not, %.not111
-  br i1 %or.cond127, label %.loopexit, label %111
+  %.not110 = icmp eq i64 %110, 0
+  %or.cond126 = or i1 %or.cond125.not, %.not110
+  br i1 %or.cond126, label %.loopexit, label %111
 
 111:                                              ; preds = %107
   %112 = icmp eq i32 %3, 2
@@ -3119,42 +3118,42 @@ _ZN5mmu_t8pte_loadEmmb11access_typem.exit:        ; preds = %68, %70
 
 113:                                              ; preds = %111
   %114 = and i64 %.0.i, 8
-  %.not114 = icmp eq i64 %114, 0
-  br i1 %.not114, label %.loopexit, label %121
+  %.not113 = icmp eq i64 %114, 0
+  br i1 %.not113, label %.loopexit, label %121
 
 115:                                              ; preds = %111
   %116 = icmp eq i32 %3, 0
   br i1 %116, label %117, label %120
 
 117:                                              ; preds = %115
-  br i1 %.not109, label %118, label %121
+  br i1 %.not108, label %118, label %121
 
 118:                                              ; preds = %117
   %119 = and i64 %.0.i, 8
-  %.not113 = icmp eq i64 %119, 0
-  %or.cond128 = or i1 %.not, %.not113
-  br i1 %or.cond128, label %.loopexit, label %121
+  %.not112 = icmp eq i64 %119, 0
+  %or.cond127 = or i1 %.not, %.not112
+  br i1 %or.cond127, label %.loopexit, label %121
 
 120:                                              ; preds = %115
-  %or.cond129.not = icmp eq i64 %109, 6
-  br i1 %or.cond129.not, label %121, label %.loopexit
+  %or.cond128.not = icmp eq i64 %109, 6
+  br i1 %or.cond128.not, label %121, label %.loopexit
 
 121:                                              ; preds = %120, %118, %117, %113
   %122 = and i64 %57, 4294967295
-  %notmask115 = shl nsw i64 -1, %122
-  %123 = xor i64 %notmask115, -1
+  %notmask114 = shl nsw i64 -1, %122
+  %123 = xor i64 %notmask114, -1
   %124 = and i64 %104, %123
-  %.not116 = icmp eq i64 %124, 0
-  br i1 %.not116, label %125, label %.loopexit
+  %.not115 = icmp eq i64 %124, 0
+  br i1 %.not115, label %125, label %.loopexit
 
 125:                                              ; preds = %121
   %126 = select i1 %45, i64 192, i64 64
   %127 = and i64 %.0.i, %126
-  %.not117 = icmp eq i64 %127, %126
-  br i1 %.not117, label %_ZN5mmu_t9pte_storeEmmmb11access_typem.exit, label %128
+  %.not116 = icmp eq i64 %127, %126
+  br i1 %.not116, label %_ZN5mmu_t9pte_storeEmmmb11access_typem.exit, label %128
 
 128:                                              ; preds = %125
-  br i1 %.not104.le, label %.loopexit, label %129
+  br i1 %.not103.le, label %.loopexit, label %129
 
 129:                                              ; preds = %128
   %130 = or i64 %.0.i, %126
@@ -3170,7 +3169,7 @@ _ZN5mmu_t8pte_loadEmmb11access_typem.exit:        ; preds = %68, %70
 
 _ZN5mmu_t9pte_storeEmmmb11access_typem.exit:      ; preds = %132, %131, %125
   %133 = lshr i64 %2, 12
-  br i1 %.not106, label %158, label %134
+  br i1 %.not105, label %158, label %134
 
 134:                                              ; preds = %_ZN5mmu_t9pte_storeEmmmb11access_typem.exit
   %.not.i = icmp eq i64 %104, 0
@@ -3216,18 +3215,18 @@ _ZN5mmu_t9pte_storeEmmmb11access_typem.exit:      ; preds = %132, %131, %125
   %154 = icmp ne i64 %104, 0
   %155 = and i64 %indvars.iv.next, 4294967295
   %156 = icmp eq i64 %155, 0
-  %or.cond.not160 = select i1 %154, i1 %156, i1 false
+  %or.cond.not159 = select i1 %154, i1 %156, i1 false
   %157 = and i32 %.026.i, -5
   %or.cond3.not = icmp eq i32 %157, 0
-  %or.cond130 = select i1 %or.cond.not160, i1 %or.cond3.not, i1 false
-  br i1 %or.cond130, label %158, label %.loopexit
+  %or.cond129 = select i1 %or.cond.not159, i1 %or.cond3.not, i1 false
+  br i1 %or.cond129, label %158, label %.loopexit
 
 158:                                              ; preds = %_ZN5mmu_t9pte_storeEmmmb11access_typem.exit, %153
   %159 = phi i32 [ %.026.i, %153 ], [ 0, %_ZN5mmu_t9pte_storeEmmmb11access_typem.exit ]
   %160 = zext nneg i32 %159 to i64
-  %notmask119 = shl nsw i64 -1, %160
-  %161 = xor i64 %notmask119, -1
-  %162 = and i64 %notmask119, %104
+  %notmask118 = shl nsw i64 -1, %160
+  %161 = xor i64 %notmask118, -1
+  %162 = and i64 %notmask118, %104
   %163 = or i64 %161, %123
   %164 = and i64 %163, %133
   %165 = or i64 %164, %162

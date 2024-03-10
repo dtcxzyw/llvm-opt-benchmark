@@ -590,34 +590,31 @@ define dso_local void @clear_bss() local_unnamed_addr #4 section ".init.text" al
 ; Function Attrs: cold fn_ret_thunk_extern noreturn nounwind null_pointer_is_valid optsize
 define dso_local void @x86_64_start_kernel(ptr noundef %0) local_unnamed_addr #5 section ".init.text" align 16 {
   %2 = load i32, ptr @pgdir_shift, align 4
-  %3 = zext nneg i32 %2 to i64
-  %4 = shl nsw i64 -1, %3
-  %5 = and i64 %4, 2147483647
-  %6 = icmp eq i64 %5, 0
-  br i1 %6, label %8, label %7, !prof !19
+  %3 = icmp ugt i32 %2, 30
+  br i1 %3, label %5, label %4, !prof !19
 
-7:                                                ; preds = %1
+4:                                                ; preds = %1
   tail call void asm sideeffect "348: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 348b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 348) #12, !srcloc !20
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 486, i32 0, i64 12) #12, !srcloc !21
   unreachable
 
-8:                                                ; preds = %1
+5:                                                ; preds = %1
   tail call fastcc void @cr4_init_shadow()
   tail call fastcc void @reset_early_page_tables() #13
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 @__bss_start, i8 0, i64 sub (i64 ptrtoint (ptr @__bss_stop to i64), i64 ptrtoint (ptr @__bss_start to i64)), i1 false)
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 @__brk_base, i8 0, i64 sub (i64 ptrtoint (ptr @__brk_limit to i64), i64 ptrtoint (ptr @__brk_base to i64)), i1 false)
   tail call fastcc void @clear_page()
-  %9 = tail call i64 asm sideeffect "movq %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (%struct.tlb_state, ptr @cpu_tlbstate, i64 0, i32 6)) #12, !srcloc !22
-  tail call fastcc void @__native_tlb_flush_global(i64 noundef %9)
+  %6 = tail call i64 asm sideeffect "movq %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (%struct.tlb_state, ptr @cpu_tlbstate, i64 0, i32 6)) #12, !srcloc !22
+  tail call fastcc void @__native_tlb_flush_global(i64 noundef %6)
   tail call void @idt_setup_early_handler() #12
-  %10 = ptrtoint ptr %0 to i64
-  %11 = load i64, ptr @page_offset_base, align 8
-  %12 = add i64 %11, %10
-  %13 = inttoptr i64 %12 to ptr
-  tail call fastcc void @copy_bootdata(ptr noundef %13) #13
+  %7 = ptrtoint ptr %0 to i64
+  %8 = load i64, ptr @page_offset_base, align 8
+  %9 = add i64 %8, %7
+  %10 = inttoptr i64 %9 to ptr
+  tail call fastcc void @copy_bootdata(ptr noundef %10) #13
   tail call void @load_ucode_bsp() #12
-  %14 = load i64, ptr getelementptr inbounds ([512 x %struct.pgd_t], ptr @early_top_pgt, i64 0, i64 511), align 8
-  store i64 %14, ptr getelementptr ([0 x %struct.pgd_t], ptr @init_top_pgt, i64 0, i64 511), align 8
+  %11 = load i64, ptr getelementptr inbounds ([512 x %struct.pgd_t], ptr @early_top_pgt, i64 0, i64 511), align 8
+  store i64 %11, ptr getelementptr ([0 x %struct.pgd_t], ptr @init_top_pgt, i64 0, i64 511), align 8
   tail call void @x86_64_start_reservations(ptr noundef %0) #14
   unreachable
 }
