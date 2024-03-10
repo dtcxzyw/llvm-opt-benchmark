@@ -3689,9 +3689,8 @@ if.end:                                           ; preds = %entry
   %spec.select = select i1 %tobool.not, i32 31, i32 63
   %1 = load i8, ptr %value, align 1
   %conv7 = zext i8 %1 to i32
-  %and9 = and i32 %spec.select, %conv7
-  %cmp.not = icmp eq i32 %and9, %conv7
-  br i1 %cmp.not, label %if.end16, label %if.then12
+  %cmp.not.not = icmp ult i32 %spec.select, %conv7
+  br i1 %cmp.not.not, label %if.then12, label %if.end16
 
 if.then12:                                        ; preds = %if.end
   %not = xor i32 %spec.select, -1
