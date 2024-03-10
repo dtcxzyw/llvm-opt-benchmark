@@ -1238,9 +1238,9 @@ _ZNK3ue29CharReach4noneEv.exit322.i:              ; preds = %for.body.i.i315.i
   %110 = select i1 %cmp3.not.i.i318.i, i1 %cmp.i.i190.i, i1 false
   %111 = load i32, ptr %assert_flags.i73, align 8
   %112 = trunc i32 %111 to i8
-  %113 = select i1 %110, i8 40, i8 80
-  %114 = and i8 %113, %112
-  %or.cond.not.i81 = icmp eq i8 %114, %113
+  %113 = select i1 %110, i8 -41, i8 -81
+  %114 = or i8 %113, %112
+  %or.cond.not.i81 = icmp eq i8 %114, -1
   br i1 %or.cond.not.i81, label %for.inc.i82.sink.split, label %if.else151.i
 
 if.else151.i:                                     ; preds = %_ZNK3ue29CharReach4noneEv.exit322.i

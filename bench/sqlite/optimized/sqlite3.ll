@@ -284883,17 +284883,16 @@ sqlite3WhereExprUsage.exit.thread414:             ; preds = %383, %392, %403, %s
 420:                                              ; preds = %.preheader
   %indvars.iv.next573 = add nsw i64 %indvars.iv572, -1
   %notmask316 = shl nsw i64 -1, %indvars.iv.next573
-  %421 = xor i64 %notmask316, -1
-  %422 = and i64 %.9, %421
-  %423 = icmp eq i64 %422, %421
-  br i1 %423, label %424, label %.preheader, !llvm.loop !1204
+  %421 = or i64 %notmask316, %.9
+  %422 = icmp eq i64 %421, -1
+  br i1 %422, label %423, label %.preheader, !llvm.loop !1204
 
-424:                                              ; preds = %420
-  %425 = trunc i64 %indvars.iv.next573 to i8
+423:                                              ; preds = %420
+  %424 = trunc i64 %indvars.iv.next573 to i8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %177, %181, %.preheader, %418, %16, %10, %424, %.critedge.thread
-  %.0 = phi i8 [ %417, %.critedge.thread ], [ %425, %424 ], [ 0, %10 ], [ 0, %16 ], [ -1, %418 ], [ 0, %.preheader ], [ 0, %181 ], [ 0, %177 ]
+.loopexit:                                        ; preds = %177, %181, %.preheader, %418, %16, %10, %423, %.critedge.thread
+  %.0 = phi i8 [ %417, %.critedge.thread ], [ %424, %423 ], [ 0, %10 ], [ 0, %16 ], [ -1, %418 ], [ 0, %.preheader ], [ 0, %181 ], [ 0, %177 ]
   ret i8 %.0
 }
 

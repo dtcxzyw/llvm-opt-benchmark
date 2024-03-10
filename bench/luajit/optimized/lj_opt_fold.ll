@@ -4097,16 +4097,16 @@ if.then11:                                        ; preds = %land.lhs.true
   %shr = lshr i32 6315993, %and17
   %and18 = and i32 %shr, 1
   %tobool19.not = icmp eq i32 %and18, 0
-  %cond = select i1 %tobool19.not, i32 31, i32 63
   %7 = load i32, ptr %arrayidx, align 8
-  %and20 = and i32 %cond, %7
-  %cmp21 = icmp eq i32 %and20, %cond
+  %8 = select i1 %tobool19.not, i32 -32, i32 -64
+  %9 = or i32 %8, %7
+  %cmp21 = icmp eq i32 %9, -1
   br i1 %cmp21, label %if.then23, label %return
 
 if.then23:                                        ; preds = %if.then11
-  %8 = load i16, ptr %right, align 8
+  %10 = load i16, ptr %right, align 8
   %op229 = getelementptr inbounds i8, ptr %J, i64 186
-  store i16 %8, ptr %op229, align 2
+  store i16 %10, ptr %op229, align 2
   br label %return
 
 return:                                           ; preds = %land.lhs.true, %if.then11, %entry, %if.then23

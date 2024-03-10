@@ -3396,7 +3396,7 @@ define dso_local void @CheckPointBuffers(i32 noundef %0) local_unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(i64 5136, ptr nonnull %3)
   %4 = and i32 %0, 19
   %.not.i = icmp eq i32 %4, 0
-  %spec.select.i = select i1 %.not.i, i32 -2139095040, i32 8388608
+  %spec.select.i = select i1 %.not.i, i32 2139095039, i32 -8388609
   %5 = load i32, ptr @NBuffers, align 4
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph.i, label %BufferSync.exit
@@ -3438,8 +3438,8 @@ LockBufHdr.exit.i:                                ; preds = %.lr.ph.i.i, %12
   %.lcssa.i.i = phi i32 [ %16, %12 ], [ %18, %.lr.ph.i.i ]
   call void @finish_spin_delay(ptr noundef nonnull %2) #14
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2)
-  %20 = and i32 %.lcssa.i.i, %spec.select.i
-  %21 = icmp eq i32 %20, %spec.select.i
+  %20 = or i32 %.lcssa.i.i, %spec.select.i
+  %21 = icmp eq i32 %20, -1
   br i1 %21, label %22, label %38
 
 22:                                               ; preds = %LockBufHdr.exit.i

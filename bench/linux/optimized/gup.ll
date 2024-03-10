@@ -7592,9 +7592,9 @@ declare dso_local i32 @pud_huge(i64) local_unnamed_addr #3
 define internal fastcc noundef i32 @gup_huge_pud(i64 %0, ptr nocapture noundef readonly %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef %6) unnamed_addr #0 align 16 {
   %8 = and i32 %4, 1
   %9 = icmp eq i32 %8, 0
-  %10 = select i1 %9, i64 5, i64 7
-  %11 = and i64 %10, %0
-  %12 = icmp eq i64 %11, %10
+  %10 = select i1 %9, i64 -6, i64 -8
+  %11 = or i64 %10, %0
+  %12 = icmp eq i64 %11, -1
   br i1 %12, label %13, label %224
 
 13:                                               ; preds = %7

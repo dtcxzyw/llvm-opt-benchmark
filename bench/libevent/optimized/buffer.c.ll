@@ -588,7 +588,6 @@ if.end16:                                         ; preds = %if.then1, %if.then1
   %bf.load.i = load i8, ptr %deferred_cbs, align 8
   %9 = and i8 %bf.load.i, 8
   %tobool1.not.i.not = icmp eq i8 %9, 0
-  %..i = select i1 %tobool1.not.i.not, i32 1, i32 3
   %10 = load ptr, ptr %callbacks, align 8
   %cmp.i = icmp eq ptr %10, null
   %n_add_for_cb.i = getelementptr inbounds i8, ptr %buffer, i64 40
@@ -617,46 +616,47 @@ if.end19.i:                                       ; preds = %if.end12.i
   store i64 %11, ptr %n_added.i, align 8
   %n_deleted.i = getelementptr inbounds i8, ptr %info.i, i64 16
   store i64 %12, ptr %n_deleted.i, align 8
-  br i1 %tobool1.not.i.not, label %if.then25.i, label %for.body.i.preheader
+  br i1 %tobool1.not.i.not, label %if.then25.i, label %if.end28.i
 
 if.then25.i:                                      ; preds = %if.end19.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %n_add_for_cb.i, i8 0, i64 16, i1 false)
-  br label %for.body.i.preheader
+  br label %if.end28.i
 
-for.body.i.preheader:                             ; preds = %if.then25.i, %if.end19.i
+if.end28.i:                                       ; preds = %if.then25.i, %if.end19.i
+  %14 = phi i32 [ -2, %if.then25.i ], [ -4, %if.end19.i ]
   br label %for.body.i
 
-for.body.i:                                       ; preds = %for.body.i.preheader, %for.inc.i
-  %cbent.026.i = phi ptr [ %14, %for.inc.i ], [ %10, %for.body.i.preheader ]
-  %14 = load ptr, ptr %cbent.026.i, align 8
+for.body.i:                                       ; preds = %for.inc.i, %if.end28.i
+  %cbent.026.i = phi ptr [ %10, %if.end28.i ], [ %15, %for.inc.i ]
+  %15 = load ptr, ptr %cbent.026.i, align 8
   %flags.i = getelementptr inbounds i8, ptr %cbent.026.i, i64 32
-  %15 = load i32, ptr %flags.i, align 8
-  %and.i = and i32 %15, %..i
-  %cmp33.not.i = icmp eq i32 %and.i, %..i
+  %16 = load i32, ptr %flags.i, align 8
+  %17 = or i32 %16, %14
+  %cmp33.not.i = icmp eq i32 %17, -1
   br i1 %cmp33.not.i, label %if.end35.i, label %for.inc.i
 
 if.end35.i:                                       ; preds = %for.body.i
-  %and37.i = and i32 %15, 262144
+  %and37.i = and i32 %16, 262144
   %tobool38.not.i = icmp eq i32 %and37.i, 0
   %cb42.i = getelementptr inbounds i8, ptr %cbent.026.i, i64 16
-  %16 = load ptr, ptr %cb42.i, align 8
+  %18 = load ptr, ptr %cb42.i, align 8
   br i1 %tobool38.not.i, label %if.else41.i, label %if.then39.i
 
 if.then39.i:                                      ; preds = %if.end35.i
-  %17 = load i64, ptr %info.i, align 8
+  %19 = load i64, ptr %info.i, align 8
   %cbarg.i = getelementptr inbounds i8, ptr %cbent.026.i, i64 24
-  %18 = load ptr, ptr %cbarg.i, align 8
-  call void %16(ptr noundef %buffer, i64 noundef %17, i64 noundef %13, ptr noundef %18) #16
+  %20 = load ptr, ptr %cbarg.i, align 8
+  call void %18(ptr noundef %buffer, i64 noundef %19, i64 noundef %13, ptr noundef %20) #16
   br label %for.inc.i
 
 if.else41.i:                                      ; preds = %if.end35.i
   %cbarg43.i = getelementptr inbounds i8, ptr %cbent.026.i, i64 24
-  %19 = load ptr, ptr %cbarg43.i, align 8
-  call void %16(ptr noundef %buffer, ptr noundef nonnull %info.i, ptr noundef %19) #16
+  %21 = load ptr, ptr %cbarg43.i, align 8
+  call void %18(ptr noundef %buffer, ptr noundef nonnull %info.i, ptr noundef %21) #16
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.else41.i, %if.then39.i, %for.body.i
-  %cmp31.not.i = icmp eq ptr %14, null
+  %cmp31.not.i = icmp eq ptr %15, null
   br i1 %cmp31.not.i, label %evbuffer_run_callbacks.exit, label %for.body.i, !llvm.loop !5
 
 evbuffer_run_callbacks.exit:                      ; preds = %for.inc.i, %if.then11.i, %if.end12.i
@@ -5946,7 +5946,7 @@ if.then38:                                        ; preds = %if.end36
 
 if.end52:                                         ; preds = %if.end36.if.end52_crit_edge, %if.then38
   %20 = phi i64 [ %.pre, %if.end36.if.end52_crit_edge ], [ %19, %if.then38 ]
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %add = add i64 %20, %len_so_far.170
   %21 = load ptr, ptr %chain.168, align 8
   %tobool31.not = icmp eq ptr %21, null

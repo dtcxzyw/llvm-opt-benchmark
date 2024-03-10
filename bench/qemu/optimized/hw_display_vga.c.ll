@@ -4622,16 +4622,15 @@ if.end320.i:                                      ; preds = %if.then316.i, %if.e
 
 if.then322.i:                                     ; preds = %if.end320.i
   %286 = load i8, ptr %arrayidx25.i, align 1
-  %287 = and i8 %286, 3
-  %288 = xor i8 %287, 3
-  %xor.i = zext nneg i8 %288 to i32
-  %and327.i = and i32 %y1.0298.i, %xor.i
-  %cmp328.i = icmp eq i32 %and327.i, %xor.i
+  %287 = or i8 %286, -4
+  %288 = sext i8 %287 to i32
+  %289 = or i32 %y1.0298.i, %288
+  %cmp328.i = icmp eq i32 %289, -1
   br i1 %cmp328.i, label %if.then330.i, label %if.end333.i
 
 if.then330.i:                                     ; preds = %if.then322.i
-  %289 = load i32, ptr %line_offset1.i.i25, align 8
-  %add332.i = add i32 %289, %addr1.0297.i
+  %290 = load i32, ptr %line_offset1.i.i25, align 8
+  %add332.i = add i32 %290, %addr1.0297.i
   br label %if.end333.i
 
 if.end333.i:                                      ; preds = %if.then330.i, %if.then322.i
@@ -4647,13 +4646,13 @@ if.end335.i:                                      ; preds = %if.else334.i, %if.e
   %multi_run.1.i = phi i32 [ %dec.i, %if.else334.i ], [ %multi_scan.0.i, %if.end333.i ]
   %addr1.2.i = phi i32 [ %addr1.0297.i, %if.else334.i ], [ %addr1.1.i, %if.end333.i ]
   %y1.1.i = phi i32 [ %y1.0298.i, %if.else334.i ], [ %inc.i65, %if.end333.i ]
-  %290 = load i32, ptr %line_compare336.i, align 4
-  %cmp337.i = icmp eq i32 %y.0294.i, %290
+  %291 = load i32, ptr %line_compare336.i, align 4
+  %cmp337.i = icmp eq i32 %y.0294.i, %291
   %spec.select179.i = select i1 %cmp337.i, i32 0, i32 %addr1.2.i
   %add.ptr342.i = getelementptr i8, ptr %d.0296.i, i64 %idx.ext341.i
   %inc343.i = add nuw nsw i32 %y.0294.i, 1
-  %291 = load i32, ptr %height.i, align 4
-  %cmp231.i = icmp slt i32 %inc343.i, %291
+  %292 = load i32, ptr %height.i, align 4
+  %cmp231.i = icmp slt i32 %inc343.i, %292
   br i1 %cmp231.i, label %for.body.i58, label %for.end.i64, !llvm.loop !21
 
 for.end.i64:                                      ; preds = %if.end335.i
@@ -4661,9 +4660,9 @@ for.end.i64:                                      ; preds = %if.end335.i
   br i1 %cmp344.i, label %if.then346.i, label %vga_draw_graphic.exit
 
 if.then346.i:                                     ; preds = %for.end.i64
-  %292 = load ptr, ptr %con, align 16
+  %293 = load ptr, ptr %con, align 16
   %sub348.i = sub nsw i32 %inc343.i, %y_start.2.i
-  call void @dpy_gfx_update(ptr noundef %292, i32 noundef 0, i32 noundef %y_start.2.i, i32 noundef %disp_width.0.i, i32 noundef %sub348.i) #17
+  call void @dpy_gfx_update(ptr noundef %293, i32 noundef 0, i32 noundef %y_start.2.i, i32 noundef %disp_width.0.i, i32 noundef %sub348.i) #17
   br label %vga_draw_graphic.exit
 
 vga_draw_graphic.exit:                            ; preds = %if.end230.i, %for.end.i64, %if.then346.i
@@ -4675,20 +4674,20 @@ vga_draw_graphic.exit:                            ; preds = %if.end230.i, %for.e
   br label %if.end15
 
 sw.default:                                       ; preds = %if.end12
-  %293 = load ptr, ptr %con, align 16
-  %call.i84 = tail call ptr @qemu_console_surface(ptr noundef %293) #17
+  %294 = load ptr, ptr %con, align 16
+  %call.i84 = tail call ptr @qemu_console_surface(ptr noundef %294) #17
   br i1 %cmp7.not, label %if.end15, label %if.end.i86
 
 if.end.i86:                                       ; preds = %sw.default
   %last_scr_width.i87 = getelementptr inbounds i8, ptr %opaque, i64 2680
-  %294 = load i32, ptr %last_scr_width.i87, align 8
-  %cmp.i88 = icmp eq i32 %294, 0
+  %295 = load i32, ptr %last_scr_width.i87, align 8
+  %cmp.i88 = icmp eq i32 %295, 0
   br i1 %cmp.i88, label %if.end15, label %lor.lhs.false.i89
 
 lor.lhs.false.i89:                                ; preds = %if.end.i86
   %last_scr_height.i90 = getelementptr inbounds i8, ptr %opaque, i64 2684
-  %295 = load i32, ptr %last_scr_height.i90, align 4
-  %cmp1.i = icmp eq i32 %295, 0
+  %296 = load i32, ptr %last_scr_height.i90, align 4
+  %cmp1.i = icmp eq i32 %296, 0
   br i1 %cmp1.i, label %if.end15, label %if.end3.i
 
 if.end3.i:                                        ; preds = %lor.lhs.false.i89
@@ -4698,8 +4697,8 @@ if.end3.i:                                        ; preds = %lor.lhs.false.i89
   %call.i4.i.i94 = tail call i32 @pixman_image_get_format(ptr noundef %s.val.i.i93) #17
   %call.val.i95 = load ptr, ptr %call.i84, align 8
   %call.i.i96 = tail call ptr @pixman_image_get_data(ptr noundef %call.val.i95) #17
-  %296 = load i32, ptr %last_scr_height.i90, align 4
-  %cmp812.not.i = icmp eq i32 %296, 0
+  %297 = load i32, ptr %last_scr_height.i90, align 4
+  %cmp812.not.i = icmp eq i32 %297, 0
   br i1 %cmp812.not.i, label %for.end.i110, label %for.body.lr.ph.i97
 
 for.body.lr.ph.i97:                               ; preds = %if.end3.i
@@ -4709,7 +4708,7 @@ for.body.lr.ph.i97:                               ; preds = %if.end3.i
   %shl.i.i101 = shl nuw nsw i32 %shr.i.i98, %and3.i.i100
   %sub.i.i102 = add nuw nsw i32 %shl.i.i101, 7
   %div2.i.i103 = lshr i32 %sub.i.i102, 3
-  %mul.i104 = mul i32 %div2.i.i103, %294
+  %mul.i104 = mul i32 %div2.i.i103, %295
   %conv.i105 = sext i32 %mul.i104 to i64
   br label %for.body.i106
 
@@ -4722,13 +4721,13 @@ for.body.i106:                                    ; preds = %for.body.i106, %for
   %idx.ext.i107 = sext i32 %call.i11.i to i64
   %add.ptr.i108 = getelementptr i8, ptr %d.014.i, i64 %idx.ext.i107
   %inc.i109 = add nuw i32 %i.013.i, 1
-  %297 = load i32, ptr %last_scr_height.i90, align 4
-  %cmp8.i = icmp ult i32 %inc.i109, %297
+  %298 = load i32, ptr %last_scr_height.i90, align 4
+  %cmp8.i = icmp ult i32 %inc.i109, %298
   br i1 %cmp8.i, label %for.body.i106, label %for.end.i110, !llvm.loop !22
 
 for.end.i110:                                     ; preds = %for.body.i106, %if.end3.i
-  %298 = load ptr, ptr %con, align 16
-  tail call void @dpy_gfx_update_full(ptr noundef %298) #17
+  %299 = load ptr, ptr %con, align 16
+  tail call void @dpy_gfx_update_full(ptr noundef %299) #17
   br label %if.end15
 
 if.end15:                                         ; preds = %for.end.i110, %lor.lhs.false.i89, %if.end.i86, %sw.default, %vga_draw_text.exit, %vga_draw_graphic.exit, %entry

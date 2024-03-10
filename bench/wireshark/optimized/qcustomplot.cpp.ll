@@ -93907,175 +93907,175 @@ _ZNK8QPointerI28QCPColorScaleAxisRectPrivateE4dataEv.exit: ; preds = %7
   %26 = icmp eq i32 %25, 8
   %27 = icmp eq i32 %25, 4
   %28 = or i1 %26, %27
-  %29 = select i1 %28, i32 1, i32 2
-  %30 = and i32 %29, %.sroa.0.0.copyload.i
-  %.not22 = icmp eq i32 %30, 0
-  br i1 %.not22, label %_ZN11QCPAxisRect13rangeDragAxisEN2Qt11OrientationE.exit.thread, label %_ZNK8QPointerI28QCPColorScaleAxisRectPrivateE4dataEv.exit4
+  %29 = select i1 %28, i32 -2, i32 -3
+  %30 = or i32 %29, %.sroa.0.0.copyload.i
+  %31 = icmp eq i32 %30, -1
+  br i1 %31, label %_ZNK8QPointerI28QCPColorScaleAxisRectPrivateE4dataEv.exit4, label %_ZN11QCPAxisRect13rangeDragAxisEN2Qt11OrientationE.exit.thread
 
 _ZNK8QPointerI28QCPColorScaleAxisRectPrivateE4dataEv.exit4: ; preds = %_ZNK8QPointerI28QCPColorScaleAxisRectPrivateE4dataEv.exit
-  %31 = load atomic i32, ptr %8 monotonic, align 4
-  %32 = icmp eq i32 %31, 0
-  %33 = select i1 %32, ptr null, ptr %12
-  switch i32 %25, label %51 [
-    i32 8, label %34
-    i32 4, label %34
+  %32 = load atomic i32, ptr %8 monotonic, align 4
+  %33 = icmp eq i32 %32, 0
+  %34 = select i1 %33, ptr null, ptr %12
+  switch i32 %25, label %52 [
+    i32 8, label %35
+    i32 4, label %35
   ]
 
-34:                                               ; preds = %_ZNK8QPointerI28QCPColorScaleAxisRectPrivateE4dataEv.exit4, %_ZNK8QPointerI28QCPColorScaleAxisRectPrivateE4dataEv.exit4
-  %35 = getelementptr inbounds i8, ptr %33, i64 248
-  %36 = getelementptr inbounds i8, ptr %33, i64 264
-  %37 = load i64, ptr %36, align 8
-  %38 = icmp eq i64 %37, 0
-  br i1 %38, label %_ZN11QCPAxisRect13rangeDragAxisEN2Qt11OrientationE.exit.thread, label %39
+35:                                               ; preds = %_ZNK8QPointerI28QCPColorScaleAxisRectPrivateE4dataEv.exit4, %_ZNK8QPointerI28QCPColorScaleAxisRectPrivateE4dataEv.exit4
+  %36 = getelementptr inbounds i8, ptr %34, i64 248
+  %37 = getelementptr inbounds i8, ptr %34, i64 264
+  %38 = load i64, ptr %37, align 8
+  %39 = icmp eq i64 %38, 0
+  br i1 %39, label %_ZN11QCPAxisRect13rangeDragAxisEN2Qt11OrientationE.exit.thread, label %40
 
-39:                                               ; preds = %34
-  %40 = load ptr, ptr %35, align 8
-  %.not.i.i.i.i.i.i = icmp eq ptr %40, null
+40:                                               ; preds = %35
+  %41 = load ptr, ptr %36, align 8
+  %.not.i.i.i.i.i.i = icmp eq ptr %41, null
   br i1 %.not.i.i.i.i.i.i, label %_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.thread.i.i.i.i.i, label %_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.i.i.i.i.i
 
-_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.i.i.i.i.i: ; preds = %39
-  %41 = load atomic i32, ptr %40 monotonic, align 4
-  %42 = icmp sgt i32 %41, 1
-  br i1 %42, label %_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.thread.i.i.i.i.i, label %_ZN5QListI8QPointerI7QCPAxisEE5firstEv.exit.i
+_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.i.i.i.i.i: ; preds = %40
+  %42 = load atomic i32, ptr %41 monotonic, align 4
+  %43 = icmp sgt i32 %42, 1
+  br i1 %43, label %_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.thread.i.i.i.i.i, label %_ZN5QListI8QPointerI7QCPAxisEE5firstEv.exit.i
 
-_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.thread.i.i.i.i.i: ; preds = %_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.i.i.i.i.i, %39
-  tail call void @_ZN17QArrayDataPointerI8QPointerI7QCPAxisEE17reallocateAndGrowEN10QArrayData14GrowthPositionExPS3_(ptr noundef nonnull align 8 dereferenceable(24) %35, i32 noundef 0, i64 noundef 0, ptr noundef null)
+_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.thread.i.i.i.i.i: ; preds = %_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.i.i.i.i.i, %40
+  tail call void @_ZN17QArrayDataPointerI8QPointerI7QCPAxisEE17reallocateAndGrowEN10QArrayData14GrowthPositionExPS3_(ptr noundef nonnull align 8 dereferenceable(24) %36, i32 noundef 0, i64 noundef 0, ptr noundef null)
   br label %_ZN5QListI8QPointerI7QCPAxisEE5firstEv.exit.i
 
 _ZN5QListI8QPointerI7QCPAxisEE5firstEv.exit.i:    ; preds = %_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.thread.i.i.i.i.i, %_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.i.i.i.i.i
-  %43 = getelementptr inbounds i8, ptr %33, i64 256
-  %44 = load ptr, ptr %43, align 8
+  %44 = getelementptr inbounds i8, ptr %34, i64 256
   %45 = load ptr, ptr %44, align 8
-  %46 = icmp eq ptr %45, null
-  br i1 %46, label %_ZN11QCPAxisRect13rangeDragAxisEN2Qt11OrientationE.exit.thread, label %47
+  %46 = load ptr, ptr %45, align 8
+  %47 = icmp eq ptr %46, null
+  br i1 %47, label %_ZN11QCPAxisRect13rangeDragAxisEN2Qt11OrientationE.exit.thread, label %48
 
-47:                                               ; preds = %_ZN5QListI8QPointerI7QCPAxisEE5firstEv.exit.i
-  %48 = getelementptr inbounds i8, ptr %45, i64 4
-  %49 = load atomic i32, ptr %48 monotonic, align 4
-  %50 = icmp eq i32 %49, 0
-  br i1 %50, label %_ZN11QCPAxisRect13rangeDragAxisEN2Qt11OrientationE.exit.thread, label %_ZN11QCPAxisRect13rangeDragAxisEN2Qt11OrientationE.exit
+48:                                               ; preds = %_ZN5QListI8QPointerI7QCPAxisEE5firstEv.exit.i
+  %49 = getelementptr inbounds i8, ptr %46, i64 4
+  %50 = load atomic i32, ptr %49 monotonic, align 4
+  %51 = icmp eq i32 %50, 0
+  br i1 %51, label %_ZN11QCPAxisRect13rangeDragAxisEN2Qt11OrientationE.exit.thread, label %_ZN11QCPAxisRect13rangeDragAxisEN2Qt11OrientationE.exit
 
-51:                                               ; preds = %_ZNK8QPointerI28QCPColorScaleAxisRectPrivateE4dataEv.exit4
-  %52 = getelementptr inbounds i8, ptr %33, i64 272
-  %53 = getelementptr inbounds i8, ptr %33, i64 288
-  %54 = load i64, ptr %53, align 8
-  %55 = icmp eq i64 %54, 0
-  br i1 %55, label %_ZN11QCPAxisRect13rangeDragAxisEN2Qt11OrientationE.exit.thread, label %56
+52:                                               ; preds = %_ZNK8QPointerI28QCPColorScaleAxisRectPrivateE4dataEv.exit4
+  %53 = getelementptr inbounds i8, ptr %34, i64 272
+  %54 = getelementptr inbounds i8, ptr %34, i64 288
+  %55 = load i64, ptr %54, align 8
+  %56 = icmp eq i64 %55, 0
+  br i1 %56, label %_ZN11QCPAxisRect13rangeDragAxisEN2Qt11OrientationE.exit.thread, label %57
 
-56:                                               ; preds = %51
-  %57 = load ptr, ptr %52, align 8
-  %.not.i.i.i.i.i2.i = icmp eq ptr %57, null
+57:                                               ; preds = %52
+  %58 = load ptr, ptr %53, align 8
+  %.not.i.i.i.i.i2.i = icmp eq ptr %58, null
   br i1 %.not.i.i.i.i.i2.i, label %_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.thread.i.i.i.i4.i, label %_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.i.i.i.i3.i
 
-_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.i.i.i.i3.i: ; preds = %56
-  %58 = load atomic i32, ptr %57 monotonic, align 4
-  %59 = icmp sgt i32 %58, 1
-  br i1 %59, label %_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.thread.i.i.i.i4.i, label %_ZN5QListI8QPointerI7QCPAxisEE5firstEv.exit5.i
+_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.i.i.i.i3.i: ; preds = %57
+  %59 = load atomic i32, ptr %58 monotonic, align 4
+  %60 = icmp sgt i32 %59, 1
+  br i1 %60, label %_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.thread.i.i.i.i4.i, label %_ZN5QListI8QPointerI7QCPAxisEE5firstEv.exit5.i
 
-_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.thread.i.i.i.i4.i: ; preds = %_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.i.i.i.i3.i, %56
-  tail call void @_ZN17QArrayDataPointerI8QPointerI7QCPAxisEE17reallocateAndGrowEN10QArrayData14GrowthPositionExPS3_(ptr noundef nonnull align 8 dereferenceable(24) %52, i32 noundef 0, i64 noundef 0, ptr noundef null)
+_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.thread.i.i.i.i4.i: ; preds = %_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.i.i.i.i3.i, %57
+  tail call void @_ZN17QArrayDataPointerI8QPointerI7QCPAxisEE17reallocateAndGrowEN10QArrayData14GrowthPositionExPS3_(ptr noundef nonnull align 8 dereferenceable(24) %53, i32 noundef 0, i64 noundef 0, ptr noundef null)
   br label %_ZN5QListI8QPointerI7QCPAxisEE5firstEv.exit5.i
 
 _ZN5QListI8QPointerI7QCPAxisEE5firstEv.exit5.i:   ; preds = %_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.thread.i.i.i.i4.i, %_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.i.i.i.i3.i
-  %60 = getelementptr inbounds i8, ptr %33, i64 280
-  %61 = load ptr, ptr %60, align 8
+  %61 = getelementptr inbounds i8, ptr %34, i64 280
   %62 = load ptr, ptr %61, align 8
-  %63 = icmp eq ptr %62, null
-  br i1 %63, label %_ZN11QCPAxisRect13rangeDragAxisEN2Qt11OrientationE.exit.thread, label %64
+  %63 = load ptr, ptr %62, align 8
+  %64 = icmp eq ptr %63, null
+  br i1 %64, label %_ZN11QCPAxisRect13rangeDragAxisEN2Qt11OrientationE.exit.thread, label %65
 
-64:                                               ; preds = %_ZN5QListI8QPointerI7QCPAxisEE5firstEv.exit5.i
-  %65 = getelementptr inbounds i8, ptr %62, i64 4
-  %66 = load atomic i32, ptr %65 monotonic, align 4
-  %67 = icmp eq i32 %66, 0
-  br i1 %67, label %_ZN11QCPAxisRect13rangeDragAxisEN2Qt11OrientationE.exit.thread, label %_ZN11QCPAxisRect13rangeDragAxisEN2Qt11OrientationE.exit
+65:                                               ; preds = %_ZN5QListI8QPointerI7QCPAxisEE5firstEv.exit5.i
+  %66 = getelementptr inbounds i8, ptr %63, i64 4
+  %67 = load atomic i32, ptr %66 monotonic, align 4
+  %68 = icmp eq i32 %67, 0
+  br i1 %68, label %_ZN11QCPAxisRect13rangeDragAxisEN2Qt11OrientationE.exit.thread, label %_ZN11QCPAxisRect13rangeDragAxisEN2Qt11OrientationE.exit
 
-_ZN11QCPAxisRect13rangeDragAxisEN2Qt11OrientationE.exit: ; preds = %47, %64
-  %.sink7.i = phi ptr [ %44, %47 ], [ %61, %64 ]
-  %68 = getelementptr inbounds i8, ptr %.sink7.i, i64 8
-  %69 = load ptr, ptr %68, align 8
-  %.not3 = icmp eq ptr %69, null
-  br i1 %.not3, label %_ZN11QCPAxisRect13rangeDragAxisEN2Qt11OrientationE.exit.thread, label %70
+_ZN11QCPAxisRect13rangeDragAxisEN2Qt11OrientationE.exit: ; preds = %48, %65
+  %.sink7.i = phi ptr [ %45, %48 ], [ %62, %65 ]
+  %69 = getelementptr inbounds i8, ptr %.sink7.i, i64 8
+  %70 = load ptr, ptr %69, align 8
+  %.not3 = icmp eq ptr %70, null
+  br i1 %.not3, label %_ZN11QCPAxisRect13rangeDragAxisEN2Qt11OrientationE.exit.thread, label %71
 
-70:                                               ; preds = %_ZN11QCPAxisRect13rangeDragAxisEN2Qt11OrientationE.exit
-  %71 = load ptr, ptr %4, align 8
-  %72 = icmp eq ptr %71, null
-  br i1 %72, label %_ZNK8QPointerI28QCPColorScaleAxisRectPrivateE4dataEv.exit5, label %73
+71:                                               ; preds = %_ZN11QCPAxisRect13rangeDragAxisEN2Qt11OrientationE.exit
+  %72 = load ptr, ptr %4, align 8
+  %73 = icmp eq ptr %72, null
+  br i1 %73, label %_ZNK8QPointerI28QCPColorScaleAxisRectPrivateE4dataEv.exit5, label %74
 
-73:                                               ; preds = %70
-  %74 = getelementptr inbounds i8, ptr %71, i64 4
-  %75 = load atomic i32, ptr %74 monotonic, align 4
-  %76 = icmp eq i32 %75, 0
-  %77 = load ptr, ptr %11, align 8
-  %spec.select = select i1 %76, ptr null, ptr %77
+74:                                               ; preds = %71
+  %75 = getelementptr inbounds i8, ptr %72, i64 4
+  %76 = load atomic i32, ptr %75 monotonic, align 4
+  %77 = icmp eq i32 %76, 0
+  %78 = load ptr, ptr %11, align 8
+  %spec.select = select i1 %77, ptr null, ptr %78
   br label %_ZNK8QPointerI28QCPColorScaleAxisRectPrivateE4dataEv.exit5
 
-_ZNK8QPointerI28QCPColorScaleAxisRectPrivateE4dataEv.exit5: ; preds = %73, %70
-  %78 = phi ptr [ null, %70 ], [ %spec.select, %73 ]
-  %79 = load i32, ptr %24, align 8
-  switch i32 %79, label %88 [
-    i32 8, label %80
-    i32 4, label %80
+_ZNK8QPointerI28QCPColorScaleAxisRectPrivateE4dataEv.exit5: ; preds = %74, %71
+  %79 = phi ptr [ null, %71 ], [ %spec.select, %74 ]
+  %80 = load i32, ptr %24, align 8
+  switch i32 %80, label %89 [
+    i32 8, label %81
+    i32 4, label %81
   ]
 
-80:                                               ; preds = %_ZNK8QPointerI28QCPColorScaleAxisRectPrivateE4dataEv.exit5, %_ZNK8QPointerI28QCPColorScaleAxisRectPrivateE4dataEv.exit5
-  %81 = getelementptr inbounds i8, ptr %78, i64 248
-  %82 = getelementptr inbounds i8, ptr %78, i64 264
-  %83 = load i64, ptr %82, align 8
-  %84 = icmp ne i64 %83, 0
-  tail call void @llvm.assume(i1 %84)
-  %85 = load ptr, ptr %81, align 8
-  %.not.i.i.i.i.i.i13 = icmp eq ptr %85, null
+81:                                               ; preds = %_ZNK8QPointerI28QCPColorScaleAxisRectPrivateE4dataEv.exit5, %_ZNK8QPointerI28QCPColorScaleAxisRectPrivateE4dataEv.exit5
+  %82 = getelementptr inbounds i8, ptr %79, i64 248
+  %83 = getelementptr inbounds i8, ptr %79, i64 264
+  %84 = load i64, ptr %83, align 8
+  %85 = icmp ne i64 %84, 0
+  tail call void @llvm.assume(i1 %85)
+  %86 = load ptr, ptr %82, align 8
+  %.not.i.i.i.i.i.i13 = icmp eq ptr %86, null
   br i1 %.not.i.i.i.i.i.i13, label %_ZNK8QPointerI7QCPAxisE4dataEv.exit.sink.split.i9.sink.split, label %_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.i.i.i.i.i14
 
-_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.i.i.i.i.i14: ; preds = %80
-  %86 = load atomic i32, ptr %85 monotonic, align 4
-  %87 = icmp sgt i32 %86, 1
-  br i1 %87, label %_ZNK8QPointerI7QCPAxisE4dataEv.exit.sink.split.i9.sink.split, label %_ZNK8QPointerI7QCPAxisE4dataEv.exit.sink.split.i9
+_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.i.i.i.i.i14: ; preds = %81
+  %87 = load atomic i32, ptr %86 monotonic, align 4
+  %88 = icmp sgt i32 %87, 1
+  br i1 %88, label %_ZNK8QPointerI7QCPAxisE4dataEv.exit.sink.split.i9.sink.split, label %_ZNK8QPointerI7QCPAxisE4dataEv.exit.sink.split.i9
 
-88:                                               ; preds = %_ZNK8QPointerI28QCPColorScaleAxisRectPrivateE4dataEv.exit5
-  %89 = getelementptr inbounds i8, ptr %78, i64 272
-  %90 = getelementptr inbounds i8, ptr %78, i64 288
-  %91 = load i64, ptr %90, align 8
-  %92 = icmp ne i64 %91, 0
-  tail call void @llvm.assume(i1 %92)
-  %93 = load ptr, ptr %89, align 8
-  %.not.i.i.i.i.i2.i6 = icmp eq ptr %93, null
+89:                                               ; preds = %_ZNK8QPointerI28QCPColorScaleAxisRectPrivateE4dataEv.exit5
+  %90 = getelementptr inbounds i8, ptr %79, i64 272
+  %91 = getelementptr inbounds i8, ptr %79, i64 288
+  %92 = load i64, ptr %91, align 8
+  %93 = icmp ne i64 %92, 0
+  tail call void @llvm.assume(i1 %93)
+  %94 = load ptr, ptr %90, align 8
+  %.not.i.i.i.i.i2.i6 = icmp eq ptr %94, null
   br i1 %.not.i.i.i.i.i2.i6, label %_ZNK8QPointerI7QCPAxisE4dataEv.exit.sink.split.i9.sink.split, label %_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.i.i.i.i3.i7
 
-_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.i.i.i.i3.i7: ; preds = %88
-  %94 = load atomic i32, ptr %93 monotonic, align 4
-  %95 = icmp sgt i32 %94, 1
-  br i1 %95, label %_ZNK8QPointerI7QCPAxisE4dataEv.exit.sink.split.i9.sink.split, label %_ZNK8QPointerI7QCPAxisE4dataEv.exit.sink.split.i9
+_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.i.i.i.i3.i7: ; preds = %89
+  %95 = load atomic i32, ptr %94 monotonic, align 4
+  %96 = icmp sgt i32 %95, 1
+  br i1 %96, label %_ZNK8QPointerI7QCPAxisE4dataEv.exit.sink.split.i9.sink.split, label %_ZNK8QPointerI7QCPAxisE4dataEv.exit.sink.split.i9
 
-_ZNK8QPointerI7QCPAxisE4dataEv.exit.sink.split.i9.sink.split: ; preds = %88, %_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.i.i.i.i3.i7, %80, %_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.i.i.i.i.i14
-  %.sink26 = phi ptr [ %81, %_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.i.i.i.i.i14 ], [ %81, %80 ], [ %89, %_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.i.i.i.i3.i7 ], [ %89, %88 ]
-  %.sink25.ph = phi i64 [ 256, %_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.i.i.i.i.i14 ], [ 256, %80 ], [ 280, %_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.i.i.i.i3.i7 ], [ 280, %88 ]
-  tail call void @_ZN17QArrayDataPointerI8QPointerI7QCPAxisEE17reallocateAndGrowEN10QArrayData14GrowthPositionExPS3_(ptr noundef nonnull align 8 dereferenceable(24) %.sink26, i32 noundef 0, i64 noundef 0, ptr noundef null)
+_ZNK8QPointerI7QCPAxisE4dataEv.exit.sink.split.i9.sink.split: ; preds = %89, %_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.i.i.i.i3.i7, %81, %_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.i.i.i.i.i14
+  %.sink25 = phi ptr [ %82, %_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.i.i.i.i.i14 ], [ %82, %81 ], [ %90, %_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.i.i.i.i3.i7 ], [ %90, %89 ]
+  %.sink24.ph = phi i64 [ 256, %_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.i.i.i.i.i14 ], [ 256, %81 ], [ 280, %_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.i.i.i.i3.i7 ], [ 280, %89 ]
+  tail call void @_ZN17QArrayDataPointerI8QPointerI7QCPAxisEE17reallocateAndGrowEN10QArrayData14GrowthPositionExPS3_(ptr noundef nonnull align 8 dereferenceable(24) %.sink25, i32 noundef 0, i64 noundef 0, ptr noundef null)
   br label %_ZNK8QPointerI7QCPAxisE4dataEv.exit.sink.split.i9
 
 _ZNK8QPointerI7QCPAxisE4dataEv.exit.sink.split.i9: ; preds = %_ZNK8QPointerI7QCPAxisE4dataEv.exit.sink.split.i9.sink.split, %_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.i.i.i.i3.i7, %_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.i.i.i.i.i14
-  %.sink25 = phi i64 [ 256, %_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.i.i.i.i.i14 ], [ 280, %_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.i.i.i.i3.i7 ], [ %.sink25.ph, %_ZNK8QPointerI7QCPAxisE4dataEv.exit.sink.split.i9.sink.split ]
-  %96 = getelementptr inbounds i8, ptr %78, i64 %.sink25
-  %.sink = load ptr, ptr %96, align 8
-  %97 = load ptr, ptr %.sink, align 8, !nonnull !116, !noundef !116
-  %98 = getelementptr inbounds i8, ptr %97, i64 4
-  %99 = load atomic i32, ptr %98 monotonic, align 4
-  %100 = icmp ne i32 %99, 0
-  tail call void @llvm.assume(i1 %100)
-  %101 = getelementptr inbounds i8, ptr %.sink, i64 8
-  %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %102, i64 76
-  %104 = load i32, ptr %103, align 4
-  %105 = load i32, ptr %24, align 8
-  %106 = icmp eq i32 %105, 8
-  %107 = icmp eq i32 %105, 4
-  %108 = or i1 %106, %107
-  %109 = select i1 %108, i32 1, i32 2
-  %110 = icmp eq i32 %104, %109
+  %.sink24 = phi i64 [ 256, %_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.i.i.i.i.i14 ], [ 280, %_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.i.i.i.i3.i7 ], [ %.sink24.ph, %_ZNK8QPointerI7QCPAxisE4dataEv.exit.sink.split.i9.sink.split ]
+  %97 = getelementptr inbounds i8, ptr %79, i64 %.sink24
+  %.sink = load ptr, ptr %97, align 8
+  %98 = load ptr, ptr %.sink, align 8, !nonnull !116, !noundef !116
+  %99 = getelementptr inbounds i8, ptr %98, i64 4
+  %100 = load atomic i32, ptr %99 monotonic, align 4
+  %101 = icmp ne i32 %100, 0
+  tail call void @llvm.assume(i1 %101)
+  %102 = getelementptr inbounds i8, ptr %.sink, i64 8
+  %103 = load ptr, ptr %102, align 8
+  %104 = getelementptr inbounds i8, ptr %103, i64 76
+  %105 = load i32, ptr %104, align 4
+  %106 = load i32, ptr %24, align 8
+  %107 = icmp eq i32 %106, 8
+  %108 = icmp eq i32 %106, 4
+  %109 = or i1 %107, %108
+  %110 = select i1 %109, i32 1, i32 2
+  %111 = icmp eq i32 %105, %110
   br label %_ZN11QCPAxisRect13rangeDragAxisEN2Qt11OrientationE.exit.thread
 
-_ZN11QCPAxisRect13rangeDragAxisEN2Qt11OrientationE.exit.thread: ; preds = %_ZN5QListI8QPointerI7QCPAxisEE5firstEv.exit5.i, %64, %_ZN5QListI8QPointerI7QCPAxisEE5firstEv.exit.i, %47, %51, %34, %_ZNK8QPointerI28QCPColorScaleAxisRectPrivateE4dataEv.exit, %_ZN11QCPAxisRect13rangeDragAxisEN2Qt11OrientationE.exit, %_ZNK8QPointerI7QCPAxisE4dataEv.exit.sink.split.i9, %18
-  %.0 = phi i1 [ false, %18 ], [ false, %_ZN11QCPAxisRect13rangeDragAxisEN2Qt11OrientationE.exit ], [ false, %_ZNK8QPointerI28QCPColorScaleAxisRectPrivateE4dataEv.exit ], [ %110, %_ZNK8QPointerI7QCPAxisE4dataEv.exit.sink.split.i9 ], [ false, %34 ], [ false, %51 ], [ false, %47 ], [ false, %_ZN5QListI8QPointerI7QCPAxisEE5firstEv.exit.i ], [ false, %64 ], [ false, %_ZN5QListI8QPointerI7QCPAxisEE5firstEv.exit5.i ]
+_ZN11QCPAxisRect13rangeDragAxisEN2Qt11OrientationE.exit.thread: ; preds = %_ZN5QListI8QPointerI7QCPAxisEE5firstEv.exit5.i, %65, %_ZN5QListI8QPointerI7QCPAxisEE5firstEv.exit.i, %48, %52, %35, %_ZNK8QPointerI28QCPColorScaleAxisRectPrivateE4dataEv.exit, %_ZN11QCPAxisRect13rangeDragAxisEN2Qt11OrientationE.exit, %_ZNK8QPointerI7QCPAxisE4dataEv.exit.sink.split.i9, %18
+  %.0 = phi i1 [ false, %18 ], [ false, %_ZN11QCPAxisRect13rangeDragAxisEN2Qt11OrientationE.exit ], [ false, %_ZNK8QPointerI28QCPColorScaleAxisRectPrivateE4dataEv.exit ], [ %111, %_ZNK8QPointerI7QCPAxisE4dataEv.exit.sink.split.i9 ], [ false, %35 ], [ false, %52 ], [ false, %48 ], [ false, %_ZN5QListI8QPointerI7QCPAxisEE5firstEv.exit.i ], [ false, %65 ], [ false, %_ZN5QListI8QPointerI7QCPAxisEE5firstEv.exit5.i ]
   ret i1 %.0
 }
 
@@ -94133,175 +94133,175 @@ _ZNK8QPointerI28QCPColorScaleAxisRectPrivateE4dataEv.exit: ; preds = %7
   %26 = icmp eq i32 %25, 8
   %27 = icmp eq i32 %25, 4
   %28 = or i1 %26, %27
-  %29 = select i1 %28, i32 1, i32 2
-  %30 = and i32 %29, %.sroa.0.0.copyload.i
-  %.not22 = icmp eq i32 %30, 0
-  br i1 %.not22, label %_ZN11QCPAxisRect13rangeZoomAxisEN2Qt11OrientationE.exit.thread, label %_ZNK8QPointerI28QCPColorScaleAxisRectPrivateE4dataEv.exit4
+  %29 = select i1 %28, i32 -2, i32 -3
+  %30 = or i32 %29, %.sroa.0.0.copyload.i
+  %31 = icmp eq i32 %30, -1
+  br i1 %31, label %_ZNK8QPointerI28QCPColorScaleAxisRectPrivateE4dataEv.exit4, label %_ZN11QCPAxisRect13rangeZoomAxisEN2Qt11OrientationE.exit.thread
 
 _ZNK8QPointerI28QCPColorScaleAxisRectPrivateE4dataEv.exit4: ; preds = %_ZNK8QPointerI28QCPColorScaleAxisRectPrivateE4dataEv.exit
-  %31 = load atomic i32, ptr %8 monotonic, align 4
-  %32 = icmp eq i32 %31, 0
-  %33 = select i1 %32, ptr null, ptr %12
-  switch i32 %25, label %51 [
-    i32 8, label %34
-    i32 4, label %34
+  %32 = load atomic i32, ptr %8 monotonic, align 4
+  %33 = icmp eq i32 %32, 0
+  %34 = select i1 %33, ptr null, ptr %12
+  switch i32 %25, label %52 [
+    i32 8, label %35
+    i32 4, label %35
   ]
 
-34:                                               ; preds = %_ZNK8QPointerI28QCPColorScaleAxisRectPrivateE4dataEv.exit4, %_ZNK8QPointerI28QCPColorScaleAxisRectPrivateE4dataEv.exit4
-  %35 = getelementptr inbounds i8, ptr %33, i64 296
-  %36 = getelementptr inbounds i8, ptr %33, i64 312
-  %37 = load i64, ptr %36, align 8
-  %38 = icmp eq i64 %37, 0
-  br i1 %38, label %_ZN11QCPAxisRect13rangeZoomAxisEN2Qt11OrientationE.exit.thread, label %39
+35:                                               ; preds = %_ZNK8QPointerI28QCPColorScaleAxisRectPrivateE4dataEv.exit4, %_ZNK8QPointerI28QCPColorScaleAxisRectPrivateE4dataEv.exit4
+  %36 = getelementptr inbounds i8, ptr %34, i64 296
+  %37 = getelementptr inbounds i8, ptr %34, i64 312
+  %38 = load i64, ptr %37, align 8
+  %39 = icmp eq i64 %38, 0
+  br i1 %39, label %_ZN11QCPAxisRect13rangeZoomAxisEN2Qt11OrientationE.exit.thread, label %40
 
-39:                                               ; preds = %34
-  %40 = load ptr, ptr %35, align 8
-  %.not.i.i.i.i.i.i = icmp eq ptr %40, null
+40:                                               ; preds = %35
+  %41 = load ptr, ptr %36, align 8
+  %.not.i.i.i.i.i.i = icmp eq ptr %41, null
   br i1 %.not.i.i.i.i.i.i, label %_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.thread.i.i.i.i.i, label %_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.i.i.i.i.i
 
-_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.i.i.i.i.i: ; preds = %39
-  %41 = load atomic i32, ptr %40 monotonic, align 4
-  %42 = icmp sgt i32 %41, 1
-  br i1 %42, label %_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.thread.i.i.i.i.i, label %_ZN5QListI8QPointerI7QCPAxisEE5firstEv.exit.i
+_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.i.i.i.i.i: ; preds = %40
+  %42 = load atomic i32, ptr %41 monotonic, align 4
+  %43 = icmp sgt i32 %42, 1
+  br i1 %43, label %_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.thread.i.i.i.i.i, label %_ZN5QListI8QPointerI7QCPAxisEE5firstEv.exit.i
 
-_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.thread.i.i.i.i.i: ; preds = %_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.i.i.i.i.i, %39
-  tail call void @_ZN17QArrayDataPointerI8QPointerI7QCPAxisEE17reallocateAndGrowEN10QArrayData14GrowthPositionExPS3_(ptr noundef nonnull align 8 dereferenceable(24) %35, i32 noundef 0, i64 noundef 0, ptr noundef null)
+_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.thread.i.i.i.i.i: ; preds = %_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.i.i.i.i.i, %40
+  tail call void @_ZN17QArrayDataPointerI8QPointerI7QCPAxisEE17reallocateAndGrowEN10QArrayData14GrowthPositionExPS3_(ptr noundef nonnull align 8 dereferenceable(24) %36, i32 noundef 0, i64 noundef 0, ptr noundef null)
   br label %_ZN5QListI8QPointerI7QCPAxisEE5firstEv.exit.i
 
 _ZN5QListI8QPointerI7QCPAxisEE5firstEv.exit.i:    ; preds = %_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.thread.i.i.i.i.i, %_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.i.i.i.i.i
-  %43 = getelementptr inbounds i8, ptr %33, i64 304
-  %44 = load ptr, ptr %43, align 8
+  %44 = getelementptr inbounds i8, ptr %34, i64 304
   %45 = load ptr, ptr %44, align 8
-  %46 = icmp eq ptr %45, null
-  br i1 %46, label %_ZN11QCPAxisRect13rangeZoomAxisEN2Qt11OrientationE.exit.thread, label %47
+  %46 = load ptr, ptr %45, align 8
+  %47 = icmp eq ptr %46, null
+  br i1 %47, label %_ZN11QCPAxisRect13rangeZoomAxisEN2Qt11OrientationE.exit.thread, label %48
 
-47:                                               ; preds = %_ZN5QListI8QPointerI7QCPAxisEE5firstEv.exit.i
-  %48 = getelementptr inbounds i8, ptr %45, i64 4
-  %49 = load atomic i32, ptr %48 monotonic, align 4
-  %50 = icmp eq i32 %49, 0
-  br i1 %50, label %_ZN11QCPAxisRect13rangeZoomAxisEN2Qt11OrientationE.exit.thread, label %_ZN11QCPAxisRect13rangeZoomAxisEN2Qt11OrientationE.exit
+48:                                               ; preds = %_ZN5QListI8QPointerI7QCPAxisEE5firstEv.exit.i
+  %49 = getelementptr inbounds i8, ptr %46, i64 4
+  %50 = load atomic i32, ptr %49 monotonic, align 4
+  %51 = icmp eq i32 %50, 0
+  br i1 %51, label %_ZN11QCPAxisRect13rangeZoomAxisEN2Qt11OrientationE.exit.thread, label %_ZN11QCPAxisRect13rangeZoomAxisEN2Qt11OrientationE.exit
 
-51:                                               ; preds = %_ZNK8QPointerI28QCPColorScaleAxisRectPrivateE4dataEv.exit4
-  %52 = getelementptr inbounds i8, ptr %33, i64 320
-  %53 = getelementptr inbounds i8, ptr %33, i64 336
-  %54 = load i64, ptr %53, align 8
-  %55 = icmp eq i64 %54, 0
-  br i1 %55, label %_ZN11QCPAxisRect13rangeZoomAxisEN2Qt11OrientationE.exit.thread, label %56
+52:                                               ; preds = %_ZNK8QPointerI28QCPColorScaleAxisRectPrivateE4dataEv.exit4
+  %53 = getelementptr inbounds i8, ptr %34, i64 320
+  %54 = getelementptr inbounds i8, ptr %34, i64 336
+  %55 = load i64, ptr %54, align 8
+  %56 = icmp eq i64 %55, 0
+  br i1 %56, label %_ZN11QCPAxisRect13rangeZoomAxisEN2Qt11OrientationE.exit.thread, label %57
 
-56:                                               ; preds = %51
-  %57 = load ptr, ptr %52, align 8
-  %.not.i.i.i.i.i2.i = icmp eq ptr %57, null
+57:                                               ; preds = %52
+  %58 = load ptr, ptr %53, align 8
+  %.not.i.i.i.i.i2.i = icmp eq ptr %58, null
   br i1 %.not.i.i.i.i.i2.i, label %_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.thread.i.i.i.i4.i, label %_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.i.i.i.i3.i
 
-_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.i.i.i.i3.i: ; preds = %56
-  %58 = load atomic i32, ptr %57 monotonic, align 4
-  %59 = icmp sgt i32 %58, 1
-  br i1 %59, label %_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.thread.i.i.i.i4.i, label %_ZN5QListI8QPointerI7QCPAxisEE5firstEv.exit5.i
+_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.i.i.i.i3.i: ; preds = %57
+  %59 = load atomic i32, ptr %58 monotonic, align 4
+  %60 = icmp sgt i32 %59, 1
+  br i1 %60, label %_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.thread.i.i.i.i4.i, label %_ZN5QListI8QPointerI7QCPAxisEE5firstEv.exit5.i
 
-_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.thread.i.i.i.i4.i: ; preds = %_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.i.i.i.i3.i, %56
-  tail call void @_ZN17QArrayDataPointerI8QPointerI7QCPAxisEE17reallocateAndGrowEN10QArrayData14GrowthPositionExPS3_(ptr noundef nonnull align 8 dereferenceable(24) %52, i32 noundef 0, i64 noundef 0, ptr noundef null)
+_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.thread.i.i.i.i4.i: ; preds = %_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.i.i.i.i3.i, %57
+  tail call void @_ZN17QArrayDataPointerI8QPointerI7QCPAxisEE17reallocateAndGrowEN10QArrayData14GrowthPositionExPS3_(ptr noundef nonnull align 8 dereferenceable(24) %53, i32 noundef 0, i64 noundef 0, ptr noundef null)
   br label %_ZN5QListI8QPointerI7QCPAxisEE5firstEv.exit5.i
 
 _ZN5QListI8QPointerI7QCPAxisEE5firstEv.exit5.i:   ; preds = %_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.thread.i.i.i.i4.i, %_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.i.i.i.i3.i
-  %60 = getelementptr inbounds i8, ptr %33, i64 328
-  %61 = load ptr, ptr %60, align 8
+  %61 = getelementptr inbounds i8, ptr %34, i64 328
   %62 = load ptr, ptr %61, align 8
-  %63 = icmp eq ptr %62, null
-  br i1 %63, label %_ZN11QCPAxisRect13rangeZoomAxisEN2Qt11OrientationE.exit.thread, label %64
+  %63 = load ptr, ptr %62, align 8
+  %64 = icmp eq ptr %63, null
+  br i1 %64, label %_ZN11QCPAxisRect13rangeZoomAxisEN2Qt11OrientationE.exit.thread, label %65
 
-64:                                               ; preds = %_ZN5QListI8QPointerI7QCPAxisEE5firstEv.exit5.i
-  %65 = getelementptr inbounds i8, ptr %62, i64 4
-  %66 = load atomic i32, ptr %65 monotonic, align 4
-  %67 = icmp eq i32 %66, 0
-  br i1 %67, label %_ZN11QCPAxisRect13rangeZoomAxisEN2Qt11OrientationE.exit.thread, label %_ZN11QCPAxisRect13rangeZoomAxisEN2Qt11OrientationE.exit
+65:                                               ; preds = %_ZN5QListI8QPointerI7QCPAxisEE5firstEv.exit5.i
+  %66 = getelementptr inbounds i8, ptr %63, i64 4
+  %67 = load atomic i32, ptr %66 monotonic, align 4
+  %68 = icmp eq i32 %67, 0
+  br i1 %68, label %_ZN11QCPAxisRect13rangeZoomAxisEN2Qt11OrientationE.exit.thread, label %_ZN11QCPAxisRect13rangeZoomAxisEN2Qt11OrientationE.exit
 
-_ZN11QCPAxisRect13rangeZoomAxisEN2Qt11OrientationE.exit: ; preds = %47, %64
-  %.sink7.i = phi ptr [ %44, %47 ], [ %61, %64 ]
-  %68 = getelementptr inbounds i8, ptr %.sink7.i, i64 8
-  %69 = load ptr, ptr %68, align 8
-  %.not3 = icmp eq ptr %69, null
-  br i1 %.not3, label %_ZN11QCPAxisRect13rangeZoomAxisEN2Qt11OrientationE.exit.thread, label %70
+_ZN11QCPAxisRect13rangeZoomAxisEN2Qt11OrientationE.exit: ; preds = %48, %65
+  %.sink7.i = phi ptr [ %45, %48 ], [ %62, %65 ]
+  %69 = getelementptr inbounds i8, ptr %.sink7.i, i64 8
+  %70 = load ptr, ptr %69, align 8
+  %.not3 = icmp eq ptr %70, null
+  br i1 %.not3, label %_ZN11QCPAxisRect13rangeZoomAxisEN2Qt11OrientationE.exit.thread, label %71
 
-70:                                               ; preds = %_ZN11QCPAxisRect13rangeZoomAxisEN2Qt11OrientationE.exit
-  %71 = load ptr, ptr %4, align 8
-  %72 = icmp eq ptr %71, null
-  br i1 %72, label %_ZNK8QPointerI28QCPColorScaleAxisRectPrivateE4dataEv.exit5, label %73
+71:                                               ; preds = %_ZN11QCPAxisRect13rangeZoomAxisEN2Qt11OrientationE.exit
+  %72 = load ptr, ptr %4, align 8
+  %73 = icmp eq ptr %72, null
+  br i1 %73, label %_ZNK8QPointerI28QCPColorScaleAxisRectPrivateE4dataEv.exit5, label %74
 
-73:                                               ; preds = %70
-  %74 = getelementptr inbounds i8, ptr %71, i64 4
-  %75 = load atomic i32, ptr %74 monotonic, align 4
-  %76 = icmp eq i32 %75, 0
-  %77 = load ptr, ptr %11, align 8
-  %spec.select = select i1 %76, ptr null, ptr %77
+74:                                               ; preds = %71
+  %75 = getelementptr inbounds i8, ptr %72, i64 4
+  %76 = load atomic i32, ptr %75 monotonic, align 4
+  %77 = icmp eq i32 %76, 0
+  %78 = load ptr, ptr %11, align 8
+  %spec.select = select i1 %77, ptr null, ptr %78
   br label %_ZNK8QPointerI28QCPColorScaleAxisRectPrivateE4dataEv.exit5
 
-_ZNK8QPointerI28QCPColorScaleAxisRectPrivateE4dataEv.exit5: ; preds = %73, %70
-  %78 = phi ptr [ null, %70 ], [ %spec.select, %73 ]
-  %79 = load i32, ptr %24, align 8
-  switch i32 %79, label %88 [
-    i32 8, label %80
-    i32 4, label %80
+_ZNK8QPointerI28QCPColorScaleAxisRectPrivateE4dataEv.exit5: ; preds = %74, %71
+  %79 = phi ptr [ null, %71 ], [ %spec.select, %74 ]
+  %80 = load i32, ptr %24, align 8
+  switch i32 %80, label %89 [
+    i32 8, label %81
+    i32 4, label %81
   ]
 
-80:                                               ; preds = %_ZNK8QPointerI28QCPColorScaleAxisRectPrivateE4dataEv.exit5, %_ZNK8QPointerI28QCPColorScaleAxisRectPrivateE4dataEv.exit5
-  %81 = getelementptr inbounds i8, ptr %78, i64 296
-  %82 = getelementptr inbounds i8, ptr %78, i64 312
-  %83 = load i64, ptr %82, align 8
-  %84 = icmp ne i64 %83, 0
-  tail call void @llvm.assume(i1 %84)
-  %85 = load ptr, ptr %81, align 8
-  %.not.i.i.i.i.i.i13 = icmp eq ptr %85, null
+81:                                               ; preds = %_ZNK8QPointerI28QCPColorScaleAxisRectPrivateE4dataEv.exit5, %_ZNK8QPointerI28QCPColorScaleAxisRectPrivateE4dataEv.exit5
+  %82 = getelementptr inbounds i8, ptr %79, i64 296
+  %83 = getelementptr inbounds i8, ptr %79, i64 312
+  %84 = load i64, ptr %83, align 8
+  %85 = icmp ne i64 %84, 0
+  tail call void @llvm.assume(i1 %85)
+  %86 = load ptr, ptr %82, align 8
+  %.not.i.i.i.i.i.i13 = icmp eq ptr %86, null
   br i1 %.not.i.i.i.i.i.i13, label %_ZNK8QPointerI7QCPAxisE4dataEv.exit.sink.split.i9.sink.split, label %_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.i.i.i.i.i14
 
-_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.i.i.i.i.i14: ; preds = %80
-  %86 = load atomic i32, ptr %85 monotonic, align 4
-  %87 = icmp sgt i32 %86, 1
-  br i1 %87, label %_ZNK8QPointerI7QCPAxisE4dataEv.exit.sink.split.i9.sink.split, label %_ZNK8QPointerI7QCPAxisE4dataEv.exit.sink.split.i9
+_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.i.i.i.i.i14: ; preds = %81
+  %87 = load atomic i32, ptr %86 monotonic, align 4
+  %88 = icmp sgt i32 %87, 1
+  br i1 %88, label %_ZNK8QPointerI7QCPAxisE4dataEv.exit.sink.split.i9.sink.split, label %_ZNK8QPointerI7QCPAxisE4dataEv.exit.sink.split.i9
 
-88:                                               ; preds = %_ZNK8QPointerI28QCPColorScaleAxisRectPrivateE4dataEv.exit5
-  %89 = getelementptr inbounds i8, ptr %78, i64 320
-  %90 = getelementptr inbounds i8, ptr %78, i64 336
-  %91 = load i64, ptr %90, align 8
-  %92 = icmp ne i64 %91, 0
-  tail call void @llvm.assume(i1 %92)
-  %93 = load ptr, ptr %89, align 8
-  %.not.i.i.i.i.i2.i6 = icmp eq ptr %93, null
+89:                                               ; preds = %_ZNK8QPointerI28QCPColorScaleAxisRectPrivateE4dataEv.exit5
+  %90 = getelementptr inbounds i8, ptr %79, i64 320
+  %91 = getelementptr inbounds i8, ptr %79, i64 336
+  %92 = load i64, ptr %91, align 8
+  %93 = icmp ne i64 %92, 0
+  tail call void @llvm.assume(i1 %93)
+  %94 = load ptr, ptr %90, align 8
+  %.not.i.i.i.i.i2.i6 = icmp eq ptr %94, null
   br i1 %.not.i.i.i.i.i2.i6, label %_ZNK8QPointerI7QCPAxisE4dataEv.exit.sink.split.i9.sink.split, label %_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.i.i.i.i3.i7
 
-_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.i.i.i.i3.i7: ; preds = %88
-  %94 = load atomic i32, ptr %93 monotonic, align 4
-  %95 = icmp sgt i32 %94, 1
-  br i1 %95, label %_ZNK8QPointerI7QCPAxisE4dataEv.exit.sink.split.i9.sink.split, label %_ZNK8QPointerI7QCPAxisE4dataEv.exit.sink.split.i9
+_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.i.i.i.i3.i7: ; preds = %89
+  %95 = load atomic i32, ptr %94 monotonic, align 4
+  %96 = icmp sgt i32 %95, 1
+  br i1 %96, label %_ZNK8QPointerI7QCPAxisE4dataEv.exit.sink.split.i9.sink.split, label %_ZNK8QPointerI7QCPAxisE4dataEv.exit.sink.split.i9
 
-_ZNK8QPointerI7QCPAxisE4dataEv.exit.sink.split.i9.sink.split: ; preds = %88, %_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.i.i.i.i3.i7, %80, %_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.i.i.i.i.i14
-  %.sink26 = phi ptr [ %81, %_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.i.i.i.i.i14 ], [ %81, %80 ], [ %89, %_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.i.i.i.i3.i7 ], [ %89, %88 ]
-  %.sink25.ph = phi i64 [ 304, %_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.i.i.i.i.i14 ], [ 304, %80 ], [ 328, %_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.i.i.i.i3.i7 ], [ 328, %88 ]
-  tail call void @_ZN17QArrayDataPointerI8QPointerI7QCPAxisEE17reallocateAndGrowEN10QArrayData14GrowthPositionExPS3_(ptr noundef nonnull align 8 dereferenceable(24) %.sink26, i32 noundef 0, i64 noundef 0, ptr noundef null)
+_ZNK8QPointerI7QCPAxisE4dataEv.exit.sink.split.i9.sink.split: ; preds = %89, %_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.i.i.i.i3.i7, %81, %_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.i.i.i.i.i14
+  %.sink25 = phi ptr [ %82, %_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.i.i.i.i.i14 ], [ %82, %81 ], [ %90, %_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.i.i.i.i3.i7 ], [ %90, %89 ]
+  %.sink24.ph = phi i64 [ 304, %_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.i.i.i.i.i14 ], [ 304, %81 ], [ 328, %_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.i.i.i.i3.i7 ], [ 328, %89 ]
+  tail call void @_ZN17QArrayDataPointerI8QPointerI7QCPAxisEE17reallocateAndGrowEN10QArrayData14GrowthPositionExPS3_(ptr noundef nonnull align 8 dereferenceable(24) %.sink25, i32 noundef 0, i64 noundef 0, ptr noundef null)
   br label %_ZNK8QPointerI7QCPAxisE4dataEv.exit.sink.split.i9
 
 _ZNK8QPointerI7QCPAxisE4dataEv.exit.sink.split.i9: ; preds = %_ZNK8QPointerI7QCPAxisE4dataEv.exit.sink.split.i9.sink.split, %_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.i.i.i.i3.i7, %_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.i.i.i.i.i14
-  %.sink25 = phi i64 [ 304, %_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.i.i.i.i.i14 ], [ 328, %_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.i.i.i.i3.i7 ], [ %.sink25.ph, %_ZNK8QPointerI7QCPAxisE4dataEv.exit.sink.split.i9.sink.split ]
-  %96 = getelementptr inbounds i8, ptr %78, i64 %.sink25
-  %.sink = load ptr, ptr %96, align 8
-  %97 = load ptr, ptr %.sink, align 8, !nonnull !116, !noundef !116
-  %98 = getelementptr inbounds i8, ptr %97, i64 4
-  %99 = load atomic i32, ptr %98 monotonic, align 4
-  %100 = icmp ne i32 %99, 0
-  tail call void @llvm.assume(i1 %100)
-  %101 = getelementptr inbounds i8, ptr %.sink, i64 8
-  %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %102, i64 76
-  %104 = load i32, ptr %103, align 4
-  %105 = load i32, ptr %24, align 8
-  %106 = icmp eq i32 %105, 8
-  %107 = icmp eq i32 %105, 4
-  %108 = or i1 %106, %107
-  %109 = select i1 %108, i32 1, i32 2
-  %110 = icmp eq i32 %104, %109
+  %.sink24 = phi i64 [ 304, %_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.i.i.i.i.i14 ], [ 328, %_ZNK17QArrayDataPointerI8QPointerI7QCPAxisEE11needsDetachEv.exit.i.i.i.i3.i7 ], [ %.sink24.ph, %_ZNK8QPointerI7QCPAxisE4dataEv.exit.sink.split.i9.sink.split ]
+  %97 = getelementptr inbounds i8, ptr %79, i64 %.sink24
+  %.sink = load ptr, ptr %97, align 8
+  %98 = load ptr, ptr %.sink, align 8, !nonnull !116, !noundef !116
+  %99 = getelementptr inbounds i8, ptr %98, i64 4
+  %100 = load atomic i32, ptr %99 monotonic, align 4
+  %101 = icmp ne i32 %100, 0
+  tail call void @llvm.assume(i1 %101)
+  %102 = getelementptr inbounds i8, ptr %.sink, i64 8
+  %103 = load ptr, ptr %102, align 8
+  %104 = getelementptr inbounds i8, ptr %103, i64 76
+  %105 = load i32, ptr %104, align 4
+  %106 = load i32, ptr %24, align 8
+  %107 = icmp eq i32 %106, 8
+  %108 = icmp eq i32 %106, 4
+  %109 = or i1 %107, %108
+  %110 = select i1 %109, i32 1, i32 2
+  %111 = icmp eq i32 %105, %110
   br label %_ZN11QCPAxisRect13rangeZoomAxisEN2Qt11OrientationE.exit.thread
 
-_ZN11QCPAxisRect13rangeZoomAxisEN2Qt11OrientationE.exit.thread: ; preds = %_ZN5QListI8QPointerI7QCPAxisEE5firstEv.exit5.i, %64, %_ZN5QListI8QPointerI7QCPAxisEE5firstEv.exit.i, %47, %51, %34, %_ZNK8QPointerI28QCPColorScaleAxisRectPrivateE4dataEv.exit, %_ZN11QCPAxisRect13rangeZoomAxisEN2Qt11OrientationE.exit, %_ZNK8QPointerI7QCPAxisE4dataEv.exit.sink.split.i9, %18
-  %.0 = phi i1 [ false, %18 ], [ false, %_ZN11QCPAxisRect13rangeZoomAxisEN2Qt11OrientationE.exit ], [ false, %_ZNK8QPointerI28QCPColorScaleAxisRectPrivateE4dataEv.exit ], [ %110, %_ZNK8QPointerI7QCPAxisE4dataEv.exit.sink.split.i9 ], [ false, %34 ], [ false, %51 ], [ false, %47 ], [ false, %_ZN5QListI8QPointerI7QCPAxisEE5firstEv.exit.i ], [ false, %64 ], [ false, %_ZN5QListI8QPointerI7QCPAxisEE5firstEv.exit5.i ]
+_ZN11QCPAxisRect13rangeZoomAxisEN2Qt11OrientationE.exit.thread: ; preds = %_ZN5QListI8QPointerI7QCPAxisEE5firstEv.exit5.i, %65, %_ZN5QListI8QPointerI7QCPAxisEE5firstEv.exit.i, %48, %52, %35, %_ZNK8QPointerI28QCPColorScaleAxisRectPrivateE4dataEv.exit, %_ZN11QCPAxisRect13rangeZoomAxisEN2Qt11OrientationE.exit, %_ZNK8QPointerI7QCPAxisE4dataEv.exit.sink.split.i9, %18
+  %.0 = phi i1 [ false, %18 ], [ false, %_ZN11QCPAxisRect13rangeZoomAxisEN2Qt11OrientationE.exit ], [ false, %_ZNK8QPointerI28QCPColorScaleAxisRectPrivateE4dataEv.exit ], [ %111, %_ZNK8QPointerI7QCPAxisE4dataEv.exit.sink.split.i9 ], [ false, %35 ], [ false, %52 ], [ false, %48 ], [ false, %_ZN5QListI8QPointerI7QCPAxisEE5firstEv.exit.i ], [ false, %65 ], [ false, %_ZN5QListI8QPointerI7QCPAxisEE5firstEv.exit5.i ]
   ret i1 %.0
 }
 
