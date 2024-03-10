@@ -4025,7 +4025,7 @@ define dso_local void @_ZN12ScriptApiEnv21on_liquid_transformedERKSt6vectorISt4p
   %82 = phi ptr [ %69, %72 ], [ %92, %91 ]
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4) #26
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 4 dereferenceable(12) %82, i64 12, i1 false)
-  %83 = sitofp i32 %81 to double
+  %83 = uitofp i32 %81 to double
   invoke void @lua_pushnumber(ptr noundef %34, double noundef %83)
           to label %84 unwind label %94
 

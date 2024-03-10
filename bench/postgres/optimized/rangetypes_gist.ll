@@ -1354,7 +1354,7 @@ get_gist_range_class.exit:                        ; preds = %.lr.ph, %40
   %82 = add nuw nsw i32 %65, 1
   %83 = lshr i32 %82, 1
   %84 = lshr i32 %65, 1
-  %85 = sitofp i32 %65 to float
+  %85 = uitofp i32 %65 to float
   %86 = getelementptr inbounds i8, ptr %21, i64 392
   %87 = getelementptr inbounds i8, ptr %21, i64 292
   br label %.lr.ph253.i

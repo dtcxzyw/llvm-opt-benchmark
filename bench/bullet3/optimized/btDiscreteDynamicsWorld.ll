@@ -5861,7 +5861,7 @@ if.then120:                                       ; preds = %if.end118
 
 for.body:                                         ; preds = %if.then120, %if.end159
   %i.01005 = phi i32 [ 0, %if.then120 ], [ %inc, %if.end159 ]
-  %conv128 = sitofp i32 %i.01005 to float
+  %conv128 = uitofp i32 %i.01005 to float
   %mul129 = fmul float %conv128, 0x401921FB40000000
   %div131 = fmul float %mul129, 3.125000e-02
   %call132 = call { <2 x float>, <2 x float> } @_ZNK21btConeTwistConstraint16GetPointForAngleEff(ptr noundef nonnull align 8 dereferenceable(632) %constraint, float noundef %div131, float noundef %4)

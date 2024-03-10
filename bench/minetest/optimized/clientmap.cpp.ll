@@ -4869,7 +4869,7 @@ define dso_local void @_ZN9ClientMap14updateDrawListEv(ptr noundef nonnull align
   %1094 = load i16, ptr %15, align 2, !tbaa !351
   %1095 = zext i16 %1094 to i32
   %1096 = shl nuw nsw i32 %1095, 4
-  %1097 = sitofp i32 %1096 to float
+  %1097 = uitofp i32 %1096 to float
   %1098 = call nsz float @llvm.fmuladd.f32(float %1097, float 5.000000e-01, float -5.000000e-01)
   %1099 = fmul nsz float %1098, 1.000000e+01
   %1100 = insertelement <2 x float> poison, float %1099, i64 0

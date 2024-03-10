@@ -302,7 +302,7 @@ define hidden void @_ZN7nanogui10ColorWheel4drawEP10NVGcontext(ptr noundef nonnu
 
 35:                                               ; preds = %12, %35
   %.0176 = phi i32 [ 0, %12 ], [ %64, %35 ]
-  %36 = sitofp i32 %.0176 to float
+  %36 = uitofp i32 %.0176 to float
   %37 = fdiv float %36, 6.000000e+00
   %38 = fmul float %37, 0x400921FB60000000
   %39 = call float @llvm.fmuladd.f32(float %38, float 2.000000e+00, float %33)

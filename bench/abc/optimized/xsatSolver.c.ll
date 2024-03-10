@@ -849,7 +849,7 @@ define internal fastcc void @xSAT_WatchListPush(ptr nocapture noundef %0, i64 %1
   %24 = load i32, ptr %0, align 8
   %25 = sitofp i32 %24 to double
   %26 = fmul double %25, 0x3EB0000000000000
-  %27 = sitofp i32 %11 to double
+  %27 = uitofp i32 %11 to double
   %28 = fmul double %27, 0x3EB0000000000000
   %29 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, double noundef %26, double noundef %28)
   %30 = load ptr, ptr @stdout, align 8

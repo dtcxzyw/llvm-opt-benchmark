@@ -13669,7 +13669,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS
 _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %128, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i
   %154 = phi ptr [ %130, %128 ], [ %151, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i ]
   %155 = add nuw nsw i32 %.042, 1
-  %156 = sitofp i32 %155 to double
+  %156 = uitofp i32 %155 to double
   %157 = call double @llvm.fmuladd.f64(double %156, double %.3, double %116)
   %158 = fcmp ugt double %157, %117
   br i1 %158, label %.loopexit, label %123, !llvm.loop !51

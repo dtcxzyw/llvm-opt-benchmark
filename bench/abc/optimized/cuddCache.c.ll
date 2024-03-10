@@ -1229,7 +1229,7 @@ define noundef i32 @cuddCacheProfile(ptr nocapture noundef readonly %0, ptr noca
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %13 = sitofp i32 %12 to double
+  %13 = uitofp i32 %12 to double
   %14 = fmul double %13, 1.000000e+02
   br label %._crit_edge
 

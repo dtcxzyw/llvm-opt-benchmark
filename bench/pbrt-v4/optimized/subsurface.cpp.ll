@@ -7691,13 +7691,13 @@ entry:
   %26 = getelementptr inbounds i8, ptr %this, i64 8
   %bf.load.i = load i32, ptr %26, align 4
   %bf.clear.i = and i32 %bf.load.i, 32767
-  %conv.i = sitofp i32 %bf.clear.i to float
+  %conv.i = uitofp i32 %bf.clear.i to float
   %div.i15 = fdiv float %conv.i, 3.276700e+04
   %mul.i = fmul float %div.i15, 2.000000e+00
   %sub.i = fadd float %mul.i, -1.000000e+00
   %bf.lshr.i = lshr i32 %bf.load.i, 15
   %bf.clear.i17 = and i32 %bf.lshr.i, 32767
-  %conv.i18 = sitofp i32 %bf.clear.i17 to float
+  %conv.i18 = uitofp i32 %bf.clear.i17 to float
   %div.i19 = fdiv float %conv.i18, 3.276700e+04
   %mul.i20 = fmul float %div.i19, 2.000000e+00
   %sub.i21 = fadd float %mul.i20, -1.000000e+00

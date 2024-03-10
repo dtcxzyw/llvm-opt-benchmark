@@ -3406,7 +3406,7 @@ for.body:                                         ; preds = %if.end3, %for.body
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !29
 
 for.end:                                          ; preds = %for.body
-  %conv = sitofp i32 %0 to float
+  %conv = uitofp i32 %0 to float
   %div.i = fdiv float 1.000000e+00, %conv
   %4 = extractelement <2 x float> %2, i64 0
   %mul.i.i = fmul float %div.i, %4

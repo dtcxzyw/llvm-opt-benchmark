@@ -478,7 +478,7 @@ define internal void @pic_bezier(ptr noundef %0, ptr nocapture noundef readonly 
 
 .preheader:                                       ; preds = %19, %.preheader
   %.048 = phi i32 [ %33, %.preheader ], [ 1, %19 ]
-  %24 = sitofp i32 %.048 to double
+  %24 = uitofp i32 %.048 to double
   %25 = fdiv double %24, 6.000000e+00
   %26 = call { double, double } @Bezier(ptr noundef nonnull %5, double noundef %25, ptr noundef null, ptr noundef null) #7
   %27 = extractvalue { double, double } %26, 0

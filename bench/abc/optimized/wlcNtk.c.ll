@@ -4983,7 +4983,7 @@ Wlc_ObjFanin0.exit780:                            ; preds = %1162, %Wlc_ObjHasAr
   %1174 = sub nsw i32 %.val537, %.val538
   %1175 = tail call i32 @llvm.abs.i32(i32 %1174, i1 true)
   %1176 = add nuw nsw i32 %1175, 1
-  %1177 = sitofp i32 %1176 to double
+  %1177 = uitofp i32 %1176 to double
   %1178 = getelementptr inbounds i8, ptr %54, i64 16
   br i1 %1165, label %Wlc_ObjHasArray.exit.thread.i.i.i781, label %Wlc_ObjFanin0.exit783
 
@@ -5003,7 +5003,7 @@ Wlc_ObjFanin0.exit783:                            ; preds = %Wlc_ObjFanin0.exit7
   %1186 = sub nsw i32 %.val539, %.val540
   %1187 = tail call i32 @llvm.abs.i32(i32 %1186, i1 true)
   %1188 = add nuw nsw i32 %1187, 1
-  %1189 = sitofp i32 %1188 to double
+  %1189 = uitofp i32 %1188 to double
   %1190 = tail call double @pow(double noundef %1177, double noundef %1189) #25
   %1191 = fptosi double %1190 to i32
   %1192 = mul nsw i32 %1191, 10

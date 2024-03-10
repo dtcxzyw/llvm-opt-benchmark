@@ -1268,7 +1268,7 @@ adjustBox.exit271:                                ; preds = %390, %float8_gt.exi
   br i1 %400, label %401, label %.loopexit
 
 401:                                              ; preds = %._crit_edge350
-  %402 = sitofp i32 %11 to double
+  %402 = uitofp i32 %11 to double
   %403 = fmul double %402, 3.000000e-01
   %404 = tail call double @llvm.ceil.f64(double %403)
   %405 = fptosi double %404 to i32

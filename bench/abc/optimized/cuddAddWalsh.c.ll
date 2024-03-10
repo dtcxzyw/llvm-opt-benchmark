@@ -299,7 +299,7 @@ define ptr @Cudd_addResidue(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 
   %indvars.iv227 = phi i32 [ 0, %.lr.ph157.preheader ], [ %indvars.iv.next228, %38 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph157.preheader ], [ %indvars.iv.next, %38 ]
   %32 = trunc i64 %indvars.iv to i32
-  %33 = sitofp i32 %32 to double
+  %33 = uitofp i32 %32 to double
   %34 = tail call ptr @cuddUniqueConst(ptr noundef %0, double noundef %33) #6
   %35 = icmp eq ptr %34, null
   br i1 %35, label %.preheader, label %38

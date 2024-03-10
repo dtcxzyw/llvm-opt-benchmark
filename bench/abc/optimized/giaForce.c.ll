@@ -3666,7 +3666,7 @@ Abc_Clock.exit:                                   ; preds = %3, %11
 .critedge6:                                       ; preds = %72, %.lr.ph159.split
   %.0101.lcssa = phi float [ %68, %.lr.ph159.split ], [ %78, %72 ]
   %79 = add nuw nsw i32 %70, 1
-  %80 = sitofp i32 %79 to float
+  %80 = uitofp i32 %79 to float
   %81 = fdiv float %.0101.lcssa, %80
   %82 = getelementptr inbounds float, ptr %22, i64 %indvars.iv175
   store float %81, ptr %82, align 4

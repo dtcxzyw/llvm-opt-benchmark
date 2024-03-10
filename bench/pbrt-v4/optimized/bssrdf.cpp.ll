@@ -175,7 +175,7 @@ entry:
 for.body:                                         ; preds = %entry, %_ZN4pbrt7FastExpEf.exit109
   %Ed.0112 = phi float [ 0.000000e+00, %entry ], [ %add77, %_ZN4pbrt7FastExpEf.exit109 ]
   %i.0111 = phi i32 [ 0, %entry ], [ %inc, %_ZN4pbrt7FastExpEf.exit109 ]
-  %conv = sitofp i32 %i.0111 to float
+  %conv = uitofp i32 %i.0111 to float
   %add22 = fadd float %conv, 5.000000e-01
   %div23 = fdiv float %add22, 1.000000e+02
   %sub.i = fsub float 1.000000e+00, %div23
@@ -379,7 +379,7 @@ entry:
 for.body:                                         ; preds = %entry, %_ZN4pbrt12FrDielectricEff.exit
   %Ess.040 = phi float [ 0.000000e+00, %entry ], [ %add25, %_ZN4pbrt12FrDielectricEff.exit ]
   %i.039 = phi i32 [ 0, %entry ], [ %inc, %_ZN4pbrt12FrDielectricEff.exit ]
-  %conv = sitofp i32 %i.039 to float
+  %conv = uitofp i32 %i.039 to float
   %add2 = fadd float %conv, 5.000000e-01
   %div3 = fdiv float %add2, 1.000000e+02
   %sub.i = fsub float 1.000000e+00, %div3

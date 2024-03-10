@@ -2534,7 +2534,7 @@ _ZN7testing15AssertionResultD2Ev.exit67:          ; preds = %if.end47, %_ZNKSt14
 
 for.body:                                         ; preds = %_ZN7testing15AssertionResultD2Ev.exit67, %_ZN7testing15AssertionResultD2Ev.exit90
   %i.091 = phi i32 [ 2, %_ZN7testing15AssertionResultD2Ev.exit67 ], [ %38, %_ZN7testing15AssertionResultD2Ev.exit90 ]
-  %conv = sitofp i32 %i.091 to double
+  %conv = uitofp i32 %i.091 to double
   %call.i68 = call double @log(double noundef %conv) #13
   %div.i = fdiv double 1.000000e+00, %conv
   %neg.i = fneg double %conv

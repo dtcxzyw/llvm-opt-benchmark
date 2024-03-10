@@ -1944,7 +1944,7 @@ Vec_FltPush.exit:                                 ; preds = %.Vec_FltGrow.exit11
   br label %Vec_QuePrio.exit.i.i
 
 99:                                               ; preds = %87
-  %100 = sitofp i32 %95 to float
+  %100 = uitofp i32 %95 to float
   br label %Vec_QuePrio.exit.i.i
 
 Vec_QuePrio.exit.i.i:                             ; preds = %99, %96

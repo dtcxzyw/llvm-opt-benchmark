@@ -4564,7 +4564,7 @@ define internal zeroext i8 @elem_is2000_chan_id(ptr noundef %0, ptr noundef %1, 
   %12 = load i32, ptr @hf_ansi_a_is2000_chan_id_frame_offset, align 4
   %13 = zext i8 %11 to i32
   %14 = and i32 %13, 15
-  %15 = sitofp i32 %14 to double
+  %15 = uitofp i32 %14 to double
   %16 = fmul double %15, 1.250000e+00
   %17 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %2, i32 noundef %12, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef %13, ptr noundef nonnull @.str.1197, i32 noundef %14, double noundef %16) #5
   %18 = lshr i8 %11, 4
@@ -5263,7 +5263,7 @@ define internal zeroext i8 @elem_is95_chan_id(ptr noundef %0, ptr noundef %1, pt
   %12 = load i32, ptr @hf_ansi_a_is95_chan_id_frame_offset, align 4
   %13 = zext i8 %11 to i32
   %14 = and i32 %13, 15
-  %15 = sitofp i32 %14 to double
+  %15 = uitofp i32 %14 to double
   %16 = fmul double %15, 1.250000e+00
   %17 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %2, i32 noundef %12, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef %13, ptr noundef nonnull @.str.1197, i32 noundef %14, double noundef %16) #5
   %18 = add i32 %3, 1

@@ -3550,7 +3550,7 @@ define internal fastcc void @Ssw_RarTransferPatterns(ptr nocapture noundef reado
   %63 = getelementptr inbounds i32, ptr %.val72, i64 %62
   %64 = load i32, ptr %63, align 4
   %65 = mul nsw i32 %64, %64
-  %66 = sitofp i32 %65 to double
+  %66 = uitofp i32 %65 to double
   %67 = fdiv double 1.000000e+00, %66
   %68 = load ptr, ptr %16, align 8
   %69 = getelementptr inbounds double, ptr %68, i64 %indvars.iv109

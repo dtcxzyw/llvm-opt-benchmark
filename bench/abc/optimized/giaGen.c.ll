@@ -2440,7 +2440,7 @@ Vec_IntSum.exit.loopexit:                         ; preds = %73
 
 Vec_IntSum.exit:                                  ; preds = %Vec_IntSum.exit.loopexit, %67
   %.0.lcssa.i = phi double [ 0.000000e+00, %67 ], [ %78, %Vec_IntSum.exit.loopexit ]
-  %79 = sitofp i32 %.0.ph.ph to double
+  %79 = uitofp i32 %.0.ph.ph to double
   %80 = fdiv double %.0.lcssa.i, %79
   %81 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.37, i32 noundef %69, i32 noundef %1, double noundef %80)
   br label %82
@@ -3232,7 +3232,7 @@ Gia_ManGetExampleValue.exit.preheader:            ; preds = %.lr.ph80.thread, %.
   %62 = fmul float %61, 3.906250e-03
   %63 = icmp sgt i8 %44, 0
   %64 = tail call i32 @llvm.abs.i32(i32 %59, i1 true)
-  %65 = sitofp i32 %64 to float
+  %65 = uitofp i32 %64 to float
   %66 = select i1 %63, float %65, float 0.000000e+00
   %67 = insertelement <2 x float> poison, float %66, i64 0
   %68 = insertelement <2 x float> %67, float %62, i64 1
@@ -3277,7 +3277,7 @@ Gia_ManGetExampleValue.exit:                      ; preds = %Gia_ManGetExampleVa
   %83 = phi <2 x float> [ %80, %._crit_edge ], [ %81, %._crit_edge.thread ]
   %84 = getelementptr i8, ptr %3, i64 4
   %.val70 = load i32, ptr %84, align 4
-  %85 = sitofp i32 %.055.lcssa117 to double
+  %85 = uitofp i32 %.055.lcssa117 to double
   %86 = fmul double %85, 1.000000e+02
   %87 = sitofp i32 %.val70 to double
   %88 = fdiv double %86, %87

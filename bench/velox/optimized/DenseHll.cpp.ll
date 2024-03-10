@@ -919,7 +919,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !11
 
 for.end.loopexit:                                 ; preds = %for.body
-  %5 = sitofp i32 %spec.select to double
+  %5 = uitofp i32 %spec.select to double
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %entry

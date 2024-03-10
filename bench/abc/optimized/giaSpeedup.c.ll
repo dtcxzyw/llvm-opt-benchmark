@@ -1453,7 +1453,7 @@ define float @Gia_ManDelayTraceLutPrint(ptr noundef %0, i32 noundef %1) local_un
   %67 = fdiv double %64, %66
   %68 = trunc i64 %indvars.iv.next71 to i32
   %69 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %68, ptr noundef nonnull %59, i32 noundef %62, double noundef %67)
-  %70 = sitofp i32 %68 to float
+  %70 = uitofp i32 %68 to float
   %71 = fcmp ogt float %17, %70
   br i1 %71, label %.lr.ph64.split.us, label %.loopexit.thread, !llvm.loop !24
 
@@ -1474,7 +1474,7 @@ define float @Gia_ManDelayTraceLutPrint(ptr noundef %0, i32 noundef %1) local_un
   %82 = fdiv double %79, %81
   %83 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %77, ptr noundef nonnull %59, i32 noundef %74, double noundef %82)
   %84 = trunc i64 %indvars.iv.next68 to i32
-  %85 = sitofp i32 %84 to float
+  %85 = uitofp i32 %84 to float
   %86 = fcmp ogt float %17, %85
   br i1 %86, label %.lr.ph64.split, label %.loopexit.thread, !llvm.loop !24
 

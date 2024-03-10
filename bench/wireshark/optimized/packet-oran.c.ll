@@ -2767,7 +2767,7 @@ switch.edge:                                      ; preds = %312, %327
   %481 = and i16 %480, 2047
   %482 = uitofp i16 %481 to double
   %483 = shl nuw nsw i32 1, %479
-  %484 = sitofp i32 %483 to double
+  %484 = uitofp i32 %483 to double
   %485 = fdiv double 1.000000e+00, %484
   %486 = fmul double %485, %482
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %476, ptr noundef nonnull @.str.683, double noundef %486) #9

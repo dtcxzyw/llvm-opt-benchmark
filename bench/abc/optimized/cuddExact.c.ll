@@ -166,7 +166,7 @@ define noundef i32 @cuddExact(ptr noundef %0, i32 noundef %1, i32 noundef %2) lo
 85:                                               ; preds = %83
   %86 = add nuw nsw i32 %82, 3
   %87 = lshr i32 %86, 1
-  %88 = sitofp i32 %87 to double
+  %88 = uitofp i32 %87 to double
   %89 = add nuw nsw i32 %87, 1
   %90 = uitofp i32 %89 to double
   %91 = sitofp i32 %82 to double

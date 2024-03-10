@@ -7206,7 +7206,7 @@ sat_solver_compress.exit766:                      ; preds = %805, %._crit_edge, 
   %870 = uitofp i32 %869 to double
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.37, double noundef %870)
   %871 = add nuw nsw i32 %564, 1
-  %872 = sitofp i32 %871 to double
+  %872 = uitofp i32 %871 to double
   %873 = fmul double %872, 4.250000e+00
   %874 = load i32, ptr %235, align 4
   %875 = sitofp i32 %874 to double
@@ -7799,7 +7799,7 @@ Saig_ManBmcTimeToStop.exit781:                    ; preds = %Abc_Clock.exit774, 
 1154:                                             ; preds = %1152, %1150
   %1155 = trunc i64 %indvars.iv1196 to i32
   %1156 = add i32 %1155, 1
-  %1157 = sitofp i32 %1156 to double
+  %1157 = uitofp i32 %1156 to double
   %1158 = fmul double %1157, 4.000000e+00
   %1159 = load i32, ptr %235, align 4
   %1160 = sitofp i32 %1159 to double

@@ -561,7 +561,7 @@ Amap_ManMatchGetFlows.exit:                       ; preds = %68, %.critedge.loop
   %118 = getelementptr inbounds i8, ptr %67, i64 56
   %119 = load i32, ptr %118, align 8
   %120 = lshr i32 %119, 24
-  %121 = sitofp i32 %120 to float
+  %121 = uitofp i32 %120 to float
   %122 = fdiv float %117, %121
   store float %122, ptr %38, align 4
   store float %116, ptr %39, align 8
@@ -621,7 +621,7 @@ Amap_ManMatchGetFlows.exit:                       ; preds = %68, %.critedge.loop
   %155 = getelementptr inbounds i8, ptr %67, i64 56
   %156 = load i32, ptr %155, align 8
   %157 = lshr i32 %156, 24
-  %158 = sitofp i32 %157 to float
+  %158 = uitofp i32 %157 to float
   %159 = fdiv float %154, %158
   store float %159, ptr %38, align 4
   store float %153, ptr %39, align 8

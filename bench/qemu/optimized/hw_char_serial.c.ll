@@ -341,7 +341,7 @@ cond.end:                                         ; preds = %entry, %cond.false
   %stop_bits30 = getelementptr inbounds i8, ptr %ssp, i64 12
   store i32 %stop_bits.0, ptr %stop_bits30, align 4
   %div31 = fdiv float 1.000000e+09, %cond
-  %conv32 = sitofp i32 %add19 to float
+  %conv32 = uitofp i32 %add19 to float
   %mul = fmul float %div31, %conv32
   %conv33 = fptoui float %mul to i64
   %char_transmit_time = getelementptr inbounds i8, ptr %s, i64 352

@@ -2339,7 +2339,7 @@ Lpk_NodeCutSignature.exit._crit_edge:             ; preds = %Lpk_NodeCutSignatur
   %87 = sub nsw i32 %84, %86
   %88 = sitofp i32 %87 to float
   %89 = and i32 %78, 63
-  %90 = sitofp i32 %89 to float
+  %90 = uitofp i32 %89 to float
   %91 = fdiv float %88, %90
   %92 = getelementptr inbounds i8, ptr %64, i64 12
   store float %91, ptr %92, align 4

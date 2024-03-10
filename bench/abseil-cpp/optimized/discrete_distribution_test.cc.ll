@@ -11144,7 +11144,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %__value.addr.06.i = phi i32 [ %inc.i, %for.body.i ], [ 1, %entry ]
   %__first.sroa.0.05.i.idx = phi i64 [ %__first.sroa.0.05.i.add, %for.body.i ], [ 0, %entry ]
   %__first.sroa.0.05.i.ptr = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i20, i64 %__first.sroa.0.05.i.idx
-  %conv.i = sitofp i32 %__value.addr.06.i to double
+  %conv.i = uitofp i32 %__value.addr.06.i to double
   store double %conv.i, ptr %__first.sroa.0.05.i.ptr, align 8
   %inc.i = add nuw nsw i32 %__value.addr.06.i, 1
   %__first.sroa.0.05.i.add = add nuw nsw i64 %__first.sroa.0.05.i.idx, 8

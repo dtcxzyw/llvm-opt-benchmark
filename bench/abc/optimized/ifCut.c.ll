@@ -2525,7 +2525,7 @@ define float @If_CutAverageRefs(ptr nocapture noundef readonly %0, ptr nocapture
 
 .critedge:                                        ; preds = %.critedge.loopexit, %2
   %.09.lcssa = phi float [ 0.000000e+00, %2 ], [ %20, %.critedge.loopexit ]
-  %21 = sitofp i32 %7 to float
+  %21 = uitofp i32 %7 to float
   %22 = fdiv float %.09.lcssa, %21
   ret float %22
 }

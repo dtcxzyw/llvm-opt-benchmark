@@ -2311,7 +2311,7 @@ define noundef ptr @Mio_CollectRootsNew(ptr noundef %0, i32 noundef %1, ptr noun
 
 Mio_CellDelayAve.exit.i:                          ; preds = %43, %38
   %.09.lcssa.i.i = phi float [ 0.000000e+00, %38 ], [ %46, %43 ]
-  %47 = sitofp i32 %41 to float
+  %47 = uitofp i32 %41 to float
   %48 = select i1 %.not16.i.i, float 1.000000e+00, float %47
   %.1.i.i = fdiv float %.09.lcssa.i.i, %48
   %49 = tail call ptr @Mio_GateReadPins(ptr noundef nonnull %.091165) #30
@@ -2760,7 +2760,7 @@ Mio_CollectCopy.exit:                             ; preds = %83, %144, %115, %17
 
 Mio_CellDelayAve.exit:                            ; preds = %258, %248
   %.09.lcssa.i = phi float [ 0.000000e+00, %248 ], [ %261, %258 ]
-  %262 = sitofp i32 %251 to float
+  %262 = uitofp i32 %251 to float
   %263 = select i1 %.not16.i, float 1.000000e+00, float %262
   %.1.i = fdiv float %.09.lcssa.i, %263
   %264 = fpext float %.1.i to double

@@ -326,7 +326,7 @@ entry:
   %mul = shl nsw i32 %call, 1
   %shr = lshr i32 85, %mul
   %and = and i32 %shr, 1
-  %conv.i = sitofp i32 %and to double
+  %conv.i = uitofp i32 %and to double
   store double %conv.i, ptr %0, align 8
   ret i32 1
 }

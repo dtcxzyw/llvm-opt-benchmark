@@ -37,7 +37,7 @@ entry:
   %Mask = getelementptr inbounds i8, ptr %d, i64 8
   store i64 %shl, ptr %Mask, align 8
   %sub16 = xor i64 %shl, -1
-  %conv = sitofp i64 %sub16 to double
+  %conv = uitofp i64 %sub16 to double
   %mul = fmul double %conv, 5.000000e-01
   %Add = getelementptr inbounds i8, ptr %d, i64 16
   store double %mul, ptr %Add, align 8

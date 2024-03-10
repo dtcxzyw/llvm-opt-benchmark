@@ -49385,7 +49385,7 @@ for.body.lr.ph.i477:                              ; preds = %if.then387
   %sh_prom.i = add i32 %109, 1
   %notmask.i = shl nsw i32 -1, %sh_prom.i
   %sub4.i = xor i32 %notmask.i, -1
-  %conv.i478 = sitofp i32 %sub4.i to float
+  %conv.i478 = uitofp i32 %sub4.i to float
   br label %for.body.i479
 
 for.cond7.preheader.i:                            ; preds = %for.body.i479
@@ -49490,7 +49490,7 @@ for.body.lr.ph.i487:                              ; preds = %if.else425
   %sh_prom.i488 = trunc i64 %nQBits to i32
   %notmask.i489 = shl nsw i32 -1, %sh_prom.i488
   %sub4.i490 = xor i32 %notmask.i489, -1
-  %conv.i491 = sitofp i32 %sub4.i490 to float
+  %conv.i491 = uitofp i32 %sub4.i490 to float
   br label %for.body.i492
 
 for.cond7.preheader.i502:                         ; preds = %for.body.i492

@@ -346,7 +346,7 @@ define internal i32 @dissect_olsr(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %55 = shl nuw nsw i64 1, %54
   %56 = uitofp i64 %55 to double
   %57 = fmul double %56, 6.250000e-02
-  %58 = sitofp i32 %52 to double
+  %58 = uitofp i32 %52 to double
   %59 = fmul double %58, 6.250000e-02
   %60 = fadd double %59, 1.000000e+00
   %61 = fmul double %60, %57
@@ -759,7 +759,7 @@ define internal fastcc noundef i32 @dissect_olsr_hello(ptr noundef %0, ptr nound
   %18 = shl nuw nsw i64 1, %17
   %19 = uitofp i64 %18 to double
   %20 = fmul double %19, 6.250000e-02
-  %21 = sitofp i32 %15 to double
+  %21 = uitofp i32 %15 to double
   %22 = fmul double %21, 6.250000e-02
   %23 = fadd double %22, 1.000000e+00
   %24 = fmul double %23, %20

@@ -4407,7 +4407,7 @@ define dso_local void @_ZN7Minimap29blitMinimapPixelsToImageRadarEPN3irr5video6I
   %35 = zext i16 %32 to i32
   %36 = shl nuw nsw i32 %35, 3
   %37 = add nuw nsw i32 %36, 32
-  %38 = sitofp i32 %37 to float
+  %38 = uitofp i32 %37 to float
   %39 = fadd nsz float %38, 5.000000e-01
   %40 = call nsz noundef float @llvm.floor.f32(float %39)
   %41 = fptosi float %40 to i32
@@ -4992,7 +4992,7 @@ define dso_local noundef ptr @_ZN7Minimap17getMinimapTextureEv(ptr nocapture nou
   %75 = zext i16 %72 to i32
   %76 = shl nuw nsw i32 %75, 3
   %77 = add nuw nsw i32 %76, 32
-  %78 = sitofp i32 %77 to float
+  %78 = uitofp i32 %77 to float
   %79 = fadd nsz float %78, 5.000000e-01
   %80 = call nsz noundef float @llvm.floor.f32(float %79)
   %81 = fptosi float %80 to i32
