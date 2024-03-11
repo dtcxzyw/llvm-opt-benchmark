@@ -421,8 +421,7 @@ sz_psz2ind.exit:                                  ; preds = %if.then
   tail call void @llvm.assume(i1 %cmp.i.i)
   %1 = tail call i64 @llvm.ctlz.i64(i64 %0, i1 false), !range !4
   %2 = trunc i64 %1 to i32
-  %add.i13 = sub nuw nsw i32 64, %2
-  %cond.i = tail call i32 @llvm.usub.sat.i32(i32 %add.i13, i32 14)
+  %cond.i = tail call i32 @llvm.usub.sat.i32(i32 50, i32 %2)
   %cmp4.i = icmp ugt i32 %2, 49
   %add.i = add nuw nsw i32 %cond.i, 11
   %cond10.i = select i1 %cmp4.i, i32 12, i32 %add.i

@@ -24,8 +24,7 @@ sz_psz2ind.exit:                                  ; preds = %entry
   tail call void @llvm.assume(i1 %cmp.i.i)
   %1 = tail call i64 @llvm.ctlz.i64(i64 %sub, i1 false), !range !5
   %2 = trunc i64 %1 to i32
-  %add.i8 = sub nuw nsw i32 64, %2
-  %cond.i = tail call i32 @llvm.usub.sat.i32(i32 %add.i8, i32 14)
+  %cond.i = tail call i32 @llvm.usub.sat.i32(i32 50, i32 %2)
   %cmp4.i = icmp ugt i32 %2, 49
   %add.i = add nuw nsw i32 %cond.i, 11
   %cond10.i = select i1 %cmp4.i, i32 12, i32 %add.i
@@ -66,8 +65,7 @@ sz_psz2ind.exit.i:                                ; preds = %entry
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   %1 = tail call i64 @llvm.ctlz.i64(i64 %sub.i, i1 false), !range !5
   %2 = trunc i64 %1 to i32
-  %add.i8.i = sub nuw nsw i32 64, %2
-  %cond.i.i = tail call i32 @llvm.usub.sat.i32(i32 %add.i8.i, i32 14)
+  %cond.i.i = tail call i32 @llvm.usub.sat.i32(i32 50, i32 %2)
   %cmp4.i.i = icmp ugt i32 %2, 49
   %add.i.i = add nuw nsw i32 %cond.i.i, 11
   %cond10.i.i = select i1 %cmp4.i.i, i32 12, i32 %add.i.i
@@ -100,8 +98,7 @@ if.end.i:                                         ; preds = %if.then
   tail call void @llvm.assume(i1 %cmp.i.i12)
   %5 = tail call i64 @llvm.ctlz.i64(i64 %4, i1 false), !range !5
   %6 = trunc i64 %5 to i32
-  %add.i13 = sub nuw nsw i32 64, %6
-  %cond.i = tail call i32 @llvm.usub.sat.i32(i32 %add.i13, i32 14)
+  %cond.i = tail call i32 @llvm.usub.sat.i32(i32 50, i32 %6)
   %cmp4.i = icmp ugt i32 %6, 49
   %add.i = add nuw nsw i32 %cond.i, 11
   %cond10.i = select i1 %cmp4.i, i32 12, i32 %add.i
