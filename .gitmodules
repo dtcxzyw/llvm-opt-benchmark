@@ -445,3 +445,6 @@
 [submodule "bench/zfp/zfp"]
 	path = bench/zfp/zfp
 	url = git@github.com:LLNL/zfp.git
+[submodule "bench/slurm/slurm"]
+	path = bench/slurm/slurm
+	url = git@github.com:SchedMD/slurm.git
