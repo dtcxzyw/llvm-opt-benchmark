@@ -451,3 +451,6 @@
 [submodule "bench/nanosvg/nanosvg"]
 	path = bench/nanosvg/nanosvg
 	url = git@github.com:memononen/nanosvg.git
+[submodule "bench/openblas/OpenBLAS"]
+	path = bench/openblas/OpenBLAS
+	url = git@github.com:OpenMathLib/OpenBLAS.git
