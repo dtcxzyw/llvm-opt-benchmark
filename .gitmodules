@@ -457,3 +457,6 @@
 [submodule "bench/yosys/yosys"]
 	path = bench/yosys/yosys
 	url = git@github.com:YosysHQ/yosys.git
+[submodule "bench/sundials/sundials"]
+	path = bench/sundials/sundials
+	url = git@github.com:LLNL/sundials.git
