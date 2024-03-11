@@ -430,3 +430,6 @@
 [submodule "bench/nanobind/nanobind"]
 	path = bench/nanobind/nanobind
 	url = git@github.com:wjakob/nanobind.git
+[submodule "bench/pybind11/pybind11"]
+	path = bench/pybind11/pybind11
+	url = git@github.com:pybind/pybind11.git
