@@ -442,3 +442,6 @@
 [submodule "bench/qoi/qoi"]
 	path = bench/qoi/qoi
 	url = git@github.com:phoboslab/qoi.git
+[submodule "bench/zfp/zfp"]
+	path = bench/zfp/zfp
+	url = git@github.com:LLNL/zfp.git
