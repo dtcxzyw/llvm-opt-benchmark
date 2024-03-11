@@ -5309,6 +5309,7 @@ Vec_PtrPush.exit38:
   %9 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %8, ptr %9, align 8
   %10 = tail call ptr @Bac_NtkTransformToPtrOutputs(ptr noundef nonnull %0)
+  store i32 3, ptr %2, align 4
   %11 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %10, ptr %11, align 8
   %calloc = tail call dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
@@ -5405,6 +5406,7 @@ Bac_ManNtk.exit:                                  ; preds = %Bac_ManNtk.exit.lr.
   %39 = getelementptr inbounds i8, ptr %33, i64 8
   store ptr %38, ptr %39, align 8
   %40 = tail call ptr @Bac_NtkTransformToPtrOutputs(ptr noundef nonnull %30)
+  store i32 3, ptr %32, align 4
   %41 = getelementptr inbounds i8, ptr %33, i64 16
   store ptr %40, ptr %41, align 8
   %calloc.i = tail call dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
