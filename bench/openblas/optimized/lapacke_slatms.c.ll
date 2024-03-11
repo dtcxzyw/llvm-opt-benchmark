@@ -1,0 +1,111 @@
+; ModuleID = 'bench/openblas/original/lapacke_slatms.c.ll'
+source_filename = "bench/openblas/original/lapacke_slatms.c.ll"
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-pc-linux-gnu"
+
+@.str = private unnamed_addr constant [15 x i8] c"LAPACKE_slatms\00", align 1
+
+; Function Attrs: nounwind uwtable
+define i32 @LAPACKE_slatms(i32 noundef %0, i32 noundef %1, i32 noundef %2, i8 noundef signext %3, ptr noundef %4, i8 noundef signext %5, ptr noundef %6, i32 noundef %7, float noundef %8, float noundef %9, i32 noundef %10, i32 noundef %11, i8 noundef signext %12, ptr noundef %13, i32 noundef %14) local_unnamed_addr #0 {
+  %16 = alloca float, align 4
+  %17 = alloca float, align 4
+  store float %8, ptr %16, align 4, !tbaa !3
+  store float %9, ptr %17, align 4, !tbaa !3
+  %18 = add i32 %0, -103
+  %19 = icmp ult i32 %18, -2
+  br i1 %19, label %.thread, label %20
+
+20:                                               ; preds = %15
+  %21 = tail call i32 @LAPACKE_get_nancheck() #5
+  %22 = icmp eq i32 %21, 0
+  br i1 %22, label %36, label %23
+
+23:                                               ; preds = %20
+  %24 = tail call i32 @LAPACKE_sge_nancheck(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %13, i32 noundef %14) #5
+  %25 = icmp eq i32 %24, 0
+  br i1 %25, label %26, label %51
+
+26:                                               ; preds = %23
+  %27 = call i32 @LAPACKE_s_nancheck(i32 noundef 1, ptr noundef nonnull %16, i32 noundef 1) #5
+  %28 = icmp eq i32 %27, 0
+  br i1 %28, label %29, label %51
+
+29:                                               ; preds = %26
+  %30 = call i32 @llvm.smin.i32(i32 %2, i32 %1)
+  %31 = call i32 @LAPACKE_s_nancheck(i32 noundef %30, ptr noundef %6, i32 noundef 1) #5
+  %32 = icmp eq i32 %31, 0
+  br i1 %32, label %33, label %51
+
+33:                                               ; preds = %29
+  %34 = call i32 @LAPACKE_s_nancheck(i32 noundef 1, ptr noundef nonnull %17, i32 noundef 1) #5
+  %35 = icmp eq i32 %34, 0
+  br i1 %35, label %36, label %51
+
+36:                                               ; preds = %33, %20
+  %37 = call i32 @llvm.smax.i32(i32 %2, i32 %1)
+  %38 = icmp slt i32 %37, 1
+  %39 = mul nsw i32 %37, 3
+  %40 = zext nneg i32 %39 to i64
+  %41 = shl nuw nsw i64 %40, 2
+  %42 = select i1 %38, i64 4, i64 %41
+  %43 = call noalias ptr @malloc(i64 noundef %42) #6
+  %44 = icmp eq ptr %43, null
+  br i1 %44, label %.thread, label %45
+
+45:                                               ; preds = %36
+  %46 = load float, ptr %16, align 4, !tbaa !3
+  %47 = load float, ptr %17, align 4, !tbaa !3
+  %48 = call i32 @LAPACKE_slatms_work(i32 noundef %0, i32 noundef %1, i32 noundef %2, i8 noundef signext %3, ptr noundef %4, i8 noundef signext %5, ptr noundef %6, i32 noundef %7, float noundef %46, float noundef %47, i32 noundef %10, i32 noundef %11, i8 noundef signext %12, ptr noundef %13, i32 noundef %14, ptr noundef nonnull %43) #5
+  call void @free(ptr noundef nonnull %43) #5
+  %49 = icmp eq i32 %48, -1010
+  br i1 %49, label %.thread, label %51
+
+.thread:                                          ; preds = %36, %45, %15
+  %50 = phi i32 [ -1, %15 ], [ -1010, %45 ], [ -1010, %36 ]
+  call void @LAPACKE_xerbla(ptr noundef nonnull @.str, i32 noundef %50) #5
+  br label %51
+
+51:                                               ; preds = %.thread, %45, %33, %29, %26, %23
+  %52 = phi i32 [ -14, %23 ], [ -9, %26 ], [ -7, %29 ], [ -10, %33 ], [ %48, %45 ], [ %50, %.thread ]
+  ret i32 %52
+}
+
+declare void @LAPACKE_xerbla(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+declare i32 @LAPACKE_get_nancheck() local_unnamed_addr #1
+
+declare i32 @LAPACKE_sge_nancheck(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+
+declare i32 @LAPACKE_s_nancheck(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
+
+declare i32 @LAPACKE_slatms_work(i32 noundef, i32 noundef, i32 noundef, i8 noundef signext, ptr noundef, i8 noundef signext, ptr noundef, i32 noundef, float noundef, float noundef, i32 noundef, i32 noundef, i8 noundef signext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #4
+
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
+attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
+attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { nounwind }
+attributes #6 = { nounwind allocsize(0) }
+
+!llvm.module.flags = !{!0, !1, !2}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 8, !"PIC Level", i32 2}
+!2 = !{i32 7, !"uwtable", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"float", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}

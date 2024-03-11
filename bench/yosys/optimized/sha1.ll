@@ -1,0 +1,1623 @@
+; ModuleID = 'bench/yosys/original/sha1.ll'
+source_filename = "bench/yosys/original/sha1.ll"
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-pc-linux-gnu"
+
+%"class.std::ios_base::Init" = type { i8 }
+%"class.std::__cxx11::basic_istringstream" = type { %"class.std::basic_istream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
+%"class.std::basic_istream.base" = type { ptr, i64 }
+%"class.std::__cxx11::basic_stringbuf" = type { %"class.std::basic_streambuf", i32, %"class.std::__cxx11::basic_string" }
+%"class.std::basic_streambuf" = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, %"class.std::locale" }
+%"class.std::locale" = type { ptr }
+%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
+%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
+%union.anon = type { i64, [8 x i8] }
+%"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
+%"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
+%"struct.std::ios_base::_Words" = type { ptr, i64 }
+%"class.std::__cxx11::basic_ostringstream" = type { %"class.std::basic_ostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
+%"class.std::basic_ostream.base" = type { ptr }
+%"class.std::basic_ifstream" = type { %"class.std::basic_istream.base", %"class.std::basic_filebuf", %"class.std::basic_ios" }
+%"class.std::basic_filebuf" = type { %"class.std::basic_streambuf", %union.pthread_mutex_t, %"class.std::__basic_file", i32, %struct.__mbstate_t, %struct.__mbstate_t, %struct.__mbstate_t, ptr, i64, i8, i8, i8, i8, ptr, ptr, i8, ptr, ptr, i64, ptr, ptr }
+%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
+%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
+%struct.__pthread_internal_list = type { ptr, ptr }
+%"class.std::__basic_file" = type <{ ptr, i8, [7 x i8] }>
+%struct.__mbstate_t = type { i32, %union.anon.0 }
+%union.anon.0 = type { i32 }
+%class.SHA1 = type { [5 x i32], %"class.std::__cxx11::basic_string", i64 }
+
+$_ZSt3hexRSt8ios_base = comdat any
+
+@_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
+@__dso_handle = external hidden global i8
+@.str = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
+@llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_sha1.cpp, ptr null }]
+
+@_ZN4SHA1C1Ev = unnamed_addr alias void (ptr), ptr @_ZN4SHA1C2Ev
+
+declare void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0
+
+; Function Attrs: nounwind
+declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
+
+; Function Attrs: nofree nounwind
+declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
+
+; Function Attrs: mustprogress uwtable
+define void @_ZN4SHA1C2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #12
+  store <4 x i32> <i32 1732584193, i32 -271733879, i32 -1732584194, i32 271733878>, ptr %0, align 8
+  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 -1009589776, ptr %3, align 8
+  %4 = getelementptr inbounds i8, ptr %0, i64 56
+  store i64 0, ptr %4, align 8
+  %5 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str)
+          to label %_ZN4SHA15resetEv.exit unwind label %6
+
+_ZN4SHA15resetEv.exit:                            ; preds = %1
+  ret void
+
+6:                                                ; preds = %1
+  %7 = landingpad { ptr, i32 }
+          cleanup
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #12
+  resume { ptr, i32 } %7
+}
+
+; Function Attrs: nounwind
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
+
+; Function Attrs: mustprogress uwtable
+define void @_ZN4SHA15resetEv(ptr noundef nonnull align 8 dereferenceable(64) %0) local_unnamed_addr #3 align 2 {
+  store <4 x i32> <i32 1732584193, i32 -271733879, i32 -1732584194, i32 271733878>, ptr %0, align 8
+  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 -1009589776, ptr %2, align 8
+  %3 = getelementptr inbounds i8, ptr %0, i64 56
+  store i64 0, ptr %3, align 8
+  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str)
+  ret void
+}
+
+declare i32 @__gxx_personality_v0(...)
+
+; Function Attrs: nounwind
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
+
+; Function Attrs: mustprogress uwtable
+define void @_ZN4SHA16updateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca %"class.std::__cxx11::basic_istringstream", align 8
+  call void @_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEC1ERKNS_12basic_stringIcS2_S3_EESt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(120) %3, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef 8)
+  invoke void @_ZN4SHA16updateERSi(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %3)
+          to label %4 unwind label %5
+
+4:                                                ; preds = %2
+  call void @_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(120) %3) #12
+  ret void
+
+5:                                                ; preds = %2
+  %6 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(120) %3) #12
+  resume { ptr, i32 } %6
+}
+
+declare void @_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEC1ERKNS_12basic_stringIcS2_S3_EESt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(120), ptr noundef nonnull align 8 dereferenceable(32), i32 noundef) unnamed_addr #0
+
+; Function Attrs: mustprogress uwtable
+define void @_ZN4SHA16updateERSi(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca %"class.std::__cxx11::basic_string", align 8
+  %4 = alloca [16 x i32], align 16
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #12
+  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #12
+  %7 = sub i64 64, %6
+  %8 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %7) #13
+          to label %.noexc unwind label %.loopexit.split-lp
+
+.noexc:                                           ; preds = %2
+  %9 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %8, i64 noundef %7)
+          to label %.noexc5 unwind label %.loopexit.split-lp
+
+.noexc5:                                          ; preds = %.noexc
+  %10 = invoke noundef i64 @_ZNKSi6gcountEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
+          to label %.noexc6 unwind label %.loopexit.split-lp
+
+.noexc6:                                          ; preds = %.noexc5
+  %11 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull %8, i64 noundef %10)
+          to label %12 unwind label %.loopexit.split-lp
+
+12:                                               ; preds = %.noexc6
+  call void @_ZdaPv(ptr noundef nonnull %8) #14
+  %13 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %3)
+          to label %.preheader13 unwind label %.loopexit.split-lp
+
+.preheader13:                                     ; preds = %12, %_ZN4SHA14readERSiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm.exit12
+  %14 = load ptr, ptr %1, align 8
+  %15 = getelementptr i8, ptr %14, i64 -24
+  %16 = load i64, ptr %15, align 8
+  %17 = getelementptr inbounds i8, ptr %1, i64 %16
+  %18 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEcvbEv(ptr noundef nonnull align 8 dereferenceable(264) %17)
+          to label %19 unwind label %.loopexit
+
+19:                                               ; preds = %.preheader13
+  br i1 %18, label %.preheader, label %48
+
+.preheader:                                       ; preds = %19, %.preheader
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader ], [ 0, %19 ]
+  %20 = shl nuw nsw i64 %indvars.iv.i, 2
+  %21 = or disjoint i64 %20, 3
+  %22 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %5, i64 noundef %21) #12
+  %23 = load i8, ptr %22, align 1
+  %24 = zext i8 %23 to i32
+  %25 = or disjoint i64 %20, 2
+  %26 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %5, i64 noundef %25) #12
+  %27 = load i8, ptr %26, align 1
+  %28 = zext i8 %27 to i32
+  %29 = shl nuw nsw i32 %28, 8
+  %30 = or disjoint i32 %29, %24
+  %31 = or disjoint i64 %20, 1
+  %32 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %5, i64 noundef %31) #12
+  %33 = load i8, ptr %32, align 1
+  %34 = zext i8 %33 to i32
+  %35 = shl nuw nsw i32 %34, 16
+  %36 = or disjoint i32 %30, %35
+  %37 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %5, i64 noundef %20) #12
+  %38 = load i8, ptr %37, align 1
+  %39 = zext i8 %38 to i32
+  %40 = shl nuw i32 %39, 24
+  %41 = or disjoint i32 %36, %40
+  %42 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i
+  store i32 %41, ptr %42, align 4
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
+  br i1 %exitcond.not.i, label %_ZN4SHA115buffer_to_blockERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPj.exit, label %.preheader, !llvm.loop !6
+
+_ZN4SHA115buffer_to_blockERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPj.exit: ; preds = %.preheader
+  call void @_ZN4SHA19transformEPj(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull %4)
+  %43 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znam(i64 noundef 64) #13
+          to label %.noexc8 unwind label %.loopexit
+
+.noexc8:                                          ; preds = %_ZN4SHA115buffer_to_blockERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPj.exit
+  %44 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %43, i64 noundef 64)
+          to label %.noexc9 unwind label %.loopexit
+
+.noexc9:                                          ; preds = %.noexc8
+  %45 = invoke noundef i64 @_ZNKSi6gcountEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
+          to label %.noexc10 unwind label %.loopexit
+
+.noexc10:                                         ; preds = %.noexc9
+  %46 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull %43, i64 noundef %45)
+          to label %_ZN4SHA14readERSiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm.exit12 unwind label %.loopexit
+
+_ZN4SHA14readERSiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm.exit12: ; preds = %.noexc10
+  call void @_ZdaPv(ptr noundef nonnull %43) #14
+  br label %.preheader13
+
+.loopexit:                                        ; preds = %.preheader13, %_ZN4SHA115buffer_to_blockERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPj.exit, %.noexc8, %.noexc9, %.noexc10
+  %lpad.loopexit = landingpad { ptr, i32 }
+          cleanup
+  br label %47
+
+.loopexit.split-lp:                               ; preds = %12, %2, %.noexc, %.noexc5, %.noexc6
+  %lpad.loopexit.split-lp = landingpad { ptr, i32 }
+          cleanup
+  br label %47
+
+47:                                               ; preds = %.loopexit.split-lp, %.loopexit
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #12
+  resume { ptr, i32 } %lpad.phi
+
+48:                                               ; preds = %19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #12
+  ret void
+}
+
+; Function Attrs: nounwind
+declare void @_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(120)) unnamed_addr #1
+
+; Function Attrs: mustprogress uwtable
+define void @_ZN4SHA14readERSiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %2) local_unnamed_addr #3 align 2 {
+  %4 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %2) #13
+  %5 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %4, i64 noundef %2)
+  %6 = tail call noundef i64 @_ZNKSi6gcountEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
+  %7 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %4, i64 noundef %6)
+  tail call void @_ZdaPv(ptr noundef nonnull %4) #14
+  ret void
+}
+
+; Function Attrs: nounwind
+declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
+
+declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
+
+declare noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEcvbEv(ptr noundef nonnull align 8 dereferenceable(264)) local_unnamed_addr #0
+
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN4SHA115buffer_to_blockERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPj(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #4 align 2 {
+  br label %3
+
+3:                                                ; preds = %2, %3
+  %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %3 ]
+  %4 = shl nuw nsw i64 %indvars.iv, 2
+  %5 = or disjoint i64 %4, 3
+  %6 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %5) #12
+  %7 = load i8, ptr %6, align 1
+  %8 = zext i8 %7 to i32
+  %9 = or disjoint i64 %4, 2
+  %10 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %9) #12
+  %11 = load i8, ptr %10, align 1
+  %12 = zext i8 %11 to i32
+  %13 = shl nuw nsw i32 %12, 8
+  %14 = or disjoint i32 %13, %8
+  %15 = or disjoint i64 %4, 1
+  %16 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %15) #12
+  %17 = load i8, ptr %16, align 1
+  %18 = zext i8 %17 to i32
+  %19 = shl nuw nsw i32 %18, 16
+  %20 = or disjoint i32 %14, %19
+  %21 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %4) #12
+  %22 = load i8, ptr %21, align 1
+  %23 = zext i8 %22 to i32
+  %24 = shl nuw i32 %23, 24
+  %25 = or disjoint i32 %20, %24
+  %26 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  store i32 %25, ptr %26, align 4
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, 16
+  br i1 %exitcond.not, label %27, label %3, !llvm.loop !6
+
+27:                                               ; preds = %3
+  ret void
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+define void @_ZN4SHA19transformEPj(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, ptr nocapture noundef %1) local_unnamed_addr #5 align 2 {
+  %3 = load i32, ptr %0, align 8
+  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = load i32, ptr %4, align 4
+  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = load i32, ptr %6, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 12
+  %9 = load i32, ptr %8, align 4
+  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = load i32, ptr %10, align 8
+  %12 = xor i32 %9, %7
+  %13 = and i32 %12, %5
+  %14 = xor i32 %13, %9
+  %15 = load i32, ptr %1, align 4
+  %16 = tail call i32 @llvm.fshl.i32(i32 %3, i32 %3, i32 5)
+  %17 = add i32 %16, 1518500249
+  %18 = add i32 %17, %11
+  %19 = add i32 %18, %15
+  %20 = add i32 %19, %14
+  %21 = tail call i32 @llvm.fshl.i32(i32 %5, i32 %5, i32 30)
+  %22 = xor i32 %21, %7
+  %23 = and i32 %22, %3
+  %24 = xor i32 %23, %7
+  %25 = getelementptr inbounds i8, ptr %1, i64 4
+  %26 = load i32, ptr %25, align 4
+  %27 = tail call i32 @llvm.fshl.i32(i32 %20, i32 %20, i32 5)
+  %28 = add i32 %9, 1518500249
+  %29 = add i32 %28, %24
+  %30 = add i32 %29, %26
+  %31 = add i32 %30, %27
+  %32 = tail call i32 @llvm.fshl.i32(i32 %3, i32 %3, i32 30)
+  %33 = xor i32 %21, %32
+  %34 = and i32 %20, %33
+  %35 = xor i32 %34, %21
+  %36 = getelementptr inbounds i8, ptr %1, i64 8
+  %37 = load i32, ptr %36, align 4
+  %38 = tail call i32 @llvm.fshl.i32(i32 %31, i32 %31, i32 5)
+  %39 = add i32 %7, 1518500249
+  %40 = add i32 %39, %37
+  %41 = add i32 %40, %35
+  %42 = add i32 %41, %38
+  %43 = tail call i32 @llvm.fshl.i32(i32 %20, i32 %20, i32 30)
+  %44 = xor i32 %43, %32
+  %45 = and i32 %31, %44
+  %46 = xor i32 %45, %32
+  %47 = getelementptr inbounds i8, ptr %1, i64 12
+  %48 = load i32, ptr %47, align 4
+  %49 = tail call i32 @llvm.fshl.i32(i32 %42, i32 %42, i32 5)
+  %50 = add i32 %21, 1518500249
+  %51 = add i32 %50, %48
+  %52 = add i32 %51, %46
+  %53 = add i32 %52, %49
+  %54 = tail call i32 @llvm.fshl.i32(i32 %31, i32 %31, i32 30)
+  %55 = xor i32 %54, %43
+  %56 = and i32 %42, %55
+  %57 = xor i32 %56, %43
+  %58 = getelementptr inbounds i8, ptr %1, i64 16
+  %59 = load i32, ptr %58, align 4
+  %60 = tail call i32 @llvm.fshl.i32(i32 %53, i32 %53, i32 5)
+  %61 = add i32 %32, 1518500249
+  %62 = add i32 %61, %59
+  %63 = add i32 %62, %57
+  %64 = add i32 %63, %60
+  %65 = tail call i32 @llvm.fshl.i32(i32 %42, i32 %42, i32 30)
+  %66 = xor i32 %65, %54
+  %67 = and i32 %53, %66
+  %68 = xor i32 %67, %54
+  %69 = getelementptr inbounds i8, ptr %1, i64 20
+  %70 = load i32, ptr %69, align 4
+  %71 = tail call i32 @llvm.fshl.i32(i32 %64, i32 %64, i32 5)
+  %72 = add i32 %70, 1518500249
+  %73 = add i32 %72, %43
+  %74 = add i32 %73, %68
+  %75 = add i32 %74, %71
+  %76 = tail call i32 @llvm.fshl.i32(i32 %53, i32 %53, i32 30)
+  %77 = xor i32 %76, %65
+  %78 = and i32 %64, %77
+  %79 = xor i32 %78, %65
+  %80 = getelementptr inbounds i8, ptr %1, i64 24
+  %81 = load i32, ptr %80, align 4
+  %82 = tail call i32 @llvm.fshl.i32(i32 %75, i32 %75, i32 5)
+  %83 = add i32 %81, 1518500249
+  %84 = add i32 %83, %54
+  %85 = add i32 %84, %79
+  %86 = add i32 %85, %82
+  %87 = tail call i32 @llvm.fshl.i32(i32 %64, i32 %64, i32 30)
+  %88 = xor i32 %87, %76
+  %89 = and i32 %75, %88
+  %90 = xor i32 %89, %76
+  %91 = getelementptr inbounds i8, ptr %1, i64 28
+  %92 = load i32, ptr %91, align 4
+  %93 = tail call i32 @llvm.fshl.i32(i32 %86, i32 %86, i32 5)
+  %94 = add i32 %92, 1518500249
+  %95 = add i32 %94, %65
+  %96 = add i32 %95, %90
+  %97 = add i32 %96, %93
+  %98 = tail call i32 @llvm.fshl.i32(i32 %75, i32 %75, i32 30)
+  %99 = xor i32 %98, %87
+  %100 = and i32 %86, %99
+  %101 = xor i32 %100, %87
+  %102 = getelementptr inbounds i8, ptr %1, i64 32
+  %103 = load i32, ptr %102, align 4
+  %104 = tail call i32 @llvm.fshl.i32(i32 %97, i32 %97, i32 5)
+  %105 = add i32 %103, 1518500249
+  %106 = add i32 %105, %76
+  %107 = add i32 %106, %101
+  %108 = add i32 %107, %104
+  %109 = tail call i32 @llvm.fshl.i32(i32 %86, i32 %86, i32 30)
+  %110 = xor i32 %109, %98
+  %111 = and i32 %97, %110
+  %112 = xor i32 %111, %98
+  %113 = getelementptr inbounds i8, ptr %1, i64 36
+  %114 = load i32, ptr %113, align 4
+  %115 = tail call i32 @llvm.fshl.i32(i32 %108, i32 %108, i32 5)
+  %116 = add i32 %114, 1518500249
+  %117 = add i32 %116, %87
+  %118 = add i32 %117, %112
+  %119 = add i32 %118, %115
+  %120 = tail call i32 @llvm.fshl.i32(i32 %97, i32 %97, i32 30)
+  %121 = xor i32 %120, %109
+  %122 = and i32 %108, %121
+  %123 = xor i32 %122, %109
+  %124 = getelementptr inbounds i8, ptr %1, i64 40
+  %125 = load i32, ptr %124, align 4
+  %126 = tail call i32 @llvm.fshl.i32(i32 %119, i32 %119, i32 5)
+  %127 = add i32 %125, 1518500249
+  %128 = add i32 %127, %98
+  %129 = add i32 %128, %123
+  %130 = add i32 %129, %126
+  %131 = tail call i32 @llvm.fshl.i32(i32 %108, i32 %108, i32 30)
+  %132 = xor i32 %131, %120
+  %133 = and i32 %119, %132
+  %134 = xor i32 %133, %120
+  %135 = getelementptr inbounds i8, ptr %1, i64 44
+  %136 = load i32, ptr %135, align 4
+  %137 = tail call i32 @llvm.fshl.i32(i32 %130, i32 %130, i32 5)
+  %138 = add i32 %136, 1518500249
+  %139 = add i32 %138, %109
+  %140 = add i32 %139, %134
+  %141 = add i32 %140, %137
+  %142 = tail call i32 @llvm.fshl.i32(i32 %119, i32 %119, i32 30)
+  %143 = xor i32 %142, %131
+  %144 = and i32 %130, %143
+  %145 = xor i32 %144, %131
+  %146 = getelementptr inbounds i8, ptr %1, i64 48
+  %147 = load i32, ptr %146, align 4
+  %148 = tail call i32 @llvm.fshl.i32(i32 %141, i32 %141, i32 5)
+  %149 = add i32 %147, 1518500249
+  %150 = add i32 %149, %120
+  %151 = add i32 %150, %145
+  %152 = add i32 %151, %148
+  %153 = tail call i32 @llvm.fshl.i32(i32 %130, i32 %130, i32 30)
+  %154 = xor i32 %153, %142
+  %155 = and i32 %141, %154
+  %156 = xor i32 %155, %142
+  %157 = getelementptr inbounds i8, ptr %1, i64 52
+  %158 = load i32, ptr %157, align 4
+  %159 = tail call i32 @llvm.fshl.i32(i32 %152, i32 %152, i32 5)
+  %160 = add i32 %158, 1518500249
+  %161 = add i32 %160, %131
+  %162 = add i32 %161, %156
+  %163 = add i32 %162, %159
+  %164 = tail call i32 @llvm.fshl.i32(i32 %141, i32 %141, i32 30)
+  %165 = xor i32 %164, %153
+  %166 = and i32 %152, %165
+  %167 = xor i32 %166, %153
+  %168 = getelementptr inbounds i8, ptr %1, i64 56
+  %169 = load i32, ptr %168, align 4
+  %170 = tail call i32 @llvm.fshl.i32(i32 %163, i32 %163, i32 5)
+  %171 = add i32 %169, 1518500249
+  %172 = add i32 %171, %142
+  %173 = add i32 %172, %167
+  %174 = add i32 %173, %170
+  %175 = tail call i32 @llvm.fshl.i32(i32 %152, i32 %152, i32 30)
+  %176 = xor i32 %175, %164
+  %177 = and i32 %163, %176
+  %178 = xor i32 %177, %164
+  %179 = getelementptr inbounds i8, ptr %1, i64 60
+  %180 = load i32, ptr %179, align 4
+  %181 = tail call i32 @llvm.fshl.i32(i32 %174, i32 %174, i32 5)
+  %182 = add i32 %180, 1518500249
+  %183 = add i32 %182, %153
+  %184 = add i32 %183, %178
+  %185 = add i32 %184, %181
+  %186 = tail call i32 @llvm.fshl.i32(i32 %163, i32 %163, i32 30)
+  %187 = xor i32 %186, %175
+  %188 = and i32 %174, %187
+  %189 = xor i32 %188, %175
+  %190 = xor i32 %37, %15
+  %191 = xor i32 %190, %103
+  %192 = xor i32 %191, %158
+  %193 = tail call i32 @llvm.fshl.i32(i32 %192, i32 %192, i32 1)
+  %194 = tail call i32 @llvm.fshl.i32(i32 %185, i32 %185, i32 5)
+  %195 = add i32 %193, 1518500249
+  %196 = add i32 %195, %164
+  %197 = add i32 %196, %189
+  %198 = add i32 %197, %194
+  %199 = tail call i32 @llvm.fshl.i32(i32 %174, i32 %174, i32 30)
+  %200 = xor i32 %199, %186
+  %201 = and i32 %185, %200
+  %202 = xor i32 %201, %186
+  %203 = xor i32 %48, %26
+  %204 = xor i32 %203, %114
+  %205 = xor i32 %204, %169
+  %206 = tail call i32 @llvm.fshl.i32(i32 %205, i32 %205, i32 1)
+  %207 = tail call i32 @llvm.fshl.i32(i32 %198, i32 %198, i32 5)
+  %208 = add i32 %206, 1518500249
+  %209 = add i32 %208, %175
+  %210 = add i32 %209, %202
+  %211 = add i32 %210, %207
+  %212 = tail call i32 @llvm.fshl.i32(i32 %185, i32 %185, i32 30)
+  %213 = xor i32 %212, %199
+  %214 = and i32 %198, %213
+  %215 = xor i32 %214, %199
+  %216 = xor i32 %59, %37
+  %217 = xor i32 %216, %125
+  %218 = xor i32 %217, %180
+  %219 = tail call i32 @llvm.fshl.i32(i32 %218, i32 %218, i32 1)
+  %220 = tail call i32 @llvm.fshl.i32(i32 %211, i32 %211, i32 5)
+  %221 = add i32 %219, 1518500249
+  %222 = add i32 %221, %186
+  %223 = add i32 %222, %215
+  %224 = add i32 %223, %220
+  %225 = tail call i32 @llvm.fshl.i32(i32 %198, i32 %198, i32 30)
+  %226 = xor i32 %225, %212
+  %227 = and i32 %211, %226
+  %228 = xor i32 %227, %212
+  %229 = xor i32 %70, %48
+  %230 = xor i32 %229, %136
+  %231 = xor i32 %230, %193
+  %232 = tail call i32 @llvm.fshl.i32(i32 %231, i32 %231, i32 1)
+  %233 = tail call i32 @llvm.fshl.i32(i32 %224, i32 %224, i32 5)
+  %234 = add i32 %232, 1518500249
+  %235 = add i32 %234, %199
+  %236 = add i32 %235, %228
+  %237 = add i32 %236, %233
+  %238 = tail call i32 @llvm.fshl.i32(i32 %211, i32 %211, i32 30)
+  %239 = xor i32 %238, %225
+  %240 = xor i32 %239, %224
+  %241 = xor i32 %81, %59
+  %242 = xor i32 %241, %147
+  %243 = xor i32 %242, %206
+  %244 = tail call i32 @llvm.fshl.i32(i32 %243, i32 %243, i32 1)
+  %245 = tail call i32 @llvm.fshl.i32(i32 %237, i32 %237, i32 5)
+  %246 = add i32 %244, 1859775393
+  %247 = add i32 %246, %212
+  %248 = add i32 %247, %240
+  %249 = add i32 %248, %245
+  %250 = tail call i32 @llvm.fshl.i32(i32 %224, i32 %224, i32 30)
+  %251 = xor i32 %250, %238
+  %252 = xor i32 %251, %237
+  %253 = xor i32 %92, %70
+  %254 = xor i32 %253, %158
+  %255 = xor i32 %254, %219
+  %256 = tail call i32 @llvm.fshl.i32(i32 %255, i32 %255, i32 1)
+  %257 = tail call i32 @llvm.fshl.i32(i32 %249, i32 %249, i32 5)
+  %258 = add i32 %256, 1859775393
+  %259 = add i32 %258, %225
+  %260 = add i32 %259, %252
+  %261 = add i32 %260, %257
+  %262 = tail call i32 @llvm.fshl.i32(i32 %237, i32 %237, i32 30)
+  %263 = xor i32 %262, %250
+  %264 = xor i32 %263, %249
+  %265 = xor i32 %103, %81
+  %266 = xor i32 %265, %169
+  %267 = xor i32 %266, %232
+  %268 = tail call i32 @llvm.fshl.i32(i32 %267, i32 %267, i32 1)
+  %269 = tail call i32 @llvm.fshl.i32(i32 %261, i32 %261, i32 5)
+  %270 = add i32 %268, 1859775393
+  %271 = add i32 %270, %238
+  %272 = add i32 %271, %264
+  %273 = add i32 %272, %269
+  %274 = tail call i32 @llvm.fshl.i32(i32 %249, i32 %249, i32 30)
+  %275 = xor i32 %274, %262
+  %276 = xor i32 %275, %261
+  %277 = xor i32 %114, %92
+  %278 = xor i32 %277, %180
+  %279 = xor i32 %278, %244
+  %280 = tail call i32 @llvm.fshl.i32(i32 %279, i32 %279, i32 1)
+  %281 = tail call i32 @llvm.fshl.i32(i32 %273, i32 %273, i32 5)
+  %282 = add i32 %280, 1859775393
+  %283 = add i32 %282, %250
+  %284 = add i32 %283, %276
+  %285 = add i32 %284, %281
+  %286 = tail call i32 @llvm.fshl.i32(i32 %261, i32 %261, i32 30)
+  %287 = xor i32 %286, %274
+  %288 = xor i32 %287, %273
+  %289 = xor i32 %125, %103
+  %290 = xor i32 %289, %193
+  %291 = xor i32 %290, %256
+  %292 = tail call i32 @llvm.fshl.i32(i32 %291, i32 %291, i32 1)
+  %293 = tail call i32 @llvm.fshl.i32(i32 %285, i32 %285, i32 5)
+  %294 = add i32 %292, 1859775393
+  %295 = add i32 %294, %262
+  %296 = add i32 %295, %288
+  %297 = add i32 %296, %293
+  %298 = tail call i32 @llvm.fshl.i32(i32 %273, i32 %273, i32 30)
+  %299 = xor i32 %298, %286
+  %300 = xor i32 %299, %285
+  %301 = xor i32 %136, %114
+  %302 = xor i32 %301, %206
+  %303 = xor i32 %302, %268
+  %304 = tail call i32 @llvm.fshl.i32(i32 %303, i32 %303, i32 1)
+  %305 = tail call i32 @llvm.fshl.i32(i32 %297, i32 %297, i32 5)
+  %306 = add i32 %304, 1859775393
+  %307 = add i32 %306, %274
+  %308 = add i32 %307, %300
+  %309 = add i32 %308, %305
+  %310 = tail call i32 @llvm.fshl.i32(i32 %285, i32 %285, i32 30)
+  %311 = xor i32 %310, %298
+  %312 = xor i32 %311, %297
+  %313 = xor i32 %147, %125
+  %314 = xor i32 %313, %219
+  %315 = xor i32 %314, %280
+  %316 = tail call i32 @llvm.fshl.i32(i32 %315, i32 %315, i32 1)
+  %317 = tail call i32 @llvm.fshl.i32(i32 %309, i32 %309, i32 5)
+  %318 = add i32 %316, 1859775393
+  %319 = add i32 %318, %286
+  %320 = add i32 %319, %312
+  %321 = add i32 %320, %317
+  %322 = tail call i32 @llvm.fshl.i32(i32 %297, i32 %297, i32 30)
+  %323 = xor i32 %322, %310
+  %324 = xor i32 %323, %309
+  %325 = xor i32 %158, %136
+  %326 = xor i32 %325, %232
+  %327 = xor i32 %326, %292
+  %328 = tail call i32 @llvm.fshl.i32(i32 %327, i32 %327, i32 1)
+  %329 = tail call i32 @llvm.fshl.i32(i32 %321, i32 %321, i32 5)
+  %330 = add i32 %328, 1859775393
+  %331 = add i32 %330, %298
+  %332 = add i32 %331, %324
+  %333 = add i32 %332, %329
+  %334 = tail call i32 @llvm.fshl.i32(i32 %309, i32 %309, i32 30)
+  %335 = xor i32 %334, %322
+  %336 = xor i32 %335, %321
+  %337 = xor i32 %169, %147
+  %338 = xor i32 %337, %244
+  %339 = xor i32 %338, %304
+  %340 = tail call i32 @llvm.fshl.i32(i32 %339, i32 %339, i32 1)
+  %341 = tail call i32 @llvm.fshl.i32(i32 %333, i32 %333, i32 5)
+  %342 = add i32 %340, 1859775393
+  %343 = add i32 %342, %310
+  %344 = add i32 %343, %336
+  %345 = add i32 %344, %341
+  %346 = tail call i32 @llvm.fshl.i32(i32 %321, i32 %321, i32 30)
+  %347 = xor i32 %346, %334
+  %348 = xor i32 %347, %333
+  %349 = xor i32 %180, %158
+  %350 = xor i32 %349, %256
+  %351 = xor i32 %350, %316
+  %352 = tail call i32 @llvm.fshl.i32(i32 %351, i32 %351, i32 1)
+  %353 = tail call i32 @llvm.fshl.i32(i32 %345, i32 %345, i32 5)
+  %354 = add i32 %352, 1859775393
+  %355 = add i32 %354, %322
+  %356 = add i32 %355, %348
+  %357 = add i32 %356, %353
+  %358 = tail call i32 @llvm.fshl.i32(i32 %333, i32 %333, i32 30)
+  %359 = xor i32 %358, %346
+  %360 = xor i32 %359, %345
+  %361 = xor i32 %193, %169
+  %362 = xor i32 %361, %268
+  %363 = xor i32 %362, %328
+  %364 = tail call i32 @llvm.fshl.i32(i32 %363, i32 %363, i32 1)
+  %365 = tail call i32 @llvm.fshl.i32(i32 %357, i32 %357, i32 5)
+  %366 = add i32 %364, 1859775393
+  %367 = add i32 %366, %334
+  %368 = add i32 %367, %360
+  %369 = add i32 %368, %365
+  %370 = tail call i32 @llvm.fshl.i32(i32 %345, i32 %345, i32 30)
+  %371 = xor i32 %370, %358
+  %372 = xor i32 %371, %357
+  %373 = xor i32 %206, %180
+  %374 = xor i32 %373, %280
+  %375 = xor i32 %374, %340
+  %376 = tail call i32 @llvm.fshl.i32(i32 %375, i32 %375, i32 1)
+  %377 = tail call i32 @llvm.fshl.i32(i32 %369, i32 %369, i32 5)
+  %378 = add i32 %376, 1859775393
+  %379 = add i32 %378, %346
+  %380 = add i32 %379, %372
+  %381 = add i32 %380, %377
+  %382 = tail call i32 @llvm.fshl.i32(i32 %357, i32 %357, i32 30)
+  %383 = xor i32 %382, %370
+  %384 = xor i32 %383, %369
+  %385 = xor i32 %219, %193
+  %386 = xor i32 %385, %292
+  %387 = xor i32 %386, %352
+  %388 = tail call i32 @llvm.fshl.i32(i32 %387, i32 %387, i32 1)
+  %389 = tail call i32 @llvm.fshl.i32(i32 %381, i32 %381, i32 5)
+  %390 = add i32 %388, 1859775393
+  %391 = add i32 %390, %358
+  %392 = add i32 %391, %384
+  %393 = add i32 %392, %389
+  %394 = tail call i32 @llvm.fshl.i32(i32 %369, i32 %369, i32 30)
+  %395 = xor i32 %394, %382
+  %396 = xor i32 %395, %381
+  %397 = xor i32 %232, %206
+  %398 = xor i32 %397, %304
+  %399 = xor i32 %398, %364
+  %400 = tail call i32 @llvm.fshl.i32(i32 %399, i32 %399, i32 1)
+  %401 = tail call i32 @llvm.fshl.i32(i32 %393, i32 %393, i32 5)
+  %402 = add i32 %400, 1859775393
+  %403 = add i32 %402, %370
+  %404 = add i32 %403, %396
+  %405 = add i32 %404, %401
+  %406 = tail call i32 @llvm.fshl.i32(i32 %381, i32 %381, i32 30)
+  %407 = xor i32 %406, %394
+  %408 = xor i32 %407, %393
+  %409 = xor i32 %244, %219
+  %410 = xor i32 %409, %316
+  %411 = xor i32 %410, %376
+  %412 = tail call i32 @llvm.fshl.i32(i32 %411, i32 %411, i32 1)
+  %413 = tail call i32 @llvm.fshl.i32(i32 %405, i32 %405, i32 5)
+  %414 = add i32 %412, 1859775393
+  %415 = add i32 %414, %382
+  %416 = add i32 %415, %408
+  %417 = add i32 %416, %413
+  %418 = tail call i32 @llvm.fshl.i32(i32 %393, i32 %393, i32 30)
+  %419 = xor i32 %418, %406
+  %420 = xor i32 %419, %405
+  %421 = xor i32 %256, %232
+  %422 = xor i32 %421, %328
+  %423 = xor i32 %422, %388
+  %424 = tail call i32 @llvm.fshl.i32(i32 %423, i32 %423, i32 1)
+  %425 = tail call i32 @llvm.fshl.i32(i32 %417, i32 %417, i32 5)
+  %426 = add i32 %424, 1859775393
+  %427 = add i32 %426, %394
+  %428 = add i32 %427, %420
+  %429 = add i32 %428, %425
+  %430 = tail call i32 @llvm.fshl.i32(i32 %405, i32 %405, i32 30)
+  %431 = xor i32 %430, %418
+  %432 = xor i32 %431, %417
+  %433 = xor i32 %268, %244
+  %434 = xor i32 %433, %340
+  %435 = xor i32 %434, %400
+  %436 = tail call i32 @llvm.fshl.i32(i32 %435, i32 %435, i32 1)
+  %437 = tail call i32 @llvm.fshl.i32(i32 %429, i32 %429, i32 5)
+  %438 = add i32 %436, 1859775393
+  %439 = add i32 %438, %406
+  %440 = add i32 %439, %432
+  %441 = add i32 %440, %437
+  %442 = tail call i32 @llvm.fshl.i32(i32 %417, i32 %417, i32 30)
+  %443 = xor i32 %442, %430
+  %444 = xor i32 %443, %429
+  %445 = xor i32 %280, %256
+  %446 = xor i32 %445, %352
+  %447 = xor i32 %446, %412
+  %448 = tail call i32 @llvm.fshl.i32(i32 %447, i32 %447, i32 1)
+  %449 = tail call i32 @llvm.fshl.i32(i32 %441, i32 %441, i32 5)
+  %450 = add i32 %448, 1859775393
+  %451 = add i32 %450, %418
+  %452 = add i32 %451, %444
+  %453 = add i32 %452, %449
+  %454 = tail call i32 @llvm.fshl.i32(i32 %429, i32 %429, i32 30)
+  %455 = xor i32 %454, %442
+  %456 = xor i32 %455, %441
+  %457 = xor i32 %292, %268
+  %458 = xor i32 %457, %364
+  %459 = xor i32 %458, %424
+  %460 = tail call i32 @llvm.fshl.i32(i32 %459, i32 %459, i32 1)
+  %461 = tail call i32 @llvm.fshl.i32(i32 %453, i32 %453, i32 5)
+  %462 = add i32 %460, 1859775393
+  %463 = add i32 %462, %430
+  %464 = add i32 %463, %456
+  %465 = add i32 %464, %461
+  %466 = tail call i32 @llvm.fshl.i32(i32 %441, i32 %441, i32 30)
+  %467 = xor i32 %466, %454
+  %468 = xor i32 %467, %453
+  %469 = xor i32 %304, %280
+  %470 = xor i32 %469, %376
+  %471 = xor i32 %470, %436
+  %472 = tail call i32 @llvm.fshl.i32(i32 %471, i32 %471, i32 1)
+  %473 = tail call i32 @llvm.fshl.i32(i32 %465, i32 %465, i32 5)
+  %474 = add i32 %472, 1859775393
+  %475 = add i32 %474, %442
+  %476 = add i32 %475, %468
+  %477 = add i32 %476, %473
+  %478 = tail call i32 @llvm.fshl.i32(i32 %453, i32 %453, i32 30)
+  %479 = or i32 %465, %478
+  %480 = and i32 %479, %466
+  %481 = and i32 %465, %478
+  %482 = or i32 %480, %481
+  %483 = xor i32 %316, %292
+  %484 = xor i32 %483, %388
+  %485 = xor i32 %484, %448
+  %486 = tail call i32 @llvm.fshl.i32(i32 %485, i32 %485, i32 1)
+  %487 = tail call i32 @llvm.fshl.i32(i32 %477, i32 %477, i32 5)
+  %488 = add i32 %486, -1894007588
+  %489 = add i32 %488, %454
+  %490 = add i32 %489, %482
+  %491 = add i32 %490, %487
+  %492 = tail call i32 @llvm.fshl.i32(i32 %465, i32 %465, i32 30)
+  %493 = or i32 %477, %492
+  %494 = and i32 %493, %478
+  %495 = and i32 %477, %492
+  %496 = or i32 %494, %495
+  %497 = xor i32 %328, %304
+  %498 = xor i32 %497, %400
+  %499 = xor i32 %498, %460
+  %500 = tail call i32 @llvm.fshl.i32(i32 %499, i32 %499, i32 1)
+  %501 = tail call i32 @llvm.fshl.i32(i32 %491, i32 %491, i32 5)
+  %502 = add i32 %500, -1894007588
+  %503 = add i32 %502, %466
+  %504 = add i32 %503, %496
+  %505 = add i32 %504, %501
+  %506 = tail call i32 @llvm.fshl.i32(i32 %477, i32 %477, i32 30)
+  %507 = or i32 %491, %506
+  %508 = and i32 %507, %492
+  %509 = and i32 %491, %506
+  %510 = or i32 %508, %509
+  %511 = xor i32 %340, %316
+  %512 = xor i32 %511, %412
+  %513 = xor i32 %512, %472
+  %514 = tail call i32 @llvm.fshl.i32(i32 %513, i32 %513, i32 1)
+  %515 = tail call i32 @llvm.fshl.i32(i32 %505, i32 %505, i32 5)
+  %516 = add i32 %514, -1894007588
+  %517 = add i32 %516, %478
+  %518 = add i32 %517, %510
+  %519 = add i32 %518, %515
+  %520 = tail call i32 @llvm.fshl.i32(i32 %491, i32 %491, i32 30)
+  %521 = or i32 %505, %520
+  %522 = and i32 %521, %506
+  %523 = and i32 %505, %520
+  %524 = or i32 %522, %523
+  %525 = xor i32 %352, %328
+  %526 = xor i32 %525, %424
+  %527 = xor i32 %526, %486
+  %528 = tail call i32 @llvm.fshl.i32(i32 %527, i32 %527, i32 1)
+  %529 = tail call i32 @llvm.fshl.i32(i32 %519, i32 %519, i32 5)
+  %530 = add i32 %528, -1894007588
+  %531 = add i32 %530, %492
+  %532 = add i32 %531, %524
+  %533 = add i32 %532, %529
+  %534 = tail call i32 @llvm.fshl.i32(i32 %505, i32 %505, i32 30)
+  %535 = or i32 %519, %534
+  %536 = and i32 %535, %520
+  %537 = and i32 %519, %534
+  %538 = or i32 %536, %537
+  %539 = xor i32 %364, %340
+  %540 = xor i32 %539, %436
+  %541 = xor i32 %540, %500
+  %542 = tail call i32 @llvm.fshl.i32(i32 %541, i32 %541, i32 1)
+  %543 = tail call i32 @llvm.fshl.i32(i32 %533, i32 %533, i32 5)
+  %544 = add i32 %542, -1894007588
+  %545 = add i32 %544, %506
+  %546 = add i32 %545, %538
+  %547 = add i32 %546, %543
+  %548 = tail call i32 @llvm.fshl.i32(i32 %519, i32 %519, i32 30)
+  %549 = or i32 %533, %548
+  %550 = and i32 %549, %534
+  %551 = and i32 %533, %548
+  %552 = or i32 %550, %551
+  %553 = xor i32 %376, %352
+  %554 = xor i32 %553, %448
+  %555 = xor i32 %554, %514
+  %556 = tail call i32 @llvm.fshl.i32(i32 %555, i32 %555, i32 1)
+  %557 = tail call i32 @llvm.fshl.i32(i32 %547, i32 %547, i32 5)
+  %558 = add i32 %556, -1894007588
+  %559 = add i32 %558, %520
+  %560 = add i32 %559, %552
+  %561 = add i32 %560, %557
+  %562 = tail call i32 @llvm.fshl.i32(i32 %533, i32 %533, i32 30)
+  %563 = or i32 %547, %562
+  %564 = and i32 %563, %548
+  %565 = and i32 %547, %562
+  %566 = or i32 %564, %565
+  %567 = xor i32 %388, %364
+  %568 = xor i32 %567, %460
+  %569 = xor i32 %568, %528
+  %570 = tail call i32 @llvm.fshl.i32(i32 %569, i32 %569, i32 1)
+  %571 = tail call i32 @llvm.fshl.i32(i32 %561, i32 %561, i32 5)
+  %572 = add i32 %570, -1894007588
+  %573 = add i32 %572, %534
+  %574 = add i32 %573, %566
+  %575 = add i32 %574, %571
+  %576 = tail call i32 @llvm.fshl.i32(i32 %547, i32 %547, i32 30)
+  %577 = or i32 %561, %576
+  %578 = and i32 %577, %562
+  %579 = and i32 %561, %576
+  %580 = or i32 %578, %579
+  %581 = xor i32 %400, %376
+  %582 = xor i32 %581, %472
+  %583 = xor i32 %582, %542
+  %584 = tail call i32 @llvm.fshl.i32(i32 %583, i32 %583, i32 1)
+  %585 = tail call i32 @llvm.fshl.i32(i32 %575, i32 %575, i32 5)
+  %586 = add i32 %584, -1894007588
+  %587 = add i32 %586, %548
+  %588 = add i32 %587, %580
+  %589 = add i32 %588, %585
+  %590 = tail call i32 @llvm.fshl.i32(i32 %561, i32 %561, i32 30)
+  %591 = or i32 %575, %590
+  %592 = and i32 %591, %576
+  %593 = and i32 %575, %590
+  %594 = or i32 %592, %593
+  %595 = xor i32 %412, %388
+  %596 = xor i32 %595, %486
+  %597 = xor i32 %596, %556
+  %598 = tail call i32 @llvm.fshl.i32(i32 %597, i32 %597, i32 1)
+  %599 = tail call i32 @llvm.fshl.i32(i32 %589, i32 %589, i32 5)
+  %600 = add i32 %598, -1894007588
+  %601 = add i32 %600, %562
+  %602 = add i32 %601, %594
+  %603 = add i32 %602, %599
+  %604 = tail call i32 @llvm.fshl.i32(i32 %575, i32 %575, i32 30)
+  %605 = or i32 %589, %604
+  %606 = and i32 %605, %590
+  %607 = and i32 %589, %604
+  %608 = or i32 %606, %607
+  %609 = xor i32 %424, %400
+  %610 = xor i32 %609, %500
+  %611 = xor i32 %610, %570
+  %612 = tail call i32 @llvm.fshl.i32(i32 %611, i32 %611, i32 1)
+  %613 = tail call i32 @llvm.fshl.i32(i32 %603, i32 %603, i32 5)
+  %614 = add i32 %612, -1894007588
+  %615 = add i32 %614, %576
+  %616 = add i32 %615, %608
+  %617 = add i32 %616, %613
+  %618 = tail call i32 @llvm.fshl.i32(i32 %589, i32 %589, i32 30)
+  %619 = or i32 %603, %618
+  %620 = and i32 %619, %604
+  %621 = and i32 %603, %618
+  %622 = or i32 %620, %621
+  %623 = xor i32 %436, %412
+  %624 = xor i32 %623, %514
+  %625 = xor i32 %624, %584
+  %626 = tail call i32 @llvm.fshl.i32(i32 %625, i32 %625, i32 1)
+  %627 = tail call i32 @llvm.fshl.i32(i32 %617, i32 %617, i32 5)
+  %628 = add i32 %626, -1894007588
+  %629 = add i32 %628, %590
+  %630 = add i32 %629, %622
+  %631 = add i32 %630, %627
+  %632 = tail call i32 @llvm.fshl.i32(i32 %603, i32 %603, i32 30)
+  %633 = or i32 %617, %632
+  %634 = and i32 %633, %618
+  %635 = and i32 %617, %632
+  %636 = or i32 %634, %635
+  %637 = xor i32 %448, %424
+  %638 = xor i32 %637, %528
+  %639 = xor i32 %638, %598
+  %640 = tail call i32 @llvm.fshl.i32(i32 %639, i32 %639, i32 1)
+  %641 = tail call i32 @llvm.fshl.i32(i32 %631, i32 %631, i32 5)
+  %642 = add i32 %640, -1894007588
+  %643 = add i32 %642, %604
+  %644 = add i32 %643, %636
+  %645 = add i32 %644, %641
+  %646 = tail call i32 @llvm.fshl.i32(i32 %617, i32 %617, i32 30)
+  %647 = or i32 %631, %646
+  %648 = and i32 %647, %632
+  %649 = and i32 %631, %646
+  %650 = or i32 %648, %649
+  %651 = xor i32 %460, %436
+  %652 = xor i32 %651, %542
+  %653 = xor i32 %652, %612
+  %654 = tail call i32 @llvm.fshl.i32(i32 %653, i32 %653, i32 1)
+  %655 = tail call i32 @llvm.fshl.i32(i32 %645, i32 %645, i32 5)
+  %656 = add i32 %654, -1894007588
+  %657 = add i32 %656, %618
+  %658 = add i32 %657, %650
+  %659 = add i32 %658, %655
+  %660 = tail call i32 @llvm.fshl.i32(i32 %631, i32 %631, i32 30)
+  %661 = or i32 %645, %660
+  %662 = and i32 %661, %646
+  %663 = and i32 %645, %660
+  %664 = or i32 %662, %663
+  %665 = xor i32 %472, %448
+  %666 = xor i32 %665, %556
+  %667 = xor i32 %666, %626
+  %668 = tail call i32 @llvm.fshl.i32(i32 %667, i32 %667, i32 1)
+  %669 = tail call i32 @llvm.fshl.i32(i32 %659, i32 %659, i32 5)
+  %670 = add i32 %668, -1894007588
+  %671 = add i32 %670, %632
+  %672 = add i32 %671, %664
+  %673 = add i32 %672, %669
+  %674 = tail call i32 @llvm.fshl.i32(i32 %645, i32 %645, i32 30)
+  %675 = or i32 %659, %674
+  %676 = and i32 %675, %660
+  %677 = and i32 %659, %674
+  %678 = or i32 %676, %677
+  %679 = xor i32 %486, %460
+  %680 = xor i32 %679, %570
+  %681 = xor i32 %680, %640
+  %682 = tail call i32 @llvm.fshl.i32(i32 %681, i32 %681, i32 1)
+  %683 = tail call i32 @llvm.fshl.i32(i32 %673, i32 %673, i32 5)
+  %684 = add i32 %682, -1894007588
+  %685 = add i32 %684, %646
+  %686 = add i32 %685, %678
+  %687 = add i32 %686, %683
+  %688 = tail call i32 @llvm.fshl.i32(i32 %659, i32 %659, i32 30)
+  %689 = or i32 %673, %688
+  %690 = and i32 %689, %674
+  %691 = and i32 %673, %688
+  %692 = or i32 %690, %691
+  %693 = xor i32 %500, %472
+  %694 = xor i32 %693, %584
+  %695 = xor i32 %694, %654
+  %696 = tail call i32 @llvm.fshl.i32(i32 %695, i32 %695, i32 1)
+  %697 = tail call i32 @llvm.fshl.i32(i32 %687, i32 %687, i32 5)
+  %698 = add i32 %696, -1894007588
+  %699 = add i32 %698, %660
+  %700 = add i32 %699, %692
+  %701 = add i32 %700, %697
+  %702 = tail call i32 @llvm.fshl.i32(i32 %673, i32 %673, i32 30)
+  %703 = or i32 %687, %702
+  %704 = and i32 %703, %688
+  %705 = and i32 %687, %702
+  %706 = or i32 %704, %705
+  %707 = xor i32 %514, %486
+  %708 = xor i32 %707, %598
+  %709 = xor i32 %708, %668
+  %710 = tail call i32 @llvm.fshl.i32(i32 %709, i32 %709, i32 1)
+  %711 = tail call i32 @llvm.fshl.i32(i32 %701, i32 %701, i32 5)
+  %712 = add i32 %710, -1894007588
+  %713 = add i32 %712, %674
+  %714 = add i32 %713, %706
+  %715 = add i32 %714, %711
+  %716 = tail call i32 @llvm.fshl.i32(i32 %687, i32 %687, i32 30)
+  %717 = or i32 %701, %716
+  %718 = and i32 %717, %702
+  %719 = and i32 %701, %716
+  %720 = or i32 %718, %719
+  %721 = xor i32 %528, %500
+  %722 = xor i32 %721, %612
+  %723 = xor i32 %722, %682
+  %724 = tail call i32 @llvm.fshl.i32(i32 %723, i32 %723, i32 1)
+  %725 = tail call i32 @llvm.fshl.i32(i32 %715, i32 %715, i32 5)
+  %726 = add i32 %724, -1894007588
+  %727 = add i32 %726, %688
+  %728 = add i32 %727, %720
+  %729 = add i32 %728, %725
+  %730 = tail call i32 @llvm.fshl.i32(i32 %701, i32 %701, i32 30)
+  %731 = or i32 %715, %730
+  %732 = and i32 %731, %716
+  %733 = and i32 %715, %730
+  %734 = or i32 %732, %733
+  %735 = xor i32 %542, %514
+  %736 = xor i32 %735, %626
+  %737 = xor i32 %736, %696
+  %738 = tail call i32 @llvm.fshl.i32(i32 %737, i32 %737, i32 1)
+  %739 = tail call i32 @llvm.fshl.i32(i32 %729, i32 %729, i32 5)
+  %740 = add i32 %738, -1894007588
+  %741 = add i32 %740, %702
+  %742 = add i32 %741, %734
+  %743 = add i32 %742, %739
+  %744 = tail call i32 @llvm.fshl.i32(i32 %715, i32 %715, i32 30)
+  %745 = or i32 %729, %744
+  %746 = and i32 %745, %730
+  %747 = and i32 %729, %744
+  %748 = or i32 %746, %747
+  %749 = xor i32 %556, %528
+  %750 = xor i32 %749, %640
+  %751 = xor i32 %750, %710
+  %752 = tail call i32 @llvm.fshl.i32(i32 %751, i32 %751, i32 1)
+  %753 = tail call i32 @llvm.fshl.i32(i32 %743, i32 %743, i32 5)
+  %754 = add i32 %752, -1894007588
+  %755 = add i32 %754, %716
+  %756 = add i32 %755, %748
+  %757 = add i32 %756, %753
+  %758 = tail call i32 @llvm.fshl.i32(i32 %729, i32 %729, i32 30)
+  %759 = xor i32 %758, %744
+  %760 = xor i32 %759, %743
+  %761 = xor i32 %570, %542
+  %762 = xor i32 %761, %654
+  %763 = xor i32 %762, %724
+  %764 = tail call i32 @llvm.fshl.i32(i32 %763, i32 %763, i32 1)
+  %765 = tail call i32 @llvm.fshl.i32(i32 %757, i32 %757, i32 5)
+  %766 = add i32 %764, -899497514
+  %767 = add i32 %766, %730
+  %768 = add i32 %767, %760
+  %769 = add i32 %768, %765
+  %770 = tail call i32 @llvm.fshl.i32(i32 %743, i32 %743, i32 30)
+  %771 = xor i32 %770, %758
+  %772 = xor i32 %771, %757
+  %773 = xor i32 %584, %556
+  %774 = xor i32 %773, %668
+  %775 = xor i32 %774, %738
+  %776 = tail call i32 @llvm.fshl.i32(i32 %775, i32 %775, i32 1)
+  %777 = tail call i32 @llvm.fshl.i32(i32 %769, i32 %769, i32 5)
+  %778 = add i32 %776, -899497514
+  %779 = add i32 %778, %744
+  %780 = add i32 %779, %772
+  %781 = add i32 %780, %777
+  %782 = tail call i32 @llvm.fshl.i32(i32 %757, i32 %757, i32 30)
+  %783 = xor i32 %782, %770
+  %784 = xor i32 %783, %769
+  %785 = xor i32 %598, %570
+  %786 = xor i32 %785, %682
+  %787 = xor i32 %786, %752
+  %788 = tail call i32 @llvm.fshl.i32(i32 %787, i32 %787, i32 1)
+  %789 = tail call i32 @llvm.fshl.i32(i32 %781, i32 %781, i32 5)
+  %790 = add i32 %788, -899497514
+  %791 = add i32 %790, %758
+  %792 = add i32 %791, %784
+  %793 = add i32 %792, %789
+  %794 = tail call i32 @llvm.fshl.i32(i32 %769, i32 %769, i32 30)
+  %795 = xor i32 %794, %782
+  %796 = xor i32 %795, %781
+  %797 = xor i32 %612, %584
+  %798 = xor i32 %797, %696
+  %799 = xor i32 %798, %764
+  %800 = tail call i32 @llvm.fshl.i32(i32 %799, i32 %799, i32 1)
+  %801 = tail call i32 @llvm.fshl.i32(i32 %793, i32 %793, i32 5)
+  %802 = add i32 %800, -899497514
+  %803 = add i32 %802, %770
+  %804 = add i32 %803, %796
+  %805 = add i32 %804, %801
+  %806 = tail call i32 @llvm.fshl.i32(i32 %781, i32 %781, i32 30)
+  %807 = xor i32 %806, %794
+  %808 = xor i32 %807, %793
+  %809 = xor i32 %626, %598
+  %810 = xor i32 %809, %710
+  %811 = xor i32 %810, %776
+  %812 = tail call i32 @llvm.fshl.i32(i32 %811, i32 %811, i32 1)
+  store i32 %812, ptr %1, align 4
+  %813 = tail call i32 @llvm.fshl.i32(i32 %805, i32 %805, i32 5)
+  %814 = add i32 %812, -899497514
+  %815 = add i32 %814, %782
+  %816 = add i32 %815, %808
+  %817 = add i32 %816, %813
+  %818 = tail call i32 @llvm.fshl.i32(i32 %793, i32 %793, i32 30)
+  %819 = xor i32 %818, %806
+  %820 = xor i32 %819, %805
+  %821 = xor i32 %640, %612
+  %822 = xor i32 %821, %724
+  %823 = xor i32 %822, %788
+  %824 = tail call i32 @llvm.fshl.i32(i32 %823, i32 %823, i32 1)
+  store i32 %824, ptr %25, align 4
+  %825 = tail call i32 @llvm.fshl.i32(i32 %817, i32 %817, i32 5)
+  %826 = add i32 %824, -899497514
+  %827 = add i32 %826, %794
+  %828 = add i32 %827, %820
+  %829 = add i32 %828, %825
+  %830 = tail call i32 @llvm.fshl.i32(i32 %805, i32 %805, i32 30)
+  %831 = xor i32 %830, %818
+  %832 = xor i32 %831, %817
+  %833 = xor i32 %654, %626
+  %834 = xor i32 %833, %738
+  %835 = xor i32 %834, %800
+  %836 = tail call i32 @llvm.fshl.i32(i32 %835, i32 %835, i32 1)
+  store i32 %836, ptr %36, align 4
+  %837 = tail call i32 @llvm.fshl.i32(i32 %829, i32 %829, i32 5)
+  %838 = add i32 %836, -899497514
+  %839 = add i32 %838, %806
+  %840 = add i32 %839, %832
+  %841 = add i32 %840, %837
+  %842 = tail call i32 @llvm.fshl.i32(i32 %817, i32 %817, i32 30)
+  %843 = xor i32 %842, %830
+  %844 = xor i32 %843, %829
+  %845 = xor i32 %668, %640
+  %846 = xor i32 %845, %752
+  %847 = xor i32 %846, %812
+  %848 = tail call i32 @llvm.fshl.i32(i32 %847, i32 %847, i32 1)
+  store i32 %848, ptr %47, align 4
+  %849 = tail call i32 @llvm.fshl.i32(i32 %841, i32 %841, i32 5)
+  %850 = add i32 %848, -899497514
+  %851 = add i32 %850, %818
+  %852 = add i32 %851, %844
+  %853 = add i32 %852, %849
+  %854 = tail call i32 @llvm.fshl.i32(i32 %829, i32 %829, i32 30)
+  %855 = xor i32 %854, %842
+  %856 = xor i32 %855, %841
+  %857 = xor i32 %682, %654
+  %858 = xor i32 %857, %764
+  %859 = xor i32 %858, %824
+  %860 = tail call i32 @llvm.fshl.i32(i32 %859, i32 %859, i32 1)
+  store i32 %860, ptr %58, align 4
+  %861 = tail call i32 @llvm.fshl.i32(i32 %853, i32 %853, i32 5)
+  %862 = add i32 %860, -899497514
+  %863 = add i32 %862, %830
+  %864 = add i32 %863, %856
+  %865 = add i32 %864, %861
+  %866 = tail call i32 @llvm.fshl.i32(i32 %841, i32 %841, i32 30)
+  %867 = xor i32 %866, %854
+  %868 = xor i32 %867, %853
+  %869 = xor i32 %696, %668
+  %870 = xor i32 %869, %776
+  %871 = xor i32 %870, %836
+  %872 = tail call i32 @llvm.fshl.i32(i32 %871, i32 %871, i32 1)
+  store i32 %872, ptr %69, align 4
+  %873 = tail call i32 @llvm.fshl.i32(i32 %865, i32 %865, i32 5)
+  %874 = add i32 %872, -899497514
+  %875 = add i32 %874, %842
+  %876 = add i32 %875, %868
+  %877 = add i32 %876, %873
+  %878 = tail call i32 @llvm.fshl.i32(i32 %853, i32 %853, i32 30)
+  %879 = xor i32 %878, %866
+  %880 = xor i32 %879, %865
+  %881 = xor i32 %710, %682
+  %882 = xor i32 %881, %788
+  %883 = xor i32 %882, %848
+  %884 = tail call i32 @llvm.fshl.i32(i32 %883, i32 %883, i32 1)
+  store i32 %884, ptr %80, align 4
+  %885 = tail call i32 @llvm.fshl.i32(i32 %877, i32 %877, i32 5)
+  %886 = add i32 %884, -899497514
+  %887 = add i32 %886, %854
+  %888 = add i32 %887, %880
+  %889 = add i32 %888, %885
+  %890 = tail call i32 @llvm.fshl.i32(i32 %865, i32 %865, i32 30)
+  %891 = xor i32 %890, %878
+  %892 = xor i32 %891, %877
+  %893 = xor i32 %724, %696
+  %894 = xor i32 %893, %800
+  %895 = xor i32 %894, %860
+  %896 = tail call i32 @llvm.fshl.i32(i32 %895, i32 %895, i32 1)
+  store i32 %896, ptr %91, align 4
+  %897 = tail call i32 @llvm.fshl.i32(i32 %889, i32 %889, i32 5)
+  %898 = add i32 %896, -899497514
+  %899 = add i32 %898, %866
+  %900 = add i32 %899, %892
+  %901 = add i32 %900, %897
+  %902 = tail call i32 @llvm.fshl.i32(i32 %877, i32 %877, i32 30)
+  %903 = xor i32 %902, %890
+  %904 = xor i32 %903, %889
+  %905 = xor i32 %738, %710
+  %906 = xor i32 %905, %812
+  %907 = xor i32 %906, %872
+  %908 = tail call i32 @llvm.fshl.i32(i32 %907, i32 %907, i32 1)
+  store i32 %908, ptr %102, align 4
+  %909 = tail call i32 @llvm.fshl.i32(i32 %901, i32 %901, i32 5)
+  %910 = add i32 %908, -899497514
+  %911 = add i32 %910, %878
+  %912 = add i32 %911, %904
+  %913 = add i32 %912, %909
+  %914 = tail call i32 @llvm.fshl.i32(i32 %889, i32 %889, i32 30)
+  %915 = xor i32 %914, %902
+  %916 = xor i32 %915, %901
+  %917 = xor i32 %752, %724
+  %918 = xor i32 %917, %824
+  %919 = xor i32 %918, %884
+  %920 = tail call i32 @llvm.fshl.i32(i32 %919, i32 %919, i32 1)
+  store i32 %920, ptr %113, align 4
+  %921 = tail call i32 @llvm.fshl.i32(i32 %913, i32 %913, i32 5)
+  %922 = add i32 %920, -899497514
+  %923 = add i32 %922, %890
+  %924 = add i32 %923, %916
+  %925 = add i32 %924, %921
+  %926 = tail call i32 @llvm.fshl.i32(i32 %901, i32 %901, i32 30)
+  %927 = xor i32 %926, %914
+  %928 = xor i32 %927, %913
+  %929 = xor i32 %764, %738
+  %930 = xor i32 %929, %836
+  %931 = xor i32 %930, %896
+  %932 = tail call i32 @llvm.fshl.i32(i32 %931, i32 %931, i32 1)
+  store i32 %932, ptr %124, align 4
+  %933 = tail call i32 @llvm.fshl.i32(i32 %925, i32 %925, i32 5)
+  %934 = add i32 %932, -899497514
+  %935 = add i32 %934, %902
+  %936 = add i32 %935, %928
+  %937 = add i32 %936, %933
+  %938 = tail call i32 @llvm.fshl.i32(i32 %913, i32 %913, i32 30)
+  %939 = xor i32 %938, %926
+  %940 = xor i32 %939, %925
+  %941 = xor i32 %776, %752
+  %942 = xor i32 %941, %848
+  %943 = xor i32 %942, %908
+  %944 = tail call i32 @llvm.fshl.i32(i32 %943, i32 %943, i32 1)
+  store i32 %944, ptr %135, align 4
+  %945 = tail call i32 @llvm.fshl.i32(i32 %937, i32 %937, i32 5)
+  %946 = add i32 %944, -899497514
+  %947 = add i32 %946, %914
+  %948 = add i32 %947, %940
+  %949 = add i32 %948, %945
+  %950 = tail call i32 @llvm.fshl.i32(i32 %925, i32 %925, i32 30)
+  %951 = xor i32 %950, %938
+  %952 = xor i32 %951, %937
+  %953 = xor i32 %788, %764
+  %954 = xor i32 %953, %860
+  %955 = xor i32 %954, %920
+  %956 = tail call i32 @llvm.fshl.i32(i32 %955, i32 %955, i32 1)
+  store i32 %956, ptr %146, align 4
+  %957 = tail call i32 @llvm.fshl.i32(i32 %949, i32 %949, i32 5)
+  %958 = add i32 %956, -899497514
+  %959 = add i32 %958, %926
+  %960 = add i32 %959, %952
+  %961 = add i32 %960, %957
+  %962 = tail call i32 @llvm.fshl.i32(i32 %937, i32 %937, i32 30)
+  %963 = xor i32 %962, %950
+  %964 = xor i32 %963, %949
+  %965 = xor i32 %800, %776
+  %966 = xor i32 %965, %872
+  %967 = xor i32 %966, %932
+  %968 = tail call i32 @llvm.fshl.i32(i32 %967, i32 %967, i32 1)
+  store i32 %968, ptr %157, align 4
+  %969 = tail call i32 @llvm.fshl.i32(i32 %961, i32 %961, i32 5)
+  %970 = add i32 %968, -899497514
+  %971 = add i32 %970, %938
+  %972 = add i32 %971, %964
+  %973 = add i32 %972, %969
+  %974 = tail call i32 @llvm.fshl.i32(i32 %949, i32 %949, i32 30)
+  %975 = xor i32 %974, %962
+  %976 = xor i32 %975, %961
+  %977 = xor i32 %812, %788
+  %978 = xor i32 %977, %884
+  %979 = xor i32 %978, %944
+  %980 = tail call i32 @llvm.fshl.i32(i32 %979, i32 %979, i32 1)
+  store i32 %980, ptr %168, align 4
+  %981 = tail call i32 @llvm.fshl.i32(i32 %973, i32 %973, i32 5)
+  %982 = add i32 %980, -899497514
+  %983 = add i32 %982, %950
+  %984 = add i32 %983, %976
+  %985 = add i32 %984, %981
+  %986 = tail call i32 @llvm.fshl.i32(i32 %961, i32 %961, i32 30)
+  %987 = xor i32 %986, %974
+  %988 = xor i32 %987, %973
+  %989 = xor i32 %824, %800
+  %990 = xor i32 %989, %896
+  %991 = xor i32 %990, %956
+  %992 = tail call i32 @llvm.fshl.i32(i32 %991, i32 %991, i32 1)
+  store i32 %992, ptr %179, align 4
+  %993 = tail call i32 @llvm.fshl.i32(i32 %985, i32 %985, i32 5)
+  %994 = tail call i32 @llvm.fshl.i32(i32 %973, i32 %973, i32 30)
+  %995 = load i32, ptr %0, align 8
+  %996 = add i32 %995, -899497514
+  %997 = add i32 %996, %992
+  %998 = add i32 %997, %962
+  %999 = add i32 %998, %988
+  %1000 = add i32 %999, %993
+  store i32 %1000, ptr %0, align 8
+  %1001 = load <4 x i32>, ptr %4, align 4
+  %1002 = insertelement <4 x i32> poison, i32 %985, i64 0
+  %1003 = insertelement <4 x i32> %1002, i32 %994, i64 1
+  %1004 = insertelement <4 x i32> %1003, i32 %986, i64 2
+  %1005 = insertelement <4 x i32> %1004, i32 %974, i64 3
+  %1006 = add <4 x i32> %1005, %1001
+  store <4 x i32> %1006, ptr %4, align 4
+  %1007 = getelementptr inbounds i8, ptr %0, i64 56
+  %1008 = load i64, ptr %1007, align 8
+  %1009 = add i64 %1008, 1
+  store i64 %1009, ptr %1007, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define void @_ZN4SHA15finalB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca [16 x i32], align 16
+  %4 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
+  %5 = getelementptr inbounds i8, ptr %1, i64 56
+  %6 = load i64, ptr %5, align 8
+  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %8 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #12
+  %9 = shl i64 %6, 9
+  %10 = shl i64 %8, 3
+  %11 = add i64 %10, %9
+  %12 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 noundef signext -128)
+  %13 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #12
+  %14 = trunc i64 %13 to i32
+  %15 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #12
+  %16 = icmp ult i64 %15, 64
+  br i1 %16, label %.lr.ph, label %.preheader.preheader
+
+.lr.ph:                                           ; preds = %2, %.lr.ph
+  %17 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 noundef signext 0)
+  %18 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #12
+  %19 = icmp ult i64 %18, 64
+  br i1 %19, label %.lr.ph, label %.preheader.preheader, !llvm.loop !8
+
+.preheader.preheader:                             ; preds = %.lr.ph, %2
+  br label %.preheader
+
+.preheader:                                       ; preds = %.preheader.preheader, %.preheader
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader ], [ 0, %.preheader.preheader ]
+  %20 = shl nuw nsw i64 %indvars.iv.i, 2
+  %21 = or disjoint i64 %20, 3
+  %22 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %7, i64 noundef %21) #12
+  %23 = load i8, ptr %22, align 1
+  %24 = zext i8 %23 to i32
+  %25 = or disjoint i64 %20, 2
+  %26 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %7, i64 noundef %25) #12
+  %27 = load i8, ptr %26, align 1
+  %28 = zext i8 %27 to i32
+  %29 = shl nuw nsw i32 %28, 8
+  %30 = or disjoint i32 %29, %24
+  %31 = or disjoint i64 %20, 1
+  %32 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %7, i64 noundef %31) #12
+  %33 = load i8, ptr %32, align 1
+  %34 = zext i8 %33 to i32
+  %35 = shl nuw nsw i32 %34, 16
+  %36 = or disjoint i32 %30, %35
+  %37 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %7, i64 noundef %20) #12
+  %38 = load i8, ptr %37, align 1
+  %39 = zext i8 %38 to i32
+  %40 = shl nuw i32 %39, 24
+  %41 = or disjoint i32 %36, %40
+  %42 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.i
+  store i32 %41, ptr %42, align 4
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
+  br i1 %exitcond.not.i, label %_ZN4SHA115buffer_to_blockERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPj.exit, label %.preheader, !llvm.loop !6
+
+_ZN4SHA115buffer_to_blockERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPj.exit: ; preds = %.preheader
+  %43 = icmp ugt i32 %14, 56
+  br i1 %43, label %.loopexit13.loopexit, label %.loopexit13
+
+.loopexit13.loopexit:                             ; preds = %_ZN4SHA115buffer_to_blockERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPj.exit
+  call void @_ZN4SHA19transformEPj(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull %3)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %3, i8 0, i64 56, i1 false)
+  br label %.loopexit13
+
+.loopexit13:                                      ; preds = %.loopexit13.loopexit, %_ZN4SHA115buffer_to_blockERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPj.exit
+  %44 = trunc i64 %11 to i32
+  %45 = getelementptr inbounds i8, ptr %3, i64 60
+  store i32 %44, ptr %45, align 4
+  %46 = lshr i64 %11, 32
+  %47 = trunc i64 %46 to i32
+  %48 = getelementptr inbounds i8, ptr %3, i64 56
+  store i32 %47, ptr %48, align 8
+  call void @_ZN4SHA19transformEPj(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull %3)
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %4)
+  br label %49
+
+49:                                               ; preds = %.loopexit13, %59
+  %indvars.iv = phi i64 [ 0, %.loopexit13 ], [ %indvars.iv.next, %59 ]
+  %50 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSt8ios_baseS0_E(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @_ZSt3hexRSt8ios_base)
+          to label %51 unwind label %.loopexit
+
+51:                                               ; preds = %49
+  %52 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St8_SetfillIS3_E(ptr noundef nonnull align 8 dereferenceable(8) %50, i8 48)
+          to label %53 unwind label %.loopexit
+
+53:                                               ; preds = %51
+  %54 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St5_Setw(ptr noundef nonnull align 8 dereferenceable(8) %52, i32 8)
+          to label %55 unwind label %.loopexit
+
+55:                                               ; preds = %53
+  %56 = getelementptr inbounds [5 x i32], ptr %1, i64 0, i64 %indvars.iv
+  %57 = load i32, ptr %56, align 4
+  %58 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef %57)
+          to label %59 unwind label %.loopexit
+
+59:                                               ; preds = %55
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, 5
+  br i1 %exitcond.not, label %61, label %49, !llvm.loop !9
+
+.loopexit:                                        ; preds = %49, %51, %53, %55
+  %lpad.loopexit = landingpad { ptr, i32 }
+          cleanup
+  br label %60
+
+.loopexit.split-lp:                               ; preds = %_ZN4SHA15resetEv.exit, %61
+  %lpad.loopexit.split-lp = landingpad { ptr, i32 }
+          cleanup
+  br label %60
+
+60:                                               ; preds = %.loopexit.split-lp, %.loopexit
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %4) #12
+  resume { ptr, i32 } %lpad.phi
+
+61:                                               ; preds = %59
+  store <4 x i32> <i32 1732584193, i32 -271733879, i32 -1732584194, i32 271733878>, ptr %1, align 8
+  %62 = getelementptr inbounds i8, ptr %1, i64 16
+  store i32 -1009589776, ptr %62, align 8
+  store i64 0, ptr %5, align 8
+  %63 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @.str)
+          to label %_ZN4SHA15resetEv.exit unwind label %.loopexit.split-lp
+
+_ZN4SHA15resetEv.exit:                            ; preds = %61
+  invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(112) %4)
+          to label %64 unwind label %.loopexit.split-lp
+
+64:                                               ; preds = %_ZN4SHA15resetEv.exit
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %4) #12
+  ret void
+}
+
+declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32), i8 noundef signext) local_unnamed_addr #0
+
+declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #0
+
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St5_Setw(ptr noundef nonnull align 8 dereferenceable(8), i32) local_unnamed_addr #0
+
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St8_SetfillIS3_E(ptr noundef nonnull align 8 dereferenceable(8), i8) local_unnamed_addr #0
+
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSt8ios_baseS0_E(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #0
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(216) ptr @_ZSt3hexRSt8ios_base(ptr noundef nonnull align 8 dereferenceable(216) %0) #3 comdat {
+  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = load i32, ptr %2, align 8
+  %4 = and i32 %3, -75
+  %5 = or disjoint i32 %4, 8
+  store i32 %5, ptr %2, align 8
+  ret ptr %0
+}
+
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #0
+
+declare void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(112)) local_unnamed_addr #0
+
+; Function Attrs: nounwind
+declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #1
+
+; Function Attrs: mustprogress uwtable
+define void @_ZN4SHA19from_fileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca %"class.std::basic_ifstream", align 8
+  %4 = alloca %class.SHA1, align 8
+  %5 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #12
+  call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEEC1EPKcSt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(256) %3, ptr noundef %5, i32 noundef 4)
+  invoke void @_ZN4SHA1C1Ev(ptr noundef nonnull align 8 dereferenceable(64) %4)
+          to label %6 unwind label %10
+
+6:                                                ; preds = %2
+  invoke void @_ZN4SHA16updateERSi(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(16) %3)
+          to label %7 unwind label %12
+
+7:                                                ; preds = %6
+  invoke void @_ZN4SHA15finalB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %4)
+          to label %8 unwind label %12
+
+8:                                                ; preds = %7
+  %9 = getelementptr inbounds i8, ptr %4, i64 24
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #12
+  call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256) %3) #12
+  ret void
+
+10:                                               ; preds = %2
+  %11 = landingpad { ptr, i32 }
+          cleanup
+  br label %15
+
+12:                                               ; preds = %7, %6
+  %13 = landingpad { ptr, i32 }
+          cleanup
+  %14 = getelementptr inbounds i8, ptr %4, i64 24
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #12
+  br label %15
+
+15:                                               ; preds = %12, %10
+  %.pn = phi { ptr, i32 } [ %13, %12 ], [ %11, %10 ]
+  call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256) %3) #12
+  resume { ptr, i32 } %.pn
+}
+
+; Function Attrs: nounwind
+declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
+
+declare void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEEC1EPKcSt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(256), ptr noundef, i32 noundef) unnamed_addr #0
+
+; Function Attrs: nounwind
+declare void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256)) unnamed_addr #1
+
+declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
+
+; Function Attrs: nounwind
+declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #1
+
+; Function Attrs: nobuiltin allocsize(0)
+declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #6
+
+declare noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef) local_unnamed_addr #0
+
+declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) local_unnamed_addr #0
+
+declare noundef i64 @_ZNKSi6gcountEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
+
+; Function Attrs: nobuiltin nounwind
+declare void @_ZdaPv(ptr noundef) local_unnamed_addr #7
+
+; Function Attrs: mustprogress uwtable
+define void @_Z4sha1RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+  %3 = alloca %"class.std::__cxx11::basic_istringstream", align 8
+  %4 = alloca %class.SHA1, align 8
+  call void @_ZN4SHA1C1Ev(ptr noundef nonnull align 8 dereferenceable(64) %4)
+  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %3)
+  invoke void @_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEC1ERKNS_12basic_stringIcS2_S3_EESt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(120) %3, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef 8)
+          to label %.noexc unwind label %10
+
+.noexc:                                           ; preds = %2
+  invoke void @_ZN4SHA16updateERSi(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(16) %3)
+          to label %7 unwind label %5
+
+5:                                                ; preds = %.noexc
+  %6 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(120) %3) #12
+  br label %.body
+
+7:                                                ; preds = %.noexc
+  call void @_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(120) %3) #12
+  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %3)
+  invoke void @_ZN4SHA15finalB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %4)
+          to label %8 unwind label %10
+
+8:                                                ; preds = %7
+  %9 = getelementptr inbounds i8, ptr %4, i64 24
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #12
+  ret void
+
+10:                                               ; preds = %2, %7
+  %11 = landingpad { ptr, i32 }
+          cleanup
+  br label %.body
+
+.body:                                            ; preds = %5, %10
+  %eh.lpad-body = phi { ptr, i32 } [ %11, %10 ], [ %6, %5 ]
+  %12 = getelementptr inbounds i8, ptr %4, i64 24
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #12
+  resume { ptr, i32 } %eh.lpad-body
+}
+
+; Function Attrs: uwtable
+define internal void @_GLOBAL__sub_I_sha1.cpp() #8 section ".text.startup" {
+  tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
+  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #12
+  ret void
+}
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.fshl.i32(i32, i32, i32) #9
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+
+attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree nounwind }
+attributes #3 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #11 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #12 = { nounwind }
+attributes #13 = { builtin allocsize(0) }
+attributes #14 = { builtin nounwind }
+
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
+
+!0 = !{i32 7, !"Dwarf Version", i32 5}
+!1 = !{i32 2, !"Debug Info Version", i32 3}
+!2 = !{i32 1, !"wchar_size", i32 4}
+!3 = !{i32 8, !"PIC Level", i32 2}
+!4 = !{i32 7, !"uwtable", i32 2}
+!5 = !{i32 7, !"frame-pointer", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}

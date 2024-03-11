@@ -1,0 +1,906 @@
+; ModuleID = 'bench/slurm/original/kill_tree.ll'
+source_filename = "bench/slurm/original/kill_tree.ll"
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-pc-linux-gnu"
+
+@.str = private unnamed_addr constant [12 x i8] c"kill_tree.c\00", align 1
+@__func__.find_ancestor = private unnamed_addr constant [14 x i8] c"find_ancestor\00", align 1
+@.str.1 = private unnamed_addr constant [15 x i8] c"/proc/%ld/stat\00", align 1
+@.str.2 = private unnamed_addr constant [16 x i8] c"%ld %*s %*s %ld\00", align 1
+@.str.3 = private unnamed_addr constant [18 x i8] c"/proc/%ld/cmdline\00", align 1
+@__func__.proctrack_linuxproc_get_pids = private unnamed_addr constant [29 x i8] c"proctrack_linuxproc_get_pids\00", align 1
+@.str.4 = private unnamed_addr constant [6 x i8] c"/proc\00", align 1
+@.str.5 = private unnamed_addr constant [19 x i8] c"opendir(/proc): %m\00", align 1
+@.str.6 = private unnamed_addr constant [36 x i8] c"%s: %s: Myname in build_hashtbl: %s\00", align 1
+@plugin_type = external constant [0 x i8], align 1
+@__func__._build_hashtbl = private unnamed_addr constant [15 x i8] c"_build_hashtbl\00", align 1
+@.str.7 = private unnamed_addr constant [40 x i8] c"couldn't do a strtol on str %s(%ld): %m\00", align 1
+@.str.8 = private unnamed_addr constant [14 x i8] c"/proc/%s/stat\00", align 1
+@.str.9 = private unnamed_addr constant [14 x i8] c"%ld %s %c %ld\00", align 1
+@.str.10 = private unnamed_addr constant [70 x i8] c"%s: %s: Defunct process skipped: command=%s state=%c pid=%ld ppid=%ld\00", align 1
+@.str.11 = private unnamed_addr constant [32 x i8] c"Cannot open /proc/getpid()/stat\00", align 1
+@__func__._get_myname = private unnamed_addr constant [12 x i8] c"_get_myname\00", align 1
+@.str.12 = private unnamed_addr constant [32 x i8] c"Cannot read /proc/getpid()/stat\00", align 1
+@.str.13 = private unnamed_addr constant [8 x i8] c"%*d %s \00", align 1
+@.str.14 = private unnamed_addr constant [53 x i8] c"Cannot get the command name from /proc/getpid()/stat\00", align 1
+@__func__._alloc_pid = private unnamed_addr constant [11 x i8] c"_alloc_pid\00", align 1
+@__func__._alloc_ppid = private unnamed_addr constant [12 x i8] c"_alloc_ppid\00", align 1
+@.str.15 = private unnamed_addr constant [65 x i8] c"%s: %s: %ld %s is not a user command.  Skipped sending signal %d\00", align 1
+@__func__._kill_proclist = private unnamed_addr constant [15 x i8] c"_kill_proclist\00", align 1
+@.str.16 = private unnamed_addr constant [39 x i8] c"%s: %s: Sending signal %d to pid %d %s\00", align 1
+
+; Function Attrs: nounwind uwtable
+define dso_local i32 @kill_proc_tree(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = tail call fastcc ptr @_build_hashtbl()
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %54, label %9
+
+9:                                                ; preds = %2
+  %10 = tail call fastcc ptr @_get_list(i32 noundef %0, ptr noundef null, ptr noundef nonnull %7)
+  %.not15.i = icmp eq ptr %10, null
+  br i1 %.not15.i, label %_kill_proclist.exit, label %.lr.ph.i
+
+.lr.ph.i:                                         ; preds = %9, %36
+  %.017.i = phi i32 [ %.1.i, %36 ], [ 0, %9 ]
+  %.01216.i = phi ptr [ %38, %36 ], [ %10, %9 ]
+  %11 = load i32, ptr %.01216.i, align 8
+  %12 = icmp sgt i32 %11, 1
+  br i1 %12, label %13, label %36
+
+13:                                               ; preds = %.lr.ph.i
+  %14 = getelementptr inbounds i8, ptr %.01216.i, i64 4
+  %15 = load i32, ptr %14, align 4
+  %.not13.i = icmp eq i32 %15, 0
+  %16 = tail call i32 @get_log_level() #9
+  br i1 %.not13.i, label %17, label %24
+
+17:                                               ; preds = %13
+  %18 = icmp sgt i32 %16, 5
+  br i1 %18, label %19, label %36
+
+19:                                               ; preds = %17
+  %20 = load i32, ptr %.01216.i, align 8
+  %21 = sext i32 %20 to i64
+  %22 = getelementptr inbounds i8, ptr %.01216.i, i64 8
+  %23 = load ptr, ptr %22, align 8
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.15, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._kill_proclist, i64 noundef %21, ptr noundef %23, i32 noundef %1) #9
+  br label %36
+
+24:                                               ; preds = %13
+  %25 = icmp sgt i32 %16, 3
+  br i1 %25, label %26, label %30
+
+26:                                               ; preds = %24
+  %27 = load i32, ptr %.01216.i, align 8
+  %28 = getelementptr inbounds i8, ptr %.01216.i, i64 8
+  %29 = load ptr, ptr %28, align 8
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.16, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._kill_proclist, i32 noundef %1, i32 noundef %27, ptr noundef %29) #9
+  br label %30
+
+30:                                               ; preds = %26, %24
+  %31 = load i32, ptr %.01216.i, align 8
+  %32 = tail call i32 @kill(i32 noundef %31, i32 noundef %1) #9
+  %.not14.i = icmp eq i32 %32, 0
+  br i1 %.not14.i, label %36, label %33
+
+33:                                               ; preds = %30
+  %34 = tail call ptr @__errno_location() #10
+  %35 = load i32, ptr %34, align 4
+  br label %36
+
+36:                                               ; preds = %33, %30, %19, %17, %.lr.ph.i
+  %.1.i = phi i32 [ %35, %33 ], [ %.017.i, %30 ], [ %.017.i, %19 ], [ %.017.i, %17 ], [ %.017.i, %.lr.ph.i ]
+  %37 = getelementptr inbounds i8, ptr %.01216.i, i64 16
+  %38 = load ptr, ptr %37, align 8
+  %.not.i = icmp eq ptr %38, null
+  br i1 %.not.i, label %_kill_proclist.exit, label %.lr.ph.i, !llvm.loop !7
+
+_kill_proclist.exit:                              ; preds = %36, %9
+  %.0.lcssa.i = phi i32 [ 0, %9 ], [ %.1.i, %36 ]
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  store ptr %7, ptr %5, align 8
+  br label %39
+
+39:                                               ; preds = %._crit_edge.i, %_kill_proclist.exit
+  %indvars.iv.i = phi i64 [ 0, %_kill_proclist.exit ], [ %indvars.iv.next.i, %._crit_edge.i ]
+  %40 = load ptr, ptr %5, align 8
+  %41 = getelementptr inbounds ptr, ptr %40, i64 %indvars.iv.i
+  %42 = load ptr, ptr %41, align 8
+  store ptr %42, ptr %6, align 8
+  %.not4.i = icmp eq ptr %42, null
+  br i1 %.not4.i, label %._crit_edge.i, label %.lr.ph.i8
+
+.lr.ph.i8:                                        ; preds = %39, %_destroy_list.exit.i
+  %storemerge5.i = phi ptr [ %50, %_destroy_list.exit.i ], [ %42, %39 ]
+  %43 = getelementptr inbounds i8, ptr %storemerge5.i, i64 8
+  %44 = load ptr, ptr %43, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  store ptr %44, ptr %4, align 8
+  %.not1.i.i = icmp eq ptr %44, null
+  br i1 %.not1.i.i, label %_destroy_list.exit.i, label %.lr.ph.i.i
+
+.lr.ph.i.i:                                       ; preds = %.lr.ph.i8, %.lr.ph.i.i
+  %storemerge2.i.i = phi ptr [ %46, %.lr.ph.i.i ], [ %44, %.lr.ph.i8 ]
+  %45 = getelementptr inbounds i8, ptr %storemerge2.i.i, i64 16
+  %46 = load ptr, ptr %45, align 8
+  %47 = getelementptr inbounds i8, ptr %storemerge2.i.i, i64 8
+  call void @slurm_xfree(ptr noundef nonnull %47) #9
+  call void @slurm_xfree(ptr noundef nonnull %4) #9
+  store ptr %46, ptr %4, align 8
+  %.not.i.i = icmp eq ptr %46, null
+  br i1 %.not.i.i, label %_destroy_list.exit.loopexit.i, label %.lr.ph.i.i, !llvm.loop !9
+
+_destroy_list.exit.loopexit.i:                    ; preds = %.lr.ph.i.i
+  %.pre.i = load ptr, ptr %6, align 8
+  br label %_destroy_list.exit.i
+
+_destroy_list.exit.i:                             ; preds = %_destroy_list.exit.loopexit.i, %.lr.ph.i8
+  %48 = phi ptr [ %.pre.i, %_destroy_list.exit.loopexit.i ], [ %storemerge5.i, %.lr.ph.i8 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  %49 = getelementptr inbounds i8, ptr %48, i64 16
+  %50 = load ptr, ptr %49, align 8
+  call void @slurm_xfree(ptr noundef nonnull %6) #9
+  store ptr %50, ptr %6, align 8
+  %.not.i9 = icmp eq ptr %50, null
+  br i1 %.not.i9, label %._crit_edge.i, label %.lr.ph.i8, !llvm.loop !10
+
+._crit_edge.i:                                    ; preds = %_destroy_list.exit.i, %39
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 64
+  br i1 %exitcond.not.i, label %_destroy_hashtbl.exit, label %39, !llvm.loop !11
+
+_destroy_hashtbl.exit:                            ; preds = %._crit_edge.i
+  call void @slurm_xfree(ptr noundef nonnull %5) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  store ptr %10, ptr %3, align 8
+  br i1 %.not15.i, label %_destroy_list.exit, label %.lr.ph.i10
+
+.lr.ph.i10:                                       ; preds = %_destroy_hashtbl.exit, %.lr.ph.i10
+  %storemerge2.i = phi ptr [ %52, %.lr.ph.i10 ], [ %10, %_destroy_hashtbl.exit ]
+  %51 = getelementptr inbounds i8, ptr %storemerge2.i, i64 16
+  %52 = load ptr, ptr %51, align 8
+  %53 = getelementptr inbounds i8, ptr %storemerge2.i, i64 8
+  call void @slurm_xfree(ptr noundef nonnull %53) #9
+  call void @slurm_xfree(ptr noundef nonnull %3) #9
+  store ptr %52, ptr %3, align 8
+  %.not.i11 = icmp eq ptr %52, null
+  br i1 %.not.i11, label %_destroy_list.exit, label %.lr.ph.i10, !llvm.loop !9
+
+_destroy_list.exit:                               ; preds = %.lr.ph.i10, %_destroy_hashtbl.exit
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  br label %54
+
+54:                                               ; preds = %2, %_destroy_list.exit
+  %.0 = phi i32 [ %.0.lcssa.i, %_destroy_list.exit ], [ -1, %2 ]
+  ret i32 %.0
+}
+
+; Function Attrs: nounwind uwtable
+define internal fastcc ptr @_build_hashtbl() unnamed_addr #0 {
+  %1 = alloca [4096 x i8], align 16
+  %2 = alloca ptr, align 8
+  %3 = alloca [4096 x i8], align 16
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca [1024 x i8], align 16
+  %7 = alloca [1024 x i8], align 16
+  %8 = alloca i8, align 1
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  %11 = tail call ptr @opendir(ptr noundef nonnull @.str.4)
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %13, label %15
+
+13:                                               ; preds = %0
+  %14 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.5) #9
+  br label %110
+
+15:                                               ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  %16 = tail call i32 @getpid() #9
+  %17 = sext i32 %16 to i64
+  %18 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %1, i64 noundef 4096, ptr noundef nonnull @.str.1, i64 noundef %17) #9
+  %19 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull %1, i32 noundef 0) #9
+  %20 = icmp slt i32 %19, 0
+  br i1 %20, label %21, label %23
+
+21:                                               ; preds = %15
+  %22 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.11) #9
+  br label %_get_myname.exit.thread
+
+23:                                               ; preds = %15
+  %24 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 4096, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 131, ptr noundef nonnull @__func__._get_myname) #9
+  store ptr %24, ptr %2, align 8
+  %25 = tail call i64 @read(i32 noundef %19, ptr noundef %24, i64 noundef 4096) #9
+  %26 = add i64 %25, -4096
+  %or.cond.i = icmp ult i64 %26, -4095
+  br i1 %or.cond.i, label %27, label %30
+
+27:                                               ; preds = %23
+  %28 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.12) #9
+  call void @slurm_xfree(ptr noundef nonnull %2) #9
+  %29 = call i32 @close(i32 noundef %19) #9
+  br label %_get_myname.exit.thread
+
+30:                                               ; preds = %23
+  %31 = tail call i32 @close(i32 noundef %19) #9
+  %32 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %24, ptr noundef nonnull @.str.13, ptr noundef nonnull %6) #9
+  %.not.i = icmp eq i32 %32, 1
+  br i1 %.not.i, label %35, label %33
+
+33:                                               ; preds = %30
+  %34 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.14) #9
+  call void @slurm_xfree(ptr noundef nonnull %2) #9
+  br label %_get_myname.exit.thread
+
+_get_myname.exit.thread:                          ; preds = %21, %27, %33
+  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  br label %110
+
+35:                                               ; preds = %30
+  call void @slurm_xfree(ptr noundef nonnull %2) #9
+  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  %36 = call i32 @get_log_level() #9
+  %37 = icmp sgt i32 %36, 6
+  br i1 %37, label %38, label %39
+
+38:                                               ; preds = %35
+  call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.6, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._build_hashtbl, ptr noundef nonnull %6) #9
+  br label %39
+
+39:                                               ; preds = %38, %35
+  %40 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 512, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 169, ptr noundef nonnull @__func__._build_hashtbl) #9
+  call void @slurm_seterrno(i32 noundef 0) #9
+  %41 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 4096, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 172, ptr noundef nonnull @__func__._build_hashtbl) #9
+  store ptr %41, ptr %5, align 8
+  %42 = call ptr @readdir(ptr noundef nonnull %11) #9
+  %.not33 = icmp eq ptr %42, null
+  br i1 %.not33, label %._crit_edge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %39, %.backedge
+  %43 = phi ptr [ %52, %.backedge ], [ %42, %39 ]
+  %44 = getelementptr inbounds i8, ptr %43, i64 19
+  %45 = load i8, ptr %44, align 1
+  %46 = add i8 %45, -58
+  %or.cond28 = icmp ult i8 %46, -10
+  br i1 %or.cond28, label %.backedge, label %47
+
+47:                                               ; preds = %.lr.ph
+  %48 = call i64 @strtol(ptr noundef nonnull %44, ptr noundef nonnull %4, i32 noundef 10) #9
+  %49 = add i64 %48, -9223372036854775807
+  %or.cond = icmp ult i64 %49, 2
+  br i1 %or.cond, label %50, label %53
+
+50:                                               ; preds = %47
+  %51 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.7, ptr noundef nonnull %44, i64 noundef %48) #9
+  br label %.backedge
+
+.backedge:                                        ; preds = %62, %._crit_edge.i, %91, %72, %75, %53, %56, %50, %58, %67, %.lr.ph
+  %52 = call ptr @readdir(ptr noundef nonnull %11) #9
+  %.not = icmp eq ptr %52, null
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+
+53:                                               ; preds = %47
+  %54 = load ptr, ptr %4, align 8
+  %55 = icmp eq ptr %54, null
+  br i1 %55, label %.backedge, label %56
+
+56:                                               ; preds = %53
+  %57 = load i8, ptr %54, align 1
+  %.not26 = icmp eq i8 %57, 0
+  br i1 %.not26, label %58, label %.backedge
+
+58:                                               ; preds = %56
+  %59 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 4096, ptr noundef nonnull @.str.8, ptr noundef nonnull %44) #9
+  %60 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull %3, i32 noundef 0) #9
+  %61 = icmp slt i32 %60, 0
+  br i1 %61, label %.backedge, label %62
+
+62:                                               ; preds = %58
+  %63 = load ptr, ptr %5, align 8
+  %64 = call i64 @read(i32 noundef %60, ptr noundef %63, i64 noundef 4096) #9
+  %65 = add i64 %64, -4096
+  %or.cond3 = icmp ult i64 %65, -4095
+  %66 = call i32 @close(i32 noundef %60) #9
+  br i1 %or.cond3, label %.backedge, label %67
+
+67:                                               ; preds = %62
+  %68 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %63, ptr noundef nonnull @.str.9, ptr noundef nonnull %9, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %10) #9
+  %.not27 = icmp eq i32 %68, 4
+  br i1 %.not27, label %69, label %.backedge
+
+69:                                               ; preds = %67
+  %70 = load i8, ptr %8, align 1
+  %71 = icmp eq i8 %70, 90
+  br i1 %71, label %72, label %80
+
+72:                                               ; preds = %69
+  %73 = call i32 @get_log_level() #9
+  %74 = icmp sgt i32 %73, 6
+  br i1 %74, label %75, label %.backedge
+
+75:                                               ; preds = %72
+  %76 = load i8, ptr %8, align 1
+  %77 = sext i8 %76 to i32
+  %78 = load i64, ptr %9, align 8
+  %79 = load i64, ptr %10, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.10, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._build_hashtbl, ptr noundef nonnull %7, i32 noundef %77, i64 noundef %78, i64 noundef %79) #9
+  br label %.backedge
+
+80:                                               ; preds = %69
+  %81 = load i64, ptr %10, align 8
+  %82 = trunc i64 %81 to i32
+  %83 = load i64, ptr %9, align 8
+  %84 = trunc i64 %83 to i32
+  %85 = call i32 @xstrcmp(ptr noundef nonnull %6, ptr noundef nonnull %7) #9
+  %86 = srem i32 %82, 64
+  %87 = sext i32 %86 to i64
+  %88 = getelementptr inbounds ptr, ptr %40, i64 %87
+  %.022.i = load ptr, ptr %88, align 8
+  %.not23.i = icmp eq ptr %.022.i, null
+  br i1 %.not23.i, label %._crit_edge.i, label %.lr.ph.i
+
+.lr.ph.i:                                         ; preds = %80, %99
+  %.024.i = phi ptr [ %.0.i29, %99 ], [ %.022.i, %80 ]
+  %89 = load i32, ptr %.024.i, align 8
+  %90 = icmp eq i32 %89, %82
+  br i1 %90, label %91, label %99
+
+91:                                               ; preds = %.lr.ph.i
+  %92 = getelementptr inbounds i8, ptr %.024.i, i64 8
+  %93 = load ptr, ptr %92, align 8
+  %94 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 24, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 79, ptr noundef nonnull @__func__._alloc_pid) #9
+  store i32 %84, ptr %94, align 8
+  %95 = getelementptr inbounds i8, ptr %94, i64 4
+  store i32 %85, ptr %95, align 4
+  %96 = call ptr @xstrdup(ptr noundef nonnull %7) #9
+  %97 = getelementptr inbounds i8, ptr %94, i64 8
+  store ptr %96, ptr %97, align 8
+  %98 = getelementptr inbounds i8, ptr %94, i64 16
+  store ptr %93, ptr %98, align 8
+  store ptr %94, ptr %92, align 8
+  br label %.backedge
+
+99:                                               ; preds = %.lr.ph.i
+  %100 = getelementptr inbounds i8, ptr %.024.i, i64 16
+  %.0.i29 = load ptr, ptr %100, align 8
+  %.not.i30 = icmp eq ptr %.0.i29, null
+  br i1 %.not.i30, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !13
+
+._crit_edge.i:                                    ; preds = %99, %80
+  %101 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 24, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 92, ptr noundef nonnull @__func__._alloc_ppid) #9
+  store i32 %82, ptr %101, align 8
+  %102 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 24, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 79, ptr noundef nonnull @__func__._alloc_pid) #9
+  store i32 %84, ptr %102, align 8
+  %103 = getelementptr inbounds i8, ptr %102, i64 4
+  store i32 %85, ptr %103, align 4
+  %104 = call ptr @xstrdup(ptr noundef nonnull %7) #9
+  %105 = getelementptr inbounds i8, ptr %102, i64 8
+  store ptr %104, ptr %105, align 8
+  %106 = getelementptr inbounds i8, ptr %102, i64 16
+  store ptr null, ptr %106, align 8
+  %107 = getelementptr inbounds i8, ptr %101, i64 8
+  store ptr %102, ptr %107, align 8
+  %108 = getelementptr inbounds i8, ptr %101, i64 16
+  store ptr %.022.i, ptr %108, align 8
+  store ptr %101, ptr %88, align 8
+  br label %.backedge
+
+._crit_edge:                                      ; preds = %.backedge, %39
+  call void @slurm_xfree(ptr noundef nonnull %5) #9
+  %109 = call i32 @closedir(ptr noundef nonnull %11)
+  br label %110
+
+110:                                              ; preds = %_get_myname.exit.thread, %._crit_edge, %13
+  %.0 = phi ptr [ null, %13 ], [ %40, %._crit_edge ], [ null, %_get_myname.exit.thread ]
+  ret ptr %.0
+}
+
+; Function Attrs: nounwind uwtable
+define internal fastcc ptr @_get_list(i32 noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+  %4 = srem i32 %0, 64
+  %5 = sext i32 %4 to i64
+  %6 = getelementptr inbounds ptr, ptr %2, i64 %5
+  %.01926 = load ptr, ptr %6, align 8
+  %.not27 = icmp eq ptr %.01926, null
+  br i1 %.not27, label %.loopexit, label %.lr.ph
+
+.lr.ph:                                           ; preds = %3, %22
+  %.01928 = phi ptr [ %.019, %22 ], [ %.01926, %3 ]
+  %7 = load i32, ptr %.01928, align 8
+  %8 = icmp eq i32 %7, %0
+  br i1 %8, label %9, label %22
+
+9:                                                ; preds = %.lr.ph
+  %10 = getelementptr inbounds i8, ptr %.01928, i64 8
+  %.029 = load ptr, ptr %10, align 8
+  %.not2230 = icmp eq ptr %.029, null
+  br i1 %.not2230, label %.loopexit, label %.lr.ph33
+
+.preheader:                                       ; preds = %.lr.ph33
+  %.134.pre = load ptr, ptr %10, align 8
+  %.not2335 = icmp eq ptr %.134.pre, null
+  br i1 %.not2335, label %.loopexit, label %.lr.ph38
+
+.lr.ph33:                                         ; preds = %9, %.lr.ph33
+  %.032 = phi ptr [ %.0, %.lr.ph33 ], [ %.029, %9 ]
+  %.02031 = phi ptr [ %14, %.lr.ph33 ], [ %1, %9 ]
+  %11 = getelementptr inbounds i8, ptr %.032, i64 8
+  %12 = load ptr, ptr %11, align 8
+  %13 = load <2 x i32>, ptr %.032, align 8
+  %14 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 24, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 79, ptr noundef nonnull @__func__._alloc_pid) #9
+  store <2 x i32> %13, ptr %14, align 8
+  %15 = tail call ptr @xstrdup(ptr noundef %12) #9
+  %16 = getelementptr inbounds i8, ptr %14, i64 8
+  store ptr %15, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %14, i64 16
+  store ptr %.02031, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %.032, i64 16
+  %.0 = load ptr, ptr %18, align 8
+  %.not22 = icmp eq ptr %.0, null
+  br i1 %.not22, label %.preheader, label %.lr.ph33, !llvm.loop !14
+
+.lr.ph38:                                         ; preds = %.preheader, %.lr.ph38
+  %.137 = phi ptr [ %.1, %.lr.ph38 ], [ %.134.pre, %.preheader ]
+  %.12136 = phi ptr [ %20, %.lr.ph38 ], [ %14, %.preheader ]
+  %19 = load i32, ptr %.137, align 8
+  %20 = tail call fastcc ptr @_get_list(i32 noundef %19, ptr noundef %.12136, ptr noundef %2)
+  %21 = getelementptr inbounds i8, ptr %.137, i64 16
+  %.1 = load ptr, ptr %21, align 8
+  %.not23 = icmp eq ptr %.1, null
+  br i1 %.not23, label %.loopexit, label %.lr.ph38, !llvm.loop !15
+
+22:                                               ; preds = %.lr.ph
+  %23 = getelementptr inbounds i8, ptr %.01928, i64 16
+  %.019 = load ptr, ptr %23, align 8
+  %.not = icmp eq ptr %.019, null
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !16
+
+.loopexit:                                        ; preds = %22, %.lr.ph38, %9, %3, %.preheader
+  %.2 = phi ptr [ %14, %.preheader ], [ %1, %3 ], [ %1, %9 ], [ %20, %.lr.ph38 ], [ %1, %22 ]
+  ret ptr %.2
+}
+
+; Function Attrs: nounwind uwtable
+define dso_local i32 @find_ancestor(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+  %3 = alloca [4096 x i8], align 16
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #11
+  %8 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 4097, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 331, ptr noundef nonnull @__func__.find_ancestor) #9
+  store ptr %8, ptr %4, align 8
+  %9 = sext i32 %0 to i64
+  store i64 %9, ptr %6, align 8
+  store i64 %9, ptr %5, align 8
+  %10 = icmp slt i32 %0, 2
+  br i1 %10, label %._crit_edge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %2
+  %sext = shl i64 %7, 32
+  %11 = ashr exact i64 %sext, 32
+  br label %13
+
+thread-pre-split:                                 ; preds = %43, %32, %45
+  %.pr = load i64, ptr %6, align 8
+  %12 = icmp slt i64 %.pr, 2
+  br i1 %12, label %._crit_edge, label %13
+
+._crit_edge:                                      ; preds = %thread-pre-split, %2
+  store i64 0, ptr %5, align 8
+  br label %.loopexit27
+
+13:                                               ; preds = %.lr.ph, %thread-pre-split
+  %14 = phi ptr [ %8, %.lr.ph ], [ %23, %thread-pre-split ]
+  %15 = phi i64 [ %9, %.lr.ph ], [ %.pr, %thread-pre-split ]
+  %16 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 4096, ptr noundef nonnull @.str.1, i64 noundef %15) #9
+  %17 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull %3, i32 noundef 0) #9
+  %18 = icmp slt i32 %17, 0
+  br i1 %18, label %19, label %20
+
+19:                                               ; preds = %13
+  store i64 0, ptr %5, align 8
+  br label %.loopexit27
+
+20:                                               ; preds = %13
+  %21 = call i64 @read(i32 noundef %17, ptr noundef %14, i64 noundef 4096) #9
+  %22 = icmp sgt i64 %21, -1
+  %23 = load ptr, ptr %4, align 8
+  br i1 %22, label %24, label %.thread
+
+.thread:                                          ; preds = %20
+  store i8 0, ptr %23, align 1
+  br label %.loopexit
+
+24:                                               ; preds = %20
+  %25 = getelementptr inbounds i8, ptr %23, i64 %21
+  store i8 0, ptr %25, align 1
+  %26 = add nsw i64 %21, -4096
+  %or.cond = icmp ult i64 %26, -4095
+  br i1 %or.cond, label %.loopexit, label %28
+
+.loopexit:                                        ; preds = %24, %.thread
+  %27 = call i32 @close(i32 noundef %17) #9
+  store i64 0, ptr %5, align 8
+  br label %.loopexit27
+
+28:                                               ; preds = %24
+  %29 = call i32 @close(i32 noundef %17) #9
+  %30 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %23, ptr noundef nonnull @.str.2, ptr noundef nonnull %5, ptr noundef nonnull %6) #9
+  %.not = icmp eq i32 %30, 2
+  br i1 %.not, label %32, label %31
+
+31:                                               ; preds = %28
+  store i64 0, ptr %5, align 8
+  br label %.loopexit27
+
+32:                                               ; preds = %28
+  %33 = load i64, ptr %5, align 8
+  %34 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 4096, ptr noundef nonnull @.str.3, i64 noundef %33) #9
+  %35 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull %3, i32 noundef 0) #9
+  %36 = icmp slt i32 %35, 0
+  br i1 %36, label %thread-pre-split, label %37
+
+37:                                               ; preds = %32
+  %38 = call i64 @read(i32 noundef %35, ptr noundef nonnull %23, i64 noundef 4096) #9
+  %39 = icmp sgt i64 %38, -1
+  br i1 %39, label %40, label %.thread25
+
+.thread25:                                        ; preds = %37
+  store i8 0, ptr %23, align 1
+  br label %43
+
+40:                                               ; preds = %37
+  %41 = getelementptr inbounds i8, ptr %23, i64 %38
+  store i8 0, ptr %41, align 1
+  %42 = add nsw i64 %38, -4096
+  %or.cond3 = icmp ult i64 %42, -4095
+  br i1 %or.cond3, label %43, label %45
+
+43:                                               ; preds = %.thread25, %40
+  %44 = call i32 @close(i32 noundef %35) #9
+  br label %thread-pre-split
+
+45:                                               ; preds = %40
+  %46 = call i32 @close(i32 noundef %35) #9
+  %47 = call i32 @strncmp(ptr noundef nonnull %23, ptr noundef %1, i64 noundef %11) #11
+  %48 = icmp eq i32 %47, 0
+  br i1 %48, label %.loopexit27, label %thread-pre-split
+
+.loopexit27:                                      ; preds = %45, %31, %.loopexit, %19, %._crit_edge
+  call void @slurm_xfree(ptr noundef nonnull %4) #9
+  %49 = load i64, ptr %5, align 8
+  %50 = trunc i64 %49 to i32
+  ret i32 %50
+}
+
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
+
+declare ptr @slurm_xcalloc(i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: nofree nounwind
+declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+
+; Function Attrs: nofree
+declare noundef i32 @open(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #4
+
+; Function Attrs: nofree
+declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
+
+declare i32 @close(i32 noundef) local_unnamed_addr #2
+
+; Function Attrs: nofree nounwind
+declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
+declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #1
+
+declare void @slurm_xfree(ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: nounwind uwtable
+define dso_local noundef i32 @proctrack_linuxproc_get_pids(i32 noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = tail call fastcc ptr @_build_hashtbl()
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %72, label %14
+
+14:                                               ; preds = %3
+  %15 = tail call fastcc ptr @_get_list(i32 noundef %0, ptr noundef null, ptr noundef nonnull %12)
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %17, label %30
+
+17:                                               ; preds = %14
+  store ptr null, ptr %1, align 8
+  store i32 0, ptr %2, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
+  store ptr %12, ptr %9, align 8
+  br label %18
+
+18:                                               ; preds = %._crit_edge.i, %17
+  %indvars.iv.i = phi i64 [ 0, %17 ], [ %indvars.iv.next.i, %._crit_edge.i ]
+  %19 = load ptr, ptr %9, align 8
+  %20 = getelementptr inbounds ptr, ptr %19, i64 %indvars.iv.i
+  %21 = load ptr, ptr %20, align 8
+  store ptr %21, ptr %10, align 8
+  %.not4.i = icmp eq ptr %21, null
+  br i1 %.not4.i, label %._crit_edge.i, label %.lr.ph.i
+
+.lr.ph.i:                                         ; preds = %18, %_destroy_list.exit.i
+  %storemerge5.i = phi ptr [ %29, %_destroy_list.exit.i ], [ %21, %18 ]
+  %22 = getelementptr inbounds i8, ptr %storemerge5.i, i64 8
+  %23 = load ptr, ptr %22, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  store ptr %23, ptr %8, align 8
+  %.not1.i.i = icmp eq ptr %23, null
+  br i1 %.not1.i.i, label %_destroy_list.exit.i, label %.lr.ph.i.i
+
+.lr.ph.i.i:                                       ; preds = %.lr.ph.i, %.lr.ph.i.i
+  %storemerge2.i.i = phi ptr [ %25, %.lr.ph.i.i ], [ %23, %.lr.ph.i ]
+  %24 = getelementptr inbounds i8, ptr %storemerge2.i.i, i64 16
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds i8, ptr %storemerge2.i.i, i64 8
+  call void @slurm_xfree(ptr noundef nonnull %26) #9
+  call void @slurm_xfree(ptr noundef nonnull %8) #9
+  store ptr %25, ptr %8, align 8
+  %.not.i.i = icmp eq ptr %25, null
+  br i1 %.not.i.i, label %_destroy_list.exit.loopexit.i, label %.lr.ph.i.i, !llvm.loop !9
+
+_destroy_list.exit.loopexit.i:                    ; preds = %.lr.ph.i.i
+  %.pre.i = load ptr, ptr %10, align 8
+  br label %_destroy_list.exit.i
+
+_destroy_list.exit.i:                             ; preds = %_destroy_list.exit.loopexit.i, %.lr.ph.i
+  %27 = phi ptr [ %.pre.i, %_destroy_list.exit.loopexit.i ], [ %storemerge5.i, %.lr.ph.i ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  %28 = getelementptr inbounds i8, ptr %27, i64 16
+  %29 = load ptr, ptr %28, align 8
+  call void @slurm_xfree(ptr noundef nonnull %10) #9
+  store ptr %29, ptr %10, align 8
+  %.not.i = icmp eq ptr %29, null
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !10
+
+._crit_edge.i:                                    ; preds = %_destroy_list.exit.i, %18
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 64
+  br i1 %exitcond.not.i, label %_destroy_hashtbl.exit, label %18, !llvm.loop !11
+
+_destroy_hashtbl.exit:                            ; preds = %._crit_edge.i
+  call void @slurm_xfree(ptr noundef nonnull %9) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
+  br label %72
+
+30:                                               ; preds = %14
+  %31 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 128, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 401, ptr noundef nonnull @__func__.proctrack_linuxproc_get_pids) #9
+  store ptr %31, ptr %11, align 8
+  br label %32
+
+32:                                               ; preds = %30, %48
+  %.02758 = phi i32 [ 32, %30 ], [ %.2, %48 ]
+  %.02857 = phi i32 [ 0, %30 ], [ %.129, %48 ]
+  %.03056 = phi ptr [ %15, %30 ], [ %50, %48 ]
+  %33 = getelementptr inbounds i8, ptr %.03056, i64 4
+  %34 = load i32, ptr %33, align 4
+  %.not35 = icmp eq i32 %34, 0
+  br i1 %.not35, label %48, label %35
+
+35:                                               ; preds = %32
+  %36 = add nsw i32 %.02758, -1
+  %.not36 = icmp slt i32 %.02857, %36
+  br i1 %.not36, label %42, label %37
+
+37:                                               ; preds = %35
+  %38 = shl nsw i32 %.02758, 1
+  %39 = sext i32 %38 to i64
+  %40 = shl nsw i64 %39, 2
+  %41 = call ptr @slurm_xrecalloc(ptr noundef nonnull %11, i64 noundef 1, i64 noundef %40, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 408, ptr noundef nonnull @__func__.proctrack_linuxproc_get_pids) #9
+  br label %42
+
+42:                                               ; preds = %37, %35
+  %.1 = phi i32 [ %38, %37 ], [ %.02758, %35 ]
+  %43 = load i32, ptr %.03056, align 8
+  %44 = load ptr, ptr %11, align 8
+  %45 = sext i32 %.02857 to i64
+  %46 = getelementptr inbounds i32, ptr %44, i64 %45
+  store i32 %43, ptr %46, align 4
+  %47 = add nsw i32 %.02857, 1
+  br label %48
+
+48:                                               ; preds = %42, %32
+  %.129 = phi i32 [ %47, %42 ], [ %.02857, %32 ]
+  %.2 = phi i32 [ %.1, %42 ], [ %.02758, %32 ]
+  %49 = getelementptr inbounds i8, ptr %.03056, i64 16
+  %50 = load ptr, ptr %49, align 8
+  %.not = icmp eq ptr %50, null
+  br i1 %.not, label %51, label %32, !llvm.loop !17
+
+51:                                               ; preds = %48
+  %52 = icmp eq i32 %.129, 0
+  br i1 %52, label %53, label %54
+
+53:                                               ; preds = %51
+  call void @slurm_xfree(ptr noundef nonnull %11) #9
+  br label %56
+
+54:                                               ; preds = %51
+  %55 = load ptr, ptr %11, align 8
+  br label %56
+
+56:                                               ; preds = %54, %53
+  %storemerge34 = phi ptr [ %55, %54 ], [ null, %53 ]
+  %.0 = phi i32 [ 0, %54 ], [ -1, %53 ]
+  store ptr %storemerge34, ptr %1, align 8
+  store i32 %.129, ptr %2, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  store ptr %12, ptr %6, align 8
+  br label %57
+
+57:                                               ; preds = %._crit_edge.i49, %56
+  %indvars.iv.i37 = phi i64 [ 0, %56 ], [ %indvars.iv.next.i50, %._crit_edge.i49 ]
+  %58 = load ptr, ptr %6, align 8
+  %59 = getelementptr inbounds ptr, ptr %58, i64 %indvars.iv.i37
+  %60 = load ptr, ptr %59, align 8
+  store ptr %60, ptr %7, align 8
+  %.not4.i38 = icmp eq ptr %60, null
+  br i1 %.not4.i38, label %._crit_edge.i49, label %.lr.ph.i39
+
+.lr.ph.i39:                                       ; preds = %57, %_destroy_list.exit.i47
+  %storemerge5.i40 = phi ptr [ %68, %_destroy_list.exit.i47 ], [ %60, %57 ]
+  %61 = getelementptr inbounds i8, ptr %storemerge5.i40, i64 8
+  %62 = load ptr, ptr %61, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  store ptr %62, ptr %5, align 8
+  %.not1.i.i41 = icmp eq ptr %62, null
+  br i1 %.not1.i.i41, label %_destroy_list.exit.i47, label %.lr.ph.i.i42
+
+.lr.ph.i.i42:                                     ; preds = %.lr.ph.i39, %.lr.ph.i.i42
+  %storemerge2.i.i43 = phi ptr [ %64, %.lr.ph.i.i42 ], [ %62, %.lr.ph.i39 ]
+  %63 = getelementptr inbounds i8, ptr %storemerge2.i.i43, i64 16
+  %64 = load ptr, ptr %63, align 8
+  %65 = getelementptr inbounds i8, ptr %storemerge2.i.i43, i64 8
+  call void @slurm_xfree(ptr noundef nonnull %65) #9
+  call void @slurm_xfree(ptr noundef nonnull %5) #9
+  store ptr %64, ptr %5, align 8
+  %.not.i.i44 = icmp eq ptr %64, null
+  br i1 %.not.i.i44, label %_destroy_list.exit.loopexit.i45, label %.lr.ph.i.i42, !llvm.loop !9
+
+_destroy_list.exit.loopexit.i45:                  ; preds = %.lr.ph.i.i42
+  %.pre.i46 = load ptr, ptr %7, align 8
+  br label %_destroy_list.exit.i47
+
+_destroy_list.exit.i47:                           ; preds = %_destroy_list.exit.loopexit.i45, %.lr.ph.i39
+  %66 = phi ptr [ %.pre.i46, %_destroy_list.exit.loopexit.i45 ], [ %storemerge5.i40, %.lr.ph.i39 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  %67 = getelementptr inbounds i8, ptr %66, i64 16
+  %68 = load ptr, ptr %67, align 8
+  call void @slurm_xfree(ptr noundef nonnull %7) #9
+  store ptr %68, ptr %7, align 8
+  %.not.i48 = icmp eq ptr %68, null
+  br i1 %.not.i48, label %._crit_edge.i49, label %.lr.ph.i39, !llvm.loop !10
+
+._crit_edge.i49:                                  ; preds = %_destroy_list.exit.i47, %57
+  %indvars.iv.next.i50 = add nuw nsw i64 %indvars.iv.i37, 1
+  %exitcond.not.i51 = icmp eq i64 %indvars.iv.next.i50, 64
+  br i1 %exitcond.not.i51, label %_destroy_hashtbl.exit52, label %57, !llvm.loop !11
+
+_destroy_hashtbl.exit52:                          ; preds = %._crit_edge.i49
+  call void @slurm_xfree(ptr noundef nonnull %6) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  store ptr %15, ptr %4, align 8
+  br label %.lr.ph.i53
+
+.lr.ph.i53:                                       ; preds = %_destroy_hashtbl.exit52, %.lr.ph.i53
+  %storemerge2.i = phi ptr [ %70, %.lr.ph.i53 ], [ %15, %_destroy_hashtbl.exit52 ]
+  %69 = getelementptr inbounds i8, ptr %storemerge2.i, i64 16
+  %70 = load ptr, ptr %69, align 8
+  %71 = getelementptr inbounds i8, ptr %storemerge2.i, i64 8
+  call void @slurm_xfree(ptr noundef nonnull %71) #9
+  call void @slurm_xfree(ptr noundef nonnull %4) #9
+  store ptr %70, ptr %4, align 8
+  %.not.i54 = icmp eq ptr %70, null
+  br i1 %.not.i54, label %_destroy_list.exit, label %.lr.ph.i53, !llvm.loop !9
+
+_destroy_list.exit:                               ; preds = %.lr.ph.i53
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  br label %72
+
+72:                                               ; preds = %3, %_destroy_list.exit, %_destroy_hashtbl.exit
+  %.031 = phi i32 [ -1, %_destroy_hashtbl.exit ], [ %.0, %_destroy_list.exit ], [ -1, %3 ]
+  ret i32 %.031
+}
+
+declare ptr @slurm_xrecalloc(ptr noundef, i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: nofree nounwind
+declare noalias noundef ptr @opendir(ptr nocapture noundef readonly) local_unnamed_addr #3
+
+declare i32 @error(ptr noundef, ...) local_unnamed_addr #2
+
+declare i32 @get_log_level() local_unnamed_addr #2
+
+declare void @log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+
+declare void @slurm_seterrno(i32 noundef) local_unnamed_addr #2
+
+declare ptr @readdir(ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nofree nounwind willreturn
+declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #5
+
+declare i32 @xstrcmp(ptr noundef, ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: nofree nounwind
+declare noundef i32 @closedir(ptr nocapture noundef) local_unnamed_addr #3
+
+; Function Attrs: nounwind
+declare i32 @getpid() local_unnamed_addr #6
+
+declare ptr @xstrdup(ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: nounwind
+declare i32 @kill(i32 noundef, i32 noundef) local_unnamed_addr #6
+
+; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
+declare ptr @__errno_location() local_unnamed_addr #7
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+
+attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { nounwind }
+attributes #10 = { nounwind willreturn memory(none) }
+attributes #11 = { nounwind willreturn memory(read) }
+
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
+
+!0 = !{i32 7, !"Dwarf Version", i32 5}
+!1 = !{i32 2, !"Debug Info Version", i32 3}
+!2 = !{i32 1, !"wchar_size", i32 4}
+!3 = !{i32 8, !"PIC Level", i32 2}
+!4 = !{i32 7, !"PIE Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = !{i32 7, !"frame-pointer", i32 2}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.mustprogress"}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}
+!11 = distinct !{!11, !8}
+!12 = distinct !{!12, !8}
+!13 = distinct !{!13, !8}
+!14 = distinct !{!14, !8}
+!15 = distinct !{!15, !8}
+!16 = distinct !{!16, !8}
+!17 = distinct !{!17, !8}

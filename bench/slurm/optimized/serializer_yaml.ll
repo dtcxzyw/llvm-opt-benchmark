@@ -1,0 +1,1102 @@
+; ModuleID = 'bench/slurm/original/serializer_yaml.ll'
+source_filename = "bench/slurm/original/serializer_yaml.ll"
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-pc-linux-gnu"
+
+%struct.slurm_conf_t = type { i64, ptr, i16, ptr, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, i16, i32, ptr, i32, ptr, i32, i32, ptr, i64, i64, ptr, i16, i16, ptr, i32, ptr, ptr, i16, ptr, ptr, i32, i16, i16, i16, ptr, i16, i16, ptr, i32, i16, i16, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, i16, i16, ptr, i32, i32, i32, i16, i16, ptr, ptr, i16, ptr, ptr, i32, i32, i32, i32, i32, i64, i32, i32, i16, ptr, ptr, i32, ptr, ptr, ptr, i16, i32, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i32, i16, ptr, ptr, ptr, ptr, i32, i32, i16, i16, i32, ptr, i16, ptr, i32, i32, i32, i32, i32, i32, ptr, i16, ptr, ptr, i16, ptr, i16, i16, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i16, i16, ptr, i16, ptr, i16, ptr, i16, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, i32, ptr, i32, ptr, ptr, i16, ptr, ptr, i32, i16, ptr, ptr, i16, i16, ptr, i16, ptr, ptr, ptr, i32, ptr, i16, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, i32, i16, ptr, ptr, ptr, ptr, i32, ptr, i16, ptr, ptr, ptr, i16, ptr, i16, ptr, i16, i16, ptr }
+%struct.anon.29 = type { i32, ptr }
+%struct.anon.30 = type { i32, ptr, ptr }
+%struct.yaml_event_s = type { i32, %union.anon.20, %struct.yaml_mark_s, %struct.yaml_mark_s }
+%union.anon.20 = type { %struct.anon.26 }
+%struct.anon.26 = type { ptr, ptr, ptr, i64, i32, i32, i32 }
+%struct.yaml_mark_s = type { i64, i64, i64 }
+%struct.yaml_version_directive_s = type { i32, i32 }
+%struct.yaml_emitter_s = type { i32, ptr, ptr, ptr, %union.anon, %struct.anon.0, %struct.anon.1, i32, i32, i32, i32, i32, i32, %struct.anon.2, i32, %struct.anon.3, %struct.anon.4, %struct.anon.5, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, %struct.anon.6, %struct.anon.7, %struct.anon.8, i32, i32, ptr, i32, ptr }
+%union.anon = type { %struct.anon }
+%struct.anon = type { ptr, i64, ptr }
+%struct.anon.0 = type { ptr, ptr, ptr, ptr }
+%struct.anon.1 = type { ptr, ptr, ptr, ptr }
+%struct.anon.2 = type { ptr, ptr, ptr }
+%struct.anon.3 = type { ptr, ptr, ptr, ptr }
+%struct.anon.4 = type { ptr, ptr, ptr }
+%struct.anon.5 = type { ptr, ptr, ptr }
+%struct.anon.6 = type { ptr, i64, i32 }
+%struct.anon.7 = type { ptr, i64, ptr, i64 }
+%struct.anon.8 = type { ptr, i64, i32, i32, i32, i32, i32, i32 }
+%struct.yaml_parser_s = type { i32, ptr, i64, i32, %struct.yaml_mark_s, ptr, %struct.yaml_mark_s, ptr, ptr, %union.anon.9, i32, %struct.anon.11, i64, %struct.anon.12, i32, i64, %struct.yaml_mark_s, i32, i32, i32, %struct.anon.13, i64, i32, %struct.anon.14, i32, i32, %struct.anon.15, %struct.anon.16, i32, %struct.anon.17, %struct.anon.18, %struct.anon.19, ptr }
+%union.anon.9 = type { %struct.anon.10 }
+%struct.anon.10 = type { ptr, ptr, ptr }
+%struct.anon.11 = type { ptr, ptr, ptr, ptr }
+%struct.anon.12 = type { ptr, ptr, ptr, ptr }
+%struct.anon.13 = type { ptr, ptr, ptr, ptr }
+%struct.anon.14 = type { ptr, ptr, ptr }
+%struct.anon.15 = type { ptr, ptr, ptr }
+%struct.anon.16 = type { ptr, ptr, ptr }
+%struct.anon.17 = type { ptr, ptr, ptr }
+%struct.anon.18 = type { ptr, ptr, ptr }
+%struct.anon.19 = type { ptr, ptr, ptr }
+
+@plugin_name = local_unnamed_addr constant [23 x i8] c"Serializer YAML plugin\00", align 16
+@plugin_type = constant [16 x i8] c"serializer/yaml\00", align 16
+@plugin_version = local_unnamed_addr constant i32 1574912, align 4
+@.str = private unnamed_addr constant [19 x i8] c"application/x-yaml\00", align 1
+@.str.1 = private unnamed_addr constant [10 x i8] c"text/yaml\00", align 1
+@mime_types = local_unnamed_addr global [3 x ptr] [ptr @.str, ptr @.str.1, ptr null], align 16
+@slurm_conf = external local_unnamed_addr global %struct.slurm_conf_t, align 8
+@.str.2 = private unnamed_addr constant [21 x i8] c"%s: %s: DATA: loaded\00", align 1
+@__func__.serializer_p_init = private unnamed_addr constant [18 x i8] c"serializer_p_init\00", align 1
+@.str.3 = private unnamed_addr constant [23 x i8] c"%s: %s: DATA: unloaded\00", align 1
+@__func__.serializer_p_fini = private unnamed_addr constant [18 x i8] c"serializer_p_fini\00", align 1
+@.str.4 = private unnamed_addr constant [21 x i8] c"%s: dump yaml failed\00", align 1
+@__func__.serialize_p_data_to_string = private unnamed_addr constant [27 x i8] c"serialize_p_data_to_string\00", align 1
+@.str.5 = private unnamed_addr constant [33 x i8] c"%s:%d %s: YAML emitter error: %s\00", align 1
+@.str.6 = private unnamed_addr constant [18 x i8] c"serializer_yaml.c\00", align 1
+@__func__._dump_yaml = private unnamed_addr constant [11 x i8] c"_dump_yaml\00", align 1
+@.str.7 = private unnamed_addr constant [23 x i8] c"tag:yaml.org,2002:null\00", align 1
+@.str.8 = private unnamed_addr constant [5 x i8] c"null\00", align 1
+@__func__._data_to_yaml = private unnamed_addr constant [14 x i8] c"_data_to_yaml\00", align 1
+@.str.9 = private unnamed_addr constant [23 x i8] c"tag:yaml.org,2002:bool\00", align 1
+@.str.10 = private unnamed_addr constant [5 x i8] c"true\00", align 1
+@.str.11 = private unnamed_addr constant [6 x i8] c"false\00", align 1
+@.str.12 = private unnamed_addr constant [4 x i8] c"%lf\00", align 1
+@.str.13 = private unnamed_addr constant [41 x i8] c"%s: unable to print double to string: %m\00", align 1
+@.str.14 = private unnamed_addr constant [24 x i8] c"tag:yaml.org,2002:float\00", align 1
+@.str.15 = private unnamed_addr constant [4 x i8] c"%ld\00", align 1
+@.str.16 = private unnamed_addr constant [38 x i8] c"%s: unable to print int to string: %m\00", align 1
+@.str.17 = private unnamed_addr constant [22 x i8] c"tag:yaml.org,2002:int\00", align 1
+@.str.18 = private unnamed_addr constant [22 x i8] c"tag:yaml.org,2002:map\00", align 1
+@.str.19 = private unnamed_addr constant [22 x i8] c"tag:yaml.org,2002:seq\00", align 1
+@__func__._emit_string = private unnamed_addr constant [13 x i8] c"_emit_string\00", align 1
+@.str.20 = private unnamed_addr constant [22 x i8] c"tag:yaml.org,2002:str\00", align 1
+@.str.21 = private unnamed_addr constant [32 x i8] c"%s:%d %s: YAML parser error: %s\00", align 1
+@__func__._parse_yaml = private unnamed_addr constant [12 x i8] c"_parse_yaml\00", align 1
+@.str.22 = private unnamed_addr constant [44 x i8] c"%s: YAML nested too deep (%d layers) at %pD\00", align 1
+@__func__._yaml_to_data = private unnamed_addr constant [14 x i8] c"_yaml_to_data\00", align 1
+@.str.23 = private unnamed_addr constant [26 x i8] c"%s: YAML parser error: %s\00", align 1
+@.str.24 = private unnamed_addr constant [24 x i8] c"DATA: %s: %pD{%d} -> %s\00", align 1
+@.str.25 = private unnamed_addr constant [29 x i8] c"%s: %s: DATA: %pD{%d} -> POP\00", align 1
+@event_types = internal unnamed_addr constant [11 x %struct.anon.29] [%struct.anon.29 { i32 0, ptr @.str.27 }, %struct.anon.29 { i32 3, ptr @.str.28 }, %struct.anon.29 { i32 1, ptr @.str.29 }, %struct.anon.29 { i32 4, ptr @.str.30 }, %struct.anon.29 { i32 2, ptr @.str.31 }, %struct.anon.29 { i32 5, ptr @.str.32 }, %struct.anon.29 { i32 6, ptr @.str.33 }, %struct.anon.29 { i32 7, ptr @.str.34 }, %struct.anon.29 { i32 8, ptr @.str.35 }, %struct.anon.29 { i32 9, ptr @.str.36 }, %struct.anon.29 { i32 10, ptr @.str.37 }], align 16
+@.str.26 = private unnamed_addr constant [13 x i8] c"invalid type\00", align 1
+@.str.27 = private unnamed_addr constant [14 x i8] c"YAML_NO_EVENT\00", align 1
+@.str.28 = private unnamed_addr constant [26 x i8] c"YAML_DOCUMENT_START_EVENT\00", align 1
+@.str.29 = private unnamed_addr constant [24 x i8] c"YAML_STREAM_START_EVENT\00", align 1
+@.str.30 = private unnamed_addr constant [24 x i8] c"YAML_DOCUMENT_END_EVENT\00", align 1
+@.str.31 = private unnamed_addr constant [22 x i8] c"YAML_STREAM_END_EVENT\00", align 1
+@.str.32 = private unnamed_addr constant [17 x i8] c"YAML_ALIAS_EVENT\00", align 1
+@.str.33 = private unnamed_addr constant [18 x i8] c"YAML_SCALAR_EVENT\00", align 1
+@.str.34 = private unnamed_addr constant [26 x i8] c"YAML_SEQUENCE_START_EVENT\00", align 1
+@.str.35 = private unnamed_addr constant [24 x i8] c"YAML_SEQUENCE_END_EVENT\00", align 1
+@.str.36 = private unnamed_addr constant [25 x i8] c"YAML_MAPPING_START_EVENT\00", align 1
+@.str.37 = private unnamed_addr constant [23 x i8] c"YAML_MAPPING_END_EVENT\00", align 1
+@.str.38 = private unnamed_addr constant [29 x i8] c"%s: %s: DATA: PUSH %pD[]=%pD\00", align 1
+@__func__._on_parse_event = private unnamed_addr constant [16 x i8] c"_on_parse_event\00", align 1
+@.str.39 = private unnamed_addr constant [41 x i8] c"%s: YAML parser does not support aliases\00", align 1
+@.str.40 = private unnamed_addr constant [21 x i8] c"should never execute\00", align 1
+@.str.41 = private unnamed_addr constant [31 x i8] c"%s: %s: DATA: PUSH %pD[%s]=%pD\00", align 1
+@__func__._on_parse_scalar = private unnamed_addr constant [17 x i8] c"_on_parse_scalar\00", align 1
+@.str.42 = private unnamed_addr constant [21 x i8] c"DATA: %s: scalar tag\00", align 1
+@tags = internal unnamed_addr constant [7 x %struct.anon.30] [%struct.anon.30 { i32 1, ptr @.str.8, ptr @.str.7 }, %struct.anon.30 { i32 2, ptr @.str.43, ptr @.str.19 }, %struct.anon.30 { i32 3, ptr @.str.44, ptr @.str.18 }, %struct.anon.30 { i32 4, ptr @.str.45, ptr @.str.17 }, %struct.anon.30 { i32 5, ptr @.str.46, ptr @.str.20 }, %struct.anon.30 { i32 6, ptr @.str.47, ptr @.str.14 }, %struct.anon.30 { i32 7, ptr @.str.48, ptr @.str.9 }], align 16
+@.str.43 = private unnamed_addr constant [4 x i8] c"seq\00", align 1
+@.str.44 = private unnamed_addr constant [4 x i8] c"map\00", align 1
+@.str.45 = private unnamed_addr constant [4 x i8] c"int\00", align 1
+@.str.46 = private unnamed_addr constant [4 x i8] c"str\00", align 1
+@.str.47 = private unnamed_addr constant [6 x i8] c"float\00", align 1
+@.str.48 = private unnamed_addr constant [5 x i8] c"bool\00", align 1
+
+; Function Attrs: nounwind uwtable
+define noundef i32 @serializer_p_init() local_unnamed_addr #0 {
+  %1 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %2 = and i64 %1, 256
+  %.not = icmp eq i64 %2, 0
+  br i1 %.not, label %7, label %3
+
+3:                                                ; preds = %0
+  %4 = tail call i32 @slurm_get_log_level() #6
+  %5 = icmp sgt i32 %4, 3
+  br i1 %5, label %6, label %7
+
+6:                                                ; preds = %3
+  tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef nonnull @.str.2, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.serializer_p_init) #6
+  br label %7
+
+7:                                                ; preds = %0, %3, %6
+  ret i32 0
+}
+
+declare i32 @slurm_get_log_level() local_unnamed_addr #1
+
+declare void @slurm_log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
+
+; Function Attrs: nounwind uwtable
+define noundef i32 @serializer_p_fini() local_unnamed_addr #0 {
+  %1 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %2 = and i64 %1, 256
+  %.not = icmp eq i64 %2, 0
+  br i1 %.not, label %7, label %3
+
+3:                                                ; preds = %0
+  %4 = tail call i32 @slurm_get_log_level() #6
+  %5 = icmp sgt i32 %4, 3
+  br i1 %5, label %6, label %7
+
+6:                                                ; preds = %3
+  tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef nonnull @.str.3, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.serializer_p_fini) #6
+  br label %7
+
+7:                                                ; preds = %0, %3, %6
+  ret i32 0
+}
+
+; Function Attrs: nounwind uwtable
+define i32 @serialize_p_data_to_string(ptr nocapture noundef writeonly %0, ptr noundef writeonly %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+  %5 = alloca %struct.yaml_event_s, align 8
+  %6 = alloca %struct.yaml_version_directive_s, align 8
+  %7 = alloca %struct.yaml_emitter_s, align 8
+  %8 = tail call ptr @slurm_init_buf(i32 noundef 0) #6
+  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  store i64 4294967297, ptr %6, align 8
+  %9 = call i32 @yaml_emitter_initialize(ptr noundef nonnull %7) #6
+  %.not.i = icmp eq i32 %9, 0
+  br i1 %.not.i, label %.sink.split, label %10
+
+10:                                               ; preds = %4
+  %11 = icmp eq i32 %3, 2
+  br i1 %11, label %12, label %13
+
+12:                                               ; preds = %10
+  call void @yaml_emitter_set_indent(ptr noundef nonnull %7, i32 noundef 0) #6
+  call void @yaml_emitter_set_width(ptr noundef nonnull %7, i32 noundef -1) #6
+  call void @yaml_emitter_set_break(ptr noundef nonnull %7, i32 noundef 0) #6
+  br label %13
+
+13:                                               ; preds = %12, %10
+  call void @yaml_emitter_set_output(ptr noundef nonnull %7, ptr noundef nonnull @_yaml_write_handler, ptr noundef %8) #6
+  %14 = call i32 @yaml_stream_start_event_initialize(ptr noundef nonnull %5, i32 noundef 1) #6
+  %.not22.i = icmp eq i32 %14, 0
+  br i1 %.not22.i, label %.sink.split, label %15
+
+15:                                               ; preds = %13
+  %16 = call i32 @yaml_emitter_emit(ptr noundef nonnull %7, ptr noundef nonnull %5) #6
+  %.not23.i = icmp eq i32 %16, 0
+  br i1 %.not23.i, label %.sink.split, label %17
+
+17:                                               ; preds = %15
+  %18 = call i32 @yaml_document_start_event_initialize(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef null, ptr noundef null, i32 noundef 0) #6
+  %.not24.i = icmp eq i32 %18, 0
+  br i1 %.not24.i, label %.sink.split, label %19
+
+19:                                               ; preds = %17
+  %20 = call i32 @yaml_emitter_emit(ptr noundef nonnull %7, ptr noundef nonnull %5) #6
+  %.not25.i = icmp eq i32 %20, 0
+  br i1 %.not25.i, label %.sink.split, label %21
+
+21:                                               ; preds = %19
+  %22 = call fastcc i32 @_data_to_yaml(ptr noundef %2, ptr noundef nonnull %7), !range !6
+  %.not26.i = icmp eq i32 %22, 0
+  br i1 %.not26.i, label %23, label %34
+
+23:                                               ; preds = %21
+  %24 = call i32 @yaml_document_end_event_initialize(ptr noundef nonnull %5, i32 noundef 0) #6
+  %.not27.i = icmp eq i32 %24, 0
+  br i1 %.not27.i, label %.sink.split, label %25
+
+25:                                               ; preds = %23
+  %26 = call i32 @yaml_emitter_emit(ptr noundef nonnull %7, ptr noundef nonnull %5) #6
+  %.not28.i = icmp eq i32 %26, 0
+  br i1 %.not28.i, label %.sink.split, label %27
+
+27:                                               ; preds = %25
+  %28 = call i32 @yaml_stream_end_event_initialize(ptr noundef nonnull %5) #6
+  %.not29.i = icmp eq i32 %28, 0
+  br i1 %.not29.i, label %.sink.split, label %29
+
+29:                                               ; preds = %27
+  %30 = call i32 @yaml_emitter_emit(ptr noundef nonnull %7, ptr noundef nonnull %5) #6
+  %.not30.i = icmp eq i32 %30, 0
+  br i1 %.not30.i, label %.sink.split, label %37
+
+.sink.split:                                      ; preds = %29, %27, %25, %23, %19, %17, %15, %13, %4
+  %.sink = phi i32 [ 663, %4 ], [ 674, %13 ], [ 677, %15 ], [ 680, %17 ], [ 683, %19 ], [ 689, %23 ], [ 692, %25 ], [ 695, %27 ], [ 698, %29 ]
+  %31 = getelementptr inbounds i8, ptr %7, i64 8
+  %32 = load ptr, ptr %31, align 8
+  %33 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef %.sink, ptr noundef nonnull @__func__._dump_yaml, ptr noundef %32) #6
+  br label %34
+
+34:                                               ; preds = %.sink.split, %21
+  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  %35 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.serialize_p_data_to_string) #6
+  %.not15 = icmp eq ptr %8, null
+  br i1 %.not15, label %44, label %36
+
+36:                                               ; preds = %34
+  call void @slurm_free_buf(ptr noundef nonnull %8) #6
+  br label %44
+
+37:                                               ; preds = %29
+  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @yaml_emitter_delete(ptr noundef nonnull %7) #6
+  %.not13 = icmp eq ptr %1, null
+  br i1 %.not13, label %42, label %38
+
+38:                                               ; preds = %37
+  %39 = getelementptr inbounds i8, ptr %8, i64 20
+  %40 = load i32, ptr %39, align 4
+  %41 = zext i32 %40 to i64
+  store i64 %41, ptr %1, align 8
+  br label %42
+
+42:                                               ; preds = %38, %37
+  %43 = call ptr @slurm_xfer_buf_data(ptr noundef %8) #6
+  store ptr %43, ptr %0, align 8
+  %.not14 = icmp eq ptr %43, null
+  %. = sext i1 %.not14 to i32
+  br label %44
+
+44:                                               ; preds = %42, %34, %36
+  %.0 = phi i32 [ 9202, %36 ], [ 9202, %34 ], [ %., %42 ]
+  ret i32 %.0
+}
+
+declare ptr @slurm_init_buf(i32 noundef) local_unnamed_addr #1
+
+declare i32 @slurm_error(ptr noundef, ...) local_unnamed_addr #1
+
+declare void @slurm_free_buf(ptr noundef) local_unnamed_addr #1
+
+declare void @yaml_emitter_delete(ptr noundef) local_unnamed_addr #1
+
+declare ptr @slurm_xfer_buf_data(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: nounwind uwtable
+define noundef i32 @serialize_p_string_to_data(ptr nocapture noundef writeonly %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca %struct.yaml_parser_s, align 8
+  %.not = icmp eq i64 %2, 0
+  br i1 %.not, label %23, label %6
+
+6:                                                ; preds = %3
+  %7 = getelementptr inbounds i8, ptr %1, i64 %2
+  %8 = load i8, ptr %7, align 1
+  %.not14 = icmp eq i8 %8, 0
+  br i1 %.not14, label %11, label %9
+
+9:                                                ; preds = %6
+  %10 = tail call i64 @strnlen(ptr noundef nonnull %1, i64 noundef %2) #7
+  %.not15 = icmp ult i64 %10, %2
+  br i1 %.not15, label %11, label %23
+
+11:                                               ; preds = %9, %6
+  %12 = tail call ptr @data_new() #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  store i32 0, ptr %4, align 4
+  %.not.i = icmp eq ptr %12, null
+  br i1 %.not.i, label %.thread20, label %13
+
+.thread20:                                        ; preds = %11
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  br label %23
+
+13:                                               ; preds = %11
+  %14 = call i32 @yaml_parser_initialize(ptr noundef nonnull %5) #6
+  %.not10.i = icmp eq i32 %14, 0
+  br i1 %.not10.i, label %18, label %_parse_yaml.exit
+
+_parse_yaml.exit:                                 ; preds = %13
+  %15 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #7
+  call void @yaml_parser_set_input_string(ptr noundef nonnull %5, ptr noundef nonnull %1, i64 noundef %15) #6
+  %16 = call fastcc i32 @_yaml_to_data(i32 noundef 0, ptr noundef nonnull %5, ptr noundef nonnull %12, ptr noundef nonnull %4), !range !7
+  %17 = load i32, ptr %4, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  %.not16 = icmp eq i32 %17, 0
+  br i1 %.not16, label %22, label %.thread
+
+18:                                               ; preds = %13
+  %19 = getelementptr inbounds i8, ptr %5, i64 8
+  %20 = load ptr, ptr %19, align 8
+  %21 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.6, i32 noundef 391, ptr noundef nonnull @__func__._parse_yaml, ptr noundef %20) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  br label %.thread
+
+.thread:                                          ; preds = %_parse_yaml.exit, %18
+  call void @data_free(ptr noundef nonnull %12) #6
+  br label %23
+
+22:                                               ; preds = %_parse_yaml.exit
+  call void @yaml_parser_delete(ptr noundef nonnull %5) #6
+  store ptr %12, ptr %0, align 8
+  br label %23
+
+23:                                               ; preds = %.thread20, %.thread, %3, %9, %22
+  %.0 = phi i32 [ 0, %22 ], [ 22, %9 ], [ 22, %3 ], [ 9202, %.thread ], [ 9202, %.thread20 ]
+  ret i32 %.0
+}
+
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
+declare i64 @strnlen(ptr nocapture noundef, i64 noundef) local_unnamed_addr #2
+
+declare ptr @data_new() local_unnamed_addr #1
+
+declare void @data_free(ptr noundef) local_unnamed_addr #1
+
+declare void @yaml_parser_delete(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+
+declare i32 @yaml_emitter_initialize(ptr noundef) local_unnamed_addr #1
+
+declare void @yaml_emitter_set_indent(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+declare void @yaml_emitter_set_width(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+declare void @yaml_emitter_set_break(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+declare void @yaml_emitter_set_output(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: nounwind uwtable
+define internal i32 @_yaml_write_handler(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 {
+  %4 = trunc i64 %2 to i32
+  %5 = add i32 %4, 1
+  %6 = tail call i32 @try_grow_buf_remaining(ptr noundef %0, i32 noundef %5) #6
+  %.not = icmp eq i32 %6, 0
+  br i1 %.not, label %7, label %19
+
+7:                                                ; preds = %3
+  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = load ptr, ptr %8, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 20
+  %11 = load i32, ptr %10, align 4
+  %12 = zext i32 %11 to i64
+  %13 = getelementptr inbounds i8, ptr %9, i64 %12
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %13, ptr align 1 %1, i64 %2, i1 false)
+  %14 = load i32, ptr %10, align 4
+  %15 = add i32 %14, %4
+  store i32 %15, ptr %10, align 4
+  %16 = load ptr, ptr %8, align 8
+  %17 = zext i32 %15 to i64
+  %18 = getelementptr inbounds i8, ptr %16, i64 %17
+  store i8 0, ptr %18, align 1
+  br label %19
+
+19:                                               ; preds = %3, %7
+  %.0 = phi i32 [ 1, %7 ], [ %6, %3 ]
+  ret i32 %.0
+}
+
+declare i32 @yaml_stream_start_event_initialize(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+declare i32 @yaml_emitter_emit(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare i32 @yaml_document_start_event_initialize(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: nounwind uwtable
+define internal fastcc i32 @_data_to_yaml(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+  %3 = alloca %struct.yaml_event_s, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %.not = icmp eq ptr %0, null
+  br i1 %.not, label %135, label %6
+
+6:                                                ; preds = %2
+  %7 = tail call i32 @data_get_type(ptr noundef nonnull %0) #6
+  switch i32 %7, label %135 [
+    i32 1, label %8
+    i32 7, label %20
+    i32 6, label %40
+    i32 4, label %60
+    i32 3, label %80
+    i32 2, label %106
+    i32 5, label %132
+  ]
+
+8:                                                ; preds = %6
+  %9 = call i32 @yaml_scalar_event_initialize(ptr noundef nonnull %3, ptr noundef null, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 4, i32 noundef 0, i32 noundef 0, i32 noundef 0) #6
+  %.not57 = icmp eq i32 %9, 0
+  br i1 %.not57, label %10, label %14
+
+10:                                               ; preds = %8
+  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = load ptr, ptr %11, align 8
+  %13 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 491, ptr noundef nonnull @__func__._data_to_yaml, ptr noundef %12) #6
+  br label %135
+
+14:                                               ; preds = %8
+  %15 = call i32 @yaml_emitter_emit(ptr noundef %1, ptr noundef nonnull %3) #6
+  %.not58 = icmp eq i32 %15, 0
+  br i1 %.not58, label %16, label %135
+
+16:                                               ; preds = %14
+  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %18 = load ptr, ptr %17, align 8
+  %19 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 494, ptr noundef nonnull @__func__._data_to_yaml, ptr noundef %18) #6
+  br label %135
+
+20:                                               ; preds = %6
+  %21 = tail call zeroext i1 @data_get_bool(ptr noundef nonnull %0) #6
+  br i1 %21, label %22, label %28
+
+22:                                               ; preds = %20
+  %23 = call i32 @yaml_scalar_event_initialize(ptr noundef nonnull %3, ptr noundef null, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i32 noundef 4, i32 noundef 0, i32 noundef 0, i32 noundef 0) #6
+  %.not55 = icmp eq i32 %23, 0
+  br i1 %.not55, label %24, label %34
+
+24:                                               ; preds = %22
+  %25 = getelementptr inbounds i8, ptr %1, i64 8
+  %26 = load ptr, ptr %25, align 8
+  %27 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 503, ptr noundef nonnull @__func__._data_to_yaml, ptr noundef %26) #6
+  br label %135
+
+28:                                               ; preds = %20
+  %29 = call i32 @yaml_scalar_event_initialize(ptr noundef nonnull %3, ptr noundef null, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.11, i32 noundef 5, i32 noundef 0, i32 noundef 0, i32 noundef 0) #6
+  %.not54 = icmp eq i32 %29, 0
+  br i1 %.not54, label %30, label %34
+
+30:                                               ; preds = %28
+  %31 = getelementptr inbounds i8, ptr %1, i64 8
+  %32 = load ptr, ptr %31, align 8
+  %33 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 510, ptr noundef nonnull @__func__._data_to_yaml, ptr noundef %32) #6
+  br label %135
+
+34:                                               ; preds = %28, %22
+  %35 = call i32 @yaml_emitter_emit(ptr noundef %1, ptr noundef nonnull %3) #6
+  %.not56 = icmp eq i32 %35, 0
+  br i1 %.not56, label %36, label %135
+
+36:                                               ; preds = %34
+  %37 = getelementptr inbounds i8, ptr %1, i64 8
+  %38 = load ptr, ptr %37, align 8
+  %39 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 514, ptr noundef nonnull @__func__._data_to_yaml, ptr noundef %38) #6
+  br label %135
+
+40:                                               ; preds = %6
+  %41 = tail call double @data_get_float(ptr noundef nonnull %0) #6
+  %42 = tail call ptr (ptr, ...) @slurm_xstrdup_printf(ptr noundef nonnull @.str.12, double noundef %41) #6
+  store ptr %42, ptr %4, align 8
+  %43 = icmp eq ptr %42, null
+  br i1 %43, label %44, label %46
+
+44:                                               ; preds = %40
+  %45 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.13, ptr noundef nonnull @__func__._data_to_yaml) #6
+  br label %135
+
+46:                                               ; preds = %40
+  %47 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %42) #7
+  %48 = trunc i64 %47 to i32
+  %49 = call i32 @yaml_scalar_event_initialize(ptr noundef nonnull %3, ptr noundef null, ptr noundef nonnull @.str.14, ptr noundef nonnull %42, i32 noundef %48, i32 noundef 0, i32 noundef 0, i32 noundef 0) #6
+  %.not52 = icmp eq i32 %49, 0
+  call void @slurm_xfree(ptr noundef nonnull %4) #6
+  br i1 %.not52, label %50, label %54
+
+50:                                               ; preds = %46
+  %51 = getelementptr inbounds i8, ptr %1, i64 8
+  %52 = load ptr, ptr %51, align 8
+  %53 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 531, ptr noundef nonnull @__func__._data_to_yaml, ptr noundef %52) #6
+  br label %135
+
+54:                                               ; preds = %46
+  %55 = call i32 @yaml_emitter_emit(ptr noundef %1, ptr noundef nonnull %3) #6
+  %.not53 = icmp eq i32 %55, 0
+  br i1 %.not53, label %56, label %135
+
+56:                                               ; preds = %54
+  %57 = getelementptr inbounds i8, ptr %1, i64 8
+  %58 = load ptr, ptr %57, align 8
+  %59 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 537, ptr noundef nonnull @__func__._data_to_yaml, ptr noundef %58) #6
+  br label %135
+
+60:                                               ; preds = %6
+  %61 = tail call i64 @data_get_int(ptr noundef nonnull %0) #6
+  %62 = tail call ptr (ptr, ...) @slurm_xstrdup_printf(ptr noundef nonnull @.str.15, i64 noundef %61) #6
+  store ptr %62, ptr %5, align 8
+  %63 = icmp eq ptr %62, null
+  br i1 %63, label %64, label %66
+
+64:                                               ; preds = %60
+  %65 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.16, ptr noundef nonnull @__func__._data_to_yaml) #6
+  br label %135
+
+66:                                               ; preds = %60
+  %67 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %62) #7
+  %68 = trunc i64 %67 to i32
+  %69 = call i32 @yaml_scalar_event_initialize(ptr noundef nonnull %3, ptr noundef null, ptr noundef nonnull @.str.17, ptr noundef nonnull %62, i32 noundef %68, i32 noundef 0, i32 noundef 0, i32 noundef 0) #6
+  %.not50 = icmp eq i32 %69, 0
+  call void @slurm_xfree(ptr noundef nonnull %5) #6
+  br i1 %.not50, label %70, label %74
+
+70:                                               ; preds = %66
+  %71 = getelementptr inbounds i8, ptr %1, i64 8
+  %72 = load ptr, ptr %71, align 8
+  %73 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 555, ptr noundef nonnull @__func__._data_to_yaml, ptr noundef %72) #6
+  br label %135
+
+74:                                               ; preds = %66
+  %75 = call i32 @yaml_emitter_emit(ptr noundef %1, ptr noundef nonnull %3) #6
+  %.not51 = icmp eq i32 %75, 0
+  br i1 %.not51, label %76, label %135
+
+76:                                               ; preds = %74
+  %77 = getelementptr inbounds i8, ptr %1, i64 8
+  %78 = load ptr, ptr %77, align 8
+  %79 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 561, ptr noundef nonnull @__func__._data_to_yaml, ptr noundef %78) #6
+  br label %135
+
+80:                                               ; preds = %6
+  %81 = call i32 @yaml_mapping_start_event_initialize(ptr noundef nonnull %3, ptr noundef null, ptr noundef nonnull @.str.18, i32 noundef 0, i32 noundef 0) #6
+  %.not45 = icmp eq i32 %81, 0
+  br i1 %.not45, label %82, label %86
+
+82:                                               ; preds = %80
+  %83 = getelementptr inbounds i8, ptr %1, i64 8
+  %84 = load ptr, ptr %83, align 8
+  %85 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 572, ptr noundef nonnull @__func__._data_to_yaml, ptr noundef %84) #6
+  br label %135
+
+86:                                               ; preds = %80
+  %87 = call i32 @yaml_emitter_emit(ptr noundef %1, ptr noundef nonnull %3) #6
+  %.not46 = icmp eq i32 %87, 0
+  br i1 %.not46, label %88, label %92
+
+88:                                               ; preds = %86
+  %89 = getelementptr inbounds i8, ptr %1, i64 8
+  %90 = load ptr, ptr %89, align 8
+  %91 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 575, ptr noundef nonnull @__func__._data_to_yaml, ptr noundef %90) #6
+  br label %135
+
+92:                                               ; preds = %86
+  %93 = call i32 @data_dict_for_each_const(ptr noundef nonnull %0, ptr noundef nonnull @_convert_dict_yaml, ptr noundef %1) #6
+  %94 = call i32 @yaml_mapping_end_event_initialize(ptr noundef nonnull %3) #6
+  %.not47 = icmp eq i32 %94, 0
+  br i1 %.not47, label %95, label %99
+
+95:                                               ; preds = %92
+  %96 = getelementptr inbounds i8, ptr %1, i64 8
+  %97 = load ptr, ptr %96, align 8
+  %98 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 582, ptr noundef nonnull @__func__._data_to_yaml, ptr noundef %97) #6
+  br label %135
+
+99:                                               ; preds = %92
+  %100 = call i32 @yaml_emitter_emit(ptr noundef %1, ptr noundef nonnull %3) #6
+  %.not48 = icmp eq i32 %100, 0
+  br i1 %.not48, label %101, label %105
+
+101:                                              ; preds = %99
+  %102 = getelementptr inbounds i8, ptr %1, i64 8
+  %103 = load ptr, ptr %102, align 8
+  %104 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 585, ptr noundef nonnull @__func__._data_to_yaml, ptr noundef %103) #6
+  br label %135
+
+105:                                              ; preds = %99
+  %.lobit49 = ashr i32 %93, 31
+  br label %135
+
+106:                                              ; preds = %6
+  %107 = call i32 @yaml_sequence_start_event_initialize(ptr noundef nonnull %3, ptr noundef null, ptr noundef nonnull @.str.19, i32 noundef 0, i32 noundef 0) #6
+  %.not41 = icmp eq i32 %107, 0
+  br i1 %.not41, label %108, label %112
+
+108:                                              ; preds = %106
+  %109 = getelementptr inbounds i8, ptr %1, i64 8
+  %110 = load ptr, ptr %109, align 8
+  %111 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 596, ptr noundef nonnull @__func__._data_to_yaml, ptr noundef %110) #6
+  br label %135
+
+112:                                              ; preds = %106
+  %113 = call i32 @yaml_emitter_emit(ptr noundef %1, ptr noundef nonnull %3) #6
+  %.not42 = icmp eq i32 %113, 0
+  br i1 %.not42, label %114, label %118
+
+114:                                              ; preds = %112
+  %115 = getelementptr inbounds i8, ptr %1, i64 8
+  %116 = load ptr, ptr %115, align 8
+  %117 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 599, ptr noundef nonnull @__func__._data_to_yaml, ptr noundef %116) #6
+  br label %135
+
+118:                                              ; preds = %112
+  %119 = call i32 @data_list_for_each_const(ptr noundef nonnull %0, ptr noundef nonnull @_convert_list_yaml, ptr noundef %1) #6
+  %120 = call i32 @yaml_sequence_end_event_initialize(ptr noundef nonnull %3) #6
+  %.not43 = icmp eq i32 %120, 0
+  br i1 %.not43, label %121, label %125
+
+121:                                              ; preds = %118
+  %122 = getelementptr inbounds i8, ptr %1, i64 8
+  %123 = load ptr, ptr %122, align 8
+  %124 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 606, ptr noundef nonnull @__func__._data_to_yaml, ptr noundef %123) #6
+  br label %135
+
+125:                                              ; preds = %118
+  %126 = call i32 @yaml_emitter_emit(ptr noundef %1, ptr noundef nonnull %3) #6
+  %.not44 = icmp eq i32 %126, 0
+  br i1 %.not44, label %127, label %131
+
+127:                                              ; preds = %125
+  %128 = getelementptr inbounds i8, ptr %1, i64 8
+  %129 = load ptr, ptr %128, align 8
+  %130 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 609, ptr noundef nonnull @__func__._data_to_yaml, ptr noundef %129) #6
+  br label %135
+
+131:                                              ; preds = %125
+  %.lobit = ashr i32 %119, 31
+  br label %135
+
+132:                                              ; preds = %6
+  %133 = tail call ptr @data_get_string_const(ptr noundef nonnull %0) #6
+  %134 = tail call fastcc i32 @_emit_string(ptr noundef %133, ptr noundef %1), !range !6
+  br label %135
+
+135:                                              ; preds = %10, %16, %24, %30, %36, %50, %56, %70, %76, %82, %88, %95, %101, %108, %114, %121, %127, %6, %74, %54, %34, %14, %2, %132, %131, %105, %64, %44
+  %.0 = phi i32 [ %134, %132 ], [ %.lobit, %131 ], [ %.lobit49, %105 ], [ -1, %64 ], [ -1, %44 ], [ -1, %2 ], [ 0, %14 ], [ 0, %34 ], [ 0, %54 ], [ 0, %74 ], [ -1, %6 ], [ -1, %127 ], [ -1, %121 ], [ -1, %114 ], [ -1, %108 ], [ -1, %101 ], [ -1, %95 ], [ -1, %88 ], [ -1, %82 ], [ -1, %76 ], [ -1, %70 ], [ -1, %56 ], [ -1, %50 ], [ -1, %36 ], [ -1, %30 ], [ -1, %24 ], [ -1, %16 ], [ -1, %10 ]
+  ret i32 %.0
+}
+
+declare i32 @yaml_document_end_event_initialize(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+declare i32 @yaml_stream_end_event_initialize(ptr noundef) local_unnamed_addr #1
+
+declare i32 @try_grow_buf_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+declare i32 @data_get_type(ptr noundef) local_unnamed_addr #1
+
+declare i32 @yaml_scalar_event_initialize(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+
+declare zeroext i1 @data_get_bool(ptr noundef) local_unnamed_addr #1
+
+declare ptr @slurm_xstrdup_printf(ptr noundef, ...) local_unnamed_addr #1
+
+declare double @data_get_float(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+
+declare void @slurm_xfree(ptr noundef) local_unnamed_addr #1
+
+declare i64 @data_get_int(ptr noundef) local_unnamed_addr #1
+
+declare i32 @yaml_mapping_start_event_initialize(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+
+declare i32 @data_dict_for_each_const(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: nounwind uwtable
+define internal i32 @_convert_dict_yaml(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = tail call fastcc i32 @_emit_string(ptr noundef %0, ptr noundef %2), !range !6
+  %.not = icmp eq i32 %4, 0
+  br i1 %.not, label %5, label %7
+
+5:                                                ; preds = %3
+  %6 = tail call fastcc i32 @_data_to_yaml(ptr noundef %1, ptr noundef %2), !range !6
+  %.not5 = icmp eq i32 %6, 0
+  %. = select i1 %.not5, i32 1, i32 4
+  br label %7
+
+7:                                                ; preds = %5, %3
+  %.0 = phi i32 [ 4, %3 ], [ %., %5 ]
+  ret i32 %.0
+}
+
+declare i32 @yaml_mapping_end_event_initialize(ptr noundef) local_unnamed_addr #1
+
+declare i32 @yaml_sequence_start_event_initialize(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+
+declare i32 @data_list_for_each_const(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: nounwind uwtable
+define internal i32 @_convert_list_yaml(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = tail call fastcc i32 @_data_to_yaml(ptr noundef %0, ptr noundef %1), !range !6
+  %.not = icmp eq i32 %3, 0
+  %. = select i1 %.not, i32 1, i32 4
+  ret i32 %.
+}
+
+declare i32 @yaml_sequence_end_event_initialize(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: nounwind uwtable
+define internal fastcc noundef i32 @_emit_string(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+  %3 = alloca %struct.yaml_event_s, align 8
+  %.not = icmp eq ptr %0, null
+  br i1 %.not, label %4, label %8
+
+4:                                                ; preds = %2
+  %5 = call i32 @yaml_scalar_event_initialize(ptr noundef nonnull %3, ptr noundef null, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 4, i32 noundef 0, i32 noundef 0, i32 noundef 0) #6
+  %.not10 = icmp eq i32 %5, 0
+  br i1 %.not10, label %.sink.split, label %6
+
+6:                                                ; preds = %4
+  %7 = call i32 @yaml_emitter_emit(ptr noundef %1, ptr noundef nonnull %3) #6
+  %.not11 = icmp eq i32 %7, 0
+  br i1 %.not11, label %.sink.split, label %17
+
+8:                                                ; preds = %2
+  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #7
+  %10 = trunc i64 %9 to i32
+  %11 = call i32 @yaml_scalar_event_initialize(ptr noundef nonnull %3, ptr noundef null, ptr noundef nonnull @.str.20, ptr noundef nonnull %0, i32 noundef %10, i32 noundef 0, i32 noundef 0, i32 noundef 0) #6
+  %.not12 = icmp eq i32 %11, 0
+  br i1 %.not12, label %.sink.split, label %12
+
+12:                                               ; preds = %8
+  %13 = call i32 @yaml_emitter_emit(ptr noundef %1, ptr noundef nonnull %3) #6
+  %.not13 = icmp eq i32 %13, 0
+  br i1 %.not13, label %.sink.split, label %17
+
+.sink.split:                                      ; preds = %12, %8, %6, %4
+  %.sink = phi i32 [ 425, %4 ], [ 428, %6 ], [ 437, %8 ], [ 440, %12 ]
+  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = load ptr, ptr %14, align 8
+  %16 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef %.sink, ptr noundef nonnull @__func__._emit_string, ptr noundef %15) #6
+  br label %17
+
+17:                                               ; preds = %.sink.split, %12, %6
+  %.0 = phi i32 [ 0, %6 ], [ 0, %12 ], [ -1, %.sink.split ]
+  ret i32 %.0
+}
+
+declare ptr @data_get_string_const(ptr noundef) local_unnamed_addr #1
+
+declare i32 @yaml_parser_initialize(ptr noundef) local_unnamed_addr #1
+
+declare void @yaml_parser_set_input_string(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+
+; Function Attrs: nounwind uwtable
+define internal fastcc noundef i32 @_yaml_to_data(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
+  %5 = alloca %struct.yaml_event_s, align 8
+  %6 = icmp sgt i32 %0, 64
+  br i1 %6, label %10, label %.preheader
+
+.preheader:                                       ; preds = %4
+  %7 = getelementptr inbounds i8, ptr %1, i64 136
+  %8 = getelementptr inbounds i8, ptr %1, i64 160
+  %9 = getelementptr inbounds i8, ptr %5, i64 56
+  br label %12
+
+10:                                               ; preds = %4
+  %11 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.22, ptr noundef nonnull @__func__._yaml_to_data, i32 noundef %0, ptr noundef %2) #6
+  store i32 9214, ptr %3, align 4
+  br label %.loopexit
+
+12:                                               ; preds = %.preheader, %40
+  %.0 = phi i32 [ %41, %40 ], [ 1, %.preheader ]
+  %13 = icmp ult i32 %.0, 4
+  br i1 %13, label %14, label %.loopexit
+
+14:                                               ; preds = %12
+  %15 = call i32 @yaml_parser_parse(ptr noundef %1, ptr noundef nonnull %5) #6
+  %.not = icmp eq i32 %15, 0
+  br i1 %.not, label %16, label %20
+
+16:                                               ; preds = %14
+  call void @yaml_event_delete(ptr noundef nonnull %5) #6
+  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %18 = load ptr, ptr %17, align 8
+  %19 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.23, ptr noundef nonnull @__func__._yaml_to_data, ptr noundef %18) #6
+  store i32 9215, ptr %3, align 4
+  br label %.loopexit
+
+20:                                               ; preds = %14
+  %21 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %22 = and i64 %21, 256
+  %.not24 = icmp eq i64 %22, 0
+  br i1 %.not24, label %40, label %23
+
+23:                                               ; preds = %20
+  %24 = load ptr, ptr %7, align 8
+  %25 = load ptr, ptr %8, align 8
+  %26 = ptrtoint ptr %25 to i64
+  %27 = ptrtoint ptr %24 to i64
+  %28 = sub i64 %26, %27
+  %29 = load i64, ptr %9, align 8
+  %30 = add i64 %29, 16
+  %31 = load i32, ptr %5, align 8
+  br label %33
+
+32:                                               ; preds = %33
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 11
+  br i1 %exitcond.not.i, label %37, label %33, !llvm.loop !8
+
+33:                                               ; preds = %32, %23
+  %indvars.iv.i = phi i64 [ 0, %23 ], [ %indvars.iv.next.i, %32 ]
+  %34 = getelementptr inbounds [11 x %struct.anon.29], ptr @event_types, i64 0, i64 %indvars.iv.i
+  %35 = load i32, ptr %34, align 16
+  %36 = icmp eq i32 %35, %31
+  br i1 %36, label %_yaml_event_type_string.exit, label %32
+
+37:                                               ; preds = %32
+  call void (ptr, ...) @slurm_fatal_abort(ptr noundef nonnull @.str.26) #8
+  unreachable
+
+_yaml_event_type_string.exit:                     ; preds = %33
+  %38 = getelementptr inbounds i8, ptr %34, i64 8
+  %39 = load ptr, ptr %38, align 8
+  call void (ptr, i64, i64, i64, ptr, ...) @_log_flag_hex(ptr noundef %24, i64 noundef %28, i64 noundef %29, i64 noundef %30, ptr noundef nonnull @.str.24, ptr noundef nonnull @__func__._yaml_to_data, ptr noundef %2, i32 noundef %0, ptr noundef %39) #6
+  br label %40
+
+40:                                               ; preds = %20, %_yaml_event_type_string.exit
+  %41 = call fastcc i32 @_on_parse_event(i32 noundef %0, ptr noundef %1, ptr noundef nonnull %5, ptr noundef %2, ptr noundef %3)
+  %42 = icmp eq i32 %41, 3
+  br i1 %42, label %43, label %12, !llvm.loop !10
+
+43:                                               ; preds = %40
+  %44 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %45 = and i64 %44, 256
+  %.not25 = icmp eq i64 %45, 0
+  br i1 %.not25, label %.loopexit, label %46
+
+46:                                               ; preds = %43
+  %47 = call i32 @slurm_get_log_level() #6
+  %48 = icmp sgt i32 %47, 3
+  br i1 %48, label %49, label %.loopexit
+
+49:                                               ; preds = %46
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef nonnull @.str.25, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._yaml_to_data, ptr noundef %2, i32 noundef %0) #6
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %12, %43, %46, %49, %16, %10
+  %.021 = phi i32 [ 5, %10 ], [ 5, %16 ], [ 2, %49 ], [ 2, %46 ], [ 2, %43 ], [ 2, %12 ]
+  ret i32 %.021
+}
+
+declare i32 @yaml_parser_parse(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare void @yaml_event_delete(ptr noundef) local_unnamed_addr #1
+
+declare void @_log_flag_hex(ptr noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
+
+; Function Attrs: nounwind uwtable
+define internal fastcc i32 @_on_parse_event(i32 noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 {
+  %6 = tail call i32 @data_get_type(ptr noundef %3) #6
+  %7 = icmp eq i32 %6, 2
+  %8 = load i32, ptr %2, align 8
+  br i1 %7, label %9, label %thread-pre-split
+
+9:                                                ; preds = %5
+  switch i32 %8, label %79 [
+    i32 6, label %10
+    i32 7, label %10
+    i32 9, label %10
+    i32 0, label %common.ret4
+    i32 3, label %23
+    i32 1, label %24
+    i32 4, label %25
+    i32 2, label %common.ret4
+    i32 5, label %26
+    i32 8, label %71
+    i32 10, label %78
+  ]
+
+10:                                               ; preds = %9, %9, %9
+  %11 = tail call ptr @data_list_append(ptr noundef %3) #6
+  %12 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %13 = and i64 %12, 256
+  %.not = icmp eq i64 %13, 0
+  br i1 %.not, label %18, label %14
+
+14:                                               ; preds = %10
+  %15 = tail call i32 @slurm_get_log_level() #6
+  %16 = icmp sgt i32 %15, 3
+  br i1 %16, label %17, label %18
+
+17:                                               ; preds = %14
+  tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef nonnull @.str.38, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._on_parse_event, ptr noundef %3, ptr noundef %11) #6
+  br label %18
+
+common.ret4:                                      ; preds = %64, %62, %_yaml_tag_to_type.exit, %41, %_yaml_tag_to_type.exit.thread, %thread-pre-split, %thread-pre-split, %78, %72, %71, %65, %26, %25, %24, %23, %9, %9, %18
+  %common.ret4.op = phi i32 [ %22, %18 ], [ 3, %78 ], [ %77, %72 ], [ 3, %71 ], [ %70, %65 ], [ 5, %26 ], [ 2, %25 ], [ 2, %24 ], [ 2, %23 ], [ 4, %thread-pre-split ], [ 4, %thread-pre-split ], [ %43, %41 ], [ 5, %64 ], [ 3, %62 ], [ 3, %_yaml_tag_to_type.exit ], [ 3, %_yaml_tag_to_type.exit.thread ], [ 4, %9 ], [ 4, %9 ]
+  ret i32 %common.ret4.op
+
+18:                                               ; preds = %10, %14, %17
+  %19 = add nsw i32 %0, 1
+  %20 = tail call fastcc i32 @_on_parse_event(i32 noundef %19, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %11, ptr noundef %4)
+  %21 = icmp eq i32 %20, 3
+  %22 = select i1 %21, i32 2, i32 %20
+  br label %common.ret4
+
+thread-pre-split:                                 ; preds = %5
+  switch i32 %8, label %79 [
+    i32 0, label %common.ret4
+    i32 3, label %23
+    i32 1, label %24
+    i32 4, label %25
+    i32 2, label %common.ret4
+    i32 5, label %26
+    i32 6, label %28
+    i32 7, label %65
+    i32 8, label %71
+    i32 9, label %72
+    i32 10, label %78
+  ]
+
+23:                                               ; preds = %9, %thread-pre-split
+  br label %common.ret4
+
+24:                                               ; preds = %9, %thread-pre-split
+  br label %common.ret4
+
+25:                                               ; preds = %9, %thread-pre-split
+  br label %common.ret4
+
+26:                                               ; preds = %9, %thread-pre-split
+  %27 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.39, ptr noundef nonnull @__func__._on_parse_event) #6
+  store i32 2036, ptr %4, align 4
+  br label %common.ret4
+
+28:                                               ; preds = %thread-pre-split
+  %29 = getelementptr inbounds i8, ptr %2, i64 24
+  %30 = load ptr, ptr %29, align 8
+  %31 = tail call i32 @data_get_type(ptr noundef %3) #6
+  %32 = icmp eq i32 %31, 3
+  br i1 %32, label %33, label %44
+
+33:                                               ; preds = %28
+  %34 = tail call ptr @data_key_set(ptr noundef %3, ptr noundef %30) #6
+  %35 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %36 = and i64 %35, 256
+  %.not21.i = icmp eq i64 %36, 0
+  br i1 %.not21.i, label %41, label %37
+
+37:                                               ; preds = %33
+  %38 = tail call i32 @slurm_get_log_level() #6
+  %39 = icmp sgt i32 %38, 3
+  br i1 %39, label %40, label %41
+
+40:                                               ; preds = %37
+  tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef nonnull @.str.41, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._on_parse_scalar, ptr noundef %3, ptr noundef %30, ptr noundef %34) #6
+  br label %41
+
+41:                                               ; preds = %40, %37, %33
+  %42 = add nsw i32 %0, 1
+  %43 = tail call fastcc i32 @_yaml_to_data(i32 noundef %42, ptr noundef %1, ptr noundef %34, ptr noundef %4), !range !7
+  br label %common.ret4
+
+44:                                               ; preds = %28
+  %45 = getelementptr i8, ptr %2, i64 16
+  %.val.i = load ptr, ptr %45, align 8
+  %.not.i38 = icmp eq ptr %.val.i, null
+  br i1 %.not.i38, label %_yaml_tag_to_type.exit.thread, label %46
+
+46:                                               ; preds = %44
+  %47 = load i8, ptr %.val.i, align 1
+  %.not14.i = icmp eq i8 %47, 0
+  br i1 %.not14.i, label %_yaml_tag_to_type.exit.thread, label %48
+
+48:                                               ; preds = %46
+  %49 = load i64, ptr getelementptr inbounds (%struct.slurm_conf_t, ptr @slurm_conf, i64 0, i32 38), align 8
+  %50 = and i64 %49, 256
+  %.not15.i = icmp eq i64 %50, 0
+  br i1 %.not15.i, label %.preheader, label %51
+
+51:                                               ; preds = %48
+  %52 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val.i) #7
+  tail call void (ptr, i64, i64, i64, ptr, ...) @_log_flag_hex(ptr noundef nonnull %.val.i, i64 noundef %52, i64 noundef -1, i64 noundef -1, ptr noundef nonnull @.str.42, ptr noundef nonnull @__func__._on_parse_scalar) #6
+  br label %.preheader
+
+.preheader:                                       ; preds = %51, %48
+  br label %54
+
+53:                                               ; preds = %54
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 7
+  br i1 %exitcond.not.i, label %_yaml_tag_to_type.exit.thread, label %54, !llvm.loop !11
+
+54:                                               ; preds = %.preheader, %53
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %53 ], [ 0, %.preheader ]
+  %55 = getelementptr inbounds [7 x %struct.anon.30], ptr @tags, i64 0, i64 %indvars.iv.i
+  %56 = getelementptr inbounds i8, ptr %55, i64 16
+  %57 = load ptr, ptr %56, align 8
+  %58 = tail call i32 @slurm_xstrcmp(ptr noundef %57, ptr noundef nonnull %.val.i) #6
+  %.not16.i = icmp eq i32 %58, 0
+  br i1 %.not16.i, label %_yaml_tag_to_type.exit, label %53
+
+_yaml_tag_to_type.exit.thread:                    ; preds = %53, %46, %44
+  %59 = tail call ptr @data_set_string(ptr noundef %3, ptr noundef %30) #6
+  br label %common.ret4
+
+_yaml_tag_to_type.exit:                           ; preds = %54
+  %60 = load i32, ptr %55, align 8
+  %61 = tail call ptr @data_set_string(ptr noundef %3, ptr noundef %30) #6
+  %.not.i = icmp eq i32 %60, 0
+  br i1 %.not.i, label %common.ret4, label %62
+
+62:                                               ; preds = %_yaml_tag_to_type.exit
+  %63 = tail call i32 @data_convert_type(ptr noundef %3, i32 noundef %60) #6
+  %.not20.i = icmp eq i32 %63, %60
+  br i1 %.not20.i, label %common.ret4, label %64
+
+64:                                               ; preds = %62
+  store i32 9202, ptr %4, align 4
+  br label %common.ret4
+
+65:                                               ; preds = %thread-pre-split
+  %66 = tail call ptr @data_set_list(ptr noundef %3) #6
+  %67 = add nsw i32 %0, 1
+  %68 = tail call fastcc i32 @_yaml_to_data(i32 noundef %67, ptr noundef %1, ptr noundef %3, ptr noundef %4), !range !7
+  %69 = icmp eq i32 %68, 2
+  %70 = select i1 %69, i32 3, i32 %68
+  br label %common.ret4
+
+71:                                               ; preds = %9, %thread-pre-split
+  br label %common.ret4
+
+72:                                               ; preds = %thread-pre-split
+  %73 = tail call ptr @data_set_dict(ptr noundef %3) #6
+  %74 = add nsw i32 %0, 1
+  %75 = tail call fastcc i32 @_yaml_to_data(i32 noundef %74, ptr noundef %1, ptr noundef %3, ptr noundef %4), !range !7
+  %76 = icmp eq i32 %75, 2
+  %77 = select i1 %76, i32 3, i32 %75
+  br label %common.ret4
+
+78:                                               ; preds = %9, %thread-pre-split
+  br label %common.ret4
+
+79:                                               ; preds = %9, %thread-pre-split
+  tail call void (ptr, ...) @slurm_fatal_abort(ptr noundef nonnull @.str.40) #8
+  unreachable
+}
+
+; Function Attrs: noreturn
+declare void @slurm_fatal_abort(ptr noundef, ...) local_unnamed_addr #4
+
+declare ptr @data_list_append(ptr noundef) local_unnamed_addr #1
+
+declare ptr @data_set_list(ptr noundef) local_unnamed_addr #1
+
+declare ptr @data_set_dict(ptr noundef) local_unnamed_addr #1
+
+declare ptr @data_key_set(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare ptr @data_set_string(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare i32 @data_convert_type(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+declare i32 @slurm_xstrcmp(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+
+attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { nounwind }
+attributes #7 = { nounwind willreturn memory(read) }
+attributes #8 = { noreturn nounwind }
+
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
+
+!0 = !{i32 7, !"Dwarf Version", i32 5}
+!1 = !{i32 2, !"Debug Info Version", i32 3}
+!2 = !{i32 1, !"wchar_size", i32 4}
+!3 = !{i32 8, !"PIC Level", i32 2}
+!4 = !{i32 7, !"uwtable", i32 2}
+!5 = !{i32 7, !"frame-pointer", i32 2}
+!6 = !{i32 -1, i32 1}
+!7 = !{i32 2, i32 6}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
