@@ -439,3 +439,6 @@
 [submodule "bench/rustfmt-rs/rustfmt"]
 	path = bench/rustfmt-rs/rustfmt
 	url = git@github.com:rust-lang/rustfmt.git
+[submodule "bench/qoi/qoi"]
+	path = bench/qoi/qoi
+	url = git@github.com:phoboslab/qoi.git
