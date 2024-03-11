@@ -1651,7 +1651,6 @@ define hidden void @"_ZN3gif7encoder16Encoder$LT$W$GT$18write_frame_header17h686
   %24 = getelementptr inbounds i8, ptr %2, i64 61
   %25 = load i8, ptr %24, align 1, !range !453, !noundef !13
   %.not = icmp eq i8 %25, 0
-  %spec.select = select i1 %.not, i8 0, i8 64
   %26 = load i64, ptr %2, align 8, !range !133, !noundef !13
   %27 = icmp eq i64 %26, -9223372036854775808
   br i1 %27, label %29, label %32
@@ -1666,6 +1665,7 @@ define hidden void @"_ZN3gif7encoder16Encoder$LT$W$GT$18write_frame_header17h686
   br label %126
 
 29:                                               ; preds = %23
+  %spec.select = select i1 %.not, i8 0, i8 64
   %30 = getelementptr inbounds i8, ptr %1, i64 36
   %31 = load i8, ptr %30, align 4, !range !453, !noundef !13
   %.not123 = icmp eq i8 %31, 0
@@ -1703,8 +1703,8 @@ define hidden void @"_ZN3gif7encoder16Encoder$LT$W$GT$18write_frame_header17h686
   %47 = zext nneg i8 %46 to i64
   %48 = shl i64 2, %47
   %49 = sub i64 %48, %.zext.i
-  %50 = or i8 %spec.select, %40
-  %51 = or i8 %50, -128
+  %50 = select i1 %.not, i8 -128, i8 -64
+  %51 = or i8 %50, %40
   br label %53
 
 52:                                               ; preds = %32

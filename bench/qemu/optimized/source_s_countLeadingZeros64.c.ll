@@ -15,7 +15,7 @@ entry:
   %spec.select = select i1 %tobool.not, i8 32, i8 0
   %spec.select10 = select i1 %tobool.not, i32 %conv1, i32 %conv
   %cmp = icmp ult i32 %spec.select10, 65536
-  %0 = or disjoint i8 %spec.select, 16
+  %0 = select i1 %tobool.not, i8 48, i8 16
   %shl = shl nuw i32 %spec.select10, 16
   %count.1 = select i1 %cmp, i8 %0, i8 %spec.select
   %a32.1 = select i1 %cmp, i32 %shl, i32 %spec.select10

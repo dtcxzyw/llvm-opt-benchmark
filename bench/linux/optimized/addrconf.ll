@@ -323,7 +323,7 @@ define dso_local void @inet6_netconf_notify_devconf(ptr noundef %0, i32 noundef 
   ]
 
 10:                                               ; preds = %5, %5
-  %11 = add nuw nsw i32 %9, 8
+  %11 = select i1 %8, i32 28, i32 20
   br label %12
 
 12:                                               ; preds = %10, %5
@@ -1886,7 +1886,7 @@ define internal fastcc ptr @ipv6_add_addr(ptr noundef %0, ptr nocapture noundef 
   br i1 %65, label %.thread16, label %66
 
 66:                                               ; preds = %56, %55
-  %67 = or disjoint i32 %6, 4194560
+  %67 = phi i32 [ 4197824, %56 ], [ 4196640, %55 ]
   %68 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 9), align 8
   %69 = call noalias align 8 dereferenceable_or_null(296) ptr @kmalloc_trace(ptr noundef %68, i32 noundef %67, i64 noundef 296) #22
   %70 = icmp eq ptr %69, null

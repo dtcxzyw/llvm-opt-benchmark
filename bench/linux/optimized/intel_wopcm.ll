@@ -41,7 +41,7 @@ define dso_local void @intel_wopcm_init_early(ptr nocapture noundef %0) local_un
 
 19:                                               ; preds = %16, %10
   %20 = phi ptr [ %18, %16 ], [ null, %10 ]
-  %21 = lshr exact i32 %14, 10
+  %21 = select i1 %13, i32 2048, i32 1024
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %20, i32 noundef 1, ptr noundef nonnull @.str, i32 noundef %21) #4
   br label %22
 

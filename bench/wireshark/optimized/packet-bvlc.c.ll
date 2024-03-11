@@ -612,7 +612,7 @@ define internal i32 @dissect_bscvlc(ptr noundef %0, ptr noundef %1, ptr noundef 
   %spec.select = select i1 %.not, i32 4, i32 10
   %15 = and i32 %13, 4
   %.not358 = icmp eq i32 %15, 0
-  %16 = add nuw nsw i32 %spec.select, 6
+  %16 = select i1 %.not, i32 10, i32 16
   %.1336 = select i1 %.not358, i32 %spec.select, i32 %16
   %17 = and i32 %13, 2
   %.not359 = icmp eq i32 %17, 0

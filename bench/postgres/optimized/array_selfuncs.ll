@@ -257,7 +257,7 @@ define internal fastcc double @mcelem_array_contain_overlap_selec(ptr nocapture 
   %spec.select23.i = select i1 %20, i32 16, i32 0
   %22 = icmp ugt i32 %spec.select.i, 255
   %23 = lshr i32 %spec.select.i, 8
-  %24 = or disjoint i32 %spec.select23.i, 8
+  %24 = select i1 %20, i32 24, i32 8
   %.118.i = select i1 %22, i32 %23, i32 %spec.select.i
   %.1.i = select i1 %22, i32 %24, i32 %spec.select23.i
   %25 = icmp ugt i32 %.118.i, 15
@@ -272,7 +272,7 @@ define internal fastcc double @mcelem_array_contain_overlap_selec(ptr nocapture 
   %.3.i = select i1 %28, i32 %30, i32 %.2.i
   %31 = icmp ugt i32 %.320.i, 1
   %32 = zext i1 %31 to i32
-  %.4.i = add nuw nsw i32 %.3.i, %32
+  %.4.i = or disjoint i32 %.3.i, %32
   %33 = freeze i32 %.4.i
   br label %floor_log2.exit
 

@@ -938,7 +938,7 @@ define hidden noundef i32 @hwloc_internal_cpukinds_register(ptr nocapture nounde
   %19 = and i64 %spec.select.i, 65280
   %.not29.i = icmp eq i64 %19, 0
   %20 = lshr i64 %spec.select.i, 8
-  %21 = or disjoint i32 %spec.select33.i, 8
+  %21 = select i1 %.not28.i, i32 9, i32 25
   %.223.i = select i1 %.not29.i, i64 %spec.select.i, i64 %20
   %.2.i = select i1 %.not29.i, i32 %spec.select33.i, i32 %21
   %22 = and i64 %.223.i, 240

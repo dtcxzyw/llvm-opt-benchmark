@@ -3913,7 +3913,7 @@ define void @_ZN9MeshModel14updateDataMaskEv(ptr nocapture noundef nonnull align
   br i1 %.not1, label %11, label %9
 
 9:                                                ; preds = %1
-  %10 = or disjoint i32 %spec.store.select, 32
+  %10 = select i1 %.not, i32 28735, i32 28799
   store i32 %10, ptr %2, align 8
   br label %11
 
@@ -3926,7 +3926,7 @@ define void @_ZN9MeshModel14updateDataMaskEv(ptr nocapture noundef nonnull align
   br i1 %.not2, label %18, label %16
 
 16:                                               ; preds = %11
-  %17 = or i32 %12, 1024
+  %17 = or disjoint i32 %12, 1024
   store i32 %17, ptr %2, align 8
   br label %18
 

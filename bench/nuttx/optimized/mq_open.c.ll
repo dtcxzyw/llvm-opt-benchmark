@@ -466,8 +466,8 @@ define internal noundef i32 @nxmq_file_poll(ptr nocapture noundef readonly %0, p
   %26 = icmp slt i16 %23, %25
   %spec.select = select i1 %26, i32 4, i32 0
   %27 = icmp sgt i16 %23, 0
-  %28 = zext i1 %27 to i32
-  %.127 = or disjoint i32 %spec.select, %28
+  %28 = select i1 %26, i32 5, i32 1
+  %.127 = select i1 %27, i32 %28, i32 %spec.select
   call void @poll_notify(ptr noundef nonnull %5, i32 noundef 1, i32 noundef %.127) #8
   br label %.loopexit
 

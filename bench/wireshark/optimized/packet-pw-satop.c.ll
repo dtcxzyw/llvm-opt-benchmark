@@ -221,13 +221,13 @@ define internal fastcc void @dissect_pw_satop(ptr noundef %0, ptr noundef %1, pt
   br i1 %25, label %26, label %35
 
 26:                                               ; preds = %23
-  %27 = or disjoint i32 %.224, 1
+  %27 = select i1 %switch, i32 5, i32 1
   %28 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %27) #2
   %29 = icmp sgt i8 %28, -1
   br i1 %29, label %30, label %35
 
 30:                                               ; preds = %26
-  %31 = or disjoint i32 %.224, 2
+  %31 = select i1 %switch, i32 6, i32 2
   %32 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %31) #2
   %33 = icmp eq i16 %32, %19
   br i1 %33, label %34, label %35

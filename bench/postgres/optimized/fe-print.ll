@@ -1054,7 +1054,7 @@ define internal fastcc noundef ptr @do_header(ptr noundef %0, ptr nocapture noun
   br i1 %.not102126, label %._crit_edge131, label %.lr.ph130.preheader
 
 .lr.ph130.preheader:                              ; preds = %44
-  %50 = add nsw i32 %48, -1
+  %50 = select i1 %.not101, i32 -1, i32 1
   %51 = add i32 %50, %46
   %52 = zext i32 %51 to i64
   %53 = add nuw nsw i64 %52, 1

@@ -8035,7 +8035,7 @@ default.unreachable95:                            ; preds = %63
 
 39:                                               ; preds = %18, %27
   %.sroa.8.0.ph = phi i64 [ %28, %27 ], [ %21, %18 ]
-  %40 = shl nuw nsw i64 %., 8
+  %40 = select i1 %14, i64 768, i64 1024
   %41 = mul i64 %., %.sroa.8.0.ph
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
   %42 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h0685f8b8d660cb99E"(i64 noundef %40, i1 noundef zeroext false)
@@ -8348,7 +8348,7 @@ default.unreachable86:                            ; preds = %"_ZN82_$LT$std..io.
 
 40:                                               ; preds = %19, %28
   %.sroa.8.0.ph = phi i64 [ %29, %28 ], [ %22, %19 ]
-  %41 = shl nuw nsw i64 %., 8
+  %41 = select i1 %15, i64 768, i64 1024
   %42 = mul i64 %., %.sroa.8.0.ph
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11)
   %43 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h0685f8b8d660cb99E"(i64 noundef %41, i1 noundef zeroext false)

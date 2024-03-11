@@ -1472,9 +1472,9 @@ define internal void @uv__inotify_read(ptr nocapture noundef %0, ptr nocapture r
   %.not = icmp eq i32 %22, 0
   %spec.select = select i1 %.not, i32 0, i32 2
   %23 = and i32 %21, -7
-  %.not53 = icmp ne i32 %23, 0
-  %24 = zext i1 %.not53 to i32
-  %.1 = or disjoint i32 %spec.select, %24
+  %.not53 = icmp eq i32 %23, 0
+  %24 = select i1 %.not, i32 1, i32 3
+  %.1 = select i1 %.not53, i32 %spec.select, i32 %24
   %25 = load i32, ptr %.04861, align 4
   %.val = load ptr, ptr %7, align 8
   %.not3.i.i = icmp eq ptr %.val, null

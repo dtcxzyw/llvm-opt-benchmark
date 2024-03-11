@@ -8661,7 +8661,7 @@ define internal noundef i32 @fib_route_seq_show(ptr noundef %0, ptr noundef %1) 
   %65 = getelementptr inbounds i8, ptr %64, i64 24
   %66 = load i32, ptr %65, align 8
   %67 = icmp eq i32 %66, 0
-  %68 = or disjoint i32 %35, 2
+  %68 = select i1 %34, i32 514, i32 2
   %69 = select i1 %67, i32 %35, i32 %68
   br label %70
 

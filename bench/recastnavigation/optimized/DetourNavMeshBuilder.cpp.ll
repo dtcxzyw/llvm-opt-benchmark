@@ -1013,7 +1013,7 @@ _ZL20classifyOffMeshPointPKfS0_S0_.exit515:       ; preds = %_ZL20classifyOffMes
   %546 = icmp eq i32 %.0425622, 2
   %spec.select501 = select i1 %546, i8 5, i8 4
   %547 = icmp eq i32 %.0425622, %534
-  %548 = or disjoint i8 %spec.select501, 16
+  %548 = select i1 %546, i8 21, i8 20
   %spec.select527 = select i1 %547, i8 %548, i8 %spec.select501
   store i8 %spec.select527, ptr %545, align 1
   %indvars.iv.next707 = add i64 %indvars.iv706, 1

@@ -4193,7 +4193,7 @@ if.then24:                                        ; preds = %if.end17
   br i1 %tobool30.not, label %early_out, label %if.then31
 
 if.then31:                                        ; preds = %if.then24
-  %or32 = or disjoint i32 %spec.select116, 4
+  %or32 = select i1 %cmp25, i32 53, i32 21
   store i64 %offset, ptr %local_map, align 8
   store ptr %bs, ptr %local_file, align 8
   br label %early_out

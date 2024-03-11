@@ -422,7 +422,7 @@ define dso_local noundef i32 @nf_nat_icmp_reply_translation(ptr noundef %0, ptr 
   %41 = icmp eq i32 %3, 1
   %42 = or i1 %40, %41
   %43 = select i1 %42, i64 16, i64 32
-  %44 = xor i64 %43, 48
+  %44 = select i1 %42, i64 32, i64 16
   %45 = select i1 %6, i64 %43, i64 %44
   %46 = and i64 %37, %45
   %47 = icmp eq i64 %46, 0
@@ -563,7 +563,7 @@ define dso_local noundef i32 @nf_nat_icmpv6_reply_translation(ptr noundef %0, pt
   %36 = icmp eq i32 %3, 1
   %37 = or i1 %35, %36
   %38 = select i1 %37, i64 16, i64 32
-  %39 = xor i64 %38, 48
+  %39 = select i1 %37, i64 32, i64 16
   %40 = select i1 %11, i64 %38, i64 %39
   %41 = and i64 %32, %40
   %42 = icmp eq i64 %41, 0

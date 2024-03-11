@@ -157,7 +157,7 @@ if.end146:                                        ; preds = %if.end134, %if.end1
   %spec.select.i71 = select i1 %cmp.i70, i32 %shl.i, i32 %conv151
   %spec.select7.i = select i1 %cmp.i70, i8 16, i8 0
   %cmp1.i = icmp ult i32 %spec.select.i71, 16777216
-  %11 = or disjoint i8 %spec.select7.i, 8
+  %11 = select i1 %cmp.i70, i8 24, i8 8
   %shl4.i = shl nuw i32 %spec.select.i71, 8
   %a.addr.1.i = select i1 %cmp1.i, i32 %shl4.i, i32 %spec.select.i71
   %count.1.i = select i1 %cmp1.i, i8 %11, i8 %spec.select7.i
@@ -188,7 +188,7 @@ if.else168:                                       ; preds = %if.end146
   br i1 %or.cond, label %if.then174, label %if.end177
 
 if.then174:                                       ; preds = %if.else168
-  %shr175 = lshr i64 %shl158, 20
+  %shr175 = lshr exact i64 %shl158, 20
   br label %pack
 
 if.end177:                                        ; preds = %if.else168, %if.then166

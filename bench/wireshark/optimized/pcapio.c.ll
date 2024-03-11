@@ -1140,7 +1140,7 @@ define hidden noundef zeroext i1 @pcapng_write_interface_statistics_block(ptr no
   %.not = icmp eq i64 %6, -1
   %spec.select = select i1 %.not, i32 0, i32 12
   %.not67 = icmp eq i64 %7, -1
-  %26 = add nuw nsw i32 %spec.select, 12
+  %26 = select i1 %.not, i32 12, i32 24
   %.1 = select i1 %.not67, i32 %spec.select, i32 %26
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %pcapng_count_string_option.exit, label %27

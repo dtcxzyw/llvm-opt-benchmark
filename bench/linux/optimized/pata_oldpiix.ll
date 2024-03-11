@@ -248,7 +248,7 @@ define internal void @oldpiix_set_dmamode(ptr nocapture noundef %0, ptr noundef 
   %29 = load i8, ptr %28, align 16
   %30 = zext i8 %29 to i32
   %31 = icmp ugt i32 %21, %30
-  %32 = or disjoint i16 %27, 8
+  %32 = select i1 %26, i16 15, i16 11
   %33 = select i1 %31, i16 %32, i16 %27
   %34 = getelementptr inbounds i8, ptr %1, i64 8
   %35 = load i32, ptr %34, align 8

@@ -1199,7 +1199,7 @@ define internal i32 @usblp_poll(ptr noundef %0, ptr noundef %1) #2 align 16 {
   %32 = getelementptr inbounds i8, ptr %4, i64 324
   %33 = load i32, ptr %32, align 4
   %34 = icmp eq i32 %33, 0
-  %35 = or disjoint i32 %25, 65
+  %35 = select i1 %24, i32 81, i32 65
   %36 = select i1 %34, i32 %25, i32 %35
   br label %37
 

@@ -340,7 +340,7 @@ define internal fastcc noundef i32 @ssl_parse_record_header(ptr noundef %0, ptr 
   %7 = load i8, ptr %6, align 1
   %8 = icmp eq i8 %7, 1
   %. = select i1 %8, i64 11, i64 3
-  %9 = add nuw nsw i64 %., 2
+  %9 = select i1 %8, i64 13, i64 5
   %10 = icmp ugt i64 %9, %2
   br i1 %10, label %11, label %13
 

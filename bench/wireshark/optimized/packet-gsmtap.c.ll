@@ -1512,8 +1512,8 @@ define internal fastcc void @handle_rlcmac(i32 noundef %0, ptr noundef %1, ptr n
 34:                                               ; preds = %27
   %35 = select i1 %9, i32 46, i32 40
   %36 = shl i32 %33, 3
-  %37 = add nuw nsw i32 %35, 2
-  %38 = add i32 %37, %36
+  %37 = select i1 %9, i32 48, i32 42
+  %38 = add i32 %36, %37
   br label %41
 
 39:                                               ; preds = %27

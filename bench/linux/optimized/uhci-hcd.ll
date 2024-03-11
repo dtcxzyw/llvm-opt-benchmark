@@ -6011,7 +6011,7 @@ define internal fastcc noundef i32 @uhci_submit_common(ptr nocapture noundef rea
   %39 = load i32, ptr %38, align 4
   %40 = icmp eq i32 %39, 1
   %41 = select i1 %40, i64 469762048, i64 402653184
-  %42 = or disjoint i64 %41, 536870912
+  %42 = select i1 %40, i64 1006632960, i64 939524096
   %43 = select i1 %23, i64 %41, i64 %42
   %44 = getelementptr inbounds i8, ptr %1, i64 120
   %45 = load i32, ptr %44, align 8

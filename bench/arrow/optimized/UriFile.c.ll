@@ -461,8 +461,8 @@ if.then15.i:                                      ; preds = %land.lhs.true.i
   %cond.fr.i = freeze i1 %.mux.i
   %spec.select.i = select i1 %cond.fr.i, ptr @.str.5, ptr @.str.6
   %call.i = select i1 %cond.fr.i, i64 5, i64 8
-  %mul.i = shl nuw nsw i64 %call.i, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %uriString, ptr noundef nonnull align 4 dereferenceable(1) %spec.select.i, i64 %mul.i, i1 false)
+  %mul.i = select i1 %cond.fr.i, i64 20, i64 32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %uriString, ptr noundef nonnull align 4 dereferenceable(20) %spec.select.i, i64 %mul.i, i1 false)
   %add.ptr23.i = getelementptr inbounds i32, ptr %uriString, i64 %call.i
   br label %for.cond.us72.i
 

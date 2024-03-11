@@ -792,7 +792,7 @@ define internal fastcc void @__fput(ptr noundef %0) unnamed_addr #3 align 16 {
   br i1 %32, label %33, label %38
 
 33:                                               ; preds = %29
-  %34 = or disjoint i32 %17, 1073741824
+  %34 = select i1 %16, i32 1073741840, i32 1073741832
   %35 = load i32, ptr %21, align 8
   %36 = and i32 %35, 16384
   %37 = icmp eq i32 %36, 0

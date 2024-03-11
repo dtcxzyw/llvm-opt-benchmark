@@ -871,7 +871,7 @@ if.end16.i.i:                                     ; preds = %if.end7.i.i39
   %tobool8.not.i.i = icmp eq i32 %call4.i.i, 0
   %spec.select.i.i = select i1 %tobool8.not.i.i, i8 32, i8 48
   %tobool17.not.i.i = icmp eq i32 %call12.i.i, 0
-  %94 = or disjoint i8 %spec.select.i.i, 64
+  %94 = select i1 %tobool8.not.i.i, i8 96, i8 112
   %spec.select25.i.i = select i1 %tobool17.not.i.i, i8 %spec.select.i.i, i8 %94
   %95 = load ptr, ptr %k.i20.i, align 8
   call void @_Py_set_localsplus_info(i32 noundef %call1.i25.i, ptr noundef %95, i8 noundef zeroext %spec.select25.i.i, ptr noundef nonnull %call15.i, ptr noundef nonnull %call21.i) #6

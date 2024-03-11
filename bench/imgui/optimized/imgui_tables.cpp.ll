@@ -2039,7 +2039,7 @@ for.body70.lr.ph:                                 ; preds = %for.cond68.preheade
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ %13, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %indvars.iv.next = add i64 %indvars.iv, %14
+  %indvars.iv.next = add nsw i64 %indvars.iv, %14
   %16 = load ptr, ptr %DisplayOrderToIndex, align 8
   %add.ptr.i60 = getelementptr inbounds i16, ptr %16, i64 %indvars.iv.next
   %17 = load i16, ptr %add.ptr.i60, align 2
@@ -4165,7 +4165,7 @@ if.then36:                                        ; preds = %if.end25
   %list.0 = zext i1 %or.cond53 to i32
   %10 = and i32 %flags.3, 34816
   %or.cond54 = icmp eq i32 %10, 32768
-  %or53 = or disjoint i32 %mask.0, 4
+  %or53 = select i1 %or.cond53, i32 6, i32 4
   %shl55 = select i1 %or.cond53, i32 8, i32 2
   %inc57 = select i1 %or.cond53, i32 2, i32 1
   %count.1 = select i1 %or.cond54, i32 %inc57, i32 %list.0
@@ -8107,7 +8107,7 @@ if.then14:                                        ; preds = %if.end
   ]
 
 if.then20:                                        ; preds = %if.then14, %if.then14
-  %or = or i32 %flags, 16
+  %or = or disjoint i32 %flags, 16
   br label %if.end22
 
 if.end22:                                         ; preds = %if.then14, %if.then20, %if.end

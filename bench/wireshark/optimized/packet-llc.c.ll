@@ -625,7 +625,7 @@ define internal i32 @dissect_llc(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %.not, label %45, label %43
 
 43:                                               ; preds = %4
-  %44 = add nuw nsw i32 %42, 5
+  %44 = select i1 %41, i32 8, i32 9
   %spec.select = select i1 %34, i32 %44, i32 %42
   tail call void @proto_item_set_len(ptr noundef %10, i32 noundef %spec.select) #4
   br label %45

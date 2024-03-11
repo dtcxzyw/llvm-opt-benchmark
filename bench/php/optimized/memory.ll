@@ -434,7 +434,7 @@ define internal noundef i32 @php_stream_memory_stat(ptr nocapture noundef readon
   %12 = load i64, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %1, i64 48
   store i64 %12, ptr %13, align 8
-  %14 = or disjoint i32 %8, 32768
+  %14 = select i1 %.not, i32 33206, i32 33060
   store i32 %14, ptr %9, align 8
   %15 = getelementptr inbounds i8, ptr %1, i64 88
   store i64 0, ptr %15, align 8

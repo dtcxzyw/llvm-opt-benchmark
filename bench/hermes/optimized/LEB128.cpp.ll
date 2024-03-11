@@ -199,7 +199,7 @@ if.then13:                                        ; preds = %do.end
   br i1 %cmp1640, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.then13
-  %5 = or disjoint i8 %conv15, -128
+  %5 = select i1 %cmp14, i8 -1, i8 -128
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN4llvh11raw_ostreamlsEc.exit30

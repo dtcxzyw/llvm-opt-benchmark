@@ -7879,7 +7879,7 @@ define internal fastcc void @ssh_decryption_setup_cipher(ptr noundef %0, ptr noc
   br label %129
 
 129:                                              ; preds = %125, %127
-  %130 = shl nuw nsw i32 %115, 3
+  %130 = select i1 %114, i32 128, i32 256
   tail call void (ptr, ...) @ssh_debug_printf(ptr noundef nonnull @.str.597, i32 noundef %130)
   %131 = zext nneg i32 %115 to i64
   call fastcc void @ssh_print_data(ptr noundef nonnull @.str.594, ptr noundef nonnull %10, i64 noundef %131)

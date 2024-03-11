@@ -88,7 +88,7 @@ define dso_local noundef i32 @_Z12f32Tou32Slowf(float noundef %0) local_unnamed_
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %7
-  %10 = or disjoint i32 %5, 2143289344
+  %10 = select i1 %4, i32 2143289344, i32 -4194304
   br label %42
 
 11:                                               ; preds = %7
@@ -97,7 +97,7 @@ define dso_local noundef i32 @_Z12f32Tou32Slowf(float noundef %0) local_unnamed_
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %11
-  %15 = or disjoint i32 %5, 2139095040
+  %15 = select i1 %4, i32 2139095040, i32 -8388608
   br label %42
 
 16:                                               ; preds = %11
@@ -125,7 +125,7 @@ define dso_local noundef i32 @_Z12f32Tou32Slowf(float noundef %0) local_unnamed_
   br i1 %31, label %32, label %34
 
 32:                                               ; preds = %30
-  %33 = or disjoint i32 %5, 2139095040
+  %33 = select i1 %4, i32 2139095040, i32 -8388608
   br label %40
 
 34:                                               ; preds = %30

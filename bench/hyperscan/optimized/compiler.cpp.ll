@@ -2607,7 +2607,7 @@ entry:
   %call = tail call noundef zeroext i1 @_ZNK3ue28target_t8has_avx2Ev(ptr noundef nonnull align 8 dereferenceable(16) %target_info)
   %spec.select = select i1 %call, i64 0, i64 32768
   %call1 = tail call noundef zeroext i1 @_ZNK3ue28target_t10has_avx512Ev(ptr noundef nonnull align 8 dereferenceable(16) %target_info)
-  %or3 = or disjoint i64 %spec.select, 65536
+  %or3 = select i1 %call, i64 65536, i64 98304
   %p.1 = select i1 %call1, i64 %spec.select, i64 %or3
   %call5 = tail call noundef zeroext i1 @_ZNK3ue28target_t14has_avx512vbmiEv(ptr noundef nonnull align 8 dereferenceable(16) %target_info)
   %or7 = or disjoint i64 %p.1, 131072
@@ -2721,7 +2721,7 @@ call1.i.noexc:                                    ; preds = %call.i.noexc
 
 invoke.cont29:                                    ; preds = %call1.i.noexc
   %spec.select.i12 = select i1 %call.i13, i64 0, i64 32768
-  %or3.i = or disjoint i64 %spec.select.i12, 65536
+  %or3.i = select i1 %call.i13, i64 65536, i64 98304
   %p.1.i = select i1 %call1.i14, i64 %spec.select.i12, i64 %or3.i
   %or7.i = or disjoint i64 %p.1.i, 131072
   %p.2.i = select i1 %call5.i15, i64 %p.1.i, i64 %or7.i

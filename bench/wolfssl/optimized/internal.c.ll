@@ -17716,7 +17716,6 @@ entry:
   %bf.load = load i64, ptr %tls, align 8
   %0 = and i64 %bf.load, 16384
   %tobool.not = icmp eq i64 %0, 0
-  %cond = select i1 %tobool.not, i32 36, i32 12
   %bf.set = or i64 %bf.load, 288230376151711744
   store i64 %bf.set, ptr %tls, align 8
   %bufferSize.i = getelementptr inbounds i8, ptr %ssl, i64 392
@@ -17799,7 +17798,7 @@ if.end:                                           ; preds = %entry.if.end_crit_e
   store i8 0, ptr %length2.i, align 1
   %arrayidx4.i.i = getelementptr inbounds i8, ptr %input, i64 2
   store i8 0, ptr %arrayidx4.i.i, align 2
-  %conv6.i.i = trunc i32 %cond to i8
+  %conv6.i.i = select i1 %tobool.not, i8 36, i8 12
   %arrayidx7.i.i = getelementptr inbounds i8, ptr %input, i64 3
   store i8 %conv6.i.i, ptr %arrayidx7.i.i, align 1
   %arrayidx = getelementptr inbounds i8, ptr %input, i64 4
@@ -17815,7 +17814,7 @@ if.end21:                                         ; preds = %if.end
   %add.ptr.i = getelementptr inbounds i8, ptr %13, i64 %idx.ext.i
   %idx.ext5.i = zext i32 %11 to i64
   %add.ptr6.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idx.ext5.i
-  %add = add nuw nsw i32 %cond, 4
+  %add = select i1 %tobool.not, i32 40, i32 16
   %call23 = call i32 @BuildMessage(ptr noundef nonnull %ssl, ptr noundef %add.ptr6.i, i32 noundef 150, ptr noundef nonnull %input, i32 noundef %add, i32 noundef 22, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 0)
   %cmp24 = icmp slt i32 %call23, 0
   br i1 %cmp24, label %return, label %if.end27

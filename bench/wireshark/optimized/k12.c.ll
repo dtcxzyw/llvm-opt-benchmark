@@ -1290,7 +1290,7 @@ define internal fastcc noundef i32 @process_packet_data(ptr nocapture noundef wr
   br i1 %cond, label %154, label %177
 
 154:                                              ; preds = %.thread
-  %155 = add nuw nsw i32 %27, 12
+  %155 = select i1 %26, i32 64, i32 44
   %156 = add nuw nsw i32 %155, %39
   %157 = icmp ult i32 %156, %3
   br i1 %157, label %158, label %177

@@ -558,7 +558,7 @@ cond.end:                                         ; preds = %land.lhs.true11, %l
   %or.cond = select i1 %tobool21, i1 %cmp23, i1 false
   %spec.select = select i1 %or.cond, i32 33, i32 1
   %cmp26 = icmp eq i32 %call16, 10
-  %or28 = or disjoint i32 %spec.select, 2
+  %or28 = select i1 %or.cond, i32 35, i32 3
   %sock_options.1 = select i1 %cmp26, i32 %or28, i32 %spec.select
   %cmp30.not = icmp eq ptr %call20, null
   br i1 %cmp30.not, label %if.end58, label %land.lhs.true31

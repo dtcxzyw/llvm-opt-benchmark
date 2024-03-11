@@ -220,7 +220,7 @@ define internal i32 @dissect_knet_udp(ptr noundef %0, ptr nocapture noundef read
   %spec.select.i = select i1 %.not.i, i32 2, i32 4
   %43 = load i32, ptr @hf_knet_rmib, align 4
   %44 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %43, ptr noundef %0, i32 noundef 3, i32 noundef %spec.select.i, i32 noundef -2147483648) #4
-  %45 = add nuw nsw i32 %spec.select.i, 3
+  %45 = select i1 %.not.i, i32 5, i32 7
   br label %46
 
 46:                                               ; preds = %41, %4

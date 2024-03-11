@@ -1117,7 +1117,7 @@ define internal fastcc i32 @synaptics_set_mode(ptr noundef %0) unnamed_addr #0 a
   br i1 %11, label %14, label %12
 
 12:                                               ; preds = %1
-  %13 = or disjoint i8 %8, 4
+  %13 = select i1 %7, i8 4, i8 -124
   store i8 %13, ptr %4, align 4
   br label %14
 
@@ -1129,7 +1129,7 @@ define internal fastcc i32 @synaptics_set_mode(ptr noundef %0) unnamed_addr #0 a
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %14
-  %20 = or i8 %15, 64
+  %20 = or disjoint i8 %15, 64
   store i8 %20, ptr %4, align 4
   br label %21
 

@@ -1152,7 +1152,7 @@ define internal i64 @usbdev_ioctl(ptr nocapture noundef readonly %0, i32 noundef
   %305 = icmp eq i8 %304, 0
   %306 = select i1 %305, i32 503, i32 501
   %307 = icmp eq i32 %.val28.val.val29, 0
-  %308 = or disjoint i32 %306, 8
+  %308 = select i1 %305, i32 511, i32 509
   %309 = select i1 %307, i32 %306, i32 %308
   %310 = tail call i64 @llvm.read_register.i64(metadata !0)
   %311 = tail call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %6, i32 %309, i64 4, i64 %310) #17, !srcloc !24

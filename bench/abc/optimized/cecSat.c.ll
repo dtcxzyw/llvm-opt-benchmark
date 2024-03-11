@@ -1381,7 +1381,7 @@ Cec2_ObjSimCo.exit:                               ; preds = %.lr.ph.i, %.lr.ph31
   %.0.i.i = select i1 %69, i32 32, i32 0
   %71 = and i64 %.020.i.i, 65535
   %72 = icmp eq i64 %71, 0
-  %73 = or disjoint i32 %.0.i.i, 16
+  %73 = select i1 %69, i32 48, i32 16
   %74 = lshr exact i64 %.020.i.i, 16
   %.121.i.i = select i1 %72, i64 %74, i64 %.020.i.i
   %.1.i.i = select i1 %72, i32 %73, i32 %.0.i.i
@@ -1399,14 +1399,14 @@ Cec2_ObjSimCo.exit:                               ; preds = %.lr.ph.i, %.lr.ph31
   %.3.i.i = select i1 %80, i32 %81, i32 %.2.i.i
   %83 = and i64 %.323.i.i, 3
   %84 = icmp eq i64 %83, 0
-  %85 = add nuw nsw i32 %.3.i.i, 2
+  %85 = or disjoint i32 %.3.i.i, 2
   %86 = lshr exact i64 %.323.i.i, 2
   %.424.i.i = select i1 %84, i64 %86, i64 %.323.i.i
   %.4.i.i = select i1 %84, i32 %85, i32 %.3.i.i
   %87 = trunc i64 %.424.i.i to i32
   %88 = and i32 %87, 1
   %89 = xor i32 %88, 1
-  %.5.i.i = add i32 %.4.i.i, %67
+  %.5.i.i = add nuw i32 %.4.i.i, %67
   %90 = add i32 %.5.i.i, %89
   br label %Abc_TtFindFirstBit2.exit
 

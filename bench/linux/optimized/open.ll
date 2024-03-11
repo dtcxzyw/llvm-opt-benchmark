@@ -2685,7 +2685,7 @@ define internal fastcc i32 @do_dentry_open(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %225, label %226, label %231
 
 226:                                              ; preds = %222
-  %227 = or disjoint i32 %210, 1073741824
+  %227 = select i1 %209, i32 1073741856, i32 1073745952
   %228 = load i32, ptr %214, align 8
   %229 = and i32 %228, 16384
   %230 = icmp eq i32 %229, 0

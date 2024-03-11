@@ -16,7 +16,7 @@ define i64 @ui32_to_f64(i32 noundef %0) local_unnamed_addr #0 {
   %spec.select.i = select i1 %3, i32 %4, i32 %0
   %spec.select12.i = select i1 %3, i8 16, i8 0
   %5 = icmp ult i32 %spec.select.i, 16777216
-  %6 = or disjoint i8 %spec.select12.i, 8
+  %6 = select i1 %3, i8 24, i8 8
   %7 = shl nuw i32 %spec.select.i, 8
   %.19.i = select i1 %5, i32 %7, i32 %spec.select.i
   %.1.i = select i1 %5, i8 %6, i8 %spec.select12.i

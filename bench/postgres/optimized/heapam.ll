@@ -3978,7 +3978,7 @@ log_heap_new_cid.exit:                            ; preds = %189, %194
 267:                                              ; preds = %264, %262
   %spec.select = select i1 %159, i8 -48, i8 80
   %spec.select214 = select i1 %159, i8 6, i8 0
-  %268 = or disjoint i8 %spec.select214, 16
+  %268 = select i1 %159, i8 22, i8 16
   %.1181 = select i1 %44, i8 %268, i8 %spec.select214
   call void @XLogBeginInsert() #11
   %269 = sub i64 %256, %103
@@ -7217,7 +7217,7 @@ BufferGetPage.exit.i:                             ; preds = %697, %691
   %802 = icmp eq i32 %801, 4
   %803 = select i1 %798, i1 %802, i1 false
   %804 = freeze i1 %803
-  %805 = or disjoint i8 %..i375, -128
+  %805 = select i1 %.not92.i, i8 -96, i8 -64
   %spec.select105.i = select i1 %804, i8 %805, i8 %..i375
   %806 = select i1 %804, i8 14, i8 8
   br label %807

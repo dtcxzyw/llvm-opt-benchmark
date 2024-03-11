@@ -3817,7 +3817,7 @@ define void @_ZNK5faiss16IndexIVFFastScan22search_dispatch_implemElPKflPfPlRKNS0
   br i1 %36, label %37, label %39
 
 37:                                               ; preds = %32
-  %38 = or disjoint i32 %., 1
+  %38 = select i1 %35, i32 13, i32 11
   store i32 %38, ptr %16, align 4
   br label %39
 

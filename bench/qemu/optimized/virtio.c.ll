@@ -934,8 +934,8 @@ entry:
   %dec = add i32 %0, -1
   store i32 %dec, ptr %num_free, align 4
   %spec.select = select i1 %write, i16 2, i16 0
-  %1 = zext i1 %next to i16
-  %flags.1 = or disjoint i16 %spec.select, %1
+  %1 = select i1 %write, i16 3, i16 1
+  %flags.1 = select i1 %next, i16 %1, i16 %spec.select
   %2 = load ptr, ptr %vq, align 8
   %desc = getelementptr inbounds i8, ptr %vq, i64 8
   %3 = load i64, ptr %desc, align 8

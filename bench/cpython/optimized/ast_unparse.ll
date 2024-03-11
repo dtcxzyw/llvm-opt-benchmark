@@ -1059,7 +1059,7 @@ cond.end.i:                                       ; preds = %do.end.i
 
 do.body13.i.lr.ph:                                ; preds = %cond.end.i
   %typed_elements.i = getelementptr inbounds i8, ptr %2, i64 16
-  %add.i = add nuw nsw i32 %cond5.i, 1
+  %add.i = select i1 %cmp.i, i32 4, i32 3
   br label %do.body13.i
 
 for.cond.i:                                       ; preds = %do.body21.i

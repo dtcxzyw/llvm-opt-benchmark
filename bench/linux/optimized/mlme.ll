@@ -19279,7 +19279,7 @@ define internal fastcc i64 @ieee80211_assoc_link_elems(ptr noundef %0, ptr nound
   %810 = select i1 %809, i8 0, i8 3
   %811 = and i8 %803, 8
   %812 = icmp eq i8 %811, 0
-  %813 = add nuw nsw i8 %810, 3
+  %813 = select i1 %809, i8 3, i8 6
   %814 = select i1 %812, i8 %810, i8 %813
   %815 = getelementptr inbounds i8, ptr %783, i64 62
   %816 = load i8, ptr %815, align 1

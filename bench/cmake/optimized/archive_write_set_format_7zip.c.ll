@@ -1401,8 +1401,8 @@ enc_uint64.exit246.i:                             ; preds = %223, %220
   %281 = load i32, ptr %280, align 8
   %282 = and i32 %281, 146
   %283 = icmp eq i32 %282, 0
-  %284 = zext i1 %283 to i8
-  %.1.i = or disjoint i8 %..i, %284
+  %284 = select i1 %.not171.i, i8 33, i8 17
+  %.1.i = select i1 %283, i8 %284, i8 %..i
   store i8 %.1.i, ptr %14, align 4
   store i8 -128, ptr %271, align 1
   %285 = trunc i32 %281 to i8

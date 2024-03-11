@@ -5453,7 +5453,7 @@ entry:
   %ref.tmp28 = alloca %"class.arrow::Result.42", align 8
   store i32 -1, ptr %fd, align 4
   %spec.select = select i1 %truncate, i32 576, i32 64
-  %or5 = or disjoint i32 %spec.select, 1024
+  %or5 = select i1 %truncate, i32 1600, i32 1088
   %oflag.1 = select i1 %append, i32 %or5, i32 %spec.select
   %oflag.2.v = select i1 %write_only, i32 1, i32 2
   %oflag.2 = or disjoint i32 %oflag.1, %oflag.2.v

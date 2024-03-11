@@ -5168,7 +5168,7 @@ WalSndComputeSleeptime.exit:                      ; preds = %121, %127
   %131 = getelementptr inbounds i8, ptr %130, i64 24
   %132 = load ptr, ptr %131, align 8
   %133 = call zeroext i1 %132() #16
-  %134 = or disjoint i32 %., 4
+  %134 = select i1 %.b719, i32 4, i32 6
   %.1 = select i1 %133, i32 %134, i32 %.
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   %135 = load ptr, ptr @FeBeWaitSet, align 8

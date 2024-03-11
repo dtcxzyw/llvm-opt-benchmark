@@ -156,7 +156,7 @@ define i16 @softfloat_subMagsF16(i64 noundef %0, i64 noundef %1) local_unnamed_a
   %spec.select.i124 = select i1 %79, i32 %80, i32 %78
   %spec.select12.i = select i1 %79, i8 16, i8 0
   %81 = icmp ult i32 %spec.select.i124, 16777216
-  %82 = or disjoint i8 %spec.select12.i, 8
+  %82 = select i1 %79, i8 24, i8 8
   %83 = shl nuw i32 %spec.select.i124, 8
   %.19.i = select i1 %81, i32 %83, i32 %spec.select.i124
   %.1.i = select i1 %81, i8 %82, i8 %spec.select12.i

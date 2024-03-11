@@ -7807,7 +7807,7 @@ define internal fastcc void @gzfile_make_header(ptr nocapture noundef %0) unname
   %6 = getelementptr inbounds i8, ptr %0, i64 184
   %7 = load i64, ptr %6, align 8
   %8 = icmp eq i64 %7, 4
-  %9 = or disjoint i8 %spec.select, 16
+  %9 = select i1 %5, i8 16, i8 24
   %.1 = select i1 %8, i8 %spec.select, i8 %9
   %10 = load i64, ptr %0, align 8
   %11 = and i64 %10, 1024

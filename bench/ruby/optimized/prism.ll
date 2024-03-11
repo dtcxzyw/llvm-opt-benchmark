@@ -43628,7 +43628,7 @@ pm_arguments_end.exit:                            ; preds = %22, %27, %34, %40, 
   br i1 %62, label %63, label %65
 
 63:                                               ; preds = %53
-  %64 = or disjoint i16 %17, 1
+  %64 = select i1 %16, i16 9, i16 1
   store i16 %64, ptr %.sroa.2.0..sroa_idx.i, align 2
   br label %65
 
@@ -43781,7 +43781,7 @@ pm_arguments_end.exit:                            ; preds = %23, %28, %35, %41, 
   br i1 %76, label %77, label %79
 
 77:                                               ; preds = %67
-  %78 = or disjoint i16 %18, 1
+  %78 = select i1 %17, i16 9, i16 1
   store i16 %78, ptr %.sroa.2.0..sroa_idx.i, align 2
   br label %79
 

@@ -289,10 +289,10 @@ if.end5:                                          ; preds = %if.then, %entry
   %conv32 = select i1 %cmp30, i32 4194304, i32 2097152
   %real_vram_size = getelementptr inbounds i8, ptr %s, i64 78936
   store i32 %conv32, ptr %real_vram_size, align 8
-  %sub = add nsw i32 %conv32, -1
+  %sub = select i1 %cmp30, i32 4194303, i32 2097151
   %cirrus_addr_mask = getelementptr inbounds i8, ptr %s, i64 70576
   store i32 %sub, ptr %cirrus_addr_mask, align 16
-  %sub35 = add nsw i32 %conv32, -256
+  %sub35 = select i1 %cmp30, i32 4194048, i32 2096896
   %linear_mmio_mask = getelementptr inbounds i8, ptr %s, i64 70580
   store i32 %sub35, ptr %linear_mmio_mask, align 4
   %get_bpp = getelementptr inbounds i8, ptr %s, i64 2432

@@ -233,7 +233,7 @@ define dso_local i64 @do_futex(ptr noundef %0, i32 noundef %1, i32 noundef %2, p
   br label %60
 
 42:                                               ; preds = %22
-  %43 = or disjoint i32 %11, 32
+  %43 = select i1 %10, i32 50, i32 34
   br label %44
 
 44:                                               ; preds = %42, %22

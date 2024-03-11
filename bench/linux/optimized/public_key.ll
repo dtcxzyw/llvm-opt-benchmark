@@ -541,14 +541,14 @@ define internal i32 @software_key_query(ptr nocapture noundef readonly %0, ptr n
   br i1 %65, label %66, label %103
 
 66:                                               ; preds = %58
-  %67 = or disjoint i32 %62, 1
+  %67 = select i1 %61, i32 9, i32 13
   store i32 %67, ptr %1, align 4
   %68 = load i8, ptr %47, align 4, !range !14, !noundef !15
   %69 = icmp eq i8 %68, 0
   br i1 %69, label %103, label %70
 
 70:                                               ; preds = %66
-  %71 = or disjoint i32 %62, 3
+  %71 = select i1 %61, i32 11, i32 15
   br label %98
 
 72:                                               ; preds = %25

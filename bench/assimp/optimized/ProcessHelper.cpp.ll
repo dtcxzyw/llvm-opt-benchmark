@@ -891,7 +891,7 @@ entry:
   %4 = load ptr, ptr %mBitangents.i, align 8
   %cmp2.not.i = icmp eq ptr %4, null
   %or.cond.i = select i1 %cmp.not.i16, i1 true, i1 %cmp2.not.i
-  %or3 = or disjoint i32 %spec.select, 4
+  %or3 = select i1 %2, i32 7, i32 5
   %spec.select32 = select i1 %cmp2.i, i32 %or3, i32 1
   %5 = select i1 %or.cond.i, i32 %spec.select, i32 %spec.select32
   %mTextureCoords.i = getelementptr inbounds i8, ptr %pcMesh, i64 112

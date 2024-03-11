@@ -12647,7 +12647,7 @@ if.end:                                           ; preds = %entry
   %spec.select = select i1 %cmp1, i32 %shr, i32 %z
   %spec.select15 = select i1 %cmp1, i32 16, i32 0
   %cmp4 = icmp ugt i32 %spec.select, 255
-  %add6 = or disjoint i32 %spec.select15, 8
+  %add6 = select i1 %cmp1, i32 24, i32 8
   %shr7 = lshr i32 %spec.select, 8
   %z.addr.1 = select i1 %cmp4, i32 %shr7, i32 %spec.select
   %n.1 = select i1 %cmp4, i32 %add6, i32 %spec.select15
@@ -12663,7 +12663,7 @@ if.end:                                           ; preds = %entry
   %n.3 = select i1 %cmp14, i32 %add16, i32 %n.2
   %cmp19 = icmp ugt i32 %z.addr.3, 1
   %add21 = zext i1 %cmp19 to i32
-  %n.4 = add nuw nsw i32 %n.3, %add21
+  %n.4 = or disjoint i32 %n.3, %add21
   br label %return
 
 return:                                           ; preds = %entry, %if.end

@@ -9189,7 +9189,7 @@ define hidden void @ssl_check_record_length(ptr noundef %0, ptr noundef %1, i32 
   br label %14
 
 14:                                               ; preds = %10, %7
-  %15 = or disjoint i32 %., 16384
+  %15 = select i1 %8, i32 16640, i32 18432
   %16 = icmp ult i32 %15, %3
   br i1 %16, label %17, label %20
 

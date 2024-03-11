@@ -1298,7 +1298,7 @@ define internal noundef i32 @__uc_init_hw(ptr noundef %0) #0 align 16 {
   br i1 %125, label %126, label %135
 
 126:                                              ; preds = %117
-  %127 = or disjoint i32 %105, -16383
+  %127 = select i1 %104, i32 -16381, i32 -16383
   %128 = or i32 %105, %100
   %129 = or i32 %128, 1
   %130 = load ptr, ptr %119, align 8

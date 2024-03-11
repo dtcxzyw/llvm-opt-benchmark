@@ -205,11 +205,11 @@ define internal i32 @dissect_matter(ptr noundef %0, ptr nocapture noundef readon
   ]
 
 31:                                               ; preds = %29
-  %32 = add nuw nsw i32 %spec.select, 8
+  %32 = select i1 %.not81, i32 12, i32 20
   br label %35
 
 33:                                               ; preds = %29
-  %34 = or disjoint i32 %spec.select, 2
+  %34 = select i1 %.not81, i32 6, i32 14
   br label %35
 
 35:                                               ; preds = %29, %33, %31

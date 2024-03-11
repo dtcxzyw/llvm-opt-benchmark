@@ -604,7 +604,7 @@ define internal i32 @dissect_kdsp_message(ptr noundef %0, ptr noundef %1, ptr no
   %spec.select = select i1 %.not453, i16 6, i16 22
   %160 = and i32 %157, 8
   %.not454 = icmp eq i32 %160, 0
-  %narrow = add nuw nsw i16 %spec.select, 2
+  %narrow = select i1 %.not453, i16 8, i16 24
   %.1443 = select i1 %.not454, i16 %spec.select, i16 %narrow
   %161 = and i32 %157, 4
   %.not455 = icmp eq i32 %161, 0

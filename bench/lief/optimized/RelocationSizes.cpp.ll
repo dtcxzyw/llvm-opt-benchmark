@@ -1311,7 +1311,7 @@ _ZN6frozen4bits10LowerBoundIN4LIEF3ELF10Relocation4TYPEENS_4impl10CompareKeyISt4
   %17 = getelementptr inbounds i8, ptr %16, i64 8
   %18 = getelementptr inbounds i8, ptr %0, i64 972
   %.sink13.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i, ptr %18, ptr %17
-  %19 = or disjoint i64 %.idx.i.i.i.i.i.i.i.i, 900
+  %19 = select i1 %.not.i.i.i.i.i.i.i.i, i64 932, i64 900
   %.add12 = select i1 %.not.i.i.i.i.i.i.i, i64 964, i64 %19
   br label %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEiLm123ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_iERKT_.exit
 

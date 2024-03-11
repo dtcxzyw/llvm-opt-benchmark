@@ -1602,7 +1602,7 @@ define internal i32 @archive_read_format_zip_seekable_read_header(ptr noundef %0
   br i1 %.not161.i, label %196, label %192
 
 192:                                              ; preds = %188
-  %193 = and i16 %spec.select211.i, 365
+  %193 = select i1 %.not160.i, i16 292, i16 365
   store i16 %193, ptr %190, align 4
   br label %196
 
@@ -3413,7 +3413,7 @@ define internal fastcc noundef i32 @process_extra(ptr noundef %0, ptr noundef %1
   br i1 %.not286, label %218, label %216
 
 216:                                              ; preds = %213
-  %217 = and i16 %spec.select, 365
+  %217 = select i1 %.not285, i16 292, i16 365
   br label %.sink.split
 
 .sink.split:                                      ; preds = %205, %210, %216

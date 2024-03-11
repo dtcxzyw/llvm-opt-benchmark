@@ -14613,7 +14613,7 @@ define internal fastcc i32 @nfs4_do_setattr(ptr noundef %0, ptr noundef %1, ptr 
   %42 = select i1 %41, i64 256, i64 131328
   %43 = and i32 %39, 6
   %44 = icmp eq i32 %43, 0
-  %45 = or disjoint i64 %42, 4096
+  %45 = select i1 %41, i64 4352, i64 135424
   %46 = select i1 %44, i64 %42, i64 %45
   %47 = getelementptr inbounds i8, ptr %18, i64 284
   %48 = icmp eq ptr %0, null

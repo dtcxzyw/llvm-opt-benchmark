@@ -159,7 +159,7 @@ entry:
   %spec.select = select i1 %tobool.not, i32 63, i32 55
   %and2 = and i32 %when, 2
   %tobool3.not = icmp eq i32 %and2, 0
-  %and5 = and i32 %spec.select, 47
+  %and5 = select i1 %tobool.not, i32 47, i32 39
   %mask.1 = select i1 %tobool3.not, i32 %spec.select, i32 %and5
   %and7 = and i32 %when, 4
   %tobool8.not = icmp eq i32 %and7, 0

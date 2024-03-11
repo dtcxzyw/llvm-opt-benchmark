@@ -504,8 +504,8 @@ define internal fastcc void @dissect_gprs_data(ptr noundef %0, ptr noundef %1, p
 20:                                               ; preds = %15
   %21 = select i1 %.not, i32 40, i32 46
   %22 = shl i32 %18, 3
-  %23 = add nuw nsw i32 %21, 2
-  %24 = add i32 %23, %22
+  %23 = select i1 %.not, i32 42, i32 48
+  %24 = add i32 %22, %23
   br label %27
 
 25:                                               ; preds = %15

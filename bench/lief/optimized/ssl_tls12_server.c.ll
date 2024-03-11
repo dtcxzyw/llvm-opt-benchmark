@@ -3226,7 +3226,7 @@ mbedtls_ssl_ciphersuite_cert_req_allowed.exit.i55: ; preds = %1445, %1445, %1445
 
 1482:                                             ; preds = %1475
   %1483 = getelementptr inbounds i8, ptr %1480, i64 360
-  %1484 = or disjoint i64 %..i.i59, 2
+  %1484 = select i1 %1477, i64 14, i64 6
   %1485 = getelementptr inbounds i8, ptr %0, i64 288
   %1486 = load i64, ptr %1485, align 8
   %1487 = icmp ugt i64 %1484, %1486
@@ -3282,7 +3282,7 @@ mbedtls_ssl_ciphersuite_cert_req_allowed.exit.i55: ; preds = %1445, %1445, %1445
   br label %ssl_parse_certificate_verify.exit
 
 1513:                                             ; preds = %1510
-  %1514 = add nuw nsw i64 %..i.i59, 4
+  %1514 = select i1 %1477, i64 16, i64 8
   %1515 = load i64, ptr %1485, align 8
   %1516 = icmp ugt i64 %1514, %1515
   br i1 %1516, label %1517, label %1518

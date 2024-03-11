@@ -2555,8 +2555,8 @@ define dso_local void @_ZN6Clouds10updateMeshEv(ptr nocapture noundef nonnull al
   %233 = phi i32 [ %205, %222 ], [ %302, %.loopexit134 ]
   %234 = getelementptr inbounds i8, ptr %0, i64 408
   %235 = load ptr, ptr %234, align 8, !tbaa !103
-  %236 = shl nuw nsw i32 %68, 4
-  %237 = mul nuw nsw i32 %236, %233
+  %236 = select i1 %67, i32 16, i32 96
+  %237 = mul nuw nsw i32 %233, %236
   %238 = mul i32 %237, %233
   %239 = getelementptr inbounds i8, ptr %235, i64 216
   %240 = getelementptr inbounds i8, ptr %235, i64 232

@@ -15757,7 +15757,7 @@ _Z15str_starts_withIcJEEDaSt17basic_string_viewIT_St11char_traitsIS1_EEPKS1_DpOT
   %4111 = select i1 %4110, i32 0, i32 -16777216
   %4112 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm(ptr noundef nonnull align 8 dereferenceable(32) %165, i8 noundef signext 114, i64 noundef 0) #14
   %4113 = icmp eq i64 %4112, -1
-  %4114 = or disjoint i32 %4111, 16711680
+  %4114 = select i1 %4110, i32 16711680, i32 -65536
   %4115 = select i1 %4113, i32 %4111, i32 %4114
   %4116 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm(ptr noundef nonnull align 8 dereferenceable(32) %165, i8 noundef signext 103, i64 noundef 0) #14
   %4117 = icmp eq i64 %4116, -1

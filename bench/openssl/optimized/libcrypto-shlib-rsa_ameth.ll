@@ -1737,7 +1737,7 @@ lor.lhs.false35:                                  ; preds = %lor.lhs.false32
   br i1 %tobool37.not, label %err, label %if.end39
 
 if.end39:                                         ; preds = %lor.lhs.false35
-  %or40 = or disjoint i32 %spec.select, 128
+  %or40 = select i1 %cmp11.not, i32 130, i32 131
   br label %if.end41
 
 if.end41:                                         ; preds = %if.end39, %if.end9

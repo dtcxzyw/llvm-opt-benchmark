@@ -2213,7 +2213,7 @@ if.then23:                                        ; preds = %if.end20
   %mul25 = select i1 %cmp, i64 786432, i64 3072
   %call.i90 = call noalias noundef ptr @malloc(i64 noundef %mul25) #30
   %arrayidx29 = getelementptr inbounds float, ptr %call.i90, i64 %cond
-  %mul30 = shl nuw nsw i64 %cond, 1
+  %mul30 = select i1 %cmp, i64 131072, i64 512
   %arrayidx31 = getelementptr inbounds float, ptr %call.i90, i64 %mul30
   call fastcc void @_ZN7lodepngL24convertToXYZ_gamma_tableEPfmmPK11LodePNGInfojPKNS_10LodePNGICCE(ptr noundef %call.i90, i64 noundef %cond, i64 noundef 0, ptr noundef nonnull %info_png, i32 noundef %use_icc.0, ptr noundef nonnull %icc)
   call fastcc void @_ZN7lodepngL24convertToXYZ_gamma_tableEPfmmPK11LodePNGInfojPKNS_10LodePNGICCE(ptr noundef nonnull %arrayidx29, i64 noundef %cond, i64 noundef 1, ptr noundef nonnull %info_png, i32 noundef %use_icc.0, ptr noundef nonnull %icc)
@@ -2221,7 +2221,7 @@ if.then23:                                        ; preds = %if.end20
   br label %if.end34
 
 if.else:                                          ; preds = %if.end20
-  %mul32 = shl nuw nsw i64 %cond, 2
+  %mul32 = select i1 %cmp, i64 262144, i64 1024
   %call.i91 = call noalias noundef ptr @malloc(i64 noundef %mul32) #30
   call fastcc void @_ZN7lodepngL24convertToXYZ_gamma_tableEPfmmPK11LodePNGInfojPKNS_10LodePNGICCE(ptr noundef %call.i91, i64 noundef %cond, i64 noundef 0, ptr noundef nonnull %info_png, i32 noundef %use_icc.0, ptr noundef nonnull %icc)
   br label %if.end34

@@ -13,7 +13,7 @@ entry:
   %spec.select = select i1 %cmp, i32 %shl, i32 %a
   %spec.select7 = select i1 %cmp, i8 16, i8 0
   %cmp1 = icmp ult i32 %spec.select, 16777216
-  %0 = or disjoint i8 %spec.select7, 8
+  %0 = select i1 %cmp, i8 24, i8 8
   %shl4 = shl nuw i32 %spec.select, 8
   %a.addr.1 = select i1 %cmp1, i32 %shl4, i32 %spec.select
   %count.1 = select i1 %cmp1, i8 %0, i8 %spec.select7

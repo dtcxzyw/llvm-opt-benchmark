@@ -12,7 +12,7 @@ define zeroext i8 @softfloat_countLeadingZeros32(i32 noundef %0) local_unnamed_a
   %spec.select = select i1 %2, i32 %3, i32 %0
   %spec.select12 = select i1 %2, i8 16, i8 0
   %4 = icmp ult i32 %spec.select, 16777216
-  %5 = or disjoint i8 %spec.select12, 8
+  %5 = select i1 %2, i8 24, i8 8
   %6 = shl nuw i32 %spec.select, 8
   %.19 = select i1 %4, i32 %6, i32 %spec.select
   %.1 = select i1 %4, i8 %5, i8 %spec.select12

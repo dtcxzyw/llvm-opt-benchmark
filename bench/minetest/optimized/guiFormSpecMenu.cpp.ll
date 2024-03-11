@@ -48638,9 +48638,9 @@ define dso_local void @_ZN15GUIFormSpecMenu12parseTooltipEPNS_10parserDataERKNSt
   %52 = sub i64 %50, %51
   %53 = ashr exact i64 %52, 5
   %54 = icmp eq i64 %53, %47
-  %55 = add nuw nsw i64 %47, 2
+  %55 = select i1 %46, i64 4, i64 5
   %56 = icmp eq i64 %53, %55
-  %57 = select i1 %54, i1 true, i1 %56
+  %57 = or i1 %54, %56
   br i1 %57, label %131, label %58
 
 58:                                               ; preds = %43

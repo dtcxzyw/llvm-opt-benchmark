@@ -1242,7 +1242,7 @@ entry:
   br i1 %tobool2.not, label %if.end5, label %if.then3
 
 if.then3:                                         ; preds = %entry
-  %or4 = or disjoint i32 %spec.select, 2
+  %or4 = select i1 %tobool.not, i32 3, i32 7
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %data.i)
   store ptr %sb, ptr %data.i, align 8
   %use_pack_protocol2.i = getelementptr inbounds i8, ptr %data.i, i64 8

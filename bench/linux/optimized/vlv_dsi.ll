@@ -478,7 +478,7 @@ define dso_local void @vlv_dsi_init(ptr noundef %0) local_unnamed_addr #0 align 
   %203 = zext i8 %202 to i32
   %204 = mul i32 %182, %203
   %205 = select i1 %197, i32 2000000, i32 8000000
-  %206 = add nsw i32 %205, -1
+  %206 = select i1 %197, i32 1999999, i32 7999999
   %207 = add i32 %204, %206
   %208 = udiv i32 %207, %205
   %209 = icmp ugt i32 %208, 63

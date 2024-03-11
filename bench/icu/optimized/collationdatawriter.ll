@@ -378,8 +378,7 @@ do.body92:                                        ; preds = %if.else71
   %header.sroa.4.sroa.2.0.header.sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %dest, i64 20
   store i32 %24, ptr %header.sroa.4.sroa.2.0.header.sroa.4.0..sroa_idx.sroa_idx, align 1
   %add.ptr = getelementptr inbounds i8, ptr %dest, i64 24
-  %sub = add nsw i32 %headerSize.0, -24
-  %conv95 = zext nneg i32 %sub to i64
+  %conv95 = select i1 %23, i64 0, i64 4
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr, i8 0, i64 %conv95, i1 false)
   %idx.ext = zext nneg i32 %headerSize.0 to i64
   %add.ptr96 = getelementptr inbounds i8, ptr %dest, i64 %idx.ext

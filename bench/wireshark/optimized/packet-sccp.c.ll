@@ -1279,11 +1279,11 @@ define internal fastcc i32 @sccp_called_calling_looks_valid(ptr noundef %0, i8 n
   br i1 %or.cond10, label %29, label %30
 
 29:                                               ; preds = %27
-  %narrow45 = add nuw nsw i8 %spec.select, 3
+  %narrow45 = select i1 %21, i8 4, i8 5
   br label %31
 
 30:                                               ; preds = %27
-  %narrow = add nuw nsw i8 %spec.select, 2
+  %narrow = select i1 %21, i8 3, i8 4
   br label %31
 
 31:                                               ; preds = %29, %30, %26

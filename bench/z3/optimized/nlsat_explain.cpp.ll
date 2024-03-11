@@ -4648,7 +4648,7 @@ invoke.cont24:                                    ; preds = %invoke.cont24.prehe
   %agg.tmp.sroa.0.0.copyload.b = load i1, ptr @_ZN5nlsatL12null_literalE.0, align 4
   %agg.tmp.sroa.0.0.copyload = select i1 %agg.tmp.sroa.0.0.copyload.b, i32 -2, i32 0
   %12 = load ptr, ptr %new_lit, align 8
-  %shr.i.i.i = lshr exact i32 %agg.tmp.sroa.0.0.copyload, 1
+  %shr.i.i.i = select i1 %agg.tmp.sroa.0.0.copyload.b, i32 2147483647, i32 0
   invoke void @_ZN5nlsat6solver7inc_refEj(ptr noundef nonnull align 8 dereferenceable(16) %12, i32 noundef %shr.i.i.i)
           to label %.noexc20 unwind label %lpad21.loopexit.split-lp.loopexit
 

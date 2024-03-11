@@ -24365,7 +24365,7 @@ define void @_ZN5image6codecs4webp3vp814predict_dcpred17hbe3e5dcddc10978eE(ptr n
 
 ._crit_edge:                                      ; preds = %42, %.preheader69
   %.1.lcssa = phi i32 [ 0, %.preheader69 ], [ %46, %42 ]
-  %10 = add nuw nsw i32 %., 1
+  %10 = select i1 %7, i32 3, i32 4
   br label %8
 
 .lr.ph:                                           ; preds = %.preheader69, %42

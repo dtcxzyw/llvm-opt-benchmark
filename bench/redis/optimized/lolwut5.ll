@@ -35,8 +35,7 @@ define dso_local ptr @lwDrawSchotter(i32 noundef %console_cols, i32 noundef %squ
 entry:
   %mul = shl nsw i32 %console_cols, 1
   %cmp = icmp sgt i32 %console_cols, 2
-  %cond = select i1 %cmp, i32 2, i32 0
-  %mul1 = shl nuw nsw i32 %cond, 1
+  %mul1 = select i1 %cmp, i32 4, i32 0
   %sub = sub nsw i32 %mul, %mul1
   %conv = sitofp i32 %sub to float
   %conv2 = sitofp i32 %squares_per_row to float
@@ -50,6 +49,7 @@ entry:
   br i1 %cmp834, label %for.cond10.preheader.lr.ph, label %for.end75
 
 for.cond10.preheader.lr.ph:                       ; preds = %entry
+  %cond = select i1 %cmp, i32 2, i32 0
   %cmp1132 = icmp sgt i32 %squares_per_row, 0
   %div16 = fmul float %div, 5.000000e-01
   %conv17 = sitofp i32 %cond to float

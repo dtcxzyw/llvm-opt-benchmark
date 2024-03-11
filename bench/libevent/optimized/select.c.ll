@@ -419,7 +419,7 @@ for.body:                                         ; preds = %do.end55, %for.inc
 
 if.end85:                                         ; preds = %for.body
   %spec.select = select i1 %cmp64.not, i16 0, i16 2
-  %or80 = or disjoint i16 %spec.select, 4
+  %or80 = select i1 %cmp64.not, i16 4, i16 6
   %res.1 = select i1 %cmp77.not, i16 %spec.select, i16 %or80
   tail call void @evmap_io_active_(ptr noundef %base, i32 noundef %spec.store.select, i16 noundef signext %res.1) #7
   br label %for.inc

@@ -10367,7 +10367,7 @@ define linkonce_odr dso_local noundef float @_ZN16RealInputHandler20getMovementD
   %37 = insertelement <2 x ptr> poison, ptr %14, i64 0
   %38 = insertelement <2 x ptr> %37, ptr %26, i64 1
   %39 = icmp eq <2 x ptr> %38, %36
-  %40 = fadd nsz <2 x float> %33, <float -1.000000e+00, float -1.000000e+00>
+  %40 = select <2 x i1> %32, <2 x float> <float -1.000000e+00, float -1.000000e+00>, <2 x float> zeroinitializer
   %41 = select <2 x i1> %39, <2 x float> %33, <2 x float> %40
   %42 = fcmp nsz une <2 x float> %41, zeroinitializer
   %43 = shufflevector <2 x i1> %42, <2 x i1> poison, <2 x i32> <i32 1, i32 poison>

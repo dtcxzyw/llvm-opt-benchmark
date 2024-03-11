@@ -8513,12 +8513,12 @@ define noundef zeroext i1 @_ZN11hgatp_csr_t14unlogged_writeEm(ptr noundef nonnul
   br i1 %or.cond11, label %34, label %36
 
 34:                                               ; preds = %30, %26, %22, %18
-  %35 = or disjoint i64 %19, -1152921504606846976
+  %35 = select i1 %.not12, i64 -1152903912420802561, i64 -864691128455135233
   br label %36
 
 36:                                               ; preds = %30, %34, %16
   %.0 = phi i64 [ %17, %16 ], [ %35, %34 ], [ %19, %30 ]
-  %37 = and i64 %.0, -4
+  %37 = and i64 %.0, -864691128455135236
   %38 = load ptr, ptr %0, align 8
   %39 = getelementptr inbounds i8, ptr %38, i64 8
   %40 = load ptr, ptr %39, align 8

@@ -1831,7 +1831,7 @@ Abc_TtCopy.exit195:                               ; preds = %.lr.ph.i, %6
   %.0.i.i = select i1 %46, i32 32, i32 0
   %48 = and i64 %.020.i.i, 65535
   %49 = icmp eq i64 %48, 0
-  %50 = or disjoint i32 %.0.i.i, 16
+  %50 = select i1 %46, i32 48, i32 16
   %51 = lshr exact i64 %.020.i.i, 16
   %.121.i.i = select i1 %49, i64 %51, i64 %.020.i.i
   %.1.i.i = select i1 %49, i32 %50, i32 %.0.i.i
@@ -1849,14 +1849,14 @@ Abc_TtCopy.exit195:                               ; preds = %.lr.ph.i, %6
   %.3.i.i = select i1 %57, i32 %58, i32 %.2.i.i
   %60 = and i64 %.323.i.i, 3
   %61 = icmp eq i64 %60, 0
-  %62 = add nuw nsw i32 %.3.i.i, 2
+  %62 = or disjoint i32 %.3.i.i, 2
   %63 = lshr exact i64 %.323.i.i, 2
   %.424.i.i = select i1 %61, i64 %63, i64 %.323.i.i
   %.4.i.i = select i1 %61, i32 %62, i32 %.3.i.i
   %64 = trunc i64 %.424.i.i to i32
   %65 = and i32 %64, 1
   %66 = xor i32 %65, 1
-  %.5.i.i = add i32 %.4.i.i, %44
+  %.5.i.i = add nuw i32 %.4.i.i, %44
   %67 = add i32 %.5.i.i, %66
   br label %Abc_TtFindFirstBit.exit
 

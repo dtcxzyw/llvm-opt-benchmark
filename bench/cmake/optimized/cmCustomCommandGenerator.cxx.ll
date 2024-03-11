@@ -2202,7 +2202,7 @@ _Z11cmHasPrefixSt17basic_string_viewIcSt11char_traitsIcEES2_.exit: ; preds = %86
 
 91:                                               ; preds = %_Z11cmHasPrefixSt17basic_string_viewIcSt11char_traitsIcEES2_.exit
   %92 = getelementptr inbounds i8, ptr %48, i64 %.sroa.06.0.copyload
-  %93 = xor i64 %.sroa.06.0.copyload, -1
+  %93 = select i1 %.sroa.06.0.copyload.b, i64 -18, i64 -1
   %94 = add i64 %.sroa.speculated.i86, %93
   br label %_Z11cmHasPrefixSt17basic_string_viewIcSt11char_traitsIcEES2_.exit100.thread
 
@@ -2227,7 +2227,7 @@ _Z11cmHasPrefixSt17basic_string_viewIcSt11char_traitsIcEES2_.exit100: ; preds = 
 
 99:                                               ; preds = %_Z11cmHasPrefixSt17basic_string_viewIcSt11char_traitsIcEES2_.exit100
   %100 = getelementptr inbounds i8, ptr %48, i64 %.sroa.03.0.copyload
-  %101 = xor i64 %.sroa.03.0.copyload, -1
+  %101 = select i1 %.sroa.03.0.copyload.b, i64 -17, i64 -1
   %102 = add i64 %.sroa.speculated.i86, %101
   br label %_Z11cmHasPrefixSt17basic_string_viewIcSt11char_traitsIcEES2_.exit100.thread
 

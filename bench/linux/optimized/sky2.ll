@@ -10005,7 +10005,7 @@ gm_phy_write.exit:                                ; preds = %233, %245, %239, %2
   %305 = getelementptr inbounds i8, ptr %2, i64 441
   %306 = load i8, ptr %305, align 1
   %307 = icmp eq i8 %306, 5
-  %308 = or disjoint i16 %301, 64
+  %308 = select i1 %300, i16 9054, i16 8798
   %309 = select i1 %307, i16 %308, i16 %301
   br label %310
 
@@ -12363,7 +12363,7 @@ define internal noundef i32 @sky2_change_mtu(ptr noundef %0, i32 noundef %1) #2 
   %143 = select i1 %142, i16 8734, i16 8728
   %144 = load i32, ptr %139, align 8
   %145 = icmp ugt i32 %144, 1500
-  %146 = or disjoint i16 %143, 256
+  %146 = select i1 %142, i16 8990, i16 8984
   %147 = select i1 %145, i16 %146, i16 %143
   %148 = add i32 %94, 10264
   %149 = load ptr, ptr %4, align 8

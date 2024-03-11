@@ -25198,7 +25198,7 @@ if.then39:                                        ; preds = %if.end36
   br i1 %cmp45, label %if.end49, label %if.then46
 
 if.then46:                                        ; preds = %if.then39
-  %or47 = or disjoint i32 %cell_flags.0, 32
+  %or47 = select i1 %cmp41, i32 288, i32 304
   br label %if.end49
 
 if.end49:                                         ; preds = %if.then39, %if.then46, %if.end36
@@ -25207,13 +25207,13 @@ if.end49:                                         ; preds = %if.then39, %if.then
 
 if.then52:                                        ; preds = %if.end49
   %cmp54 = fcmp ugt float %cond5.i45, %2
-  %or56 = or i32 %cell_flags.1, 64
+  %or56 = or disjoint i32 %cell_flags.1, 64
   %cell_flags.2 = select i1 %cmp54, i32 %cell_flags.1, i32 %or56
   %cmp59 = fcmp ult float %cond.i47, %3
   br i1 %cmp59, label %if.end63, label %if.then60
 
 if.then60:                                        ; preds = %if.then52
-  %or61 = or i32 %cell_flags.2, 128
+  %or61 = or disjoint i32 %cell_flags.2, 128
   br label %if.end63
 
 if.end63:                                         ; preds = %if.then52, %if.then60, %if.end49

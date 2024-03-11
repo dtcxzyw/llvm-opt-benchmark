@@ -1229,7 +1229,7 @@ define internal i32 @snd_info_entry_poll(ptr noundef %0, ptr noundef %1) #4 alig
   %21 = getelementptr inbounds i8, ptr %8, i64 24
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
-  %24 = or disjoint i32 %20, 260
+  %24 = select i1 %19, i32 260, i32 325
   %25 = select i1 %23, i32 %20, i32 %24
   br label %26
 

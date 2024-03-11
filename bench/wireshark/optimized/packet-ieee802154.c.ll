@@ -1787,9 +1787,9 @@ define hidden void @dissect_ieee802154_aux_sec_header_and_key(ptr noundef %0, pt
   %22 = getelementptr inbounds i8, ptr %3, i64 104
   %.not = icmp eq i32 %21, 0
   %spec.select = select i1 %.not, i32 5, i32 1
-  %.not69 = icmp ne i32 %13, 0
-  %23 = zext i1 %.not69 to i32
-  %.1 = add nuw nsw i32 %spec.select, %23
+  %.not69 = icmp eq i32 %13, 0
+  %23 = select i1 %.not, i32 6, i32 2
+  %.1 = select i1 %.not69, i32 %spec.select, i32 %23
   %24 = icmp eq i32 %13, 2
   %25 = add nuw nsw i32 %.1, 4
   %.2 = select i1 %24, i32 %25, i32 %.1

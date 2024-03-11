@@ -855,7 +855,7 @@ define internal void @intel_tv_pre_enable(ptr nocapture readnone %0, ptr nocaptu
   %71 = getelementptr inbounds i8, ptr %10, i64 58
   %72 = load i16, ptr %71, align 2
   %73 = icmp eq i16 %72, 0
-  %74 = or disjoint i32 %70, 1073741824
+  %74 = select i1 %69, i32 1073741824, i32 -1073741824
   %75 = select i1 %73, i32 %70, i32 %74
   %76 = getelementptr inbounds i8, ptr %10, i64 60
   %77 = load i16, ptr %76, align 4

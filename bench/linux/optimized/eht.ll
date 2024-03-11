@@ -115,7 +115,7 @@ define dso_local void @ieee80211_eht_cap_ie_to_sta_eht_cap(ptr nocapture noundef
   %63 = select i1 %62, i8 0, i8 3
   %64 = and i8 %55, 8
   %65 = icmp eq i8 %64, 0
-  %66 = add nuw nsw i8 %63, 3
+  %66 = select i1 %62, i8 3, i8 6
   %67 = select i1 %65, i8 %63, i8 %66
   %68 = getelementptr inbounds i8, ptr %4, i64 2
   %69 = load i8, ptr %68, align 1

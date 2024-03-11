@@ -10673,7 +10673,7 @@ invoke.cont36:                                    ; preds = %invoke.cont34
   %add.i40 = add nuw i64 %div.i, 1
   %mul = mul i64 %add.i40, %call.i.i4344
   %add38 = add i64 %mul, %add32
-  %16 = and i8 %flags.0, 8
+  %16 = shl nuw nsw i8 %2, 3
   br label %if.end41
 
 if.end41:                                         ; preds = %invoke.cont36, %if.end30

@@ -127611,7 +127611,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3vcg3tri18IsotropicRemeshingI6CMeshOE
   %37 = trunc i64 %36 to i32
   %38 = sub nsw i32 %..i, %37
   %39 = call i32 @llvm.abs.i32(i32 %38, i1 true)
-  %.neg156 = or disjoint i32 %..i, 1
+  %.neg156 = select i1 %29, i32 5, i32 7
   %40 = sub i32 %.neg156, %37
   %41 = call i32 @llvm.abs.i32(i32 %40, i1 true)
   %42 = getelementptr inbounds %"struct.vcg::face::vector_ocf<CFaceO>::AdjTypePack", ptr %28, i64 %.pre-phi174
@@ -127769,7 +127769,7 @@ _ZN3vcg3tri18IsotropicRemeshingI6CMeshOE12idealValenceERKNS_4face3PosI6CFaceOEE.
   %135 = sub nsw i32 %..i66, %134
   %136 = call i32 @llvm.abs.i32(i32 %135, i1 true)
   %137 = add nuw nsw i32 %91, %136
-  %.neg158 = or disjoint i32 %..i66, 1
+  %.neg158 = select i1 %127, i32 5, i32 7
   %138 = sub i32 %.neg158, %134
   %139 = call i32 @llvm.abs.i32(i32 %138, i1 true)
   %140 = add nuw nsw i32 %94, %139

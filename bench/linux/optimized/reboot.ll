@@ -327,8 +327,8 @@ define internal void @native_machine_emergency_restart() #0 align 16 {
   %39 = icmp eq i32 %38, 1
   %40 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 3321) #6, !srcloc !8
   %41 = select i1 %39, i8 6, i8 14
-  %42 = xor i8 %41, -1
-  %43 = and i8 %40, %42
+  %42 = select i1 %39, i8 -7, i8 -15
+  %43 = and i8 %42, %40
   %44 = or disjoint i8 %43, 2
   tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %44, i16 3321) #6, !srcloc !12
   tail call void @__const_udelay(i64 noundef 214750) #6

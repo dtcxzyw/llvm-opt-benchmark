@@ -288,7 +288,7 @@ define dso_local i32 @acpi_get_event_status(i32 noundef %0, ptr noundef writeonl
   %24 = icmp eq i32 %18, 0
   %25 = icmp eq ptr %10, null
   %26 = select i1 %25, i32 0, i32 16
-  %27 = or disjoint i32 %26, 9
+  %27 = select i1 %25, i32 9, i32 25
   %28 = select i1 %24, i32 %26, i32 %27
   %29 = load i32, ptr %3, align 4
   %30 = icmp eq i32 %29, 0

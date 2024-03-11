@@ -77,7 +77,7 @@ define dso_local i32 @gen6_emit_flush_rcs(ptr noundef %0, i32 noundef %1) local_
   %45 = and i64 %42, 2
   %46 = icmp eq i64 %45, 0
   %47 = select i1 %46, i32 0, i32 1052673
-  %48 = or i32 %47, 1330204
+  %48 = select i1 %46, i32 1330204, i32 1334301
   %49 = select i1 %44, i32 %47, i32 %48
   %50 = getelementptr i8, ptr %36, i64 4
   store i32 2046820354, ptr %36, align 4
@@ -308,7 +308,7 @@ define dso_local i32 @gen7_emit_flush_rcs(ptr noundef %0, i32 noundef %1) local_
   br i1 %21, label %30, label %22
 
 22:                                               ; preds = %2
-  %23 = or disjoint i32 %19, 330780
+  %23 = select i1 %18, i32 18172956, i32 18177213
   %24 = tail call ptr @intel_ring_begin(ptr noundef %0, i32 noundef 4) #4
   %25 = icmp ugt ptr %24, inttoptr (i64 -4096 to ptr)
   br i1 %25, label %30, label %26

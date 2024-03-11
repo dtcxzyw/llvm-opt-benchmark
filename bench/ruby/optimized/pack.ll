@@ -3167,7 +3167,7 @@ RSTRING_PTR.exit977:                              ; preds = %._crit_edge1681, %2
   %.1802 = select i1 %.not912, i32 %.0801, i32 %304
   %.not914 = icmp eq i32 %.1802, 0
   %305 = select i1 %.not914, i32 34, i32 17
-  %306 = or disjoint i32 %305, 128
+  %306 = select i1 %.not914, i32 162, i32 145
   %spec.select932 = select i1 %.not915, i32 %305, i32 %306
   br label %307
 

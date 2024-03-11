@@ -756,7 +756,7 @@ define dso_local ptr @rb_load_file(ptr noundef nonnull %0) local_unnamed_addr #2
   %.not.i.i.i.i = icmp eq i32 %7, %8
   %spec.select.i.i = select i1 %.not.i.i.i.i, i16 0, i16 1024
   %.not5.i.i.i.i = icmp eq i32 %10, %9
-  %11 = or disjoint i16 %spec.select.i.i, 2048
+  %11 = select i1 %.not.i.i.i.i, i16 2048, i16 3072
   %12 = select i1 %.not5.i.i.i.i, i16 %spec.select.i.i, i16 %11
   %13 = load ptr, ptr @ruby_current_vm_ptr, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 1192
@@ -808,7 +808,7 @@ define dso_local ptr @rb_load_file_str(i64 noundef %0) local_unnamed_addr #2 {
   %.not.i.i.i = icmp eq i32 %6, %7
   %spec.select.i = select i1 %.not.i.i.i, i16 0, i16 1024
   %.not5.i.i.i = icmp eq i32 %9, %8
-  %10 = or disjoint i16 %spec.select.i, 2048
+  %10 = select i1 %.not.i.i.i, i16 2048, i16 3072
   %11 = select i1 %.not5.i.i.i, i16 %spec.select.i, i16 %10
   %12 = load ptr, ptr @ruby_current_vm_ptr, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 1192
@@ -857,7 +857,7 @@ cmdline_options_init.exit:
   %.not.i.i = icmp eq i32 %5, %6
   %spec.select = select i1 %.not.i.i, i16 0, i16 1024
   %.not5.i.i = icmp eq i32 %8, %7
-  %9 = or disjoint i16 %spec.select, 2048
+  %9 = select i1 %.not.i.i, i16 2048, i16 3072
   %10 = select i1 %.not5.i.i, i16 %spec.select, i16 %9
   %11 = load ptr, ptr @ruby_current_vm_ptr, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 1192

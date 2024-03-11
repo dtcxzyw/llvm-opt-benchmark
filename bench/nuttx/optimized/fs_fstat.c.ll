@@ -76,7 +76,7 @@ define i32 @file_fstat(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br i1 %.not16.i, label %41, label %39
 
 39:                                               ; preds = %31
-  %40 = or disjoint i32 %spec.store.select.i, 146
+  %40 = select i1 %.not15.i, i32 24722, i32 25014
   store i32 %40, ptr %32, align 8
   br label %41
 

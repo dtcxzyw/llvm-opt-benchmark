@@ -737,8 +737,8 @@ define internal fastcc noundef i32 @write_current_packet(i32 noundef %0) unnamed
   %178 = icmp eq i32 %177, 0
   %spec.store.select = select i1 %178, i8 2, i8 0
   %.not184 = icmp eq i32 %0, 0
-  %179 = zext i1 %.not184 to i8
-  %spec.select234 = or disjoint i8 %spec.store.select, %179
+  %179 = select i1 %178, i8 3, i8 1
+  %spec.select234 = select i1 %.not184, i8 %179, i8 %spec.store.select
   store i8 0, ptr @HDR_DATA_CHUNK, align 4
   store i8 %spec.select234, ptr getelementptr inbounds (%struct.hdr_data_chunk_t, ptr @HDR_DATA_CHUNK, i64 0, i32 1), align 1
   %180 = load i32, ptr @curr_offset, align 4

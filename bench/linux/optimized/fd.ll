@@ -399,7 +399,7 @@ define internal ptr @proc_fd_instantiate(ptr noundef %0, ptr noundef %1, ptr noc
   %24 = select i1 %23, i16 -24576, i16 -24256
   %25 = and i32 %15, 2
   %26 = icmp eq i32 %25, 0
-  %27 = or i16 %24, 192
+  %27 = select i1 %23, i16 -24384, i16 -24128
   %28 = select i1 %26, i16 %24, i16 %27
   store i16 %28, ptr %6, align 8
   br label %29
@@ -564,7 +564,7 @@ define internal noundef i32 @tid_fd_revalidate(ptr nocapture noundef readonly %0
   %28 = select i1 %27, i16 -24576, i16 -24256
   %29 = and i32 %19, 2
   %30 = icmp eq i32 %29, 0
-  %31 = or i16 %28, 192
+  %31 = select i1 %27, i16 -24384, i16 -24128
   %32 = select i1 %30, i16 %28, i16 %31
   store i16 %32, ptr %7, align 8
   br label %33

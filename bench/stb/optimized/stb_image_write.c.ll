@@ -826,7 +826,7 @@ if.then7:                                         ; preds = %if.end
   br label %return
 
 if.else:                                          ; preds = %if.end
-  %add9 = or disjoint i32 %cond3, 8
+  %add9 = select i1 %cmp2, i32 11, i32 10
   %add10 = add nsw i32 %cond, %lor.ext
   %mul11 = shl nsw i32 %add10, 3
   %mul12 = select i1 %0, i32 8, i32 0

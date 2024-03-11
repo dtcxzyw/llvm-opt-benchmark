@@ -5339,11 +5339,11 @@ define dso_local i32 @xhci_queue_ctrl_tx(ptr noundef %0, i32 noundef %1, ptr nou
   br i1 %58, label %61, label %59
 
 59:                                               ; preds = %56
-  %60 = or disjoint i32 %44, 196608
+  %60 = select i1 %43, i32 198721, i32 198720
   br label %63
 
 61:                                               ; preds = %56
-  %62 = or disjoint i32 %44, 131072
+  %62 = select i1 %43, i32 133185, i32 133184
   br label %63
 
 63:                                               ; preds = %61, %59, %53, %48

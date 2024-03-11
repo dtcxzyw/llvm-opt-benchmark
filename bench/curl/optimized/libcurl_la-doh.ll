@@ -1430,7 +1430,6 @@ for.cond.preheader.i:                             ; preds = %showdoh.exit
 
 for.body.lr.ph.i73:                               ; preds = %for.cond.preheader.i
   %addr2.i = getelementptr inbounds i8, ptr %de, i64 128
-  %add6.i = add i64 %call.i68, 49
   %conv29.i = trunc i32 %86 to i16
   br label %for.body.i74
 
@@ -1443,7 +1442,8 @@ for.body.i74:                                     ; preds = %sw.epilog.i, %for.b
   %cmp3.i = icmp eq i32 %87, 28
   %..i = select i1 %cmp3.i, i64 28, i64 16
   %88 = load ptr, ptr @Curl_ccalloc, align 8
-  %add7.i = add i64 %add6.i, %..i
+  %add6.i = select i1 %cmp3.i, i64 76, i64 64
+  %add7.i = add i64 %add6.i, %add.i69
   %call8.i = call ptr %88(i64 noundef 1, i64 noundef %add7.i) #8
   %tobool9.not.i = icmp eq ptr %call8.i, null
   br i1 %tobool9.not.i, label %if.then42.i, label %if.end11.i

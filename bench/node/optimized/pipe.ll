@@ -716,7 +716,7 @@ if.end23:                                         ; preds = %if.end18
   %tobool.not = icmp eq i32 %and, 0
   %spec.select = select i1 %tobool.not, i32 0, i32 292
   %tobool27.not = icmp ult i32 %mode, 2
-  %or29 = or disjoint i32 %spec.select, 146
+  %or29 = select i1 %tobool.not, i32 146, i32 438
   %desired_mode.1 = select i1 %tobool27.not, i32 %spec.select, i32 %or29
   %st_mode = getelementptr inbounds i8, ptr %pipe_stat, i64 24
   %8 = load i32, ptr %st_mode, align 8
@@ -773,9 +773,7 @@ if.then4:                                         ; preds = %entry
   br label %return
 
 if.end6:                                          ; preds = %entry
-  %and7 = and i32 %flags.0, 2048
-  %tobool8.not = icmp eq i32 %and7, 0
-  br i1 %tobool8.not, label %if.end13, label %if.then9
+  br i1 %or.cond.not.not, label %if.end13, label %if.then9
 
 if.then9:                                         ; preds = %if.end6
   %2 = load <2 x i32>, ptr %temp, align 8

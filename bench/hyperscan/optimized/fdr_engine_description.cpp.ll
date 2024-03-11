@@ -293,10 +293,11 @@ if.end52.thread:                                  ; preds = %if.else35, %if.else
 
 if.end52:                                         ; preds = %invoke.cont18
   %cmp32 = icmp eq i64 %stride.071, 1
+  %.43 = select i1 %cmp32, i32 8, i32 10
   %10 = load i32, ptr %schemeWidth59, align 4
   %cmp55 = icmp eq i32 %10, 32
-  %add57 = zext i1 %cmp55 to i32
-  %spec.select = or disjoint i32 %add57, 10
+  %add57 = select i1 %cmp32, i32 9, i32 11
+  %spec.select = select i1 %cmp55, i32 %add57, i32 %.43
   %spec.select64 = select i1 %cmp32, i32 8, i32 %spec.select
   br label %11
 

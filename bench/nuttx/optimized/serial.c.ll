@@ -1633,9 +1633,9 @@ define internal i32 @uart_poll(ptr nocapture noundef readonly %0, ptr noundef %1
   %39 = load volatile i16, ptr %38, align 8
   %40 = getelementptr inbounds i8, ptr %8, i64 258
   %41 = load volatile i16, ptr %40, align 2
-  %.not41 = icmp ne i16 %39, %41
-  %42 = zext i1 %.not41 to i32
-  %.1 = or disjoint i32 %spec.select, %42
+  %.not41 = icmp eq i16 %39, %41
+  %42 = select i1 %.not40, i32 1, i32 5
+  %.1 = select i1 %.not41, i32 %spec.select, i32 %42
   %43 = tail call i32 @nxmutex_unlock(ptr noundef nonnull %36) #5
   call void @poll_notify(ptr noundef nonnull %4, i32 noundef 1, i32 noundef %.1) #5
   br label %48

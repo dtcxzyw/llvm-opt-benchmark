@@ -4161,7 +4161,7 @@ define internal fastcc noundef i32 @uv__fs_statx(i32 noundef %0, ptr noundef %1,
   %spec.select = select i1 %.not, i32 0, i32 4096
   %spec.select38 = select i1 %.not, i32 -100, i32 %0
   %.not33 = icmp eq i32 %3, 0
-  %8 = or disjoint i32 %spec.select, 256
+  %8 = select i1 %.not, i32 256, i32 4352
   %.1 = select i1 %.not33, i32 %spec.select, i32 %8
   %9 = call i32 @uv__statx(i32 noundef %spec.select38, ptr noundef %1, i32 noundef %.1, i32 noundef 4095, ptr noundef nonnull %6) #16
   switch i32 %9, label %13 [

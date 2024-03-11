@@ -1645,7 +1645,7 @@ update_offset.exit:                               ; preds = %275, %278
   %285 = load i32, ptr %272, align 4
   %.not36.i = icmp eq i32 %285, 0
   %286 = select i1 %.not36.i, i64 1, i64 2
-  %287 = add nuw nsw i64 %286, 1
+  %287 = select i1 %.not36.i, i64 2, i64 3
   %288 = tail call fastcc ptr @ensure(ptr noundef nonnull %1, i64 noundef %287)
   %289 = icmp eq ptr %288, null
   br i1 %289, label %print_array.exit, label %290
@@ -1693,7 +1693,7 @@ update_offset.exit:                               ; preds = %275, %278
   %308 = load i32, ptr %307, align 4
   %.not.i64 = icmp eq i32 %308, 0
   %309 = select i1 %.not.i64, i64 1, i64 2
-  %310 = add nuw nsw i64 %309, 1
+  %310 = select i1 %.not.i64, i64 2, i64 3
   %311 = tail call fastcc ptr @ensure(ptr noundef nonnull %1, i64 noundef %310)
   %312 = icmp eq ptr %311, null
   br i1 %312, label %print_array.exit, label %313

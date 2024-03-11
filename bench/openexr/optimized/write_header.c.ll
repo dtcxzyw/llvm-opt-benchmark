@@ -49,7 +49,7 @@ entry:
   %max_name_length = getelementptr inbounds i8, ptr %ctxt, i64 2
   %1 = load i8, ptr %max_name_length, align 2
   %cmp = icmp ugt i8 %1, 31
-  %or3 = or disjoint i32 %spec.select, 1024
+  %or3 = select i1 %tobool.not, i32 1026, i32 5122
   %flags.1 = select i1 %cmp, i32 %or3, i32 %spec.select
   %has_nonimage_data = getelementptr inbounds i8, ptr %ctxt, i64 4
   %2 = load i8, ptr %has_nonimage_data, align 4
@@ -76,8 +76,7 @@ for.cond.preheader:                               ; preds = %entry
   %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
   %parts = getelementptr inbounds i8, ptr %ctxt, i64 472
   %legacy_header = getelementptr inbounds i8, ptr %ctxt, i64 545
-  %and = and i32 %flags.3.fr, 6144
-  %cmp33 = icmp eq i32 %and, 0
+  %cmp33 = icmp ult i32 %flags.3.fr, 2048
   br i1 %cmp33, label %land.rhs.us, label %land.rhs
 
 land.rhs.us:                                      ; preds = %for.cond.preheader, %for.inc80.us

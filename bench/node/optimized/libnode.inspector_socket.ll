@@ -2367,8 +2367,8 @@ for.body.i.i:                                     ; preds = %if.then46.i.i, %for
   br i1 %exitcond.not.i.i, label %if.end68.i.i, label %for.body.i.i, !llvm.loop !22
 
 if.end68.i.i:                                     ; preds = %for.body.i.i
-  %8 = getelementptr i8, ptr %1, i64 %conv58.i.i
-  %scevgep.i = getelementptr i8, ptr %8, i64 2
+  %8 = select i1 %cmp47.i.i, i64 4, i64 10
+  %scevgep.i = getelementptr i8, ptr %1, i64 %8
   %cmp69.i.i = icmp slt i64 %or.i.i, 0
   br i1 %cmp69.i.i, label %if.then.i, label %if.end73.i.i
 

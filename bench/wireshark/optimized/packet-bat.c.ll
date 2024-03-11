@@ -457,7 +457,7 @@ define internal i32 @dissect_bat_gw(ptr noundef %0, ptr noundef %1, ptr noundef 
 ._crit_edge:                                      ; preds = %20, %21, %30
   %33 = icmp ne i8 %8, 1
   %or.cond3 = and i1 %33, %15
-  %34 = add nuw nsw i32 %., 4
+  %34 = select i1 %cond, i32 17, i32 5
   %spec.select = select i1 %or.cond3, i32 %34, i32 1
   %35 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %spec.select) #2
   %36 = icmp sgt i32 %35, 0

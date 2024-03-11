@@ -1786,7 +1786,7 @@ define internal i32 @i801_access(ptr nocapture noundef readonly %0, i16 noundef 
   %316 = zext i1 %97 to i8
   store i8 %316, ptr %315, align 2
   %317 = icmp eq i8 %306, 1
-  %318 = or disjoint i32 %310, 32
+  %318 = select i1 %309, i32 56, i32 52
   %319 = select i1 %97, i32 %318, i32 20
   %320 = select i1 %317, i32 %319, i32 %310
   %321 = trunc i32 %320 to i8
@@ -1827,7 +1827,7 @@ define internal i32 @i801_access(ptr nocapture noundef readonly %0, i16 noundef 
 345:                                              ; preds = %303
   %346 = icmp eq i8 %306, 1
   %347 = and i1 %97, %346
-  %348 = or disjoint i32 %310, 32
+  %348 = select i1 %309, i32 56, i32 52
   %349 = select i1 %347, i32 %348, i32 %310
   %350 = trunc i32 %349 to i8
   %351 = or disjoint i8 %350, 64

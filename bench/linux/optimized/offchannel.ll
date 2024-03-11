@@ -1215,7 +1215,7 @@ define dso_local i32 @ieee80211_mgmt_tx(ptr nocapture noundef readnone %0, ptr n
   %14 = getelementptr inbounds i8, ptr %2, i64 32
   %15 = load i8, ptr %14, align 8, !range !6, !noundef !7
   %16 = icmp eq i8 %15, 0
-  %17 = or disjoint i32 %13, 134217728
+  %17 = select i1 %12, i32 136314881, i32 134217732
   %18 = select i1 %16, i32 %13, i32 %17
   %19 = getelementptr i8, ptr %1, i64 4040
   %20 = load i32, ptr %19, align 8

@@ -506,11 +506,11 @@ if.end38.i.i.i.i:                                 ; preds = %land.lhs.true32.i.i
   %39 = and i32 %retval.sroa.0.0.copyload.i39.i.i.i.i, 960
   %.not94.i.i.i.i = icmp eq i32 %39, 0
   %or.cond95.i.i.i.i = select i1 %.not.i.i.i.i, i1 true, i1 %.not94.i.i.i.i
-  %mayBeBigInt.sroa.0.0.i.i.i.i = select i1 %or.cond95.i.i.i.i, i32 458784, i32 458848
   %call51.i.i.i.i = call noundef zeroext i1 @_ZN6hermes16isSideEffectFreeENS_4TypeE(i32 %retval.sroa.0.0.copyload.i.i.i71.i.i) #7
   br i1 %call51.i.i.i.i, label %land.lhs.true52.i.i.i.i, label %if.end62.i.i.i.i
 
 land.lhs.true52.i.i.i.i:                          ; preds = %if.end38.i.i.i.i
+  %mayBeBigInt.sroa.0.0.i.i.i.i = select i1 %or.cond95.i.i.i.i, i32 458784, i32 458848
   %call54.i.i.i.i = call noundef zeroext i1 @_ZN6hermes16isSideEffectFreeENS_4TypeE(i32 %retval.sroa.0.0.copyload.i39.i.i.i.i) #7
   %call54.not.i.i.i.i = xor i1 %call54.i.i.i.i, true
   %not.i.i.i.i.i.i.i = and i32 %retval.sroa.0.0.copyload.i.i.i71.i.i, 16
@@ -522,7 +522,7 @@ land.lhs.true52.i.i.i.i:                          ; preds = %if.end38.i.i.i.i
   br i1 %or.cond93.i.i.i.i, label %if.end62.i.i.i.i, label %return.sink.split.i.i.i.i
 
 if.end62.i.i.i.i:                                 ; preds = %land.lhs.true52.i.i.i.i, %if.end38.i.i.i.i
-  %conv1.i52.i.i.i.i = or i32 %mayBeBigInt.sroa.0.0.i.i.i.i, 458768
+  %conv1.i52.i.i.i.i = select i1 %or.cond95.i.i.i.i, i32 458800, i32 458864
   br label %return.sink.split.i.i.i.i
 
 sw.bb69.i.i.i.i:                                  ; preds = %sw.bb.i.i.i, %sw.bb.i.i.i, %sw.bb.i.i.i

@@ -19387,7 +19387,7 @@ define internal noundef i32 @dissect_nbap_heur(ptr noundef %0, ptr noundef %1, p
   %. = select i1 %23, i32 4, i32 5
   %24 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.) #7
   %25 = zext i8 %24 to i32
-  %26 = add nuw nsw i32 %., 1
+  %26 = select i1 %23, i32 5, i32 6
   %.not31 = icmp sgt i8 %24, -1
   br i1 %.not31, label %37, label %27
 
@@ -19402,7 +19402,7 @@ define internal noundef i32 @dissect_nbap_heur(ptr noundef %0, ptr noundef %1, p
   %33 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %26) #7
   %34 = zext i8 %33 to i32
   %35 = or disjoint i32 %32, %34
-  %36 = or disjoint i32 %., 2
+  %36 = select i1 %23, i32 6, i32 7
   br label %37
 
 37:                                               ; preds = %27, %30, %20

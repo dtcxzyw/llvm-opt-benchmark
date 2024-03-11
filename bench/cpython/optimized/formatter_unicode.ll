@@ -1496,7 +1496,7 @@ if.end:                                           ; preds = %entry
   %no_neg_0 = getelementptr inbounds i8, ptr %format, i64 12
   %4 = load i32, ptr %no_neg_0, align 4
   %tobool6.not = icmp eq i32 %4, 0
-  %or8 = or disjoint i32 %spec.select, 8
+  %or8 = select i1 %tobool.not, i32 8, i32 12
   %flags.1 = select i1 %tobool6.not, i32 %spec.select, i32 %or8
   %cmp10 = icmp eq i32 %0, 0
   %or13 = or disjoint i32 %flags.1, 2
@@ -1989,7 +1989,7 @@ if.end24.i:                                       ; preds = %land.lhs.true20.i, 
   %no_neg_0.i = getelementptr inbounds i8, ptr %format, i64 12
   %10 = load i32, ptr %no_neg_0.i, align 4
   %tobool28.not.i = icmp eq i32 %10, 0
-  %or30.i = or disjoint i32 %spec.select.i, 8
+  %or30.i = select i1 %tobool25.not.i, i32 8, i32 12
   %flags.1.i = select i1 %tobool28.not.i, i32 %spec.select.i, i32 %or30.i
   switch i32 %2, label %12 [
     i32 0, label %if.then34.i

@@ -176,7 +176,7 @@ for.body82:                                       ; preds = %for.cond79.preheade
   %conv2.i = zext i8 %10 to i32
   %11 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %conv.i59) #5, !srcloc !7
   %and.i.i60 = and i32 %11, %conv1.i
-  %not.i.i61 = xor i32 %conv.i59, -1
+  %not.i.i61 = select i1 %isneg, i32 -256, i32 -1
   %12 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %not.i.i61) #5, !srcloc !7
   %and2.i.i = and i32 %12, %conv2.i
   %or.i.i = or i32 %and2.i.i, %and.i.i60

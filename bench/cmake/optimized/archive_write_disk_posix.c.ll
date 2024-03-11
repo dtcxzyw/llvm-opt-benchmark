@@ -845,7 +845,7 @@ cleanup_pathname.exit:                            ; preds = %52
   br i1 %.not188, label %89, label %82
 
 82:                                               ; preds = %79
-  %83 = or disjoint i32 %spec.store.select, 402653184
+  %83 = select i1 %.not187, i32 2013265920, i32 2113929216
   store i32 %83, ptr %75, align 8
   br label %89
 
@@ -865,7 +865,7 @@ cleanup_pathname.exit:                            ; preds = %52
 
 92:                                               ; preds = %89
   %93 = and i32 %76, 5
-  %simplifycfg.merge = or i32 %90, %93
+  %simplifycfg.merge = or disjoint i32 %90, %93
   store i32 %simplifycfg.merge, ptr %75, align 8
   br label %94
 

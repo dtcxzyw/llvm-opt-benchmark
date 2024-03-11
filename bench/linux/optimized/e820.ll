@@ -1675,7 +1675,7 @@ define dso_local void @e820__reserve_resources() local_unnamed_addr #3 section "
   ]
 
 45:                                               ; preds = %43, %.preheader4
-  %46 = or disjoint i64 %38, 2147483648
+  %46 = select i1 %37, i64 2164261376, i64 2147484160
   store i64 %46, ptr %39, align 8
   %47 = tail call i32 @insert_resource(ptr noundef nonnull @iomem_resource, ptr noundef %21) #17
   br label %48

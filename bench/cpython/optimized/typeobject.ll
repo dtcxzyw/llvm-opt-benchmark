@@ -19170,7 +19170,7 @@ _PyVectorcall_FunctionInline.exit.i.i:            ; preds = %if.then5
   br i1 %cmp.i.i20, label %if.then.i.i, label %if.end.i.i21
 
 if.then.i.i:                                      ; preds = %_PyVectorcall_FunctionInline.exit.i.i, %if.then5
-  %and.i.i.i = and i64 %nargsf.0.i, 3
+  %and.i.i.i = select i1 %tobool.not.i, i64 1, i64 2
   %call2.i.i = call ptr @_PyObject_MakeTpCall(ptr noundef %1, ptr noundef nonnull %retval.0.i, ptr noundef nonnull %args.addr.0.idx.i.sroa.sel, i64 noundef %and.i.i.i, ptr noundef null) #20
   br label %vectorcall_unbound.exit
 

@@ -1303,7 +1303,7 @@ define internal i32 @dissect_l2tp_udp(ptr noundef %0, ptr noundef %1, ptr nounde
 
 .critedge:                                        ; preds = %109
   %.mux189 = select i1 %72, i32 4, i32 2
-  %121 = add nuw nsw i32 %.mux189, 4
+  %121 = select i1 %72, i32 8, i32 6
   %122 = and i32 %9, 2048
   %.not173 = icmp eq i32 %122, 0
   br i1 %.not173, label %.thread214, label %135

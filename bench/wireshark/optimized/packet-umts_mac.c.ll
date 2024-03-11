@@ -2089,13 +2089,13 @@ define internal i32 @dissect_mac_fdd_hsdsch(ptr noundef %0, ptr noundef %1, ptr 
   %54 = getelementptr inbounds i8, ptr %47, i64 256
   %55 = getelementptr [64 x i8], ptr %54, i64 0, i64 %27
   store i8 %53, ptr %55, align 1
-  %56 = add nuw nsw i8 %20, 4
+  %56 = select i1 %19, i8 4, i8 8
   br label %57
 
 57:                                               ; preds = %30, %23
   %.0130 = phi i8 [ %56, %30 ], [ %20, %23 ]
   %58 = zext nneg i8 %.0130 to i32
-  %59 = and i32 %58, 7
+  %59 = and i32 %58, 4
   %60 = icmp eq i32 %59, 0
   br i1 %60, label %61, label %64
 

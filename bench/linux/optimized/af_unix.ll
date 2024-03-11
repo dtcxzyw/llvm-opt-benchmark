@@ -2925,7 +2925,7 @@ define internal i32 @unix_poll(ptr noundef %0, ptr noundef %1, ptr noundef %2) #
   %17 = icmp eq i32 %16, 0
   %18 = select i1 %17, i32 0, i32 8
   %19 = icmp eq i8 %14, 3
-  %20 = or disjoint i32 %18, 16
+  %20 = select i1 %17, i32 16, i32 24
   %21 = select i1 %19, i32 %20, i32 %18
   %22 = and i8 %14, 1
   %23 = icmp eq i8 %22, 0

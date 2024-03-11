@@ -3565,7 +3565,7 @@ define dso_local void @vlv_display_irq_postinstall(ptr noundef %0) local_unnamed
   %35 = icmp eq i32 %34, 0
   %36 = select i1 %35, i32 3276880, i32 3281488
   %37 = getelementptr inbounds i8, ptr %0, i64 7368
-  %38 = xor i32 %36, -1
+  %38 = select i1 %35, i32 -3276881, i32 -3281489
   store i32 %38, ptr %18, align 8
   tail call void @gen3_irq_init(ptr noundef %37, i32 1581224, i32 noundef %38, i32 1581216, i32 noundef %36, i32 1581220) #8
   ret void
@@ -3936,7 +3936,7 @@ define dso_local void @ilk_de_irq_postinstall(ptr noundef %0) local_unnamed_addr
 
 12:                                               ; preds = %1
   tail call void @gen3_assert_iir_is_zero(ptr noundef %2, i32 411704) #8
-  %13 = or disjoint i32 %7, 524288
+  %13 = select i1 %5, i32 -1274544128, i32 -2135161852
   %.pre = load i32, ptr %8, align 4
   br label %14
 

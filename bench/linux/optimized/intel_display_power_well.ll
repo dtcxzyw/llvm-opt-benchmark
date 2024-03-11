@@ -1920,7 +1920,7 @@ lookup_power_well.exit3:                          ; preds = %.preheader.i2, %67
   %78 = getelementptr i8, ptr %0, i64 3277
   %79 = load i8, ptr %78, align 1, !range !19, !noundef !20
   %80 = icmp eq i8 %79, 0
-  %81 = and i32 %77, -8
+  %81 = select i1 %76, i32 -512, i32 -8
   %82 = select i1 %80, i32 %81, i32 %77
   %83 = load ptr, ptr %70, align 8
   %84 = load ptr, ptr %83, align 8
@@ -1955,7 +1955,7 @@ lookup_power_well.exit3:                          ; preds = %.preheader.i2, %67
   %109 = getelementptr inbounds i8, ptr %0, i64 7512
   %110 = load ptr, ptr %109, align 8
   %111 = tail call i32 %110(ptr noundef %108, i32 %107, i1 noundef zeroext true) #9
-  %112 = or disjoint i32 %99, 8
+  %112 = select i1 %98, i32 -2147483576, i32 -2147483640
   %113 = icmp slt i32 %111, 0
   %114 = select i1 %113, i32 %99, i32 %112
   br label %115

@@ -486,7 +486,7 @@ define dso_local i32 @parse_rock_ridge_inode(ptr noundef %0, ptr noundef %1, i32
   br i1 %18, label %19, label %22
 
 19:                                               ; preds = %14
-  %20 = or disjoint i32 %5, 1
+  %20 = select i1 %4, i32 1, i32 3
   %21 = tail call fastcc i32 @parse_rock_ridge_inode_internal(ptr noundef %0, ptr noundef %1, i32 noundef %20)
   br label %22
 

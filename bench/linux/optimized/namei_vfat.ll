@@ -1973,7 +1973,7 @@ define internal fastcc i32 @vfat_add_entry(ptr noundef %0, ptr nocapture noundef
   %411 = icmp eq i8 %406, 1
   %412 = select i1 %411, i8 8, i8 0
   %413 = icmp eq i8 %408, 1
-  %414 = or disjoint i8 %412, 16
+  %414 = select i1 %411, i8 24, i8 16
   %415 = select i1 %413, i8 %414, i8 %412
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %14) #17
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %13) #17

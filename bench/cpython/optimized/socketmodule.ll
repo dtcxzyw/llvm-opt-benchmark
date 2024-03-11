@@ -9324,7 +9324,7 @@ entry:
   %conv.i34 = select i1 %tobool.not.i33, i16 1, i16 4
   %events.i35 = getelementptr inbounds i8, ptr %pollfd.i30, i64 4
   %tobool2.not.i36 = icmp eq i32 %connect, 0
-  %1 = or disjoint i16 %conv.i34, 8
+  %1 = select i1 %tobool.not.i33, i16 9, i16 12
   %spec.select.i37 = select i1 %tobool2.not.i36, i16 %conv.i34, i16 %1
   %events.i = getelementptr inbounds i8, ptr %pollfd.i, i64 4
   %tobool19.not = icmp eq ptr %err, null

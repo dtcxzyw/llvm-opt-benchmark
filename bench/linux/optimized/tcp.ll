@@ -492,7 +492,7 @@ define dso_local i32 @tcp_poll(ptr noundef %0, ptr noundef %1, ptr noundef %2) #
   %29 = select i1 %28, i32 16, i32 0
   %30 = and i32 %25, 1
   %31 = icmp eq i32 %30, 0
-  %32 = or disjoint i32 %29, 8257
+  %32 = select i1 %28, i32 8273, i32 8257
   %33 = select i1 %31, i32 %29, i32 %32
   switch i8 %.0..0..0..0., label %38 [
     i8 3, label %34

@@ -2819,17 +2819,17 @@ define internal i32 @ngsniffer_dump(ptr noundef %0, ptr noundef %1, ptr noundef 
   ]
 
 132:                                              ; preds = %126
-  %133 = or disjoint i8 %128, 24
+  %133 = select i1 %.not72, i8 24, i8 -104
   store i8 %133, ptr %129, align 2
   br label %140
 
 134:                                              ; preds = %126
-  %135 = or disjoint i8 %128, 8
+  %135 = select i1 %.not72, i8 8, i8 -120
   store i8 %135, ptr %129, align 2
   br label %140
 
 136:                                              ; preds = %126
-  %137 = or disjoint i8 %128, 16
+  %137 = select i1 %.not72, i8 16, i8 -112
   store i8 %137, ptr %129, align 2
   br label %140
 

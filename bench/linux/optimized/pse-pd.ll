@@ -80,7 +80,7 @@ define internal i32 @pse_reply_size(ptr nocapture readnone %0, ptr nocapture nou
   %7 = getelementptr inbounds i8, ptr %1, i64 12
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq i32 %8, 0
-  %10 = add nuw nsw i32 %6, 8
+  %10 = select i1 %5, i32 8, i32 16
   %11 = select i1 %9, i32 %6, i32 %10
   ret i32 %11
 }

@@ -5470,7 +5470,7 @@ define dso_local void @ieee80211_rx_list(ptr noundef %0, ptr noundef %1, ptr nou
   %173 = select i1 %172, i32 0, i32 12
   %174 = and i32 %157, 134217728
   %175 = icmp eq i32 %174, 0
-  %176 = add nuw nsw i32 %173, 12
+  %176 = select i1 %172, i32 12, i32 24
   %177 = select i1 %175, i32 %173, i32 %176
   %178 = lshr i32 %157, 26
   %179 = and i32 %178, 4
@@ -8685,7 +8685,7 @@ define internal fastcc i32 @ieee80211_rx_radiotap_hdrlen(ptr noundef %0, ptr noc
 
 88:                                               ; preds = %84
   %89 = select i1 %57, i32 0, i32 12
-  %90 = add nuw nsw i32 %89, 12
+  %90 = select i1 %57, i32 12, i32 24
   %91 = select i1 %64, i32 %89, i32 %90
   %92 = lshr exact i32 %73, 26
   %93 = add nuw nsw i32 %91, %92

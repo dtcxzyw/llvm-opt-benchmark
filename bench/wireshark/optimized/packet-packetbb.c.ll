@@ -359,7 +359,7 @@ define internal i32 @dissect_packetbb(ptr noundef %0, ptr noundef %1, ptr nounde
   %spec.select = select i1 %.not, i32 1, i32 3
   %9 = and i32 %7, 4
   %.not34 = icmp eq i32 %9, 0
-  %10 = add nuw nsw i32 %spec.select, 2
+  %10 = select i1 %.not, i32 3, i32 5
   %.1 = select i1 %.not34, i32 %spec.select, i32 %10
   %.0 = select i1 %.not34, i32 0, i32 %spec.select
   %11 = tail call i32 @tvb_reported_length(ptr noundef %0) #6

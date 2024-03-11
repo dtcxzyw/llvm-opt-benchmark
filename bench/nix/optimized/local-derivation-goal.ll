@@ -103816,7 +103816,7 @@ _ZN3nix14ProcessOptionsC2Ev.exit.i.i.i:           ; preds = %59
   br i1 %.not12.i.i.i, label %74, label %72
 
 72:                                               ; preds = %_ZN3nix14ProcessOptionsC2Ev.exit.i.i.i
-  %73 = or disjoint i32 %spec.store.select.i.i.i, 268435456
+  %73 = select i1 %.not11.i.i.i, i32 1006796817, i32 2080538641
   store i32 %73, ptr %65, align 4
   br label %74
 

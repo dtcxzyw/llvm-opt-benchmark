@@ -1782,7 +1782,7 @@ define dso_local void @intel_mtl_pll_enable(ptr noundef %0, ptr nocapture nounde
   %216 = getelementptr inbounds i8, ptr %12, i64 7512
   %217 = load ptr, ptr %216, align 8
   %218 = tail call i32 %217(ptr noundef %203, i32 %215, i1 noundef zeroext true) #7
-  %219 = xor i32 %195, -1
+  %219 = select i1 %194, i32 1073741823, i32 2147483647
   %220 = or i32 %218, %195
   %221 = getelementptr inbounds i8, ptr %12, i64 7544
   %222 = load ptr, ptr %221, align 8

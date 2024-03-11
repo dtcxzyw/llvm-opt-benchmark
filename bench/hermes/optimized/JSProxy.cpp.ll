@@ -1879,7 +1879,7 @@ _ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit387:  ; preds = %if.end75
   store i64 15, ptr %leftSize_.i24.i.i241, align 8, !alias.scope !31
   %rightSize_.i25.i.i242 = getelementptr inbounds i8, ptr %ref.tmp97, i64 40
   store i64 %call.i.i204, ptr %rightSize_.i25.i.i242, align 8, !alias.scope !31
-  %add.i.i.i270 = add nuw nsw i64 %call.i.i204, 15
+  %add.i.i.i270 = select i1 %tobool79.not, i64 20, i64 24
   store ptr %ref.tmp97, ptr %ref.tmp96, align 8, !alias.scope !36
   %leftKind_.i22.i.i284 = getelementptr inbounds i8, ptr %ref.tmp96, i64 8
   store i32 2, ptr %leftKind_.i22.i.i284, align 8, !alias.scope !36
@@ -1893,7 +1893,7 @@ _ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit387:  ; preds = %if.end75
   store i64 23, ptr %rightSize_.i25.i.i288, align 8, !alias.scope !36
   %call.i.i296 = select i1 %24, i64 5, i64 9
   %cond105 = select i1 %24, ptr @.str.31, ptr @.str.32
-  %add.i.i.i316 = add nuw nsw i64 %call.i.i204, 38
+  %add.i.i.i316 = select i1 %tobool79.not, i64 43, i64 47
   store ptr %ref.tmp96, ptr %ref.tmp95, align 8, !alias.scope !41
   %leftKind_.i22.i.i330 = getelementptr inbounds i8, ptr %ref.tmp95, i64 8
   store i32 2, ptr %leftKind_.i22.i.i330, align 8, !alias.scope !41

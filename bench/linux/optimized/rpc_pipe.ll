@@ -357,7 +357,7 @@ define dso_local ptr @rpc_mkpipe_dentry(ptr noundef %0, ptr noundef %1, ptr noun
   %13 = getelementptr inbounds i8, ptr %9, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
-  %16 = and i16 %12, 4352
+  %16 = select i1 %11, i16 4096, i16 4352
   %17 = select i1 %15, i16 %16, i16 %12
   %18 = getelementptr inbounds i8, ptr %7, i64 160
   tail call void @down_write(ptr noundef %18) #14

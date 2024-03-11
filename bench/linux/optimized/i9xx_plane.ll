@@ -1007,7 +1007,7 @@ define internal void @i9xx_plane_update_arm(ptr nocapture noundef readonly %0, p
   %19 = getelementptr inbounds i8, ptr %1, i64 4753
   %20 = load i8, ptr %19, align 1, !range !6, !noundef !7
   %21 = icmp eq i8 %20, 0
-  %22 = or disjoint i32 %18, 16777216
+  %22 = select i1 %17, i32 16777216, i32 1090519040
   %23 = select i1 %21, i32 %18, i32 %22
   %24 = getelementptr inbounds i8, ptr %14, i64 2632
   %25 = load i16, ptr %24, align 8
@@ -1726,7 +1726,7 @@ define internal void @i9xx_plane_disable_arm(ptr nocapture noundef readonly %0, 
   %12 = getelementptr inbounds i8, ptr %1, i64 4753
   %13 = load i8, ptr %12, align 1, !range !6, !noundef !7
   %14 = icmp eq i8 %13, 0
-  %15 = or disjoint i32 %11, 16777216
+  %15 = select i1 %10, i32 16777216, i32 1090519040
   %16 = select i1 %14, i32 %11, i32 %15
   %17 = getelementptr inbounds i8, ptr %7, i64 2632
   %18 = load i16, ptr %17, align 8
@@ -2208,7 +2208,7 @@ define internal void @g4x_primary_async_flip(ptr nocapture noundef readonly %0, 
   %14 = getelementptr inbounds i8, ptr %1, i64 4753
   %15 = load i8, ptr %14, align 1, !range !6, !noundef !7
   %16 = icmp eq i8 %15, 0
-  %17 = or disjoint i32 %13, 16777216
+  %17 = select i1 %12, i32 16777216, i32 1090519040
   %18 = select i1 %16, i32 %13, i32 %17
   %19 = getelementptr inbounds i8, ptr %9, i64 2632
   %20 = load i16, ptr %19, align 8

@@ -1905,7 +1905,7 @@ define internal i32 @mqueue_poll_file(ptr noundef %0, ptr noundef %1) #0 align 1
   %19 = getelementptr i8, ptr %4, i64 656
   %20 = load i64, ptr %19, align 8
   %21 = icmp slt i64 %16, %20
-  %22 = or disjoint i32 %18, 260
+  %22 = select i1 %17, i32 260, i32 325
   %23 = select i1 %21, i32 %22, i32 %18
   tail call void @_raw_spin_unlock(ptr noundef %14) #15
   ret i32 %23

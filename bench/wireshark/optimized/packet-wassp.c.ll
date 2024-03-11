@@ -4307,8 +4307,8 @@ define internal fastcc void @decode_filter_rule_octext_string(ptr noundef %0, pt
   %spec.select = select i1 %9, i32 4, i32 0
   %10 = srem i32 %7, 20
   %11 = icmp eq i32 %10, 0
-  %12 = zext i1 %11 to i32
-  %.1 = or disjoint i32 %spec.select, %12
+  %12 = select i1 %9, i32 5, i32 1
+  %.1 = select i1 %11, i32 %12, i32 %spec.select
   %13 = and i32 %7, 15
   %14 = icmp eq i32 %13, 0
   %15 = or disjoint i32 %.1, 2

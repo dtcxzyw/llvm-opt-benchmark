@@ -45598,7 +45598,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseE
   %spec.select = select i1 %.not373, i32 65, i32 81
   %93 = and i8 %.0327.lcssa, 1
   %.not374.not = icmp eq i8 %93, 0
-  %94 = or disjoint i32 %spec.select, 32
+  %94 = select i1 %.not373, i32 97, i32 113
   %spec.select500 = select i1 %.not374.not, i32 %spec.select, i32 %94
   store i32 %spec.select500, ptr %2, align 4
   invoke void @_ZN3vcg3tri7TriMeshISt6vectorINS_7SVertexESaIS3_EES2_INS_5SFaceESaIS6_EENS0_14DummyContainerES9_S9_E5ClearEv(ptr noundef nonnull align 8 dereferenceable(628) %0)
@@ -57870,8 +57870,8 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit25: ; preds = %91, %95, %100
   %cond.fr30 = phi i1 [ false, %91 ], [ %101, %100 ], [ true, %95 ]
   %cond.fr = freeze i1 %26
+  %102 = select i1 %cond.fr, i32 768, i32 256
   %spec.select = select i1 %cond.fr, i32 512, i32 0
-  %102 = or disjoint i32 %spec.select, 256
   %spec.select31 = select i1 %cond.fr26, i32 %102, i32 %spec.select
   %103 = or disjoint i32 %spec.select31, 1024
   %spec.select32 = select i1 %cond.fr27, i32 %103, i32 %spec.select31

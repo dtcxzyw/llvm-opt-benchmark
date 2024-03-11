@@ -7790,7 +7790,7 @@ declare dso_local i32 @jbd2_journal_skip_recovery(ptr noundef) local_unnamed_add
 declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local i64 @journal_tag_bytes(ptr nocapture noundef readonly %0) local_unnamed_addr #4 align 16 {
+define dso_local noundef i64 @journal_tag_bytes(ptr nocapture noundef readonly %0) local_unnamed_addr #4 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 4
@@ -7812,7 +7812,7 @@ define dso_local i64 @journal_tag_bytes(ptr nocapture noundef readonly %0) local
   %15 = select i1 %14, i64 12, i64 14
   %16 = and i32 %.fr3, 33554432
   %.not = icmp eq i32 %16, 0
-  %17 = add nsw i64 %15, -4
+  %17 = select i1 %14, i64 8, i64 10
   %spec.select = select i1 %.not, i64 %17, i64 %15
   br label %.thread1
 

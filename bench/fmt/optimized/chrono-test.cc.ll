@@ -125536,8 +125536,8 @@ if.then.i.i178:                                   ; preds = %if.end227
   br label %if.end235
 
 if.end235.thread279:                              ; preds = %if.end94
-  %sub232 = add nsw i32 %digits_in_the_first_segment.0, -1
-  %add233 = add nsw i32 %sub232, %sub74.neg
+  %sub232 = select i1 %cmp87, i32 18, i32 17
+  %add233 = add nsw i32 %sub74.neg, %sub232
   store i32 %add233, ptr %exp, align 4
   %70 = and i32 %specs.sroa.1.0.extract.trunc, 262144
   %bf.cast242.not = icmp eq i32 %70, 0

@@ -3857,7 +3857,7 @@ define hidden noundef i64 @_ZN5tokio2io5ready5Ready13from_interest17h202fdd7c81f
   %spec.select = select i1 %.not, i64 0, i64 5
   %3 = and i64 %0, 2
   %.not8 = icmp eq i64 %3, 0
-  %4 = or disjoint i64 %spec.select, 10
+  %4 = select i1 %.not, i64 10, i64 15
   %.1 = select i1 %.not8, i64 %spec.select, i64 %4
   %5 = and i64 %0, 16
   %.not9 = icmp eq i64 %5, 0
@@ -3875,7 +3875,7 @@ define hidden noundef i64 @_ZN5tokio2io5ready5Ready12intersection17h54351d29877c
   %spec.select.i = select i1 %.not.i, i64 0, i64 5
   %4 = and i64 %1, 2
   %.not8.i = icmp eq i64 %4, 0
-  %5 = or disjoint i64 %spec.select.i, 10
+  %5 = select i1 %.not.i, i64 10, i64 15
   %.1.i = select i1 %.not8.i, i64 %spec.select.i, i64 %5
   %6 = and i64 %1, 16
   %.not9.i = icmp eq i64 %6, 0
@@ -3894,7 +3894,7 @@ define hidden noundef zeroext i1 @_ZN5tokio2io5ready5Ready9satisfies17h46fbd33aa
   %spec.select.i = select i1 %.not.i, i64 0, i64 5
   %4 = and i64 %1, 2
   %.not8.i = icmp eq i64 %4, 0
-  %5 = or disjoint i64 %spec.select.i, 10
+  %5 = select i1 %.not.i, i64 10, i64 15
   %.1.i = select i1 %.not8.i, i64 %spec.select.i, i64 %5
   %6 = and i64 %1, 16
   %.not9.i = icmp eq i64 %6, 0

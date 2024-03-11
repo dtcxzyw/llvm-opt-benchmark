@@ -5445,7 +5445,7 @@ define internal noundef i32 @pagemap_scan_hugetlb_entry(ptr noundef %0, i64 %1, 
   %64 = select i1 %63, i64 78, i64 74
   %65 = load i64, ptr @zero_pfn, align 8
   %66 = icmp eq i64 %65, %31
-  %67 = or disjoint i64 %64, 32
+  %67 = select i1 %63, i64 110, i64 106
   %68 = select i1 %66, i64 %67, i64 %64
   br label %73
 
@@ -5675,7 +5675,7 @@ define internal noundef i32 @pagemap_scan_hugetlb_entry(ptr noundef %0, i64 %1, 
   %226 = select i1 %225, i64 78, i64 74
   %227 = load i64, ptr @zero_pfn, align 8
   %228 = icmp eq i64 %227, %193
-  %229 = or disjoint i64 %226, 32
+  %229 = select i1 %225, i64 110, i64 106
   %230 = select i1 %228, i64 %229, i64 %226
   br label %235
 

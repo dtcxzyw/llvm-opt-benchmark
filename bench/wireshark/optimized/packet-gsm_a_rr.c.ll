@@ -11358,7 +11358,7 @@ define internal i32 @dissect_ccch(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %76 = load i32, ptr @hf_gsm_a_skip_ind, align 4
   %77 = call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %76, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
   %78 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %.069, i32 noundef %48, ptr noundef %0, i32 noundef %spec.select, i32 noundef 1, i32 noundef %46, ptr noundef nonnull @.str.2951, ptr noundef nonnull %68) #10
-  %79 = add nuw nsw i32 %spec.select, 1
+  %79 = select i1 %39, i32 4, i32 3
   %80 = load ptr, ptr @dissect_ccch.tap_p, align 8
   store i8 1, ptr %80, align 4
   %81 = getelementptr inbounds i8, ptr %80, i64 1

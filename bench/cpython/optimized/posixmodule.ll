@@ -3918,7 +3918,7 @@ skip_optional_kwonly:                             ; preds = %if.end51, %if.end46
 
 if.then.i28:                                      ; preds = %skip_optional_kwonly
   %spec.select.i = select i1 %tobool2.i, i32 0, i32 256
-  %or7.i = or disjoint i32 %spec.select.i, 512
+  %or7.i = select i1 %tobool2.i, i32 512, i32 768
   %flags.1.i = select i1 %tobool.i, i32 %spec.select.i, i32 %or7.i
   %narrow.i = getelementptr inbounds i8, ptr %path, i64 32
   %11 = load ptr, ptr %narrow.i, align 8

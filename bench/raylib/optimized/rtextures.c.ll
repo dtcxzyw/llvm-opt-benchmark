@@ -4882,7 +4882,7 @@ define internal fastcc noundef i32 @stbi_write_tga_core(ptr noundef %0, i32 noun
   br label %stbiw__write_flush.exit
 
 22:                                               ; preds = %15
-  %23 = or disjoint i32 %13, 8
+  %23 = select i1 %12, i32 11, i32 10
   %24 = add nsw i32 %11, %9
   %25 = shl nsw i32 %24, 3
   %26 = select i1 %8, i32 8, i32 0

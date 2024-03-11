@@ -9311,7 +9311,7 @@ define internal i32 @selinux_ipc_permission(ptr nocapture noundef readonly %0, i
   %10 = and i32 %4, 146
   %11 = icmp eq i32 %10, 0
   %12 = select i1 %9, i32 0, i32 128
-  %13 = or disjoint i32 %12, 256
+  %13 = select i1 %9, i32 256, i32 384
   %14 = select i1 %11, i32 %12, i32 %13
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false), !annotation !5
@@ -13862,7 +13862,7 @@ define internal fastcc i32 @file_map_prot_check(ptr noundef %0, i64 noundef %1, 
   %43 = icmp eq i64 %42, 0
   %44 = or i1 %41, %43
   %45 = select i1 %44, i32 2, i32 6
-  %46 = or disjoint i32 %45, 16384
+  %46 = select i1 %44, i32 16386, i32 16390
   %47 = select i1 %19, i32 %45, i32 %46
   %48 = getelementptr inbounds i8, ptr %0, i64 192
   %49 = load ptr, ptr %48, align 8

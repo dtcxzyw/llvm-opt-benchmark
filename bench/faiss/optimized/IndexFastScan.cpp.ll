@@ -1949,7 +1949,7 @@ define linkonce_odr void @_ZNK5faiss13IndexFastScan22search_dispatch_implemILb1E
   br i1 %30, label %31, label %.thread
 
 31:                                               ; preds = %26
-  %32 = or disjoint i32 %., 1
+  %32 = select i1 %29, i32 13, i32 15
   store i32 %32, ptr %14, align 4
   br label %.thread
 
@@ -2211,7 +2211,7 @@ define linkonce_odr void @_ZNK5faiss13IndexFastScan22search_dispatch_implemILb0E
   br i1 %30, label %31, label %.thread
 
 31:                                               ; preds = %26
-  %32 = or disjoint i32 %., 1
+  %32 = select i1 %29, i32 13, i32 15
   store i32 %32, ptr %14, align 4
   br label %.thread
 

@@ -25,7 +25,7 @@ if.end:                                           ; preds = %entry
   %spec.select17 = select i1 %cmp1, i8 16, i8 0
   %cmp5 = icmp ugt i32 %spec.select, 255
   %shr7 = lshr i32 %spec.select, 8
-  %0 = or disjoint i8 %spec.select17, 8
+  %0 = select i1 %cmp1, i8 24, i8 8
   %value.addr.1 = select i1 %cmp5, i32 %shr7, i32 %spec.select
   %bit.1 = select i1 %cmp5, i8 %0, i8 %spec.select17
   %cmp12 = icmp ugt i32 %value.addr.1, 15
@@ -40,7 +40,7 @@ if.end:                                           ; preds = %entry
   %bit.3 = select i1 %cmp19, i8 %narrow16, i8 %bit.2
   %cmp26 = icmp ugt i32 %value.addr.3, 1
   %add30 = zext i1 %cmp26 to i8
-  %bit.4 = add nuw nsw i8 %bit.3, %add30
+  %bit.4 = or disjoint i8 %bit.3, %add30
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -148,7 +148,7 @@ if.then25:                                        ; preds = %if.then15
   %conv20 = zext i16 %8 to i32
   %sub27 = shl nuw nsw i32 %conv, 10
   %add29 = add nsw i32 %sub27, -56613888
-  %add31 = add nsw i32 %add29, %conv20
+  %add31 = add nuw nsw i32 %add29, %conv20
   store i32 %add, ptr %scriptEnd, align 4
   br label %if.end35
 

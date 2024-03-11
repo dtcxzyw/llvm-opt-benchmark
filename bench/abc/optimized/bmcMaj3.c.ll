@@ -6207,7 +6207,7 @@ Abc_TtMaj.exit.i:                                 ; preds = %.lr.ph.i114.i, %Abc
   %.0.i.i.i = select i1 %289, i32 32, i32 0
   %291 = and i64 %.020.i.i.i, 65535
   %292 = icmp eq i64 %291, 0
-  %293 = or disjoint i32 %.0.i.i.i, 16
+  %293 = select i1 %289, i32 48, i32 16
   %294 = lshr exact i64 %.020.i.i.i, 16
   %.121.i.i.i = select i1 %292, i64 %294, i64 %.020.i.i.i
   %.1.i.i.i = select i1 %292, i32 %293, i32 %.0.i.i.i
@@ -6225,14 +6225,14 @@ Abc_TtMaj.exit.i:                                 ; preds = %.lr.ph.i114.i, %Abc
   %.3.i.i.i = select i1 %300, i32 %301, i32 %.2.i.i.i
   %303 = and i64 %.323.i.i.i, 3
   %304 = icmp eq i64 %303, 0
-  %305 = add nuw nsw i32 %.3.i.i.i, 2
+  %305 = or disjoint i32 %.3.i.i.i, 2
   %306 = lshr exact i64 %.323.i.i.i, 2
   %.424.i.i.i = select i1 %304, i64 %306, i64 %.323.i.i.i
   %.4.i.i.i = select i1 %304, i32 %305, i32 %.3.i.i.i
   %307 = trunc i64 %.424.i.i.i to i32
   %308 = and i32 %307, 1
   %309 = xor i32 %308, 1
-  %.5.i.i.i = add i32 %.4.i.i.i, %287
+  %.5.i.i.i = add nuw i32 %.4.i.i.i, %287
   %310 = add i32 %.5.i.i.i, %309
   br label %Zyx_ManEval.exit
 

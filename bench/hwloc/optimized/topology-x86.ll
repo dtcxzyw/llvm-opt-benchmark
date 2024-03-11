@@ -358,7 +358,7 @@ define internal noundef i32 @hwloc_x86_discover(ptr nocapture noundef %0, ptr no
   br label %65
 
 65:                                               ; preds = %52, %64
-  %66 = or disjoint i64 %spec.select, 1
+  %66 = select i1 %.not36, i64 1, i64 3
   %67 = call fastcc i32 @hwloc_look_x86(ptr noundef nonnull %0, i64 noundef %66), !range !7
   %68 = icmp sgt i32 %67, -1
   %or.cond = or i1 %.not40, %68
@@ -1763,7 +1763,7 @@ cpuid_or_from_dump.exit:                          ; preds = %34, %45
   %60 = and i64 %spec.select.i, 65280
   %.not29.i = icmp eq i64 %60, 0
   %61 = lshr i64 %spec.select.i, 8
-  %62 = or disjoint i32 %spec.select33.i, 8
+  %62 = select i1 %.not28.i, i32 9, i32 25
   %.223.i = select i1 %.not29.i, i64 %spec.select.i, i64 %61
   %.2.i = select i1 %.not29.i, i32 %spec.select33.i, i32 %62
   %63 = and i64 %.223.i, 240
@@ -3457,7 +3457,7 @@ read_intel_caches.exit:                           ; preds = %cpuid_or_from_dump.
   %847 = and i64 %spec.select.i367, 65280
   %.not29.i369 = icmp eq i64 %847, 0
   %848 = lshr i64 %spec.select.i367, 8
-  %849 = or disjoint i32 %spec.select33.i368, 8
+  %849 = select i1 %.not28.i366, i32 9, i32 25
   %.223.i370 = select i1 %.not29.i369, i64 %spec.select.i367, i64 %848
   %.2.i371 = select i1 %.not29.i369, i32 %spec.select33.i368, i32 %849
   %850 = and i64 %.223.i370, 240

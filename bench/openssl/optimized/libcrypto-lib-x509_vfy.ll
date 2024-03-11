@@ -5781,7 +5781,7 @@ entry:
   %cmp = icmp eq i32 %depth, 0
   %cond = select i1 %cmp, i32 10, i32 5
   %cmp2.not = icmp sgt i32 %ctx.148.val, %depth
-  %and = and i32 %cond, 3
+  %and = select i1 %cmp, i32 2, i32 1
   %spec.select = select i1 %cmp2.not, i32 %cond, i32 %and
   %mdpth = getelementptr inbounds i8, ptr %ctx.240.val, i64 44
   %0 = load i32, ptr %mdpth, align 4

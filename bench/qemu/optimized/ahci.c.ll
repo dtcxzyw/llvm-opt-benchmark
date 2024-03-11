@@ -2252,7 +2252,7 @@ if.end52:                                         ; preds = %do.end42, %do.end42
   br i1 %tobool8.not.i, label %command_header_init.exit, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.end52
-  %35 = or disjoint i16 %spec.store.select.i, 32
+  %35 = select i1 %tobool.not.i, i16 1061, i16 1125
   store i16 %35, ptr %header.i, align 1
   br label %command_header_init.exit
 

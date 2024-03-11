@@ -3072,8 +3072,7 @@ define internal fastcc i32 @emit_indname_block(ptr noundef %0, i64 noundef %1, p
   %5 = alloca [16 x i8], align 16
   %6 = icmp eq i32 %3, 0
   %7 = add i64 %1, 1
-  %notmask.i = select i1 %6, i32 -64, i32 -16
-  %8 = xor i32 %notmask.i, -1
+  %8 = select i1 %6, i32 63, i32 15
   %9 = zext nneg i32 %8 to i64
   %10 = icmp ult i64 %7, %9
   br i1 %10, label %count_encoded_length.exit.thread, label %11
@@ -3104,7 +3103,7 @@ count_encoded_length.exit.thread:                 ; preds = %11, %4, %count_enco
   %switch.downshift = lshr i24 1048640, %switch.shiftamt
   %switch.masked = trunc i24 %switch.downshift to i8
   %.0.i = select i1 %19, i8 %switch.masked, i8 0
-  %20 = trunc i32 %notmask.i to i8
+  %20 = select i1 %6, i8 -64, i8 -16
   %21 = and i8 %.0.i, %20
   br i1 %10, label %22, label %25
 

@@ -396,12 +396,12 @@ if.then117:                                       ; preds = %if.else107
   %conv129 = zext i8 %28 to i32
   %or130 = or disjoint i32 %shl125, %conv129
   %cmp131 = icmp ugt i32 %or130, 769
-  %spec.select337 = select i1 %cmp131, i64 16, i64 0
-  %add136 = or disjoint i64 %spec.select337, 33
+  %add136 = select i1 %cmp131, i64 49, i64 33
   %cmp137 = icmp ugt i64 %add136, %len
   br i1 %cmp137, label %return, label %if.end140
 
 if.end140:                                        ; preds = %if.then117
+  %spec.select337 = select i1 %cmp131, i64 16, i64 0
   %add.ptr141 = getelementptr inbounds i8, ptr %out, i64 %spec.select337
   %sub142 = sub nuw i64 %len, %spec.select337
   %29 = getelementptr i8, ptr %out, i64 %len

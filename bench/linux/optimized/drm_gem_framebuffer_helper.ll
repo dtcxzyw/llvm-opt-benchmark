@@ -953,7 +953,7 @@ define dso_local i32 @drm_gem_fb_afbc_init(ptr noundef %0, ptr noundef %1, ptr n
   %67 = lshr i32 %66, 8
   %68 = shl nuw nsw i32 %67, 4
   %69 = add nuw nsw i32 %68, %31
-  %70 = xor i32 %31, -1
+  %70 = select i1 %26, i32 -64, i32 -4096
   %71 = and i32 %69, %70
   %72 = getelementptr inbounds i8, ptr %2, i64 212
   %73 = shl i32 %63, 5

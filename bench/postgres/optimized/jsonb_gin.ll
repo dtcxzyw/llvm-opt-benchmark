@@ -358,7 +358,7 @@ make_text_key.exit:                               ; preds = %17, %24
 41:                                               ; preds = %34
   %42 = tail call i32 @hash_bytes(ptr noundef %38, i32 noundef %39) #8
   %43 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 10, ptr noundef nonnull @.str.5, i32 noundef %42) #8
-  %44 = or disjoint i8 %35, 16
+  %44 = select i1 %1, i8 17, i8 21
   br label %make_text_key.exit13
 
 make_text_key.exit13:                             ; preds = %34, %41

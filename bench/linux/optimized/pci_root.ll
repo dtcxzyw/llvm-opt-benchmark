@@ -1130,7 +1130,7 @@ define internal noundef i32 @acpi_pci_root_add(ptr noundef %0, ptr nocapture rea
   %107 = icmp eq i32 %106, 0
   %108 = select i1 %107, i32 264, i32 265
   %109 = call zeroext i1 @pcie_aspm_support_enabled() #13
-  %110 = or disjoint i32 %108, 6
+  %110 = select i1 %107, i32 270, i32 271
   %111 = select i1 %109, i32 %110, i32 %108
   %112 = call i32 @pci_msi_enabled() #13
   %113 = icmp eq i32 %112, 0

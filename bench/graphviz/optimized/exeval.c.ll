@@ -3357,7 +3357,7 @@ define internal fastcc ptr @exsub(ptr noundef %0, ptr nocapture noundef readonly
   br label %37
 
 35:                                               ; preds = %30, %28
-  %36 = or disjoint i32 %spec.select, 4
+  %36 = select i1 %20, i32 6, i32 4
   store i8 0, ptr %spec.select74, align 1
   br label %37
 

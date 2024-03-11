@@ -1093,7 +1093,7 @@ for.body:                                         ; preds = %if.then10, %for.bod
 if.end16:                                         ; preds = %for.body, %if.end6.if.end16_crit_edge
   %wide.trip.count41.pre-phi = phi i64 [ %.pre43, %if.end6.if.end16_crit_edge ], [ %wide.trip.count, %for.body ]
   %eistate32 = getelementptr inbounds i8, ptr %imsic, i64 1128
-  %not = xor i32 %cond, -1
+  %not = select i1 %pend, i32 -2, i32 -3
   br label %for.body19
 
 for.body19:                                       ; preds = %if.end16, %for.inc44

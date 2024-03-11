@@ -1801,7 +1801,7 @@ define internal fastcc noundef i32 @yenta_allocate_res(ptr nocapture noundef rea
   %32 = call i32 @pci_read_config_dword(ptr noundef %31, i32 noundef %4, ptr noundef nonnull %6) #10
   %33 = load i32, ptr %6, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #10
-  %34 = xor i32 %19, -1
+  %34 = select i1 %18, i32 4095, i32 3
   %35 = or i32 %33, %34
   %36 = zext i32 %35 to i64
   %37 = getelementptr inbounds i8, ptr %8, i64 8

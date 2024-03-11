@@ -56,7 +56,7 @@ define i32 @softfloat_subMagsF32(i64 noundef %0, i64 noundef %1) local_unnamed_a
   %spec.select.i = select i1 %26, i32 %27, i32 %25
   %spec.select12.i = select i1 %26, i8 16, i8 0
   %28 = icmp ult i32 %spec.select.i, 16777216
-  %29 = or disjoint i8 %spec.select12.i, 8
+  %29 = select i1 %26, i8 24, i8 8
   %30 = shl nuw i32 %spec.select.i, 8
   %.19.i = select i1 %28, i32 %30, i32 %spec.select.i
   %.1.i = select i1 %28, i8 %29, i8 %spec.select12.i

@@ -593,7 +593,7 @@ define internal i32 @hidraw_poll(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %23 = getelementptr inbounds i8, ptr %16, i64 4
   %24 = load i32, ptr %23, align 4
   %25 = icmp eq i32 %24, 0
-  %26 = or disjoint i32 %22, 24
+  %26 = select i1 %21, i32 284, i32 349
   %27 = select i1 %25, i32 %26, i32 %22
   ret i32 %27
 }

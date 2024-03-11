@@ -2471,7 +2471,7 @@ define internal i32 @dissect_homeplug_av(ptr noundef %0, ptr nocapture noundef r
 44:                                               ; preds = %42
   %.not.i69.i = icmp eq i8 %23, 0
   %45 = select i1 %.not.i69.i, i32 3, i32 5
-  %46 = add nuw nsw i32 %45, 3
+  %46 = select i1 %.not.i69.i, i32 6, i32 8
   %.not6577.i = icmp slt i8 %31, 0
   %.0.i15 = select i1 %.not6577.i, i32 %46, i32 %45
   tail call void @ptvcursor_advance(ptr noundef %14, i32 noundef %.0.i15) #4

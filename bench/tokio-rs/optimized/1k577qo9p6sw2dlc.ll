@@ -4806,7 +4806,7 @@ define hidden noundef zeroext i1 @"_ZN5tokio7runtime2io12scheduled_io11Scheduled
   %spec.select.i.i = select i1 %.not.i.i, i64 0, i64 5
   %8 = and i64 %6, 2
   %.not8.i.i = icmp eq i64 %8, 0
-  %9 = or disjoint i64 %spec.select.i.i, 10
+  %9 = select i1 %.not.i.i, i64 10, i64 15
   %.1.i.i = select i1 %.not8.i.i, i64 %spec.select.i.i, i64 %9
   %10 = and i64 %6, 16
   %.not9.i.i = icmp eq i64 %10, 0
@@ -9471,7 +9471,7 @@ define hidden noundef ptr @"_ZN109_$LT$tokio..util..linked_list..DrainFilter$LT$
   %spec.select.i.i.i = select i1 %.not.i.i.i, i64 0, i64 5
   %14 = and i64 %12, 2
   %.not8.i.i.i = icmp eq i64 %14, 0
-  %15 = or disjoint i64 %spec.select.i.i.i, 10
+  %15 = select i1 %.not.i.i.i, i64 10, i64 15
   %.1.i.i.i = select i1 %.not8.i.i.i, i64 %spec.select.i.i.i, i64 %15
   %16 = and i64 %12, 16
   %.not9.i.i.i = icmp eq i64 %16, 0

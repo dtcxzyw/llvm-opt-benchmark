@@ -5538,7 +5538,7 @@ define void @_ZN24SaveMeshAttributesDialog10updateMaskEv(ptr nocapture noundef n
   %8 = getelementptr inbounds i8, ptr %7, i64 40
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef zeroext i1 @_ZNK15QAbstractButton9isCheckedEv(ptr noundef nonnull align 8 dereferenceable(48) %9)
-  %11 = or disjoint i32 %spec.select, 4
+  %11 = select i1 %6, i32 6, i32 4
   %.1 = select i1 %10, i32 %11, i32 %spec.select
   %12 = load ptr, ptr %2, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 48

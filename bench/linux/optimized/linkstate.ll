@@ -179,7 +179,7 @@ define internal i32 @linkstate_reply_size(ptr nocapture readnone %0, ptr nocaptu
   %7 = getelementptr inbounds i8, ptr %1, i64 16
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, -95
-  %10 = add nuw nsw i32 %6, 8
+  %10 = select i1 %5, i32 16, i32 24
   %11 = select i1 %9, i32 %6, i32 %10
   %12 = getelementptr inbounds i8, ptr %1, i64 32
   %13 = load i8, ptr %12, align 8, !range !5, !noundef !6

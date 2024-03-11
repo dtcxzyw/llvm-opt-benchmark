@@ -13,7 +13,7 @@ define i32 @softfloat_normRoundPackToF32(i1 noundef zeroext %0, i64 noundef %1, 
   %spec.select.i = select i1 %5, i32 %6, i32 %4
   %spec.select12.i = select i1 %5, i8 16, i8 0
   %7 = icmp ult i32 %spec.select.i, 16777216
-  %8 = or disjoint i8 %spec.select12.i, 8
+  %8 = select i1 %5, i8 24, i8 8
   %9 = shl nuw i32 %spec.select.i, 8
   %.19.i = select i1 %7, i32 %9, i32 %spec.select.i
   %.1.i = select i1 %7, i8 %8, i8 %spec.select12.i

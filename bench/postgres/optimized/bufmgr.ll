@@ -3195,7 +3195,7 @@ LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %ReserveP
   br label %ScheduleBufferTagForWriteback.exit
 
 ScheduleBufferTagForWriteback.exit:               ; preds = %49, %77, %81
-  %82 = or disjoint i32 %.mux, 1
+  %82 = select i1 %or.cond, i32 1, i32 3
   br label %83
 
 83:                                               ; preds = %ScheduleBufferTagForWriteback.exit, %47, %43

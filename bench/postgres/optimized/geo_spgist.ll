@@ -63,7 +63,7 @@ define dso_local noundef i64 @spg_box_quad_choose(ptr nocapture noundef readonly
   %25 = load double, ptr %17, align 8
   %26 = load double, ptr %18, align 8
   %27 = fcmp ogt double %25, %26
-  %28 = or disjoint i8 %.0.i, 4
+  %28 = select i1 %24, i8 12, i8 4
   %.1.i = select i1 %27, i8 %28, i8 %.0.i
   %29 = getelementptr inbounds i8, ptr %17, i64 24
   %30 = load double, ptr %29, align 8
@@ -223,7 +223,7 @@ define dso_local noundef i64 @spg_box_quad_picksplit(ptr nocapture noundef reado
   %93 = load double, ptr %88, align 8
   %94 = load double, ptr %54, align 8
   %95 = fcmp ogt double %93, %94
-  %96 = or disjoint i8 %.0.i, 4
+  %96 = select i1 %92, i8 12, i8 4
   %.1.i = select i1 %95, i8 %96, i8 %.0.i
   %97 = getelementptr inbounds i8, ptr %88, i64 24
   %98 = load double, ptr %97, align 8

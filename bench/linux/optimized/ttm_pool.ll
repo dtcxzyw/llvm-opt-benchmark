@@ -127,7 +127,7 @@ define dso_local i32 @ttm_pool_alloc(ptr noundef %0, ptr nocapture noundef reado
   %29 = getelementptr inbounds i8, ptr %2, i64 2
   %30 = load i8, ptr %29, align 2, !range !14, !noundef !15
   %31 = icmp eq i8 %30, 0
-  %32 = or disjoint i32 %28, 16384
+  %32 = select i1 %27, i32 1068224, i32 1068480
   %33 = select i1 %31, i32 %28, i32 %32
   %34 = getelementptr inbounds i8, ptr %0, i64 13
   %35 = load i8, ptr %34, align 1, !range !14, !noundef !15

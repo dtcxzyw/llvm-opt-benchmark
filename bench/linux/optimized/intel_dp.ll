@@ -254,7 +254,7 @@ define dso_local i32 @intel_dp_link_symbol_clock(i32 noundef %0) local_unnamed_a
   %3 = icmp sgt i32 %0, 999999
   %4 = select i1 %3, i32 32, i32 10
   %5 = icmp sgt i32 %2, 0
-  %6 = lshr exact i32 %4, 1
+  %6 = select i1 %3, i32 16, i32 5
   %7 = sub nsw i32 0, %6
   %8 = select i1 %5, i32 %6, i32 %7
   %9 = add i32 %8, %2

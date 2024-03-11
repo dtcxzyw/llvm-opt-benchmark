@@ -34,7 +34,7 @@ search.exit:                                      ; preds = %4
   br i1 %10, label %search.exit.thread, label %12
 
 search.exit.thread:                               ; preds = %7, %search.exit
-  %11 = xor i8 %.016, 127
+  %11 = select i1 %2, i8 -86, i8 42
   br label %22
 
 12:                                               ; preds = %search.exit

@@ -540,7 +540,7 @@ if.end14:                                         ; preds = %if.end11
   br i1 %or.cond.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end14
-  %shr.i = lshr i64 %ram_addr, 18
+  %shr.i = lshr exact i64 %ram_addr, 18
   %div847.i = lshr i64 %ram_addr, 33
   %rem.i = and i64 %shr.i, 32767
   %call.i.i.i = call ptr @get_ptr_rcu_reader() #17
@@ -712,7 +712,7 @@ if.else.i:                                        ; preds = %if.end14
   %conv67.i = select i1 %tobool65.not.i, i8 5, i8 7
   %39 = load i32, ptr @global_dirty_tracking, align 4
   %tobool68.not.i = icmp eq i32 %39, 0
-  %40 = and i8 %conv67.i, 3
+  %40 = select i1 %tobool65.not.i, i8 1, i8 3
   %spec.select50.i = select i1 %tobool68.not.i, i8 %40, i8 %conv67.i
   %cmp7560.not.i = icmp ult i64 %sub.i, 64
   br i1 %cmp7560.not.i, label %cpu_physical_memory_set_dirty_lebitmap.exit, label %for.body77.i

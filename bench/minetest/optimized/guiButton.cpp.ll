@@ -3071,7 +3071,7 @@ define dso_local void @_ZN9GUIButton12setFromStateEv(ptr noundef nonnull align 8
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %1
-  %16 = or disjoint i8 %7, 2
+  %16 = select i1 %6, i8 6, i8 2
   br label %26
 
 17:                                               ; preds = %1
@@ -3083,7 +3083,7 @@ define dso_local void @_ZN9GUIButton12setFromStateEv(ptr noundef nonnull align 8
   %21 = load ptr, ptr %20, align 8, !tbaa !56
   %22 = freeze ptr %21
   %23 = icmp eq ptr %22, %0
-  %24 = or disjoint i8 %7, 2
+  %24 = select i1 %6, i8 6, i8 2
   %25 = select i1 %23, i8 %24, i8 %7
   br label %26
 

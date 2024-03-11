@@ -2322,7 +2322,7 @@ define i32 @mz_inflate(ptr noundef %0, i32 noundef %1) local_unnamed_addr #22 {
   br i1 %or.cond7, label %31, label %69
 
 31:                                               ; preds = %26
-  %32 = or disjoint i32 %spec.select, 4
+  %32 = select i1 %14, i32 13, i32 12
   %33 = load i32, ptr %15, align 8
   %34 = zext i32 %33 to i64
   store i64 %34, ptr %3, align 8
@@ -2378,7 +2378,7 @@ define i32 @mz_inflate(ptr noundef %0, i32 noundef %1) local_unnamed_addr #22 {
   br label %.loopexit
 
 69:                                               ; preds = %26
-  %70 = or disjoint i32 %spec.select, 2
+  %70 = select i1 %14, i32 11, i32 10
   %spec.select140 = select i1 %10, i32 %70, i32 %spec.select
   %71 = getelementptr inbounds i8, ptr %7, i64 11004
   %72 = load i32, ptr %71, align 4

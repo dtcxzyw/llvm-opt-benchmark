@@ -848,7 +848,7 @@ define internal fastcc i32 @read_eeprom(ptr noundef %0, i32 noundef %1, i32 noun
   %14 = select i1 %13, i8 -120, i8 -118
   tail call void @iowrite8(i8 noundef zeroext %14, ptr noundef %6) #14
   %15 = tail call i32 @ioread8(ptr noundef %6) #14
-  %16 = or disjoint i8 %14, 4
+  %16 = select i1 %13, i8 -116, i8 -114
   tail call void @iowrite8(i8 noundef zeroext %16, ptr noundef %6) #14
   %17 = tail call i32 @ioread8(ptr noundef %6) #14
   %18 = add nsw i32 %10, -1

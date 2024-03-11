@@ -1406,7 +1406,7 @@ define internal fastcc i32 @msdos_add_entry(ptr noundef %0, ptr nocapture nounde
   %17 = icmp eq i32 %2, 0
   %18 = select i1 %17, i8 32, i8 16
   %19 = icmp eq i32 %3, 0
-  %20 = or disjoint i8 %18, 2
+  %20 = select i1 %17, i8 34, i8 18
   %21 = select i1 %19, i8 %18, i8 %20
   store i8 %21, ptr %15, align 1
   %22 = getelementptr inbounds i8, ptr %8, i64 12

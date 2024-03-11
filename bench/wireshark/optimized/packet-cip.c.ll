@@ -4760,8 +4760,8 @@ proto_item_set_generated.exit114.i:               ; preds = %120, %116, %113, %p
   br i1 %.not104.i, label %132, label %129
 
 129:                                              ; preds = %proto_item_set_generated.exit114.i
-  %130 = or disjoint i32 %spec.select.i, 1
-  %131 = add nuw nsw i32 %130, %.pre-phi123.i
+  %130 = select i1 %87, i32 5, i32 3
+  %131 = add nuw nsw i32 %.pre-phi123.i, %130
   br label %155
 
 132:                                              ; preds = %proto_item_set_generated.exit114.i

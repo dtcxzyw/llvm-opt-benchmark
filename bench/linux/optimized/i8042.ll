@@ -2395,8 +2395,8 @@ define internal void @i8042_port_close(ptr noundef readnone %0) #0 align 16 {
   %5 = select i1 %3, i8 -33, i8 -17
   %6 = select i1 %3, i8 2, i8 1
   %7 = load i8, ptr @i8042_ctr, align 1
-  %8 = xor i8 %6, -1
-  %9 = and i8 %7, %8
+  %8 = select i1 %3, i8 -3, i8 -2
+  %9 = and i8 %8, %7
   store i8 %9, ptr @i8042_ctr, align 1
   %10 = load i1, ptr @i8042_present, align 1
   br i1 %10, label %11, label %15

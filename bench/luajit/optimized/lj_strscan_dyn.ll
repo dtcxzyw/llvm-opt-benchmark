@@ -428,14 +428,14 @@ if.then327:                                       ; preds = %if.then315
 
 if.then333:                                       ; preds = %if.then327
   %incdec.ptr334 = getelementptr inbounds i8, ptr %spec.select164, i64 2
-  %add335 = add nuw nsw i32 %spec.select163, 2
+  %add335 = select i1 %cmp318, i32 6, i32 5
   br label %if.end344
 
 if.else336:                                       ; preds = %if.then327
   br i1 %tobool123.not, label %if.else340, label %return
 
 if.else340:                                       ; preds = %if.else336
-  %add341 = add nuw nsw i32 %spec.select163, 2
+  %add341 = select i1 %cmp318, i32 6, i32 5
   br label %if.end344
 
 if.end344:                                        ; preds = %if.then333, %if.else340, %if.then315
@@ -549,7 +549,7 @@ if.else427:                                       ; preds = %if.else421
 
 if.end435:                                        ; preds = %if.end390
   %cmp436 = icmp ne i32 %base.1, 0
-  %61 = add i32 %fmt.6, -1
+  %61 = add nsw i32 %fmt.6, -1
   %62 = icmp ult i32 %61, 2
   %or.cond4 = or i1 %cmp436, %62
   br i1 %or.cond4, label %if.end445, label %if.then444

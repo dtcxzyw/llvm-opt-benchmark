@@ -5988,7 +5988,7 @@ define internal i32 @dissect_c15ch_outgwebc(ptr noundef %0, ptr nocapture readno
 define internal i32 @dissect_c15ch_q931(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #3
   %.not = icmp eq i8 %5, 0
-  %. = select i1 %.not, i32 13, i32 10
+  %..neg = select i1 %.not, i32 -13, i32 -10
   %.not37 = icmp eq ptr %2, null
   br i1 %.not37, label %32, label %6
 
@@ -6016,8 +6016,8 @@ define internal i32 @dissect_c15ch_q931(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %or.cond, label %26, label %32
 
 26:                                               ; preds = %6
-  %27 = add nuw nsw i32 %., 13
-  %28 = sub i32 %14, %.
+  %27 = select i1 %.not, i32 26, i32 23
+  %28 = add i32 %14, %..neg
   %29 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %27, i32 noundef %28) #3
   %30 = load ptr, ptr @general_q931_handle, align 8
   %31 = tail call i32 @call_dissector(ptr noundef %30, ptr noundef %29, ptr noundef %1, ptr noundef nonnull %2) #3

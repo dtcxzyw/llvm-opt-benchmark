@@ -7943,7 +7943,7 @@ define internal noundef i64 @gc_start_internal(ptr nocapture readnone %0, i64 %1
   %spec.select = select i1 %.not11, i32 41984, i32 107520
   %14 = and i64 %3, -5
   %.not12 = icmp eq i64 %14, 0
-  %15 = and i32 %spec.select, 74752
+  %15 = select i1 %.not11, i32 9216, i32 74752
   %.1 = select i1 %.not12, i32 %15, i32 %spec.select
   %16 = and i64 %4, -5
   %.not13 = icmp eq i64 %16, 0

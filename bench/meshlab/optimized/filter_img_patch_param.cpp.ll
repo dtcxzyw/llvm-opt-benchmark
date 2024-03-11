@@ -7335,7 +7335,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i68:  ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringD2Ev.exit73
 
 _ZN7QStringD2Ev.exit73:                           ; preds = %40, %_ZN9QtPrivate8RefCount5derefEv.exit.i69, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i68
-  %45 = or disjoint i32 %spec.select, 4
+  %45 = select i1 %30, i32 7, i32 5
   %spec.select66 = select i1 %37, i32 %45, i32 %spec.select
   %46 = call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.39, i32 noundef 14)
   store ptr %46, ptr %23, align 8

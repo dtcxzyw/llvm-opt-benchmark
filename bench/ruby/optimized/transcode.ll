@@ -3439,7 +3439,7 @@ RB_SYMBOL_P.exit66.thread68.i:                    ; preds = %RB_SYMBOL_P.exit66.
   %126 = and i64 %103, -5
   %.not69.i = icmp eq i64 %126, 0
   %spec.select.i = select i1 %.not69.i, i32 0, i32 256
-  %127 = or disjoint i32 %spec.select.i, 4096
+  %127 = select i1 %.not69.i, i32 4096, i32 4352
   %.1.i = select i1 %.not70.i, i32 %spec.select.i, i32 %127
   %128 = or disjoint i32 %.1.i, 8192
   %.2.i = select i1 %.not71.i, i32 %.1.i, i32 %128
@@ -6347,7 +6347,7 @@ rb_num2int_inline.exit:                           ; preds = %42, %44
   %54 = call i64 @rb_hash_aref(i64 noundef %52, i64 noundef %53) #21
   %55 = and i64 %54, -5
   %.not65 = icmp eq i64 %55, 0
-  %56 = or disjoint i32 %spec.select, 262144
+  %56 = select i1 %.not64, i32 262144, i32 393216
   %spec.select44 = select i1 %.not65, i32 %spec.select, i32 %56
   br label %57
 

@@ -6299,12 +6299,12 @@ define void @_ZN17LteRlcGraphDialog13keyPressEventEP9QKeyEvent(ptr noundef nonnu
   br label %_ZN17LteRlcGraphDialog9zoomYAxisEb.exit
 
 49:                                               ; preds = %2
-  %50 = mul nuw nsw i32 %5, 20
+  %50 = select i1 %.not, i32 200, i32 20
   tail call void @_ZN17LteRlcGraphDialog7panAxesEii(ptr noundef nonnull align 8 dereferenceable(268) %0, i32 noundef 0, i32 noundef %50)
   br label %_ZN17LteRlcGraphDialog9zoomYAxisEb.exit
 
 51:                                               ; preds = %2
-  %52 = mul nsw i32 %5, -20
+  %52 = select i1 %.not, i32 -200, i32 -20
   tail call void @_ZN17LteRlcGraphDialog7panAxesEii(ptr noundef nonnull align 8 dereferenceable(268) %0, i32 noundef 0, i32 noundef %52)
   br label %_ZN17LteRlcGraphDialog9zoomYAxisEb.exit
 

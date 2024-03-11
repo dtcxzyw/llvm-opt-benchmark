@@ -309,7 +309,7 @@ define internal i32 @dissect_pcomascii(ptr noundef %0, ptr noundef %1, ptr nound
   %14 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %13, ptr noundef %0, i32 noundef 0, i32 noundef %., i32 noundef 0) #2
   %15 = load i32, ptr @hf_pcomascii_unitid, align 4
   %16 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %15, ptr noundef %0, i32 noundef %., i32 noundef 2, i32 noundef 0) #2
-  %17 = add nuw nsw i32 %., 2
+  %17 = select i1 %.not, i32 3, i32 4
   %18 = tail call i32 @tvb_get_ntoh24(ptr noundef %0, i32 noundef %17) #2
   %19 = tail call ptr @try_val_to_str(i32 noundef %18, ptr noundef nonnull @pcomascii_cc_vals) #2
   %.not111 = icmp eq ptr %19, null

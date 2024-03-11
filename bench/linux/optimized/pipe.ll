@@ -1936,7 +1936,7 @@ define internal i32 @pipe_poll(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %49 = load i32, ptr %48, align 4
   %50 = zext i32 %49 to i64
   %51 = icmp eq i64 %47, %50
-  %52 = or disjoint i32 %41, 16
+  %52 = select i1 %40, i32 16, i32 81
   %53 = select i1 %51, i32 %41, i32 %52
   br label %54
 

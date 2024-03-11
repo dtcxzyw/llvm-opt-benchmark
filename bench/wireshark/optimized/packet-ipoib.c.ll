@@ -95,12 +95,12 @@ define internal i32 @dissect_ipoib(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %.not, label %._crit_edge, label %13
 
 ._crit_edge:                                      ; preds = %4
-  %.pre = or disjoint i32 %spec.store.select, 4
+  %.pre = select i1 %9, i32 44, i32 4
   br label %56
 
 13:                                               ; preds = %4
   %14 = load i32, ptr @proto_ipoib, align 4
-  %15 = or disjoint i32 %spec.store.select, 4
+  %15 = select i1 %9, i32 44, i32 4
   %16 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %14, ptr noundef %0, i32 noundef 0, i32 noundef %15, i32 noundef 0) #2
   %17 = load i32, ptr @ett_raw, align 4
   %18 = tail call ptr @proto_item_add_subtree(ptr noundef %16, i32 noundef %17) #2
@@ -151,7 +151,7 @@ define internal i32 @dissect_ipoib(ptr noundef %0, ptr noundef %1, ptr noundef %
   %51 = load i32, ptr @hf_type, align 4
   %52 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %51, ptr noundef %0, i32 noundef %spec.store.select, i32 noundef 2, i32 noundef 0) #2
   %53 = load i32, ptr @hf_reserved, align 4
-  %54 = or disjoint i32 %spec.store.select, 2
+  %54 = select i1 %9, i32 42, i32 2
   %55 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %53, ptr noundef %0, i32 noundef %54, i32 noundef 2, i32 noundef 0) #2
   br label %56
 

@@ -96,7 +96,8 @@ if.then:                                          ; preds = %land.lhs.true
   br i1 %cmp12, label %land.lhs.true13, label %if.end
 
 land.lhs.true13:                                  ; preds = %if.then
-  %arrayidx14 = getelementptr i8, ptr %arrayidx10, i64 1
+  %add = select i1 %cmp8, i64 5, i64 4
+  %arrayidx14 = getelementptr inbounds i8, ptr %encoding, i64 %add
   %5 = load i8, ptr %arrayidx14, align 1
   %cmp16 = icmp eq i8 %5, 0
   br i1 %cmp16, label %return, label %if.end
@@ -123,7 +124,8 @@ if.then28:                                        ; preds = %land.lhs.true24
   br i1 %cmp37, label %land.lhs.true38, label %while.cond.i.preheader
 
 land.lhs.true38:                                  ; preds = %if.then28
-  %arrayidx40 = getelementptr i8, ptr %arrayidx35, i64 1
+  %add39 = select i1 %cmp32, i64 5, i64 4
+  %arrayidx40 = getelementptr inbounds i8, ptr %encoding, i64 %add39
   %9 = load i8, ptr %arrayidx40, align 1
   %cmp42 = icmp eq i8 %9, 0
   br i1 %cmp42, label %return, label %while.cond.i.preheader

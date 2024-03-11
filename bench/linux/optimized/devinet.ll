@@ -1755,7 +1755,7 @@ define dso_local void @inet_netconf_notify_devconf(ptr noundef %0, i32 noundef %
   ]
 
 10:                                               ; preds = %5, %5
-  %11 = add nuw nsw i32 %9, 8
+  %11 = select i1 %8, i32 28, i32 20
   br label %12
 
 12:                                               ; preds = %10, %5

@@ -204,7 +204,7 @@ define internal ptr @libpqrcv_connect(ptr noundef %0, i1 noundef zeroext %1, i1 
   %32 = icmp eq i32 %.052, 1
   %. = select i1 %32, i32 2, i32 4
   %33 = load ptr, ptr @MyLatch, align 8
-  %34 = or disjoint i32 %., 33
+  %34 = select i1 %32, i32 35, i32 37
   %35 = load ptr, ptr %28, align 8
   %36 = call i32 @PQsocket(ptr noundef %35) #12
   %37 = call i32 @WaitLatchOrSocket(ptr noundef %33, i32 noundef %34, i32 noundef %36, i64 noundef 0, i32 noundef 100663299) #12

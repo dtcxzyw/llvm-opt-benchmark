@@ -518,7 +518,7 @@ define dso_local i64 @ZSTD_getFrameHeader_advanced(ptr nocapture noundef writeon
   br i1 %66, label %.thread, label %125
 
 .thread:                                          ; preds = %64
-  %67 = add nuw nsw i64 %6, 1
+  %67 = select i1 %5, i64 6, i64 2
   %68 = zext i8 %65 to i32
   %69 = lshr i32 %68, 3
   %70 = add nuw nsw i32 %69, 10

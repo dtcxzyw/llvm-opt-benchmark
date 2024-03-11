@@ -12,7 +12,7 @@ define i16 @ui32_to_f16(i32 noundef %0) local_unnamed_addr #0 {
   %spec.select.i = select i1 %2, i32 %3, i32 %0
   %spec.select12.i = select i1 %2, i8 16, i8 0
   %4 = icmp ult i32 %spec.select.i, 16777216
-  %5 = or disjoint i8 %spec.select12.i, 8
+  %5 = select i1 %2, i8 24, i8 8
   %6 = shl nuw i32 %spec.select.i, 8
   %.19.i = select i1 %4, i32 %6, i32 %spec.select.i
   %.1.i = select i1 %4, i8 %5, i8 %spec.select12.i

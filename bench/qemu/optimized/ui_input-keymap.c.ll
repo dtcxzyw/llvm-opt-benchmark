@@ -189,12 +189,11 @@ land.lhs.true:                                    ; preds = %if.then.i
   br i1 %cmp1, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true
-  %cond = select i1 %down, i32 0, i32 128
   store i32 225, ptr %codes, align 4
-  %or = or disjoint i32 %cond, 29
+  %or = select i1 %down, i32 29, i32 157
   %arrayidx4 = getelementptr i8, ptr %codes, i64 4
   store i32 %or, ptr %arrayidx4, align 4
-  %or5 = or disjoint i32 %cond, 69
+  %or5 = select i1 %down, i32 69, i32 197
   %arrayidx8 = getelementptr i8, ptr %codes, i64 8
   store i32 %or5, ptr %arrayidx8, align 4
   br label %return

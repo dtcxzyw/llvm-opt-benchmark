@@ -92,7 +92,7 @@ define internal i32 @dissect_vssmonitoring(ptr noundef %0, ptr nocapture noundef
   %8 = select i1 %.not, i32 1, i32 2
   store i32 0, ptr %6, align 4
   %9 = tail call i32 @tvb_reported_length(ptr noundef %0) #3
-  %10 = or disjoint i32 %8, 12
+  %10 = select i1 %.not, i32 13, i32 14
   %11 = icmp ugt i32 %9, %10
   br i1 %11, label %69, label %12
 

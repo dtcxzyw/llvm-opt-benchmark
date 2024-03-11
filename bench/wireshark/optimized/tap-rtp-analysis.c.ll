@@ -286,7 +286,7 @@ define hidden void @rtppacket_analyse(ptr noundef %0, ptr noundef %1, ptr nocapt
   %137 = load i32, ptr %136, align 4
   %138 = add i32 %137, 1
   store i32 %138, ptr %136, align 4
-  %139 = or disjoint i32 %spec.store.select, 4
+  %139 = select i1 %.not283, i32 4, i32 132
   store i32 %139, ptr %75, align 4
   br label %140
 
@@ -300,7 +300,7 @@ define hidden void @rtppacket_analyse(ptr noundef %0, ptr noundef %1, ptr nocapt
   ]
 
 144:                                              ; preds = %140, %140
-  %145 = or i32 %141, 16
+  %145 = or disjoint i32 %141, 16
   store i32 %145, ptr %75, align 4
   br label %146
 

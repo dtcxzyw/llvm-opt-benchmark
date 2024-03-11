@@ -169,7 +169,7 @@ define dso_local noundef i32 @pcmcia_read_cis_mem(ptr noundef %0, i32 noundef %1
   %48 = icmp eq i32 %47, 0
   %49 = select i1 %48, i32 1, i32 3
   %50 = icmp ne i32 %1, 0
-  %51 = or disjoint i32 %49, 32
+  %51 = select i1 %48, i32 33, i32 35
   %52 = select i1 %50, i64 2, i64 1
   %53 = select i1 %50, i32 %51, i32 %49
   %54 = getelementptr inbounds i8, ptr %0, i64 324

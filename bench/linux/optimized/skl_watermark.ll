@@ -622,7 +622,7 @@ define internal fastcc void @skl_write_wm_level(ptr nocapture noundef readonly %
   %8 = getelementptr inbounds i8, ptr %2, i64 6
   %9 = load i8, ptr %8, align 2, !range !9, !noundef !10
   %10 = icmp eq i8 %9, 0
-  %11 = or disjoint i32 %7, 1073741824
+  %11 = select i1 %6, i32 1073741824, i32 -1073741824
   %12 = select i1 %10, i32 %7, i32 %11
   %13 = getelementptr inbounds i8, ptr %2, i64 2
   %14 = load i16, ptr %13, align 2
@@ -7531,8 +7531,8 @@ define internal fastcc noundef i32 @skl_compute_wm_params(ptr nocapture noundef 
 
 77:                                               ; preds = %70
   %78 = mul i32 %71, %73
-  %79 = add nsw i32 %54, -1
-  %80 = add i32 %79, %78
+  %79 = select i1 %52, i32 255, i32 511
+  %80 = add i32 %78, %79
   %81 = select i1 %52, i32 8, i32 9
   %82 = lshr i32 %80, %81
   %83 = load i16, ptr %46, align 8

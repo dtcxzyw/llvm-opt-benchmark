@@ -91,8 +91,8 @@ define dso_local ptr @ipv6_gro_receive(ptr noundef %0, ptr noundef %1) #0 align 
   %46 = getelementptr inbounds i8, ptr %1, i64 112
   %47 = load i32, ptr %46, align 8
   %48 = sub i32 %47, %6
-  %49 = icmp eq i32 %48, %45
-  %50 = select i1 %49, i16 1, i16 2
+  %49 = icmp ne i32 %48, %45
+  %50 = select i1 %49, i16 2, i16 1
   %51 = getelementptr inbounds i8, ptr %28, i64 6
   %52 = load i8, ptr %51, align 2
   %53 = zext i8 %52 to i32
@@ -286,7 +286,7 @@ define dso_local ptr @ipv6_gro_receive(ptr noundef %0, ptr noundef %1) #0 align 
   %166 = trunc i32 %160 to i16
   %167 = getelementptr inbounds i8, ptr %1, i64 66
   store i16 %166, ptr %167, align 2
-  %168 = add nsw i16 %50, -1
+  %168 = zext i1 %49 to i16
   %169 = zext i16 %165 to i32
   %170 = zext i16 %158 to i32
   %171 = sub nsw i32 %169, %170

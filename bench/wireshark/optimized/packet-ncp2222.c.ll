@@ -16038,7 +16038,7 @@ define internal fastcc void @dissect_ncp_123_11_reply(ptr noundef %0, ptr nounde
   %9 = zext i8 %8 to i32
   %.0..0..0..0.14 = load volatile ptr, ptr %4, align 8
   %10 = load i32, ptr @hf_ncp_file_name_12, align 4
-  %11 = or disjoint i32 %spec.select, 1
+  %11 = select i1 %7, i32 85, i32 77
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %.0..0..0..0.14, i32 noundef %10, ptr noundef %0, i32 noundef %11, i32 noundef %9, i32 noundef 0) #13
   %13 = add nuw nsw i32 %9, 1
   %14 = add nuw nsw i32 %13, %spec.select

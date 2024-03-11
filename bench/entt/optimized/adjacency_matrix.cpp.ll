@@ -23060,7 +23060,7 @@ land.rhs.i.i299:                                  ; preds = %for.cond.i.i
 
 invoke.cont68:                                    ; preds = %land.rhs.i.i299, %for.cond.i.i
   store i64 %storemerge.i.i, ptr %iterable.sroa.13.0.it.sroa_idx, align 8, !tbaa !92, !noalias !305
-  %div.i.i487 = lshr exact i64 %spec.select, 1
+  %div.i.i487 = zext i1 %tobool.not.i.i242 to i64
   store i64 %div.i.i487, ptr %ref.tmp61, align 8
   %39 = getelementptr inbounds i8, ptr %ref.tmp61, i64 8
   store i64 0, ptr %39, align 8
@@ -25438,7 +25438,7 @@ land.rhs.i.i384:                                  ; preds = %for.cond.i.i
 
 invoke.cont68:                                    ; preds = %land.rhs.i.i384, %for.cond.i.i
   store i64 %storemerge.i.i, ptr %iterable.sroa.13.0.it.sroa_idx, align 8, !tbaa !92, !noalias !350
-  %div.i.i687 = lshr exact i64 %spec.select, 1
+  %div.i.i687 = zext i1 %tobool.not.i.i327 to i64
   store i64 %div.i.i687, ptr %ref.tmp61, align 8
   %39 = getelementptr inbounds i8, ptr %ref.tmp61, i64 8
   store i64 0, ptr %39, align 8

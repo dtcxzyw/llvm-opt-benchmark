@@ -844,7 +844,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool4.not, label %if.end8, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  %or7 = or disjoint i32 %spec.store.select, 4
+  %or7 = select i1 %tobool.not, i32 4, i32 6
   store i32 %or7, ptr %speedmask, align 4
   br label %if.end8
 
@@ -856,7 +856,7 @@ if.end8:                                          ; preds = %if.then5, %if.end
   br i1 %tobool9.not, label %if.end13, label %if.then10
 
 if.then10:                                        ; preds = %if.end8
-  %or12 = or i32 %2, 8
+  %or12 = or disjoint i32 %2, 8
   store i32 %or12, ptr %speedmask, align 4
   br label %if.end13
 

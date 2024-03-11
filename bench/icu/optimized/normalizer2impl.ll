@@ -5766,7 +5766,7 @@ if.else105:                                       ; preds = %if.then94
   br i1 %cmp110188, label %while.body111.preheader, label %while.end114
 
 while.body111.preheader:                          ; preds = %if.else105
-  %34 = shl nsw i64 %cond90.neg, 1
+  %34 = select i1 %cmp89, i64 -2, i64 -4
   %35 = add i64 %34, %p.1.lcssa234251
   %umax = tail call i64 @llvm.umax.i64(i64 %35, i64 %2)
   %reass.sub = sub i64 %umax, %starter.0.ph250

@@ -295,8 +295,8 @@ define dso_local void @ieee80211_recalc_idle(ptr noundef %0) local_unnamed_addr 
   %32 = select i1 %21, i1 true, i1 %31
   %33 = select i1 %32, i32 2, i32 0
   %34 = select i1 %32, i32 0, i32 2
-  %35 = or disjoint i32 %33, 4
-  %36 = or disjoint i32 %34, 4
+  %35 = select i1 %32, i32 6, i32 4
+  %36 = select i1 %32, i32 4, i32 6
   %37 = select i1 %10, i32 %35, i32 %33
   %38 = select i1 %10, i32 %34, i32 %36
   tail call void @ieee80211_mod_tpt_led_trig(ptr noundef %0, i32 noundef %37, i32 noundef %38) #15

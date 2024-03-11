@@ -1554,7 +1554,7 @@ define dso_local i64 @do_shmat(i32 noundef %0, ptr noundef %1, i32 noundef %2, p
   %38 = xor i32 %37, 2
   %39 = and i32 %2, 32768
   %40 = icmp eq i32 %39, 0
-  %41 = or disjoint i64 %36, 4
+  %41 = select i1 %35, i64 7, i64 5
   %42 = select i1 %40, i64 %36, i64 %41
   %43 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #14, !srcloc !20
   %44 = inttoptr i64 %43 to ptr
@@ -1575,7 +1575,7 @@ define dso_local i64 @do_shmat(i32 noundef %0, ptr noundef %1, i32 noundef %2, p
 
 55:                                               ; preds = %31
   %56 = select i1 %35, i16 438, i16 292
-  %57 = or disjoint i16 %56, 73
+  %57 = select i1 %35, i16 511, i16 365
   %58 = select i1 %40, i16 %56, i16 %57
   %59 = tail call i32 @ipcperms(ptr noundef %48, ptr noundef %50, i16 noundef signext %58) #12
   %60 = icmp eq i32 %59, 0

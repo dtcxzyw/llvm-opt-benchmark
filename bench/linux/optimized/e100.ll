@@ -5469,7 +5469,7 @@ define internal fastcc zeroext i16 @e100_eeprom_read(ptr nocapture noundef reado
   %24 = load ptr, ptr %10, align 8
   %25 = tail call i32 @ioread8(ptr noundef %24) #19
   tail call void @__const_udelay(i64 noundef 17180) #19
-  %26 = or disjoint i8 %21, 1
+  %26 = select i1 %20, i8 3, i8 7
   %27 = load ptr, ptr %10, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 14
   tail call void @iowrite8(i8 noundef zeroext %26, ptr noundef %28) #19
@@ -5560,7 +5560,7 @@ define internal fastcc void @e100_eeprom_write(ptr nocapture noundef readonly %0
   %35 = load ptr, ptr %18, align 8
   %36 = tail call i32 @ioread8(ptr noundef %35) #19
   tail call void @__const_udelay(i64 noundef 17180) #19
-  %37 = or disjoint i8 %32, 1
+  %37 = select i1 %31, i8 3, i8 7
   %38 = load ptr, ptr %18, align 8
   %39 = getelementptr inbounds i8, ptr %38, i64 14
   tail call void @iowrite8(i8 noundef zeroext %37, ptr noundef %39) #19

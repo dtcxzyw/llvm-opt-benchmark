@@ -74,11 +74,11 @@ if.then5:                                         ; preds = %if.then
   ]
 
 if.then14:                                        ; preds = %if.then5
-  %3 = or disjoint i8 %spec.select, 1
+  %3 = select i1 %cmp8, i8 -127, i8 1
   br label %return
 
 if.then20:                                        ; preds = %if.then5
-  %4 = or disjoint i8 %spec.select, 3
+  %4 = select i1 %cmp8, i8 -125, i8 3
   br label %return
 
 if.then31:                                        ; preds = %entry
@@ -90,7 +90,7 @@ if.then31:                                        ; preds = %entry
   br i1 %cmp39, label %if.then41, label %do.body
 
 if.then41:                                        ; preds = %if.then31
-  %6 = or disjoint i8 %spec.select10, 4
+  %6 = select i1 %cmp34, i8 -124, i8 4
   br label %return
 
 do.body:                                          ; preds = %entry, %if.then5, %if.then, %if.then31

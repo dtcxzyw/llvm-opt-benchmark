@@ -2875,7 +2875,7 @@ define internal fastcc ptr @ieee80211_tdls_build_mgmt_packet_data(ptr noundef %0
   %602 = select i1 %601, i8 0, i8 3
   %603 = and i8 %595, 8
   %604 = icmp eq i8 %603, 0
-  %605 = add nuw nsw i8 %602, 3
+  %605 = select i1 %601, i8 3, i8 6
   %606 = select i1 %604, i8 %602, i8 %605
   %607 = getelementptr inbounds i8, ptr %446, i64 3
   %608 = load i8, ptr %607, align 1

@@ -545,7 +545,6 @@ entry:
   %ir1 = getelementptr inbounds i8, ptr %J, i64 32
   %0 = load ptr, ptr %ir1, align 8
   %cmp = icmp eq i32 %op, 28
-  %cond = select i1 %cmp, i32 14, i32 21
   %chain = getelementptr inbounds i8, ptr %J, i64 402
   %idxprom = zext i32 %op to i64
   %arrayidx = getelementptr inbounds [101 x i16], ptr %chain, i64 0, i64 %idxprom
@@ -589,7 +588,7 @@ ir_nextk64.exit:                                  ; preds = %if.then.i, %for.end
   %arrayidx13 = getelementptr inbounds %union.IRIns, ptr %4, i64 %idxprom12
   %arrayidx14 = getelementptr inbounds i8, ptr %arrayidx13, i64 8
   store i64 %u64, ptr %arrayidx14, align 8
-  %conv15 = trunc i32 %cond to i8
+  %conv15 = select i1 %cmp, i8 14, i8 21
   %t16 = getelementptr inbounds i8, ptr %arrayidx13, i64 4
   store i8 %conv15, ptr %t16, align 4
   %conv17 = trunc i32 %op to i8
@@ -609,7 +608,7 @@ found.loopexit:                                   ; preds = %for.body
 
 found:                                            ; preds = %found.loopexit, %ir_nextk64.exit
   %ref.1 = phi i32 [ %sub.i, %ir_nextk64.exit ], [ %ref.0.le, %found.loopexit ]
-  %shl = shl nuw nsw i32 %cond, 24
+  %shl = select i1 %cmp, i32 234881024, i32 352321536
   %add = add i32 %ref.1, %shl
   ret i32 %add
 }

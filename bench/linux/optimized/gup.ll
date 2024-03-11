@@ -2152,7 +2152,7 @@ define dso_local i64 @populate_vma_page_range(ptr nocapture noundef readonly %0,
   %17 = select i1 %16, i32 65537, i32 65536
   %18 = and i64 %11, 7
   %19 = icmp eq i64 %18, 0
-  %20 = or disjoint i32 %17, 8
+  %20 = select i1 %16, i32 65545, i32 65544
   %21 = select i1 %19, i32 %17, i32 %20
   %22 = icmp eq ptr %3, null
   %23 = or disjoint i32 %21, 2097152
@@ -2938,7 +2938,7 @@ define dso_local i32 @__mm_populate(i64 noundef %0, i64 noundef %1, i32 noundef 
   %53 = select i1 %52, i32 65537, i32 65536
   %54 = and i64 %38, 7
   %55 = icmp eq i64 %54, 0
-  %56 = or disjoint i32 %53, 8
+  %56 = select i1 %52, i32 65545, i32 65544
   %57 = select i1 %55, i32 %53, i32 %56
   %58 = or disjoint i32 %57, 2097152
   %59 = call fastcc i64 @__get_user_pages(ptr noundef %50, i64 noundef %43, i64 noundef %45, i32 noundef %58, ptr noundef null, ptr noundef nonnull %4)

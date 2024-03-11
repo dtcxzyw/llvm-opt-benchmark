@@ -1191,7 +1191,7 @@ define internal i32 @zend_range_info(ptr nocapture noundef readonly %0, ptr noun
   %.not173 = icmp ne i32 %182, 0
   %or.cond181.not188 = select i1 %.not172, i1 true, i1 %.not173
   %brmerge = select i1 %or.cond181.not188, i1 true, i1 %.0136
-  %183 = or i32 %.0, 32768
+  %183 = select i1 %or.cond180, i32 1073774720, i32 1073856640
   %.1 = select i1 %brmerge, i32 %183, i32 %.0
   %184 = and i32 %.0148, 991
   %.not175 = icmp eq i32 %184, 0

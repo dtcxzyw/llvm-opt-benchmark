@@ -888,7 +888,7 @@ define internal void @i9xx_cursor_update_arm(ptr noundef %0, ptr noundef %1, ptr
   %35 = getelementptr inbounds i8, ptr %1, i64 4753
   %36 = load i8, ptr %35, align 1, !range !6, !noundef !7
   %37 = icmp eq i8 %36, 0
-  %38 = or disjoint i32 %34, 16777216
+  %38 = select i1 %33, i32 16777216, i32 83886080
   %39 = select i1 %37, i32 %34, i32 %38
   %40 = icmp ult i16 %28, 5
   br i1 %40, label %41, label %52

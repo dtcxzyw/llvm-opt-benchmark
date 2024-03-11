@@ -7165,7 +7165,7 @@ define dso_local noundef zeroext i1 @ata_dev_power_init_tf(ptr nocapture noundef
 
 25:                                               ; preds = %19
   store i64 22, ptr %1, align 8
-  %26 = or disjoint i8 %16, 64
+  %26 = select i1 %14, i8 -32, i8 -16
   store i8 %26, ptr %15, align 4
   br label %30
 
@@ -7352,7 +7352,7 @@ define dso_local void @ata_dev_power_set_active(ptr noundef %0) local_unnamed_ad
 
 24:                                               ; preds = %6
   store i64 22, ptr %3, align 8
-  %25 = or disjoint i8 %17, 64
+  %25 = select i1 %15, i8 -32, i8 -16
   store i8 %25, ptr %16, align 4
   br label %28
 

@@ -1020,7 +1020,7 @@ jbd2_commit_block_csum_verify.exit.thread:        ; preds = %451, %473, %jbd2_co
   %527 = and i32 %.fr73, 33554432
   %.not470 = icmp eq i32 %527, 0
   %spec.select = select i1 %.not470, i32 4, i32 8
-  %528 = or disjoint i32 %spec.select, 16
+  %528 = select i1 %.not470, i32 20, i32 24
   %529 = icmp sgt i32 %528, %499
   br i1 %529, label %.thread48, label %.lr.ph
 

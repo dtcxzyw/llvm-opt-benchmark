@@ -485,7 +485,7 @@ define dso_local i32 @call_usermodehelper_exec(ptr noundef %0, i32 noundef %1) #
   br i1 %34, label %42, label %35
 
 35:                                               ; preds = %29
-  %36 = or i32 %32, 258
+  %36 = select i1 %31, i32 258, i32 8450
   %37 = call i32 @wait_for_completion_state(ptr noundef nonnull %3, i32 noundef %36) #10
   %38 = icmp eq i32 %37, 0
   br i1 %38, label %44, label %39

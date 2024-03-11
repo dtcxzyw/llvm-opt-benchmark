@@ -9239,7 +9239,7 @@ if.end29:                                         ; preds = %if.end.thread78, %i
   br i1 %cmp40, label %if.then42, label %return
 
 if.then42:                                        ; preds = %if.end29
-  %38 = or disjoint i8 %spec.store.select, 2
+  %38 = select i1 %cmp31, i8 -126, i8 2
   store i8 %38, ptr %qidp, align 8
   br label %return
 

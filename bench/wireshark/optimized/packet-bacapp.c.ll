@@ -5475,7 +5475,7 @@ define internal fastcc i32 @fStartConfirmed(ptr noundef %0, ptr noundef %1, i8 n
   br i1 %.not, label %17, label %13
 
 13:                                               ; preds = %5
-  %14 = add nuw nsw i32 %spec.select, 2
+  %14 = select i1 %8, i32 5, i32 4
   %15 = tail call signext i8 @tvb_get_gint8(ptr noundef %0, i32 noundef %14) #7
   %16 = sext i8 %15 to i32
   store i32 %16, ptr %3, align 4

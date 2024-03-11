@@ -4194,7 +4194,7 @@ Abc_Clock.exit175:                                ; preds = %Abc_Clock.exit173, 
   %.0.i.i = select i1 %169, i32 32, i32 0
   %171 = and i64 %.020.i.i, 65535
   %172 = icmp eq i64 %171, 0
-  %173 = or disjoint i32 %.0.i.i, 16
+  %173 = select i1 %169, i32 48, i32 16
   %174 = lshr exact i64 %.020.i.i, 16
   %.121.i.i = select i1 %172, i64 %174, i64 %.020.i.i
   %.1.i.i = select i1 %172, i32 %173, i32 %.0.i.i
@@ -4212,14 +4212,14 @@ Abc_Clock.exit175:                                ; preds = %Abc_Clock.exit173, 
   %.3.i.i = select i1 %180, i32 %181, i32 %.2.i.i
   %183 = and i64 %.323.i.i, 3
   %184 = icmp eq i64 %183, 0
-  %185 = add nuw nsw i32 %.3.i.i, 2
+  %185 = or disjoint i32 %.3.i.i, 2
   %186 = lshr exact i64 %.323.i.i, 2
   %.424.i.i = select i1 %184, i64 %186, i64 %.323.i.i
   %.4.i.i = select i1 %184, i32 %185, i32 %.3.i.i
   %187 = trunc i64 %.424.i.i to i32
   %188 = and i32 %187, 1
   %189 = xor i32 %188, 1
-  %.5.i.i = add i32 %.4.i.i, %167
+  %.5.i.i = add nuw i32 %.4.i.i, %167
   %190 = add i32 %.5.i.i, %189
   br label %Abc_TtFindFirstDiffBit.exit
 

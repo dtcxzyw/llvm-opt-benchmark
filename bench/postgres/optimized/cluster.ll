@@ -1313,11 +1313,11 @@ define dso_local void @finish_heap_swap(i32 noundef %0, i32 noundef %1, i1 nound
   ]
 
 17:                                               ; preds = %16
-  %18 = or disjoint i32 %spec.select, 8
+  %18 = select i1 %4, i32 14, i32 10
   br label %21
 
 19:                                               ; preds = %16
-  %20 = or disjoint i32 %spec.select, 16
+  %20 = select i1 %4, i32 22, i32 18
   br label %21
 
 21:                                               ; preds = %16, %19, %17

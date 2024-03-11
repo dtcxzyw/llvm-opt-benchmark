@@ -1078,7 +1078,7 @@ vhost_svq_translate_addr.exit:                    ; preds = %for.cond.i, %do.bod
   br i1 %cmp124.i, label %for.cond.preheader, label %return
 
 for.cond.preheader:                               ; preds = %vhost_svq_translate_addr.exit, %if.then56.i, %if.then14.i
-  %or29 = or disjoint i16 %spec.select, 1
+  %or29 = select i1 %write, i16 3, i16 1
   %desc_next = getelementptr inbounds i8, ptr %svq, i64 120
   br i1 %more_descs, label %for.body.us, label %for.body
 

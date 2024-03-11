@@ -90,7 +90,7 @@ entry:
   %spec.select15 = select i1 %tobool.not, i32 0, i32 16
   %tobool2.not = icmp ult i32 %spec.select, 256
   %shr4 = lshr i32 %spec.select, 8
-  %or5 = or disjoint i32 %spec.select15, 8
+  %or5 = select i1 %tobool.not, i32 8, i32 24
   %v.addr.1 = select i1 %tobool2.not, i32 %spec.select, i32 %shr4
   %r.1 = select i1 %tobool2.not, i32 %spec.select15, i32 %or5
   %and7 = and i32 %v.addr.1, 240
@@ -120,7 +120,7 @@ entry:
   %spec.select18 = select i1 %tobool.not, i32 0, i32 32
   %tobool2.not = icmp ult i64 %spec.select, 65536
   %shr4 = lshr i64 %spec.select, 16
-  %or5 = or disjoint i32 %spec.select18, 16
+  %or5 = select i1 %tobool.not, i32 16, i32 48
   %v.addr.1 = select i1 %tobool2.not, i64 %spec.select, i64 %shr4
   %r.1 = select i1 %tobool2.not, i32 %spec.select18, i32 %or5
   %and7 = and i64 %v.addr.1, 65280

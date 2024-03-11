@@ -324,7 +324,7 @@ define dso_local i32 @fcntl_dirnotify(i32 noundef %0, ptr noundef %1, i32 nounde
   %22 = select i1 %21, i32 134217728, i32 671088640
   %23 = and i32 %2, 8
   %24 = icmp eq i32 %23, 0
-  %25 = or disjoint i32 %22, 576
+  %25 = select i1 %21, i32 134218304, i32 671089216
   %26 = select i1 %24, i32 %22, i32 %25
   %27 = and i32 %2, 3
   %28 = lshr i32 %2, 3

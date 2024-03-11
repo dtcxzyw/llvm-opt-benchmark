@@ -6217,7 +6217,7 @@ define internal fastcc noundef i32 @_ZL3clzm(i64 noundef %0) unnamed_addr #22 {
   %spec.select = select i1 %3, i64 %4, i64 %0
   %spec.select28 = select i1 %3, i32 32, i32 0
   %5 = icmp ult i64 %spec.select, 281474976710656
-  %6 = or disjoint i32 %spec.select28, 16
+  %6 = select i1 %3, i32 48, i32 16
   %7 = shl nuw i64 %spec.select, 16
   %.122 = select i1 %5, i64 %7, i64 %spec.select
   %.1 = select i1 %5, i32 %6, i32 %spec.select28
@@ -6232,7 +6232,7 @@ define internal fastcc noundef i32 @_ZL3clzm(i64 noundef %0) unnamed_addr #22 {
   %.324 = select i1 %11, i64 %13, i64 %.223
   %.3 = select i1 %11, i32 %12, i32 %.2
   %14 = icmp ult i64 %.324, 4611686018427387904
-  %15 = add nuw nsw i32 %.3, 2
+  %15 = or disjoint i32 %.3, 2
   %16 = shl nuw i64 %.324, 2
   %.425 = select i1 %14, i64 %16, i64 %.324
   %.4 = select i1 %14, i32 %15, i32 %.3

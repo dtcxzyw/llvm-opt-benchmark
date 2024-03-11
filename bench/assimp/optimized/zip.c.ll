@@ -1589,7 +1589,7 @@ if.end24:                                         ; preds = %if.end18
   br i1 %or.cond3, label %if.then33, label %if.end67
 
 if.then33:                                        ; preds = %if.end24
-  %or34 = or disjoint i32 %spec.select, 4
+  %or34 = select i1 %cmp11, i32 13, i32 12
   %6 = load i32, ptr %avail_in, align 8
   %conv36 = zext i32 %6 to i64
   store i64 %conv36, ptr %in_bytes, align 8
@@ -1645,7 +1645,7 @@ if.then63:                                        ; preds = %if.else
   br label %return
 
 if.end67:                                         ; preds = %if.end24
-  %or71 = or disjoint i32 %spec.select, 2
+  %or71 = select i1 %cmp11, i32 11, i32 10
   %spec.select112 = select i1 %cmp7, i32 %or71, i32 %spec.select
   %m_dict_avail = getelementptr inbounds i8, ptr %0, i64 11004
   %19 = load i32, ptr %m_dict_avail, align 4

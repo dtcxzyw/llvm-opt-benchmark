@@ -1250,7 +1250,7 @@ define dso_local i32 @lrc_update_regs(ptr noundef %0, ptr noundef %1, i32 nounde
   %256 = getelementptr inbounds i8, ptr %255, i64 7176
   %257 = load i8, ptr %256, align 8
   %258 = icmp eq i8 %257, 8
-  %259 = or disjoint i32 %253, 32
+  %259 = select i1 %252, i32 313, i32 297
   %260 = select i1 %258, i32 %259, i32 %253
   %261 = getelementptr inbounds i8, ptr %0, i64 88
   %262 = load ptr, ptr %261, align 8

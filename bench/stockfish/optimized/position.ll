@@ -2620,7 +2620,7 @@ _ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit: ; preds = %74,
   br i1 %143, label %235, label %144
 
 144:                                              ; preds = %140, %135
-  %145 = shl nsw i32 %137, 1
+  %145 = select i1 %136, i32 16, i32 -16
   %146 = add nsw i32 %145, %9
   %147 = icmp eq i32 %146, %11
   br i1 %147, label %148, label %265

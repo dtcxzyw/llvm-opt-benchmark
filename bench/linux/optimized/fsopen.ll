@@ -248,7 +248,8 @@ define internal fastcc i64 @__se_sys_fspick(i64 noundef %0, i64 noundef %1, i64 
   %14 = select i1 %13, i32 5, i32 4
   %15 = and i32 %7, 4
   %16 = icmp eq i32 %15, 0
-  %17 = and i32 %14, 1
+  %.lobit = lshr exact i32 %12, 1
+  %17 = xor i32 %.lobit, 1
   %18 = select i1 %16, i32 %14, i32 %17
   %19 = icmp ult i32 %7, 8
   %20 = or disjoint i32 %18, 16384

@@ -630,14 +630,14 @@ define dso_local ptr @__iomap_dio_rw(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %119, label %126, label %120
 
 120:                                              ; preds = %115, %104, %101
-  %121 = or disjoint i32 %92, 536870912
+  %121 = select i1 %91, i32 1610612736, i32 1677721600
   store i32 %121, ptr %62, align 4
   %122 = and i32 %69, 4
   %123 = icmp eq i32 %122, 0
   br i1 %123, label %124, label %126
 
 124:                                              ; preds = %120
-  %125 = or disjoint i32 %92, 805306368
+  %125 = select i1 %91, i32 1879048192, i32 1946157056
   store i32 %125, ptr %62, align 4
   br label %126
 

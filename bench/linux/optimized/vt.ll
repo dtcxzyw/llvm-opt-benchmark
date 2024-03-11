@@ -10880,7 +10880,7 @@ define internal void @rgb_foreground(ptr nocapture noundef %0, ptr nocapture nou
   %11 = icmp ult i8 %10, %3
   %12 = select i1 %11, i8 4, i8 0
   %13 = icmp ult i8 %10, %5
-  %14 = or disjoint i8 %12, 2
+  %14 = select i1 %11, i8 6, i8 2
   %15 = select i1 %13, i8 %14, i8 %12
   %16 = icmp ult i8 %10, %8
   %17 = zext i1 %16 to i8
