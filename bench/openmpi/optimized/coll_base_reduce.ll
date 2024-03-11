@@ -1856,9 +1856,9 @@ ompi_coll_base_sendrecv.exit:                     ; preds = %145, %147
   %205 = sext i32 %.0.i to i64
   br label %206
 
-206:                                              ; preds = %.preheader, %232
-  %indvars.iv503 = phi i64 [ %205, %.preheader ], [ %indvars.iv.next504, %232 ]
-  %.0299.in = phi i32 [ %21, %.preheader ], [ %.0299, %232 ]
+206:                                              ; preds = %.preheader, %231
+  %indvars.iv503 = phi i64 [ %205, %.preheader ], [ %indvars.iv.next504, %231 ]
+  %.0299.in = phi i32 [ %21, %.preheader ], [ %.0299, %231 ]
   %.0299 = lshr i32 %.0299.in, 1
   %indvars.iv.next504 = add nsw i64 %indvars.iv503, -1
   %.not369 = icmp ult i32 %.0299.in, 2
@@ -1874,91 +1874,90 @@ ompi_coll_base_sendrecv.exit:                     ; preds = %145, %147
   %214 = or i1 %.not370, %213
   %or.cond382 = or i1 %170, %214
   %.0 = select i1 %or.cond382, i32 %212, i32 %5
-  %215 = trunc i64 %indvars.iv.next504 to i32
-  %216 = shl nsw i32 -1, %215
-  %217 = xor i32 %208, %.0303511
-  %218 = and i32 %217, %216
-  %219 = icmp eq i32 %218, 0
-  br i1 %219, label %220, label %232
+  %215 = xor i32 %208, %.0303511
+  %216 = trunc i64 %indvars.iv.next504 to i32
+  %217 = lshr i32 %215, %216
+  %218 = icmp eq i32 %217, 0
+  br i1 %218, label %219, label %231
 
-220:                                              ; preds = %207
-  %221 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 12), align 8
+219:                                              ; preds = %207
+  %220 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 12), align 8
   %sext = shl i64 %indvars.iv.next504, 32
-  %222 = ashr exact i64 %sext, 32
-  %223 = getelementptr inbounds i32, ptr %98, i64 %222
-  %224 = load i32, ptr %223, align 4
-  %225 = sext i32 %224 to i64
-  %226 = mul nsw i64 %34, %225
-  %227 = getelementptr inbounds i8, ptr %.0300404, i64 %226
-  %228 = getelementptr inbounds i32, ptr %100, i64 %222
-  %229 = load i32, ptr %228, align 4
-  %230 = sext i32 %229 to i64
-  %231 = tail call i32 %221(ptr noundef %227, i64 noundef %230, ptr noundef %3, i32 noundef %.0, i32 noundef -21, i32 noundef 4, ptr noundef %6) #8
+  %221 = ashr exact i64 %sext, 32
+  %222 = getelementptr inbounds i32, ptr %98, i64 %221
+  %223 = load i32, ptr %222, align 4
+  %224 = sext i32 %223 to i64
+  %225 = mul nsw i64 %34, %224
+  %226 = getelementptr inbounds i8, ptr %.0300404, i64 %225
+  %227 = getelementptr inbounds i32, ptr %100, i64 %221
+  %228 = load i32, ptr %227, align 4
+  %229 = sext i32 %228 to i64
+  %230 = tail call i32 %220(ptr noundef %226, i64 noundef %229, ptr noundef %3, i32 noundef %.0, i32 noundef -21, i32 noundef 4, ptr noundef %6) #8
   br label %ompi_datatype_copy_content_same_ddt.exit.thread425
 
-232:                                              ; preds = %207
-  %233 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 9), align 8
-  %234 = getelementptr inbounds i32, ptr %99, i64 %indvars.iv.next504
-  %235 = load i32, ptr %234, align 4
-  %236 = sext i32 %235 to i64
-  %237 = mul nsw i64 %34, %236
-  %238 = getelementptr inbounds i8, ptr %.0300404, i64 %237
-  %239 = getelementptr inbounds i32, ptr %101, i64 %indvars.iv.next504
-  %240 = load i32, ptr %239, align 4
-  %241 = sext i32 %240 to i64
-  %242 = tail call i32 %233(ptr noundef %238, i64 noundef %241, ptr noundef %3, i32 noundef %.0, i32 noundef -21, ptr noundef %6, ptr noundef null) #8
-  %.not371 = icmp eq i32 %242, 0
+231:                                              ; preds = %207
+  %232 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_base_module_2_1_0_t, ptr @mca_pml, i64 0, i32 9), align 8
+  %233 = getelementptr inbounds i32, ptr %99, i64 %indvars.iv.next504
+  %234 = load i32, ptr %233, align 4
+  %235 = sext i32 %234 to i64
+  %236 = mul nsw i64 %34, %235
+  %237 = getelementptr inbounds i8, ptr %.0300404, i64 %236
+  %238 = getelementptr inbounds i32, ptr %101, i64 %indvars.iv.next504
+  %239 = load i32, ptr %238, align 4
+  %240 = sext i32 %239 to i64
+  %241 = tail call i32 %232(ptr noundef %237, i64 noundef %240, ptr noundef %3, i32 noundef %.0, i32 noundef -21, ptr noundef %6, ptr noundef null) #8
+  %.not371 = icmp eq i32 %241, 0
   br i1 %.not371, label %206, label %ompi_datatype_copy_content_same_ddt.exit.thread425, !llvm.loop !20
 
-ompi_datatype_copy_content_same_ddt.exit.thread425: ; preds = %.lr.ph.i, %ompi_coll_base_sendrecv.exit, %232, %206, %72, %78, %82, %88, %._crit_edge, %203, %220, %95, %191
-  %.6437 = phi i32 [ %77, %72 ], [ %81, %78 ], [ %188, %._crit_edge ], [ %231, %220 ], [ 0, %203 ], [ %87, %82 ], [ %90, %88 ], [ -2, %95 ], [ %198, %191 ], [ 0, %206 ], [ %242, %232 ], [ %.0.i387, %ompi_coll_base_sendrecv.exit ], [ %58, %.lr.ph.i ]
-  %.0304436 = phi ptr [ null, %72 ], [ null, %78 ], [ %98, %._crit_edge ], [ %98, %220 ], [ %98, %203 ], [ null, %82 ], [ null, %88 ], [ %98, %95 ], [ %98, %191 ], [ %98, %206 ], [ %98, %232 ], [ %98, %ompi_coll_base_sendrecv.exit ], [ null, %.lr.ph.i ]
-  %.0305435 = phi ptr [ null, %72 ], [ null, %78 ], [ %100, %._crit_edge ], [ %100, %220 ], [ %100, %203 ], [ null, %82 ], [ null, %88 ], [ %100, %95 ], [ %100, %191 ], [ %100, %206 ], [ %100, %232 ], [ %100, %ompi_coll_base_sendrecv.exit ], [ null, %.lr.ph.i ]
-  %.0307434 = phi ptr [ null, %72 ], [ null, %78 ], [ %99, %._crit_edge ], [ %99, %220 ], [ %99, %203 ], [ null, %82 ], [ null, %88 ], [ %99, %95 ], [ %99, %191 ], [ %99, %206 ], [ %99, %232 ], [ %99, %ompi_coll_base_sendrecv.exit ], [ null, %.lr.ph.i ]
-  %.0308433 = phi ptr [ null, %72 ], [ null, %78 ], [ %101, %._crit_edge ], [ %101, %220 ], [ %101, %203 ], [ null, %82 ], [ null, %88 ], [ %101, %95 ], [ %101, %191 ], [ %101, %206 ], [ %101, %232 ], [ %101, %ompi_coll_base_sendrecv.exit ], [ null, %.lr.ph.i ]
-  %.1319432 = phi ptr [ %.0318403, %72 ], [ %.0318403, %78 ], [ %.0318403, %._crit_edge ], [ %.0318403, %220 ], [ %.0318403, %203 ], [ %.0318403, %82 ], [ %.0318403, %88 ], [ %.0318403, %95 ], [ %.0318403, %191 ], [ %.0318403, %206 ], [ %.0318403, %232 ], [ %.0318403, %ompi_coll_base_sendrecv.exit ], [ %.0318402, %.lr.ph.i ]
+ompi_datatype_copy_content_same_ddt.exit.thread425: ; preds = %.lr.ph.i, %ompi_coll_base_sendrecv.exit, %231, %206, %72, %78, %82, %88, %._crit_edge, %203, %219, %95, %191
+  %.6437 = phi i32 [ %77, %72 ], [ %81, %78 ], [ %188, %._crit_edge ], [ %230, %219 ], [ 0, %203 ], [ %87, %82 ], [ %90, %88 ], [ -2, %95 ], [ %198, %191 ], [ 0, %206 ], [ %241, %231 ], [ %.0.i387, %ompi_coll_base_sendrecv.exit ], [ %58, %.lr.ph.i ]
+  %.0304436 = phi ptr [ null, %72 ], [ null, %78 ], [ %98, %._crit_edge ], [ %98, %219 ], [ %98, %203 ], [ null, %82 ], [ null, %88 ], [ %98, %95 ], [ %98, %191 ], [ %98, %206 ], [ %98, %231 ], [ %98, %ompi_coll_base_sendrecv.exit ], [ null, %.lr.ph.i ]
+  %.0305435 = phi ptr [ null, %72 ], [ null, %78 ], [ %100, %._crit_edge ], [ %100, %219 ], [ %100, %203 ], [ null, %82 ], [ null, %88 ], [ %100, %95 ], [ %100, %191 ], [ %100, %206 ], [ %100, %231 ], [ %100, %ompi_coll_base_sendrecv.exit ], [ null, %.lr.ph.i ]
+  %.0307434 = phi ptr [ null, %72 ], [ null, %78 ], [ %99, %._crit_edge ], [ %99, %219 ], [ %99, %203 ], [ null, %82 ], [ null, %88 ], [ %99, %95 ], [ %99, %191 ], [ %99, %206 ], [ %99, %231 ], [ %99, %ompi_coll_base_sendrecv.exit ], [ null, %.lr.ph.i ]
+  %.0308433 = phi ptr [ null, %72 ], [ null, %78 ], [ %101, %._crit_edge ], [ %101, %219 ], [ %101, %203 ], [ null, %82 ], [ null, %88 ], [ %101, %95 ], [ %101, %191 ], [ %101, %206 ], [ %101, %231 ], [ %101, %ompi_coll_base_sendrecv.exit ], [ null, %.lr.ph.i ]
+  %.1319432 = phi ptr [ %.0318403, %72 ], [ %.0318403, %78 ], [ %.0318403, %._crit_edge ], [ %.0318403, %219 ], [ %.0318403, %203 ], [ %.0318403, %82 ], [ %.0318403, %88 ], [ %.0318403, %95 ], [ %.0318403, %191 ], [ %.0318403, %206 ], [ %.0318403, %231 ], [ %.0318403, %ompi_coll_base_sendrecv.exit ], [ %.0318402, %.lr.ph.i ]
   tail call void @free(ptr noundef nonnull %48) #8
   %.not374 = icmp eq ptr %.1319432, null
-  br i1 %.not374, label %244, label %243
+  br i1 %.not374, label %243, label %242
 
-243:                                              ; preds = %ompi_datatype_copy_content_same_ddt.exit.thread425
+242:                                              ; preds = %ompi_datatype_copy_content_same_ddt.exit.thread425
   tail call void @free(ptr noundef nonnull %.1319432) #8
-  br label %244
+  br label %243
 
-244:                                              ; preds = %243, %ompi_datatype_copy_content_same_ddt.exit.thread425
+243:                                              ; preds = %242, %ompi_datatype_copy_content_same_ddt.exit.thread425
   %.not375 = icmp eq ptr %.0304436, null
-  br i1 %.not375, label %246, label %245
+  br i1 %.not375, label %245, label %244
 
-245:                                              ; preds = %244
+244:                                              ; preds = %243
   tail call void @free(ptr noundef nonnull %.0304436) #8
-  br label %246
+  br label %245
 
-246:                                              ; preds = %245, %244
+245:                                              ; preds = %244, %243
   %.not376 = icmp eq ptr %.0307434, null
-  br i1 %.not376, label %248, label %247
+  br i1 %.not376, label %247, label %246
 
-247:                                              ; preds = %246
+246:                                              ; preds = %245
   tail call void @free(ptr noundef nonnull %.0307434) #8
-  br label %248
+  br label %247
 
-248:                                              ; preds = %247, %246
+247:                                              ; preds = %246, %245
   %.not377 = icmp eq ptr %.0305435, null
-  br i1 %.not377, label %250, label %249
+  br i1 %.not377, label %249, label %248
 
-249:                                              ; preds = %248
+248:                                              ; preds = %247
   tail call void @free(ptr noundef nonnull %.0305435) #8
-  br label %250
+  br label %249
 
-250:                                              ; preds = %249, %248
+249:                                              ; preds = %248, %247
   %.not378 = icmp eq ptr %.0308433, null
-  br i1 %.not378, label %.thread478, label %251
+  br i1 %.not378, label %.thread478, label %250
 
-251:                                              ; preds = %250
+250:                                              ; preds = %249
   tail call void @free(ptr noundef nonnull %.0308433) #8
   br label %.thread478
 
-.thread478:                                       ; preds = %.thread551, %opal_datatype_span.exit, %250, %251, %8, %27
-  %.0298 = phi i32 [ %28, %27 ], [ 13, %8 ], [ %.6437, %251 ], [ %.6437, %250 ], [ -2, %opal_datatype_span.exit ], [ -2, %.thread551 ]
+.thread478:                                       ; preds = %.thread551, %opal_datatype_span.exit, %249, %250, %8, %27
+  %.0298 = phi i32 [ %28, %27 ], [ 13, %8 ], [ %.6437, %250 ], [ %.6437, %249 ], [ -2, %opal_datatype_span.exit ], [ -2, %.thread551 ]
   ret i32 %.0298
 }
 

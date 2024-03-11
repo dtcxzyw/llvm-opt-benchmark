@@ -930,7 +930,6 @@ for.body:                                         ; preds = %for.cond
   %1 = load i64, ptr %end_.i.i, align 8
   %notmask.i.i = shl nsw i64 -1, %1
   %2 = load i64, ptr %start_.i.i, align 8
-  %notmask1.i.i = shl nsw i64 -1, %2
   %3 = load ptr, ptr %range, align 8
   %value_mask_.i.i = getelementptr inbounds i8, ptr %3, i64 3848
   %4 = load i64, ptr %value_mask_.i.i, align 8
@@ -938,8 +937,8 @@ for.body:                                         ; preds = %for.cond
   %or.i.i = or i64 %4, %notmask.i.i
   %6 = or i64 %or.i.i, %5
   %7 = xor i64 %6, -1
-  %and5.i.i = and i64 %notmask1.i.i, %7
-  %cmp.i3 = icmp eq i64 %and5.i.i, 0
+  %8 = lshr i64 %7, %2
+  %cmp.i3 = icmp eq i64 %8, 0
   br i1 %cmp.i3, label %for.end, label %for.cond
 
 for.end:                                          ; preds = %for.body, %for.cond

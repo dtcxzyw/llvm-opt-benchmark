@@ -218,9 +218,9 @@ define dso_local noundef zeroext i1 @Curl_check_noproxy(ptr noundef %0, ptr noun
   %.pre = load i8, ptr %75, align 1
   br label %.preheader.backedge
 
-.preheader.backedge:                              ; preds = %137, %.critedge2, %.split
-  %.be = phi i8 [ %.pre, %.critedge2 ], [ %.pr, %.split ], [ %138, %137 ]
-  %.197.be = phi ptr [ %75, %.critedge2 ], [ %.3, %.split ], [ %.4, %137 ]
+.preheader.backedge:                              ; preds = %136, %.critedge2, %.split
+  %.be = phi i8 [ %.pre, %.critedge2 ], [ %.pr, %.split ], [ %137, %136 ]
+  %.197.be = phi ptr [ %75, %.critedge2 ], [ %.3, %.split ], [ %.4, %136 ]
   br label %.preheader, !llvm.loop !5
 
 .critedge:                                        ; preds = %.preheader, %77
@@ -381,14 +381,13 @@ Curl_cidr4_match.exit.thread:                     ; preds = %115, %117, %119
 
 Curl_cidr4_match.exit:                            ; preds = %121
   %127 = sub nuw nsw i32 32, %.0129132
-  %128 = shl nsw i32 -1, %127
-  %129 = load i32, ptr %4, align 4
-  %130 = call i32 @htonl(i32 noundef %129) #11
-  %131 = load i32, ptr %5, align 4
-  %132 = call i32 @htonl(i32 noundef %131) #11
-  %133 = xor i32 %132, %130
-  %134 = and i32 %133, %128
-  %.not12.i = icmp eq i32 %134, 0
+  %128 = load i32, ptr %4, align 4
+  %129 = call i32 @htonl(i32 noundef %128) #11
+  %130 = load i32, ptr %5, align 4
+  %131 = call i32 @htonl(i32 noundef %130) #11
+  %132 = xor i32 %131, %129
+  %133 = lshr i32 %132, %127
+  %.not12.i = icmp eq i32 %133, 0
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   br i1 %.not12.i, label %.loopexit141, label %.critedge123.preheader
@@ -397,9 +396,9 @@ Curl_cidr4_match.exit:                            ; preds = %121
   br label %.critedge123
 
 .critedge123:                                     ; preds = %.critedge123.preheader, %.critedge6
-  %.3 = phi ptr [ %136, %.critedge6 ], [ %.298, %.critedge123.preheader ]
-  %135 = load i8, ptr %.3, align 1
-  switch i8 %135, label %.split [
+  %.3 = phi ptr [ %135, %.critedge6 ], [ %.298, %.critedge123.preheader ]
+  %134 = load i8, ptr %.3, align 1
+  switch i8 %134, label %.split [
     i8 32, label %.critedge6
     i8 9, label %.critedge6
     i8 0, label %.preheader210
@@ -407,10 +406,10 @@ Curl_cidr4_match.exit:                            ; preds = %121
   ]
 
 .preheader210:                                    ; preds = %.critedge123, %.critedge123
-  br label %137
+  br label %136
 
 .critedge6:                                       ; preds = %.critedge123, %.critedge123
-  %136 = getelementptr inbounds i8, ptr %.3, i64 1
+  %135 = getelementptr inbounds i8, ptr %.3, i64 1
   br label %.critedge123, !llvm.loop !7
 
 .split:                                           ; preds = %.critedge123
@@ -419,17 +418,17 @@ Curl_cidr4_match.exit:                            ; preds = %121
   %.not112144 = icmp eq i8 %.pr, 0
   br i1 %.not112144, label %.loopexit141, label %.preheader.backedge
 
-137:                                              ; preds = %.preheader210, %137
-  %.4 = phi ptr [ %139, %137 ], [ %.3, %.preheader210 ]
-  %138 = load i8, ptr %.4, align 1
-  %139 = getelementptr inbounds i8, ptr %.4, i64 1
-  switch i8 %138, label %.preheader.backedge [
-    i8 44, label %137
+136:                                              ; preds = %.preheader210, %136
+  %.4 = phi ptr [ %138, %136 ], [ %.3, %.preheader210 ]
+  %137 = load i8, ptr %.4, align 1
+  %138 = getelementptr inbounds i8, ptr %.4, i64 1
+  switch i8 %137, label %.preheader.backedge [
+    i8 44, label %136
     i8 0, label %.loopexit141
   ]
 
-.loopexit141:                                     ; preds = %.split.us.us, %61, %64, %67, %.split, %Curl_cidr4_match.exit, %123, %137, %.thread175, %34, %Curl_cidr6_match.exit, %14, %22, %20, %16, %3, %11
-  %.089 = phi i1 [ false, %11 ], [ false, %3 ], [ true, %16 ], [ false, %20 ], [ false, %22 ], [ false, %14 ], [ true, %Curl_cidr6_match.exit ], [ false, %34 ], [ false, %.thread175 ], [ false, %137 ], [ false, %.split ], [ true, %Curl_cidr4_match.exit ], [ true, %123 ], [ false, %67 ], [ false, %.split.us.us ], [ true, %61 ], [ true, %64 ]
+.loopexit141:                                     ; preds = %.split.us.us, %61, %64, %67, %.split, %Curl_cidr4_match.exit, %123, %136, %.thread175, %34, %Curl_cidr6_match.exit, %14, %22, %20, %16, %3, %11
+  %.089 = phi i1 [ false, %11 ], [ false, %3 ], [ true, %16 ], [ false, %20 ], [ false, %22 ], [ false, %14 ], [ true, %Curl_cidr6_match.exit ], [ false, %34 ], [ false, %.thread175 ], [ false, %136 ], [ false, %.split ], [ true, %Curl_cidr4_match.exit ], [ true, %123 ], [ false, %67 ], [ false, %.split.us.us ], [ true, %61 ], [ true, %64 ]
   ret i1 %.089
 }
 
