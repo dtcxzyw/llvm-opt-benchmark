@@ -436,3 +436,6 @@
 [submodule "bench/oniguruma/oniguruma"]
 	path = bench/oniguruma/oniguruma
 	url = git@github.com:kkos/oniguruma.git
+[submodule "bench/rustfmt-rs/rustfmt"]
+	path = bench/rustfmt-rs/rustfmt
+	url = git@github.com:rust-lang/rustfmt.git
