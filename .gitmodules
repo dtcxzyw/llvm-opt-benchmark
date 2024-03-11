@@ -433,3 +433,6 @@
 [submodule "bench/pybind11/pybind11"]
 	path = bench/pybind11/pybind11
 	url = git@github.com:pybind/pybind11.git
+[submodule "bench/oniguruma/oniguruma"]
+	path = bench/oniguruma/oniguruma
+	url = git@github.com:kkos/oniguruma.git
