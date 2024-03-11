@@ -1474,26 +1474,22 @@ dissect_h264_sei_message.exit:                    ; preds = %._crit_edge50.i, %3
   %.2.i.i = select i1 %.not.i21.not.i.i, i32 %.0.i.i, i32 %163
   %164 = ashr i32 %.2.i.i, 3
   %165 = call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %164) #6
-  %166 = and i32 %.2.i.i, 7
+  %166 = and i32 %.2.i.i, 4
   %167 = or i32 %166, %165
   %or.cond = icmp eq i32 %167, 0
-  br i1 %or.cond, label %dissect_h264_rbsp_trailing_bits.exit, label %168
+  br i1 %or.cond, label %176, label %168
 
 168:                                              ; preds = %dissect_h264_sei_message.exit
   %169 = load i32, ptr @hf_h264_rbsp_stop_bit, align 4
   %170 = call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %169, ptr noundef %1, i32 noundef %.2.i.i, i32 noundef 1, i32 noundef 0) #6
-  %171 = add i32 %.2.i.i, 1
-  %172 = and i32 %171, 7
-  %.not.i = icmp eq i32 %172, 0
-  br i1 %.not.i, label %dissect_h264_rbsp_trailing_bits.exit, label %173
+  %171 = or disjoint i32 %.2.i.i, 1
+  %172 = and i32 %171, 5
+  %173 = sub nuw nsw i32 8, %172
+  %174 = load i32, ptr @hf_h264_rbsp_trailing_bits, align 4
+  %175 = call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %174, ptr noundef %1, i32 noundef %171, i32 noundef %173, i32 noundef 0) #6
+  br label %176
 
-173:                                              ; preds = %168
-  %174 = sub nuw nsw i32 8, %172
-  %175 = load i32, ptr @hf_h264_rbsp_trailing_bits, align 4
-  %176 = call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %175, ptr noundef %1, i32 noundef %171, i32 noundef %174, i32 noundef 0) #6
-  br label %dissect_h264_rbsp_trailing_bits.exit
-
-dissect_h264_rbsp_trailing_bits.exit:             ; preds = %173, %168, %dissect_h264_sei_message.exit
+176:                                              ; preds = %dissect_h264_sei_message.exit, %168
   ret void
 }
 

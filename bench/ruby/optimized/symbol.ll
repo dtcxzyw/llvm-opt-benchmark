@@ -1710,7 +1710,7 @@ sym_check_asciionly.exit.thread:                  ; preds = %29, %25, %rb_enc_as
   %49 = icmp slt i32 %46, 0
   %spec.store.select = select i1 %49, i32 14, i32 %46
   %50 = load i64, ptr @rb_cSymbol, align 8
-  %51 = sext i32 %spec.store.select to i64
+  %51 = zext nneg i32 %spec.store.select to i64
   %52 = call fastcc i64 @dsymbol_alloc(i64 noundef %50, i64 noundef %39, ptr noundef %.022, i64 noundef %51)
   br label %53
 

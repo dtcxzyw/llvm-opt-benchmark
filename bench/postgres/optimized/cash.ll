@@ -218,7 +218,7 @@ define dso_local i64 @cash_in(ptr nocapture noundef readonly %0) local_unnamed_a
 
 .preheader175:                                    ; preds = %75
   %.not139189 = icmp eq i8 %76, 0
-  %.pre = sext i8 %narrow to i64
+  %.pre = zext nneg i8 %narrow to i64
   br i1 %.not139189, label %.thread170, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader175, %114
@@ -473,14 +473,14 @@ define dso_local i64 @cash_out(ptr nocapture noundef readonly %0) local_unnamed_
   %or.cond = icmp ugt i8 %7, 10
   %narrow = select i1 %or.cond, i8 2, i8 %7
   %narrow.fr = freeze i8 %narrow
-  %spec.store.select = sext i8 %narrow.fr to i32
+  %spec.store.select = zext nneg i8 %narrow.fr to i32
   %8 = getelementptr inbounds i8, ptr %5, i64 56
   %9 = load ptr, ptr %8, align 8
   %10 = load i8, ptr %9, align 1
   %11 = add i8 %10, -7
   %or.cond3 = icmp ult i8 %11, -6
   %narrow116 = select i1 %or.cond3, i8 3, i8 %10
-  %spec.store.select6 = sext i8 %narrow116 to i32
+  %spec.store.select6 = zext nneg i8 %narrow116 to i32
   %12 = getelementptr inbounds i8, ptr %5, i64 40
   %13 = load ptr, ptr %12, align 8
   %14 = load i8, ptr %13, align 1
@@ -1430,31 +1430,31 @@ define dso_local i64 @cash_numeric(ptr nocapture noundef readonly %0) local_unna
   %6 = load i8, ptr %5, align 1
   %or.cond = icmp ugt i8 %6, 10
   %narrow = select i1 %or.cond, i8 2, i8 %6
-  %spec.store.select = sext i8 %narrow to i32
+  %spec.store.select = zext nneg i8 %narrow to i32
   %7 = tail call ptr @int64_to_numeric(i64 noundef %3) #12
   %8 = ptrtoint ptr %7 to i64
-  %9 = icmp sgt i8 %narrow, 0
-  br i1 %9, label %.preheader, label %19
+  %.not = icmp eq i8 %narrow, 0
+  br i1 %.not, label %18, label %.preheader
 
 .preheader:                                       ; preds = %1, %.preheader
-  %.01821 = phi i32 [ %11, %.preheader ], [ 0, %1 ]
-  %.01920 = phi i64 [ %10, %.preheader ], [ 1, %1 ]
-  %10 = mul i64 %.01920, 10
-  %11 = add nuw nsw i32 %.01821, 1
-  %exitcond.not = icmp eq i32 %11, %spec.store.select
-  br i1 %exitcond.not, label %12, label %.preheader, !llvm.loop !18
+  %.01821 = phi i32 [ %10, %.preheader ], [ 0, %1 ]
+  %.01920 = phi i64 [ %9, %.preheader ], [ 1, %1 ]
+  %9 = mul i64 %.01920, 10
+  %10 = add nuw nsw i32 %.01821, 1
+  %exitcond.not = icmp eq i32 %10, %spec.store.select
+  br i1 %exitcond.not, label %11, label %.preheader, !llvm.loop !18
 
-12:                                               ; preds = %.preheader
-  %13 = tail call ptr @int64_to_numeric(i64 noundef %10) #12
-  %14 = ptrtoint ptr %13 to i64
-  %15 = zext nneg i8 %narrow to i64
-  %16 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @numeric_round, i32 noundef 0, i64 noundef %14, i64 noundef %15) #12
-  %17 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @numeric_div, i32 noundef 0, i64 noundef %8, i64 noundef %16) #12
-  %18 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @numeric_round, i32 noundef 0, i64 noundef %17, i64 noundef %15) #12
-  br label %19
+11:                                               ; preds = %.preheader
+  %12 = tail call ptr @int64_to_numeric(i64 noundef %9) #12
+  %13 = ptrtoint ptr %12 to i64
+  %14 = zext nneg i8 %narrow to i64
+  %15 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @numeric_round, i32 noundef 0, i64 noundef %13, i64 noundef %14) #12
+  %16 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @numeric_div, i32 noundef 0, i64 noundef %8, i64 noundef %15) #12
+  %17 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @numeric_round, i32 noundef 0, i64 noundef %16, i64 noundef %14) #12
+  br label %18
 
-19:                                               ; preds = %12, %1
-  %.0 = phi i64 [ %18, %12 ], [ %8, %1 ]
+18:                                               ; preds = %11, %1
+  %.0 = phi i64 [ %17, %11 ], [ %8, %1 ]
   ret i64 %.0
 }
 
@@ -1475,25 +1475,25 @@ define dso_local i64 @numeric_cash(ptr nocapture noundef readonly %0) local_unna
   %6 = load i8, ptr %5, align 1
   %or.cond = icmp ugt i8 %6, 10
   %narrow = select i1 %or.cond, i8 2, i8 %6
-  %spec.store.select = sext i8 %narrow to i32
-  %7 = icmp sgt i8 %narrow, 0
-  br i1 %7, label %.lr.ph, label %._crit_edge
+  %spec.store.select = zext nneg i8 %narrow to i32
+  %.not = icmp eq i8 %narrow, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
-  %.015 = phi i32 [ %9, %.lr.ph ], [ 0, %1 ]
-  %.01314 = phi i64 [ %8, %.lr.ph ], [ 1, %1 ]
-  %8 = mul i64 %.01314, 10
-  %9 = add nuw nsw i32 %.015, 1
-  %exitcond.not = icmp eq i32 %9, %spec.store.select
+  %.015 = phi i32 [ %8, %.lr.ph ], [ 0, %1 ]
+  %.01314 = phi i64 [ %7, %.lr.ph ], [ 1, %1 ]
+  %7 = mul i64 %.01314, 10
+  %8 = add nuw nsw i32 %.015, 1
+  %exitcond.not = icmp eq i32 %8, %spec.store.select
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
-  %.013.lcssa = phi i64 [ 1, %1 ], [ %8, %.lr.ph ]
-  %10 = tail call ptr @int64_to_numeric(i64 noundef %.013.lcssa) #12
-  %11 = ptrtoint ptr %10 to i64
-  %12 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @numeric_mul, i32 noundef 0, i64 noundef %3, i64 noundef %11) #12
-  %13 = tail call i64 @DirectFunctionCall1Coll(ptr noundef nonnull @numeric_int8, i32 noundef 0, i64 noundef %12) #12
-  ret i64 %13
+  %.013.lcssa = phi i64 [ 1, %1 ], [ %7, %.lr.ph ]
+  %9 = tail call ptr @int64_to_numeric(i64 noundef %.013.lcssa) #12
+  %10 = ptrtoint ptr %9 to i64
+  %11 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @numeric_mul, i32 noundef 0, i64 noundef %3, i64 noundef %10) #12
+  %12 = tail call i64 @DirectFunctionCall1Coll(ptr noundef nonnull @numeric_int8, i32 noundef 0, i64 noundef %11) #12
+  ret i64 %12
 }
 
 declare i64 @numeric_mul(ptr noundef) #1
@@ -1511,24 +1511,24 @@ define dso_local i64 @int4_cash(ptr nocapture noundef readonly %0) local_unnamed
   %6 = load i8, ptr %5, align 1
   %or.cond = icmp ugt i8 %6, 10
   %narrow = select i1 %or.cond, i8 2, i8 %6
-  %spec.store.select = sext i8 %narrow to i32
-  %7 = icmp sgt i8 %narrow, 0
-  br i1 %7, label %.lr.ph, label %._crit_edge
+  %spec.store.select = zext nneg i8 %narrow to i32
+  %.not = icmp eq i8 %narrow, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
-  %.013 = phi i32 [ %9, %.lr.ph ], [ 0, %1 ]
-  %.01112 = phi i64 [ %8, %.lr.ph ], [ 1, %1 ]
-  %8 = mul i64 %.01112, 10
-  %9 = add nuw nsw i32 %.013, 1
-  %exitcond.not = icmp eq i32 %9, %spec.store.select
+  %.013 = phi i32 [ %8, %.lr.ph ], [ 0, %1 ]
+  %.01112 = phi i64 [ %7, %.lr.ph ], [ 1, %1 ]
+  %7 = mul i64 %.01112, 10
+  %8 = add nuw nsw i32 %.013, 1
+  %exitcond.not = icmp eq i32 %8, %spec.store.select
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
-  %.011.lcssa = phi i64 [ 1, %1 ], [ %8, %.lr.ph ]
+  %.011.lcssa = phi i64 [ 1, %1 ], [ %7, %.lr.ph ]
   %sext = shl i64 %3, 32
-  %10 = ashr exact i64 %sext, 32
-  %11 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @int8mul, i32 noundef 0, i64 noundef %10, i64 noundef %.011.lcssa) #12
-  ret i64 %11
+  %9 = ashr exact i64 %sext, 32
+  %10 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @int8mul, i32 noundef 0, i64 noundef %9, i64 noundef %.011.lcssa) #12
+  ret i64 %10
 }
 
 declare i64 @int8mul(ptr noundef) #1
@@ -1542,22 +1542,22 @@ define dso_local i64 @int8_cash(ptr nocapture noundef readonly %0) local_unnamed
   %6 = load i8, ptr %5, align 1
   %or.cond = icmp ugt i8 %6, 10
   %narrow = select i1 %or.cond, i8 2, i8 %6
-  %spec.store.select = sext i8 %narrow to i32
-  %7 = icmp sgt i8 %narrow, 0
-  br i1 %7, label %.lr.ph, label %._crit_edge
+  %spec.store.select = zext nneg i8 %narrow to i32
+  %.not = icmp eq i8 %narrow, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
-  %.013 = phi i32 [ %9, %.lr.ph ], [ 0, %1 ]
-  %.01112 = phi i64 [ %8, %.lr.ph ], [ 1, %1 ]
-  %8 = mul i64 %.01112, 10
-  %9 = add nuw nsw i32 %.013, 1
-  %exitcond.not = icmp eq i32 %9, %spec.store.select
+  %.013 = phi i32 [ %8, %.lr.ph ], [ 0, %1 ]
+  %.01112 = phi i64 [ %7, %.lr.ph ], [ 1, %1 ]
+  %7 = mul i64 %.01112, 10
+  %8 = add nuw nsw i32 %.013, 1
+  %exitcond.not = icmp eq i32 %8, %spec.store.select
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
-  %.011.lcssa = phi i64 [ 1, %1 ], [ %8, %.lr.ph ]
-  %10 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @int8mul, i32 noundef 0, i64 noundef %3, i64 noundef %.011.lcssa) #12
-  ret i64 %10
+  %.011.lcssa = phi i64 [ 1, %1 ], [ %7, %.lr.ph ]
+  %9 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @int8mul, i32 noundef 0, i64 noundef %3, i64 noundef %.011.lcssa) #12
+  ret i64 %9
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)

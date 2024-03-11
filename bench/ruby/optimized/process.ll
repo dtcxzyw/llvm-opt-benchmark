@@ -8543,9 +8543,9 @@ define internal i64 @proc_getmaxgroups(i64 %0) #1 {
 
 maxgroups.exit:                                   ; preds = %1, %4
   %8 = phi i32 [ %spec.store.select.i, %4 ], [ %2, %1 ]
-  %9 = sext i32 %8 to i64
-  %10 = shl nsw i64 %9, 1
-  %11 = or disjoint i64 %10, 1
+  %9 = shl nuw i32 %8, 1
+  %10 = or disjoint i32 %9, 1
+  %11 = zext i32 %10 to i64
   ret i64 %11
 }
 

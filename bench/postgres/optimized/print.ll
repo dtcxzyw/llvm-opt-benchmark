@@ -6972,7 +6972,7 @@ define dso_local void @setDecimalLocale() local_unnamed_addr #2 {
   %10 = add i8 %9, -7
   %or.cond = icmp ult i8 %10, -6
   %narrow = select i1 %or.cond, i8 3, i8 %9
-  %spec.store.select = sext i8 %narrow to i32
+  %spec.store.select = zext nneg i8 %narrow to i32
   store i32 %spec.store.select, ptr @groupdigits, align 4
   %11 = getelementptr inbounds i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8

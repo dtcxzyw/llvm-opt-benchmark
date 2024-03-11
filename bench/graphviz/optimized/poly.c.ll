@@ -444,67 +444,69 @@ declare double @llvm.fmuladd.f64(double, double, double) #4
 define internal fastcc noalias noundef ptr @genRound(ptr noundef %0, ptr nocapture noundef writeonly %1, float noundef %2, float noundef %3) unnamed_addr #2 {
   %5 = tail call ptr @agget(ptr noundef %0, ptr noundef nonnull @.str.6) #14
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %.thread28, label %6
+  br i1 %.not, label %.thread, label %6
 
 6:                                                ; preds = %4
   %7 = tail call i32 @atoi(ptr nocapture noundef nonnull %5) #18
   %.fr = freeze i32 %7
   %8 = icmp slt i32 %.fr, 3
-  %narrow = select i1 %8, i32 20, i32 %.fr
-  %spec.select = zext nneg i32 %narrow to i64
-  br label %.thread28
+  br i1 %8, label %.thread, label %9
 
-.thread28:                                        ; preds = %6, %4
-  %9 = phi i64 [ 20, %4 ], [ %spec.select, %6 ]
-  %10 = tail call noalias ptr @calloc(i64 noundef %9, i64 noundef 16) #15
-  %11 = icmp eq ptr %10, null
-  br i1 %11, label %17, label %.lr.ph
+.thread:                                          ; preds = %4, %6
+  br label %9
 
-.lr.ph:                                           ; preds = %.thread28
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
-  %13 = uitofp i64 %9 to double
-  %14 = insertelement <2 x float> poison, float %2, i64 0
-  %15 = insertelement <2 x float> %14, float %3, i64 1
-  %16 = fpext <2 x float> %15 to <2 x double>
+9:                                                ; preds = %6, %.thread
+  %10 = phi i32 [ 20, %.thread ], [ %.fr, %6 ]
+  %11 = zext nneg i32 %10 to i64
+  %12 = tail call noalias ptr @calloc(i64 noundef %11, i64 noundef 16) #15
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %19, label %gv_calloc.exit.preheader
+
+gv_calloc.exit.preheader:                         ; preds = %9
+  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = uitofp i32 %10 to double
+  %16 = insertelement <2 x float> poison, float %2, i64 0
+  %17 = insertelement <2 x float> %16, float %3, i64 1
+  %18 = fpext <2 x float> %17 to <2 x double>
   br label %gv_calloc.exit
 
-17:                                               ; preds = %.thread28
-  %18 = load ptr, ptr @stderr, align 8
-  %19 = shl nuw nsw i64 %9, 4
-  %20 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.5, i64 noundef %19) #16
+19:                                               ; preds = %9
+  %20 = load ptr, ptr @stderr, align 8
+  %21 = shl nuw nsw i64 %11, 4
+  %22 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str.5, i64 noundef %21) #16
   tail call fastcc void @graphviz_exit() #17
   unreachable
 
-gv_calloc.exit:                                   ; preds = %.lr.ph, %gv_calloc.exit
-  %.030 = phi i64 [ 0, %.lr.ph ], [ %41, %gv_calloc.exit ]
-  %21 = load ptr, ptr %12, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 48
-  %23 = load double, ptr %22, align 8
-  %24 = uitofp i64 %.030 to double
-  %25 = fdiv double %24, %13
-  %26 = fmul double %25, 0x400921FB54442D18
-  %27 = fmul double %26, 2.000000e+00
-  %28 = tail call double @cos(double noundef %27) #14
-  %29 = getelementptr inbounds %struct.pointf_s, ptr %10, i64 %.030
-  %30 = load ptr, ptr %12, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 56
-  %32 = load double, ptr %31, align 8
-  %33 = tail call double @sin(double noundef %27) #14
-  %34 = insertelement <2 x double> poison, double %23, i64 0
-  %35 = insertelement <2 x double> %34, double %32, i64 1
-  %36 = fmul <2 x double> %35, <double 5.000000e-01, double 5.000000e-01>
-  %37 = fadd <2 x double> %36, %16
-  %38 = insertelement <2 x double> poison, double %28, i64 0
-  %39 = insertelement <2 x double> %38, double %33, i64 1
-  %40 = fmul <2 x double> %39, %37
-  store <2 x double> %40, ptr %29, align 8
-  %41 = add nuw nsw i64 %.030, 1
-  %exitcond.not = icmp eq i64 %41, %9
-  br i1 %exitcond.not, label %gv_calloc.exit._crit_edge, label %gv_calloc.exit
+gv_calloc.exit:                                   ; preds = %gv_calloc.exit.preheader, %gv_calloc.exit
+  %.028 = phi i64 [ 0, %gv_calloc.exit.preheader ], [ %43, %gv_calloc.exit ]
+  %23 = load ptr, ptr %14, align 8
+  %24 = getelementptr inbounds i8, ptr %23, i64 48
+  %25 = load double, ptr %24, align 8
+  %26 = uitofp i64 %.028 to double
+  %27 = fdiv double %26, %15
+  %28 = fmul double %27, 0x400921FB54442D18
+  %29 = fmul double %28, 2.000000e+00
+  %30 = tail call double @cos(double noundef %29) #14
+  %31 = getelementptr inbounds %struct.pointf_s, ptr %12, i64 %.028
+  %32 = load ptr, ptr %14, align 8
+  %33 = getelementptr inbounds i8, ptr %32, i64 56
+  %34 = load double, ptr %33, align 8
+  %35 = tail call double @sin(double noundef %29) #14
+  %36 = insertelement <2 x double> poison, double %25, i64 0
+  %37 = insertelement <2 x double> %36, double %34, i64 1
+  %38 = fmul <2 x double> %37, <double 5.000000e-01, double 5.000000e-01>
+  %39 = fadd <2 x double> %38, %18
+  %40 = insertelement <2 x double> poison, double %30, i64 0
+  %41 = insertelement <2 x double> %40, double %35, i64 1
+  %42 = fmul <2 x double> %41, %39
+  store <2 x double> %42, ptr %31, align 8
+  %43 = add nuw nsw i64 %.028, 1
+  %exitcond.not = icmp eq i64 %43, %11
+  br i1 %exitcond.not, label %44, label %gv_calloc.exit
 
-gv_calloc.exit._crit_edge:                        ; preds = %gv_calloc.exit
-  store i64 %9, ptr %1, align 8
-  ret ptr %10
+44:                                               ; preds = %gv_calloc.exit
+  store i64 %11, ptr %1, align 8
+  ret ptr %12
 }
 
 declare i32 @agerr(i32 noundef, ptr noundef, ...) local_unnamed_addr #3

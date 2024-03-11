@@ -8050,8 +8050,8 @@ oadd.exit110.us:                                  ; preds = %.lr.ph142.split.us
 
 oadd.exit111:                                     ; preds = %.lr.ph142.split
   %160 = add nsw i64 %.3139, -1
-  %161 = add i64 %.1140, -1
-  %162 = icmp slt i64 %161, 0
+  %161 = add nsw i64 %.1140, -1
+  %162 = icmp slt i64 %.1140, 1
   %spec.store.select2 = select i1 %162, i64 6, i64 %161
   %163 = add i32 %.286138, -1
   %.not99 = icmp eq i64 %spec.store.select2, %151

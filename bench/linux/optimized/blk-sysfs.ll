@@ -926,12 +926,13 @@ define internal i64 @queue_nomerges_store(ptr noundef %0, ptr noundef %1, i64 no
   br i1 %11, label %17, label %12
 
 12:                                               ; preds = %3
-  %13 = select i1 %9, i64 0, i64 %7
+  %13 = trunc i64 %7 to i32
   call void @blk_queue_flag_clear(i32 noundef 3, ptr noundef %0) #15
   call void @blk_queue_flag_clear(i32 noundef 9, ptr noundef %0) #15
-  switch i64 %13, label %14 [
-    i64 2, label %15
-    i64 0, label %17
+  %trunc = select i1 %9, i32 0, i32 %13
+  switch i32 %trunc, label %14 [
+    i32 2, label %15
+    i32 0, label %17
   ]
 
 14:                                               ; preds = %12
@@ -1421,11 +1422,12 @@ define internal i64 @queue_rq_affinity_store(ptr noundef %0, ptr noundef %1, i64
   br i1 %11, label %17, label %12
 
 12:                                               ; preds = %3
-  %13 = select i1 %9, i64 0, i64 %7
-  switch i64 %13, label %17 [
-    i64 2, label %14
-    i64 1, label %15
-    i64 0, label %16
+  %13 = trunc i64 %7 to i32
+  %trunc = select i1 %9, i32 0, i32 %13
+  switch i32 %trunc, label %17 [
+    i32 2, label %14
+    i32 1, label %15
+    i32 0, label %16
   ]
 
 14:                                               ; preds = %12

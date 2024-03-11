@@ -1064,7 +1064,7 @@ invoke.cont247:                                   ; preds = %if.then244
 
 if.else254:                                       ; preds = %if.then242
   %cmp255 = icmp sgt i32 %maxInt.0, %minInt.0
-  %cmp257 = icmp sgt i32 %minInt.0, 1
+  %cmp257 = icmp ugt i32 %minInt.0, 1
   %or.cond4 = and i1 %cmp257, %cmp255
   br i1 %or.cond4, label %if.then258, label %if.end269
 

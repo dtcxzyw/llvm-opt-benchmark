@@ -40397,15 +40397,15 @@ define internal fastcc noundef i32 @setupLookaside(ptr nocapture noundef %0, ptr
   br i1 %.not4.i.i, label %countLookasideSlots.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %4, %.lr.ph.i.i
-  %.06.i.i = phi i32 [ %.neg137.neg, %.lr.ph.i.i ], [ 0, %4 ]
+  %.06.i.i = phi i32 [ %.neg138.neg, %.lr.ph.i.i ], [ 0, %4 ]
   %.035.i.i = phi ptr [ %10, %.lr.ph.i.i ], [ %9, %4 ]
   %10 = load ptr, ptr %.035.i.i, align 8
-  %.neg137.neg = add i32 %.06.i.i, 1
+  %.neg138.neg = add i32 %.06.i.i, 1
   %.not.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i, label %countLookasideSlots.exit.i, label %.lr.ph.i.i, !llvm.loop !5
 
 countLookasideSlots.exit.i:                       ; preds = %.lr.ph.i.i, %4
-  %.0.lcssa.i.i.neg138.neg = phi i32 [ 0, %4 ], [ %.neg137.neg, %.lr.ph.i.i ]
+  %.0.lcssa.i.i.neg139.neg = phi i32 [ 0, %4 ], [ %.neg138.neg, %.lr.ph.i.i ]
   %11 = getelementptr inbounds i8, ptr %0, i64 448
   %12 = load ptr, ptr %11, align 8
   %.not4.i12.i = icmp eq ptr %12, null
@@ -40453,9 +40453,9 @@ sqlite3LookasideUsed.exit:                        ; preds = %.lr.ph.i27.i, %coun
   %25 = phi i32 [ -1, %countLookasideSlots.exit25.i ], [ %.06.i28.i, %.lr.ph.i27.i ]
   %26 = getelementptr inbounds i8, ptr %0, i64 420
   %27 = load i32, ptr %26, align 4
-  %.neg124.neg = add i32 %.0.lcssa.i.i.neg138.neg, 2
+  %.neg125.neg = add i32 %.0.lcssa.i.i.neg139.neg, 2
   %28 = add i32 %15, %25
-  %29 = add i32 %.neg124.neg, %20
+  %29 = add i32 %.neg125.neg, %20
   %30 = add i32 %29, %28
   %31 = sub i32 %30, %27
   %32 = icmp slt i32 %31, -1
@@ -40481,8 +40481,8 @@ sqlite3LookasideUsed.exit:                        ; preds = %.lr.ph.i27.i, %coun
 
 43:                                               ; preds = %41
   %44 = load ptr, ptr @mem0, align 8
-  %.not.i.i95 = icmp eq ptr %44, null
-  br i1 %.not.i.i95, label %sqlite3_mutex_enter.exit.i, label %45
+  %.not.i.i96 = icmp eq ptr %44, null
+  br i1 %.not.i.i96, label %sqlite3_mutex_enter.exit.i, label %45
 
 45:                                               ; preds = %43
   %46 = load ptr, ptr getelementptr inbounds (%struct.Sqlite3Config, ptr @sqlite3Config, i64 0, i32 14, i32 4), align 8
@@ -40518,9 +40518,9 @@ sqlite3_free.exit:                                ; preds = %sqlite3_mutex_leave
   %spec.store.select = select i1 %58, i32 0, i32 %57
   %59 = icmp slt i32 %3, 1
   %or.cond = or i1 %58, %59
-  br i1 %or.cond, label %.thread117, label %63
+  br i1 %or.cond, label %.thread119, label %63
 
-.thread117:                                       ; preds = %sqlite3_free.exit
+.thread119:                                       ; preds = %sqlite3_free.exit
   %60 = getelementptr inbounds i8, ptr %0, i64 480
   %61 = getelementptr inbounds i8, ptr %0, i64 412
   %62 = getelementptr inbounds i8, ptr %0, i64 414
@@ -40534,8 +40534,8 @@ sqlite3_free.exit:                                ; preds = %sqlite3_mutex_leave
 
 65:                                               ; preds = %63
   %66 = load ptr, ptr @sqlite3Hooks.0, align 8
-  %.not.i96 = icmp eq ptr %66, null
-  br i1 %.not.i96, label %sqlite3BeginBenignMalloc.exit, label %67
+  %.not.i97 = icmp eq ptr %66, null
+  br i1 %.not.i97, label %sqlite3BeginBenignMalloc.exit, label %67
 
 67:                                               ; preds = %65
   tail call void %66() #57
@@ -40544,8 +40544,8 @@ sqlite3_free.exit:                                ; preds = %sqlite3_mutex_leave
 sqlite3BeginBenignMalloc.exit:                    ; preds = %65, %67
   %68 = tail call fastcc ptr @sqlite3Malloc(i64 noundef %7)
   %69 = load ptr, ptr @sqlite3Hooks.1, align 8
-  %.not.i97 = icmp eq ptr %69, null
-  br i1 %.not.i97, label %sqlite3EndBenignMalloc.exit, label %70
+  %.not.i98 = icmp eq ptr %69, null
+  br i1 %.not.i98, label %sqlite3EndBenignMalloc.exit, label %70
 
 70:                                               ; preds = %sqlite3BeginBenignMalloc.exit
   tail call void %69() #57
@@ -40602,36 +40602,36 @@ sqlite3EndBenignMalloc.exit:                      ; preds = %sqlite3BeginBenignM
   br label %103
 
 103:                                              ; preds = %89, %99, %77
-  %.088101 = phi i32 [ %57, %77 ], [ %spec.store.select, %89 ], [ %spec.store.select, %99 ]
+  %.088102 = phi i32 [ %57, %77 ], [ %spec.store.select, %89 ], [ %spec.store.select, %99 ]
   %.085 = phi i32 [ %81, %77 ], [ %93, %89 ], [ %102, %99 ]
   %.084 = phi i32 [ %86, %77 ], [ %98, %89 ], [ 0, %99 ]
   %104 = getelementptr inbounds i8, ptr %0, i64 480
   store ptr %.087, ptr %104, align 8
-  %105 = trunc i32 %.088101 to i16
+  %105 = trunc i32 %.088102 to i16
   %106 = getelementptr inbounds i8, ptr %0, i64 412
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   store i16 %105, ptr %106, align 4
   %107 = getelementptr inbounds i8, ptr %0, i64 414
   store i16 %105, ptr %107, align 2
-  %.not94 = icmp eq ptr %.087, null
-  br i1 %.not94, label %122, label %.preheader
+  %.not95 = icmp eq ptr %.087, null
+  br i1 %.not95, label %122, label %.preheader
 
 .preheader:                                       ; preds = %103
   %108 = icmp sgt i32 %.085, 0
   br i1 %108, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %109 = zext nneg i32 %.088101 to i64
+  %109 = zext nneg i32 %.088102 to i64
   br label %110
 
 110:                                              ; preds = %.lr.ph, %110
-  %111 = phi ptr [ null, %.lr.ph ], [ %.0130, %110 ]
-  %.0130 = phi ptr [ %.087, %.lr.ph ], [ %112, %110 ]
-  %.082129 = phi i32 [ 0, %.lr.ph ], [ %113, %110 ]
-  store ptr %111, ptr %.0130, align 8
-  store ptr %.0130, ptr %8, align 8
-  %112 = getelementptr inbounds i8, ptr %.0130, i64 %109
-  %113 = add nuw nsw i32 %.082129, 1
+  %111 = phi ptr [ null, %.lr.ph ], [ %.0131, %110 ]
+  %.0131 = phi ptr [ %.087, %.lr.ph ], [ %112, %110 ]
+  %.082130 = phi i32 [ 0, %.lr.ph ], [ %113, %110 ]
+  store ptr %111, ptr %.0131, align 8
+  store ptr %.0131, ptr %8, align 8
+  %112 = getelementptr inbounds i8, ptr %.0131, i64 %109
+  %113 = add nuw nsw i32 %.082130, 1
   %exitcond.not = icmp eq i32 %113, %.085
   br i1 %exitcond.not, label %._crit_edge, label %110, !llvm.loop !201
 
@@ -40641,21 +40641,21 @@ sqlite3EndBenignMalloc.exit:                      ; preds = %sqlite3BeginBenignM
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
   store ptr %.0.lcssa, ptr %114, align 8
   %115 = icmp sgt i32 %.084, 0
-  br i1 %115, label %.lr.ph134, label %._crit_edge135
+  br i1 %115, label %.lr.ph135, label %._crit_edge136
 
-.lr.ph134:                                        ; preds = %._crit_edge, %.lr.ph134
-  %116 = phi ptr [ %.1132, %.lr.ph134 ], [ null, %._crit_edge ]
-  %.1132 = phi ptr [ %117, %.lr.ph134 ], [ %.0.lcssa, %._crit_edge ]
-  %.183131 = phi i32 [ %118, %.lr.ph134 ], [ 0, %._crit_edge ]
-  store ptr %116, ptr %.1132, align 8
-  store ptr %.1132, ptr %16, align 8
-  %117 = getelementptr inbounds i8, ptr %.1132, i64 128
-  %118 = add nuw nsw i32 %.183131, 1
-  %exitcond142.not = icmp eq i32 %118, %.084
-  br i1 %exitcond142.not, label %._crit_edge135, label %.lr.ph134, !llvm.loop !202
+.lr.ph135:                                        ; preds = %._crit_edge, %.lr.ph135
+  %116 = phi ptr [ %.1133, %.lr.ph135 ], [ null, %._crit_edge ]
+  %.1133 = phi ptr [ %117, %.lr.ph135 ], [ %.0.lcssa, %._crit_edge ]
+  %.183132 = phi i32 [ %118, %.lr.ph135 ], [ 0, %._crit_edge ]
+  store ptr %116, ptr %.1133, align 8
+  store ptr %.1133, ptr %16, align 8
+  %117 = getelementptr inbounds i8, ptr %.1133, i64 128
+  %118 = add nuw nsw i32 %.183132, 1
+  %exitcond143.not = icmp eq i32 %118, %.084
+  br i1 %exitcond143.not, label %._crit_edge136, label %.lr.ph135, !llvm.loop !202
 
-._crit_edge135:                                   ; preds = %.lr.ph134, %._crit_edge
-  %.1.lcssa = phi ptr [ %.0.lcssa, %._crit_edge ], [ %117, %.lr.ph134 ]
+._crit_edge136:                                   ; preds = %.lr.ph135, %._crit_edge
+  %.1.lcssa = phi ptr [ %.0.lcssa, %._crit_edge ], [ %117, %.lr.ph135 ]
   %119 = getelementptr inbounds i8, ptr %0, i64 488
   store ptr %.1.lcssa, ptr %119, align 8
   store i32 0, ptr %34, align 8
@@ -40664,9 +40664,9 @@ sqlite3EndBenignMalloc.exit:                      ; preds = %sqlite3BeginBenignM
   %121 = add nsw i32 %.084, %.085
   br label %126
 
-122:                                              ; preds = %.thread117, %103
-  %123 = phi ptr [ %61, %.thread117 ], [ %106, %103 ]
-  %124 = phi ptr [ %60, %.thread117 ], [ %104, %103 ]
+122:                                              ; preds = %.thread119, %103
+  %123 = phi ptr [ %61, %.thread119 ], [ %106, %103 ]
+  %124 = phi ptr [ %60, %.thread119 ], [ %104, %103 ]
   store ptr null, ptr %124, align 8
   %125 = getelementptr inbounds i8, ptr %0, i64 488
   store ptr null, ptr %125, align 8
@@ -40676,9 +40676,9 @@ sqlite3EndBenignMalloc.exit:                      ; preds = %sqlite3BeginBenignM
   store i8 0, ptr %35, align 8
   br label %126
 
-126:                                              ; preds = %122, %._crit_edge135
-  %127 = phi ptr [ %.1.lcssa, %._crit_edge135 ], [ null, %122 ]
-  %storemerge = phi i32 [ %121, %._crit_edge135 ], [ 0, %122 ]
+126:                                              ; preds = %122, %._crit_edge136
+  %127 = phi ptr [ %.1.lcssa, %._crit_edge136 ], [ null, %122 ]
+  %storemerge = phi i32 [ %121, %._crit_edge136 ], [ 0, %122 ]
   store i32 %storemerge, ptr %26, align 4
   %128 = getelementptr inbounds i8, ptr %0, i64 496
   store ptr %127, ptr %128, align 8
@@ -47950,8 +47950,8 @@ sqlite3_malloc64.exit.i:                          ; preds = %sqlite3MallocZero.e
 
 .lr.ph.i.i:                                       ; preds = %201, %.lr.ph.i.i
   %.053.i.i = phi i32 [ %spec.store.select.i.i, %.lr.ph.i.i ], [ %203, %201 ]
-  %209 = add i32 %.053.i.i, 1
-  %210 = icmp ugt i32 %209, 123
+  %209 = add nuw nsw i32 %.053.i.i, 1
+  %210 = icmp ugt i32 %.053.i.i, 122
   %spec.store.select.i.i = select i1 %210, i32 0, i32 %209
   %211 = zext i32 %spec.store.select.i.i to i64
   %212 = getelementptr inbounds [124 x i32], ptr %195, i64 0, i64 %211
@@ -62840,8 +62840,8 @@ sqlite3BitvecCreate.exit:                         ; preds = %18
   br i1 %46, label %sqlite3DbFree.exit, label %47
 
 47:                                               ; preds = %.preheader
-  %48 = add i32 %.058, 1
-  %49 = icmp ugt i32 %48, 123
+  %48 = add nuw nsw i32 %.058, 1
+  %49 = icmp ugt i32 %.058, 122
   %spec.store.select = select i1 %49, i32 0, i32 %48
   %50 = zext i32 %spec.store.select to i64
   %51 = getelementptr inbounds [124 x i32], ptr %37, i64 0, i64 %50
@@ -79921,8 +79921,8 @@ sqlite3PagerUnrefNotNull.exit59.i:                ; preds = %198, %174, %sqlite3
 
 .lr.ph.i.i:                                       ; preds = %245, %.lr.ph.i.i
   %.053.i.i = phi i32 [ %spec.store.select.i.i, %.lr.ph.i.i ], [ %247, %245 ]
-  %253 = add i32 %.053.i.i, 1
-  %254 = icmp ugt i32 %253, 123
+  %253 = add nuw nsw i32 %.053.i.i, 1
+  %254 = icmp ugt i32 %.053.i.i, 122
   %spec.store.select.i.i = select i1 %254, i32 0, i32 %253
   %255 = zext i32 %spec.store.select.i.i to i64
   %256 = getelementptr inbounds [124 x i32], ptr %239, i64 0, i64 %255

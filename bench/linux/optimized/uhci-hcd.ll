@@ -661,7 +661,7 @@ define internal noundef i32 @uhci_start(ptr noundef %0) #2 align 16 {
   %121 = sub i32 8, %120
   %122 = icmp slt i32 %121, 2
   %123 = select i1 %122, i32 9, i32 %121
-  %124 = sext i32 %123 to i64
+  %124 = zext nneg i32 %123 to i64
   %125 = getelementptr [11 x ptr], ptr %57, i64 0, i64 %124
   %126 = load ptr, ptr %125, align 8
   %127 = getelementptr inbounds i8, ptr %126, i64 8

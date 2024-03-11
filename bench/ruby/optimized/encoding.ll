@@ -3605,7 +3605,7 @@ enc_registered.exit:                              ; preds = %6
 
 rb_vm_lock_enter.exit:                            ; preds = %10, %12
   %13 = load ptr, ptr getelementptr inbounds (%struct.enc_table, ptr @global_enc_table, i64 0, i32 2), align 8
-  %14 = sext i32 %spec.store.select to i64
+  %14 = zext nneg i32 %spec.store.select to i64
   %15 = call i32 @rb_st_insert2(ptr noundef %13, i64 noundef ptrtoint (ptr @.str.13 to i64), i64 noundef %14, ptr noundef nonnull @enc_dup_name) #20
   %16 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i3 = icmp eq ptr %16, null

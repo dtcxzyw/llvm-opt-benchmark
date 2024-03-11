@@ -3780,7 +3780,7 @@ if.end:                                           ; preds = %if.then
   %2 = load i32, ptr %exptime_int, align 4
   %cmp = icmp slt i32 %2, 0
   %cond = select i1 %cmp, i32 2592001, i32 %2
-  %conv = sext i32 %cond to i64
+  %conv = zext nneg i32 %cond to i64
   %call5 = call i32 @realtime(i64 noundef %conv) #11
   br label %if.end6
 
@@ -4291,7 +4291,7 @@ if.end15:                                         ; preds = %land.lhs.true10
   %6 = load i32, ptr %exptime_int, align 4
   %cmp16 = icmp slt i32 %6, 0
   %cond = select i1 %cmp16, i32 2592001, i32 %6
-  %conv = sext i32 %cond to i64
+  %conv = zext nneg i32 %cond to i64
   %call17 = call i32 @realtime(i64 noundef %conv) #11
   br i1 %handle_cas, label %if.then18, label %if.end24
 
@@ -5191,7 +5191,7 @@ if.end8:                                          ; preds = %if.end
   %4 = load i32, ptr %exptime_int, align 4
   %cmp9 = icmp slt i32 %4, 0
   %cond = select i1 %cmp9, i32 2592001, i32 %4
-  %conv = sext i32 %cond to i64
+  %conv = zext nneg i32 %cond to i64
   %call10 = call i32 @realtime(i64 noundef %conv) #11
   %thread = getelementptr inbounds i8, ptr %c, i64 456
   %5 = load ptr, ptr %thread, align 8
@@ -6310,7 +6310,7 @@ if.else:                                          ; preds = %sw.bb33
   %8 = load i32, ptr %tmp_int, align 4
   %cmp48 = icmp slt i32 %8, 0
   %cond = select i1 %cmp48, i32 2592001, i32 %8
-  %conv50 = sext i32 %cond to i64
+  %conv50 = zext nneg i32 %cond to i64
   %call51 = call i32 @realtime(i64 noundef %conv50) #11
   store i32 %call51, ptr %autoviv_exptime, align 8
   br label %for.inc
@@ -6335,7 +6335,7 @@ if.else66:                                        ; preds = %sw.bb53
   %10 = load i32, ptr %tmp_int, align 4
   %cmp67 = icmp slt i32 %10, 0
   %cond72 = select i1 %cmp67, i32 2592001, i32 %10
-  %conv73 = sext i32 %cond72 to i64
+  %conv73 = zext nneg i32 %cond72 to i64
   %call74 = call i32 @realtime(i64 noundef %conv73) #11
   store i32 %call74, ptr %exptime, align 4
   %bf.load75 = load i16, ptr %of, align 8
@@ -6363,7 +6363,7 @@ if.else92:                                        ; preds = %sw.bb79
   %12 = load i32, ptr %tmp_int, align 4
   %cmp93 = icmp slt i32 %12, 0
   %cond98 = select i1 %cmp93, i32 2592001, i32 %12
-  %conv99 = sext i32 %cond98 to i64
+  %conv99 = zext nneg i32 %cond98 to i64
   %call100 = call i32 @realtime(i64 noundef %conv99) #11
   store i32 %call100, ptr %recache_time, align 4
   br label %for.inc

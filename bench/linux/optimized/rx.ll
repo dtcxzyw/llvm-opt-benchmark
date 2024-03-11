@@ -7629,7 +7629,7 @@ define internal fastcc noundef ptr @ieee80211_reassemble_find(ptr noundef %0, i3
   %17 = add i32 %15, -1
   %18 = icmp slt i32 %17, 0
   %19 = select i1 %18, i32 3, i32 %17
-  %20 = sext i32 %19 to i64
+  %20 = zext nneg i32 %19 to i64
   %21 = getelementptr [4 x %struct.ieee80211_fragment_entry], ptr %0, i64 0, i64 %20
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, %21

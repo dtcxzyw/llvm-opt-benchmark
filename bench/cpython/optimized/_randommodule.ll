@@ -724,7 +724,7 @@ for.body.i.i:                                     ; preds = %if.end.i.i, %init_g
   %add6.i.i = add i32 %add.i.i, %xor4.i.i
   store i32 %add6.i.i, ptr %arrayidx.i.i, align 4
   %inc.i.i = add nuw nsw i64 %i.036.i.i, 1
-  %inc8.i.i = add i64 %j.034.i.i, 1
+  %inc8.i.i = add nuw nsw i64 %j.034.i.i, 1
   %cmp9.i.i = icmp ugt i64 %i.036.i.i, 622
   br i1 %cmp9.i.i, label %if.then.i.i, label %if.end.i.i
 
@@ -735,7 +735,7 @@ if.then.i.i:                                      ; preds = %for.body.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i, %for.body.i.i
   %i.1.i.i = phi i64 [ 1, %if.then.i.i ], [ %inc.i.i, %for.body.i.i ]
-  %cmp13.not.i.i = icmp ult i64 %inc8.i.i, 624
+  %cmp13.not.i.i = icmp ult i64 %j.034.i.i, 623
   %spec.store.select.i.i = select i1 %cmp13.not.i.i, i64 %inc8.i.i, i64 0
   %dec.i.i = add nsw i64 %k.035.i.i, -1
   %tobool.not.i.i = icmp eq i64 %dec.i.i, 0
@@ -840,7 +840,7 @@ for.body.i.i38:                                   ; preds = %if.end.i.i55, %init
   %add6.i.i51 = add i32 %add.i.i50, %xor4.i.i47
   store i32 %add6.i.i51, ptr %arrayidx.i.i42, align 4
   %inc.i.i52 = add nuw nsw i64 %i.036.i.i39, 1
-  %inc8.i.i53 = add i64 %j.034.i.i41, 1
+  %inc8.i.i53 = add nuw nsw i64 %j.034.i.i41, 1
   %cmp9.i.i54 = icmp ugt i64 %i.036.i.i39, 622
   br i1 %cmp9.i.i54, label %if.then.i.i80, label %if.end.i.i55
 
@@ -851,7 +851,7 @@ if.then.i.i80:                                    ; preds = %for.body.i.i38
 
 if.end.i.i55:                                     ; preds = %if.then.i.i80, %for.body.i.i38
   %i.1.i.i56 = phi i64 [ 1, %if.then.i.i80 ], [ %inc.i.i52, %for.body.i.i38 ]
-  %cmp13.not.i.i57 = icmp ult i64 %inc8.i.i53, 5
+  %cmp13.not.i.i57 = icmp ult i64 %j.034.i.i41, 4
   %spec.store.select.i.i58 = select i1 %cmp13.not.i.i57, i64 %inc8.i.i53, i64 0
   %dec.i.i59 = add nsw i64 %k.035.i.i40, -1
   %tobool.not.i.i60 = icmp eq i64 %dec.i.i59, 0

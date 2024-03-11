@@ -842,7 +842,7 @@ print_modules.exit:                               ; preds = %56, %37
   br label %.backedge
 
 111:                                              ; preds = %64
-  %112 = and i32 %.0298, -2
+  %112 = and i32 %.0298, 14
   %or.cond11 = icmp eq i32 %112, 6
   %.str.71..0353 = select i1 %or.cond11, ptr @.str.71, ptr %.0353
   %.0298.423 = select i1 %or.cond11, i32 %.0298, i32 5

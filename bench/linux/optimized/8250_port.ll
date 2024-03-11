@@ -5127,7 +5127,7 @@ define internal ptr @serial8250_type(ptr nocapture noundef readonly %0) #10 alig
   %3 = load i32, ptr %2, align 8
   %4 = icmp ugt i32 %3, 121
   %5 = select i1 %4, i32 0, i32 %3
-  %6 = sext i32 %5 to i64
+  %6 = zext nneg i32 %5 to i64
   %7 = getelementptr [122 x %struct.serial8250_config], ptr @uart_config, i64 0, i64 %6
   %8 = load ptr, ptr %7, align 8
   ret ptr %8

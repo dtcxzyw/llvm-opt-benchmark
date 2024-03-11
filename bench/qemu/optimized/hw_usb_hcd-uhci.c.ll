@@ -1164,7 +1164,7 @@ uhci_async_cancel_device.exit:                    ; preds = %for.inc.i, %entry
 
 13:                                               ; preds = %uhci_async_cancel_device.exit
   %tobool11.not.not = icmp eq i16 %11, 0
-  %and15 = and i16 %10, -13
+  %and15 = and i16 %10, -14
   %14 = or disjoint i16 %and15, 8
   %simplifycfg.merge = select i1 %tobool11.not.not, i16 %10, i16 %14
   store i16 %simplifycfg.merge, ptr %ctrl, align 8

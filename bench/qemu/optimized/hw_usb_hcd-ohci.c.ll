@@ -1323,7 +1323,7 @@ ohci_child_detach.exit:                           ; preds = %entry, %land.lhs.tr
 
 12:                                               ; preds = %ohci_child_detach.exit
   %tobool7.not.not = icmp eq i32 %and6, 0
-  %and10 = and i32 %10, -131075
+  %and10 = and i32 %10, -131076
   %or12 = or disjoint i32 %and10, 131072
   %simplifycfg.merge = select i1 %tobool7.not.not, i32 %10, i32 %or12
   store i32 %simplifycfg.merge, ptr %ctrl, align 8

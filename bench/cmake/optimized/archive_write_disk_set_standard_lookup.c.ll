@@ -71,8 +71,8 @@ define internal i64 @lookup_gid(ptr nocapture noundef %0, ptr noundef %1, i64 no
   br i1 %.not.i, label %hash.exit, label %.lr.ph.i, !llvm.loop !5
 
 hash.exit:                                        ; preds = %.lr.ph.i
-  %20 = sext i32 %.1.i to i64
-  %21 = urem i64 %20, 127
+  %20 = urem i32 %.1.i, 127
+  %21 = zext nneg i32 %20 to i64
   %22 = getelementptr inbounds %struct.bucket, ptr %0, i64 %21
   %23 = load ptr, ptr %22, align 8
   %.not = icmp eq ptr %23, null
@@ -196,8 +196,8 @@ define internal i64 @lookup_uid(ptr nocapture noundef %0, ptr noundef %1, i64 no
   br i1 %.not.i, label %hash.exit, label %.lr.ph.i, !llvm.loop !5
 
 hash.exit:                                        ; preds = %.lr.ph.i
-  %20 = sext i32 %.1.i to i64
-  %21 = urem i64 %20, 127
+  %20 = urem i32 %.1.i, 127
+  %21 = zext nneg i32 %20 to i64
   %22 = getelementptr inbounds %struct.bucket, ptr %0, i64 %21
   %23 = load ptr, ptr %22, align 8
   %.not = icmp eq ptr %23, null

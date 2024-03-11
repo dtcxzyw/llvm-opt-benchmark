@@ -3690,7 +3690,7 @@ define dso_local noundef zeroext i1 @_ZN5cmsys31SystemInformationImplementation1
   br label %110
 
 36:                                               ; preds = %32
-  %37 = icmp sgt i32 %.136, 2
+  %37 = icmp ugt i32 %.136, 2
   %38 = icmp eq i32 %.136, 2
   %or.cond = select i1 %38, i1 %.037, i1 false
   %or.cond44 = or i1 %37, %or.cond

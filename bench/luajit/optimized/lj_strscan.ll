@@ -851,12 +851,12 @@ if.then8.i:                                       ; preds = %if.then.i
 
 land.lhs.true10.i:                                ; preds = %if.then8.i
   %add11.i = shl i64 2, %sh_prom.i
-  %add12.i = add i64 %shl.i, -1
+  %add12.i = add nuw i64 %shl.i, 4611686018427387903
   %sub13.i = add i64 %add12.i, %add11.i
   %and14.i = and i64 %sub13.i, %x.2
   %tobool15.not.i = icmp eq i64 %and14.i, 0
   %add18.i = select i1 %tobool15.not.i, i64 0, i64 %add11.i
-  %spec.select.i = add i64 %add18.i, %x.2
+  %spec.select.i = add nuw i64 %add18.i, %x.2
   br label %if.end.i
 
 if.end.i:                                         ; preds = %land.lhs.true10.i, %if.then8.i

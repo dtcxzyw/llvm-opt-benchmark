@@ -238,7 +238,7 @@ define dso_local i64 @gin_cmp_prefix(ptr nocapture noundef readonly %0) local_un
 68:                                               ; preds = %64, %67
   %69 = icmp slt i32 %60, 0
   %spec.store.select = select i1 %69, i32 1, i32 %60
-  %70 = sext i32 %spec.store.select to i64
+  %70 = zext nneg i32 %spec.store.select to i64
   ret i64 %70
 }
 

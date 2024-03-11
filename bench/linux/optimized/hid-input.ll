@@ -246,7 +246,7 @@ define dso_local void @hidinput_hid_event(ptr nocapture noundef readonly %0, ptr
   %41 = getelementptr inbounds i8, ptr %2, i64 14
   %42 = load i16, ptr %41, align 2
   %43 = zext i16 %42 to i32
-  %44 = sext i32 %39 to i64
+  %44 = zext nneg i32 %39 to i64
   %45 = getelementptr [9 x %struct.anon.2], ptr @hid_hat_to_axis, i64 0, i64 %44
   %46 = load i32, ptr %45, align 8
   tail call void @input_event(ptr noundef %16, i32 noundef %40, i32 noundef %43, i32 noundef %46) #11

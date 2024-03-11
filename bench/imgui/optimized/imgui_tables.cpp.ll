@@ -2039,7 +2039,7 @@ for.body70.lr.ph:                                 ; preds = %for.cond68.preheade
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ %13, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %indvars.iv.next = add i64 %indvars.iv, %14
+  %indvars.iv.next = add nsw i64 %indvars.iv, %14
   %16 = load ptr, ptr %DisplayOrderToIndex, align 8
   %add.ptr.i60 = getelementptr inbounds i16, ptr %16, i64 %indvars.iv.next
   %17 = load i16, ptr %add.ptr.i60, align 2
@@ -5130,7 +5130,7 @@ if.then:                                          ; preds = %entry
   %2 = load i16, ptr %SortSpecsCount, align 8
   %cmp = icmp slt i16 %2, 2
   %narrow = select i1 %cmp, i16 0, i16 %2
-  %spec.select = sext i16 %narrow to i32
+  %spec.select = zext nneg i16 %narrow to i32
   %Capacity.i = getelementptr inbounds i8, ptr %table, i64 484
   %3 = load i32, ptr %Capacity.i, align 4
   %cmp.i = icmp slt i32 %3, %spec.select
@@ -5148,8 +5148,8 @@ cond.true.i.i:                                    ; preds = %if.then.i
 _ZNK8ImVectorI25ImGuiTableColumnSortSpecsE14_grow_capacityEi.exit.i: ; preds = %cond.true.i.i, %if.then.i
   %cond.i.i = phi i32 [ %add.i.i, %cond.true.i.i ], [ 8, %if.then.i ]
   %cond7.i.i = tail call noundef i32 @llvm.smax.i32(i32 %cond.i.i, i32 %spec.select)
-  %conv.i.i = sext i32 %cond7.i.i to i64
-  %mul.i.i = mul nsw i64 %conv.i.i, 12
+  %conv.i.i = zext nneg i32 %cond7.i.i to i64
+  %mul.i.i = mul nuw nsw i64 %conv.i.i, 12
   %call.i.i = tail call noundef ptr @_ZN5ImGui8MemAllocEm(i64 noundef %mul.i.i)
   %Data.i.i = getelementptr inbounds i8, ptr %table, i64 488
   %4 = load ptr, ptr %Data.i.i, align 8
@@ -8107,7 +8107,7 @@ if.then14:                                        ; preds = %if.end
   ]
 
 if.then20:                                        ; preds = %if.then14, %if.then14
-  %or = or i32 %flags, 16
+  %or = or disjoint i32 %flags, 16
   br label %if.end22
 
 if.end22:                                         ; preds = %if.then14, %if.then20, %if.end

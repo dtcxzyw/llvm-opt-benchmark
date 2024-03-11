@@ -5687,7 +5687,7 @@ isRect.exit.thread.i:                             ; preds = %156, %isRect.exit.i
   %171 = add i32 %.0162.i, -61
   %or.cond3.i = icmp ult i32 %171, -57
   %narrow.i43 = select i1 %or.cond3.i, i32 20, i32 %.0162.i
-  %172 = sext i32 %narrow.i43 to i64
+  %172 = zext nneg i32 %narrow.i43 to i64
   %173 = load i64, ptr %162, align 8
   %174 = icmp ne i64 %173, 0
   %brmerge184.i = select i1 %174, i1 true, i1 %.2.i.i
@@ -5773,18 +5773,18 @@ gv_calloc.exit.i:                                 ; preds = %175
   %225 = getelementptr i8, ptr %222, i64 -8
   %226 = load double, ptr %225, align 8
   %227 = tail call fastcc ptr @pEllipse(double noundef %224, double noundef %226, i64 noundef %172)
-  %.not206.i = icmp eq i32 %narrow.i43, 0
-  br i1 %.not206.i, label %.loopexit.i, label %.lr.ph.i
+  %.not207.i = icmp eq i32 %narrow.i43, 0
+  br i1 %.not207.i, label %.loopexit.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %220, %.lr.ph.i
-  %.0161205.i = phi i64 [ %231, %.lr.ph.i ], [ 0, %220 ]
-  %228 = getelementptr inbounds %struct.pointf_s, ptr %227, i64 %.0161205.i
+  %.0161206.i = phi i64 [ %231, %.lr.ph.i ], [ 0, %220 ]
+  %228 = getelementptr inbounds %struct.pointf_s, ptr %227, i64 %.0161206.i
   %229 = load <2 x double>, ptr %228, align 8
   %230 = fadd <2 x double> %120, %229
   store <2 x double> %230, ptr %228, align 8
-  %231 = add nuw i64 %.0161205.i, 1
-  %exitcond211.not.i = icmp eq i64 %231, %172
-  br i1 %exitcond211.not.i, label %.loopexit.i, label %.lr.ph.i
+  %231 = add nuw nsw i64 %.0161206.i, 1
+  %exitcond212.not.i = icmp eq i64 %231, %172
+  br i1 %exitcond212.not.i, label %.loopexit.i, label %.lr.ph.i
 
 232:                                              ; preds = %202, %198, %195
   %233 = add i64 %164, -1
@@ -5793,204 +5793,194 @@ gv_calloc.exit.i:                                 ; preds = %175
   store i32 2, ptr %235, align 4
   %236 = load i64, ptr %139, align 8
   %.not178.i = icmp ult i64 %236, %172
-  br i1 %.not178.i, label %260, label %237
+  br i1 %.not178.i, label %256, label %237
 
 237:                                              ; preds = %232
   %238 = udiv i64 %236, %172
-  %mul.ov.i.i = icmp slt i32 %narrow.i43, 0
-  br i1 %mul.ov.i.i, label %239, label %242
+  %239 = tail call noalias ptr @calloc(i64 noundef %172, i64 noundef 16) #28
+  %240 = icmp eq ptr %239, null
+  br i1 %240, label %243, label %gv_calloc.exit187.preheader.i
 
-239:                                              ; preds = %237
-  %240 = load ptr, ptr @stderr, align 8
-  %241 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %240, ptr noundef nonnull @.str.43, i64 noundef %172, i64 noundef 16) #29
-  tail call fastcc void @graphviz_exit() #30
-  unreachable
-
-242:                                              ; preds = %237
-  %243 = tail call noalias ptr @calloc(i64 noundef %172, i64 noundef 16) #28
-  %244 = icmp eq ptr %243, null
-  br i1 %244, label %247, label %gv_calloc.exit187.preheader.i
-
-gv_calloc.exit187.preheader.i:                    ; preds = %242
+gv_calloc.exit187.preheader.i:                    ; preds = %237
   %invariant.gep.i = getelementptr %struct.pointf_s, ptr %166, i64 %234
   %umax.i = tail call i64 @llvm.umax.i64(i64 %172, i64 1)
-  %245 = extractelement <2 x double> %120, i64 0
-  %246 = extractelement <2 x double> %120, i64 1
+  %241 = extractelement <2 x double> %120, i64 0
+  %242 = extractelement <2 x double> %120, i64 1
   br label %gv_calloc.exit187.i
 
-247:                                              ; preds = %242
-  %248 = load ptr, ptr @stderr, align 8
-  %249 = shl nuw nsw i64 %172, 4
-  %250 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %248, ptr noundef nonnull @.str.41, i64 noundef %249) #29
+243:                                              ; preds = %237
+  %244 = load ptr, ptr @stderr, align 8
+  %245 = shl nuw nsw i64 %172, 4
+  %246 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %244, ptr noundef nonnull @.str.41, i64 noundef %245) #29
   tail call fastcc void @graphviz_exit() #30
   unreachable
 
 gv_calloc.exit187.i:                              ; preds = %gv_calloc.exit187.i, %gv_calloc.exit187.preheader.i
-  %.0157201.i = phi i64 [ 0, %gv_calloc.exit187.preheader.i ], [ %259, %gv_calloc.exit187.i ]
-  %.0158200.i = phi i64 [ 0, %gv_calloc.exit187.preheader.i ], [ %258, %gv_calloc.exit187.i ]
-  %gep.i = getelementptr %struct.pointf_s, ptr %invariant.gep.i, i64 %.0158200.i
-  %251 = load double, ptr %gep.i, align 8
-  %252 = fadd double %245, %251
-  %253 = getelementptr inbounds %struct.pointf_s, ptr %243, i64 %.0157201.i
+  %.0157202.i = phi i64 [ 0, %gv_calloc.exit187.preheader.i ], [ %255, %gv_calloc.exit187.i ]
+  %.0158201.i = phi i64 [ 0, %gv_calloc.exit187.preheader.i ], [ %254, %gv_calloc.exit187.i ]
+  %gep.i = getelementptr %struct.pointf_s, ptr %invariant.gep.i, i64 %.0158201.i
+  %247 = load double, ptr %gep.i, align 8
+  %248 = fadd double %241, %247
+  %249 = getelementptr inbounds %struct.pointf_s, ptr %239, i64 %.0157202.i
+  store double %248, ptr %249, align 8
+  %250 = getelementptr inbounds i8, ptr %gep.i, i64 8
+  %251 = load double, ptr %250, align 8
+  %252 = fadd double %242, %251
+  %253 = getelementptr inbounds i8, ptr %249, i64 8
   store double %252, ptr %253, align 8
-  %254 = getelementptr inbounds i8, ptr %gep.i, i64 8
-  %255 = load double, ptr %254, align 8
-  %256 = fadd double %246, %255
-  %257 = getelementptr inbounds i8, ptr %253, i64 8
-  store double %256, ptr %257, align 8
-  %258 = add i64 %.0158200.i, %238
-  %259 = add nuw nsw i64 %.0157201.i, 1
-  %exitcond.not.i = icmp eq i64 %259, %umax.i
+  %254 = add i64 %.0158201.i, %238
+  %255 = add nuw nsw i64 %.0157202.i, 1
+  %exitcond.not.i = icmp eq i64 %255, %umax.i
   br i1 %exitcond.not.i, label %.loopexit.i, label %gv_calloc.exit187.i
 
-260:                                              ; preds = %232
+256:                                              ; preds = %232
   %mul.ov.i189.i = icmp ugt i64 %spec.select.i, 1152921504606846975
-  br i1 %mul.ov.i189.i, label %261, label %264
+  br i1 %mul.ov.i189.i, label %257, label %260
 
-261:                                              ; preds = %260
-  %262 = load ptr, ptr @stderr, align 8
-  %263 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %262, ptr noundef nonnull @.str.43, i64 noundef %spec.select.i, i64 noundef 16) #29
+257:                                              ; preds = %256
+  %258 = load ptr, ptr @stderr, align 8
+  %259 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %258, ptr noundef nonnull @.str.43, i64 noundef %spec.select.i, i64 noundef 16) #29
   tail call fastcc void @graphviz_exit() #30
   unreachable
 
-264:                                              ; preds = %260
-  %265 = tail call noalias ptr @calloc(i64 noundef %spec.select.i, i64 noundef 16) #28
-  %266 = icmp eq ptr %265, null
-  br i1 %266, label %269, label %gv_calloc.exit190.preheader.i
+260:                                              ; preds = %256
+  %261 = tail call noalias ptr @calloc(i64 noundef %spec.select.i, i64 noundef 16) #28
+  %262 = icmp eq ptr %261, null
+  br i1 %262, label %265, label %gv_calloc.exit190.preheader.i
 
-gv_calloc.exit190.preheader.i:                    ; preds = %264
-  %invariant.gep202.i = getelementptr %struct.pointf_s, ptr %166, i64 %234
-  %umax209.i = tail call i64 @llvm.umax.i64(i64 %spec.select.i, i64 1)
-  %267 = extractelement <2 x double> %120, i64 0
-  %268 = extractelement <2 x double> %120, i64 1
+gv_calloc.exit190.preheader.i:                    ; preds = %260
+  %invariant.gep203.i = getelementptr %struct.pointf_s, ptr %166, i64 %234
+  %umax210.i = tail call i64 @llvm.umax.i64(i64 %spec.select.i, i64 1)
+  %263 = extractelement <2 x double> %120, i64 0
+  %264 = extractelement <2 x double> %120, i64 1
   br label %gv_calloc.exit190.i
 
-269:                                              ; preds = %264
-  %270 = load ptr, ptr @stderr, align 8
-  %271 = shl nuw i64 %spec.select.i, 4
-  %272 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %270, ptr noundef nonnull @.str.41, i64 noundef %271) #29
+265:                                              ; preds = %260
+  %266 = load ptr, ptr @stderr, align 8
+  %267 = shl nuw i64 %spec.select.i, 4
+  %268 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %266, ptr noundef nonnull @.str.41, i64 noundef %267) #29
   tail call fastcc void @graphviz_exit() #30
   unreachable
 
 gv_calloc.exit190.i:                              ; preds = %gv_calloc.exit190.i, %gv_calloc.exit190.preheader.i
-  %.0204.i = phi i64 [ 0, %gv_calloc.exit190.preheader.i ], [ %280, %gv_calloc.exit190.i ]
-  %gep203.i = getelementptr %struct.pointf_s, ptr %invariant.gep202.i, i64 %.0204.i
-  %273 = load double, ptr %gep203.i, align 8
-  %274 = fadd double %267, %273
-  %275 = getelementptr inbounds %struct.pointf_s, ptr %265, i64 %.0204.i
+  %.0205.i = phi i64 [ 0, %gv_calloc.exit190.preheader.i ], [ %276, %gv_calloc.exit190.i ]
+  %gep204.i = getelementptr %struct.pointf_s, ptr %invariant.gep203.i, i64 %.0205.i
+  %269 = load double, ptr %gep204.i, align 8
+  %270 = fadd double %263, %269
+  %271 = getelementptr inbounds %struct.pointf_s, ptr %261, i64 %.0205.i
+  store double %270, ptr %271, align 8
+  %272 = getelementptr inbounds i8, ptr %gep204.i, i64 8
+  %273 = load double, ptr %272, align 8
+  %274 = fadd double %264, %273
+  %275 = getelementptr inbounds i8, ptr %271, i64 8
   store double %274, ptr %275, align 8
-  %276 = getelementptr inbounds i8, ptr %gep203.i, i64 8
-  %277 = load double, ptr %276, align 8
-  %278 = fadd double %268, %277
-  %279 = getelementptr inbounds i8, ptr %275, i64 8
-  store double %278, ptr %279, align 8
-  %280 = add nuw nsw i64 %.0204.i, 1
-  %exitcond210.not.i = icmp eq i64 %280, %umax209.i
-  br i1 %exitcond210.not.i, label %.loopexit.i, label %gv_calloc.exit190.i
+  %276 = add nuw nsw i64 %.0205.i, 1
+  %exitcond211.not.i = icmp eq i64 %276, %umax210.i
+  br i1 %exitcond211.not.i, label %.loopexit.i, label %gv_calloc.exit190.i
 
 .thread.i:                                        ; preds = %isRect.exit.thread.i, %isFilled.exit.i
-  %281 = getelementptr inbounds i8, ptr %51, i64 348
-  store i32 0, ptr %281, align 4
-  %282 = tail call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 2, i64 noundef 16) #28
-  %283 = icmp eq ptr %282, null
-  br i1 %283, label %284, label %gv_calloc.exit191.i
+  %277 = getelementptr inbounds i8, ptr %51, i64 348
+  store i32 0, ptr %277, align 4
+  %278 = tail call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 2, i64 noundef 16) #28
+  %279 = icmp eq ptr %278, null
+  br i1 %279, label %280, label %gv_calloc.exit191.i
 
-284:                                              ; preds = %.thread.i
-  %285 = load ptr, ptr @stderr, align 8
-  %286 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %285, ptr noundef nonnull @.str.41, i64 noundef 32) #29
+280:                                              ; preds = %.thread.i
+  %281 = load ptr, ptr @stderr, align 8
+  %282 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %281, ptr noundef nonnull @.str.41, i64 noundef 32) #29
   tail call fastcc void @graphviz_exit() #30
   unreachable
 
 gv_calloc.exit191.i:                              ; preds = %.thread.i
-  %287 = load ptr, ptr %4, align 8
-  %288 = getelementptr inbounds i8, ptr %287, i64 104
+  %283 = load ptr, ptr %4, align 8
+  %284 = getelementptr inbounds i8, ptr %283, i64 104
+  %285 = load double, ptr %284, align 8
+  %286 = extractelement <2 x double> %120, i64 0
+  %287 = fsub double %286, %285
+  store double %287, ptr %278, align 8
+  %288 = getelementptr inbounds i8, ptr %283, i64 96
   %289 = load double, ptr %288, align 8
-  %290 = extractelement <2 x double> %120, i64 0
-  %291 = fsub double %290, %289
-  store double %291, ptr %282, align 8
-  %292 = getelementptr inbounds i8, ptr %287, i64 96
-  %293 = load double, ptr %292, align 8
-  %294 = fmul double %293, 5.000000e-01
-  %295 = extractelement <2 x double> %120, i64 1
-  %296 = fsub double %295, %294
-  %297 = getelementptr inbounds i8, ptr %282, i64 8
+  %290 = fmul double %289, 5.000000e-01
+  %291 = extractelement <2 x double> %120, i64 1
+  %292 = fsub double %291, %290
+  %293 = getelementptr inbounds i8, ptr %278, i64 8
+  store double %292, ptr %293, align 8
+  %294 = getelementptr inbounds i8, ptr %283, i64 112
+  %295 = load double, ptr %294, align 8
+  %296 = fadd double %286, %295
+  %297 = getelementptr inbounds i8, ptr %278, i64 16
   store double %296, ptr %297, align 8
-  %298 = getelementptr inbounds i8, ptr %287, i64 112
-  %299 = load double, ptr %298, align 8
-  %300 = fadd double %290, %299
-  %301 = getelementptr inbounds i8, ptr %282, i64 16
-  store double %300, ptr %301, align 8
   br label %.loopexit.sink.split.i
 
 .loopexit.sink.split.i:                           ; preds = %gv_calloc.exit191.i, %209, %gv_calloc.exit.i
-  %.sink218.i = phi double [ %189, %gv_calloc.exit.i ], [ %219, %209 ], [ %294, %gv_calloc.exit191.i ]
-  %.sink217.i = phi ptr [ %177, %gv_calloc.exit.i ], [ %210, %209 ], [ %282, %gv_calloc.exit191.i ]
-  %302 = extractelement <2 x double> %120, i64 1
-  %303 = fadd double %302, %.sink218.i
-  %304 = getelementptr inbounds i8, ptr %.sink217.i, i64 24
-  store double %303, ptr %304, align 8
+  %.sink219.i = phi double [ %189, %gv_calloc.exit.i ], [ %219, %209 ], [ %290, %gv_calloc.exit191.i ]
+  %.sink218.i = phi ptr [ %177, %gv_calloc.exit.i ], [ %210, %209 ], [ %278, %gv_calloc.exit191.i ]
+  %298 = extractelement <2 x double> %120, i64 1
+  %299 = fadd double %298, %.sink219.i
+  %300 = getelementptr inbounds i8, ptr %.sink218.i, i64 24
+  store double %299, ptr %300, align 8
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %gv_calloc.exit187.i, %gv_calloc.exit190.i, %.lr.ph.i, %.loopexit.sink.split.i, %220
-  %.0163.i = phi ptr [ %227, %220 ], [ %.sink217.i, %.loopexit.sink.split.i ], [ %227, %.lr.ph.i ], [ %265, %gv_calloc.exit190.i ], [ %243, %gv_calloc.exit187.i ]
+  %.0163.i = phi ptr [ %227, %220 ], [ %.sink218.i, %.loopexit.sink.split.i ], [ %227, %.lr.ph.i ], [ %261, %gv_calloc.exit190.i ], [ %239, %gv_calloc.exit187.i ]
   %.0159.i = phi i64 [ 0, %220 ], [ 2, %.loopexit.sink.split.i ], [ %172, %.lr.ph.i ], [ %spec.select.i, %gv_calloc.exit190.i ], [ %172, %gv_calloc.exit187.i ]
-  %305 = and i32 %50, 8192
-  %.not180.i = icmp eq i32 %305, 0
-  br i1 %.not180.i, label %306, label %308
+  %301 = and i32 %50, 8192
+  %.not180.i = icmp eq i32 %301, 0
+  br i1 %.not180.i, label %302, label %304
 
-306:                                              ; preds = %.loopexit.i
-  %307 = tail call ptr @gvrender_ptf_A(ptr noundef nonnull %0, ptr noundef %.0163.i, ptr noundef %.0163.i, i64 noundef %.0159.i) #27
-  br label %308
+302:                                              ; preds = %.loopexit.i
+  %303 = tail call ptr @gvrender_ptf_A(ptr noundef nonnull %0, ptr noundef %.0163.i, ptr noundef %.0163.i, i64 noundef %.0159.i) #27
+  br label %304
 
-308:                                              ; preds = %306, %.loopexit.i
-  %309 = getelementptr inbounds i8, ptr %51, i64 360
-  store ptr %.0163.i, ptr %309, align 8
-  %310 = getelementptr inbounds i8, ptr %51, i64 352
-  store i64 %.0159.i, ptr %310, align 8
+304:                                              ; preds = %302, %.loopexit.i
+  %305 = getelementptr inbounds i8, ptr %51, i64 360
+  store ptr %.0163.i, ptr %305, align 8
+  %306 = getelementptr inbounds i8, ptr %51, i64 352
+  store i64 %.0159.i, ptr %306, align 8
   br label %emit_begin_node.exit
 
-emit_begin_node.exit:                             ; preds = %104, %112, %308
-  %311 = tail call ptr @agget(ptr noundef %1, ptr noundef nonnull @.str.14) #27
-  %312 = tail call ptr @setColorScheme(ptr noundef %311) #27
-  store ptr %312, ptr @saved_color_scheme, align 8
+emit_begin_node.exit:                             ; preds = %104, %112, %304
+  %307 = tail call ptr @agget(ptr noundef %1, ptr noundef nonnull @.str.14) #27
+  %308 = tail call ptr @setColorScheme(ptr noundef %307) #27
+  store ptr %308, ptr @saved_color_scheme, align 8
   tail call void @gvrender_begin_node(ptr noundef nonnull %0) #27
-  %313 = load ptr, ptr %4, align 8
-  %314 = getelementptr inbounds i8, ptr %313, i64 16
+  %309 = load ptr, ptr %4, align 8
+  %310 = getelementptr inbounds i8, ptr %309, i64 16
+  %311 = load ptr, ptr %310, align 8
+  %312 = getelementptr inbounds i8, ptr %311, i64 8
+  %313 = load ptr, ptr %312, align 8
+  %314 = getelementptr inbounds i8, ptr %313, i64 40
   %315 = load ptr, ptr %314, align 8
-  %316 = getelementptr inbounds i8, ptr %315, i64 8
-  %317 = load ptr, ptr %316, align 8
-  %318 = getelementptr inbounds i8, ptr %317, i64 40
-  %319 = load ptr, ptr %318, align 8
-  tail call void %319(ptr noundef nonnull %0, ptr noundef %1) #27
-  %320 = load ptr, ptr %4, align 8
-  %321 = getelementptr inbounds i8, ptr %320, i64 144
-  %322 = load ptr, ptr %321, align 8
-  %.not40 = icmp eq ptr %322, null
-  br i1 %.not40, label %328, label %323
+  tail call void %315(ptr noundef nonnull %0, ptr noundef %1) #27
+  %316 = load ptr, ptr %4, align 8
+  %317 = getelementptr inbounds i8, ptr %316, i64 144
+  %318 = load ptr, ptr %317, align 8
+  %.not40 = icmp eq ptr %318, null
+  br i1 %.not40, label %324, label %319
 
-323:                                              ; preds = %emit_begin_node.exit
-  %324 = getelementptr inbounds i8, ptr %322, i64 105
-  %325 = load i8, ptr %324, align 1
-  %326 = and i8 %325, 1
-  %.not41 = icmp eq i8 %326, 0
-  br i1 %.not41, label %328, label %327
+319:                                              ; preds = %emit_begin_node.exit
+  %320 = getelementptr inbounds i8, ptr %318, i64 105
+  %321 = load i8, ptr %320, align 1
+  %322 = and i8 %321, 1
+  %.not41 = icmp eq i8 %322, 0
+  br i1 %.not41, label %324, label %323
 
-327:                                              ; preds = %323
-  tail call void @emit_label(ptr noundef nonnull %0, i32 noundef 10, ptr noundef nonnull %322) #27
-  br label %328
+323:                                              ; preds = %319
+  tail call void @emit_label(ptr noundef nonnull %0, i32 noundef 10, ptr noundef nonnull %318) #27
+  br label %324
 
-328:                                              ; preds = %327, %323, %emit_begin_node.exit
+324:                                              ; preds = %323, %319, %emit_begin_node.exit
   tail call void @gvrender_end_node(ptr noundef nonnull %0) #27
-  %329 = load ptr, ptr @saved_color_scheme, align 8
-  %330 = tail call ptr @setColorScheme(ptr noundef %329) #27
-  tail call void @free(ptr noundef %330) #27
-  %331 = load ptr, ptr @saved_color_scheme, align 8
-  tail call void @free(ptr noundef %331) #27
+  %325 = load ptr, ptr @saved_color_scheme, align 8
+  %326 = tail call ptr @setColorScheme(ptr noundef %325) #27
+  tail call void @free(ptr noundef %326) #27
+  %327 = load ptr, ptr @saved_color_scheme, align 8
+  tail call void @free(ptr noundef %327) #27
   store ptr null, ptr @saved_color_scheme, align 8
   tail call void @pop_obj_state(ptr noundef nonnull %0)
   br label %.loopexit46
 
-.loopexit46:                                      ; preds = %45, %328, %24, %11, %8, %2
+.loopexit46:                                      ; preds = %45, %324, %24, %11, %8, %2
   ret void
 }
 

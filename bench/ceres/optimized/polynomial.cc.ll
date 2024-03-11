@@ -13696,17 +13696,17 @@ define linkonce_odr hidden void @_ZN5Eigen8internal10CacheSizesC2Ev(ptr noundef 
   %7 = load i32, ptr %2, align 4
   %8 = icmp slt i32 %7, 1
   %narrow = select i1 %8, i32 32768, i32 %7
-  %9 = sext i32 %narrow to i64
+  %9 = zext nneg i32 %narrow to i64
   store i64 %9, ptr %0, align 8
   %10 = load i32, ptr %3, align 4
   %11 = icmp slt i32 %10, 1
   %narrow1 = select i1 %11, i32 262144, i32 %10
-  %12 = sext i32 %narrow1 to i64
+  %12 = zext nneg i32 %narrow1 to i64
   store i64 %12, ptr %5, align 8
   %13 = load i32, ptr %4, align 4
   %14 = icmp slt i32 %13, 1
   %narrow2 = select i1 %14, i32 2097152, i32 %13
-  %15 = sext i32 %narrow2 to i64
+  %15 = zext nneg i32 %narrow2 to i64
   store i64 %15, ptr %6, align 8
   ret void
 }

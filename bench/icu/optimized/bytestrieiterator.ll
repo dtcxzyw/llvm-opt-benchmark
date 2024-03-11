@@ -673,7 +673,7 @@ if.then32:                                        ; preds = %if.end29
   %11 = load ptr, ptr %pos_, align 8
   %call42 = tail call noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %8, ptr noundef %11, i32 noundef %length.0, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %12 = load ptr, ptr %pos_, align 8
-  %idx.ext = sext i32 %length.0 to i64
+  %idx.ext = zext nneg i32 %length.0 to i64
   %add.ptr = getelementptr inbounds i8, ptr %12, i64 %idx.ext
   store ptr %add.ptr, ptr %pos_, align 8
   %13 = load i32, ptr %remainingMatchLength_, align 8

@@ -241,8 +241,8 @@ define dso_local noundef i32 @runetochar(ptr nocapture noundef writeonly %0, ptr
 17:                                               ; preds = %7
   %18 = icmp ugt i32 %3, 1114111
   %narrow = select i1 %18, i32 65533, i32 %3
-  %spec.store.select = zext i32 %narrow to i64
-  %19 = and i64 %spec.store.select, 4294965248
+  %spec.store.select = zext nneg i32 %narrow to i64
+  %19 = and i64 %spec.store.select, 2095104
   %or.cond = icmp eq i64 %19, 55296
   %spec.store.select2 = select i1 %or.cond, i64 65533, i64 %spec.store.select
   %20 = icmp ult i64 %spec.store.select2, 65536
@@ -268,7 +268,7 @@ define dso_local noundef i32 @runetochar(ptr nocapture noundef writeonly %0, ptr
 33:                                               ; preds = %17
   %34 = lshr i64 %spec.store.select2, 18
   %35 = trunc i64 %34 to i8
-  %36 = or i8 %35, -16
+  %36 = or disjoint i8 %35, -16
   store i8 %36, ptr %0, align 1
   %37 = lshr i64 %spec.store.select2, 12
   %38 = trunc i64 %37 to i8
@@ -305,7 +305,7 @@ define dso_local i32 @runelen(i32 noundef %0) local_unnamed_addr #1 {
 5:                                                ; preds = %3
   %6 = icmp ugt i32 %0, 1114111
   %narrow.i = select i1 %6, i32 65533, i32 %0
-  %7 = and i32 %narrow.i, 2147481600
+  %7 = and i32 %narrow.i, 2095104
   %or.cond.i = icmp eq i32 %7, 55296
   %8 = icmp ult i32 %narrow.i, 65536
   %9 = or i1 %8, %or.cond.i

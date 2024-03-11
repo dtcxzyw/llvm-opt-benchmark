@@ -286,7 +286,6 @@ for.body:                                         ; preds = %for.cond
 
 for.end199.thread:                                ; preds = %for.cond
   %add153 = add i32 %sub131, %conv71
-  %spec.select319 = tail call i32 @llvm.smin.i32(i32 %spec.select, i32 0)
   store i32 %add153, ptr %bc, align 4
   store double 0.000000e+00, ptr %rv, align 8
   br label %land.lhs.true218
@@ -367,7 +366,7 @@ land.lhs.true218:                                 ; preds = %for.end199.thread, 
   %y.0.lcssa956 = phi i32 [ %y.0.lcssa, %for.end199 ], [ %y.0.lcssa, %if.end215 ], [ 0, %for.end199.thread ]
   %i.0.lcssa935953 = phi i32 [ %i.0, %for.end199 ], [ %i.0, %if.end215 ], [ 0, %for.end199.thread ]
   %add153937951 = phi i32 [ %add153932, %for.end199 ], [ %add153932, %if.end215 ], [ %add153, %for.end199.thread ]
-  %spec.select319940950 = phi i32 [ %spec.select319933, %for.end199 ], [ %spec.select319933, %if.end215 ], [ %spec.select319, %for.end199.thread ]
+  %spec.select319940950 = phi i32 [ %spec.select319933, %for.end199 ], [ %spec.select319933, %if.end215 ], [ 0, %for.end199.thread ]
   %31 = phi double [ %conv206, %for.end199 ], [ %30, %if.end215 ], [ 0.000000e+00, %for.end199.thread ]
   %32 = tail call i32 @llvm.get.rounding()
   %cmp219 = icmp eq i32 %32, 1
@@ -655,7 +654,6 @@ for.cond391:                                      ; preds = %if.end385, %for.bod
 
 if.end449.thread:                                 ; preds = %for.cond391
   %add413961 = add i32 %i.0.lcssa935954, %add153937952
-  %spec.select320962 = tail call i32 @llvm.smin.i32(i32 %spec.select319940949, i32 0)
   br label %for.end.thread.i
 
 for.body394:                                      ; preds = %for.cond391
@@ -676,7 +674,7 @@ for.end411:                                       ; preds = %for.body394
   br i1 %cmp418, label %for.cond421.preheader, label %if.end449
 
 for.cond421.preheader:                            ; preds = %for.end411
-  %cmp422811 = icmp sgt i32 %spec.select320, 0
+  %cmp422811 = icmp sgt i32 %i.3, 0
   br i1 %cmp422811, label %for.body424.preheader, label %for.cond434.preheader
 
 for.body424.preheader:                            ; preds = %for.cond421.preheader
@@ -736,7 +734,7 @@ if.end449:                                        ; preds = %for.body437, %for.c
 
 for.end.thread.i:                                 ; preds = %if.end449.thread, %if.end449
   %y.41008 = phi i32 [ 0, %if.end449.thread ], [ %y.4, %if.end449 ]
-  %nd0.31003 = phi i32 [ %spec.select320962, %if.end449.thread ], [ %nd0.3, %if.end449 ]
+  %nd0.31003 = phi i32 [ 0, %if.end449.thread ], [ %nd0.3, %if.end449 ]
   %nd.0996 = phi i32 [ 0, %if.end449.thread ], [ %nd.0, %if.end449 ]
   %e.3991 = phi i32 [ %add413961, %if.end449.thread ], [ %e.3, %if.end449 ]
   %63 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)

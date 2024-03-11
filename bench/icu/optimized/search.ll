@@ -245,7 +245,7 @@ sw.bb6:                                           ; preds = %entry
   %6 = add i16 %5, -3
   %or.cond = icmp ult i16 %6, 2
   %narrow = select i1 %or.cond, i16 %5, i16 2
-  %spec.select = sext i16 %narrow to i32
+  %spec.select = zext nneg i16 %narrow to i32
   br label %return
 
 return:                                           ; preds = %sw.bb6, %entry, %sw.bb2, %sw.bb

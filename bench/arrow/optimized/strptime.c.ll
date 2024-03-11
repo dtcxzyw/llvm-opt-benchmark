@@ -374,8 +374,8 @@ if.end200:                                        ; preds = %numeric_digits, %if
 
 if.end209:                                        ; preds = %if.end200
   store i32 0, ptr %dest.1, align 4
-  %cmp211141 = icmp sgt i32 %w.1, 0
-  br i1 %cmp211141, label %land.rhs213, label %for.end229
+  %cmp211141.not = icmp eq i32 %w.1, 0
+  br i1 %cmp211141.not, label %for.end229, label %land.rhs213
 
 land.rhs213:                                      ; preds = %if.end209, %for.body222
   %40 = phi i32 [ %sub227, %for.body222 ], [ 0, %if.end209 ]

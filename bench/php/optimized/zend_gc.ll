@@ -380,15 +380,16 @@ gc_grow_root_buffer.exit.i:                       ; preds = %85, %84
   %100 = getelementptr inbounds %struct._gc_root_buffer, ptr %98, i64 %99
   store ptr %0, ptr %100, align 8
   %101 = icmp ult i32 %.024.i, 524288
-  %102 = getelementptr inbounds i8, ptr %0, i64 4
-  %103 = load i32, ptr %102, align 4
-  %104 = and i32 %103, 1023
-  %105 = shl i32 %.024.i, 10
-  %106 = or i32 %105, 536870912
-  %107 = select i1 %101, i32 %105, i32 %106
-  %108 = or disjoint i32 %107, %104
-  %109 = or i32 %108, -1073741824
-  store i32 %109, ptr %102, align 4
+  %102 = and i32 %.024.i, 524287
+  %103 = or disjoint i32 %102, 524288
+  %.0.i = select i1 %101, i32 %.024.i, i32 %103
+  %104 = getelementptr inbounds i8, ptr %0, i64 4
+  %105 = load i32, ptr %104, align 4
+  %106 = and i32 %105, 1023
+  %107 = shl nuw nsw i32 %.0.i, 10
+  %108 = or disjoint i32 %107, %106
+  %109 = or disjoint i32 %108, -1073741824
+  store i32 %109, ptr %104, align 4
   %110 = load i32, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 9), align 4
   %111 = add i32 %110, 1
   store i32 %111, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 9), align 4
@@ -401,15 +402,16 @@ gc_grow_root_buffer.exit.i:                       ; preds = %85, %84
   %114 = getelementptr inbounds %struct._gc_root_buffer, ptr %113, i64 %.pre-phi
   store ptr %0, ptr %114, align 8
   %115 = icmp ult i32 %.016, 524288
-  %116 = getelementptr inbounds i8, ptr %0, i64 4
-  %117 = load i32, ptr %116, align 4
-  %118 = and i32 %117, 1023
-  %119 = shl i32 %.016, 10
-  %120 = or i32 %119, 536870912
-  %121 = select i1 %115, i32 %119, i32 %120
-  %122 = or disjoint i32 %121, %118
+  %116 = and i32 %.016, 524287
+  %117 = or disjoint i32 %116, 524288
+  %.0 = select i1 %115, i32 %.016, i32 %117
+  %118 = getelementptr inbounds i8, ptr %0, i64 4
+  %119 = load i32, ptr %118, align 4
+  %120 = and i32 %119, 1023
+  %121 = shl nuw nsw i32 %.0, 10
+  %122 = or disjoint i32 %121, %120
   %123 = or i32 %122, -1073741824
-  store i32 %123, ptr %116, align 4
+  store i32 %123, ptr %118, align 4
   %124 = load i32, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 9), align 4
   %125 = add i32 %124, 1
   store i32 %125, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 9), align 4
@@ -806,9 +808,9 @@ gc_compact.exit.i.thread522:                      ; preds = %141
   %.0.i.i = select i1 %172, i32 %171, i32 %174
   %175 = getelementptr inbounds i8, ptr %165, i64 4
   %176 = load i32, ptr %175, align 4
-  %177 = shl i32 %.0.i.i, 10
+  %177 = shl nuw nsw i32 %.0.i.i, 10
   %178 = and i32 %176, -1073740801
-  %179 = or i32 %177, %178
+  %179 = or disjoint i32 %177, %178
   store i32 %179, ptr %175, align 4
   %.not35.i.i = icmp ugt ptr %160, %144
   br i1 %.not35.i.i, label %180, label %gc_compact.exit.i
@@ -1697,9 +1699,9 @@ gc_scan_roots.exit:                               ; preds = %509, %.preheader.i
   %.0.i.i233 = select i1 %576, i32 %575, i32 %578
   %579 = getelementptr inbounds i8, ptr %569, i64 4
   %580 = load i32, ptr %579, align 4
-  %581 = shl i32 %.0.i.i233, 10
+  %581 = shl nuw nsw i32 %.0.i.i233, 10
   %582 = and i32 %580, -1073740801
-  %583 = or i32 %581, %582
+  %583 = or disjoint i32 %581, %582
   store i32 %583, ptr %579, align 4
   %.not35.i.i234 = icmp ugt ptr %564, %550
   br i1 %.not35.i.i234, label %584, label %.loopexit.loopexit.i.i231
@@ -3628,9 +3630,9 @@ gc_stack_free.exit259:                            ; preds = %.lr.ph.i255, %1304
   %.0.i267 = select i1 %1444, i32 %1443, i32 %1446
   %1447 = getelementptr inbounds i8, ptr %1437, i64 4
   %1448 = load i32, ptr %1447, align 4
-  %1449 = shl i32 %.0.i267, 10
+  %1449 = shl nuw nsw i32 %.0.i267, 10
   %1450 = and i32 %1448, -1073740801
-  %1451 = or i32 %1449, %1450
+  %1451 = or disjoint i32 %1449, %1450
   store i32 %1451, ptr %1447, align 4
   %.not35.i = icmp ugt ptr %1432, %1418
   br i1 %.not35.i, label %1452, label %.loopexit.loopexit.i
@@ -5162,9 +5164,9 @@ gc_grow_root_buffer.exit:                         ; preds = %26, %27
   %49 = or disjoint i32 %48, 524288
   %.0 = select i1 %47, i32 %.018, i32 %49
   %50 = load i32, ptr %40, align 4
-  %51 = shl i32 %.0, 10
+  %51 = shl nuw nsw i32 %.0, 10
   %52 = and i32 %50, -1073740801
-  %53 = or i32 %52, %51
+  %53 = or disjoint i32 %52, %51
   store i32 %53, ptr %40, align 4
   %54 = load i32, ptr getelementptr inbounds (%struct._zend_gc_globals, ptr @gc_globals, i64 0, i32 9), align 4
   %55 = add i32 %54, 1

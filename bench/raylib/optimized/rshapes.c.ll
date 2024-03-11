@@ -1576,7 +1576,7 @@ define void @DrawRectangleRounded(<2 x float> %0, <2 x float> %1, float noundef 
 
 14:                                               ; preds = %5
   tail call void @DrawRectanglePro(<2 x float> %0, <2 x float> %1, <2 x float> zeroinitializer, float noundef 0.000000e+00, i32 %4)
-  br label %259
+  br label %258
 
 15:                                               ; preds = %5
   %.inv = fcmp oge float %2, 1.000000e+00
@@ -1586,7 +1586,7 @@ define void @DrawRectangleRounded(<2 x float> %0, <2 x float> %1, float noundef 
   %.in = fmul float %.sroa.26332.12.vec.extract365.pn, %.0366
   %17 = fmul float %.in, 5.000000e-01
   %18 = fcmp ugt float %17, 0.000000e+00
-  br i1 %18, label %19, label %259
+  br i1 %18, label %19, label %258
 
 19:                                               ; preds = %15
   %20 = icmp slt i32 %3, 4
@@ -1635,314 +1635,314 @@ define void @DrawRectangleRounded(<2 x float> %0, <2 x float> %1, float noundef 
   %.sroa.0.0.copyload.i = load <2 x float>, ptr @texShapesRec, align 16
   %.sroa.2.0.copyload.i = load <2 x float>, ptr getelementptr inbounds (%struct.Rectangle, ptr @texShapesRec, i64 0, i32 2), align 8
   tail call void @rlBegin(i32 noundef 7) #16
-  %46 = sdiv i32 %.0367, 2
-  %47 = icmp sgt i32 %.0367, 1
+  %46 = lshr i32 %.0367, 1
+  %.not377 = icmp ult i32 %.0367, 2
   %.sroa.035.0.vec.extract = extractelement <2 x float> %.sroa.0.0.copyload.i, i64 0
   %.sroa.035.4.vec.extract = extractelement <2 x float> %.sroa.0.0.copyload.i, i64 1
-  %48 = fadd <2 x float> %.sroa.0.0.copyload.i, %.sroa.2.0.copyload.i
-  %49 = extractelement <2 x float> %48, i64 0
-  %50 = fadd <2 x float> %.sroa.0.0.copyload.i, %.sroa.2.0.copyload.i
-  %51 = extractelement <2 x float> %50, i64 1
-  %52 = and i32 %.0367, 1
-  %.not = icmp eq i32 %52, 0
-  br label %53
+  %47 = fadd <2 x float> %.sroa.0.0.copyload.i, %.sroa.2.0.copyload.i
+  %48 = extractelement <2 x float> %47, i64 0
+  %49 = fadd <2 x float> %.sroa.0.0.copyload.i, %.sroa.2.0.copyload.i
+  %50 = extractelement <2 x float> %49, i64 1
+  %51 = and i32 %.0367, 1
+  %.not = icmp eq i32 %51, 0
+  br label %52
 
-53:                                               ; preds = %31, %135
-  %indvars.iv = phi i64 [ 0, %31 ], [ %indvars.iv.next, %135 ]
-  %54 = getelementptr inbounds [4 x float], ptr @__const.DrawRectangleRoundedLines.angles, i64 0, i64 %indvars.iv
-  %55 = load float, ptr %54, align 4
-  %56 = getelementptr inbounds [4 x %struct.Vector2], ptr %10, i64 0, i64 %indvars.iv
-  %.sroa.0.0.copyload = load float, ptr %56, align 8
-  %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %56, i64 4
+52:                                               ; preds = %31, %134
+  %indvars.iv = phi i64 [ 0, %31 ], [ %indvars.iv.next, %134 ]
+  %53 = getelementptr inbounds [4 x float], ptr @__const.DrawRectangleRoundedLines.angles, i64 0, i64 %indvars.iv
+  %54 = load float, ptr %53, align 4
+  %55 = getelementptr inbounds [4 x %struct.Vector2], ptr %10, i64 0, i64 %indvars.iv
+  %.sroa.0.0.copyload = load float, ptr %55, align 8
+  %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %55, i64 4
   %.sroa.9.0.copyload = load float, ptr %.sroa.9.0..sroa_idx, align 4
-  br i1 %47, label %.lr.ph, label %._crit_edge
+  br i1 %.not377, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %53, %.lr.ph
-  %.0375 = phi i32 [ %98, %.lr.ph ], [ 0, %53 ]
-  %.0368374 = phi float [ %69, %.lr.ph ], [ %55, %53 ]
+.lr.ph:                                           ; preds = %52, %.lr.ph
+  %.0375 = phi i32 [ %97, %.lr.ph ], [ 0, %52 ]
+  %.0368374 = phi float [ %68, %.lr.ph ], [ %54, %52 ]
   tail call void @rlColor4ub(i8 noundef zeroext %.sroa.0258.0.extract.trunc, i8 noundef zeroext %.sroa.9266.0.extract.trunc, i8 noundef zeroext %.sroa.16273.0.extract.trunc, i8 noundef zeroext %.sroa.23.0.extract.trunc) #16
-  %57 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 1), align 4
-  %58 = sitofp i32 %57 to float
-  %59 = fdiv float %.sroa.035.0.vec.extract, %58
-  %60 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 2), align 8
-  %61 = sitofp i32 %60 to float
-  %62 = fdiv float %.sroa.035.4.vec.extract, %61
-  tail call void @rlTexCoord2f(float noundef %59, float noundef %62) #16
+  %56 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 1), align 4
+  %57 = sitofp i32 %56 to float
+  %58 = fdiv float %.sroa.035.0.vec.extract, %57
+  %59 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 2), align 8
+  %60 = sitofp i32 %59 to float
+  %61 = fdiv float %.sroa.035.4.vec.extract, %60
+  tail call void @rlTexCoord2f(float noundef %58, float noundef %61) #16
   tail call void @rlVertex2f(float noundef %.sroa.0.0.copyload, float noundef %.sroa.9.0.copyload) #16
-  %63 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 1), align 4
-  %64 = sitofp i32 %63 to float
-  %65 = fdiv float %49, %64
-  %66 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 2), align 8
-  %67 = sitofp i32 %66 to float
-  %68 = fdiv float %.sroa.035.4.vec.extract, %67
-  tail call void @rlTexCoord2f(float noundef %65, float noundef %68) #16
-  %69 = tail call float @llvm.fmuladd.f32(float %33, float 2.000000e+00, float %.0368374)
-  %70 = fmul float %69, 0x3F91DF46A0000000
-  %71 = tail call float @cosf(float noundef %70) #16
-  %72 = tail call float @llvm.fmuladd.f32(float %71, float %17, float %.sroa.0.0.copyload)
-  %73 = tail call float @sinf(float noundef %70) #16
-  %74 = tail call float @llvm.fmuladd.f32(float %73, float %17, float %.sroa.9.0.copyload)
-  tail call void @rlVertex2f(float noundef %72, float noundef %74) #16
-  %75 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 1), align 4
-  %76 = sitofp i32 %75 to float
-  %77 = fdiv float %49, %76
-  %78 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 2), align 8
-  %79 = sitofp i32 %78 to float
-  %80 = fdiv float %51, %79
-  tail call void @rlTexCoord2f(float noundef %77, float noundef %80) #16
-  %81 = fadd float %33, %.0368374
-  %82 = fmul float %81, 0x3F91DF46A0000000
-  %83 = tail call float @cosf(float noundef %82) #16
-  %84 = tail call float @llvm.fmuladd.f32(float %83, float %17, float %.sroa.0.0.copyload)
-  %85 = tail call float @sinf(float noundef %82) #16
-  %86 = tail call float @llvm.fmuladd.f32(float %85, float %17, float %.sroa.9.0.copyload)
-  tail call void @rlVertex2f(float noundef %84, float noundef %86) #16
-  %87 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 1), align 4
-  %88 = sitofp i32 %87 to float
-  %89 = fdiv float %.sroa.035.0.vec.extract, %88
-  %90 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 2), align 8
-  %91 = sitofp i32 %90 to float
-  %92 = fdiv float %51, %91
-  tail call void @rlTexCoord2f(float noundef %89, float noundef %92) #16
-  %93 = fmul float %.0368374, 0x3F91DF46A0000000
-  %94 = tail call float @cosf(float noundef %93) #16
-  %95 = tail call float @llvm.fmuladd.f32(float %94, float %17, float %.sroa.0.0.copyload)
-  %96 = tail call float @sinf(float noundef %93) #16
-  %97 = tail call float @llvm.fmuladd.f32(float %96, float %17, float %.sroa.9.0.copyload)
-  tail call void @rlVertex2f(float noundef %95, float noundef %97) #16
-  %98 = add nuw nsw i32 %.0375, 1
-  %exitcond.not = icmp eq i32 %98, %46
+  %62 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 1), align 4
+  %63 = sitofp i32 %62 to float
+  %64 = fdiv float %48, %63
+  %65 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 2), align 8
+  %66 = sitofp i32 %65 to float
+  %67 = fdiv float %.sroa.035.4.vec.extract, %66
+  tail call void @rlTexCoord2f(float noundef %64, float noundef %67) #16
+  %68 = tail call float @llvm.fmuladd.f32(float %33, float 2.000000e+00, float %.0368374)
+  %69 = fmul float %68, 0x3F91DF46A0000000
+  %70 = tail call float @cosf(float noundef %69) #16
+  %71 = tail call float @llvm.fmuladd.f32(float %70, float %17, float %.sroa.0.0.copyload)
+  %72 = tail call float @sinf(float noundef %69) #16
+  %73 = tail call float @llvm.fmuladd.f32(float %72, float %17, float %.sroa.9.0.copyload)
+  tail call void @rlVertex2f(float noundef %71, float noundef %73) #16
+  %74 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 1), align 4
+  %75 = sitofp i32 %74 to float
+  %76 = fdiv float %48, %75
+  %77 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 2), align 8
+  %78 = sitofp i32 %77 to float
+  %79 = fdiv float %50, %78
+  tail call void @rlTexCoord2f(float noundef %76, float noundef %79) #16
+  %80 = fadd float %33, %.0368374
+  %81 = fmul float %80, 0x3F91DF46A0000000
+  %82 = tail call float @cosf(float noundef %81) #16
+  %83 = tail call float @llvm.fmuladd.f32(float %82, float %17, float %.sroa.0.0.copyload)
+  %84 = tail call float @sinf(float noundef %81) #16
+  %85 = tail call float @llvm.fmuladd.f32(float %84, float %17, float %.sroa.9.0.copyload)
+  tail call void @rlVertex2f(float noundef %83, float noundef %85) #16
+  %86 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 1), align 4
+  %87 = sitofp i32 %86 to float
+  %88 = fdiv float %.sroa.035.0.vec.extract, %87
+  %89 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 2), align 8
+  %90 = sitofp i32 %89 to float
+  %91 = fdiv float %50, %90
+  tail call void @rlTexCoord2f(float noundef %88, float noundef %91) #16
+  %92 = fmul float %.0368374, 0x3F91DF46A0000000
+  %93 = tail call float @cosf(float noundef %92) #16
+  %94 = tail call float @llvm.fmuladd.f32(float %93, float %17, float %.sroa.0.0.copyload)
+  %95 = tail call float @sinf(float noundef %92) #16
+  %96 = tail call float @llvm.fmuladd.f32(float %95, float %17, float %.sroa.9.0.copyload)
+  tail call void @rlVertex2f(float noundef %94, float noundef %96) #16
+  %97 = add nuw nsw i32 %.0375, 1
+  %exitcond.not = icmp eq i32 %97, %46
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %.lr.ph, %53
-  %.0368.lcssa = phi float [ %55, %53 ], [ %69, %.lr.ph ]
-  br i1 %.not, label %135, label %99
+._crit_edge:                                      ; preds = %.lr.ph, %52
+  %.0368.lcssa = phi float [ %54, %52 ], [ %68, %.lr.ph ]
+  br i1 %.not, label %134, label %98
 
-99:                                               ; preds = %._crit_edge
+98:                                               ; preds = %._crit_edge
   tail call void @rlColor4ub(i8 noundef zeroext %.sroa.0258.0.extract.trunc, i8 noundef zeroext %.sroa.9266.0.extract.trunc, i8 noundef zeroext %.sroa.16273.0.extract.trunc, i8 noundef zeroext %.sroa.23.0.extract.trunc) #16
-  %100 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 1), align 4
-  %101 = sitofp i32 %100 to float
-  %102 = fdiv float %.sroa.035.0.vec.extract, %101
-  %103 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 2), align 8
-  %104 = sitofp i32 %103 to float
-  %105 = fdiv float %.sroa.035.4.vec.extract, %104
-  tail call void @rlTexCoord2f(float noundef %102, float noundef %105) #16
+  %99 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 1), align 4
+  %100 = sitofp i32 %99 to float
+  %101 = fdiv float %.sroa.035.0.vec.extract, %100
+  %102 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 2), align 8
+  %103 = sitofp i32 %102 to float
+  %104 = fdiv float %.sroa.035.4.vec.extract, %103
+  tail call void @rlTexCoord2f(float noundef %101, float noundef %104) #16
   tail call void @rlVertex2f(float noundef %.sroa.0.0.copyload, float noundef %.sroa.9.0.copyload) #16
-  %106 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 1), align 4
-  %107 = sitofp i32 %106 to float
-  %108 = fdiv float %49, %107
-  %109 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 2), align 8
-  %110 = sitofp i32 %109 to float
-  %111 = fdiv float %51, %110
-  tail call void @rlTexCoord2f(float noundef %108, float noundef %111) #16
-  %112 = fadd float %33, %.0368.lcssa
-  %113 = fmul float %112, 0x3F91DF46A0000000
-  %114 = tail call float @cosf(float noundef %113) #16
-  %115 = tail call float @llvm.fmuladd.f32(float %114, float %17, float %.sroa.0.0.copyload)
-  %116 = tail call float @sinf(float noundef %113) #16
-  %117 = tail call float @llvm.fmuladd.f32(float %116, float %17, float %.sroa.9.0.copyload)
-  tail call void @rlVertex2f(float noundef %115, float noundef %117) #16
-  %118 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 1), align 4
-  %119 = sitofp i32 %118 to float
-  %120 = fdiv float %.sroa.035.0.vec.extract, %119
-  %121 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 2), align 8
-  %122 = sitofp i32 %121 to float
-  %123 = fdiv float %51, %122
-  tail call void @rlTexCoord2f(float noundef %120, float noundef %123) #16
-  %124 = fmul float %.0368.lcssa, 0x3F91DF46A0000000
-  %125 = tail call float @cosf(float noundef %124) #16
-  %126 = tail call float @llvm.fmuladd.f32(float %125, float %17, float %.sroa.0.0.copyload)
-  %127 = tail call float @sinf(float noundef %124) #16
-  %128 = tail call float @llvm.fmuladd.f32(float %127, float %17, float %.sroa.9.0.copyload)
-  tail call void @rlVertex2f(float noundef %126, float noundef %128) #16
-  %129 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 1), align 4
-  %130 = sitofp i32 %129 to float
-  %131 = fdiv float %49, %130
-  %132 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 2), align 8
-  %133 = sitofp i32 %132 to float
-  %134 = fdiv float %.sroa.035.4.vec.extract, %133
-  tail call void @rlTexCoord2f(float noundef %131, float noundef %134) #16
+  %105 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 1), align 4
+  %106 = sitofp i32 %105 to float
+  %107 = fdiv float %48, %106
+  %108 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 2), align 8
+  %109 = sitofp i32 %108 to float
+  %110 = fdiv float %50, %109
+  tail call void @rlTexCoord2f(float noundef %107, float noundef %110) #16
+  %111 = fadd float %33, %.0368.lcssa
+  %112 = fmul float %111, 0x3F91DF46A0000000
+  %113 = tail call float @cosf(float noundef %112) #16
+  %114 = tail call float @llvm.fmuladd.f32(float %113, float %17, float %.sroa.0.0.copyload)
+  %115 = tail call float @sinf(float noundef %112) #16
+  %116 = tail call float @llvm.fmuladd.f32(float %115, float %17, float %.sroa.9.0.copyload)
+  tail call void @rlVertex2f(float noundef %114, float noundef %116) #16
+  %117 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 1), align 4
+  %118 = sitofp i32 %117 to float
+  %119 = fdiv float %.sroa.035.0.vec.extract, %118
+  %120 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 2), align 8
+  %121 = sitofp i32 %120 to float
+  %122 = fdiv float %50, %121
+  tail call void @rlTexCoord2f(float noundef %119, float noundef %122) #16
+  %123 = fmul float %.0368.lcssa, 0x3F91DF46A0000000
+  %124 = tail call float @cosf(float noundef %123) #16
+  %125 = tail call float @llvm.fmuladd.f32(float %124, float %17, float %.sroa.0.0.copyload)
+  %126 = tail call float @sinf(float noundef %123) #16
+  %127 = tail call float @llvm.fmuladd.f32(float %126, float %17, float %.sroa.9.0.copyload)
+  tail call void @rlVertex2f(float noundef %125, float noundef %127) #16
+  %128 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 1), align 4
+  %129 = sitofp i32 %128 to float
+  %130 = fdiv float %48, %129
+  %131 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 2), align 8
+  %132 = sitofp i32 %131 to float
+  %133 = fdiv float %.sroa.035.4.vec.extract, %132
+  tail call void @rlTexCoord2f(float noundef %130, float noundef %133) #16
   tail call void @rlVertex2f(float noundef %.sroa.0.0.copyload, float noundef %.sroa.9.0.copyload) #16
-  br label %135
+  br label %134
 
-135:                                              ; preds = %._crit_edge, %99
+134:                                              ; preds = %._crit_edge, %98
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond378.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond378.not, label %136, label %53
+  %exitcond379.not = icmp eq i64 %indvars.iv.next, 4
+  br i1 %exitcond379.not, label %135, label %52
 
-136:                                              ; preds = %135
+135:                                              ; preds = %134
   tail call void @rlColor4ub(i8 noundef zeroext %.sroa.0258.0.extract.trunc, i8 noundef zeroext %.sroa.9266.0.extract.trunc, i8 noundef zeroext %.sroa.16273.0.extract.trunc, i8 noundef zeroext %.sroa.23.0.extract.trunc) #16
-  %137 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 1), align 4
-  %138 = sitofp i32 %137 to float
-  %139 = fdiv float %.sroa.035.0.vec.extract, %138
-  %140 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 2), align 8
-  %141 = sitofp i32 %140 to float
-  %142 = fdiv float %.sroa.035.4.vec.extract, %141
-  tail call void @rlTexCoord2f(float noundef %139, float noundef %142) #16
+  %136 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 1), align 4
+  %137 = sitofp i32 %136 to float
+  %138 = fdiv float %.sroa.035.0.vec.extract, %137
+  %139 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 2), align 8
+  %140 = sitofp i32 %139 to float
+  %141 = fdiv float %.sroa.035.4.vec.extract, %140
+  tail call void @rlTexCoord2f(float noundef %138, float noundef %141) #16
   tail call void @rlVertex2f(float noundef %44, float noundef %8) #16
-  %143 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 1), align 4
-  %144 = sitofp i32 %143 to float
-  %145 = fdiv float %.sroa.035.0.vec.extract, %144
-  %146 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 2), align 8
-  %147 = sitofp i32 %146 to float
-  %148 = fdiv float %51, %147
-  tail call void @rlTexCoord2f(float noundef %145, float noundef %148) #16
+  %142 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 1), align 4
+  %143 = sitofp i32 %142 to float
+  %144 = fdiv float %.sroa.035.0.vec.extract, %143
+  %145 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 2), align 8
+  %146 = sitofp i32 %145 to float
+  %147 = fdiv float %50, %146
+  tail call void @rlTexCoord2f(float noundef %144, float noundef %147) #16
   tail call void @rlVertex2f(float noundef %44, float noundef %39) #16
-  %149 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 1), align 4
-  %150 = sitofp i32 %149 to float
-  %151 = fdiv float %49, %150
-  %152 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 2), align 8
-  %153 = sitofp i32 %152 to float
-  %154 = fdiv float %51, %153
-  tail call void @rlTexCoord2f(float noundef %151, float noundef %154) #16
+  %148 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 1), align 4
+  %149 = sitofp i32 %148 to float
+  %150 = fdiv float %48, %149
+  %151 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 2), align 8
+  %152 = sitofp i32 %151 to float
+  %153 = fdiv float %50, %152
+  tail call void @rlTexCoord2f(float noundef %150, float noundef %153) #16
   tail call void @rlVertex2f(float noundef %42, float noundef %39) #16
-  %155 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 1), align 4
-  %156 = sitofp i32 %155 to float
-  %157 = fdiv float %49, %156
-  %158 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 2), align 8
-  %159 = sitofp i32 %158 to float
-  %160 = fdiv float %.sroa.035.4.vec.extract, %159
-  tail call void @rlTexCoord2f(float noundef %157, float noundef %160) #16
+  %154 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 1), align 4
+  %155 = sitofp i32 %154 to float
+  %156 = fdiv float %48, %155
+  %157 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 2), align 8
+  %158 = sitofp i32 %157 to float
+  %159 = fdiv float %.sroa.035.4.vec.extract, %158
+  tail call void @rlTexCoord2f(float noundef %156, float noundef %159) #16
   tail call void @rlVertex2f(float noundef %42, float noundef %8) #16
   tail call void @rlColor4ub(i8 noundef zeroext %.sroa.0258.0.extract.trunc, i8 noundef zeroext %.sroa.9266.0.extract.trunc, i8 noundef zeroext %.sroa.16273.0.extract.trunc, i8 noundef zeroext %.sroa.23.0.extract.trunc) #16
-  %161 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 1), align 4
-  %162 = sitofp i32 %161 to float
-  %163 = fdiv float %.sroa.035.0.vec.extract, %162
-  %164 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 2), align 8
-  %165 = sitofp i32 %164 to float
-  %166 = fdiv float %.sroa.035.4.vec.extract, %165
-  tail call void @rlTexCoord2f(float noundef %163, float noundef %166) #16
-  %167 = extractelement <2 x float> %34, i64 0
-  tail call void @rlVertex2f(float noundef %167, float noundef %39) #16
-  %168 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 1), align 4
-  %169 = sitofp i32 %168 to float
-  %170 = fdiv float %.sroa.035.0.vec.extract, %169
-  %171 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 2), align 8
-  %172 = sitofp i32 %171 to float
-  %173 = fdiv float %51, %172
-  tail call void @rlTexCoord2f(float noundef %170, float noundef %173) #16
+  %160 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 1), align 4
+  %161 = sitofp i32 %160 to float
+  %162 = fdiv float %.sroa.035.0.vec.extract, %161
+  %163 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 2), align 8
+  %164 = sitofp i32 %163 to float
+  %165 = fdiv float %.sroa.035.4.vec.extract, %164
+  tail call void @rlTexCoord2f(float noundef %162, float noundef %165) #16
+  %166 = extractelement <2 x float> %34, i64 0
+  tail call void @rlVertex2f(float noundef %166, float noundef %39) #16
+  %167 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 1), align 4
+  %168 = sitofp i32 %167 to float
+  %169 = fdiv float %.sroa.035.0.vec.extract, %168
+  %170 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 2), align 8
+  %171 = sitofp i32 %170 to float
+  %172 = fdiv float %50, %171
+  tail call void @rlTexCoord2f(float noundef %169, float noundef %172) #16
   tail call void @rlVertex2f(float noundef %42, float noundef %39) #16
-  %174 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 1), align 4
-  %175 = sitofp i32 %174 to float
-  %176 = fdiv float %49, %175
-  %177 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 2), align 8
-  %178 = sitofp i32 %177 to float
-  %179 = fdiv float %51, %178
-  tail call void @rlTexCoord2f(float noundef %176, float noundef %179) #16
+  %173 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 1), align 4
+  %174 = sitofp i32 %173 to float
+  %175 = fdiv float %48, %174
+  %176 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 2), align 8
+  %177 = sitofp i32 %176 to float
+  %178 = fdiv float %50, %177
+  tail call void @rlTexCoord2f(float noundef %175, float noundef %178) #16
   tail call void @rlVertex2f(float noundef %42, float noundef %45) #16
-  %180 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 1), align 4
-  %181 = sitofp i32 %180 to float
-  %182 = fdiv float %49, %181
-  %183 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 2), align 8
-  %184 = sitofp i32 %183 to float
-  %185 = fdiv float %.sroa.035.4.vec.extract, %184
-  tail call void @rlTexCoord2f(float noundef %182, float noundef %185) #16
-  tail call void @rlVertex2f(float noundef %167, float noundef %45) #16
+  %179 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 1), align 4
+  %180 = sitofp i32 %179 to float
+  %181 = fdiv float %48, %180
+  %182 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 2), align 8
+  %183 = sitofp i32 %182 to float
+  %184 = fdiv float %.sroa.035.4.vec.extract, %183
+  tail call void @rlTexCoord2f(float noundef %181, float noundef %184) #16
+  tail call void @rlVertex2f(float noundef %166, float noundef %45) #16
   tail call void @rlColor4ub(i8 noundef zeroext %.sroa.0258.0.extract.trunc, i8 noundef zeroext %.sroa.9266.0.extract.trunc, i8 noundef zeroext %.sroa.16273.0.extract.trunc, i8 noundef zeroext %.sroa.23.0.extract.trunc) #16
-  %186 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 1), align 4
-  %187 = sitofp i32 %186 to float
-  %188 = fdiv float %.sroa.035.0.vec.extract, %187
-  %189 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 2), align 8
-  %190 = sitofp i32 %189 to float
-  %191 = fdiv float %.sroa.035.4.vec.extract, %190
-  tail call void @rlTexCoord2f(float noundef %188, float noundef %191) #16
+  %185 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 1), align 4
+  %186 = sitofp i32 %185 to float
+  %187 = fdiv float %.sroa.035.0.vec.extract, %186
+  %188 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 2), align 8
+  %189 = sitofp i32 %188 to float
+  %190 = fdiv float %.sroa.035.4.vec.extract, %189
+  tail call void @rlTexCoord2f(float noundef %187, float noundef %190) #16
   tail call void @rlVertex2f(float noundef %44, float noundef %45) #16
-  %192 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 1), align 4
-  %193 = sitofp i32 %192 to float
-  %194 = fdiv float %.sroa.035.0.vec.extract, %193
-  %195 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 2), align 8
-  %196 = sitofp i32 %195 to float
-  %197 = fdiv float %51, %196
-  tail call void @rlTexCoord2f(float noundef %194, float noundef %197) #16
-  %198 = extractelement <2 x float> %34, i64 1
-  tail call void @rlVertex2f(float noundef %44, float noundef %198) #16
-  %199 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 1), align 4
-  %200 = sitofp i32 %199 to float
-  %201 = fdiv float %49, %200
-  %202 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 2), align 8
-  %203 = sitofp i32 %202 to float
-  %204 = fdiv float %51, %203
-  tail call void @rlTexCoord2f(float noundef %201, float noundef %204) #16
-  tail call void @rlVertex2f(float noundef %42, float noundef %198) #16
-  %205 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 1), align 4
-  %206 = sitofp i32 %205 to float
-  %207 = fdiv float %49, %206
-  %208 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 2), align 8
-  %209 = sitofp i32 %208 to float
-  %210 = fdiv float %.sroa.035.4.vec.extract, %209
-  tail call void @rlTexCoord2f(float noundef %207, float noundef %210) #16
+  %191 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 1), align 4
+  %192 = sitofp i32 %191 to float
+  %193 = fdiv float %.sroa.035.0.vec.extract, %192
+  %194 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 2), align 8
+  %195 = sitofp i32 %194 to float
+  %196 = fdiv float %50, %195
+  tail call void @rlTexCoord2f(float noundef %193, float noundef %196) #16
+  %197 = extractelement <2 x float> %34, i64 1
+  tail call void @rlVertex2f(float noundef %44, float noundef %197) #16
+  %198 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 1), align 4
+  %199 = sitofp i32 %198 to float
+  %200 = fdiv float %48, %199
+  %201 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 2), align 8
+  %202 = sitofp i32 %201 to float
+  %203 = fdiv float %50, %202
+  tail call void @rlTexCoord2f(float noundef %200, float noundef %203) #16
+  tail call void @rlVertex2f(float noundef %42, float noundef %197) #16
+  %204 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 1), align 4
+  %205 = sitofp i32 %204 to float
+  %206 = fdiv float %48, %205
+  %207 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 2), align 8
+  %208 = sitofp i32 %207 to float
+  %209 = fdiv float %.sroa.035.4.vec.extract, %208
+  tail call void @rlTexCoord2f(float noundef %206, float noundef %209) #16
   tail call void @rlVertex2f(float noundef %42, float noundef %45) #16
   tail call void @rlColor4ub(i8 noundef zeroext %.sroa.0258.0.extract.trunc, i8 noundef zeroext %.sroa.9266.0.extract.trunc, i8 noundef zeroext %.sroa.16273.0.extract.trunc, i8 noundef zeroext %.sroa.23.0.extract.trunc) #16
-  %211 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 1), align 4
-  %212 = sitofp i32 %211 to float
-  %213 = fdiv float %.sroa.035.0.vec.extract, %212
-  %214 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 2), align 8
-  %215 = sitofp i32 %214 to float
-  %216 = fdiv float %.sroa.035.4.vec.extract, %215
-  tail call void @rlTexCoord2f(float noundef %213, float noundef %216) #16
+  %210 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 1), align 4
+  %211 = sitofp i32 %210 to float
+  %212 = fdiv float %.sroa.035.0.vec.extract, %211
+  %213 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 2), align 8
+  %214 = sitofp i32 %213 to float
+  %215 = fdiv float %.sroa.035.4.vec.extract, %214
+  tail call void @rlTexCoord2f(float noundef %212, float noundef %215) #16
   tail call void @rlVertex2f(float noundef %9, float noundef %39) #16
-  %217 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 1), align 4
-  %218 = sitofp i32 %217 to float
-  %219 = fdiv float %.sroa.035.0.vec.extract, %218
-  %220 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 2), align 8
-  %221 = sitofp i32 %220 to float
-  %222 = fdiv float %51, %221
-  tail call void @rlTexCoord2f(float noundef %219, float noundef %222) #16
+  %216 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 1), align 4
+  %217 = sitofp i32 %216 to float
+  %218 = fdiv float %.sroa.035.0.vec.extract, %217
+  %219 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 2), align 8
+  %220 = sitofp i32 %219 to float
+  %221 = fdiv float %50, %220
+  tail call void @rlTexCoord2f(float noundef %218, float noundef %221) #16
   tail call void @rlVertex2f(float noundef %9, float noundef %45) #16
-  %223 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 1), align 4
-  %224 = sitofp i32 %223 to float
-  %225 = fdiv float %49, %224
-  %226 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 2), align 8
-  %227 = sitofp i32 %226 to float
-  %228 = fdiv float %51, %227
-  tail call void @rlTexCoord2f(float noundef %225, float noundef %228) #16
+  %222 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 1), align 4
+  %223 = sitofp i32 %222 to float
+  %224 = fdiv float %48, %223
+  %225 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 2), align 8
+  %226 = sitofp i32 %225 to float
+  %227 = fdiv float %50, %226
+  tail call void @rlTexCoord2f(float noundef %224, float noundef %227) #16
   tail call void @rlVertex2f(float noundef %44, float noundef %45) #16
-  %229 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 1), align 4
-  %230 = sitofp i32 %229 to float
-  %231 = fdiv float %49, %230
-  %232 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 2), align 8
-  %233 = sitofp i32 %232 to float
-  %234 = fdiv float %.sroa.035.4.vec.extract, %233
-  tail call void @rlTexCoord2f(float noundef %231, float noundef %234) #16
+  %228 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 1), align 4
+  %229 = sitofp i32 %228 to float
+  %230 = fdiv float %48, %229
+  %231 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 2), align 8
+  %232 = sitofp i32 %231 to float
+  %233 = fdiv float %.sroa.035.4.vec.extract, %232
+  tail call void @rlTexCoord2f(float noundef %230, float noundef %233) #16
   tail call void @rlVertex2f(float noundef %44, float noundef %39) #16
   tail call void @rlColor4ub(i8 noundef zeroext %.sroa.0258.0.extract.trunc, i8 noundef zeroext %.sroa.9266.0.extract.trunc, i8 noundef zeroext %.sroa.16273.0.extract.trunc, i8 noundef zeroext %.sroa.23.0.extract.trunc) #16
-  %235 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 1), align 4
-  %236 = sitofp i32 %235 to float
-  %237 = fdiv float %.sroa.035.0.vec.extract, %236
-  %238 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 2), align 8
-  %239 = sitofp i32 %238 to float
-  %240 = fdiv float %.sroa.035.4.vec.extract, %239
-  tail call void @rlTexCoord2f(float noundef %237, float noundef %240) #16
+  %234 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 1), align 4
+  %235 = sitofp i32 %234 to float
+  %236 = fdiv float %.sroa.035.0.vec.extract, %235
+  %237 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 2), align 8
+  %238 = sitofp i32 %237 to float
+  %239 = fdiv float %.sroa.035.4.vec.extract, %238
+  tail call void @rlTexCoord2f(float noundef %236, float noundef %239) #16
   tail call void @rlVertex2f(float noundef %44, float noundef %39) #16
-  %241 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 1), align 4
-  %242 = sitofp i32 %241 to float
-  %243 = fdiv float %.sroa.035.0.vec.extract, %242
-  %244 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 2), align 8
-  %245 = sitofp i32 %244 to float
-  %246 = fdiv float %51, %245
-  tail call void @rlTexCoord2f(float noundef %243, float noundef %246) #16
+  %240 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 1), align 4
+  %241 = sitofp i32 %240 to float
+  %242 = fdiv float %.sroa.035.0.vec.extract, %241
+  %243 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 2), align 8
+  %244 = sitofp i32 %243 to float
+  %245 = fdiv float %50, %244
+  tail call void @rlTexCoord2f(float noundef %242, float noundef %245) #16
   tail call void @rlVertex2f(float noundef %44, float noundef %45) #16
-  %247 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 1), align 4
-  %248 = sitofp i32 %247 to float
-  %249 = fdiv float %49, %248
-  %250 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 2), align 8
-  %251 = sitofp i32 %250 to float
-  %252 = fdiv float %51, %251
-  tail call void @rlTexCoord2f(float noundef %249, float noundef %252) #16
+  %246 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 1), align 4
+  %247 = sitofp i32 %246 to float
+  %248 = fdiv float %48, %247
+  %249 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 2), align 8
+  %250 = sitofp i32 %249 to float
+  %251 = fdiv float %50, %250
+  tail call void @rlTexCoord2f(float noundef %248, float noundef %251) #16
   tail call void @rlVertex2f(float noundef %42, float noundef %45) #16
-  %253 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 1), align 4
-  %254 = sitofp i32 %253 to float
-  %255 = fdiv float %49, %254
-  %256 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 2), align 8
-  %257 = sitofp i32 %256 to float
-  %258 = fdiv float %.sroa.035.4.vec.extract, %257
-  tail call void @rlTexCoord2f(float noundef %255, float noundef %258) #16
+  %252 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 1), align 4
+  %253 = sitofp i32 %252 to float
+  %254 = fdiv float %48, %253
+  %255 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 2), align 8
+  %256 = sitofp i32 %255 to float
+  %257 = fdiv float %.sroa.035.4.vec.extract, %256
+  tail call void @rlTexCoord2f(float noundef %254, float noundef %257) #16
   tail call void @rlVertex2f(float noundef %42, float noundef %39) #16
   tail call void @rlEnd() #16
   tail call void @rlSetTexture(i32 noundef 0) #16
-  br label %259
+  br label %258
 
-259:                                              ; preds = %15, %136, %14
+258:                                              ; preds = %15, %135, %14
   ret void
 }
 
@@ -2018,7 +2018,7 @@ DrawRectangleLinesEx.exit:                        ; preds = %13, %25, %27, %29
   tail call void @DrawRectanglePro(<2 x float> %.sroa.07.4.vec.insert.i, <2 x float> %.sroa.313.12.vec.insert.i, <2 x float> zeroinitializer, float noundef 0.000000e+00, i32 %5)
   tail call void @DrawRectanglePro(<2 x float> %.sroa.03.4.vec.insert.i, <2 x float> %.sroa.35.12.vec.insert.i, <2 x float> zeroinitializer, float noundef 0.000000e+00, i32 %5)
   tail call void @DrawRectanglePro(<2 x float> %.sroa.0.4.vec.insert.i, <2 x float> %.sroa.35.12.vec.insert.i, <2 x float> zeroinitializer, float noundef 0.000000e+00, i32 %5)
-  br label %301
+  br label %304
 
 42:                                               ; preds = %6
   %43 = extractelement <2 x float> %1, i64 0
@@ -2030,7 +2030,7 @@ DrawRectangleLinesEx.exit:                        ; preds = %13, %25, %27, %29
   %.in = fmul float %.sroa.43.12.vec.extract363.pn, %.0387
   %46 = fmul float %.in, 5.000000e-01
   %47 = fcmp ugt float %46, 0.000000e+00
-  br i1 %47, label %48, label %301
+  br i1 %47, label %48, label %304
 
 48:                                               ; preds = %42
   %49 = icmp slt i32 %3, 4
@@ -2139,7 +2139,7 @@ DrawRectangleLinesEx.exit:                        ; preds = %13, %25, %27, %29
   %112 = getelementptr inbounds i8, ptr %10, i64 28
   store float %91, ptr %112, align 4
   %113 = fcmp ogt float %.0392, 1.000000e+00
-  br i1 %113, label %114, label %272
+  br i1 %113, label %114, label %274
 
 114:                                              ; preds = %60
   %.sroa.0.0.copyload399 = load i32, ptr @texShapes, align 16
@@ -2147,28 +2147,28 @@ DrawRectangleLinesEx.exit:                        ; preds = %13, %25, %27, %29
   %.sroa.0.0.copyload.i = load <2 x float>, ptr @texShapesRec, align 16
   %.sroa.2.0.copyload.i = load <2 x float>, ptr getelementptr inbounds (%struct.Rectangle, ptr @texShapesRec, i64 0, i32 2), align 8
   tail call void @rlBegin(i32 noundef 7) #16
-  %115 = icmp sgt i32 %.0388, 0
   %.sroa.040.0.vec.extract = extractelement <2 x float> %.sroa.0.0.copyload.i, i64 0
   %.sroa.040.4.vec.extract = extractelement <2 x float> %.sroa.0.0.copyload.i, i64 1
-  %116 = fadd <2 x float> %.sroa.0.0.copyload.i, %.sroa.2.0.copyload.i
-  %117 = extractelement <2 x float> %116, i64 0
-  %118 = fadd <2 x float> %.sroa.0.0.copyload.i, %.sroa.2.0.copyload.i
-  %119 = extractelement <2 x float> %118, i64 1
-  br i1 %115, label %.lr.ph.us408, label %.split411.us
+  %115 = fadd <2 x float> %.sroa.0.0.copyload.i, %.sroa.2.0.copyload.i
+  %116 = extractelement <2 x float> %115, i64 0
+  %117 = fadd <2 x float> %.sroa.0.0.copyload.i, %.sroa.2.0.copyload.i
+  %118 = extractelement <2 x float> %117, i64 1
+  %umax412 = tail call i32 @llvm.umax.i32(i32 %.0388, i32 1)
+  br label %119
 
-.lr.ph.us408:                                     ; preds = %114, %._crit_edge.us409
-  %indvars.iv420 = phi i64 [ %indvars.iv.next421, %._crit_edge.us409 ], [ 0, %114 ]
-  %120 = getelementptr inbounds [4 x float], ptr @__const.DrawRectangleRoundedLines.angles, i64 0, i64 %indvars.iv420
+119:                                              ; preds = %114, %168
+  %indvars.iv414 = phi i64 [ 0, %114 ], [ %indvars.iv.next415, %168 ]
+  %120 = getelementptr inbounds [4 x float], ptr @__const.DrawRectangleRoundedLines.angles, i64 0, i64 %indvars.iv414
   %121 = load float, ptr %120, align 4
-  %122 = getelementptr inbounds [4 x %struct.Vector2], ptr %10, i64 0, i64 %indvars.iv420
-  %.sroa.020.0.copyload.us = load float, ptr %122, align 8
-  %.sroa.5.0..sroa_idx.us = getelementptr inbounds i8, ptr %122, i64 4
-  %.sroa.5.0.copyload.us = load float, ptr %.sroa.5.0..sroa_idx.us, align 4
+  %122 = getelementptr inbounds [4 x %struct.Vector2], ptr %10, i64 0, i64 %indvars.iv414
+  %.sroa.020.0.copyload = load float, ptr %122, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %122, i64 4
+  %.sroa.5.0.copyload = load float, ptr %.sroa.5.0..sroa_idx, align 4
   br label %123
 
-123:                                              ; preds = %.lr.ph.us408, %123
-  %.0391405.us = phi i32 [ 0, %.lr.ph.us408 ], [ %167, %123 ]
-  %.0393404.us = phi float [ %121, %.lr.ph.us408 ], [ %141, %123 ]
+123:                                              ; preds = %119, %123
+  %.0391405 = phi i32 [ 0, %119 ], [ %167, %123 ]
+  %.0393404 = phi float [ %121, %119 ], [ %141, %123 ]
   tail call void @rlColor4ub(i8 noundef zeroext %.sroa.0231.0.extract.trunc, i8 noundef zeroext %.sroa.9.0.extract.trunc, i8 noundef zeroext %.sroa.16.0.extract.trunc, i8 noundef zeroext %.sroa.23.0.extract.trunc) #16
   %124 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 1), align 4
   %125 = sitofp i32 %124 to float
@@ -2177,271 +2177,268 @@ DrawRectangleLinesEx.exit:                        ; preds = %13, %25, %27, %29
   %128 = sitofp i32 %127 to float
   %129 = fdiv float %.sroa.040.4.vec.extract, %128
   tail call void @rlTexCoord2f(float noundef %126, float noundef %129) #16
-  %130 = fmul float %.0393404.us, 0x3F91DF46A0000000
+  %130 = fmul float %.0393404, 0x3F91DF46A0000000
   %131 = tail call float @cosf(float noundef %130) #16
-  %132 = tail call float @llvm.fmuladd.f32(float %131, float %46, float %.sroa.020.0.copyload.us)
+  %132 = tail call float @llvm.fmuladd.f32(float %131, float %46, float %.sroa.020.0.copyload)
   %133 = tail call float @sinf(float noundef %130) #16
-  %134 = tail call float @llvm.fmuladd.f32(float %133, float %46, float %.sroa.5.0.copyload.us)
+  %134 = tail call float @llvm.fmuladd.f32(float %133, float %46, float %.sroa.5.0.copyload)
   tail call void @rlVertex2f(float noundef %132, float noundef %134) #16
   %135 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 1), align 4
   %136 = sitofp i32 %135 to float
-  %137 = fdiv float %117, %136
+  %137 = fdiv float %116, %136
   %138 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 2), align 8
   %139 = sitofp i32 %138 to float
   %140 = fdiv float %.sroa.040.4.vec.extract, %139
   tail call void @rlTexCoord2f(float noundef %137, float noundef %140) #16
-  %141 = fadd float %62, %.0393404.us
+  %141 = fadd float %62, %.0393404
   %142 = fmul float %141, 0x3F91DF46A0000000
   %143 = tail call float @cosf(float noundef %142) #16
-  %144 = tail call float @llvm.fmuladd.f32(float %143, float %46, float %.sroa.020.0.copyload.us)
+  %144 = tail call float @llvm.fmuladd.f32(float %143, float %46, float %.sroa.020.0.copyload)
   %145 = tail call float @sinf(float noundef %142) #16
-  %146 = tail call float @llvm.fmuladd.f32(float %145, float %46, float %.sroa.5.0.copyload.us)
+  %146 = tail call float @llvm.fmuladd.f32(float %145, float %46, float %.sroa.5.0.copyload)
   tail call void @rlVertex2f(float noundef %144, float noundef %146) #16
   %147 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 1), align 4
   %148 = sitofp i32 %147 to float
-  %149 = fdiv float %117, %148
+  %149 = fdiv float %116, %148
   %150 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 2), align 8
   %151 = sitofp i32 %150 to float
-  %152 = fdiv float %119, %151
+  %152 = fdiv float %118, %151
   tail call void @rlTexCoord2f(float noundef %149, float noundef %152) #16
   %153 = tail call float @cosf(float noundef %142) #16
-  %154 = tail call float @llvm.fmuladd.f32(float %153, float %63, float %.sroa.020.0.copyload.us)
+  %154 = tail call float @llvm.fmuladd.f32(float %153, float %63, float %.sroa.020.0.copyload)
   %155 = tail call float @sinf(float noundef %142) #16
-  %156 = tail call float @llvm.fmuladd.f32(float %155, float %63, float %.sroa.5.0.copyload.us)
+  %156 = tail call float @llvm.fmuladd.f32(float %155, float %63, float %.sroa.5.0.copyload)
   tail call void @rlVertex2f(float noundef %154, float noundef %156) #16
   %157 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 1), align 4
   %158 = sitofp i32 %157 to float
   %159 = fdiv float %.sroa.040.0.vec.extract, %158
   %160 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 2), align 8
   %161 = sitofp i32 %160 to float
-  %162 = fdiv float %119, %161
+  %162 = fdiv float %118, %161
   tail call void @rlTexCoord2f(float noundef %159, float noundef %162) #16
   %163 = tail call float @cosf(float noundef %130) #16
-  %164 = tail call float @llvm.fmuladd.f32(float %163, float %63, float %.sroa.020.0.copyload.us)
+  %164 = tail call float @llvm.fmuladd.f32(float %163, float %63, float %.sroa.020.0.copyload)
   %165 = tail call float @sinf(float noundef %130) #16
-  %166 = tail call float @llvm.fmuladd.f32(float %165, float %63, float %.sroa.5.0.copyload.us)
+  %166 = tail call float @llvm.fmuladd.f32(float %165, float %63, float %.sroa.5.0.copyload)
   tail call void @rlVertex2f(float noundef %164, float noundef %166) #16
-  %167 = add nuw nsw i32 %.0391405.us, 1
-  %exitcond419.not = icmp eq i32 %167, %.0388
-  br i1 %exitcond419.not, label %._crit_edge.us409, label %123
+  %167 = add nuw nsw i32 %.0391405, 1
+  %exitcond413.not = icmp eq i32 %167, %umax412
+  br i1 %exitcond413.not, label %168, label %123
 
-._crit_edge.us409:                                ; preds = %123
-  %indvars.iv.next421 = add nuw nsw i64 %indvars.iv420, 1
-  %exitcond423.not = icmp eq i64 %indvars.iv.next421, 4
-  br i1 %exitcond423.not, label %.split411.us, label %.lr.ph.us408
+168:                                              ; preds = %123
+  %indvars.iv.next415 = add nuw nsw i64 %indvars.iv414, 1
+  %exitcond417.not = icmp eq i64 %indvars.iv.next415, 4
+  br i1 %exitcond417.not, label %169, label %119
 
-.split411.us:                                     ; preds = %._crit_edge.us409, %114
+169:                                              ; preds = %168
   tail call void @rlColor4ub(i8 noundef zeroext %.sroa.0231.0.extract.trunc, i8 noundef zeroext %.sroa.9.0.extract.trunc, i8 noundef zeroext %.sroa.16.0.extract.trunc, i8 noundef zeroext %.sroa.23.0.extract.trunc) #16
-  %168 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 1), align 4
-  %169 = sitofp i32 %168 to float
-  %170 = fdiv float %.sroa.040.0.vec.extract, %169
-  %171 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 2), align 8
-  %172 = sitofp i32 %171 to float
-  %173 = fdiv float %.sroa.040.4.vec.extract, %172
-  tail call void @rlTexCoord2f(float noundef %170, float noundef %173) #16
+  %170 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 1), align 4
+  %171 = sitofp i32 %170 to float
+  %172 = fdiv float %.sroa.040.0.vec.extract, %171
+  %173 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 2), align 8
+  %174 = sitofp i32 %173 to float
+  %175 = fdiv float %.sroa.040.4.vec.extract, %174
+  tail call void @rlTexCoord2f(float noundef %172, float noundef %175) #16
   tail call void @rlVertex2f(float noundef %67, float noundef %69) #16
-  %174 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 1), align 4
-  %175 = sitofp i32 %174 to float
-  %176 = fdiv float %.sroa.040.0.vec.extract, %175
-  %177 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 2), align 8
-  %178 = sitofp i32 %177 to float
-  %179 = fdiv float %119, %178
-  tail call void @rlTexCoord2f(float noundef %176, float noundef %179) #16
+  %176 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 1), align 4
+  %177 = sitofp i32 %176 to float
+  %178 = fdiv float %.sroa.040.0.vec.extract, %177
+  %179 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 2), align 8
+  %180 = sitofp i32 %179 to float
+  %181 = fdiv float %118, %180
+  tail call void @rlTexCoord2f(float noundef %178, float noundef %181) #16
   tail call void @rlVertex2f(float noundef %67, float noundef %7) #16
-  %180 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 1), align 4
-  %181 = sitofp i32 %180 to float
-  %182 = fdiv float %117, %181
-  %183 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 2), align 8
-  %184 = sitofp i32 %183 to float
-  %185 = fdiv float %119, %184
-  tail call void @rlTexCoord2f(float noundef %182, float noundef %185) #16
+  %182 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 1), align 4
+  %183 = sitofp i32 %182 to float
+  %184 = fdiv float %116, %183
+  %185 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 2), align 8
+  %186 = sitofp i32 %185 to float
+  %187 = fdiv float %118, %186
+  tail call void @rlTexCoord2f(float noundef %184, float noundef %187) #16
   tail call void @rlVertex2f(float noundef %79, float noundef %7) #16
-  %186 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 1), align 4
-  %187 = sitofp i32 %186 to float
-  %188 = fdiv float %117, %187
-  %189 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 2), align 8
-  %190 = sitofp i32 %189 to float
-  %191 = fdiv float %.sroa.040.4.vec.extract, %190
-  tail call void @rlTexCoord2f(float noundef %188, float noundef %191) #16
+  %188 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 1), align 4
+  %189 = sitofp i32 %188 to float
+  %190 = fdiv float %116, %189
+  %191 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 2), align 8
+  %192 = sitofp i32 %191 to float
+  %193 = fdiv float %.sroa.040.4.vec.extract, %192
+  tail call void @rlTexCoord2f(float noundef %190, float noundef %193) #16
   tail call void @rlVertex2f(float noundef %79, float noundef %69) #16
   tail call void @rlColor4ub(i8 noundef zeroext %.sroa.0231.0.extract.trunc, i8 noundef zeroext %.sroa.9.0.extract.trunc, i8 noundef zeroext %.sroa.16.0.extract.trunc, i8 noundef zeroext %.sroa.23.0.extract.trunc) #16
-  %192 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 1), align 4
-  %193 = sitofp i32 %192 to float
-  %194 = fdiv float %.sroa.040.0.vec.extract, %193
-  %195 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 2), align 8
-  %196 = sitofp i32 %195 to float
-  %197 = fdiv float %.sroa.040.4.vec.extract, %196
-  tail call void @rlTexCoord2f(float noundef %194, float noundef %197) #16
+  %194 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 1), align 4
+  %195 = sitofp i32 %194 to float
+  %196 = fdiv float %.sroa.040.0.vec.extract, %195
+  %197 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 2), align 8
+  %198 = sitofp i32 %197 to float
+  %199 = fdiv float %.sroa.040.4.vec.extract, %198
+  tail call void @rlTexCoord2f(float noundef %196, float noundef %199) #16
   tail call void @rlVertex2f(float noundef %81, float noundef %74) #16
-  %198 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 1), align 4
-  %199 = sitofp i32 %198 to float
-  %200 = fdiv float %.sroa.040.0.vec.extract, %199
-  %201 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 2), align 8
-  %202 = sitofp i32 %201 to float
-  %203 = fdiv float %119, %202
-  tail call void @rlTexCoord2f(float noundef %200, float noundef %203) #16
+  %200 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 1), align 4
+  %201 = sitofp i32 %200 to float
+  %202 = fdiv float %.sroa.040.0.vec.extract, %201
+  %203 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 2), align 8
+  %204 = sitofp i32 %203 to float
+  %205 = fdiv float %118, %204
+  tail call void @rlTexCoord2f(float noundef %202, float noundef %205) #16
   tail call void @rlVertex2f(float noundef %80, float noundef %74) #16
-  %204 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 1), align 4
-  %205 = sitofp i32 %204 to float
-  %206 = fdiv float %117, %205
-  %207 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 2), align 8
-  %208 = sitofp i32 %207 to float
-  %209 = fdiv float %119, %208
-  tail call void @rlTexCoord2f(float noundef %206, float noundef %209) #16
+  %206 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 1), align 4
+  %207 = sitofp i32 %206 to float
+  %208 = fdiv float %116, %207
+  %209 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 2), align 8
+  %210 = sitofp i32 %209 to float
+  %211 = fdiv float %118, %210
+  tail call void @rlTexCoord2f(float noundef %208, float noundef %211) #16
   tail call void @rlVertex2f(float noundef %80, float noundef %91) #16
-  %210 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 1), align 4
-  %211 = sitofp i32 %210 to float
-  %212 = fdiv float %117, %211
-  %213 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 2), align 8
-  %214 = sitofp i32 %213 to float
-  %215 = fdiv float %.sroa.040.4.vec.extract, %214
-  tail call void @rlTexCoord2f(float noundef %212, float noundef %215) #16
+  %212 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 1), align 4
+  %213 = sitofp i32 %212 to float
+  %214 = fdiv float %116, %213
+  %215 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 2), align 8
+  %216 = sitofp i32 %215 to float
+  %217 = fdiv float %.sroa.040.4.vec.extract, %216
+  tail call void @rlTexCoord2f(float noundef %214, float noundef %217) #16
   tail call void @rlVertex2f(float noundef %81, float noundef %91) #16
   tail call void @rlColor4ub(i8 noundef zeroext %.sroa.0231.0.extract.trunc, i8 noundef zeroext %.sroa.9.0.extract.trunc, i8 noundef zeroext %.sroa.16.0.extract.trunc, i8 noundef zeroext %.sroa.23.0.extract.trunc) #16
-  %216 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 1), align 4
-  %217 = sitofp i32 %216 to float
-  %218 = fdiv float %.sroa.040.0.vec.extract, %217
-  %219 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 2), align 8
-  %220 = sitofp i32 %219 to float
-  %221 = fdiv float %.sroa.040.4.vec.extract, %220
-  tail call void @rlTexCoord2f(float noundef %218, float noundef %221) #16
+  %218 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 1), align 4
+  %219 = sitofp i32 %218 to float
+  %220 = fdiv float %.sroa.040.0.vec.extract, %219
+  %221 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 2), align 8
+  %222 = sitofp i32 %221 to float
+  %223 = fdiv float %.sroa.040.4.vec.extract, %222
+  tail call void @rlTexCoord2f(float noundef %220, float noundef %223) #16
   tail call void @rlVertex2f(float noundef %67, float noundef %84) #16
-  %222 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 1), align 4
-  %223 = sitofp i32 %222 to float
-  %224 = fdiv float %.sroa.040.0.vec.extract, %223
-  %225 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 2), align 8
-  %226 = sitofp i32 %225 to float
-  %227 = fdiv float %119, %226
-  tail call void @rlTexCoord2f(float noundef %224, float noundef %227) #16
+  %224 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 1), align 4
+  %225 = sitofp i32 %224 to float
+  %226 = fdiv float %.sroa.040.0.vec.extract, %225
+  %227 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 2), align 8
+  %228 = sitofp i32 %227 to float
+  %229 = fdiv float %118, %228
+  tail call void @rlTexCoord2f(float noundef %226, float noundef %229) #16
   tail call void @rlVertex2f(float noundef %67, float noundef %85) #16
-  %228 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 1), align 4
-  %229 = sitofp i32 %228 to float
-  %230 = fdiv float %117, %229
-  %231 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 2), align 8
-  %232 = sitofp i32 %231 to float
-  %233 = fdiv float %119, %232
-  tail call void @rlTexCoord2f(float noundef %230, float noundef %233) #16
+  %230 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 1), align 4
+  %231 = sitofp i32 %230 to float
+  %232 = fdiv float %116, %231
+  %233 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 2), align 8
+  %234 = sitofp i32 %233 to float
+  %235 = fdiv float %118, %234
+  tail call void @rlTexCoord2f(float noundef %232, float noundef %235) #16
   tail call void @rlVertex2f(float noundef %79, float noundef %85) #16
-  %234 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 1), align 4
-  %235 = sitofp i32 %234 to float
-  %236 = fdiv float %117, %235
-  %237 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 2), align 8
-  %238 = sitofp i32 %237 to float
-  %239 = fdiv float %.sroa.040.4.vec.extract, %238
-  tail call void @rlTexCoord2f(float noundef %236, float noundef %239) #16
+  %236 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 1), align 4
+  %237 = sitofp i32 %236 to float
+  %238 = fdiv float %116, %237
+  %239 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 2), align 8
+  %240 = sitofp i32 %239 to float
+  %241 = fdiv float %.sroa.040.4.vec.extract, %240
+  tail call void @rlTexCoord2f(float noundef %238, float noundef %241) #16
   tail call void @rlVertex2f(float noundef %79, float noundef %84) #16
   tail call void @rlColor4ub(i8 noundef zeroext %.sroa.0231.0.extract.trunc, i8 noundef zeroext %.sroa.9.0.extract.trunc, i8 noundef zeroext %.sroa.16.0.extract.trunc, i8 noundef zeroext %.sroa.23.0.extract.trunc) #16
-  %240 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 1), align 4
-  %241 = sitofp i32 %240 to float
-  %242 = fdiv float %.sroa.040.0.vec.extract, %241
-  %243 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 2), align 8
-  %244 = sitofp i32 %243 to float
-  %245 = fdiv float %.sroa.040.4.vec.extract, %244
-  tail call void @rlTexCoord2f(float noundef %242, float noundef %245) #16
-  %246 = load float, ptr %106, align 8
-  %247 = load float, ptr %107, align 4
-  tail call void @rlVertex2f(float noundef %246, float noundef %247) #16
-  %248 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 1), align 4
-  %249 = sitofp i32 %248 to float
-  %250 = fdiv float %.sroa.040.0.vec.extract, %249
-  %251 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 2), align 8
-  %252 = sitofp i32 %251 to float
-  %253 = fdiv float %119, %252
-  tail call void @rlTexCoord2f(float noundef %250, float noundef %253) #16
-  %254 = load float, ptr %92, align 8
-  %255 = load float, ptr %93, align 4
-  tail call void @rlVertex2f(float noundef %254, float noundef %255) #16
-  %256 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 1), align 4
-  %257 = sitofp i32 %256 to float
-  %258 = fdiv float %117, %257
-  %259 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 2), align 8
-  %260 = sitofp i32 %259 to float
-  %261 = fdiv float %119, %260
-  tail call void @rlTexCoord2f(float noundef %258, float noundef %261) #16
-  %262 = load float, ptr %88, align 16
-  %263 = load float, ptr %90, align 4
-  tail call void @rlVertex2f(float noundef %262, float noundef %263) #16
-  %264 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 1), align 4
-  %265 = sitofp i32 %264 to float
-  %266 = fdiv float %117, %265
-  %267 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 2), align 8
-  %268 = sitofp i32 %267 to float
-  %269 = fdiv float %.sroa.040.4.vec.extract, %268
-  tail call void @rlTexCoord2f(float noundef %266, float noundef %269) #16
-  %270 = load float, ptr %104, align 16
-  %271 = load float, ptr %105, align 4
-  tail call void @rlVertex2f(float noundef %270, float noundef %271) #16
+  %242 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 1), align 4
+  %243 = sitofp i32 %242 to float
+  %244 = fdiv float %.sroa.040.0.vec.extract, %243
+  %245 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 2), align 8
+  %246 = sitofp i32 %245 to float
+  %247 = fdiv float %.sroa.040.4.vec.extract, %246
+  tail call void @rlTexCoord2f(float noundef %244, float noundef %247) #16
+  %248 = load float, ptr %106, align 8
+  %249 = load float, ptr %107, align 4
+  tail call void @rlVertex2f(float noundef %248, float noundef %249) #16
+  %250 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 1), align 4
+  %251 = sitofp i32 %250 to float
+  %252 = fdiv float %.sroa.040.0.vec.extract, %251
+  %253 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 2), align 8
+  %254 = sitofp i32 %253 to float
+  %255 = fdiv float %118, %254
+  tail call void @rlTexCoord2f(float noundef %252, float noundef %255) #16
+  %256 = load float, ptr %92, align 8
+  %257 = load float, ptr %93, align 4
+  tail call void @rlVertex2f(float noundef %256, float noundef %257) #16
+  %258 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 1), align 4
+  %259 = sitofp i32 %258 to float
+  %260 = fdiv float %116, %259
+  %261 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 2), align 8
+  %262 = sitofp i32 %261 to float
+  %263 = fdiv float %118, %262
+  tail call void @rlTexCoord2f(float noundef %260, float noundef %263) #16
+  %264 = load float, ptr %88, align 16
+  %265 = load float, ptr %90, align 4
+  tail call void @rlVertex2f(float noundef %264, float noundef %265) #16
+  %266 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 1), align 4
+  %267 = sitofp i32 %266 to float
+  %268 = fdiv float %116, %267
+  %269 = load i32, ptr getelementptr inbounds (%struct.Texture, ptr @texShapes, i64 0, i32 2), align 8
+  %270 = sitofp i32 %269 to float
+  %271 = fdiv float %.sroa.040.4.vec.extract, %270
+  tail call void @rlTexCoord2f(float noundef %268, float noundef %271) #16
+  %272 = load float, ptr %104, align 16
+  %273 = load float, ptr %105, align 4
+  tail call void @rlVertex2f(float noundef %272, float noundef %273) #16
   tail call void @rlEnd() #16
   tail call void @rlSetTexture(i32 noundef 0) #16
-  br label %301
+  br label %304
 
-272:                                              ; preds = %60
+274:                                              ; preds = %60
   tail call void @rlBegin(i32 noundef 1) #16
-  %273 = icmp sgt i32 %.0388, 0
-  br i1 %273, label %.lr.ph.us, label %.preheader.preheader
+  %umax = tail call i32 @llvm.umax.i32(i32 %.0388, i32 1)
+  br label %275
 
-.lr.ph.us:                                        ; preds = %272, %._crit_edge.us
-  %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge.us ], [ 0, %272 ]
-  %274 = getelementptr inbounds [4 x float], ptr @__const.DrawRectangleRoundedLines.angles, i64 0, i64 %indvars.iv
-  %275 = load float, ptr %274, align 4
-  %276 = getelementptr inbounds [4 x %struct.Vector2], ptr %10, i64 0, i64 %indvars.iv
-  %.sroa.0.0.copyload.us = load float, ptr %276, align 8
-  %.sroa.3.0..sroa_idx.us = getelementptr inbounds i8, ptr %276, i64 4
-  %.sroa.3.0.copyload.us = load float, ptr %.sroa.3.0..sroa_idx.us, align 4
-  br label %277
+275:                                              ; preds = %274, %292
+  %indvars.iv = phi i64 [ 0, %274 ], [ %indvars.iv.next, %292 ]
+  %276 = getelementptr inbounds [4 x float], ptr @__const.DrawRectangleRoundedLines.angles, i64 0, i64 %indvars.iv
+  %277 = load float, ptr %276, align 4
+  %278 = getelementptr inbounds [4 x %struct.Vector2], ptr %10, i64 0, i64 %indvars.iv
+  %.sroa.0.0.copyload = load float, ptr %278, align 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %278, i64 4
+  %.sroa.3.0.copyload = load float, ptr %.sroa.3.0..sroa_idx, align 4
+  br label %279
 
-277:                                              ; preds = %.lr.ph.us, %277
-  %.0386401.us = phi i32 [ 0, %.lr.ph.us ], [ %289, %277 ]
-  %.0389400.us = phi float [ %275, %.lr.ph.us ], [ %283, %277 ]
+279:                                              ; preds = %275, %279
+  %.0386401 = phi i32 [ 0, %275 ], [ %291, %279 ]
+  %.0389400 = phi float [ %277, %275 ], [ %285, %279 ]
   tail call void @rlColor4ub(i8 noundef zeroext %.sroa.0231.0.extract.trunc, i8 noundef zeroext %.sroa.9.0.extract.trunc, i8 noundef zeroext %.sroa.16.0.extract.trunc, i8 noundef zeroext %.sroa.23.0.extract.trunc) #16
-  %278 = fmul float %.0389400.us, 0x3F91DF46A0000000
-  %279 = tail call float @cosf(float noundef %278) #16
-  %280 = tail call float @llvm.fmuladd.f32(float %279, float %63, float %.sroa.0.0.copyload.us)
-  %281 = tail call float @sinf(float noundef %278) #16
-  %282 = tail call float @llvm.fmuladd.f32(float %281, float %63, float %.sroa.3.0.copyload.us)
-  tail call void @rlVertex2f(float noundef %280, float noundef %282) #16
-  %283 = fadd float %62, %.0389400.us
-  %284 = fmul float %283, 0x3F91DF46A0000000
-  %285 = tail call float @cosf(float noundef %284) #16
-  %286 = tail call float @llvm.fmuladd.f32(float %285, float %63, float %.sroa.0.0.copyload.us)
-  %287 = tail call float @sinf(float noundef %284) #16
-  %288 = tail call float @llvm.fmuladd.f32(float %287, float %63, float %.sroa.3.0.copyload.us)
-  tail call void @rlVertex2f(float noundef %286, float noundef %288) #16
-  %289 = add nuw nsw i32 %.0386401.us, 1
-  %exitcond.not = icmp eq i32 %289, %.0388
-  br i1 %exitcond.not, label %._crit_edge.us, label %277
+  %280 = fmul float %.0389400, 0x3F91DF46A0000000
+  %281 = tail call float @cosf(float noundef %280) #16
+  %282 = tail call float @llvm.fmuladd.f32(float %281, float %63, float %.sroa.0.0.copyload)
+  %283 = tail call float @sinf(float noundef %280) #16
+  %284 = tail call float @llvm.fmuladd.f32(float %283, float %63, float %.sroa.3.0.copyload)
+  tail call void @rlVertex2f(float noundef %282, float noundef %284) #16
+  %285 = fadd float %62, %.0389400
+  %286 = fmul float %285, 0x3F91DF46A0000000
+  %287 = tail call float @cosf(float noundef %286) #16
+  %288 = tail call float @llvm.fmuladd.f32(float %287, float %63, float %.sroa.0.0.copyload)
+  %289 = tail call float @sinf(float noundef %286) #16
+  %290 = tail call float @llvm.fmuladd.f32(float %289, float %63, float %.sroa.3.0.copyload)
+  tail call void @rlVertex2f(float noundef %288, float noundef %290) #16
+  %291 = add nuw nsw i32 %.0386401, 1
+  %exitcond.not = icmp eq i32 %291, %umax
+  br i1 %exitcond.not, label %292, label %279
 
-._crit_edge.us:                                   ; preds = %277
+292:                                              ; preds = %279
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond415.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond415.not, label %.preheader.preheader, label %.lr.ph.us
+  %exitcond408.not = icmp eq i64 %indvars.iv.next, 4
+  br i1 %exitcond408.not, label %.preheader, label %275
 
-.preheader.preheader:                             ; preds = %._crit_edge.us, %272
-  br label %.preheader
-
-.preheader:                                       ; preds = %.preheader.preheader, %.preheader
-  %indvars.iv416 = phi i64 [ %indvars.iv.next417, %.preheader ], [ 0, %.preheader.preheader ]
+.preheader:                                       ; preds = %292, %.preheader
+  %indvars.iv409 = phi i64 [ %indvars.iv.next410, %.preheader ], [ 0, %292 ]
   tail call void @rlColor4ub(i8 noundef zeroext %.sroa.0231.0.extract.trunc, i8 noundef zeroext %.sroa.9.0.extract.trunc, i8 noundef zeroext %.sroa.16.0.extract.trunc, i8 noundef zeroext %.sroa.23.0.extract.trunc) #16
-  %290 = getelementptr inbounds [16 x %struct.Vector2], ptr %9, i64 0, i64 %indvars.iv416
-  %291 = load float, ptr %290, align 16
-  %292 = getelementptr inbounds i8, ptr %290, i64 4
-  %293 = load float, ptr %292, align 4
-  tail call void @rlVertex2f(float noundef %291, float noundef %293) #16
-  %294 = or disjoint i64 %indvars.iv416, 1
-  %295 = getelementptr inbounds [16 x %struct.Vector2], ptr %9, i64 0, i64 %294
-  %296 = load float, ptr %295, align 8
-  %297 = getelementptr inbounds i8, ptr %295, i64 4
-  %298 = load float, ptr %297, align 4
-  tail call void @rlVertex2f(float noundef %296, float noundef %298) #16
-  %indvars.iv.next417 = add nuw nsw i64 %indvars.iv416, 2
-  %299 = icmp ult i64 %indvars.iv416, 6
-  br i1 %299, label %.preheader, label %300
+  %293 = getelementptr inbounds [16 x %struct.Vector2], ptr %9, i64 0, i64 %indvars.iv409
+  %294 = load float, ptr %293, align 16
+  %295 = getelementptr inbounds i8, ptr %293, i64 4
+  %296 = load float, ptr %295, align 4
+  tail call void @rlVertex2f(float noundef %294, float noundef %296) #16
+  %297 = or disjoint i64 %indvars.iv409, 1
+  %298 = getelementptr inbounds [16 x %struct.Vector2], ptr %9, i64 0, i64 %297
+  %299 = load float, ptr %298, align 8
+  %300 = getelementptr inbounds i8, ptr %298, i64 4
+  %301 = load float, ptr %300, align 4
+  tail call void @rlVertex2f(float noundef %299, float noundef %301) #16
+  %indvars.iv.next410 = add nuw nsw i64 %indvars.iv409, 2
+  %302 = icmp ult i64 %indvars.iv409, 6
+  br i1 %302, label %.preheader, label %303
 
-300:                                              ; preds = %.preheader
+303:                                              ; preds = %.preheader
   tail call void @rlEnd() #16
-  br label %301
+  br label %304
 
-301:                                              ; preds = %42, %300, %.split411.us, %DrawRectangleLinesEx.exit
+304:                                              ; preds = %42, %303, %169, %DrawRectangleLinesEx.exit
   ret void
 }
 
@@ -4298,6 +4295,9 @@ declare i32 @llvm.smax.i32(i32, i32) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.sqrt.f32(float) #14
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15

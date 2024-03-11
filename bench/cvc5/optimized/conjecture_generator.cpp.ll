@@ -23323,7 +23323,7 @@ cond.true:                                        ; preds = %if.else, %cleanup.d
   br label %cleanup
 
 cleanup:                                          ; preds = %if.then5, %cond.true, %cleanup.done24
-  %cleanup.dest.slot.0 = phi i1 [ false, %cond.true ], [ true, %cleanup.done24 ], [ true, %if.then5 ]
+  %switch = phi i1 [ false, %cond.true ], [ true, %cleanup.done24 ], [ true, %if.then5 ]
   %bf.load.i.i = load i64, ptr %6, align 8
   %14 = and i64 %bf.load.i.i, 1152920405095219200
   %cmp.not.i.i = icmp eq i64 %14, 1152920405095219200
@@ -23350,7 +23350,7 @@ terminate.lpad.i:                                 ; preds = %if.then13.i.i
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %cleanup, %if.then.i.i, %if.then13.i.i
-  br i1 %cleanup.dest.slot.0, label %cond.true62, label %return
+  br i1 %switch, label %cond.true62, label %return
 
 ehcleanup47:                                      ; preds = %lpad5.i, %lpad8
   %.pn = phi { ptr, i32 } [ %8, %lpad8 ], [ %13, %lpad5.i ]
@@ -31173,23 +31173,20 @@ for.body256:                                      ; preds = %if.end245, %for.bod
   br i1 %cmp.i1185.not, label %for.end265.loopexit, label %for.body256
 
 for.end265.loopexit:                              ; preds = %for.body256
-  %87 = and i8 %spec.select, 1
-  %88 = icmp eq i8 %87, 0
-  %89 = trunc i64 %spec.store.select to i32
-  %90 = select i1 %88, i32 0, i32 %89
+  %87 = trunc i64 %spec.store.select to i32
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end245, %for.end265.loopexit, %invoke.cont227
-  %retval.0 = phi i32 [ -1, %invoke.cont227 ], [ 0, %if.end245 ], [ %90, %for.end265.loopexit ]
-  %91 = load ptr, ptr %_M_parent.i.i.i.i.i1099, align 8
-  invoke void @_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS3_S3_ESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E(ptr noundef nonnull align 8 dereferenceable(48) %subs, ptr noundef %91)
+  %retval.0 = phi i32 [ -1, %invoke.cont227 ], [ 0, %if.end245 ], [ %87, %for.end265.loopexit ]
+  %88 = load ptr, ptr %_M_parent.i.i.i.i.i1099, align 8
+  invoke void @_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS3_S3_ESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E(ptr noundef nonnull align 8 dereferenceable(48) %subs, ptr noundef %88)
           to label %return unwind label %terminate.lpad.i.i1392
 
 terminate.lpad.i.i1392:                           ; preds = %cleanup
-  %92 = landingpad { ptr, i32 }
+  %89 = landingpad { ptr, i32 }
           catch ptr null
-  %93 = extractvalue { ptr, i32 } %92, 0
-  call void @__clang_call_terminate(ptr %93) #25
+  %90 = extractvalue { ptr, i32 } %89, 0
+  call void @__clang_call_terminate(ptr %90) #25
   unreachable
 
 ehcleanup391:                                     ; preds = %lpad224, %lpad218
