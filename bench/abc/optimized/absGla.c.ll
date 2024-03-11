@@ -1744,7 +1744,6 @@ Vec_PtrPush.exit41:                               ; preds = %2, %7
   %25 = getelementptr inbounds i8, ptr %4, i64 16
   store ptr %21, ptr %25, align 8
   %calloc58 = call dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
-  store i32 1, ptr %22, align 4
   store ptr %calloc58, ptr %23, align 8
   %calloc59 = call dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
   store i32 2, ptr %22, align 4
