@@ -454,3 +454,6 @@
 [submodule "bench/openblas/OpenBLAS"]
 	path = bench/openblas/OpenBLAS
 	url = git@github.com:OpenMathLib/OpenBLAS.git
+[submodule "bench/yosys/yosys"]
+	path = bench/yosys/yosys
+	url = git@github.com:YosysHQ/yosys.git
