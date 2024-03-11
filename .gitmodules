@@ -427,3 +427,6 @@
 [submodule "bench/tls-rs/rustls"]
 	path = bench/tls-rs/rustls
 	url = git@github.com:rustls/rustls.git
+[submodule "bench/nanobind/nanobind"]
+	path = bench/nanobind/nanobind
+	url = git@github.com:wjakob/nanobind.git
