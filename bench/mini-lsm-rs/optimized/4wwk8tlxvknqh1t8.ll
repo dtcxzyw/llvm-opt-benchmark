@@ -10943,44 +10943,45 @@ define void @_ZN13mini_lsm_mvcc7compact6tiered26TieredCompactionController24gene
   %.not94 = icmp eq i64 %28, 0
   %.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 56
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  br i1 %.not94, label %.._crit_edge_crit_edge, label %.lr.ph
+  br i1 %.not94, label %._crit_edge.thread, label %.lr.ph
+
+._crit_edge.thread:                               ; preds = %27
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
+  br label %36
 
 .lr.ph:                                           ; preds = %27
   %.not110.not = icmp ugt i64 %19, 1
-  br label %31
+  br i1 %.not110.not, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h65dbc4d2c55c6c47E.exit", label %35, !prof !1520
 
 29:                                               ; preds = %17
   store i64 -9223372036854775808, ptr %0, align 8
   br label %96
 
-._crit_edge.loopexit:                             ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h65dbc4d2c55c6c47E.exit"
-  %30 = uitofp i64 %36 to double
-  br label %.._crit_edge_crit_edge
+._crit_edge:                                      ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h65dbc4d2c55c6c47E.exit"
+  %30 = uitofp i64 %34 to double
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
+  br label %36
 
-31:                                               ; preds = %.lr.ph, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h65dbc4d2c55c6c47E.exit"
-  %.sroa.01.088 = phi i64 [ 0, %.lr.ph ], [ %33, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h65dbc4d2c55c6c47E.exit" ]
-  %.087 = phi i64 [ 0, %.lr.ph ], [ %36, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h65dbc4d2c55c6c47E.exit" ]
-  br i1 %.not110.not, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h65dbc4d2c55c6c47E.exit", label %32, !prof !1520
+"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h65dbc4d2c55c6c47E.exit": ; preds = %.lr.ph, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h65dbc4d2c55c6c47E.exit"
+  %.sroa.01.088 = phi i64 [ %31, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h65dbc4d2c55c6c47E.exit" ], [ 0, %.lr.ph ]
+  %.087 = phi i64 [ %34, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h65dbc4d2c55c6c47E.exit" ], [ 0, %.lr.ph ]
+  %31 = add nuw i64 %.sroa.01.088, 1
+  %32 = getelementptr inbounds [0 x { i64, { { i64, ptr }, i64 } }], ptr %.pre, i64 0, i64 %.sroa.01.088, i32 1, i32 1
+  %33 = load i64, ptr %32, align 8, !noundef !4
+  %34 = add i64 %33, %.087
+  %exitcond.not = icmp eq i64 %31, %28
+  br i1 %exitcond.not, label %._crit_edge, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h65dbc4d2c55c6c47E.exit"
 
-32:                                               ; preds = %31
+35:                                               ; preds = %.lr.ph
   tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %19, i64 noundef %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.231749247c9dbb1d881e71a77925d738.76) #35, !noalias !1521
   unreachable
 
-"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h65dbc4d2c55c6c47E.exit": ; preds = %31
-  %33 = add nuw i64 %.sroa.01.088, 1
-  %34 = getelementptr inbounds [0 x { i64, { { i64, ptr }, i64 } }], ptr %.pre, i64 0, i64 %.sroa.01.088, i32 1, i32 1
-  %35 = load i64, ptr %34, align 8, !noundef !4
-  %36 = add i64 %35, %.087
-  %exitcond.not = icmp eq i64 %33, %28
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %31
-
-.._crit_edge_crit_edge:                           ; preds = %27, %._crit_edge.loopexit
-  %.0.lcssa = phi double [ %30, %._crit_edge.loopexit ], [ 0.000000e+00, %27 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
+36:                                               ; preds = %._crit_edge, %._crit_edge.thread
+  %.0.lcssa115 = phi double [ 0.000000e+00, %._crit_edge.thread ], [ %30, %._crit_edge ]
   %37 = getelementptr inbounds [0 x { i64, { { i64, ptr }, i64 } }], ptr %.pre, i64 0, i64 %28, i32 1, i32 1
   %38 = load i64, ptr %37, align 8, !noundef !4
   %39 = uitofp i64 %38 to double
-  %40 = fdiv double %.0.lcssa, %39
+  %40 = fdiv double %.0.lcssa115, %39
   %41 = fmul double %40, 1.000000e+02
   store double %41, ptr %12, align 8
   %42 = getelementptr inbounds i8, ptr %1, i64 8
@@ -10989,7 +10990,7 @@ define void @_ZN13mini_lsm_mvcc7compact6tiered26TieredCompactionController24gene
   %45 = fcmp ult double %41, %44
   br i1 %45, label %46, label %55
 
-46:                                               ; preds = %.._crit_edge_crit_edge
+46:                                               ; preds = %36
   %47 = getelementptr inbounds i8, ptr %1, i64 16
   %48 = load i64, ptr %47, align 8, !noundef !4
   %49 = uitofp i64 %48 to double
@@ -11003,7 +11004,7 @@ define void @_ZN13mini_lsm_mvcc7compact6tiered26TieredCompactionController24gene
   %54 = add i64 %19, -1
   br label %70
 
-55:                                               ; preds = %.._crit_edge_crit_edge
+55:                                               ; preds = %36
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
   store ptr %12, ptr %10, align 8

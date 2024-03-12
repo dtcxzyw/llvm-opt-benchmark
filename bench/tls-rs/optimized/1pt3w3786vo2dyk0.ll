@@ -2547,33 +2547,30 @@ define noundef zeroext i1 @"_ZN75_$LT$rustls..msgs..handshake..SessionId$u20$as$
 .lr.ph.preheader:                                 ; preds = %.preheader
   %7 = add i64 %4, -33
   %.not18 = icmp ult i64 %7, -32
-  br label %.lr.ph
+  br i1 %.not18, label %16, label %.lr.ph, !prof !525
 
-._crit_edge.loopexit:                             ; preds = %9
-  %8 = icmp eq i8 %16, 0
+._crit_edge.loopexit:                             ; preds = %.lr.ph
+  %8 = icmp eq i8 %15, 0
   br label %._crit_edge
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %9
-  %.0715 = phi i8 [ %16, %9 ], [ 0, %.lr.ph.preheader ]
-  %.sroa.01.014 = phi i64 [ %10, %9 ], [ 0, %.lr.ph.preheader ]
-  br i1 %.not18, label %17, label %9, !prof !525
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+  %.0715 = phi i8 [ %15, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.sroa.01.014 = phi i64 [ %9, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %9 = add nuw nsw i64 %.sroa.01.014, 1
+  %10 = getelementptr inbounds [32 x i8], ptr %0, i64 0, i64 %.sroa.01.014
+  %11 = load i8, ptr %10, align 1, !noundef !4
+  %12 = getelementptr inbounds [32 x i8], ptr %1, i64 0, i64 %.sroa.01.014
+  %13 = load i8, ptr %12, align 1, !noundef !4
+  %14 = xor i8 %13, %11
+  %15 = or i8 %14, %.0715
+  %exitcond.not = icmp eq i64 %9, %4
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.preheader, %._crit_edge.loopexit, %2
   %.0 = phi i1 [ false, %2 ], [ true, %.preheader ], [ %8, %._crit_edge.loopexit ]
   ret i1 %.0
 
-9:                                                ; preds = %.lr.ph
-  %10 = add nuw nsw i64 %.sroa.01.014, 1
-  %11 = getelementptr inbounds [32 x i8], ptr %0, i64 0, i64 %.sroa.01.014
-  %12 = load i8, ptr %11, align 1, !noundef !4
-  %13 = getelementptr inbounds [32 x i8], ptr %1, i64 0, i64 %.sroa.01.014
-  %14 = load i8, ptr %13, align 1, !noundef !4
-  %15 = xor i8 %14, %12
-  %16 = or i8 %15, %.0715
-  %exitcond.not = icmp eq i64 %10, %4
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph
-
-17:                                               ; preds = %.lr.ph
+16:                                               ; preds = %.lr.ph.preheader
   tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef 32, i64 noundef 32, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b829d69e4dfa1ad4f2781c144a746ff0.31.llvm.15934541666227088301) #35
   unreachable
 }
