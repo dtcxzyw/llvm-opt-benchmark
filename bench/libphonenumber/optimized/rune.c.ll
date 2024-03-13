@@ -305,7 +305,7 @@ define dso_local i32 @runelen(i32 noundef %0) local_unnamed_addr #1 {
 5:                                                ; preds = %3
   %6 = icmp ugt i32 %0, 1114111
   %narrow.i = select i1 %6, i32 65533, i32 %0
-  %7 = and i32 %narrow.i, 2147481600
+  %7 = and i32 %narrow.i, 2095104
   %or.cond.i = icmp eq i32 %7, 55296
   %8 = icmp ult i32 %narrow.i, 65536
   %9 = or i1 %8, %or.cond.i

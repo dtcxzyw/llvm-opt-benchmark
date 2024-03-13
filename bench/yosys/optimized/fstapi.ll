@@ -8580,7 +8580,7 @@ _Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit: ; preds = %55, %67
   br i1 %.not236, label %286, label %91
 
 91:                                               ; preds = %90
-  %92 = sext i32 %spec.store.select to i64
+  %92 = zext nneg i32 %spec.store.select to i64
   %93 = getelementptr inbounds [22 x ptr], ptr @_ZL8modtypes, i64 0, i64 %92
   %94 = load ptr, ptr %93, align 8
   %95 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.23, ptr noundef %94, ptr noundef %16) #37

@@ -97,8 +97,8 @@ if.end:                                           ; preds = %entry
   %2 = add i32 %initialCapacity, -268435456
   %or.cond = icmp ult i32 %2, -268435455
   %spec.store.select = select i1 %or.cond, i32 8, i32 %initialCapacity
-  %conv = zext nneg i32 %spec.store.select to i64
-  %mul = shl nuw nsw i64 %conv, 3
+  %3 = shl nuw nsw i32 %spec.store.select, 3
+  %mul = zext nneg i32 %3 to i64
   %call6 = invoke noalias ptr @uprv_malloc_75(i64 noundef %mul) #16
           to label %invoke.cont5 unwind label %lpad
 
@@ -141,8 +141,8 @@ if.end.i:                                         ; preds = %entry
   %2 = add i32 %initialCapacity, -268435456
   %or.cond.i = icmp ult i32 %2, -268435455
   %spec.store.select.i = select i1 %or.cond.i, i32 8, i32 %initialCapacity
-  %conv.i = zext nneg i32 %spec.store.select.i to i64
-  %mul.i = shl nuw nsw i64 %conv.i, 3
+  %3 = shl nuw nsw i32 %spec.store.select.i, 3
+  %mul.i = zext nneg i32 %3 to i64
   %call6.i = invoke noalias ptr @uprv_malloc_75(i64 noundef %mul.i) #16
           to label %invoke.cont5.i unwind label %lpad.i
 
