@@ -3560,19 +3560,16 @@ if.end45.i:                                       ; preds = %if.then30.i, %if.el
   br i1 %108, label %while.body.i, label %test_ssl_memio_do_handshake.exit, !llvm.loop !10
 
 test_ssl_memio_do_handshake.exit:                 ; preds = %if.end45.i
-  %not.tobool.not.i = xor i1 %tobool.not.i41, true
-  %..i = zext nneg i1 %not.tobool.not.i to i32
   br i1 %tobool.not.i41, label %do.body33, label %do.end47
 
 do.body33:                                        ; preds = %if.then10.i, %if.then30.i, %test_ssl_memio_do_handshake.exit
-  %..i76 = phi i32 [ %..i, %test_ssl_memio_do_handshake.exit ], [ 0, %if.then30.i ], [ 0, %if.then10.i ]
   %call34 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, ptr noundef nonnull @.str.18, i32 noundef 6475)
   %109 = load ptr, ptr @stdout, align 8
   %110 = call i64 @fwrite(ptr nonnull @.str.19, i64 15, i64 1, ptr %109)
   %call36 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.22)
   %111 = load ptr, ptr @stdout, align 8
   %112 = call i64 @fwrite(ptr nonnull @.str.23, i64 15, i64 1, ptr %111)
-  %call38 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %..i76, i32 noundef 1)
+  %call38 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef 0, i32 noundef 1)
   %113 = load ptr, ptr @stdout, align 8
   %114 = call i64 @fwrite(ptr nonnull @.str.25, i64 2, i64 1, ptr %113)
   %115 = load ptr, ptr @stdout, align 8
