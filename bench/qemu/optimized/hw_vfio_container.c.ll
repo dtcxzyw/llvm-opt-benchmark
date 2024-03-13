@@ -206,7 +206,7 @@ if.then15.i:                                      ; preds = %if.end12.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then15.i
-  %shr.i.i = lshr i64 %8, 18
+  %shr.i.i = lshr exact i64 %8, 18
   %div847.i.i = lshr i64 %8, 33
   %rem.i.i = and i64 %shr.i.i, 32767
   %call.i.i.i.i = call ptr @get_ptr_rcu_reader() #15
@@ -799,7 +799,7 @@ if.else.i.i17:                                    ; preds = %if.then.i.i16
 trace_vfio_dma_unmap_overflow_workaround.exit:    ; preds = %if.then21, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i17
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   %92 = load i64, ptr %pgsizes, align 8
-  %93 = call i64 @llvm.cttz.i64(i64 %92, i1 false), !range !7
+  %93 = call i64 @llvm.cttz.i64(i64 %92, i1 true), !range !7
   %shl.neg = shl nsw i64 -1, %93
   %94 = load i64, ptr %size2, align 8
   %sub = add i64 %shl.neg, %94
