@@ -3796,51 +3796,49 @@ _ZSt9use_facetIKSt5ctypeIcEERKT_RKSt6locale.exit: ; preds = %19
   %26 = load i32, ptr %25, align 4
   %27 = and i32 %26, 16
   %.not = icmp eq i32 %27, 0
-  %28 = select i1 %.not, { i64, i64 } { i64 ptrtoint (ptr @_ZNSt8__detail8_ScannerIcE19_M_eat_escape_posixEv to i64), i64 0 }, { i64, i64 } { i64 ptrtoint (ptr @_ZNSt8__detail8_ScannerIcE18_M_eat_escape_ecmaEv to i64), i64 0 }
-  %.elt = extractvalue { i64, i64 } %28, 0
+  %.elt = select i1 %.not, i64 ptrtoint (ptr @_ZNSt8__detail8_ScannerIcE19_M_eat_escape_posixEv to i64), i64 ptrtoint (ptr @_ZNSt8__detail8_ScannerIcE18_M_eat_escape_ecmaEv to i64)
   store i64 %.elt, ptr %24, align 8
   %.repack5 = getelementptr inbounds i8, ptr %0, i64 240
-  %.elt6 = extractvalue { i64, i64 } %28, 1
-  store i64 %.elt6, ptr %.repack5, align 8
-  %29 = load ptr, ptr %6, align 8
-  %30 = load ptr, ptr %7, align 8
-  %31 = icmp eq ptr %29, %30
-  br i1 %31, label %32, label %34
+  store i64 0, ptr %.repack5, align 8
+  %28 = load ptr, ptr %6, align 8
+  %29 = load ptr, ptr %7, align 8
+  %30 = icmp eq ptr %28, %29
+  br i1 %30, label %31, label %33
 
-32:                                               ; preds = %_ZSt9use_facetIKSt5ctypeIcEERKT_RKSt6locale.exit
-  %33 = getelementptr inbounds i8, ptr %0, i64 144
-  store i32 27, ptr %33, align 8
+31:                                               ; preds = %_ZSt9use_facetIKSt5ctypeIcEERKT_RKSt6locale.exit
+  %32 = getelementptr inbounds i8, ptr %0, i64 144
+  store i32 27, ptr %32, align 8
   br label %_ZNSt8__detail8_ScannerIcE10_M_advanceEv.exit
 
-34:                                               ; preds = %_ZSt9use_facetIKSt5ctypeIcEERKT_RKSt6locale.exit
-  %35 = getelementptr inbounds i8, ptr %0, i64 136
-  %36 = load i32, ptr %35, align 8
-  switch i32 %36, label %_ZNSt8__detail8_ScannerIcE10_M_advanceEv.exit [
-    i32 0, label %37
-    i32 2, label %38
-    i32 1, label %39
+33:                                               ; preds = %_ZSt9use_facetIKSt5ctypeIcEERKT_RKSt6locale.exit
+  %34 = getelementptr inbounds i8, ptr %0, i64 136
+  %35 = load i32, ptr %34, align 8
+  switch i32 %35, label %_ZNSt8__detail8_ScannerIcE10_M_advanceEv.exit [
+    i32 0, label %36
+    i32 2, label %37
+    i32 1, label %38
   ]
 
-37:                                               ; preds = %34
+36:                                               ; preds = %33
   invoke void @_ZNSt8__detail8_ScannerIcE14_M_scan_normalEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
-          to label %_ZNSt8__detail8_ScannerIcE10_M_advanceEv.exit unwind label %40
+          to label %_ZNSt8__detail8_ScannerIcE10_M_advanceEv.exit unwind label %39
 
-38:                                               ; preds = %34
+37:                                               ; preds = %33
   invoke void @_ZNSt8__detail8_ScannerIcE18_M_scan_in_bracketEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
-          to label %_ZNSt8__detail8_ScannerIcE10_M_advanceEv.exit unwind label %40
+          to label %_ZNSt8__detail8_ScannerIcE10_M_advanceEv.exit unwind label %39
 
-39:                                               ; preds = %34
+38:                                               ; preds = %33
   invoke void @_ZNSt8__detail8_ScannerIcE16_M_scan_in_braceEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
-          to label %_ZNSt8__detail8_ScannerIcE10_M_advanceEv.exit unwind label %40
+          to label %_ZNSt8__detail8_ScannerIcE10_M_advanceEv.exit unwind label %39
 
-_ZNSt8__detail8_ScannerIcE10_M_advanceEv.exit:    ; preds = %34, %32, %37, %38, %39
+_ZNSt8__detail8_ScannerIcE10_M_advanceEv.exit:    ; preds = %33, %31, %36, %37, %38
   ret void
 
-40:                                               ; preds = %39, %38, %37
-  %41 = landingpad { ptr, i32 }
+39:                                               ; preds = %38, %37, %36
+  %40 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #22
-  resume { ptr, i32 } %41
+  resume { ptr, i32 } %40
 }
 
 ; Function Attrs: nounwind

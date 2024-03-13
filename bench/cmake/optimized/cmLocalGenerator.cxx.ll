@@ -40580,9 +40580,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %34 = getelementptr inbounds i8, ptr %33, i64 120
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq i32 %2, 0
-  %spec.select.i = select i1 %36, { i64, ptr } { i64 6, ptr @.str.479 }, { i64, ptr } { i64 10, ptr @.str.480 }
-  %37 = extractvalue { i64, ptr } %spec.select.i, 0
-  %38 = extractvalue { i64, ptr } %spec.select.i, 1
+  %37 = select i1 %36, i64 6, i64 10
+  %38 = select i1 %36, ptr @.str.479, ptr @.str.480
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %8)
   store i64 %37, ptr %8, align 8, !alias.scope !1253, !noalias !1256
   %.sroa.2.0..sroa_idx.i6.i = getelementptr inbounds i8, ptr %8, i64 8
@@ -40636,9 +40635,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %57 = getelementptr inbounds i8, ptr %56, i64 120
   %58 = load ptr, ptr %57, align 8
   %59 = icmp eq i32 %2, 0
-  %spec.select.i27 = select i1 %59, { i64, ptr } { i64 6, ptr @.str.479 }, { i64, ptr } { i64 10, ptr @.str.480 }
-  %60 = extractvalue { i64, ptr } %spec.select.i27, 0
-  %61 = extractvalue { i64, ptr } %spec.select.i27, 1
+  %60 = select i1 %59, i64 6, i64 10
+  %61 = select i1 %59, ptr @.str.479, ptr @.str.480
   %62 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %53) #23
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7)

@@ -18322,9 +18322,8 @@ sw.bb3:                                           ; preds = %entry
   %2 = load i8, ptr %.compoundliteral.sroa.2.0..sroa_idx.i.i, align 1
   %3 = and i8 %2, 1
   %tobool.not = icmp eq i8 %3, 0
-  %spec.select45 = select i1 %tobool.not, { i64, i64 } { i64 -1, i64 9223372036854775807 }, { i64, i64 } { i64 0, i64 -9223372036854775808 }
-  %cond.off64 = extractvalue { i64, i64 } %spec.select45, 1
-  %cond.off0 = extractvalue { i64, i64 } %spec.select45, 0
+  %cond.off64 = select i1 %tobool.not, i64 9223372036854775807, i64 -9223372036854775808
+  %cond.off0 = sext i1 %tobool.not to i64
   br label %sw.epilog
 
 sw.bb12:                                          ; preds = %entry
@@ -18381,9 +18380,8 @@ land.lhs.true:                                    ; preds = %if.else
 
 if.else46:                                        ; preds = %if.else, %land.lhs.true
   %tobool48.not = icmp eq i8 %9, 0
-  %spec.select46 = select i1 %tobool48.not, { i64, i64 } { i64 -1, i64 9223372036854775807 }, { i64, i64 } { i64 0, i64 -9223372036854775808 }
-  %cond57.off64 = extractvalue { i64, i64 } %spec.select46, 1
-  %cond57.off0 = extractvalue { i64, i64 } %spec.select46, 0
+  %cond57.off64 = select i1 %tobool48.not, i64 9223372036854775807, i64 -9223372036854775808
+  %cond57.off0 = sext i1 %tobool48.not to i64
   br label %sw.epilog
 
 do.body:                                          ; preds = %entry

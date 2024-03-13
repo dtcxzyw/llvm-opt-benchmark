@@ -4595,9 +4595,7 @@ invoke.cont266:                                   ; preds = %invoke.cont265
 invoke.cont269:                                   ; preds = %invoke.cont266
   %initial_subkey_secret = getelementptr inbounds i8, ptr %out_params, i64 72
   %cmp271 = icmp sgt i32 %actual_version, 32
-  %spec.select = select i1 %cmp271, { i32, ptr } { i32 1, ptr null }, { i32, ptr } zeroinitializer
-  %diversification.sroa.0.0 = extractvalue { i32, ptr } %spec.select, 0
-  %diversification.sroa.31.0 = extractvalue { i32, ptr } %spec.select, 1
+  %diversification.sroa.0.0 = zext i1 %cmp271 to i32
   invoke void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1ERKS6_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp276, ptr noundef nonnull align 8 dereferenceable(32) %initial_premaster_secret)
           to label %invoke.cont278 unwind label %lpad264
 
@@ -4613,7 +4611,7 @@ invoke.cont282:                                   ; preds = %invoke.cont278
 invoke.cont285:                                   ; preds = %invoke.cont282
   store i32 %diversification.sroa.0.0, ptr %agg.tmp286, align 8
   %diversification.sroa.31.0.agg.tmp286.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp286, i64 8
-  store ptr %diversification.sroa.31.0, ptr %diversification.sroa.31.0.agg.tmp286.sroa_idx, align 8
+  store ptr null, ptr %diversification.sroa.31.0.agg.tmp286.sroa_idx, align 8
   %initial_crypters = getelementptr inbounds i8, ptr %out_params, i64 136
   %100 = load ptr, ptr %agg.tmp276, align 8
   %101 = getelementptr inbounds i8, ptr %agg.tmp276, i64 8

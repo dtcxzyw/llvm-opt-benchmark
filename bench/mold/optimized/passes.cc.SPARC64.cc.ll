@@ -55455,12 +55455,10 @@ _ZSt9use_facetIKSt5ctypeIcEERKT_RKSt6locale.exit: ; preds = %if.end.i
   %8 = load i32, ptr %_M_flags.i, align 4
   %and.i.i = and i32 %8, 16
   %tobool.i.not = icmp eq i32 %and.i.i, 0
-  %cond = select i1 %tobool.i.not, { i64, i64 } { i64 ptrtoint (ptr @_ZNSt8__detail8_ScannerIcE19_M_eat_escape_posixEv to i64), i64 0 }, { i64, i64 } { i64 ptrtoint (ptr @_ZNSt8__detail8_ScannerIcE18_M_eat_escape_ecmaEv to i64), i64 0 }
-  %cond.elt = extractvalue { i64, i64 } %cond, 0
+  %cond.elt = select i1 %tobool.i.not, i64 ptrtoint (ptr @_ZNSt8__detail8_ScannerIcE19_M_eat_escape_posixEv to i64), i64 ptrtoint (ptr @_ZNSt8__detail8_ScannerIcE18_M_eat_escape_ecmaEv to i64)
   store i64 %cond.elt, ptr %_M_eat_escape, align 8
   %_M_eat_escape.repack1 = getelementptr inbounds i8, ptr %this, i64 240
-  %cond.elt2 = extractvalue { i64, i64 } %cond, 1
-  store i64 %cond.elt2, ptr %_M_eat_escape.repack1, align 8
+  store i64 0, ptr %_M_eat_escape.repack1, align 8
   %9 = load ptr, ptr %_M_current, align 8
   %10 = load ptr, ptr %_M_end, align 8
   %cmp.i = icmp eq ptr %9, %10
