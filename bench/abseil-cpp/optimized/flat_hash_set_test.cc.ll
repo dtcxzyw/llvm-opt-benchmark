@@ -30869,7 +30869,7 @@ if.end10.i:                                       ; preds = %land.lhs.true4.i
   %sub.i.i = add nsw i64 %shr.i.i.i, -1
   %div.i9.i = udiv i64 %sub.i.i, 7
   %add.i.i = add nuw i64 %div.i9.i, %shr.i.i.i
-  %102 = call i64 @llvm.ctlz.i64(i64 %add.i.i, i1 false), !range !29
+  %102 = call i64 @llvm.ctlz.i64(i64 %add.i.i, i1 true), !range !29
   %shr.i.i = lshr i64 -1, %102
   invoke fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashSetPolicyINS0_12_GLOBAL__N_112PoisonInlineEEENS_13hash_internal4HashIS4_EESt8equal_toIS4_ESaIS4_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %set, i64 noundef %shr.i.i)
           to label %invoke.cont88 unwind label %lpad4

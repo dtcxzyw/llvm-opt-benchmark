@@ -3247,7 +3247,7 @@ entry:
   store i64 %add, ptr %high, align 8
   %config = getelementptr inbounds i8, ptr %0, i64 536
   %1 = load i64, ptr %config, align 8
-  %2 = tail call i64 @llvm.cttz.i64(i64 %1, i1 false), !range !16
+  %2 = tail call i64 @llvm.cttz.i64(i64 %1, i1 true), !range !16
   store ptr @address_space_memory, ptr %agg.result, align 8
   %iova = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 %addr, ptr %iova, align 8

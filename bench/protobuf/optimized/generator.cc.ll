@@ -3343,14 +3343,14 @@ arraydestroy.body66:                              ; preds = %arraydestroy.body66
 ehcleanup:                                        ; preds = %arraydestroy.body66, %lpad31
   %.pn = phi { ptr, i32 } [ %17, %lpad31 ], [ %18, %arraydestroy.body66 ]
   %arrayinit.endOfInit.1 = phi ptr [ %arrayinit.endOfInit.0, %lpad31 ], [ %arrayinit.element57, %arraydestroy.body66 ]
-  %cleanup.isactive.0 = phi i1 [ false, %lpad31 ], [ true, %arraydestroy.body66 ]
+  %19 = phi i1 [ false, %lpad31 ], [ true, %arraydestroy.body66 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp20) #24
   br label %ehcleanup71
 
 ehcleanup71:                                      ; preds = %ehcleanup, %lpad17
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %16, %lpad17 ]
   %arrayinit.endOfInit.2 = phi ptr [ %arrayinit.endOfInit.1, %ehcleanup ], [ %arrayinit.element19, %lpad17 ]
-  %cleanup.isactive.1 = phi i1 [ %cleanup.isactive.0, %ehcleanup ], [ false, %lpad17 ]
+  %cleanup.isactive.1 = phi i1 [ %19, %ehcleanup ], [ false, %lpad17 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8) #24
   br label %ehcleanup73
 
@@ -4984,7 +4984,7 @@ if.then.i:                                        ; preds = %if.end
   %div.i.i = sdiv i64 %sub.i.i, 7
   %add.i.i = add i64 %div.i.i, %0
   %tobool.not.i.i = icmp eq i64 %add.i.i, 0
-  %2 = tail call i64 @llvm.ctlz.i64(i64 %add.i.i, i1 false), !range !97
+  %2 = tail call i64 @llvm.ctlz.i64(i64 %add.i.i, i1 true), !range !97
   %shr.i.i = lshr i64 -1, %2
   %cond.i.i = select i1 %tobool.not.i.i, i64 1, i64 %shr.i.i
   invoke void @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS6_SaIcEEEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_SB_EEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %cond.i.i)
@@ -7300,7 +7300,7 @@ _ZN6google8protobuf28GeneratedCodeInfo_Annotation8add_pathEi.exit: ; preds = %fo
   %12 = load i32, ptr %total_size_.i.i, align 4
   %cmp13.i.i = icmp eq i32 %total_size.0.i.i, %12
   tail call void @llvm.assume(i1 %cmp13.i.i)
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %13 = load ptr, ptr %_M_finish.i, align 8
   %14 = load ptr, ptr %path, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %13 to i64

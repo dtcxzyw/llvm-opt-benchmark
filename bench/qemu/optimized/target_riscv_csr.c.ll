@@ -429,9 +429,9 @@ define internal noundef i32 @write_vstart(ptr nocapture noundef %env, i32 %csrno
 entry:
   %vlen = getelementptr i8, ptr %env, i64 5288
   %0 = load i16, ptr %vlen, align 8
-  %conv = zext i16 %0 to i64
-  %1 = tail call i64 @llvm.cttz.i64(i64 %conv, i1 false), !range !5
-  %shl = shl nsw i64 -1, %1
+  %1 = tail call i16 @llvm.cttz.i16(i16 %0, i1 true), !range !5
+  %2 = zext nneg i16 %1 to i64
+  %shl = shl nsw i64 -1, %2
   %not = xor i64 %shl, -1
   %and = and i64 %not, %val
   %vstart = getelementptr inbounds i8, ptr %env, i64 4632
@@ -703,9 +703,6 @@ declare i64 @riscv_cpu_get_fflags(ptr noundef) local_unnamed_addr #7
 
 declare void @riscv_cpu_set_fflags(ptr noundef, i64 noundef) local_unnamed_addr #7
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.cttz.i64(i64, i1 immarg) #8
-
 declare i32 @qemu_guest_getrandom(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #7
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #7
@@ -715,7 +712,10 @@ declare ptr @error_get_pretty(ptr noundef) local_unnamed_addr #7
 declare void @error_free(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: noreturn
-declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #9
+declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i16 @llvm.cttz.i16(i16, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
@@ -731,8 +731,8 @@ attributes #4 = { mustprogress nofree norecurse nosync nounwind sspstrong willre
 attributes #5 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #10 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nounwind }
 attributes #12 = { noreturn nounwind }
@@ -744,5 +744,5 @@ attributes #12 = { noreturn nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i64 0, i64 65}
+!5 = !{i16 0, i16 17}
 !6 = !{i64 2460211}

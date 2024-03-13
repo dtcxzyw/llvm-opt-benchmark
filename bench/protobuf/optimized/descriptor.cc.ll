@@ -48907,7 +48907,7 @@ if.then.i:                                        ; preds = %for.end
   %div.i.i = sdiv i64 %sub.i.i, 7
   %add.i.i = add i64 %div.i.i, %num_declarations.1
   %tobool.not.i.i = icmp eq i64 %add.i.i, 0
-  %8 = tail call i64 @llvm.ctlz.i64(i64 %add.i.i, i1 false), !range !636
+  %8 = tail call i64 @llvm.ctlz.i64(i64 %add.i.i, i1 true), !range !636
   %shr.i.i = lshr i64 -1, %8
   %cond.i.i = select i1 %tobool.not.i.i, i64 1, i64 %shr.i.i
   invoke void @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyISt17basic_string_viewIcSt11char_traitsIcEEEENS1_10StringHashENS1_8StringEqESaIS7_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %declaration_full_name_set, i64 noundef %cond.i.i)

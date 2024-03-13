@@ -2133,7 +2133,7 @@ if.then.i:                                        ; preds = %if.end
   %div.i.i = sdiv i64 %sub.i.i, 7
   %add.i.i = add i64 %div.i.i, %0
   %tobool.not.i.i = icmp eq i64 %add.i.i, 0
-  %2 = tail call i64 @llvm.ctlz.i64(i64 %add.i.i, i1 false), !range !83
+  %2 = tail call i64 @llvm.ctlz.i64(i64 %add.i.i, i1 true), !range !83
   %shr.i.i = lshr i64 -1, %2
   %cond.i.i = select i1 %tobool.not.i.i, i64 1, i64 %shr.i.i
   invoke void @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS6_SaIcEEEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_SB_EEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %cond.i.i)
@@ -3370,13 +3370,13 @@ arraydestroy.body27.i.i.i.i:                      ; preds = %arraydestroy.body27
 
 ehcleanup.i.i.i.i:                                ; preds = %arraydestroy.body27.i.i.i.i, %lpad17.i.i.i.i
   %.pn.i.i.i.i = phi { ptr, i32 } [ %33, %lpad17.i.i.i.i ], [ %34, %arraydestroy.body27.i.i.i.i ]
-  %cleanup.isactive.0.i.i.i.i = phi i1 [ false, %lpad17.i.i.i.i ], [ true, %arraydestroy.body27.i.i.i.i ]
+  %35 = phi i1 [ false, %lpad17.i.i.i.i ], [ true, %arraydestroy.body27.i.i.i.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp12.i.i.i.i) #20
   br label %ehcleanup32.i.i.i.i
 
 ehcleanup32.i.i.i.i:                              ; preds = %ehcleanup.i.i.i.i, %lpad14.i.i.i.i, %lpad.i1.i.i.i
   %.pn.pn.i.i.i.i = phi { ptr, i32 } [ %.pn.i.i.i.i, %ehcleanup.i.i.i.i ], [ %32, %lpad14.i.i.i.i ], [ %18, %lpad.i1.i.i.i ]
-  %cleanup.isactive.1.i.i.i.i = phi i1 [ %cleanup.isactive.0.i.i.i.i, %ehcleanup.i.i.i.i ], [ false, %lpad14.i.i.i.i ], [ false, %lpad.i1.i.i.i ]
+  %cleanup.isactive.1.i.i.i.i = phi i1 [ %35, %ehcleanup.i.i.i.i ], [ false, %lpad14.i.i.i.i ], [ false, %lpad.i1.i.i.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp13.i.i.i.i) #20
   br label %ehcleanup33.i.i.i.i
 

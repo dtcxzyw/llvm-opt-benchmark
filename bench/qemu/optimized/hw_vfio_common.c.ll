@@ -540,7 +540,7 @@ if.end14:                                         ; preds = %if.end11
   br i1 %or.cond.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end14
-  %shr.i = lshr i64 %ram_addr, 18
+  %shr.i = lshr exact i64 %ram_addr, 18
   %div847.i = lshr i64 %ram_addr, 33
   %rem.i = and i64 %shr.i, 32767
   %call.i.i.i = call ptr @get_ptr_rcu_reader() #17
@@ -1701,7 +1701,7 @@ trace_vfio_listener_region_del.exit:              ; preds = %if.end32, %land.lhs
 if.then40:                                        ; preds = %trace_vfio_listener_region_del.exit
   %pgsizes = getelementptr i8, ptr %listener, i64 424
   %21 = load i64, ptr %pgsizes, align 8
-  %22 = tail call i64 @llvm.cttz.i64(i64 %21, i1 false), !range !13
+  %22 = tail call i64 @llvm.cttz.i64(i64 %21, i1 true), !range !13
   %notmask = shl nsw i64 -1, %22
   %sub = xor i64 %notmask, -1
   %and = and i64 %and.i, %sub
