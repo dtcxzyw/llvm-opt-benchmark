@@ -3193,8 +3193,6 @@ entry:
 for.body.lr.ph:                                   ; preds = %entry
   %context = getelementptr inbounds i8, ptr %this, i64 8
   %is_null.i = getelementptr inbounds i8, ptr %constant, i64 24
-  %not.cmp179 = xor i1 %cmp, true
-  %.134 = zext nneg i1 %not.cmp179 to i8
   br label %for.body
 
 for.cond:                                         ; preds = %_ZNSt10unique_ptrIN6duckdb14BaseStatisticsESt14default_deleteIS1_EED2Ev.exit
@@ -3335,7 +3333,7 @@ invoke.cont41:                                    ; preds = %_ZNKSt14default_del
   br label %cleanup63
 
 if.end44:                                         ; preds = %if.end30, %if.else25
-  %constant_value.0178 = phi i8 [ %.134, %if.else25 ], [ 1, %if.end30 ]
+  %constant_value.0178 = phi i8 [ 0, %if.else25 ], [ 1, %if.end30 ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %ref.tmp47) #16
   invoke void @_ZN6duckdb5Value7BOOLEANEa(ptr nonnull sret(%"class.duckdb::Value") align 8 %ref.tmp47, i8 noundef signext %constant_value.0178)
           to label %invoke.cont50 unwind label %lpad49
