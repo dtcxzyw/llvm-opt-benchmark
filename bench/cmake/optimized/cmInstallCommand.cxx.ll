@@ -9840,9 +9840,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_115HandleFilesModeERKSt6vect
 31:                                               ; preds = %30
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
-  %spec.select = select i1 %28, { i64, ptr } { i64 8, ptr @.str.27 }, { i64, ptr } { i64 5, ptr @.str.26 }
-  %.sroa.3.0 = extractvalue { i64, ptr } %spec.select, 1
-  %.sroa.0.0 = extractvalue { i64, ptr } %spec.select, 0
+  %.sroa.3.0 = select i1 %28, ptr @.str.27, ptr @.str.26
+  %.sroa.0.0 = select i1 %28, i64 8, i64 5
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   %32 = getelementptr inbounds i8, ptr %6, i64 16
   %33 = getelementptr inbounds i8, ptr %6, i64 24
@@ -9852,7 +9851,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_115HandleFilesModeERKSt6vect
   store i64 %35, ptr %6, align 8
   store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIvE4BindINS0_10MaybeEmptyISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEEEEERS5_N2cm18static_string_viewERT_EUlS2_E_E9_M_invokeERKSt9_Any_dataS2_, ptr %33, align 8
   store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIvE4BindINS0_10MaybeEmptyISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEEEEERS5_N2cm18static_string_viewERT_EUlS2_E_E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation, ptr %32, align 8
-  invoke void @_ZN14ArgumentParser4Base4BindESt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRNS_8InstanceEEE(ptr noundef nonnull align 8 dereferenceable(112) %8, i64 %.sroa.0.0, ptr %.sroa.3.0, ptr noundef nonnull %6)
+  invoke void @_ZN14ArgumentParser4Base4BindESt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRNS_8InstanceEEE(ptr noundef nonnull align 8 dereferenceable(112) %8, i64 %.sroa.0.0, ptr nonnull %.sroa.3.0, ptr noundef nonnull %6)
           to label %36 unwind label %43
 
 36:                                               ; preds = %31

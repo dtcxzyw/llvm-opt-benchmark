@@ -10644,9 +10644,7 @@ _ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic
   %195 = load i8, ptr %194, align 4
   %196 = and i8 %195, 1
   %.not38 = icmp eq i8 %196, 0
-  %spec.select = select i1 %.not38, { i64, ptr } { i64 1, ptr @.str.59 }, { i64, ptr } { i64 1, ptr @.str.58 }
-  %.sroa.3.0 = extractvalue { i64, ptr } %spec.select, 1
-  %.sroa.07.0 = extractvalue { i64, ptr } %spec.select, 0
+  %.sroa.3.0 = select i1 %.not38, ptr @.str.59, ptr @.str.58
   %197 = load ptr, ptr %39, align 8
   %198 = invoke ptr @_ZNK10cmMakefile13GetDefinitionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(3520) %197, ptr noundef nonnull align 8 dereferenceable(32) %23)
           to label %.noexc103 unwind label %216
@@ -10675,7 +10673,7 @@ _ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic
 
 .noexc106:                                        ; preds = %.noexc105, %204
   %205 = load ptr, ptr %39, align 8
-  invoke void @_ZN10cmMakefile13AddDefinitionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_E(ptr noundef nonnull align 8 dereferenceable(3520) %205, ptr noundef nonnull align 8 dereferenceable(32) %23, i64 %.sroa.07.0, ptr %.sroa.3.0)
+  invoke void @_ZN10cmMakefile13AddDefinitionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_E(ptr noundef nonnull align 8 dereferenceable(3520) %205, ptr noundef nonnull align 8 dereferenceable(32) %23, i64 1, ptr nonnull %.sroa.3.0)
           to label %_ZN20cmFindPackageCommand17AddFindDefinitionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_E.exit108 unwind label %216
 
 _ZN20cmFindPackageCommand17AddFindDefinitionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_E.exit108: ; preds = %.noexc106

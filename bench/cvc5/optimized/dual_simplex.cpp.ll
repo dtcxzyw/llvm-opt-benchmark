@@ -880,9 +880,7 @@ _ZN4cvc58internal13DenseMultiset3addEjj.exit:     ; preds = %if.end.i169
   br label %cond.true85
 
 cond.true85:                                      ; preds = %invoke.cont75, %_ZN4cvc58internal13DenseMultiset3addEjj.exit
-  %cond116 = phi { i64, i64 } [ { i64 ptrtoint (ptr @_ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule11minVarOrderEjj to i64), i64 0 }, %invoke.cont75 ], [ { i64 ptrtoint (ptr @_ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule20minBoundAndColLengthEjj to i64), i64 0 }, %_ZN4cvc58internal13DenseMultiset3addEjj.exit ]
-  %cond116.fca.0.extract = extractvalue { i64, i64 } %cond116, 0
-  %cond116.fca.1.extract = extractvalue { i64, i64 } %cond116, 1
+  %cond116.fca.0.extract = phi i64 [ ptrtoint (ptr @_ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule11minVarOrderEjj to i64), %invoke.cont75 ], [ ptrtoint (ptr @_ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule20minBoundAndColLengthEjj to i64), %_ZN4cvc58internal13DenseMultiset3addEjj.exit ]
   %18 = load ptr, ptr %d_variables, align 8
   %d_image.i.i403 = getelementptr inbounds i8, ptr %18, i64 48
   %19 = load ptr, ptr %d_image.i.i403, align 8
@@ -893,7 +891,7 @@ cond.true85:                                      ; preds = %invoke.cont75, %_ZN
 
 if.then123:                                       ; preds = %cond.true85
   %21 = load ptr, ptr %d_linEq149, align 8
-  %call.i406 = invoke noundef i32 @_ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule11selectSlackILb0EEEjjMS4_KFjjjE(ptr noundef nonnull align 8 dereferenceable(456) %21, i32 noundef %5, i64 %cond116.fca.0.extract, i64 %cond116.fca.1.extract)
+  %call.i406 = invoke noundef i32 @_ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule11selectSlackILb0EEEjjMS4_KFjjjE(ptr noundef nonnull align 8 dereferenceable(456) %21, i32 noundef %5, i64 %cond116.fca.0.extract, i64 0)
           to label %invoke.cont125 unwind label %ehcleanup265.loopexit
 
 invoke.cont125:                                   ; preds = %if.then123
@@ -935,7 +933,7 @@ if.else143:                                       ; preds = %cond.true85
 
 if.then148:                                       ; preds = %if.else143
   %25 = load ptr, ptr %d_linEq149, align 8
-  %call.i410 = invoke noundef i32 @_ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule11selectSlackILb1EEEjjMS4_KFjjjE(ptr noundef nonnull align 8 dereferenceable(456) %25, i32 noundef %5, i64 %cond116.fca.0.extract, i64 %cond116.fca.1.extract)
+  %call.i410 = invoke noundef i32 @_ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule11selectSlackILb1EEEjjMS4_KFjjjE(ptr noundef nonnull align 8 dereferenceable(456) %25, i32 noundef %5, i64 %cond116.fca.0.extract, i64 0)
           to label %invoke.cont151 unwind label %ehcleanup265.loopexit
 
 invoke.cont151:                                   ; preds = %if.then148

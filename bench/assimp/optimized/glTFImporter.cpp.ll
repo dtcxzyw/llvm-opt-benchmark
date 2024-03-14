@@ -535,8 +535,6 @@ $_ZN9rapidjson13GenericReaderINS_4UTF8IcEES2_NS_12CrtAllocatorEED2Ev = comdat an
 
 $_ZN9rapidjson13GenericReaderINS_4UTF8IcEES2_NS_12CrtAllocatorEE10ParseValueILj1ENS_25GenericInsituStringStreamIS2_EENS_15GenericDocumentIS2_NS_19MemoryPoolAllocatorIS3_EES3_EEEEvRT0_RT1_ = comdat any
 
-$_ZNK9rapidjson11ParseResult7IsErrorEv = comdat any
-
 $_ZN9rapidjson13GenericReaderINS_4UTF8IcEES2_NS_12CrtAllocatorEE9ParseNullILj1ENS_25GenericInsituStringStreamIS2_EENS_15GenericDocumentIS2_NS_19MemoryPoolAllocatorIS3_EES3_EEEEvRT0_RT1_ = comdat any
 
 $_ZN9rapidjson13GenericReaderINS_4UTF8IcEES2_NS_12CrtAllocatorEE9ParseTrueILj1ENS_25GenericInsituStringStreamIS2_EENS_15GenericDocumentIS2_NS_19MemoryPoolAllocatorIS3_EES3_EEEEvRT0_RT1_ = comdat any
@@ -29192,67 +29190,73 @@ do.end51.i:                                       ; preds = %while.cond.i.i30.i
   store ptr %copy.sroa.0.0.i.i31.i, ptr %is, align 8
   %8 = load i8, ptr %copy.sroa.0.0.i.i31.i, align 1
   %cmp55.not.i = icmp eq i8 %8, 0
-  br i1 %cmp55.not.i, label %invoke.cont5, label %cleanup.sink.split.i
+  br i1 %cmp55.not.i, label %invoke.cont5.thread, label %cleanup.sink.split.i
+
+invoke.cont5.thread:                              ; preds = %do.end51.i
+  %retval.sroa.717.0.i10 = load i64, ptr %offset_.i.i, align 8
+  %stack_.i.i.i45.i11 = getelementptr inbounds i8, ptr %reader, i64 16
+  %9 = load ptr, ptr %stack_.i.i.i45.i11, align 8
+  %stackTop_.i.i.i46.i12 = getelementptr inbounds i8, ptr %reader, i64 24
+  store ptr %9, ptr %stackTop_.i.i.i46.i12, align 8
+  %parseResult_13 = getelementptr inbounds i8, ptr %this, i64 80
+  store i32 0, ptr %parseResult_13, align 8
+  %ref.tmp.sroa.21.0.parseResult_.sroa_idx14 = getelementptr inbounds i8, ptr %this, i64 88
+  store i64 %retval.sroa.717.0.i10, ptr %ref.tmp.sroa.21.0.parseResult_.sroa_idx14, align 8
+  %stackTop_.i = getelementptr inbounds i8, ptr %this, i64 56
+  %10 = load ptr, ptr %stackTop_.i, align 8
+  %add.ptr.i = getelementptr inbounds i8, ptr %10, i64 -16
+  store ptr %add.ptr.i, ptr %stackTop_.i, align 8
+  %cmp.not.i = icmp eq ptr %add.ptr.i, %this
+  br i1 %cmp.not.i, label %if.end, label %if.then.i
 
 cleanup.sink.split.i:                             ; preds = %do.end51.i, %do.end.i
   %copy.sroa.0.0.i.i31.lcssa.sink.i = phi ptr [ %copy.sroa.0.0.i.i.i, %do.end.i ], [ %copy.sroa.0.0.i.i31.i, %do.end51.i ]
   %.sink.i = phi i32 [ 1, %do.end.i ], [ 2, %do.end51.i ]
   %head_.i37.i = getelementptr inbounds i8, ptr %is, i64 16
-  %9 = load ptr, ptr %head_.i37.i, align 8
+  %11 = load ptr, ptr %head_.i37.i, align 8
   %sub.ptr.lhs.cast.i38.i = ptrtoint ptr %copy.sroa.0.0.i.i31.lcssa.sink.i to i64
-  %sub.ptr.rhs.cast.i39.i = ptrtoint ptr %9 to i64
+  %sub.ptr.rhs.cast.i39.i = ptrtoint ptr %11 to i64
   %sub.ptr.sub.i40.i = sub i64 %sub.ptr.lhs.cast.i38.i, %sub.ptr.rhs.cast.i39.i
   store i32 %.sink.i, ptr %parseResult_.i, align 8
   store i64 %sub.ptr.sub.i40.i, ptr %offset_.i.i, align 8
   br label %invoke.cont5
 
-invoke.cont5:                                     ; preds = %cleanup.sink.split.i, %do.end51.i, %invoke.cont30.i
-  %retval.sroa.0.0.i = phi i32 [ 0, %do.end51.i ], [ %6, %invoke.cont30.i ], [ %.sink.i, %cleanup.sink.split.i ]
+invoke.cont5:                                     ; preds = %cleanup.sink.split.i, %invoke.cont30.i
+  %retval.sroa.0.0.i = phi i32 [ %6, %invoke.cont30.i ], [ %.sink.i, %cleanup.sink.split.i ]
   %retval.sroa.0.0.i.fr = freeze i32 %retval.sroa.0.0.i
   %retval.sroa.717.0.i = load i64, ptr %offset_.i.i, align 8
   %stack_.i.i.i45.i = getelementptr inbounds i8, ptr %reader, i64 16
-  %10 = load ptr, ptr %stack_.i.i.i45.i, align 8
+  %12 = load ptr, ptr %stack_.i.i.i45.i, align 8
   %stackTop_.i.i.i46.i = getelementptr inbounds i8, ptr %reader, i64 24
-  store ptr %10, ptr %stackTop_.i.i.i46.i, align 8
+  store ptr %12, ptr %stackTop_.i.i.i46.i, align 8
   %parseResult_ = getelementptr inbounds i8, ptr %this, i64 80
   store i32 %retval.sroa.0.0.i.fr, ptr %parseResult_, align 8
   %ref.tmp.sroa.21.0.parseResult_.sroa_idx = getelementptr inbounds i8, ptr %this, i64 88
   store i64 %retval.sroa.717.0.i, ptr %ref.tmp.sroa.21.0.parseResult_.sroa_idx, align 8
-  %cmp.i.not.i = icmp eq i32 %retval.sroa.0.0.i.fr, 0
-  %spec.select = select i1 %cmp.i.not.i, { i64, i64 } { i64 ptrtoint (ptr @_ZNK9rapidjson11ParseResult7IsErrorEv to i64), i64 0 }, { i64, i64 } zeroinitializer
-  %memptr.ptr = extractvalue { i64, i64 } %spec.select, 0
-  %memptr.tobool.not = icmp eq i64 %memptr.ptr, 0
-  br i1 %memptr.tobool.not, label %if.end, label %if.then
+  br label %if.end
 
-if.then:                                          ; preds = %invoke.cont5
-  %stackTop_.i = getelementptr inbounds i8, ptr %this, i64 56
-  %11 = load ptr, ptr %stackTop_.i, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %11, i64 -16
-  store ptr %add.ptr.i, ptr %stackTop_.i, align 8
-  %cmp.not.i = icmp eq ptr %add.ptr.i, %this
-  br i1 %cmp.not.i, label %if.end, label %if.then.i
-
-if.then.i:                                        ; preds = %if.then
+if.then.i:                                        ; preds = %invoke.cont5.thread
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i, i64 16, i1 false)
-  %flags.i.i = getelementptr inbounds i8, ptr %11, i64 -2
+  %flags.i.i = getelementptr inbounds i8, ptr %10, i64 -2
   store i16 0, ptr %flags.i.i, align 2
   br label %if.end
 
-if.end:                                           ; preds = %if.then.i, %if.then, %invoke.cont5
+if.end:                                           ; preds = %invoke.cont5, %if.then.i, %invoke.cont5.thread
+  %stack_.i.i.i45.i16 = phi ptr [ %stack_.i.i.i45.i11, %if.then.i ], [ %stack_.i.i.i45.i11, %invoke.cont5.thread ], [ %stack_.i.i.i45.i, %invoke.cont5 ]
   %stack_.i.i.i4 = getelementptr inbounds i8, ptr %this, i64 48
-  %12 = load ptr, ptr %stack_.i.i.i4, align 8
+  %13 = load ptr, ptr %stack_.i.i.i4, align 8
   %stackTop_.i.i.i5 = getelementptr inbounds i8, ptr %this, i64 56
-  store ptr %12, ptr %stackTop_.i.i.i5, align 8
-  call void @free(ptr noundef %12) #26
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stack_.i.i.i4, i8 0, i64 24, i1 false)
-  %13 = load ptr, ptr %stack_.i.i.i45.i, align 8
+  store ptr %13, ptr %stackTop_.i.i.i5, align 8
   call void @free(ptr noundef %13) #26
-  %14 = load ptr, ptr %ownAllocator_.i.i, align 8
-  %isnull.i.i.i = icmp eq ptr %14, null
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stack_.i.i.i4, i8 0, i64 24, i1 false)
+  %14 = load ptr, ptr %stack_.i.i.i45.i16, align 8
+  call void @free(ptr noundef %14) #26
+  %15 = load ptr, ptr %ownAllocator_.i.i, align 8
+  %isnull.i.i.i = icmp eq ptr %15, null
   br i1 %isnull.i.i.i, label %_ZN9rapidjson13GenericReaderINS_4UTF8IcEES2_NS_12CrtAllocatorEED2Ev.exit, label %delete.notnull.i.i.i
 
 delete.notnull.i.i.i:                             ; preds = %if.end
-  call void @_ZdlPv(ptr noundef nonnull %14) #27
+  call void @_ZdlPv(ptr noundef nonnull %15) #27
   br label %_ZN9rapidjson13GenericReaderINS_4UTF8IcEES2_NS_12CrtAllocatorEED2Ev.exit
 
 _ZN9rapidjson13GenericReaderINS_4UTF8IcEES2_NS_12CrtAllocatorEED2Ev.exit: ; preds = %if.end, %delete.notnull.i.i.i
@@ -29322,14 +29326,6 @@ sw.default:                                       ; preds = %entry
 
 sw.epilog:                                        ; preds = %sw.default, %sw.bb6, %sw.bb5, %sw.bb4, %sw.bb3, %sw.bb2, %sw.bb
   ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZNK9rapidjson11ParseResult7IsErrorEv(ptr noundef nonnull align 8 dereferenceable(16) %this) #1 comdat align 2 {
-entry:
-  %0 = load i32, ptr %this, align 8
-  %cmp = icmp ne i32 %0, 0
-  ret i1 %cmp
 }
 
 ; Function Attrs: mustprogress uwtable

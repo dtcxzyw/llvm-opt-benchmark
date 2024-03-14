@@ -164,12 +164,10 @@ _ZN4abslltENS_8DurationES0_.exit:                 ; preds = %if.end, %cond.true.
   br i1 %or.cond, label %if.then24, label %if.end34
 
 if.then24:                                        ; preds = %_ZN4abslltENS_8DurationES0_.exit
-  %spec.select127 = select i1 %cond27.i, { i64, i32 } { i64 -9223372036854775808, i32 -1 }, { i64, i32 } { i64 9223372036854775807, i32 -1 }
-  %ref.tmp.sroa.3.0 = extractvalue { i64, i32 } %spec.select127, 1
-  %ref.tmp.sroa.0.0 = extractvalue { i64, i32 } %spec.select127, 0
+  %ref.tmp.sroa.0.0 = select i1 %cond27.i, i64 -9223372036854775808, i64 9223372036854775807
   store i64 %ref.tmp.sroa.0.0, ptr %rem, align 4
   %ref.tmp.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %rem, i64 8
-  store i32 %ref.tmp.sroa.3.0, ptr %ref.tmp.sroa.3.0..sroa_idx, align 4
+  store i32 -1, ptr %ref.tmp.sroa.3.0..sroa_idx, align 4
   %cond = select i1 %4, i64 -9223372036854775808, i64 9223372036854775807
   br label %return
 
@@ -384,7 +382,7 @@ if.end:                                           ; preds = %entry
 
 if.then4:                                         ; preds = %if.end
   %cmp = icmp sgt i64 %rhs.coerce0, -1
-  %spec.select = select i1 %cmp, { i64, i32 } { i64 -9223372036854775808, i32 -1 }, { i64, i32 } { i64 9223372036854775807, i32 -1 }
+  %ref.tmp.sroa.0.0 = select i1 %cmp, i64 -9223372036854775808, i64 9223372036854775807
   br label %return.sink.split
 
 if.end12:                                         ; preds = %if.end
@@ -420,18 +418,23 @@ if.end36:                                         ; preds = %if.then26, %if.end1
 
 cond.true43:                                      ; preds = %if.end36
   %cmp46 = icmp slt i64 %3, %0
-  br i1 %cmp46, label %return.sink.split, label %return
+  br i1 %cmp46, label %cond.end65, label %return
 
 cond.false47:                                     ; preds = %if.end36
   %cmp50 = icmp sgt i64 %3, %0
-  br i1 %cmp50, label %return.sink.split, label %return
+  br i1 %cmp50, label %cond.end65, label %return
 
-return.sink.split:                                ; preds = %cond.false47, %cond.true43, %if.then4
-  %call60.pn.sink31 = phi { i64, i32 } [ %spec.select, %if.then4 ], [ { i64 -9223372036854775808, i32 -1 }, %cond.false47 ], [ { i64 9223372036854775807, i32 -1 }, %cond.true43 ]
-  %ref.tmp52.sroa.3.0 = extractvalue { i64, i32 } %call60.pn.sink31, 1
-  %ref.tmp52.sroa.0.0 = extractvalue { i64, i32 } %call60.pn.sink31, 0
-  store i64 %ref.tmp52.sroa.0.0, ptr %this, align 4
-  store i32 %ref.tmp52.sroa.3.0, ptr %agg.tmp.sroa.2.0.this1.sroa_idx, align 4
+cond.end65:                                       ; preds = %cond.true43, %cond.false47
+  %call60.pn = phi { i64, i32 } [ { i64 -9223372036854775808, i32 -1 }, %cond.false47 ], [ { i64 9223372036854775807, i32 -1 }, %cond.true43 ]
+  %ref.tmp52.sroa.3.0 = extractvalue { i64, i32 } %call60.pn, 1
+  %ref.tmp52.sroa.0.0 = extractvalue { i64, i32 } %call60.pn, 0
+  br label %return.sink.split
+
+return.sink.split:                                ; preds = %if.then4, %cond.end65
+  %ref.tmp52.sroa.0.0.sink = phi i64 [ %ref.tmp52.sroa.0.0, %cond.end65 ], [ %ref.tmp.sroa.0.0, %if.then4 ]
+  %ref.tmp52.sroa.3.0.sink = phi i32 [ %ref.tmp52.sroa.3.0, %cond.end65 ], [ -1, %if.then4 ]
+  store i64 %ref.tmp52.sroa.0.0.sink, ptr %this, align 4
+  store i32 %ref.tmp52.sroa.3.0.sink, ptr %agg.tmp.sroa.2.0.this1.sroa_idx, align 4
   br label %return
 
 return:                                           ; preds = %return.sink.split, %cond.true43, %cond.false47, %entry
@@ -959,8 +962,8 @@ if.end.i.i:                                       ; preds = %entry
 
 if.then4.i.i:                                     ; preds = %if.end.i.i
   %cmp.i.i = icmp sgt i64 %retval.sroa.0.0.copyload.i, -1
-  %spec.select.i.i = select i1 %cmp.i.i, { i64, i32 } { i64 -9223372036854775808, i32 -1 }, { i64, i32 } { i64 9223372036854775807, i32 -1 }
-  br label %return.sink.split.i.i
+  %ref.tmp.sroa.0.0.i.i = select i1 %cmp.i.i, i64 -9223372036854775808, i64 9223372036854775807
+  br label %_ZN4abslmiENS_8DurationES0_.exit
 
 if.end12.i.i:                                     ; preds = %if.end.i.i
   %sub.i.i = sub i64 %d.coerce0, %retval.sroa.0.0.copyload.i
@@ -975,21 +978,21 @@ if.end12.i.i:                                     ; preds = %if.end.i.i
 
 cond.true43.i.i:                                  ; preds = %if.end12.i.i
   %cmp46.i.i = icmp slt i64 %lhs.sroa.8.0.in.in.i, %d.coerce0
-  br i1 %cmp46.i.i, label %return.sink.split.i.i, label %_ZN4abslmiENS_8DurationES0_.exit
+  br i1 %cmp46.i.i, label %cond.end65.i.i, label %_ZN4abslmiENS_8DurationES0_.exit
 
 cond.false47.i.i:                                 ; preds = %if.end12.i.i
   %cmp50.i.i = icmp sgt i64 %lhs.sroa.8.0.in.in.i, %d.coerce0
-  br i1 %cmp50.i.i, label %return.sink.split.i.i, label %_ZN4abslmiENS_8DurationES0_.exit
+  br i1 %cmp50.i.i, label %cond.end65.i.i, label %_ZN4abslmiENS_8DurationES0_.exit
 
-return.sink.split.i.i:                            ; preds = %cond.false47.i.i, %cond.true43.i.i, %if.then4.i.i
-  %call60.pn.sink31.i.i = phi { i64, i32 } [ %spec.select.i.i, %if.then4.i.i ], [ { i64 -9223372036854775808, i32 -1 }, %cond.false47.i.i ], [ { i64 9223372036854775807, i32 -1 }, %cond.true43.i.i ]
-  %ref.tmp52.sroa.3.0.i.i = extractvalue { i64, i32 } %call60.pn.sink31.i.i, 1
-  %ref.tmp52.sroa.0.0.i.i = extractvalue { i64, i32 } %call60.pn.sink31.i.i, 0
+cond.end65.i.i:                                   ; preds = %cond.false47.i.i, %cond.true43.i.i
+  %call60.pn.i.i = phi { i64, i32 } [ { i64 -9223372036854775808, i32 -1 }, %cond.false47.i.i ], [ { i64 9223372036854775807, i32 -1 }, %cond.true43.i.i ]
+  %ref.tmp52.sroa.3.0.i.i = extractvalue { i64, i32 } %call60.pn.i.i, 1
+  %ref.tmp52.sroa.0.0.i.i = extractvalue { i64, i32 } %call60.pn.i.i, 0
   br label %_ZN4abslmiENS_8DurationES0_.exit
 
-_ZN4abslmiENS_8DurationES0_.exit:                 ; preds = %entry, %cond.true43.i.i, %cond.false47.i.i, %return.sink.split.i.i
-  %lhs.sroa.10.0.i = phi i32 [ -1, %entry ], [ %ref.tmp52.sroa.3.0.i.i, %return.sink.split.i.i ], [ %sub39.i.i, %cond.true43.i.i ], [ %sub39.i.i, %cond.false47.i.i ]
-  %lhs.sroa.8.1.in.in.i = phi i64 [ %d.coerce0, %entry ], [ %ref.tmp52.sroa.0.0.i.i, %return.sink.split.i.i ], [ %lhs.sroa.8.0.in.in.i, %cond.true43.i.i ], [ %lhs.sroa.8.0.in.in.i, %cond.false47.i.i ]
+_ZN4abslmiENS_8DurationES0_.exit:                 ; preds = %entry, %if.then4.i.i, %cond.true43.i.i, %cond.false47.i.i, %cond.end65.i.i
+  %lhs.sroa.10.0.i = phi i32 [ -1, %entry ], [ %sub39.i.i, %cond.true43.i.i ], [ %sub39.i.i, %cond.false47.i.i ], [ %ref.tmp52.sroa.3.0.i.i, %cond.end65.i.i ], [ -1, %if.then4.i.i ]
+  %lhs.sroa.8.1.in.in.i = phi i64 [ %d.coerce0, %entry ], [ %lhs.sroa.8.0.in.in.i, %cond.true43.i.i ], [ %lhs.sroa.8.0.in.in.i, %cond.false47.i.i ], [ %ref.tmp52.sroa.0.0.i.i, %cond.end65.i.i ], [ %ref.tmp.sroa.0.0.i.i, %if.then4.i.i ]
   %.fca.0.insert.i3 = insertvalue { i64, i32 } poison, i64 %lhs.sroa.8.1.in.in.i, 0
   %.fca.1.insert.i4 = insertvalue { i64, i32 } %.fca.0.insert.i3, i32 %lhs.sroa.10.0.i, 1
   ret { i64, i32 } %.fca.1.insert.i4
@@ -1016,8 +1019,8 @@ if.end.i.i.i:                                     ; preds = %entry
 
 if.then4.i.i.i:                                   ; preds = %if.end.i.i.i
   %cmp.i.i.i = icmp sgt i64 %retval.sroa.0.0.copyload.i.i, -1
-  %spec.select.i.i.i = select i1 %cmp.i.i.i, { i64, i32 } { i64 -9223372036854775808, i32 -1 }, { i64, i32 } { i64 9223372036854775807, i32 -1 }
-  br label %return.sink.split.i.i.i
+  %ref.tmp.sroa.0.0.i.i.i = select i1 %cmp.i.i.i, i64 -9223372036854775808, i64 9223372036854775807
+  br label %_ZN4absl5TruncENS_8DurationES0_.exit
 
 if.end12.i.i.i:                                   ; preds = %if.end.i.i.i
   %sub.i.i.i = sub i64 %d.coerce0, %retval.sroa.0.0.copyload.i.i
@@ -1032,21 +1035,21 @@ if.end12.i.i.i:                                   ; preds = %if.end.i.i.i
 
 cond.true43.i.i.i:                                ; preds = %if.end12.i.i.i
   %cmp46.i.i.i = icmp slt i64 %lhs.sroa.8.0.in.in.i.i, %d.coerce0
-  br i1 %cmp46.i.i.i, label %return.sink.split.i.i.i, label %_ZN4absl5TruncENS_8DurationES0_.exit
+  br i1 %cmp46.i.i.i, label %cond.end65.i.i.i, label %_ZN4absl5TruncENS_8DurationES0_.exit
 
 cond.false47.i.i.i:                               ; preds = %if.end12.i.i.i
   %cmp50.i.i.i = icmp sgt i64 %lhs.sroa.8.0.in.in.i.i, %d.coerce0
-  br i1 %cmp50.i.i.i, label %return.sink.split.i.i.i, label %_ZN4absl5TruncENS_8DurationES0_.exit
+  br i1 %cmp50.i.i.i, label %cond.end65.i.i.i, label %_ZN4absl5TruncENS_8DurationES0_.exit
 
-return.sink.split.i.i.i:                          ; preds = %cond.false47.i.i.i, %cond.true43.i.i.i, %if.then4.i.i.i
-  %call60.pn.sink31.i.i.i = phi { i64, i32 } [ %spec.select.i.i.i, %if.then4.i.i.i ], [ { i64 -9223372036854775808, i32 -1 }, %cond.false47.i.i.i ], [ { i64 9223372036854775807, i32 -1 }, %cond.true43.i.i.i ]
-  %ref.tmp52.sroa.3.0.i.i.i = extractvalue { i64, i32 } %call60.pn.sink31.i.i.i, 1
-  %ref.tmp52.sroa.0.0.i.i.i = extractvalue { i64, i32 } %call60.pn.sink31.i.i.i, 0
+cond.end65.i.i.i:                                 ; preds = %cond.false47.i.i.i, %cond.true43.i.i.i
+  %call60.pn.i.i.i = phi { i64, i32 } [ { i64 -9223372036854775808, i32 -1 }, %cond.false47.i.i.i ], [ { i64 9223372036854775807, i32 -1 }, %cond.true43.i.i.i ]
+  %ref.tmp52.sroa.3.0.i.i.i = extractvalue { i64, i32 } %call60.pn.i.i.i, 1
+  %ref.tmp52.sroa.0.0.i.i.i = extractvalue { i64, i32 } %call60.pn.i.i.i, 0
   br label %_ZN4absl5TruncENS_8DurationES0_.exit
 
-_ZN4absl5TruncENS_8DurationES0_.exit:             ; preds = %cond.true43.i.i.i, %cond.false47.i.i.i, %return.sink.split.i.i.i
-  %lhs.sroa.10.0.i.i = phi i32 [ %ref.tmp52.sroa.3.0.i.i.i, %return.sink.split.i.i.i ], [ %sub39.i.i.i, %cond.true43.i.i.i ], [ %sub39.i.i.i, %cond.false47.i.i.i ]
-  %lhs.sroa.8.1.in.in.i.i = phi i64 [ %ref.tmp52.sroa.0.0.i.i.i, %return.sink.split.i.i.i ], [ %lhs.sroa.8.0.in.in.i.i, %cond.true43.i.i.i ], [ %lhs.sroa.8.0.in.in.i.i, %cond.false47.i.i.i ]
+_ZN4absl5TruncENS_8DurationES0_.exit:             ; preds = %if.then4.i.i.i, %cond.true43.i.i.i, %cond.false47.i.i.i, %cond.end65.i.i.i
+  %lhs.sroa.10.0.i.i = phi i32 [ %sub39.i.i.i, %cond.true43.i.i.i ], [ %sub39.i.i.i, %cond.false47.i.i.i ], [ %ref.tmp52.sroa.3.0.i.i.i, %cond.end65.i.i.i ], [ -1, %if.then4.i.i.i ]
+  %lhs.sroa.8.1.in.in.i.i = phi i64 [ %lhs.sroa.8.0.in.in.i.i, %cond.true43.i.i.i ], [ %lhs.sroa.8.0.in.in.i.i, %cond.false47.i.i.i ], [ %ref.tmp52.sroa.0.0.i.i.i, %cond.end65.i.i.i ], [ %ref.tmp.sroa.0.0.i.i.i, %if.then4.i.i.i ]
   %.fca.0.insert.i3.i = insertvalue { i64, i32 } poison, i64 %lhs.sroa.8.1.in.in.i.i, 0
   %.fca.1.insert.i4.i = insertvalue { i64, i32 } %.fca.0.insert.i3.i, i32 %lhs.sroa.10.0.i.i, 1
   %cmp.not.i.i = icmp eq i64 %lhs.sroa.8.1.in.in.i.i, %d.coerce0
@@ -1129,8 +1132,8 @@ if.end.i.i:                                       ; preds = %_ZN4absl11AbsDurati
 
 if.then4.i.i:                                     ; preds = %if.end.i.i
   %cmp.i.i = icmp sgt i64 %retval.sroa.0.0.i, -1
-  %spec.select.i.i = select i1 %cmp.i.i, { i64, i32 } { i64 -9223372036854775808, i32 -1 }, { i64, i32 } { i64 9223372036854775807, i32 -1 }
-  br label %return.sink.split.i.i
+  %ref.tmp.sroa.0.0.i.i = select i1 %cmp.i.i, i64 -9223372036854775808, i64 9223372036854775807
+  br label %_ZN4abslmiENS_8DurationES0_.exit
 
 if.end12.i.i:                                     ; preds = %if.end.i.i
   %sub.i.i9 = sub i64 %lhs.sroa.8.1.in.in.i.i2125, %retval.sroa.0.0.i
@@ -1145,21 +1148,21 @@ if.end12.i.i:                                     ; preds = %if.end.i.i
 
 cond.true43.i.i:                                  ; preds = %if.end12.i.i
   %cmp46.i.i = icmp slt i64 %lhs.sroa.8.0.in.in.i, %lhs.sroa.8.1.in.in.i.i2125
-  br i1 %cmp46.i.i, label %return.sink.split.i.i, label %_ZN4abslmiENS_8DurationES0_.exit
+  br i1 %cmp46.i.i, label %cond.end65.i.i, label %_ZN4abslmiENS_8DurationES0_.exit
 
 cond.false47.i.i:                                 ; preds = %if.end12.i.i
   %cmp50.i.i = icmp sgt i64 %lhs.sroa.8.0.in.in.i, %lhs.sroa.8.1.in.in.i.i2125
-  br i1 %cmp50.i.i, label %return.sink.split.i.i, label %_ZN4abslmiENS_8DurationES0_.exit
+  br i1 %cmp50.i.i, label %cond.end65.i.i, label %_ZN4abslmiENS_8DurationES0_.exit
 
-return.sink.split.i.i:                            ; preds = %cond.false47.i.i, %cond.true43.i.i, %if.then4.i.i
-  %call60.pn.sink31.i.i = phi { i64, i32 } [ %spec.select.i.i, %if.then4.i.i ], [ { i64 -9223372036854775808, i32 -1 }, %cond.false47.i.i ], [ { i64 9223372036854775807, i32 -1 }, %cond.true43.i.i ]
-  %ref.tmp52.sroa.3.0.i.i = extractvalue { i64, i32 } %call60.pn.sink31.i.i, 1
-  %ref.tmp52.sroa.0.0.i.i = extractvalue { i64, i32 } %call60.pn.sink31.i.i, 0
+cond.end65.i.i:                                   ; preds = %cond.false47.i.i, %cond.true43.i.i
+  %call60.pn.i.i = phi { i64, i32 } [ { i64 -9223372036854775808, i32 -1 }, %cond.false47.i.i ], [ { i64 9223372036854775807, i32 -1 }, %cond.true43.i.i ]
+  %ref.tmp52.sroa.3.0.i.i = extractvalue { i64, i32 } %call60.pn.i.i, 1
+  %ref.tmp52.sroa.0.0.i.i = extractvalue { i64, i32 } %call60.pn.i.i, 0
   br label %_ZN4abslmiENS_8DurationES0_.exit
 
-_ZN4abslmiENS_8DurationES0_.exit:                 ; preds = %_ZN4absl11AbsDurationENS_8DurationE.exit, %cond.true43.i.i, %cond.false47.i.i, %return.sink.split.i.i
-  %lhs.sroa.10.0.i = phi i32 [ -1, %_ZN4absl11AbsDurationENS_8DurationE.exit ], [ %ref.tmp52.sroa.3.0.i.i, %return.sink.split.i.i ], [ %sub39.i.i, %cond.true43.i.i ], [ %sub39.i.i, %cond.false47.i.i ]
-  %lhs.sroa.8.1.in.in.i = phi i64 [ %lhs.sroa.8.1.in.in.i.i2125, %_ZN4absl11AbsDurationENS_8DurationE.exit ], [ %ref.tmp52.sroa.0.0.i.i, %return.sink.split.i.i ], [ %lhs.sroa.8.0.in.in.i, %cond.true43.i.i ], [ %lhs.sroa.8.0.in.in.i, %cond.false47.i.i ]
+_ZN4abslmiENS_8DurationES0_.exit:                 ; preds = %_ZN4absl11AbsDurationENS_8DurationE.exit, %if.then4.i.i, %cond.true43.i.i, %cond.false47.i.i, %cond.end65.i.i
+  %lhs.sroa.10.0.i = phi i32 [ -1, %_ZN4absl11AbsDurationENS_8DurationE.exit ], [ %sub39.i.i, %cond.true43.i.i ], [ %sub39.i.i, %cond.false47.i.i ], [ %ref.tmp52.sroa.3.0.i.i, %cond.end65.i.i ], [ -1, %if.then4.i.i ]
+  %lhs.sroa.8.1.in.in.i = phi i64 [ %lhs.sroa.8.1.in.in.i.i2125, %_ZN4absl11AbsDurationENS_8DurationE.exit ], [ %lhs.sroa.8.0.in.in.i, %cond.true43.i.i ], [ %lhs.sroa.8.0.in.in.i, %cond.false47.i.i ], [ %ref.tmp52.sroa.0.0.i.i, %cond.end65.i.i ], [ %ref.tmp.sroa.0.0.i.i, %if.then4.i.i ]
   %.fca.0.insert.i12 = insertvalue { i64, i32 } poison, i64 %lhs.sroa.8.1.in.in.i, 0
   %.fca.1.insert.i13 = insertvalue { i64, i32 } %.fca.0.insert.i12, i32 %lhs.sroa.10.0.i, 1
   br label %cond.end
@@ -1190,8 +1193,8 @@ if.end.i.i.i:                                     ; preds = %entry
 
 if.then4.i.i.i:                                   ; preds = %if.end.i.i.i
   %cmp.i.i.i = icmp sgt i64 %retval.sroa.0.0.copyload.i.i, -1
-  %spec.select.i.i.i = select i1 %cmp.i.i.i, { i64, i32 } { i64 -9223372036854775808, i32 -1 }, { i64, i32 } { i64 9223372036854775807, i32 -1 }
-  br label %return.sink.split.i.i.i
+  %ref.tmp.sroa.0.0.i.i.i = select i1 %cmp.i.i.i, i64 -9223372036854775808, i64 9223372036854775807
+  br label %_ZN4absl5TruncENS_8DurationES0_.exit
 
 if.end12.i.i.i:                                   ; preds = %if.end.i.i.i
   %sub.i.i.i = sub i64 %d.coerce0, %retval.sroa.0.0.copyload.i.i
@@ -1206,21 +1209,21 @@ if.end12.i.i.i:                                   ; preds = %if.end.i.i.i
 
 cond.true43.i.i.i:                                ; preds = %if.end12.i.i.i
   %cmp46.i.i.i = icmp slt i64 %lhs.sroa.8.0.in.in.i.i, %d.coerce0
-  br i1 %cmp46.i.i.i, label %return.sink.split.i.i.i, label %_ZN4absl5TruncENS_8DurationES0_.exit
+  br i1 %cmp46.i.i.i, label %cond.end65.i.i.i, label %_ZN4absl5TruncENS_8DurationES0_.exit
 
 cond.false47.i.i.i:                               ; preds = %if.end12.i.i.i
   %cmp50.i.i.i = icmp sgt i64 %lhs.sroa.8.0.in.in.i.i, %d.coerce0
-  br i1 %cmp50.i.i.i, label %return.sink.split.i.i.i, label %_ZN4absl5TruncENS_8DurationES0_.exit
+  br i1 %cmp50.i.i.i, label %cond.end65.i.i.i, label %_ZN4absl5TruncENS_8DurationES0_.exit
 
-return.sink.split.i.i.i:                          ; preds = %cond.false47.i.i.i, %cond.true43.i.i.i, %if.then4.i.i.i
-  %call60.pn.sink31.i.i.i = phi { i64, i32 } [ %spec.select.i.i.i, %if.then4.i.i.i ], [ { i64 -9223372036854775808, i32 -1 }, %cond.false47.i.i.i ], [ { i64 9223372036854775807, i32 -1 }, %cond.true43.i.i.i ]
-  %ref.tmp52.sroa.3.0.i.i.i = extractvalue { i64, i32 } %call60.pn.sink31.i.i.i, 1
-  %ref.tmp52.sroa.0.0.i.i.i = extractvalue { i64, i32 } %call60.pn.sink31.i.i.i, 0
+cond.end65.i.i.i:                                 ; preds = %cond.false47.i.i.i, %cond.true43.i.i.i
+  %call60.pn.i.i.i = phi { i64, i32 } [ { i64 -9223372036854775808, i32 -1 }, %cond.false47.i.i.i ], [ { i64 9223372036854775807, i32 -1 }, %cond.true43.i.i.i ]
+  %ref.tmp52.sroa.3.0.i.i.i = extractvalue { i64, i32 } %call60.pn.i.i.i, 1
+  %ref.tmp52.sroa.0.0.i.i.i = extractvalue { i64, i32 } %call60.pn.i.i.i, 0
   br label %_ZN4absl5TruncENS_8DurationES0_.exit
 
-_ZN4absl5TruncENS_8DurationES0_.exit:             ; preds = %cond.true43.i.i.i, %cond.false47.i.i.i, %return.sink.split.i.i.i
-  %lhs.sroa.10.0.i.i = phi i32 [ %ref.tmp52.sroa.3.0.i.i.i, %return.sink.split.i.i.i ], [ %sub39.i.i.i, %cond.true43.i.i.i ], [ %sub39.i.i.i, %cond.false47.i.i.i ]
-  %lhs.sroa.8.1.in.in.i.i = phi i64 [ %ref.tmp52.sroa.0.0.i.i.i, %return.sink.split.i.i.i ], [ %lhs.sroa.8.0.in.in.i.i, %cond.true43.i.i.i ], [ %lhs.sroa.8.0.in.in.i.i, %cond.false47.i.i.i ]
+_ZN4absl5TruncENS_8DurationES0_.exit:             ; preds = %if.then4.i.i.i, %cond.true43.i.i.i, %cond.false47.i.i.i, %cond.end65.i.i.i
+  %lhs.sroa.10.0.i.i = phi i32 [ %sub39.i.i.i, %cond.true43.i.i.i ], [ %sub39.i.i.i, %cond.false47.i.i.i ], [ %ref.tmp52.sroa.3.0.i.i.i, %cond.end65.i.i.i ], [ -1, %if.then4.i.i.i ]
+  %lhs.sroa.8.1.in.in.i.i = phi i64 [ %lhs.sroa.8.0.in.in.i.i, %cond.true43.i.i.i ], [ %lhs.sroa.8.0.in.in.i.i, %cond.false47.i.i.i ], [ %ref.tmp52.sroa.0.0.i.i.i, %cond.end65.i.i.i ], [ %ref.tmp.sroa.0.0.i.i.i, %if.then4.i.i.i ]
   %.fca.0.insert.i3.i = insertvalue { i64, i32 } poison, i64 %lhs.sroa.8.1.in.in.i.i, 0
   %.fca.1.insert.i4.i = insertvalue { i64, i32 } %.fca.0.insert.i3.i, i32 %lhs.sroa.10.0.i.i, 1
   %cmp.not.i.i = icmp eq i64 %lhs.sroa.8.1.in.in.i.i, %d.coerce0

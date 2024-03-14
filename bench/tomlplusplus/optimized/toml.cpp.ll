@@ -2598,10 +2598,9 @@ _ZN12_GLOBAL__N_130print_floating_point_to_streamIdEEvRSoT_N4toml2v311value_flag
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4toml2v34impl15print_to_streamERSob(ptr noundef nonnull align 8 dereferenceable(8) %stream, i1 noundef zeroext %val) local_unnamed_addr #0 {
 entry:
-  %spec.select = select i1 %val, { i64, ptr } { i64 4, ptr @.str }, { i64, ptr } { i64 5, ptr @.str.1 }
-  %agg.tmp.sroa.0.0 = extractvalue { i64, ptr } %spec.select, 0
-  %agg.tmp.sroa.3.0 = extractvalue { i64, ptr } %spec.select, 1
-  %call2.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef %agg.tmp.sroa.3.0, i64 noundef %agg.tmp.sroa.0.0)
+  %agg.tmp.sroa.0.0 = select i1 %val, i64 4, i64 5
+  %agg.tmp.sroa.3.0 = select i1 %val, ptr @.str, ptr @.str.1
+  %call2.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull %agg.tmp.sroa.3.0, i64 noundef %agg.tmp.sroa.0.0)
   ret void
 }
 
@@ -16938,12 +16937,10 @@ if.then:                                          ; preds = %entry
   %0 = load i64, ptr %config_.i335, align 8
   %and.i.i336 = and i64 %0, 4
   %tobool.i454.not = icmp eq i64 %and.i.i336, 0
-  %spec.select = select i1 %tobool.i454.not, { i64, ptr } { i64 2, ptr @.str.22 }, { i64, ptr } { i64 2, ptr @.str.21 }
-  %agg.tmp.sroa.3.0 = extractvalue { i64, ptr } %spec.select, 1
-  %agg.tmp.sroa.0.0 = extractvalue { i64, ptr } %spec.select, 0
+  %agg.tmp.sroa.3.0 = select i1 %tobool.i454.not, ptr @.str.22, ptr @.str.21
   %stream_.i = getelementptr inbounds i8, ptr %this, i64 56
   %1 = load ptr, ptr %stream_.i, align 8
-  %call2.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %agg.tmp.sroa.3.0, i64 noundef %agg.tmp.sroa.0.0)
+  %call2.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %agg.tmp.sroa.3.0, i64 noundef 2)
   %naked_newline_.i = getelementptr inbounds i8, ptr %this, i64 68
   br label %return
 
@@ -17265,41 +17262,37 @@ land.rhs134:                                      ; preds = %land.lhs.true129
   br i1 %or.cond299, label %if.then143, label %if.end153
 
 if.then143:                                       ; preds = %land.rhs134
-  %spec.select300 = select i1 %26, { i64, ptr } { i64 3, ptr @.str.23 }, { i64, ptr } { i64 1, ptr @.str.15 }
-  %quot.sroa.4.0 = extractvalue { i64, ptr } %spec.select300, 1
-  %quot.sroa.0.0 = extractvalue { i64, ptr } %spec.select300, 0
+  %quot.sroa.4.0 = select i1 %26, ptr @.str.23, ptr @.str.15
+  %quot.sroa.0.0 = select i1 %26, i64 3, i64 1
   %stream_.i86 = getelementptr inbounds i8, ptr %this, i64 56
   %28 = load ptr, ptr %stream_.i86, align 8
-  %call2.i.i87 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef %quot.sroa.4.0, i64 noundef %quot.sroa.0.0)
+  %call2.i.i87 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull %quot.sroa.4.0, i64 noundef %quot.sroa.0.0)
   %naked_newline_.i88 = getelementptr inbounds i8, ptr %this, i64 68
   store i8 0, ptr %naked_newline_.i88, align 4
   %29 = load ptr, ptr %stream_.i86, align 8
   %call2.i.i90 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef %str.coerce1, i64 noundef %str.coerce0)
   store i8 0, ptr %naked_newline_.i88, align 4
   %30 = load ptr, ptr %stream_.i86, align 8
-  %call2.i.i93 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef %quot.sroa.4.0, i64 noundef %quot.sroa.0.0)
+  %call2.i.i93 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull %quot.sroa.4.0, i64 noundef %quot.sroa.0.0)
   br label %return
 
 if.end153:                                        ; preds = %land.rhs134, %land.end113, %land.lhs.true119, %land.lhs.true124, %land.lhs.true129
-  %spec.select301 = select i1 %26, { i64, ptr } { i64 3, ptr @.str.24 }, { i64, ptr } { i64 1, ptr @.str.25 }
-  %agg.tmp154.sroa.3.0 = extractvalue { i64, ptr } %spec.select301, 1
-  %agg.tmp154.sroa.0.0 = extractvalue { i64, ptr } %spec.select301, 0
+  %agg.tmp154.sroa.3.0 = select i1 %26, ptr @.str.24, ptr @.str.25
+  %agg.tmp154.sroa.0.0 = select i1 %26, i64 3, i64 1
   %stream_.i95 = getelementptr inbounds i8, ptr %this, i64 56
   %31 = load ptr, ptr %stream_.i95, align 8
-  %call2.i.i96 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef %agg.tmp154.sroa.3.0, i64 noundef %agg.tmp154.sroa.0.0)
+  %call2.i.i96 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull %agg.tmp154.sroa.3.0, i64 noundef %agg.tmp154.sroa.0.0)
   %naked_newline_.i97 = getelementptr inbounds i8, ptr %this, i64 68
   store i8 0, ptr %naked_newline_.i97, align 4
   %and.i = and i32 %traits.9, 32
   %tobool.i.not = icmp eq i32 %and.i, 0
-  %spec.select303 = select i1 %26, { i64, ptr } { i64 1, ptr @.str.31 }, { i64, ptr } { i64 2, ptr @.str.32 }
-  %spec.select302 = select i1 %25, { i64, ptr } { i64 1, ptr @.str.29 }, { i64, ptr } { i64 2, ptr @.str.30 }
   br i1 %tobool.i.not, label %for.body171.lr.ph, label %for.body233.lr.ph
 
 for.body233.lr.ph:                                ; preds = %if.end153
-  %agg.tmp272.sroa.0.0 = extractvalue { i64, ptr } %spec.select303, 0
-  %agg.tmp272.sroa.3.0 = extractvalue { i64, ptr } %spec.select303, 1
-  %agg.tmp263.sroa.0.0 = extractvalue { i64, ptr } %spec.select302, 0
-  %agg.tmp263.sroa.3.0 = extractvalue { i64, ptr } %spec.select302, 1
+  %agg.tmp272.sroa.0.0 = select i1 %26, i64 1, i64 2
+  %agg.tmp272.sroa.3.0 = select i1 %26, ptr @.str.31, ptr @.str.32
+  %agg.tmp263.sroa.0.0 = select i1 %25, i64 1, i64 2
+  %agg.tmp263.sroa.3.0 = select i1 %25, ptr @.str.29, ptr @.str.30
   %32 = and i8 %unicode_allowed.1293, 1
   %tobool295.not = icmp eq i8 %32, 0
   %add.ptr.i.i181 = getelementptr inbounds i8, ptr %buf.i.i178, i64 32
@@ -17310,10 +17303,10 @@ for.body233.lr.ph:                                ; preds = %if.end153
   br label %for.body233
 
 for.body171.lr.ph:                                ; preds = %if.end153
-  %agg.tmp196.sroa.3.0 = extractvalue { i64, ptr } %spec.select303, 1
-  %agg.tmp196.sroa.0.0 = extractvalue { i64, ptr } %spec.select303, 0
-  %agg.tmp187.sroa.3.0 = extractvalue { i64, ptr } %spec.select302, 1
-  %agg.tmp187.sroa.0.0 = extractvalue { i64, ptr } %spec.select302, 0
+  %agg.tmp196.sroa.3.0 = select i1 %26, ptr @.str.31, ptr @.str.32
+  %agg.tmp196.sroa.0.0 = select i1 %26, i64 1, i64 2
+  %agg.tmp187.sroa.3.0 = select i1 %25, ptr @.str.29, ptr @.str.30
+  %agg.tmp187.sroa.0.0 = select i1 %25, i64 1, i64 2
   br label %for.body171
 
 for.body171:                                      ; preds = %for.body171.lr.ph, %for.inc220
@@ -17344,12 +17337,12 @@ sw.bb181:                                         ; preds = %for.body171
 
 sw.bb185:                                         ; preds = %for.body171
   %37 = load ptr, ptr %stream_.i95, align 8
-  %call2.i103 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %37, ptr noundef %agg.tmp187.sroa.3.0, i64 noundef %agg.tmp187.sroa.0.0)
+  %call2.i103 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %37, ptr noundef nonnull %agg.tmp187.sroa.3.0, i64 noundef %agg.tmp187.sroa.0.0)
   br label %for.inc220
 
 sw.bb194:                                         ; preds = %for.body171
   %38 = load ptr, ptr %stream_.i95, align 8
-  %call2.i104 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %38, ptr noundef %agg.tmp196.sroa.3.0, i64 noundef %agg.tmp196.sroa.0.0)
+  %call2.i104 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %38, ptr noundef nonnull %agg.tmp196.sroa.3.0, i64 noundef %agg.tmp196.sroa.0.0)
   br label %for.inc220
 
 sw.default203:                                    ; preds = %for.body171
@@ -17525,12 +17518,12 @@ sw.bb257:                                         ; preds = %if.end247
 
 sw.bb261:                                         ; preds = %if.end247
   %54 = load ptr, ptr %stream_.i95, align 8
-  %call2.i141 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %54, ptr noundef %agg.tmp263.sroa.3.0, i64 noundef %agg.tmp263.sroa.0.0)
+  %call2.i141 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %54, ptr noundef nonnull %agg.tmp263.sroa.3.0, i64 noundef %agg.tmp263.sroa.0.0)
   br label %for.inc320
 
 sw.bb270:                                         ; preds = %if.end247
   %55 = load ptr, ptr %stream_.i95, align 8
-  %call2.i142 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %55, ptr noundef %agg.tmp272.sroa.3.0, i64 noundef %agg.tmp272.sroa.0.0)
+  %call2.i142 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %55, ptr noundef nonnull %agg.tmp272.sroa.3.0, i64 noundef %agg.tmp272.sroa.0.0)
   br label %for.inc320
 
 sw.default279:                                    ; preds = %if.end247
@@ -17678,7 +17671,7 @@ for.inc320:                                       ; preds = %_ZN4toml2v34impl15p
 
 if.end323:                                        ; preds = %for.inc320, %for.inc220
   %66 = load ptr, ptr %stream_.i95, align 8
-  %call2.i.i215 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %66, ptr noundef %agg.tmp154.sroa.3.0, i64 noundef %agg.tmp154.sroa.0.0)
+  %call2.i.i215 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %66, ptr noundef nonnull %agg.tmp154.sroa.3.0, i64 noundef %agg.tmp154.sroa.0.0)
   br label %return
 
 return:                                           ; preds = %if.end323, %if.then143, %if.then98, %if.then
@@ -28487,11 +28480,10 @@ do.body:                                          ; preds = %do.end7.i
   store i64 10, ptr %ref.tmp, align 8
   %16 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store ptr @.str.95, ptr %16, align 8
-  %spec.select.i = select i1 %11, { i64, ptr } { i64 4, ptr @.str }, { i64, ptr } { i64 5, ptr @.str.1 }
-  %17 = extractvalue { i64, ptr } %spec.select.i, 0
+  %17 = select i1 %11, i64 4, i64 5
   store i64 %17, ptr %ref.tmp13, align 8
   %18 = getelementptr inbounds i8, ptr %ref.tmp13, i64 8
-  %19 = extractvalue { i64, ptr } %spec.select.i, 1
+  %19 = select i1 %11, ptr @.str, ptr @.str.1
   store ptr %19, ptr %18, align 8
   store i64 8, ptr %ref.tmp16, align 8
   %20 = getelementptr inbounds i8, ptr %ref.tmp16, i64 8

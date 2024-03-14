@@ -15749,14 +15749,12 @@ if.end:                                           ; preds = %cond.true13.i, %con
   %cmp8.i.i = icmp slt i64 %expected_delay.coerce0, 1
   %cmp25.i.i = icmp eq i32 %expected_delay.coerce1, 0
   %cond27.i.i = select i1 %cmp.not.i.i, i1 %cmp25.i.i, i1 %cmp8.i.i
-  %call28.pn = select i1 %cond27.i.i, { i64, i32 } { i64 0, i32 40000000 }, { i64, i32 } { i64 0, i32 600000000 }
-  %tolerance.sroa.3.0 = extractvalue { i64, i32 } %call28.pn, 1
-  %tolerance.sroa.0.0 = extractvalue { i64, i32 } %call28.pn, 0
+  %tolerance.sroa.3.0 = select i1 %cond27.i.i, i32 40000000, i32 600000000
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %lhs.i25)
   store i64 %expected_delay.coerce0, ptr %lhs.i25, align 8
   %coerce.sroa.2.0.lhs.sroa_idx.i26 = getelementptr inbounds i8, ptr %lhs.i25, i64 8
   store i32 %expected_delay.coerce1, ptr %coerce.sroa.2.0.lhs.sroa_idx.i26, align 8
-  %call.i27 = call noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl8DurationpLES0_(ptr noundef nonnull align 4 dereferenceable(12) %lhs.i25, i64 %tolerance.sroa.0.0, i32 %tolerance.sroa.3.0) #34
+  %call.i27 = call noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl8DurationpLES0_(ptr noundef nonnull align 4 dereferenceable(12) %lhs.i25, i64 0, i32 %tolerance.sroa.3.0) #34
   %retval.sroa.0.0.copyload.i28 = load i64, ptr %call.i27, align 4
   %retval.sroa.2.0.call.sroa_idx.i29 = getelementptr inbounds i8, ptr %call.i27, i64 8
   %retval.sroa.2.0.copyload.i30 = load i32, ptr %retval.sroa.2.0.call.sroa_idx.i29, align 4

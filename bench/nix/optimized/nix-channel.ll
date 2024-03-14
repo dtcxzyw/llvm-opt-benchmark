@@ -26896,51 +26896,49 @@ _ZSt9use_facetIKSt5ctypeIcEERKT_RKSt6locale.exit: ; preds = %20
   %30 = load i32, ptr %29, align 4
   %31 = and i32 %30, 16
   %.not = icmp eq i32 %31, 0
-  %32 = select i1 %.not, { i64, i64 } { i64 ptrtoint (ptr @_ZNSt8__detail8_ScannerIcE19_M_eat_escape_posixEv to i64), i64 0 }, { i64, i64 } { i64 ptrtoint (ptr @_ZNSt8__detail8_ScannerIcE18_M_eat_escape_ecmaEv to i64), i64 0 }
-  %.elt = extractvalue { i64, i64 } %32, 0
+  %.elt = select i1 %.not, i64 ptrtoint (ptr @_ZNSt8__detail8_ScannerIcE19_M_eat_escape_posixEv to i64), i64 ptrtoint (ptr @_ZNSt8__detail8_ScannerIcE18_M_eat_escape_ecmaEv to i64)
   store i64 %.elt, ptr %28, align 8
   %.repack5 = getelementptr inbounds i8, ptr %0, i64 240
-  %.elt6 = extractvalue { i64, i64 } %32, 1
-  store i64 %.elt6, ptr %.repack5, align 8
-  %33 = load ptr, ptr %7, align 8
-  %34 = load ptr, ptr %8, align 8
-  %35 = icmp eq ptr %33, %34
-  br i1 %35, label %36, label %38
+  store i64 0, ptr %.repack5, align 8
+  %32 = load ptr, ptr %7, align 8
+  %33 = load ptr, ptr %8, align 8
+  %34 = icmp eq ptr %32, %33
+  br i1 %34, label %35, label %37
 
-36:                                               ; preds = %_ZSt9use_facetIKSt5ctypeIcEERKT_RKSt6locale.exit
-  %37 = getelementptr inbounds i8, ptr %0, i64 144
-  store i32 27, ptr %37, align 8
+35:                                               ; preds = %_ZSt9use_facetIKSt5ctypeIcEERKT_RKSt6locale.exit
+  %36 = getelementptr inbounds i8, ptr %0, i64 144
+  store i32 27, ptr %36, align 8
   br label %_ZNSt8__detail8_ScannerIcE10_M_advanceEv.exit
 
-38:                                               ; preds = %_ZSt9use_facetIKSt5ctypeIcEERKT_RKSt6locale.exit
-  %39 = getelementptr inbounds i8, ptr %0, i64 136
-  %40 = load i32, ptr %39, align 8
-  switch i32 %40, label %_ZNSt8__detail8_ScannerIcE10_M_advanceEv.exit [
-    i32 0, label %41
-    i32 2, label %42
-    i32 1, label %43
+37:                                               ; preds = %_ZSt9use_facetIKSt5ctypeIcEERKT_RKSt6locale.exit
+  %38 = getelementptr inbounds i8, ptr %0, i64 136
+  %39 = load i32, ptr %38, align 8
+  switch i32 %39, label %_ZNSt8__detail8_ScannerIcE10_M_advanceEv.exit [
+    i32 0, label %40
+    i32 2, label %41
+    i32 1, label %42
   ]
 
-41:                                               ; preds = %38
+40:                                               ; preds = %37
   invoke void @_ZNSt8__detail8_ScannerIcE14_M_scan_normalEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
-          to label %_ZNSt8__detail8_ScannerIcE10_M_advanceEv.exit unwind label %44
+          to label %_ZNSt8__detail8_ScannerIcE10_M_advanceEv.exit unwind label %43
 
-42:                                               ; preds = %38
+41:                                               ; preds = %37
   invoke void @_ZNSt8__detail8_ScannerIcE18_M_scan_in_bracketEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
-          to label %_ZNSt8__detail8_ScannerIcE10_M_advanceEv.exit unwind label %44
+          to label %_ZNSt8__detail8_ScannerIcE10_M_advanceEv.exit unwind label %43
 
-43:                                               ; preds = %38
+42:                                               ; preds = %37
   invoke void @_ZNSt8__detail8_ScannerIcE16_M_scan_in_braceEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
-          to label %_ZNSt8__detail8_ScannerIcE10_M_advanceEv.exit unwind label %44
+          to label %_ZNSt8__detail8_ScannerIcE10_M_advanceEv.exit unwind label %43
 
-_ZNSt8__detail8_ScannerIcE10_M_advanceEv.exit:    ; preds = %38, %36, %41, %42, %43
+_ZNSt8__detail8_ScannerIcE10_M_advanceEv.exit:    ; preds = %37, %35, %40, %41, %42
   ret void
 
-44:                                               ; preds = %43, %42, %41
-  %45 = landingpad { ptr, i32 }
+43:                                               ; preds = %42, %41, %40
+  %44 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #30
-  resume { ptr, i32 } %45
+  resume { ptr, i32 } %44
 }
 
 ; Function Attrs: mustprogress uwtable
