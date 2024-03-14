@@ -238,8 +238,8 @@ cond.true.i.i31:                                  ; preds = %_ZN6icu_759ClockMat
 
 cond.false.i.i24:                                 ; preds = %_ZN6icu_759ClockMath11floorDivideEiiPi.exit
   %add.i.i25.nonneg = xor i32 %sub.i, -1
-  %div1.i.i2662 = udiv i32 %add.i.i25.nonneg, 36524
-  %sub.i.i27 = xor i32 %div1.i.i2662, -1
+  %div1.i.i2662.neg100.neg = sdiv i32 %add.i.i25.nonneg, -36524
+  %sub.i.i27 = add nsw i32 %div1.i.i2662.neg100.neg, -1
   br label %_ZN6icu_759ClockMath11floorDivideEiiPi.exit33
 
 _ZN6icu_759ClockMath11floorDivideEiiPi.exit33:    ; preds = %cond.true.i.i31, %cond.false.i.i24
@@ -255,8 +255,8 @@ cond.true.i.i42:                                  ; preds = %_ZN6icu_759ClockMat
 
 cond.false.i.i35:                                 ; preds = %_ZN6icu_759ClockMath11floorDivideEiiPi.exit33
   %add.i.i36.nonneg = xor i32 %sub.i30, -1
-  %div1.i.i3761 = udiv i32 %add.i.i36.nonneg, 1461
-  %sub.i.i38 = xor i32 %div1.i.i3761, -1
+  %div1.i.i3761.neg98.neg = sdiv i32 %add.i.i36.nonneg, -1461
+  %sub.i.i38 = add nsw i32 %div1.i.i3761.neg98.neg, -1
   br label %_ZN6icu_759ClockMath11floorDivideEiiPi.exit44
 
 _ZN6icu_759ClockMath11floorDivideEiiPi.exit44:    ; preds = %cond.true.i.i42, %cond.false.i.i35
@@ -272,8 +272,8 @@ cond.true.i.i53:                                  ; preds = %_ZN6icu_759ClockMat
 
 cond.false.i.i46:                                 ; preds = %_ZN6icu_759ClockMath11floorDivideEiiPi.exit44
   %add.i.i47.nonneg = xor i32 %sub.i41, -1
-  %div1.i.i4860 = udiv i32 %add.i.i47.nonneg, 365
-  %sub.i.i49 = xor i32 %div1.i.i4860, -1
+  %div1.i.i4860.neg96.neg = sdiv i32 %add.i.i47.nonneg, -365
+  %sub.i.i49 = add nsw i32 %div1.i.i4860.neg96.neg, -1
   br label %_ZN6icu_759ClockMath11floorDivideEiiPi.exit55
 
 _ZN6icu_759ClockMath11floorDivideEiiPi.exit55:    ; preds = %cond.true.i.i53, %cond.false.i.i46

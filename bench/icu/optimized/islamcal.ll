@@ -420,9 +420,9 @@ if.else:                                          ; preds = %entry
 
 if.then3:                                         ; preds = %if.else
   %inc.nonneg = xor i32 %month, -1
-  %div410 = udiv i32 %inc.nonneg, 12
-  %sub = xor i32 %div410, -1
-  %add5 = add nsw i32 %sub, %eyear
+  %div410.neg13.neg = sdiv i32 %inc.nonneg, -12
+  %sub = add i32 %eyear, -1
+  %add5 = add i32 %sub, %div410.neg13.neg
   %rem612 = urem i32 %inc.nonneg, 12
   %add7 = sub nuw nsw i32 11, %rem612
   br label %if.end8
@@ -539,12 +539,11 @@ cond.true:                                        ; preds = %while.end
 
 cond.false:                                       ; preds = %while.end
   %add22.nonneg = xor i32 %month.1, -1
-  %div2356 = udiv i32 %add22.nonneg, 12
-  %div2356.neg = sub nsw i32 0, %div2356
+  %div2356.neg57.neg = sdiv i32 %add22.nonneg, -12
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i32 [ %add, %cond.true ], [ %div2356.neg, %cond.false ]
+  %cond = phi i32 [ %add, %cond.true ], [ %div2356.neg57.neg, %cond.false ]
   %rem = srem i32 %month.1, 12
   %add24 = add nsw i32 %rem, 12
   %rem25.cmp = icmp ugt i32 %rem, -13

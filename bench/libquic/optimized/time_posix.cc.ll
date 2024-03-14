@@ -155,8 +155,7 @@ if.else:                                          ; preds = %entry
   %add.nonneg = sub i64 11644473600000999, %0
   %div415 = udiv i64 %add.nonneg, 1000
   %add6.neg = add nuw nsw i64 %div415, 999
-  %div716 = udiv i64 %add6.neg, 1000
-  %div716.neg = sub nsw i64 0, %div716
+  %div716.neg18.neg = sdiv i64 %add6.neg, -1000
   %rem817 = urem i64 %div415, 1000
   %1 = trunc i64 %rem817 to i32
   %cmp10.not = icmp eq i32 %1, 0
@@ -165,7 +164,7 @@ if.else:                                          ; preds = %entry
   br label %if.end15
 
 if.end15:                                         ; preds = %if.else, %if.then
-  %seconds.0 = phi i64 [ %div2, %if.then ], [ %div716.neg, %if.else ]
+  %seconds.0 = phi i64 [ %div2, %if.then ], [ %div716.neg18.neg, %if.else ]
   %millisecond.0 = phi i32 [ %conv, %if.then ], [ %spec.select, %if.else ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %t.addr.i)
   store i64 %seconds.0, ptr %t.addr.i, align 8

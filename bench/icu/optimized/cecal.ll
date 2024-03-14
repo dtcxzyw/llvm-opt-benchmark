@@ -102,8 +102,8 @@ if.then.i:                                        ; preds = %entry
 
 if.else.i:                                        ; preds = %entry
   %inc.nonneg.i = xor i32 %emonth, -1
-  %div110.i = udiv i32 %inc.nonneg.i, 13
-  %sub.i = xor i32 %div110.i, -1
+  %div110.neg13.neg.i1.neg2.neg = sdiv i32 %inc.nonneg.i, -13
+  %sub.i = add nsw i32 %div110.neg13.neg.i1.neg2.neg, -1
   %rem312.i = urem i32 %inc.nonneg.i, 13
   %add4.i = sub nuw nsw i32 12, %rem312.i
   br label %_ZN6icu_7510CECalendar6ceToJDEiiii.exit
@@ -135,8 +135,8 @@ if.then:                                          ; preds = %entry
 
 if.else:                                          ; preds = %entry
   %inc.nonneg = xor i32 %month, -1
-  %div110 = udiv i32 %inc.nonneg, 13
-  %sub = xor i32 %div110, -1
+  %div110.neg13.neg = sdiv i32 %inc.nonneg, -13
+  %sub = add nsw i32 %div110.neg13.neg, -1
   %rem312 = urem i32 %inc.nonneg, 13
   %add4 = sub nuw nsw i32 12, %rem312
   br label %if.end
