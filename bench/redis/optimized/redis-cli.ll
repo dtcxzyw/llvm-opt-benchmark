@@ -23303,7 +23303,7 @@ if.end43:                                         ; preds = %if.end28
 
 while.end50:                                      ; preds = %while.cond
   call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 4, ptr noundef nonnull @.str.359, i64 noundef %keys.0.ph.ph, i32 noundef %masters.0.ph.ph)
-  %conv = sitofp i64 %keys.0.ph.ph to float
+  %conv = uitofp i64 %keys.0.ph.ph to float
   %div = fmul float %conv, 0x3F10000000000000
   %conv51 = fpext float %div to double
   %call52 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.360, double noundef %conv51)

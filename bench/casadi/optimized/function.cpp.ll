@@ -8696,7 +8696,7 @@ _ZN6casadi13GenericMatrixINS_6MatrixIdEEE5zerosERKSt4pairIxxE.exit: ; preds = %_
 
 .preheader191.us:                                 ; preds = %.preheader191.lr.ph, %._crit_edge217.us
   %storemerge218.us = phi i64 [ %194, %._crit_edge217.us ], [ 0, %.preheader191.lr.ph ]
-  %105 = sitofp i64 %storemerge218.us to double
+  %105 = uitofp i64 %storemerge218.us to double
   br label %.preheader187.us
 
 ._crit_edge212.us:                                ; preds = %181, %.preheader187.us
@@ -8935,11 +8935,11 @@ _ZN6casadi6MatrixIdED2Ev.exit.us:                 ; preds = %180, %178
   br i1 %.not252, label %._crit_edge212.us, label %.lr.ph211.us
 
 .lr.ph211.us:                                     ; preds = %.preheader187.us
-  %192 = sitofp i64 %storemerge68216.us to double
+  %192 = uitofp i64 %storemerge68216.us to double
   br label %154
 
 .lr.ph214.us:                                     ; preds = %.preheader.us
-  %193 = sitofp i64 %storemerge68216.us to double
+  %193 = uitofp i64 %storemerge68216.us to double
   br label %119
 
 ._crit_edge217.us:                                ; preds = %._crit_edge215.us
@@ -9879,7 +9879,7 @@ _ZNSt6vectorIN6casadi6MatrixINS0_6SXElemEEESaIS3_EE6resizeEm.exit: ; preds = %62
 
 .preheader237.us:                                 ; preds = %.preheader237.lr.ph, %._crit_edge263.us
   %storemerge264.us = phi i64 [ %202, %._crit_edge263.us ], [ 0, %.preheader237.lr.ph ]
-  %107 = sitofp i64 %storemerge264.us to double
+  %107 = uitofp i64 %storemerge264.us to double
   br label %.preheader233.us
 
 ._crit_edge258.us:                                ; preds = %189, %.preheader233.us
@@ -10152,11 +10152,11 @@ _ZN6casadi6MatrixINS_6SXElemEED2Ev.exit.us:       ; preds = %188, %_ZSt8_Destroy
   br i1 %.not298, label %._crit_edge258.us, label %.lr.ph257.us
 
 .lr.ph257.us:                                     ; preds = %.preheader233.us
-  %200 = sitofp i64 %storemerge68262.us to double
+  %200 = uitofp i64 %storemerge68262.us to double
   br label %159
 
 .lr.ph260.us:                                     ; preds = %.preheader.us
-  %201 = sitofp i64 %storemerge68262.us to double
+  %201 = uitofp i64 %storemerge68262.us to double
   br label %121
 
 ._crit_edge263.us:                                ; preds = %._crit_edge261.us

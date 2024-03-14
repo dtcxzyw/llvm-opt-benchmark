@@ -59376,7 +59376,7 @@ _ZN19duckdb_jaro_winkler6detailL28flag_similar_characters_wordINS_6common23Block
   br i1 %tobool.not.i, label %cleanup69, label %_ZN19duckdb_jaro_winkler6detailL23jaro_common_char_filterEllld.exit
 
 _ZN19duckdb_jaro_winkler6detailL23jaro_common_char_filterEllld.exit: ; preds = %_ZN19duckdb_jaro_winkler6detailL28flag_similar_characters_wordINS_6common23BlockPatternMatchVectorEN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES7_EENS0_16FlaggedCharsWordERKT_T0_SJ_T1_SK_i.exit
-  %conv.i127 = sitofp i64 %28 to double
+  %conv.i127 = uitofp i64 %28 to double
   %div.i128 = fdiv double %conv.i127, %conv2.i
   %add.i129 = fadd double %div.i128, 0.000000e+00
   %div4.i131 = fdiv double %conv.i127, %conv3.i
@@ -60821,7 +60821,7 @@ _ZN19duckdb_jaro_winkler6detailL28flag_similar_characters_wordINS_6common18Patte
   br i1 %tobool.not.i, label %cleanup.thread, label %_ZN19duckdb_jaro_winkler6detailL23jaro_common_char_filterEllld.exit
 
 _ZN19duckdb_jaro_winkler6detailL23jaro_common_char_filterEllld.exit: ; preds = %_ZN19duckdb_jaro_winkler6detailL28flag_similar_characters_wordINS_6common18PatternMatchVectorEPKcS5_EENS0_16FlaggedCharsWordERKT_T0_SA_T1_SB_i.exit
-  %conv.i150 = sitofp i64 %add to double
+  %conv.i150 = uitofp i64 %add to double
   %div.i151 = fdiv double %conv.i150, %conv2.i
   %add.i152 = fadd double %div.i151, 0.000000e+00
   %div4.i154 = fdiv double %conv.i150, %conv3.i
@@ -61732,7 +61732,7 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
 
 for.end.loopexit.i.i:                             ; preds = %for.inc.i.i, %for.body.i.i
   %prefix.0.lcssa.ph.i.i = phi i64 [ %5, %for.inc.i.i ], [ %prefix.062.i.i, %for.body.i.i ]
-  %8 = sitofp i64 %prefix.0.lcssa.ph.i.i to double
+  %8 = uitofp i64 %prefix.0.lcssa.ph.i.i to double
   %9 = fmul double %8, 1.000000e-01
   br label %_ZN19duckdb_jaro_winkler23jaro_winkler_similarityIPKcS2_EENSt9enable_ifIXaasr6common11is_iteratorIT_EE5valuesr6common11is_iteratorIT0_EE5valueEdE4typeES4_S4_S5_S5_dd.exit
 

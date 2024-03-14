@@ -70,7 +70,7 @@ define i32 @IMDS_given_dim(ptr noundef %0, i32 noundef %1, ptr nocapture noundef
   %31 = fsub double %22, %30
   %32 = tail call double @llvm.fabs.f64(double %31)
   %33 = mul nsw i32 %26, %26
-  %34 = sitofp i32 %33 to double
+  %34 = uitofp i32 %33 to double
   %35 = fdiv double 1.000000e+00, %34
   %36 = fmul double %35, %32
   %37 = insertelement <2 x double> poison, double %28, i64 0
@@ -179,7 +179,7 @@ define i32 @IMDS_given_dim(ptr noundef %0, i32 noundef %1, ptr nocapture noundef
 
 .preheader.preheader.i.i:                         ; preds = %._crit_edge.us.i.i.i
   %81 = fptrunc double %80 to float
-  %82 = sitofp i32 %55 to float
+  %82 = uitofp i32 %55 to float
   %83 = fdiv float %81, %82
   br label %.preheader.i.i
 

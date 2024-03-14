@@ -451,7 +451,7 @@ Vec_IntFree.exit:                                 ; preds = %.split121.us, %195
   br i1 %exitcond.not.i, label %Vec_IntCountPositive.exit.loopexit, label %205, !llvm.loop !8
 
 Vec_IntCountPositive.exit.loopexit:               ; preds = %205
-  %211 = sitofp i32 %210 to double
+  %211 = uitofp i32 %210 to double
   br label %Vec_IntCountPositive.exit
 
 Vec_IntCountPositive.exit:                        ; preds = %Vec_IntCountPositive.exit.loopexit, %Vec_IntFree.exit

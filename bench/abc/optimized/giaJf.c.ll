@@ -1350,7 +1350,7 @@ define noalias noundef ptr @Jf_ManInitRefs(ptr nocapture noundef %0) local_unnam
   %215 = getelementptr inbounds i32, ptr %213, i64 %indvars.iv123
   %216 = load i32, ptr %215, align 4
   %217 = call noundef i32 @llvm.smax.i32(i32 %216, i32 1)
-  %218 = sitofp i32 %217 to float
+  %218 = uitofp i32 %217 to float
   %219 = getelementptr inbounds float, ptr %211, i64 %indvars.iv123
   store float %218, ptr %219, align 4
   %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
@@ -1494,9 +1494,9 @@ define void @Jf_ManProfileClasses(ptr nocapture noundef readonly %0) local_unnam
   %.049.lcssa = phi i32 [ 0, %1 ], [ 0, %.lr.ph ], [ %.2, %66 ]
   %67 = tail call noundef i32 @llvm.smax.i32(i32 %.049.lcssa, i32 1)
   %68 = tail call noundef i32 @llvm.smax.i32(i32 %.051.lcssa, i32 1)
-  %69 = sitofp i32 %68 to double
+  %69 = uitofp i32 %68 to double
   %70 = getelementptr inbounds i8, ptr %0, i64 16
-  %71 = sitofp i32 %67 to double
+  %71 = uitofp i32 %67 to double
   br label %72
 
 72:                                               ; preds = %.critedge, %105
@@ -7506,7 +7506,7 @@ Jf_CutFlow.exit:                                  ; preds = %71, %69
   %.07.lcssa.i = phi float [ 0.000000e+00, %69 ], [ %78, %71 ]
   %79 = lshr i32 %.val.i67, 4
   %80 = and i32 %79, 15
-  %81 = sitofp i32 %80 to float
+  %81 = uitofp i32 %80 to float
   %82 = fadd float %.07.lcssa.i, %81
   br label %83
 

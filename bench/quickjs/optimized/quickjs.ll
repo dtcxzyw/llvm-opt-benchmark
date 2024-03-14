@@ -59857,7 +59857,7 @@ JS_DupValue.exit531:                              ; preds = %115, %JS_DupValue.e
 167:                                              ; preds = %160
   %168 = icmp ult i64 %.048181, 2147483648
   %.sroa.0479.0.insert.ext = and i64 %.048181, 4294967295
-  %169 = sitofp i64 %.048181 to double
+  %169 = uitofp i64 %.048181 to double
   %170 = bitcast double %169 to i64
   %.sroa.0475.0 = select i1 %168, i64 %.sroa.0479.0.insert.ext, i64 %170
   %.sroa.3.0 = select i1 %168, i64 0, i64 7
@@ -121419,7 +121419,7 @@ check_function.exit:                              ; preds = %6, %JS_IsFunction.e
 70:                                               ; preds = %68
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %10, i64 16, i1 false)
   %71 = icmp ult i64 %.0311391, 2147483648
-  %72 = sitofp i64 %.0311391 to double
+  %72 = uitofp i64 %.0311391 to double
   %73 = bitcast double %72 to i64
   %.sroa.0304.0 = select i1 %71, i64 %.0311391, i64 %73
   %.sroa.3305.0 = select i1 %71, i64 0, i64 7
@@ -130239,7 +130239,7 @@ year_from_days.exit:                              ; preds = %90
   %.045.lcssa = phi i64 [ %.04579, %90 ], [ 11, %year_from_days.exit ]
   %100 = sitofp i64 %.0.i51 to double
   store double %100, ptr %3, align 8
-  %101 = sitofp i64 %.045.lcssa to double
+  %101 = uitofp i64 %.045.lcssa to double
   %102 = getelementptr i8, ptr %3, i64 8
   store double %101, ptr %102, align 8
   %103 = add i64 %.056.lcssa, 1
@@ -185127,7 +185127,7 @@ JS_DupValue.exit205:                              ; preds = %109, %117
 
 138:                                              ; preds = %136
   %139 = tail call double @llvm.trunc.f64(double %129)
-  %140 = sitofp i32 %..i to double
+  %140 = uitofp i32 %..i to double
   %141 = fcmp ugt double %139, %140
   br i1 %141, label %142, label %144
 
@@ -186842,7 +186842,7 @@ check_function.exit:                              ; preds = %72, %JS_IsFunction.
 .thread:                                          ; preds = %139, %147
   %148 = icmp ult i64 %.0408, 2147483648
   %.sroa.0300.0.insert.ext = and i64 %.0408, 4294967295
-  %149 = sitofp i64 %.0408 to double
+  %149 = uitofp i64 %.0408 to double
   %150 = bitcast double %149 to i64
   %.sroa.0295.0 = select i1 %148, i64 %.sroa.0300.0.insert.ext, i64 %150
   %.sroa.3296.0 = select i1 %148, i64 0, i64 7
@@ -193375,7 +193375,7 @@ define internal fastcc i64 @JS_FlattenIntoArray(ptr noundef %0, i64 %1, i64 %2, 
 34:                                               ; preds = %33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %13, ptr noundef nonnull align 16 dereferenceable(16) %11, i64 16, i1 false)
   %35 = icmp ult i64 %.06122, 2147483648
-  %36 = sitofp i64 %.06122 to double
+  %36 = uitofp i64 %.06122 to double
   %37 = bitcast double %36 to i64
   %.sroa.053.0 = select i1 %35, i64 %.06122, i64 %37
   %.sroa.354.0 = select i1 %35, i64 0, i64 7
@@ -194185,7 +194185,7 @@ JS_FreeValue.exit378:                             ; preds = %JS_IsConstructor.ex
   store i64 %208, ptr %7, align 8
   store i64 %205, ptr %203, align 8
   %209 = icmp ult i64 %.1569.us, 2147483648
-  %210 = sitofp i64 %.1569.us to double
+  %210 = uitofp i64 %.1569.us to double
   %211 = bitcast double %210 to i64
   %.sroa.015.0.i381.us = select i1 %209, i64 %.1569.us, i64 %211
   %.sroa.3.0.i382.us = select i1 %209, i64 0, i64 7
@@ -194249,7 +194249,7 @@ JS_FreeValue.exit379:                             ; preds = %222, %228, %233
   store i64 %224, ptr %7, align 8
   store i64 %225, ptr %203, align 8
   %237 = icmp ult i64 %.1569, 2147483648
-  %238 = sitofp i64 %.1569 to double
+  %238 = uitofp i64 %.1569 to double
   %239 = bitcast double %238 to i64
   %.sroa.015.0.i381 = select i1 %237, i64 %.sroa.0296.0.insert.ext, i64 %239
   %.sroa.3.0.i382 = select i1 %237, i64 0, i64 7
@@ -198045,7 +198045,7 @@ JS_ToFloat64Free.exit.thread:                     ; preds = %82, %78, %JS_ToFloa
   br i1 %95, label %.preheader.i73, label %98
 
 .preheader.i73:                                   ; preds = %91
-  %96 = sitofp i32 %.0 to double
+  %96 = uitofp i32 %.0 to double
   %97 = fcmp ult double %92, %96
   br i1 %97, label %._crit_edge127.i, label %.lr.ph126.i
 
@@ -198108,7 +198108,7 @@ JS_ToFloat64Free.exit.thread:                     ; preds = %82, %78, %JS_ToFloa
   br label %js_dtoa_radix.exit
 
 127:                                              ; preds = %._crit_edge.i
-  %128 = sitofp i32 %.0 to double
+  %128 = uitofp i32 %.0 to double
   %129 = tail call double @log2(double noundef %128) #42
   %130 = getelementptr inbounds i8, ptr %7, i64 1101
   store i8 46, ptr %94, align 4
@@ -198146,7 +198146,7 @@ JS_ToFloat64Free.exit.thread:                     ; preds = %82, %78, %JS_ToFloa
   store i8 0, ptr %.076.lcssa.i, align 1
   %147 = fmul double %.082.lcssa.i, %128
   %148 = lshr i32 %.0, 1
-  %149 = sitofp i32 %148 to double
+  %149 = uitofp i32 %148 to double
   %150 = fcmp ult double %147, %149
   br i1 %150, label %.preheader96.i, label %151
 
@@ -209944,7 +209944,7 @@ JS_ToInt64Clamp.exit133.thread:                   ; preds = %.sink.split.i131, %
 
 86:                                               ; preds = %JS_ToInt64Clamp.exit133.thread
   %87 = icmp slt i64 %79, 2147483648
-  %88 = sitofp i64 %..i to double
+  %88 = uitofp i64 %..i to double
   %89 = bitcast double %88 to i64
   %.sroa.0110.0 = select i1 %87, i64 %..i, i64 %89
   %.sroa.3.0 = select i1 %87, i64 0, i64 7

@@ -134,7 +134,7 @@ define noundef zeroext i1 @_Z19duDumpPolyMeshToObjR10rcPolyMeshP8duFileIO(ptr no
   %31 = load i16, ptr %30, align 2
   %32 = zext i16 %31 to i32
   %33 = add nuw nsw i32 %32, 1
-  %34 = sitofp i32 %33 to float
+  %34 = uitofp i32 %33 to float
   %35 = tail call float @llvm.fmuladd.f32(float %34, float %14, float %29)
   %36 = fadd float %35, 0x3FB99999A0000000
   %37 = load float, ptr %20, align 8

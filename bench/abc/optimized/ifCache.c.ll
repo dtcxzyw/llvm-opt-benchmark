@@ -888,7 +888,7 @@ Hsh_IntManHashArray.exit:                         ; preds = %Vec_IntFree.exit.i.
 
 .lr.ph104:                                        ; preds = %.critedge.preheader
   %230 = tail call noundef i32 @llvm.smax.i32(i32 %.val.lcssa, i32 1)
-  %231 = sitofp i32 %230 to double
+  %231 = uitofp i32 %230 to double
   br label %277
 
 .lr.ph101:                                        ; preds = %.preheader79, %Vec_IntPush.exit
@@ -1065,7 +1065,7 @@ Vec_IntCountUnique.exit:                          ; preds = %._crit_edge.i44, %.
   %309 = sitofp i32 %.014.lcssa22.i to double
   %310 = fmul double %309, 1.000000e+02
   %311 = tail call noundef i32 @llvm.smax.i32(i32 %281, i32 1)
-  %312 = sitofp i32 %311 to double
+  %312 = uitofp i32 %311 to double
   %313 = fdiv double %310, %312
   %314 = trunc i64 %indvars.iv128 to i32
   %315 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %314, i32 noundef %281, double noundef %308, i32 noundef %.014.lcssa22.i, double noundef %313)
@@ -1175,7 +1175,7 @@ Vec_IntCountUnique.exit76:                        ; preds = %._crit_edge.i56, %.
   %352 = sitofp i32 %.014.lcssa22.i60 to double
   %353 = fmul double %352, 1.000000e+02
   %354 = tail call noundef i32 @llvm.smax.i32(i32 %351, i32 1)
-  %355 = sitofp i32 %354 to double
+  %355 = uitofp i32 %354 to double
   %356 = fdiv double %353, %355
   %357 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %351, double noundef 1.000000e+02, i32 noundef %.014.lcssa22.i60, double noundef %356)
   %358 = load ptr, ptr %8, align 8

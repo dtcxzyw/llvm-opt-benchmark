@@ -1760,7 +1760,7 @@ sw.bb:                                            ; preds = %entry
 for.body.i.i.i:                                   ; preds = %_ZN4pbrt21VisibleWavelengthsPDFEf.exit.i.i.i, %sw.bb
   %indvars.iv.i.i.i = phi i64 [ 0, %sw.bb ], [ %indvars.iv.next.i.i.i, %_ZN4pbrt21VisibleWavelengthsPDFEf.exit.i.i.i ]
   %2 = trunc i64 %indvars.iv.i.i.i to i32
-  %conv.i.i.i = sitofp i32 %2 to float
+  %conv.i.i.i = uitofp i32 %2 to float
   %div.i.i.i = fmul float %conv.i.i.i, 2.500000e-01
   %add.i.i.i = fadd float %1, %div.i.i.i
   %cmp1.i.i.i = fcmp ogt float %add.i.i.i, 1.000000e+00
@@ -1807,7 +1807,7 @@ sw.bb3:                                           ; preds = %entry
 for.body.i.i.i6:                                  ; preds = %_ZN4pbrt21VisibleWavelengthsPDFEf.exit.i.i.i29, %sw.bb3
   %indvars.iv.i.i.i7 = phi i64 [ 0, %sw.bb3 ], [ %indvars.iv.next.i.i.i32, %_ZN4pbrt21VisibleWavelengthsPDFEf.exit.i.i.i29 ]
   %5 = trunc i64 %indvars.iv.i.i.i7 to i32
-  %conv.i.i.i8 = sitofp i32 %5 to float
+  %conv.i.i.i8 = uitofp i32 %5 to float
   %div.i.i.i9 = fmul float %conv.i.i.i8, 2.500000e-01
   %add.i.i.i10 = fadd float %4, %div.i.i.i9
   %cmp1.i.i.i11 = fcmp ogt float %add.i.i.i10, 1.000000e+00
@@ -2442,7 +2442,7 @@ while.cond.i.i:                                   ; preds = %while.cond.i.i, %if
   %4 = load float, ptr %arrayidx.i.i.i, align 4
   %add10.i.i = fadd float %sum.0.i.i, %4
   %cmp11.i.i = fcmp ugt float %add10.i.i, %up.0.i.i
-  %indvars.iv.next.i.i = add nuw i64 %indvars.iv.i.i, 1
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   br i1 %cmp11.i.i, label %_ZN4pbrt14SampleDiscreteEN4pstd4spanIKfEEfPfS4_.exit.i, label %while.cond.i.i, !llvm.loop !61
 
 _ZN4pbrt14SampleDiscreteEN4pstd4spanIKfEEfPfS4_.exit.i: ; preds = %while.cond.i.i
@@ -2537,7 +2537,7 @@ while.cond.i.i15:                                 ; preds = %while.cond.i.i15, %
   %10 = load float, ptr %arrayidx.i.i.i18, align 4
   %add10.i.i19 = fadd float %sum.0.i.i17, %10
   %cmp11.i.i20 = fcmp ugt float %add10.i.i19, %up.0.i.i14
-  %indvars.iv.next.i.i21 = add nuw i64 %indvars.iv.i.i16, 1
+  %indvars.iv.next.i.i21 = add nuw nsw i64 %indvars.iv.i.i16, 1
   br i1 %cmp11.i.i20, label %_ZN4pbrt14SampleDiscreteEN4pstd4spanIKfEEfPfS4_.exit.i22, label %while.cond.i.i15, !llvm.loop !61
 
 _ZN4pbrt14SampleDiscreteEN4pstd4spanIKfEEfPfS4_.exit.i22: ; preds = %while.cond.i.i15
@@ -9296,7 +9296,7 @@ if.then.i.i:                                      ; preds = %for.body.i.i
 for.inc.i.i:                                      ; preds = %if.then.i.i, %for.body.i.i
   %v.1.i.i = phi i32 [ %xor.i.i, %if.then.i.i ], [ %v.08.i.i, %for.body.i.i ]
   %shr.i.i = ashr i64 %a.addr.07.i.i, 1
-  %indvars.iv.next.i.i = add i64 %indvars.iv.i.i, 1
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %cmp.not.i.i = icmp ult i64 %a.addr.07.i.i, 2
   br i1 %cmp.not.i.i, label %_ZN4pbrt11SobolSampleINS_12NoRandomizerEEEfliT_.exit.i, label %for.body.i.i, !llvm.loop !130
 
@@ -9322,7 +9322,7 @@ if.then.i13.i:                                    ; preds = %for.body.i7.i
 for.inc.i16.i:                                    ; preds = %if.then.i13.i, %for.body.i7.i
   %v.1.i17.i = phi i32 [ %xor.i15.i, %if.then.i13.i ], [ %v.08.i9.i, %for.body.i7.i ]
   %shr.i18.i = ashr i64 %a.addr.07.i10.i, 1
-  %indvars.iv.next.i19.i = add i64 %indvars.iv.i8.i, 1
+  %indvars.iv.next.i19.i = add nuw nsw i64 %indvars.iv.i8.i, 1
   %cmp.not.i20.i = icmp ult i64 %a.addr.07.i10.i, 2
   br i1 %cmp.not.i20.i, label %for.end.loopexit.i21.i, label %for.body.i7.i, !llvm.loop !130
 
@@ -9486,7 +9486,7 @@ if.then.i:                                        ; preds = %for.body.i
 for.inc.i:                                        ; preds = %if.then.i, %for.body.i
   %v.1.i = phi i32 [ %xor.i, %if.then.i ], [ %v.08.i, %for.body.i ]
   %shr.i = ashr i64 %a.addr.07.i, 1
-  %indvars.iv.next.i = add i64 %indvars.iv.i, 1
+  %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %cmp.not.i = icmp ult i64 %a.addr.07.i, 2
   br i1 %cmp.not.i, label %for.end.loopexit.i, label %for.body.i, !llvm.loop !130
 
@@ -9547,7 +9547,7 @@ if.then.i16:                                      ; preds = %for.body.i10
 for.inc.i19:                                      ; preds = %if.then.i16, %for.body.i10
   %v.1.i20 = phi i32 [ %xor.i18, %if.then.i16 ], [ %v.08.i12, %for.body.i10 ]
   %shr.i21 = ashr i64 %a.addr.07.i13, 1
-  %indvars.iv.next.i22 = add i64 %indvars.iv.i11, 1
+  %indvars.iv.next.i22 = add nsw i64 %indvars.iv.i11, 1
   %cmp.not.i23 = icmp ult i64 %a.addr.07.i13, 2
   br i1 %cmp.not.i23, label %_ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit, label %for.body.i10, !llvm.loop !131
 
@@ -9583,7 +9583,7 @@ if.then.i36:                                      ; preds = %for.body.i30
 for.inc.i39:                                      ; preds = %if.then.i36, %for.body.i30
   %v.1.i40 = phi i32 [ %xor.i38, %if.then.i36 ], [ %v.08.i32, %for.body.i30 ]
   %shr.i41 = ashr i64 %a.addr.07.i33, 1
-  %indvars.iv.next.i42 = add i64 %indvars.iv.i31, 1
+  %indvars.iv.next.i42 = add nsw i64 %indvars.iv.i31, 1
   %cmp.not.i43 = icmp ult i64 %a.addr.07.i33, 2
   br i1 %cmp.not.i43, label %_ZN4pbrt11SobolSampleINS_17FastOwenScramblerEEEfliT_.exit, label %for.body.i30, !llvm.loop !132
 
@@ -9630,7 +9630,7 @@ if.then.i61:                                      ; preds = %for.body.i55
 for.inc.i64:                                      ; preds = %if.then.i61, %for.body.i55
   %v.1.i65 = phi i32 [ %xor.i63, %if.then.i61 ], [ %v.08.i57, %for.body.i55 ]
   %shr.i66 = ashr i64 %a.addr.07.i58, 1
-  %indvars.iv.next.i67 = add i64 %indvars.iv.i56, 1
+  %indvars.iv.next.i67 = add nsw i64 %indvars.iv.i56, 1
   %cmp.not.i68 = icmp ult i64 %a.addr.07.i58, 2
   br i1 %cmp.not.i68, label %for.end.i, label %for.body.i55, !llvm.loop !133
 
@@ -10624,7 +10624,7 @@ if.then.i11:                                      ; preds = %for.body.i8
 for.inc.i:                                        ; preds = %if.then.i11, %for.body.i8
   %v.1.i = phi i32 [ %xor.i12, %if.then.i11 ], [ %v.08.i, %for.body.i8 ]
   %shr.i13 = ashr i64 %a.addr.07.i, 1
-  %indvars.iv.next.i14 = add i64 %indvars.iv.i9, 1
+  %indvars.iv.next.i14 = add nuw nsw i64 %indvars.iv.i9, 1
   %cmp.not.i = icmp ult i64 %a.addr.07.i, 2
   br i1 %cmp.not.i, label %for.end.loopexit.i, label %for.body.i8, !llvm.loop !130
 
@@ -10653,7 +10653,7 @@ if.then.i24:                                      ; preds = %for.body.i18
 for.inc.i27:                                      ; preds = %if.then.i24, %for.body.i18
   %v.1.i28 = phi i32 [ %xor.i26, %if.then.i24 ], [ %v.08.i20, %for.body.i18 ]
   %shr.i29 = ashr i64 %a.addr.07.i21, 1
-  %indvars.iv.next.i30 = add i64 %indvars.iv.i19, 1
+  %indvars.iv.next.i30 = add nuw nsw i64 %indvars.iv.i19, 1
   %cmp.not.i31 = icmp ult i64 %a.addr.07.i21, 2
   br i1 %cmp.not.i31, label %_ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit, label %for.body.i18, !llvm.loop !131
 
@@ -10684,7 +10684,7 @@ if.then.i46:                                      ; preds = %for.body.i40
 for.inc.i49:                                      ; preds = %if.then.i46, %for.body.i40
   %v.1.i50 = phi i32 [ %xor.i48, %if.then.i46 ], [ %v.08.i42, %for.body.i40 ]
   %shr.i51 = ashr i64 %a.addr.07.i43, 1
-  %indvars.iv.next.i52 = add i64 %indvars.iv.i41, 1
+  %indvars.iv.next.i52 = add nuw nsw i64 %indvars.iv.i41, 1
   %cmp.not.i53 = icmp ult i64 %a.addr.07.i43, 2
   br i1 %cmp.not.i53, label %_ZN4pbrt11SobolSampleINS_17FastOwenScramblerEEEfliT_.exit, label %for.body.i40, !llvm.loop !132
 
@@ -10726,7 +10726,7 @@ if.then.i72:                                      ; preds = %for.body.i66
 for.inc.i75:                                      ; preds = %if.then.i72, %for.body.i66
   %v.1.i76 = phi i32 [ %xor.i74, %if.then.i72 ], [ %v.08.i68, %for.body.i66 ]
   %shr.i77 = ashr i64 %a.addr.07.i69, 1
-  %indvars.iv.next.i78 = add i64 %indvars.iv.i67, 1
+  %indvars.iv.next.i78 = add nuw nsw i64 %indvars.iv.i67, 1
   %cmp.not.i79 = icmp ult i64 %a.addr.07.i69, 2
   br i1 %cmp.not.i79, label %for.end.i80, label %for.body.i66, !llvm.loop !133
 
@@ -10916,7 +10916,7 @@ if.then.i18:                                      ; preds = %for.body.i15
 for.inc.i:                                        ; preds = %if.then.i18, %for.body.i15
   %v.1.i = phi i32 [ %xor.i19, %if.then.i18 ], [ %v.08.i, %for.body.i15 ]
   %shr.i20 = ashr i64 %a.addr.07.i, 1
-  %indvars.iv.next.i21 = add i64 %indvars.iv.i16, 1
+  %indvars.iv.next.i21 = add nuw nsw i64 %indvars.iv.i16, 1
   %cmp.not.i = icmp ult i64 %a.addr.07.i, 2
   br i1 %cmp.not.i, label %_ZN4pbrt11SobolSampleINS_12NoRandomizerEEEfliT_.exit, label %for.body.i15, !llvm.loop !130
 
@@ -10943,7 +10943,7 @@ if.then.i31:                                      ; preds = %for.body.i25
 for.inc.i34:                                      ; preds = %if.then.i31, %for.body.i25
   %v.1.i35 = phi i32 [ %xor.i33, %if.then.i31 ], [ %v.08.i27, %for.body.i25 ]
   %shr.i36 = ashr i64 %a.addr.07.i28, 1
-  %indvars.iv.next.i37 = add i64 %indvars.iv.i26, 1
+  %indvars.iv.next.i37 = add nuw nsw i64 %indvars.iv.i26, 1
   %cmp.not.i38 = icmp ult i64 %a.addr.07.i28, 2
   br i1 %cmp.not.i38, label %for.end.loopexit.i39, label %for.body.i25, !llvm.loop !130
 
@@ -10980,7 +10980,7 @@ if.then.i53:                                      ; preds = %for.body.i47
 for.inc.i56:                                      ; preds = %if.then.i53, %for.body.i47
   %v.1.i57 = phi i32 [ %xor.i55, %if.then.i53 ], [ %v.08.i49, %for.body.i47 ]
   %shr.i58 = ashr i64 %a.addr.07.i50, 1
-  %indvars.iv.next.i59 = add i64 %indvars.iv.i48, 1
+  %indvars.iv.next.i59 = add nuw nsw i64 %indvars.iv.i48, 1
   %cmp.not.i60 = icmp ult i64 %a.addr.07.i50, 2
   br i1 %cmp.not.i60, label %_ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit, label %for.body.i47, !llvm.loop !131
 
@@ -11008,7 +11008,7 @@ if.then.i75:                                      ; preds = %for.body.i69
 for.inc.i78:                                      ; preds = %if.then.i75, %for.body.i69
   %v.1.i79 = phi i32 [ %xor.i77, %if.then.i75 ], [ %v.08.i71, %for.body.i69 ]
   %shr.i80 = ashr i64 %a.addr.07.i72, 1
-  %indvars.iv.next.i81 = add i64 %indvars.iv.i70, 1
+  %indvars.iv.next.i81 = add nuw nsw i64 %indvars.iv.i70, 1
   %cmp.not.i82 = icmp ult i64 %a.addr.07.i72, 2
   br i1 %cmp.not.i82, label %_ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit90.loopexit, label %for.body.i69, !llvm.loop !131
 
@@ -11044,7 +11044,7 @@ if.then.i100:                                     ; preds = %for.body.i94
 for.inc.i103:                                     ; preds = %if.then.i100, %for.body.i94
   %v.1.i104 = phi i32 [ %xor.i102, %if.then.i100 ], [ %v.08.i96, %for.body.i94 ]
   %shr.i105 = ashr i64 %a.addr.07.i97, 1
-  %indvars.iv.next.i106 = add i64 %indvars.iv.i95, 1
+  %indvars.iv.next.i106 = add nuw nsw i64 %indvars.iv.i95, 1
   %cmp.not.i107 = icmp ult i64 %a.addr.07.i97, 2
   br i1 %cmp.not.i107, label %_ZN4pbrt11SobolSampleINS_17FastOwenScramblerEEEfliT_.exit, label %for.body.i94, !llvm.loop !132
 
@@ -11085,7 +11085,7 @@ if.then.i126:                                     ; preds = %for.body.i120
 for.inc.i129:                                     ; preds = %if.then.i126, %for.body.i120
   %v.1.i130 = phi i32 [ %xor.i128, %if.then.i126 ], [ %v.08.i122, %for.body.i120 ]
   %shr.i131 = ashr i64 %a.addr.07.i123, 1
-  %indvars.iv.next.i132 = add i64 %indvars.iv.i121, 1
+  %indvars.iv.next.i132 = add nuw nsw i64 %indvars.iv.i121, 1
   %cmp.not.i133 = icmp ult i64 %a.addr.07.i123, 2
   br i1 %cmp.not.i133, label %_ZN4pbrt11SobolSampleINS_17FastOwenScramblerEEEfliT_.exit152, label %for.body.i120, !llvm.loop !132
 
@@ -11127,7 +11127,7 @@ if.then.i162:                                     ; preds = %for.body.i156
 for.inc.i165:                                     ; preds = %if.then.i162, %for.body.i156
   %v.1.i166 = phi i32 [ %xor.i164, %if.then.i162 ], [ %v.08.i158, %for.body.i156 ]
   %shr.i167 = ashr i64 %a.addr.07.i159, 1
-  %indvars.iv.next.i168 = add i64 %indvars.iv.i157, 1
+  %indvars.iv.next.i168 = add nuw nsw i64 %indvars.iv.i157, 1
   %cmp.not.i169 = icmp ult i64 %a.addr.07.i159, 2
   br i1 %cmp.not.i169, label %for.end.i170, label %for.body.i156, !llvm.loop !133
 
@@ -11189,7 +11189,7 @@ if.then.i185:                                     ; preds = %for.body.i179
 for.inc.i188:                                     ; preds = %if.then.i185, %for.body.i179
   %v.1.i189 = phi i32 [ %xor.i187, %if.then.i185 ], [ %v.08.i181, %for.body.i179 ]
   %shr.i190 = ashr i64 %a.addr.07.i182, 1
-  %indvars.iv.next.i191 = add i64 %indvars.iv.i180, 1
+  %indvars.iv.next.i191 = add nuw nsw i64 %indvars.iv.i180, 1
   %cmp.not.i192 = icmp ult i64 %a.addr.07.i182, 2
   br i1 %cmp.not.i192, label %for.end.i193, label %for.body.i179, !llvm.loop !133
 

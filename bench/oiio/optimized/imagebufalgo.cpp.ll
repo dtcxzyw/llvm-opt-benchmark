@@ -6365,7 +6365,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %p.07.i = phi float [ 1.000000e+00, %for.body.lr.ph.i ], [ %mul.i, %for.body.i ]
   %sub1.i = add i32 %sub.neg.i, %i.08.i
   %conv.i = sitofp i32 %sub1.i to float
-  %conv2.i = sitofp i32 %i.08.i to float
+  %conv2.i = uitofp i32 %i.08.i to float
   %div.i = fdiv float %conv.i, %conv2.i
   %mul.i = fmul float %p.07.i, %div.i
   %inc.i66 = add nuw i32 %i.08.i, 1
@@ -6379,7 +6379,7 @@ _ZN18OpenImageIO_v2_6_08binomialEii.exit:         ; preds = %for.body.i, %for.bo
   store float %p.0.lcssa.i, ptr %arrayidx, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %39 = trunc i64 %indvars.iv.next to i32
-  %conv56 = sitofp i32 %39 to float
+  %conv56 = uitofp i32 %39 to float
   %cmp57 = fcmp olt float %conv56, %width
   br i1 %cmp57, label %for.body58, label %for.end64, !llvm.loop !73
 
@@ -6422,7 +6422,7 @@ for.body.i70:                                     ; preds = %for.body.i70, %for.
   %p.07.i72 = phi float [ 1.000000e+00, %for.body.lr.ph.i68 ], [ %mul.i77, %for.body.i70 ]
   %sub1.i73 = add i32 %sub.neg.i69, %i.08.i71
   %conv.i74 = sitofp i32 %sub1.i73 to float
-  %conv2.i75 = sitofp i32 %i.08.i71 to float
+  %conv2.i75 = uitofp i32 %i.08.i71 to float
   %div.i76 = fdiv float %conv.i74, %conv2.i75
   %mul.i77 = fmul float %p.07.i72, %div.i76
   %inc.i78 = add nuw i32 %i.08.i71, 1
@@ -6436,7 +6436,7 @@ _ZN18OpenImageIO_v2_6_08binomialEii.exit81:       ; preds = %for.body.i70, %for.
   store float %p.0.lcssa.i80, ptr %arrayidx89, align 4
   %indvars.iv.next364 = add nuw nsw i64 %indvars.iv363, 1
   %44 = trunc i64 %indvars.iv.next364 to i32
-  %conv81 = sitofp i32 %44 to float
+  %conv81 = uitofp i32 %44 to float
   %45 = load float, ptr %height.addr, align 4
   %cmp82 = fcmp ogt float %45, %conv81
   br i1 %cmp82, label %for.body83, label %if.end, !llvm.loop !74
@@ -6484,7 +6484,7 @@ for.body.i85:                                     ; preds = %for.body.i85, %for.
   %p.07.i87 = phi float [ 1.000000e+00, %for.body.lr.ph.i83 ], [ %mul.i92, %for.body.i85 ]
   %sub1.i88 = add i32 %sub.neg.i84, %i.08.i86
   %conv.i89 = sitofp i32 %sub1.i88 to float
-  %conv2.i90 = sitofp i32 %i.08.i86 to float
+  %conv2.i90 = uitofp i32 %i.08.i86 to float
   %div.i91 = fdiv float %conv.i89, %conv2.i90
   %mul.i92 = fmul float %p.07.i87, %div.i91
   %inc.i93 = add nuw i32 %i.08.i86, 1
@@ -6498,7 +6498,7 @@ _ZN18OpenImageIO_v2_6_08binomialEii.exit96:       ; preds = %for.body.i85, %for.
   store float %p.0.lcssa.i95, ptr %arrayidx114, align 4
   %indvars.iv.next367 = add nuw nsw i64 %indvars.iv366, 1
   %49 = trunc i64 %indvars.iv.next367 to i32
-  %conv106 = sitofp i32 %49 to float
+  %conv106 = uitofp i32 %49 to float
   %cmp107 = fcmp olt float %conv106, %depth
   br i1 %cmp107, label %for.body108, label %if.end118, !llvm.loop !75
 
@@ -6689,7 +6689,7 @@ invoke.cont170:                                   ; preds = %if.then168
 if.else176:                                       ; preds = %invoke.cont161
   %mul178 = mul nsw i32 %or10, %or
   %mul179 = mul nsw i32 %mul178, %or11
-  %conv180 = sitofp i32 %mul179 to float
+  %conv180 = uitofp i32 %mul179 to float
   %div181 = fdiv float 1.000000e+00, %conv180
   %cond184 = select i1 %normalize, float %div181, float 1.000000e+00
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_NS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %p185, ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i32 noundef 0, i1 noundef zeroext true)
@@ -53215,7 +53215,7 @@ for.body.preheader.i:                             ; preds = %entry
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.body.i ]
   %1 = trunc i64 %indvars.iv.i to i32
-  %conv5.i = sitofp i32 %1 to float
+  %conv5.i = uitofp i32 %1 to float
   %mul6.i = fmul float %conv3.i, %conv5.i
   %retval.sroa.0.4.vec.insert.i.i.i = insertelement <2 x float> <float 0.000000e+00, float poison>, float %mul6.i, i64 1
   %call.i.i.i = tail call noundef <2 x float> @cexpf(<2 x float> noundef %retval.sroa.0.4.vec.insert.i.i.i) #30

@@ -179,7 +179,7 @@ if.then43:                                        ; preds = %for.body
   br i1 %or.cond, label %if.then51, label %for.inc
 
 if.then51:                                        ; preds = %if.then43
-  %conv53 = sitofp i32 %l.0113 to double
+  %conv53 = uitofp i32 %l.0113 to double
   %add54 = fadd double %div, %conv53
   %add55 = fadd double %add54, 5.000000e-01
   %call57 = invoke noundef double @_ZNK7msdfgen10Projection10unprojectXEd(ptr noundef nonnull align 8 dereferenceable(32) %projection, double noundef %add55)
@@ -528,7 +528,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %conv.i188 = fpext float %30 to double
   %47 = extractelement <2 x float> %42, i64 1
   %conv1.i189 = fpext float %47 to double
-  %conv129 = sitofp i32 %l.0269 to double
+  %conv129 = uitofp i32 %l.0269 to double
   br label %for.body90
 
 for.body90:                                       ; preds = %for.body, %for.inc
@@ -1036,7 +1036,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %conv.i188 = fpext float %30 to double
   %47 = extractelement <2 x float> %42, i64 1
   %conv1.i189 = fpext float %47 to double
-  %conv129 = sitofp i32 %l.0269 to double
+  %conv129 = uitofp i32 %l.0269 to double
   br label %for.body90
 
 for.body90:                                       ; preds = %for.body, %for.inc
@@ -1385,13 +1385,13 @@ for.cond12.preheader.us.preheader:                ; preds = %for.cond.preheader
 for.cond12.preheader.us:                          ; preds = %for.cond12.preheader.us.preheader, %for.cond12.for.inc28_crit_edge.us
   %error.040.us = phi double [ %add27.us, %for.cond12.for.inc28_crit_edge.us ], [ 0.000000e+00, %for.cond12.preheader.us.preheader ]
   %row.039.us = phi i32 [ %inc29.us, %for.cond12.for.inc28_crit_edge.us ], [ 0, %for.cond12.preheader.us.preheader ]
-  %conv16.us = sitofp i32 %row.039.us to double
+  %conv16.us = uitofp i32 %row.039.us to double
   br label %for.body14.us
 
 for.body14.us:                                    ; preds = %for.cond12.preheader.us, %invoke.cont24.us
   %error.136.us = phi double [ %error.040.us, %for.cond12.preheader.us ], [ %add27.us, %invoke.cont24.us ]
   %subRow.035.us = phi i32 [ 0, %for.cond12.preheader.us ], [ %inc.us, %invoke.cont24.us ]
-  %conv15.us = sitofp i32 %subRow.035.us to double
+  %conv15.us = uitofp i32 %subRow.035.us to double
   %add.us = fadd double %conv15.us, 5.000000e-01
   %mul.us = fmul double %div, %add.us
   %add17.us = fadd double %mul.us, %conv16.us
@@ -1537,13 +1537,13 @@ for.cond12.preheader.us.preheader:                ; preds = %for.cond.preheader
 for.cond12.preheader.us:                          ; preds = %for.cond12.preheader.us.preheader, %for.cond12.for.inc28_crit_edge.us
   %error.040.us = phi double [ %add27.us, %for.cond12.for.inc28_crit_edge.us ], [ 0.000000e+00, %for.cond12.preheader.us.preheader ]
   %row.039.us = phi i32 [ %inc29.us, %for.cond12.for.inc28_crit_edge.us ], [ 0, %for.cond12.preheader.us.preheader ]
-  %conv16.us = sitofp i32 %row.039.us to double
+  %conv16.us = uitofp i32 %row.039.us to double
   br label %for.body14.us
 
 for.body14.us:                                    ; preds = %for.cond12.preheader.us, %invoke.cont24.us
   %error.136.us = phi double [ %error.040.us, %for.cond12.preheader.us ], [ %add27.us, %invoke.cont24.us ]
   %subRow.035.us = phi i32 [ 0, %for.cond12.preheader.us ], [ %inc.us, %invoke.cont24.us ]
-  %conv15.us = sitofp i32 %subRow.035.us to double
+  %conv15.us = uitofp i32 %subRow.035.us to double
   %add.us = fadd double %conv15.us, 5.000000e-01
   %mul.us = fmul double %div, %add.us
   %add17.us = fadd double %mul.us, %conv16.us
@@ -1689,13 +1689,13 @@ for.cond12.preheader.us.preheader:                ; preds = %for.cond.preheader
 for.cond12.preheader.us:                          ; preds = %for.cond12.preheader.us.preheader, %for.cond12.for.inc28_crit_edge.us
   %error.040.us = phi double [ %add27.us, %for.cond12.for.inc28_crit_edge.us ], [ 0.000000e+00, %for.cond12.preheader.us.preheader ]
   %row.039.us = phi i32 [ %inc29.us, %for.cond12.for.inc28_crit_edge.us ], [ 0, %for.cond12.preheader.us.preheader ]
-  %conv16.us = sitofp i32 %row.039.us to double
+  %conv16.us = uitofp i32 %row.039.us to double
   br label %for.body14.us
 
 for.body14.us:                                    ; preds = %for.cond12.preheader.us, %invoke.cont24.us
   %error.136.us = phi double [ %error.040.us, %for.cond12.preheader.us ], [ %add27.us, %invoke.cont24.us ]
   %subRow.035.us = phi i32 [ 0, %for.cond12.preheader.us ], [ %inc.us, %invoke.cont24.us ]
-  %conv15.us = sitofp i32 %subRow.035.us to double
+  %conv15.us = uitofp i32 %subRow.035.us to double
   %add.us = fadd double %conv15.us, 5.000000e-01
   %mul.us = fmul double %div, %add.us
   %add17.us = fadd double %mul.us, %conv16.us

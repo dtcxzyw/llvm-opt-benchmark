@@ -306,7 +306,7 @@ define void @Mfs_ManPrint(ptr nocapture noundef readonly %0) local_unnamed_addr 
   %26 = sitofp i32 %23 to double
   %27 = fmul double %26, 1.000000e+02
   %28 = tail call noundef i32 @llvm.smax.i32(i32 %25, i32 1)
-  %29 = sitofp i32 %28 to double
+  %29 = uitofp i32 %28 to double
   %30 = fdiv double %27, %29
   %31 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %23, i32 noundef %25, double noundef %30)
   %32 = getelementptr inbounds i8, ptr %0, i64 760
@@ -316,7 +316,7 @@ define void @Mfs_ManPrint(ptr nocapture noundef readonly %0) local_unnamed_addr 
   %36 = sitofp i32 %33 to double
   %37 = fmul double %36, 1.000000e+02
   %38 = tail call noundef i32 @llvm.smax.i32(i32 %35, i32 1)
-  %39 = sitofp i32 %38 to double
+  %39 = uitofp i32 %38 to double
   %40 = fdiv double %37, %39
   %41 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %33, i32 noundef %35, double noundef %40)
   %putchar = tail call i32 @putchar(i32 10)
@@ -328,7 +328,7 @@ define void @Mfs_ManPrint(ptr nocapture noundef readonly %0) local_unnamed_addr 
   %47 = sitofp i32 %46 to double
   %48 = fmul double %47, 1.000000e+02
   %49 = tail call noundef i32 @llvm.smax.i32(i32 %43, i32 1)
-  %50 = sitofp i32 %49 to double
+  %50 = uitofp i32 %49 to double
   %51 = fdiv double %48, %50
   %52 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %46, i32 noundef %43, double noundef %51)
   %53 = getelementptr inbounds i8, ptr %0, i64 824
@@ -339,7 +339,7 @@ define void @Mfs_ManPrint(ptr nocapture noundef readonly %0) local_unnamed_addr 
   %58 = sitofp i32 %57 to double
   %59 = fmul double %58, 1.000000e+02
   %60 = tail call noundef i32 @llvm.smax.i32(i32 %54, i32 1)
-  %61 = sitofp i32 %60 to double
+  %61 = uitofp i32 %60 to double
   %62 = fdiv double %59, %61
   %63 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %57, i32 noundef %54, double noundef %62)
   %putchar93 = tail call i32 @putchar(i32 10)

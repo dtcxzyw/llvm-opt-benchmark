@@ -28379,7 +28379,7 @@ define linkonce_odr void @_ZN3vcg6VolumeINS_7VoxelfcEfE10SlicedPPMQEPKcS4_i(ptr 
   store float 0.000000e+00, ptr %9, align 4
   store float 1.000000e+02, ptr %10, align 4
   %13 = trunc i64 %indvars.iv to i32
-  %14 = sitofp i32 %13 to float
+  %14 = uitofp i32 %13 to float
   invoke void @_ZN3vcg6Color4IhE12SetColorRampERKfS3_f(ptr noundef nonnull align 1 dereferenceable(4) %12, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 4 dereferenceable(4) %10, float noundef %14)
           to label %15 unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -73972,7 +73972,7 @@ define linkonce_odr void @_ZN3vcg7BestDimIdEEvxRKNS_6Point3IT_EERNS1_IiEE(i64 no
   br i1 %20, label %24, label %51
 
 24:                                               ; preds = %23
-  %25 = sitofp i64 %spec.store.select to double
+  %25 = uitofp i64 %spec.store.select to double
   br i1 %22, label %26, label %40
 
 26:                                               ; preds = %24
@@ -74013,7 +74013,7 @@ define linkonce_odr void @_ZN3vcg7BestDimIdEEvxRKNS_6Point3IT_EERNS1_IiEE(i64 no
   br i1 %22, label %52, label %64
 
 52:                                               ; preds = %51
-  %53 = sitofp i64 %spec.store.select to double
+  %53 = uitofp i64 %spec.store.select to double
   %54 = fmul double %17, %53
   %55 = fdiv double %54, %21
   %56 = tail call double @sqrt(double noundef %55) #37
@@ -74039,7 +74039,7 @@ define linkonce_odr void @_ZN3vcg7BestDimIdEEvxRKNS_6Point3IT_EERNS1_IiEE(i64 no
   br i1 %22, label %68, label %80
 
 68:                                               ; preds = %67
-  %69 = sitofp i64 %spec.store.select to double
+  %69 = uitofp i64 %spec.store.select to double
   %70 = fmul double %19, %69
   %71 = fdiv double %70, %21
   %72 = tail call double @sqrt(double noundef %71) #37
@@ -74215,7 +74215,7 @@ define linkonce_odr void @_ZN3vcg6VolumeINS_7VoxelfcEfE10SetSubPartENS_6Point3Ii
   %84 = phi i32 [ %80, %82 ], [ %74, %77 ]
   %85 = getelementptr inbounds [3 x float], ptr %33, i64 0, i64 %indvars.iv52
   %86 = load float, ptr %85, align 4
-  %87 = sitofp i32 %78 to float
+  %87 = uitofp i32 %78 to float
   %88 = getelementptr inbounds [3 x float], ptr %34, i64 0, i64 %indvars.iv52
   %89 = load float, ptr %88, align 4
   %90 = tail call float @llvm.fmuladd.f32(float %87, float %89, float %86)

@@ -1502,7 +1502,7 @@ define internal fastcc double @conc_slope(ptr nocapture noundef readonly %0) unn
 
 .preheader.loopexit:                              ; preds = %.lr.ph
   %7 = trunc i64 %indvars.iv.next to i32
-  %8 = sitofp i32 %7 to double
+  %8 = uitofp i32 %7 to double
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.loopexit, %1
@@ -1560,7 +1560,7 @@ define internal fastcc double @conc_slope(ptr nocapture noundef readonly %0) unn
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph51
   %40 = trunc i64 %indvars.iv.next59 to i32
-  %41 = sitofp i32 %40 to double
+  %41 = uitofp i32 %40 to double
   %42 = fdiv double %37, %41
   br label %._crit_edge
 

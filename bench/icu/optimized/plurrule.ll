@@ -9689,7 +9689,7 @@ sw.bb8.i:                                         ; preds = %if.end.i
   br label %_ZN6icu_7512FixedDecimal19getFractionalDigitsEdi.exit
 
 sw.default.i:                                     ; preds = %if.end.i
-  %conv10.i = sitofp i32 %3 to double
+  %conv10.i = uitofp i32 %3 to double
   %call11.i = tail call double @pow(double noundef 1.000000e+01, double noundef %conv10.i) #26
   %8 = tail call double @llvm.fmuladd.f64(double %sub.i, double %call11.i, double 5.000000e-01)
   %9 = tail call double @llvm.floor.f64(double %8)

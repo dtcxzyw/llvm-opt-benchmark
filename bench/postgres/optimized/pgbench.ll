@@ -8415,7 +8415,7 @@ define internal fastcc void @initPopulateTable(ptr noundef %0, ptr noundef %1, i
   %64 = sub nsw i64 %63, %39
   %65 = sitofp i64 %64 to double
   %66 = fmul double %65, 0x3EB0C6F7A0B5ED8D
-  %67 = sitofp i64 %46 to double
+  %67 = uitofp i64 %46 to double
   %68 = fsub double %42, %67
   %69 = fmul double %68, %66
   %70 = fdiv double %69, %67
@@ -8445,7 +8445,7 @@ define internal fastcc void @initPopulateTable(ptr noundef %0, ptr noundef %1, i
   %86 = sub nsw i64 %85, %39
   %87 = sitofp i64 %86 to double
   %88 = fmul double %87, 0x3EB0C6F7A0B5ED8D
-  %89 = sitofp i64 %46 to double
+  %89 = uitofp i64 %46 to double
   %90 = fsub double %42, %89
   %91 = fmul double %90, %88
   %92 = fdiv double %91, %89

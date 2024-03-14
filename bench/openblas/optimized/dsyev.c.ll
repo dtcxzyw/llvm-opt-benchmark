@@ -76,7 +76,7 @@ define void @dsyev_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   %42 = load i32, ptr %2, align 4, !tbaa !3
   %43 = mul nsw i32 %42, %41
   %44 = tail call i32 @llvm.smax.i32(i32 %43, i32 1)
-  %45 = sitofp i32 %44 to double
+  %45 = uitofp i32 %44 to double
   store double %45, ptr %6, align 8, !tbaa !7
   %46 = mul nsw i32 %42, 3
   %47 = add nsw i32 %46, -1

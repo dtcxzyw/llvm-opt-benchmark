@@ -1337,7 +1337,7 @@ define internal fastcc noundef i32 @dissect_cbor_float_simple_data(ptr noundef %
   ]
 
 46:                                               ; preds = %39
-  %47 = sitofp i32 %45 to float
+  %47 = uitofp i32 %45 to float
   %48 = call float @ldexpf(float noundef %47, i32 noundef -24) #6
   %49 = fneg float %48
   %.not3637.i = icmp slt i16 %41, 0
@@ -1350,7 +1350,7 @@ define internal fastcc noundef i32 @dissect_cbor_float_simple_data(ptr noundef %
 
 53:                                               ; preds = %39
   %54 = or disjoint i32 %45, 1024
-  %55 = sitofp i32 %54 to float
+  %55 = uitofp i32 %54 to float
   %56 = add nsw i32 %44, -25
   %57 = call float @ldexpf(float noundef %55, i32 noundef %56) #6
   %58 = fneg float %57

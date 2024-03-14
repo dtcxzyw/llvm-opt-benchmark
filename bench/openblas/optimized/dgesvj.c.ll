@@ -3212,7 +3212,7 @@ cdce.end:                                         ; preds = %cdce.call, %118
   %2186 = sitofp i32 %2181 to double
   %2187 = getelementptr inbounds i8, ptr %11, i64 16
   store double %2186, ptr %2187, align 8, !tbaa !7
-  %2188 = sitofp i32 %2028 to double
+  %2188 = uitofp i32 %2028 to double
   %2189 = getelementptr inbounds i8, ptr %11, i64 24
   store double %2188, ptr %2189, align 8, !tbaa !7
   %2190 = getelementptr inbounds i8, ptr %11, i64 32

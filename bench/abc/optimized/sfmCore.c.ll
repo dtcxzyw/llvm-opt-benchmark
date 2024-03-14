@@ -110,7 +110,7 @@ define void @Sfm_NtkPrintStats(ptr nocapture noundef %0) local_unnamed_addr #2 {
   %39 = sitofp i32 %36 to double
   %40 = fmul double %39, 1.000000e+02
   %41 = tail call noundef i32 @llvm.smax.i32(i32 %38, i32 1)
-  %42 = sitofp i32 %41 to double
+  %42 = uitofp i32 %41 to double
   %43 = fdiv double %40, %42
   %44 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %36, i32 noundef %38, double noundef %43)
   %45 = load i32, ptr %21, align 8
@@ -119,7 +119,7 @@ define void @Sfm_NtkPrintStats(ptr nocapture noundef %0) local_unnamed_addr #2 {
   %48 = sitofp i32 %45 to double
   %49 = fmul double %48, 1.000000e+02
   %50 = tail call noundef i32 @llvm.smax.i32(i32 %47, i32 1)
-  %51 = sitofp i32 %50 to double
+  %51 = uitofp i32 %50 to double
   %52 = fdiv double %49, %51
   %53 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %45, i32 noundef %47, double noundef %52)
   %54 = load ptr, ptr %0, align 8
@@ -136,7 +136,7 @@ define void @Sfm_NtkPrintStats(ptr nocapture noundef %0) local_unnamed_addr #2 {
   %62 = sitofp i32 %59 to double
   %63 = fmul double %62, 1.000000e+02
   %64 = tail call noundef i32 @llvm.smax.i32(i32 %61, i32 1)
-  %65 = sitofp i32 %64 to double
+  %65 = uitofp i32 %64 to double
   %66 = fdiv double %63, %65
   %67 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %59, i32 noundef %61, double noundef %66)
   br label %68
@@ -155,7 +155,7 @@ define void @Sfm_NtkPrintStats(ptr nocapture noundef %0) local_unnamed_addr #2 {
   %78 = sitofp i32 %77 to double
   %79 = fmul double %78, 1.000000e+02
   %80 = tail call noundef i32 @llvm.smax.i32(i32 %74, i32 1)
-  %81 = sitofp i32 %80 to double
+  %81 = uitofp i32 %80 to double
   %82 = fdiv double %79, %81
   %83 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %77, i32 noundef %74, double noundef %82)
   %84 = getelementptr inbounds i8, ptr %0, i64 7652
@@ -166,7 +166,7 @@ define void @Sfm_NtkPrintStats(ptr nocapture noundef %0) local_unnamed_addr #2 {
   %89 = sitofp i32 %88 to double
   %90 = fmul double %89, 1.000000e+02
   %91 = tail call noundef i32 @llvm.smax.i32(i32 %85, i32 1)
-  %92 = sitofp i32 %91 to double
+  %92 = uitofp i32 %91 to double
   %93 = fdiv double %90, %92
   %94 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %88, i32 noundef %85, double noundef %93)
   %putchar70 = tail call i32 @putchar(i32 10)

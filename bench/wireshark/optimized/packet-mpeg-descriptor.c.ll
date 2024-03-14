@@ -2955,7 +2955,7 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_satellite_delivery(pt
   %8 = and i8 %7, 15
   %9 = zext nneg i8 %8 to i32
   %10 = add nuw nsw i32 %6, %9
-  %11 = sitofp i32 %10 to double
+  %11 = uitofp i32 %10 to double
   %12 = add i32 %1, 1
   %13 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %12) #5
   %14 = lshr i8 %13, 4
@@ -2965,7 +2965,7 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_satellite_delivery(pt
   %17 = and i8 %16, 15
   %18 = zext nneg i8 %17 to i32
   %19 = add nuw nsw i32 %15, %18
-  %20 = sitofp i32 %19 to double
+  %20 = uitofp i32 %19 to double
   %21 = fdiv double %20, 1.000000e+01
   %22 = tail call double @llvm.fmuladd.f64(double %11, double 1.000000e+01, double %21)
   %23 = add i32 %1, 2
@@ -2984,7 +2984,7 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_satellite_delivery(pt
   %36 = and <2 x i8> %35, <i8 15, i8 15>
   %37 = zext nneg <2 x i8> %36 to <2 x i32>
   %38 = add nuw nsw <2 x i32> %33, %37
-  %39 = sitofp <2 x i32> %38 to <2 x double>
+  %39 = uitofp <2 x i32> %38 to <2 x double>
   %40 = fdiv <2 x double> %39, <double 1.000000e+03, double 1.000000e+05>
   %41 = extractelement <2 x double> %40, i64 0
   %42 = fadd double %22, %41
@@ -3001,7 +3001,7 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_satellite_delivery(pt
   %52 = and i8 %51, 15
   %53 = zext nneg i8 %52 to i32
   %54 = add nuw nsw i32 %50, %53
-  %55 = sitofp i32 %54 to float
+  %55 = uitofp i32 %54 to float
   %56 = add i32 %1, 5
   %57 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %56) #5
   %58 = lshr i8 %57, 4
@@ -3011,7 +3011,7 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_satellite_delivery(pt
   %61 = and i8 %60, 15
   %62 = zext nneg i8 %61 to i32
   %63 = add nuw nsw i32 %59, %62
-  %64 = sitofp i32 %63 to float
+  %64 = uitofp i32 %63 to float
   %65 = fdiv float %64, 1.000000e+01
   %66 = tail call float @llvm.fmuladd.f32(float %55, float 1.000000e+01, float %65)
   %67 = load i32, ptr @hf_mpeg_descr_satellite_delivery_orbital_position, align 4
@@ -3041,7 +3041,7 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_satellite_delivery(pt
   %87 = and i8 %86, 15
   %88 = zext nneg i8 %87 to i32
   %89 = add nuw nsw i32 %85, %88
-  %90 = sitofp i32 %89 to double
+  %90 = uitofp i32 %89 to double
   %91 = add i32 %1, 8
   %92 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %91) #5
   %93 = lshr i8 %92, 4
@@ -3051,7 +3051,7 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_satellite_delivery(pt
   %96 = and i8 %95, 15
   %97 = zext nneg i8 %96 to i32
   %98 = add nuw nsw i32 %94, %97
-  %99 = sitofp i32 %98 to double
+  %99 = uitofp i32 %98 to double
   %100 = fdiv double %99, 1.000000e+01
   %101 = tail call double @llvm.fmuladd.f64(double %90, double 1.000000e+01, double %100)
   %102 = add i32 %1, 9
@@ -3063,7 +3063,7 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_satellite_delivery(pt
   %107 = and i8 %106, 15
   %108 = zext nneg i8 %107 to i32
   %109 = add nuw nsw i32 %105, %108
-  %110 = sitofp i32 %109 to double
+  %110 = uitofp i32 %109 to double
   %111 = add i32 %1, 10
   %112 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %111) #5
   %113 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %111) #5
@@ -3093,7 +3093,7 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_cable_delivery(ptr no
   %8 = and i8 %7, 15
   %9 = zext nneg i8 %8 to i32
   %10 = add nuw nsw i32 %6, %9
-  %11 = sitofp i32 %10 to double
+  %11 = uitofp i32 %10 to double
   %12 = add i32 %1, 1
   %13 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %12) #5
   %14 = lshr i8 %13, 4
@@ -3103,7 +3103,7 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_cable_delivery(ptr no
   %17 = and i8 %16, 15
   %18 = zext nneg i8 %17 to i32
   %19 = add nuw nsw i32 %15, %18
-  %20 = sitofp i32 %19 to double
+  %20 = uitofp i32 %19 to double
   %21 = tail call double @llvm.fmuladd.f64(double %11, double 1.000000e+02, double %20)
   %22 = add i32 %1, 2
   %23 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %22) #5
@@ -3121,7 +3121,7 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_cable_delivery(ptr no
   %35 = and <2 x i8> %34, <i8 15, i8 15>
   %36 = zext nneg <2 x i8> %35 to <2 x i32>
   %37 = add nuw nsw <2 x i32> %32, %36
-  %38 = sitofp <2 x i32> %37 to <2 x double>
+  %38 = uitofp <2 x i32> %37 to <2 x double>
   %39 = fdiv <2 x double> %38, <double 1.000000e+02, double 1.000000e+04>
   %40 = extractelement <2 x double> %39, i64 0
   %41 = fadd double %21, %40
@@ -3146,7 +3146,7 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_cable_delivery(ptr no
   %59 = and i8 %58, 15
   %60 = zext nneg i8 %59 to i32
   %61 = add nuw nsw i32 %57, %60
-  %62 = sitofp i32 %61 to double
+  %62 = uitofp i32 %61 to double
   %63 = add i32 %1, 8
   %64 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %63) #5
   %65 = lshr i8 %64, 4
@@ -3156,7 +3156,7 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_cable_delivery(ptr no
   %68 = and i8 %67, 15
   %69 = zext nneg i8 %68 to i32
   %70 = add nuw nsw i32 %66, %69
-  %71 = sitofp i32 %70 to double
+  %71 = uitofp i32 %70 to double
   %72 = fdiv double %71, 1.000000e+01
   %73 = tail call double @llvm.fmuladd.f64(double %62, double 1.000000e+01, double %72)
   %74 = add i32 %1, 9
@@ -3168,7 +3168,7 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_cable_delivery(ptr no
   %79 = and i8 %78, 15
   %80 = zext nneg i8 %79 to i32
   %81 = add nuw nsw i32 %77, %80
-  %82 = sitofp i32 %81 to double
+  %82 = uitofp i32 %81 to double
   %83 = add i32 %1, 10
   %84 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %83) #5
   %85 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %83) #5

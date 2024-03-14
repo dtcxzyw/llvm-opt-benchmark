@@ -5156,7 +5156,7 @@ call5.i.i.i.i2.i.i.noexc:                         ; preds = %arraydestroy.done22
 for.body251:                                      ; preds = %call5.i.i.i.i2.i.i.noexc, %for.body251
   %indvars.iv = phi i64 [ 0, %call5.i.i.i.i2.i.i.noexc ], [ %indvars.iv.next, %for.body251 ]
   %72 = trunc i64 %indvars.iv to i32
-  %conv252 = sitofp i32 %72 to float
+  %conv252 = uitofp i32 %72 to float
   %div = fdiv float %conv252, 1.200000e+01
   %sub.i = fsub float 1.000000e+00, %div
   %mul.i169 = fmul float %sub.i, 3.200000e+02
@@ -10145,7 +10145,7 @@ for.body189.lr.ph:                                ; preds = %for.cond185.prehead
   %sub.ptr.sub.i207819 = sub i64 %sub.ptr.lhs.cast.i205817, %sub.ptr.rhs.cast.i206818
   %sub.ptr.div.i208820 = sdiv exact i64 %sub.ptr.sub.i207819, 152
   %75 = trunc i64 %indvars.iv878 to i32
-  %conv239 = sitofp i32 %75 to float
+  %conv239 = uitofp i32 %75 to float
   %agg.tmp274.sroa.2.0.insert.shift = shl nuw nsw i64 %indvars.iv878, 32
   br label %for.body189
 
@@ -10239,7 +10239,7 @@ for.inc225:                                       ; preds = %for.inc225.loopexit
 if.else228:                                       ; preds = %for.body189
   %81 = trunc i64 %indvars.iv874 to i32
   %82 = add i32 %81, 1
-  %conv230 = sitofp i32 %82 to float
+  %conv230 = uitofp i32 %82 to float
   %conv232 = uitofp i64 %sub.ptr.div.i208825 to float
   %div = fdiv float %conv230, %conv232
   %retval.sroa.0.0.copyload.i225 = load i64, ptr %resolution.i202, align 4
@@ -38694,7 +38694,7 @@ for.body168:                                      ; preds = %for.cond163.prehead
   %indvars.iv241 = phi i64 [ %indvars.iv.next242, %for.body168 ], [ 0, %for.cond163.preheader ]
   %87 = load i32, ptr %downsampleRate, align 4
   %mul = mul nsw i32 %87, %87
-  %conv169 = sitofp i32 %mul to float
+  %conv169 = uitofp i32 %mul to float
   %88 = load ptr, ptr %ptr.i.i, align 8
   %tobool.not.i.i112 = icmp eq ptr %88, null
   %cond.i.i113 = select i1 %tobool.not.i.i112, ptr %34, ptr %88
@@ -51112,7 +51112,7 @@ invoke.cont11.i.i.i:                              ; preds = %for.inc69.i.i.i, %i
   %indvars.iv137.i.i.i = phi i64 [ 0, %invoke.cont11.lr.ph.i.i.i ], [ %indvars.iv.next138.i.i.i, %for.inc69.i.i.i ]
   %14 = phi i32 [ %13, %invoke.cont11.lr.ph.i.i.i ], [ %68, %for.inc69.i.i.i ]
   %15 = trunc i64 %indvars.iv137.i.i.i to i32
-  %conv6.i.i.i = sitofp i32 %15 to float
+  %conv6.i.i.i = uitofp i32 %15 to float
   %add7.i.i.i = fadd float %conv6.i.i.i, 5.000000e-01
   %conv8.i.i.i = sitofp i32 %14 to float
   %div9.i.i.i = fdiv float %add7.i.i.i, %conv8.i.i.i
@@ -60946,8 +60946,8 @@ invoke.cont77.i.i.i:                              ; preds = %sw.bb22.i.i.i.i, %_
   br i1 %80, label %invoke.cont85.i.i.i, label %invoke.cont97.i.i.i
 
 invoke.cont85.i.i.i:                              ; preds = %invoke.cont77.i.i.i
-  %conv83.i.i.i = sitofp i32 %52 to float
-  %conv84.i.i.i = sitofp i32 %50 to float
+  %conv83.i.i.i = uitofp i32 %52 to float
+  %conv84.i.i.i = uitofp i32 %50 to float
   store float %conv83.i.i.i, ptr %ref.tmp82.i.i.i, align 4
   %y3.i.i57.i.i.i = getelementptr inbounds i8, ptr %ref.tmp82.i.i.i, i64 4
   store float %conv84.i.i.i, ptr %y3.i.i57.i.i.i, align 4
@@ -70236,7 +70236,7 @@ _ZN4pbrt18ImageChannelValuesC2Emf.exit.i.i.i:     ; preds = %for.body.i.i.i.i.i,
 
 for.cond10.preheader.preheader.i.i.i:             ; preds = %_ZN4pbrt18ImageChannelValuesC2Emf.exit.i.i.i
   %25 = trunc i64 %indvars.iv.i.i.i to i32
-  %conv25.i.i.i = sitofp i32 %25 to float
+  %conv25.i.i.i = uitofp i32 %25 to float
   %add26.i.i.i = fadd float %conv25.i.i.i, 5.000000e-01
   br label %for.cond10.preheader.i.i.i
 
@@ -70260,7 +70260,7 @@ for.cond10.preheader.i.i.i:                       ; preds = %for.inc76.i.i.i, %f
   br i1 %cmp11153.i.i.i, label %invoke.cont22.lr.ph.i.i.i, label %for.inc76.i.i.i
 
 invoke.cont22.lr.ph.i.i.i:                        ; preds = %for.cond10.preheader.i.i.i
-  %conv16.i.i.i = sitofp i32 %dv.0166.i.i.i to float
+  %conv16.i.i.i = uitofp i32 %dv.0166.i.i.i to float
   br label %invoke.cont22.i.i.i
 
 invoke.cont22.i.i.i:                              ; preds = %_ZN4pbrt18ImageChannelValuesD2Ev.exit62.i.i.i, %invoke.cont22.lr.ph.i.i.i
@@ -70290,7 +70290,7 @@ invoke.cont22.i.i.i:                              ; preds = %_ZN4pbrt18ImageChan
   %43 = extractelement <2 x i1> %40, i64 0
   %44 = extractelement <2 x float> %39, i64 0
   %.sroa.speculated.i35.i.i.i = select i1 %43, float %44, float 0x3FEFFFFFE0000000
-  %conv13.i.i.i = sitofp i32 %du.0155.i.i.i to float
+  %conv13.i.i.i = uitofp i32 %du.0155.i.i.i to float
   %add.i.i.i = fadd float %.sroa.speculated.i.i.i.i, %conv13.i.i.i
   %conv15.i.i.i = sitofp i32 %28 to float
   %div.i.i.i = fdiv float %add.i.i.i, %conv15.i.i.i

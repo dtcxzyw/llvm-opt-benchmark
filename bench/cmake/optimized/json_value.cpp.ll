@@ -3723,9 +3723,9 @@ define dso_local noundef double @_ZNK4Json5Value8asDoubleEv(ptr nocapture nounde
 9:                                                ; preds = %1
   %10 = load i64, ptr %0, align 8
   %11 = lshr i64 %10, 1
-  %12 = sitofp i64 %11 to double
+  %12 = uitofp i64 %11 to double
   %13 = and i64 %10, 1
-  %14 = sitofp i64 %13 to double
+  %14 = uitofp i64 %13 to double
   %15 = tail call noundef double @llvm.fmuladd.f64(double %12, double 2.000000e+00, double %14)
   br label %32
 
@@ -3800,9 +3800,9 @@ define dso_local noundef float @_ZNK4Json5Value7asFloatEv(ptr nocapture noundef 
 9:                                                ; preds = %1
   %10 = load i64, ptr %0, align 8
   %11 = lshr i64 %10, 1
-  %12 = sitofp i64 %11 to double
+  %12 = uitofp i64 %11 to double
   %13 = and i64 %10, 1
-  %14 = sitofp i64 %13 to double
+  %14 = uitofp i64 %13 to double
   %15 = tail call noundef double @llvm.fmuladd.f64(double %12, double 2.000000e+00, double %14)
   %16 = fptrunc double %15 to float
   br label %34

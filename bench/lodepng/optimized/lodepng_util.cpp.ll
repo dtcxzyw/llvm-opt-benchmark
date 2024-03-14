@@ -2296,7 +2296,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %20 = load i8, ptr %arrayidx88, align 1
   %conv89 = zext i8 %20 to i32
   %add90 = or disjoint i32 %mul85, %conv89
-  %conv91 = sitofp i32 %add90 to float
+  %conv91 = uitofp i32 %add90 to float
   %mul92 = fmul float %conv91, 0x3EF0001000000000
   %add94 = or disjoint i64 %mul48, 3
   %arrayidx95 = getelementptr inbounds float, ptr %out, i64 %add94
@@ -4073,7 +4073,7 @@ while.end178.i.i:                                 ; preds = %while.body169.i.i, 
 cond.true180.i.i:                                 ; preds = %while.end178.i.i
   %sub181.i.i = sub nsw i32 0, %i.2.lcssa.i.i
   %shl.i.i = shl nuw nsw i32 1, %sub181.i.i
-  %conv182.i.i = sitofp i32 %shl.i.i to float
+  %conv182.i.i = uitofp i32 %shl.i.i to float
   %mul183.i.i = fmul float %27, %conv182.i.i
   %div184.i.i = fdiv float %t0.1.lcssa.i.i, %mul183.i.i
   br label %cond.end66.i
@@ -4082,7 +4082,7 @@ cond.false185.i.i:                                ; preds = %while.body175.i.i, 
   %i.2.lcssa135.i.i = phi i32 [ %i.2.lcssa.i.i, %while.end178.i.i ], [ %sub177.i.i, %while.body175.i.i ]
   %t0.1.lcssa134.i.i = phi float [ %t0.1.lcssa.i.i, %while.end178.i.i ], [ %mul176.i.i, %while.body175.i.i ]
   %shl186.i.i = shl nuw nsw i32 1, %i.2.lcssa135.i.i
-  %conv187.i.i = sitofp i32 %shl186.i.i to float
+  %conv187.i.i = uitofp i32 %shl186.i.i to float
   %mul188.i.i = fmul float %t0.1.lcssa134.i.i, %conv187.i.i
   %div189.i.i = fdiv float %mul188.i.i, %27
   br label %cond.end66.i
@@ -4991,7 +4991,7 @@ while.end178.i:                                   ; preds = %while.body169.i, %w
 cond.true180.i:                                   ; preds = %while.end178.i
   %sub181.i = sub nsw i32 0, %i.2.lcssa.i
   %shl.i = shl nuw nsw i32 1, %sub181.i
-  %conv182.i = sitofp i32 %shl.i to float
+  %conv182.i = uitofp i32 %shl.i to float
   %mul183.i = fmul float %53, %conv182.i
   %div184.i = fdiv float %t0.1.lcssa.i, %mul183.i
   br label %_ZN7lodepngL12lodepng_powfEff.exit
@@ -5000,7 +5000,7 @@ cond.false185.i:                                  ; preds = %while.body175.i, %w
   %i.2.lcssa135.i = phi i32 [ %i.2.lcssa.i, %while.end178.i ], [ %sub177.i, %while.body175.i ]
   %t0.1.lcssa134.i = phi float [ %t0.1.lcssa.i, %while.end178.i ], [ %mul176.i, %while.body175.i ]
   %shl186.i = shl nuw nsw i32 1, %i.2.lcssa135.i
-  %conv187.i = sitofp i32 %shl186.i to float
+  %conv187.i = uitofp i32 %shl186.i to float
   %mul188.i = fmul float %t0.1.lcssa134.i, %conv187.i
   %div189.i = fdiv float %mul188.i, %53
   br label %_ZN7lodepngL12lodepng_powfEff.exit
@@ -6336,7 +6336,7 @@ while.end178:                                     ; preds = %while.body169, %whi
 cond.true180:                                     ; preds = %while.end178
   %sub181 = sub nsw i32 0, %i.2.lcssa
   %shl = shl nuw nsw i32 1, %sub181
-  %conv182 = sitofp i32 %shl to float
+  %conv182 = uitofp i32 %shl to float
   %mul183 = fmul float %18, %conv182
   %div184 = fdiv float %t0.1.lcssa, %mul183
   br label %common.ret136
@@ -6345,7 +6345,7 @@ cond.false185:                                    ; preds = %while.body175, %whi
   %i.2.lcssa135 = phi i32 [ %i.2.lcssa, %while.end178 ], [ %sub177, %while.body175 ]
   %t0.1.lcssa134 = phi float [ %t0.1.lcssa, %while.end178 ], [ %mul176, %while.body175 ]
   %shl186 = shl nuw nsw i32 1, %i.2.lcssa135
-  %conv187 = sitofp i32 %shl186 to float
+  %conv187 = uitofp i32 %shl186 to float
   %mul188 = fmul float %t0.1.lcssa134, %conv187
   %div189 = fdiv float %mul188, %18
   br label %common.ret136

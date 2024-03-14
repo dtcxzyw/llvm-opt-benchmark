@@ -1499,7 +1499,7 @@ define internal i32 @Abc_SclCompareCells(ptr nocapture noundef readonly %0, ptr 
 SC_CellPinCapAve.exit:                            ; preds = %15, %12
   %.0.lcssa.i = phi float [ 0.000000e+00, %12 ], [ %27, %15 ]
   %28 = tail call noundef i32 @llvm.smax.i32(i32 %5, i32 1)
-  %29 = sitofp i32 %28 to float
+  %29 = uitofp i32 %28 to float
   %30 = fdiv float %.0.lcssa.i, %29
   %31 = icmp sgt i32 %8, 0
   br i1 %31, label %.lr.ph.i13, label %SC_CellPinCapAve.exit20
@@ -1532,7 +1532,7 @@ SC_CellPinCapAve.exit:                            ; preds = %15, %12
 SC_CellPinCapAve.exit20:                          ; preds = %33, %SC_CellPinCapAve.exit
   %.0.lcssa.i12 = phi float [ 0.000000e+00, %SC_CellPinCapAve.exit ], [ %45, %33 ]
   %46 = tail call noundef i32 @llvm.smax.i32(i32 %8, i32 1)
-  %47 = sitofp i32 %46 to float
+  %47 = uitofp i32 %46 to float
   %48 = fdiv float %.0.lcssa.i12, %47
   %49 = fcmp olt float %30, %48
   br i1 %49, label %86, label %50
@@ -1720,7 +1720,7 @@ define ptr @Abc_SclFindSmallestGate(ptr nocapture noundef readonly %0, float nou
 SC_CellPinCapAve.exit:                            ; preds = %12, %.critedge
   %.0.lcssa.i = phi float [ 0.000000e+00, %.critedge ], [ %24, %12 ]
   %25 = tail call noundef i32 @llvm.smax.i32(i32 %9, i32 1)
-  %26 = sitofp i32 %25 to float
+  %26 = uitofp i32 %25 to float
   %27 = fdiv float %.0.lcssa.i, %26
   %28 = fcmp ogt float %27, %1
   br i1 %28, label %.loopexit, label %29
@@ -2453,12 +2453,12 @@ define noundef i32 @Abc_SclComputeParametersCell(ptr nocapture noundef readnone 
   %.017.lcssa = phi float [ 0.000000e+00, %5 ], [ %16, %12 ]
   %.lcssa = phi i32 [ %9, %5 ], [ %18, %12 ]
   %20 = tail call noundef i32 @llvm.smax.i32(i32 %.lcssa, i32 1)
-  %21 = sitofp i32 %20 to float
+  %21 = uitofp i32 %20 to float
   %22 = fdiv float %.018.lcssa, %21
   store float %22, ptr %3, align 4
   %23 = load i32, ptr %8, align 8
   %24 = tail call noundef i32 @llvm.smax.i32(i32 %23, i32 1)
-  %25 = sitofp i32 %24 to float
+  %25 = uitofp i32 %24 to float
   %26 = fdiv float %.017.lcssa, %25
   store float %26, ptr %4, align 4
   br label %.loopexit
@@ -2712,7 +2712,7 @@ Abc_SclComputeParametersPin.exit:                 ; preds = %Scl_LibPinArrival.e
 .critedge.i:                                      ; preds = %Abc_SclComputeParametersPin.exit, %6
   %171 = phi <2 x float> [ zeroinitializer, %6 ], [ %170, %Abc_SclComputeParametersPin.exit ]
   %172 = tail call noundef i32 @llvm.smax.i32(i32 %10, i32 1)
-  %173 = sitofp i32 %172 to float
+  %173 = uitofp i32 %172 to float
   %174 = insertelement <2 x float> poison, float %173, i64 0
   %175 = shufflevector <2 x float> %174, <2 x float> poison, <2 x i32> zeroinitializer
   %176 = fdiv <2 x float> %171, %175
@@ -2728,7 +2728,7 @@ Abc_SclComputeParametersCell.exit:                ; preds = %.lr.ph.i, %Scl_Cell
   br i1 %.not, label %182, label %6, !llvm.loop !39
 
 182:                                              ; preds = %Abc_SclComputeParametersCell.exit
-  %183 = sitofp i32 %179 to float
+  %183 = uitofp i32 %179 to float
   %184 = extractelement <2 x float> %178, i64 0
   %185 = fdiv float %184, %183
   store float %185, ptr %3, align 4
@@ -2763,7 +2763,7 @@ define void @Abc_SclComputeParametersClassPin(ptr nocapture noundef readnone %0,
   br i1 %.not, label %18, label %9, !llvm.loop !40
 
 18:                                               ; preds = %9
-  %19 = sitofp i32 %15 to float
+  %19 = uitofp i32 %15 to float
   %20 = fdiv float %12, %19
   store float %20, ptr %4, align 4
   %21 = fdiv float %14, %19
@@ -2834,7 +2834,7 @@ define float @Abc_SclComputeDelayClassPin(ptr nocapture noundef readnone %0, ptr
 
 26:                                               ; preds = %23
   %27 = tail call noundef i32 @llvm.smax.i32(i32 %.1, i32 1)
-  %28 = sitofp i32 %27 to float
+  %28 = uitofp i32 %27 to float
   %29 = fdiv float %.117, %28
   ret float %29
 }
@@ -2869,7 +2869,7 @@ define float @Abc_SclComputeAreaClass(ptr noundef readonly %0) local_unnamed_add
 
 13:                                               ; preds = %10
   %14 = tail call noundef i32 @llvm.smax.i32(i32 %.1, i32 1)
-  %15 = sitofp i32 %14 to float
+  %15 = uitofp i32 %14 to float
   %16 = fdiv float %.113, %15
   ret float %16
 }
@@ -4859,7 +4859,7 @@ Abc_SclComputeParametersPin.exit.us:              ; preds = %1044, %Scl_LibPinAr
   %.018.lcssa.i.us = phi float [ 0.000000e+00, %95 ], [ %1049, %Abc_SclComputeParametersPin.exit.us ]
   %.017.lcssa.i.us = phi float [ 0.000000e+00, %95 ], [ %1050, %Abc_SclComputeParametersPin.exit.us ]
   %1051 = tail call noundef i32 @llvm.smax.i32(i32 %97, i32 1)
-  %1052 = sitofp i32 %1051 to float
+  %1052 = uitofp i32 %1051 to float
   %1053 = fdiv float %.018.lcssa.i.us, %1052
   %1054 = fdiv float %.017.lcssa.i.us, %1052
   %1055 = fpext float %1053 to double
@@ -4900,7 +4900,7 @@ Abc_SclComputeParametersPin.exit.us:              ; preds = %1044, %Scl_LibPinAr
 SC_CellPinCapAve.exit.us:                         ; preds = %1064, %.loopexit.us
   %.0.lcssa.i.us = phi float [ 0.000000e+00, %.loopexit.us ], [ %1076, %1064 ]
   %1077 = tail call noundef i32 @llvm.smax.i32(i32 %1061, i32 1)
-  %1078 = sitofp i32 %1077 to float
+  %1078 = uitofp i32 %1077 to float
   %1079 = fdiv float %.0.lcssa.i.us, %1078
   %1080 = fpext float %1079 to double
   %1081 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.36, double noundef %1080)
@@ -8857,7 +8857,7 @@ Abc_SclComputeParametersPin.exit:                 ; preds = %89, %Scl_LibPinArri
 
 Abc_SclComputeDelayClassPin.exit:                 ; preds = %1037
   %1040 = tail call noundef i32 @llvm.smax.i32(i32 %.1.i, i32 1)
-  %1041 = sitofp i32 %1040 to float
+  %1041 = uitofp i32 %1040 to float
   br label %1042
 
 1042:                                             ; preds = %Vec_StrPush.exit.i, %Abc_SclComputeDelayClassPin.exit
@@ -11087,7 +11087,7 @@ Abc_SclComputeParametersPin.exit:                 ; preds = %100, %Scl_LibPinArr
 
 Abc_SclComputeDelayClassPin.exit:                 ; preds = %1048
   %1051 = tail call noundef i32 @llvm.smax.i32(i32 %.1.i, i32 1)
-  %1052 = sitofp i32 %1051 to float
+  %1052 = uitofp i32 %1051 to float
   br label %1053
 
 1053:                                             ; preds = %Vec_StrPush.exit.i, %Abc_SclComputeDelayClassPin.exit

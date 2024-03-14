@@ -2063,7 +2063,7 @@ define internal fastcc void @limitBoxes(ptr nocapture noundef %0, i32 noundef %1
 
 16:                                               ; preds = %.preheader, %._crit_edge
   %.07683 = phi i32 [ 0, %.preheader ], [ %60, %._crit_edge ]
-  %17 = sitofp i32 %.07683 to double
+  %17 = uitofp i32 %.07683 to double
   %18 = fdiv double %17, %8
   %.sroa.0.0.copyload = load double, ptr %12, align 8
   %.sroa.12.0.copyload = load double, ptr %.sroa.12.0..sroa_idx, align 8

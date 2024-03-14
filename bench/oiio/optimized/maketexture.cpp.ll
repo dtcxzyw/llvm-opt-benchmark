@@ -3026,7 +3026,7 @@ invoke.cont274:                                   ; preds = %cond.true.i.i, %inv
   store i64 %add.i.i536, ptr %m_elapsed_ticks.i.i, align 8
   store i64 %add.i.i.i535, ptr %m_starttime.i, align 8
   store i8 1, ptr %alltime, align 8
-  %conv.i.i = sitofp i64 %cond.i.i to double
+  %conv.i.i = uitofp i64 %cond.i.i to double
   %82 = load double, ptr @_ZN18OpenImageIO_v2_6_05Timer16seconds_per_tickE, align 8
   %mul.i.i537 = fmul double %82, %conv.i.i
   store double %mul.i.i537, ptr %misc_time_1, align 8
@@ -3167,7 +3167,7 @@ invoke.cont323:                                   ; preds = %cond.true.i.i557, %
   store i64 %add.i.i563, ptr %m_elapsed_ticks.i.i, align 8
   store i64 %add.i.i.i555, ptr %m_starttime.i, align 8
   store i8 1, ptr %alltime, align 8
-  %conv.i.i565 = sitofp i64 %cond.i.i561 to double
+  %conv.i.i565 = uitofp i64 %cond.i.i561 to double
   %99 = load double, ptr @_ZN18OpenImageIO_v2_6_05Timer16seconds_per_tickE, align 8
   %mul.i.i566 = fmul double %99, %conv.i.i565
   %100 = load double, ptr %stat_readtime, align 8
@@ -4978,7 +4978,7 @@ invoke.cont741:                                   ; preds = %cond.true.i.i968, %
   store i64 %add.i.i974, ptr %m_elapsed_ticks.i.i, align 8
   store i64 %add.i.i.i966, ptr %m_starttime.i, align 8
   store i8 1, ptr %alltime, align 8
-  %conv.i.i976 = sitofp i64 %cond.i.i972 to double
+  %conv.i.i976 = uitofp i64 %cond.i.i972 to double
   %287 = load double, ptr @_ZN18OpenImageIO_v2_6_05Timer16seconds_per_tickE, align 8
   %mul.i.i977 = fmul double %287, %conv.i.i976
   store double %mul.i.i977, ptr %misc_time_2, align 8
@@ -5119,7 +5119,7 @@ invoke.cont801:                                   ; preds = %cond.true.i.i1004, 
   store i64 %add.i.i1010, ptr %m_elapsed_ticks.i.i, align 8
   store i64 %add.i.i.i1002, ptr %m_starttime.i, align 8
   store i8 1, ptr %alltime, align 8
-  %conv.i.i1012 = sitofp i64 %cond.i.i1008 to double
+  %conv.i.i1012 = uitofp i64 %cond.i.i1008 to double
   %304 = load double, ptr @_ZN18OpenImageIO_v2_6_05Timer16seconds_per_tickE, align 8
   %mul.i.i1013 = fmul double %304, %conv.i.i1012
   store double %mul.i.i1013, ptr %stat_pixelstatstime, align 8
@@ -7365,7 +7365,7 @@ invoke.cont1621:                                  ; preds = %cond.true.i.i1604, 
   store i64 %add.i.i1610, ptr %m_elapsed_ticks.i.i, align 8
   store i64 %add.i.i.i1602, ptr %m_starttime.i, align 8
   store i8 1, ptr %alltime, align 8
-  %conv.i.i1612 = sitofp i64 %cond.i.i1608 to double
+  %conv.i.i1612 = uitofp i64 %cond.i.i1608 to double
   %570 = load double, ptr @_ZN18OpenImageIO_v2_6_05Timer16seconds_per_tickE, align 8
   %mul.i.i1613 = fmul double %570, %conv.i.i1612
   store double %mul.i.i1613, ptr %misc_time_3, align 8
@@ -8219,7 +8219,7 @@ invoke.cont1910:                                  ; preds = %cond.true.i.i1827, 
   store i64 %add.i.i1833, ptr %m_elapsed_ticks.i.i, align 8
   store i64 %add.i.i.i1825, ptr %m_starttime.i, align 8
   store i8 1, ptr %alltime, align 8
-  %conv.i.i1835 = sitofp i64 %cond.i.i1831 to double
+  %conv.i.i1835 = uitofp i64 %cond.i.i1831 to double
   %645 = load double, ptr @_ZN18OpenImageIO_v2_6_05Timer16seconds_per_tickE, align 8
   %mul.i.i1836 = fmul double %645, %conv.i.i1835
   store double %mul.i.i1836, ptr %misc_time_4, align 8
@@ -8576,7 +8576,7 @@ invoke.cont2041:                                  ; preds = %cond.true.i.i1920, 
   store i64 %add.i.i1926, ptr %m_elapsed_ticks.i.i, align 8
   store i64 %add.i.i.i1918, ptr %m_starttime.i, align 8
   store i8 1, ptr %alltime, align 8
-  %conv.i.i1928 = sitofp i64 %cond.i.i1924 to double
+  %conv.i.i1928 = uitofp i64 %cond.i.i1924 to double
   %698 = load double, ptr @_ZN18OpenImageIO_v2_6_05Timer16seconds_per_tickE, align 8
   %mul.i.i1929 = fmul double %698, %conv.i.i1928
   %699 = load double, ptr %stat_resizetime, align 8
@@ -9082,7 +9082,7 @@ invoke.cont2208:                                  ; preds = %cond.true.i.i2100, 
   store i64 %add.i.i2106, ptr %m_elapsed_ticks.i.i, align 8
   store i64 %add.i.i.i2098, ptr %m_starttime.i, align 8
   store i8 1, ptr %alltime, align 8
-  %conv.i.i2108 = sitofp i64 %cond.i.i2104 to double
+  %conv.i.i2108 = uitofp i64 %cond.i.i2104 to double
   %730 = load double, ptr @_ZN18OpenImageIO_v2_6_05Timer16seconds_per_tickE, align 8
   %mul.i.i2109 = fmul double %730, %conv.i.i2108
   store double %mul.i.i2109, ptr %stat_hashtime, align 8
@@ -9609,7 +9609,7 @@ invoke.cont2377:                                  ; preds = %cond.true.i.i2262, 
   store i64 %add.i.i2268, ptr %m_elapsed_ticks.i.i, align 8
   store i64 %add.i.i.i2260, ptr %m_starttime.i, align 8
   store i8 1, ptr %alltime, align 8
-  %conv.i.i2270 = sitofp i64 %cond.i.i2266 to double
+  %conv.i.i2270 = uitofp i64 %cond.i.i2266 to double
   %773 = load double, ptr @_ZN18OpenImageIO_v2_6_05Timer16seconds_per_tickE, align 8
   %mul.i.i2271 = fmul double %773, %conv.i.i2270
   store double %mul.i.i2271, ptr %misc_time_5, align 8
@@ -43479,7 +43479,7 @@ _ZN18OpenImageIO_v2_6_05Timer9lap_ticksEv.exit:   ; preds = %entry, %cond.true.i
   %m_starttime3.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %add.i.i, ptr %m_starttime3.i, align 8
   store i8 1, ptr %this, align 8
-  %conv.i = sitofp i64 %cond.i to double
+  %conv.i = uitofp i64 %cond.i to double
   %6 = load double, ptr @_ZN18OpenImageIO_v2_6_05Timer16seconds_per_tickE, align 8
   %mul.i = fmul double %6, %conv.i
   ret double %mul.i
@@ -49706,7 +49706,7 @@ invoke.cont615:                                   ; preds = %invoke.cont600
   %mul.i.i.i.i544 = mul nsw i64 %285, 1000000000
   %sub.i.i.i.i547 = add i64 %add.i.i.i.i546, %mul.i.i.i.i544
   %cond.i.i.i.i548 = call noundef i64 @llvm.abs.i64(i64 %sub.i.i.i.i547, i1 true)
-  %conv.i.i552 = sitofp i64 %cond.i.i.i.i548 to double
+  %conv.i.i552 = uitofp i64 %cond.i.i.i.i548 to double
   %287 = load double, ptr @_ZN18OpenImageIO_v2_6_05Timer16seconds_per_tickE, align 8
   %mul.i.i553 = fmul double %287, %conv.i.i552
   %288 = load double, ptr %stat_writetime, align 8
@@ -50214,7 +50214,7 @@ invoke.cont679:                                   ; preds = %invoke.cont670
   %mul.i.i.i.i713 = mul nsw i64 %352, 1000000000
   %sub.i.i.i.i716 = add i64 %add.i.i.i.i715, %mul.i.i.i.i713
   %cond.i.i.i.i717 = call noundef i64 @llvm.abs.i64(i64 %sub.i.i.i.i716, i1 true)
-  %conv.i.i721 = sitofp i64 %cond.i.i.i.i717 to double
+  %conv.i.i721 = uitofp i64 %cond.i.i.i.i717 to double
   %354 = load double, ptr @_ZN18OpenImageIO_v2_6_05Timer16seconds_per_tickE, align 8
   %mul.i.i722 = fmul double %354, %conv.i.i721
   %355 = load double, ptr %stat_writetime, align 8
@@ -61695,7 +61695,7 @@ for.body3.us.i.us:                                ; preds = %for.body3.us.i.us, 
   %15 = load i8, ptr %add.ptr.us.i.us, align 1
   %conv4.us.i.us = zext i8 %15 to i32
   %add.us.i.us = add nuw nsw i32 %conv4.us.i.us, %conv.us.i.us
-  %conv5.us.i.us = sitofp i32 %add.us.i.us to float
+  %conv5.us.i.us = uitofp i32 %add.us.i.us to float
   %mul.us.i.us = fmul float %conv5.us.i.us, 5.000000e-01
   store float %mul.us.i.us, ptr %dst.addr.111.us.i.us, align 4
   %inc.us.i.us = add nuw nsw i32 %j.012.us.i.us, 1
@@ -61730,7 +61730,7 @@ for.body3.us.i41.us:                              ; preds = %for.body3.us.i41.us
   %17 = load i8, ptr %add.ptr.us.i46.us, align 1
   %conv4.us.i47.us = zext i8 %17 to i32
   %add.us.i48.us = add nuw nsw i32 %conv4.us.i47.us, %conv.us.i45.us
-  %conv5.us.i49.us = sitofp i32 %add.us.i48.us to float
+  %conv5.us.i49.us = uitofp i32 %add.us.i48.us to float
   %mul.us.i50.us = fmul float %conv5.us.i49.us, 5.000000e-01
   store float %mul.us.i50.us, ptr %dst.addr.111.us.i43.us, align 4
   %inc.us.i51.us = add nuw nsw i32 %j.012.us.i42.us, 1
@@ -62212,7 +62212,7 @@ for.body3.us.i.us:                                ; preds = %for.body3.us.i.us, 
   %15 = load i16, ptr %add.ptr.us.i.us, align 2
   %conv4.us.i.us = zext i16 %15 to i32
   %add.us.i.us = add nuw nsw i32 %conv4.us.i.us, %conv.us.i.us
-  %conv5.us.i.us = sitofp i32 %add.us.i.us to float
+  %conv5.us.i.us = uitofp i32 %add.us.i.us to float
   %mul.us.i.us = fmul float %conv5.us.i.us, 5.000000e-01
   store float %mul.us.i.us, ptr %dst.addr.111.us.i.us, align 4
   %inc.us.i.us = add nuw nsw i32 %j.012.us.i.us, 1
@@ -62247,7 +62247,7 @@ for.body3.us.i41.us:                              ; preds = %for.body3.us.i41.us
   %17 = load i16, ptr %add.ptr.us.i46.us, align 2
   %conv4.us.i47.us = zext i16 %17 to i32
   %add.us.i48.us = add nuw nsw i32 %conv4.us.i47.us, %conv.us.i45.us
-  %conv5.us.i49.us = sitofp i32 %add.us.i48.us to float
+  %conv5.us.i49.us = uitofp i32 %add.us.i48.us to float
   %mul.us.i50.us = fmul float %conv5.us.i49.us, 5.000000e-01
   store float %mul.us.i50.us, ptr %dst.addr.111.us.i43.us, align 4
   %inc.us.i51.us = add nuw nsw i32 %j.012.us.i42.us, 1

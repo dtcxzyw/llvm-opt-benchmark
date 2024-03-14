@@ -3060,7 +3060,7 @@ invoke.cont7.lr.ph:                               ; preds = %invoke.cont.thread4
 invoke.cont7:                                     ; preds = %invoke.cont7.lr.ph, %for.inc58
   %indvars.iv40 = phi i64 [ 0, %invoke.cont7.lr.ph ], [ %indvars.iv.next41, %for.inc58 ]
   %0 = trunc i64 %indvars.iv40 to i32
-  %conv2 = sitofp i32 %0 to float
+  %conv2 = uitofp i32 %0 to float
   %add = fadd float %conv2, 5.000000e-01
   %mul = fmul float %add, %conv3
   %div = fdiv float %mul, %conv4
@@ -13127,7 +13127,7 @@ for.body.lr.ph:                                   ; preds = %_ZNSt6vectorINSt7__
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %17 = phi ptr [ null, %for.body.lr.ph ], [ %30, %for.inc ]
   %i.0109 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
-  %conv = sitofp i32 %i.0109 to float
+  %conv = uitofp i32 %i.0109 to float
   %18 = load float, ptr %xySigma, align 4
   %mul.i = fmul float %18, 0x401921FB60000000
   %mul1.i = fmul float %18, %mul.i
@@ -15558,7 +15558,7 @@ for.body77.i.us:                                  ; preds = %for.body77.lr.ph.i,
   %180 = load i8, ptr %arrayidx.i.i100.us, align 1, !noalias !167
   %conv80.i.us = zext i8 %180 to i32
   %add.i.us = or disjoint i32 %shl.i.us, %conv80.i.us
-  %conv81.i.us = sitofp i32 %add.i.us to float
+  %conv81.i.us = uitofp i32 %add.i.us to float
   %div.i.us = fdiv float %conv81.i.us, 6.553500e+04
   %agg.tmp84.sroa.0.0.insert.insert.i.us = add nuw nsw i64 %indvars.iv.i99.us, %agg.tmp84.sroa.2.0.insert.shift.i
   invoke void @_ZN4pbrt5Image10SetChannelENS_6Point2IiEEif(ptr noundef nonnull align 8 dereferenceable(152) %image.i61, i64 %agg.tmp84.sroa.0.0.insert.insert.i.us, i32 noundef 0, float noundef %div.i.us)
@@ -15587,7 +15587,7 @@ for.body77.i.us987:                               ; preds = %for.body77.lr.ph.i,
   %184 = load i8, ptr %arrayidx.i.i100.us992, align 1, !noalias !167
   %conv80.i.us993 = zext i8 %184 to i32
   %add.i.us994 = or disjoint i32 %shl.i.us991, %conv80.i.us993
-  %conv81.i.us995 = sitofp i32 %add.i.us994 to float
+  %conv81.i.us995 = uitofp i32 %add.i.us994 to float
   %div.i.us996 = fdiv float %conv81.i.us995, 6.553500e+04
   %call.i.i.i.i87.i.us = invoke noundef float @_ZNK4pbrt17sRGBColorEncoding13ToFloatLinearEf(ptr noundef nonnull align 1 dereferenceable(1) %176, float noundef %div.i.us996)
           to label %invoke.cont85.i.us997 unwind label %lpad23.loopexit.i.split.split.us, !noalias !167
@@ -15620,7 +15620,7 @@ for.body77.i:                                     ; preds = %for.body77.lr.ph.i,
   %188 = load i8, ptr %arrayidx.i.i100, align 1, !noalias !167
   %conv80.i = zext i8 %188 to i32
   %add.i = or disjoint i32 %shl.i, %conv80.i
-  %conv81.i = sitofp i32 %add.i to float
+  %conv81.i = uitofp i32 %add.i to float
   %div.i = fdiv float %conv81.i, 6.553500e+04
   %call.i5.i.i.i88.i = invoke noundef float @_ZNK4pbrt18GammaColorEncoding13ToFloatLinearEf(ptr noundef nonnull align 4 dereferenceable(5124) %176, float noundef %div.i)
           to label %invoke.cont85.i unwind label %lpad23.loopexit.i.split.split, !noalias !167
@@ -16383,7 +16383,7 @@ do.end277.i:                                      ; preds = %for.inc330.i, %do.e
   %284 = load i8, ptr %arrayidx.i196.i, align 1, !noalias !167
   %conv283.i = zext i8 %284 to i32
   %add284.i = or disjoint i32 %shl281.i, %conv283.i
-  %conv285.i = sitofp i32 %add284.i to float
+  %conv285.i = uitofp i32 %add284.i to float
   %div286.i = fdiv float %conv285.i, 6.553500e+04
   store float %div286.i, ptr %rgba.i, align 16, !noalias !167
   %arrayidx.i197.i = getelementptr inbounds i8, ptr %bufIter264.sroa.0.1551.i, i64 2
@@ -16394,7 +16394,7 @@ do.end277.i:                                      ; preds = %for.inc330.i, %do.e
   %286 = load i8, ptr %arrayidx.i198.i, align 1, !noalias !167
   %conv292.i = zext i8 %286 to i32
   %add293.i = or disjoint i32 %shl290.i, %conv292.i
-  %conv294.i = sitofp i32 %add293.i to float
+  %conv294.i = uitofp i32 %add293.i to float
   %div295.i = fdiv float %conv294.i, 6.553500e+04
   store float %div295.i, ptr %arrayinit.element287.i, align 4, !noalias !167
   %arrayidx.i199.i = getelementptr inbounds i8, ptr %bufIter264.sroa.0.1551.i, i64 4
@@ -16405,7 +16405,7 @@ do.end277.i:                                      ; preds = %for.inc330.i, %do.e
   %288 = load i8, ptr %arrayidx.i200.i, align 1, !noalias !167
   %conv301.i = zext i8 %288 to i32
   %add302.i = or disjoint i32 %shl299.i, %conv301.i
-  %conv303.i = sitofp i32 %add302.i to float
+  %conv303.i = uitofp i32 %add302.i to float
   %div304.i = fdiv float %conv303.i, 6.553500e+04
   store float %div304.i, ptr %arrayinit.element296.i, align 8, !noalias !167
   %arrayidx.i201.i = getelementptr inbounds i8, ptr %bufIter264.sroa.0.1551.i, i64 6
@@ -16416,7 +16416,7 @@ do.end277.i:                                      ; preds = %for.inc330.i, %do.e
   %290 = load i8, ptr %arrayidx.i202.i, align 1, !noalias !167
   %conv310.i = zext i8 %290 to i32
   %add311.i = or disjoint i32 %shl308.i, %conv310.i
-  %conv312.i = sitofp i32 %add311.i to float
+  %conv312.i = uitofp i32 %add311.i to float
   %div313.i = fdiv float %conv312.i, 6.553500e+04
   store float %div313.i, ptr %arrayinit.element305.i, align 4, !noalias !167
   %agg.tmp321.sroa.0.0.insert.insert.i = add nuw nsw i64 %indvars.iv578.i, %agg.tmp321.sroa.2.0.insert.shift.i
@@ -16904,7 +16904,7 @@ do.end416.i:                                      ; preds = %for.inc463.i, %do.e
   %349 = load i8, ptr %arrayidx.i261.i, align 1, !noalias !167
   %conv422.i = zext i8 %349 to i32
   %add423.i = or disjoint i32 %shl420.i, %conv422.i
-  %conv424.i = sitofp i32 %add423.i to float
+  %conv424.i = uitofp i32 %add423.i to float
   %div425.i = fdiv float %conv424.i, 6.553500e+04
   store float %div425.i, ptr %rgb.i, align 4, !noalias !167
   %arrayidx.i262.i = getelementptr inbounds i8, ptr %bufIter403.sroa.0.1543.i, i64 2
@@ -16915,7 +16915,7 @@ do.end416.i:                                      ; preds = %for.inc463.i, %do.e
   %351 = load i8, ptr %arrayidx.i263.i, align 1, !noalias !167
   %conv431.i = zext i8 %351 to i32
   %add432.i = or disjoint i32 %shl429.i, %conv431.i
-  %conv433.i = sitofp i32 %add432.i to float
+  %conv433.i = uitofp i32 %add432.i to float
   %div434.i = fdiv float %conv433.i, 6.553500e+04
   store float %div434.i, ptr %arrayinit.element426.i, align 4, !noalias !167
   %arrayidx.i264.i = getelementptr inbounds i8, ptr %bufIter403.sroa.0.1543.i, i64 4
@@ -16926,7 +16926,7 @@ do.end416.i:                                      ; preds = %for.inc463.i, %do.e
   %353 = load i8, ptr %arrayidx.i265.i, align 1, !noalias !167
   %conv440.i = zext i8 %353 to i32
   %add441.i = or disjoint i32 %shl438.i, %conv440.i
-  %conv442.i = sitofp i32 %add441.i to float
+  %conv442.i = uitofp i32 %add441.i to float
   %div443.i = fdiv float %conv442.i, 6.553500e+04
   store float %div443.i, ptr %arrayinit.element435.i, align 4, !noalias !167
   %agg.tmp454.sroa.0.0.insert.insert.i = add nuw nsw i64 %indvars.iv568.i, %agg.tmp454.sroa.2.0.insert.shift.i

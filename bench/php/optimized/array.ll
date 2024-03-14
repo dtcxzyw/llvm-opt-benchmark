@@ -10084,7 +10084,7 @@ define hidden void @zif_range(ptr noundef %0, ptr nocapture noundef %1) local_un
   %spec.select = call i64 @llvm.abs.i64(i64 %67, i1 true)
   %.lobit = lshr i64 %67, 63
   %spec.select543 = trunc i64 %.lobit to i8
-  %68 = sitofp i64 %spec.select to double
+  %68 = uitofp i64 %spec.select to double
   br label %69
 
 69:                                               ; preds = %62, %65, %66
@@ -24327,25 +24327,25 @@ define hidden void @zif_array_key_exists(ptr noundef %0, ptr nocapture noundef w
   br i1 %.not159, label %12, label %11
 
 11:                                               ; preds = %6, %.thread
-  %.0183 = phi i32 [ 1, %.thread ], [ 9, %6 ]
-  %.0132182 = phi i32 [ 0, %.thread ], [ 6, %6 ]
-  %.0133181 = phi ptr [ null, %.thread ], [ %8, %6 ]
-  %.0134180 = phi i32 [ 0, %.thread ], [ 2, %6 ]
-  tail call void @zend_wrong_parameter_error(i32 noundef %.0183, i32 noundef %.0134180, ptr noundef null, i32 noundef %.0132182, ptr noundef %.0133181) #18
-  br label %83
+  %.0182 = phi i32 [ 1, %.thread ], [ 9, %6 ]
+  %.0132181 = phi i32 [ 0, %.thread ], [ 6, %6 ]
+  %.0133180 = phi ptr [ null, %.thread ], [ %8, %6 ]
+  %.0134179 = phi i32 [ 0, %.thread ], [ 2, %6 ]
+  tail call void @zend_wrong_parameter_error(i32 noundef %.0182, i32 noundef %.0134179, ptr noundef null, i32 noundef %.0132181, ptr noundef %.0133180) #18
+  br label %84
 
 12:                                               ; preds = %6
   %13 = load ptr, ptr %8, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 88
   %15 = load i8, ptr %14, align 8
-  switch i8 %15, label %82 [
+  switch i8 %15, label %83 [
     i8 6, label %16
     i8 4, label %39
     i8 1, label %44
     i8 5, label %49
-    i8 2, label %67
-    i8 3, label %71
-    i8 9, label %75
+    i8 2, label %68
+    i8 3, label %72
+    i8 9, label %76
   ]
 
 16:                                               ; preds = %12
@@ -24391,7 +24391,7 @@ define hidden void @zif_array_key_exists(ptr noundef %0, ptr nocapture noundef w
   %37 = select i1 %.0135.not, i32 2, i32 3
   %38 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 %37, ptr %38, align 8
-  br label %83
+  br label %84
 
 39:                                               ; preds = %12
   %40 = load i64, ptr %7, align 8
@@ -24400,7 +24400,7 @@ define hidden void @zif_array_key_exists(ptr noundef %0, ptr nocapture noundef w
   %42 = select i1 %.not166, i32 2, i32 3
   %43 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 %42, ptr %43, align 8
-  br label %83
+  br label %84
 
 44:                                               ; preds = %12
   %45 = load ptr, ptr @zend_empty_string, align 8
@@ -24409,79 +24409,79 @@ define hidden void @zif_array_key_exists(ptr noundef %0, ptr nocapture noundef w
   %47 = select i1 %.not165, i32 2, i32 3
   %48 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 %47, ptr %48, align 8
-  br label %83
+  br label %84
 
 49:                                               ; preds = %12
   %50 = load double, ptr %7, align 8
   %51 = tail call double @llvm.fabs.f64(double %50)
-  %or.cond172 = fcmp ueq double %51, 0x7FF0000000000000
-  br i1 %or.cond172, label %59, label %52
+  %52 = fcmp ueq double %51, 0x7FF0000000000000
+  br i1 %52, label %60, label %53
 
-52:                                               ; preds = %49
-  %53 = fcmp oge double %50, 0x43E0000000000000
-  %54 = fcmp olt double %50, 0xC3E0000000000000
-  %or.cond = or i1 %53, %54
-  br i1 %or.cond, label %55, label %57
+53:                                               ; preds = %49
+  %54 = fcmp oge double %50, 0x43E0000000000000
+  %55 = fcmp olt double %50, 0xC3E0000000000000
+  %or.cond = or i1 %54, %55
+  br i1 %or.cond, label %56, label %58
 
-55:                                               ; preds = %52
-  %56 = tail call i64 @zend_dval_to_lval_slow(double noundef %50) #18
-  br label %59
+56:                                               ; preds = %53
+  %57 = tail call i64 @zend_dval_to_lval_slow(double noundef %50) #18
+  br label %60
 
-57:                                               ; preds = %52
-  %58 = fptosi double %50 to i64
-  br label %59
+58:                                               ; preds = %53
+  %59 = fptosi double %50 to i64
+  br label %60
 
-59:                                               ; preds = %49, %57, %55
-  %.0131 = phi i64 [ %56, %55 ], [ %58, %57 ], [ 0, %49 ]
-  %60 = sitofp i64 %.0131 to double
-  %61 = fcmp oeq double %50, %60
-  br i1 %61, label %63, label %62
+60:                                               ; preds = %49, %58, %56
+  %.0131 = phi i64 [ %57, %56 ], [ %59, %58 ], [ 0, %49 ]
+  %61 = sitofp i64 %.0131 to double
+  %62 = fcmp oeq double %50, %61
+  br i1 %62, label %64, label %63
 
-62:                                               ; preds = %59
+63:                                               ; preds = %60
   tail call void @zend_incompatible_double_to_long_error(double noundef %50) #18
-  br label %63
+  br label %64
 
-63:                                               ; preds = %62, %59
-  %64 = tail call ptr @zend_hash_index_find(ptr noundef %13, i64 noundef %.0131) #18
-  %.not164 = icmp eq ptr %64, null
-  %65 = select i1 %.not164, i32 2, i32 3
-  %66 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 %65, ptr %66, align 8
-  br label %83
+64:                                               ; preds = %63, %60
+  %65 = tail call ptr @zend_hash_index_find(ptr noundef %13, i64 noundef %.0131) #18
+  %.not164 = icmp eq ptr %65, null
+  %66 = select i1 %.not164, i32 2, i32 3
+  %67 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 %66, ptr %67, align 8
+  br label %84
 
-67:                                               ; preds = %12
-  %68 = tail call ptr @zend_hash_index_find(ptr noundef %13, i64 noundef 0) #18
-  %.not163 = icmp eq ptr %68, null
-  %69 = select i1 %.not163, i32 2, i32 3
-  %70 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 %69, ptr %70, align 8
-  br label %83
+68:                                               ; preds = %12
+  %69 = tail call ptr @zend_hash_index_find(ptr noundef %13, i64 noundef 0) #18
+  %.not163 = icmp eq ptr %69, null
+  %70 = select i1 %.not163, i32 2, i32 3
+  %71 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 %70, ptr %71, align 8
+  br label %84
 
-71:                                               ; preds = %12
-  %72 = tail call ptr @zend_hash_index_find(ptr noundef %13, i64 noundef 1) #18
-  %.not162 = icmp eq ptr %72, null
-  %73 = select i1 %.not162, i32 2, i32 3
-  %74 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 %73, ptr %74, align 8
-  br label %83
+72:                                               ; preds = %12
+  %73 = tail call ptr @zend_hash_index_find(ptr noundef %13, i64 noundef 1) #18
+  %.not162 = icmp eq ptr %73, null
+  %74 = select i1 %.not162, i32 2, i32 3
+  %75 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 %74, ptr %75, align 8
+  br label %84
 
-75:                                               ; preds = %12
+76:                                               ; preds = %12
   tail call void @zend_use_resource_as_offset(ptr noundef nonnull %7) #18
-  %76 = load ptr, ptr %7, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 8
-  %78 = load i64, ptr %77, align 8
-  %79 = tail call ptr @zend_hash_index_find(ptr noundef %13, i64 noundef %78) #18
-  %.not161 = icmp eq ptr %79, null
-  %80 = select i1 %.not161, i32 2, i32 3
-  %81 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 %80, ptr %81, align 8
-  br label %83
+  %77 = load ptr, ptr %7, align 8
+  %78 = getelementptr inbounds i8, ptr %77, i64 8
+  %79 = load i64, ptr %78, align 8
+  %80 = tail call ptr @zend_hash_index_find(ptr noundef %13, i64 noundef %79) #18
+  %.not161 = icmp eq ptr %80, null
+  %81 = select i1 %.not161, i32 2, i32 3
+  %82 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 %81, ptr %82, align 8
+  br label %84
 
-82:                                               ; preds = %12
+83:                                               ; preds = %12
   tail call void (i32, ptr, ...) @zend_argument_type_error(i32 noundef 1, ptr noundef nonnull @.str.34) #18
-  br label %83
+  br label %84
 
-83:                                               ; preds = %82, %75, %71, %67, %63, %44, %39, %36, %11
+84:                                               ; preds = %83, %76, %72, %68, %64, %44, %39, %36, %11
   ret void
 }
 

@@ -1197,7 +1197,7 @@ _ZL11isectRaySegPKfS0_S0_S0_Rf.exit.thread:       ; preds = %175, %163, %188, %1
 ._crit_edge:                                      ; preds = %_ZL11isectRaySegPKfS0_S0_S0_Rf.exit.thread, %.preheader
   %.2.lcssa = phi float [ %.064.lcssa, %.preheader ], [ %.3, %_ZL11isectRaySegPKfS0_S0_S0_Rf.exit.thread ]
   %.not = icmp eq i32 %.067.lcssa, 0
-  %193 = sitofp i32 %.067.lcssa to float
+  %193 = uitofp i32 %.067.lcssa to float
   %194 = select i1 %.not, float 1.000000e+00, float %193
   %195 = getelementptr inbounds i8, ptr %0, i64 12
   %196 = getelementptr inbounds i8, ptr %0, i64 28
@@ -1295,7 +1295,7 @@ define noundef i32 @_ZN24dtObstacleAvoidanceQuery18sampleVelocityGridEPKfffS1_S1
   br i1 %.not57, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %47 = sitofp i32 %.04152 to float
+  %47 = uitofp i32 %.04152 to float
   %48 = tail call float @llvm.fmuladd.f32(float %47, float %38, float %29)
   %49 = fsub float %48, %40
   %50 = fmul float %49, %49
@@ -1305,7 +1305,7 @@ define noundef i32 @_ZN24dtObstacleAvoidanceQuery18sampleVelocityGridEPKfffS1_S1
   %.149 = phi float [ %.053, %.lr.ph ], [ %.2, %63 ]
   %.04048 = phi i32 [ 0, %.lr.ph ], [ %64, %63 ]
   %.14347 = phi i32 [ %.04251, %.lr.ph ], [ %.244, %63 ]
-  %52 = sitofp i32 %.04048 to float
+  %52 = uitofp i32 %.04048 to float
   %53 = tail call float @llvm.fmuladd.f32(float %52, float %38, float %26)
   %54 = fsub float %53, %40
   store float %54, ptr %10, align 4

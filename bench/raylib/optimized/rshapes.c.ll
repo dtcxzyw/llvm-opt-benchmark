@@ -249,7 +249,7 @@ define void @DrawLineBezier(<2 x float> %0, <2 x float> %1, float noundef %2, i3
   %17 = phi <2 x float> [ %0, %4 ], [ %66, %51 ]
   %18 = shufflevector <2 x float> %17, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
   %19 = trunc i64 %indvars.iv to i32
-  %20 = sitofp i32 %19 to float
+  %20 = uitofp i32 %19 to float
   %21 = fdiv float %20, 1.200000e+01
   %22 = fcmp olt float %21, 1.000000e+00
   br i1 %22, label %23, label %27
@@ -753,7 +753,7 @@ define void @DrawCircleGradient(i32 noundef %0, i32 noundef %1, float noundef %2
   tail call void @rlVertex2f(float noundef %6, float noundef %7) #16
   tail call void @rlColor4ub(i8 noundef zeroext %.sroa.0.0.extract.trunc, i8 noundef zeroext %.sroa.3.0.extract.trunc, i8 noundef zeroext %.sroa.5.0.extract.trunc, i8 noundef zeroext %.sroa.7.0.extract.trunc) #16
   %9 = add nuw nsw i32 %.021, 10
-  %10 = sitofp i32 %9 to float
+  %10 = uitofp i32 %9 to float
   %11 = fmul float %10, 0x3F91DF46A0000000
   %12 = tail call float @cosf(float noundef %11) #16
   %13 = tail call float @llvm.fmuladd.f32(float %12, float %2, float %6)
@@ -761,7 +761,7 @@ define void @DrawCircleGradient(i32 noundef %0, i32 noundef %1, float noundef %2
   %15 = tail call float @llvm.fmuladd.f32(float %14, float %2, float %7)
   tail call void @rlVertex2f(float noundef %13, float noundef %15) #16
   tail call void @rlColor4ub(i8 noundef zeroext %.sroa.0.0.extract.trunc, i8 noundef zeroext %.sroa.3.0.extract.trunc, i8 noundef zeroext %.sroa.5.0.extract.trunc, i8 noundef zeroext %.sroa.7.0.extract.trunc) #16
-  %16 = sitofp i32 %.021 to float
+  %16 = uitofp i32 %.021 to float
   %17 = fmul float %16, 0x3F91DF46A0000000
   %18 = tail call float @cosf(float noundef %17) #16
   %19 = tail call float @llvm.fmuladd.f32(float %18, float %2, float %6)
@@ -793,7 +793,7 @@ define void @DrawCircleLines(i32 noundef %0, i32 noundef %1, float noundef %2, i
 
 7:                                                ; preds = %7, %4
   %.014.i = phi i32 [ 0, %4 ], [ %14, %7 ]
-  %8 = sitofp i32 %.014.i to float
+  %8 = uitofp i32 %.014.i to float
   %9 = fmul float %8, 0x3F91DF46A0000000
   %10 = tail call float @cosf(float noundef %9) #16
   %11 = tail call float @llvm.fmuladd.f32(float %10, float %2, float %5)
@@ -801,7 +801,7 @@ define void @DrawCircleLines(i32 noundef %0, i32 noundef %1, float noundef %2, i
   %13 = tail call float @llvm.fmuladd.f32(float %12, float %2, float %6)
   tail call void @rlVertex2f(float noundef %11, float noundef %13) #16
   %14 = add nuw nsw i32 %.014.i, 10
-  %15 = sitofp i32 %14 to float
+  %15 = uitofp i32 %14 to float
   %16 = fmul float %15, 0x3F91DF46A0000000
   %17 = tail call float @cosf(float noundef %16) #16
   %18 = tail call float @llvm.fmuladd.f32(float %17, float %2, float %5)
@@ -833,7 +833,7 @@ define void @DrawCircleLinesV(<2 x float> %0, float noundef %1, i32 %2) local_un
 
 4:                                                ; preds = %3, %4
   %.014 = phi i32 [ 0, %3 ], [ %11, %4 ]
-  %5 = sitofp i32 %.014 to float
+  %5 = uitofp i32 %.014 to float
   %6 = fmul float %5, 0x3F91DF46A0000000
   %7 = tail call float @cosf(float noundef %6) #16
   %8 = tail call float @llvm.fmuladd.f32(float %7, float %1, float %.sroa.09.0.vec.extract)
@@ -841,7 +841,7 @@ define void @DrawCircleLinesV(<2 x float> %0, float noundef %1, i32 %2) local_un
   %10 = tail call float @llvm.fmuladd.f32(float %9, float %1, float %.sroa.09.4.vec.extract)
   tail call void @rlVertex2f(float noundef %8, float noundef %10) #16
   %11 = add nuw nsw i32 %.014, 10
-  %12 = sitofp i32 %11 to float
+  %12 = uitofp i32 %11 to float
   %13 = fmul float %12, 0x3F91DF46A0000000
   %14 = tail call float @cosf(float noundef %13) #16
   %15 = tail call float @llvm.fmuladd.f32(float %14, float %1, float %.sroa.09.0.vec.extract)
@@ -875,14 +875,14 @@ define void @DrawEllipse(i32 noundef %0, i32 noundef %1, float noundef %2, float
   tail call void @rlColor4ub(i8 noundef zeroext %.sroa.0.0.extract.trunc, i8 noundef zeroext %.sroa.2.0.extract.trunc, i8 noundef zeroext %.sroa.3.0.extract.trunc, i8 noundef zeroext %.sroa.4.0.extract.trunc) #16
   tail call void @rlVertex2f(float noundef %6, float noundef %7) #16
   %9 = add nuw nsw i32 %.015, 10
-  %10 = sitofp i32 %9 to float
+  %10 = uitofp i32 %9 to float
   %11 = fmul float %10, 0x3F91DF46A0000000
   %12 = tail call float @cosf(float noundef %11) #16
   %13 = tail call float @llvm.fmuladd.f32(float %12, float %2, float %6)
   %14 = tail call float @sinf(float noundef %11) #16
   %15 = tail call float @llvm.fmuladd.f32(float %14, float %3, float %7)
   tail call void @rlVertex2f(float noundef %13, float noundef %15) #16
-  %16 = sitofp i32 %.015 to float
+  %16 = uitofp i32 %.015 to float
   %17 = fmul float %16, 0x3F91DF46A0000000
   %18 = tail call float @cosf(float noundef %17) #16
   %19 = tail call float @llvm.fmuladd.f32(float %18, float %2, float %6)
@@ -915,14 +915,14 @@ define void @DrawEllipseLines(i32 noundef %0, i32 noundef %1, float noundef %2, 
   %.013 = phi i32 [ 0, %5 ], [ %9, %8 ]
   tail call void @rlColor4ub(i8 noundef zeroext %.sroa.0.0.extract.trunc, i8 noundef zeroext %.sroa.2.0.extract.trunc, i8 noundef zeroext %.sroa.3.0.extract.trunc, i8 noundef zeroext %.sroa.4.0.extract.trunc) #16
   %9 = add nuw nsw i32 %.013, 10
-  %10 = sitofp i32 %9 to float
+  %10 = uitofp i32 %9 to float
   %11 = fmul float %10, 0x3F91DF46A0000000
   %12 = tail call float @cosf(float noundef %11) #16
   %13 = tail call float @llvm.fmuladd.f32(float %12, float %2, float %6)
   %14 = tail call float @sinf(float noundef %11) #16
   %15 = tail call float @llvm.fmuladd.f32(float %14, float %3, float %7)
   tail call void @rlVertex2f(float noundef %13, float noundef %15) #16
-  %16 = sitofp i32 %.013 to float
+  %16 = uitofp i32 %.013 to float
   %17 = fmul float %16, 0x3F91DF46A0000000
   %18 = tail call float @cosf(float noundef %17) #16
   %19 = tail call float @llvm.fmuladd.f32(float %18, float %2, float %6)
@@ -2636,7 +2636,7 @@ define void @DrawPoly(<2 x float> %0, i32 noundef %1, float noundef %2, float no
   %.sroa.4.0.extract.trunc = trunc i32 %.sroa.4.0.extract.shift to i8
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %1, i32 3)
   %6 = fmul float %3, 0x3F91DF46A0000000
-  %7 = sitofp i32 %spec.store.select to float
+  %7 = uitofp i32 %spec.store.select to float
   %8 = fdiv float 3.600000e+02, %7
   %9 = fmul float %8, 0x3F91DF46A0000000
   %.sroa.0.0.copyload = load i32, ptr @texShapes, align 16
@@ -2724,7 +2724,7 @@ define void @DrawPolyLines(<2 x float> %0, i32 noundef %1, float noundef %2, flo
   %.sroa.4.0.extract.trunc = trunc i32 %.sroa.4.0.extract.shift to i8
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %1, i32 3)
   %6 = fmul float %3, 0x3F91DF46A0000000
-  %7 = sitofp i32 %spec.store.select to float
+  %7 = uitofp i32 %spec.store.select to float
   %8 = fdiv float 3.600000e+02, %7
   %9 = fmul float %8, 0x3F91DF46A0000000
   tail call void @rlBegin(i32 noundef 1) #16
@@ -2767,7 +2767,7 @@ define void @DrawPolyLinesEx(<2 x float> %0, i32 noundef %1, float noundef %2, f
   %.sroa.4.0.extract.trunc = trunc i32 %.sroa.4.0.extract.shift to i8
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %1, i32 3)
   %7 = fmul float %3, 0x3F91DF46A0000000
-  %8 = sitofp i32 %spec.store.select to float
+  %8 = uitofp i32 %spec.store.select to float
   %9 = fdiv float 3.600000e+02, %8
   %10 = fmul float %9, 0x3F91DF46A0000000
   %11 = fmul float %10, 0x3F91DF46A0000000
@@ -2973,7 +2973,7 @@ define void @DrawSplineBasis(ptr nocapture noundef readonly %0, i32 noundef %1, 
   %indvars.iv = phi i64 [ 1, %.split.us.preheader ], [ %indvars.iv.next, %.split.us ]
   %.sroa.048.1128.us = phi <2 x float> [ %35, %.split.us.preheader ], [ %56, %.split.us ]
   %47 = trunc i64 %indvars.iv to i32
-  %48 = sitofp i32 %47 to float
+  %48 = uitofp i32 %47 to float
   %49 = fdiv float %48, 2.400000e+01
   %50 = shl nuw nsw i64 %indvars.iv, 1
   %51 = getelementptr inbounds [50 x %struct.Vector2], ptr %5, i64 0, i64 %50
@@ -3009,7 +3009,7 @@ define void @DrawSplineBasis(ptr nocapture noundef readonly %0, i32 noundef %1, 
   %.sroa.048.1128 = phi <2 x float> [ %35, %.split.preheader ], [ %81, %100 ]
   %73 = phi <4 x float> [ %11, %.split.preheader ], [ %101, %100 ]
   %74 = trunc i64 %indvars.iv166 to i32
-  %75 = sitofp i32 %74 to float
+  %75 = uitofp i32 %74 to float
   %76 = fdiv float %75, 2.400000e+01
   %77 = insertelement <2 x float> poison, float %76, i64 0
   %78 = shufflevector <2 x float> %77, <2 x float> poison, <2 x i32> zeroinitializer
@@ -3134,7 +3134,7 @@ define void @DrawSplineCatmullRom(ptr nocapture noundef readonly %0, i32 noundef
   %.sroa.057.1127 = phi <2 x float> [ %71, %90 ], [ %.sroa.057.0139, %.preheader ]
   %34 = phi <4 x float> [ %91, %90 ], [ %.ph, %.preheader ]
   %35 = trunc i64 %indvars.iv to i32
-  %36 = sitofp i32 %35 to float
+  %36 = uitofp i32 %35 to float
   %37 = fdiv float %36, 2.400000e+01
   %38 = fneg float %37
   %39 = fmul float %37, %38
@@ -3259,7 +3259,7 @@ define void @DrawSplineBezierQuadratic(ptr nocapture noundef readonly %0, i32 no
   %18 = phi <4 x float> [ zeroinitializer, %10 ], [ %57, %56 ]
   %19 = phi <2 x float> [ %14, %10 ], [ %34, %56 ]
   %20 = trunc i64 %indvars.iv.i to i32
-  %21 = sitofp i32 %20 to float
+  %21 = uitofp i32 %20 to float
   %22 = fmul float %21, 0x3FA5555560000000
   %23 = fsub float 1.000000e+00, %22
   %square.i = fmul float %23, %23
@@ -3347,7 +3347,7 @@ define void @DrawSplineSegmentBezierQuadratic(<2 x float> %0, <2 x float> %1, <2
   %10 = phi <4 x float> [ zeroinitializer, %5 ], [ %49, %48 ]
   %11 = phi <2 x float> [ %0, %5 ], [ %26, %48 ]
   %12 = trunc i64 %indvars.iv to i32
-  %13 = sitofp i32 %12 to float
+  %13 = uitofp i32 %12 to float
   %14 = fmul float %13, 0x3FA5555560000000
   %15 = fsub float 1.000000e+00, %14
   %square = fmul float %15, %15
@@ -3459,7 +3459,7 @@ define void @DrawSplineSegmentBezierCubic(<2 x float> %0, <2 x float> %1, <2 x f
   %11 = phi <4 x float> [ zeroinitializer, %6 ], [ %57, %56 ]
   %12 = phi <2 x float> [ %0, %6 ], [ %34, %56 ]
   %13 = trunc i64 %indvars.iv to i32
-  %14 = sitofp i32 %13 to float
+  %14 = uitofp i32 %13 to float
   %15 = fmul float %14, 0x3FA5555560000000
   %16 = fsub float 1.000000e+00, %15
   %17 = tail call float @powf(float noundef %16, float noundef 3.000000e+00) #16
@@ -3602,7 +3602,7 @@ define void @DrawSplineSegmentBasis(<2 x float> %0, <2 x float> %1, <2 x float> 
   %indvars.iv = phi i64 [ 0, %6 ], [ %indvars.iv.next, %50 ]
   %25 = phi <2 x float> [ %22, %6 ], [ %33, %50 ]
   %26 = trunc i64 %indvars.iv to i32
-  %27 = sitofp i32 %26 to float
+  %27 = uitofp i32 %26 to float
   %28 = fmul float %27, 0x3FA5555560000000
   %29 = insertelement <2 x float> poison, float %28, i64 0
   %30 = shufflevector <2 x float> %29, <2 x float> poison, <2 x i32> zeroinitializer
@@ -3663,7 +3663,7 @@ define void @DrawSplineSegmentCatmullRom(<2 x float> %0, <2 x float> %1, <2 x fl
   %indvars.iv = phi i64 [ 0, %6 ], [ %indvars.iv.next, %64 ]
   %10 = phi <2 x float> [ %0, %6 ], [ %47, %64 ]
   %11 = trunc i64 %indvars.iv to i32
-  %12 = sitofp i32 %11 to float
+  %12 = uitofp i32 %11 to float
   %13 = fmul float %12, 0x3FA5555560000000
   %14 = fneg float %13
   %15 = fmul float %13, %14

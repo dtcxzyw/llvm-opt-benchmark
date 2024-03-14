@@ -663,7 +663,7 @@ for.body.lr.ph.i:                                 ; preds = %if.end.i
   %sh_prom.i = trunc i64 %35 to i32
   %notmask.i = shl nsw i32 -1, %sh_prom.i
   %sub9.i = xor i32 %notmask.i, -1
-  %conv.i = sitofp i32 %sub9.i to float
+  %conv.i = uitofp i32 %sub9.i to float
   %cmp1216.not.i = icmp eq i64 %2, 0
   %m_quantVectors20.i = getelementptr inbounds i8, ptr %this, i64 48
   br i1 %cmp1216.not.i, label %for.body17.lr.ph, label %for.body.us.i
@@ -1244,7 +1244,7 @@ if.then.i:                                        ; preds = %invoke.cont17, %.no
 .noexc:                                           ; preds = %if.then.i
   %sub.i = sub i32 %symbol.addr.011.i, %shl12.i
   %inc.i = add nuw nsw i32 %k.addr.010.i, 1
-  %shl.i = shl i32 2, %k.addr.010.i
+  %shl.i = shl nuw i32 2, %k.addr.010.i
   %cmp.not.i = icmp ult i32 %sub.i, %shl.i
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i, !llvm.loop !16
 
@@ -1316,7 +1316,7 @@ if.then.i.i.us:                                   ; preds = %.noexc21.us, %.noex
 .noexc23.us:                                      ; preds = %if.then.i.i.us
   %sub.i.i.us = sub i32 %symbol.addr.011.i.i.us, %shl12.i.i.us
   %inc.i.i.us = add nuw nsw i32 %k.addr.010.i.i.us, 1
-  %shl.i.i.us = shl i32 2, %k.addr.010.i.i.us
+  %shl.i.i.us = shl nuw i32 2, %k.addr.010.i.i.us
   %cmp.not.i.i.us = icmp ult i32 %sub.i.i.us, %shl.i.i.us
   br i1 %cmp.not.i.i.us, label %if.else.i.i.us, label %if.then.i.i.us, !llvm.loop !16
 
@@ -1448,7 +1448,7 @@ for.body.lr.ph:                                   ; preds = %if.end
   %sh_prom = trunc i64 %nQBits to i32
   %notmask = shl nsw i32 -1, %sh_prom
   %sub9 = xor i32 %notmask, -1
-  %conv = sitofp i32 %sub9 to float
+  %conv = uitofp i32 %sub9 to float
   %cmp1216.not = icmp eq i64 %numFloatArray, 0
   %m_quantVectors20 = getelementptr inbounds i8, ptr %this, i64 48
   br i1 %cmp1216.not, label %for.end26, label %for.body.us

@@ -42,7 +42,7 @@ for.cond16.preheader:                             ; preds = %for.cond16.preheade
   br i1 %cmp1830, label %for.body19.lr.ph, label %for.inc28
 
 for.body19.lr.ph:                                 ; preds = %for.cond16.preheader
-  %conv24 = sitofp i32 %y.033 to double
+  %conv24 = uitofp i32 %y.033 to double
   %add25 = fadd double %conv24, 5.000000e-01
   %mul3.i = fmul double %div6, %add25
   %sub4.i.i = fadd double %mul3.i, -5.000000e-01
@@ -60,7 +60,7 @@ for.body19.lr.ph:                                 ; preds = %for.cond16.preheade
 for.body19:                                       ; preds = %for.body19.lr.ph, %_ZN7msdfgenL7distValEfdf.exit
   %8 = phi i32 [ %6, %for.body19.lr.ph ], [ %22, %_ZN7msdfgenL7distValEfdf.exit ]
   %x.031 = phi i32 [ 0, %for.body19.lr.ph ], [ %inc, %_ZN7msdfgenL7distValEfdf.exit ]
-  %conv22 = sitofp i32 %x.031 to double
+  %conv22 = uitofp i32 %x.031 to double
   %add23 = fadd double %conv22, 5.000000e-01
   %mul.i = fmul double %div, %add23
   %sub.i.i = fadd double %mul.i, -5.000000e-01
@@ -214,7 +214,7 @@ for.cond16.preheader:                             ; preds = %for.cond16.preheade
   br i1 %cmp1850, label %for.body19.lr.ph, label %for.inc32
 
 for.body19.lr.ph:                                 ; preds = %for.cond16.preheader
-  %conv24 = sitofp i32 %y.053 to double
+  %conv24 = uitofp i32 %y.053 to double
   %add25 = fadd double %conv24, 5.000000e-01
   %mul3.i = fmul double %div6, %add25
   %sub4.i.i = fadd double %mul3.i, -5.000000e-01
@@ -232,7 +232,7 @@ for.body19.lr.ph:                                 ; preds = %for.cond16.preheade
 for.body19:                                       ; preds = %for.body19.lr.ph, %_ZN7msdfgenL7distValEfdf.exit
   %8 = phi i32 [ %6, %for.body19.lr.ph ], [ %26, %_ZN7msdfgenL7distValEfdf.exit ]
   %x.051 = phi i32 [ 0, %for.body19.lr.ph ], [ %inc, %_ZN7msdfgenL7distValEfdf.exit ]
-  %conv22 = sitofp i32 %x.051 to double
+  %conv22 = uitofp i32 %x.051 to double
   %add23 = fadd double %conv22, 5.000000e-01
   %mul.i = fmul double %div, %add23
   %sub.i.i = fadd double %mul.i, -5.000000e-01
@@ -407,7 +407,7 @@ for.cond16.preheader:                             ; preds = %for.cond16.preheade
   br i1 %cmp1832, label %for.body19.lr.ph, label %for.inc31
 
 for.body19.lr.ph:                                 ; preds = %for.cond16.preheader
-  %conv24 = sitofp i32 %y.035 to double
+  %conv24 = uitofp i32 %y.035 to double
   %add25 = fadd double %conv24, 5.000000e-01
   %mul3.i = fmul double %div6, %add25
   %sub4.i.i = fadd double %mul3.i, -5.000000e-01
@@ -425,7 +425,7 @@ for.body19.lr.ph:                                 ; preds = %for.cond16.preheade
 for.body19:                                       ; preds = %for.body19.lr.ph, %_ZN7msdfgenL7distValEfdf.exit
   %8 = phi i32 [ %6, %for.body19.lr.ph ], [ %31, %_ZN7msdfgenL7distValEfdf.exit ]
   %x.033 = phi i32 [ 0, %for.body19.lr.ph ], [ %inc, %_ZN7msdfgenL7distValEfdf.exit ]
-  %conv22 = sitofp i32 %x.033 to double
+  %conv22 = uitofp i32 %x.033 to double
   %add23 = fadd double %conv22, 5.000000e-01
   %mul.i = fmul double %div, %add23
   %sub.i.i = fadd double %mul.i, -5.000000e-01
@@ -614,7 +614,7 @@ for.cond16.preheader:                             ; preds = %for.cond16.preheade
   br i1 %cmp1884, label %for.body19.lr.ph, label %for.inc37
 
 for.body19.lr.ph:                                 ; preds = %for.cond16.preheader
-  %conv24 = sitofp i32 %y.087 to double
+  %conv24 = uitofp i32 %y.087 to double
   %add25 = fadd double %conv24, 5.000000e-01
   %mul3.i = fmul double %div6, %add25
   %sub4.i.i = fadd double %mul3.i, -5.000000e-01
@@ -632,7 +632,7 @@ for.body19.lr.ph:                                 ; preds = %for.cond16.preheade
 for.body19:                                       ; preds = %for.body19.lr.ph, %_ZN7msdfgenL7distValEfdf.exit77
   %8 = phi i32 [ %6, %for.body19.lr.ph ], [ %31, %_ZN7msdfgenL7distValEfdf.exit77 ]
   %x.085 = phi i32 [ 0, %for.body19.lr.ph ], [ %inc, %_ZN7msdfgenL7distValEfdf.exit77 ]
-  %conv22 = sitofp i32 %x.085 to double
+  %conv22 = uitofp i32 %x.085 to double
   %add23 = fadd double %conv22, 5.000000e-01
   %mul.i = fmul double %div, %add23
   %sub.i.i = fadd double %mul.i, -5.000000e-01
@@ -873,7 +873,7 @@ for.cond16.preheader:                             ; preds = %for.cond16.preheade
   br i1 %cmp1832, label %for.body19.lr.ph, label %for.inc31
 
 for.body19.lr.ph:                                 ; preds = %for.cond16.preheader
-  %conv24 = sitofp i32 %y.035 to double
+  %conv24 = uitofp i32 %y.035 to double
   %add25 = fadd double %conv24, 5.000000e-01
   %mul3.i = fmul double %div6, %add25
   %sub4.i.i = fadd double %mul3.i, -5.000000e-01
@@ -891,7 +891,7 @@ for.body19.lr.ph:                                 ; preds = %for.cond16.preheade
 for.body19:                                       ; preds = %for.body19.lr.ph, %_ZN7msdfgenL7distValEfdf.exit
   %8 = phi i32 [ %6, %for.body19.lr.ph ], [ %31, %_ZN7msdfgenL7distValEfdf.exit ]
   %x.033 = phi i32 [ 0, %for.body19.lr.ph ], [ %inc, %_ZN7msdfgenL7distValEfdf.exit ]
-  %conv22 = sitofp i32 %x.033 to double
+  %conv22 = uitofp i32 %x.033 to double
   %add23 = fadd double %conv22, 5.000000e-01
   %mul.i = fmul double %div, %add23
   %sub.i.i = fadd double %mul.i, -5.000000e-01
@@ -1081,7 +1081,7 @@ for.cond16.preheader:                             ; preds = %for.cond16.preheade
   br i1 %cmp18111, label %for.body19.lr.ph, label %for.inc41
 
 for.body19.lr.ph:                                 ; preds = %for.cond16.preheader
-  %conv24 = sitofp i32 %y.0114 to double
+  %conv24 = uitofp i32 %y.0114 to double
   %add25 = fadd double %conv24, 5.000000e-01
   %mul3.i = fmul double %div6, %add25
   %sub4.i.i = fadd double %mul3.i, -5.000000e-01
@@ -1099,7 +1099,7 @@ for.body19.lr.ph:                                 ; preds = %for.cond16.preheade
 for.body19:                                       ; preds = %for.body19.lr.ph, %_ZN7msdfgenL7distValEfdf.exit104
   %8 = phi i32 [ %6, %for.body19.lr.ph ], [ %35, %_ZN7msdfgenL7distValEfdf.exit104 ]
   %x.0112 = phi i32 [ 0, %for.body19.lr.ph ], [ %inc, %_ZN7msdfgenL7distValEfdf.exit104 ]
-  %conv22 = sitofp i32 %x.0112 to double
+  %conv22 = uitofp i32 %x.0112 to double
   %add23 = fadd double %conv22, 5.000000e-01
   %mul.i = fmul double %div, %add23
   %sub.i.i = fadd double %mul.i, -5.000000e-01

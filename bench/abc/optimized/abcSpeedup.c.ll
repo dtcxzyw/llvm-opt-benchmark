@@ -1112,7 +1112,7 @@ define void @Abc_NtkDelayTracePrint(ptr noundef %0, i32 noundef %1, i32 noundef 
   %69 = fdiv double %67, %68
   %70 = trunc i64 %indvars.iv.next69 to i32
   %71 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %70, ptr noundef nonnull %61, i32 noundef %65, double noundef %69)
-  %72 = sitofp i32 %70 to float
+  %72 = uitofp i32 %70 to float
   %73 = fcmp ogt float %18, %72
   br i1 %73, label %.lr.ph62.split.us, label %._crit_edge.thread, !llvm.loop !20
 
@@ -1133,7 +1133,7 @@ define void @Abc_NtkDelayTracePrint(ptr noundef %0, i32 noundef %1, i32 noundef 
   %83 = fdiv double %81, %82
   %84 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %79, ptr noundef nonnull %61, i32 noundef %76, double noundef %83)
   %85 = trunc i64 %indvars.iv.next66 to i32
-  %86 = sitofp i32 %85 to float
+  %86 = uitofp i32 %85 to float
   %87 = fcmp ogt float %18, %86
   br i1 %87, label %.lr.ph62.split, label %._crit_edge.thread, !llvm.loop !20
 

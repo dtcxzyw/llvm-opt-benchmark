@@ -62,7 +62,7 @@ define noalias ptr @partition(ptr nocapture noundef readonly %0, i32 noundef %1,
 .lr.ph30.i:                                       ; preds = %.preheader.i, %31
   %indvars.iv32.i = phi i64 [ %indvars.iv.next33.i, %31 ], [ 1, %.preheader.i ]
   %17 = trunc i64 %indvars.iv32.i to i32
-  %18 = sitofp i32 %17 to double
+  %18 = uitofp i32 %17 to double
   %19 = tail call double @drand48() #15
   %20 = sub i32 %11, %17
   %21 = sitofp i32 %20 to double
@@ -121,7 +121,7 @@ generateRandomOrdering.exit:                      ; preds = %31, %4, %.preheader
 .lr.ph30.i41:                                     ; preds = %.preheader.i39, %53
   %indvars.iv32.i43 = phi i64 [ %indvars.iv.next33.i45, %53 ], [ 1, %.preheader.i39 ]
   %39 = trunc i64 %indvars.iv32.i43 to i32
-  %40 = sitofp i32 %39 to double
+  %40 = uitofp i32 %39 to double
   %41 = call double @drand48() #15
   %42 = sub i32 %11, %39
   %43 = sitofp i32 %42 to double

@@ -3840,7 +3840,7 @@ _ZN3vcg3tri2io10VertexGrid8SetValueEiiNS_6Point3IfEEaaah.exit: ; preds = %_ZN10Q
           to label %19 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit, !llvm.loop !40
 
 112:                                              ; preds = %24
-  %113 = sitofp i32 %.0225 to float
+  %113 = uitofp i32 %.0225 to float
   %114 = fdiv float 8.000000e+01, %113
   %115 = load i32, ptr %17, align 4
   %116 = icmp sgt i32 %115, 1
@@ -3865,12 +3865,12 @@ _ZN3vcg3tri2io10VertexGrid8SetValueEiiNS_6Point3IfEEaaah.exit: ; preds = %_ZN10Q
   %123 = mul i32 %.0237788, 20
   %124 = add nuw nsw i32 %.0237788, 1
   %125 = mul i32 %124, 20
-  %126 = sitofp i32 %.0237788 to float
+  %126 = uitofp i32 %.0237788 to float
   %127 = sub i32 %.0237788, %3
   %128 = sitofp i32 %127 to float
   %129 = add nsw i32 %124, %3
   %130 = sitofp i32 %129 to float
-  %131 = sitofp i32 %124 to float
+  %131 = uitofp i32 %124 to float
   br label %132
 
 132:                                              ; preds = %.lr.ph, %1325
@@ -4178,7 +4178,7 @@ _ZN3vcg3tri2io10VertexGrid7IsValidEii.exit288.thread: ; preds = %_ZN3vcg3tri2io1
   %276 = ashr exact i64 %sext.i, 32
   %277 = load ptr, ptr %270, align 8
   %278 = getelementptr inbounds %"class.vcg::TexCoord2", ptr %277, i64 %276
-  %279 = sitofp i32 %.0238781 to float
+  %279 = uitofp i32 %.0238781 to float
   store float %279, ptr %278, align 4
   %280 = load ptr, ptr %227, align 8
   %281 = getelementptr inbounds i8, ptr %280, i64 192
@@ -4471,7 +4471,7 @@ _ZN3vcg3tri2io10VertexGrid7QualityEii.exit:       ; preds = %_ZN10QByteArray4dat
   %437 = getelementptr inbounds i8, ptr %436, i64 4
   %438 = getelementptr inbounds i8, ptr %436, i64 12
   %439 = load float, ptr %438, align 4
-  %440 = sitofp i32 %163 to float
+  %440 = uitofp i32 %163 to float
   %441 = load ptr, ptr %408, align 8
   %442 = getelementptr inbounds i8, ptr %441, i64 192
   %443 = load ptr, ptr %441, align 8
@@ -5217,7 +5217,7 @@ _ZN3vcg3tri2io10VertexGrid7IsValidEii.exit474.thread: ; preds = %754, %757, %_ZN
   %841 = ashr exact i64 %sext.i500, 32
   %842 = load ptr, ptr %835, align 8
   %843 = getelementptr inbounds %"class.vcg::TexCoord2", ptr %842, i64 %841
-  %844 = sitofp i32 %.0238781 to float
+  %844 = uitofp i32 %.0238781 to float
   store float %844, ptr %843, align 4
   %845 = load ptr, ptr %792, align 8
   %846 = getelementptr inbounds i8, ptr %845, i64 192

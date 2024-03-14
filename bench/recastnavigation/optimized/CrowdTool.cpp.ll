@@ -617,7 +617,7 @@ define dso_local void @_ZN14CrowdToolState12handleRenderEv(ptr nocapture noundef
   %177 = mul nsw i32 %176, 3
   %178 = sext i32 %177 to i64
   %179 = getelementptr inbounds [192 x float], ptr %165, i64 0, i64 %178
-  %180 = sitofp i32 %.0394474 to float
+  %180 = uitofp i32 %.0394474 to float
   %181 = fmul float %180, 1.562500e-02
   %182 = fsub float 1.000000e+00, %181
   %183 = fadd float %.sroa.3.0, 0x3FB99999A0000000

@@ -7939,7 +7939,7 @@ define dso_local void @_ZN8MapgenV624placeTreesAndJungleGrassEv(ptr nocapture no
   %39 = sdiv i16 %38, 8
   %40 = sext i16 %39 to i32
   %41 = mul nsw i32 %40, %40
-  %42 = sitofp i32 %41 to double
+  %42 = uitofp i32 %41 to double
   %43 = getelementptr inbounds i8, ptr %0, i64 208
   %44 = sdiv i16 %38, 16
   %45 = zext i16 %44 to i32

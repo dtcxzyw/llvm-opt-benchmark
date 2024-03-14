@@ -332,7 +332,7 @@ define dso_local void @_ZN10Pathfinder7getPathEN3irr4core8vector3dIsEES3_jjj13Pa
   %73 = add nuw nsw i32 %72, %71
   %74 = mul nsw i32 %61, %61
   %75 = add nuw nsw i32 %73, %74
-  %76 = sitofp i32 %75 to float
+  %76 = uitofp i32 %75 to float
   %77 = tail call nsz noundef float @llvm.sqrt.f32(float %76)
   %78 = fptosi float %77 to i32
   %79 = trunc i32 %78 to i16

@@ -641,7 +641,7 @@ for.body:                                         ; preds = %invoke.cont58, %for
   %inc = add nuw nsw i32 %i.0361, 1
   %mul71 = shl nsw i32 %npixels.0362, 1
   %cmp = icmp ult i32 %i.0361, 7
-  %conv69 = sitofp i32 %mul71 to float
+  %conv69 = uitofp i32 %mul71 to float
   %cmp70 = fcmp ole float %conv69, %conv65
   %68 = select i1 %cmp, i1 %cmp70, i1 false
   br i1 %68, label %for.body, label %for.end, !llvm.loop !13

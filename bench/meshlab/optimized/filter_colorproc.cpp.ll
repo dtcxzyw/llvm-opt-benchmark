@@ -16720,7 +16720,7 @@ _ZN7QStringD2Ev.exit704:                          ; preds = %646, %_ZN9QtPrivate
   %.sroa.28.0.extract.shift.i.i = lshr i32 %.sroa.01.0.copyload.i, 8
   %.sroa.39.0.extract.shift.i.i = lshr i32 %.sroa.01.0.copyload.i, 16
   %679 = and i32 %.sroa.01.0.copyload.i, 255
-  %680 = sitofp i32 %679 to float
+  %680 = uitofp i32 %679 to float
   %681 = sub nsw i32 %.sroa.01571.0.insert.ext, %679
   %682 = sitofp i32 %681 to float
   %683 = call float @llvm.fmuladd.f32(float %.0.i689, float %682, float %680)
@@ -16728,7 +16728,7 @@ _ZN7QStringD2Ev.exit704:                          ; preds = %646, %_ZN9QtPrivate
   %..i.i.i.i = call i32 @llvm.smin.i32(i32 %684, i32 255)
   %.0.i.i.i.i = call noundef i32 @llvm.smax.i32(i32 %..i.i.i.i, i32 0)
   %685 = and i32 %.sroa.28.0.extract.shift.i.i, 255
-  %686 = sitofp i32 %685 to float
+  %686 = uitofp i32 %685 to float
   %687 = sub nsw i32 %668, %685
   %688 = sitofp i32 %687 to float
   %689 = call float @llvm.fmuladd.f32(float %.0.i689, float %688, float %686)
@@ -16736,7 +16736,7 @@ _ZN7QStringD2Ev.exit704:                          ; preds = %646, %_ZN9QtPrivate
   %..i.i3.i.i = call i32 @llvm.smin.i32(i32 %690, i32 255)
   %.0.i.i4.i.i = call noundef i32 @llvm.smax.i32(i32 %..i.i3.i.i, i32 0)
   %691 = and i32 %.sroa.39.0.extract.shift.i.i, 255
-  %692 = sitofp i32 %691 to float
+  %692 = uitofp i32 %691 to float
   %693 = sub nsw i32 %.sroa.01571.0.insert.insert, %691
   %694 = sitofp i32 %693 to float
   %695 = call float @llvm.fmuladd.f32(float %.0.i689, float %694, float %692)
@@ -22816,7 +22816,7 @@ define linkonce_odr noundef i32 @_ZN3vcg3tri11UpdateColorI6CMeshOE21PerVertexDes
   %26 = add nuw nsw i32 %25, %24
   %27 = and i32 %.sroa.3.0.extract.shift.i.i, 255
   %28 = add nuw nsw i32 %26, %27
-  %29 = sitofp i32 %28 to float
+  %29 = uitofp i32 %28 to float
   %30 = fdiv float %29, 3.000000e+00
   %31 = fptosi float %30 to i32
   br label %_ZN3vcg3tri11UpdateColorI6CMeshOE15ColorDesaturateENS_6Color4IhEEi.exit
@@ -23433,7 +23433,7 @@ _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfET_S7_S7_
   %318 = phi i32 [ %244, %306 ], [ %337, %383 ]
   %indvars.iv = phi i64 [ 1, %306 ], [ %indvars.iv.next, %383 ]
   %319 = trunc i64 %indvars.iv to i32
-  %320 = sitofp i32 %319 to float
+  %320 = uitofp i32 %319 to float
   br i1 %228, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i.i136, label %329
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i.i136: ; preds = %314, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i.i136
@@ -33031,7 +33031,7 @@ define linkonce_odr i32 @_ZN3vcg3tri11UpdateColorI6CMeshOE11ColorLevelsENS_6Colo
 
 10:                                               ; preds = %7
   %11 = and i32 %0, 255
-  %12 = sitofp i32 %11 to float
+  %12 = uitofp i32 %11 to float
   %13 = fdiv float %12, 2.550000e+02
   %14 = insertelement <2 x float> poison, float %13, i64 0
   %15 = insertelement <2 x float> %14, float %3, i64 1
@@ -33063,7 +33063,7 @@ define linkonce_odr i32 @_ZN3vcg3tri11UpdateColorI6CMeshOE11ColorLevelsENS_6Colo
 
 34:                                               ; preds = %32
   %35 = and i32 %.sroa.3.0.extract.shift, 255
-  %36 = sitofp i32 %35 to float
+  %36 = uitofp i32 %35 to float
   %37 = fdiv float %36, 2.550000e+02
   %38 = insertelement <2 x float> poison, float %37, i64 0
   %39 = insertelement <2 x float> %38, float %3, i64 1
@@ -33095,7 +33095,7 @@ define linkonce_odr i32 @_ZN3vcg3tri11UpdateColorI6CMeshOE11ColorLevelsENS_6Colo
 
 58:                                               ; preds = %56
   %59 = and i32 %.sroa.5.0.extract.shift, 255
-  %60 = sitofp i32 %59 to float
+  %60 = uitofp i32 %59 to float
   %61 = fdiv float %60, 2.550000e+02
   %62 = insertelement <2 x float> poison, float %61, i64 0
   %63 = insertelement <2 x float> %62, float %3, i64 1
@@ -33249,7 +33249,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit22:             ; preds = %37, %39, %41, %43
   %57 = load float, ptr %16, align 8
   %58 = fpext float %57 to double
   %59 = trunc i64 %indvars.iv32 to i32
-  %60 = sitofp i32 %59 to float
+  %60 = uitofp i32 %59 to float
   %61 = fpext float %60 to double
   %62 = fmul double %53, %61
   %63 = sitofp i32 %56 to double
@@ -33271,7 +33271,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit22:             ; preds = %37, %39, %41, %43
   %72 = load float, ptr %16, align 8
   %73 = fpext float %72 to double
   %74 = trunc i64 %indvars.iv to i32
-  %75 = sitofp i32 %74 to float
+  %75 = uitofp i32 %74 to float
   %76 = sitofp i32 %71 to float
   %77 = fdiv float %75, %76
   %78 = tail call noundef float @powf(float noundef %77, float noundef %4) #28

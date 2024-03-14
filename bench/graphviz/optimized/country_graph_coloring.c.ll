@@ -76,7 +76,7 @@ define dso_local void @improve_antibandwidth_by_swapping(ptr nocapture noundef r
   %35 = load i32, ptr %34, align 4
   %36 = sub nsw i32 %32, %35
   %37 = tail call i32 @llvm.abs.i32(i32 %36, i1 true)
-  %38 = sitofp i32 %37 to double
+  %38 = uitofp i32 %37 to double
   %39 = fcmp olt double %26, %38
   %..i = select i1 %39, double %26, double %38
   br label %40
@@ -131,7 +131,7 @@ define dso_local void @improve_antibandwidth_by_swapping(ptr nocapture noundef r
   %64 = load i32, ptr %63, align 4
   %65 = sub nsw i32 %61, %64
   %66 = tail call i32 @llvm.abs.i32(i32 %65, i1 true)
-  %67 = sitofp i32 %66 to double
+  %67 = uitofp i32 %66 to double
   %68 = fcmp olt double %55, %67
   %..i78 = select i1 %68, double %55, double %67
   br label %69
@@ -177,7 +177,7 @@ get_local_12_norm.exit83:                         ; preds = %69, %45
   %89 = load i32, ptr %88, align 4
   %90 = sub nsw i32 %86, %89
   %91 = tail call i32 @llvm.abs.i32(i32 %90, i1 true)
-  %92 = sitofp i32 %91 to double
+  %92 = uitofp i32 %91 to double
   %93 = fcmp olt double %80, %92
   %..i87 = select i1 %93, double %80, double %92
   br label %94
@@ -217,7 +217,7 @@ get_local_12_norm.exit92:                         ; preds = %94, %get_local_12_n
   %110 = load i32, ptr %109, align 4
   %111 = sub nsw i32 %71, %110
   %112 = tail call i32 @llvm.abs.i32(i32 %111, i1 true)
-  %113 = sitofp i32 %112 to double
+  %113 = uitofp i32 %112 to double
   %114 = fcmp olt double %102, %113
   %..i96 = select i1 %114, double %102, double %113
   br label %115
@@ -302,7 +302,7 @@ get_local_12_norm.exit101:                        ; preds = %115, %get_local_12_
   %150 = load i32, ptr %149, align 4
   %151 = sub nsw i32 %147, %150
   %152 = tail call i32 @llvm.abs.i32(i32 %151, i1 true)
-  %153 = sitofp i32 %152 to double
+  %153 = uitofp i32 %152 to double
   %154 = fcmp olt double %141, %153
   %..i105 = select i1 %154, double %141, double %153
   %155 = fcmp olt double %.064.i, %153
@@ -392,7 +392,7 @@ get_12_norm.exit:                                 ; preds = %._crit_edge.i102
   %189 = load i32, ptr %188, align 4
   %190 = sub nsw i32 %186, %189
   %191 = tail call i32 @llvm.abs.i32(i32 %190, i1 true)
-  %192 = sitofp i32 %191 to double
+  %192 = uitofp i32 %191 to double
   %193 = fcmp olt double %180, %192
   %..i126 = select i1 %193, double %180, double %192
   %194 = fcmp olt double %.064.i124, %192

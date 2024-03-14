@@ -4316,7 +4316,7 @@ IDAQuadSensWrmsNormUpdate.exit:                   ; preds = %.lr.ph.i, %483, %48
   %548 = getelementptr inbounds [6 x double], ptr %323, i64 0, i64 %indvars.iv.i.i
   store double %547, ptr %548, align 8
   %549 = trunc i64 %indvars.iv.i.i to i32
-  %550 = sitofp i32 %549 to double
+  %550 = uitofp i32 %549 to double
   %551 = fmul double %537, %550
   %552 = fmul double %551, %547
   %553 = getelementptr inbounds [6 x double], ptr %326, i64 0, i64 %indvars.iv.i.i
@@ -4355,7 +4355,7 @@ IDAQuadSensWrmsNormUpdate.exit:                   ; preds = %.lr.ph.i, %483, %48
   %.0132161.i.i = phi double [ 0.000000e+00, %.lr.ph164.i.i ], [ %571, %564 ]
   %indvars.iv.next199.i.i = add nuw nsw i64 %indvars.iv198.i.i, 1
   %565 = trunc i64 %indvars.iv.next199.i.i to i32
-  %566 = sitofp i32 %565 to double
+  %566 = uitofp i32 %565 to double
   %567 = fdiv double 1.000000e+00, %566
   %568 = fsub double %.0162.i.i, %567
   %569 = getelementptr inbounds [6 x double], ptr %323, i64 0, i64 %indvars.iv198.i.i
@@ -4974,7 +4974,7 @@ IDASensWrmsNorm.exit.i.i.i:                       ; preds = %IDAWrmsNorm.exit20.
 
 883:                                              ; preds = %878
   %884 = fdiv double %.0122.i.i.i, %.0121.i.i.i
-  %885 = sitofp i32 %.0120.i.i.i to double
+  %885 = uitofp i32 %.0120.i.i.i to double
   %886 = fdiv double 1.000000e+00, %885
   %887 = tail call double @SUNRpowerR(double noundef %884, double noundef %886) #13
   %888 = fcmp ogt double %887, 9.000000e-01
@@ -5754,7 +5754,7 @@ IDASensWrmsNorm.exit.i.i150.i:                    ; preds = %IDAWrmsNorm.exit20.
 
 1317:                                             ; preds = %IDASensWrmsNorm.exit.i.i150.i
   %1318 = fdiv double %.016.lcssa.i.i.i151.i, %.075.i.i.i
-  %1319 = sitofp i32 %.076.i.i.i to double
+  %1319 = uitofp i32 %.076.i.i.i to double
   %1320 = fdiv double 1.000000e+00, %1319
   %1321 = tail call double @SUNRpowerR(double noundef %1318, double noundef %1320) #13
   %1322 = fcmp ogt double %1321, 9.000000e-01
@@ -9558,7 +9558,7 @@ define noundef i32 @IDAGetDky(ptr noundef %0, double noundef %1, i32 noundef %2,
   %65 = getelementptr inbounds [6 x double], ptr %5, i64 0, i64 %64
   %66 = load double, ptr %65, align 8
   %67 = trunc i64 %indvar to i32
-  %68 = sitofp i32 %67 to double
+  %68 = uitofp i32 %67 to double
   %69 = fmul double %66, %68
   %70 = getelementptr inbounds [6 x double], ptr %43, i64 0, i64 %64
   %71 = load double, ptr %70, align 8
@@ -9575,7 +9575,7 @@ define noundef i32 @IDAGetDky(ptr noundef %0, double noundef %1, i32 noundef %2,
 
 .lr.ph:                                           ; preds = %74
   %76 = trunc i64 %indvar to i32
-  %77 = sitofp i32 %76 to double
+  %77 = uitofp i32 %76 to double
   %load_initial = load double, ptr %scevgep119, align 8
   br label %78
 
@@ -9776,7 +9776,7 @@ define noundef i32 @IDAGetQuadDky(ptr noundef %0, double noundef %1, i32 noundef
   %64 = getelementptr inbounds [6 x double], ptr %5, i64 0, i64 %63
   %65 = load double, ptr %64, align 8
   %66 = trunc i64 %indvar to i32
-  %67 = sitofp i32 %66 to double
+  %67 = uitofp i32 %66 to double
   %68 = fmul double %65, %67
   %69 = getelementptr inbounds [6 x double], ptr %41, i64 0, i64 %63
   %70 = load double, ptr %69, align 8
@@ -9793,7 +9793,7 @@ define noundef i32 @IDAGetQuadDky(ptr noundef %0, double noundef %1, i32 noundef
 
 .lr.ph:                                           ; preds = %73
   %75 = trunc i64 %indvar to i32
-  %76 = sitofp i32 %75 to double
+  %76 = uitofp i32 %75 to double
   %load_initial = load double, ptr %scevgep119, align 8
   br label %77
 
@@ -10050,7 +10050,7 @@ define noundef i32 @IDAGetSensDky1(ptr noundef %0, double noundef %1, i32 nounde
   %77 = getelementptr inbounds [6 x double], ptr %6, i64 0, i64 %76
   %78 = load double, ptr %77, align 8
   %79 = trunc i64 %indvar to i32
-  %80 = sitofp i32 %79 to double
+  %80 = uitofp i32 %79 to double
   %81 = fmul double %78, %80
   %82 = getelementptr inbounds [6 x double], ptr %55, i64 0, i64 %76
   %83 = load double, ptr %82, align 8
@@ -10067,7 +10067,7 @@ define noundef i32 @IDAGetSensDky1(ptr noundef %0, double noundef %1, i32 nounde
 
 .lr.ph:                                           ; preds = %86
   %88 = trunc i64 %indvar to i32
-  %89 = sitofp i32 %88 to double
+  %89 = uitofp i32 %88 to double
   %load_initial = load double, ptr %scevgep128, align 8
   br label %90
 
@@ -10425,7 +10425,7 @@ define noundef i32 @IDAGetQuadSensDky1(ptr noundef %0, double noundef %1, i32 no
   %82 = getelementptr inbounds [6 x double], ptr %6, i64 0, i64 %81
   %83 = load double, ptr %82, align 8
   %84 = trunc i64 %indvar to i32
-  %85 = sitofp i32 %84 to double
+  %85 = uitofp i32 %84 to double
   %86 = fmul double %83, %85
   %87 = getelementptr inbounds [6 x double], ptr %60, i64 0, i64 %81
   %88 = load double, ptr %87, align 8
@@ -10442,7 +10442,7 @@ define noundef i32 @IDAGetQuadSensDky1(ptr noundef %0, double noundef %1, i32 no
 
 .lr.ph:                                           ; preds = %91
   %93 = trunc i64 %indvar to i32
-  %94 = sitofp i32 %93 to double
+  %94 = uitofp i32 %93 to double
   %load_initial = load double, ptr %scevgep130, align 8
   br label %95
 

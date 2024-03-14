@@ -4047,7 +4047,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp25522, label %cond.end33.lr.ph, label %for.inc188
 
 cond.end33.lr.ph:                                 ; preds = %for.body
-  %conv43 = sitofp i32 %y.0525 to double
+  %conv43 = uitofp i32 %y.0525 to double
   %add44 = fadd double %conv43, 5.000000e-01
   %conv51 = sitofp i32 %cond to double
   %add52 = fadd double %conv51, 5.000000e-01
@@ -4085,7 +4085,7 @@ if.end:                                           ; preds = %cond.end33
   %mul2.i = mul nsw i32 %add.i112, 3
   %idx.ext.i113 = sext i32 %mul2.i to i64
   %add.ptr.i114 = getelementptr inbounds float, ptr %38, i64 %idx.ext.i113
-  %conv42 = sitofp i32 %col.0523 to double
+  %conv42 = uitofp i32 %col.0523 to double
   %add = fadd double %conv42, 5.000000e-01
   store double %add, ptr %ref.tmp41, align 8
   store double %add44, ptr %y3.i115, align 8
@@ -5324,7 +5324,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp25522, label %cond.end33.lr.ph, label %for.inc188
 
 cond.end33.lr.ph:                                 ; preds = %for.body
-  %conv43 = sitofp i32 %y.0525 to double
+  %conv43 = uitofp i32 %y.0525 to double
   %add44 = fadd double %conv43, 5.000000e-01
   %conv51 = sitofp i32 %cond to double
   %add52 = fadd double %conv51, 5.000000e-01
@@ -5362,7 +5362,7 @@ if.end:                                           ; preds = %cond.end33
   %mul2.i = shl nsw i32 %add.i112, 2
   %idx.ext.i113 = sext i32 %mul2.i to i64
   %add.ptr.i114 = getelementptr inbounds float, ptr %38, i64 %idx.ext.i113
-  %conv42 = sitofp i32 %col.0523 to double
+  %conv42 = uitofp i32 %col.0523 to double
   %add = fadd double %conv42, 5.000000e-01
   store double %add, ptr %ref.tmp41, align 8
   store double %add44, ptr %y3.i115, align 8
@@ -6549,7 +6549,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp25510, label %cond.end33.lr.ph, label %for.inc188
 
 cond.end33.lr.ph:                                 ; preds = %for.body
-  %conv43 = sitofp i32 %y.0513 to double
+  %conv43 = uitofp i32 %y.0513 to double
   %add44 = fadd double %conv43, 5.000000e-01
   %conv51 = sitofp i32 %cond to double
   %add52 = fadd double %conv51, 5.000000e-01
@@ -6586,7 +6586,7 @@ if.end:                                           ; preds = %cond.end33
   %mul2.i = mul nsw i32 %add.i108, 3
   %idx.ext.i109 = sext i32 %mul2.i to i64
   %add.ptr.i110 = getelementptr inbounds float, ptr %33, i64 %idx.ext.i109
-  %conv42 = sitofp i32 %col.0511 to double
+  %conv42 = uitofp i32 %col.0511 to double
   %add = fadd double %conv42, 5.000000e-01
   store double %add, ptr %ref.tmp41, align 8
   store double %add44, ptr %y3.i111, align 8
@@ -7898,7 +7898,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp25510, label %cond.end33.lr.ph, label %for.inc188
 
 cond.end33.lr.ph:                                 ; preds = %for.body
-  %conv43 = sitofp i32 %y.0513 to double
+  %conv43 = uitofp i32 %y.0513 to double
   %add44 = fadd double %conv43, 5.000000e-01
   %conv51 = sitofp i32 %cond to double
   %add52 = fadd double %conv51, 5.000000e-01
@@ -7935,7 +7935,7 @@ if.end:                                           ; preds = %cond.end33
   %mul2.i = shl nsw i32 %add.i108, 2
   %idx.ext.i109 = sext i32 %mul2.i to i64
   %add.ptr.i110 = getelementptr inbounds float, ptr %33, i64 %idx.ext.i109
-  %conv42 = sitofp i32 %col.0511 to double
+  %conv42 = uitofp i32 %col.0511 to double
   %add = fadd double %conv42, 5.000000e-01
   store double %add, ptr %ref.tmp41, align 8
   store double %add44, ptr %y3.i111, align 8

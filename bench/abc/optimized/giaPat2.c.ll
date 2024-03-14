@@ -2827,7 +2827,7 @@ Vec_IntPush.exit147.us:                           ; preds = %Vec_IntGrow.exit.i1
   %.val = load i32, ptr %16, align 4
   %545 = sitofp i32 %.val to double
   %546 = call noundef i32 @llvm.smax.i32(i32 %.079.lcssa, i32 1)
-  %547 = sitofp i32 %546 to double
+  %547 = uitofp i32 %546 to double
   %548 = fdiv double %545, %547
   %549 = fadd double %548, -2.000000e+00
   %.val104 = load i32, ptr %58, align 4
@@ -7124,7 +7124,7 @@ define void @Patt_ManProfileErrors(ptr nocapture noundef readonly %0, ptr nocapt
   %29 = sub nsw i32 %.val51, %28
   %30 = sitofp i32 %.043.lcssa to double
   %31 = tail call noundef i32 @llvm.smax.i32(i32 %29, i32 1)
-  %32 = sitofp i32 %31 to double
+  %32 = uitofp i32 %31 to double
   %33 = fdiv double %30, %32
   %34 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %29, double noundef %33)
   %35 = sitofp i32 %.val50 to double

@@ -106,7 +106,7 @@ define void @dgelsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %60, ptr %24, align 4, !tbaa !3
   %61 = tail call i32 @llvm.smax.i32(i32 %36, i32 1)
   store i32 %61, ptr %19, align 4, !tbaa !3
-  %62 = sitofp i32 %61 to double
+  %62 = uitofp i32 %61 to double
   %63 = add nsw i32 %60, 1
   %64 = sitofp i32 %63 to double
   %65 = fdiv double %62, %64

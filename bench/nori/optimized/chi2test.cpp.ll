@@ -1323,13 +1323,13 @@ _ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal13scalar_cmp_opIffLNS2_14Com
 
 .noexc:                                           ; preds = %.lr.ph180
   %238 = shl nuw nsw i32 %236, 1
-  %239 = sitofp i32 %238 to float
+  %239 = uitofp i32 %238 to float
   %240 = fmul float %239, 0x400921FB60000000
   %241 = sitofp i32 %235 to float
   %242 = fdiv float %240, %241
   %243 = fpext float %242 to double
   %244 = shl nuw nsw i32 %.043178, 1
-  %245 = sitofp i32 %244 to float
+  %245 = uitofp i32 %244 to float
   %246 = fmul float %245, 0x400921FB60000000
   %247 = fdiv float %246, %241
   %248 = fpext float %247 to double
@@ -5424,7 +5424,7 @@ define linkonce_odr hidden noundef double @_ZN6cephes7rlgammaEdd(double noundef 
   %50 = phi <2 x double> [ %46, %35 ], [ %52, %70 ]
   %51 = add nuw nsw i32 %.084, 1
   %52 = fadd <2 x double> %50, <double 2.000000e+00, double 1.000000e+00>
-  %53 = sitofp i32 %51 to double
+  %53 = uitofp i32 %51 to double
   %54 = extractelement <2 x double> %52, i64 1
   %55 = fmul double %54, %53
   %56 = fneg <2 x double> %49

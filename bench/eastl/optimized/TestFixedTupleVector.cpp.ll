@@ -2198,7 +2198,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %249 = load i64, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
   %inc4.i = add nsw i64 %249, 1
   store i64 %inc4.i, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
-  %conv249 = sitofp i32 %i.015329 to float
+  %conv249 = uitofp i32 %i.015329 to float
   %250 = load i64, ptr %mNumElements.i.i840, align 8, !noalias !48
   %add.i.i851 = add i64 %250, 1
   %251 = load i64, ptr %mNumCapacity.i.i841, align 8, !noalias !48
@@ -13370,7 +13370,7 @@ _ZN10TestObjectD2Ev.exit8420:                     ; preds = %invoke.cont3684
   %2373 = load ptr, ptr %2327, align 8
   %arrayidx3701 = getelementptr inbounds float, ptr %2373, i64 %indvars.iv15645
   %2374 = load float, ptr %arrayidx3701, align 4
-  %conv3702 = sitofp i32 %2362 to float
+  %conv3702 = uitofp i32 %2362 to float
   %cmp3703 = fcmp oeq float %2374, %conv3702
   %call3705 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp3703, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 1034, ptr noundef nonnull @.str.105)
           to label %for.inc3706 unwind label %lpad3664.loopexit
@@ -13624,7 +13624,7 @@ _ZN10TestObjectD2Ev.exit8612:                     ; preds = %invoke.cont3735
   %2414 = load ptr, ptr %2386, align 8
   %arrayidx3752 = getelementptr inbounds float, ptr %2414, i64 %indvars.iv15649
   %2415 = load float, ptr %arrayidx3752, align 4
-  %conv3753 = sitofp i32 %2403 to float
+  %conv3753 = uitofp i32 %2403 to float
   %cmp3754 = fcmp oeq float %2415, %conv3753
   %call3756 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp3754, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 1048, ptr noundef nonnull @.str.110)
           to label %for.inc3757 unwind label %lpad3711.loopexit
@@ -13989,7 +13989,7 @@ _ZN10TestObjectD2Ev.exit8924:                     ; preds = %invoke.cont3899
   %2476 = load ptr, ptr %2425, align 8
   %arrayidx3916 = getelementptr inbounds float, ptr %2476, i64 %indvars.iv15653
   %2477 = load float, ptr %arrayidx3916, align 4
-  %conv3917 = sitofp i32 %2465 to float
+  %conv3917 = uitofp i32 %2465 to float
   %cmp3918 = fcmp oeq float %2477, %conv3917
   %call3920 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp3918, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 1073, ptr noundef nonnull @.str.110)
           to label %for.inc3921 unwind label %lpad3879.loopexit
@@ -14294,7 +14294,7 @@ _ZN10TestObjectD2Ev.exit9128:                     ; preds = %invoke.cont3956
   %2534 = load ptr, ptr %2492, align 8
   %arrayidx3975 = getelementptr inbounds float, ptr %2534, i64 %2521
   %2535 = load float, ptr %arrayidx3975, align 4
-  %conv3976 = sitofp i32 %2523 to float
+  %conv3976 = uitofp i32 %2523 to float
   %cmp3977 = fcmp oeq float %2535, %conv3976
   %call3979 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp3977, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 1086, ptr noundef nonnull @.str.115)
           to label %for.inc3980 unwind label %lpad3936.loopexit
@@ -15683,7 +15683,7 @@ _ZN10TestObjectD2Ev.exit9686:                     ; preds = %invoke.cont4181
   %2797 = load ptr, ptr %2751, align 8
   %arrayidx4198 = getelementptr inbounds float, ptr %2797, i64 %indvars.iv15674
   %2798 = load float, ptr %arrayidx4198, align 4
-  %conv4199 = sitofp i32 %2786 to float
+  %conv4199 = uitofp i32 %2786 to float
   %cmp4200 = fcmp oeq float %2798, %conv4199
   %call4202 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp4200, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 1151, ptr noundef nonnull @.str.105)
           to label %for.inc4203 unwind label %lpad4161.loopexit
@@ -21297,7 +21297,7 @@ for.body5414:                                     ; preds = %_ZN10TestObject7IsC
   %3854 = load i64, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
   %inc4.i12353 = add nsw i64 %3854, 1
   store i64 %inc4.i12353, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
-  %conv5423 = sitofp i32 %i5411.015610 to float
+  %conv5423 = uitofp i32 %i5411.015610 to float
   %3855 = load i64, ptr %mNumElements.i.i12335, align 8, !noalias !617
   %add.i.i12356 = add i64 %3855, 1
   %3856 = load i64, ptr %mNumCapacity.i.i12336, align 8, !noalias !617
@@ -21760,7 +21760,7 @@ for.body5458:                                     ; preds = %_ZN5eastl18fixed_tu
   %3950 = load i64, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
   %inc4.i12498 = add nsw i64 %3950, 1
   store i64 %inc4.i12498, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
-  %conv5467 = sitofp i32 %i5455.015611 to float
+  %conv5467 = uitofp i32 %i5455.015611 to float
   %3951 = load i64, ptr %mNumElements.i.i12474, align 8, !noalias !630
   %add.i.i12501 = add i64 %3951, 1
   %3952 = load i64, ptr %mNumCapacity.i.i12475, align 8, !noalias !630
@@ -22629,7 +22629,7 @@ for.body5526:                                     ; preds = %_ZN5eastl18fixed_tu
   %4104 = load i64, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
   %inc4.i12921 = add nsw i64 %4104, 1
   store i64 %inc4.i12921, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
-  %conv5535 = sitofp i32 %i5523.015612 to float
+  %conv5535 = uitofp i32 %i5523.015612 to float
   %4105 = load i64, ptr %mNumElements.i.i12911, align 8, !noalias !715
   %add.i.i12924 = add i64 %4105, 1
   %4106 = load i64, ptr %mNumCapacity.i.i12912, align 8, !noalias !715
@@ -24495,7 +24495,7 @@ for.body:                                         ; preds = %_ZN5eastl16TupleVec
   %232 = load i64, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
   %inc4.i = add nsw i64 %232, 1
   store i64 %inc4.i, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
-  %conv249 = sitofp i32 %i.015329 to float
+  %conv249 = uitofp i32 %i.015329 to float
   %233 = load i64, ptr %mNumElements.i.i840, align 8, !noalias !784
   %add.i.i851 = add i64 %233, 1
   %234 = load i64, ptr %mNumCapacity.i.i841, align 8, !noalias !784
@@ -35486,7 +35486,7 @@ _ZN10TestObjectD2Ev.exit8420:                     ; preds = %invoke.cont3628
   %2299 = load ptr, ptr %2253, align 8
   %arrayidx3644 = getelementptr inbounds float, ptr %2299, i64 %indvars.iv15645
   %2300 = load float, ptr %arrayidx3644, align 4
-  %conv3645 = sitofp i32 %2288 to float
+  %conv3645 = uitofp i32 %2288 to float
   %cmp3646 = fcmp oeq float %2300, %conv3645
   %call3648 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp3646, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 1034, ptr noundef nonnull @.str.105)
           to label %for.inc3649 unwind label %lpad3608.loopexit
@@ -35713,7 +35713,7 @@ _ZN10TestObjectD2Ev.exit8612:                     ; preds = %invoke.cont3678
   %2339 = load ptr, ptr %2311, align 8
   %arrayidx3694 = getelementptr inbounds float, ptr %2339, i64 %indvars.iv15649
   %2340 = load float, ptr %arrayidx3694, align 4
-  %conv3695 = sitofp i32 %2328 to float
+  %conv3695 = uitofp i32 %2328 to float
   %cmp3696 = fcmp oeq float %2340, %conv3695
   %call3698 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp3696, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 1048, ptr noundef nonnull @.str.110)
           to label %for.inc3699 unwind label %lpad3654.loopexit
@@ -36078,7 +36078,7 @@ _ZN10TestObjectD2Ev.exit8924:                     ; preds = %invoke.cont3841
   %2401 = load ptr, ptr %2350, align 8
   %arrayidx3857 = getelementptr inbounds float, ptr %2401, i64 %indvars.iv15653
   %2402 = load float, ptr %arrayidx3857, align 4
-  %conv3858 = sitofp i32 %2390 to float
+  %conv3858 = uitofp i32 %2390 to float
   %cmp3859 = fcmp oeq float %2402, %conv3858
   %call3861 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp3859, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 1073, ptr noundef nonnull @.str.110)
           to label %for.inc3862 unwind label %lpad3821.loopexit
@@ -36346,7 +36346,7 @@ _ZN10TestObjectD2Ev.exit9128:                     ; preds = %invoke.cont3897
   %2452 = load ptr, ptr %2417, align 8
   %arrayidx3915 = getelementptr inbounds float, ptr %2452, i64 %2439
   %2453 = load float, ptr %arrayidx3915, align 4
-  %conv3916 = sitofp i32 %2441 to float
+  %conv3916 = uitofp i32 %2441 to float
   %cmp3917 = fcmp oeq float %2453, %conv3916
   %call3919 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp3917, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 1086, ptr noundef nonnull @.str.115)
           to label %for.inc3920 unwind label %lpad3877.loopexit
@@ -37618,7 +37618,7 @@ _ZN10TestObjectD2Ev.exit9686:                     ; preds = %invoke.cont4118
   %2692 = load ptr, ptr %2646, align 8
   %arrayidx4134 = getelementptr inbounds float, ptr %2692, i64 %indvars.iv15674
   %2693 = load float, ptr %arrayidx4134, align 4
-  %conv4135 = sitofp i32 %2681 to float
+  %conv4135 = uitofp i32 %2681 to float
   %cmp4136 = fcmp oeq float %2693, %conv4135
   %call4138 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp4136, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 1151, ptr noundef nonnull @.str.105)
           to label %for.inc4139 unwind label %lpad4098.loopexit
@@ -43100,7 +43100,7 @@ for.body5305:                                     ; preds = %_ZN10TestObject7IsC
   %3719 = load i64, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
   %inc4.i12353 = add nsw i64 %3719, 1
   store i64 %inc4.i12353, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
-  %conv5314 = sitofp i32 %i5302.015610 to float
+  %conv5314 = uitofp i32 %i5302.015610 to float
   %3720 = load i64, ptr %mNumElements.i.i12335, align 8, !noalias !1313
   %add.i.i12356 = add i64 %3720, 1
   %3721 = load i64, ptr %mNumCapacity.i.i12336, align 8, !noalias !1313
@@ -43452,7 +43452,7 @@ for.body5349:                                     ; preds = %_ZN5eastl18fixed_tu
   %3794 = load i64, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
   %inc4.i12498 = add nsw i64 %3794, 1
   store i64 %inc4.i12498, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
-  %conv5358 = sitofp i32 %i5346.015611 to float
+  %conv5358 = uitofp i32 %i5346.015611 to float
   %3795 = load i64, ptr %mNumElements.i.i12474, align 8, !noalias !1326
   %add.i.i12501 = add i64 %3795, 1
   %3796 = load i64, ptr %mNumCapacity.i.i12475, align 8, !noalias !1326
@@ -44321,7 +44321,7 @@ for.body5417:                                     ; preds = %_ZN5eastl18fixed_tu
   %3948 = load i64, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
   %inc4.i12921 = add nsw i64 %3948, 1
   store i64 %inc4.i12921, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
-  %conv5426 = sitofp i32 %i5414.015612 to float
+  %conv5426 = uitofp i32 %i5414.015612 to float
   %3949 = load i64, ptr %mNumElements.i.i12911, align 8, !noalias !1411
   %add.i.i12924 = add i64 %3949, 1
   %3950 = load i64, ptr %mNumCapacity.i.i12912, align 8, !noalias !1411
@@ -45569,7 +45569,7 @@ for.body:                                         ; preds = %invoke.cont227, %fo
   br i1 %cmp.i.i.i809, label %if.then.i.i.i815, label %for.body._ZN10TestObjectD2Ev.exit_crit_edge
 
 for.body._ZN10TestObjectD2Ev.exit_crit_edge:      ; preds = %for.body
-  %conv249 = sitofp i32 %i.016920 to float
+  %conv249 = uitofp i32 %i.016920 to float
   %rem244.lhs.trunc = trunc i32 %i.016920 to i8
   %rem24416728 = urem i8 %rem244.lhs.trunc, 3
   %cmp245 = icmp eq i8 %rem24416728, 0
@@ -59307,7 +59307,7 @@ _ZN10TestObjectD2Ev.exit9729:                     ; preds = %invoke.cont3628
   %2599 = load ptr, ptr %2557, align 8
   %arrayidx3644 = getelementptr inbounds float, ptr %2599, i64 %indvars.iv17229
   %2600 = load float, ptr %arrayidx3644, align 4
-  %conv3645 = sitofp i32 %2588 to float
+  %conv3645 = uitofp i32 %2588 to float
   %cmp3646 = fcmp oeq float %2600, %conv3645
   %call3648 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp3646, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 1034, ptr noundef nonnull @.str.105)
           to label %for.inc3649 unwind label %lpad3608.loopexit
@@ -59516,7 +59516,7 @@ _ZN10TestObjectD2Ev.exit9913:                     ; preds = %invoke.cont3678
   %2637 = load ptr, ptr %2609, align 8
   %arrayidx3694 = getelementptr inbounds float, ptr %2637, i64 %indvars.iv17233
   %2638 = load float, ptr %arrayidx3694, align 4
-  %conv3695 = sitofp i32 %2626 to float
+  %conv3695 = uitofp i32 %2626 to float
   %cmp3696 = fcmp oeq float %2638, %conv3695
   %call3698 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp3696, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 1048, ptr noundef nonnull @.str.110)
           to label %for.inc3699 unwind label %lpad3654.loopexit
@@ -59871,7 +59871,7 @@ _ZN10TestObjectD2Ev.exit10217:                    ; preds = %invoke.cont3841
   %2697 = load ptr, ptr %2647, align 8
   %arrayidx3857 = getelementptr inbounds float, ptr %2697, i64 %indvars.iv17237
   %2698 = load float, ptr %arrayidx3857, align 4
-  %conv3858 = sitofp i32 %2686 to float
+  %conv3858 = uitofp i32 %2686 to float
   %cmp3859 = fcmp oeq float %2698, %conv3858
   %call3861 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp3859, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 1073, ptr noundef nonnull @.str.110)
           to label %for.inc3862 unwind label %lpad3821.loopexit
@@ -60125,7 +60125,7 @@ _ZN10TestObjectD2Ev.exit10440:                    ; preds = %invoke.cont3897
   %2746 = load ptr, ptr %2711, align 8
   %arrayidx3915 = getelementptr inbounds float, ptr %2746, i64 %2733
   %2747 = load float, ptr %arrayidx3915, align 4
-  %conv3916 = sitofp i32 %2735 to float
+  %conv3916 = uitofp i32 %2735 to float
   %cmp3917 = fcmp oeq float %2747, %conv3916
   %call3919 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp3917, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 1086, ptr noundef nonnull @.str.115)
           to label %for.inc3920 unwind label %lpad3877.loopexit
@@ -61367,7 +61367,7 @@ _ZN10TestObjectD2Ev.exit10998:                    ; preds = %invoke.cont4118
   %2980 = load ptr, ptr %2938, align 8
   %arrayidx4134 = getelementptr inbounds float, ptr %2980, i64 %indvars.iv17258
   %2981 = load float, ptr %arrayidx4134, align 4
-  %conv4135 = sitofp i32 %2969 to float
+  %conv4135 = uitofp i32 %2969 to float
   %cmp4136 = fcmp oeq float %2981, %conv4135
   %call4138 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp4136, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 1151, ptr noundef nonnull @.str.105)
           to label %for.inc4139 unwind label %lpad4098.loopexit
@@ -66354,7 +66354,7 @@ for.body5305:                                     ; preds = %_ZN10TestObject7IsC
   %3917 = load i64, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
   %inc4.i13716 = add nsw i64 %3917, 1
   store i64 %inc4.i13716, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
-  %conv5314 = sitofp i32 %i5302.017194 to float
+  %conv5314 = uitofp i32 %i5302.017194 to float
   %3918 = load i64, ptr %mNumElements.i.i13700, align 8, !noalias !2104
   %add.i.i13719 = add i64 %3918, 1
   %3919 = load i64, ptr %mNumCapacity.i.i13701, align 8, !noalias !2104
@@ -66816,7 +66816,7 @@ for.body5349:                                     ; preds = %_ZN5eastl18fixed_tu
   br i1 %cmp.i.i.i13896, label %if.then.i.i.i13910, label %for.body5349._ZN10TestObjectD2Ev.exit13921_crit_edge
 
 for.body5349._ZN10TestObjectD2Ev.exit13921_crit_edge: ; preds = %for.body5349
-  %conv5358 = sitofp i32 %i5346.017195 to float
+  %conv5358 = uitofp i32 %i5346.017195 to float
   %.pre17383 = load ptr, ptr %lessThanVec, align 8, !noalias !2117
   %add.ptr.i.i13897 = getelementptr inbounds i8, ptr %.pre17383, i64 %4007
   store i8 %frombool5353, ptr %add.ptr.i.i13897, align 1, !noalias !2117
@@ -67734,7 +67734,7 @@ for.body5417:                                     ; preds = %_ZN5eastl18fixed_tu
   br i1 %cmp.i.i.i14280, label %if.then.i.i.i14295, label %for.body5417._ZN10TestObjectD2Ev.exit14305_crit_edge
 
 for.body5417._ZN10TestObjectD2Ev.exit14305_crit_edge: ; preds = %for.body5417
-  %conv5426 = sitofp i32 %i5414.017196 to float
+  %conv5426 = uitofp i32 %i5414.017196 to float
   %rem5419.lhs.trunc = trunc i32 %i5414.017196 to i8
   %rem541916736 = urem i8 %rem5419.lhs.trunc, 3
   %cmp5420 = icmp eq i8 %rem541916736, 0

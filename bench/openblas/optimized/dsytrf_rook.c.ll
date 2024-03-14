@@ -75,7 +75,7 @@ define void @dsytrf_rook_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr no
   %43 = load i32, ptr %1, align 4, !tbaa !3
   %44 = mul nsw i32 %43, %42
   %45 = tail call i32 @llvm.smax.i32(i32 %44, i32 1)
-  %46 = sitofp i32 %45 to double
+  %46 = uitofp i32 %45 to double
   store double %46, ptr %5, align 8, !tbaa !7
   %.pr13 = load i32, ptr %7, align 4, !tbaa !3
   %47 = icmp eq i32 %.pr13, 0

@@ -2002,7 +2002,7 @@ IDAWrmsNorm.exit:                                 ; preds = %313, %316
   %364 = getelementptr inbounds [6 x double], ptr %232, i64 0, i64 %indvars.iv.i.i
   store double %363, ptr %364, align 8
   %365 = trunc i64 %indvars.iv.i.i to i32
-  %366 = sitofp i32 %365 to double
+  %366 = uitofp i32 %365 to double
   %367 = fmul double %353, %366
   %368 = fmul double %367, %363
   %369 = getelementptr inbounds [6 x double], ptr %235, i64 0, i64 %indvars.iv.i.i
@@ -2041,7 +2041,7 @@ IDAWrmsNorm.exit:                                 ; preds = %313, %316
   %.089109.i.i = phi double [ 0.000000e+00, %.lr.ph112.i.i ], [ %387, %380 ]
   %indvars.iv.next122.i.i = add nuw nsw i64 %indvars.iv121.i.i, 1
   %381 = trunc i64 %indvars.iv.next122.i.i to i32
-  %382 = sitofp i32 %381 to double
+  %382 = uitofp i32 %381 to double
   %383 = fdiv double 1.000000e+00, %382
   %384 = fsub double %.0110.i.i, %383
   %385 = getelementptr inbounds [6 x double], ptr %232, i64 0, i64 %indvars.iv121.i.i
@@ -4797,7 +4797,7 @@ define i32 @IDAGetDky(ptr noundef %0, double noundef %1, i32 noundef %2, ptr nou
   %63 = getelementptr inbounds [6 x double], ptr %5, i64 0, i64 %62
   %64 = load double, ptr %63, align 8
   %65 = trunc i64 %indvar to i32
-  %66 = sitofp i32 %65 to double
+  %66 = uitofp i32 %65 to double
   %67 = fmul double %64, %66
   %68 = getelementptr inbounds [6 x double], ptr %42, i64 0, i64 %62
   %69 = load double, ptr %68, align 8
@@ -4814,7 +4814,7 @@ define i32 @IDAGetDky(ptr noundef %0, double noundef %1, i32 noundef %2, ptr nou
 
 .lr.ph:                                           ; preds = %72
   %74 = trunc i64 %indvar to i32
-  %75 = sitofp i32 %74 to double
+  %75 = uitofp i32 %74 to double
   %load_initial = load double, ptr %scevgep110, align 8
   br label %76
 

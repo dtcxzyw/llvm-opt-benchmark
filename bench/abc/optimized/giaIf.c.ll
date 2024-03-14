@@ -1810,7 +1810,7 @@ define i32 @Gia_ManCountDupLut(ptr noundef %0) local_unnamed_addr #3 {
   br i1 %exitcond.not.i, label %Gia_ManLutNum.exit.loopexit, label %108, !llvm.loop !7
 
 Gia_ManLutNum.exit.loopexit:                      ; preds = %108
-  %112 = sitofp i32 %spec.select.i to double
+  %112 = uitofp i32 %spec.select.i to double
   br label %Gia_ManLutNum.exit
 
 Gia_ManLutNum.exit:                               ; preds = %Gia_ManLutNum.exit.loopexit, %102
@@ -15783,13 +15783,13 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %93 = sitofp i32 %89 to double
   %94 = fmul double %93, 1.000000e+02
   %95 = tail call noundef i32 @llvm.smax.i32(i32 %90, i32 1)
-  %96 = sitofp i32 %95 to double
+  %96 = uitofp i32 %95 to double
   %97 = fdiv double %94, %96
   %98 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.54, i32 noundef %90, i32 noundef %89, double noundef %97)
   %99 = sitofp i32 %87 to double
   %100 = fmul double %99, 1.000000e+02
   %101 = tail call noundef i32 @llvm.smax.i32(i32 %88, i32 1)
-  %102 = sitofp i32 %101 to double
+  %102 = uitofp i32 %101 to double
   %103 = fdiv double %100, %102
   %104 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.55, i32 noundef %88, i32 noundef %87, double noundef %103)
   %putchar = tail call i32 @putchar(i32 10)

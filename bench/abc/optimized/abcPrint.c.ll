@@ -6242,7 +6242,7 @@ Vec_IntStart.exit196:                             ; preds = %Vec_IntAlloc.exit.t
 
 226:                                              ; preds = %221
   %227 = udiv i32 %223, 10
-  %228 = sitofp i32 %227 to double
+  %228 = uitofp i32 %227 to double
   %229 = call double @pow(double noundef 1.000000e+01, double noundef %228) #19
   %230 = fptosi double %229 to i32
   %231 = urem i32 %223, 10
@@ -7129,12 +7129,12 @@ define void @Abc_NtkPrintLevel(ptr nocapture noundef %0, ptr noundef %1, i32 nou
   %86 = load i32, ptr %85, align 4
   %87 = add nsw i32 %86, %.0127206
   %88 = trunc i64 %indvars.iv240 to i32
-  %89 = sitofp i32 %88 to float
+  %89 = uitofp i32 %88 to float
   %90 = fmul float %54, %89
   %91 = fpext float %90 to double
   %indvars.iv.next241 = add nuw nsw i64 %indvars.iv240, 1
   %92 = trunc i64 %indvars.iv.next241 to i32
-  %93 = sitofp i32 %92 to float
+  %93 = uitofp i32 %92 to float
   %94 = fmul float %54, %93
   %95 = fpext float %94 to double
   %96 = sitofp i32 %87 to double

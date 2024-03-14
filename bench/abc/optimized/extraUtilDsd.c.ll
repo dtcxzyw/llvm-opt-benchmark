@@ -686,7 +686,7 @@ define void @Sdm_ManPrintDsdStats(ptr nocapture noundef readonly %0, i32 noundef
   %31 = getelementptr inbounds i8, ptr %0, i64 6744
   %32 = load i32, ptr %31, align 8
   %33 = tail call noundef i32 @llvm.smax.i32(i32 %32, i32 1)
-  %34 = sitofp i32 %33 to double
+  %34 = uitofp i32 %33 to double
   %35 = fdiv double %30, %34
   %36 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %28, double noundef %35)
   %putchar = tail call i32 @putchar(i32 10)

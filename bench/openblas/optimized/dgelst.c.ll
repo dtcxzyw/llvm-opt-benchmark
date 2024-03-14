@@ -126,7 +126,7 @@ thread-pre-split:                                 ; preds = %52
   %70 = add nsw i32 %69, %27
   %71 = mul nsw i32 %70, %67
   %72 = tail call i32 @llvm.smax.i32(i32 %71, i32 1)
-  %73 = sitofp i32 %72 to double
+  %73 = uitofp i32 %72 to double
   store double %73, ptr %8, align 8, !tbaa !7
   %.pre = load i32, ptr %10, align 4, !tbaa !3
   br label %74

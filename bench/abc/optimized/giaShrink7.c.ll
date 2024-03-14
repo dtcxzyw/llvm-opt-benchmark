@@ -444,7 +444,7 @@ define i32 @Unm_ManPrintPairStats(ptr nocapture noundef readonly %0, i32 noundef
   %.0.lcssa = phi i32 [ 0, %5 ], [ %15, %11 ]
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
   %23 = tail call i32 @llvm.smax.i32(i32 %.0.lcssa, i32 1)
-  %24 = sitofp i32 %23 to double
+  %24 = uitofp i32 %23 to double
   br label %25
 
 25:                                               ; preds = %._crit_edge, %37
@@ -458,7 +458,7 @@ define i32 @Unm_ManPrintPairStats(ptr nocapture noundef readonly %0, i32 noundef
   %30 = sitofp i32 %27 to double
   %31 = fmul double %30, 1.000000e+02
   %32 = trunc i64 %indvars.iv40 to i32
-  %33 = sitofp i32 %32 to double
+  %33 = uitofp i32 %32 to double
   %34 = fmul double %31, %33
   %35 = fdiv double %34, %24
   %36 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %32, i32 noundef %27, double noundef %35)
@@ -473,9 +473,9 @@ define i32 @Unm_ManPrintPairStats(ptr nocapture noundef readonly %0, i32 noundef
   %39 = sitofp i32 %2 to double
   %40 = fmul double %39, 1.000000e+02
   %41 = tail call noundef i32 @llvm.smax.i32(i32 %1, i32 1)
-  %42 = sitofp i32 %41 to double
+  %42 = uitofp i32 %41 to double
   %43 = fdiv double %40, %42
-  %44 = sitofp i32 %.029.lcssa to double
+  %44 = uitofp i32 %.029.lcssa to double
   %45 = fmul double %44, 1.000000e+02
   %46 = fdiv double %45, %42
   %47 = sitofp i32 %3 to double

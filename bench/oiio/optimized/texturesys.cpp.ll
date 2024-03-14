@@ -9176,7 +9176,7 @@ _ZN18OpenImageIO_v2_6_012_GLOBAL__N_112uchar2float4EPKh.exit: ; preds = %if.end8
   %69 = bitcast <16 x i8> %shuffle.i.i to <8 x i16>
   %shuffle.i11.i = shufflevector <8 x i16> %69, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   %70 = bitcast <8 x i16> %shuffle.i11.i to <4 x i32>
-  %conv.i.i99 = sitofp <4 x i32> %70 to <4 x float>
+  %conv.i.i99 = uitofp <4 x i32> %70 to <4 x float>
   %71 = load <4 x float>, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_17u8scaleE.0, align 16
   %mul.i233 = fmul <4 x float> %71, %conv.i.i99
   br label %if.end143
@@ -9823,7 +9823,7 @@ _ZN18OpenImageIO_v2_6_012_GLOBAL__N_112uchar2float4EPKh.exit805: ; preds = %invo
   %120 = bitcast <16 x i8> %shuffle.i.i to <8 x i16>
   %shuffle.i11.i = shufflevector <8 x i16> %120, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   %121 = bitcast <8 x i16> %shuffle.i11.i to <4 x i32>
-  %conv.i.i277 = sitofp <4 x i32> %121 to <4 x float>
+  %conv.i.i277 = uitofp <4 x i32> %121 to <4 x float>
   %122 = load <4 x float>, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_17u8scaleE.0, align 16
   %mul.i1511 = fmul <4 x float> %122, %conv.i.i277
   store <4 x float> %mul.i1511, ptr %texel_simd, align 16
@@ -9835,7 +9835,7 @@ _ZN18OpenImageIO_v2_6_012_GLOBAL__N_112uchar2float4EPKh.exit805: ; preds = %invo
   %125 = bitcast <16 x i8> %shuffle.i.i279 to <8 x i16>
   %shuffle.i11.i280 = shufflevector <8 x i16> %125, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   %126 = bitcast <8 x i16> %shuffle.i11.i280 to <4 x i32>
-  %conv.i.i281 = sitofp <4 x i32> %126 to <4 x float>
+  %conv.i.i281 = uitofp <4 x i32> %126 to <4 x float>
   %mul.i1514 = fmul <4 x float> %122, %conv.i.i281
   store <4 x float> %mul.i1514, ptr %arrayidx308, align 16
   %127 = load i32, ptr %tile_width, align 8
@@ -9849,7 +9849,7 @@ _ZN18OpenImageIO_v2_6_012_GLOBAL__N_112uchar2float4EPKh.exit805: ; preds = %invo
   %130 = bitcast <16 x i8> %shuffle.i.i283 to <8 x i16>
   %shuffle.i11.i284 = shufflevector <8 x i16> %130, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   %131 = bitcast <8 x i16> %shuffle.i11.i284 to <4 x i32>
-  %conv.i.i285 = sitofp <4 x i32> %131 to <4 x float>
+  %conv.i.i285 = uitofp <4 x i32> %131 to <4 x float>
   %mul.i1517 = fmul <4 x float> %122, %conv.i.i285
   store <4 x float> %mul.i1517, ptr %arrayidx317, align 16
   %add.ptr253 = getelementptr inbounds i8, ptr %add.ptr244, i64 %conv.i269
@@ -9860,7 +9860,7 @@ _ZN18OpenImageIO_v2_6_012_GLOBAL__N_112uchar2float4EPKh.exit805: ; preds = %invo
   %134 = bitcast <16 x i8> %shuffle.i.i287 to <8 x i16>
   %shuffle.i11.i288 = shufflevector <8 x i16> %134, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   %135 = bitcast <8 x i16> %shuffle.i11.i288 to <4 x i32>
-  %conv.i.i289 = sitofp <4 x i32> %135 to <4 x float>
+  %conv.i.i289 = uitofp <4 x i32> %135 to <4 x float>
   %mul.i1520 = fmul <4 x float> %122, %conv.i.i289
   store <4 x float> %mul.i1520, ptr %arrayidx326, align 16
   br label %if.end509
@@ -10238,7 +10238,7 @@ _ZN18OpenImageIO_v2_6_012_GLOBAL__N_112uchar2float4EPKh.exit: ; preds = %if.end4
   %208 = bitcast <16 x i8> %shuffle.i.i392 to <8 x i16>
   %shuffle.i11.i393 = shufflevector <8 x i16> %208, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   %209 = bitcast <8 x i16> %shuffle.i11.i393 to <4 x i32>
-  %conv.i.i394 = sitofp <4 x i32> %209 to <4 x float>
+  %conv.i.i394 = uitofp <4 x i32> %209 to <4 x float>
   %210 = load <4 x float>, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_17u8scaleE.0, align 16
   %mul.i1523 = fmul <4 x float> %210, %conv.i.i394
   %arrayidx457 = getelementptr inbounds [2 x [2 x %"class.OpenImageIO_v2_6_0::simd::vfloat4"]], ptr %texel_simd, i64 0, i64 %indvars.iv515, i64 %indvars.iv512
@@ -11111,7 +11111,7 @@ _ZN18OpenImageIO_v2_6_012_GLOBAL__N_112uchar2float4EPKh.exit1525: ; preds = %for
   %102 = bitcast <16 x i8> %shuffle.i.i to <8 x i16>
   %shuffle.i11.i = shufflevector <8 x i16> %102, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   %103 = bitcast <8 x i16> %shuffle.i11.i to <4 x i32>
-  %conv.i.i411 = sitofp <4 x i32> %103 to <4 x float>
+  %conv.i.i411 = uitofp <4 x i32> %103 to <4 x float>
   %mul.i3327 = fmul <4 x float> %95, %conv.i.i411
   %arrayidx254 = getelementptr inbounds [4 x [4 x %"class.OpenImageIO_v2_6_0::simd::vfloat4"]], ptr %texel_simd, i64 0, i64 %indvars.iv768, i64 %indvars.iv762
   store <4 x float> %mul.i3327, ptr %arrayidx254, align 16
@@ -11410,7 +11410,7 @@ _ZN18OpenImageIO_v2_6_012_GLOBAL__N_112uchar2float4EPKh.exit: ; preds = %if.end4
   %154 = bitcast <16 x i8> %shuffle.i.i428 to <8 x i16>
   %shuffle.i11.i429 = shufflevector <8 x i16> %154, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   %155 = bitcast <8 x i16> %shuffle.i11.i429 to <4 x i32>
-  %conv.i.i430 = sitofp <4 x i32> %155 to <4 x float>
+  %conv.i.i430 = uitofp <4 x i32> %155 to <4 x float>
   %156 = load <4 x float>, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_17u8scaleE.0, align 16
   %mul.i3330 = fmul <4 x float> %156, %conv.i.i430
   %arrayidx493 = getelementptr inbounds [4 x [4 x %"class.OpenImageIO_v2_6_0::simd::vfloat4"]], ptr %texel_simd, i64 0, i64 %indvar, i64 %indvars.iv717
@@ -12416,7 +12416,7 @@ if.end:                                           ; preds = %entry
   %11 = tail call float @llvm.fmuladd.f32(float %aspect, float 2.000000e+00, float -1.000000e+00)
   %conv = fptosi float %11 to i32
   %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %conv, i32 1)
-  %conv11 = sitofp i32 %.sroa.speculated to float
+  %conv11 = uitofp i32 %.sroa.speculated to float
   %div = fdiv float 1.000000e+00, %conv11
   store float %div, ptr %invsamples, align 4
   switch i32 %.sroa.speculated, label %if.else21 [
@@ -12443,7 +12443,7 @@ for.body:                                         ; preds = %if.else21, %for.bod
   %indvars.iv = phi i64 [ 0, %if.else21 ], [ %indvars.iv.next, %for.body ]
   %sumw.0122 = phi float [ 0.000000e+00, %if.else21 ], [ %add33, %for.body ]
   %12 = trunc i64 %indvars.iv to i32
-  %conv24 = sitofp i32 %12 to float
+  %conv24 = uitofp i32 %12 to float
   %add = fadd float %conv24, 5.000000e-01
   %mul25 = fmul float %add, 2.000000e+00
   %13 = load float, ptr %invsamples, align 4
@@ -13840,7 +13840,7 @@ call.i244.noexc:                                  ; preds = %call.i232.noexc
   %add.i.i.i.i = sub i64 %28, %17
   %sub.i.i.i.i = add i64 %add.i.i.i.i, %reass.mul
   %cond.i.i.i.i = call noundef i64 @llvm.abs.i64(i64 %sub.i.i.i.i, i1 true)
-  %conv.i.i = sitofp i64 %cond.i.i.i.i to double
+  %conv.i.i = uitofp i64 %cond.i.i.i.i to double
   %29 = load double, ptr @_ZN18OpenImageIO_v2_6_05Timer16seconds_per_tickE, align 8
   %mul.i.i = fmul double %29, %conv.i.i
   %div68 = fdiv double 0x3FEFFB480A5ACCD5, %mul.i.i
@@ -49330,7 +49330,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %entry
   %indvars.iv.i.i.i = phi i64 [ 0, %entry ], [ %indvars.iv.next.i.i.i, %for.body.i.i.i ]
   %1 = trunc i64 %indvars.iv.i.i.i to i32
-  %conv.i.i.i = sitofp i32 %1 to float
+  %conv.i.i.i = uitofp i32 %1 to float
   %mul.i.i.i = fmul float %conv.i.i.i, 0x3F70101020000000
   %arrayidx.i.i.i = getelementptr inbounds [256 x float], ptr @_ZN18OpenImageIO_v2_6_03pvt17TextureSystemImpl11uchar2floatE, i64 0, i64 %indvars.iv.i.i.i
   store float %mul.i.i.i, ptr %arrayidx.i.i.i, align 4

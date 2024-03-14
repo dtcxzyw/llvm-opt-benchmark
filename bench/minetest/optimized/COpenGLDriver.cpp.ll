@@ -7496,13 +7496,13 @@ define void @_ZN3irr5video13COpenGLDriver11draw2DImageEPKNS0_8ITextureERKNS_4cor
   store float %297, ptr %298, align 4, !tbaa !103
   %299 = getelementptr inbounds i8, ptr %0, i64 4200
   store float 0.000000e+00, ptr %299, align 8, !tbaa !103
-  %300 = sitofp i32 %88 to float
+  %300 = uitofp i32 %88 to float
   store float %300, ptr %290, align 4, !tbaa !103
   %301 = getelementptr inbounds i8, ptr %0, i64 4232
   store float %297, ptr %301, align 8, !tbaa !103
   %302 = getelementptr inbounds i8, ptr %0, i64 4236
   store float 0.000000e+00, ptr %302, align 4, !tbaa !103
-  %303 = sitofp i32 %89 to float
+  %303 = uitofp i32 %89 to float
   store float %300, ptr %292, align 8, !tbaa !103
   %304 = getelementptr inbounds i8, ptr %0, i64 4268
   store float %303, ptr %304, align 4, !tbaa !103
@@ -9149,8 +9149,8 @@ define void @_ZN3irr5video13COpenGLDriver16draw2DImageBatchEPKNS0_8ITextureERKNS
   %419 = insertelement <2 x i32> %418, i32 %414, i64 1
   %420 = add nsw <2 x i32> %419, %416
   %421 = add nsw i32 %392, %382
-  %422 = sitofp i32 %382 to float
-  %423 = sitofp i32 %401 to float
+  %422 = uitofp i32 %382 to float
+  %423 = uitofp i32 %401 to float
   store float %422, ptr %187, align 8, !tbaa !103
   store float %423, ptr %287, align 4, !tbaa !103
   store float 0.000000e+00, ptr %288, align 8, !tbaa !103
@@ -17953,7 +17953,7 @@ define void @_ZN3irr5video13COpenGLDriver6setFogENS0_6SColorENS0_10E_FOG_TYPEEff
   %10 = icmp eq i32 %2, 1
   %11 = icmp eq i32 %2, 0
   %12 = select i1 %11, i32 2048, i32 2049
-  %13 = sitofp i32 %12 to float
+  %13 = uitofp i32 %12 to float
   %14 = select i1 %10, float 9.729000e+03, float %13
   tail call void @glFogf(i32 noundef 2917, float noundef %14) #24
   %15 = getelementptr inbounds i8, ptr %0, i64 1464

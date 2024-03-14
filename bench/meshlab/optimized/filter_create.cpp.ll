@@ -9290,7 +9290,7 @@ _ZNSt6vectorIN3vcg6Point2IfEESaIS2_EE6resizeEm.exit.preheader: ; preds = %_ZNKSt
   %1152 = fmul float %.sroa.49.9, %1119
   %1153 = fpext float %1119 to double
   %1154 = fmul double %1153, 2.000000e+00
-  %1155 = sitofp i32 %1140 to double
+  %1155 = uitofp i32 %1140 to double
   %1156 = fdiv double %1154, %1155
   %1157 = fptrunc double %1156 to float
   %1158 = fpext float %1118 to double
@@ -9320,14 +9320,14 @@ _ZNSt6vectorIN3vcg6Point2IfEESaIS2_EE6resizeEm.exit.preheader: ; preds = %_ZNKSt
 .preheader1417:                                   ; preds = %_ZNSt6vectorIN3vcg6Point2IfEESaIS2_EE6resizeEm.exit.preheader, %_ZNSt6vectorIN3vcg6Point2IfEESaIS2_EE6resizeEm.exit
   %.03891503 = phi i64 [ 0, %_ZNSt6vectorIN3vcg6Point2IfEESaIS2_EE6resizeEm.exit.preheader ], [ %indvars.iv.next, %_ZNSt6vectorIN3vcg6Point2IfEESaIS2_EE6resizeEm.exit ]
   %.03911502 = phi i32 [ 0, %_ZNSt6vectorIN3vcg6Point2IfEESaIS2_EE6resizeEm.exit.preheader ], [ %1218, %_ZNSt6vectorIN3vcg6Point2IfEESaIS2_EE6resizeEm.exit ]
-  %1172 = sitofp i32 %.03911502 to float
+  %1172 = uitofp i32 %.03911502 to float
   %1173 = insertelement <2 x float> poison, float %1172, i64 0
   %1174 = shufflevector <2 x float> %1173, <2 x float> poison, <2 x i32> zeroinitializer
   %1175 = fmul <2 x float> %.sroa.01137.9, %1174
   %1176 = fmul float %.sroa.43.9, %1172
   %1177 = fmul <2 x float> %1175, %1165
   %1178 = fmul float %1176, %1161
-  %1179 = sitofp i32 %.03911502 to double
+  %1179 = uitofp i32 %.03911502 to double
   %1180 = fmul double %1163, %1179
   %1181 = fptrunc double %1180 to float
   %sext1565 = shl i64 %.03891503, 32
@@ -9340,7 +9340,7 @@ _ZNSt6vectorIN3vcg6Point2IfEESaIS2_EE6resizeEm.exit.preheader: ; preds = %_ZNKSt
   %1184 = load float, ptr %.sroa.2246.0..sroa_idx, align 8
   %1185 = fsub float %1184, %1148
   %1186 = fsub float %1185, %1152
-  %1187 = sitofp i32 %.03921500 to float
+  %1187 = uitofp i32 %.03921500 to float
   %1188 = fmul float %.sroa.49.9, %1187
   %1189 = fmul float %1188, %1157
   %1190 = fadd float %1189, %1186
@@ -9387,7 +9387,7 @@ _ZNSt6vectorIN3vcg6Point2IfEESaIS2_EE6resizeEm.exit.preheader: ; preds = %_ZNKSt
   store float %1200, ptr %.sroa.5.0..sroa_idx, align 4
   %1211 = getelementptr inbounds i8, ptr %1201, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1211, ptr noundef nonnull align 4 dereferenceable(12) %499, i64 12, i1 false)
-  %1212 = sitofp i32 %.03921500 to double
+  %1212 = uitofp i32 %.03921500 to double
   %1213 = fmul double %1163, %1212
   %1214 = fptrunc double %1213 to float
   %1215 = getelementptr inbounds %"class.vcg::Point2.167", ptr %1144, i64 %indvars.iv
@@ -11879,7 +11879,7 @@ _ZN3vcg3tri9AllocatorI6CMeshOE11AddVerticesERS2_m.exit: ; preds = %11, %14
 31:                                               ; preds = %.lr.ph, %31
   %.074 = phi i32 [ 0, %.lr.ph ], [ %44, %31 ]
   %.sroa.069.073 = phi ptr [ %10, %.lr.ph ], [ %43, %31 ]
-  %32 = sitofp i32 %.074 to double
+  %32 = uitofp i32 %.074 to double
   %33 = fmul double %21, %32
   %34 = call double @cos(double noundef %33) #26
   %35 = call double @sin(double noundef %33) #26
@@ -12059,7 +12059,7 @@ _ZN3vcg3tri9AllocatorI6CMeshOE11AddVerticesERS2_m.exit: ; preds = %18, %21
 .lr.ph52.split.us:                                ; preds = %.lr.ph52, %.lr.ph52.split.us
   %.051.us = phi i32 [ %33, %.lr.ph52.split.us ], [ 0, %.lr.ph52 ]
   %28 = urem i32 %.051.us, %3
-  %29 = sitofp i32 %28 to float
+  %29 = uitofp i32 %28 to float
   %30 = fmul float %12, %29
   %31 = call noundef float @cosf(float noundef %30) #26
   %32 = call noundef float @sinf(float noundef %30) #26
@@ -12071,7 +12071,7 @@ _ZN3vcg3tri9AllocatorI6CMeshOE11AddVerticesERS2_m.exit: ; preds = %18, %21
   %indvars.iv56 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next57, %._crit_edge ]
   %34 = trunc i64 %indvars.iv56 to i32
   %35 = urem i32 %34, %3
-  %36 = sitofp i32 %35 to float
+  %36 = uitofp i32 %35 to float
   %37 = fmul float %12, %36
   %38 = call noundef float @cosf(float noundef %37) #26
   %39 = call noundef float @sinf(float noundef %37) #26
@@ -12102,7 +12102,7 @@ _ZN3vcg3tri9AllocatorI6CMeshOE11AddVerticesERS2_m.exit: ; preds = %18, %21
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %61 ]
   %62 = trunc i64 %indvars.iv to i32
   %63 = urem i32 %62, %4
-  %64 = sitofp i32 %63 to float
+  %64 = uitofp i32 %63 to float
   %65 = fmul float %9, %64
   %66 = call noundef float @cosf(float noundef %65) #26
   %67 = call float @llvm.fmuladd.f32(float %2, float %66, float %1)
@@ -14677,7 +14677,7 @@ _ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE9push_backEOS2_.exit52: ; preds = %73, %_ZN
 
 ._crit_edge97:                                    ; preds = %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE9push_backEOS2_.exit52, %.lr.ph99
   %100 = add nuw nsw i32 %.03498, 1
-  %101 = sitofp i32 %100 to float
+  %101 = uitofp i32 %100 to float
   %102 = fcmp ogt float %.0.lcssa, %101
   br i1 %102, label %.lr.ph99, label %._crit_edge100.loopexit, !llvm.loop !129
 
@@ -15056,7 +15056,7 @@ define linkonce_odr void @_ZN3vcg9GenNormalIfE9FibonacciEiRSt6vectorINS_6Point3I
 7:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
   %8 = trunc i64 %indvars.iv to i32
-  %9 = sitofp i32 %8 to float
+  %9 = uitofp i32 %8 to float
   %10 = fdiv float %9, 0x3FF9E377A0000000
   %11 = tail call noundef float @llvm.floor.f32(float %10)
   %12 = fsub float %10, %11
@@ -15066,7 +15066,7 @@ define linkonce_odr void @_ZN3vcg9GenNormalIfE9FibonacciEiRSt6vectorINS_6Point3I
   %indvars.iv.tr = trunc i64 %indvars.iv to i32
   %16 = shl i32 %indvars.iv.tr, 1
   %17 = or disjoint i32 %16, 1
-  %18 = sitofp i32 %17 to double
+  %18 = uitofp i32 %17 to double
   %19 = fdiv double %18, %6
   %20 = fsub double 1.000000e+00, %19
   %21 = fptrunc double %20 to float
@@ -16951,7 +16951,7 @@ _ZN3vcg3tri9AllocatorI6CMeshOE8AddFacesERS2_m.exit: ; preds = %24, %27
   %indvars.iv = phi i64 [ 2, %.lr.ph ], [ %indvars.iv.next, %49 ]
   %.0201 = phi i32 [ 0, %.lr.ph ], [ %64, %49 ]
   %.sroa.0176.0199 = phi ptr [ %44, %.lr.ph ], [ %63, %49 ]
-  %50 = sitofp i32 %.0201 to double
+  %50 = uitofp i32 %.0201 to double
   %51 = fmul double %50, 3.600000e+02
   %52 = fdiv double %51, %47
   %53 = fmul double %52, 0x400921FB54442D18
@@ -17004,7 +17004,7 @@ _ZN3vcg3tri9AllocatorI6CMeshOE8AddFacesERS2_m.exit: ; preds = %24, %27
   %indvars.iv245 = phi i64 [ %.1127, %.lr.ph206 ], [ %indvars.iv.next246, %72 ]
   %.1205 = phi i32 [ 0, %.lr.ph206 ], [ %87, %72 ]
   %.sroa.0176.2203 = phi ptr [ %.sroa.0176.1, %.lr.ph206 ], [ %86, %72 ]
-  %73 = sitofp i32 %.1205 to double
+  %73 = uitofp i32 %.1205 to double
   %74 = fmul double %73, 3.600000e+02
   %75 = fdiv double %74, %70
   %76 = fmul double %75, 0x400921FB54442D18
@@ -27736,10 +27736,10 @@ define linkonce_odr void @_ZN3vcg3tri15SurfaceSamplingI6CMeshONS0_14TrivialSampl
   %.sroa.031.sroa.0.0.insert.insert = or disjoint i64 %.sroa.031.sroa.3.0.insert.shift, %.sroa.031.sroa.0.0.insert.ext
   store <2 x float> %44, ptr %12, align 8
   store i64 %.sroa.031.sroa.0.0.insert.insert, ptr %11, align 4
-  %50 = sitofp <2 x i32> %47 to <2 x float>
+  %50 = uitofp <2 x i32> %47 to <2 x float>
   %51 = fdiv <2 x float> %44, %50
   store <2 x float> %51, ptr %10, align 8
-  %52 = sitofp i32 %.sroa.speculated to float
+  %52 = uitofp i32 %.sroa.speculated to float
   %53 = fdiv float %38, %52
   store float %53, ptr %13, align 8
   %54 = load ptr, ptr %14, align 8
@@ -37953,8 +37953,8 @@ define linkonce_odr noundef signext i8 @_ZN3vcg5Tetra13DihedralAngleINS_9TetraSi
   br label %_ZNK3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE2cPEi.exit
 
 _ZNK3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE2cPEi.exit: ; preds = %2, %5, %7
-  %.sroa.0117.0.copyload = load i8, ptr @_ZZNK3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE2cPEiE5coord, align 1
-  %.sroa.6122.0.copyload = load i8, ptr getelementptr inbounds (%"class.vcg::Point3.890", ptr @_ZZNK3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE2cPEiE5coord, i64 0, i32 0, i64 1), align 1
+  %.sroa.0118.0.copyload = load i8, ptr @_ZZNK3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE2cPEiE5coord, align 1
+  %.sroa.6123.0.copyload = load i8, ptr getelementptr inbounds (%"class.vcg::Point3.890", ptr @_ZZNK3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE2cPEiE5coord, i64 0, i32 0, i64 1), align 1
   %.sroa.10.0.copyload = load i8, ptr getelementptr inbounds (%"class.vcg::Point3.890", ptr @_ZZNK3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE2cPEiE5coord, i64 0, i32 0, i64 2), align 1
   %8 = load atomic i8, ptr @_ZGVZNK3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE2cPEiE5coord acquire, align 8
   %9 = icmp eq i8 %8, 0
@@ -37973,34 +37973,34 @@ _ZNK3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVer
   br label %_ZNK3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE2cPEi.exit15
 
 _ZNK3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE2cPEi.exit15: ; preds = %_ZNK3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE2cPEi.exit, %10, %12
-  %.sroa.0107.0.copyload = load i8, ptr @_ZZNK3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE2cPEiE5coord, align 1
-  %.sroa.4110.0.copyload = load i8, ptr getelementptr inbounds (%"class.vcg::Point3.890", ptr @_ZZNK3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE2cPEiE5coord, i64 0, i32 0, i64 1), align 1
-  %.sroa.6113.0.copyload = load i8, ptr getelementptr inbounds (%"class.vcg::Point3.890", ptr @_ZZNK3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE2cPEiE5coord, i64 0, i32 0, i64 2), align 1
+  %.sroa.0108.0.copyload = load i8, ptr @_ZZNK3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE2cPEiE5coord, align 1
+  %.sroa.4111.0.copyload = load i8, ptr getelementptr inbounds (%"class.vcg::Point3.890", ptr @_ZZNK3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE2cPEiE5coord, i64 0, i32 0, i64 1), align 1
+  %.sroa.6114.0.copyload = load i8, ptr getelementptr inbounds (%"class.vcg::Point3.890", ptr @_ZZNK3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE2cPEiE5coord, i64 0, i32 0, i64 2), align 1
   %13 = load atomic i8, ptr @_ZGVZNK3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE2cPEiE5coord acquire, align 8
   %14 = icmp eq i8 %13, 0
-  br i1 %14, label %15, label %cdce.end, !prof !90
+  br i1 %14, label %15, label %_ZNK3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE2cPEi.exit17, !prof !90
 
 15:                                               ; preds = %_ZNK3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE2cPEi.exit15
   %16 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZNK3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE2cPEiE5coord) #26
   %.not.i16 = icmp eq i32 %16, 0
-  br i1 %.not.i16, label %cdce.end, label %17
+  br i1 %.not.i16, label %_ZNK3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE2cPEi.exit17, label %17
 
 17:                                               ; preds = %15
   store i8 0, ptr @_ZZNK3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE2cPEiE5coord, align 1
   store i8 0, ptr getelementptr inbounds (%"class.vcg::Point3.890", ptr @_ZZNK3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE2cPEiE5coord, i64 0, i32 0, i64 1), align 1
   store i8 0, ptr getelementptr inbounds (%"class.vcg::Point3.890", ptr @_ZZNK3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE2cPEiE5coord, i64 0, i32 0, i64 2), align 1
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZNK3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE2cPEiE5coord) #26
-  br label %cdce.end
+  br label %_ZNK3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE2cPEi.exit17
 
-cdce.end:                                         ; preds = %17, %15, %_ZNK3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE2cPEi.exit15
-  %.sroa.099.0.copyload = load i8, ptr @_ZZNK3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE2cPEiE5coord, align 1
+_ZNK3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE2cPEi.exit17: ; preds = %_ZNK3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE2cPEi.exit15, %15, %17
+  %.sroa.0100.0.copyload = load i8, ptr @_ZZNK3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE2cPEiE5coord, align 1
   %.sroa.4.0.copyload = load i8, ptr getelementptr inbounds (%"class.vcg::Point3.890", ptr @_ZZNK3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE2cPEiE5coord, i64 0, i32 0, i64 1), align 1
   %.sroa.6.0.copyload = load i8, ptr getelementptr inbounds (%"class.vcg::Point3.890", ptr @_ZZNK3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE2cPEiE5coord, i64 0, i32 0, i64 2), align 1
   %18 = load atomic i8, ptr @_ZGVZNK3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE2cPEiE5coord acquire, align 8
   %19 = icmp eq i8 %18, 0
   br i1 %19, label %20, label %_ZNK3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE2cPEi.exit34, !prof !90
 
-20:                                               ; preds = %cdce.end
+20:                                               ; preds = %_ZNK3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE2cPEi.exit17
   %21 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZNK3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE2cPEiE5coord) #26
   %.not.i33 = icmp eq i32 %21, 0
   br i1 %.not.i33, label %_ZNK3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE2cPEi.exit34, label %22
@@ -38012,10 +38012,10 @@ cdce.end:                                         ; preds = %17, %15, %_ZNK3vcg1
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZNK3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE2cPEiE5coord) #26
   br label %_ZNK3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE2cPEi.exit34
 
-_ZNK3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE2cPEi.exit34: ; preds = %cdce.end, %20, %22
-  %.sroa.0117.0.copyload121 = load i8, ptr @_ZZNK3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE2cPEiE5coord, align 1
-  %.sroa.6122.0.copyload123 = load i8, ptr getelementptr inbounds (%"class.vcg::Point3.890", ptr @_ZZNK3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE2cPEiE5coord, i64 0, i32 0, i64 1), align 1
-  %.sroa.10.0.copyload127 = load i8, ptr getelementptr inbounds (%"class.vcg::Point3.890", ptr @_ZZNK3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE2cPEiE5coord, i64 0, i32 0, i64 2), align 1
+_ZNK3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE2cPEi.exit34: ; preds = %_ZNK3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE2cPEi.exit17, %20, %22
+  %.sroa.0118.0.copyload122 = load i8, ptr @_ZZNK3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE2cPEiE5coord, align 1
+  %.sroa.6123.0.copyload124 = load i8, ptr getelementptr inbounds (%"class.vcg::Point3.890", ptr @_ZZNK3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE2cPEiE5coord, i64 0, i32 0, i64 1), align 1
+  %.sroa.10.0.copyload128 = load i8, ptr getelementptr inbounds (%"class.vcg::Point3.890", ptr @_ZZNK3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE2cPEiE5coord, i64 0, i32 0, i64 2), align 1
   %23 = load atomic i8, ptr @_ZGVZNK3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE2cPEiE5coord acquire, align 8
   %24 = icmp eq i8 %23, 0
   br i1 %24, label %25, label %_ZNK3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE2cPEi.exit36, !prof !90
@@ -38033,90 +38033,90 @@ _ZNK3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVer
   br label %_ZNK3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE2cPEi.exit36
 
 _ZNK3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE2cPEi.exit36: ; preds = %_ZNK3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE2cPEi.exit34, %25, %27
-  %.sroa.0107.0.copyload109 = load i8, ptr @_ZZNK3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE2cPEiE5coord, align 1
-  %.sroa.4110.0.copyload111 = load i8, ptr getelementptr inbounds (%"class.vcg::Point3.890", ptr @_ZZNK3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE2cPEiE5coord, i64 0, i32 0, i64 1), align 1
-  %.sroa.6113.0.copyload114 = load i8, ptr getelementptr inbounds (%"class.vcg::Point3.890", ptr @_ZZNK3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE2cPEiE5coord, i64 0, i32 0, i64 2), align 1
+  %.sroa.0108.0.copyload110 = load i8, ptr @_ZZNK3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE2cPEiE5coord, align 1
+  %.sroa.4111.0.copyload112 = load i8, ptr getelementptr inbounds (%"class.vcg::Point3.890", ptr @_ZZNK3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE2cPEiE5coord, i64 0, i32 0, i64 1), align 1
+  %.sroa.6114.0.copyload115 = load i8, ptr getelementptr inbounds (%"class.vcg::Point3.890", ptr @_ZZNK3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE2cPEiE5coord, i64 0, i32 0, i64 2), align 1
   %28 = load atomic i8, ptr @_ZGVZNK3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE2cPEiE5coord acquire, align 8
   %29 = icmp eq i8 %28, 0
-  br i1 %29, label %30, label %cdce.end145, !prof !90
+  br i1 %29, label %30, label %_ZNK3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE2cPEi.exit38, !prof !90
 
 30:                                               ; preds = %_ZNK3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE2cPEi.exit36
   %31 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZNK3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE2cPEiE5coord) #26
   %.not.i37 = icmp eq i32 %31, 0
-  br i1 %.not.i37, label %cdce.end145, label %32
+  br i1 %.not.i37, label %_ZNK3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE2cPEi.exit38, label %32
 
 32:                                               ; preds = %30
   store i8 0, ptr @_ZZNK3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE2cPEiE5coord, align 1
   store i8 0, ptr getelementptr inbounds (%"class.vcg::Point3.890", ptr @_ZZNK3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE2cPEiE5coord, i64 0, i32 0, i64 1), align 1
   store i8 0, ptr getelementptr inbounds (%"class.vcg::Point3.890", ptr @_ZZNK3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE2cPEiE5coord, i64 0, i32 0, i64 2), align 1
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZNK3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE2cPEiE5coord) #26
-  br label %cdce.end145
+  br label %_ZNK3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE2cPEi.exit38
 
-cdce.end145:                                      ; preds = %32, %30, %_ZNK3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE2cPEi.exit36
-  %.sroa.6.0.copyload104 = load i8, ptr getelementptr inbounds (%"class.vcg::Point3.890", ptr @_ZZNK3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE2cPEiE5coord, i64 0, i32 0, i64 2), align 1
-  %.sroa.4.0.copyload102 = load i8, ptr getelementptr inbounds (%"class.vcg::Point3.890", ptr @_ZZNK3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE2cPEiE5coord, i64 0, i32 0, i64 1), align 1
-  %.sroa.099.0.copyload101 = load i8, ptr @_ZZNK3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE2cPEiE5coord, align 1
-  %33 = xor i8 %.sroa.4.0.copyload102, %.sroa.6122.0.copyload123
+_ZNK3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE2cPEi.exit38: ; preds = %_ZNK3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE2cPEi.exit36, %30, %32
+  %33 = xor i8 %.sroa.0100.0.copyload, %.sroa.0118.0.copyload
   %34 = and i8 %33, 1
   %35 = zext nneg i8 %34 to i32
-  %36 = xor i8 %.sroa.6113.0.copyload114, %.sroa.10.0.copyload127
+  %36 = xor i8 %.sroa.4111.0.copyload, %.sroa.6123.0.copyload
   %37 = and i8 %36, 1
   %38 = zext nneg i8 %37 to i32
   %39 = mul nuw nsw i32 %35, %38
-  %40 = xor i8 %.sroa.6.0.copyload104, %.sroa.10.0.copyload127
+  %40 = xor i8 %.sroa.0108.0.copyload, %.sroa.0118.0.copyload
   %41 = and i8 %40, 1
   %42 = zext nneg i8 %41 to i32
-  %43 = xor i8 %.sroa.4110.0.copyload111, %.sroa.6122.0.copyload123
+  %43 = xor i8 %.sroa.4.0.copyload, %.sroa.6123.0.copyload
   %44 = and i8 %43, 1
   %45 = zext nneg i8 %44 to i32
-  %46 = mul nuw nsw i32 %42, %45
-  %47 = icmp ne i32 %39, %46
-  %48 = xor i8 %.sroa.099.0.copyload101, %.sroa.0117.0.copyload121
-  %49 = and i8 %48, 1
-  %50 = zext nneg i8 %49 to i32
-  %51 = mul nuw nsw i32 %50, %45
-  %52 = xor i8 %.sroa.0107.0.copyload109, %.sroa.0117.0.copyload121
-  %53 = and i8 %52, 1
-  %54 = zext nneg i8 %53 to i32
-  %55 = mul nuw nsw i32 %35, %54
-  %.not.i54 = icmp ne i32 %51, %55
-  %56 = mul nuw nsw i32 %42, %54
-  %57 = mul nuw nsw i32 %50, %38
-  %.not7.i53 = icmp ne i32 %56, %57
-  %58 = xor i8 %.sroa.4.0.copyload, %.sroa.6122.0.copyload
+  %46 = mul nuw nsw i32 %45, %42
+  %.not.i25.not = icmp ne i32 %39, %46
+  %47 = xor i8 %.sroa.6114.0.copyload, %.sroa.10.0.copyload
+  %48 = and i8 %47, 1
+  %49 = zext nneg i8 %48 to i32
+  %50 = mul nuw nsw i32 %45, %49
+  %51 = xor i8 %.sroa.6.0.copyload, %.sroa.10.0.copyload
+  %52 = and i8 %51, 1
+  %53 = zext nneg i8 %52 to i32
+  %54 = mul nuw nsw i32 %53, %38
+  %55 = icmp ne i32 %50, %54
+  %56 = mul nuw nsw i32 %53, %42
+  %57 = mul nuw nsw i32 %35, %49
+  %.not7.i.not = icmp ne i32 %56, %57
+  %.sroa.0100.0.copyload102 = load i8, ptr @_ZZNK3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE2cPEiE5coord, align 1
+  %.sroa.4.0.copyload103 = load i8, ptr getelementptr inbounds (%"class.vcg::Point3.890", ptr @_ZZNK3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE2cPEiE5coord, i64 0, i32 0, i64 1), align 1
+  %.sroa.6.0.copyload105 = load i8, ptr getelementptr inbounds (%"class.vcg::Point3.890", ptr @_ZZNK3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE2cPEiE5coord, i64 0, i32 0, i64 2), align 1
+  %58 = xor i8 %.sroa.0100.0.copyload102, %.sroa.0118.0.copyload122
   %59 = and i8 %58, 1
-  %60 = zext nneg i8 %59 to i32
-  %61 = xor i8 %.sroa.6113.0.copyload, %.sroa.10.0.copyload
-  %62 = and i8 %61, 1
-  %63 = zext nneg i8 %62 to i32
-  %64 = mul nuw nsw i32 %60, %63
-  %65 = xor i8 %.sroa.6.0.copyload, %.sroa.10.0.copyload
-  %66 = and i8 %65, 1
-  %67 = zext nneg i8 %66 to i32
-  %68 = xor i8 %.sroa.4110.0.copyload, %.sroa.6122.0.copyload
+  %60 = xor i8 %.sroa.4.0.copyload103, %.sroa.6123.0.copyload124
+  %61 = and i8 %60, 1
+  %62 = xor i8 %.sroa.6.0.copyload105, %.sroa.10.0.copyload128
+  %63 = and i8 %62, 1
+  %64 = xor i8 %.sroa.0108.0.copyload110, %.sroa.0118.0.copyload122
+  %65 = and i8 %64, 1
+  %66 = xor i8 %.sroa.4111.0.copyload112, %.sroa.6123.0.copyload124
+  %67 = and i8 %66, 1
+  %68 = xor i8 %.sroa.6114.0.copyload115, %.sroa.10.0.copyload128
   %69 = and i8 %68, 1
-  %70 = zext nneg i8 %69 to i32
-  %71 = mul nuw nsw i32 %67, %70
-  %72 = icmp ne i32 %64, %71
-  %73 = xor i8 %.sroa.099.0.copyload, %.sroa.0117.0.copyload
-  %74 = and i8 %73, 1
-  %75 = zext nneg i8 %74 to i32
-  %76 = mul nuw nsw i32 %75, %70
-  %77 = xor i8 %.sroa.0107.0.copyload, %.sroa.0117.0.copyload
-  %78 = and i8 %77, 1
-  %79 = zext nneg i8 %78 to i32
-  %80 = mul nuw nsw i32 %60, %79
-  %.not.i25 = icmp ne i32 %76, %80
-  %81 = mul nuw nsw i32 %67, %79
-  %82 = mul nuw nsw i32 %75, %63
-  %.not7.i = icmp ne i32 %81, %82
-  %narrow.i141 = and i1 %72, %47
-  %narrow.i = zext i1 %narrow.i141 to i8
-  %narrow4.i142 = and i1 %.not7.i, %.not7.i53
-  %narrow4.i = zext i1 %narrow4.i142 to i8
+  %70 = zext nneg i8 %61 to i32
+  %71 = zext nneg i8 %69 to i32
+  %72 = mul nuw nsw i32 %70, %71
+  %73 = zext nneg i8 %63 to i32
+  %74 = zext nneg i8 %67 to i32
+  %75 = mul nuw nsw i32 %73, %74
+  %76 = icmp ne i32 %72, %75
+  %77 = zext nneg i8 %65 to i32
+  %78 = mul nuw nsw i32 %73, %77
+  %79 = zext nneg i8 %59 to i32
+  %80 = mul nuw nsw i32 %79, %71
+  %.not7.i53.not = icmp ne i32 %78, %80
+  %81 = mul nuw nsw i32 %79, %74
+  %82 = mul nuw nsw i32 %70, %77
+  %.not.i54.not = icmp ne i32 %81, %82
+  %narrow.i142 = and i1 %55, %76
+  %narrow.i = zext i1 %narrow.i142 to i8
+  %narrow4.i143 = and i1 %.not7.i.not, %.not7.i53.not
+  %narrow4.i = zext i1 %narrow4.i143 to i8
   %narrow5.i = add nuw nsw i8 %narrow4.i, %narrow.i
-  %narrow6.i143 = and i1 %.not.i25, %.not.i54
-  %narrow6.i.neg = sext i1 %narrow6.i143 to i8
+  %narrow6.i144 = and i1 %.not.i25.not, %.not.i54.not
+  %narrow6.i.neg = sext i1 %narrow6.i144 to i8
   %83 = icmp ne i8 %narrow5.i, %narrow6.i.neg
   %84 = uitofp i1 %83 to double
   %85 = tail call noundef double @acos(double noundef %84) #26

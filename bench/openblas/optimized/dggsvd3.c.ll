@@ -135,7 +135,7 @@ define void @dggsvd3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   store i32 %97, ptr %25, align 4, !tbaa !3
   %98 = call i32 @llvm.smax.i32(i32 %97, i32 %96)
   %99 = call i32 @llvm.smax.i32(i32 %98, i32 1)
-  %100 = sitofp i32 %99 to double
+  %100 = uitofp i32 %99 to double
   store double %100, ptr %20, align 8, !tbaa !7
   %.pr7 = load i32, ptr %23, align 4, !tbaa !3
   %101 = icmp eq i32 %.pr7, 0

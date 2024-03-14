@@ -1368,7 +1368,7 @@ define void @_Z30duDebugDrawTileCacheLayerAreasP11duDebugDrawRK16dtTileCacheLaye
   %30 = load i8, ptr %29, align 1
   %31 = zext i8 %30 to i32
   %32 = add nuw nsw i32 %31, 1
-  %33 = sitofp i32 %32 to float
+  %33 = uitofp i32 %32 to float
   %34 = tail call float @llvm.fmuladd.f32(float %33, float %2, float %15)
   %35 = getelementptr inbounds i8, ptr %5, i64 36
   %36 = load float, ptr %35, align 4
@@ -1376,7 +1376,7 @@ define void @_Z30duDebugDrawTileCacheLayerAreasP11duDebugDrawRK16dtTileCacheLaye
   %38 = load i8, ptr %37, align 1
   %39 = zext i8 %38 to i32
   %40 = add nuw nsw i32 %39, 1
-  %41 = sitofp i32 %40 to float
+  %41 = uitofp i32 %40 to float
   %42 = tail call float @llvm.fmuladd.f32(float %41, float %2, float %24)
   %43 = and i32 %14, 16777215
   %44 = or disjoint i32 %43, -2147483648
@@ -1449,7 +1449,7 @@ define void @_Z30duDebugDrawTileCacheLayerAreasP11duDebugDrawRK16dtTileCacheLaye
   %indvars.iv117 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next118, %._crit_edge.us ]
   %85 = mul nuw nsw i64 %indvars.iv117, %84
   %86 = trunc i64 %indvars.iv117 to i32
-  %87 = sitofp i32 %86 to float
+  %87 = uitofp i32 %86 to float
   br label %88
 
 88:                                               ; preds = %.preheader.us, %153
@@ -1516,11 +1516,11 @@ define void @_Z30duDebugDrawTileCacheLayerAreasP11duDebugDrawRK16dtTileCacheLaye
   %.085.us = phi i32 [ %75, %99 ], [ %127, %100 ], [ %68, %95 ]
   %129 = load float, ptr %10, align 4
   %130 = trunc i64 %indvars.iv to i32
-  %131 = sitofp i32 %130 to float
+  %131 = uitofp i32 %130 to float
   %132 = tail call float @llvm.fmuladd.f32(float %131, float %2, float %129)
   %133 = load float, ptr %21, align 4
   %134 = add nuw nsw i32 %93, 1
-  %135 = sitofp i32 %134 to float
+  %135 = uitofp i32 %134 to float
   %136 = tail call float @llvm.fmuladd.f32(float %135, float %3, float %133)
   %137 = load float, ptr %23, align 4
   %138 = tail call float @llvm.fmuladd.f32(float %87, float %2, float %137)
@@ -1674,7 +1674,7 @@ define internal fastcc void @_ZL25debugDrawTileCachePortalsP11duDebugDrawRK16dtT
 .preheader.us:                                    ; preds = %21
   %68 = zext i8 %25 to i32
   %69 = add nuw nsw i32 %68, 2
-  %70 = sitofp i32 %69 to float
+  %70 = uitofp i32 %69 to float
   %71 = trunc i64 %indvars.iv66 to i32
   br label %27
 
@@ -1721,7 +1721,7 @@ define void @_Z32duDebugDrawTileCacheLayerRegionsP11duDebugDrawRK16dtTileCacheLa
   %30 = load i8, ptr %29, align 1
   %31 = zext i8 %30 to i32
   %32 = add nuw nsw i32 %31, 1
-  %33 = sitofp i32 %32 to float
+  %33 = uitofp i32 %32 to float
   %34 = tail call float @llvm.fmuladd.f32(float %33, float %2, float %15)
   %35 = getelementptr inbounds i8, ptr %5, i64 36
   %36 = load float, ptr %35, align 4
@@ -1729,7 +1729,7 @@ define void @_Z32duDebugDrawTileCacheLayerRegionsP11duDebugDrawRK16dtTileCacheLa
   %38 = load i8, ptr %37, align 1
   %39 = zext i8 %38 to i32
   %40 = add nuw nsw i32 %39, 1
-  %41 = sitofp i32 %40 to float
+  %41 = uitofp i32 %40 to float
   %42 = tail call float @llvm.fmuladd.f32(float %41, float %2, float %24)
   %43 = and i32 %14, 16777215
   %44 = or disjoint i32 %43, -2147483648
@@ -1766,7 +1766,7 @@ define void @_Z32duDebugDrawTileCacheLayerRegionsP11duDebugDrawRK16dtTileCacheLa
   %indvars.iv94 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next95, %._crit_edge.us ]
   %61 = mul nuw nsw i64 %indvars.iv94, %60
   %62 = trunc i64 %indvars.iv94 to i32
-  %63 = sitofp i32 %62 to float
+  %63 = uitofp i32 %62 to float
   br label %64
 
 64:                                               ; preds = %.preheader.us, %125
@@ -1819,11 +1819,11 @@ define void @_Z32duDebugDrawTileCacheLayerRegionsP11duDebugDrawRK16dtTileCacheLa
   %100 = or i32 %99, %96
   %101 = load float, ptr %10, align 4
   %102 = trunc i64 %indvars.iv to i32
-  %103 = sitofp i32 %102 to float
+  %103 = uitofp i32 %102 to float
   %104 = tail call float @llvm.fmuladd.f32(float %103, float %2, float %101)
   %105 = load float, ptr %21, align 4
   %106 = add nuw nsw i32 %71, 1
-  %107 = sitofp i32 %106 to float
+  %107 = uitofp i32 %106 to float
   %108 = tail call float @llvm.fmuladd.f32(float %107, float %3, float %105)
   %109 = load float, ptr %23, align 4
   %110 = tail call float @llvm.fmuladd.f32(float %63, float %2, float %109)
@@ -1924,7 +1924,7 @@ define void @_Z28duDebugDrawTileCacheContoursP11duDebugDrawRK21dtTileCacheContou
   %42 = load i8, ptr %41, align 1
   %43 = zext i8 %42 to i32
   %44 = add nuw nsw i32 %25, %43
-  %45 = sitofp i32 %44 to float
+  %45 = uitofp i32 %44 to float
   %46 = tail call float @llvm.fmuladd.f32(float %45, float %4, float %40)
   %47 = load float, ptr %14, align 4
   %48 = getelementptr inbounds i8, ptr %32, i64 2
@@ -1938,7 +1938,7 @@ define void @_Z28duDebugDrawTileCacheContoursP11duDebugDrawRK21dtTileCacheContou
   %56 = load i8, ptr %55, align 1
   %57 = zext i8 %56 to i32
   %58 = add nuw nsw i32 %25, %57
-  %59 = sitofp i32 %58 to float
+  %59 = uitofp i32 %58 to float
   %60 = tail call float @llvm.fmuladd.f32(float %59, float %4, float %40)
   %61 = getelementptr inbounds i8, ptr %35, i64 2
   %62 = load i8, ptr %61, align 1
@@ -2056,7 +2056,7 @@ define void @_Z28duDebugDrawTileCacheContoursP11duDebugDrawRK21dtTileCacheContou
   %142 = load i8, ptr %141, align 1
   %143 = zext i8 %142 to i32
   %144 = add nuw nsw i32 %123, %143
-  %145 = sitofp i32 %144 to float
+  %145 = uitofp i32 %144 to float
   %146 = tail call float @llvm.fmuladd.f32(float %145, float %4, float %140)
   %147 = load float, ptr %113, align 4
   %148 = getelementptr inbounds i8, ptr %128, i64 2
@@ -2199,7 +2199,7 @@ define void @_Z28duDebugDrawTileCachePolyMeshP11duDebugDrawRK19dtTileCachePolyMe
   %61 = load i16, ptr %60, align 2
   %62 = zext i16 %61 to i32
   %63 = add nuw nsw i32 %62, 1
-  %64 = sitofp i32 %63 to float
+  %64 = uitofp i32 %63 to float
   %65 = tail call float @llvm.fmuladd.f32(float %64, float %4, float %59)
   %66 = load float, ptr %23, align 4
   %67 = getelementptr inbounds i8, ptr %54, i64 4
@@ -2338,7 +2338,7 @@ define void @_Z28duDebugDrawTileCachePolyMeshP11duDebugDrawRK19dtTileCachePolyMe
   %140 = load i16, ptr %139, align 2
   %141 = zext i16 %140 to i32
   %142 = add nuw nsw i32 %141, 1
-  %143 = sitofp i32 %142 to float
+  %143 = uitofp i32 %142 to float
   %144 = tail call float @llvm.fmuladd.f32(float %143, float %4, float %138)
   %145 = fadd float %144, 0x3FB99999A0000000
   %146 = load float, ptr %104, align 4
@@ -2452,7 +2452,7 @@ define void @_Z28duDebugDrawTileCachePolyMeshP11duDebugDrawRK19dtTileCachePolyMe
   %214 = load i16, ptr %213, align 2
   %215 = zext i16 %214 to i32
   %216 = add nuw nsw i32 %181, %215
-  %217 = sitofp i32 %216 to float
+  %217 = uitofp i32 %216 to float
   %218 = tail call float @llvm.fmuladd.f32(float %217, float %4, float %212)
   %219 = load float, ptr %170, align 4
   %220 = getelementptr inbounds i8, ptr %206, i64 4
@@ -2468,7 +2468,7 @@ define void @_Z28duDebugDrawTileCachePolyMeshP11duDebugDrawRK19dtTileCachePolyMe
   %230 = load i16, ptr %229, align 2
   %231 = zext i16 %230 to i32
   %232 = add nuw nsw i32 %181, %231
-  %233 = sitofp i32 %232 to float
+  %233 = uitofp i32 %232 to float
   %234 = tail call float @llvm.fmuladd.f32(float %233, float %4, float %212)
   %235 = getelementptr inbounds i8, ptr %209, i64 4
   %236 = load i16, ptr %235, align 2
@@ -2532,7 +2532,7 @@ define void @_Z28duDebugDrawTileCachePolyMeshP11duDebugDrawRK19dtTileCachePolyMe
   %284 = load i16, ptr %283, align 2
   %285 = zext i16 %284 to i32
   %286 = add nuw nsw i32 %285, 1
-  %287 = sitofp i32 %286 to float
+  %287 = uitofp i32 %286 to float
   %288 = tail call float @llvm.fmuladd.f32(float %287, float %4, float %282)
   %289 = fadd float %288, 0x3FB99999A0000000
   %290 = load float, ptr %170, align 4
@@ -2591,7 +2591,7 @@ define void @_Z28duDebugDrawTileCachePolyMeshP11duDebugDrawRK19dtTileCachePolyMe
   %323 = load i16, ptr %322, align 2
   %324 = zext i16 %323 to i32
   %325 = add nuw nsw i32 %324, 1
-  %326 = sitofp i32 %325 to float
+  %326 = uitofp i32 %325 to float
   %327 = tail call float @llvm.fmuladd.f32(float %326, float %4, float %321)
   %328 = fadd float %327, 0x3FB99999A0000000
   %329 = load float, ptr %312, align 4

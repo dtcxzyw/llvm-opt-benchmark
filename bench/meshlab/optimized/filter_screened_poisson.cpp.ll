@@ -19960,7 +19960,7 @@ define linkonce_odr void @_ZN6OctreeIfE11solveSystemILi2EL12BoundaryType2E16FEMS
   br i1 %.not66, label %._crit_edge70, label %.lr.ph69
 
 .lr.ph69:                                         ; preds = %50
-  %55 = sitofp i32 %.sroa.speculated to double
+  %55 = uitofp i32 %.sroa.speculated to double
   %56 = getelementptr inbounds i8, ptr %6, i64 16
   %57 = getelementptr inbounds i8, ptr %6, i64 25
   %58 = getelementptr inbounds i8, ptr %6, i64 8
@@ -31762,7 +31762,7 @@ _ZNK10PolynomialILi2EEmlILi2EEES_IXplLi2ET_EERKS_IXT_EE.exit: ; preds = %68, %_Z
   %70 = load double, ptr %69, align 8
   %indvars.iv.next.i22 = add nuw nsw i64 %indvars.iv.i21, 1
   %71 = trunc i64 %indvars.iv.next.i22 to i32
-  %72 = sitofp i32 %71 to double
+  %72 = uitofp i32 %71 to double
   %73 = fdiv double %70, %72
   %74 = fadd double %.02425.i, %73
   %exitcond.not.i23 = icmp eq i64 %indvars.iv.next.i22, 5
@@ -32837,7 +32837,7 @@ _ZNK10PolynomialILi2EEmlILi1EEES_IXplLi2ET_EERKS_IXT_EE.exit: ; preds = %.prehea
   %51 = load double, ptr %50, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i9, 1
   %52 = trunc i64 %indvars.iv.next.i to i32
-  %53 = sitofp i32 %52 to double
+  %53 = uitofp i32 %52 to double
   %54 = fdiv double %51, %53
   %55 = fadd double %.02425.i, %54
   %exitcond.not.i10 = icmp eq i64 %indvars.iv.next.i, 4
@@ -33622,7 +33622,7 @@ _ZNK10PolynomialILi2EEmlILi0EEES_IXplLi2ET_EERKS_IXT_EE.exit.i: ; preds = %.crit
   %131 = load double, ptr %130, align 8
   %indvars.iv.next.i10.i = add nuw nsw i64 %indvars.iv.i9.i, 1
   %132 = trunc i64 %indvars.iv.next.i10.i to i32
-  %133 = sitofp i32 %132 to double
+  %133 = uitofp i32 %132 to double
   %134 = fdiv double %131, %133
   %135 = fadd double %.02425.i.i, %134
   %exitcond.not.i11.i = icmp eq i64 %indvars.iv.next.i10.i, 3
@@ -34763,7 +34763,7 @@ _ZNK10PolynomialILi1EEmlILi2EEES_IXplLi1ET_EERKS_IXT_EE.exit: ; preds = %42, %_Z
   %44 = load double, ptr %43, align 8
   %indvars.iv.next.i10 = add nuw nsw i64 %indvars.iv.i9, 1
   %45 = trunc i64 %indvars.iv.next.i10 to i32
-  %46 = sitofp i32 %45 to double
+  %46 = uitofp i32 %45 to double
   %47 = fdiv double %44, %46
   %48 = fadd double %.02425.i, %47
   %exitcond.not.i11 = icmp eq i64 %indvars.iv.next.i10, 4
@@ -35095,7 +35095,7 @@ _ZNK10PolynomialILi1EEmlILi1EEES_IXplLi1ET_EERKS_IXT_EE.exit.i: ; preds = %_ZNK1
   %123 = load double, ptr %122, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i13.i, 1
   %124 = trunc i64 %indvars.iv.next.i.i to i32
-  %125 = sitofp i32 %124 to double
+  %125 = uitofp i32 %124 to double
   %126 = fdiv double %123, %125
   %127 = fadd double %.02425.i.i, %126
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
@@ -35520,7 +35520,7 @@ _ZNK10PolynomialILi1EE8integralEdd.exit.i:        ; preds = %93
   %109 = fdiv double %105, %108
   %110 = shl i32 %.sroa.speculated124, 1
   %111 = shl nuw i32 1, %110
-  %112 = sitofp i32 %111 to double
+  %112 = uitofp i32 %111 to double
   %113 = fmul double %109, %112
   br label %_ZNK15BSplineElementsILi2EE13differentiateILj2EEEvRS_IXmiLi2ET_EE.exit._crit_edge.thread
 
@@ -35954,7 +35954,7 @@ _ZNK10PolynomialILi0EEmlILi2EEES_IXplLi0ET_EERKS_IXT_EE.exit.i: ; preds = %127, 
   %134 = load double, ptr %133, align 8
   %indvars.iv.next.i10.i = add nuw nsw i64 %indvars.iv.i9.i, 1
   %135 = trunc i64 %indvars.iv.next.i10.i to i32
-  %136 = sitofp i32 %135 to double
+  %136 = uitofp i32 %135 to double
   %137 = fdiv double %134, %136
   %138 = fadd double %.02425.i.i, %137
   %exitcond.not.i11.i = icmp eq i64 %indvars.iv.next.i10.i, 3
@@ -36359,7 +36359,7 @@ _Z26SetBSplineElementIntegralsILi0ELi1EEvPAplT0_Li1E_d.exit.loopexit: ; preds = 
   %104 = fdiv double %100, %103
   %105 = shl i32 %.sroa.speculated124, 1
   %106 = shl nuw i32 1, %105
-  %107 = sitofp i32 %106 to double
+  %107 = uitofp i32 %106 to double
   %108 = fmul double %104, %107
   br label %_ZNK15BSplineElementsILi2EE13differentiateILj1EEEvRS_IXmiLi2ET_EE.exit._crit_edge.thread
 
@@ -63002,7 +63002,7 @@ define linkonce_odr void @_ZN21BSplineEvaluationDataILi1EL12BoundaryType2EE17BSp
   %24 = fmul double %.01416.i, %23
   %25 = sub nuw nsw i64 %indvars.iv.next.i, %indvars.iv19.i
   %26 = trunc i64 %25 to i32
-  %27 = sitofp i32 %26 to double
+  %27 = uitofp i32 %26 to double
   %28 = fdiv double %24, %27
   %indvars.iv.next20.i = add nsw i64 %indvars.iv19.i, -1
   %.not.i = icmp eq i64 %indvars.iv19.i, 0
@@ -63098,7 +63098,7 @@ _ZNK10PolynomialILi1EE5scaleEd.exit:              ; preds = %53
   %66 = fmul double %.01416.i65, %65
   %67 = sub nuw nsw i64 %indvars.iv.next.i63, %indvars.iv19.i64
   %68 = trunc i64 %67 to i32
-  %69 = sitofp i32 %68 to double
+  %69 = uitofp i32 %68 to double
   %70 = fdiv double %66, %69
   %indvars.iv.next20.i66 = add nsw i64 %indvars.iv19.i64, -1
   %.not.i67 = icmp eq i64 %indvars.iv19.i64, 0
@@ -69140,7 +69140,7 @@ _ZNK10PolynomialILi2EE12getSolutionsEdPdd.exit:   ; preds = %160
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %.not99.not = icmp eq i32 %.190, 0
-  %168 = sitofp i32 %.190 to double
+  %168 = uitofp i32 %.190 to double
   %169 = fdiv double %.1, %168
   br i1 %.not99.not, label %.thread, label %181
 
@@ -72970,7 +72970,7 @@ _ZNK10PolynomialILi2EE12getSolutionsEdPdd.exit:   ; preds = %148
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %.not103.not = icmp eq i32 %.194, 0
-  %156 = sitofp i32 %.194 to double
+  %156 = uitofp i32 %.194 to double
   %157 = fdiv double %.1, %156
   br i1 %.not103.not, label %.thread, label %169
 

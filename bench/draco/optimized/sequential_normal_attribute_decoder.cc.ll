@@ -1146,7 +1146,7 @@ _ZN5draco13DecoderBuffer6DecodeIiEEbPT_.exit5.thread.i: ; preds = %16
   %28 = sub nuw nsw i32 -2, %notmask.i.i.i
   %29 = getelementptr inbounds i8, ptr %0, i64 24
   store i32 %28, ptr %29, align 8
-  %30 = sitofp i32 %28 to float
+  %30 = uitofp i32 %28 to float
   %31 = fdiv float 2.000000e+00, %30
   %32 = getelementptr inbounds i8, ptr %0, i64 28
   store float %31, ptr %32, align 4
@@ -1211,7 +1211,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco42MeshPredictionSchemeGeometric
   %19 = sub nuw nsw i32 -2, %notmask.i.i
   %20 = getelementptr inbounds i8, ptr %0, i64 144
   store i32 %19, ptr %20, align 8
-  %21 = sitofp i32 %19 to float
+  %21 = uitofp i32 %19 to float
   %22 = fdiv float 2.000000e+00, %21
   %23 = getelementptr inbounds i8, ptr %0, i64 148
   store float %22, ptr %23, align 4
@@ -1553,7 +1553,7 @@ _ZN5draco13DecoderBuffer6DecodeIiEEbPT_.exit5.thread.i: ; preds = %16
   %28 = sub nuw nsw i32 -2, %notmask.i.i.i
   %29 = getelementptr inbounds i8, ptr %0, i64 24
   store i32 %28, ptr %29, align 8
-  %30 = sitofp i32 %28 to float
+  %30 = uitofp i32 %28 to float
   %31 = fdiv float 2.000000e+00, %30
   %32 = getelementptr inbounds i8, ptr %0, i64 28
   store float %31, ptr %32, align 4
@@ -3120,7 +3120,7 @@ _ZN5draco13DecoderBuffer6DecodeIiEEbPT_.exit5.thread.i: ; preds = %16
   %28 = sub nuw nsw i32 -2, %notmask.i.i.i
   %29 = getelementptr inbounds i8, ptr %0, i64 24
   store i32 %28, ptr %29, align 8
-  %30 = sitofp i32 %28 to float
+  %30 = uitofp i32 %28 to float
   %31 = fdiv float 2.000000e+00, %30
   %32 = getelementptr inbounds i8, ptr %0, i64 28
   store float %31, ptr %32, align 4
@@ -3185,7 +3185,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco42MeshPredictionSchemeGeometric
   %19 = sub nuw nsw i32 -2, %notmask.i.i
   %20 = getelementptr inbounds i8, ptr %0, i64 144
   store i32 %19, ptr %20, align 8
-  %21 = sitofp i32 %19 to float
+  %21 = uitofp i32 %19 to float
   %22 = fdiv float 2.000000e+00, %21
   %23 = getelementptr inbounds i8, ptr %0, i64 148
   store float %22, ptr %23, align 4
@@ -4485,7 +4485,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco42MeshPredictionSchemeGeometric
   %24 = sub nuw nsw i32 -2, %notmask.i.i.i
   %25 = getelementptr inbounds i8, ptr %0, i64 24
   store i32 %24, ptr %25, align 8
-  %26 = sitofp i32 %24 to float
+  %26 = uitofp i32 %24 to float
   %27 = fdiv float 2.000000e+00, %26
   %28 = getelementptr inbounds i8, ptr %0, i64 28
   store float %27, ptr %28, align 4
@@ -4551,7 +4551,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco42MeshPredictionSchemeGeometric
   %19 = sub nuw nsw i32 -2, %notmask.i.i
   %20 = getelementptr inbounds i8, ptr %0, i64 144
   store i32 %19, ptr %20, align 8
-  %21 = sitofp i32 %19 to float
+  %21 = uitofp i32 %19 to float
   %22 = fdiv float 2.000000e+00, %21
   %23 = getelementptr inbounds i8, ptr %0, i64 148
   store float %22, ptr %23, align 4
@@ -4881,7 +4881,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco23PredictionSchemeDecoderIiNS_6
   %24 = sub nuw nsw i32 -2, %notmask.i.i.i
   %25 = getelementptr inbounds i8, ptr %0, i64 24
   store i32 %24, ptr %25, align 8
-  %26 = sitofp i32 %24 to float
+  %26 = uitofp i32 %24 to float
   %27 = fdiv float 2.000000e+00, %26
   %28 = getelementptr inbounds i8, ptr %0, i64 28
   store float %27, ptr %28, align 4
@@ -5710,7 +5710,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco42MeshPredictionSchemeGeometric
   %24 = sub nuw nsw i32 -2, %notmask.i.i.i
   %25 = getelementptr inbounds i8, ptr %0, i64 24
   store i32 %24, ptr %25, align 8
-  %26 = sitofp i32 %24 to float
+  %26 = uitofp i32 %24 to float
   %27 = fdiv float 2.000000e+00, %26
   %28 = getelementptr inbounds i8, ptr %0, i64 28
   store float %27, ptr %28, align 4
@@ -5776,7 +5776,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco42MeshPredictionSchemeGeometric
   %19 = sub nuw nsw i32 -2, %notmask.i.i
   %20 = getelementptr inbounds i8, ptr %0, i64 144
   store i32 %19, ptr %20, align 8
-  %21 = sitofp i32 %19 to float
+  %21 = uitofp i32 %19 to float
   %22 = fdiv float 2.000000e+00, %21
   %23 = getelementptr inbounds i8, ptr %0, i64 148
   store float %22, ptr %23, align 4

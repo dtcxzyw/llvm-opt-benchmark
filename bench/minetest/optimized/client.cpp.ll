@@ -12751,7 +12751,7 @@ define dso_local void @_ZN6Client4stepEf(ptr noundef nonnull align 8 dereference
   %855 = getelementptr inbounds i8, ptr %854, i64 %852
   store i8 0, ptr %855, align 1, !tbaa !13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #37
-  %856 = sitofp i32 %553 to float
+  %856 = uitofp i32 %553 to float
   invoke void @_ZN8Profiler8graphAddERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEf(ptr noundef nonnull align 8 dereferenceable(192) %848, ptr noundef nonnull align 8 dereferenceable(32) %18, float noundef %856)
           to label %857 unwind label %867
 
@@ -20309,7 +20309,7 @@ define dso_local i32 @_ZN6Client10CSMGetNodeEN3irr4core8vector3dIsEEPb(ptr nound
   %38 = sext i16 %23 to i32
   %39 = mul nsw i32 %38, %38
   %40 = add nuw nsw i32 %37, %39
-  %41 = sitofp i32 %40 to float
+  %41 = uitofp i32 %40 to float
   %42 = tail call nsz noundef float @llvm.sqrt.f32(float %41)
   %43 = fptosi float %42 to i32
   %44 = shl i32 %43, 16
@@ -20377,7 +20377,7 @@ define dso_local noundef i32 @_ZN6Client14CSMClampRadiusEN3irr4core8vector3dIsEE
   %38 = sext i16 %23 to i32
   %39 = mul nsw i32 %38, %38
   %40 = add nuw nsw i32 %37, %39
-  %41 = sitofp i32 %40 to float
+  %41 = uitofp i32 %40 to float
   %42 = tail call nsz noundef float @llvm.sqrt.f32(float %41)
   %43 = fptosi float %42 to i32
   %44 = shl i32 %43, 16

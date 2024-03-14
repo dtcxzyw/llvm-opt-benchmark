@@ -2392,9 +2392,9 @@ for.cond61.preheader.for.inc84_crit_edge:         ; preds = %for.cond61.preheade
   br label %for.inc84
 
 for.cond67.preheader.lr.ph:                       ; preds = %for.cond61.preheader
-  %conv9.i = sitofp i32 %z.0150 to float
+  %conv9.i = uitofp i32 %z.0150 to float
   %add25.i = add nuw nsw i32 %z.0150, 1
-  %conv26.i = sitofp i32 %add25.i to float
+  %conv26.i = uitofp i32 %add25.i to float
   %67 = load i32, ptr %res4.i, align 8
   %68 = icmp sgt i32 %67, 0
   br i1 %68, label %for.cond67.preheader, label %for.inc84
@@ -2411,21 +2411,21 @@ for.cond67.preheader.for.inc81_crit_edge:         ; preds = %for.cond67.preheade
   br label %for.inc81
 
 invoke.cont75.lr.ph:                              ; preds = %for.cond67.preheader
-  %conv4.i = sitofp i32 %y.0148 to float
+  %conv4.i = uitofp i32 %y.0148 to float
   %add19.i = add nuw nsw i32 %y.0148, 1
-  %conv20.i = sitofp i32 %add19.i to float
+  %conv20.i = uitofp i32 %add19.i to float
   br label %invoke.cont75
 
 invoke.cont75:                                    ; preds = %invoke.cont75.lr.ph, %invoke.cont78
   %71 = phi i32 [ %70, %invoke.cont75.lr.ph ], [ %137, %invoke.cont78 ]
   %x.0146 = phi i32 [ 0, %invoke.cont75.lr.ph ], [ %add.i, %invoke.cont78 ]
-  %conv.i69 = sitofp i32 %x.0146 to float
+  %conv.i69 = uitofp i32 %x.0146 to float
   %72 = load i32, ptr %y64, align 4
   %73 = load i32, ptr %res.sroa.4.0.res4.sroa_idx.i, align 8, !noalias !10
   %conv12.i = sitofp i32 %73 to float
   %div13.i = fdiv float %conv9.i, %conv12.i
   %add.i = add nuw nsw i32 %x.0146, 1
-  %conv14.i = sitofp i32 %add.i to float
+  %conv14.i = uitofp i32 %add.i to float
   %div30.i = fdiv float %conv26.i, %conv12.i
   %cmp.i3.i.i.i = fcmp olt float %div30.i, %div13.i
   %.sroa.speculated.i.i.i = select i1 %cmp.i3.i.i.i, float %div30.i, float %div13.i
@@ -4902,9 +4902,9 @@ for.cond56.preheader.for.inc99_crit_edge:         ; preds = %for.cond56.preheade
   br label %for.inc99
 
 for.cond62.preheader.lr.ph:                       ; preds = %for.cond56.preheader
-  %conv9.i = sitofp i32 %z.0157 to float
+  %conv9.i = uitofp i32 %z.0157 to float
   %add25.i = add nuw nsw i32 %z.0157, 1
-  %conv26.i = sitofp i32 %add25.i to float
+  %conv26.i = uitofp i32 %add25.i to float
   %86 = load i32, ptr %res4.i, align 8
   %87 = icmp sgt i32 %86, 0
   br i1 %87, label %for.cond62.preheader, label %for.inc99
@@ -4921,22 +4921,22 @@ for.cond62.preheader.for.inc96_crit_edge:         ; preds = %for.cond62.preheade
   br label %for.inc96
 
 invoke.cont70.lr.ph:                              ; preds = %for.cond62.preheader
-  %conv4.i = sitofp i32 %y.0155 to float
+  %conv4.i = uitofp i32 %y.0155 to float
   %add19.i = add nuw nsw i32 %y.0155, 1
-  %conv20.i = sitofp i32 %add19.i to float
+  %conv20.i = uitofp i32 %add19.i to float
   br label %invoke.cont70
 
 invoke.cont70:                                    ; preds = %invoke.cont70.lr.ph, %cond.end91
   %90 = phi i32 [ %89, %invoke.cont70.lr.ph ], [ %111, %cond.end91 ]
   %x.0153 = phi i32 [ 0, %invoke.cont70.lr.ph ], [ %add.i, %cond.end91 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !22)
-  %conv.i93 = sitofp i32 %x.0153 to float
+  %conv.i93 = uitofp i32 %x.0153 to float
   %91 = load i32, ptr %y59, align 4
   %92 = load i32, ptr %res.sroa.4.0.res4.sroa_idx.i, align 8, !noalias !22
   %conv12.i = sitofp i32 %92 to float
   %div13.i = fdiv float %conv9.i, %conv12.i
   %add.i = add nuw nsw i32 %x.0153, 1
-  %conv14.i = sitofp i32 %add.i to float
+  %conv14.i = uitofp i32 %add.i to float
   %div30.i = fdiv float %conv26.i, %conv12.i
   %93 = insertelement <2 x i32> poison, i32 %90, i64 0
   %94 = insertelement <2 x i32> %93, i32 %91, i64 1

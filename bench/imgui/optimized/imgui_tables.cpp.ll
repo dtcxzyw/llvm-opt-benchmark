@@ -2039,7 +2039,7 @@ for.body70.lr.ph:                                 ; preds = %for.cond68.preheade
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ %13, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %indvars.iv.next = add i64 %indvars.iv, %14
+  %indvars.iv.next = add nsw i64 %indvars.iv, %14
   %16 = load ptr, ptr %DisplayOrderToIndex, align 8
   %add.ptr.i60 = getelementptr inbounds i16, ptr %16, i64 %indvars.iv.next
   %17 = load i16, ptr %add.ptr.i60, align 2
@@ -8107,7 +8107,7 @@ if.then14:                                        ; preds = %if.end
   ]
 
 if.then20:                                        ; preds = %if.then14, %if.then14
-  %or = or i32 %flags, 16
+  %or = or disjoint i32 %flags, 16
   br label %if.end22
 
 if.end22:                                         ; preds = %if.then14, %if.then20, %if.end
@@ -14866,7 +14866,7 @@ for.body.lr.ph:                                   ; preds = %_ZN8ImVectorI18ImGu
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN8ImVectorI18ImGuiOldColumnDataE9push_backERKS0_.exit
   %24 = phi i32 [ %.pre190, %for.body.lr.ph ], [ %inc.i, %_ZN8ImVectorI18ImGuiOldColumnDataE9push_backERKS0_.exit ]
   %n.0187 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %_ZN8ImVectorI18ImGuiOldColumnDataE9push_backERKS0_.exit ]
-  %conv = sitofp i32 %n.0187 to float
+  %conv = uitofp i32 %n.0187 to float
   %div = fdiv float %conv, %conv54
   %25 = load i32, ptr %Capacity.i89, align 4
   %cmp.i93 = icmp eq i32 %24, %25

@@ -2566,7 +2566,7 @@ for.cond55.preheader.us.preheader:                ; preds = %if.then49, %invoke.
 for.cond55.preheader.us:                          ; preds = %for.cond55.preheader.us.preheader, %for.cond55.for.inc66_crit_edge.us
   %zi.0904.us = phi i32 [ %inc67.us, %for.cond55.for.inc66_crit_edge.us ], [ 0, %for.cond55.preheader.us.preheader ]
   %he_it.sroa.0.0903.us = phi ptr [ %incdec.ptr.i.us, %for.cond55.for.inc66_crit_edge.us ], [ %35, %for.cond55.preheader.us.preheader ]
-  %conv61.us = sitofp i32 %zi.0904.us to float
+  %conv61.us = uitofp i32 %zi.0904.us to float
   %mul62.us = fmul float %zSpacing.0, %conv61.us
   br label %for.body57.us
 
@@ -2578,7 +2578,7 @@ for.body57.us:                                    ; preds = %for.cond55.preheade
           to label %invoke.cont64.us unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split.us
 
 invoke.cont64.us:                                 ; preds = %for.body57.us
-  %conv58.us = sitofp i32 %xi.0901.us to float
+  %conv58.us = uitofp i32 %xi.0901.us to float
   %mul59.us = fmul float %xSpacing.0862868, %conv58.us
   %_M_storage.i.i.i.i.us = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i309.us, i64 16
   store float %mul59.us, ptr %_M_storage.i.i.i.i.us, align 4

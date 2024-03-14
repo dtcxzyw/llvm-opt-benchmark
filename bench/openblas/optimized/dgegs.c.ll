@@ -91,7 +91,7 @@ define void @dgegs_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   %58 = load i32, ptr %2, align 4, !tbaa !3
   %59 = shl i32 %58, 2
   %60 = tail call i32 @llvm.smax.i32(i32 %59, i32 1)
-  %61 = sitofp i32 %60 to double
+  %61 = uitofp i32 %60 to double
   store double %61, ptr %14, align 8, !tbaa !7
   %62 = load i32, ptr %15, align 4, !tbaa !3
   %63 = icmp eq i32 %62, -1

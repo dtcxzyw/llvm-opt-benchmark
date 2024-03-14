@@ -4657,7 +4657,7 @@ define dso_local void @_Z12getDigParamsRKSt13unordered_mapINSt7__cxx1112basic_st
   %193 = getelementptr inbounds i8, ptr %192, i64 12
   %194 = load float, ptr %193, align 4, !tbaa !25
   %195 = call i32 @llvm.smax.i32(i32 %141, i32 1)
-  %196 = sitofp i32 %195 to float
+  %196 = uitofp i32 %195 to float
   %197 = fdiv nsz float %194, %196
   %198 = and i8 %134, 1
   %199 = icmp eq i8 %198, 0

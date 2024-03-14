@@ -2100,16 +2100,16 @@ _ZNSt12_Vector_baseIN3vcg11SimpleVoxelIfEESaIS2_EE13_M_deallocateEPS2_m.exit35.i
 
 .preheader87.us:                                  ; preds = %._crit_edge90.split.us.us, %.preheader87.lr.ph
   %storemerge91.us = phi i32 [ 0, %.preheader87.lr.ph ], [ %148, %._crit_edge90.split.us.us ]
-  %122 = sitofp i32 %storemerge91.us to double
+  %122 = uitofp i32 %storemerge91.us to double
   %123 = fmul double %122, 2.000000e-01
   %124 = mul nsw i32 %storemerge91.us, %51
   %125 = udiv i32 %124, 5
-  %126 = sitofp i32 %125 to float
+  %126 = uitofp i32 %125 to float
   br label %.preheader.us.us
 
 .preheader.us.us:                                 ; preds = %._crit_edge.us.us, %.preheader87.us
   %storemerge3389.us.us = phi i32 [ 0, %.preheader87.us ], [ %147, %._crit_edge.us.us ]
-  %127 = sitofp i32 %storemerge3389.us.us to double
+  %127 = uitofp i32 %storemerge3389.us.us to double
   %128 = fmul double %127, 2.000000e-01
   %129 = sub nsw i32 %storemerge3389.us.us, %121
   %130 = mul nsw i32 %129, %129
@@ -2117,7 +2117,7 @@ _ZNSt12_Vector_baseIN3vcg11SimpleVoxelIfEESaIS2_EE13_M_deallocateEPS2_m.exit35.i
 
 131:                                              ; preds = %135, %.preheader.us.us
   %storemerge3488.us.us = phi i32 [ 0, %.preheader.us.us ], [ %146, %135 ]
-  %132 = sitofp i32 %storemerge3488.us.us to double
+  %132 = uitofp i32 %storemerge3488.us.us to double
   %133 = fmul double %132, 2.000000e-01
   %134 = invoke noundef double @_ZN3vcg4math6Perlin5NoiseEddd(double noundef %123, double noundef %128, double noundef %133)
           to label %135 unwind label %.loopexit.split.us.split.us
@@ -2133,7 +2133,7 @@ _ZNSt12_Vector_baseIN3vcg11SimpleVoxelIfEESaIS2_EE13_M_deallocateEPS2_m.exit35.i
   %141 = sub nsw i32 %storemerge3488.us.us, %121
   %142 = mul nsw i32 %141, %141
   %143 = add nuw nsw i32 %142, %130
-  %144 = sitofp i32 %143 to float
+  %144 = uitofp i32 %143 to float
   %145 = call float @llvm.fmuladd.f32(float %126, float %140, float %144)
   store float %145, ptr %139, align 4
   %146 = add nuw nsw i32 %storemerge3488.us.us, 1
@@ -2193,7 +2193,7 @@ _ZNSt12_Vector_baseIN3vcg11SimpleVoxelIfEESaIS2_EE13_M_deallocateEPS2_m.exit35.i
   store ptr %42, ptr %159, align 8
   store ptr %11, ptr %13, align 8
   %160 = udiv i32 %58, 10
-  %161 = sitofp i32 %160 to float
+  %161 = uitofp i32 %160 to float
   invoke void @_ZN3vcg3tri13TrivialWalkerI6CMeshONS_12SimpleVolumeINS_11SimpleVoxelIfEEEEE9BuildMeshINS0_13MarchingCubesIS2_S7_EEEEvRS2_RS6_RT_fPFbiPKcE(ptr noundef nonnull align 8 dereferenceable(172) %11, ptr noundef nonnull align 8 dereferenceable(1196) %42, ptr noundef nonnull align 8 dereferenceable(88) %10, ptr noundef nonnull align 8 dereferenceable(147) %13, float noundef %161, ptr noundef %6)
           to label %162 unwind label %.loopexit.split-lp
 

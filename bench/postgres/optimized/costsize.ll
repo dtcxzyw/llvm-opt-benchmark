@@ -3649,7 +3649,7 @@ declare zeroext i1 @pathkeys_contained_in(ptr noundef, ptr noundef) local_unname
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: write) uwtable
 define dso_local void @cost_merge_append(ptr nocapture noundef writeonly %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2, i32 noundef %3, double noundef %4, double noundef %5, double noundef %6) local_unnamed_addr #10 {
   %8 = tail call i32 @llvm.smax.i32(i32 %3, i32 2)
-  %9 = sitofp i32 %8 to double
+  %9 = uitofp i32 %8 to double
   %10 = tail call double @log(double noundef %9) #17
   %11 = fdiv double %10, 0x3FE62E42FEFA39EC
   %12 = load double, ptr @cpu_operator_cost, align 8

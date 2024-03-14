@@ -893,14 +893,14 @@ for.cond8.preheader:                              ; preds = %entry, %for.inc32
   %sum.040 = phi float [ 0.000000e+00, %entry ], [ %add31, %for.inc32 ]
   %y6.039 = phi i32 [ 0, %entry ], [ %inc33, %for.inc32 ]
   %rng.sroa.0.038 = phi i64 [ -8846114313915602277, %entry ], [ %add.i.i13, %for.inc32 ]
-  %conv12 = sitofp i32 %y6.039 to float
+  %conv12 = uitofp i32 %y6.039 to float
   br label %for.body10
 
 for.body10:                                       ; preds = %for.cond8.preheader, %_ZNK4pbrt17LanczosSincFilter8EvaluateENS_6Point2IfEE.exit
   %sum.137 = phi float [ %sum.040, %for.cond8.preheader ], [ %add31, %_ZNK4pbrt17LanczosSincFilter8EvaluateENS_6Point2IfEE.exit ]
   %x7.036 = phi i32 [ 0, %for.cond8.preheader ], [ %inc, %_ZNK4pbrt17LanczosSincFilter8EvaluateENS_6Point2IfEE.exit ]
   %rng.sroa.0.135 = phi i64 [ %rng.sroa.0.038, %for.cond8.preheader ], [ %add.i.i13, %_ZNK4pbrt17LanczosSincFilter8EvaluateENS_6Point2IfEE.exit ]
-  %conv = sitofp i32 %x7.036 to float
+  %conv = uitofp i32 %x7.036 to float
   %mul.i.i = mul i64 %rng.sroa.0.135, 6364136223846793005
   %add.i.i = add i64 %mul.i.i, -2720673578348880933
   %mul.i.i11 = mul i64 %add.i.i, 6364136223846793005
@@ -1544,14 +1544,14 @@ for.cond32.preheader:                             ; preds = %for.cond32.preheade
   br i1 %cmp3680, label %invoke.cont54.lr.ph, label %for.inc64
 
 invoke.cont54.lr.ph:                              ; preds = %for.cond32.preheader
-  %conv45 = sitofp i32 %y26.085 to float
+  %conv45 = uitofp i32 %y26.085 to float
   %add46 = fadd float %conv45, 5.000000e-01
   br label %invoke.cont54
 
 invoke.cont54:                                    ; preds = %invoke.cont54.lr.ph, %invoke.cont62
   %sub.i1882 = phi i32 [ %sub.i1879, %invoke.cont54.lr.ph ], [ %sub.i18, %invoke.cont62 ]
   %x31.081 = phi i32 [ 0, %invoke.cont54.lr.ph ], [ %inc, %invoke.cont62 ]
-  %conv40 = sitofp i32 %x31.081 to float
+  %conv40 = uitofp i32 %x31.081 to float
   %add = fadd float %conv40, 5.000000e-01
   %17 = load i32, ptr %y.i16, align 4
   %18 = load i32, ptr %y3.i, align 4
@@ -2275,7 +2275,7 @@ terminate.lpad.i9.i.i.i:                          ; preds = %if.end.i.i.i.i4.i.i
   unreachable
 
 _ZN4pstd3pmr21polymorphic_allocatorIN4pbrt19PiecewiseConstant1DEE7destroyIS3_EEvPT_.exit.i: ; preds = %if.end.i.i.i.i4.i.i.i, %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEED2Ev.exit.i.i.i
-  %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %14 = load i64, ptr %nStored.i, align 8
   %cmp.i = icmp ugt i64 %14, %indvars.iv.next.i
   br i1 %cmp.i, label %for.body.i, label %invoke.cont, !llvm.loop !11
@@ -2923,7 +2923,7 @@ terminate.lpad.i9.i.i:                            ; preds = %if.end.i.i.i.i4.i.i
   unreachable
 
 _ZN4pstd3pmr21polymorphic_allocatorIN4pbrt19PiecewiseConstant1DEE7destroyIS3_EEvPT_.exit: ; preds = %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEED2Ev.exit.i.i, %if.end.i.i.i.i4.i.i
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %26 = load i64, ptr %nStored, align 8
   %cmp2 = icmp ugt i64 %26, %indvars.iv.next
   br i1 %cmp2, label %for.body, label %for.end, !llvm.loop !15
@@ -6412,7 +6412,7 @@ terminate.lpad.i9.i.i.i:                          ; preds = %if.end.i.i.i.i4.i.i
   unreachable
 
 _ZN4pstd3pmr21polymorphic_allocatorIN4pbrt19PiecewiseConstant1DEE7destroyIS3_EEvPT_.exit.i: ; preds = %if.end.i.i.i.i4.i.i.i, %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEED2Ev.exit.i.i.i
-  %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %22 = load i64, ptr %nStored.i, align 8
   %cmp.i12 = icmp ugt i64 %22, %indvars.iv.next.i
   br i1 %cmp.i12, label %for.body.i, label %_ZN4pstd6vectorIN4pbrt19PiecewiseConstant1DENS_3pmr21polymorphic_allocatorIS2_EEE5clearEv.exit, !llvm.loop !11

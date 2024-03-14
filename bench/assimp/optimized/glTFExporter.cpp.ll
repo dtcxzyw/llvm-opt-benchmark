@@ -35349,7 +35349,7 @@ for.body.lr.ph.i477:                              ; preds = %if.then387
   %sh_prom.i = add i32 %109, 1
   %notmask.i = shl nsw i32 -1, %sh_prom.i
   %sub4.i = xor i32 %notmask.i, -1
-  %conv.i478 = sitofp i32 %sub4.i to float
+  %conv.i478 = uitofp i32 %sub4.i to float
   br label %for.body.i479
 
 for.cond7.preheader.i:                            ; preds = %for.body.i479
@@ -35454,7 +35454,7 @@ for.body.lr.ph.i487:                              ; preds = %if.else425
   %sh_prom.i488 = trunc i64 %nQBits to i32
   %notmask.i489 = shl nsw i32 -1, %sh_prom.i488
   %sub4.i490 = xor i32 %notmask.i489, -1
-  %conv.i491 = sitofp i32 %sub4.i490 to float
+  %conv.i491 = uitofp i32 %sub4.i490 to float
   br label %for.body.i492
 
 for.cond7.preheader.i502:                         ; preds = %for.body.i492
@@ -64139,7 +64139,7 @@ for.body.lr.ph.i:                                 ; preds = %if.end73
   %sh_prom.i = add i32 %34, 1
   %notmask.i = shl nsw i32 -1, %sh_prom.i
   %sub4.i = xor i32 %notmask.i, -1
-  %conv.i213 = sitofp i32 %sub4.i to float
+  %conv.i213 = uitofp i32 %sub4.i to float
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
@@ -64237,7 +64237,7 @@ for.body.lr.ph.i224:                              ; preds = %if.else79
   %sh_prom.i225 = trunc i64 %nQBits to i32
   %notmask.i226 = shl nsw i32 -1, %sh_prom.i225
   %sub4.i227 = xor i32 %notmask.i226, -1
-  %conv.i228 = sitofp i32 %sub4.i227 to float
+  %conv.i228 = uitofp i32 %sub4.i227 to float
   br label %for.body.i229
 
 for.body.i229:                                    ; preds = %for.body.i229, %for.body.lr.ph.i224

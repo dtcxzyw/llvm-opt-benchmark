@@ -544,7 +544,7 @@ mp_line_style.exit:                               ; preds = %4, %16, %17
 
 .preheader:                                       ; preds = %36, %.preheader
   %.06785 = phi i32 [ %50, %.preheader ], [ 1, %36 ]
-  %41 = sitofp i32 %.06785 to double
+  %41 = uitofp i32 %.06785 to double
   %42 = fdiv double %41, 6.000000e+00
   %43 = call { double, double } @Bezier(ptr noundef nonnull %5, double noundef %42, ptr noundef null, ptr noundef null) #16
   %44 = extractvalue { double, double } %43, 0

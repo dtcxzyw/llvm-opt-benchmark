@@ -16050,7 +16050,7 @@ for.body:                                         ; preds = %entry, %for.inc41
   %indvars.iv38 = phi i64 [ 0, %entry ], [ %indvars.iv.next39, %for.inc41 ]
   %4 = load float, ptr %voxelsz, align 8
   %5 = trunc i64 %indvars.iv38 to i32
-  %conv17 = sitofp i32 %5 to float
+  %conv17 = uitofp i32 %5 to float
   %6 = call float @llvm.fmuladd.f32(float %4, float %conv17, float %mul8.i20)
   br label %for.body21
 
@@ -16058,7 +16058,7 @@ for.body21:                                       ; preds = %for.body, %for.inc3
   %indvars.iv34 = phi i64 [ 0, %for.body ], [ %indvars.iv.next35, %for.inc38 ]
   %7 = load float, ptr %voxelsz, align 8
   %8 = trunc i64 %indvars.iv34 to i32
-  %conv23 = sitofp i32 %8 to float
+  %conv23 = uitofp i32 %8 to float
   %9 = call float @llvm.fmuladd.f32(float %7, float %conv23, float %mul4.i18)
   br label %for.body27
 
@@ -16066,7 +16066,7 @@ for.body27:                                       ; preds = %for.body21, %_ZN11b
   %indvars.iv = phi i64 [ 0, %for.body21 ], [ %indvars.iv.next, %_ZN11btSparseSdfILi3EE15DistanceToShapeERK9btVector3PK16btCollisionShape.exit ]
   %10 = load float, ptr %voxelsz, align 8
   %11 = trunc i64 %indvars.iv to i32
-  %conv29 = sitofp i32 %11 to float
+  %conv29 = uitofp i32 %11 to float
   %12 = call float @llvm.fmuladd.f32(float %10, float %conv29, float %mul.i16)
   store float %12, ptr %ref.tmp31, align 4
   store float %9, ptr %arrayidx3.i27, align 4

@@ -419,7 +419,7 @@ _ZNK4pbrt16OctahedralVectorcvNS_7Vector3IfEEEv.exit: ; preds = %entry, %if.then.
   %bf.load = load i32, ptr %16, align 4
   %bf.clear = and i32 %bf.load, 32767
   store i32 %bf.clear, ptr %ref.tmp19, align 4
-  %conv.i = sitofp i32 %bf.clear to float
+  %conv.i = uitofp i32 %bf.clear to float
   %div.i1 = fdiv float %conv.i, 3.276700e+04
   %mul.i2 = fmul float %div.i1, 2.000000e+00
   %sub.i3 = fadd float %mul.i2, -1.000000e+00
@@ -427,7 +427,7 @@ _ZNK4pbrt16OctahedralVectorcvNS_7Vector3IfEEEv.exit: ; preds = %entry, %if.then.
   %bf.lshr = lshr i32 %bf.load, 15
   %bf.clear24 = and i32 %bf.lshr, 32767
   store i32 %bf.clear24, ptr %ref.tmp22, align 4
-  %conv.i6 = sitofp i32 %bf.clear24 to float
+  %conv.i6 = uitofp i32 %bf.clear24 to float
   %div.i7 = fdiv float %conv.i6, 3.276700e+04
   %mul.i8 = fmul float %div.i7, 2.000000e+00
   %sub.i9 = fadd float %mul.i8, -1.000000e+00
@@ -561,7 +561,7 @@ _ZNK4pbrt16OctahedralVectorcvNS_7Vector3IfEEEv.exit: ; preds = %entry, %if.then.
   %bf.load = load i32, ptr %53, align 4
   %bf.clear = and i32 %bf.load, 32767
   store i32 %bf.clear, ptr %ref.tmp20, align 4
-  %conv.i = sitofp i32 %bf.clear to float
+  %conv.i = uitofp i32 %bf.clear to float
   %div.i5 = fdiv float %conv.i, 3.276700e+04
   %mul.i6 = fmul float %div.i5, 2.000000e+00
   %sub.i7 = fadd float %mul.i6, -1.000000e+00
@@ -569,7 +569,7 @@ _ZNK4pbrt16OctahedralVectorcvNS_7Vector3IfEEEv.exit: ; preds = %entry, %if.then.
   %bf.lshr = lshr i32 %bf.load, 15
   %bf.clear25 = and i32 %bf.lshr, 32767
   store i32 %bf.clear25, ptr %ref.tmp23, align 4
-  %conv.i10 = sitofp i32 %bf.clear25 to float
+  %conv.i10 = uitofp i32 %bf.clear25 to float
   %div.i11 = fdiv float %conv.i10, 3.276700e+04
   %mul.i12 = fmul float %div.i11, 2.000000e+00
   %sub.i13 = fadd float %mul.i12, -1.000000e+00
@@ -1056,7 +1056,7 @@ for.end:                                          ; preds = %for.inc
 for.body.i13:                                     ; preds = %_ZN4pbrt21VisibleWavelengthsPDFEf.exit.i, %for.end
   %indvars.iv.i = phi i64 [ 0, %for.end ], [ %indvars.iv.next.i, %_ZN4pbrt21VisibleWavelengthsPDFEf.exit.i ]
   %18 = trunc i64 %indvars.iv.i to i32
-  %conv.i = sitofp i32 %18 to float
+  %conv.i = uitofp i32 %18 to float
   %div.i = fmul float %conv.i, 2.500000e-01
   %add.i = fadd float %div.i, 5.000000e-01
   %cmp1.i = fcmp ogt float %add.i, 1.000000e+00

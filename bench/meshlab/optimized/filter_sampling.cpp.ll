@@ -29274,7 +29274,7 @@ _ZNSt6vectorIN3vcg3tri14UpdateTopologyI6CMeshOE5PEdgeESaIS5_EED2Ev.exit: ; preds
 
 71:                                               ; preds = %74, %40
   %.027 = phi i32 [ 0, %40 ], [ %75, %74 ]
-  %72 = sitofp i32 %.027 to float
+  %72 = uitofp i32 %.027 to float
   %73 = fcmp ogt float %64, %72
   br i1 %73, label %74, label %87
 
@@ -29282,7 +29282,7 @@ _ZNSt6vectorIN3vcg3tri14UpdateTopologyI6CMeshOE5PEdgeESaIS5_EED2Ev.exit: ; preds
   store <2 x float> zeroinitializer, ptr %6, align 8
   store float 0.000000e+00, ptr %39, align 8
   %75 = add nuw nsw i32 %.027, 1
-  %76 = sitofp i32 %75 to float
+  %76 = uitofp i32 %75 to float
   %77 = fmul float %68, %76
   %78 = load i32, ptr %69, align 8
   %79 = sext i32 %78 to i64
@@ -30710,7 +30710,7 @@ _ZN3vcg3tri4StatI6CMeshOE15ComputeMeshAreaERKS2_.exit: ; preds = %57
   br i1 %125, label %.lr.ph.i22, label %._crit_edge.i
 
 .lr.ph.i22:                                       ; preds = %.preheader.i
-  %126 = sitofp i32 %.02228.i to float
+  %126 = uitofp i32 %.02228.i to float
   %127 = fmul float %121, %126
   %.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %127, i64 0
   %128 = add i32 %.029.i, %indvars.iv.i
@@ -30719,7 +30719,7 @@ _ZN3vcg3tri4StatI6CMeshOE15ComputeMeshAreaERKS2_.exit: ; preds = %57
 129:                                              ; preds = %129, %.lr.ph.i22
   %.127.i = phi i32 [ %.029.i, %.lr.ph.i22 ], [ %134, %129 ]
   %.02326.i = phi i32 [ 1, %.lr.ph.i22 ], [ %135, %129 ]
-  %130 = sitofp i32 %.02326.i to float
+  %130 = uitofp i32 %.02326.i to float
   %131 = fmul float %121, %130
   %132 = tail call float @llvm.fmuladd.f32(float %126, float %121, float %131)
   %133 = fsub float 1.000000e+00, %132
@@ -33828,7 +33828,7 @@ _ZNSt6vectorIN3vcg3tri14UpdateTopologyI6CMeshOE5PEdgeESaIS5_EED2Ev.exit: ; preds
   store <2 x float> zeroinitializer, ptr %8, align 8
   store float 0.000000e+00, ptr %41, align 8
   %76 = add nuw nsw i32 %.02747, 1
-  %77 = sitofp i32 %76 to float
+  %77 = uitofp i32 %76 to float
   %78 = fmul float %71, %77
   %79 = load i32, ptr %73, align 8
   %80 = sext i32 %79 to i64
@@ -44132,7 +44132,7 @@ define linkonce_odr noundef i32 @_ZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSampl
   %indvars.iv.i = phi i64 [ 1, %12 ], [ %indvars.iv.next.i, %13 ]
   %.01822.i = phi double [ 0.000000e+00, %12 ], [ %17, %13 ]
   %14 = trunc i64 %indvars.iv.i to i32
-  %15 = sitofp i32 %14 to double
+  %15 = uitofp i32 %14 to double
   %16 = tail call double @log(double noundef %15) #20
   %17 = fadd double %.01822.i, %16
   %18 = getelementptr inbounds [1024 x double], ptr @_ZZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE5LnFacEiE9fac_table, i64 0, i64 %indvars.iv.i
@@ -44275,7 +44275,7 @@ _ZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE14RandomDouble01Ev.exit32: ; p
   %indvars.iv.i35 = phi i64 [ 1, %83 ], [ %indvars.iv.next.i37, %84 ]
   %.01822.i36 = phi double [ 0.000000e+00, %83 ], [ %88, %84 ]
   %85 = trunc i64 %indvars.iv.i35 to i32
-  %86 = sitofp i32 %85 to double
+  %86 = uitofp i32 %85 to double
   %87 = tail call double @log(double noundef %86) #20
   %88 = fadd double %.01822.i36, %87
   %89 = getelementptr inbounds [1024 x double], ptr @_ZZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE5LnFacEiE9fac_table, i64 0, i64 %indvars.iv.i35
@@ -48006,7 +48006,7 @@ define linkonce_odr void @_ZN3vcg7BestDimIfEEvxRKNS_6Point3IT_EERNS1_IiEE(i64 no
   br i1 %23, label %28, label %59
 
 28:                                               ; preds = %27
-  %29 = sitofp i64 %spec.store.select to float
+  %29 = uitofp i64 %spec.store.select to float
   br i1 %26, label %30, label %48
 
 30:                                               ; preds = %28
@@ -48051,7 +48051,7 @@ define linkonce_odr void @_ZN3vcg7BestDimIfEEvxRKNS_6Point3IT_EERNS1_IiEE(i64 no
   br i1 %26, label %60, label %72
 
 60:                                               ; preds = %59
-  %61 = sitofp i64 %spec.store.select to float
+  %61 = uitofp i64 %spec.store.select to float
   %62 = fmul float %18, %61
   %63 = fdiv float %62, %24
   %64 = tail call noundef float @sqrtf(float noundef %63) #20
@@ -48077,7 +48077,7 @@ define linkonce_odr void @_ZN3vcg7BestDimIfEEvxRKNS_6Point3IT_EERNS1_IiEE(i64 no
   br i1 %26, label %76, label %88
 
 76:                                               ; preds = %75
-  %77 = sitofp i64 %spec.store.select to float
+  %77 = uitofp i64 %spec.store.select to float
   %78 = fmul float %21, %77
   %79 = fdiv float %78, %24
   %80 = tail call noundef float @sqrtf(float noundef %79) #20
@@ -49168,10 +49168,10 @@ define linkonce_odr void @_ZN3vcg3tri15SurfaceSamplingI6CMeshO11BaseSamplerE20In
   %.sroa.031.sroa.0.0.insert.insert = or disjoint i64 %.sroa.031.sroa.3.0.insert.shift, %.sroa.031.sroa.0.0.insert.ext
   store <2 x float> %44, ptr %12, align 8
   store i64 %.sroa.031.sroa.0.0.insert.insert, ptr %11, align 4
-  %50 = sitofp <2 x i32> %47 to <2 x float>
+  %50 = uitofp <2 x i32> %47 to <2 x float>
   %51 = fdiv <2 x float> %44, %50
   store <2 x float> %51, ptr %10, align 8
-  %52 = sitofp i32 %.sroa.speculated to float
+  %52 = uitofp i32 %.sroa.speculated to float
   %53 = fdiv float %38, %52
   store float %53, ptr %13, align 8
   %54 = load ptr, ptr %14, align 8
@@ -52571,7 +52571,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit22:             ; preds = %37, %39, %41, %43
   %57 = load float, ptr %16, align 8
   %58 = fpext float %57 to double
   %59 = trunc i64 %indvars.iv32 to i32
-  %60 = sitofp i32 %59 to float
+  %60 = uitofp i32 %59 to float
   %61 = fpext float %60 to double
   %62 = fmul double %53, %61
   %63 = sitofp i32 %56 to double
@@ -52593,7 +52593,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit22:             ; preds = %37, %39, %41, %43
   %72 = load float, ptr %16, align 8
   %73 = fpext float %72 to double
   %74 = trunc i64 %indvars.iv to i32
-  %75 = sitofp i32 %74 to float
+  %75 = uitofp i32 %74 to float
   %76 = sitofp i32 %71 to float
   %77 = fdiv float %75, %76
   %78 = tail call noundef float @powf(float noundef %77, float noundef %4) #20
@@ -63966,9 +63966,9 @@ define internal void @_ZN3vcg3tri9ResamplerI6CMeshOS2_NS_4face24PointDistanceBas
   br i1 %.not22.us, label %.loopexit32, label %.preheader.us, !llvm.loop !466
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge
-  %35 = phi i32 [ %86, %._crit_edge ], [ %31, %.preheader.lr.ph ]
-  %36 = phi i32 [ %87, %._crit_edge ], [ %32, %.preheader.lr.ph ]
-  %.037 = phi i32 [ %88, %._crit_edge ], [ %30, %.preheader.lr.ph ]
+  %35 = phi i32 [ %85, %._crit_edge ], [ %31, %.preheader.lr.ph ]
+  %36 = phi i32 [ %86, %._crit_edge ], [ %32, %.preheader.lr.ph ]
+  %.037 = phi i32 [ %87, %._crit_edge ], [ %30, %.preheader.lr.ph ]
   %.not2334 = icmp slt i32 %36, 0
   br i1 %.not2334, label %._crit_edge, label %.lr.ph
 
@@ -63976,24 +63976,24 @@ define internal void @_ZN3vcg3tri9ResamplerI6CMeshOS2_NS_4face24PointDistanceBas
   %37 = sitofp i32 %.037 to float
   br label %38
 
-38:                                               ; preds = %.lr.ph, %78
-  %.02135 = phi i32 [ 0, %.lr.ph ], [ %84, %78 ]
+38:                                               ; preds = %.lr.ph, %77
+  %.02135 = phi i32 [ 0, %.lr.ph ], [ %83, %77 ]
   %39 = load i32, ptr %13, align 4, !llvm.access.group !465
   %40 = add nsw i32 %39, 1
   %41 = mul nsw i32 %40, %.02135
   %42 = add nsw i32 %41, %.037
   %43 = load i32, ptr %3, align 4, !llvm.access.group !465
+  %44 = sitofp i32 %43 to float
+  %45 = uitofp i32 %.02135 to float
   store float %37, ptr %12, align 8, !llvm.access.group !465
-  %44 = insertelement <2 x i32> poison, i32 %43, i64 0
-  %45 = insertelement <2 x i32> %44, i32 %.02135, i64 1
-  %46 = sitofp <2 x i32> %45 to <2 x float>
-  store <2 x float> %46, ptr %20, align 4
-  %47 = load i8, ptr %22, align 1, !llvm.access.group !465
-  %48 = and i8 %47, 1
-  %.not24 = icmp eq i8 %48, 0
-  br i1 %.not24, label %76, label %49
+  store float %44, ptr %20, align 4, !llvm.access.group !465
+  store float %45, ptr %21, align 8, !llvm.access.group !465
+  %46 = load i8, ptr %22, align 1, !llvm.access.group !465
+  %47 = and i8 %46, 1
+  %.not24 = icmp eq i8 %47, 0
+  br i1 %.not24, label %75, label %48
 
-49:                                               ; preds = %38
+48:                                               ; preds = %38
   call void @llvm.lifetime.start.p0(i64 84, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7)
   store <4 x float> <float 0.000000e+00, float 0.000000e+00, float 0.000000e+00, float 0x3FC99999A0000000>, ptr %6, align 16
@@ -64002,109 +64002,109 @@ define internal void @_ZN3vcg3tri9ResamplerI6CMeshOS2_NS_4face24PointDistanceBas
   store <4 x float> <float 0x3F9EB851E0000000, float 0xBFC99999A0000000, float 0xBF9EB851E0000000, float 0xBF947AE140000000>, ptr %25, align 16
   store <4 x float> <float 0xBF9EB851E0000000, float 0x3FC99999A0000000, float 0xBF847AE140000000, float 0x3F847AE140000000>, ptr %26, align 16
   store float 0xBFC99999A0000000, ptr %27, align 16, !llvm.access.group !465
-  br label %50
+  br label %49
 
-50:                                               ; preds = %62, %49
-  %indvars.iv.i = phi i64 [ 0, %49 ], [ %indvars.iv.next.i, %62 ]
-  %.022.i = phi float [ 0.000000e+00, %49 ], [ %65, %62 ]
-  %.01221.i = phi i32 [ 0, %49 ], [ %.113.i, %62 ]
-  %51 = getelementptr inbounds [7 x %"class.vcg::Point3"], ptr %6, i64 0, i64 %indvars.iv.i
-  %52 = load <2 x float>, ptr %12, align 8
-  %53 = load <2 x float>, ptr %51, align 4
-  %54 = fadd <2 x float> %52, %53
-  %55 = load float, ptr %21, align 8, !llvm.access.group !465
-  %56 = getelementptr inbounds i8, ptr %51, i64 8
-  %57 = load float, ptr %56, align 4, !llvm.access.group !465
-  %58 = fadd float %55, %57
-  store <2 x float> %54, ptr %7, align 8, !llvm.access.group !465
-  store float %58, ptr %.sroa.2.0..sroa_idx.i, align 8, !llvm.access.group !465
-  %59 = invoke i64 @_ZN3vcg3tri9ResamplerI6CMeshOS2_NS_4face24PointDistanceBaseFunctorIfEEE6Walker16DistanceFromMeshERNS_6Point3IfEE(ptr noundef nonnull align 8 dereferenceable(307) %2, ptr noundef nonnull align 4 dereferenceable(12) %7)
+49:                                               ; preds = %61, %48
+  %indvars.iv.i = phi i64 [ 0, %48 ], [ %indvars.iv.next.i, %61 ]
+  %.022.i = phi float [ 0.000000e+00, %48 ], [ %64, %61 ]
+  %.01221.i = phi i32 [ 0, %48 ], [ %.113.i, %61 ]
+  %50 = getelementptr inbounds [7 x %"class.vcg::Point3"], ptr %6, i64 0, i64 %indvars.iv.i
+  %51 = load <2 x float>, ptr %12, align 8
+  %52 = load <2 x float>, ptr %50, align 4
+  %53 = fadd <2 x float> %51, %52
+  %54 = load float, ptr %21, align 8, !llvm.access.group !465
+  %55 = getelementptr inbounds i8, ptr %50, i64 8
+  %56 = load float, ptr %55, align 4, !llvm.access.group !465
+  %57 = fadd float %54, %56
+  store <2 x float> %53, ptr %7, align 8, !llvm.access.group !465
+  store float %57, ptr %.sroa.2.0..sroa_idx.i, align 8, !llvm.access.group !465
+  %58 = invoke i64 @_ZN3vcg3tri9ResamplerI6CMeshOS2_NS_4face24PointDistanceBaseFunctorIfEEE6Walker16DistanceFromMeshERNS_6Point3IfEE(ptr noundef nonnull align 8 dereferenceable(307) %2, ptr noundef nonnull align 4 dereferenceable(12) %7)
           to label %.noexc unwind label %.loopexit
 
-.noexc:                                           ; preds = %50
-  %60 = and i64 %59, 1
-  %61 = icmp eq i64 %60, 0
-  br i1 %61, label %.loopexit31, label %62
+.noexc:                                           ; preds = %49
+  %59 = and i64 %58, 1
+  %60 = icmp eq i64 %59, 0
+  br i1 %60, label %.loopexit31, label %61
 
-62:                                               ; preds = %.noexc
-  %.sroa.21.0.extract.shift.i = lshr i64 %59, 32
+61:                                               ; preds = %.noexc
+  %.sroa.21.0.extract.shift.i = lshr i64 %58, 32
   %.sroa.21.0.extract.trunc.i = trunc i64 %.sroa.21.0.extract.shift.i to i32
-  %63 = bitcast i32 %.sroa.21.0.extract.trunc.i to float
-  %64 = call noundef float @llvm.fabs.f32(float %63)
-  %65 = fadd float %.022.i, %64
-  %66 = fcmp ogt float %63, 0.000000e+00
-  %67 = zext i1 %66 to i32
-  %.113.i = add nuw nsw i32 %.01221.i, %67
+  %62 = bitcast i32 %.sroa.21.0.extract.trunc.i to float
+  %63 = call noundef float @llvm.fabs.f32(float %62)
+  %64 = fadd float %.022.i, %63
+  %65 = fcmp ogt float %62, 0.000000e+00
+  %66 = zext i1 %65 to i32
+  %.113.i = add nuw nsw i32 %.01221.i, %66
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 7
-  br i1 %exitcond.not.i, label %68, label %50, !llvm.loop !468
+  br i1 %exitcond.not.i, label %67, label %49, !llvm.loop !468
 
-68:                                               ; preds = %62
-  %69 = icmp ult i32 %.113.i, 4
-  %70 = fneg float %65
-  %.1.i = select i1 %69, float %70, float %65
-  %71 = fdiv float %.1.i, 7.000000e+00
-  %72 = bitcast float %71 to i32
-  %73 = zext i32 %72 to i64
-  %74 = shl nuw i64 %73, 32
-  %75 = or disjoint i64 %74, 1
+67:                                               ; preds = %61
+  %68 = icmp ult i32 %.113.i, 4
+  %69 = fneg float %64
+  %.1.i = select i1 %68, float %69, float %64
+  %70 = fdiv float %.1.i, 7.000000e+00
+  %71 = bitcast float %70 to i32
+  %72 = zext i32 %71 to i64
+  %73 = shl nuw i64 %72, 32
+  %74 = or disjoint i64 %73, 1
   br label %.loopexit31
 
-.loopexit31:                                      ; preds = %.noexc, %68
-  %.sroa.0.0.insert.insert.i = phi i64 [ %75, %68 ], [ 0, %.noexc ]
+.loopexit31:                                      ; preds = %.noexc, %67
+  %.sroa.0.0.insert.insert.i = phi i64 [ %74, %67 ], [ 0, %.noexc ]
   call void @llvm.lifetime.end.p0(i64 84, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7)
-  br label %78
+  br label %77
 
-76:                                               ; preds = %38
-  %77 = invoke i64 @_ZN3vcg3tri9ResamplerI6CMeshOS2_NS_4face24PointDistanceBaseFunctorIfEEE6Walker16DistanceFromMeshERNS_6Point3IfEE(ptr noundef nonnull align 8 dereferenceable(307) %2, ptr noundef nonnull align 4 dereferenceable(12) %12)
-          to label %78 unwind label %.loopexit.split-lp, !llvm.access.group !465
+75:                                               ; preds = %38
+  %76 = invoke i64 @_ZN3vcg3tri9ResamplerI6CMeshOS2_NS_4face24PointDistanceBaseFunctorIfEEE6Walker16DistanceFromMeshERNS_6Point3IfEE(ptr noundef nonnull align 8 dereferenceable(307) %2, ptr noundef nonnull align 4 dereferenceable(12) %12)
+          to label %77 unwind label %.loopexit.split-lp, !llvm.access.group !465
 
-78:                                               ; preds = %76, %.loopexit31
-  %.sroa.0.0.insert.insert.i.sink47 = phi i64 [ %.sroa.0.0.insert.insert.i, %.loopexit31 ], [ %77, %76 ]
+77:                                               ; preds = %75, %.loopexit31
+  %.sroa.0.0.insert.insert.i.sink47 = phi i64 [ %.sroa.0.0.insert.insert.i, %.loopexit31 ], [ %76, %75 ]
   %.sroa.026.0.extract.trunc = trunc i64 %.sroa.0.0.insert.insert.i.sink47 to i8
   %.sroa.229.0.extract.shift = lshr i64 %.sroa.0.0.insert.insert.i.sink47, 32
   %.sroa.229.0.extract.trunc = trunc i64 %.sroa.229.0.extract.shift to i32
-  %79 = sext i32 %42 to i64
-  %80 = load ptr, ptr %4, align 8, !llvm.access.group !465
-  %81 = getelementptr inbounds %"struct.std::pair.588", ptr %80, i64 %79
-  %82 = and i8 %.sroa.026.0.extract.trunc, 1
-  store i8 %82, ptr %81, align 4, !llvm.access.group !465
-  %83 = getelementptr inbounds i8, ptr %81, i64 4
-  store i32 %.sroa.229.0.extract.trunc, ptr %83, align 4, !llvm.access.group !465
-  %84 = add nuw nsw i32 %.02135, 1
-  %85 = load i32, ptr %19, align 4, !llvm.access.group !465
-  %.not23.not = icmp slt i32 %.02135, %85
+  %78 = sext i32 %42 to i64
+  %79 = load ptr, ptr %4, align 8, !llvm.access.group !465
+  %80 = getelementptr inbounds %"struct.std::pair.588", ptr %79, i64 %78
+  %81 = and i8 %.sroa.026.0.extract.trunc, 1
+  store i8 %81, ptr %80, align 4, !llvm.access.group !465
+  %82 = getelementptr inbounds i8, ptr %80, i64 4
+  store i32 %.sroa.229.0.extract.trunc, ptr %82, align 4, !llvm.access.group !465
+  %83 = add nuw nsw i32 %.02135, 1
+  %84 = load i32, ptr %19, align 4, !llvm.access.group !465
+  %.not23.not = icmp slt i32 %.02135, %84
   br i1 %.not23.not, label %38, label %._crit_edge.loopexit, !llvm.loop !469
 
-._crit_edge.loopexit:                             ; preds = %78
+._crit_edge.loopexit:                             ; preds = %77
   %.pre = load i32, ptr %9, align 4, !llvm.access.group !465
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
-  %86 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %35, %.preheader ]
-  %87 = phi i32 [ %85, %._crit_edge.loopexit ], [ %36, %.preheader ]
-  %88 = add i32 %.037, 1
-  %.not22 = icmp ugt i32 %88, %86
+  %85 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %35, %.preheader ]
+  %86 = phi i32 [ %84, %._crit_edge.loopexit ], [ %36, %.preheader ]
+  %87 = add i32 %.037, 1
+  %.not22 = icmp ugt i32 %87, %85
   br i1 %.not22, label %.loopexit32, label %.preheader, !llvm.loop !470
 
 .loopexit33:                                      ; preds = %.loopexit32, %16, %5
   ret void
 
-.loopexit:                                        ; preds = %50
+.loopexit:                                        ; preds = %49
   %lpad.loopexit = landingpad { ptr, i32 }
           catch ptr null
-  br label %89
+  br label %88
 
-.loopexit.split-lp:                               ; preds = %76
+.loopexit.split-lp:                               ; preds = %75
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           catch ptr null
-  br label %89
+  br label %88
 
-89:                                               ; preds = %.loopexit.split-lp, %.loopexit
+88:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %90 = extractvalue { ptr, i32 } %lpad.phi, 0
-  call void @__clang_call_terminate(ptr %90) #26, !llvm.access.group !465
+  %89 = extractvalue { ptr, i32 } %lpad.phi, 0
+  call void @__clang_call_terminate(ptr %89) #26, !llvm.access.group !465
   unreachable
 }
 

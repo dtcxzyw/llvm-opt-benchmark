@@ -133,7 +133,7 @@ define noundef zeroext i1 @_ZNK5draco28AttributeOctahedronTransform25GeneratePor
   store i32 %25, ptr %24, align 4
   %26 = sub nuw nsw i32 -2, %notmask.i
   store i32 %26, ptr %23, align 4
-  %27 = sitofp i32 %26 to float
+  %27 = uitofp i32 %26 to float
   %28 = fdiv float 2.000000e+00, %27
   store float %28, ptr %22, align 4
   %29 = lshr i32 %26, 1
@@ -285,7 +285,7 @@ _ZN5draco17OctahedronToolBox19SetQuantizationBitsEi.exit: ; preds = %11
 .lr.ph.preheader:                                 ; preds = %_ZN5draco17OctahedronToolBox19SetQuantizationBitsEi.exit
   %notmask.i.neg = shl nuw nsw i32 1, %13
   %15 = add nsw i32 %notmask.i.neg, -2
-  %16 = sitofp i32 %15 to float
+  %16 = uitofp i32 %15 to float
   %17 = fdiv float 2.000000e+00, %16
   %18 = load ptr, ptr %1, align 8
   %19 = load ptr, ptr %18, align 8

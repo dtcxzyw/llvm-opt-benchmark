@@ -959,7 +959,7 @@ for.cond1.preheader.us.preheader:                 ; preds = %if.end
 for.cond1.preheader.us:                           ; preds = %for.cond1.preheader.us.preheader, %for.cond1.for.inc6_crit_edge.us
   %indvars.iv18 = phi i64 [ 0, %for.cond1.preheader.us.preheader ], [ %indvars.iv.next19, %for.cond1.for.inc6_crit_edge.us ]
   %0 = trunc i64 %indvars.iv18 to i32
-  %conv4.us = sitofp i32 %0 to float
+  %conv4.us = uitofp i32 %0 to float
   %mul.us = fmul float %div, %conv4.us
   %1 = trunc i64 %indvars.iv18 to i32
   %2 = mul i32 %1, %numChannels
@@ -1010,7 +1010,7 @@ for.body.us.preheader:                            ; preds = %for.body.lr.ph
 for.body.us:                                      ; preds = %for.body.us.preheader, %for.cond4.for.inc7_crit_edge.us
   %indvars.iv18 = phi i64 [ 0, %for.body.us.preheader ], [ %indvars.iv.next19, %for.cond4.for.inc7_crit_edge.us ]
   %0 = trunc i64 %indvars.iv18 to i32
-  %conv.us = sitofp i32 %0 to double
+  %conv.us = uitofp i32 %0 to double
   %div.us = fdiv double %conv.us, %conv1
   %conv2.us = fptrunc double %div.us to float
   %1 = tail call noundef float @llvm.fmuladd.f32(float %sub.i, float %conv2.us, float %start)
@@ -1616,7 +1616,7 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
 
 declare void @_ZN19OpenColorIO_v2_4dev14Lut1DTransform6CreateEv(ptr sret(%"class.std::shared_ptr.40") align 8) local_unnamed_addr #0
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -5195,7 +5195,7 @@ attributes #2 = { nofree nounwind }
 attributes #3 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree nounwind memory(read) }
+attributes #6 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

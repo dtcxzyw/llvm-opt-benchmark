@@ -655,7 +655,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %37 = phi ptr [ %.pre, %32 ], [ %67, %_ZNSt6vectorIdSaIdEE9push_backEOd.exit ]
   %.073272 = phi i32 [ 0, %32 ], [ %68, %_ZNSt6vectorIdSaIdEE9push_backEOd.exit ]
   %38 = shl nuw nsw i32 1, %.073272
-  %39 = sitofp i32 %38 to double
+  %39 = uitofp i32 %38 to double
   %40 = load ptr, ptr %35, align 8
   %.not.i.i = icmp eq ptr %37, %40
   br i1 %.not.i.i, label %44, label %41
@@ -1150,7 +1150,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit143: ;
   %200 = phi ptr [ %.pre285, %195 ], [ %230, %_ZNSt6vectorIdSaIdEE9push_backEOd.exit152 ]
   %.072276 = phi i32 [ 8, %195 ], [ %231, %_ZNSt6vectorIdSaIdEE9push_backEOd.exit152 ]
   %201 = shl nuw nsw i32 1, %.072276
-  %202 = sitofp i32 %201 to double
+  %202 = uitofp i32 %201 to double
   %203 = load ptr, ptr %198, align 8
   %.not.i.i144 = icmp eq ptr %200, %203
   br i1 %.not.i.i144, label %207, label %204
@@ -1347,7 +1347,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit166: ;
   %276 = phi ptr [ %.pre286, %271 ], [ %306, %_ZNSt6vectorIdSaIdEE9push_backEOd.exit175 ]
   %.059277 = phi i32 [ 0, %271 ], [ %307, %_ZNSt6vectorIdSaIdEE9push_backEOd.exit175 ]
   %277 = shl nuw nsw i32 1, %.059277
-  %278 = sitofp i32 %277 to double
+  %278 = uitofp i32 %277 to double
   %279 = load ptr, ptr %274, align 8
   %.not.i.i167 = icmp eq ptr %276, %279
   br i1 %.not.i.i167, label %283, label %280
@@ -1477,7 +1477,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit180: ;
   %324 = phi ptr [ %.pre287, %319 ], [ %354, %_ZNSt6vectorIdSaIdEE9push_backEOd.exit189 ]
   %.0278 = phi i32 [ 2, %319 ], [ %355, %_ZNSt6vectorIdSaIdEE9push_backEOd.exit189 ]
   %325 = shl nuw nsw i32 1, %.0278
-  %326 = sitofp i32 %325 to double
+  %326 = uitofp i32 %325 to double
   %327 = load ptr, ptr %322, align 8
   %.not.i.i181 = icmp eq ptr %324, %327
   br i1 %.not.i.i181, label %331, label %328
@@ -4514,7 +4514,7 @@ define internal fastcc void @_ZN5faissL22init_pq_ParameterRangeERKNS_16ProductQu
   %12 = phi ptr [ %.pre, %.lr.ph ], [ %42, %_ZNSt6vectorIdSaIdEE9push_backEOd.exit ]
   %indvars.iv = phi i64 [ 2, %.lr.ph ], [ %indvars.iv.next, %_ZNSt6vectorIdSaIdEE9push_backEOd.exit ]
   %13 = trunc i64 %indvars.iv to i32
-  %14 = sitofp i32 %13 to double
+  %14 = uitofp i32 %13 to double
   %15 = load ptr, ptr %10, align 8
   %.not.i.i = icmp eq ptr %12, %15
   br i1 %.not.i.i, label %19, label %16
@@ -7762,7 +7762,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i167: ; preds = %.noexc171
   br i1 %392, label %.preheader248, label %393, !llvm.loop !97
 
 393:                                              ; preds = %387
-  %394 = sitofp i32 %388 to double
+  %394 = uitofp i32 %388 to double
   %395 = fdiv double %390, %394
   %396 = load ptr, ptr %16, align 8
   %397 = load ptr, ptr %15, align 8

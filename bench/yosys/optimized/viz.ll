@@ -37440,87 +37440,88 @@ _ZSt4swapIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_ptr_opsEEEE
   %114 = sub i64 %112, %113
   %115 = lshr exact i64 %114, 3
   %116 = trunc i64 %115 to i32
-  %117 = getelementptr inbounds i8, ptr %.0.val, i64 144
-  %118 = mul nsw i32 %116, %116
-  %119 = insertelement <2 x i32> poison, i32 %116, i64 0
-  %120 = insertelement <2 x i32> %119, i32 %118, i64 1
-  %121 = sitofp <2 x i32> %120 to <2 x double>
-  %122 = load <2 x double>, ptr %117, align 8
-  %123 = fadd <2 x double> %122, %121
-  store <2 x double> %123, ptr %117, align 8
-  %124 = getelementptr inbounds i8, ptr %.0.val, i64 112
-  %125 = load ptr, ptr %124, align 8
-  %126 = getelementptr inbounds i8, ptr %125, i64 12
-  %127 = load i32, ptr %126, align 4
-  %128 = icmp sgt i32 %127, 0
-  br i1 %128, label %.lr.ph37, label %.loopexit
+  %117 = sitofp i32 %116 to double
+  %118 = getelementptr inbounds i8, ptr %.0.val, i64 144
+  %119 = mul nsw i32 %116, %116
+  %120 = uitofp i32 %119 to double
+  %121 = load <2 x double>, ptr %118, align 8
+  %122 = insertelement <2 x double> poison, double %117, i64 0
+  %123 = insertelement <2 x double> %122, double %120, i64 1
+  %124 = fadd <2 x double> %121, %123
+  store <2 x double> %124, ptr %118, align 8
+  %125 = getelementptr inbounds i8, ptr %.0.val, i64 112
+  %126 = load ptr, ptr %125, align 8
+  %127 = getelementptr inbounds i8, ptr %126, i64 12
+  %128 = load i32, ptr %127, align 4
+  %129 = icmp sgt i32 %128, 0
+  br i1 %129, label %.lr.ph37, label %.loopexit
 
 .lr.ph37:                                         ; preds = %106
-  %129 = getelementptr inbounds i8, ptr %.0.val, i64 120
-  br label %130
+  %130 = getelementptr inbounds i8, ptr %.0.val, i64 120
+  br label %131
 
-130:                                              ; preds = %.lr.ph37, %136
-  %131 = phi ptr [ %125, %.lr.ph37 ], [ %137, %136 ]
-  %indvars.iv42 = phi i64 [ 0, %.lr.ph37 ], [ %indvars.iv.next43, %136 ]
-  %.01834 = phi i32 [ %116, %.lr.ph37 ], [ %.1, %136 ]
-  %132 = load ptr, ptr %129, align 8
-  %133 = getelementptr inbounds i32, ptr %132, i64 %indvars.iv42
-  %134 = load i32, ptr %133, align 4
-  %.not12 = icmp slt i32 %.01834, %134
-  br i1 %.not12, label %136, label %135
+131:                                              ; preds = %.lr.ph37, %137
+  %132 = phi ptr [ %126, %.lr.ph37 ], [ %138, %137 ]
+  %indvars.iv42 = phi i64 [ 0, %.lr.ph37 ], [ %indvars.iv.next43, %137 ]
+  %.01834 = phi i32 [ %116, %.lr.ph37 ], [ %.1, %137 ]
+  %133 = load ptr, ptr %130, align 8
+  %134 = getelementptr inbounds i32, ptr %133, i64 %indvars.iv42
+  %135 = load i32, ptr %134, align 4
+  %.not12 = icmp slt i32 %.01834, %135
+  br i1 %.not12, label %137, label %136
 
-135:                                              ; preds = %130
-  store i32 %.01834, ptr %133, align 4
-  %.pre47 = load ptr, ptr %124, align 8
-  br label %136
+136:                                              ; preds = %131
+  store i32 %.01834, ptr %134, align 4
+  %.pre47 = load ptr, ptr %125, align 8
+  br label %137
 
-136:                                              ; preds = %130, %135
-  %137 = phi ptr [ %131, %130 ], [ %.pre47, %135 ]
-  %.1 = phi i32 [ %.01834, %130 ], [ %134, %135 ]
+137:                                              ; preds = %131, %136
+  %138 = phi ptr [ %132, %131 ], [ %.pre47, %136 ]
+  %.1 = phi i32 [ %.01834, %131 ], [ %135, %136 ]
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
-  %138 = getelementptr inbounds i8, ptr %137, i64 12
-  %139 = load i32, ptr %138, align 4
-  %140 = sext i32 %139 to i64
-  %141 = icmp slt i64 %indvars.iv.next43, %140
-  br i1 %141, label %130, label %.loopexit, !llvm.loop !183
+  %139 = getelementptr inbounds i8, ptr %138, i64 12
+  %140 = load i32, ptr %139, align 4
+  %141 = sext i32 %140 to i64
+  %142 = icmp slt i64 %indvars.iv.next43, %141
+  br i1 %142, label %131, label %.loopexit, !llvm.loop !183
 
-.loopexit:                                        ; preds = %136, %106, %_ZSt4swapIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_ptr_opsEEEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleISB_ESt18is_move_assignableISB_EEE5valueEvE4typeERSB_SK_.exit38
+.loopexit:                                        ; preds = %137, %106, %_ZSt4swapIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_ptr_opsEEEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleISB_ESt18is_move_assignableISB_EEE5valueEvE4typeERSB_SK_.exit38
   %.val.i39 = load ptr, ptr %98, align 8
   %.not.i.i.i.i = icmp eq ptr %.val.i39, null
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_ptr_opsEE7entry_tESaIS8_EED2Ev.exit.i, label %142
+  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_ptr_opsEE7entry_tESaIS8_EED2Ev.exit.i, label %143
 
-142:                                              ; preds = %.loopexit
+143:                                              ; preds = %.loopexit
   call void @_ZdlPv(ptr noundef nonnull %.val.i39) #29
   br label %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_ptr_opsEE7entry_tESaIS8_EED2Ev.exit.i
 
-_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_ptr_opsEE7entry_tESaIS8_EED2Ev.exit.i: ; preds = %142, %.loopexit
-  %143 = load ptr, ptr %3, align 16
-  %.not.i.i.i2.i = icmp eq ptr %143, null
-  br i1 %.not.i.i.i2.i, label %_ZN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS0_12hash_ptr_opsEED2Ev.exit, label %144
+_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_ptr_opsEE7entry_tESaIS8_EED2Ev.exit.i: ; preds = %143, %.loopexit
+  %144 = load ptr, ptr %3, align 16
+  %.not.i.i.i2.i = icmp eq ptr %144, null
+  br i1 %.not.i.i.i2.i, label %_ZN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS0_12hash_ptr_opsEED2Ev.exit, label %145
 
-144:                                              ; preds = %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_ptr_opsEE7entry_tESaIS8_EED2Ev.exit.i
-  call void @_ZdlPv(ptr noundef nonnull %143) #29
+145:                                              ; preds = %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_ptr_opsEE7entry_tESaIS8_EED2Ev.exit.i
+  call void @_ZdlPv(ptr noundef nonnull %144) #29
   br label %_ZN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS0_12hash_ptr_opsEED2Ev.exit
 
-_ZN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS0_12hash_ptr_opsEED2Ev.exit: ; preds = %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_ptr_opsEE7entry_tESaIS8_EED2Ev.exit.i, %144
+_ZN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS0_12hash_ptr_opsEED2Ev.exit: ; preds = %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_ptr_opsEE7entry_tESaIS8_EED2Ev.exit.i, %145
   %.val.i40 = load ptr, ptr %85, align 8
   %.not.i.i.i.i41 = icmp eq ptr %.val.i40, null
-  br i1 %.not.i.i.i.i41, label %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_ptr_opsEE7entry_tESaIS8_EED2Ev.exit.i42, label %145
+  br i1 %.not.i.i.i.i41, label %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_ptr_opsEE7entry_tESaIS8_EED2Ev.exit.i42, label %146
 
-145:                                              ; preds = %_ZN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS0_12hash_ptr_opsEED2Ev.exit
+146:                                              ; preds = %_ZN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS0_12hash_ptr_opsEED2Ev.exit
   call void @_ZdlPv(ptr noundef nonnull %.val.i40) #29
   br label %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_ptr_opsEE7entry_tESaIS8_EED2Ev.exit.i42
 
-_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_ptr_opsEE7entry_tESaIS8_EED2Ev.exit.i42: ; preds = %145, %_ZN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS0_12hash_ptr_opsEED2Ev.exit
-  %146 = load ptr, ptr %2, align 16
-  %.not.i.i.i2.i43 = icmp eq ptr %146, null
-  br i1 %.not.i.i.i2.i43, label %_ZN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS0_12hash_ptr_opsEED2Ev.exit44, label %147
+_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_ptr_opsEE7entry_tESaIS8_EED2Ev.exit.i42: ; preds = %146, %_ZN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS0_12hash_ptr_opsEED2Ev.exit
+  %147 = load ptr, ptr %2, align 16
+  %.not.i.i.i2.i43 = icmp eq ptr %147, null
+  br i1 %.not.i.i.i2.i43, label %_ZN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS0_12hash_ptr_opsEED2Ev.exit44, label %148
 
-147:                                              ; preds = %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_ptr_opsEE7entry_tESaIS8_EED2Ev.exit.i42
-  call void @_ZdlPv(ptr noundef nonnull %146) #29
+148:                                              ; preds = %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_ptr_opsEE7entry_tESaIS8_EED2Ev.exit.i42
+  call void @_ZdlPv(ptr noundef nonnull %147) #29
   br label %_ZN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS0_12hash_ptr_opsEED2Ev.exit44
 
-_ZN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS0_12hash_ptr_opsEED2Ev.exit44: ; preds = %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_ptr_opsEE7entry_tESaIS8_EED2Ev.exit.i42, %147
+_ZN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS0_12hash_ptr_opsEED2Ev.exit44: ; preds = %_ZNSt6vectorIN5Yosys7hashlib4poolIPN12_GLOBAL__N_19GraphNodeENS1_12hash_ptr_opsEE7entry_tESaIS8_EED2Ev.exit.i42, %148
   ret void
 }
 

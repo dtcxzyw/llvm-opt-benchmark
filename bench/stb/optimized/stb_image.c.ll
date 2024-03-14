@@ -5066,7 +5066,7 @@ if.then7.i:                                       ; preds = %if.then.i94
   %68 = load i8, ptr %arrayidx12.i, align 2
   %conv13.i = zext i8 %68 to i32
   %add14.i = add nuw nsw i32 %add.i, %conv13.i
-  %conv15.i = sitofp i32 %add14.i to float
+  %conv15.i = uitofp i32 %add14.i to float
   %mul.i = fmul float %conv4.i98, %conv15.i
   %div.i = fdiv float %mul.i, 3.000000e+00
   br label %if.end.i
@@ -30674,7 +30674,7 @@ if.then7:                                         ; preds = %if.then
   %3 = load i8, ptr %arrayidx12, align 1
   %conv13 = zext i8 %3 to i32
   %add14 = add nuw nsw i32 %add, %conv13
-  %conv15 = sitofp i32 %add14 to float
+  %conv15 = uitofp i32 %add14 to float
   %mul = fmul float %conv4, %conv15
   %div = fdiv float %mul, 3.000000e+00
   store float %div, ptr %output, align 4

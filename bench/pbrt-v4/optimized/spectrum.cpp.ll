@@ -527,7 +527,7 @@ for.body.preheader:                               ; preds = %if.then, %entry
 for.body:                                         ; preds = %for.body.preheader, %_ZNK4pbrt22DenselySampledSpectrumclEf.exit
   %lambda.07.int = phi i32 [ %inc.int, %_ZNK4pbrt22DenselySampledSpectrumclEf.exit ], [ 360, %for.body.preheader ]
   %y.06 = phi float [ %add, %_ZNK4pbrt22DenselySampledSpectrumclEf.exit ], [ 0.000000e+00, %for.body.preheader ]
-  %indvar.conv = sitofp i32 %lambda.07.int to float
+  %indvar.conv = uitofp i32 %lambda.07.int to float
   %4 = load ptr, ptr @_ZN4pbrt7Spectra1yE, align 8
   %call.i.i = call noundef i64 @lroundf(float noundef %indvar.conv) #23
   %5 = load i32, ptr %4, align 8
@@ -609,7 +609,7 @@ entry:
 for.body.i:                                       ; preds = %for.body.i, %entry
   %lambda.013.int.i = phi i32 [ 360, %entry ], [ %inc.int.i, %for.body.i ]
   %integral.012.i = phi float [ 0.000000e+00, %entry ], [ %add.i, %for.body.i ]
-  %indvar.conv.i = sitofp i32 %lambda.013.int.i to float
+  %indvar.conv.i = uitofp i32 %lambda.013.int.i to float
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %lambda.addr.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %op.i.i)
   store float %indvar.conv.i, ptr %lambda.addr.i.i, align 4
@@ -650,7 +650,7 @@ _ZN4pbrt12InnerProductENS_8SpectrumES0_.exit:     ; preds = %for.body.i
 for.body.i6:                                      ; preds = %for.body.i6, %_ZN4pbrt12InnerProductENS_8SpectrumES0_.exit
   %lambda.013.int.i7 = phi i32 [ 360, %_ZN4pbrt12InnerProductENS_8SpectrumES0_.exit ], [ %inc.int.i22, %for.body.i6 ]
   %integral.012.i8 = phi float [ 0.000000e+00, %_ZN4pbrt12InnerProductENS_8SpectrumES0_.exit ], [ %add.i21, %for.body.i6 ]
-  %indvar.conv.i9 = sitofp i32 %lambda.013.int.i7 to float
+  %indvar.conv.i9 = uitofp i32 %lambda.013.int.i7 to float
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %lambda.addr.i.i4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %op.i.i5)
   store float %indvar.conv.i9, ptr %lambda.addr.i.i4, align 4
@@ -691,7 +691,7 @@ _ZN4pbrt12InnerProductENS_8SpectrumES0_.exit24:   ; preds = %for.body.i6
 for.body.i30:                                     ; preds = %for.body.i30, %_ZN4pbrt12InnerProductENS_8SpectrumES0_.exit24
   %lambda.013.int.i31 = phi i32 [ 360, %_ZN4pbrt12InnerProductENS_8SpectrumES0_.exit24 ], [ %inc.int.i46, %for.body.i30 ]
   %integral.012.i32 = phi float [ 0.000000e+00, %_ZN4pbrt12InnerProductENS_8SpectrumES0_.exit24 ], [ %add.i45, %for.body.i30 ]
-  %indvar.conv.i33 = sitofp i32 %lambda.013.int.i31 to float
+  %indvar.conv.i33 = uitofp i32 %lambda.013.int.i31 to float
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %lambda.addr.i.i28)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %op.i.i29)
   store float %indvar.conv.i33, ptr %lambda.addr.i.i28, align 4
@@ -946,7 +946,7 @@ if.end:                                           ; preds = %entry
   %ptr.i = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %ptr.i, align 8
   %add.ptr.i.idx = shl nsw i64 %0, 2
-  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %1, i64 %add.ptr.i.idx
+  %add.ptr.i = getelementptr inbounds i8, ptr %1, i64 %add.ptr.i.idx
   %cmp1.not9.i.i = icmp eq i64 %0, 1
   br i1 %cmp1.not9.i.i, label %_ZSt11max_elementIPKfET_S2_S2_.exit, label %while.body.preheader.i.i
 
@@ -964,7 +964,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %wh
   %4 = select i1 %cmp.i.i.i, float %3, float %2
   %spec.select.i.i = select i1 %cmp.i.i.i, ptr %incdec.ptr11.i.i, ptr %__result.010.i.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %incdec.ptr11.i.i, i64 4
-  %cmp1.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.ptr
+  %cmp1.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i
   br i1 %cmp1.not.i.i, label %_ZSt11max_elementIPKfET_S2_S2_.exit, label %while.body.i.i, !llvm.loop !9
 
 _ZSt11max_elementIPKfET_S2_S2_.exit:              ; preds = %while.body.i.i, %if.end
@@ -2539,7 +2539,7 @@ invoke.cont58:                                    ; preds = %invoke.cont51
 for.body.i:                                       ; preds = %call3.i.i11.i.noexc, %invoke.cont58
   %lambda.013.int.i = phi i32 [ 360, %invoke.cont58 ], [ %inc.int.i, %call3.i.i11.i.noexc ]
   %integral.012.i = phi float [ 0.000000e+00, %invoke.cont58 ], [ %add.i, %call3.i.i11.i.noexc ]
-  %indvar.conv.i = sitofp i32 %lambda.013.int.i to float
+  %indvar.conv.i = uitofp i32 %lambda.013.int.i to float
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %lambda.addr.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %op.i.i)
   store float %indvar.conv.i, ptr %lambda.addr.i.i, align 4
@@ -2807,7 +2807,7 @@ invoke.cont6:                                     ; preds = %for.body
 
 invoke.cont8:                                     ; preds = %invoke.cont6
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #23
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %4 = load i64, ptr %nStored.i, align 8
   %cmp = icmp ugt i64 %4, %indvars.iv.next
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !17
@@ -3939,7 +3939,7 @@ for.body.us.preheader.i:                          ; preds = %_ZN4pbrt17Blackbody
 for.body.us.i:                                    ; preds = %invoke.cont.us.i, %for.body.us.preheader.i
   %indvars.iv11.i = phi i64 [ 360, %for.body.us.preheader.i ], [ %indvars.iv.next12.i, %invoke.cont.us.i ]
   %10 = trunc i64 %indvars.iv11.i to i32
-  %conv.us.i = sitofp i32 %10 to float
+  %conv.us.i = uitofp i32 %10 to float
   %mul.i.i.i.us.i = fmul float %conv.us.i, 0x3E112E0BE0000000
   %mul.i.i.i.i.i.us.i = fmul float %mul.i.i.i.us.i, %mul.i.i.i.us.i
   %mul.i.i.i.i.us.i = fmul float %mul.i.i.i.i.i.us.i, %mul.i.i.i.i.i.us.i

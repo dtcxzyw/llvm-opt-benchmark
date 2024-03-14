@@ -1889,7 +1889,7 @@ define internal fastcc i32 @dissect_ac_if_hdr_body(ptr noundef %0, ptr noundef %
   %14 = mul nuw nsw i32 %13, 10
   %15 = and i32 %12, 15
   %16 = add nuw nsw i32 %14, %15
-  %17 = sitofp i32 %16 to double
+  %17 = uitofp i32 %16 to double
   %18 = fdiv double %17, 1.000000e+02
   %19 = fadd double %18, %10
   %20 = load i32, ptr @hf_ac_if_hdr_ver, align 4
@@ -2767,7 +2767,7 @@ define internal fastcc void @dissect_ms_if_hdr_body(ptr noundef %0, ptr noundef 
   %13 = mul nuw nsw i32 %12, 10
   %14 = and i32 %11, 15
   %15 = add nuw nsw i32 %13, %14
-  %16 = sitofp i32 %15 to double
+  %16 = uitofp i32 %15 to double
   %17 = fdiv double %16, 1.000000e+02
   %18 = fadd double %17, %9
   %19 = load i32, ptr @hf_ms_if_hdr_ver, align 4

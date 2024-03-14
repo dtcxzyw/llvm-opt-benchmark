@@ -17649,7 +17649,7 @@ define dso_local void @_ZN13TestUtilities18testIsBlockInSightEv(ptr nocapture no
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #28
   tail call void @llvm.experimental.noalias.scope.decl(metadata !99)
   %20 = mul nuw nsw i32 %19, 90
-  %21 = sitofp i32 %20 to double
+  %21 = uitofp i32 %20 to double
   %22 = fmul nsz double %21, 0x3F91DF46A2529D39
   %23 = tail call nsz double @llvm.cos.f64(double %22)
   %24 = tail call nsz double @llvm.sin.f64(double %22)

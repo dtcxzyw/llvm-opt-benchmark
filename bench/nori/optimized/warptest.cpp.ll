@@ -1891,11 +1891,11 @@ _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
   %.pre119 = phi i32 [ %.pre119.pre, %.lr.ph111 ], [ %.pre119125, %.loopexit ]
   %124 = phi i32 [ %111, %.lr.ph111 ], [ %121, %.loopexit ]
   %.043109 = phi i32 [ 0, %.lr.ph111 ], [ %128, %.loopexit ]
-  %125 = sitofp i32 %.043109 to double
+  %125 = uitofp i32 %.043109 to double
   %126 = sitofp i32 %124 to double
   %127 = fdiv double %125, %126
   %128 = add nuw nsw i32 %.043109, 1
-  %129 = sitofp i32 %128 to double
+  %129 = uitofp i32 %128 to double
   %130 = fdiv double %129, %126
   br label %131
 
@@ -1925,10 +1925,10 @@ _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
           to label %.noexc unwind label %180
 
 .noexc:                                           ; preds = %133
-  %136 = sitofp i32 %134 to double
+  %136 = uitofp i32 %134 to double
   %137 = sitofp i32 %.pre119125 to double
   %138 = fdiv double %136, %137
-  %139 = sitofp i32 %.040 to double
+  %139 = uitofp i32 %.040 to double
   %140 = fdiv double %139, %137
   store ptr %11, ptr %135, align 16
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %135, i64 8
@@ -8111,7 +8111,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %327 = mul nuw nsw i64 %indvars.iv722, 3
   %328 = getelementptr inbounds float, ptr %320, i64 %327
   %329 = trunc i64 %indvars.iv722 to i32
-  %330 = sitofp i32 %329 to float
+  %330 = uitofp i32 %329 to float
   %331 = fmul float %326, %330
   store float %331, ptr %328, align 4, !noalias !99
   %332 = fneg float %330
@@ -8317,7 +8317,7 @@ _ZN8WarpTestC2E8WarpTypefPN4nori4BSDFENS1_15BSDFQueryRecordEii.exit196: ; preds 
 .preheader687:                                    ; preds = %.preheader687.preheader, %._crit_edge703
   %.0123707 = phi i32 [ %673, %._crit_edge703 ], [ 0, %.preheader687.preheader ]
   %.0125706 = phi i32 [ %672, %._crit_edge703 ], [ 0, %.preheader687.preheader ]
-  %427 = sitofp i32 %.0123707 to float
+  %427 = uitofp i32 %.0123707 to float
   %428 = fmul float %393, %427
   %429 = sext i32 %.0125706 to i64
   %430 = shl nsw i64 %429, 2
@@ -8342,7 +8342,7 @@ _ZN8WarpTestC2E8WarpTypefPN4nori4BSDFENS1_15BSDFQueryRecordEii.exit196: ; preds 
   %444 = sext i32 %443 to i64
   %445 = shl nuw nsw i64 %indvar, 4
   %446 = add nsw i64 %430, %445
-  %447 = sitofp i32 %indvars747 to float
+  %447 = uitofp i32 %indvars747 to float
   %448 = fmul float %395, %447
   store float %448, ptr %38, align 4
   store float %428, ptr %409, align 4
@@ -8446,7 +8446,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 .loopexit686:                                     ; preds = %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i201.preheader, %._crit_edge.i.i.i.i.i.i.i.i.i.i200
   %indvar.next = add nuw nsw i64 %indvar, 1
   %indvars = trunc i64 %indvar.next to i32
-  %502 = sitofp i32 %indvars to float
+  %502 = uitofp i32 %indvars to float
   %503 = fmul float %395, %502
   store float %503, ptr %41, align 4
   store float %428, ptr %415, align 4
@@ -9031,12 +9031,12 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %indvars.iv758 = phi i64 [ 0, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit280 ], [ %indvars.iv.next759, %753 ]
   %.0117712 = phi i32 [ 0, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit280 ], [ %758, %753 ]
   %754 = shl nuw nsw i32 %.0117712, 1
-  %755 = sitofp i32 %754 to float
+  %755 = uitofp i32 %754 to float
   %756 = fmul float %755, 0x400921FB60000000
   %757 = fdiv float %756, 5.000000e+01
   %758 = add nuw nsw i32 %.0117712, 1
   %759 = shl nuw nsw i32 %758, 1
-  %760 = sitofp i32 %759 to float
+  %760 = uitofp i32 %759 to float
   %761 = fmul float %760, 0x400921FB60000000
   %762 = fdiv float %761, 5.000000e+01
   %763 = or disjoint i64 %indvars.iv758, 1
@@ -10584,7 +10584,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   br label %.sink.split
 
 73:                                               ; preds = %42
-  %74 = sitofp i32 %45 to float
+  %74 = uitofp i32 %45 to float
   %75 = fadd float %74, 5.000000e-01
   %76 = fmul float %14, %75
   %77 = sitofp i32 %44 to float
@@ -10594,7 +10594,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   br label %.sink.split
 
 80:                                               ; preds = %42
-  %81 = sitofp i32 %45 to float
+  %81 = uitofp i32 %45 to float
   %82 = mul i64 %.sroa.038.045, 6364136223846793005
   %83 = add i64 %82, -2720673578348880933
   %84 = lshr i64 %.sroa.038.045, 45
@@ -15740,7 +15740,7 @@ define linkonce_odr hidden noundef double @_ZN6cephes7rlgammaEdd(double noundef 
   %50 = phi <2 x double> [ %46, %35 ], [ %52, %70 ]
   %51 = add nuw nsw i32 %.084, 1
   %52 = fadd <2 x double> %50, <double 2.000000e+00, double 1.000000e+00>
-  %53 = sitofp i32 %51 to double
+  %53 = uitofp i32 %51 to double
   %54 = extractelement <2 x double> %52, i64 1
   %55 = fmul double %54, %53
   %56 = fneg <2 x double> %49

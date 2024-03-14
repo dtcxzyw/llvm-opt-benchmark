@@ -1861,7 +1861,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %128, !llvm.loop !21
 
 ._crit_edge.i.i:                                  ; preds = %128
-  %133 = sitofp i32 %109 to double
+  %133 = uitofp i32 %109 to double
   %134 = fdiv double %131, %133
   %135 = fdiv double %132, %133
   %136 = fneg double %134
@@ -2463,7 +2463,7 @@ define internal noundef double @_ZNK5faiss12_GLOBAL__N_129ReproduceWithHammingOb
   %24 = sext i32 %23 to i64
   %25 = tail call i64 @llvm.ctpop.i64(i64 %24), !range !27
   %26 = trunc i64 %25 to i32
-  %27 = sitofp i32 %26 to double
+  %27 = uitofp i32 %26 to double
   %28 = fsub double %18, %27
   %29 = fmul double %28, %28
   %30 = tail call double @llvm.fmuladd.f64(double %20, double %29, double %.121.us)
@@ -2532,7 +2532,7 @@ define internal noundef double @_ZNK5faiss12_GLOBAL__N_129ReproduceWithHammingOb
   %36 = sext i32 %35 to i64
   %37 = tail call i64 @llvm.ctpop.i64(i64 %36), !range !27
   %38 = trunc i64 %37 to i32
-  %39 = sitofp i32 %38 to double
+  %39 = uitofp i32 %38 to double
   %40 = fsub double %30, %39
   %41 = fmul double %40, %40
   %42 = fneg double %32
@@ -2549,7 +2549,7 @@ define internal noundef double @_ZNK5faiss12_GLOBAL__N_129ReproduceWithHammingOb
   %53 = sext i32 %52 to i64
   %54 = tail call i64 @llvm.ctpop.i64(i64 %53), !range !27
   %55 = trunc i64 %54 to i32
-  %56 = sitofp i32 %55 to double
+  %56 = uitofp i32 %55 to double
   %57 = fsub double %30, %56
   %58 = fmul double %57, %57
   %59 = tail call double @llvm.fmuladd.f64(double %32, double %58, double %43)
@@ -2580,7 +2580,7 @@ define internal noundef double @_ZNK5faiss12_GLOBAL__N_129ReproduceWithHammingOb
   %73 = sext i32 %72 to i64
   %74 = tail call i64 @llvm.ctpop.i64(i64 %73), !range !27
   %75 = trunc i64 %74 to i32
-  %76 = sitofp i32 %75 to double
+  %76 = uitofp i32 %75 to double
   %77 = fsub double %67, %76
   %78 = fmul double %77, %77
   %79 = fneg double %69
@@ -2597,7 +2597,7 @@ define internal noundef double @_ZNK5faiss12_GLOBAL__N_129ReproduceWithHammingOb
   %90 = sext i32 %89 to i64
   %91 = tail call i64 @llvm.ctpop.i64(i64 %90), !range !27
   %92 = trunc i64 %91 to i32
-  %93 = sitofp i32 %92 to double
+  %93 = uitofp i32 %92 to double
   %94 = fsub double %67, %93
   %95 = fmul double %94, %94
   %96 = tail call double @llvm.fmuladd.f64(double %69, double %95, double %80)
@@ -2619,7 +2619,7 @@ define internal noundef double @_ZNK5faiss12_GLOBAL__N_129ReproduceWithHammingOb
   %108 = sext i32 %107 to i64
   %109 = tail call i64 @llvm.ctpop.i64(i64 %108), !range !27
   %110 = trunc i64 %109 to i32
-  %111 = sitofp i32 %110 to double
+  %111 = uitofp i32 %110 to double
   %112 = fsub double %101, %111
   %113 = fmul double %112, %112
   %114 = fneg double %103
@@ -2629,7 +2629,7 @@ define internal noundef double @_ZNK5faiss12_GLOBAL__N_129ReproduceWithHammingOb
   %118 = sext i32 %117 to i64
   %119 = tail call i64 @llvm.ctpop.i64(i64 %118), !range !27
   %120 = trunc i64 %119 to i32
-  %121 = sitofp i32 %120 to double
+  %121 = uitofp i32 %120 to double
   %122 = fsub double %101, %121
   %123 = fmul double %122, %122
   %124 = tail call double @llvm.fmuladd.f64(double %103, double %123, double %115)

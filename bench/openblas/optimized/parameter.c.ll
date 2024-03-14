@@ -40,7 +40,7 @@ define void @blas_set_parameter() local_unnamed_addr #0 {
   %4 = tail call i32 @llvm.umax.i32(i32 %1, i32 10)
   %5 = tail call i32 @llvm.umin.i32(i32 %4, i32 200)
   %6 = sitofp i64 %.pre to double
-  %7 = sitofp i32 %5 to double
+  %7 = uitofp i32 %5 to double
   %8 = fmul double %7, %6
   %9 = fmul double %8, 1.000000e-02
   %10 = fptosi double %9 to i64

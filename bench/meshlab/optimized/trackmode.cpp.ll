@@ -7031,7 +7031,7 @@ _ZNK3vcg6Point3IfEeqERKS1_.exit79.thread:         ; preds = %_ZNK3vcg6Point3IfEe
 
 107:                                              ; preds = %104, %107
   %.074218 = phi i32 [ 0, %104 ], [ %129, %107 ]
-  %108 = sitofp i32 %.074218 to float
+  %108 = uitofp i32 %.074218 to float
   %109 = fmul float %108, 0x400921FB60000000
   %110 = fdiv float %109, 1.800000e+02
   %111 = call float @cosf(float noundef %110) #34
@@ -7302,7 +7302,7 @@ _ZNK3vcg6Point3IfEeqERKS1_.exit100.thread:        ; preds = %_ZNK3vcg6Point3IfEe
 130:                                              ; preds = %122, %130
   %.095267 = phi i32 [ 0, %122 ], [ %154, %130 ]
   %131 = load float, ptr %117, align 4
-  %132 = sitofp i32 %.095267 to float
+  %132 = uitofp i32 %.095267 to float
   %133 = fmul float %132, 0x400921FB60000000
   %134 = fdiv float %133, 1.800000e+02
   %135 = call float @cosf(float noundef %134) #34
@@ -7773,7 +7773,7 @@ _ZNK3vcg6Point3IfEeqERKS1_.exit85.thread:         ; preds = %_ZNK3vcg6Point3IfEe
 
 127:                                              ; preds = %124, %127
   %.080232 = phi i32 [ 0, %124 ], [ %149, %127 ]
-  %128 = sitofp i32 %.080232 to float
+  %128 = uitofp i32 %.080232 to float
   %129 = fmul float %128, 0x400921FB60000000
   %130 = fdiv float %129, 1.800000e+02
   %131 = call float @cosf(float noundef %130) #34

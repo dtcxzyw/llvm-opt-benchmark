@@ -841,7 +841,7 @@ for.end.i:                                        ; preds = %for.end.loopexit.i,
   store i32 %add.i20.i, ptr %m_rand.i, align 8
   %shr.i21.i = lshr i32 %add.i20.i, 16
   %and.i22.i = and i32 %shr.i21.i, 32767
-  %conv.i = sitofp i32 %and.i22.i to double
+  %conv.i = uitofp i32 %and.i22.i to double
   %div.i = fdiv double %conv.i, 3.276700e+04
   %mul.i = fmul double %sum_prob.0.lcssa.i, %div.i
   %m_probs17.i = getelementptr inbounds i8, ptr %this, i64 712
@@ -956,7 +956,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
   store i32 %add.i20, ptr %m_rand, align 8
   %shr.i21 = lshr i32 %add.i20, 16
   %and.i22 = and i32 %shr.i21, 32767
-  %conv = sitofp i32 %and.i22 to double
+  %conv = uitofp i32 %and.i22 to double
   %div = fdiv double %conv, 3.276700e+04
   %mul = fmul double %sum_prob.0.lcssa, %div
   %m_probs17 = getelementptr inbounds i8, ptr %this, i64 712

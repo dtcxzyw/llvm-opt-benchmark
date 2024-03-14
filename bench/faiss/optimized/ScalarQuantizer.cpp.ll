@@ -2708,7 +2708,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec4bit
   %16 = and i32 %15, 4
   %17 = lshr i32 %14, %16
   %18 = and i32 %17, 15
-  %19 = sitofp i32 %18 to float
+  %19 = uitofp i32 %18 to float
   %20 = fadd float %19, 5.000000e-01
   %21 = fdiv float %20, 1.500000e+01
   %22 = load ptr, ptr %6, align 8
@@ -2917,7 +2917,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_117QuantizerTemplateINS0_9Codec4bit
   %16 = and i32 %15, 4
   %17 = lshr i32 %14, %16
   %18 = and i32 %17, 15
-  %19 = sitofp i32 %18 to float
+  %19 = uitofp i32 %18 to float
   %20 = fadd float %19, 5.000000e-01
   %21 = fdiv float %20, 1.500000e+01
   %22 = load float, ptr %6, align 8
@@ -3964,7 +3964,7 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17Quantiz
   %36 = shufflevector <2 x i32> %35, <2 x i32> poison, <2 x i32> zeroinitializer
   %37 = lshr <2 x i32> %34, %36
   %38 = and <2 x i32> %37, <i32 15, i32 15>
-  %39 = sitofp <2 x i32> %38 to <2 x float>
+  %39 = uitofp <2 x i32> %38 to <2 x float>
   %40 = fadd <2 x float> %39, <float 5.000000e-01, float 5.000000e-01>
   %41 = fdiv <2 x float> %40, <float 1.500000e+01, float 1.500000e+01>
   %42 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %41, <2 x float> %19, <2 x float> %21)
@@ -4022,7 +4022,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17Quanti
   %19 = and i32 %18, 4
   %20 = lshr i32 %17, %19
   %21 = and i32 %20, 15
-  %22 = sitofp i32 %21 to float
+  %22 = uitofp i32 %21 to float
   %23 = fadd float %22, 5.000000e-01
   %24 = fdiv float %23, 1.500000e+01
   %25 = tail call noundef float @llvm.fmuladd.f32(float %24, float %10, float %8)
@@ -4482,7 +4482,7 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17Quantiz
   %37 = shufflevector <2 x i32> %36, <2 x i32> poison, <2 x i32> zeroinitializer
   %38 = lshr <2 x i32> %35, %37
   %39 = and <2 x i32> %38, <i32 15, i32 15>
-  %40 = sitofp <2 x i32> %39 to <2 x float>
+  %40 = uitofp <2 x i32> %39 to <2 x float>
   %41 = fadd <2 x float> %40, <float 5.000000e-01, float 5.000000e-01>
   %42 = fdiv <2 x float> %41, <float 1.500000e+01, float 1.500000e+01>
   %43 = insertelement <2 x float> poison, float %30, i64 0
@@ -4544,7 +4544,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17Quanti
   %19 = and i32 %18, 4
   %20 = lshr i32 %17, %19
   %21 = and i32 %20, 15
-  %22 = sitofp i32 %21 to float
+  %22 = uitofp i32 %21 to float
   %23 = fadd float %22, 5.000000e-01
   %24 = fdiv float %23, 1.500000e+01
   %sext.i = shl i64 %.024.i, 32
@@ -4759,7 +4759,7 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0
   br i1 %exitcond.not.i, label %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE21compute_code_distanceEPKhS6_.exit.loopexit, label %.lr.ph.i, !llvm.loop !57
 
 _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE21compute_code_distanceEPKhS6_.exit.loopexit: ; preds = %.lr.ph.i
-  %23 = sitofp i32 %22 to float
+  %23 = uitofp i32 %22 to float
   br label %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE21compute_code_distanceEPKhS6_.exit
 
 _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE21compute_code_distanceEPKhS6_.exit: ; preds = %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE21compute_code_distanceEPKhS6_.exit.loopexit, %3
@@ -4830,7 +4830,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS
   br i1 %exitcond.not.i, label %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE21compute_code_distanceEPKhS6_.exit.loopexit, label %.lr.ph.i, !llvm.loop !57
 
 _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE21compute_code_distanceEPKhS6_.exit.loopexit: ; preds = %.lr.ph.i
-  %16 = sitofp i32 %15 to float
+  %16 = uitofp i32 %15 to float
   br label %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE21compute_code_distanceEPKhS6_.exit
 
 _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE21compute_code_distanceEPKhS6_.exit: ; preds = %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE21compute_code_distanceEPKhS6_.exit.loopexit, %2
@@ -5076,7 +5076,7 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17Quantiz
   %26 = and i32 %25, 4
   %27 = lshr i32 %24, %26
   %28 = and i32 %27, 15
-  %29 = sitofp i32 %28 to float
+  %29 = uitofp i32 %28 to float
   %30 = fadd float %29, 5.000000e-01
   %31 = fdiv float %30, 1.500000e+01
   %32 = tail call noundef float @llvm.fmuladd.f32(float %31, float %17, float %15)
@@ -5085,7 +5085,7 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17Quantiz
   %35 = zext i8 %34 to i32
   %36 = lshr i32 %35, %26
   %37 = and i32 %36, 15
-  %38 = sitofp i32 %37 to float
+  %38 = uitofp i32 %37 to float
   %39 = fadd float %38, 5.000000e-01
   %40 = fdiv float %39, 1.500000e+01
   %41 = tail call noundef float @llvm.fmuladd.f32(float %40, float %17, float %15)
@@ -5140,7 +5140,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17Quanti
   %19 = and i32 %18, 4
   %20 = lshr i32 %17, %19
   %21 = and i32 %20, 15
-  %22 = sitofp i32 %21 to float
+  %22 = uitofp i32 %21 to float
   %23 = fadd float %22, 5.000000e-01
   %24 = fdiv float %23, 1.500000e+01
   %25 = tail call noundef float @llvm.fmuladd.f32(float %24, float %10, float %8)
@@ -5579,7 +5579,7 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17Quantiz
   %26 = and i32 %25, 4
   %27 = lshr i32 %24, %26
   %28 = and i32 %27, 15
-  %29 = sitofp i32 %28 to float
+  %29 = uitofp i32 %28 to float
   %30 = fadd float %29, 5.000000e-01
   %31 = fdiv float %30, 1.500000e+01
   %sext.i = shl i64 %.033.i, 32
@@ -5594,7 +5594,7 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_110DCTemplateINS0_17Quantiz
   %40 = zext i8 %39 to i32
   %41 = lshr i32 %40, %26
   %42 = and i32 %41, 15
-  %43 = sitofp i32 %42 to float
+  %43 = uitofp i32 %42 to float
   %44 = fadd float %43, 5.000000e-01
   %45 = fdiv float %44, 1.500000e+01
   %46 = tail call noundef float @llvm.fmuladd.f32(float %45, float %36, float %34)
@@ -5649,7 +5649,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17Quanti
   %19 = and i32 %18, 4
   %20 = lshr i32 %17, %19
   %21 = and i32 %20, 15
-  %22 = sitofp i32 %21 to float
+  %22 = uitofp i32 %21 to float
   %23 = fadd float %22, 5.000000e-01
   %24 = fdiv float %23, 1.500000e+01
   %sext.i = shl i64 %.022.i, 32
@@ -5874,7 +5874,7 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_120DistanceComputerByteINS0
   br i1 %exitcond.not.i, label %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE21compute_code_distanceEPKhS6_.exit.loopexit, label %.lr.ph.i, !llvm.loop !73
 
 _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE21compute_code_distanceEPKhS6_.exit.loopexit: ; preds = %.lr.ph.i
-  %22 = sitofp i32 %21 to float
+  %22 = uitofp i32 %21 to float
   br label %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE21compute_code_distanceEPKhS6_.exit
 
 _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE21compute_code_distanceEPKhS6_.exit: ; preds = %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE21compute_code_distanceEPKhS6_.exit.loopexit, %3
@@ -5944,7 +5944,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS
   br i1 %exitcond.not.i, label %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE21compute_code_distanceEPKhS6_.exit.loopexit, label %.lr.ph.i, !llvm.loop !73
 
 _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE21compute_code_distanceEPKhS6_.exit.loopexit: ; preds = %.lr.ph.i
-  %15 = sitofp i32 %14 to float
+  %15 = uitofp i32 %14 to float
   br label %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE21compute_code_distanceEPKhS6_.exit
 
 _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE21compute_code_distanceEPKhS6_.exit: ; preds = %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE21compute_code_distanceEPKhS6_.exit.loopexit, %2
@@ -10356,7 +10356,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DC
   %19 = and i32 %18, 4
   %20 = lshr i32 %17, %19
   %21 = and i32 %20, 15
-  %22 = sitofp i32 %21 to float
+  %22 = uitofp i32 %21 to float
   %23 = fadd float %22, 5.000000e-01
   %24 = fdiv float %23, 1.500000e+01
   %25 = tail call noundef float @llvm.fmuladd.f32(float %24, float %10, float %8)
@@ -10428,7 +10428,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTe
   %37 = and i32 %36, 4
   %38 = lshr i32 %35, %37
   %39 = and i32 %38, 15
-  %40 = sitofp i32 %39 to float
+  %40 = uitofp i32 %39 to float
   %41 = fadd float %40, 5.000000e-01
   %42 = fdiv float %41, 1.500000e+01
   %43 = tail call noundef float @llvm.fmuladd.f32(float %42, float %28, float %27)
@@ -10605,7 +10605,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateI
   %33 = and i32 %32, 4
   %34 = lshr i32 %31, %33
   %35 = and i32 %34, 15
-  %36 = sitofp i32 %35 to float
+  %36 = uitofp i32 %35 to float
   %37 = fadd float %36, 5.000000e-01
   %38 = fdiv float %37, 1.500000e+01
   %39 = tail call noundef float @llvm.fmuladd.f32(float %38, float %24, float %23)
@@ -10771,7 +10771,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DC
   %19 = and i32 %18, 4
   %20 = lshr i32 %17, %19
   %21 = and i32 %20, 15
-  %22 = sitofp i32 %21 to float
+  %22 = uitofp i32 %21 to float
   %23 = fadd float %22, 5.000000e-01
   %24 = fdiv float %23, 1.500000e+01
   %25 = tail call noundef float @llvm.fmuladd.f32(float %24, float %10, float %8)
@@ -10845,7 +10845,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTe
   %39 = and i32 %38, 4
   %40 = lshr i32 %37, %39
   %41 = and i32 %40, 15
-  %42 = sitofp i32 %41 to float
+  %42 = uitofp i32 %41 to float
   %43 = fadd float %42, 5.000000e-01
   %44 = fdiv float %43, 1.500000e+01
   %45 = tail call noundef float @llvm.fmuladd.f32(float %44, float %30, float %29)
@@ -11023,7 +11023,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateI
   %35 = and i32 %34, 4
   %36 = lshr i32 %33, %35
   %37 = and i32 %36, 15
-  %38 = sitofp i32 %37 to float
+  %38 = uitofp i32 %37 to float
   %39 = fadd float %38, 5.000000e-01
   %40 = fdiv float %39, 1.500000e+01
   %41 = tail call noundef float @llvm.fmuladd.f32(float %40, float %26, float %25)
@@ -11188,7 +11188,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DC
   %19 = and i32 %18, 4
   %20 = lshr i32 %17, %19
   %21 = and i32 %20, 15
-  %22 = sitofp i32 %21 to float
+  %22 = uitofp i32 %21 to float
   %23 = fadd float %22, 5.000000e-01
   %24 = fdiv float %23, 1.500000e+01
   %25 = tail call noundef float @llvm.fmuladd.f32(float %24, float %10, float %8)
@@ -11252,7 +11252,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTe
   %31 = and i32 %30, 4
   %32 = lshr i32 %29, %31
   %33 = and i32 %32, 15
-  %34 = sitofp i32 %33 to float
+  %34 = uitofp i32 %33 to float
   %35 = fadd float %34, 5.000000e-01
   %36 = fdiv float %35, 1.500000e+01
   %37 = tail call noundef float @llvm.fmuladd.f32(float %36, float %22, float %21)
@@ -11421,7 +11421,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateI
   %27 = and i32 %26, 4
   %28 = lshr i32 %25, %27
   %29 = and i32 %28, 15
-  %30 = sitofp i32 %29 to float
+  %30 = uitofp i32 %29 to float
   %31 = fadd float %30, 5.000000e-01
   %32 = fdiv float %31, 1.500000e+01
   %33 = tail call noundef float @llvm.fmuladd.f32(float %32, float %18, float %17)
@@ -12876,7 +12876,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DC
   %19 = and i32 %18, 4
   %20 = lshr i32 %17, %19
   %21 = and i32 %20, 15
-  %22 = sitofp i32 %21 to float
+  %22 = uitofp i32 %21 to float
   %23 = fadd float %22, 5.000000e-01
   %24 = fdiv float %23, 1.500000e+01
   %sext.i.i = shl i64 %.024.i.i, 32
@@ -12954,7 +12954,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTe
   %37 = and i32 %36, 4
   %38 = lshr i32 %35, %37
   %39 = and i32 %38, 15
-  %40 = sitofp i32 %39 to float
+  %40 = uitofp i32 %39 to float
   %41 = fadd float %40, 5.000000e-01
   %42 = fdiv float %41, 1.500000e+01
   %sext.i.i = shl i64 %.024.i.i, 32
@@ -13137,7 +13137,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateI
   %33 = and i32 %32, 4
   %34 = lshr i32 %31, %33
   %35 = and i32 %34, 15
-  %36 = sitofp i32 %35 to float
+  %36 = uitofp i32 %35 to float
   %37 = fadd float %36, 5.000000e-01
   %38 = fdiv float %37, 1.500000e+01
   %sext.i.i = shl i64 %.024.i.i, 32
@@ -13309,7 +13309,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DC
   %19 = and i32 %18, 4
   %20 = lshr i32 %17, %19
   %21 = and i32 %20, 15
-  %22 = sitofp i32 %21 to float
+  %22 = uitofp i32 %21 to float
   %23 = fadd float %22, 5.000000e-01
   %24 = fdiv float %23, 1.500000e+01
   %sext.i.i = shl i64 %.024.i.i, 32
@@ -13389,7 +13389,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTe
   %39 = and i32 %38, 4
   %40 = lshr i32 %37, %39
   %41 = and i32 %40, 15
-  %42 = sitofp i32 %41 to float
+  %42 = uitofp i32 %41 to float
   %43 = fadd float %42, 5.000000e-01
   %44 = fdiv float %43, 1.500000e+01
   %sext.i.i = shl i64 %.024.i.i, 32
@@ -13573,7 +13573,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateI
   %35 = and i32 %34, 4
   %36 = lshr i32 %33, %35
   %37 = and i32 %36, 15
-  %38 = sitofp i32 %37 to float
+  %38 = uitofp i32 %37 to float
   %39 = fadd float %38, 5.000000e-01
   %40 = fdiv float %39, 1.500000e+01
   %sext.i.i = shl i64 %.024.i.i, 32
@@ -13744,7 +13744,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DC
   %19 = and i32 %18, 4
   %20 = lshr i32 %17, %19
   %21 = and i32 %20, 15
-  %22 = sitofp i32 %21 to float
+  %22 = uitofp i32 %21 to float
   %23 = fadd float %22, 5.000000e-01
   %24 = fdiv float %23, 1.500000e+01
   %sext.i.i = shl i64 %.024.i.i, 32
@@ -13814,7 +13814,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTe
   %31 = and i32 %30, 4
   %32 = lshr i32 %29, %31
   %33 = and i32 %32, 15
-  %34 = sitofp i32 %33 to float
+  %34 = uitofp i32 %33 to float
   %35 = fadd float %34, 5.000000e-01
   %36 = fdiv float %35, 1.500000e+01
   %sext.i.i = shl i64 %.024.i.i, 32
@@ -13989,7 +13989,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_10DCTemplateI
   %27 = and i32 %26, 4
   %28 = lshr i32 %25, %27
   %29 = and i32 %28, 15
-  %30 = sitofp i32 %29 to float
+  %30 = uitofp i32 %29 to float
   %31 = fadd float %30, 5.000000e-01
   %32 = fdiv float %31, 1.500000e+01
   %sext.i.i = shl i64 %.024.i.i, 32
@@ -17135,7 +17135,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20Di
   br i1 %exitcond.not.i.i, label %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE21compute_code_distanceEPKhS6_.exit.loopexit.i, label %.lr.ph.i.i, !llvm.loop !57
 
 _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE21compute_code_distanceEPKhS6_.exit.loopexit.i: ; preds = %.lr.ph.i.i
-  %16 = sitofp i32 %15 to float
+  %16 = uitofp i32 %15 to float
   br label %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit
 
 _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit: ; preds = %2, %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE21compute_code_distanceEPKhS6_.exit.loopexit.i
@@ -17198,7 +17198,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20Dist
   br i1 %exitcond.not.i.i.us, label %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE21compute_code_distanceEPKhS6_.exit.loopexit.i.us, label %.lr.ph.i.i.us, !llvm.loop !57
 
 _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE21compute_code_distanceEPKhS6_.exit.loopexit.i.us: ; preds = %.lr.ph.i.i.us
-  %33 = sitofp i32 %32 to float
+  %33 = uitofp i32 %32 to float
   br label %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit.us
 
 _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit.us: ; preds = %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE21compute_code_distanceEPKhS6_.exit.loopexit.i.us, %21
@@ -17276,7 +17276,7 @@ _ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit.us: ; preds = %43, %39
   br i1 %exitcond.not.i.i, label %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE21compute_code_distanceEPKhS6_.exit.loopexit.i, label %.lr.ph.i.i, !llvm.loop !57
 
 _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE21compute_code_distanceEPKhS6_.exit.loopexit.i: ; preds = %.lr.ph.i.i
-  %68 = sitofp i32 %67 to float
+  %68 = uitofp i32 %67 to float
   br label %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit
 
 _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit: ; preds = %56, %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE21compute_code_distanceEPKhS6_.exit.loopexit.i
@@ -17444,7 +17444,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20DistanceCom
   br i1 %exitcond.not.i.i, label %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE21compute_code_distanceEPKhS6_.exit.loopexit.i, label %.lr.ph.i.i, !llvm.loop !57
 
 _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE21compute_code_distanceEPKhS6_.exit.loopexit.i: ; preds = %.lr.ph.i.i
-  %30 = sitofp i32 %29 to float
+  %30 = uitofp i32 %29 to float
   br label %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit
 
 _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit: ; preds = %18, %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE21compute_code_distanceEPKhS6_.exit.loopexit.i
@@ -17687,7 +17687,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20Di
   br i1 %exitcond.not.i.i, label %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE21compute_code_distanceEPKhS6_.exit.loopexit.i, label %.lr.ph.i.i, !llvm.loop !57
 
 _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE21compute_code_distanceEPKhS6_.exit.loopexit.i: ; preds = %.lr.ph.i.i
-  %16 = sitofp i32 %15 to float
+  %16 = uitofp i32 %15 to float
   br label %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit
 
 _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit: ; preds = %2, %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE21compute_code_distanceEPKhS6_.exit.loopexit.i
@@ -17752,7 +17752,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20Dist
   br i1 %exitcond.not.i.i.us, label %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE21compute_code_distanceEPKhS6_.exit.loopexit.i.us, label %.lr.ph.i.i.us, !llvm.loop !57
 
 _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE21compute_code_distanceEPKhS6_.exit.loopexit.i.us: ; preds = %.lr.ph.i.i.us
-  %35 = sitofp i32 %34 to float
+  %35 = uitofp i32 %34 to float
   br label %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit.us
 
 _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit.us: ; preds = %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE21compute_code_distanceEPKhS6_.exit.loopexit.i.us, %23
@@ -17831,7 +17831,7 @@ _ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit.us: ; preds = %45, %41
   br i1 %exitcond.not.i.i, label %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE21compute_code_distanceEPKhS6_.exit.loopexit.i, label %.lr.ph.i.i, !llvm.loop !57
 
 _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE21compute_code_distanceEPKhS6_.exit.loopexit.i: ; preds = %.lr.ph.i.i
-  %71 = sitofp i32 %70 to float
+  %71 = uitofp i32 %70 to float
   br label %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit
 
 _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit: ; preds = %59, %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE21compute_code_distanceEPKhS6_.exit.loopexit.i
@@ -18000,7 +18000,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20DistanceCom
   br i1 %exitcond.not.i.i, label %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE21compute_code_distanceEPKhS6_.exit.loopexit.i, label %.lr.ph.i.i, !llvm.loop !57
 
 _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE21compute_code_distanceEPKhS6_.exit.loopexit.i: ; preds = %.lr.ph.i.i
-  %32 = sitofp i32 %31 to float
+  %32 = uitofp i32 %31 to float
   br label %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit
 
 _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit: ; preds = %20, %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE21compute_code_distanceEPKhS6_.exit.loopexit.i
@@ -18242,7 +18242,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20Di
   br i1 %exitcond.not.i.i, label %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE21compute_code_distanceEPKhS6_.exit.loopexit.i, label %.lr.ph.i.i, !llvm.loop !57
 
 _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE21compute_code_distanceEPKhS6_.exit.loopexit.i: ; preds = %.lr.ph.i.i
-  %16 = sitofp i32 %15 to float
+  %16 = uitofp i32 %15 to float
   br label %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit
 
 _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit: ; preds = %2, %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE21compute_code_distanceEPKhS6_.exit.loopexit.i
@@ -18297,7 +18297,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20Dist
   br i1 %exitcond.not.i.i.us, label %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE21compute_code_distanceEPKhS6_.exit.loopexit.i.us, label %.lr.ph.i.i.us, !llvm.loop !57
 
 _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE21compute_code_distanceEPKhS6_.exit.loopexit.i.us: ; preds = %.lr.ph.i.i.us
-  %27 = sitofp i32 %26 to float
+  %27 = uitofp i32 %26 to float
   br label %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit.us
 
 _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit.us: ; preds = %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE21compute_code_distanceEPKhS6_.exit.loopexit.i.us, %.lr.ph.split.us
@@ -18368,7 +18368,7 @@ _ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit.us: ; preds = %37, %33
   br i1 %exitcond.not.i.i, label %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE21compute_code_distanceEPKhS6_.exit.loopexit.i, label %.lr.ph.i.i, !llvm.loop !57
 
 _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE21compute_code_distanceEPKhS6_.exit.loopexit.i: ; preds = %.lr.ph.i.i
-  %57 = sitofp i32 %56 to float
+  %57 = uitofp i32 %56 to float
   br label %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit
 
 _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit: ; preds = %.lr.ph.split, %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE21compute_code_distanceEPKhS6_.exit.loopexit.i
@@ -18528,7 +18528,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerL2INS0_20DistanceCom
   br i1 %exitcond.not.i.i, label %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE21compute_code_distanceEPKhS6_.exit.loopexit.i, label %.lr.ph.i.i, !llvm.loop !57
 
 _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE21compute_code_distanceEPKhS6_.exit.loopexit.i: ; preds = %.lr.ph.i.i
-  %24 = sitofp i32 %23 to float
+  %24 = uitofp i32 %23 to float
   br label %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit
 
 _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE13query_to_codeEPKh.exit: ; preds = %12, %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityL2ILi1EEELi1EE21compute_code_distanceEPKhS6_.exit.loopexit.i
@@ -21115,7 +21115,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DC
   %21 = and i32 %20, 4
   %22 = lshr i32 %19, %21
   %23 = and i32 %22, 15
-  %24 = sitofp i32 %23 to float
+  %24 = uitofp i32 %23 to float
   %25 = fadd float %24, 5.000000e-01
   %26 = fdiv float %25, 1.500000e+01
   %27 = tail call noundef float @llvm.fmuladd.f32(float %26, float %12, float %10)
@@ -21189,7 +21189,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTe
   %39 = and i32 %38, 4
   %40 = lshr i32 %37, %39
   %41 = and i32 %40, 15
-  %42 = sitofp i32 %41 to float
+  %42 = uitofp i32 %41 to float
   %43 = fadd float %42, 5.000000e-01
   %44 = fdiv float %43, 1.500000e+01
   %45 = tail call noundef float @llvm.fmuladd.f32(float %44, float %30, float %29)
@@ -21368,7 +21368,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateI
   %35 = and i32 %34, 4
   %36 = lshr i32 %33, %35
   %37 = and i32 %36, 15
-  %38 = sitofp i32 %37 to float
+  %38 = uitofp i32 %37 to float
   %39 = fadd float %38, 5.000000e-01
   %40 = fdiv float %39, 1.500000e+01
   %41 = tail call noundef float @llvm.fmuladd.f32(float %40, float %26, float %25)
@@ -21482,7 +21482,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DC
   %21 = and i32 %20, 4
   %22 = lshr i32 %19, %21
   %23 = and i32 %22, 15
-  %24 = sitofp i32 %23 to float
+  %24 = uitofp i32 %23 to float
   %25 = fadd float %24, 5.000000e-01
   %26 = fdiv float %25, 1.500000e+01
   %27 = tail call noundef float @llvm.fmuladd.f32(float %26, float %12, float %10)
@@ -21558,7 +21558,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTe
   %41 = and i32 %40, 4
   %42 = lshr i32 %39, %41
   %43 = and i32 %42, 15
-  %44 = sitofp i32 %43 to float
+  %44 = uitofp i32 %43 to float
   %45 = fadd float %44, 5.000000e-01
   %46 = fdiv float %45, 1.500000e+01
   %47 = tail call noundef float @llvm.fmuladd.f32(float %46, float %32, float %31)
@@ -21738,7 +21738,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateI
   %37 = and i32 %36, 4
   %38 = lshr i32 %35, %37
   %39 = and i32 %38, 15
-  %40 = sitofp i32 %39 to float
+  %40 = uitofp i32 %39 to float
   %41 = fadd float %40, 5.000000e-01
   %42 = fdiv float %41, 1.500000e+01
   %43 = tail call noundef float @llvm.fmuladd.f32(float %42, float %28, float %27)
@@ -21851,7 +21851,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DC
   %21 = and i32 %20, 4
   %22 = lshr i32 %19, %21
   %23 = and i32 %22, 15
-  %24 = sitofp i32 %23 to float
+  %24 = uitofp i32 %23 to float
   %25 = fadd float %24, 5.000000e-01
   %26 = fdiv float %25, 1.500000e+01
   %27 = tail call noundef float @llvm.fmuladd.f32(float %26, float %12, float %10)
@@ -21917,7 +21917,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTe
   %33 = and i32 %32, 4
   %34 = lshr i32 %31, %33
   %35 = and i32 %34, 15
-  %36 = sitofp i32 %35 to float
+  %36 = uitofp i32 %35 to float
   %37 = fadd float %36, 5.000000e-01
   %38 = fdiv float %37, 1.500000e+01
   %39 = tail call noundef float @llvm.fmuladd.f32(float %38, float %24, float %23)
@@ -22088,7 +22088,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateI
   %29 = and i32 %28, 4
   %30 = lshr i32 %27, %29
   %31 = and i32 %30, 15
-  %32 = sitofp i32 %31 to float
+  %32 = uitofp i32 %31 to float
   %33 = fadd float %32, 5.000000e-01
   %34 = fdiv float %33, 1.500000e+01
   %35 = tail call noundef float @llvm.fmuladd.f32(float %34, float %20, float %19)
@@ -23271,7 +23271,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DC
   %21 = and i32 %20, 4
   %22 = lshr i32 %19, %21
   %23 = and i32 %22, 15
-  %24 = sitofp i32 %23 to float
+  %24 = uitofp i32 %23 to float
   %25 = fadd float %24, 5.000000e-01
   %26 = fdiv float %25, 1.500000e+01
   %sext.i.i = shl i64 %.022.i.i, 32
@@ -23351,7 +23351,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTe
   %39 = and i32 %38, 4
   %40 = lshr i32 %37, %39
   %41 = and i32 %40, 15
-  %42 = sitofp i32 %41 to float
+  %42 = uitofp i32 %41 to float
   %43 = fadd float %42, 5.000000e-01
   %44 = fdiv float %43, 1.500000e+01
   %sext.i.i = shl i64 %.022.i.i, 32
@@ -23536,7 +23536,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateI
   %35 = and i32 %34, 4
   %36 = lshr i32 %33, %35
   %37 = and i32 %36, 15
-  %38 = sitofp i32 %37 to float
+  %38 = uitofp i32 %37 to float
   %39 = fadd float %38, 5.000000e-01
   %40 = fdiv float %39, 1.500000e+01
   %sext.i.i = shl i64 %.022.i.i, 32
@@ -23656,7 +23656,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DC
   %21 = and i32 %20, 4
   %22 = lshr i32 %19, %21
   %23 = and i32 %22, 15
-  %24 = sitofp i32 %23 to float
+  %24 = uitofp i32 %23 to float
   %25 = fadd float %24, 5.000000e-01
   %26 = fdiv float %25, 1.500000e+01
   %sext.i.i = shl i64 %.022.i.i, 32
@@ -23738,7 +23738,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTe
   %41 = and i32 %40, 4
   %42 = lshr i32 %39, %41
   %43 = and i32 %42, 15
-  %44 = sitofp i32 %43 to float
+  %44 = uitofp i32 %43 to float
   %45 = fadd float %44, 5.000000e-01
   %46 = fdiv float %45, 1.500000e+01
   %sext.i.i = shl i64 %.022.i.i, 32
@@ -23924,7 +23924,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateI
   %37 = and i32 %36, 4
   %38 = lshr i32 %35, %37
   %39 = and i32 %38, 15
-  %40 = sitofp i32 %39 to float
+  %40 = uitofp i32 %39 to float
   %41 = fadd float %40, 5.000000e-01
   %42 = fdiv float %41, 1.500000e+01
   %sext.i.i = shl i64 %.022.i.i, 32
@@ -24043,7 +24043,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DC
   %21 = and i32 %20, 4
   %22 = lshr i32 %19, %21
   %23 = and i32 %22, 15
-  %24 = sitofp i32 %23 to float
+  %24 = uitofp i32 %23 to float
   %25 = fadd float %24, 5.000000e-01
   %26 = fdiv float %25, 1.500000e+01
   %sext.i.i = shl i64 %.022.i.i, 32
@@ -24115,7 +24115,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTe
   %33 = and i32 %32, 4
   %34 = lshr i32 %31, %33
   %35 = and i32 %34, 15
-  %36 = sitofp i32 %35 to float
+  %36 = uitofp i32 %35 to float
   %37 = fadd float %36, 5.000000e-01
   %38 = fdiv float %37, 1.500000e+01
   %sext.i.i = shl i64 %.022.i.i, 32
@@ -24292,7 +24292,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTemplateI
   %29 = and i32 %28, 4
   %30 = lshr i32 %27, %29
   %31 = and i32 %30, 15
-  %32 = sitofp i32 %31 to float
+  %32 = uitofp i32 %31 to float
   %33 = fadd float %32, 5.000000e-01
   %34 = fdiv float %33, 1.500000e+01
   %sext.i.i = shl i64 %.022.i.i, 32
@@ -27058,7 +27058,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_20Di
   br i1 %exitcond.not.i.i, label %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE21compute_code_distanceEPKhS6_.exit.loopexit.i, label %.lr.ph.i.i, !llvm.loop !73
 
 _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE21compute_code_distanceEPKhS6_.exit.loopexit.i: ; preds = %.lr.ph.i.i
-  %17 = sitofp i32 %16 to float
+  %17 = uitofp i32 %16 to float
   br label %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit
 
 _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit: ; preds = %2, %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE21compute_code_distanceEPKhS6_.exit.loopexit.i
@@ -27123,7 +27123,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_20Dist
   br i1 %exitcond.not.i.i.us, label %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE21compute_code_distanceEPKhS6_.exit.loopexit.i.us, label %.lr.ph.i.i.us, !llvm.loop !73
 
 _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE21compute_code_distanceEPKhS6_.exit.loopexit.i.us: ; preds = %.lr.ph.i.i.us
-  %34 = sitofp i32 %33 to float
+  %34 = uitofp i32 %33 to float
   br label %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit.us
 
 _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit.us: ; preds = %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE21compute_code_distanceEPKhS6_.exit.loopexit.i.us, %22
@@ -27202,7 +27202,7 @@ _ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us: ; preds = %45, %41
   br i1 %exitcond.not.i.i, label %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE21compute_code_distanceEPKhS6_.exit.loopexit.i, label %.lr.ph.i.i, !llvm.loop !73
 
 _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE21compute_code_distanceEPKhS6_.exit.loopexit.i: ; preds = %.lr.ph.i.i
-  %70 = sitofp i32 %69 to float
+  %70 = uitofp i32 %69 to float
   br label %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit
 
 _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit: ; preds = %58, %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE21compute_code_distanceEPKhS6_.exit.loopexit.i
@@ -27372,7 +27372,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_20DistanceCom
   br i1 %exitcond.not.i.i, label %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE21compute_code_distanceEPKhS6_.exit.loopexit.i, label %.lr.ph.i.i, !llvm.loop !73
 
 _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE21compute_code_distanceEPKhS6_.exit.loopexit.i: ; preds = %.lr.ph.i.i
-  %31 = sitofp i32 %30 to float
+  %31 = uitofp i32 %30 to float
   br label %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit
 
 _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit: ; preds = %19, %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE21compute_code_distanceEPKhS6_.exit.loopexit.i
@@ -27526,7 +27526,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_20Di
   br i1 %exitcond.not.i.i, label %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE21compute_code_distanceEPKhS6_.exit.loopexit.i, label %.lr.ph.i.i, !llvm.loop !73
 
 _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE21compute_code_distanceEPKhS6_.exit.loopexit.i: ; preds = %.lr.ph.i.i
-  %17 = sitofp i32 %16 to float
+  %17 = uitofp i32 %16 to float
   br label %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit
 
 _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit: ; preds = %2, %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE21compute_code_distanceEPKhS6_.exit.loopexit.i
@@ -27593,7 +27593,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_20Dist
   br i1 %exitcond.not.i.i.us, label %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE21compute_code_distanceEPKhS6_.exit.loopexit.i.us, label %.lr.ph.i.i.us, !llvm.loop !73
 
 _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE21compute_code_distanceEPKhS6_.exit.loopexit.i.us: ; preds = %.lr.ph.i.i.us
-  %36 = sitofp i32 %35 to float
+  %36 = uitofp i32 %35 to float
   br label %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit.us
 
 _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit.us: ; preds = %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE21compute_code_distanceEPKhS6_.exit.loopexit.i.us, %24
@@ -27673,7 +27673,7 @@ _ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us: ; preds = %47, %43
   br i1 %exitcond.not.i.i, label %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE21compute_code_distanceEPKhS6_.exit.loopexit.i, label %.lr.ph.i.i, !llvm.loop !73
 
 _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE21compute_code_distanceEPKhS6_.exit.loopexit.i: ; preds = %.lr.ph.i.i
-  %73 = sitofp i32 %72 to float
+  %73 = uitofp i32 %72 to float
   br label %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit
 
 _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit: ; preds = %61, %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE21compute_code_distanceEPKhS6_.exit.loopexit.i
@@ -27844,7 +27844,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_20DistanceCom
   br i1 %exitcond.not.i.i, label %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE21compute_code_distanceEPKhS6_.exit.loopexit.i, label %.lr.ph.i.i, !llvm.loop !73
 
 _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE21compute_code_distanceEPKhS6_.exit.loopexit.i: ; preds = %.lr.ph.i.i
-  %33 = sitofp i32 %32 to float
+  %33 = uitofp i32 %32 to float
   br label %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit
 
 _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit: ; preds = %21, %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE21compute_code_distanceEPKhS6_.exit.loopexit.i
@@ -27997,7 +27997,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_20Di
   br i1 %exitcond.not.i.i, label %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE21compute_code_distanceEPKhS6_.exit.loopexit.i, label %.lr.ph.i.i, !llvm.loop !73
 
 _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE21compute_code_distanceEPKhS6_.exit.loopexit.i: ; preds = %.lr.ph.i.i
-  %17 = sitofp i32 %16 to float
+  %17 = uitofp i32 %16 to float
   br label %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit
 
 _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit: ; preds = %2, %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE21compute_code_distanceEPKhS6_.exit.loopexit.i
@@ -28054,7 +28054,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_20Dist
   br i1 %exitcond.not.i.i.us, label %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE21compute_code_distanceEPKhS6_.exit.loopexit.i.us, label %.lr.ph.i.i.us, !llvm.loop !73
 
 _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE21compute_code_distanceEPKhS6_.exit.loopexit.i.us: ; preds = %.lr.ph.i.i.us
-  %28 = sitofp i32 %27 to float
+  %28 = uitofp i32 %27 to float
   br label %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit.us
 
 _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit.us: ; preds = %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE21compute_code_distanceEPKhS6_.exit.loopexit.i.us, %.lr.ph.split.us
@@ -28126,7 +28126,7 @@ _ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us: ; preds = %39, %35
   br i1 %exitcond.not.i.i, label %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE21compute_code_distanceEPKhS6_.exit.loopexit.i, label %.lr.ph.i.i, !llvm.loop !73
 
 _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE21compute_code_distanceEPKhS6_.exit.loopexit.i: ; preds = %.lr.ph.i.i
-  %59 = sitofp i32 %58 to float
+  %59 = uitofp i32 %58 to float
   br label %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit
 
 _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit: ; preds = %.lr.ph.split, %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE21compute_code_distanceEPKhS6_.exit.loopexit.i
@@ -28288,7 +28288,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_20DistanceCom
   br i1 %exitcond.not.i.i, label %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE21compute_code_distanceEPKhS6_.exit.loopexit.i, label %.lr.ph.i.i, !llvm.loop !73
 
 _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE21compute_code_distanceEPKhS6_.exit.loopexit.i: ; preds = %.lr.ph.i.i
-  %25 = sitofp i32 %24 to float
+  %25 = uitofp i32 %24 to float
   br label %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit
 
 _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit: ; preds = %13, %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE21compute_code_distanceEPKhS6_.exit.loopexit.i

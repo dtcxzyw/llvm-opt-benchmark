@@ -2172,7 +2172,7 @@ Abc_TtCountOnes2.exit.i:                          ; preds = %28, %.lr.ph.i33
   br i1 %exitcond.not.i36, label %Abc_TtCountOnesVec.exit, label %.lr.ph.i33, !llvm.loop !36
 
 Abc_TtCountOnesVec.exit:                          ; preds = %Abc_TtCountOnes2.exit.i
-  %49 = sitofp i32 %48 to double
+  %49 = uitofp i32 %48 to double
   %50 = fmul double %49, 1.000000e+02
   %51 = shl nsw i32 %7, 6
   %52 = sitofp i32 %51 to double
@@ -2877,7 +2877,7 @@ Abc_TtCountOnes2.exit.i:                          ; preds = %11, %.lr.ph.i
   br i1 %exitcond.not.i, label %Abc_TtCountOnesVec.exit.loopexit, label %.lr.ph.i, !llvm.loop !36
 
 Abc_TtCountOnesVec.exit.loopexit:                 ; preds = %Abc_TtCountOnes2.exit.i
-  %32 = sitofp i32 %31 to float
+  %32 = uitofp i32 %31 to float
   br label %Abc_TtCountOnesVec.exit
 
 Abc_TtCountOnesVec.exit:                          ; preds = %Abc_TtCountOnesVec.exit.loopexit, %3
@@ -2965,7 +2965,7 @@ Abc_TtCountOnes2.exit.i:                          ; preds = %20, %.lr.ph.i
   br i1 %exitcond.not.i, label %Abc_TtCountOnesVec.exit.loopexit, label %.lr.ph.i, !llvm.loop !36
 
 Abc_TtCountOnesVec.exit.loopexit:                 ; preds = %Abc_TtCountOnes2.exit.i
-  %41 = sitofp i32 %40 to float
+  %41 = uitofp i32 %40 to float
   br label %Abc_TtCountOnesVec.exit
 
 Abc_TtCountOnesVec.exit:                          ; preds = %Abc_TtCountOnesVec.exit.loopexit, %.split19
@@ -3023,7 +3023,7 @@ Abc_TtCountOnes2.exit.i32:                        ; preds = %52, %.lr.ph.i28
   br i1 %exitcond.not.i34, label %Abc_TtCountOnesVec.exit35.loopexit, label %.lr.ph.i28, !llvm.loop !36
 
 Abc_TtCountOnesVec.exit35.loopexit:               ; preds = %Abc_TtCountOnes2.exit.i32
-  %73 = sitofp i32 %72 to float
+  %73 = uitofp i32 %72 to float
   br label %Abc_TtCountOnesVec.exit35
 
 Abc_TtCountOnesVec.exit35:                        ; preds = %Abc_TtCountOnesVec.exit35.loopexit, %Abc_TtCountOnesVec.exit
@@ -3274,7 +3274,7 @@ Abc_TtCountOnes2.exit.i:                          ; preds = %22, %.lr.ph.i
   br i1 %exitcond.not.i, label %Abc_TtCountOnesVec.exit.loopexit, label %.lr.ph.i, !llvm.loop !36
 
 Abc_TtCountOnesVec.exit.loopexit:                 ; preds = %Abc_TtCountOnes2.exit.i
-  %43 = sitofp i32 %42 to float
+  %43 = uitofp i32 %42 to float
   br label %Abc_TtCountOnesVec.exit
 
 Abc_TtCountOnesVec.exit:                          ; preds = %Abc_TtCountOnesVec.exit.loopexit, %16
@@ -5113,7 +5113,7 @@ Abc_TtCountOnes2.exit.i:                          ; preds = %45, %.lr.ph.i
   br i1 %exitcond.not.i, label %Abc_TtCountOnesVec.exit.loopexit, label %.lr.ph.i, !llvm.loop !36
 
 Abc_TtCountOnesVec.exit.loopexit:                 ; preds = %Abc_TtCountOnes2.exit.i
-  %66 = sitofp i32 %65 to float
+  %66 = uitofp i32 %65 to float
   br label %Abc_TtCountOnesVec.exit
 
 Abc_TtCountOnesVec.exit:                          ; preds = %Abc_TtCountOnesVec.exit.loopexit, %39

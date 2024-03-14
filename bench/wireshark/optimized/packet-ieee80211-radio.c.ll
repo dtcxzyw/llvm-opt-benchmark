@@ -345,7 +345,7 @@ define hidden float @ieee80211_htrate(i32 noundef %0, i32 noundef %1, i32 nounde
   %.not = icmp eq i32 %1, 0
   %8 = select i1 %.not, i32 52, i32 108
   %9 = mul nuw nsw i32 %8, %7
-  %10 = sitofp i32 %9 to double
+  %10 = uitofp i32 %9 to double
   %11 = fdiv double %10, 5.200000e+01
   %.not3 = icmp eq i32 %2, 0
   %12 = select i1 %.not3, double 4.000000e+00, double 3.600000e+00
@@ -849,7 +849,7 @@ define internal fastcc void @dissect_wlan_radio_phdr(ptr noundef %0, ptr noundef
   %202 = zext i16 %201 to i32
   %203 = select i1 %.not846, i32 108, i32 52
   %204 = mul nuw nsw i32 %203, %202
-  %205 = sitofp i32 %204 to double
+  %205 = uitofp i32 %204 to double
   %206 = fdiv double %205, 5.200000e+01
   %.not3.i = icmp eq i8 %198, 0
   %207 = select i1 %.not3.i, double 4.000000e+00, double 3.600000e+00

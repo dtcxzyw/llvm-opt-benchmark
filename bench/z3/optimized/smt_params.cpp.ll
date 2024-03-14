@@ -2407,7 +2407,7 @@ entry:
   %0 = load i32, ptr %m_num_quantifiers_with_patterns, align 4
   %cmp = icmp eq i32 %0, 0
   %cond = select i1 %cmp, i32 5, i32 7
-  %conv = sitofp i32 %cond to double
+  %conv = uitofp i32 %cond to double
   %m_qi_eager_threshold = getelementptr inbounds i8, ptr %this, i64 168
   store double %conv, ptr %m_qi_eager_threshold, align 8
   ret void

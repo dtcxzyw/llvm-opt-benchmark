@@ -308,7 +308,7 @@ is_power_of_2.exit.i:                             ; preds = %30
   store ptr %11, ptr %43, align 8
   %44 = getelementptr inbounds i8, ptr %42, i64 24
   store i32 %10, ptr %44, align 8
-  %45 = sitofp i32 %29 to double
+  %45 = uitofp i32 %29 to double
   %square.i = fmul double %45, %45
   %46 = fptosi double %square.i to i32
   %47 = load i32, ptr @verbose_level, align 4
@@ -470,7 +470,7 @@ ilog2.exit.i.i:                                   ; preds = %.lr.ph.i.i.i, %._cr
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i95.i ], [ %98, %ilog2.exit.i.i ]
   %.027.i.i = phi i32 [ %127, %.lr.ph.i95.i ], [ 0, %ilog2.exit.i.i ]
   %127 = add nuw i32 %.027.i.i, 1
-  %128 = sitofp i32 %.027.i.i to double
+  %128 = uitofp i32 %.027.i.i to double
   %129 = getelementptr inbounds double, ptr %121, i64 %indvars.iv.i.i
   store double %128, ptr %129, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1

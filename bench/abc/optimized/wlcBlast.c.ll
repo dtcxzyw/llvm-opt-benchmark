@@ -11993,7 +11993,7 @@ Wlc_ObjFaninId.exit2891:                          ; preds = %Wlc_ObjFaninId2.exi
   %591 = insertelement <2 x i32> %590, i32 %581, i64 1
   %592 = sitofp <2 x i32> %591 to <2 x float>
   store <2 x float> %592, ptr %589, align 4
-  %593 = sitofp i32 %442 to float
+  %593 = uitofp i32 %442 to float
   %594 = getelementptr inbounds i8, ptr %589, i64 8
   store float %593, ptr %594, align 4
   %invariant.gep = getelementptr i8, ptr %589, i64 12
@@ -18865,11 +18865,12 @@ Wlc_ObjFaninId.exit3798:                          ; preds = %Wlc_ObjHasArray.exi
   %3552 = shl nuw nsw i64 %3551, 2
   %3553 = tail call noalias ptr @malloc(i64 noundef %3552) #20
   %.4.val = load i32, ptr %3547, align 4
-  %3554 = insertelement <2 x i32> poison, i32 %.4.val, i64 0
-  %3555 = insertelement <2 x i32> %3554, i32 %3526, i64 1
-  %3556 = sitofp <2 x i32> %3555 to <2 x float>
-  store <2 x float> %3556, ptr %3553, align 4
-  %3557 = sitofp i32 %3524 to float
+  %3554 = sitofp i32 %.4.val to float
+  store float %3554, ptr %3553, align 4
+  %3555 = uitofp i32 %3526 to float
+  %3556 = getelementptr inbounds i8, ptr %3553, i64 4
+  store float %3555, ptr %3556, align 4
+  %3557 = uitofp i32 %3524 to float
   %3558 = getelementptr inbounds i8, ptr %3553, i64 8
   store float %3557, ptr %3558, align 4
   %invariant.gep4870 = getelementptr i8, ptr %3553, i64 12

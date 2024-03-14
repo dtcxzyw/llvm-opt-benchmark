@@ -10337,7 +10337,7 @@ _ZN12_GLOBAL__N_111GliftWorker27add_imprecise_GLIFT_logic_4ERN5Yosys5RTLIL7SigSp
   br i1 %exitcond6465.not, label %1667, label %.preheader1860, !llvm.loop !149
 
 1667:                                             ; preds = %_ZN12_GLOBAL__N_111GliftWorker27add_imprecise_GLIFT_logic_4ERN5Yosys5RTLIL7SigSpecES4_.exit
-  %1668 = sitofp i32 %1064 to double
+  %1668 = uitofp i32 %1064 to double
   %1669 = call double @log2(double noundef %1668) #22
   %1670 = load ptr, ptr %166, align 8
   %1671 = load ptr, ptr %.sroa.01722.05570, align 8

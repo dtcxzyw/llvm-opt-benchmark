@@ -216,7 +216,7 @@ for.inc:                                          ; preds = %_ZNSt6vectorIPN4pbr
   %add.ptr.i.i.i.i.i.i.pn = phi ptr [ %add.ptr.i.i.i.i.i.i, %_ZNSt6vectorIPN4pbrt8SDVertexESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %vertices.sroa.9.02598, %if.then.i.i ]
   %vertices.sroa.0.1 = phi ptr [ %cond.i10.i.i.i, %_ZNSt6vectorIPN4pbrt8SDVertexESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %vertices.sroa.0.02599, %if.then.i.i ]
   %vertices.sroa.9.1 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.pn, i64 8
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %7 = load i64, ptr %n.i, align 8
   %cmp = icmp ugt i64 %7, %indvars.iv.next
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !8
@@ -1286,7 +1286,7 @@ _ZN4pbrt13InlinedVectorINS_6Point3IfEELi16EN4pstd3pmr21polymorphic_allocatorIS2_
           to label %invoke.cont11.lr.ph.i unwind label %lpad.i
 
 invoke.cont11.lr.ph.i:                            ; preds = %_ZN4pbrt13InlinedVectorINS_6Point3IfEELi16EN4pstd3pmr21polymorphic_allocatorIS2_EEEC2EmRKS6_.exit.i
-  %conv3.i = sitofp i32 %nf.0.i1727 to float
+  %conv3.i = uitofp i32 %nf.0.i1727 to float
   %mul.i = fmul float %conv3.i, 6.250000e-02
   %sub.i = fsub float 1.000000e+00, %mul.i
   %agg.tmp.sroa.0.0.copyload.i = load <2 x float>, ptr %82, align 8
@@ -1395,7 +1395,7 @@ while.body.i:                                     ; preds = %_ZN4pbrt6SDFace8nex
 
 while.cond.i1793.preheader:                       ; preds = %_ZN4pbrt6SDFace8nextFaceEPNS_8SDVertexE.exit.i
   %cmp.i382 = icmp eq i32 %nf.0.i, 3
-  %conv.i383 = sitofp i32 %nf.0.i to float
+  %conv.i383 = uitofp i32 %nf.0.i to float
   %mul.i384 = fmul float %conv.i383, 8.000000e+00
   %div.i = fdiv float 3.000000e+00, %mul.i384
   %retval.0.i385 = select i1 %cmp.i382, float 1.875000e-01, float %div.i
@@ -1480,7 +1480,7 @@ _ZN4pbrt13InlinedVectorINS_6Point3IfEELi16EN4pstd3pmr21polymorphic_allocatorIS2_
           to label %invoke.cont11.lr.ph.i439 unwind label %lpad.i411
 
 invoke.cont11.lr.ph.i439:                         ; preds = %_ZN4pbrt13InlinedVectorINS_6Point3IfEELi16EN4pstd3pmr21polymorphic_allocatorIS2_EEEC2EmRKS6_.exit.i408
-  %conv3.i413 = sitofp i32 %nf.0.i1795 to float
+  %conv3.i413 = uitofp i32 %nf.0.i1795 to float
   %mul.i414 = fmul float %retval.0.i385, %conv3.i413
   %sub.i415 = fsub float 1.000000e+00, %mul.i414
   %agg.tmp.sroa.0.0.copyload.i416 = load <2 x float>, ptr %82, align 8
@@ -3295,7 +3295,7 @@ invoke.cont702:                                   ; preds = %invoke.cont702.lr.p
   %S.sroa.0.12691 = phi <2 x float> [ zeroinitializer, %invoke.cont702.lr.ph ], [ %321, %invoke.cont702 ]
   %S.sroa.8.02690 = phi float [ 0.000000e+00, %invoke.cont702.lr.ph ], [ %add6.i1174, %invoke.cont702 ]
   %317 = trunc i64 %indvars.iv2972 to i32
-  %conv672 = sitofp i32 %317 to float
+  %conv672 = uitofp i32 %317 to float
   %mul = fmul float %conv672, 0x401921FB60000000
   %div674 = fdiv float %mul, %conv673
   %call.i1155 = call noundef float @cosf(float noundef %div674) #21
@@ -3436,7 +3436,7 @@ invoke.cont857:                                   ; preds = %invoke.cont857.preh
   %mul845 = fmul float %call.i1370, 2.000000e+00
   %sub846 = fadd float %mul845, -2.000000e+00
   %352 = trunc i64 %indvars.iv2968 to i32
-  %conv847 = sitofp i32 %352 to float
+  %conv847 = uitofp i32 %352 to float
   %mul848 = fmul float %div817, %conv847
   %call.i1371 = call noundef float @sinf(float noundef %mul848) #21
   %mul851 = fmul float %call.i1371, %sub846
