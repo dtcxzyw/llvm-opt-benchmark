@@ -251,7 +251,7 @@ while.end.i74:                                    ; preds = %if.end41.thread, %w
   %sub.ptr.rhs.cast.i76.pre-phi = phi i64 [ %.pre149, %while.end.i74.loopexit ], [ %sub.ptr.lhs.cast, %if.end41 ], [ %.pre150, %if.end41.thread ]
   %begin.addr.0.lcssa.i75 = phi ptr [ %begin.addr.0.lcssa.i75.ph, %while.end.i74.loopexit ], [ %begin.addr.1.lcssa, %if.end41 ], [ %incdec.ptr23, %if.end41.thread ]
   %sub.ptr.sub.i77 = sub i64 %end145, %sub.ptr.rhs.cast.i76.pre-phi
-  %conv2.i = sext i32 %digits_left.0 to i64
+  %conv2.i = zext nneg i32 %digits_left.0 to i64
   %cmp3.i78 = icmp sgt i64 %sub.ptr.sub.i77, %conv2.i
   %add.ptr.i79 = getelementptr inbounds i8, ptr %begin.addr.0.lcssa.i75, i64 %conv2.i
   %cond.i80 = select i1 %cmp3.i78, ptr %add.ptr.i79, ptr %end
@@ -411,13 +411,13 @@ land.lhs.true87:                                  ; preds = %land.lhs.true80
   br label %if.end93
 
 if.end93:                                         ; preds = %land.lhs.true87, %if.then77, %if.then83
-  %negative_exponent.0 = phi i1 [ false, %if.then83 ], [ true, %land.lhs.true87 ], [ true, %if.then77 ]
+  %negative_exponent.0.not = phi i1 [ false, %if.then83 ], [ true, %land.lhs.true87 ], [ true, %if.then77 ]
   %begin.addr.4 = phi ptr [ %incdec.ptr84, %if.then83 ], [ %spec.select, %land.lhs.true87 ], [ %incdec.ptr78, %if.then77 ]
   %call95 = tail call fastcc noundef i32 @_ZN4absl12_GLOBAL__N_113ConsumeDigitsILi10EiEEiPKcS3_iPT0_Pb(ptr noundef nonnull %begin.addr.4, ptr noundef nonnull %end, ptr noundef nonnull %literal_exponent)
   %idx.ext96 = sext i32 %call95 to i64
   %add.ptr97 = getelementptr inbounds i8, ptr %begin.addr.4, i64 %idx.ext96
   %cmp98 = icmp eq i32 %call95, 0
-  %brmerge = or i1 %negative_exponent.0, %cmp98
+  %brmerge = or i1 %negative_exponent.0.not, %cmp98
   br i1 %brmerge, label %if.end108, label %if.end108.thread132
 
 if.end108.thread132:                              ; preds = %if.end93
@@ -905,7 +905,7 @@ while.end.i72:                                    ; preds = %if.end41.thread, %w
   %sub.ptr.rhs.cast.i74.pre-phi = phi i64 [ %.pre155, %while.end.i72.loopexit ], [ %sub.ptr.lhs.cast, %if.end41 ], [ %.pre156, %if.end41.thread ]
   %begin.addr.0.lcssa.i73 = phi ptr [ %begin.addr.0.lcssa.i73.ph, %while.end.i72.loopexit ], [ %begin.addr.1.lcssa, %if.end41 ], [ %incdec.ptr23, %if.end41.thread ]
   %sub.ptr.sub.i75 = sub i64 %end151, %sub.ptr.rhs.cast.i74.pre-phi
-  %conv2.i = sext i32 %digits_left.0 to i64
+  %conv2.i = zext nneg i32 %digits_left.0 to i64
   %cmp3.i76 = icmp sgt i64 %sub.ptr.sub.i75, %conv2.i
   %add.ptr.i77 = getelementptr inbounds i8, ptr %begin.addr.0.lcssa.i73, i64 %conv2.i
   %cond.i78 = select i1 %cmp3.i76, ptr %add.ptr.i77, ptr %end
@@ -1060,13 +1060,13 @@ land.lhs.true87:                                  ; preds = %land.lhs.true80
   br label %if.end93
 
 if.end93:                                         ; preds = %land.lhs.true87, %if.then77, %if.then83
-  %negative_exponent.0 = phi i1 [ false, %if.then83 ], [ true, %land.lhs.true87 ], [ true, %if.then77 ]
+  %negative_exponent.0.not = phi i1 [ false, %if.then83 ], [ true, %land.lhs.true87 ], [ true, %if.then77 ]
   %begin.addr.4 = phi ptr [ %incdec.ptr84, %if.then83 ], [ %spec.select, %land.lhs.true87 ], [ %incdec.ptr78, %if.then77 ]
   %call95 = tail call fastcc noundef i32 @_ZN4absl12_GLOBAL__N_113ConsumeDigitsILi10EiEEiPKcS3_iPT0_Pb(ptr noundef nonnull %begin.addr.4, ptr noundef nonnull %end, ptr noundef nonnull %literal_exponent)
   %idx.ext96 = sext i32 %call95 to i64
   %add.ptr97 = getelementptr inbounds i8, ptr %begin.addr.4, i64 %idx.ext96
   %cmp98 = icmp eq i32 %call95, 0
-  %brmerge = or i1 %negative_exponent.0, %cmp98
+  %brmerge = or i1 %negative_exponent.0.not, %cmp98
   br i1 %brmerge, label %if.end108, label %if.end108.thread137
 
 if.end108.thread137:                              ; preds = %if.end93

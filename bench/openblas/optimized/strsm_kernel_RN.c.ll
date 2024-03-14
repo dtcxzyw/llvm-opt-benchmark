@@ -324,7 +324,7 @@ define noundef i32 @strsm_kernel_RN(i64 noundef %0, i64 noundef %1, i64 noundef 
   %214 = tail call float @llvm.fmuladd.f32(float %206, float %210, float %213)
   store float %214, ptr %212, align 4, !tbaa !3
   %215 = add nuw nsw i64 %208, 1
-  %216 = icmp eq i64 %215, %170
+  %216 = icmp eq i64 %215, 2
   br i1 %216, label %.loopexit18.us, label %207, !llvm.loop !7
 
 .loopexit18.us:                                   ; preds = %207
@@ -429,7 +429,7 @@ define noundef i32 @strsm_kernel_RN(i64 noundef %0, i64 noundef %1, i64 noundef 
   %278 = tail call float @llvm.fmuladd.f32(float %270, float %274, float %277)
   store float %278, ptr %276, align 4, !tbaa !3
   %279 = add nuw nsw i64 %272, 1
-  %280 = icmp eq i64 %279, %170
+  %280 = icmp eq i64 %279, 2
   br i1 %280, label %.loopexit.us, label %271, !llvm.loop !7
 
 .loopexit.us:                                     ; preds = %271

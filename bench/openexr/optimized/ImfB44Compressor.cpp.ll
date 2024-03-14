@@ -267,7 +267,7 @@ invoke.cont81:                                    ; preds = %invoke.cont79
   %size = getelementptr inbounds %"struct.Imf_3_2::B44Compressor::ChannelData", ptr %22, i64 %indvars.iv, i32 7
   store i32 %div83, ptr %size, align 4
   %call.i.i54 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %c44.sroa.0.0) #17
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br label %for.cond49, !llvm.loop !6
 
 for.end91:                                        ; preds = %invoke.cont55
@@ -514,7 +514,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %idx.ext = sext i32 %mul21 to i64
   %add.ptr = getelementptr inbounds i16, ptr %tmpBufferEnd.0141, i64 %idx.ext
   %call.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %c.sroa.0.0139) #17
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = load ptr, ptr %_channels, align 8
   %call10 = tail call ptr @_ZNK7Imf_3_211ChannelList3endEv(ptr noundef nonnull align 8 dereferenceable(48) %17)
   %cmp.i.i.i.not = icmp eq ptr %call.i.i, %call10
@@ -667,7 +667,7 @@ for.body32:                                       ; preds = %for.body32.lr.ph, %
 
 cond.true7.i.i:                                   ; preds = %for.body32
   %sub9.i.i = add nuw i32 %39, %24
-  %div10.i.i = sdiv i32 %sub9.i.i, %39
+  %div10.i.i = udiv i32 %sub9.i.i, %39
   %sub11.i.i = sub nsw i32 0, %div10.i.i
   br label %_ZN9Imath_3_24modpEii.exit
 
@@ -842,7 +842,7 @@ for.body79:                                       ; preds = %for.body79.lr.ph, %
 
 cond.true7.i.i104:                                ; preds = %for.body79
   %sub9.i.i105 = add nuw i32 %68, %55
-  %div10.i.i106 = sdiv i32 %sub9.i.i105, %68
+  %div10.i.i106 = udiv i32 %sub9.i.i105, %68
   %sub11.i.i107 = sub nsw i32 0, %div10.i.i106
   br label %_ZN9Imath_3_24modpEii.exit115
 
@@ -1518,7 +1518,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %idx.ext = sext i32 %mul21 to i64
   %add.ptr = getelementptr inbounds i16, ptr %tmpBufferEnd.0182, i64 %idx.ext
   %call.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %c.sroa.0.0180) #17
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %18 = load ptr, ptr %_channels, align 8
   %call10 = tail call ptr @_ZNK7Imf_3_211ChannelList3endEv(ptr noundef nonnull align 8 dereferenceable(48) %18)
   %cmp.i.i.i.not = icmp eq ptr %call.i.i, %call10
@@ -2036,7 +2036,7 @@ cond.false5.i.i:                                  ; preds = %for.body153
 
 cond.true7.i.i:                                   ; preds = %cond.false5.i.i
   %sub9.i.i = add nuw i32 %99, %97
-  %div10.i.i = sdiv i32 %sub9.i.i, %99
+  %div10.i.i = udiv i32 %sub9.i.i, %99
   %sub11.i.i = sub nsw i32 0, %div10.i.i
   br label %_ZN9Imath_3_24modpEii.exit
 
@@ -2215,7 +2215,7 @@ for.body204:                                      ; preds = %for.body204.lr.ph, 
 
 cond.true7.i.i140:                                ; preds = %for.body204
   %sub9.i.i141 = add nuw i32 %129, %116
-  %div10.i.i142 = sdiv i32 %sub9.i.i141, %129
+  %div10.i.i142 = udiv i32 %sub9.i.i141, %129
   %sub11.i.i143 = sub nsw i32 0, %div10.i.i142
   br label %_ZN9Imath_3_24modpEii.exit151
 

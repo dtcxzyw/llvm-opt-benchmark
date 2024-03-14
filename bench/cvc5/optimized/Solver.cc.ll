@@ -10779,19 +10779,19 @@ if.end.i.i:                                       ; preds = %if.end.i
   %sub.i.i = add nsw i32 %shr.i.i, 2
   %add3.i.i = sub i32 %sub.i.i, %37
   %and.i.i = and i32 %add3.i.i, -2
-  %shr.i.i110 = ashr i32 %37, 1
-  %46 = and i32 %shr.i.i110, -2
-  %and6.i.i = add nsw i32 %46, 2
+  %shr.i.i110 = lshr i32 %37, 1
+  %46 = and i32 %shr.i.i110, 2147483646
+  %and6.i.i = add nuw nsw i32 %46, 2
   %add.i.i.i = tail call noundef i32 @llvm.smax.i32(i32 %and6.i.i, i32 %and.i.i)
-  %sub8.i.i = sub nsw i32 2147483647, %37
-  %cmp9.i.i = icmp sgt i32 %add.i.i.i, %sub8.i.i
+  %sub8.i.i = sub nuw nsw i32 2147483647, %37
+  %cmp9.i.i = icmp ugt i32 %add.i.i.i, %sub8.i.i
   br i1 %cmp9.i.i, label %if.then17.i.i, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %if.end.i.i
-  %add11.i.i = add nsw i32 %add.i.i.i, %37
+  %add11.i.i = add nuw nsw i32 %add.i.i.i, %37
   store i32 %add11.i.i, ptr %cap.i.i101, align 4
-  %conv.i.i = sext i32 %add11.i.i to i64
-  %mul.i.i = shl nsw i64 %conv.i.i, 2
+  %conv.i.i = zext nneg i32 %add11.i.i to i64
+  %mul.i.i = shl nuw nsw i64 %conv.i.i, 2
   %call12.i.i = tail call ptr @realloc(ptr noundef %38, i64 noundef %mul.i.i) #30
   store ptr %call12.i.i, ptr %map, align 8
   %cmp14.i.i = icmp eq ptr %call12.i.i, null

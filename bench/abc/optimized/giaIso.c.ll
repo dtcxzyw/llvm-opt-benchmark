@@ -619,7 +619,7 @@ Vec_IntGrow.exit.i110:                            ; preds = %156, %154
   %175 = getelementptr inbounds i32, ptr %171, i64 %174
   store i32 1, ptr %175, align 4
   %176 = add nuw nsw i32 %.0.lcssa, 2
-  %177 = sext i32 %176 to i64
+  %177 = zext nneg i32 %176 to i64
   %178 = tail call noalias ptr @calloc(i64 noundef %177, i64 noundef 4) #23
   store i32 1, ptr %178, align 4
   %wide.trip.count160 = zext i32 %95 to i64

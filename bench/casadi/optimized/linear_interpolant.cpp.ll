@@ -7595,8 +7595,8 @@ define linkonce_odr hidden void @_ZN6casadi22casadi_interpn_weightsIdEEvxPKT_PKx
 
 .preheader52.i:                                   ; preds = %.preheader52.i.outer, %55
   %.043.i = phi i64 [ %51, %55 ], [ %.043.i.ph, %.preheader52.i.outer ]
-  %50 = add nsw i64 %.043.i, %.044.i.ph
-  %51 = sdiv i64 %50, 2
+  %50 = add nuw nsw i64 %.043.i, %.044.i.ph
+  %51 = lshr i64 %50, 1
   %52 = getelementptr inbounds double, ptr %17, i64 %51
   %53 = load double, ptr %52, align 8
   %54 = fcmp ogt double %53, %14

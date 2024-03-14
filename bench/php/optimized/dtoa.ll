@@ -387,7 +387,7 @@ lexbor_dec_count.exit.i.i:                        ; preds = %lexbor_dec_count.ex
 
 221:                                              ; preds = %217
   %222 = sub nsw i32 1, %.1.i.i
-  %223 = sext i32 %222 to i64
+  %223 = zext nneg i32 %222 to i64
   %224 = getelementptr inbounds [10 x i64], ptr @lexbor_grisu2_gen.pow10, i64 0, i64 %223
   %225 = load i64, ptr %224, align 8
   br label %226

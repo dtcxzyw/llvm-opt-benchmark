@@ -185,11 +185,11 @@ define void @dlarrv_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noca
   %145 = sext i32 %144 to i64
   %146 = getelementptr inbounds double, ptr %55, i64 %145
   %147 = load double, ptr %146, align 8, !tbaa !7
-  %148 = add i32 %140, -1
+  %148 = add nsw i32 %140, -1
   %149 = load i32, ptr %7, align 4, !tbaa !3
-  %150 = sext i32 %148 to i64
+  %150 = zext nneg i32 %148 to i64
   %151 = call i32 @llvm.smax.i32(i32 %149, i32 %148)
-  %152 = sext i32 %151 to i64
+  %152 = zext nneg i32 %151 to i64
   br label %153
 
 153:                                              ; preds = %156, %137
@@ -198,7 +198,7 @@ define void @dlarrv_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noca
   br i1 %155, label %.loopexit52, label %156
 
 156:                                              ; preds = %153
-  %157 = add nsw i64 %154, 1
+  %157 = add nuw nsw i64 %154, 1
   %158 = getelementptr inbounds i32, ptr %60, i64 %157
   %159 = load i32, ptr %158, align 4, !tbaa !3
   %160 = zext i32 %159 to i64
@@ -225,7 +225,7 @@ define void @dlarrv_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noca
   br i1 %171, label %172, label %174
 
 172:                                              ; preds = %169, %166
-  %173 = add nsw i32 %164, 1
+  %173 = add nuw nsw i32 %164, 1
   br label %851
 
 174:                                              ; preds = %169
@@ -270,7 +270,7 @@ define void @dlarrv_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noca
   %204 = phi double [ %199, %201 ], [ %180, %174 ]
   %205 = fsub double %204, %203
   store double %205, ptr %44, align 8, !tbaa !7
-  %206 = add i32 %141, -1
+  %206 = add nsw i32 %141, -1
   %reass.sub84 = sub i32 %144, %141
   %207 = add i32 %reass.sub84, 1
   store i32 %207, ptr %40, align 4, !tbaa !3
@@ -286,24 +286,24 @@ define void @dlarrv_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noca
   %213 = sext i32 %212 to i64
   %214 = getelementptr inbounds double, ptr %66, i64 %213
   store double 1.000000e+00, ptr %214, align 8, !tbaa !7
-  %215 = shl i32 %140, 1
+  %215 = shl nuw i32 %140, 1
   %216 = sext i32 %215 to i64
   %217 = getelementptr i32, ptr %67, i64 %216
   %218 = getelementptr i8, ptr %217, i64 -4
   store i32 %141, ptr %218, align 4, !tbaa !3
   store i32 %141, ptr %217, align 4, !tbaa !3
-  %219 = sext i32 %140 to i64
+  %219 = zext nneg i32 %140 to i64
   %220 = getelementptr inbounds double, ptr %57, i64 %219
   %221 = load double, ptr %220, align 8, !tbaa !7
   %222 = fadd double %147, %221
   store double %222, ptr %220, align 8, !tbaa !7
   %223 = getelementptr inbounds double, ptr %68, i64 %219
   store double %222, ptr %223, align 8, !tbaa !7
-  %224 = add nsw i32 %140, 1
+  %224 = add nuw nsw i32 %140, 1
   br label %851
 
 225:                                              ; preds = %202
-  %226 = sext i32 %140 to i64
+  %226 = zext nneg i32 %140 to i64
   %227 = getelementptr inbounds double, ptr %57, i64 %226
   %228 = getelementptr inbounds double, ptr %68, i64 %226
   call void @dcopy_(ptr noundef nonnull %39, ptr noundef nonnull %227, ptr noundef nonnull @c__1, ptr noundef nonnull %228, ptr noundef nonnull @c__1) #6
@@ -497,14 +497,14 @@ define void @dlarrv_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noca
   br i1 %356, label %357, label %378
 
 357:                                              ; preds = %355
-  %358 = add nsw i32 %291, %140
+  %358 = add nuw nsw i32 %291, %140
   %359 = add nsw i32 %358, -2
-  %360 = sext i32 %359 to i64
+  %360 = zext nneg i32 %359 to i64
   %361 = getelementptr inbounds double, ptr %59, i64 %360
   %362 = load double, ptr %361, align 8, !tbaa !7
   store double %362, ptr %28, align 8, !tbaa !7
   %363 = add nsw i32 %358, -1
-  %364 = sext i32 %363 to i64
+  %364 = zext nneg i32 %363 to i64
   %365 = getelementptr inbounds double, ptr %57, i64 %364
   %366 = load double, ptr %365, align 8, !tbaa !7
   %367 = getelementptr inbounds double, ptr %58, i64 %364
@@ -1220,7 +1220,7 @@ define void @dlarrv_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noca
 .loopexit51:                                      ; preds = %.loopexit49, %.thread
   %848 = phi double [ %142, %.thread ], [ %844, %.loopexit49 ]
   %849 = phi double [ %139, %.thread ], [ %845, %.loopexit49 ]
-  %850 = add nsw i32 %164, 1
+  %850 = add nuw nsw i32 %164, 1
   br label %851
 
 851:                                              ; preds = %.loopexit51, %210, %172, %.loopexit52

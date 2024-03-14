@@ -1648,7 +1648,7 @@ Abc_NtkIncrementTravId.exit:                      ; preds = %Vec_PtrStart.exit, 
   br i1 %exitcond.not, label %.critedge4, label %86, !llvm.loop !24
 
 .critedge4:                                       ; preds = %93
-  %94 = add nuw i32 %.1, 1
+  %94 = add nuw nsw i32 %.1, 1
   %95 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #12
   %or.cond.i = icmp ult i32 %.1, 7
   %spec.select = select i1 %or.cond.i, i32 8, i32 %94
@@ -1661,8 +1661,8 @@ Abc_NtkIncrementTravId.exit:                      ; preds = %Vec_PtrStart.exit, 
   %98 = getelementptr inbounds i8, ptr %96, i64 4
   store i32 0, ptr %98, align 4
   store i32 %97, ptr %96, align 8
-  %99 = sext i32 %97 to i64
-  %100 = shl nsw i64 %99, 3
+  %99 = zext nneg i32 %97 to i64
+  %100 = shl nuw nsw i64 %99, 3
   %101 = tail call noalias ptr @malloc(i64 noundef %100) #12
   %102 = getelementptr inbounds i8, ptr %96, i64 8
   store ptr %101, ptr %102, align 8

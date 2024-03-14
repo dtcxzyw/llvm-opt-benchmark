@@ -212,7 +212,7 @@ if.end10:                                         ; preds = %if.end6
   br i1 %cmp7, label %if.then12, label %if.end17
 
 if.then12:                                        ; preds = %if.end10
-  %call = invoke noalias noundef nonnull dereferenceable(128) ptr @_Znam(i64 noundef 128) #20
+  %call = invoke noalias noundef nonnull dereferenceable(128) ptr @_Znam(i64 noundef 128) #19
           to label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EE5resetIPcvEEvT_.exit unwind label %lpad
 
 _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EE5resetIPcvEEvT_.exit: ; preds = %if.then12
@@ -298,7 +298,7 @@ cleanup:                                          ; preds = %if.end42, %if.end41
   br i1 %cmp.not.i, label %cleanup.cont, label %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
 
 _ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i: ; preds = %cleanup
-  call void @_ZdaPv(ptr noundef nonnull %paddedBuffer.sroa.0.1) #21
+  call void @_ZdaPv(ptr noundef nonnull %paddedBuffer.sroa.0.1) #20
   br label %cleanup.cont
 
 cleanup.cont:                                     ; preds = %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i, %cleanup, %if.then9, %if.then5, %if.then2, %if.then
@@ -311,7 +311,7 @@ ehcleanup:                                        ; preds = %lpad23, %lpad
   br i1 %cmp.not.i28, label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit30, label %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i29
 
 _ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i29: ; preds = %ehcleanup
-  call void @_ZdaPv(ptr noundef nonnull %paddedBuffer.sroa.0.2) #21
+  call void @_ZdaPv(ptr noundef nonnull %paddedBuffer.sroa.0.2) #20
   br label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit30
 
 _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit30: ; preds = %ehcleanup, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i29
@@ -351,11 +351,11 @@ entry:
   br i1 %cmp3, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %entry
-  %call = tail call noalias noundef nonnull dereferenceable(1) ptr @_Znam(i64 noundef 1) #20
+  %call = tail call noalias noundef nonnull dereferenceable(1) ptr @_Znam(i64 noundef 1) #19
   br label %cond.end
 
 cond.false:                                       ; preds = %entry
-  %call5 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %add2) #20
+  %call5 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %add2) #19
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
@@ -371,19 +371,19 @@ invoke.cont:                                      ; preds = %cond.end
 _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit: ; preds = %if.then14, %cond.end
   %2 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdaPv(ptr noundef nonnull %cond) #21
+  tail call void @_ZdaPv(ptr noundef nonnull %cond) #20
   resume { ptr, i32 } %2
 
 if.end12:                                         ; preds = %invoke.cont
   br i1 %resize, label %if.then14, label %cleanup.thread
 
 if.then14:                                        ; preds = %if.end12
-  %call16 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %1) #20
+  %call16 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %1) #19
           to label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit13 unwind label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit13: ; preds = %if.then14
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call16, ptr nonnull align 1 %cond, i64 %1, i1 false)
-  tail call void @_ZdaPv(ptr noundef nonnull %cond) #21
+  tail call void @_ZdaPv(ptr noundef nonnull %cond) #20
   br label %cleanup.thread
 
 cleanup.thread:                                   ; preds = %if.end12, %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit13
@@ -394,7 +394,7 @@ cleanup.thread:                                   ; preds = %if.end12, %_ZNSt10u
 
 _ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i15: ; preds = %invoke.cont
   store ptr null, ptr %agg.result, align 8
-  tail call void @_ZdaPv(ptr noundef nonnull %cond) #21
+  tail call void @_ZdaPv(ptr noundef nonnull %cond) #20
   br label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit16
 
 _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit16: ; preds = %cleanup.thread, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i15
@@ -414,11 +414,11 @@ entry:
   br i1 %cmp3.i, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %entry
-  %call.i = tail call noalias noundef nonnull dereferenceable(1) ptr @_Znam(i64 noundef 1) #20, !noalias !4
+  %call.i = tail call noalias noundef nonnull dereferenceable(1) ptr @_Znam(i64 noundef 1) #19, !noalias !4
   br label %cond.end.i
 
 cond.false.i:                                     ; preds = %entry
-  %call5.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %add2.i) #20, !noalias !4
+  %call5.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %add2.i) #19, !noalias !4
   br label %cond.end.i
 
 cond.end.i:                                       ; preds = %cond.false.i, %cond.true.i
@@ -428,13 +428,13 @@ cond.end.i:                                       ; preds = %cond.false.i, %cond
 
 invoke.cont.i:                                    ; preds = %cond.end.i
   %1 = load i64, ptr %compressedBytes, align 8
-  tail call void @_ZdaPv(ptr noundef nonnull %cond.i) #21
+  tail call void @_ZdaPv(ptr noundef nonnull %cond.i) #20
   ret i64 %1
 
 _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit.i: ; preds = %cond.end.i
   %2 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdaPv(ptr noundef nonnull %cond.i) #21, !noalias !4
+  tail call void @_ZdaPv(ptr noundef nonnull %cond.i) #20, !noalias !4
   resume { ptr, i32 } %2
 }
 
@@ -508,7 +508,7 @@ try.cont:                                         ; preds = %catch, %invoke.cont
   %exception = call ptr @__cxa_allocate_exception(i64 40) #16
   call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull @.str.12, ptr noundef nonnull %_openvdb_throw_msg) #16
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7openvdb5v11_012RuntimeErrorE, i64 0, inrange i32 0, i64 2), ptr %exception, align 8
-  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7openvdb5v11_012RuntimeErrorE, ptr nonnull @_ZN7openvdb5v11_012RuntimeErrorD2Ev) #22
+  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN7openvdb5v11_012RuntimeErrorE, ptr nonnull @_ZN7openvdb5v11_012RuntimeErrorD2Ev) #21
           to label %unreachable unwind label %lpad6
 
 lpad6:                                            ; preds = %try.cont, %catch
@@ -562,7 +562,7 @@ try.cont24:                                       ; preds = %catch20, %invoke.co
   %exception25 = call ptr @__cxa_allocate_exception(i64 40) #16
   call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception25, ptr noundef nonnull @.str.12, ptr noundef nonnull %_openvdb_throw_msg10) #16
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7openvdb5v11_012RuntimeErrorE, i64 0, inrange i32 0, i64 2), ptr %exception25, align 8
-  invoke void @__cxa_throw(ptr nonnull %exception25, ptr nonnull @_ZTIN7openvdb5v11_012RuntimeErrorE, ptr nonnull @_ZN7openvdb5v11_012RuntimeErrorD2Ev) #22
+  invoke void @__cxa_throw(ptr nonnull %exception25, ptr nonnull @_ZTIN7openvdb5v11_012RuntimeErrorE, ptr nonnull @_ZN7openvdb5v11_012RuntimeErrorD2Ev) #21
           to label %unreachable unwind label %lpad22
 
 lpad22:                                           ; preds = %try.cont24, %catch20
@@ -621,7 +621,7 @@ try.cont46:                                       ; preds = %catch42, %invoke.co
   %exception47 = call ptr @__cxa_allocate_exception(i64 40) #16
   call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception47, ptr noundef nonnull @.str.12, ptr noundef nonnull %_openvdb_throw_msg30) #16
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7openvdb5v11_012RuntimeErrorE, i64 0, inrange i32 0, i64 2), ptr %exception47, align 8
-  invoke void @__cxa_throw(ptr nonnull %exception47, ptr nonnull @_ZTIN7openvdb5v11_012RuntimeErrorE, ptr nonnull @_ZN7openvdb5v11_012RuntimeErrorD2Ev) #22
+  invoke void @__cxa_throw(ptr nonnull %exception47, ptr nonnull @_ZTIN7openvdb5v11_012RuntimeErrorE, ptr nonnull @_ZN7openvdb5v11_012RuntimeErrorD2Ev) #21
           to label %unreachable unwind label %lpad44
 
 lpad44:                                           ; preds = %try.cont46, %catch42
@@ -710,7 +710,7 @@ try.cont85:                                       ; preds = %catch81, %invoke.co
   %exception86 = call ptr @__cxa_allocate_exception(i64 40) #16
   call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception86, ptr noundef nonnull @.str.12, ptr noundef nonnull %_openvdb_throw_msg54) #16
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7openvdb5v11_012RuntimeErrorE, i64 0, inrange i32 0, i64 2), ptr %exception86, align 8
-  invoke void @__cxa_throw(ptr nonnull %exception86, ptr nonnull @_ZTIN7openvdb5v11_012RuntimeErrorE, ptr nonnull @_ZN7openvdb5v11_012RuntimeErrorD2Ev) #22
+  invoke void @__cxa_throw(ptr nonnull %exception86, ptr nonnull @_ZTIN7openvdb5v11_012RuntimeErrorE, ptr nonnull @_ZN7openvdb5v11_012RuntimeErrorD2Ev) #21
           to label %unreachable unwind label %lpad83
 
 lpad83:                                           ; preds = %try.cont85, %catch81
@@ -779,7 +779,7 @@ entry:
   %add = add i64 %0, 16
   %cmp = icmp ugt i64 %add, 2147483631
   %spec.select = select i1 %cmp, i64 1, i64 %add
-  %call2 = call noalias noundef nonnull ptr @_Znam(i64 noundef %spec.select) #20
+  %call2 = call noalias noundef nonnull ptr @_Znam(i64 noundef %spec.select) #19
   store ptr %call2, ptr %agg.result, align 8
   invoke void @_ZN7openvdb5v11_011compression15bloscDecompressEPcmmPKc(ptr noundef nonnull %call2, i64 noundef %expectedBytes, i64 noundef %spec.select, ptr noundef %buffer)
           to label %invoke.cont unwind label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit8
@@ -788,19 +788,19 @@ invoke.cont:                                      ; preds = %entry
   br i1 %resize, label %if.then5, label %nrvo.skipdtor
 
 if.then5:                                         ; preds = %invoke.cont
-  %call7 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %expectedBytes) #20
+  %call7 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %expectedBytes) #19
           to label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit unwind label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit8
 
 _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit: ; preds = %if.then5
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call7, ptr nonnull align 1 %call2, i64 %expectedBytes, i1 false)
   store ptr %call7, ptr %agg.result, align 8
-  call void @_ZdaPv(ptr noundef nonnull %call2) #21
+  call void @_ZdaPv(ptr noundef nonnull %call2) #20
   br label %nrvo.skipdtor
 
 _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit8: ; preds = %if.then5, %entry
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdaPv(ptr noundef nonnull %call2) #21
+  call void @_ZdaPv(ptr noundef nonnull %call2) #20
   store ptr null, ptr %agg.result, align 8
   resume { ptr, i32 } %1
 
@@ -875,9 +875,10 @@ if.end4:                                          ; preds = %_ZN3tbb6detail2d118
   %6 = load i64, ptr %compressedBytes6, align 8
   %conv = trunc i64 %6 to i32
   %cmp = icmp sgt i32 %conv, 0
-  %spec.select = tail call i32 @llvm.abs.i32(i32 %conv, i1 true)
+  %sub = sub nsw i32 0, %conv
+  %spec.select = select i1 %cmp, i32 %conv, i32 %sub
   %conv9 = zext nneg i32 %spec.select to i64
-  %call10 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %conv9) #20
+  %call10 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %conv9) #19
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end4
@@ -928,7 +929,7 @@ if.then33:                                        ; preds = %invoke.cont30
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %_2.i.i)
   %add.i = shl i64 %12, 1
   %mData.i = getelementptr inbounds i8, ptr %this, i64 8
-  %call3.i17 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %add.i) #20
+  %call3.i17 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %add.i) #19
           to label %call3.i.noexc unwind label %lpad21
 
 call3.i.noexc:                                    ; preds = %.noexc
@@ -938,7 +939,7 @@ call3.i.noexc:                                    ; preds = %.noexc
   br i1 %tobool.not.i.i.i, label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EE5resetIPcvEEvT_.exit.i, label %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i
 
 _ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i: ; preds = %call3.i.noexc
-  call void @_ZdaPv(ptr noundef nonnull %13) #21
+  call void @_ZdaPv(ptr noundef nonnull %13) #20
   %.pre.i = load ptr, ptr %mData.i, align 8
   br label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EE5resetIPcvEEvT_.exit.i
 
@@ -970,7 +971,8 @@ lpad21:                                           ; preds = %if.else, %_ZNSt10un
 
 if.else:                                          ; preds = %invoke.cont30
   %mData.i19 = getelementptr inbounds i8, ptr %this, i64 8
-  %call.i24 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %conv9) #20
+  %conv.i = sext i32 %sub to i64
+  %call.i24 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %conv.i) #19
           to label %call.i.noexc unwind label %lpad21
 
 call.i.noexc:                                     ; preds = %if.else
@@ -980,13 +982,13 @@ call.i.noexc:                                     ; preds = %if.else
   br i1 %tobool.not.i.i.i20, label %_ZN7openvdb5v11_011compression4Page4copyERKSt10unique_ptrIA_cSt14default_deleteIS4_EEi.exit, label %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i21
 
 _ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i21: ; preds = %call.i.noexc
-  call void @_ZdaPv(ptr noundef nonnull %19) #21
+  call void @_ZdaPv(ptr noundef nonnull %19) #20
   %.pre.i22 = load ptr, ptr %mData.i19, align 8
   br label %_ZN7openvdb5v11_011compression4Page4copyERKSt10unique_ptrIA_cSt14default_deleteIS4_EEi.exit
 
 _ZN7openvdb5v11_011compression4Page4copyERKSt10unique_ptrIA_cSt14default_deleteIS4_EEi.exit: ; preds = %call.i.noexc, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i21
   %20 = phi ptr [ %call.i24, %call.i.noexc ], [ %.pre.i22, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i21 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %20, ptr nonnull align 1 %call10, i64 %conv9, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %20, ptr nonnull align 1 %call10, i64 %conv.i, i1 false)
   br label %if.end36
 
 if.end36:                                         ; preds = %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EE5resetIPcvEEvT_.exit.i, %_ZN7openvdb5v11_011compression4Page4copyERKSt10unique_ptrIA_cSt14default_deleteIS4_EEi.exit
@@ -997,7 +999,7 @@ if.end36:                                         ; preds = %_ZNSt10unique_ptrIA
 
 _ZNKSt14default_deleteIN7openvdb5v11_011compression4Page4InfoEEclEPS4_.exit.i.i: ; preds = %if.end36
   call void @_ZN7openvdb5v11_011compression4Page4InfoD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #16
-  call void @_ZdlPv(ptr noundef nonnull %21) #21
+  call void @_ZdlPv(ptr noundef nonnull %21) #20
   br label %_ZNSt10unique_ptrIN7openvdb5v11_011compression4Page4InfoESt14default_deleteIS4_EE5resetEPS4_.exit
 
 _ZNSt10unique_ptrIN7openvdb5v11_011compression4Page4InfoESt14default_deleteIS4_EE5resetEPS4_.exit: ; preds = %if.end36, %_ZNKSt14default_deleteIN7openvdb5v11_011compression4Page4InfoEEclEPS4_.exit.i.i
@@ -1076,7 +1078,7 @@ if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN7openvdb5v11_011compression4Page4InfoESt14default_deleteIS4_EE5resetEPS4_.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
-  call void @_ZdaPv(ptr noundef nonnull %call10) #21
+  call void @_ZdaPv(ptr noundef nonnull %call10) #20
   br label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit: ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit, %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit
@@ -1093,7 +1095,7 @@ ehcleanup:                                        ; preds = %lpad21, %lpad17
 
 _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit29: ; preds = %ehcleanup, %lpad14
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %16, %lpad14 ]
-  call void @_ZdaPv(ptr noundef nonnull %call10) #21
+  call void @_ZdaPv(ptr noundef nonnull %call10) #20
   br label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit32
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit32: ; preds = %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit29, %lpad
@@ -1537,7 +1539,7 @@ if.else:                                          ; preds = %entry
   %57 = load i64, ptr %compressedBytes37, align 8
   %sub42 = sub nsw i64 0, %57
   %cond44 = select i1 %cmp, i64 %57, i64 %sub42
-  %call46 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %cond44) #20
+  %call46 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %cond44) #19
           to label %invoke.cont45 unwind label %lpad
 
 invoke.cont45:                                    ; preds = %if.else
@@ -1569,7 +1571,7 @@ if.then67:                                        ; preds = %invoke.cont61
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %_2.i.i)
   %add.i = shl i64 %61, 1
   %mData.i = getelementptr inbounds i8, ptr %this, i64 8
-  %call3.i84 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %add.i) #20
+  %call3.i84 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %add.i) #19
           to label %call3.i.noexc unwind label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit
 
 call3.i.noexc:                                    ; preds = %.noexc
@@ -1579,7 +1581,7 @@ call3.i.noexc:                                    ; preds = %.noexc
   br i1 %tobool.not.i.i.i, label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EE5resetIPcvEEvT_.exit.i, label %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i
 
 _ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i: ; preds = %call3.i.noexc
-  call void @_ZdaPv(ptr noundef nonnull %62) #21
+  call void @_ZdaPv(ptr noundef nonnull %62) #20
   %.pre.i = load ptr, ptr %mData.i, align 8
   br label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EE5resetIPcvEEvT_.exit.i
 
@@ -1591,14 +1593,14 @@ _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EE5resetIPcvEEvT_.exit.i: ; preds = %
 _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit: ; preds = %if.else69, %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EE5resetIPcvEEvT_.exit.i, %.noexc, %if.then67, %invoke.cont45
   %64 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdaPv(ptr noundef nonnull %call46) #21
+  call void @_ZdaPv(ptr noundef nonnull %call46) #20
   br label %ehcleanup
 
 if.else69:                                        ; preds = %invoke.cont61
   %mData.i86 = getelementptr inbounds i8, ptr %this, i64 8
   %.neg = mul i64 %60, -4294967296
   %conv.i = ashr exact i64 %.neg, 32
-  %call.i91 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %conv.i) #20
+  %call.i91 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %conv.i) #19
           to label %call.i.noexc unwind label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit
 
 call.i.noexc:                                     ; preds = %if.else69
@@ -1608,7 +1610,7 @@ call.i.noexc:                                     ; preds = %if.else69
   br i1 %tobool.not.i.i.i87, label %_ZN7openvdb5v11_011compression4Page4copyERKSt10unique_ptrIA_cSt14default_deleteIS4_EEi.exit, label %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i88
 
 _ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i88: ; preds = %call.i.noexc
-  call void @_ZdaPv(ptr noundef nonnull %65) #21
+  call void @_ZdaPv(ptr noundef nonnull %65) #20
   %.pre.i89 = load ptr, ptr %mData.i86, align 8
   br label %_ZN7openvdb5v11_011compression4Page4copyERKSt10unique_ptrIA_cSt14default_deleteIS4_EEi.exit
 
@@ -1625,11 +1627,11 @@ if.end:                                           ; preds = %_ZNSt10unique_ptrIA
 
 _ZNKSt14default_deleteIN7openvdb5v11_011compression4Page4InfoEEclEPS4_.exit.i.i: ; preds = %if.end
   call void @_ZN7openvdb5v11_011compression4Page4InfoD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %67) #16
-  call void @_ZdlPv(ptr noundef nonnull %67) #21
+  call void @_ZdlPv(ptr noundef nonnull %67) #20
   br label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit94
 
 _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit94: ; preds = %if.end, %_ZNKSt14default_deleteIN7openvdb5v11_011compression4Page4InfoEEclEPS4_.exit.i.i
-  call void @_ZdaPv(ptr noundef nonnull %call46) #21
+  call void @_ZdaPv(ptr noundef nonnull %call46) #20
   br label %if.end76
 
 if.end76:                                         ; preds = %if.end8.sink.split.i.i.i.i75, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i72, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i62, %_ZNSt10shared_ptrIN7openvdb5v11_02io14StreamMetadataEEaSERKS4_.exit, %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit94
@@ -1820,14 +1822,14 @@ entry:
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %_2.i)
   %add = shl i64 %1, 1
   %mData = getelementptr inbounds i8, ptr %this, i64 8
-  %call3 = call noalias noundef nonnull ptr @_Znam(i64 noundef %add) #20
+  %call3 = call noalias noundef nonnull ptr @_Znam(i64 noundef %add) #19
   %2 = load ptr, ptr %mData, align 8
   store ptr %call3, ptr %mData, align 8
   %tobool.not.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i, label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EE5resetIPcvEEvT_.exit, label %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i
 
 _ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i: ; preds = %entry
-  call void @_ZdaPv(ptr noundef nonnull %2) #21
+  call void @_ZdaPv(ptr noundef nonnull %2) #20
   %.pre = load ptr, ptr %mData, align 8
   br label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EE5resetIPcvEEvT_.exit
 
@@ -1843,14 +1845,14 @@ define void @_ZN7openvdb5v11_011compression4Page4copyERKSt10unique_ptrIA_cSt14de
 entry:
   %mData = getelementptr inbounds i8, ptr %this, i64 8
   %conv = sext i32 %pageSize to i64
-  %call = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %conv) #20
+  %call = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %conv) #19
   %0 = load ptr, ptr %mData, align 8
   store ptr %call, ptr %mData, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i, label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EE5resetIPcvEEvT_.exit, label %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i
 
 _ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i: ; preds = %entry
-  tail call void @_ZdaPv(ptr noundef nonnull %0) #21
+  tail call void @_ZdaPv(ptr noundef nonnull %0) #20
   %.pre = load ptr, ptr %mData, align 8
   br label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EE5resetIPcvEEvT_.exit
 
@@ -2081,7 +2083,7 @@ entry:
   %mSize = getelementptr inbounds i8, ptr %this, i64 20
   %0 = load i32, ptr %mSize, align 4
   %conv = sext i32 %0 to i64
-  %call = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %conv) #20
+  %call = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %conv) #19
   store ptr %call, ptr %agg.result, align 8
   %1 = load ptr, ptr %this, align 8
   %mIndex = getelementptr inbounds i8, ptr %this, i64 16
@@ -2111,7 +2113,7 @@ invoke.cont:                                      ; preds = %if.then.i.invoke.co
 _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit: ; preds = %if.then.i
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdaPv(ptr noundef nonnull %call) #21
+  tail call void @_ZdaPv(ptr noundef nonnull %call) #20
   store ptr null, ptr %agg.result, align 8
   resume { ptr, i32 } %5
 }
@@ -2141,7 +2143,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %call5.i.i.i3.i.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20, !noalias !10
+  %call5.i.i.i3.i.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #19, !noalias !10
   %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !10
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
@@ -2149,7 +2151,7 @@ if.then:                                          ; preds = %entry
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN7openvdb5v11_011compression4PageESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !10
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %_M_impl.i.i.i.i.i.i, i8 0, i64 24, i1 false), !noalias !10
-  %call.i.i.i1.i4.i.i.i.i = invoke noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #20
+  %call.i.i.i1.i4.i.i.i.i = invoke noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #19
           to label %_ZSt11make_sharedIN7openvdb5v11_011compression4PageEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN7openvdb5v11_011compression4PageESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i, !noalias !10
 
 common.resume:                                    ; preds = %lpad, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN7openvdb5v11_011compression4PageESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i
@@ -2159,7 +2161,7 @@ common.resume:                                    ; preds = %lpad, %_ZNSt15__all
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN7openvdb5v11_011compression4PageESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i: ; preds = %if.then
   %2 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i3.i.i.i.i) #21, !noalias !10
+  tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i3.i.i.i.i) #20, !noalias !10
   br label %common.resume
 
 _ZSt11make_sharedIN7openvdb5v11_011compression4PageEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_.exit: ; preds = %if.then
@@ -2290,7 +2292,7 @@ _ZN7openvdb5v11_011compression4Page10readHeaderERSi.exit: ; preds = %if.then.i, 
 
 if.end:                                           ; preds = %_ZN7openvdb5v11_011compression4Page10readHeaderERSi.exit, %entry
   %24 = phi i32 [ 0, %_ZN7openvdb5v11_011compression4Page10readHeaderERSi.exit ], [ %0, %entry ]
-  %call9 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #20
+  %call9 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #19
   %mPage10 = getelementptr inbounds i8, ptr %this, i64 16
   %conv12 = trunc i64 %n to i32
   invoke void @_ZN7openvdb5v11_011compression10PageHandleC1ERKSt10shared_ptrINS1_4PageEEii(ptr noundef nonnull align 8 dereferenceable(24) %call9, ptr noundef nonnull align 8 dereferenceable(16) %mPage10, i32 noundef %24, i32 noundef %conv12)
@@ -2306,7 +2308,7 @@ invoke.cont:                                      ; preds = %if.end
 lpad:                                             ; preds = %if.end
   %26 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %call9) #21
+  call void @_ZdlPv(ptr noundef nonnull %call9) #20
   br label %common.resume
 }
 
@@ -2349,7 +2351,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7openvdb5v11_011compression17PagedOutputStreamC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(41) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %call = tail call noalias noundef nonnull dereferenceable(1048576) ptr @_Znam(i64 noundef 1048576) #20
+  %call = tail call noalias noundef nonnull dereferenceable(1048576) ptr @_Znam(i64 noundef 1048576) #19
   store ptr %call, ptr %this, align 8
   %mCompressedData = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %mCompressedData, align 8
@@ -2361,7 +2363,7 @@ entry:
   store ptr null, ptr %mOs, align 8
   %mSizeOnly = getelementptr inbounds i8, ptr %this, i64 40
   store i8 0, ptr %mSizeOnly, align 8
-  %call3 = invoke noalias noundef nonnull dereferenceable(1048592) ptr @_Znam(i64 noundef 1048592) #20
+  %call3 = invoke noalias noundef nonnull dereferenceable(1048592) ptr @_Znam(i64 noundef 1048592) #19
           to label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EE5resetIPcvEEvT_.exit unwind label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit3
 
 _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EE5resetIPcvEEvT_.exit: ; preds = %entry
@@ -2372,7 +2374,7 @@ _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit3: ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
   store ptr null, ptr %mCompressedData, align 8
-  tail call void @_ZdaPv(ptr noundef nonnull %call) #21
+  tail call void @_ZdaPv(ptr noundef nonnull %call) #20
   store ptr null, ptr %this, align 8
   resume { ptr, i32 } %0
 }
@@ -2380,7 +2382,7 @@ _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit3: ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7openvdb5v11_011compression17PagedOutputStreamC2ERSo(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(41) %this, ptr noundef nonnull align 8 dereferenceable(8) %os) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %call = tail call noalias noundef nonnull dereferenceable(1048576) ptr @_Znam(i64 noundef 1048576) #20
+  %call = tail call noalias noundef nonnull dereferenceable(1048576) ptr @_Znam(i64 noundef 1048576) #19
   store ptr %call, ptr %this, align 8
   %mCompressedData = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %mCompressedData, align 8
@@ -2392,7 +2394,7 @@ entry:
   store ptr %os, ptr %mOs, align 8
   %mSizeOnly = getelementptr inbounds i8, ptr %this, i64 40
   store i8 0, ptr %mSizeOnly, align 8
-  %call3 = invoke noalias noundef nonnull dereferenceable(1048592) ptr @_Znam(i64 noundef 1048592) #20
+  %call3 = invoke noalias noundef nonnull dereferenceable(1048592) ptr @_Znam(i64 noundef 1048592) #19
           to label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EE5resetIPcvEEvT_.exit unwind label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit3
 
 _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EE5resetIPcvEEvT_.exit: ; preds = %entry
@@ -2403,7 +2405,7 @@ _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit3: ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
   store ptr null, ptr %mCompressedData, align 8
-  tail call void @_ZdaPv(ptr noundef nonnull %call) #21
+  tail call void @_ZdaPv(ptr noundef nonnull %call) #20
   store ptr null, ptr %this, align 8
   resume { ptr, i32 } %0
 }
@@ -2486,14 +2488,14 @@ if.end:                                           ; preds = %entry
 
 if.then4.i:                                       ; preds = %if.end
   store i64 %spec.store.select.i, ptr %mCapacity.i, align 8
-  %call.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %spec.store.select.i) #20
+  %call.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %spec.store.select.i) #19
   %2 = load ptr, ptr %this, align 8
   store ptr %call.i, ptr %this, align 8
   %tobool.not.i.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i, label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EE5resetIPcvEEvT_.exit.i, label %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i
 
 _ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i: ; preds = %if.then4.i
-  tail call void @_ZdaPv(ptr noundef nonnull %2) #21
+  tail call void @_ZdaPv(ptr noundef nonnull %2) #20
   %.pre.i = load i64, ptr %mCapacity.i, align 8
   br label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EE5resetIPcvEEvT_.exit.i
 
@@ -2501,14 +2503,14 @@ _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EE5resetIPcvEEvT_.exit.i: ; preds = %
   %3 = phi i64 [ %spec.store.select.i, %if.then4.i ], [ %.pre.i, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i ]
   %mCompressedData.i = getelementptr inbounds i8, ptr %this, i64 8
   %add.i = add i64 %3, 16
-  %call8.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %add.i) #20
+  %call8.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %add.i) #19
   %4 = load ptr, ptr %mCompressedData.i, align 8
   store ptr %call8.i, ptr %mCompressedData.i, align 8
   %tobool.not.i.i4.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i4.i, label %_ZN7openvdb5v11_011compression17PagedOutputStream6resizeEm.exit, label %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i5.i
 
 _ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i5.i: ; preds = %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EE5resetIPcvEEvT_.exit.i
-  tail call void @_ZdaPv(ptr noundef nonnull %4) #21
+  tail call void @_ZdaPv(ptr noundef nonnull %4) #20
   br label %_ZN7openvdb5v11_011compression17PagedOutputStream6resizeEm.exit
 
 _ZN7openvdb5v11_011compression17PagedOutputStream6resizeEm.exit: ; preds = %if.end, %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EE5resetIPcvEEvT_.exit.i, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i5.i
@@ -2528,11 +2530,11 @@ if.then2:                                         ; preds = %_ZN7openvdb5v11_011
   br i1 %cmp3.i.i, label %cond.true.i.i, label %cond.false.i.i
 
 cond.true.i.i:                                    ; preds = %if.then2
-  %call.i.i = tail call noalias noundef nonnull dereferenceable(1) ptr @_Znam(i64 noundef 1) #20, !noalias !13
+  %call.i.i = tail call noalias noundef nonnull dereferenceable(1) ptr @_Znam(i64 noundef 1) #19, !noalias !13
   br label %cond.end.i.i
 
 cond.false.i.i:                                   ; preds = %if.then2
-  %call5.i.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %add2.i.i) #20, !noalias !13
+  %call5.i.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %add2.i.i) #19, !noalias !13
   br label %cond.end.i.i
 
 cond.end.i.i:                                     ; preds = %cond.false.i.i, %cond.true.i.i
@@ -2543,12 +2545,12 @@ cond.end.i.i:                                     ; preds = %cond.false.i.i, %co
 _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit.i.i: ; preds = %cond.end.i.i
   %7 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdaPv(ptr noundef nonnull %cond.i.i) #21, !noalias !13
+  tail call void @_ZdaPv(ptr noundef nonnull %cond.i.i) #20, !noalias !13
   resume { ptr, i32 } %7
 
 _ZN7openvdb5v11_011compression19bloscCompressedSizeEPKcm.exit: ; preds = %cond.end.i.i
   %8 = load i64, ptr %compressedBytes.i, align 8
-  tail call void @_ZdaPv(ptr noundef nonnull %cond.i.i) #21
+  tail call void @_ZdaPv(ptr noundef nonnull %cond.i.i) #20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %compressedBytes.i)
   store i64 %8, ptr %compressedBytes, align 8
   br label %if.end4
@@ -2623,14 +2625,14 @@ entry:
 
 if.then4:                                         ; preds = %entry
   store i64 %spec.store.select, ptr %mCapacity, align 8
-  %call = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %spec.store.select) #20
+  %call = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %spec.store.select) #19
   %2 = load ptr, ptr %this, align 8
   store ptr %call, ptr %this, align 8
   %tobool.not.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i, label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EE5resetIPcvEEvT_.exit, label %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i
 
 _ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i: ; preds = %if.then4
-  tail call void @_ZdaPv(ptr noundef nonnull %2) #21
+  tail call void @_ZdaPv(ptr noundef nonnull %2) #20
   %.pre = load i64, ptr %mCapacity, align 8
   br label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EE5resetIPcvEEvT_.exit
 
@@ -2638,14 +2640,14 @@ _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EE5resetIPcvEEvT_.exit: ; preds = %if
   %3 = phi i64 [ %spec.store.select, %if.then4 ], [ %.pre, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i ]
   %mCompressedData = getelementptr inbounds i8, ptr %this, i64 8
   %add = add i64 %3, 16
-  %call8 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %add) #20
+  %call8 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %add) #19
   %4 = load ptr, ptr %mCompressedData, align 8
   store ptr %call8, ptr %mCompressedData, align 8
   %tobool.not.i.i4 = icmp eq ptr %4, null
   br i1 %tobool.not.i.i4, label %if.end9, label %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i5
 
 _ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i5: ; preds = %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EE5resetIPcvEEvT_.exit
-  tail call void @_ZdaPv(ptr noundef nonnull %4) #21
+  tail call void @_ZdaPv(ptr noundef nonnull %4) #20
   br label %if.end9
 
 if.end9:                                          ; preds = %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i5, %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EE5resetIPcvEEvT_.exit, %entry
@@ -2660,7 +2662,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #14 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #16
-  tail call void @_ZSt9terminatev() #23
+  tail call void @_ZSt9terminatev() #22
   unreachable
 }
 
@@ -2721,7 +2723,7 @@ terminate.lpad:                                   ; preds = %catch
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #23
+  call void @__clang_call_terminate(ptr %4) #22
   unreachable
 }
 
@@ -2732,7 +2734,7 @@ entry:
   %mMessage.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %mMessage.i.i) #16
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #16
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #20
   ret void
 }
 
@@ -2799,7 +2801,7 @@ entry:
   %mMessage.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %mMessage.i) #16
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #16
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #20
   ret void
 }
 
@@ -3005,7 +3007,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt23_Sp_counted_ptr_inplaceIN7openvdb5v11_011compression4PageESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #20
   ret void
 }
 
@@ -3019,7 +3021,7 @@ entry:
   br i1 %cmp.not.i.i.i.i, label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit.i.i.i, label %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i
 
 _ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i: ; preds = %entry
-  tail call void @_ZdaPv(ptr noundef nonnull %0) #21
+  tail call void @_ZdaPv(ptr noundef nonnull %0) #20
   br label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit.i.i.i
 
 _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit.i.i.i: ; preds = %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i, %entry
@@ -3030,7 +3032,7 @@ _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit.i.i.i: ; preds = %_ZNKSt1
 
 _ZNKSt14default_deleteIN7openvdb5v11_011compression4Page4InfoEEclEPS4_.exit.i.i.i.i: ; preds = %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit.i.i.i
   tail call void @_ZN7openvdb5v11_011compression4Page4InfoD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %1) #16
-  tail call void @_ZdlPv(ptr noundef nonnull %1) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %1) #20
   br label %_ZNSt16allocator_traitsISaIvEE7destroyIN7openvdb5v11_011compression4PageEEEvRS0_PT_.exit
 
 _ZNSt16allocator_traitsISaIvEE7destroyIN7openvdb5v11_011compression4PageEEEvRS0_PT_.exit: ; preds = %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit.i.i.i, %_ZNKSt14default_deleteIN7openvdb5v11_011compression4Page4InfoEEclEPS4_.exit.i.i.i.i
@@ -3041,7 +3043,7 @@ _ZNSt16allocator_traitsISaIvEE7destroyIN7openvdb5v11_011compression4PageEEEvRS0_
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt23_Sp_counted_ptr_inplaceIN7openvdb5v11_011compression4PageESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN7openvdb5v11_011compression4PageESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #20
   ret void
 }
 
@@ -3094,9 +3096,6 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #19
-
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind }
@@ -3116,11 +3115,10 @@ attributes #15 = { mustprogress nofree nounwind willreturn memory(argmem: read) 
 attributes #16 = { nounwind }
 attributes #17 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #19 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #20 = { builtin allocsize(0) }
-attributes #21 = { builtin nounwind }
-attributes #22 = { noreturn }
-attributes #23 = { noreturn nounwind }
+attributes #19 = { builtin allocsize(0) }
+attributes #20 = { builtin nounwind }
+attributes #21 = { noreturn }
+attributes #22 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

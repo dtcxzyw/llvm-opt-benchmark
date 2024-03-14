@@ -579,7 +579,7 @@ for.body44:                                       ; preds = %for.body44.lr.ph, %
 
 cond.true7.i.i:                                   ; preds = %for.body44
   %sub9.i.i = add nuw i32 %41, %26
-  %div10.i.i = sdiv i32 %sub9.i.i, %41
+  %div10.i.i = udiv i32 %sub9.i.i, %41
   %sub11.i.i = sub nsw i32 0, %div10.i.i
   br label %_ZN9Imath_3_24modpEii.exit
 
@@ -743,7 +743,7 @@ for.body79:                                       ; preds = %for.body79.lr.ph, %
 
 cond.true7.i.i71:                                 ; preds = %for.body79
   %sub9.i.i72 = add nuw i32 %70, %57
-  %div10.i.i73 = sdiv i32 %sub9.i.i72, %70
+  %div10.i.i73 = udiv i32 %sub9.i.i72, %70
   %sub11.i.i74 = sub nsw i32 0, %div10.i.i73
   br label %_ZN9Imath_3_24modpEii.exit82
 
@@ -1684,7 +1684,7 @@ for.body153:                                      ; preds = %for.body153.lr.ph, 
 
 cond.true7.i.i:                                   ; preds = %for.body153
   %sub9.i.i = add nuw i32 %78, %62
-  %div10.i.i = sdiv i32 %sub9.i.i, %78
+  %div10.i.i = udiv i32 %sub9.i.i, %78
   %sub11.i.i = sub nsw i32 0, %div10.i.i
   br label %_ZN9Imath_3_24modpEii.exit
 
@@ -1852,7 +1852,7 @@ for.body189:                                      ; preds = %for.body189.lr.ph, 
 
 cond.true7.i.i112:                                ; preds = %for.body189
   %sub9.i.i113 = add nuw i32 %108, %95
-  %div10.i.i114 = sdiv i32 %sub9.i.i113, %108
+  %div10.i.i114 = udiv i32 %sub9.i.i113, %108
   %sub11.i.i115 = sub nsw i32 0, %div10.i.i114
   br label %_ZN9Imath_3_24modpEii.exit123
 

@@ -12752,19 +12752,19 @@ _ZNK6Gluco26Solver9satisfiedERKNS_6ClauseE.exit48.thread82: ; preds = %_ZNK6Gluc
   %146 = add nsw i32 %130, 2
   %147 = sub i32 %146, %125
   %148 = and i32 %147, -2
-  %149 = ashr i32 %125, 1
-  %150 = and i32 %149, -2
-  %151 = add nsw i32 %150, 2
+  %149 = lshr i32 %125, 1
+  %150 = and i32 %149, 2147483646
+  %151 = add nuw nsw i32 %150, 2
   %152 = tail call noundef i32 @llvm.smax.i32(i32 %151, i32 %148)
-  %153 = sub nsw i32 2147483647, %125
-  %154 = icmp sgt i32 %152, %153
+  %153 = sub nuw nsw i32 2147483647, %125
+  %154 = icmp ugt i32 %152, %153
   br i1 %154, label %165, label %155
 
 155:                                              ; preds = %145
-  %156 = add nsw i32 %152, %125
+  %156 = add nuw nsw i32 %152, %125
   store i32 %156, ptr %50, align 4
-  %157 = sext i32 %156 to i64
-  %158 = shl nsw i64 %157, 2
+  %157 = zext nneg i32 %156 to i64
+  %158 = shl nuw nsw i64 %157, 2
   %159 = tail call ptr @realloc(ptr noundef %126, i64 noundef %158) #34
   store ptr %159, ptr %5, align 8
   %160 = icmp eq ptr %159, null

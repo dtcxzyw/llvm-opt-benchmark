@@ -50,7 +50,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @slurm_msg_recvfrom_timeout(i32 noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca i32, align 4
-  %7 = call i32 @slurm_recv_timeout(i32 noundef %0, ptr noundef nonnull %6, i64 noundef 4, i32 noundef 0, i32 noundef %4)
+  %7 = call i32 @slurm_recv_timeout(i32 noundef %0, ptr noundef nonnull %6, i64 noundef 4, i32 noundef 0, i32 noundef %4), !range !7
   %8 = icmp slt i32 %7, 4
   br i1 %8, label %26, label %9
 
@@ -79,7 +79,7 @@ define dso_local i64 @slurm_msg_recvfrom_timeout(i32 noundef %0, ptr noundef %1,
 18:                                               ; preds = %14
   %19 = load i32, ptr %6, align 4
   %20 = zext i32 %19 to i64
-  %21 = call i32 @slurm_recv_timeout(i32 noundef %0, ptr noundef nonnull %16, i64 noundef %20, i32 noundef 0, i32 noundef %4)
+  %21 = call i32 @slurm_recv_timeout(i32 noundef %0, ptr noundef nonnull %16, i64 noundef %20, i32 noundef 0, i32 noundef %4), !range !7
   %22 = load i32, ptr %6, align 4
   %.not13 = icmp eq i32 %21, %22
   br i1 %.not13, label %24, label %23
@@ -127,7 +127,7 @@ define dso_local i32 @slurm_recv_timeout(i32 noundef %0, ptr noundef %1, i64 nou
   %19 = add nuw nsw i32 %.0.ph67, %93
   %20 = zext nneg i32 %19 to i64
   %21 = icmp ult i64 %20, %2
-  br i1 %21, label %.lr.ph, label %.loopexit, !llvm.loop !7
+  br i1 %21, label %.lr.ph, label %.loopexit, !llvm.loop !8
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer
   %22 = phi i64 [ 0, %.lr.ph.lr.ph ], [ %20, %.outer ]
@@ -374,23 +374,23 @@ define dso_local i64 @slurm_msg_sendto(i32 noundef %0, ptr noundef %1, i64 nound
   store i32 %12, ptr %6, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   store i32 %9, ptr %5, align 4
-  %13 = call fastcc i32 @_send_timeout(i32 noundef %0, ptr noundef nonnull %6, i64 noundef 4, i32 noundef 0, ptr noundef nonnull %5)
+  %13 = call fastcc i32 @_send_timeout(i32 noundef %0, ptr noundef nonnull %6, i64 noundef 4, i32 noundef 0, ptr noundef nonnull %5), !range !7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   %14 = icmp slt i32 %13, 0
-  br i1 %14, label %17, label %15
+  br i1 %14, label %18, label %15
 
 15:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   store i32 %9, ptr %4, align 4
-  %16 = call fastcc i32 @_send_timeout(i32 noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef 0, ptr noundef nonnull %4)
+  %16 = call fastcc i32 @_send_timeout(i32 noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef 0, ptr noundef nonnull %4), !range !7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  br label %17
+  %17 = sext i32 %16 to i64
+  br label %18
 
-17:                                               ; preds = %15, %3
-  %.0 = phi i32 [ %13, %3 ], [ %16, %15 ]
-  %18 = call ptr @xsignal(i32 noundef 13, ptr noundef %10) #10
-  %19 = sext i32 %.0 to i64
-  ret i64 %19
+18:                                               ; preds = %15, %3
+  %.0 = phi i64 [ -1, %3 ], [ %17, %15 ]
+  %19 = call ptr @xsignal(i32 noundef 13, ptr noundef %10) #10
+  ret i64 %.0
 }
 
 declare ptr @xsignal(i32 noundef, ptr noundef) local_unnamed_addr #2
@@ -402,7 +402,7 @@ declare i32 @htonl(i32 noundef) local_unnamed_addr #1
 define dso_local i32 @slurm_send_timeout(i32 noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca i32, align 4
   store i32 %4, ptr %6, align 4
-  %7 = call fastcc i32 @_send_timeout(i32 noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef nonnull %6)
+  %7 = call fastcc i32 @_send_timeout(i32 noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef nonnull %6), !range !7
   ret i32 %7
 }
 
@@ -637,7 +637,7 @@ define internal fastcc i32 @_send_timeout(i32 noundef %0, ptr noundef %1, i64 no
   %120 = add nuw nsw i32 %.0.ph66, %94
   %121 = zext nneg i32 %120 to i64
   %122 = icmp ult i64 %121, %2
-  br i1 %122, label %.lr.ph, label %.loopexit, !llvm.loop !9
+  br i1 %122, label %.lr.ph, label %.loopexit, !llvm.loop !10
 
 .loopexit.sink.split:                             ; preds = %106, %49, %52, %37, %40, %68, %84
   %.sink = phi i32 [ %85, %84 ], [ %69, %68 ], [ 5004, %40 ], [ 5004, %37 ], [ 1002, %52 ], [ 1002, %49 ], [ 1002, %106 ]
@@ -719,7 +719,7 @@ define dso_local i64 @slurm_bufs_sendto(i32 noundef %0, ptr nocapture noundef re
   %23 = add i32 %22, %.026
   %24 = tail call i32 @htonl(i32 noundef %23) #9
   store i32 %24, ptr %3, align 4
-  %25 = call fastcc i32 @_send_timeout(i32 noundef %0, ptr noundef nonnull %3, i64 noundef 4, i32 noundef 0, ptr noundef nonnull %4)
+  %25 = call fastcc i32 @_send_timeout(i32 noundef %0, ptr noundef nonnull %3, i64 noundef 4, i32 noundef 0, ptr noundef nonnull %4), !range !7
   %26 = icmp slt i32 %25, 0
   br i1 %26, label %58, label %27
 
@@ -730,7 +730,7 @@ define dso_local i64 @slurm_bufs_sendto(i32 noundef %0, ptr nocapture noundef re
   %31 = getelementptr inbounds i8, ptr %28, i64 20
   %32 = load i32, ptr %31, align 4
   %33 = zext i32 %32 to i64
-  %34 = call fastcc i32 @_send_timeout(i32 noundef %0, ptr noundef %30, i64 noundef %33, i32 noundef 0, ptr noundef nonnull %4)
+  %34 = call fastcc i32 @_send_timeout(i32 noundef %0, ptr noundef %30, i64 noundef %33, i32 noundef 0, ptr noundef nonnull %4), !range !7
   %35 = icmp slt i32 %34, 0
   br i1 %35, label %58, label %36
 
@@ -746,7 +746,7 @@ define dso_local i64 @slurm_bufs_sendto(i32 noundef %0, ptr nocapture noundef re
   %42 = getelementptr inbounds i8, ptr %38, i64 20
   %43 = load i32, ptr %42, align 4
   %44 = zext i32 %43 to i64
-  %45 = call fastcc i32 @_send_timeout(i32 noundef %0, ptr noundef %41, i64 noundef %44, i32 noundef 0, ptr noundef nonnull %4)
+  %45 = call fastcc i32 @_send_timeout(i32 noundef %0, ptr noundef %41, i64 noundef %44, i32 noundef 0, ptr noundef nonnull %4), !range !7
   %46 = icmp slt i32 %45, 0
   br i1 %46, label %58, label %47
 
@@ -762,13 +762,13 @@ define dso_local i64 @slurm_bufs_sendto(i32 noundef %0, ptr nocapture noundef re
   %53 = getelementptr inbounds i8, ptr %50, i64 20
   %54 = load i32, ptr %53, align 4
   %55 = zext i32 %54 to i64
-  %56 = call fastcc i32 @_send_timeout(i32 noundef %0, ptr noundef %52, i64 noundef %55, i32 noundef 0, ptr noundef nonnull %4)
+  %56 = call fastcc i32 @_send_timeout(i32 noundef %0, ptr noundef %52, i64 noundef %55, i32 noundef 0, ptr noundef nonnull %4), !range !7
   %57 = call i32 @llvm.smax.i32(i32 %56, i32 0)
   %spec.select = add nuw nsw i32 %57, %.0
   br label %58
 
 58:                                               ; preds = %49, %39, %27, %18
-  %.1 = phi i32 [ %25, %18 ], [ %25, %27 ], [ %37, %39 ], [ %spec.select, %49 ]
+  %.1 = phi i32 [ -1, %18 ], [ %25, %27 ], [ %37, %39 ], [ %spec.select, %49 ]
   %59 = call ptr @xsignal(i32 noundef 13, ptr noundef %8) #10
   %60 = sext i32 %.1 to i64
   ret i64 %60
@@ -983,7 +983,7 @@ define dso_local i32 @slurm_open_stream(ptr noundef %0, i1 noundef zeroext %1) l
   call void @slurm_set_port(ptr noundef nonnull %5, i16 noundef zeroext %49) #10
   %50 = add nuw nsw i32 %.05.i, 1
   %exitcond.not.i = icmp eq i32 %50, 3
-  br i1 %exitcond.not.i, label %_sock_bind_wild.exit, label %42, !llvm.loop !10
+  br i1 %exitcond.not.i, label %_sock_bind_wild.exit, label %42, !llvm.loop !11
 
 _sock_bind_wild.exit:                             ; preds = %42, %45
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5)
@@ -1253,7 +1253,7 @@ define dso_local void @slurm_set_addr(ptr noundef %0, i16 noundef zeroext %1, pt
   %30 = getelementptr inbounds i8, ptr %.026, i64 40
   %31 = load ptr, ptr %30, align 8
   %.not24 = icmp eq ptr %31, null
-  br i1 %.not24, label %.loopexit, label %.preheader, !llvm.loop !11
+  br i1 %.not24, label %.loopexit, label %.preheader, !llvm.loop !12
 
 .loopexit:                                        ; preds = %29, %.preheader, %22, %23
   %.1 = phi ptr [ %12, %23 ], [ %12, %22 ], [ %12, %29 ], [ %.026, %.preheader ]
@@ -1455,8 +1455,9 @@ attributes #10 = { nounwind }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
+!7 = !{i32 -1, i32 -2147483648}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}

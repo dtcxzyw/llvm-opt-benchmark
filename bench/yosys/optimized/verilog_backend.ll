@@ -5413,7 +5413,7 @@ _ZNK5Yosys5RTLIL8IdString5c_strEv.exit.i59.i:     ; preds = %_ZN5Yosys5RTLIL8IdS
   br i1 %.not24.i71.i, label %_ZN12_GLOBAL__N_121reset_auto_counter_idEN5Yosys5RTLIL8IdStringEb.exit74.i, label %362
 
 362:                                              ; preds = %359
-  %363 = add nsw i32 %360, 1
+  %363 = add nuw nsw i32 %360, 1
   store i32 %363, ptr @_ZN12_GLOBAL__N_116auto_name_offsetE, align 4
   br label %_ZN12_GLOBAL__N_121reset_auto_counter_idEN5Yosys5RTLIL8IdStringEb.exit74.i
 
@@ -5559,7 +5559,7 @@ _ZNK5Yosys5RTLIL8IdString5c_strEv.exit.i84.i:     ; preds = %_ZN5Yosys5RTLIL8IdS
   br i1 %.not24.i96.i, label %_ZN12_GLOBAL__N_121reset_auto_counter_idEN5Yosys5RTLIL8IdStringEb.exit99.i, label %422
 
 422:                                              ; preds = %419
-  %423 = add nsw i32 %420, 1
+  %423 = add nuw nsw i32 %420, 1
   store i32 %423, ptr @_ZN12_GLOBAL__N_116auto_name_offsetE, align 4
   br label %_ZN12_GLOBAL__N_121reset_auto_counter_idEN5Yosys5RTLIL8IdStringEb.exit99.i
 
@@ -5605,7 +5605,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit101.i:           ; preds = %434, %428, %_ZN12_G
 ._crit_edge.i:                                    ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit101.i, %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit49.i
   store i32 1, ptr @_ZN12_GLOBAL__N_116auto_name_digitsE, align 4
   %441 = load i32, ptr @_ZN12_GLOBAL__N_116auto_name_offsetE, align 4
-  %442 = sext i32 %441 to i64
+  %442 = zext nneg i32 %441 to i64
   %443 = load ptr, ptr getelementptr inbounds (%"class.Yosys::hashlib::dict", ptr @_ZN12_GLOBAL__N_113auto_name_mapE, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1), align 8
   %444 = load ptr, ptr getelementptr inbounds (%"class.Yosys::hashlib::dict", ptr @_ZN12_GLOBAL__N_113auto_name_mapE, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0), align 8
   %445 = ptrtoint ptr %443 to i64
@@ -31956,7 +31956,7 @@ thread-pre-split:                                 ; preds = %17, %_ZNK5Yosys5RTL
   br i1 %.not24, label %.thread, label %38
 
 38:                                               ; preds = %35
-  %39 = add nsw i32 %36, 1
+  %39 = add nuw nsw i32 %36, 1
   store i32 %39, ptr @_ZN12_GLOBAL__N_116auto_name_offsetE, align 4
   br label %.thread
 

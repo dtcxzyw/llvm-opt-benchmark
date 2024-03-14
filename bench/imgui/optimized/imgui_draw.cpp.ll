@@ -29252,9 +29252,9 @@ for.body383.i:                                    ; preds = %for.cond381.i.prehe
   br i1 %exitcond.not, label %for.end446.i, label %for.body383.i, !llvm.loop !161
 
 for.end446.i:                                     ; preds = %for.body383.i
-  %add448.i = add nsw i32 %call378.i, %num_vertices.5.i162
-  %conv449.i = sext i32 %add448.i to i64
-  %mul450.i = mul nsw i64 %conv449.i, 14
+  %add448.i = add nuw nsw i32 %call378.i, %num_vertices.5.i162
+  %conv449.i = zext nneg i32 %add448.i to i64
+  %mul450.i = mul nuw nsw i64 %conv449.i, 14
   %call451.i = tail call noundef ptr @_ZN5ImGui8MemAllocEm(i64 noundef %mul450.i)
   %tobool452.not.i = icmp eq ptr %call451.i, null
   br i1 %tobool452.not.i, label %if.then453.i, label %if.end462.i
@@ -29275,10 +29275,10 @@ if.end462.i:                                      ; preds = %for.end446.i
   %cmp463.i = icmp sgt i32 %num_vertices.5.i162, 0
   %tobool464.i = icmp ne ptr %vertices.0.i163, null
   %or.cond.i = select i1 %cmp463.i, i1 %tobool464.i, i1 false
+  %conv466.i = zext nneg i32 %num_vertices.5.i162 to i64
   br i1 %or.cond.i, label %if.end468.i.thread, label %if.end468.i
 
 if.end468.i.thread:                               ; preds = %if.end462.i
-  %conv466.i = zext nneg i32 %num_vertices.5.i162 to i64
   %mul467.i = mul nuw nsw i64 %conv466.i, 14
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %call451.i, ptr nonnull align 2 %vertices.0.i163, i64 %mul467.i, i1 false)
   %add.ptr470.i154 = getelementptr inbounds %struct.stbtt_vertex, ptr %call451.i, i64 %conv466.i
@@ -29287,8 +29287,7 @@ if.end468.i.thread:                               ; preds = %if.end462.i
   br label %if.then474.i
 
 if.end468.i:                                      ; preds = %if.end462.i
-  %idx.ext469.i = sext i32 %num_vertices.5.i162 to i64
-  %add.ptr470.i = getelementptr inbounds %struct.stbtt_vertex, ptr %call451.i, i64 %idx.ext469.i
+  %add.ptr470.i = getelementptr inbounds %struct.stbtt_vertex, ptr %call451.i, i64 %conv466.i
   %mul472.i = mul nuw nsw i64 %wide.trip.count, 14
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %add.ptr470.i, ptr nonnull align 2 %110, i64 %mul472.i, i1 false)
   br i1 %tobool464.i, label %if.then474.i, label %if.end476.i

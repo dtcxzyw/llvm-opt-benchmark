@@ -154,7 +154,7 @@ cond.false5.i:                                    ; preds = %entry
 cond.true7.i:                                     ; preds = %cond.false5.i
   %0 = xor i32 %a, -1
   %sub9.i = add nuw i32 %0, %s
-  %div10.i = sdiv i32 %sub9.i, %s
+  %div10.i = udiv i32 %sub9.i, %s
   %sub11.i = sub nsw i32 0, %div10.i
   br label %_ZN9Imath_3_24divpEii.exit
 
@@ -189,7 +189,7 @@ cond.false5.i7:                                   ; preds = %_ZN9Imath_3_24divpE
 cond.true7.i14:                                   ; preds = %cond.false5.i7
   %1 = xor i32 %b, -1
   %sub9.i15 = add nuw i32 %1, %s
-  %div10.i16 = sdiv i32 %sub9.i15, %s
+  %div10.i16 = udiv i32 %sub9.i15, %s
   %sub11.i17 = sub nsw i32 0, %div10.i16
   br label %_ZN9Imath_3_24divpEii.exit25
 
@@ -330,7 +330,7 @@ cond.false5.i.i:                                  ; preds = %for.body26
 cond.true7.i.i:                                   ; preds = %cond.false5.i.i
   %15 = xor i32 %y20.032, -1
   %sub9.i.i = add nuw i32 %14, %15
-  %div10.i.i = sdiv i32 %sub9.i.i, %14
+  %div10.i.i = udiv i32 %sub9.i.i, %14
   %sub11.i.i = sub nsw i32 0, %div10.i.i
   br label %_ZN9Imath_3_24modpEii.exit
 
@@ -516,7 +516,7 @@ for.body24:                                       ; preds = %for.cond22.preheade
   %conv26 = sext i32 %28 to i64
   %mul = mul nsw i64 %switch.load, %conv26
   %add = add i64 %mul, %nBytes.047
-  %indvars.iv.next = add i64 %indvars.iv, %smax58
+  %indvars.iv.next = add nsw i64 %indvars.iv, %smax58
   %cmp23.not = icmp sgt i64 %indvars.iv.next, %24
   br i1 %cmp23.not, label %for.cond22.for.end_crit_edge, label %for.body24, !llvm.loop !8
 
@@ -529,7 +529,7 @@ for.cond22.for.end_crit_edge:                     ; preds = %for.body24
   %33 = load i64, ptr %add.ptr.i38, align 8
   %add39 = add i64 %33, %add
   store i64 %add39, ptr %add.ptr.i38, align 8
-  %indvars.iv.next61 = add i64 %indvars.iv60, %smax59
+  %indvars.iv.next61 = add nsw i64 %indvars.iv60, %smax59
   %cmp.not = icmp sgt i64 %indvars.iv.next61, %27
   br i1 %cmp.not, label %for.inc43, label %for.cond22.preheader, !llvm.loop !9
 

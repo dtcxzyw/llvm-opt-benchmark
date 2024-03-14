@@ -1892,7 +1892,7 @@ switch.edge:                                      ; preds = %switch.lookup, %155
   br i1 %exitcond3422.not, label %._crit_edge, label %351
 
 ._crit_edge:                                      ; preds = %360, %348
-  %361 = sext i32 %.02767 to i64
+  %361 = zext nneg i32 %.02767 to i64
   %362 = getelementptr inbounds i8, ptr %25, i64 %361
   %363 = load i8, ptr %362, align 1
   %364 = zext i8 %363 to i32

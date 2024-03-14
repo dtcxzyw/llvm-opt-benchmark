@@ -1310,8 +1310,8 @@ opal_argv_count.exit.i.i:                         ; preds = %.lr.ph.i.i.i, %opal
 30:                                               ; preds = %opal_argv_count.exit.thread, %opal_argv_count.exit
   %.07.i39 = phi i32 [ 0, %opal_argv_count.exit.thread ], [ %12, %opal_argv_count.exit ]
   %31 = add nuw nsw i32 %.07.i39, 2
-  %32 = sext i32 %31 to i64
-  %33 = shl nsw i64 %32, 3
+  %32 = zext nneg i32 %31 to i64
+  %33 = shl nuw nsw i64 %32, 3
   %34 = tail call ptr @realloc(ptr noundef nonnull %6, i64 noundef %33) #12
   store ptr %34, ptr %0, align 8
   %35 = xor i32 %1, -1

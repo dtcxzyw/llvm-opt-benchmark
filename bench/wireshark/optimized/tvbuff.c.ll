@@ -626,9 +626,9 @@ ensure_contiguous.exit:                           ; preds = %_tvb_captured_lengt
   br i1 %67, label %68, label %78
 
 68:                                               ; preds = %._crit_edge
-  %69 = add nuw i32 %.066.lcssa, 1
-  %70 = sext i32 %69 to i64
-  %71 = getelementptr i8, ptr %37, i64 %70
+  %69 = sext i32 %.066.lcssa to i64
+  %70 = getelementptr i8, ptr %37, i64 %69
+  %71 = getelementptr i8, ptr %70, i64 1
   %72 = load i8, ptr %71, align 1
   %73 = zext i8 %72 to i32
   %74 = zext nneg i8 %13 to i32

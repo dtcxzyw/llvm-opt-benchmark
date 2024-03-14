@@ -175,26 +175,26 @@ entry:
   %2 = load ptr, ptr %bucketList_.i, align 8
   %count.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i32, ptr %count.i.i, align 8
-  %cmp9.i = icmp sgt i32 %3, 1
-  br i1 %cmp9.i, label %while.body.i, label %_ZN6icu_7510BucketList14getBucketIndexERKNS_13UnicodeStringERKNS_8CollatorER10UErrorCode.exit
+  %cmp10.i = icmp sgt i32 %3, 1
+  br i1 %cmp10.i, label %while.body.i, label %_ZN6icu_7510BucketList14getBucketIndexERKNS_13UnicodeStringERKNS_8CollatorER10UErrorCode.exit
 
 while.body.i:                                     ; preds = %entry, %while.body.i
-  %start.011.i = phi i32 [ %start.0.div.i, %while.body.i ], [ 0, %entry ]
-  %limit.010.i = phi i32 [ %div.limit.0.i, %while.body.i ], [ %3, %entry ]
-  %add2.i = add nsw i32 %limit.010.i, %start.011.i
-  %div.i = sdiv i32 %add2.i, 2
+  %start.012.i = phi i32 [ %start.0.div8.i, %while.body.i ], [ 0, %entry ]
+  %limit.011.i = phi i32 [ %div8.limit.0.i, %while.body.i ], [ %3, %entry ]
+  %add2.i = add nuw nsw i32 %limit.011.i, %start.012.i
+  %div8.i = lshr i32 %add2.i, 1
   %4 = load ptr, ptr %bucketList_.i, align 8
-  %call.i.i.i = tail call noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %4, i32 noundef %div.i)
+  %call.i.i.i = tail call noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %4, i32 noundef %div8.i)
   %lowerBoundary_.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 72
   %vtable.i = load ptr, ptr %1, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 56
   %5 = load ptr, ptr %vfn.i, align 8
   %call5.i = tail call noundef i32 %5(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(64) %name, ptr noundef nonnull align 8 dereferenceable(64) %lowerBoundary_.i, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %cmp6.i = icmp slt i32 %call5.i, 0
-  %div.limit.0.i = select i1 %cmp6.i, i32 %div.i, i32 %limit.010.i
-  %start.0.div.i = select i1 %cmp6.i, i32 %start.011.i, i32 %div.i
-  %add.i = add nsw i32 %start.0.div.i, 1
-  %cmp.i = icmp slt i32 %add.i, %div.limit.0.i
+  %div8.limit.0.i = select i1 %cmp6.i, i32 %div8.i, i32 %limit.011.i
+  %start.0.div8.i = select i1 %cmp6.i, i32 %start.012.i, i32 %div8.i
+  %add.i = add nuw nsw i32 %start.0.div8.i, 1
+  %cmp.i = icmp slt i32 %add.i, %div8.limit.0.i
   br i1 %cmp.i, label %while.body.i, label %while.end.loopexit.i, !llvm.loop !4
 
 while.end.loopexit.i:                             ; preds = %while.body.i
@@ -203,12 +203,12 @@ while.end.loopexit.i:                             ; preds = %while.body.i
 
 _ZN6icu_7510BucketList14getBucketIndexERKNS_13UnicodeStringERKNS_8CollatorER10UErrorCode.exit: ; preds = %entry, %while.end.loopexit.i
   %6 = phi ptr [ %2, %entry ], [ %.pre.i, %while.end.loopexit.i ]
-  %start.0.lcssa.i = phi i32 [ 0, %entry ], [ %start.0.div.i, %while.end.loopexit.i ]
-  %call.i.i8.i = tail call noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %6, i32 noundef %start.0.lcssa.i)
-  %displayBucket_.i = getelementptr inbounds i8, ptr %call.i.i8.i, i64 144
+  %start.0.lcssa.i = phi i32 [ 0, %entry ], [ %start.0.div8.i, %while.end.loopexit.i ]
+  %call.i.i9.i = tail call noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %6, i32 noundef %start.0.lcssa.i)
+  %displayBucket_.i = getelementptr inbounds i8, ptr %call.i.i9.i, i64 144
   %7 = load ptr, ptr %displayBucket_.i, align 8
   %cmp10.not.i = icmp eq ptr %7, null
-  %spec.select.i = select i1 %cmp10.not.i, ptr %call.i.i8.i, ptr %7
+  %spec.select.i = select i1 %cmp10.not.i, ptr %call.i.i9.i, ptr %7
   %displayIndex_.i = getelementptr inbounds i8, ptr %spec.select.i, i64 152
   %8 = load i32, ptr %displayIndex_.i, align 8
   ret i32 %8
@@ -379,19 +379,19 @@ delete.notnull:                                   ; preds = %if.then21
   br label %if.end73
 
 if.end22:                                         ; preds = %if.then17
-  br i1 %cmp23, label %if.then24, label %dynamic_cast.notnull
+  br i1 %cmp23, label %if.then24, label %dynamic_cast.end
 
 if.then24:                                        ; preds = %if.end22
   store i32 7, ptr %status, align 4
   br label %if.end73
 
-dynamic_cast.notnull:                             ; preds = %if.end22
+dynamic_cast.end:                                 ; preds = %if.end22
   %9 = call ptr @__dynamic_cast(ptr nonnull %call18, ptr nonnull @_ZTIN6icu_758CollatorE, ptr nonnull @_ZTIN6icu_7517RuleBasedCollatorE, i64 0) #16
   store ptr %9, ptr %collator_, align 8
   %cmp28 = icmp eq ptr %9, null
   br i1 %cmp28, label %delete.notnull31, label %if.end36
 
-delete.notnull31:                                 ; preds = %dynamic_cast.notnull
+delete.notnull31:                                 ; preds = %dynamic_cast.end
   %vtable32 = load ptr, ptr %call18, align 8
   %vfn33 = getelementptr inbounds i8, ptr %vtable32, i64 8
   %10 = load ptr, ptr %vfn33, align 8
@@ -399,8 +399,8 @@ delete.notnull31:                                 ; preds = %dynamic_cast.notnul
   store i32 16, ptr %status, align 4
   br label %if.end73
 
-if.end36:                                         ; preds = %dynamic_cast.notnull, %if.end9
-  %11 = phi ptr [ %9, %dynamic_cast.notnull ], [ %6, %if.end9 ]
+if.end36:                                         ; preds = %dynamic_cast.end, %if.end9
+  %11 = phi ptr [ %9, %dynamic_cast.end ], [ %6, %if.end9 ]
   %call38 = call noundef ptr @_ZNK6icu_7517RuleBasedCollator5cloneEv(ptr noundef nonnull align 8 dereferenceable(272) %11)
   %collatorPrimaryOnly_ = getelementptr inbounds i8, ptr %this, i64 64
   store ptr %call38, ptr %collatorPrimaryOnly_, align 8
@@ -3655,7 +3655,7 @@ return:                                           ; preds = %delete.notnull.i, %
 
 declare noundef ptr @_ZN6icu_758Collator14createInstanceERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(217), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #4
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #9
 
 declare void @_ZN6icu_7517RuleBasedCollator12setAttributeE13UColAttribute18UColAttributeValueR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(272), i32 noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #4
@@ -4097,26 +4097,26 @@ if.end:                                           ; preds = %entry
   %3 = load ptr, ptr %bucketList_.i, align 8
   %count.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load i32, ptr %count.i.i, align 8
-  %cmp9.i = icmp sgt i32 %4, 1
-  br i1 %cmp9.i, label %while.body.i, label %_ZN6icu_7510BucketList14getBucketIndexERKNS_13UnicodeStringERKNS_8CollatorER10UErrorCode.exit
+  %cmp10.i = icmp sgt i32 %4, 1
+  br i1 %cmp10.i, label %while.body.i, label %_ZN6icu_7510BucketList14getBucketIndexERKNS_13UnicodeStringERKNS_8CollatorER10UErrorCode.exit
 
 while.body.i:                                     ; preds = %if.end, %while.body.i
-  %start.011.i = phi i32 [ %start.0.div.i, %while.body.i ], [ 0, %if.end ]
-  %limit.010.i = phi i32 [ %div.limit.0.i, %while.body.i ], [ %4, %if.end ]
-  %add2.i = add nsw i32 %limit.010.i, %start.011.i
-  %div.i = sdiv i32 %add2.i, 2
+  %start.012.i = phi i32 [ %start.0.div8.i, %while.body.i ], [ 0, %if.end ]
+  %limit.011.i = phi i32 [ %div8.limit.0.i, %while.body.i ], [ %4, %if.end ]
+  %add2.i = add nuw nsw i32 %limit.011.i, %start.012.i
+  %div8.i = lshr i32 %add2.i, 1
   %5 = load ptr, ptr %bucketList_.i, align 8
-  %call.i.i.i = tail call noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %5, i32 noundef %div.i)
+  %call.i.i.i = tail call noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %5, i32 noundef %div8.i)
   %lowerBoundary_.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 72
   %vtable.i = load ptr, ptr %2, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 56
   %6 = load ptr, ptr %vfn.i, align 8
   %call5.i = tail call noundef i32 %6(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(64) %name, ptr noundef nonnull align 8 dereferenceable(64) %lowerBoundary_.i, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %cmp6.i = icmp slt i32 %call5.i, 0
-  %div.limit.0.i = select i1 %cmp6.i, i32 %div.i, i32 %limit.010.i
-  %start.0.div.i = select i1 %cmp6.i, i32 %start.011.i, i32 %div.i
-  %add.i = add nsw i32 %start.0.div.i, 1
-  %cmp.i3 = icmp slt i32 %add.i, %div.limit.0.i
+  %div8.limit.0.i = select i1 %cmp6.i, i32 %div8.i, i32 %limit.011.i
+  %start.0.div8.i = select i1 %cmp6.i, i32 %start.012.i, i32 %div8.i
+  %add.i = add nuw nsw i32 %start.0.div8.i, 1
+  %cmp.i3 = icmp slt i32 %add.i, %div8.limit.0.i
   br i1 %cmp.i3, label %while.body.i, label %while.end.loopexit.i, !llvm.loop !4
 
 while.end.loopexit.i:                             ; preds = %while.body.i
@@ -4125,12 +4125,12 @@ while.end.loopexit.i:                             ; preds = %while.body.i
 
 _ZN6icu_7510BucketList14getBucketIndexERKNS_13UnicodeStringERKNS_8CollatorER10UErrorCode.exit: ; preds = %if.end, %while.end.loopexit.i
   %7 = phi ptr [ %3, %if.end ], [ %.pre.i, %while.end.loopexit.i ]
-  %start.0.lcssa.i = phi i32 [ 0, %if.end ], [ %start.0.div.i, %while.end.loopexit.i ]
-  %call.i.i8.i = tail call noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %7, i32 noundef %start.0.lcssa.i)
-  %displayBucket_.i = getelementptr inbounds i8, ptr %call.i.i8.i, i64 144
+  %start.0.lcssa.i = phi i32 [ 0, %if.end ], [ %start.0.div8.i, %while.end.loopexit.i ]
+  %call.i.i9.i = tail call noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %7, i32 noundef %start.0.lcssa.i)
+  %displayBucket_.i = getelementptr inbounds i8, ptr %call.i.i9.i, i64 144
   %8 = load ptr, ptr %displayBucket_.i, align 8
   %cmp10.not.i = icmp eq ptr %8, null
-  %spec.select.i = select i1 %cmp10.not.i, ptr %call.i.i8.i, ptr %8
+  %spec.select.i = select i1 %cmp10.not.i, ptr %call.i.i9.i, ptr %8
   %displayIndex_.i = getelementptr inbounds i8, ptr %spec.select.i, i64 152
   %9 = load i32, ptr %displayIndex_.i, align 8
   br label %return
@@ -4542,7 +4542,7 @@ attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree nounwind memory(read) }
+attributes #9 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -882,7 +882,7 @@ if.end.lr.ph.i:                                   ; preds = %if.end
   br i1 %cmp5.i14, label %_ZN6icu_7512ChoiceFormat14findSubMessageERKNS_14MessagePatternEid.exit, label %if.end7.i
 
 if.end.i:                                         ; preds = %if.end17.i
-  %idxprom.i.i = sext i32 %inc.i to i64
+  %idxprom.i.i = zext nneg i32 %inc.i to i64
   %arrayidx.i.i = getelementptr inbounds %"class.icu_75::MessagePattern::Part", ptr %6, i64 %idxprom.i.i
   %5 = load i32, ptr %arrayidx.i.i, align 4
   %cmp5.i = icmp eq i32 %5, 6
@@ -892,11 +892,11 @@ if.end7.i:                                        ; preds = %if.end.lr.ph.i, %if
   %arrayidx.i.i17 = phi ptr [ %arrayidx.i.i, %if.end.i ], [ %arrayidx.i.i13, %if.end.lr.ph.i ]
   %partIndex.addr.024.i16 = phi i32 [ %inc9.i, %if.end.i ], [ 2, %if.end.lr.ph.i ]
   %start..i25.i15 = phi i32 [ %start..i.i, %if.end.i ], [ %start..i21.i, %if.end.lr.ph.i ]
-  %inc2.i = add nsw i32 %start..i25.i15, 2
+  %inc2.i = add nuw nsw i32 %start..i25.i15, 2
   %call8.i = tail call noundef double @_ZNK6icu_7514MessagePattern15getNumericValueERKNS0_4PartE(ptr noundef nonnull align 8 dereferenceable(127) %msgPattern, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx.i.i17)
-  %inc9.i = add nsw i32 %start..i25.i15, 3
+  %inc9.i = add nuw nsw i32 %start..i25.i15, 3
   %6 = load ptr, ptr %parts.i.i.i, align 8
-  %idxprom.i.i15.i = sext i32 %inc2.i to i64
+  %idxprom.i.i15.i = zext nneg i32 %inc2.i to i64
   %index.i.i = getelementptr inbounds %"class.icu_75::MessagePattern::Part", ptr %6, i64 %idxprom.i.i15.i, i32 1
   %7 = load i32, ptr %index.i.i, align 4
   %8 = load i16, ptr %fUnion.i.i.i.i.i, align 8
@@ -928,11 +928,11 @@ cond.false.i:                                     ; preds = %_ZNK6icu_7513Unicod
   br i1 %cmp15.i, label %_ZN6icu_7512ChoiceFormat14findSubMessageERKNS_14MessagePatternEid.exit, label %if.end17.i
 
 if.end17.i:                                       ; preds = %cond.false.i, %cond.true.i
-  %idxprom.i.i.i = sext i32 %inc9.i to i64
+  %idxprom.i.i.i = zext nneg i32 %inc9.i to i64
   %limitPartIndex.i.i = getelementptr inbounds %"class.icu_75::MessagePattern::Part", ptr %6, i64 %idxprom.i.i.i, i32 4
   %14 = load i32, ptr %limitPartIndex.i.i, align 4
   %start..i.i = tail call noundef i32 @llvm.smax.i32(i32 %14, i32 %inc9.i)
-  %inc.i = add nsw i32 %start..i.i, 1
+  %inc.i = add nuw nsw i32 %start..i.i, 1
   %cmp.not.i = icmp slt i32 %inc.i, %1
   br i1 %cmp.not.i, label %if.end.i, label %_ZN6icu_7512ChoiceFormat14findSubMessageERKNS_14MessagePatternEid.exit, !llvm.loop !11
 
@@ -945,7 +945,7 @@ _ZN6icu_7512ChoiceFormat14findSubMessageERKNS_14MessagePatternEid.exit: ; preds 
   br i1 %cmp.i.not, label %if.end17, label %if.then6
 
 if.then6:                                         ; preds = %_ZN6icu_7512ChoiceFormat14findSubMessageERKNS_14MessagePatternEid.exit
-  %idxprom.i = sext i32 %partIndex.addr.0.lcssa.i to i64
+  %idxprom.i = zext nneg i32 %partIndex.addr.0.lcssa.i to i64
   %arrayidx.i = getelementptr inbounds %"class.icu_75::MessagePattern::Part", ptr %15, i64 %idxprom.i
   %index.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
   %17 = load i32, ptr %index.i, align 4
@@ -957,7 +957,7 @@ if.then6:                                         ; preds = %_ZN6icu_7512ChoiceF
   %19 = load i32, ptr %limitPartIndex.i, align 4
   %start..i = tail call noundef i32 @llvm.smax.i32(i32 %19, i32 %partIndex.addr.0.lcssa.i)
   %msg.i = getelementptr inbounds i8, ptr %this, i64 376
-  %idxprom.i.i10 = sext i32 %start..i to i64
+  %idxprom.i.i10 = zext nneg i32 %start..i to i64
   %index.i11 = getelementptr inbounds %"class.icu_75::MessagePattern::Part", ptr %15, i64 %idxprom.i.i10, i32 1
   %20 = load i32, ptr %index.i11, align 4
   %sub = sub nsw i32 %20, %add.i

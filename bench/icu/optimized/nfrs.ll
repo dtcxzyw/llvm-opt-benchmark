@@ -622,7 +622,7 @@ if.end32:                                         ; preds = %if.else, %if.then27
   %29 = load i8, ptr %fIsFractionRuleSet, align 8
   %tobool33.not = icmp eq i8 %29, 0
   %inc = zext i1 %tobool33.not to i64
-  %spec.select = add nsw i64 %defaultBaseValue.1, %inc
+  %spec.select = add nuw nsw i64 %defaultBaseValue.1, %inc
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %cleanup, label %for.body, !llvm.loop !11
@@ -1267,53 +1267,53 @@ while.cond.preheader.i:                           ; preds = %if.end8.i
   %3 = load ptr, ptr %rules.i, align 8, !nonnull !10, !noundef !10
   br label %while.body.i
 
-while.body.i:                                     ; preds = %cond.true.i25.i, %while.cond.preheader.i
-  %lo.046.i = phi i32 [ 0, %while.cond.preheader.i ], [ %lo.1.i, %cond.true.i25.i ]
-  %hi.045.i = phi i32 [ %2, %while.cond.preheader.i ], [ %hi.1.i, %cond.true.i25.i ]
-  %add.i = add nsw i32 %hi.045.i, %lo.046.i
-  %div.i = sdiv i32 %add.i, 2
-  %idxprom.i.i = zext i32 %div.i to i64
+while.body.i:                                     ; preds = %cond.true.i26.i, %while.cond.preheader.i
+  %lo.047.i = phi i32 [ 0, %while.cond.preheader.i ], [ %lo.1.i, %cond.true.i26.i ]
+  %hi.046.i = phi i32 [ %2, %while.cond.preheader.i ], [ %hi.1.i, %cond.true.i26.i ]
+  %add.i = add nuw nsw i32 %hi.046.i, %lo.047.i
+  %div18.i = lshr i32 %add.i, 1
+  %idxprom.i.i = zext nneg i32 %div18.i to i64
   %arrayidx.i.i = getelementptr inbounds ptr, ptr %3, i64 %idxprom.i.i
   %4 = load ptr, ptr %arrayidx.i.i, align 8
   %5 = load i64, ptr %4, align 8
-  %cmp1643.i = icmp eq i64 %5, %number.addr.0.i
-  br i1 %cmp1643.i, label %if.then2, label %cond.true.i25.i
+  %cmp1644.i = icmp eq i64 %5, %number.addr.0.i
+  br i1 %cmp1644.i, label %if.then2, label %cond.true.i26.i
 
-cond.true.i25.i:                                  ; preds = %while.body.i
+cond.true.i26.i:                                  ; preds = %while.body.i
   %cmp24.i = icmp sgt i64 %5, %number.addr.0.i
-  %add27.i = add nsw i32 %div.i, 1
-  %hi.1.i = select i1 %cmp24.i, i32 %div.i, i32 %hi.045.i
-  %lo.1.i = select i1 %cmp24.i, i32 %lo.046.i, i32 %add27.i
+  %add27.i = add nuw nsw i32 %div18.i, 1
+  %hi.1.i = select i1 %cmp24.i, i32 %div18.i, i32 %hi.046.i
+  %lo.1.i = select i1 %cmp24.i, i32 %lo.047.i, i32 %add27.i
   %cmp12.i = icmp slt i32 %lo.1.i, %hi.1.i
   br i1 %cmp12.i, label %while.body.i, label %while.end.i, !llvm.loop !19
 
-while.end.i:                                      ; preds = %cond.true.i25.i
+while.end.i:                                      ; preds = %cond.true.i26.i
   %cmp30.i = icmp eq i32 %hi.1.i, 0
-  br i1 %cmp30.i, label %if.end3, label %_ZNK6icu_7510NFRuleListixEj.exit35.i
+  br i1 %cmp30.i, label %if.end3, label %_ZNK6icu_7510NFRuleListixEj.exit36.i
 
-_ZNK6icu_7510NFRuleListixEj.exit35.i:             ; preds = %while.end.i
+_ZNK6icu_7510NFRuleListixEj.exit36.i:             ; preds = %while.end.i
   %sub34.i = add nsw i32 %hi.1.i, -1
-  %idxprom.i32.i = zext i32 %sub34.i to i64
-  %arrayidx.i33.i = getelementptr inbounds ptr, ptr %3, i64 %idxprom.i32.i
-  %6 = load ptr, ptr %arrayidx.i33.i, align 8
+  %idxprom.i33.i = zext i32 %sub34.i to i64
+  %arrayidx.i34.i = getelementptr inbounds ptr, ptr %3, i64 %idxprom.i33.i
+  %6 = load ptr, ptr %arrayidx.i34.i, align 8
   %call36.i = tail call noundef signext i8 @_ZNK6icu_756NFRule14shouldRollBackEl(ptr noundef nonnull align 8 dereferenceable(112) %6, i64 noundef %number.addr.0.i)
   %tobool37.not.i = icmp eq i8 %call36.i, 0
   br i1 %tobool37.not.i, label %_ZNK6icu_759NFRuleSet14findNormalRuleEl.exit, label %if.then38.i
 
-if.then38.i:                                      ; preds = %_ZNK6icu_7510NFRuleListixEj.exit35.i
+if.then38.i:                                      ; preds = %_ZNK6icu_7510NFRuleListixEj.exit36.i
   %cmp39.i = icmp eq i32 %hi.1.i, 1
   br i1 %cmp39.i, label %if.end3, label %if.end41.i
 
 if.end41.i:                                       ; preds = %if.then38.i
   %7 = load ptr, ptr %rules.i, align 8
-  %cmp.not.i36.i = icmp eq ptr %7, null
-  br i1 %cmp.not.i36.i, label %if.end3, label %cond.true.i37.i
+  %cmp.not.i37.i = icmp eq ptr %7, null
+  br i1 %cmp.not.i37.i, label %if.end3, label %cond.true.i38.i
 
-cond.true.i37.i:                                  ; preds = %if.end41.i
+cond.true.i38.i:                                  ; preds = %if.end41.i
   %sub43.i = add nsw i32 %hi.1.i, -2
-  %idxprom.i38.i = zext i32 %sub43.i to i64
-  %arrayidx.i39.i = getelementptr inbounds ptr, ptr %7, i64 %idxprom.i38.i
-  %8 = load ptr, ptr %arrayidx.i39.i, align 8
+  %idxprom.i39.i = zext i32 %sub43.i to i64
+  %arrayidx.i40.i = getelementptr inbounds ptr, ptr %7, i64 %idxprom.i39.i
+  %8 = load ptr, ptr %arrayidx.i40.i, align 8
   br label %_ZNK6icu_759NFRuleSet14findNormalRuleEl.exit
 
 if.end46.i:                                       ; preds = %if.end8.i
@@ -1321,8 +1321,8 @@ if.end46.i:                                       ; preds = %if.end8.i
   %9 = load ptr, ptr %arrayidx48.i, align 8
   br label %_ZNK6icu_759NFRuleSet14findNormalRuleEl.exit
 
-_ZNK6icu_759NFRuleSet14findNormalRuleEl.exit:     ; preds = %if.then.i, %_ZNK6icu_7510NFRuleListixEj.exit35.i, %cond.true.i37.i, %if.end46.i
-  %retval.0.i = phi ptr [ %call.i, %if.then.i ], [ %9, %if.end46.i ], [ %6, %_ZNK6icu_7510NFRuleListixEj.exit35.i ], [ %8, %cond.true.i37.i ]
+_ZNK6icu_759NFRuleSet14findNormalRuleEl.exit:     ; preds = %if.then.i, %_ZNK6icu_7510NFRuleListixEj.exit36.i, %cond.true.i38.i, %if.end46.i
+  %retval.0.i = phi ptr [ %call.i, %if.then.i ], [ %9, %if.end46.i ], [ %6, %_ZNK6icu_7510NFRuleListixEj.exit36.i ], [ %8, %cond.true.i38.i ]
   %tobool.not = icmp eq ptr %retval.0.i, null
   br i1 %tobool.not, label %if.end3, label %if.then2
 
@@ -1375,53 +1375,53 @@ while.cond.preheader:                             ; preds = %if.end8
   %3 = load ptr, ptr %rules, align 8, !nonnull !10, !noundef !10
   br label %while.body
 
-while.body:                                       ; preds = %while.cond.preheader, %cond.true.i25
-  %lo.046 = phi i32 [ 0, %while.cond.preheader ], [ %lo.1, %cond.true.i25 ]
-  %hi.045 = phi i32 [ %2, %while.cond.preheader ], [ %hi.1, %cond.true.i25 ]
-  %add = add nsw i32 %lo.046, %hi.045
-  %div = sdiv i32 %add, 2
-  %idxprom.i = zext i32 %div to i64
+while.body:                                       ; preds = %while.cond.preheader, %cond.true.i26
+  %lo.047 = phi i32 [ 0, %while.cond.preheader ], [ %lo.1, %cond.true.i26 ]
+  %hi.046 = phi i32 [ %2, %while.cond.preheader ], [ %hi.1, %cond.true.i26 ]
+  %add = add nuw nsw i32 %lo.047, %hi.046
+  %div18 = lshr i32 %add, 1
+  %idxprom.i = zext nneg i32 %div18 to i64
   %arrayidx.i = getelementptr inbounds ptr, ptr %3, i64 %idxprom.i
   %4 = load ptr, ptr %arrayidx.i, align 8
   %5 = load i64, ptr %4, align 8
-  %cmp1643 = icmp eq i64 %5, %number.addr.0
-  br i1 %cmp1643, label %return, label %cond.true.i25
+  %cmp1644 = icmp eq i64 %5, %number.addr.0
+  br i1 %cmp1644, label %return, label %cond.true.i26
 
-cond.true.i25:                                    ; preds = %while.body
+cond.true.i26:                                    ; preds = %while.body
   %cmp24 = icmp sgt i64 %5, %number.addr.0
-  %add27 = add nsw i32 %div, 1
-  %hi.1 = select i1 %cmp24, i32 %div, i32 %hi.045
-  %lo.1 = select i1 %cmp24, i32 %lo.046, i32 %add27
+  %add27 = add nuw nsw i32 %div18, 1
+  %hi.1 = select i1 %cmp24, i32 %div18, i32 %hi.046
+  %lo.1 = select i1 %cmp24, i32 %lo.047, i32 %add27
   %cmp12 = icmp slt i32 %lo.1, %hi.1
   br i1 %cmp12, label %while.body, label %while.end, !llvm.loop !19
 
-while.end:                                        ; preds = %cond.true.i25
+while.end:                                        ; preds = %cond.true.i26
   %cmp30 = icmp eq i32 %hi.1, 0
-  br i1 %cmp30, label %return, label %_ZNK6icu_7510NFRuleListixEj.exit35
+  br i1 %cmp30, label %return, label %_ZNK6icu_7510NFRuleListixEj.exit36
 
-_ZNK6icu_7510NFRuleListixEj.exit35:               ; preds = %while.end
+_ZNK6icu_7510NFRuleListixEj.exit36:               ; preds = %while.end
   %sub34 = add nsw i32 %hi.1, -1
-  %idxprom.i32 = zext i32 %sub34 to i64
-  %arrayidx.i33 = getelementptr inbounds ptr, ptr %3, i64 %idxprom.i32
-  %6 = load ptr, ptr %arrayidx.i33, align 8
+  %idxprom.i33 = zext i32 %sub34 to i64
+  %arrayidx.i34 = getelementptr inbounds ptr, ptr %3, i64 %idxprom.i33
+  %6 = load ptr, ptr %arrayidx.i34, align 8
   %call36 = tail call noundef signext i8 @_ZNK6icu_756NFRule14shouldRollBackEl(ptr noundef nonnull align 8 dereferenceable(112) %6, i64 noundef %number.addr.0)
   %tobool37.not = icmp eq i8 %call36, 0
   br i1 %tobool37.not, label %return, label %if.then38
 
-if.then38:                                        ; preds = %_ZNK6icu_7510NFRuleListixEj.exit35
+if.then38:                                        ; preds = %_ZNK6icu_7510NFRuleListixEj.exit36
   %cmp39 = icmp eq i32 %hi.1, 1
   br i1 %cmp39, label %return, label %if.end41
 
 if.end41:                                         ; preds = %if.then38
   %7 = load ptr, ptr %rules, align 8
-  %cmp.not.i36 = icmp eq ptr %7, null
-  br i1 %cmp.not.i36, label %return, label %cond.true.i37
+  %cmp.not.i37 = icmp eq ptr %7, null
+  br i1 %cmp.not.i37, label %return, label %cond.true.i38
 
-cond.true.i37:                                    ; preds = %if.end41
+cond.true.i38:                                    ; preds = %if.end41
   %sub43 = add nsw i32 %hi.1, -2
-  %idxprom.i38 = zext i32 %sub43 to i64
-  %arrayidx.i39 = getelementptr inbounds ptr, ptr %7, i64 %idxprom.i38
-  %8 = load ptr, ptr %arrayidx.i39, align 8
+  %idxprom.i39 = zext i32 %sub43 to i64
+  %arrayidx.i40 = getelementptr inbounds ptr, ptr %7, i64 %idxprom.i39
+  %8 = load ptr, ptr %arrayidx.i40, align 8
   br label %return
 
 if.end46:                                         ; preds = %if.end8
@@ -1429,8 +1429,8 @@ if.end46:                                         ; preds = %if.end8
   %9 = load ptr, ptr %arrayidx48, align 8
   br label %return
 
-return:                                           ; preds = %while.body, %cond.true.i37, %if.end41, %_ZNK6icu_7510NFRuleListixEj.exit35, %if.then38, %while.end, %if.then2, %if.end46, %if.then
-  %retval.0 = phi ptr [ %call, %if.then ], [ %9, %if.end46 ], [ %1, %if.then2 ], [ null, %while.end ], [ null, %if.then38 ], [ %6, %_ZNK6icu_7510NFRuleListixEj.exit35 ], [ %8, %cond.true.i37 ], [ null, %if.end41 ], [ %4, %while.body ]
+return:                                           ; preds = %while.body, %cond.true.i38, %if.end41, %_ZNK6icu_7510NFRuleListixEj.exit36, %if.then38, %while.end, %if.then2, %if.end46, %if.then
+  %retval.0 = phi ptr [ %call, %if.then ], [ %9, %if.end46 ], [ %1, %if.then2 ], [ null, %while.end ], [ null, %if.then38 ], [ %6, %_ZNK6icu_7510NFRuleListixEj.exit36 ], [ %8, %cond.true.i38 ], [ null, %if.end41 ], [ %4, %while.body ]
   ret ptr %retval.0
 }
 
@@ -1593,8 +1593,8 @@ while.body.i:                                     ; preds = %for.body, %while.bo
   %p2.022.i = phi i32 [ %inc.i, %while.body.i ], [ 0, %for.body ]
   %y1.021.i = phi i64 [ %shr3.i, %while.body.i ], [ %5, %for.body ]
   %inc.i = add nuw nsw i32 %p2.022.i, 1
-  %shr.i = ashr i64 %x1.023.i, 1
-  %shr3.i = ashr i64 %y1.021.i, 1
+  %shr.i = ashr exact i64 %x1.023.i, 1
+  %shr3.i = ashr exact i64 %y1.021.i, 1
   %9 = and i64 %x1.023.i, 2
   %cmp.i = icmp eq i64 %9, 0
   %10 = and i64 %y1.021.i, 2

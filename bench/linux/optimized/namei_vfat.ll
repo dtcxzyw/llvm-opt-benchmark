@@ -1523,7 +1523,7 @@ define internal fastcc i32 @vfat_add_entry(ptr noundef %0, ptr nocapture noundef
   br i1 %143, label %144, label %135, !llvm.loop !10
 
 144:                                              ; preds = %141
-  %145 = sext i32 %133 to i64
+  %145 = zext nneg i32 %133 to i64
   br label %.thread54
 
 .thread54:                                        ; preds = %57, %144, %129

@@ -5788,11 +5788,10 @@ define internal fastcc void @_handle_planned(i1 noundef zeroext %0) unnamed_addr
 
 34:                                               ; preds = %32, %27, %24, %21
   %.2.us = phi i8 [ %.1.us, %27 ], [ %.1.us, %24 ], [ %.1.us, %21 ], [ %.01319.us, %32 ]
-  %35 = load ptr, ptr @planned_bitmap, align 8
-  %36 = shl i64 %7, 32
-  %sext.us = add i64 %36, 4294967296
-  %37 = ashr exact i64 %sext.us, 32
-  %38 = tail call i64 @bit_ffs_from_bit(ptr noundef %35, i64 noundef %37) #16
+  %35 = add nuw nsw i64 %7, 1
+  %36 = load ptr, ptr @planned_bitmap, align 8
+  %37 = and i64 %35, 4294967295
+  %38 = tail call i64 @bit_ffs_from_bit(ptr noundef %36, i64 noundef %37) #16
   %39 = and i64 %38, 2147483648
   %40 = icmp eq i64 %39, 0
   br i1 %40, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !14
@@ -5839,11 +5838,10 @@ define internal fastcc void @_handle_planned(i1 noundef zeroext %0) unnamed_addr
 
 63:                                               ; preds = %58, %55, %48, %46
   %.2 = phi i8 [ 1, %58 ], [ 1, %55 ], [ 1, %48 ], [ %.01319, %46 ]
-  %64 = load ptr, ptr @planned_bitmap, align 8
-  %65 = shl i64 %41, 32
-  %sext = add i64 %65, 4294967296
-  %66 = ashr exact i64 %sext, 32
-  %67 = tail call i64 @bit_ffs_from_bit(ptr noundef %64, i64 noundef %66) #16
+  %64 = add nuw nsw i64 %41, 1
+  %65 = load ptr, ptr @planned_bitmap, align 8
+  %66 = and i64 %64, 4294967295
+  %67 = tail call i64 @bit_ffs_from_bit(ptr noundef %65, i64 noundef %66) #16
   %68 = and i64 %67, 2147483648
   %69 = icmp eq i64 %68, 0
   br i1 %69, label %.lr.ph.split, label %._crit_edge, !llvm.loop !14

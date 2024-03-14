@@ -1870,7 +1870,7 @@ invoke.cont:                                      ; preds = %entry
   br i1 %or.cond, label %cleanup, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %invoke.cont
-  %div1721 = lshr i32 %call, 1
+  %div1118 = lshr i32 %call, 1
   %fUnion.i.i.i = getelementptr inbounds i8, ptr %id, i64 8
   %fLength.i5.i = getelementptr inbounds i8, ptr %copy, i64 12
   %fLength.i.i = getelementptr inbounds i8, ptr %id, i64 12
@@ -1879,26 +1879,26 @@ for.cond.preheader:                               ; preds = %invoke.cont
   br label %if.end4
 
 lpad.loopexit:                                    ; preds = %if.end4, %if.else.i.i
-  %lpad.loopexit15 = landingpad { ptr, i32 }
+  %lpad.loopexit16 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad.loopexit.split-lp:                           ; preds = %entry
-  %lpad.loopexit.split-lp16 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp17 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 if.end4:                                          ; preds = %for.cond.preheader, %if.else
-  %div20 = phi i32 [ %div1721, %for.cond.preheader ], [ %div, %if.else ]
-  %start.019 = phi i32 [ 0, %for.cond.preheader ], [ %start.0.div, %if.else ]
-  %limit.018 = phi i32 [ %call, %for.cond.preheader ], [ %div.limit.0, %if.else ]
-  %call6 = invoke ptr @ures_getStringByIndex_75(ptr noundef %array, i32 noundef %div20, ptr noundef nonnull %len, ptr noundef nonnull %status)
+  %div1122 = phi i32 [ %div1118, %for.cond.preheader ], [ %div11, %if.else ]
+  %start.021 = phi i32 [ 0, %for.cond.preheader ], [ %start.0.div11, %if.else ]
+  %limit.020 = phi i32 [ %call, %for.cond.preheader ], [ %div11.limit.0, %if.else ]
+  %call6 = invoke ptr @ures_getStringByIndex_75(ptr noundef %array, i32 noundef %div1122, ptr noundef nonnull %len, ptr noundef nonnull %status)
           to label %invoke.cont5 unwind label %lpad.loopexit
 
 invoke.cont5:                                     ; preds = %if.end4
   %1 = load i32, ptr %status, align 4
-  %cmp.i12 = icmp slt i32 %1, 1
-  br i1 %cmp.i12, label %if.end10, label %cleanup
+  %cmp.i13 = icmp slt i32 %1, 1
+  br i1 %cmp.i13, label %if.end10, label %cleanup
 
 if.end10:                                         ; preds = %invoke.cont5
   store ptr %call6, ptr %agg.tmp, align 8
@@ -1941,11 +1941,11 @@ if.else.i.i:                                      ; preds = %invoke.cont13
   %tobool.not.i.i.i = icmp eq i16 %12, 0
   %13 = load ptr, ptr %fArray.i.i.i, align 8
   %cond.i.i.i = select i1 %tobool.not.i.i.i, ptr %13, ptr %fBuffer.i.i.i
-  %call5.i.i14 = invoke noundef signext i8 @_ZNK6icu_7513UnicodeString9doCompareEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %id, i32 noundef 0, i32 noundef %cond.i.i, ptr noundef %cond.i.i.i, i32 noundef %spec.select.i.i, i32 noundef %srcLength.addr.0.i.i)
+  %call5.i.i15 = invoke noundef signext i8 @_ZNK6icu_7513UnicodeString9doCompareEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %id, i32 noundef 0, i32 noundef %cond.i.i, ptr noundef %cond.i.i.i, i32 noundef %spec.select.i.i, i32 noundef %srcLength.addr.0.i.i)
           to label %invoke.cont15 unwind label %lpad.loopexit
 
 invoke.cont15:                                    ; preds = %if.then.i.i, %if.else.i.i
-  %retval.0.i.i = phi i8 [ %conv.i.i, %if.then.i.i ], [ %call5.i.i14, %if.else.i.i ]
+  %retval.0.i.i = phi i8 [ %conv.i.i, %if.then.i.i ], [ %call5.i.i15, %if.else.i.i ]
   %cmp17 = icmp eq i8 %retval.0.i.i, 0
   br i1 %cmp17, label %cleanup, label %if.else
 
@@ -1958,20 +1958,20 @@ lpad12:                                           ; preds = %if.end10
 
 if.else:                                          ; preds = %invoke.cont15
   %cmp19 = icmp slt i8 %retval.0.i.i, 0
-  %div.limit.0 = select i1 %cmp19, i32 %div20, i32 %limit.018
-  %start.0.div = select i1 %cmp19, i32 %start.019, i32 %div20
-  %add = add nsw i32 %start.0.div, %div.limit.0
-  %div = sdiv i32 %add, 2
-  %cmp2 = icmp eq i32 %div20, %div
+  %div11.limit.0 = select i1 %cmp19, i32 %div1122, i32 %limit.020
+  %start.0.div11 = select i1 %cmp19, i32 %start.021, i32 %div1122
+  %add = add nuw nsw i32 %start.0.div11, %div11.limit.0
+  %div11 = lshr i32 %add, 1
+  %cmp2 = icmp eq i32 %div1122, %div11
   br i1 %cmp2, label %cleanup, label %if.end4, !llvm.loop !13
 
-cleanup:                                          ; preds = %if.else, %invoke.cont5, %invoke.cont15, %invoke.cont
-  %retval.0 = phi i32 [ -1, %invoke.cont ], [ -1, %if.else ], [ -1, %invoke.cont5 ], [ %div20, %invoke.cont15 ]
+cleanup:                                          ; preds = %invoke.cont15, %invoke.cont5, %if.else, %invoke.cont
+  %retval.0 = phi i32 [ -1, %invoke.cont ], [ %div1122, %invoke.cont15 ], [ -1, %invoke.cont5 ], [ -1, %if.else ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %copy) #18
   ret i32 %retval.0
 
 ehcleanup:                                        ; preds = %lpad.loopexit, %lpad.loopexit.split-lp, %lpad12
-  %.pn = phi { ptr, i32 } [ %14, %lpad12 ], [ %lpad.loopexit15, %lpad.loopexit ], [ %lpad.loopexit.split-lp16, %lpad.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %14, %lpad12 ], [ %lpad.loopexit16, %lpad.loopexit ], [ %lpad.loopexit.split-lp17, %lpad.loopexit.split-lp ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %copy) #18
   resume { ptr, i32 } %.pn
 }
@@ -4653,7 +4653,7 @@ attributes #21 = { allocsize(1) }
 !9 = distinct !{!9, !10, !"_ZN6icu_7528ures_getUnicodeStringByIndexEPK15UResourceBundleiP10UErrorCode: %agg.result"}
 !10 = distinct !{!10, !"_ZN6icu_7528ures_getUnicodeStringByIndexEPK15UResourceBundleiP10UErrorCode"}
 !11 = distinct !{!11, !7}
-!12 = !{i32 -1073741824, i32 1073741824}
+!12 = !{i32 -1, i32 1073741824}
 !13 = distinct !{!13, !7}
 !14 = distinct !{!14, !7}
 !15 = distinct !{!15, !7}

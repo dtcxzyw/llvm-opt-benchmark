@@ -4532,7 +4532,7 @@ _ZN5faiss12_GLOBAL__N_125storage_distance_computerEPKNS_5IndexE.exit: ; preds = 
   br label %105
 
 105:                                              ; preds = %99, %94, %92
-  %.1 = phi i32 [ %96, %99 ], [ %.054, %94 ], [ %.054, %92 ]
+  %.1 = phi i32 [ %96, %99 ], [ %.054, %94 ], [ -1, %92 ]
   %106 = load i64, ptr %15, align 8
   %107 = urem i64 %.04153, %106
   %108 = icmp eq i64 %107, 0

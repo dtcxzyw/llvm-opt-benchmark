@@ -59351,7 +59351,7 @@ sljit_emit_op1.exit76:                            ; preds = %40, %32
 
 sljit_emit_op2.exit80:                            ; preds = %sljit_emit_op1.exit76
   %50 = add nuw nsw i32 %3, 1
-  %51 = sext i32 %50 to i64
+  %51 = zext nneg i32 %50 to i64
   store i32 0, ptr %25, align 8
   %52 = tail call fastcc i32 @emit_cum_binary(ptr noundef nonnull %6, i32 noundef 84082944, i32 noundef 1, i64 noundef 0, i32 noundef 1, i64 noundef 0, i32 noundef 127, i64 noundef %51)
   %.pr200.pre = load i32, ptr %6, align 8
@@ -59847,7 +59847,7 @@ jumpto_if_not_utf_char_start.exit:                ; preds = %255, %sljit_emit_op
 
 262:                                              ; preds = %jumpto_if_not_utf_char_start.exit
   %263 = add nuw nsw i32 %3, 1
-  %264 = sext i32 %263 to i64
+  %264 = zext nneg i32 %263 to i64
   %265 = getelementptr inbounds i8, ptr %6, i64 152
   store i32 0, ptr %265, align 8
   %266 = call fastcc i32 @emit_non_cum_binary(ptr noundef nonnull %6, i32 noundef 757803304, i32 noundef 2, i64 noundef 0, i32 noundef 2, i64 noundef 0, i32 noundef 127, i64 noundef %264)
@@ -108515,7 +108515,7 @@ attributes #18 = { nounwind }
 !9 = !{i32 0, i32 2}
 !10 = !{i32 0, i32 33}
 !11 = !{i8 0, i8 9}
-!12 = !{i32 -2, i32 -2147483647}
+!12 = !{i32 -2, i32 -2147483648}
 !13 = distinct !{!13, !7}
 !14 = !{i32 0, i32 3}
 !15 = distinct !{!15, !7}

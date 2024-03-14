@@ -5278,9 +5278,9 @@ for.body398:                                      ; preds = %for.cond395.prehead
   br i1 %exitcond.not, label %for.end461, label %for.body398, !llvm.loop !19
 
 for.end461:                                       ; preds = %for.body398
-  %add463 = add nsw i32 %retval.0.i370, %num_vertices.5383
-  %conv464 = sext i32 %add463 to i64
-  %mul465 = mul nsw i64 %conv464, 14
+  %add463 = add nuw nsw i32 %retval.0.i370, %num_vertices.5383
+  %conv464 = zext nneg i32 %add463 to i64
+  %mul465 = mul nuw nsw i64 %conv464, 14
   %call466 = tail call noalias ptr @malloc(i64 noundef %mul465) #33
   %tobool467.not = icmp eq ptr %call466, null
   br i1 %tobool467.not, label %if.then468, label %if.end477
@@ -5301,10 +5301,10 @@ if.end477:                                        ; preds = %for.end461
   %cmp478 = icmp sgt i32 %num_vertices.5383, 0
   %tobool480 = icmp ne ptr %vertices.0384, null
   %or.cond = select i1 %cmp478, i1 %tobool480, i1 false
+  %conv482 = zext nneg i32 %num_vertices.5383 to i64
   br i1 %or.cond, label %if.end484.thread, label %if.end484
 
 if.end484.thread:                                 ; preds = %if.end477
-  %conv482 = zext nneg i32 %num_vertices.5383 to i64
   %mul483 = mul nuw nsw i64 %conv482, 14
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %call466, ptr nonnull align 2 %vertices.0384, i64 %mul483, i1 false)
   %add.ptr486375 = getelementptr inbounds %struct.stbtt_vertex, ptr %call466, i64 %conv482
@@ -5313,8 +5313,7 @@ if.end484.thread:                                 ; preds = %if.end477
   br label %if.then490
 
 if.end484:                                        ; preds = %if.end477
-  %idx.ext485 = sext i32 %num_vertices.5383 to i64
-  %add.ptr486 = getelementptr inbounds %struct.stbtt_vertex, ptr %call466, i64 %idx.ext485
+  %add.ptr486 = getelementptr inbounds %struct.stbtt_vertex, ptr %call466, i64 %conv482
   %mul488 = mul nuw nsw i64 %wide.trip.count, 14
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %add.ptr486, ptr nonnull align 2 %127, i64 %mul488, i1 false)
   br i1 %tobool480, label %if.then490, label %if.end492
@@ -18546,7 +18545,7 @@ attributes #35 = { nounwind willreturn memory(read) }
 !30 = distinct !{!30, !5}
 !31 = distinct !{!31, !5}
 !32 = distinct !{!32, !5}
-!33 = !{i32 -1073741824, i32 1073741824}
+!33 = !{i32 -1073741824, i32 131071}
 !34 = distinct !{!34, !5}
 !35 = !{i32 -1, i32 65536}
 !36 = distinct !{!36, !5}

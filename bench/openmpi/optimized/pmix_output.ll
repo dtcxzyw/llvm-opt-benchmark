@@ -1111,7 +1111,7 @@ define void @pmix_output_hexdump(i32 noundef %0, i32 noundef %1, ptr noundef %2,
   br i1 %34, label %35, label %47
 
 35:                                               ; preds = %32
-  %36 = sext i32 %.16583 to i64
+  %36 = zext nneg i32 %.16583 to i64
   %37 = getelementptr inbounds i8, ptr %5, i64 %36
   %38 = tail call ptr @__ctype_b_loc() #24
   %39 = load ptr, ptr %38, align 8
@@ -1126,7 +1126,7 @@ define void @pmix_output_hexdump(i32 noundef %0, i32 noundef %1, ptr noundef %2,
   store i8 %spec.select, ptr %37, align 1
   %nul = getelementptr inbounds i8, ptr %37, i64 1
   store i8 0, ptr %nul, align 1
-  %46 = add nsw i32 %.16583, 1
+  %46 = add nuw nsw i32 %.16583, 1
   br label %47
 
 47:                                               ; preds = %32, %35
@@ -1136,7 +1136,7 @@ define void @pmix_output_hexdump(i32 noundef %0, i32 noundef %1, ptr noundef %2,
   br i1 %exitcond92.not, label %48, label %32, !llvm.loop !10
 
 48:                                               ; preds = %47
-  %49 = sext i32 %.2 to i64
+  %49 = zext nneg i32 %.2 to i64
   %50 = getelementptr inbounds i8, ptr %5, i64 %49
   store i16 10, ptr %50, align 1
   %51 = load i32, ptr %8, align 4

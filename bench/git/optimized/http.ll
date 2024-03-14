@@ -713,7 +713,7 @@ for.body:                                         ; preds = %_.exit, %for.body
   %name = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load ptr, ptr %name, align 8
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %buf, ptr noundef nonnull @.str.6, ptr noundef %7) #21
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %8 = load ptr, ptr %backends, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv.next
   %9 = load ptr, ptr %arrayidx, align 8
@@ -4487,7 +4487,7 @@ if.then76:                                        ; preds = %if.then69
   br i1 %cmp81, label %abort, label %if.end89
 
 if.end89:                                         ; preds = %if.then69, %if.then76, %if.end65
-  %prev_posn.3 = phi i64 [ 0, %if.then76 ], [ %prev_posn.2, %if.then69 ], [ %prev_posn.2, %if.end65 ]
+  %prev_posn.3 = phi i64 [ 0, %if.then76 ], [ 0, %if.then69 ], [ %prev_posn.2, %if.end65 ]
   %call90 = call ptr @get_active_slot()
   %slot = getelementptr inbounds i8, ptr %call1, i64 2944
   store ptr %call90, ptr %slot, align 8

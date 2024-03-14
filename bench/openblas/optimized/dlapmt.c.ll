@@ -99,7 +99,7 @@ define void @dlapmt_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 .loopexit13:                                      ; preds = %62, %46
   %70 = sub nsw i32 0, %47
   store i32 %70, ptr %48, align 4, !tbaa !3
-  %71 = sext i32 %70 to i64
+  %71 = zext nneg i32 %70 to i64
   %72 = getelementptr inbounds i32, ptr %11, i64 %71
   %73 = load i32, ptr %72, align 4, !tbaa !3
   %74 = icmp sgt i32 %73, 0

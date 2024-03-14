@@ -1196,7 +1196,7 @@ define void @CmdCommandPrint(ptr noundef %0, i32 noundef %1, i32 noundef %2) loc
 ._crit_edge133:                                   ; preds = %.lr.ph, %._crit_edge
   %.094.lcssa = phi i32 [ 0, %._crit_edge ], [ %spec.select, %.lr.ph ]
   %37 = add nuw nsw i32 %.094.lcssa, 2
-  %38 = sdiv i32 79, %37
+  %38 = udiv i32 79, %37
   %39 = getelementptr inbounds i8, ptr %0, i64 128
   %40 = load ptr, ptr %39, align 8
   %41 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %40, ptr noundef nonnull @.str.22, i32 noundef 1, i32 noundef 1) #22

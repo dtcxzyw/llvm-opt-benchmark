@@ -3670,7 +3670,7 @@ cond.false:                                       ; preds = %if.else
   unreachable
 
 cond.end:                                         ; preds = %if.else
-  %idxprom21 = zext nneg i32 %sub to i64
+  %idxprom21 = zext i32 %sub to i64
   %arrayidx22 = getelementptr inbounds [5152 x i8], ptr %dbuf10, i64 0, i64 %idxprom21
   store i8 36, ptr %arrayidx22, align 1
   %tobool2325 = icmp ne i32 %call14, 0
@@ -3680,7 +3680,6 @@ cond.end:                                         ; preds = %if.else
 
 for.body.preheader:                               ; preds = %cond.end
   %2 = zext nneg i32 %call16 to i64
-  %3 = sext i32 %sub to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
@@ -3689,17 +3688,17 @@ for.body:                                         ; preds = %for.body.preheader,
   %rem = srem i32 %val.028, 10
   %idxprom26 = sext i32 %rem to i64
   %arrayidx27 = getelementptr inbounds [11 x i8], ptr @.str.24, i64 0, i64 %idxprom26
-  %4 = load i8, ptr %arrayidx27, align 1
-  %5 = add nuw nsw i64 %indvars.iv, %3
-  %arrayidx30 = getelementptr inbounds [5152 x i8], ptr %dbuf10, i64 0, i64 %5
-  store i8 %4, ptr %arrayidx30, align 1
+  %3 = load i8, ptr %arrayidx27, align 1
+  %4 = add nuw nsw i64 %indvars.iv, %idxprom21
+  %arrayidx30 = getelementptr inbounds [5152 x i8], ptr %dbuf10, i64 0, i64 %4
+  store i8 %3, ptr %arrayidx30, align 1
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %div = sdiv i32 %val.028, 10
-  %6 = add i32 %val.028, -10
-  %tobool23 = icmp ult i32 %6, -19
+  %5 = add i32 %val.028, -10
+  %tobool23 = icmp ult i32 %5, -19
   %cmp24 = icmp ugt i64 %indvars.iv, 1
-  %7 = and i1 %tobool23, %cmp24
-  br i1 %7, label %for.body, label %for.end, !llvm.loop !7
+  %6 = and i1 %tobool23, %cmp24
+  br i1 %6, label %for.body, label %for.end, !llvm.loop !7
 
 for.end:                                          ; preds = %for.body, %cond.end
   %arrayidx31 = getelementptr inbounds i8, ptr %dbuf10, i64 5

@@ -37033,9 +37033,8 @@ find_job_record.exit:                             ; preds = %.lr.ph.i
   br label %121
 
 121:                                              ; preds = %118, %117
-  %122 = shl i64 %110, 32
-  %sext = add i64 %122, 4294967296
-  %123 = ashr exact i64 %sext, 32
+  %122 = add nuw nsw i64 %110, 1
+  %123 = and i64 %122, 4294967295
   %124 = call i64 @bit_ffs_from_bit(ptr noundef %85, i64 noundef %123) #28
   %125 = trunc i64 %124 to i32
   %126 = icmp sgt i32 %125, -1
@@ -37463,9 +37462,8 @@ find_job_record.exit:                             ; preds = %.lr.ph.i
   br label %119
 
 119:                                              ; preds = %117, %116
-  %120 = shl i64 %109, 32
-  %sext = add i64 %120, 4294967296
-  %121 = ashr exact i64 %sext, 32
+  %120 = add nuw nsw i64 %109, 1
+  %121 = and i64 %120, 4294967295
   %122 = call i64 @bit_ffs_from_bit(ptr noundef %85, i64 noundef %121) #28
   %123 = trunc i64 %122 to i32
   %124 = icmp sgt i32 %123, -1

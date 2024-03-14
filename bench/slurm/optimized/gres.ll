@@ -18665,7 +18665,7 @@ define void @gres_job_state_log(ptr noundef %0, i32 noundef %1) local_unnamed_ad
 83:                                               ; preds = %80
   %84 = call i32 @get_log_level() #25
   %85 = icmp sgt i32 %84, 2
-  br i1 %85, label %.sink.split229.i, label %93
+  br i1 %85, label %.sink.split227.i, label %93
 
 86:                                               ; preds = %80
   %87 = getelementptr inbounds i8, ptr %17, i64 72
@@ -18676,16 +18676,16 @@ define void @gres_job_state_log(ptr noundef %0, i32 noundef %1) local_unnamed_ad
 89:                                               ; preds = %86
   %90 = call i32 @get_log_level() #25
   %91 = icmp sgt i32 %90, 2
-  br i1 %91, label %.sink.split229.i, label %93
+  br i1 %91, label %.sink.split227.i, label %93
 
-.sink.split229.i:                                 ; preds = %89, %83
-  %.sink231.i = phi ptr [ %81, %83 ], [ %87, %89 ]
+.sink.split227.i:                                 ; preds = %89, %83
+  %.sink229.i = phi ptr [ %81, %83 ], [ %87, %89 ]
   %.str.294.sink.i = phi ptr [ @.str.293, %83 ], [ @.str.294, %89 ]
-  %92 = load i64, ptr %.sink231.i, align 8
+  %92 = load i64, ptr %.sink229.i, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull %.str.294.sink.i, i64 noundef %92) #25
   br label %93
 
-93:                                               ; preds = %.sink.split229.i, %89, %86, %83
+93:                                               ; preds = %.sink.split227.i, %89, %86, %83
   %94 = getelementptr inbounds i8, ptr %17, i64 64
   %95 = load i16, ptr %94, align 8
   %.not156.i = icmp eq i16 %95, 0
@@ -18711,36 +18711,36 @@ define void @gres_job_state_log(ptr noundef %0, i32 noundef %1) local_unnamed_ad
 105:                                              ; preds = %102
   %106 = call i32 @get_log_level() #25
   %107 = icmp sgt i32 %106, 2
-  %.pre217.i = load i32, ptr %103, align 8
+  %.pre215.i = load i32, ptr %103, align 8
   br i1 %107, label %108, label %109
 
 108:                                              ; preds = %105
-  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.297, i32 noundef %.pre217.i, ptr noundef nonnull @.str.296) #25
+  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.297, i32 noundef %.pre215.i, ptr noundef nonnull @.str.296) #25
   %.pre.i = load i32, ptr %103, align 8
   br label %109
 
 109:                                              ; preds = %108, %105
-  %110 = phi i32 [ %.pre217.i, %105 ], [ %.pre.i, %108 ]
-  %.not211.i = icmp eq i32 %110, 0
-  br i1 %.not211.i, label %._crit_edge.i, label %.lr.ph204.i
+  %110 = phi i32 [ %.pre215.i, %105 ], [ %.pre.i, %108 ]
+  %.not209.i = icmp eq i32 %110, 0
+  br i1 %.not209.i, label %._crit_edge.i, label %.lr.ph202.i
 
-.lr.ph204.i:                                      ; preds = %109
+.lr.ph202.i:                                      ; preds = %109
   %111 = getelementptr inbounds i8, ptr %17, i64 96
   %112 = getelementptr inbounds i8, ptr %17, i64 88
   %113 = getelementptr inbounds i8, ptr %17, i64 104
   br label %114
 
-114:                                              ; preds = %.thread.i, %.lr.ph204.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph204.i ], [ %indvars.iv.next.i, %.thread.i ]
+114:                                              ; preds = %.thread.i, %.lr.ph202.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph202.i ], [ %indvars.iv.next.i, %.thread.i ]
   %115 = load ptr, ptr %111, align 8
-  %.not179.i = icmp eq ptr %115, null
-  br i1 %.not179.i, label %127, label %116
+  %.not178.i = icmp eq ptr %115, null
+  br i1 %.not178.i, label %127, label %116
 
 116:                                              ; preds = %114
   %117 = getelementptr inbounds i64, ptr %115, i64 %indvars.iv.i
   %118 = load i64, ptr %117, align 8
-  %.not180.i = icmp eq i64 %118, 0
-  br i1 %.not180.i, label %127, label %119
+  %.not179.i = icmp eq i64 %118, 0
+  br i1 %.not179.i, label %127, label %119
 
 119:                                              ; preds = %116
   %120 = call i32 @get_log_level() #25
@@ -18757,24 +18757,24 @@ define void @gres_job_state_log(ptr noundef %0, i32 noundef %1) local_unnamed_ad
 
 127:                                              ; preds = %122, %119, %116, %114
   %128 = load ptr, ptr %112, align 8
-  %.not181.i = icmp eq ptr %128, null
-  br i1 %.not181.i, label %.thread.i, label %129
+  %.not180.i = icmp eq ptr %128, null
+  br i1 %.not180.i, label %.thread.i, label %129
 
 129:                                              ; preds = %127
   %130 = getelementptr inbounds ptr, ptr %128, i64 %indvars.iv.i
   %131 = load ptr, ptr %130, align 8
-  %.not182.i = icmp eq ptr %131, null
-  br i1 %.not182.i, label %.thread.i, label %132
+  %.not181.i = icmp eq ptr %131, null
+  br i1 %.not181.i, label %.thread.i, label %132
 
 132:                                              ; preds = %129
   %133 = call ptr @bit_fmt(ptr noundef nonnull %3, i32 noundef 128, ptr noundef nonnull %131) #25
   %134 = call i32 @get_log_level() #25
   %135 = icmp sgt i32 %134, 2
-  %.pr.pre218.i = load ptr, ptr %112, align 8
+  %.pr.pre216.i = load ptr, ptr %112, align 8
   br i1 %135, label %136, label %142
 
 136:                                              ; preds = %132
-  %137 = getelementptr inbounds ptr, ptr %.pr.pre218.i, i64 %indvars.iv.i
+  %137 = getelementptr inbounds ptr, ptr %.pr.pre216.i, i64 %indvars.iv.i
   %138 = load ptr, ptr %137, align 8
   %139 = call i64 @bit_size(ptr noundef %138) #25
   %140 = trunc i64 %139 to i32
@@ -18784,34 +18784,34 @@ define void @gres_job_state_log(ptr noundef %0, i32 noundef %1) local_unnamed_ad
   br label %142
 
 142:                                              ; preds = %136, %132
-  %143 = phi ptr [ %.pr.pre218.i, %132 ], [ %.pr.pre.i, %136 ]
-  %.not183.i = icmp eq ptr %143, null
-  br i1 %.not183.i, label %.thread.i, label %.thread224.i
+  %143 = phi ptr [ %.pr.pre216.i, %132 ], [ %.pr.pre.i, %136 ]
+  %.not182.i = icmp eq ptr %143, null
+  br i1 %.not182.i, label %.thread.i, label %.thread222.i
 
-.thread224.i:                                     ; preds = %142
+.thread222.i:                                     ; preds = %142
   %.phi.trans.insert = getelementptr inbounds ptr, ptr %143, i64 %indvars.iv.i
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  %.not184.i = icmp eq ptr %.pre, null
-  br i1 %.not184.i, label %.thread.i, label %144
+  %.not183.i = icmp eq ptr %.pre, null
+  br i1 %.not183.i, label %.thread.i, label %144
 
-144:                                              ; preds = %.thread224.i
+144:                                              ; preds = %.thread222.i
   %145 = load ptr, ptr %113, align 8
-  %.not185.i = icmp eq ptr %145, null
-  br i1 %.not185.i, label %.thread.i, label %146
+  %.not184.i = icmp eq ptr %145, null
+  br i1 %.not184.i, label %.thread.i, label %146
 
 146:                                              ; preds = %144
   %147 = getelementptr inbounds ptr, ptr %145, i64 %indvars.iv.i
   %148 = load ptr, ptr %147, align 8
-  %.not186.i = icmp eq ptr %148, null
-  br i1 %.not186.i, label %.thread.i, label %.preheader201.i
+  %.not185.i = icmp eq ptr %148, null
+  br i1 %.not185.i, label %.thread.i, label %.preheader199.i
 
-.preheader201.i:                                  ; preds = %146
+.preheader199.i:                                  ; preds = %146
   %149 = call i64 @bit_ffs_from_bit(ptr noundef nonnull %.pre, i64 noundef 0) #25
   %150 = trunc i64 %149 to i32
   %151 = icmp sgt i32 %150, -1
   br i1 %151, label %.lr.ph.preheader.i, label %.thread.i
 
-.lr.ph.preheader.i:                               ; preds = %.preheader201.i
+.lr.ph.preheader.i:                               ; preds = %.preheader199.i
   %152 = trunc i64 %indvars.iv.i to i32
   br label %.lr.ph.i
 
@@ -18833,18 +18833,17 @@ define void @gres_job_state_log(ptr noundef %0, i32 noundef %1) local_unnamed_ad
   br label %164
 
 164:                                              ; preds = %157, %.lr.ph.i
-  %165 = load ptr, ptr %112, align 8
-  %166 = getelementptr inbounds ptr, ptr %165, i64 %indvars.iv.i
-  %167 = load ptr, ptr %166, align 8
-  %168 = shl i64 %154, 32
-  %sext187.i = add i64 %168, 4294967296
-  %169 = ashr exact i64 %sext187.i, 32
-  %170 = call i64 @bit_ffs_from_bit(ptr noundef %167, i64 noundef %169) #25
+  %165 = add nuw nsw i64 %154, 1
+  %166 = load ptr, ptr %112, align 8
+  %167 = getelementptr inbounds ptr, ptr %166, i64 %indvars.iv.i
+  %168 = load ptr, ptr %167, align 8
+  %169 = and i64 %165, 4294967295
+  %170 = call i64 @bit_ffs_from_bit(ptr noundef %168, i64 noundef %169) #25
   %171 = trunc i64 %170 to i32
   %172 = icmp sgt i32 %171, -1
   br i1 %172, label %.lr.ph.i, label %.thread.i, !llvm.loop !186
 
-.thread.i:                                        ; preds = %164, %129, %.preheader201.i, %146, %144, %.thread224.i, %142, %127
+.thread.i:                                        ; preds = %164, %129, %.preheader199.i, %146, %144, %.thread222.i, %142, %127
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %173 = load i32, ptr %103, align 8
   %174 = zext i32 %173 to i64
@@ -18876,20 +18875,20 @@ define void @gres_job_state_log(ptr noundef %0, i32 noundef %1) local_unnamed_ad
 186:                                              ; preds = %183
   %187 = call i32 @get_log_level() #25
   %188 = icmp sgt i32 %187, 2
-  %.pre221.i = load i32, ptr %184, align 8
+  %.pre219.i = load i32, ptr %184, align 8
   br i1 %188, label %189, label %190
 
 189:                                              ; preds = %186
-  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.302, i32 noundef %.pre221.i) #25
-  %.pre220.i = load i32, ptr %184, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.302, i32 noundef %.pre219.i) #25
+  %.pre218.i = load i32, ptr %184, align 8
   br label %190
 
 190:                                              ; preds = %189, %186
-  %191 = phi i32 [ %.pre221.i, %186 ], [ %.pre220.i, %189 ]
-  %.not212.i = icmp eq i32 %191, 0
-  br i1 %.not212.i, label %_job_state_log.exit, label %.lr.ph209.i
+  %191 = phi i32 [ %.pre219.i, %186 ], [ %.pre218.i, %189 ]
+  %.not210.i = icmp eq i32 %191, 0
+  br i1 %.not210.i, label %_job_state_log.exit, label %.lr.ph207.i
 
-.lr.ph209.i:                                      ; preds = %190
+.lr.ph207.i:                                      ; preds = %190
   %192 = getelementptr inbounds i8, ptr %17, i64 136
   %193 = getelementptr inbounds i8, ptr %17, i64 128
   %194 = getelementptr inbounds i8, ptr %17, i64 144
@@ -18898,14 +18897,14 @@ define void @gres_job_state_log(ptr noundef %0, i32 noundef %1) local_unnamed_ad
   %197 = getelementptr inbounds i8, ptr %17, i64 160
   br label %198
 
-198:                                              ; preds = %329, %.lr.ph209.i
-  %indvars.iv214.i = phi i64 [ 0, %.lr.ph209.i ], [ %indvars.iv.next215.i, %329 ]
+198:                                              ; preds = %329, %.lr.ph207.i
+  %indvars.iv212.i = phi i64 [ 0, %.lr.ph207.i ], [ %indvars.iv.next213.i, %329 ]
   %199 = load ptr, ptr %192, align 8
   %.not160.i = icmp eq ptr %199, null
-  br i1 %.not160.i, label %.thread189.i, label %200
+  br i1 %.not160.i, label %.thread187.i, label %200
 
 200:                                              ; preds = %198
-  %201 = getelementptr inbounds i64, ptr %199, i64 %indvars.iv214.i
+  %201 = getelementptr inbounds i64, ptr %199, i64 %indvars.iv212.i
   %202 = load i64, ptr %201, align 8
   %.not161.i = icmp eq i64 %202, 0
   %203 = call i32 @get_log_level() #25
@@ -18913,31 +18912,31 @@ define void @gres_job_state_log(ptr noundef %0, i32 noundef %1) local_unnamed_ad
   br i1 %.not161.i, label %211, label %205
 
 205:                                              ; preds = %200
-  br i1 %204, label %206, label %.thread189.i
+  br i1 %204, label %206, label %.thread187.i
 
 206:                                              ; preds = %205
   %207 = load ptr, ptr %192, align 8
-  %208 = getelementptr inbounds i64, ptr %207, i64 %indvars.iv214.i
+  %208 = getelementptr inbounds i64, ptr %207, i64 %indvars.iv212.i
   %209 = load i64, ptr %208, align 8
-  %210 = trunc i64 %indvars.iv214.i to i32
+  %210 = trunc i64 %indvars.iv212.i to i32
   call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.303, i32 noundef %210, i64 noundef %209) #25
-  br label %.thread189.i
+  br label %.thread187.i
 
 211:                                              ; preds = %200
-  br i1 %204, label %212, label %.thread189.i
+  br i1 %204, label %212, label %.thread187.i
 
 212:                                              ; preds = %211
-  %213 = trunc i64 %indvars.iv214.i to i32
+  %213 = trunc i64 %indvars.iv212.i to i32
   call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.304, i32 noundef %213) #25
-  br label %.thread189.i
+  br label %.thread187.i
 
-.thread189.i:                                     ; preds = %212, %211, %206, %205, %198
+.thread187.i:                                     ; preds = %212, %211, %206, %205, %198
   %214 = load ptr, ptr %193, align 8
   %.not163.i = icmp eq ptr %214, null
-  br i1 %.not163.i, label %.thread193.i, label %215
+  br i1 %.not163.i, label %.thread191.i, label %215
 
-215:                                              ; preds = %.thread189.i
-  %216 = getelementptr inbounds ptr, ptr %214, i64 %indvars.iv214.i
+215:                                              ; preds = %.thread187.i
+  %216 = getelementptr inbounds ptr, ptr %214, i64 %indvars.iv212.i
   %217 = load ptr, ptr %216, align 8
   %.not164.i = icmp eq ptr %217, null
   br i1 %.not164.i, label %229, label %218
@@ -18950,11 +18949,11 @@ define void @gres_job_state_log(ptr noundef %0, i32 noundef %1) local_unnamed_ad
 
 222:                                              ; preds = %218
   %223 = load ptr, ptr %193, align 8
-  %224 = getelementptr inbounds ptr, ptr %223, i64 %indvars.iv214.i
+  %224 = getelementptr inbounds ptr, ptr %223, i64 %indvars.iv212.i
   %225 = load ptr, ptr %224, align 8
   %226 = call i64 @bit_size(ptr noundef %225) #25
   %227 = trunc i64 %226 to i32
-  %228 = trunc i64 %indvars.iv214.i to i32
+  %228 = trunc i64 %indvars.iv212.i to i32
   call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.305, i32 noundef %228, ptr noundef nonnull %3, i32 noundef %227) #25
   br label %234
 
@@ -18964,52 +18963,52 @@ define void @gres_job_state_log(ptr noundef %0, i32 noundef %1) local_unnamed_ad
   br i1 %231, label %232, label %234
 
 232:                                              ; preds = %229
-  %233 = trunc i64 %indvars.iv214.i to i32
+  %233 = trunc i64 %indvars.iv212.i to i32
   call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.306, i32 noundef %233) #25
   br label %234
 
 234:                                              ; preds = %232, %229, %222, %218
-  %.pr192.i = load ptr, ptr %193, align 8
-  %.not166.i = icmp eq ptr %.pr192.i, null
-  br i1 %.not166.i, label %.thread193.i, label %235
+  %.pr190.i = load ptr, ptr %193, align 8
+  %.not166.i = icmp eq ptr %.pr190.i, null
+  br i1 %.not166.i, label %.thread191.i, label %235
 
 235:                                              ; preds = %234
-  %236 = getelementptr inbounds ptr, ptr %.pr192.i, i64 %indvars.iv214.i
+  %236 = getelementptr inbounds ptr, ptr %.pr190.i, i64 %indvars.iv212.i
   %237 = load ptr, ptr %236, align 8
   %.not167.i = icmp eq ptr %237, null
-  br i1 %.not167.i, label %.thread193.i, label %238
+  br i1 %.not167.i, label %.thread191.i, label %238
 
 238:                                              ; preds = %235
   %239 = load ptr, ptr %194, align 8
   %.not168.i = icmp eq ptr %239, null
-  br i1 %.not168.i, label %.thread193.i, label %240
+  br i1 %.not168.i, label %.thread191.i, label %240
 
 240:                                              ; preds = %238
-  %241 = getelementptr inbounds ptr, ptr %239, i64 %indvars.iv214.i
+  %241 = getelementptr inbounds ptr, ptr %239, i64 %indvars.iv212.i
   %242 = load ptr, ptr %241, align 8
   %.not169.i = icmp eq ptr %242, null
-  br i1 %.not169.i, label %.thread193.i, label %.preheader200.i
+  br i1 %.not169.i, label %.thread191.i, label %.preheader198.i
 
-.preheader200.i:                                  ; preds = %240
+.preheader198.i:                                  ; preds = %240
   %243 = call i64 @bit_ffs_from_bit(ptr noundef nonnull %237, i64 noundef 0) #25
   %244 = trunc i64 %243 to i32
   %245 = icmp sgt i32 %244, -1
-  br i1 %245, label %.lr.ph205.preheader.i, label %.thread193.i
+  br i1 %245, label %.lr.ph203.preheader.i, label %.thread191.i
 
-.lr.ph205.preheader.i:                            ; preds = %.preheader200.i
-  %246 = trunc i64 %indvars.iv214.i to i32
-  br label %.lr.ph205.i
+.lr.ph203.preheader.i:                            ; preds = %.preheader198.i
+  %246 = trunc i64 %indvars.iv212.i to i32
+  br label %.lr.ph203.i
 
-.lr.ph205.i:                                      ; preds = %258, %.lr.ph205.preheader.i
-  %247 = phi i32 [ %265, %258 ], [ %244, %.lr.ph205.preheader.i ]
-  %248 = phi i64 [ %264, %258 ], [ %243, %.lr.ph205.preheader.i ]
+.lr.ph203.i:                                      ; preds = %258, %.lr.ph203.preheader.i
+  %247 = phi i32 [ %265, %258 ], [ %244, %.lr.ph203.preheader.i ]
+  %248 = phi i64 [ %264, %258 ], [ %243, %.lr.ph203.preheader.i ]
   %249 = call i32 @get_log_level() #25
   %250 = icmp sgt i32 %249, 2
   br i1 %250, label %251, label %258
 
-251:                                              ; preds = %.lr.ph205.i
+251:                                              ; preds = %.lr.ph203.i
   %252 = load ptr, ptr %194, align 8
-  %253 = getelementptr inbounds ptr, ptr %252, i64 %indvars.iv214.i
+  %253 = getelementptr inbounds ptr, ptr %252, i64 %indvars.iv212.i
   %254 = load ptr, ptr %253, align 8
   %255 = and i64 %248, 2147483647
   %256 = getelementptr inbounds i64, ptr %254, i64 %255
@@ -19017,25 +19016,24 @@ define void @gres_job_state_log(ptr noundef %0, i32 noundef %1) local_unnamed_ad
   call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.307, i32 noundef %246, i32 noundef %247, i64 noundef %257) #25
   br label %258
 
-258:                                              ; preds = %251, %.lr.ph205.i
-  %259 = load ptr, ptr %193, align 8
-  %260 = getelementptr inbounds ptr, ptr %259, i64 %indvars.iv214.i
-  %261 = load ptr, ptr %260, align 8
-  %262 = shl i64 %248, 32
-  %sext.i = add i64 %262, 4294967296
-  %263 = ashr exact i64 %sext.i, 32
-  %264 = call i64 @bit_ffs_from_bit(ptr noundef %261, i64 noundef %263) #25
+258:                                              ; preds = %251, %.lr.ph203.i
+  %259 = add nuw nsw i64 %248, 1
+  %260 = load ptr, ptr %193, align 8
+  %261 = getelementptr inbounds ptr, ptr %260, i64 %indvars.iv212.i
+  %262 = load ptr, ptr %261, align 8
+  %263 = and i64 %259, 4294967295
+  %264 = call i64 @bit_ffs_from_bit(ptr noundef %262, i64 noundef %263) #25
   %265 = trunc i64 %264 to i32
   %266 = icmp sgt i32 %265, -1
-  br i1 %266, label %.lr.ph205.i, label %.thread193.i, !llvm.loop !188
+  br i1 %266, label %.lr.ph203.i, label %.thread191.i, !llvm.loop !188
 
-.thread193.i:                                     ; preds = %258, %.preheader200.i, %240, %238, %235, %234, %.thread189.i
+.thread191.i:                                     ; preds = %258, %.preheader198.i, %240, %238, %235, %234, %.thread187.i
   %267 = load ptr, ptr %195, align 8
   %.not170.i = icmp eq ptr %267, null
-  br i1 %.not170.i, label %.thread198.i, label %268
+  br i1 %.not170.i, label %.thread196.i, label %268
 
-268:                                              ; preds = %.thread193.i
-  %269 = getelementptr inbounds ptr, ptr %267, i64 %indvars.iv214.i
+268:                                              ; preds = %.thread191.i
+  %269 = getelementptr inbounds ptr, ptr %267, i64 %indvars.iv212.i
   %270 = load ptr, ptr %269, align 8
   %.not171.i = icmp eq ptr %270, null
   br i1 %.not171.i, label %282, label %271
@@ -19048,11 +19046,11 @@ define void @gres_job_state_log(ptr noundef %0, i32 noundef %1) local_unnamed_ad
 
 275:                                              ; preds = %271
   %276 = load ptr, ptr %195, align 8
-  %277 = getelementptr inbounds ptr, ptr %276, i64 %indvars.iv214.i
+  %277 = getelementptr inbounds ptr, ptr %276, i64 %indvars.iv212.i
   %278 = load ptr, ptr %277, align 8
   %279 = call i64 @bit_size(ptr noundef %278) #25
   %280 = trunc i64 %279 to i32
-  %281 = trunc i64 %indvars.iv214.i to i32
+  %281 = trunc i64 %indvars.iv212.i to i32
   call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.308, i32 noundef %281, ptr noundef nonnull %3, i32 noundef %280) #25
   br label %287
 
@@ -19062,52 +19060,52 @@ define void @gres_job_state_log(ptr noundef %0, i32 noundef %1) local_unnamed_ad
   br i1 %284, label %285, label %287
 
 285:                                              ; preds = %282
-  %286 = trunc i64 %indvars.iv214.i to i32
+  %286 = trunc i64 %indvars.iv212.i to i32
   call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.309, i32 noundef %286) #25
   br label %287
 
 287:                                              ; preds = %285, %282, %275, %271
-  %.pr197.i = load ptr, ptr %195, align 8
-  %.not173.i = icmp eq ptr %.pr197.i, null
-  br i1 %.not173.i, label %.thread198.i, label %288
+  %.pr195.i = load ptr, ptr %195, align 8
+  %.not173.i = icmp eq ptr %.pr195.i, null
+  br i1 %.not173.i, label %.thread196.i, label %288
 
 288:                                              ; preds = %287
-  %289 = getelementptr inbounds ptr, ptr %.pr197.i, i64 %indvars.iv214.i
+  %289 = getelementptr inbounds ptr, ptr %.pr195.i, i64 %indvars.iv212.i
   %290 = load ptr, ptr %289, align 8
   %.not174.i = icmp eq ptr %290, null
-  br i1 %.not174.i, label %.thread198.i, label %291
+  br i1 %.not174.i, label %.thread196.i, label %291
 
 291:                                              ; preds = %288
   %292 = load ptr, ptr %196, align 8
   %.not175.i = icmp eq ptr %292, null
-  br i1 %.not175.i, label %.thread198.i, label %293
+  br i1 %.not175.i, label %.thread196.i, label %293
 
 293:                                              ; preds = %291
-  %294 = getelementptr inbounds ptr, ptr %292, i64 %indvars.iv214.i
+  %294 = getelementptr inbounds ptr, ptr %292, i64 %indvars.iv212.i
   %295 = load ptr, ptr %294, align 8
   %.not176.i = icmp eq ptr %295, null
-  br i1 %.not176.i, label %.thread198.i, label %.preheader.i
+  br i1 %.not176.i, label %.thread196.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %293
   %296 = call i64 @bit_ffs_from_bit(ptr noundef nonnull %290, i64 noundef 0) #25
   %297 = trunc i64 %296 to i32
   %298 = icmp sgt i32 %297, -1
-  br i1 %298, label %.lr.ph206.preheader.i, label %.thread198.i
+  br i1 %298, label %.lr.ph204.preheader.i, label %.thread196.i
 
-.lr.ph206.preheader.i:                            ; preds = %.preheader.i
-  %299 = trunc i64 %indvars.iv214.i to i32
-  br label %.lr.ph206.i
+.lr.ph204.preheader.i:                            ; preds = %.preheader.i
+  %299 = trunc i64 %indvars.iv212.i to i32
+  br label %.lr.ph204.i
 
-.lr.ph206.i:                                      ; preds = %311, %.lr.ph206.preheader.i
-  %300 = phi i32 [ %318, %311 ], [ %297, %.lr.ph206.preheader.i ]
-  %301 = phi i64 [ %317, %311 ], [ %296, %.lr.ph206.preheader.i ]
+.lr.ph204.i:                                      ; preds = %311, %.lr.ph204.preheader.i
+  %300 = phi i32 [ %318, %311 ], [ %297, %.lr.ph204.preheader.i ]
+  %301 = phi i64 [ %317, %311 ], [ %296, %.lr.ph204.preheader.i ]
   %302 = call i32 @get_log_level() #25
   %303 = icmp sgt i32 %302, 2
   br i1 %303, label %304, label %311
 
-304:                                              ; preds = %.lr.ph206.i
+304:                                              ; preds = %.lr.ph204.i
   %305 = load ptr, ptr %196, align 8
-  %306 = getelementptr inbounds ptr, ptr %305, i64 %indvars.iv214.i
+  %306 = getelementptr inbounds ptr, ptr %305, i64 %indvars.iv212.i
   %307 = load ptr, ptr %306, align 8
   %308 = and i64 %301, 2147483647
   %309 = getelementptr inbounds i64, ptr %307, i64 %308
@@ -19115,41 +19113,40 @@ define void @gres_job_state_log(ptr noundef %0, i32 noundef %1) local_unnamed_ad
   call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.310, i32 noundef %299, i32 noundef %300, i64 noundef %310) #25
   br label %311
 
-311:                                              ; preds = %304, %.lr.ph206.i
-  %312 = load ptr, ptr %195, align 8
-  %313 = getelementptr inbounds ptr, ptr %312, i64 %indvars.iv214.i
-  %314 = load ptr, ptr %313, align 8
-  %315 = shl i64 %301, 32
-  %sext177.i = add i64 %315, 4294967296
-  %316 = ashr exact i64 %sext177.i, 32
-  %317 = call i64 @bit_ffs_from_bit(ptr noundef %314, i64 noundef %316) #25
+311:                                              ; preds = %304, %.lr.ph204.i
+  %312 = add nuw nsw i64 %301, 1
+  %313 = load ptr, ptr %195, align 8
+  %314 = getelementptr inbounds ptr, ptr %313, i64 %indvars.iv212.i
+  %315 = load ptr, ptr %314, align 8
+  %316 = and i64 %312, 4294967295
+  %317 = call i64 @bit_ffs_from_bit(ptr noundef %315, i64 noundef %316) #25
   %318 = trunc i64 %317 to i32
   %319 = icmp sgt i32 %318, -1
-  br i1 %319, label %.lr.ph206.i, label %.thread198.i, !llvm.loop !189
+  br i1 %319, label %.lr.ph204.i, label %.thread196.i, !llvm.loop !189
 
-.thread198.i:                                     ; preds = %311, %.preheader.i, %293, %291, %288, %287, %.thread193.i
+.thread196.i:                                     ; preds = %311, %.preheader.i, %293, %291, %288, %287, %.thread191.i
   %320 = load ptr, ptr %197, align 8
-  %.not178.i = icmp eq ptr %320, null
-  br i1 %.not178.i, label %329, label %321
+  %.not177.i = icmp eq ptr %320, null
+  br i1 %.not177.i, label %329, label %321
 
-321:                                              ; preds = %.thread198.i
+321:                                              ; preds = %.thread196.i
   %322 = call i32 @get_log_level() #25
   %323 = icmp sgt i32 %322, 2
   br i1 %323, label %324, label %329
 
 324:                                              ; preds = %321
   %325 = load ptr, ptr %197, align 8
-  %326 = getelementptr inbounds i64, ptr %325, i64 %indvars.iv214.i
+  %326 = getelementptr inbounds i64, ptr %325, i64 %indvars.iv212.i
   %327 = load i64, ptr %326, align 8
-  %328 = trunc i64 %indvars.iv214.i to i32
+  %328 = trunc i64 %indvars.iv212.i to i32
   call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.311, i32 noundef %328, i64 noundef %327) #25
   br label %329
 
-329:                                              ; preds = %324, %321, %.thread198.i
-  %indvars.iv.next215.i = add nuw nsw i64 %indvars.iv214.i, 1
+329:                                              ; preds = %324, %321, %.thread196.i
+  %indvars.iv.next213.i = add nuw nsw i64 %indvars.iv212.i, 1
   %330 = load i32, ptr %184, align 8
   %331 = zext i32 %330 to i64
-  %332 = icmp ult i64 %indvars.iv.next215.i, %331
+  %332 = icmp ult i64 %indvars.iv.next213.i, %331
   br i1 %332, label %198, label %_job_state_log.exit, !llvm.loop !190
 
 _job_state_log.exit:                              ; preds = %329, %183, %190
@@ -19774,29 +19771,29 @@ define internal fastcc noundef i32 @_get_usable_gres(i32 noundef %0, i32 noundef
   %125 = call i64 @bit_size(ptr noundef nonnull %4) #25
   %126 = shl i64 %125, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %124, ptr align 8 %7, i64 %126, i1 false)
-  %.not136.i = icmp slt i32 %1, 0
-  br i1 %.not136.i, label %_get_shared_gres_per_task.exit, label %.lr.ph139.i
+  %.not132.i = icmp slt i32 %1, 0
+  br i1 %.not132.i, label %_get_shared_gres_per_task.exit, label %.lr.ph135.i
 
-.lr.ph139.i:                                      ; preds = %117
+.lr.ph135.i:                                      ; preds = %117
   %127 = getelementptr inbounds i8, ptr %6, i64 472
   %.not28.i = icmp eq i64 %119, 0
-  br i1 %.not28.i, label %_filter_shared_gres_per_task.exit68.us.preheader.i, label %.lr.ph.i.preheader.i
+  br i1 %.not28.i, label %_filter_shared_gres_per_task.exit64.us.preheader.i, label %.lr.ph.i.preheader.i
 
-.lr.ph.i.preheader.i:                             ; preds = %.lr.ph139.i
+.lr.ph.i.preheader.i:                             ; preds = %.lr.ph135.i
   %128 = zext nneg i32 %1 to i64
   %129 = add nuw i32 %1, 1
   %wide.trip.count.i = zext i32 %129 to i64
   br label %.lr.ph.i.i
 
-_filter_shared_gres_per_task.exit68.us.preheader.i: ; preds = %.lr.ph139.i
+_filter_shared_gres_per_task.exit64.us.preheader.i: ; preds = %.lr.ph135.i
   %130 = add nuw i32 %1, 1
-  %wide.trip.count166.i = zext i32 %130 to i64
-  br label %_filter_shared_gres_per_task.exit68.us.i
+  %wide.trip.count162.i = zext i32 %130 to i64
+  br label %_filter_shared_gres_per_task.exit64.us.i
 
-_filter_shared_gres_per_task.exit68.us.i:         ; preds = %138, %_filter_shared_gres_per_task.exit68.us.preheader.i
-  %indvars.iv163.i = phi i64 [ 0, %_filter_shared_gres_per_task.exit68.us.preheader.i ], [ %indvars.iv.next164.i, %138 ]
+_filter_shared_gres_per_task.exit64.us.i:         ; preds = %138, %_filter_shared_gres_per_task.exit64.us.preheader.i
+  %indvars.iv159.i = phi i64 [ 0, %_filter_shared_gres_per_task.exit64.us.preheader.i ], [ %indvars.iv.next160.i, %138 ]
   %131 = load ptr, ptr %127, align 8
-  %132 = getelementptr inbounds ptr, ptr %131, i64 %indvars.iv163.i
+  %132 = getelementptr inbounds ptr, ptr %131, i64 %indvars.iv159.i
   %133 = load ptr, ptr %132, align 8
   %134 = getelementptr inbounds i8, ptr %133, i64 48
   %135 = load ptr, ptr %134, align 8
@@ -19805,15 +19802,15 @@ _filter_shared_gres_per_task.exit68.us.i:         ; preds = %138, %_filter_share
   %.not32.us.i = icmp eq ptr %136, null
   br i1 %.not32.us.i, label %138, label %137
 
-137:                                              ; preds = %_filter_shared_gres_per_task.exit68.us.i
+137:                                              ; preds = %_filter_shared_gres_per_task.exit64.us.i
   call void @slurm_bit_free(ptr noundef nonnull %10) #25
   br label %138
 
-138:                                              ; preds = %137, %_filter_shared_gres_per_task.exit68.us.i
+138:                                              ; preds = %137, %_filter_shared_gres_per_task.exit64.us.i
   store ptr null, ptr %10, align 8
-  %indvars.iv.next164.i = add nuw nsw i64 %indvars.iv163.i, 1
-  %exitcond167.not.i = icmp eq i64 %indvars.iv.next164.i, %wide.trip.count166.i
-  br i1 %exitcond167.not.i, label %_get_shared_gres_per_task.exit, label %_filter_shared_gres_per_task.exit68.us.i, !llvm.loop !196
+  %indvars.iv.next160.i = add nuw nsw i64 %indvars.iv159.i, 1
+  %exitcond163.not.i = icmp eq i64 %indvars.iv.next160.i, %wide.trip.count162.i
+  br i1 %exitcond163.not.i, label %_get_shared_gres_per_task.exit, label %_filter_shared_gres_per_task.exit64.us.i, !llvm.loop !196
 
 139:                                              ; preds = %266
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -19839,18 +19836,17 @@ _filter_shared_gres_per_task.exit68.us.i:         ; preds = %138, %_filter_share
   br i1 %149, label %.lr.ph.i, label %.lr.ph.split.split.us.i37.preheader.i
 
 .lr.ph.split.us.split.us.i.preheader.i:           ; preds = %.lr.ph.i.i
-  br i1 %149, label %.lr.ph131.i, label %.lr.ph.split.us.split.us.i42.preheader.i
+  br i1 %149, label %.lr.ph127.i, label %.lr.ph.split.us.split.us.i41.preheader.i
 
-.lr.ph.split.us.split.us.i.i:                     ; preds = %.lr.ph131.i
-  %150 = shl i64 %155, 32
-  %sext.us.us.i.i = add i64 %150, 4294967296
-  %151 = ashr exact i64 %sext.us.us.i.i, 32
+.lr.ph.split.us.split.us.i.i:                     ; preds = %.lr.ph127.i
+  %150 = add nuw nsw i64 %155, 1
+  %151 = and i64 %150, 4294967295
   %152 = call i64 @bit_ffs_from_bit(ptr noundef %145, i64 noundef %151) #25
   %153 = and i64 %152, 2147483648
   %154 = icmp eq i64 %153, 0
-  br i1 %154, label %.lr.ph131.i, label %.lr.ph.i35.i, !llvm.loop !197
+  br i1 %154, label %.lr.ph127.i, label %.lr.ph.i35.i, !llvm.loop !197
 
-.lr.ph131.i:                                      ; preds = %.lr.ph.split.us.split.us.i.preheader.i, %.lr.ph.split.us.split.us.i.i
+.lr.ph127.i:                                      ; preds = %.lr.ph.split.us.split.us.i.preheader.i, %.lr.ph.split.us.split.us.i.i
   %155 = phi i64 [ %152, %.lr.ph.split.us.split.us.i.i ], [ %147, %.lr.ph.split.us.split.us.i.preheader.i ]
   %156 = and i64 %155, 2147483647
   %157 = getelementptr inbounds i64, ptr %124, i64 %156
@@ -19858,17 +19854,16 @@ _filter_shared_gres_per_task.exit68.us.i:         ; preds = %138, %_filter_share
   %159 = icmp ult i64 %158, %119
   br i1 %159, label %.lr.ph.split.us.split.us.i.i, label %.thread.i
 
-.thread.i:                                        ; preds = %.lr.ph131.i
+.thread.i:                                        ; preds = %.lr.ph127.i
   %160 = getelementptr inbounds i64, ptr %124, i64 %156
   %161 = sub i64 %158, %119
   store i64 %161, ptr %160, align 8
   call void @bit_set(ptr noundef %122, i64 noundef %156) #25
-  br label %_filter_shared_gres_per_task.exit68thread-pre-split.i
+  br label %_filter_shared_gres_per_task.exit64thread-pre-split.i
 
 .lr.ph.split.split.us.i.i:                        ; preds = %.lr.ph.i
-  %162 = shl i64 %167, 32
-  %sext.us28.i.i = add i64 %162, 4294967296
-  %163 = ashr exact i64 %sext.us28.i.i, 32
+  %162 = add nuw nsw i64 %167, 1
+  %163 = and i64 %162, 4294967295
   %164 = call i64 @bit_ffs_from_bit(ptr noundef %145, i64 noundef %163) #25
   %165 = and i64 %164, 2147483648
   %166 = icmp eq i64 %165, 0
@@ -19880,105 +19875,102 @@ _filter_shared_gres_per_task.exit68.us.i:         ; preds = %138, %_filter_share
   %169 = getelementptr inbounds i64, ptr %124, i64 %168
   %170 = load i64, ptr %169, align 8
   %171 = icmp ult i64 %170, %119
-  br i1 %171, label %.lr.ph.split.split.us.i.i, label %.thread99.i
+  br i1 %171, label %.lr.ph.split.split.us.i.i, label %.thread95.i
 
-.thread99.i:                                      ; preds = %.lr.ph.i
+.thread95.i:                                      ; preds = %.lr.ph.i
   %172 = getelementptr inbounds i64, ptr %124, i64 %168
   %173 = sub i64 %170, %119
   store i64 %173, ptr %172, align 8
-  br label %_filter_shared_gres_per_task.exit68thread-pre-split.i
+  br label %_filter_shared_gres_per_task.exit64thread-pre-split.i
 
 .lr.ph.i35.i:                                     ; preds = %.lr.ph.split.split.us.i.i, %.lr.ph.split.us.split.us.i.i
-  br i1 %146, label %.lr.ph.split.us.split.us.i42.preheader.i, label %.lr.ph.split.split.us.i37.preheader.i
+  br i1 %146, label %.lr.ph.split.us.split.us.i41.preheader.i, label %.lr.ph.split.split.us.i37.preheader.i
 
 .lr.ph.split.split.us.i37.preheader.i:            ; preds = %.lr.ph.i35.i, %.lr.ph.split.split.us.i.preheader.i
   %174 = call i64 @bit_ffs_from_bit(ptr noundef %4, i64 noundef 0) #25
   %175 = and i64 %174, 2147483648
   %176 = icmp eq i64 %175, 0
-  br i1 %176, label %.lr.ph133.i, label %.lr.ph.i49.thread169.i
+  br i1 %176, label %.lr.ph129.i, label %.lr.ph.i47.thread165.i
 
-.lr.ph.i49.thread169.i:                           ; preds = %.lr.ph.split.split.us.i37.preheader.i
+.lr.ph.i47.thread165.i:                           ; preds = %.lr.ph.split.split.us.i37.preheader.i
   %177 = load ptr, ptr %10, align 8
   br label %.lr.ph.split.split.i.preheader.i
 
-.lr.ph.split.us.split.us.i42.preheader.i:         ; preds = %.lr.ph.i35.i, %.lr.ph.split.us.split.us.i.preheader.i
+.lr.ph.split.us.split.us.i41.preheader.i:         ; preds = %.lr.ph.i35.i, %.lr.ph.split.us.split.us.i.preheader.i
   %178 = call i64 @bit_ffs_from_bit(ptr noundef %4, i64 noundef 0) #25
   %179 = and i64 %178, 2147483648
   %180 = icmp eq i64 %179, 0
-  br i1 %180, label %.lr.ph135.i, label %.lr.ph.i49.thread.i
+  br i1 %180, label %.lr.ph131.i, label %.lr.ph.i47.thread.i
 
-.lr.ph.i49.thread.i:                              ; preds = %.lr.ph.split.us.split.us.i42.preheader.i
+.lr.ph.i47.thread.i:                              ; preds = %.lr.ph.split.us.split.us.i41.preheader.i
   %181 = load ptr, ptr %10, align 8
   br label %.lr.ph.split.us.split.i.preheader.i
 
-.lr.ph.split.us.split.us.i42.i:                   ; preds = %.lr.ph135.i
-  %182 = shl i64 %187, 32
-  %sext.us.us.i44.i = add i64 %182, 4294967296
-  %183 = ashr exact i64 %sext.us.us.i44.i, 32
+.lr.ph.split.us.split.us.i41.i:                   ; preds = %.lr.ph131.i
+  %182 = add nuw nsw i64 %187, 1
+  %183 = and i64 %182, 4294967295
   %184 = call i64 @bit_ffs_from_bit(ptr noundef %4, i64 noundef %183) #25
   %185 = and i64 %184, 2147483648
   %186 = icmp eq i64 %185, 0
-  br i1 %186, label %.lr.ph135.i, label %.lr.ph.i49.i, !llvm.loop !197
+  br i1 %186, label %.lr.ph131.i, label %.lr.ph.i47.i, !llvm.loop !197
 
-.lr.ph135.i:                                      ; preds = %.lr.ph.split.us.split.us.i42.preheader.i, %.lr.ph.split.us.split.us.i42.i
-  %187 = phi i64 [ %184, %.lr.ph.split.us.split.us.i42.i ], [ %178, %.lr.ph.split.us.split.us.i42.preheader.i ]
+.lr.ph131.i:                                      ; preds = %.lr.ph.split.us.split.us.i41.preheader.i, %.lr.ph.split.us.split.us.i41.i
+  %187 = phi i64 [ %184, %.lr.ph.split.us.split.us.i41.i ], [ %178, %.lr.ph.split.us.split.us.i41.preheader.i ]
   %188 = and i64 %187, 2147483647
   %189 = getelementptr inbounds i64, ptr %124, i64 %188
   %190 = load i64, ptr %189, align 8
   %191 = icmp ult i64 %190, %119
-  br i1 %191, label %.lr.ph.split.us.split.us.i42.i, label %.thread104.i
+  br i1 %191, label %.lr.ph.split.us.split.us.i41.i, label %.thread100.i
 
-.thread104.i:                                     ; preds = %.lr.ph135.i
+.thread100.i:                                     ; preds = %.lr.ph131.i
   %192 = getelementptr inbounds i64, ptr %124, i64 %188
   %193 = sub i64 %190, %119
   store i64 %193, ptr %192, align 8
   call void @bit_set(ptr noundef %122, i64 noundef %188) #25
-  br label %_filter_shared_gres_per_task.exit68thread-pre-split.i
+  br label %_filter_shared_gres_per_task.exit64thread-pre-split.i
 
-.lr.ph.split.split.us.i37.i:                      ; preds = %.lr.ph133.i
-  %194 = shl i64 %199, 32
-  %sext.us28.i39.i = add i64 %194, 4294967296
-  %195 = ashr exact i64 %sext.us28.i39.i, 32
+.lr.ph.split.split.us.i37.i:                      ; preds = %.lr.ph129.i
+  %194 = add nuw nsw i64 %199, 1
+  %195 = and i64 %194, 4294967295
   %196 = call i64 @bit_ffs_from_bit(ptr noundef %4, i64 noundef %195) #25
   %197 = and i64 %196, 2147483648
   %198 = icmp eq i64 %197, 0
-  br i1 %198, label %.lr.ph133.i, label %.lr.ph.i49.i, !llvm.loop !197
+  br i1 %198, label %.lr.ph129.i, label %.lr.ph.i47.i, !llvm.loop !197
 
-.lr.ph133.i:                                      ; preds = %.lr.ph.split.split.us.i37.preheader.i, %.lr.ph.split.split.us.i37.i
+.lr.ph129.i:                                      ; preds = %.lr.ph.split.split.us.i37.preheader.i, %.lr.ph.split.split.us.i37.i
   %199 = phi i64 [ %196, %.lr.ph.split.split.us.i37.i ], [ %174, %.lr.ph.split.split.us.i37.preheader.i ]
   %200 = and i64 %199, 2147483647
   %201 = getelementptr inbounds i64, ptr %124, i64 %200
   %202 = load i64, ptr %201, align 8
   %203 = icmp ult i64 %202, %119
-  br i1 %203, label %.lr.ph.split.split.us.i37.i, label %.thread107.i
+  br i1 %203, label %.lr.ph.split.split.us.i37.i, label %.thread103.i
 
-.thread107.i:                                     ; preds = %.lr.ph133.i
+.thread103.i:                                     ; preds = %.lr.ph129.i
   %204 = getelementptr inbounds i64, ptr %124, i64 %200
   %205 = sub i64 %202, %119
   store i64 %205, ptr %204, align 8
-  br label %_filter_shared_gres_per_task.exit68thread-pre-split.i
+  br label %_filter_shared_gres_per_task.exit64thread-pre-split.i
 
-.lr.ph.i49.i:                                     ; preds = %.lr.ph.split.split.us.i37.i, %.lr.ph.split.us.split.us.i42.i
+.lr.ph.i47.i:                                     ; preds = %.lr.ph.split.split.us.i37.i, %.lr.ph.split.us.split.us.i41.i
   %206 = load ptr, ptr %10, align 8
   br i1 %146, label %.lr.ph.split.us.split.i.preheader.i, label %.lr.ph.split.split.i.preheader.i
 
-.lr.ph.split.split.i.preheader.i:                 ; preds = %.lr.ph.i49.i, %.lr.ph.i49.thread169.i
-  %207 = phi ptr [ %177, %.lr.ph.i49.thread169.i ], [ %206, %.lr.ph.i49.i ]
+.lr.ph.split.split.i.preheader.i:                 ; preds = %.lr.ph.i47.i, %.lr.ph.i47.thread165.i
+  %207 = phi ptr [ %177, %.lr.ph.i47.thread165.i ], [ %206, %.lr.ph.i47.i ]
   br label %.lr.ph.split.split.i.i
 
-.lr.ph.split.us.split.i.preheader.i:              ; preds = %.lr.ph.i49.i, %.lr.ph.i49.thread.i
-  %208 = phi ptr [ %181, %.lr.ph.i49.thread.i ], [ %206, %.lr.ph.i49.i ]
+.lr.ph.split.us.split.i.preheader.i:              ; preds = %.lr.ph.i47.i, %.lr.ph.i47.thread.i
+  %208 = phi ptr [ %181, %.lr.ph.i47.thread.i ], [ %206, %.lr.ph.i47.i ]
   br label %.lr.ph.split.us.split.i.i
 
 .lr.ph.split.us.split.i.i:                        ; preds = %221, %.lr.ph.split.us.split.i.preheader.i
   %.12.i = phi i64 [ %.13.i, %221 ], [ %119, %.lr.ph.split.us.split.i.preheader.i ]
   %.025.us.i.i = phi i64 [ %222, %221 ], [ 0, %.lr.ph.split.us.split.i.preheader.i ]
-  %sext.us.i.i = shl i64 %.025.us.i.i, 32
-  %209 = ashr exact i64 %sext.us.i.i, 32
+  %209 = and i64 %.025.us.i.i, 4294967295
   %210 = call i64 @bit_ffs_from_bit(ptr noundef %208, i64 noundef %209) #25
   %211 = and i64 %210, 2147483648
   %212 = icmp eq i64 %211, 0
-  br i1 %212, label %213, label %_filter_shared_gres_per_task.exit52.i
+  br i1 %212, label %213, label %_filter_shared_gres_per_task.exit50.i
 
 213:                                              ; preds = %.lr.ph.split.us.split.i.i
   %214 = and i64 %210, 2147483647
@@ -19999,17 +19991,16 @@ _filter_shared_gres_per_task.exit68.us.i:         ; preds = %138, %_filter_share
   %.13.i = phi i64 [ %.12.i, %213 ], [ %220, %218 ]
   %222 = add nuw nsw i64 %210, 1
   %.not.us.i.i = icmp eq i64 %.13.i, 0
-  br i1 %.not.us.i.i, label %_filter_shared_gres_per_task.exit68thread-pre-split.i, label %.lr.ph.split.us.split.i.i, !llvm.loop !197
+  br i1 %.not.us.i.i, label %_filter_shared_gres_per_task.exit64thread-pre-split.i, label %.lr.ph.split.us.split.i.i, !llvm.loop !197
 
 .lr.ph.split.split.i.i:                           ; preds = %235, %.lr.ph.split.split.i.preheader.i
   %.14.i = phi i64 [ %.15.i, %235 ], [ %119, %.lr.ph.split.split.i.preheader.i ]
   %.025.i.i = phi i64 [ %236, %235 ], [ 0, %.lr.ph.split.split.i.preheader.i ]
-  %sext.i.i = shl i64 %.025.i.i, 32
-  %223 = ashr exact i64 %sext.i.i, 32
+  %223 = and i64 %.025.i.i, 4294967295
   %224 = call i64 @bit_ffs_from_bit(ptr noundef %207, i64 noundef %223) #25
   %225 = and i64 %224, 2147483648
   %226 = icmp eq i64 %225, 0
-  br i1 %226, label %227, label %_filter_shared_gres_per_task.exit52.i
+  br i1 %226, label %227, label %_filter_shared_gres_per_task.exit50.i
 
 227:                                              ; preds = %.lr.ph.split.split.i.i
   %228 = and i64 %224, 2147483647
@@ -20029,23 +20020,22 @@ _filter_shared_gres_per_task.exit68.us.i:         ; preds = %138, %_filter_share
   %.15.i = phi i64 [ %.14.i, %227 ], [ %234, %232 ]
   %236 = add nuw nsw i64 %224, 1
   %.not.i.i = icmp eq i64 %.15.i, 0
-  br i1 %.not.i.i, label %_filter_shared_gres_per_task.exit68thread-pre-split.i, label %.lr.ph.split.split.i.i, !llvm.loop !197
+  br i1 %.not.i.i, label %_filter_shared_gres_per_task.exit64thread-pre-split.i, label %.lr.ph.split.split.i.i, !llvm.loop !197
 
-_filter_shared_gres_per_task.exit52.i:            ; preds = %.lr.ph.split.split.i.i, %.lr.ph.split.us.split.i.i
+_filter_shared_gres_per_task.exit50.i:            ; preds = %.lr.ph.split.split.i.i, %.lr.ph.split.us.split.i.i
   %.17.i = phi i64 [ %.12.i, %.lr.ph.split.us.split.i.i ], [ %.14.i, %.lr.ph.split.split.i.i ]
-  br i1 %146, label %.lr.ph.split.us.split.i62.i, label %.lr.ph.split.split.i56.i
+  br i1 %146, label %.lr.ph.split.us.split.i59.i, label %.lr.ph.split.split.i54.i
 
-.lr.ph.split.us.split.i62.i:                      ; preds = %_filter_shared_gres_per_task.exit52.i, %249
-  %.18.i = phi i64 [ %.19.i, %249 ], [ %.17.i, %_filter_shared_gres_per_task.exit52.i ]
-  %.025.us.i63.i = phi i64 [ %250, %249 ], [ 0, %_filter_shared_gres_per_task.exit52.i ]
-  %sext.us.i64.i = shl i64 %.025.us.i63.i, 32
-  %237 = ashr exact i64 %sext.us.i64.i, 32
+.lr.ph.split.us.split.i59.i:                      ; preds = %_filter_shared_gres_per_task.exit50.i, %249
+  %.18.i = phi i64 [ %.19.i, %249 ], [ %.17.i, %_filter_shared_gres_per_task.exit50.i ]
+  %.025.us.i60.i = phi i64 [ %250, %249 ], [ 0, %_filter_shared_gres_per_task.exit50.i ]
+  %237 = and i64 %.025.us.i60.i, 4294967295
   %238 = call i64 @bit_ffs_from_bit(ptr noundef %4, i64 noundef %237) #25
   %239 = and i64 %238, 2147483648
   %240 = icmp eq i64 %239, 0
-  br i1 %240, label %241, label %_filter_shared_gres_per_task.exit68thread-pre-split.i
+  br i1 %240, label %241, label %_filter_shared_gres_per_task.exit64thread-pre-split.i
 
-241:                                              ; preds = %.lr.ph.split.us.split.i62.i
+241:                                              ; preds = %.lr.ph.split.us.split.i59.i
   %242 = and i64 %238, 2147483647
   %243 = getelementptr inbounds i64, ptr %124, i64 %242
   %244 = load i64, ptr %243, align 8
@@ -20053,30 +20043,29 @@ _filter_shared_gres_per_task.exit52.i:            ; preds = %.lr.ph.split.split.
   br i1 %245, label %249, label %246
 
 246:                                              ; preds = %241
-  %..us.i65.i = call i64 @llvm.umin.i64(i64 %244, i64 %.18.i)
-  %247 = sub i64 %244, %..us.i65.i
+  %..us.i61.i = call i64 @llvm.umin.i64(i64 %244, i64 %.18.i)
+  %247 = sub i64 %244, %..us.i61.i
   store i64 %247, ptr %243, align 8
-  %248 = sub i64 %.18.i, %..us.i65.i
+  %248 = sub i64 %.18.i, %..us.i61.i
   call void @bit_set(ptr noundef %122, i64 noundef %242) #25
   br label %249
 
 249:                                              ; preds = %246, %241
   %.19.i = phi i64 [ %.18.i, %241 ], [ %248, %246 ]
   %250 = add nuw nsw i64 %238, 1
-  %.not.us.i67.i = icmp eq i64 %.19.i, 0
-  br i1 %.not.us.i67.i, label %_filter_shared_gres_per_task.exit68thread-pre-split.i, label %.lr.ph.split.us.split.i62.i, !llvm.loop !197
+  %.not.us.i63.i = icmp eq i64 %.19.i, 0
+  br i1 %.not.us.i63.i, label %_filter_shared_gres_per_task.exit64thread-pre-split.i, label %.lr.ph.split.us.split.i59.i, !llvm.loop !197
 
-.lr.ph.split.split.i56.i:                         ; preds = %_filter_shared_gres_per_task.exit52.i, %263
-  %.20.i = phi i64 [ %.21.i, %263 ], [ %.17.i, %_filter_shared_gres_per_task.exit52.i ]
-  %.025.i57.i = phi i64 [ %264, %263 ], [ 0, %_filter_shared_gres_per_task.exit52.i ]
-  %sext.i58.i = shl i64 %.025.i57.i, 32
-  %251 = ashr exact i64 %sext.i58.i, 32
+.lr.ph.split.split.i54.i:                         ; preds = %_filter_shared_gres_per_task.exit50.i, %263
+  %.20.i = phi i64 [ %.21.i, %263 ], [ %.17.i, %_filter_shared_gres_per_task.exit50.i ]
+  %.025.i55.i = phi i64 [ %264, %263 ], [ 0, %_filter_shared_gres_per_task.exit50.i ]
+  %251 = and i64 %.025.i55.i, 4294967295
   %252 = call i64 @bit_ffs_from_bit(ptr noundef %4, i64 noundef %251) #25
   %253 = and i64 %252, 2147483648
   %254 = icmp eq i64 %253, 0
-  br i1 %254, label %255, label %_filter_shared_gres_per_task.exit68thread-pre-split.i
+  br i1 %254, label %255, label %_filter_shared_gres_per_task.exit64thread-pre-split.i
 
-255:                                              ; preds = %.lr.ph.split.split.i56.i
+255:                                              ; preds = %.lr.ph.split.split.i54.i
   %256 = and i64 %252, 2147483647
   %257 = getelementptr inbounds i64, ptr %124, i64 %256
   %258 = load i64, ptr %257, align 8
@@ -20084,29 +20073,29 @@ _filter_shared_gres_per_task.exit52.i:            ; preds = %.lr.ph.split.split.
   br i1 %259, label %263, label %260
 
 260:                                              ; preds = %255
-  %..i59.i = call i64 @llvm.umin.i64(i64 %258, i64 %.20.i)
-  %261 = sub i64 %258, %..i59.i
+  %..i56.i = call i64 @llvm.umin.i64(i64 %258, i64 %.20.i)
+  %261 = sub i64 %258, %..i56.i
   store i64 %261, ptr %257, align 8
-  %262 = sub i64 %.20.i, %..i59.i
+  %262 = sub i64 %.20.i, %..i56.i
   br label %263
 
 263:                                              ; preds = %260, %255
   %.21.i = phi i64 [ %.20.i, %255 ], [ %262, %260 ]
   %264 = add nuw nsw i64 %252, 1
-  %.not.i60.i = icmp eq i64 %.21.i, 0
-  br i1 %.not.i60.i, label %_filter_shared_gres_per_task.exit68thread-pre-split.i, label %.lr.ph.split.split.i56.i, !llvm.loop !197
+  %.not.i57.i = icmp eq i64 %.21.i, 0
+  br i1 %.not.i57.i, label %_filter_shared_gres_per_task.exit64thread-pre-split.i, label %.lr.ph.split.split.i54.i, !llvm.loop !197
 
-_filter_shared_gres_per_task.exit68thread-pre-split.i: ; preds = %235, %221, %263, %.lr.ph.split.split.i56.i, %249, %.lr.ph.split.us.split.i62.i, %.thread107.i, %.thread104.i, %.thread99.i, %.thread.i
-  %.23.ph.i = phi i1 [ true, %.thread.i ], [ true, %.thread99.i ], [ true, %.thread104.i ], [ true, %.thread107.i ], [ %240, %.lr.ph.split.us.split.i62.i ], [ %240, %249 ], [ %254, %.lr.ph.split.split.i56.i ], [ %254, %263 ], [ true, %221 ], [ true, %235 ]
+_filter_shared_gres_per_task.exit64thread-pre-split.i: ; preds = %235, %221, %263, %.lr.ph.split.split.i54.i, %249, %.lr.ph.split.us.split.i59.i, %.thread103.i, %.thread100.i, %.thread95.i, %.thread.i
+  %.23.ph.i = phi i1 [ true, %.thread.i ], [ true, %.thread95.i ], [ true, %.thread100.i ], [ true, %.thread103.i ], [ %240, %.lr.ph.split.us.split.i59.i ], [ %240, %249 ], [ %254, %.lr.ph.split.split.i54.i ], [ %254, %263 ], [ true, %221 ], [ true, %235 ]
   %.pr.i = load ptr, ptr %10, align 8
   %.not32.i = icmp eq ptr %.pr.i, null
   br i1 %.not32.i, label %266, label %265
 
-265:                                              ; preds = %_filter_shared_gres_per_task.exit68thread-pre-split.i
+265:                                              ; preds = %_filter_shared_gres_per_task.exit64thread-pre-split.i
   call void @slurm_bit_free(ptr noundef nonnull %10) #25
   br label %266
 
-266:                                              ; preds = %265, %_filter_shared_gres_per_task.exit68thread-pre-split.i
+266:                                              ; preds = %265, %_filter_shared_gres_per_task.exit64thread-pre-split.i
   store ptr null, ptr %10, align 8
   br i1 %.23.ph.i, label %139, label %.split.i
 
@@ -24428,13 +24417,12 @@ define void @gres_step_state_log(ptr noundef %0, i32 noundef %1, i32 noundef %2)
   br label %144
 
 144:                                              ; preds = %137, %.lr.ph.i.i
-  %145 = load ptr, ptr %89, align 8
-  %146 = getelementptr inbounds ptr, ptr %145, i64 %indvars.iv.i
-  %147 = load ptr, ptr %146, align 8
-  %148 = shl i64 %134, 32
-  %sext.i.i = add i64 %148, 4294967296
-  %149 = ashr exact i64 %sext.i.i, 32
-  %150 = call i64 @bit_ffs_from_bit(ptr noundef %147, i64 noundef %149) #25
+  %145 = add nuw nsw i64 %134, 1
+  %146 = load ptr, ptr %89, align 8
+  %147 = getelementptr inbounds ptr, ptr %146, i64 %indvars.iv.i
+  %148 = load ptr, ptr %147, align 8
+  %149 = and i64 %145, 4294967295
+  %150 = call i64 @bit_ffs_from_bit(ptr noundef %148, i64 noundef %149) #25
   %151 = trunc i64 %150 to i32
   %152 = icmp sgt i32 %151, -1
   br i1 %152, label %.lr.ph.i.i, label %_step_state_log_node.exit.i, !llvm.loop !233
@@ -27784,9 +27772,8 @@ define internal fastcc ptr @_get_single_usable_gres(i32 noundef %0, i32 noundef 
   %38 = add nsw i32 %37, -1
   %39 = sext i32 %38 to i64
   tail call void @bit_nset(ptr noundef %28, i64 noundef %35, i64 noundef %39) #25
-  %40 = shl i64 %33, 32
-  %sext = add i64 %40, 4294967296
-  %41 = ashr exact i64 %sext, 32
+  %40 = add i64 %33, 1
+  %41 = and i64 %40, 4294967295
   %42 = tail call i64 @bit_ffs_from_bit(ptr noundef %4, i64 noundef %41) #25
   %43 = trunc i64 %42 to i32
   %44 = icmp sgt i32 %43, -1
@@ -28357,8 +28344,7 @@ define internal fastcc void @_filter_gres_per_task(ptr noundef %0, ptr noundef %
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %11
   %.011.us = phi i64 [ %15, %11 ], [ 0, %.lr.ph ]
-  %sext.us = shl i64 %.011.us, 32
-  %7 = ashr exact i64 %sext.us, 32
+  %7 = and i64 %.011.us, 4294967295
   %8 = tail call i64 @bit_ffs_from_bit(ptr noundef %0, i64 noundef %7) #25
   %9 = and i64 %8, 2147483648
   %10 = icmp eq i64 %9, 0
@@ -28378,8 +28364,7 @@ define internal fastcc void @_filter_gres_per_task(ptr noundef %0, ptr noundef %
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %21
   %.011 = phi i64 [ %25, %21 ], [ 0, %.lr.ph ]
-  %sext = shl i64 %.011, 32
-  %17 = ashr exact i64 %sext, 32
+  %17 = and i64 %.011, 4294967295
   %18 = tail call i64 @bit_ffs_from_bit(ptr noundef %0, i64 noundef %17) #25
   %19 = and i64 %18, 2147483648
   %20 = icmp eq i64 %19, 0

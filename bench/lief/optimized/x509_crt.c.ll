@@ -118,7 +118,7 @@ define internal fastcc i32 @mbedtls_x509_crt_parse_der_internal(ptr noundef %0, 
   %13 = icmp eq ptr %0, null
   %14 = icmp eq ptr %1, null
   %or.cond = or i1 %13, %14
-  br i1 %or.cond, label %189, label %.preheader.preheader
+  br i1 %or.cond, label %197, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %6
   %15 = getelementptr inbounds i8, ptr %0, i64 56
@@ -144,7 +144,7 @@ define internal fastcc i32 @mbedtls_x509_crt_parse_der_internal(ptr noundef %0, 
   %22 = tail call noalias dereferenceable_or_null(616) ptr @calloc(i64 noundef 1, i64 noundef 616) #15
   store ptr %22, ptr %21, align 8
   %23 = icmp eq ptr %22, null
-  br i1 %23, label %189, label %24
+  br i1 %23, label %197, label %24
 
 24:                                               ; preds = %.critedge
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(616) %22, i8 0, i64 616, i1 false)
@@ -214,279 +214,302 @@ define internal fastcc i32 @mbedtls_x509_crt_parse_der_internal(ptr noundef %0, 
   store ptr %49, ptr %50, align 8
   %51 = call i32 @mbedtls_asn1_get_tag(ptr noundef nonnull %9, ptr noundef %.0.i, ptr noundef nonnull %8, i32 noundef 48) #16
   %.not144.i = icmp eq i32 %51, 0
-  br i1 %.not144.i, label %52, label %x509_crt_parse_der_core.exit
+  br i1 %.not144.i, label %54, label %52
 
 52:                                               ; preds = %48
-  %53 = load ptr, ptr %9, align 8
-  %54 = load i64, ptr %8, align 8
-  %55 = getelementptr inbounds i8, ptr %53, i64 %54
-  %56 = load ptr, ptr %50, align 8
-  %57 = ptrtoint ptr %55 to i64
-  %58 = ptrtoint ptr %56 to i64
-  %59 = sub i64 %57, %58
-  %60 = getelementptr inbounds i8, ptr %.129, i64 40
-  store i64 %59, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %.129, i64 56
+  call void @mbedtls_x509_crt_free(ptr noundef nonnull %.129)
+  %53 = add nsw i32 %51, -8576
+  br label %x509_crt_parse_der_core.exit
+
+54:                                               ; preds = %48
+  %55 = load ptr, ptr %9, align 8
+  %56 = load i64, ptr %8, align 8
+  %57 = getelementptr inbounds i8, ptr %55, i64 %56
+  %58 = load ptr, ptr %50, align 8
+  %59 = ptrtoint ptr %57 to i64
+  %60 = ptrtoint ptr %58 to i64
+  %61 = sub i64 %59, %60
+  %62 = getelementptr inbounds i8, ptr %.129, i64 40
+  store i64 %61, ptr %62, align 8
+  %63 = getelementptr inbounds i8, ptr %.129, i64 56
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  %62 = call i32 @mbedtls_asn1_get_tag(ptr noundef nonnull %9, ptr noundef %55, ptr noundef nonnull %7, i32 noundef 160) #16
-  switch i32 %62, label %64 [
-    i32 0, label %66
-    i32 -98, label %63
+  %64 = call i32 @mbedtls_asn1_get_tag(ptr noundef nonnull %9, ptr noundef %57, ptr noundef nonnull %7, i32 noundef 160) #16
+  switch i32 %64, label %66 [
+    i32 0, label %68
+    i32 -98, label %65
   ]
 
-63:                                               ; preds = %52
-  store i32 0, ptr %61, align 4
+65:                                               ; preds = %54
+  store i32 0, ptr %63, align 4
   br label %x509_get_version.exit.thread.i
 
-64:                                               ; preds = %52
-  %65 = add nsw i32 %62, -8576
+66:                                               ; preds = %54
+  %67 = add nsw i32 %64, -8576
   br label %x509_get_version.exit.i
 
-66:                                               ; preds = %52
-  %67 = load ptr, ptr %9, align 8
-  %68 = load i64, ptr %7, align 8
-  %69 = getelementptr inbounds i8, ptr %67, i64 %68
-  %70 = call i32 @mbedtls_asn1_get_int(ptr noundef nonnull %9, ptr noundef %69, ptr noundef nonnull %61) #16
-  %.not14.i.i = icmp eq i32 %70, 0
-  br i1 %.not14.i.i, label %73, label %71
+68:                                               ; preds = %54
+  %69 = load ptr, ptr %9, align 8
+  %70 = load i64, ptr %7, align 8
+  %71 = getelementptr inbounds i8, ptr %69, i64 %70
+  %72 = call i32 @mbedtls_asn1_get_int(ptr noundef nonnull %9, ptr noundef %71, ptr noundef nonnull %63) #16
+  %.not14.i.i = icmp eq i32 %72, 0
+  br i1 %.not14.i.i, label %75, label %73
 
-71:                                               ; preds = %66
-  %72 = add nsw i32 %70, -8704
+73:                                               ; preds = %68
+  %74 = add nsw i32 %72, -8704
   br label %x509_get_version.exit.i
 
-73:                                               ; preds = %66
-  %74 = load ptr, ptr %9, align 8
-  %.not15.i.i = icmp eq ptr %74, %69
+75:                                               ; preds = %68
+  %76 = load ptr, ptr %9, align 8
+  %.not15.i.i = icmp eq ptr %76, %71
   br i1 %.not15.i.i, label %x509_get_version.exit.thread.i, label %x509_get_version.exit.thread175.i
 
-x509_get_version.exit.thread175.i:                ; preds = %73
+x509_get_version.exit.thread175.i:                ; preds = %75
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %x509_crt_parse_der_core.exit.thread.sink.split
 
-x509_get_version.exit.thread.i:                   ; preds = %73, %63
+x509_get_version.exit.thread.i:                   ; preds = %75, %65
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  br label %75
+  br label %77
 
-x509_get_version.exit.i:                          ; preds = %71, %64
-  %.0.i.i = phi i32 [ %65, %64 ], [ %72, %71 ]
+x509_get_version.exit.i:                          ; preds = %73, %66
+  %.0.i.i = phi i32 [ %67, %66 ], [ %74, %73 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   %.not145.i = icmp eq i32 %.0.i.i, 0
-  br i1 %.not145.i, label %75, label %x509_crt_parse_der_core.exit.thread.sink.split
+  br i1 %.not145.i, label %77, label %x509_crt_parse_der_core.exit.thread.sink.split
 
-75:                                               ; preds = %x509_get_version.exit.i, %x509_get_version.exit.thread.i
-  %76 = getelementptr inbounds i8, ptr %.129, i64 64
-  %77 = call i32 @mbedtls_x509_get_serial(ptr noundef nonnull %9, ptr noundef %55, ptr noundef nonnull %76) #16
-  %.not146.i = icmp eq i32 %77, 0
-  br i1 %.not146.i, label %78, label %x509_crt_parse_der_core.exit.thread.sink.split
+77:                                               ; preds = %x509_get_version.exit.i, %x509_get_version.exit.thread.i
+  %78 = getelementptr inbounds i8, ptr %.129, i64 64
+  %79 = call i32 @mbedtls_x509_get_serial(ptr noundef nonnull %9, ptr noundef %57, ptr noundef nonnull %78) #16
+  %.not146.i = icmp eq i32 %79, 0
+  br i1 %.not146.i, label %80, label %x509_crt_parse_der_core.exit.thread.sink.split
 
-78:                                               ; preds = %75
-  %79 = getelementptr inbounds i8, ptr %.129, i64 88
-  %80 = call i32 @mbedtls_x509_get_alg(ptr noundef nonnull %9, ptr noundef %55, ptr noundef nonnull %79, ptr noundef nonnull %10) #16
-  %.not147.i = icmp eq i32 %80, 0
-  br i1 %.not147.i, label %81, label %x509_crt_parse_der_core.exit.thread.sink.split
+80:                                               ; preds = %77
+  %81 = getelementptr inbounds i8, ptr %.129, i64 88
+  %82 = call i32 @mbedtls_x509_get_alg(ptr noundef nonnull %9, ptr noundef %57, ptr noundef nonnull %81, ptr noundef nonnull %10) #16
+  %.not147.i = icmp eq i32 %82, 0
+  br i1 %.not147.i, label %83, label %x509_crt_parse_der_core.exit.thread.sink.split
 
-81:                                               ; preds = %78
-  %82 = load i32, ptr %61, align 8
-  %or.cond170.i = icmp ugt i32 %82, 2
-  br i1 %or.cond170.i, label %x509_crt_parse_der_core.exit.thread.sink.split, label %83
+83:                                               ; preds = %80
+  %84 = load i32, ptr %63, align 8
+  %or.cond170.i = icmp ugt i32 %84, 2
+  br i1 %or.cond170.i, label %x509_crt_parse_der_core.exit.thread.sink.split, label %85
 
-83:                                               ; preds = %81
-  %84 = add nuw nsw i32 %82, 1
-  store i32 %84, ptr %61, align 8
-  %85 = getelementptr inbounds i8, ptr %.129, i64 592
-  %86 = getelementptr inbounds i8, ptr %.129, i64 596
-  %87 = getelementptr inbounds i8, ptr %.129, i64 600
-  %88 = call i32 @mbedtls_x509_get_sig_alg(ptr noundef nonnull %79, ptr noundef nonnull %10, ptr noundef nonnull %85, ptr noundef nonnull %86, ptr noundef nonnull %87) #16
-  %.not148.i = icmp eq i32 %88, 0
-  br i1 %.not148.i, label %89, label %x509_crt_parse_der_core.exit.thread.sink.split
+85:                                               ; preds = %83
+  %86 = add nuw nsw i32 %84, 1
+  store i32 %86, ptr %63, align 8
+  %87 = getelementptr inbounds i8, ptr %.129, i64 592
+  %88 = getelementptr inbounds i8, ptr %.129, i64 596
+  %89 = getelementptr inbounds i8, ptr %.129, i64 600
+  %90 = call i32 @mbedtls_x509_get_sig_alg(ptr noundef nonnull %81, ptr noundef nonnull %10, ptr noundef nonnull %87, ptr noundef nonnull %88, ptr noundef nonnull %89) #16
+  %.not148.i = icmp eq i32 %90, 0
+  br i1 %.not148.i, label %91, label %x509_crt_parse_der_core.exit.thread.sink.split
 
-89:                                               ; preds = %83
-  %90 = load ptr, ptr %9, align 8
-  %91 = getelementptr inbounds i8, ptr %.129, i64 128
-  store ptr %90, ptr %91, align 8
-  %92 = call i32 @mbedtls_asn1_get_tag(ptr noundef nonnull %9, ptr noundef %55, ptr noundef nonnull %8, i32 noundef 48) #16
-  %.not149.i = icmp eq i32 %92, 0
-  br i1 %.not149.i, label %93, label %x509_crt_parse_der_core.exit
+91:                                               ; preds = %85
+  %92 = load ptr, ptr %9, align 8
+  %93 = getelementptr inbounds i8, ptr %.129, i64 128
+  store ptr %92, ptr %93, align 8
+  %94 = call i32 @mbedtls_asn1_get_tag(ptr noundef nonnull %9, ptr noundef %57, ptr noundef nonnull %8, i32 noundef 48) #16
+  %.not149.i = icmp eq i32 %94, 0
+  br i1 %.not149.i, label %97, label %95
 
-93:                                               ; preds = %89
-  %94 = load ptr, ptr %9, align 8
-  %95 = load i64, ptr %8, align 8
-  %96 = getelementptr inbounds i8, ptr %94, i64 %95
-  %97 = getelementptr inbounds i8, ptr %.129, i64 160
-  %98 = call i32 @mbedtls_x509_get_name(ptr noundef nonnull %9, ptr noundef %96, ptr noundef nonnull %97) #16
-  %.not150.i = icmp eq i32 %98, 0
-  br i1 %.not150.i, label %99, label %x509_crt_parse_der_core.exit.thread.sink.split
+95:                                               ; preds = %91
+  call void @mbedtls_x509_crt_free(ptr noundef nonnull %.129)
+  %96 = add nsw i32 %94, -8576
+  br label %x509_crt_parse_der_core.exit
 
-99:                                               ; preds = %93
-  %100 = load ptr, ptr %9, align 8
-  %101 = load ptr, ptr %91, align 8
-  %102 = ptrtoint ptr %100 to i64
-  %103 = ptrtoint ptr %101 to i64
-  %104 = sub i64 %102, %103
-  %105 = getelementptr inbounds i8, ptr %.129, i64 120
-  store i64 %104, ptr %105, align 8
-  %106 = getelementptr inbounds i8, ptr %.129, i64 288
-  %107 = getelementptr inbounds i8, ptr %.129, i64 312
-  %108 = call fastcc i32 @x509_get_dates(ptr noundef nonnull %9, ptr noundef %55, ptr noundef nonnull %106, ptr noundef nonnull %107)
-  %.not151.i = icmp eq i32 %108, 0
-  br i1 %.not151.i, label %109, label %x509_crt_parse_der_core.exit.thread.sink.split
+97:                                               ; preds = %91
+  %98 = load ptr, ptr %9, align 8
+  %99 = load i64, ptr %8, align 8
+  %100 = getelementptr inbounds i8, ptr %98, i64 %99
+  %101 = getelementptr inbounds i8, ptr %.129, i64 160
+  %102 = call i32 @mbedtls_x509_get_name(ptr noundef nonnull %9, ptr noundef %100, ptr noundef nonnull %101) #16
+  %.not150.i = icmp eq i32 %102, 0
+  br i1 %.not150.i, label %103, label %x509_crt_parse_der_core.exit.thread.sink.split
 
-109:                                              ; preds = %99
-  %110 = load ptr, ptr %9, align 8
-  %111 = getelementptr inbounds i8, ptr %.129, i64 152
-  store ptr %110, ptr %111, align 8
-  %112 = call i32 @mbedtls_asn1_get_tag(ptr noundef nonnull %9, ptr noundef %55, ptr noundef nonnull %8, i32 noundef 48) #16
-  %.not152.i = icmp eq i32 %112, 0
-  br i1 %.not152.i, label %113, label %x509_crt_parse_der_core.exit
+103:                                              ; preds = %97
+  %104 = load ptr, ptr %9, align 8
+  %105 = load ptr, ptr %93, align 8
+  %106 = ptrtoint ptr %104 to i64
+  %107 = ptrtoint ptr %105 to i64
+  %108 = sub i64 %106, %107
+  %109 = getelementptr inbounds i8, ptr %.129, i64 120
+  store i64 %108, ptr %109, align 8
+  %110 = getelementptr inbounds i8, ptr %.129, i64 288
+  %111 = getelementptr inbounds i8, ptr %.129, i64 312
+  %112 = call fastcc i32 @x509_get_dates(ptr noundef nonnull %9, ptr noundef %57, ptr noundef nonnull %110, ptr noundef nonnull %111)
+  %.not151.i = icmp eq i32 %112, 0
+  br i1 %.not151.i, label %113, label %x509_crt_parse_der_core.exit.thread.sink.split
 
-113:                                              ; preds = %109
-  %114 = load i64, ptr %8, align 8
-  %.not153.i = icmp eq i64 %114, 0
-  br i1 %.not153.i, label %120, label %115
+113:                                              ; preds = %103
+  %114 = load ptr, ptr %9, align 8
+  %115 = getelementptr inbounds i8, ptr %.129, i64 152
+  store ptr %114, ptr %115, align 8
+  %116 = call i32 @mbedtls_asn1_get_tag(ptr noundef nonnull %9, ptr noundef %57, ptr noundef nonnull %8, i32 noundef 48) #16
+  %.not152.i = icmp eq i32 %116, 0
+  br i1 %.not152.i, label %119, label %117
 
-115:                                              ; preds = %113
-  %116 = load ptr, ptr %9, align 8
-  %117 = getelementptr inbounds i8, ptr %116, i64 %114
-  %118 = getelementptr inbounds i8, ptr %.129, i64 224
-  %119 = call i32 @mbedtls_x509_get_name(ptr noundef nonnull %9, ptr noundef nonnull %117, ptr noundef nonnull %118) #16
-  %.not154.i = icmp eq i32 %119, 0
-  br i1 %.not154.i, label %120, label %x509_crt_parse_der_core.exit.thread.sink.split
+117:                                              ; preds = %113
+  call void @mbedtls_x509_crt_free(ptr noundef nonnull %.129)
+  %118 = add nsw i32 %116, -8576
+  br label %x509_crt_parse_der_core.exit
 
-120:                                              ; preds = %115, %113
-  %121 = load ptr, ptr %9, align 8
-  %122 = load ptr, ptr %111, align 8
-  %123 = ptrtoint ptr %121 to i64
-  %124 = ptrtoint ptr %122 to i64
-  %125 = sub i64 %123, %124
-  %126 = getelementptr inbounds i8, ptr %.129, i64 144
-  store i64 %125, ptr %126, align 8
-  %127 = getelementptr inbounds i8, ptr %.129, i64 352
-  store ptr %121, ptr %127, align 8
-  %128 = getelementptr inbounds i8, ptr %.129, i64 360
-  %129 = call i32 @mbedtls_pk_parse_subpubkey(ptr noundef nonnull %9, ptr noundef %55, ptr noundef nonnull %128) #16
-  %.not155.i = icmp eq i32 %129, 0
-  br i1 %.not155.i, label %130, label %x509_crt_parse_der_core.exit.thread.sink.split
+119:                                              ; preds = %113
+  %120 = load i64, ptr %8, align 8
+  %.not153.i = icmp eq i64 %120, 0
+  br i1 %.not153.i, label %126, label %121
 
-130:                                              ; preds = %120
-  %131 = load ptr, ptr %9, align 8
-  %132 = load ptr, ptr %127, align 8
-  %133 = ptrtoint ptr %131 to i64
-  %134 = ptrtoint ptr %132 to i64
-  %135 = sub i64 %133, %134
-  %136 = getelementptr inbounds i8, ptr %.129, i64 344
-  store i64 %135, ptr %136, align 8
-  %137 = load i32, ptr %61, align 8
-  %138 = and i32 %137, -2
-  %switch.i = icmp eq i32 %138, 2
-  br i1 %switch.i, label %139, label %142
+121:                                              ; preds = %119
+  %122 = load ptr, ptr %9, align 8
+  %123 = getelementptr inbounds i8, ptr %122, i64 %120
+  %124 = getelementptr inbounds i8, ptr %.129, i64 224
+  %125 = call i32 @mbedtls_x509_get_name(ptr noundef nonnull %9, ptr noundef nonnull %123, ptr noundef nonnull %124) #16
+  %.not154.i = icmp eq i32 %125, 0
+  br i1 %.not154.i, label %126, label %x509_crt_parse_der_core.exit.thread.sink.split
 
-139:                                              ; preds = %130
-  %140 = getelementptr inbounds i8, ptr %.129, i64 376
-  %141 = call fastcc i32 @x509_get_uid(ptr noundef nonnull %9, ptr noundef %55, ptr noundef nonnull %140, i32 noundef 1)
-  %.not156.i = icmp eq i32 %141, 0
-  br i1 %.not156.i, label %._crit_edge.i, label %x509_crt_parse_der_core.exit.thread.sink.split
+126:                                              ; preds = %121, %119
+  %127 = load ptr, ptr %9, align 8
+  %128 = load ptr, ptr %115, align 8
+  %129 = ptrtoint ptr %127 to i64
+  %130 = ptrtoint ptr %128 to i64
+  %131 = sub i64 %129, %130
+  %132 = getelementptr inbounds i8, ptr %.129, i64 144
+  store i64 %131, ptr %132, align 8
+  %133 = getelementptr inbounds i8, ptr %.129, i64 352
+  store ptr %127, ptr %133, align 8
+  %134 = getelementptr inbounds i8, ptr %.129, i64 360
+  %135 = call i32 @mbedtls_pk_parse_subpubkey(ptr noundef nonnull %9, ptr noundef %57, ptr noundef nonnull %134) #16
+  %.not155.i = icmp eq i32 %135, 0
+  br i1 %.not155.i, label %136, label %x509_crt_parse_der_core.exit.thread.sink.split
 
-._crit_edge.i:                                    ; preds = %139
-  %.pre.i = load i32, ptr %61, align 8
-  br label %142
-
-142:                                              ; preds = %._crit_edge.i, %130
-  %143 = phi i32 [ %.pre.i, %._crit_edge.i ], [ %137, %130 ]
+136:                                              ; preds = %126
+  %137 = load ptr, ptr %9, align 8
+  %138 = load ptr, ptr %133, align 8
+  %139 = ptrtoint ptr %137 to i64
+  %140 = ptrtoint ptr %138 to i64
+  %141 = sub i64 %139, %140
+  %142 = getelementptr inbounds i8, ptr %.129, i64 344
+  store i64 %141, ptr %142, align 8
+  %143 = load i32, ptr %63, align 8
   %144 = and i32 %143, -2
-  %switch172.i = icmp eq i32 %144, 2
-  br i1 %switch172.i, label %145, label %.thread.i
+  %switch.i = icmp eq i32 %144, 2
+  br i1 %switch.i, label %145, label %149
 
-145:                                              ; preds = %142
-  %146 = getelementptr inbounds i8, ptr %.129, i64 400
-  %147 = call fastcc i32 @x509_get_uid(ptr noundef nonnull %9, ptr noundef %55, ptr noundef nonnull %146, i32 noundef 2)
-  %.not157.i = icmp eq i32 %147, 0
-  br i1 %.not157.i, label %148, label %x509_crt_parse_der_core.exit.thread.sink.split
+145:                                              ; preds = %136
+  %146 = getelementptr inbounds i8, ptr %.129, i64 376
+  %147 = call fastcc i32 @x509_get_uid(ptr noundef nonnull %9, ptr noundef %57, ptr noundef nonnull %146, i32 noundef 1), !range !6
+  %.not156.i = icmp eq i32 %147, 0
+  br i1 %.not156.i, label %._crit_edge.i, label %148
+
+._crit_edge.i:                                    ; preds = %145
+  %.pre.i = load i32, ptr %63, align 8
+  br label %149
 
 148:                                              ; preds = %145
-  %.pr.i = load i32, ptr %61, align 8
-  %149 = icmp eq i32 %.pr.i, 3
-  br i1 %149, label %150, label %.thread.i
+  call void @mbedtls_x509_crt_free(ptr noundef nonnull %.129)
+  br label %x509_crt_parse_der_core.exit
 
-150:                                              ; preds = %148
-  %151 = call fastcc i32 @x509_get_crt_ext(ptr noundef nonnull %9, ptr noundef %55, ptr noundef nonnull %.129, ptr noundef %4, ptr noundef %5)
-  %.not158.i = icmp eq i32 %151, 0
+149:                                              ; preds = %._crit_edge.i, %136
+  %150 = phi i32 [ %.pre.i, %._crit_edge.i ], [ %143, %136 ]
+  %151 = and i32 %150, -2
+  %switch172.i = icmp eq i32 %151, 2
+  br i1 %switch172.i, label %152, label %.thread.i
+
+152:                                              ; preds = %149
+  %153 = getelementptr inbounds i8, ptr %.129, i64 400
+  %154 = call fastcc i32 @x509_get_uid(ptr noundef nonnull %9, ptr noundef %57, ptr noundef nonnull %153, i32 noundef 2), !range !6
+  %.not157.i = icmp eq i32 %154, 0
+  br i1 %.not157.i, label %156, label %155
+
+155:                                              ; preds = %152
+  call void @mbedtls_x509_crt_free(ptr noundef nonnull %.129)
+  br label %x509_crt_parse_der_core.exit
+
+156:                                              ; preds = %152
+  %.pr.i = load i32, ptr %63, align 8
+  %157 = icmp eq i32 %.pr.i, 3
+  br i1 %157, label %158, label %.thread.i
+
+158:                                              ; preds = %156
+  %159 = call fastcc i32 @x509_get_crt_ext(ptr noundef nonnull %9, ptr noundef %57, ptr noundef nonnull %.129, ptr noundef %4, ptr noundef %5)
+  %.not158.i = icmp eq i32 %159, 0
   br i1 %.not158.i, label %.thread.i, label %x509_crt_parse_der_core.exit.thread.sink.split
 
-.thread.i:                                        ; preds = %150, %148, %142
-  %152 = load ptr, ptr %9, align 8
-  %.not159.i = icmp eq ptr %152, %55
-  br i1 %.not159.i, label %153, label %x509_crt_parse_der_core.exit.thread.sink.split
+.thread.i:                                        ; preds = %158, %156, %149
+  %160 = load ptr, ptr %9, align 8
+  %.not159.i = icmp eq ptr %160, %57
+  br i1 %.not159.i, label %161, label %x509_crt_parse_der_core.exit.thread.sink.split
 
-153:                                              ; preds = %.thread.i
-  %154 = call i32 @mbedtls_x509_get_alg(ptr noundef nonnull %9, ptr noundef %.0.i, ptr noundef nonnull %12, ptr noundef nonnull %11) #16
-  %.not160.i = icmp eq i32 %154, 0
-  br i1 %.not160.i, label %155, label %x509_crt_parse_der_core.exit.thread.sink.split
+161:                                              ; preds = %.thread.i
+  %162 = call i32 @mbedtls_x509_get_alg(ptr noundef nonnull %9, ptr noundef %.0.i, ptr noundef nonnull %12, ptr noundef nonnull %11) #16
+  %.not160.i = icmp eq i32 %162, 0
+  br i1 %.not160.i, label %163, label %x509_crt_parse_der_core.exit.thread.sink.split
 
-155:                                              ; preds = %153
-  %156 = getelementptr inbounds i8, ptr %.129, i64 96
-  %157 = load i64, ptr %156, align 8
-  %158 = getelementptr inbounds i8, ptr %12, i64 8
-  %159 = load i64, ptr %158, align 8
-  %.not161.i = icmp eq i64 %157, %159
-  br i1 %.not161.i, label %160, label %x509_crt_parse_der_core.exit.thread.sink.split
+163:                                              ; preds = %161
+  %164 = getelementptr inbounds i8, ptr %.129, i64 96
+  %165 = load i64, ptr %164, align 8
+  %166 = getelementptr inbounds i8, ptr %12, i64 8
+  %167 = load i64, ptr %166, align 8
+  %.not161.i = icmp eq i64 %165, %167
+  br i1 %.not161.i, label %168, label %x509_crt_parse_der_core.exit.thread.sink.split
 
-160:                                              ; preds = %155
-  %161 = getelementptr inbounds i8, ptr %.129, i64 104
-  %162 = load ptr, ptr %161, align 8
-  %163 = getelementptr inbounds i8, ptr %12, i64 16
-  %164 = load ptr, ptr %163, align 8
-  %bcmp.i = call i32 @bcmp(ptr %162, ptr %164, i64 %157)
+168:                                              ; preds = %163
+  %169 = getelementptr inbounds i8, ptr %.129, i64 104
+  %170 = load ptr, ptr %169, align 8
+  %171 = getelementptr inbounds i8, ptr %12, i64 16
+  %172 = load ptr, ptr %171, align 8
+  %bcmp.i = call i32 @bcmp(ptr %170, ptr %172, i64 %165)
   %.not162.i = icmp eq i32 %bcmp.i, 0
-  br i1 %.not162.i, label %165, label %x509_crt_parse_der_core.exit.thread.sink.split
-
-165:                                              ; preds = %160
-  %166 = load i32, ptr %10, align 8
-  %167 = load i32, ptr %11, align 8
-  %.not163.i = icmp eq i32 %166, %167
-  br i1 %.not163.i, label %168, label %x509_crt_parse_der_core.exit.thread.sink.split
-
-168:                                              ; preds = %165
-  %169 = getelementptr inbounds i8, ptr %10, i64 8
-  %170 = load i64, ptr %169, align 8
-  %171 = getelementptr inbounds i8, ptr %11, i64 8
-  %172 = load i64, ptr %171, align 8
-  %.not164.i = icmp eq i64 %170, %172
-  br i1 %.not164.i, label %173, label %x509_crt_parse_der_core.exit.thread.sink.split
+  br i1 %.not162.i, label %173, label %x509_crt_parse_der_core.exit.thread.sink.split
 
 173:                                              ; preds = %168
-  %.not165.i = icmp eq i64 %170, 0
-  br i1 %.not165.i, label %179, label %174
+  %174 = load i32, ptr %10, align 8
+  %175 = load i32, ptr %11, align 8
+  %.not163.i = icmp eq i32 %174, %175
+  br i1 %.not163.i, label %176, label %x509_crt_parse_der_core.exit.thread.sink.split
 
-174:                                              ; preds = %173
-  %175 = getelementptr inbounds i8, ptr %10, i64 16
-  %176 = load ptr, ptr %175, align 8
-  %177 = getelementptr inbounds i8, ptr %11, i64 16
-  %178 = load ptr, ptr %177, align 8
-  %bcmp166.i = call i32 @bcmp(ptr %176, ptr %178, i64 %170)
+176:                                              ; preds = %173
+  %177 = getelementptr inbounds i8, ptr %10, i64 8
+  %178 = load i64, ptr %177, align 8
+  %179 = getelementptr inbounds i8, ptr %11, i64 8
+  %180 = load i64, ptr %179, align 8
+  %.not164.i = icmp eq i64 %178, %180
+  br i1 %.not164.i, label %181, label %x509_crt_parse_der_core.exit.thread.sink.split
+
+181:                                              ; preds = %176
+  %.not165.i = icmp eq i64 %178, 0
+  br i1 %.not165.i, label %187, label %182
+
+182:                                              ; preds = %181
+  %183 = getelementptr inbounds i8, ptr %10, i64 16
+  %184 = load ptr, ptr %183, align 8
+  %185 = getelementptr inbounds i8, ptr %11, i64 16
+  %186 = load ptr, ptr %185, align 8
+  %bcmp166.i = call i32 @bcmp(ptr %184, ptr %186, i64 %178)
   %.not167.i = icmp eq i32 %bcmp166.i, 0
-  br i1 %.not167.i, label %179, label %x509_crt_parse_der_core.exit.thread.sink.split
+  br i1 %.not167.i, label %187, label %x509_crt_parse_der_core.exit.thread.sink.split
 
-179:                                              ; preds = %174, %173
-  %180 = getelementptr inbounds i8, ptr %.129, i64 568
-  %181 = call i32 @mbedtls_x509_get_sig(ptr noundef nonnull %9, ptr noundef %.0.i, ptr noundef nonnull %180) #16
-  %.not168.i = icmp eq i32 %181, 0
-  br i1 %.not168.i, label %182, label %x509_crt_parse_der_core.exit.thread.sink.split
+187:                                              ; preds = %182, %181
+  %188 = getelementptr inbounds i8, ptr %.129, i64 568
+  %189 = call i32 @mbedtls_x509_get_sig(ptr noundef nonnull %9, ptr noundef %.0.i, ptr noundef nonnull %188) #16
+  %.not168.i = icmp eq i32 %189, 0
+  br i1 %.not168.i, label %190, label %x509_crt_parse_der_core.exit.thread.sink.split
 
-182:                                              ; preds = %179
-  %183 = load ptr, ptr %9, align 8
-  %.not169.i = icmp eq ptr %183, %.0.i
+190:                                              ; preds = %187
+  %191 = load ptr, ptr %9, align 8
+  %.not169.i = icmp eq ptr %191, %.0.i
   br i1 %.not169.i, label %x509_crt_parse_der_core.exit.thread43, label %x509_crt_parse_der_core.exit.thread.sink.split
 
-x509_crt_parse_der_core.exit.thread43:            ; preds = %182
+x509_crt_parse_der_core.exit.thread43:            ; preds = %190
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
-  br label %189
+  br label %197
 
-x509_crt_parse_der_core.exit.thread.sink.split:   ; preds = %182, %179, %155, %160, %165, %168, %174, %153, %.thread.i, %150, %145, %139, %120, %115, %99, %93, %83, %81, %x509_get_version.exit.thread175.i, %x509_get_version.exit.i, %75, %78, %27
-  %.0117.i.ph.ph = phi i32 [ -8576, %27 ], [ %.0.i.i, %x509_get_version.exit.i ], [ %77, %75 ], [ %80, %78 ], [ -8806, %x509_get_version.exit.thread175.i ], [ -9600, %81 ], [ %88, %83 ], [ %98, %93 ], [ %108, %99 ], [ %119, %115 ], [ %129, %120 ], [ %141, %139 ], [ %147, %145 ], [ %151, %150 ], [ -8678, %.thread.i ], [ %154, %153 ], [ -9856, %174 ], [ -9856, %168 ], [ -9856, %165 ], [ -9856, %160 ], [ -9856, %155 ], [ %181, %179 ], [ -8678, %182 ]
+x509_crt_parse_der_core.exit.thread.sink.split:   ; preds = %190, %187, %163, %168, %173, %176, %182, %161, %.thread.i, %158, %126, %121, %103, %97, %85, %83, %x509_get_version.exit.thread175.i, %x509_get_version.exit.i, %77, %80, %27
+  %.0117.i.ph.ph = phi i32 [ -8576, %27 ], [ %.0.i.i, %x509_get_version.exit.i ], [ %79, %77 ], [ %82, %80 ], [ -8806, %x509_get_version.exit.thread175.i ], [ -9600, %83 ], [ %90, %85 ], [ %102, %97 ], [ %112, %103 ], [ %125, %121 ], [ %135, %126 ], [ %159, %158 ], [ -8678, %.thread.i ], [ %162, %161 ], [ -9856, %182 ], [ -9856, %176 ], [ -9856, %173 ], [ -9856, %168 ], [ -9856, %163 ], [ %189, %187 ], [ -8678, %190 ]
   call void @mbedtls_x509_crt_free(ptr noundef nonnull %.129)
   br label %x509_crt_parse_der_core.exit.thread
 
@@ -497,40 +520,38 @@ x509_crt_parse_der_core.exit.thread:              ; preds = %x509_crt_parse_der_
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
-  br label %184
+  br label %192
 
-x509_crt_parse_der_core.exit:                     ; preds = %109, %89, %48
-  %.0117.i.in = phi i32 [ %51, %48 ], [ %92, %89 ], [ %112, %109 ]
-  call void @mbedtls_x509_crt_free(ptr noundef nonnull %.129)
-  %.0117.i = add nsw i32 %.0117.i.in, -8576
+x509_crt_parse_der_core.exit:                     ; preds = %52, %95, %117, %148, %155
+  %.0117.i = phi i32 [ %53, %52 ], [ %96, %95 ], [ %118, %117 ], [ %147, %148 ], [ %154, %155 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
   %.not37 = icmp eq i32 %.0117.i, 0
-  br i1 %.not37, label %189, label %184
+  br i1 %.not37, label %197, label %192
 
-184:                                              ; preds = %x509_crt_parse_der_core.exit.thread, %x509_crt_parse_der_core.exit
+192:                                              ; preds = %x509_crt_parse_der_core.exit.thread, %x509_crt_parse_der_core.exit
   %.0117.i42 = phi i32 [ %.0117.i.ph, %x509_crt_parse_der_core.exit.thread ], [ %.0117.i, %x509_crt_parse_der_core.exit ]
   %.not38 = icmp eq ptr %.1, null
-  br i1 %.not38, label %187, label %185
+  br i1 %.not38, label %195, label %193
 
-185:                                              ; preds = %184
-  %186 = getelementptr inbounds i8, ptr %.1, i64 608
-  store ptr null, ptr %186, align 8
-  br label %187
+193:                                              ; preds = %192
+  %194 = getelementptr inbounds i8, ptr %.1, i64 608
+  store ptr null, ptr %194, align 8
+  br label %195
 
-187:                                              ; preds = %185, %184
+195:                                              ; preds = %193, %192
   %.not39 = icmp eq ptr %.129, %0
-  br i1 %.not39, label %189, label %188
+  br i1 %.not39, label %197, label %196
 
-188:                                              ; preds = %187
+196:                                              ; preds = %195
   call void @free(ptr noundef %.129) #16
-  br label %189
+  br label %197
 
-189:                                              ; preds = %x509_crt_parse_der_core.exit.thread43, %x509_crt_parse_der_core.exit, %187, %188, %.critedge, %6
-  %.030 = phi i32 [ -10240, %6 ], [ -10368, %.critedge ], [ %.0117.i42, %188 ], [ %.0117.i42, %187 ], [ 0, %x509_crt_parse_der_core.exit ], [ 0, %x509_crt_parse_der_core.exit.thread43 ]
+197:                                              ; preds = %x509_crt_parse_der_core.exit.thread43, %x509_crt_parse_der_core.exit, %195, %196, %.critedge, %6
+  %.030 = phi i32 [ -10240, %6 ], [ -10368, %.critedge ], [ %.0117.i42, %196 ], [ %.0117.i42, %195 ], [ 0, %x509_crt_parse_der_core.exit ], [ 0, %x509_crt_parse_der_core.exit.thread43 ]
   ret i32 %.030
 }
 
@@ -611,7 +632,7 @@ define hidden i32 @mbedtls_x509_crt_parse(ptr noundef %0, ptr noundef %1, i64 no
 
 .outer.loopexit:                                  ; preds = %20
   %27 = icmp ugt i64 %22, 1
-  br i1 %27, label %.lr.ph, label %.loopexit, !llvm.loop !6
+  br i1 %27, label %.lr.ph, label %.loopexit, !llvm.loop !7
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer.loopexit
   %.036.ph79 = phi i32 [ 0, %.lr.ph.lr.ph ], [ %.03665, %.outer.loopexit ]
@@ -636,7 +657,7 @@ define hidden i32 @mbedtls_x509_crt_parse(ptr noundef %0, ptr noundef %1, i64 no
   %spec.select54 = select i1 %33, i32 %.sink112, i32 %.03764
   %.036.be = add nsw i32 %.03665, 1
   %34 = icmp ugt i64 %.041.be, 1
-  br i1 %34, label %18, label %.outer._crit_edge, !llvm.loop !6
+  br i1 %34, label %18, label %.outer._crit_edge, !llvm.loop !7
 
 .outer._crit_edge:                                ; preds = %.backedge, %18
   %.037.lcssa = phi i32 [ %spec.select54, %.backedge ], [ %.03764, %18 ]
@@ -735,7 +756,7 @@ define hidden i32 @mbedtls_x509_crt_parse_path(ptr noundef %0, ptr noundef %1) l
   %21 = load i32, ptr %10, align 8
   %22 = and i32 %21, 61440
   %23 = icmp eq i32 %22, 32768
-  br i1 %23, label %24, label %11, !llvm.loop !7
+  br i1 %23, label %24, label %11, !llvm.loop !8
 
 24:                                               ; preds = %20
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
@@ -761,8 +782,8 @@ mbedtls_x509_crt_parse_file.exit:                 ; preds = %24, %26
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %33 = icmp slt i32 %.0.i, 0
   %.1.v = select i1 %33, i32 1, i32 %.0.i
-  %.1 = add nsw i32 %.1.v, %.016.ph
-  br label %.outer, !llvm.loop !7
+  %.1 = add nuw nsw i32 %.1.v, %.016.ph
+  br label %.outer, !llvm.loop !8
 
 34:                                               ; preds = %17, %13, %11
   %.2 = phi i32 [ %.016.ph, %11 ], [ -10624, %13 ], [ -10496, %17 ]
@@ -1209,7 +1230,7 @@ define hidden i32 @mbedtls_x509_crt_info(ptr noundef %0, i64 noundef %1, ptr nou
   %178 = getelementptr inbounds i8, ptr %168, i64 %175
   store ptr %178, ptr %6, align 8
   %179 = getelementptr inbounds i8, ptr %3, i64 448
-  %180 = call fastcc i32 @x509_info_subject_alt_name(ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %179, ptr noundef %2), !range !8
+  %180 = call fastcc i32 @x509_info_subject_alt_name(ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %179, ptr noundef %2), !range !9
   %.not235 = icmp eq i32 %180, 0
   br i1 %.not235, label %._crit_edge, label %245
 
@@ -1244,7 +1265,7 @@ define hidden i32 @mbedtls_x509_crt_info(ptr noundef %0, i64 noundef %1, ptr nou
   store ptr %191, ptr %6, align 8
   %192 = getelementptr inbounds i8, ptr %3, i64 560
   %193 = load i8, ptr %192, align 8
-  %194 = call fastcc i32 @x509_info_cert_type(ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext %193), !range !8
+  %194 = call fastcc i32 @x509_info_cert_type(ptr noundef nonnull %6, ptr noundef nonnull %5, i8 noundef zeroext %193), !range !9
   %.not238 = icmp eq i32 %194, 0
   br i1 %.not238, label %._crit_edge250, label %245
 
@@ -1279,7 +1300,7 @@ define hidden i32 @mbedtls_x509_crt_info(ptr noundef %0, i64 noundef %1, ptr nou
   store ptr %205, ptr %6, align 8
   %206 = getelementptr inbounds i8, ptr %3, i64 524
   %207 = load i32, ptr %206, align 4
-  %208 = call fastcc i32 @x509_info_key_usage(ptr noundef nonnull %6, ptr noundef nonnull %5, i32 noundef %207), !range !8
+  %208 = call fastcc i32 @x509_info_key_usage(ptr noundef nonnull %6, ptr noundef nonnull %5, i32 noundef %207), !range !9
   %.not241 = icmp eq i32 %208, 0
   br i1 %.not241, label %._crit_edge252, label %245
 
@@ -1313,7 +1334,7 @@ define hidden i32 @mbedtls_x509_crt_info(ptr noundef %0, i64 noundef %1, ptr nou
   %219 = getelementptr inbounds i8, ptr %.pre258.pre261, i64 %216
   store ptr %219, ptr %6, align 8
   %220 = getelementptr inbounds i8, ptr %3, i64 528
-  %221 = call fastcc i32 @x509_info_ext_key_usage(ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %220), !range !8
+  %221 = call fastcc i32 @x509_info_ext_key_usage(ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %220), !range !9
   %.not244 = icmp eq i32 %221, 0
   br i1 %.not244, label %._crit_edge254, label %245
 
@@ -1347,7 +1368,7 @@ define hidden i32 @mbedtls_x509_crt_info(ptr noundef %0, i64 noundef %1, ptr nou
   %232 = getelementptr inbounds i8, ptr %.pre258, i64 %229
   store ptr %232, ptr %6, align 8
   %233 = getelementptr inbounds i8, ptr %3, i64 480
-  %234 = call fastcc i32 @x509_info_cert_policies(ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %233), !range !8
+  %234 = call fastcc i32 @x509_info_cert_policies(ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %233), !range !9
   %.not247 = icmp eq i32 %234, 0
   br i1 %.not247, label %._crit_edge256, label %245
 
@@ -1448,7 +1469,7 @@ define internal fastcc noundef i32 @x509_info_subject_alt_name(ptr nocapture nou
   %.0122.be.in = getelementptr inbounds i8, ptr %.0122181, i64 24
   %.0122.be = load ptr, ptr %.0122.be.in, align 8
   %.not = icmp eq ptr %.0122.be, null
-  br i1 %.not, label %._crit_edge, label %15, !llvm.loop !9
+  br i1 %.not, label %._crit_edge, label %15, !llvm.loop !10
 
 26:                                               ; preds = %15
   %27 = load i32, ptr %5, align 8
@@ -2059,7 +2080,7 @@ define internal fastcc noundef i32 @x509_info_ext_key_usage(ptr nocapture nounde
   %18 = getelementptr inbounds i8, ptr %.02033, i64 24
   %19 = load ptr, ptr %18, align 8
   %.not = icmp eq ptr %19, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %15, %3
   %.022.lcssa = phi i64 [ %5, %3 ], [ %16, %15 ]
@@ -2115,7 +2136,7 @@ define internal fastcc noundef i32 @x509_info_cert_policies(ptr nocapture nounde
   %18 = getelementptr inbounds i8, ptr %.02033, i64 24
   %19 = load ptr, ptr %18, align 8
   %.not = icmp eq ptr %19, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %15, %3
   %.022.lcssa = phi i64 [ %5, %3 ], [ %16, %15 ]
@@ -2168,7 +2189,7 @@ define hidden i32 @mbedtls_x509_crt_verify_info(ptr nocapture noundef writeonly 
   %21 = getelementptr inbounds i8, ptr %.03450, i64 24
   %22 = load ptr, ptr %21, align 8
   %.not = icmp eq ptr %22, null
-  br i1 %.not, label %23, label %5, !llvm.loop !12
+  br i1 %.not, label %23, label %5, !llvm.loop !13
 
 23:                                               ; preds = %19
   %.not43 = icmp eq i32 %.136, 0
@@ -2269,7 +2290,7 @@ define hidden noundef i32 @mbedtls_x509_crt_check_extended_key_usage(ptr nocaptu
   %22 = getelementptr inbounds i8, ptr %.01319, i64 24
   %23 = load ptr, ptr %22, align 8
   %.not = icmp eq ptr %23, null
-  br i1 %.not, label %.loopexit, label %10, !llvm.loop !13
+  br i1 %.not, label %.loopexit, label %10, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.critedge, %19, %14, %3
   %.0 = phi i32 [ 0, %3 ], [ -10240, %.critedge ], [ 0, %19 ], [ 0, %14 ]
@@ -2307,7 +2328,7 @@ define hidden noundef i32 @mbedtls_x509_crt_is_revoked(ptr nocapture noundef rea
   %18 = getelementptr inbounds i8, ptr %.013, i64 96
   %19 = load ptr, ptr %18, align 8
   %.not = icmp eq ptr %19, null
-  br i1 %.not, label %.critedge, label %6, !llvm.loop !14
+  br i1 %.not, label %.critedge, label %6, !llvm.loop !15
 
 .critedge:                                        ; preds = %6, %17, %12
   %.09 = phi i32 [ 1, %12 ], [ 0, %17 ], [ 0, %6 ]
@@ -2340,7 +2361,7 @@ define internal fastcc i32 @x509_crt_verify_restartable_ca_cb(ptr noundef %0, pt
   store i32 -1, ptr %18, align 8
   %19 = add nuw nsw i64 %.06.i, 1
   %exitcond.not.i = icmp eq i64 %19, 10
-  br i1 %exitcond.not.i, label %x509_crt_verify_chain_reset.exit, label %16, !llvm.loop !15
+  br i1 %exitcond.not.i, label %x509_crt_verify_chain_reset.exit, label %16, !llvm.loop !16
 
 x509_crt_verify_chain_reset.exit:                 ; preds = %16
   %20 = getelementptr inbounds i8, ptr %15, i64 160
@@ -2372,7 +2393,7 @@ x509_crt_verify_chain_reset.exit:                 ; preds = %16
   br i1 %33, label %x509_crt_check_san.exit.i, label %x509_crt_check_san.exit.thread.i
 
 x509_crt_check_san.exit.i:                        ; preds = %30
-  %34 = tail call fastcc i32 @x509_crt_check_cn(ptr noundef nonnull %.02030.i, ptr noundef nonnull %4, i64 noundef %24), !range !16
+  %34 = tail call fastcc i32 @x509_crt_check_cn(ptr noundef nonnull %.02030.i, ptr noundef nonnull %4, i64 noundef %24), !range !17
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %x509_crt_verify_name.exit, label %x509_crt_check_san.exit.thread.i
 
@@ -2380,7 +2401,7 @@ x509_crt_check_san.exit.thread.i:                 ; preds = %x509_crt_check_san.
   %36 = getelementptr inbounds i8, ptr %.02030.i, i64 24
   %37 = load ptr, ptr %36, align 8
   %cond.i = icmp eq ptr %37, null
-  br i1 %cond.i, label %x509_crt_verify_name.exit, label %30, !llvm.loop !17
+  br i1 %cond.i, label %x509_crt_verify_name.exit, label %30, !llvm.loop !18
 
 38:                                               ; preds = %23
   %39 = getelementptr inbounds i8, ptr %0, i64 224
@@ -2402,7 +2423,7 @@ x509_crt_check_san.exit.thread.i:                 ; preds = %x509_crt_check_san.
 
 46:                                               ; preds = %43
   %47 = getelementptr inbounds i8, ptr %.031.i, i64 24
-  %48 = tail call fastcc i32 @x509_crt_check_cn(ptr noundef nonnull %47, ptr noundef nonnull %4, i64 noundef %24), !range !16
+  %48 = tail call fastcc i32 @x509_crt_check_cn(ptr noundef nonnull %47, ptr noundef nonnull %4, i64 noundef %24), !range !17
   %49 = icmp eq i32 %48, 0
   br i1 %49, label %x509_crt_verify_name.exit, label %.critedge.i
 
@@ -2410,7 +2431,7 @@ x509_crt_check_san.exit.thread.i:                 ; preds = %x509_crt_check_san.
   %50 = getelementptr inbounds i8, ptr %.031.i, i64 48
   %51 = load ptr, ptr %50, align 8
   %cond26.i = icmp eq ptr %51, null
-  br i1 %cond26.i, label %x509_crt_verify_name.exit, label %40, !llvm.loop !18
+  br i1 %cond26.i, label %x509_crt_verify_name.exit, label %40, !llvm.loop !19
 
 x509_crt_verify_name.exit:                        ; preds = %x509_crt_check_san.exit.i, %x509_crt_check_san.exit.thread.i, %46, %.critedge.i, %22
   %.1 = phi i32 [ 0, %22 ], [ 4, %.critedge.i ], [ 0, %46 ], [ 4, %x509_crt_check_san.exit.thread.i ], [ 0, %x509_crt_check_san.exit.i ]
@@ -2577,7 +2598,7 @@ x509_profile_check_pk_alg.exit.thread.i:          ; preds = %x509_profile_check_
 131:                                              ; preds = %128
   %132 = getelementptr inbounds i8, ptr %.042.i, i64 160
   %133 = getelementptr inbounds i8, ptr %.042.i, i64 224
-  %134 = call fastcc i32 @x509_name_cmp(ptr noundef nonnull %132, ptr noundef nonnull %133), !range !16
+  %134 = call fastcc i32 @x509_name_cmp(ptr noundef nonnull %132, ptr noundef nonnull %133), !range !17
   %.not.i55.i = icmp eq i32 %134, 0
   br i1 %.not.i55.i, label %.preheader.i.i, label %x509_crt_check_ee_locally_trusted.exit.thread.i
 
@@ -2609,7 +2630,7 @@ x509_profile_check_pk_alg.exit.thread.i:          ; preds = %x509_profile_check_
   %148 = getelementptr inbounds i8, ptr %.014.i.i, i64 608
   %149 = load ptr, ptr %148, align 8
   %.not12.i.i = icmp eq ptr %149, null
-  br i1 %.not12.i.i, label %x509_crt_check_ee_locally_trusted.exit.thread.i, label %138, !llvm.loop !19
+  br i1 %.not12.i.i, label %x509_crt_check_ee_locally_trusted.exit.thread.i, label %138, !llvm.loop !20
 
 x509_crt_check_ee_locally_trusted.exit.thread.i:  ; preds = %147, %.preheader.i.i, %131, %128
   %150 = getelementptr inbounds i8, ptr %.042.i, i64 160
@@ -2741,7 +2762,7 @@ x509_crt_check_ee_locally_trusted.exit.thread.i:  ; preds = %147, %.preheader.i.
 215:                                              ; preds = %212, %.lr.ph.i.i.i.i.i
   %216 = add nuw i64 %.01925.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i64 %216, %198
-  br i1 %exitcond.not.i.i.i.i.i, label %x509_string_cmp.exit.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !20
+  br i1 %exitcond.not.i.i.i.i.i, label %x509_string_cmp.exit.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !21
 
 x509_string_cmp.exit.i.i.i:                       ; preds = %215, %202, %188
   %217 = getelementptr inbounds i8, ptr %.01828.i.i.i, i64 56
@@ -2759,7 +2780,7 @@ x509_string_cmp.exit.i.i.i:                       ; preds = %215, %202, %188
   %226 = icmp ne ptr %223, null
   %227 = icmp ne ptr %225, null
   %228 = select i1 %226, i1 true, i1 %227
-  br i1 %228, label %.lr.ph.i18.i.i, label %x509_name_cmp.exit.i.i, !llvm.loop !21
+  br i1 %228, label %.lr.ph.i18.i.i, label %x509_name_cmp.exit.i.i, !llvm.loop !22
 
 x509_name_cmp.exit.i.i:                           ; preds = %221
   br i1 %.not9.i.i.i.i, label %.thread.i.i.i.i, label %229
@@ -2858,7 +2879,7 @@ x509_crt_check_parent.exit.thread.i.i.i:          ; preds = %x509_string_cmp.exi
   %277 = getelementptr inbounds i8, ptr %.0325.i.i.i, i64 608
   %278 = load ptr, ptr %277, align 8
   %cond.i.i.i = icmp eq ptr %278, null
-  br i1 %cond.i.i.i, label %x509_crt_find_parent_in.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !22
+  br i1 %cond.i.i.i, label %x509_crt_find_parent_in.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !23
 
 x509_crt_find_parent_in.exit.i.i:                 ; preds = %x509_crt_check_parent.exit.thread.i.i.i
   %.not17.i.i = icmp eq ptr %.131.i.i.i, null
@@ -2886,7 +2907,7 @@ x509_crt_find_parent_in.exit.i.thread22.i:        ; preds = %x509_crt_find_paren
 
 284:                                              ; preds = %x509_crt_find_parent_in.exit.i.thread22.i
   %285 = getelementptr inbounds i8, ptr %.042.i, i64 224
-  %286 = call fastcc i32 @x509_name_cmp(ptr noundef nonnull %150, ptr noundef nonnull %285), !range !16
+  %286 = call fastcc i32 @x509_name_cmp(ptr noundef nonnull %150, ptr noundef nonnull %285), !range !17
   %287 = icmp eq i32 %286, 0
   %288 = zext i1 %287 to i32
   %spec.select.i = add i32 %.0.i39, %288
@@ -3083,7 +3104,7 @@ x509_profile_check_key.exit.thread.i:             ; preds = %x509_profile_check_
 380:                                              ; preds = %377, %.lr.ph.i.i.i.i
   %381 = add nuw i64 %.01925.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %381, %363
-  br i1 %exitcond.not.i.i.i.i, label %x509_string_cmp.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !20
+  br i1 %exitcond.not.i.i.i.i, label %x509_string_cmp.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !21
 
 x509_string_cmp.exit.i.i:                         ; preds = %380, %367, %353
   %382 = getelementptr inbounds i8, ptr %.01828.i.i, i64 56
@@ -3101,13 +3122,13 @@ x509_string_cmp.exit.i.i:                         ; preds = %380, %367, %353
   %391 = icmp ne ptr %388, null
   %392 = icmp ne ptr %390, null
   %393 = select i1 %391, i1 true, i1 %392
-  br i1 %393, label %.lr.ph.i63.i, label %x509_name_cmp.exit.i, !llvm.loop !21
+  br i1 %393, label %.lr.ph.i63.i, label %x509_name_cmp.exit.i, !llvm.loop !22
 
 x509_name_cmp.exit.thread.i:                      ; preds = %x509_string_cmp.exit.i.i, %361, %360, %359, %336, %331, %328, %.lr.ph.i63.i, %377, %.lr.ph.i.i.i.i, %320
   %394 = getelementptr inbounds i8, ptr %.04193.i.i, i64 408
   %395 = load ptr, ptr %394, align 8
   %.not.i60.i = icmp eq ptr %395, null
-  br i1 %.not.i60.i, label %x509_crt_verifycrl.exit.i, label %320, !llvm.loop !23
+  br i1 %.not.i60.i, label %x509_crt_verifycrl.exit.i, label %320, !llvm.loop !24
 
 x509_name_cmp.exit.i:                             ; preds = %386
   %396 = load i32, ptr %316, align 8
@@ -3290,7 +3311,7 @@ x509_profile_check_key.exit.i.i:                  ; preds = %449, %437
   %489 = getelementptr inbounds i8, ptr %.013.i.i.i, i64 96
   %490 = load ptr, ptr %489, align 8
   %.not.i64.i.i = icmp eq ptr %490, null
-  br i1 %.not.i64.i.i, label %.outer.i.i, label %477, !llvm.loop !14
+  br i1 %.not.i64.i.i, label %.outer.i.i, label %477, !llvm.loop !15
 
 mbedtls_x509_crt_is_revoked.exit.i.i:             ; preds = %483
   %491 = or i32 %.5.i.i, 2
@@ -3300,7 +3321,7 @@ mbedtls_x509_crt_is_revoked.exit.i.i:             ; preds = %483
   %492 = getelementptr inbounds i8, ptr %.04193.i.i, i64 408
   %493 = load ptr, ptr %492, align 8
   %.not92.i.i = icmp eq ptr %493, null
-  br i1 %.not92.i.i, label %x509_crt_verifycrl.exit.i, label %.lr.ph.i59.i, !llvm.loop !23
+  br i1 %.not92.i.i, label %x509_crt_verifycrl.exit.i, label %.lr.ph.i59.i, !llvm.loop !24
 
 x509_crt_verifycrl.exit.i:                        ; preds = %.outer.i.i, %x509_name_cmp.exit.thread.i, %mbedtls_x509_crt_is_revoked.exit.i.i, %467, %433, %mbedtls_x509_crt_check_key_usage.exit.i.i, %314
   %.0.i61.i = phi i32 [ 0, %314 ], [ %402, %mbedtls_x509_crt_check_key_usage.exit.i.i ], [ %434, %433 ], [ %468, %467 ], [ %491, %mbedtls_x509_crt_is_revoked.exit.i.i ], [ %.042.ph96.i.i, %x509_name_cmp.exit.thread.i ], [ %.5.i.i, %.outer.i.i ]
@@ -3346,7 +3367,7 @@ x509_crt_verifycrl.exit.i:                        ; preds = %.outer.i.i, %x509_n
   %505 = load i32, ptr %gep.i, align 8
   %506 = or i32 %505, %503
   %.not.us.wide.i = icmp eq i64 %504, 0
-  br i1 %.not.us.wide.i, label %.loopexit, label %502, !llvm.loop !24
+  br i1 %.not.us.wide.i, label %.loopexit, label %502, !llvm.loop !25
 
 .lr.ph.split.i:                                   ; preds = %513, %.lr.ph.split.preheader.i
   %indvars.iv.i = phi i64 [ %500, %.lr.ph.split.preheader.i ], [ %indvars.iv.next.i, %513 ]
@@ -3369,7 +3390,7 @@ x509_crt_verifycrl.exit.i:                        ; preds = %.outer.i.i, %x509_n
   %516 = or i32 %515, %514
   store i32 %516, ptr %5, align 4
   %.not.i42 = icmp eq i32 %indvars.i, 0
-  br i1 %.not.i42, label %.loopexit20, label %.lr.ph.split.i, !llvm.loop !24
+  br i1 %.not.i42, label %.loopexit20, label %.lr.ph.split.i, !llvm.loop !25
 
 x509_crt_verify_chain.exit:                       ; preds = %.lr.ph.split.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
@@ -3440,7 +3461,7 @@ define hidden void @mbedtls_x509_crt_free(ptr noundef %0) local_unnamed_addr #0 
   tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %.04968, i64 noundef 64) #16
   tail call void @free(ptr noundef nonnull %.04968) #16
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader66
   %10 = getelementptr inbounds i8, ptr %.051, i64 272
@@ -3455,7 +3476,7 @@ define hidden void @mbedtls_x509_crt_free(ptr noundef %0) local_unnamed_addr #0 
   tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %.15070, i64 noundef 64) #16
   tail call void @free(ptr noundef nonnull %.15070) #16
   %.not57 = icmp eq ptr %13, null
-  br i1 %.not57, label %._crit_edge73, label %.lr.ph72, !llvm.loop !26
+  br i1 %.not57, label %._crit_edge73, label %.lr.ph72, !llvm.loop !27
 
 ._crit_edge73:                                    ; preds = %.lr.ph72, %._crit_edge
   %14 = getelementptr inbounds i8, ptr %.051, i64 552
@@ -3470,7 +3491,7 @@ define hidden void @mbedtls_x509_crt_free(ptr noundef %0) local_unnamed_addr #0 
   tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %.075, i64 noundef 32) #16
   tail call void @free(ptr noundef nonnull %.075) #16
   %.not58 = icmp eq ptr %17, null
-  br i1 %.not58, label %._crit_edge78, label %.lr.ph77, !llvm.loop !27
+  br i1 %.not58, label %._crit_edge78, label %.lr.ph77, !llvm.loop !28
 
 ._crit_edge78:                                    ; preds = %.lr.ph77, %._crit_edge73
   %18 = getelementptr inbounds i8, ptr %.051, i64 472
@@ -3485,7 +3506,7 @@ define hidden void @mbedtls_x509_crt_free(ptr noundef %0) local_unnamed_addr #0 
   tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %.180, i64 noundef 32) #16
   tail call void @free(ptr noundef nonnull %.180) #16
   %.not59 = icmp eq ptr %21, null
-  br i1 %.not59, label %._crit_edge83, label %.lr.ph82, !llvm.loop !28
+  br i1 %.not59, label %._crit_edge83, label %.lr.ph82, !llvm.loop !29
 
 ._crit_edge83:                                    ; preds = %.lr.ph82, %._crit_edge78
   %22 = getelementptr inbounds i8, ptr %.051, i64 504
@@ -3500,7 +3521,7 @@ define hidden void @mbedtls_x509_crt_free(ptr noundef %0) local_unnamed_addr #0 
   tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %.285, i64 noundef 32) #16
   tail call void @free(ptr noundef nonnull %.285) #16
   %.not60 = icmp eq ptr %25, null
-  br i1 %.not60, label %._crit_edge88, label %.lr.ph87, !llvm.loop !29
+  br i1 %.not60, label %._crit_edge88, label %.lr.ph87, !llvm.loop !30
 
 ._crit_edge88:                                    ; preds = %.lr.ph87, %._crit_edge83
   %26 = getelementptr inbounds i8, ptr %.051, i64 24
@@ -3525,7 +3546,7 @@ define hidden void @mbedtls_x509_crt_free(ptr noundef %0) local_unnamed_addr #0 
   %35 = getelementptr inbounds i8, ptr %.051, i64 608
   %36 = load ptr, ptr %35, align 8
   %.not63 = icmp eq ptr %36, null
-  br i1 %.not63, label %.preheader, label %.preheader66, !llvm.loop !30
+  br i1 %.not63, label %.preheader, label %.preheader66, !llvm.loop !31
 
 .preheader:                                       ; preds = %34, %40
   %.152 = phi ptr [ %38, %40 ], [ %0, %34 ]
@@ -3541,7 +3562,7 @@ define hidden void @mbedtls_x509_crt_free(ptr noundef %0) local_unnamed_addr #0 
 
 40:                                               ; preds = %.preheader, %39
   %.not65 = icmp eq ptr %38, null
-  br i1 %.not65, label %.loopexit, label %.preheader, !llvm.loop !31
+  br i1 %.not65, label %.loopexit, label %.preheader, !llvm.loop !32
 
 .loopexit:                                        ; preds = %40, %1
   ret void
@@ -3769,7 +3790,7 @@ define internal fastcc i32 @x509_get_crt_ext(ptr noundef %0, ptr noundef %1, ptr
 .backedge:                                        ; preds = %256, %x509_get_basic_constraints.exit, %x509_get_key_usage.exit, %x509_get_ext_key_usage.exit, %x509_get_subject_alt_name.exit, %x509_get_ns_cert_type.exit, %248, %x509_get_certificate_policies.exit, %252, %x509_get_basic_constraints.exit.thread, %x509_get_key_usage.exit.thread, %x509_get_subject_alt_name.exit.thread159, %x509_get_ns_cert_type.exit.thread, %136, %81, %84
   %82 = load ptr, ptr %0, align 8
   %83 = icmp ult ptr %82, %27
-  br i1 %83, label %45, label %._crit_edge, !llvm.loop !32
+  br i1 %83, label %45, label %._crit_edge, !llvm.loop !33
 
 84:                                               ; preds = %73
   store ptr %52, ptr %0, align 8
@@ -3910,7 +3931,7 @@ x509_get_key_usage.exit.thread148:                ; preds = %119
   store i32 %131, ptr %41, align 4
   %132 = add nuw nsw i64 %.012.i, 1
   %exitcond.not.i = icmp eq i64 %132, %invariant.umin.i
-  br i1 %exitcond.not.i, label %x509_get_key_usage.exit.thread, label %124, !llvm.loop !33
+  br i1 %exitcond.not.i, label %x509_get_key_usage.exit.thread, label %124, !llvm.loop !34
 
 x509_get_key_usage.exit.thread:                   ; preds = %124
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
@@ -4000,7 +4021,7 @@ x509_get_ext_key_usage.exit:                      ; preds = %134
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %.04265.i, i64 noundef 32) #16
   call void @free(ptr noundef nonnull %.04265.i) #16
   %.not56.i = icmp eq ptr %163, null
-  br i1 %.not56.i, label %._crit_edge68.i, label %.lr.ph67.i, !llvm.loop !34
+  br i1 %.not56.i, label %._crit_edge68.i, label %.lr.ph67.i, !llvm.loop !35
 
 ._crit_edge68.i:                                  ; preds = %.lr.ph67.i, %160
   store ptr null, ptr %38, align 8
@@ -4037,7 +4058,7 @@ x509_get_ext_key_usage.exit:                      ; preds = %134
   %179 = getelementptr inbounds i8, ptr %178, i64 %176
   store ptr %179, ptr %0, align 8
   %180 = icmp ult ptr %179, %52
-  br i1 %180, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !35
+  br i1 %180, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !36
 
 ._crit_edge.i:                                    ; preds = %173, %.preheader.i
   %.043.lcssa.i = phi ptr [ %37, %.preheader.i ], [ %.1.i, %173 ]
@@ -4211,7 +4232,7 @@ x509_get_ns_cert_type.exit:                       ; preds = %183
 241:                                              ; preds = %237, %226
   %242 = phi ptr [ %240, %237 ], [ %231, %226 ]
   %.not61.i = icmp eq ptr %242, %208
-  br i1 %.not61.i, label %.preheader.i135, label %.thread174, !llvm.loop !36
+  br i1 %.not61.i, label %.preheader.i135, label %.thread174, !llvm.loop !37
 
 243:                                              ; preds = %.preheader.i135
   %244 = getelementptr inbounds i8, ptr %.043.i, i64 24
@@ -4331,7 +4352,7 @@ define internal fastcc noundef i32 @x509_crt_check_cn(ptr nocapture noundef read
 18:                                               ; preds = %15, %.lr.ph.i
   %19 = add nuw i64 %.01925.i, 1
   %exitcond.not.i = icmp eq i64 %19, %2
-  br i1 %exitcond.not.i, label %x509_check_wildcard.exit, label %.lr.ph.i, !llvm.loop !20
+  br i1 %exitcond.not.i, label %x509_check_wildcard.exit, label %.lr.ph.i, !llvm.loop !21
 
 x509_memcasecmp.exit:                             ; preds = %15, %.lr.ph.i, %3
   %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #17
@@ -4363,7 +4384,7 @@ x509_memcasecmp.exit:                             ; preds = %15, %.lr.ph.i, %3
 33:                                               ; preds = %.lr.ph.i10
   %34 = add nuw i64 %.01926.i, 1
   %exitcond.not.i11 = icmp eq i64 %34, %20
-  br i1 %exitcond.not.i11, label %x509_check_wildcard.exit, label %.lr.ph.i10, !llvm.loop !37
+  br i1 %exitcond.not.i11, label %x509_check_wildcard.exit, label %.lr.ph.i10, !llvm.loop !38
 
 35:                                               ; preds = %.lr.ph.i10
   %36 = getelementptr inbounds i8, ptr %1, i64 %.01926.i
@@ -4397,7 +4418,7 @@ x509_memcasecmp.exit:                             ; preds = %15, %.lr.ph.i, %3
 50:                                               ; preds = %47, %.lr.ph.i.i
   %51 = add nuw i64 %.01925.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %51, %39
-  br i1 %exitcond.not.i.i, label %x509_check_wildcard.exit, label %.lr.ph.i.i, !llvm.loop !20
+  br i1 %exitcond.not.i.i, label %x509_check_wildcard.exit, label %.lr.ph.i.i, !llvm.loop !21
 
 x509_check_wildcard.exit:                         ; preds = %18, %33, %47, %.lr.ph.i.i, %50, %38, %35, %x509_memcasecmp.exit, %22, %26, %7
   %.0 = phi i32 [ 0, %7 ], [ -1, %26 ], [ -1, %22 ], [ -1, %x509_memcasecmp.exit ], [ -1, %35 ], [ -1, %38 ], [ -1, %47 ], [ -1, %.lr.ph.i.i ], [ 0, %50 ], [ -1, %33 ], [ 0, %18 ]
@@ -4520,7 +4541,7 @@ define internal fastcc noundef i32 @x509_name_cmp(ptr noundef readonly %0, ptr n
 60:                                               ; preds = %57, %.lr.ph.i.i
   %61 = add nuw i64 %.01925.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %61, %43
-  br i1 %exitcond.not.i.i, label %x509_string_cmp.exit, label %.lr.ph.i.i, !llvm.loop !20
+  br i1 %exitcond.not.i.i, label %x509_string_cmp.exit, label %.lr.ph.i.i, !llvm.loop !21
 
 x509_string_cmp.exit:                             ; preds = %60, %47, %33
   %62 = getelementptr inbounds i8, ptr %.01828, i64 56
@@ -4538,7 +4559,7 @@ x509_string_cmp.exit:                             ; preds = %60, %47, %33
   %71 = icmp ne ptr %68, null
   %72 = icmp ne ptr %70, null
   %73 = select i1 %71, i1 true, i1 %72
-  br i1 %73, label %.lr.ph, label %x509_string_cmp.exit.thread, !llvm.loop !21
+  br i1 %73, label %.lr.ph, label %x509_string_cmp.exit.thread, !llvm.loop !22
 
 x509_string_cmp.exit.thread:                      ; preds = %.lr.ph, %16, %11, %8, %x509_string_cmp.exit, %66, %40, %39, %41, %57, %.lr.ph.i.i, %2
   %.019 = phi i32 [ 0, %2 ], [ -1, %.lr.ph.i.i ], [ -1, %57 ], [ -1, %.lr.ph ], [ -1, %16 ], [ -1, %11 ], [ -1, %8 ], [ -1, %x509_string_cmp.exit ], [ 0, %66 ], [ -1, %40 ], [ -1, %39 ], [ -1, %41 ]
@@ -4594,18 +4615,18 @@ attributes #17 = { nounwind willreturn memory(read) }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
+!6 = !{i32 -2147483648, i32 2147475072}
 !7 = distinct !{!7, !5}
-!8 = !{i32 -10624, i32 1}
-!9 = distinct !{!9, !5}
+!8 = distinct !{!8, !5}
+!9 = !{i32 -10624, i32 1}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
 !15 = distinct !{!15, !5}
-!16 = !{i32 -1, i32 1}
-!17 = distinct !{!17, !5}
+!16 = distinct !{!16, !5}
+!17 = !{i32 -1, i32 1}
 !18 = distinct !{!18, !5}
 !19 = distinct !{!19, !5}
 !20 = distinct !{!20, !5}
@@ -4626,3 +4647,4 @@ attributes #17 = { nounwind willreturn memory(read) }
 !35 = distinct !{!35, !5}
 !36 = distinct !{!36, !5}
 !37 = distinct !{!37, !5}
+!38 = distinct !{!38, !5}

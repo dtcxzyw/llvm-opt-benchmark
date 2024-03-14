@@ -759,7 +759,7 @@ define internal fastcc noundef i32 @addMultiplicityGroups(ptr nocapture noundef 
   br i1 %34, label %.preheader.preheader, label %51
 
 .preheader.preheader:                             ; preds = %.lr.ph
-  %35 = sext i32 %.04149 to i64
+  %35 = zext i32 %.04149 to i64
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
@@ -767,7 +767,7 @@ define internal fastcc noundef i32 @addMultiplicityGroups(ptr nocapture noundef 
   %36 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv
   %37 = load i8, ptr %36, align 1
   %38 = icmp eq i8 %37, 1
-  %indvars.iv.next = add nsw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br i1 %38, label %.preheader, label %39, !llvm.loop !18
 
 39:                                               ; preds = %.preheader

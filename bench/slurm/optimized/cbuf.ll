@@ -2030,7 +2030,7 @@ cbuf_replayer.exit:                               ; preds = %59, %28, %23
 
 67:                                               ; preds = %63, %cbuf_replayer.exit
   %.038 = phi i32 [ %64, %63 ], [ %27, %cbuf_replayer.exit ]
-  %68 = sext i32 %.038 to i64
+  %68 = zext nneg i32 %.038 to i64
   %69 = getelementptr inbounds i8, ptr %1, i64 %68
   store i8 0, ptr %69, align 1
   %70 = add nsw i32 %24, %20

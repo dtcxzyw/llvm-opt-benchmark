@@ -3261,7 +3261,7 @@ invoke.cont50:                                    ; preds = %if.else.i, %if.then
           to label %for.inc unwind label %lpad49
 
 for.inc:                                          ; preds = %invoke.cont50
-  %indvars.iv.next = add i64 %indvars.iv, %.95
+  %indvars.iv.next = add nsw i64 %indvars.iv, %.95
   %39 = trunc i64 %indvars.iv.next to i32
   %cmp45.not = icmp eq i32 %sub42, %39
   br i1 %cmp45.not, label %for.end, label %for.body, !llvm.loop !33
@@ -4761,7 +4761,7 @@ cond.false5.i.i:                                  ; preds = %for.body56
 cond.true7.i.i:                                   ; preds = %cond.false5.i.i
   %30 = xor i32 %y.041, -1
   %sub9.i.i = add nuw i32 %29, %30
-  %div10.i.i = sdiv i32 %sub9.i.i, %29
+  %div10.i.i = udiv i32 %sub9.i.i, %29
   %sub11.i.i = sub nsw i32 0, %div10.i.i
   br label %_ZN9Imath_3_24modpEii.exit
 
@@ -5059,7 +5059,7 @@ cond.false5.i.i:                                  ; preds = %entry
 cond.true7.i.i:                                   ; preds = %cond.false5.i.i
   %3 = xor i32 %y, -1
   %sub9.i.i = add nuw i32 %2, %3
-  %div10.i.i = sdiv i32 %sub9.i.i, %2
+  %div10.i.i = udiv i32 %sub9.i.i, %2
   %sub11.i.i = sub nsw i32 0, %div10.i.i
   br label %_ZN9Imath_3_24modpEii.exit
 
@@ -5108,7 +5108,7 @@ cond.false5.i:                                    ; preds = %if.end18
 cond.true7.i:                                     ; preds = %cond.false5.i
   %6 = xor i32 %y, -1
   %sub9.i = add nuw i32 %4, %6
-  %div10.i = sdiv i32 %sub9.i, %4
+  %div10.i = udiv i32 %sub9.i, %4
   %sub11.i = sub nsw i32 0, %div10.i
   br label %_ZN9Imath_3_24divpEii.exit
 
@@ -5151,7 +5151,7 @@ cond.false5.i35:                                  ; preds = %_ZN9Imath_3_24divpE
 cond.true7.i42:                                   ; preds = %cond.false5.i35
   %11 = xor i32 %9, -1
   %sub9.i43 = add nuw i32 %10, %11
-  %div10.i44 = sdiv i32 %sub9.i43, %10
+  %div10.i44 = udiv i32 %sub9.i43, %10
   %sub11.i45 = sub nsw i32 0, %div10.i44
   br label %_ZN9Imath_3_24divpEii.exit53
 
@@ -5188,7 +5188,7 @@ cond.false5.i56:                                  ; preds = %_ZN9Imath_3_24divpE
 cond.true7.i63:                                   ; preds = %cond.false5.i56
   %13 = xor i32 %12, -1
   %sub9.i64 = add nuw i32 %10, %13
-  %div10.i65 = sdiv i32 %sub9.i64, %10
+  %div10.i65 = udiv i32 %sub9.i64, %10
   %sub11.i66 = sub nsw i32 0, %div10.i65
   br label %_ZN9Imath_3_24divpEii.exit74
 
@@ -6532,7 +6532,7 @@ cond.false5.i.i:                                  ; preds = %for.body71
 
 cond.true7.i.i:                                   ; preds = %cond.false5.i.i
   %sub9.i.i = add nuw i32 %47, %45
-  %div10.i.i = sdiv i32 %sub9.i.i, %47
+  %div10.i.i = udiv i32 %sub9.i.i, %47
   %sub11.i.i = sub nsw i32 0, %div10.i.i
   br label %_ZN9Imath_3_24modpEii.exit
 
@@ -6577,7 +6577,7 @@ cond.false5.i:                                    ; preds = %if.end79
 cond.true7.i:                                     ; preds = %cond.false5.i
   %50 = xor i32 %48, -1
   %sub9.i = add nuw i32 %49, %50
-  %div10.i = sdiv i32 %sub9.i, %49
+  %div10.i = udiv i32 %sub9.i, %49
   %sub11.i = sub nsw i32 0, %div10.i
   br label %_ZN9Imath_3_24divpEii.exit
 
@@ -6614,7 +6614,7 @@ cond.false5.i36:                                  ; preds = %_ZN9Imath_3_24divpE
 cond.true7.i43:                                   ; preds = %cond.false5.i36
   %52 = xor i32 %51, -1
   %sub9.i44 = add nuw i32 %49, %52
-  %div10.i45 = sdiv i32 %sub9.i44, %49
+  %div10.i45 = udiv i32 %sub9.i44, %49
   %sub11.i46 = sub nsw i32 0, %div10.i45
   br label %_ZN9Imath_3_24divpEii.exit54
 
@@ -6666,7 +6666,7 @@ cond.false5.i57:                                  ; preds = %if.else91
 
 cond.true7.i64:                                   ; preds = %cond.false5.i57
   %sub9.i65 = add nuw i32 %47, %45
-  %div10.i66 = sdiv i32 %sub9.i65, %47
+  %div10.i66 = udiv i32 %sub9.i65, %47
   %sub11.i67 = sub nsw i32 0, %div10.i66
   br label %_ZN9Imath_3_24divpEii.exit75
 

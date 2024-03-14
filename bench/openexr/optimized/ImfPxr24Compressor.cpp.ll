@@ -323,7 +323,7 @@ cond.false5.i.i:                                  ; preds = %for.body17
 
 cond.true7.i.i:                                   ; preds = %cond.false5.i.i
   %sub9.i.i = add nuw i32 %13, %12
-  %div10.i.i = sdiv i32 %sub9.i.i, %13
+  %div10.i.i = udiv i32 %sub9.i.i, %13
   %sub11.i.i = sub nsw i32 0, %div10.i.i
   br label %_ZN9Imath_3_24modpEii.exit
 
@@ -722,7 +722,7 @@ cond.false5.i.i:                                  ; preds = %for.body24
 
 cond.true7.i.i:                                   ; preds = %cond.false5.i.i
   %sub9.i.i = add nuw i32 %18, %17
-  %div10.i.i = sdiv i32 %sub9.i.i, %18
+  %div10.i.i = udiv i32 %sub9.i.i, %18
   %sub11.i.i = sub nsw i32 0, %div10.i.i
   br label %_ZN9Imath_3_24modpEii.exit
 

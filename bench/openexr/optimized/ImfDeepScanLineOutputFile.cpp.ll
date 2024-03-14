@@ -2952,7 +2952,7 @@ if.end122:                                        ; preds = %invoke.cont107
           to label %invoke.cont126 unwind label %lpad33.loopexit.loopexit
 
 invoke.cont126:                                   ; preds = %if.end122
-  %indvars.iv.next = add i64 %indvars.iv, %24
+  %indvars.iv.next = add nsw i64 %indvars.iv, %24
   %47 = load ptr, ptr %_data, align 8
   %currentScanLine129 = getelementptr inbounds i8, ptr %47, i64 176
   %48 = load i32, ptr %currentScanLine129, align 8
@@ -5454,7 +5454,7 @@ cond.false5.i.i:                                  ; preds = %for.body74
 
 cond.true7.i.i:                                   ; preds = %cond.false5.i.i
   %sub9.i.i = add nuw i32 %68, %65
-  %div10.i.i = sdiv i32 %sub9.i.i, %68
+  %div10.i.i = udiv i32 %sub9.i.i, %68
   %sub11.i.i = sub nsw i32 0, %div10.i.i
   br label %_ZN9Imath_3_24modpEii.exit
 
@@ -6012,7 +6012,7 @@ for.body4.i:                                      ; preds = %for.body4.lr.ph.i, 
 
 cond.true7.i.i.i:                                 ; preds = %for.body4.i
   %sub9.i.i.i = add nuw i32 %185, %177
-  %div10.i.i.i = sdiv i32 %sub9.i.i.i, %185
+  %div10.i.i.i = udiv i32 %sub9.i.i.i, %185
   %sub11.i.i.i = sub nsw i32 0, %div10.i.i.i
   br label %_ZN9Imath_3_24modpEii.exit.i
 
@@ -6356,7 +6356,7 @@ declare void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1), pt
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN7Imf_3_26HeaderixEPKc(ptr noundef nonnull align 8 dereferenceable(49), ptr noundef) local_unnamed_addr #0
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #14
 
 declare void @_ZN7Iex_3_27TypeExcC1EPKc(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef) unnamed_addr #0
@@ -6620,7 +6620,7 @@ attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memo
 attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nofree nounwind memory(read) }
+attributes #14 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #15 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }

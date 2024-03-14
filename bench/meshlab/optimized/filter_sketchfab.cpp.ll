@@ -8861,8 +8861,8 @@ _ZL28tdefl_optimize_huffman_tableP16tdefl_compressoriiii.exit48.i: ; preds = %81
   %438 = phi i32 [ %421, %._crit_edge359.split.us.i ], [ %413, %403 ], [ %435, %432 ]
   %439 = phi i32 [ %422, %._crit_edge359.split.us.i ], [ %414, %403 ], [ %436, %432 ]
   %indvars.iv.next405.i = add nuw nsw i64 %indvars.iv404.i, 1
-  %exitcond408.i = icmp eq i64 %indvars.iv.next405.i, %wide.trip.count407.i
-  br i1 %exitcond408.i, label %.preheader.i, label %403, !llvm.loop !150
+  %exitcond408.not.i = icmp eq i64 %indvars.iv.next405.i, %wide.trip.count407.i
+  br i1 %exitcond408.not.i, label %.preheader.i, label %403, !llvm.loop !150
 
 440:                                              ; preds = %.loopexit.i, %.lr.ph378.i
   %441 = phi i32 [ %438, %.lr.ph378.i ], [ %520, %.loopexit.i ]
@@ -9742,7 +9742,7 @@ _ZL34tdefl_calculate_minimum_redundancyP14tdefl_sym_freqi.exit.thread: ; preds =
   br i1 %139, label %.lr.ph99.preheader.i, label %.critedge.i
 
 .lr.ph99.preheader.i:                             ; preds = %.preheader.i81
-  %140 = add nuw i32 %.385110.i, 1
+  %140 = add nuw nsw i32 %.385110.i, 1
   br label %.lr.ph99.i
 
 .lr.ph99.i:                                       ; preds = %146, %.lr.ph99.preheader.i
@@ -12437,9 +12437,9 @@ define i32 @mz_zip_reader_locate_file(ptr noundef readonly %0, ptr noundef reado
 30:                                               ; preds = %62, %.lr.ph13.i
   %.05311.i = phi i32 [ %26, %.lr.ph13.i ], [ %.154.i, %62 ]
   %.05510.i = phi i32 [ 0, %.lr.ph13.i ], [ %.156.i, %62 ]
-  %31 = add nsw i32 %.05510.i, %.05311.i
-  %32 = ashr i32 %31, 1
-  %33 = sext i32 %32 to i64
+  %31 = add nuw nsw i32 %.05510.i, %.05311.i
+  %32 = lshr i32 %31, 1
+  %33 = zext nneg i32 %32 to i64
   %34 = getelementptr inbounds i32, ptr %23, i64 %33
   %35 = load i32, ptr %34, align 4
   %36 = zext i32 %35 to i64
@@ -12495,7 +12495,7 @@ define i32 @mz_zip_reader_locate_file(ptr noundef readonly %0, ptr noundef reado
 
 62:                                               ; preds = %._crit_edge.i
   %63 = icmp slt i32 %61, 0
-  %64 = add nsw i32 %32, 1
+  %64 = add nuw nsw i32 %32, 1
   %65 = add nsw i32 %32, -1
   %.156.i = select i1 %63, i32 %64, i32 %.05510.i
   %.154.i = select i1 %63, i32 %.05311.i, i32 %65

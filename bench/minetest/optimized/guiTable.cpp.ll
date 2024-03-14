@@ -9901,7 +9901,7 @@ define dso_local void @_ZN8GUITable17toggleVisibleTreeEiib(ptr noundef nonnull a
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = icmp sgt i32 %1, -1
-  br i1 %8, label %9, label %154
+  br i1 %8, label %9, label %151
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds i8, ptr %0, i64 344
@@ -9914,7 +9914,7 @@ define dso_local void @_ZN8GUITable17toggleVisibleTreeEiib(ptr noundef nonnull a
   %17 = lshr exact i64 %16, 2
   %18 = trunc i64 %17 to i32
   %19 = icmp sgt i32 %18, %1
-  br i1 %19, label %20, label %154
+  br i1 %19, label %20, label %151
 
 20:                                               ; preds = %9
   %21 = getelementptr inbounds i8, ptr %0, i64 320
@@ -9925,7 +9925,7 @@ define dso_local void @_ZN8GUITable17toggleVisibleTreeEiib(ptr noundef nonnull a
   %26 = load ptr, ptr %21, align 8, !tbaa !101
   %27 = getelementptr inbounds %"struct.GUITable::Row", ptr %26, i64 %25
   %28 = icmp eq ptr %26, null
-  br i1 %28, label %154, label %29
+  br i1 %28, label %151, label %29
 
 29:                                               ; preds = %20
   %30 = getelementptr inbounds i8, ptr %27, i64 8
@@ -9983,7 +9983,7 @@ define dso_local void @_ZN8GUITable17toggleVisibleTreeEiib(ptr noundef nonnull a
 
 57:                                               ; preds = %56, %55, %54, %51
   %58 = phi i1 [ true, %55 ], [ true, %56 ], [ false, %54 ], [ false, %51 ]
-  br i1 %3, label %59, label %154
+  br i1 %3, label %59, label %151
 
 59:                                               ; preds = %57
   %60 = and i1 %49, %58
@@ -10063,75 +10063,68 @@ define dso_local void @_ZN8GUITable17toggleVisibleTreeEiib(ptr noundef nonnull a
   %114 = getelementptr inbounds i8, ptr %0, i64 372
   %115 = load i32, ptr %114, align 4, !tbaa !61
   %116 = icmp eq i32 %113, %115
-  br i1 %116, label %154, label %117
+  br i1 %116, label %151, label %117
 
 117:                                              ; preds = %.loopexit
   store i32 %113, ptr %114, align 4, !tbaa !61
-  %118 = icmp sgt i32 %113, -1
-  br i1 %118, label %119, label %141
-
-119:                                              ; preds = %117
-  %120 = getelementptr inbounds i8, ptr %0, i64 456
-  %121 = load ptr, ptr %120, align 8, !tbaa !86
-  %122 = tail call noundef i32 @_ZNK12GUIScrollBar6getPosEv(ptr noundef nonnull align 8 dereferenceable(408) %121)
+  %118 = getelementptr inbounds i8, ptr %0, i64 456
+  %119 = load ptr, ptr %118, align 8, !tbaa !86
+  %120 = tail call noundef i32 @_ZNK12GUIScrollBar6getPosEv(ptr noundef nonnull align 8 dereferenceable(408) %119)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #30
-  %123 = load i32, ptr %114, align 4, !tbaa !61
-  %124 = getelementptr inbounds i8, ptr %0, i64 444
-  %125 = load i32, ptr %124, align 4, !tbaa !72
-  %126 = mul nsw i32 %125, %123
-  store i32 %126, ptr %6, align 4, !tbaa !89
+  %121 = load i32, ptr %114, align 4, !tbaa !61
+  %122 = getelementptr inbounds i8, ptr %0, i64 444
+  %123 = load i32, ptr %122, align 4, !tbaa !72
+  %124 = mul nsw i32 %123, %121
+  store i32 %124, ptr %6, align 4, !tbaa !89
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #30
-  %127 = getelementptr inbounds i8, ptr %0, i64 76
-  %128 = load i32, ptr %127, align 4, !tbaa !84
-  %129 = getelementptr inbounds i8, ptr %0, i64 68
-  %130 = load i32, ptr %129, align 4, !tbaa !85
-  %131 = add i32 %126, %125
-  %132 = sub i32 %131, %128
-  %133 = add i32 %132, %130
-  store i32 %133, ptr %7, align 4, !tbaa !89
-  %134 = icmp sgt i32 %122, %126
-  br i1 %134, label %137, label %135
+  %125 = getelementptr inbounds i8, ptr %0, i64 76
+  %126 = load i32, ptr %125, align 4, !tbaa !84
+  %127 = getelementptr inbounds i8, ptr %0, i64 68
+  %128 = load i32, ptr %127, align 4, !tbaa !85
+  %129 = add i32 %124, %123
+  %130 = sub i32 %129, %126
+  %131 = add i32 %130, %128
+  store i32 %131, ptr %7, align 4, !tbaa !89
+  %132 = icmp sgt i32 %120, %124
+  br i1 %132, label %135, label %133
 
-135:                                              ; preds = %119
-  %136 = icmp slt i32 %122, %133
-  br i1 %136, label %137, label %140
+133:                                              ; preds = %117
+  %134 = icmp slt i32 %120, %131
+  br i1 %134, label %135, label %138
 
-137:                                              ; preds = %135, %119
-  %138 = phi ptr [ %6, %119 ], [ %7, %135 ]
-  %139 = load ptr, ptr %120, align 8, !tbaa !86
-  call void @_ZN12GUIScrollBar6setPosERKi(ptr noundef nonnull align 8 dereferenceable(408) %139, ptr noundef nonnull align 4 dereferenceable(4) %138)
-  br label %140
+135:                                              ; preds = %133, %117
+  %136 = phi ptr [ %6, %117 ], [ %7, %133 ]
+  %137 = load ptr, ptr %118, align 8, !tbaa !86
+  call void @_ZN12GUIScrollBar6setPosERKi(ptr noundef nonnull align 8 dereferenceable(408) %137, ptr noundef nonnull align 4 dereferenceable(4) %136)
+  br label %138
 
-140:                                              ; preds = %137, %135
+138:                                              ; preds = %135, %133
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #30
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #30
-  br label %141
+  %139 = getelementptr inbounds i8, ptr %0, i64 376
+  store i32 0, ptr %139, align 8, !tbaa !62
+  %140 = getelementptr inbounds i8, ptr %0, i64 380
+  store i8 0, ptr %140, align 4, !tbaa !63
+  %141 = getelementptr inbounds i8, ptr %0, i64 32
+  %142 = load ptr, ptr %141, align 8, !tbaa !94
+  %143 = icmp eq ptr %142, null
+  br i1 %143, label %151, label %144
 
-141:                                              ; preds = %140, %117
-  %142 = getelementptr inbounds i8, ptr %0, i64 376
-  store i32 0, ptr %142, align 8, !tbaa !62
-  %143 = getelementptr inbounds i8, ptr %0, i64 380
-  store i8 0, ptr %143, align 4, !tbaa !63
-  %144 = getelementptr inbounds i8, ptr %0, i64 32
-  %145 = load ptr, ptr %144, align 8, !tbaa !94
-  %146 = icmp eq ptr %145, null
-  br i1 %146, label %154, label %147
-
-147:                                              ; preds = %141
+144:                                              ; preds = %138
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #30
-  %148 = getelementptr inbounds i8, ptr %5, i64 8
+  %145 = getelementptr inbounds i8, ptr %5, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  store ptr %0, ptr %148, align 8, !tbaa !110
-  %149 = getelementptr inbounds i8, ptr %5, i64 24
-  store i32 19, ptr %149, align 8, !tbaa !110
-  %150 = load ptr, ptr %145, align 8, !tbaa !4
-  %151 = getelementptr inbounds i8, ptr %150, i64 16
-  %152 = load ptr, ptr %151, align 8
-  %153 = call noundef zeroext i1 %152(ptr noundef nonnull align 8 dereferenceable(308) %145, ptr noundef nonnull align 8 dereferenceable(56) %5)
+  store ptr %0, ptr %145, align 8, !tbaa !110
+  %146 = getelementptr inbounds i8, ptr %5, i64 24
+  store i32 19, ptr %146, align 8, !tbaa !110
+  %147 = load ptr, ptr %142, align 8, !tbaa !4
+  %148 = getelementptr inbounds i8, ptr %147, i64 16
+  %149 = load ptr, ptr %148, align 8
+  %150 = call noundef zeroext i1 %149(ptr noundef nonnull align 8 dereferenceable(308) %142, ptr noundef nonnull align 8 dereferenceable(56) %5)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #30
-  br label %154
+  br label %151
 
-154:                                              ; preds = %147, %141, %.loopexit, %57, %20, %9, %4
+151:                                              ; preds = %144, %138, %.loopexit, %57, %20, %9, %4
   ret void
 }
 

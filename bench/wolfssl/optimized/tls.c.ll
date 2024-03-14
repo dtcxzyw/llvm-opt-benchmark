@@ -3950,7 +3950,7 @@ while.cond.preheader:                             ; preds = %if.end8
 
 while.body:                                       ; preds = %while.cond.preheader, %if.end27
   %offset.035 = phi i32 [ %add28, %if.end27 ], [ 2, %while.cond.preheader ]
-  %idxprom = sext i32 %offset.035 to i64
+  %idxprom = zext nneg i32 %offset.035 to i64
   %arrayidx = getelementptr inbounds i8, ptr %input, i64 %idxprom
   %8 = trunc i32 %offset.035 to i16
   %conv22 = sub i16 %length, %8

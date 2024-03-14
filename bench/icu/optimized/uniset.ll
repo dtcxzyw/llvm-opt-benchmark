@@ -2030,14 +2030,14 @@ if.else.i:                                        ; preds = %if.else.i, %if.else
   %shr16.i = phi i32 [ %shr.i, %if.else.i ], [ %shr12.i, %if.else.preheader.i ]
   %hi.015.i = phi i32 [ %shr.hi.0.i, %if.else.i ], [ %sub.i, %if.else.preheader.i ]
   %lo.014.i = phi i32 [ %lo.0.shr.i, %if.else.i ], [ 0, %if.else.preheader.i ]
-  %idxprom12.i = sext i32 %shr16.i to i64
+  %idxprom12.i = zext nneg i32 %shr16.i to i64
   %arrayidx13.i = getelementptr inbounds i32, ptr %4, i64 %idxprom12.i
   %10 = load i32, ptr %arrayidx13.i, align 4
   %cmp14.i = icmp sgt i32 %10, %c
   %lo.0.shr.i = select i1 %cmp14.i, i32 %lo.014.i, i32 %shr16.i
   %shr.hi.0.i = select i1 %cmp14.i, i32 %shr16.i, i32 %hi.015.i
-  %add.i = add nsw i32 %shr.hi.0.i, %lo.0.shr.i
-  %shr.i = ashr i32 %add.i, 1
+  %add.i = add nuw nsw i32 %shr.hi.0.i, %lo.0.shr.i
+  %shr.i = lshr i32 %add.i, 1
   %cmp9.i = icmp eq i32 %shr.i, %lo.0.shr.i
   br i1 %cmp9.i, label %_ZNK6icu_7510UnicodeSet13findCodePointEi.exit, label %if.else.i, !llvm.loop !9
 
@@ -2086,14 +2086,14 @@ if.else:                                          ; preds = %if.else.preheader, 
   %shr16 = phi i32 [ %shr, %if.else ], [ %shr12, %if.else.preheader ]
   %hi.015 = phi i32 [ %shr.hi.0, %if.else ], [ %sub, %if.else.preheader ]
   %lo.014 = phi i32 [ %lo.0.shr, %if.else ], [ 0, %if.else.preheader ]
-  %idxprom12 = sext i32 %shr16 to i64
+  %idxprom12 = zext nneg i32 %shr16 to i64
   %arrayidx13 = getelementptr inbounds i32, ptr %0, i64 %idxprom12
   %6 = load i32, ptr %arrayidx13, align 4
   %cmp14 = icmp sgt i32 %6, %c
   %lo.0.shr = select i1 %cmp14, i32 %lo.014, i32 %shr16
   %shr.hi.0 = select i1 %cmp14, i32 %shr16, i32 %hi.015
-  %add = add nsw i32 %shr.hi.0, %lo.0.shr
-  %shr = ashr i32 %add, 1
+  %add = add nuw nsw i32 %shr.hi.0, %lo.0.shr
+  %shr = lshr i32 %add, 1
   %cmp9 = icmp eq i32 %shr, %lo.0.shr
   br i1 %cmp9, label %return, label %if.else, !llvm.loop !9
 
@@ -2136,14 +2136,14 @@ if.else.i:                                        ; preds = %if.else.i, %if.else
   %shr16.i = phi i32 [ %shr.i, %if.else.i ], [ %shr12.i, %if.else.preheader.i ]
   %hi.015.i = phi i32 [ %shr.hi.0.i, %if.else.i ], [ %sub.i, %if.else.preheader.i ]
   %lo.014.i = phi i32 [ %lo.0.shr.i, %if.else.i ], [ 0, %if.else.preheader.i ]
-  %idxprom12.i = sext i32 %shr16.i to i64
+  %idxprom12.i = zext nneg i32 %shr16.i to i64
   %arrayidx13.i = getelementptr inbounds i32, ptr %0, i64 %idxprom12.i
   %6 = load i32, ptr %arrayidx13.i, align 4
   %cmp14.i = icmp sgt i32 %6, %start
   %lo.0.shr.i = select i1 %cmp14.i, i32 %lo.014.i, i32 %shr16.i
   %shr.hi.0.i = select i1 %cmp14.i, i32 %shr16.i, i32 %hi.015.i
-  %add.i = add nsw i32 %shr.hi.0.i, %lo.0.shr.i
-  %shr.i = ashr i32 %add.i, 1
+  %add.i = add nuw nsw i32 %shr.hi.0.i, %lo.0.shr.i
+  %shr.i = lshr i32 %add.i, 1
   %cmp9.i = icmp eq i32 %shr.i, %lo.0.shr.i
   br i1 %cmp9.i, label %_ZNK6icu_7510UnicodeSet13findCodePointEi.exit, label %if.else.i, !llvm.loop !9
 
@@ -2275,14 +2275,14 @@ if.else.i.i:                                      ; preds = %if.else.i.i, %if.el
   %shr16.i.i = phi i32 [ %shr.i.i, %if.else.i.i ], [ %shr12.i.i, %if.else.preheader.i.i ]
   %hi.015.i.i = phi i32 [ %shr.hi.0.i.i, %if.else.i.i ], [ %sub.i.i, %if.else.preheader.i.i ]
   %lo.014.i.i = phi i32 [ %lo.0.shr.i.i, %if.else.i.i ], [ 0, %if.else.preheader.i.i ]
-  %idxprom12.i.i = sext i32 %shr16.i.i to i64
+  %idxprom12.i.i = zext nneg i32 %shr16.i.i to i64
   %arrayidx13.i.i = getelementptr inbounds i32, ptr %11, i64 %idxprom12.i.i
   %17 = load i32, ptr %arrayidx13.i.i, align 4
   %cmp14.i.i = icmp sgt i32 %17, %retval.0.i.ph
   %lo.0.shr.i.i = select i1 %cmp14.i.i, i32 %lo.014.i.i, i32 %shr16.i.i
   %shr.hi.0.i.i = select i1 %cmp14.i.i, i32 %shr16.i.i, i32 %hi.015.i.i
-  %add.i.i = add nsw i32 %shr.hi.0.i.i, %lo.0.shr.i.i
-  %shr.i.i = ashr i32 %add.i.i, 1
+  %add.i.i = add nuw nsw i32 %shr.hi.0.i.i, %lo.0.shr.i.i
+  %shr.i.i = lshr i32 %add.i.i, 1
   %cmp9.i.i = icmp eq i32 %shr.i.i, %lo.0.shr.i.i
   br i1 %cmp9.i.i, label %_ZNK6icu_7510UnicodeSet13findCodePointEi.exit.i, label %if.else.i.i, !llvm.loop !9
 
@@ -2455,14 +2455,14 @@ if.else.i.i:                                      ; preds = %if.end.i.i, %if.els
   %shr16.i.i = phi i32 [ %shr.i.i, %if.else.i.i ], [ %shr12.i.i, %if.end.i.i ]
   %hi.015.i.i = phi i32 [ %shr.hi.0.i.i, %if.else.i.i ], [ %sub.i.i, %if.end.i.i ]
   %lo.014.i.i = phi i32 [ %lo.0.shr.i.i, %if.else.i.i ], [ 0, %if.end.i.i ]
-  %idxprom12.i.i = sext i32 %shr16.i.i to i64
+  %idxprom12.i.i = zext nneg i32 %shr16.i.i to i64
   %arrayidx13.i.i = getelementptr inbounds i32, ptr %2, i64 %idxprom12.i.i
   %22 = load i32, ptr %arrayidx13.i.i, align 4
   %cmp14.i.i = icmp sgt i32 %22, %18
   %lo.0.shr.i.i = select i1 %cmp14.i.i, i32 %lo.014.i.i, i32 %shr16.i.i
   %shr.hi.0.i.i = select i1 %cmp14.i.i, i32 %shr16.i.i, i32 %hi.015.i.i
-  %add.i.i = add nsw i32 %shr.hi.0.i.i, %lo.0.shr.i.i
-  %shr.i.i = ashr i32 %add.i.i, 1
+  %add.i.i = add nuw nsw i32 %shr.hi.0.i.i, %lo.0.shr.i.i
+  %shr.i.i = lshr i32 %add.i.i, 1
   %cmp9.i.i = icmp eq i32 %shr.i.i, %lo.0.shr.i.i
   br i1 %cmp9.i.i, label %_ZNK6icu_7510UnicodeSet13findCodePointEi.exit.i, label %if.else.i.i, !llvm.loop !9
 
@@ -2737,14 +2737,14 @@ if.else.i.i:                                      ; preds = %if.else.i.i, %if.el
   %shr16.i.i = phi i32 [ %shr.i.i, %if.else.i.i ], [ %shr12.i.i, %if.else.preheader.i.i ]
   %hi.015.i.i = phi i32 [ %shr.hi.0.i.i, %if.else.i.i ], [ %sub.i.i, %if.else.preheader.i.i ]
   %lo.014.i.i = phi i32 [ %lo.0.shr.i.i, %if.else.i.i ], [ 0, %if.else.preheader.i.i ]
-  %idxprom12.i.i = sext i32 %shr16.i.i to i64
+  %idxprom12.i.i = zext nneg i32 %shr16.i.i to i64
   %arrayidx13.i.i = getelementptr inbounds i32, ptr %12, i64 %idxprom12.i.i
   %18 = load i32, ptr %arrayidx13.i.i, align 4
   %cmp14.i.i = icmp sgt i32 %18, %c.0
   %lo.0.shr.i.i = select i1 %cmp14.i.i, i32 %lo.014.i.i, i32 %shr16.i.i
   %shr.hi.0.i.i = select i1 %cmp14.i.i, i32 %shr16.i.i, i32 %hi.015.i.i
-  %add.i.i = add nsw i32 %shr.hi.0.i.i, %lo.0.shr.i.i
-  %shr.i.i = ashr i32 %add.i.i, 1
+  %add.i.i = add nuw nsw i32 %shr.hi.0.i.i, %lo.0.shr.i.i
+  %shr.i.i = lshr i32 %add.i.i, 1
   %cmp9.i.i = icmp eq i32 %shr.i.i, %lo.0.shr.i.i
   br i1 %cmp9.i.i, label %_ZNK6icu_7510UnicodeSet13findCodePointEi.exit.i, label %if.else.i.i, !llvm.loop !9
 
@@ -2803,14 +2803,14 @@ if.else.i:                                        ; preds = %if.else.i, %if.else
   %shr16.i = phi i32 [ %shr.i, %if.else.i ], [ %shr12.i, %if.else.preheader.i ]
   %hi.015.i = phi i32 [ %shr.hi.0.i, %if.else.i ], [ %sub.i, %if.else.preheader.i ]
   %lo.014.i = phi i32 [ %lo.0.shr.i, %if.else.i ], [ 0, %if.else.preheader.i ]
-  %idxprom12.i = sext i32 %shr16.i to i64
+  %idxprom12.i = zext nneg i32 %shr16.i to i64
   %arrayidx13.i = getelementptr inbounds i32, ptr %0, i64 %idxprom12.i
   %6 = load i32, ptr %arrayidx13.i, align 4
   %cmp14.i = icmp sgt i32 %6, %start
   %lo.0.shr.i = select i1 %cmp14.i, i32 %lo.014.i, i32 %shr16.i
   %shr.hi.0.i = select i1 %cmp14.i, i32 %shr16.i, i32 %hi.015.i
-  %add.i = add nsw i32 %shr.hi.0.i, %lo.0.shr.i
-  %shr.i = ashr i32 %add.i, 1
+  %add.i = add nuw nsw i32 %shr.hi.0.i, %lo.0.shr.i
+  %shr.i = lshr i32 %add.i, 1
   %cmp9.i = icmp eq i32 %shr.i, %lo.0.shr.i
   br i1 %cmp9.i, label %_ZNK6icu_7510UnicodeSet13findCodePointEi.exit, label %if.else.i, !llvm.loop !9
 
@@ -2966,14 +2966,14 @@ if.else.i.i:                                      ; preds = %if.end.i.i, %if.els
   %shr16.i.i = phi i32 [ %shr.i.i, %if.else.i.i ], [ %shr12.i.i, %if.end.i.i ]
   %hi.015.i.i = phi i32 [ %shr.hi.0.i.i, %if.else.i.i ], [ %sub.i.i, %if.end.i.i ]
   %lo.014.i.i = phi i32 [ %lo.0.shr.i.i, %if.else.i.i ], [ 0, %if.end.i.i ]
-  %idxprom12.i.i = sext i32 %shr16.i.i to i64
+  %idxprom12.i.i = zext nneg i32 %shr16.i.i to i64
   %arrayidx13.i.i = getelementptr inbounds i32, ptr %2, i64 %idxprom12.i.i
   %25 = load i32, ptr %arrayidx13.i.i, align 4
   %cmp14.i.i = icmp sgt i32 %25, %21
   %lo.0.shr.i.i = select i1 %cmp14.i.i, i32 %lo.014.i.i, i32 %shr16.i.i
   %shr.hi.0.i.i = select i1 %cmp14.i.i, i32 %shr16.i.i, i32 %hi.015.i.i
-  %add.i.i = add nsw i32 %shr.hi.0.i.i, %lo.0.shr.i.i
-  %shr.i.i = ashr i32 %add.i.i, 1
+  %add.i.i = add nuw nsw i32 %shr.hi.0.i.i, %lo.0.shr.i.i
+  %shr.i.i = lshr i32 %add.i.i, 1
   %cmp9.i.i = icmp eq i32 %shr.i.i, %lo.0.shr.i.i
   br i1 %cmp9.i.i, label %_ZNK6icu_7510UnicodeSet13findCodePointEi.exit.i, label %if.else.i.i, !llvm.loop !9
 
@@ -3312,14 +3312,14 @@ if.else.i.i:                                      ; preds = %if.else.i.i, %if.el
   %shr16.i.i = phi i32 [ %shr.i.i, %if.else.i.i ], [ %shr12.i.i, %if.else.preheader.i.i ]
   %hi.015.i.i = phi i32 [ %shr.hi.0.i.i, %if.else.i.i ], [ %sub.i.i, %if.else.preheader.i.i ]
   %lo.014.i.i = phi i32 [ %lo.0.shr.i.i, %if.else.i.i ], [ 0, %if.else.preheader.i.i ]
-  %idxprom12.i.i = sext i32 %shr16.i.i to i64
+  %idxprom12.i.i = zext nneg i32 %shr16.i.i to i64
   %arrayidx13.i.i = getelementptr inbounds i32, ptr %5, i64 %idxprom12.i.i
   %11 = load i32, ptr %arrayidx13.i.i, align 4
   %cmp14.i.i = icmp sgt i32 %11, 65535
   %lo.0.shr.i.i = select i1 %cmp14.i.i, i32 %lo.014.i.i, i32 %shr16.i.i
   %shr.hi.0.i.i = select i1 %cmp14.i.i, i32 %shr16.i.i, i32 %hi.015.i.i
-  %add.i.i = add nsw i32 %shr.hi.0.i.i, %lo.0.shr.i.i
-  %shr.i.i = ashr i32 %add.i.i, 1
+  %add.i.i = add nuw nsw i32 %shr.hi.0.i.i, %lo.0.shr.i.i
+  %shr.i.i = lshr i32 %add.i.i, 1
   %cmp9.i.i = icmp eq i32 %shr.i.i, %lo.0.shr.i.i
   br i1 %cmp9.i.i, label %_ZNK6icu_7510UnicodeSet13findCodePointEi.exit.i, label %if.else.i.i, !llvm.loop !9
 
@@ -3837,7 +3837,7 @@ if.then11:                                        ; preds = %if.end5
   br label %return
 
 if.end12:                                         ; preds = %if.end5
-  %indvars.iv.next = add nuw i64 %indvars.iv, 2
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %sub13 = sub i32 %n.015, %.pn
   %add14 = add i32 %sub13, %3
   %arrayidx = getelementptr inbounds i32, ptr %0, i64 %indvars.iv.next
@@ -4495,14 +4495,14 @@ if.else.i18:                                      ; preds = %if.else.i18, %if.el
   %shr16.i = phi i32 [ %shr.i, %if.else.i18 ], [ %shr12.i, %if.else.preheader.i ]
   %hi.015.i = phi i32 [ %shr.hi.0.i, %if.else.i18 ], [ %sub.i, %if.else.preheader.i ]
   %lo.014.i = phi i32 [ %lo.0.shr.i, %if.else.i18 ], [ 0, %if.else.preheader.i ]
-  %idxprom12.i = sext i32 %shr16.i to i64
+  %idxprom12.i = zext nneg i32 %shr16.i to i64
   %arrayidx13.i = getelementptr inbounds i32, ptr %0, i64 %idxprom12.i
   %6 = load i32, ptr %arrayidx13.i, align 4
   %cmp14.i = icmp sgt i32 %6, %c.addr.0
   %lo.0.shr.i = select i1 %cmp14.i, i32 %lo.014.i, i32 %shr16.i
   %shr.hi.0.i = select i1 %cmp14.i, i32 %shr16.i, i32 %hi.015.i
-  %add.i = add nsw i32 %shr.hi.0.i, %lo.0.shr.i
-  %shr.i = ashr i32 %add.i, 1
+  %add.i = add nuw nsw i32 %shr.hi.0.i, %lo.0.shr.i
+  %shr.i = lshr i32 %add.i, 1
   %cmp9.i = icmp eq i32 %shr.i, %lo.0.shr.i
   br i1 %cmp9.i, label %_ZNK6icu_7510UnicodeSet13findCodePointEi.exit, label %if.else.i18, !llvm.loop !9
 
@@ -6924,7 +6924,7 @@ for.body:                                         ; preds = %for.body.preheader,
 for.body32:                                       ; preds = %for.body32.lr.ph, %for.body32
   %indvars.iv60 = phi i64 [ %12, %for.body32.lr.ph ], [ %indvars.iv.next61, %for.body32 ]
   %18 = sub nuw nsw i64 %indvars.iv60, %13
-  %19 = shl nsw i64 %18, 1
+  %19 = shl nuw nsw i64 %18, 1
   %gep68 = getelementptr i16, ptr %invariant.gep67, i64 %19
   %20 = load i16, ptr %gep68, align 2
   %conv39 = zext i16 %20 to i32
@@ -8270,14 +8270,14 @@ if.else.i.i:                                      ; preds = %if.else.i.i, %if.el
   %shr16.i.i = phi i32 [ %shr.i.i, %if.else.i.i ], [ %shr12.i.i, %if.else.preheader.i.i ]
   %hi.015.i.i = phi i32 [ %shr.hi.0.i.i, %if.else.i.i ], [ %sub.i.i, %if.else.preheader.i.i ]
   %lo.014.i.i = phi i32 [ %lo.0.shr.i.i, %if.else.i.i ], [ 0, %if.else.preheader.i.i ]
-  %idxprom12.i.i = sext i32 %shr16.i.i to i64
+  %idxprom12.i.i = zext nneg i32 %shr16.i.i to i64
   %arrayidx13.i.i = getelementptr inbounds i32, ptr %13, i64 %idxprom12.i.i
   %19 = load i32, ptr %arrayidx13.i.i, align 4
   %cmp14.i.i = icmp sgt i32 %19, %c.0
   %lo.0.shr.i.i = select i1 %cmp14.i.i, i32 %lo.014.i.i, i32 %shr16.i.i
   %shr.hi.0.i.i = select i1 %cmp14.i.i, i32 %shr16.i.i, i32 %hi.015.i.i
-  %add.i.i = add nsw i32 %shr.hi.0.i.i, %lo.0.shr.i.i
-  %shr.i.i = ashr i32 %add.i.i, 1
+  %add.i.i = add nuw nsw i32 %shr.hi.0.i.i, %lo.0.shr.i.i
+  %shr.i.i = lshr i32 %add.i.i, 1
   %cmp9.i.i = icmp eq i32 %shr.i.i, %lo.0.shr.i.i
   br i1 %cmp9.i.i, label %_ZNK6icu_7510UnicodeSet13findCodePointEi.exit.i, label %if.else.i.i, !llvm.loop !9
 
@@ -8572,14 +8572,14 @@ if.else.i.i:                                      ; preds = %if.else.i.i, %if.el
   %shr16.i.i = phi i32 [ %shr.i.i, %if.else.i.i ], [ %shr12.i.i, %if.else.preheader.i.i ]
   %hi.015.i.i = phi i32 [ %shr.hi.0.i.i, %if.else.i.i ], [ %sub.i.i, %if.else.preheader.i.i ]
   %lo.014.i.i = phi i32 [ %lo.0.shr.i.i, %if.else.i.i ], [ 0, %if.else.preheader.i.i ]
-  %idxprom12.i.i = sext i32 %shr16.i.i to i64
+  %idxprom12.i.i = zext nneg i32 %shr16.i.i to i64
   %arrayidx13.i.i = getelementptr inbounds i32, ptr %18, i64 %idxprom12.i.i
   %24 = load i32, ptr %arrayidx13.i.i, align 4
   %cmp14.i.i = icmp sgt i32 %24, %c.2
   %lo.0.shr.i.i = select i1 %cmp14.i.i, i32 %lo.014.i.i, i32 %shr16.i.i
   %shr.hi.0.i.i = select i1 %cmp14.i.i, i32 %shr16.i.i, i32 %hi.015.i.i
-  %add.i.i = add nsw i32 %shr.hi.0.i.i, %lo.0.shr.i.i
-  %shr.i.i = ashr i32 %add.i.i, 1
+  %add.i.i = add nuw nsw i32 %shr.hi.0.i.i, %lo.0.shr.i.i
+  %shr.i.i = lshr i32 %add.i.i, 1
   %cmp9.i.i = icmp eq i32 %shr.i.i, %lo.0.shr.i.i
   br i1 %cmp9.i.i, label %_ZNK6icu_7510UnicodeSet13findCodePointEi.exit.i, label %if.else.i.i, !llvm.loop !9
 
@@ -8774,14 +8774,14 @@ if.else.i.i:                                      ; preds = %if.else.i.i, %if.el
   %shr16.i.i = phi i32 [ %shr.i.i, %if.else.i.i ], [ %shr12.i.i, %if.else.preheader.i.i ]
   %hi.015.i.i = phi i32 [ %shr.hi.0.i.i, %if.else.i.i ], [ %sub.i.i, %if.else.preheader.i.i ]
   %lo.014.i.i = phi i32 [ %lo.0.shr.i.i, %if.else.i.i ], [ 0, %if.else.preheader.i.i ]
-  %idxprom12.i.i = sext i32 %shr16.i.i to i64
+  %idxprom12.i.i = zext nneg i32 %shr16.i.i to i64
   %arrayidx13.i.i = getelementptr inbounds i32, ptr %13, i64 %idxprom12.i.i
   %19 = load i32, ptr %arrayidx13.i.i, align 4
   %cmp14.i.i = icmp sgt i32 %19, %c.0
   %lo.0.shr.i.i = select i1 %cmp14.i.i, i32 %lo.014.i.i, i32 %shr16.i.i
   %shr.hi.0.i.i = select i1 %cmp14.i.i, i32 %shr16.i.i, i32 %hi.015.i.i
-  %add.i.i = add nsw i32 %shr.hi.0.i.i, %lo.0.shr.i.i
-  %shr.i.i = ashr i32 %add.i.i, 1
+  %add.i.i = add nuw nsw i32 %shr.hi.0.i.i, %lo.0.shr.i.i
+  %shr.i.i = lshr i32 %add.i.i, 1
   %cmp9.i.i = icmp eq i32 %shr.i.i, %lo.0.shr.i.i
   br i1 %cmp9.i.i, label %_ZNK6icu_7510UnicodeSet13findCodePointEi.exit.i, label %if.else.i.i, !llvm.loop !9
 

@@ -1715,9 +1715,8 @@ define internal fastcc noundef i32 @_job_alloc(ptr nocapture noundef readonly %0
   %664 = getelementptr inbounds i64, ptr %662, i64 %663
   %665 = load i64, ptr %664, align 8
   %666 = sub i64 %.01622.i, %665
-  %667 = shl i64 %658, 32
-  %sext.i = add i64 %667, 4294967296
-  %668 = ashr exact i64 %sext.i, 32
+  %667 = add nuw nsw i64 %658, 1
+  %668 = and i64 %667, 4294967295
   %669 = tail call i64 @bit_ffs_from_bit(ptr noundef %607, i64 noundef %668) #8
   %670 = and i64 %669, 2147483648
   %671 = icmp ne i64 %670, 0
@@ -6722,13 +6721,12 @@ define internal fastcc i64 @_cnt_topo_gres(ptr nocapture noundef readonly %0, i3
 
 26:                                               ; preds = %.lr.ph, %19
   %.1 = phi i64 [ %25, %19 ], [ %.01621, %.lr.ph ]
-  %27 = load ptr, ptr %9, align 8
-  %28 = getelementptr inbounds ptr, ptr %27, i64 %.pre
-  %29 = load ptr, ptr %28, align 8
-  %30 = shl i64 %16, 32
-  %sext = add i64 %30, 4294967296
-  %31 = ashr exact i64 %sext, 32
-  %32 = tail call i64 @bit_ffs_from_bit(ptr noundef %29, i64 noundef %31) #8
+  %27 = add nuw nsw i64 %16, 1
+  %28 = load ptr, ptr %9, align 8
+  %29 = getelementptr inbounds ptr, ptr %28, i64 %.pre
+  %30 = load ptr, ptr %29, align 8
+  %31 = and i64 %27, 4294967295
+  %32 = tail call i64 @bit_ffs_from_bit(ptr noundef %30, i64 noundef %31) #8
   %33 = and i64 %32, 2147483648
   %34 = icmp eq i64 %33, 0
   br i1 %34, label %.lr.ph, label %.loopexit, !llvm.loop !63
@@ -6866,13 +6864,12 @@ define internal fastcc void @_copy_matching_gres_per_bit(ptr nocapture noundef r
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds i64, ptr %38, i64 %33
   store i64 %35, ptr %39, align 8
-  %40 = load ptr, ptr %12, align 8
-  %41 = getelementptr inbounds ptr, ptr %40, i64 %14
-  %42 = load ptr, ptr %41, align 8
-  %43 = shl i64 %29, 32
-  %sext = add i64 %43, 4294967296
-  %44 = ashr exact i64 %sext, 32
-  %45 = tail call i64 @bit_ffs_from_bit(ptr noundef %42, i64 noundef %44) #8
+  %40 = add nuw nsw i64 %29, 1
+  %41 = load ptr, ptr %12, align 8
+  %42 = getelementptr inbounds ptr, ptr %41, i64 %14
+  %43 = load ptr, ptr %42, align 8
+  %44 = and i64 %40, 4294967295
+  %45 = tail call i64 @bit_ffs_from_bit(ptr noundef %43, i64 noundef %44) #8
   %46 = and i64 %45, 2147483648
   %47 = icmp eq i64 %46, 0
   br i1 %47, label %28, label %._crit_edge, !llvm.loop !64

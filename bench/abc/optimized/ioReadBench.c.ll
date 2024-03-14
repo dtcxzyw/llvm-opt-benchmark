@@ -64,7 +64,7 @@ define ptr @Io_ReadBench(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %4 = alloca [1000 x i8], align 16
   %5 = tail call ptr @Extra_FileReaderAlloc(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %401, label %7
+  br i1 %6, label %397, label %7
 
 7:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %3)
@@ -84,18 +84,18 @@ define ptr @Io_ReadBench(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %16 = tail call i32 @Extra_FileReaderGetFileSize(ptr noundef nonnull %5) #12
   %17 = tail call ptr @Extra_ProgressBarStart(ptr noundef %15, i32 noundef %16) #12
   %18 = tail call ptr @Extra_FileReaderGetTokens(ptr noundef nonnull %5) #12
-  %.not276.i = icmp eq ptr %18, null
-  br i1 %.not276.i, label %._crit_edge.i, label %.lr.ph278.i
+  %.not278.i = icmp eq ptr %18, null
+  br i1 %.not278.i, label %._crit_edge.i, label %.lr.ph280.i
 
-.lr.ph278.i:                                      ; preds = %7
+.lr.ph280.i:                                      ; preds = %7
   %.not.i.i = icmp eq ptr %17, null
   %19 = getelementptr inbounds i8, ptr %9, i64 256
   br label %20
 
-20:                                               ; preds = %356, %.lr.ph278.i
-  %21 = phi ptr [ %13, %.lr.ph278.i ], [ %357, %356 ]
-  %22 = phi ptr [ %18, %.lr.ph278.i ], [ %358, %356 ]
-  %.0196277.i = phi i32 [ 0, %.lr.ph278.i ], [ %.1.i, %356 ]
+20:                                               ; preds = %352, %.lr.ph280.i
+  %21 = phi ptr [ %13, %.lr.ph280.i ], [ %353, %352 ]
+  %22 = phi ptr [ %18, %.lr.ph280.i ], [ %354, %352 ]
+  %.0196279.i = phi i32 [ 0, %.lr.ph280.i ], [ %.1.i, %352 ]
   %23 = call i32 @Extra_FileReaderGetCurPosition(ptr noundef nonnull %5) #12
   br i1 %.not.i.i, label %27, label %24
 
@@ -140,7 +140,7 @@ Vec_StrFree.exit.i:                               ; preds = %34, %31
   %42 = getelementptr inbounds i8, ptr %37, i64 8
   %43 = load ptr, ptr %42, align 8
   %44 = call ptr @Io_ReadCreatePi(ptr noundef %9, ptr noundef %43) #12
-  br label %356
+  br label %352
 
 45:                                               ; preds = %35
   %46 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull dereferenceable(7) @.str.12, i64 noundef 5) #14
@@ -151,7 +151,7 @@ Vec_StrFree.exit.i:                               ; preds = %34, %31
 
 50:                                               ; preds = %45
   %51 = call ptr @Io_ReadCreatePo(ptr noundef %9, ptr noundef %49) #12
-  br label %356
+  br label %352
 
 52:                                               ; preds = %45
   %53 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(4) @.str.13, i64 noundef 3) #14
@@ -166,8 +166,8 @@ Vec_StrFree.exit.i:                               ; preds = %34, %31
   %58 = call ptr @Abc_NtkFindOrCreateNet(ptr noundef %9, ptr noundef %38) #12
   %59 = call ptr @Abc_NtkCreateObj(ptr noundef %9, i32 noundef 2) #12
   call void @Abc_ObjAddFanin(ptr noundef %58, ptr noundef %59) #12
-  %.val224274.i = load i32, ptr %28, align 4
-  %60 = icmp sgt i32 %.val224274.i, 2
+  %.val224276.i = load i32, ptr %28, align 4
+  %60 = icmp sgt i32 %.val224276.i, 2
   br i1 %60, label %.lr.ph.i, label %.critedge.i
 
 .lr.ph.i:                                         ; preds = %57, %.lr.ph.i
@@ -192,7 +192,7 @@ Vec_StrFree.exit.i:                               ; preds = %34, %31
   %70 = load i32, ptr %10, align 8
   %71 = add nsw i32 %70, 1
   store i32 %71, ptr %10, align 8
-  br label %356
+  br label %352
 
 72:                                               ; preds = %55
   %73 = getelementptr inbounds i8, ptr %37, i64 16
@@ -208,20 +208,20 @@ Vec_StrFree.exit.i:                               ; preds = %34, %31
 
 79:                                               ; preds = %72
   store ptr inttoptr (i64 1 to ptr), ptr %78, align 8
-  br label %356
+  br label %352
 
 80:                                               ; preds = %72
   store ptr inttoptr (i64 2 to ptr), ptr %78, align 8
-  br label %356
+  br label %352
 
 81:                                               ; preds = %72
   store ptr inttoptr (i64 3 to ptr), ptr %78, align 8
-  br label %356
+  br label %352
 
 82:                                               ; preds = %52
   %83 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(4) @.str.15) #14
   %84 = icmp eq i32 %83, 0
-  br i1 %84, label %85, label %240
+  br i1 %84, label %85, label %236
 
 85:                                               ; preds = %82
   %86 = getelementptr inbounds i8, ptr %37, i64 24
@@ -478,431 +478,429 @@ Vec_StrFree.exit242.i:                            ; preds = %188, %185
 189:                                              ; preds = %182
   %190 = icmp slt i32 %29, 9
   %191 = add nsw i32 %29, -8
-  %192 = shl nuw i32 1, %191
+  %192 = shl nuw nsw i32 1, %191
   %spec.select.i.i = select i1 %190, i32 1, i32 %192
-  %193 = zext i32 %spec.select.i.i to i64
+  %193 = zext nneg i32 %spec.select.i.i to i64
   br label %select.unfold.i.i
 
-select.unfold.i.i:                                ; preds = %196, %189
-  %indvars.iv.i243.i = phi i64 [ %193, %189 ], [ %197, %196 ]
-  %194 = trunc i64 %indvars.iv.i243.i to i32
-  %195 = icmp sgt i32 %194, 0
-  br i1 %195, label %196, label %Extra_TruthIsConst0.exit.i
+select.unfold.i.i:                                ; preds = %195, %189
+  %indvars.iv.i243.i = phi i64 [ %193, %189 ], [ %indvars.iv.next.i244.i, %195 ]
+  %194 = icmp sgt i64 %indvars.iv.i243.i, 0
+  br i1 %194, label %195, label %Extra_TruthIsConst0.exit.i
 
-196:                                              ; preds = %select.unfold.i.i
-  %197 = add nsw i64 %indvars.iv.i243.i, -1
-  %198 = getelementptr inbounds i32, ptr %3, i64 %197
-  %199 = load i32, ptr %198, align 4
-  %.not.i244.i = icmp eq i32 %199, 0
-  br i1 %.not.i244.i, label %select.unfold.i.i, label %select.unfold.i246.i, !llvm.loop !7
+195:                                              ; preds = %select.unfold.i.i
+  %indvars.iv.next.i244.i = add nsw i64 %indvars.iv.i243.i, -1
+  %196 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.next.i244.i
+  %197 = load i32, ptr %196, align 4
+  %.not.i245.i = icmp eq i32 %197, 0
+  br i1 %.not.i245.i, label %select.unfold.i.i, label %select.unfold.i247.i, !llvm.loop !7
 
 Extra_TruthIsConst0.exit.i:                       ; preds = %select.unfold.i.i
-  %200 = load ptr, ptr %36, align 8
-  %201 = load ptr, ptr %200, align 8
-  %202 = call ptr @Io_ReadCreateNode(ptr noundef %9, ptr noundef %201, ptr noundef nonnull %86, i32 noundef 0) #12
-  %203 = load ptr, ptr %19, align 8
-  %204 = call ptr @Abc_SopRegister(ptr noundef %203, ptr noundef nonnull @.str.20) #12
-  %205 = getelementptr inbounds i8, ptr %202, i64 56
-  store ptr %204, ptr %205, align 8
-  br label %356
+  %198 = load ptr, ptr %36, align 8
+  %199 = load ptr, ptr %198, align 8
+  %200 = call ptr @Io_ReadCreateNode(ptr noundef %9, ptr noundef %199, ptr noundef nonnull %86, i32 noundef 0) #12
+  %201 = load ptr, ptr %19, align 8
+  %202 = call ptr @Abc_SopRegister(ptr noundef %201, ptr noundef nonnull @.str.20) #12
+  %203 = getelementptr inbounds i8, ptr %200, i64 56
+  store ptr %202, ptr %203, align 8
+  br label %352
 
-select.unfold.i246.i:                             ; preds = %196, %208
-  %indvars.iv.i247.i = phi i64 [ %209, %208 ], [ %193, %196 ]
-  %206 = trunc i64 %indvars.iv.i247.i to i32
-  %207 = icmp sgt i32 %206, 0
-  br i1 %207, label %208, label %Extra_TruthIsConst1.exit.i
+select.unfold.i247.i:                             ; preds = %195, %205
+  %indvars.iv.i248.i = phi i64 [ %indvars.iv.next.i250.i, %205 ], [ %193, %195 ]
+  %204 = icmp sgt i64 %indvars.iv.i248.i, 0
+  br i1 %204, label %205, label %Extra_TruthIsConst1.exit.i
 
-208:                                              ; preds = %select.unfold.i246.i
-  %209 = add nsw i64 %indvars.iv.i247.i, -1
-  %210 = getelementptr inbounds i32, ptr %3, i64 %209
-  %211 = load i32, ptr %210, align 4
-  %.not.i249.i = icmp eq i32 %211, -1
-  br i1 %.not.i249.i, label %select.unfold.i246.i, label %218, !llvm.loop !8
+205:                                              ; preds = %select.unfold.i247.i
+  %indvars.iv.next.i250.i = add nsw i64 %indvars.iv.i248.i, -1
+  %206 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.next.i250.i
+  %207 = load i32, ptr %206, align 4
+  %.not.i251.i = icmp eq i32 %207, -1
+  br i1 %.not.i251.i, label %select.unfold.i247.i, label %214, !llvm.loop !8
 
-Extra_TruthIsConst1.exit.i:                       ; preds = %select.unfold.i246.i
-  %212 = load ptr, ptr %36, align 8
-  %213 = load ptr, ptr %212, align 8
-  %214 = call ptr @Io_ReadCreateNode(ptr noundef %9, ptr noundef %213, ptr noundef nonnull %86, i32 noundef 0) #12
-  %215 = load ptr, ptr %19, align 8
-  %216 = call ptr @Abc_SopRegister(ptr noundef %215, ptr noundef nonnull @.str.21) #12
-  %217 = getelementptr inbounds i8, ptr %214, i64 56
-  store ptr %216, ptr %217, align 8
-  br label %356
+Extra_TruthIsConst1.exit.i:                       ; preds = %select.unfold.i247.i
+  %208 = load ptr, ptr %36, align 8
+  %209 = load ptr, ptr %208, align 8
+  %210 = call ptr @Io_ReadCreateNode(ptr noundef %9, ptr noundef %209, ptr noundef nonnull %86, i32 noundef 0) #12
+  %211 = load ptr, ptr %19, align 8
+  %212 = call ptr @Abc_SopRegister(ptr noundef %211, ptr noundef nonnull @.str.21) #12
+  %213 = getelementptr inbounds i8, ptr %210, i64 56
+  store ptr %212, ptr %213, align 8
+  br label %352
 
-218:                                              ; preds = %208
-  %219 = load ptr, ptr %36, align 8
-  %220 = load ptr, ptr %219, align 8
-  %221 = call ptr @Io_ReadCreateNode(ptr noundef %9, ptr noundef %220, ptr noundef nonnull %86, i32 noundef %87) #12
-  %222 = icmp sgt i32 %29, 4
-  br i1 %222, label %223, label %227
+214:                                              ; preds = %205
+  %215 = load ptr, ptr %36, align 8
+  %216 = load ptr, ptr %215, align 8
+  %217 = call ptr @Io_ReadCreateNode(ptr noundef %9, ptr noundef %216, ptr noundef nonnull %86, i32 noundef %87) #12
+  %218 = icmp sgt i32 %29, 4
+  br i1 %218, label %219, label %223
 
-223:                                              ; preds = %218
-  %224 = load ptr, ptr %19, align 8
-  %225 = call ptr @Abc_SopCreateFromTruth(ptr noundef %224, i32 noundef %87, ptr noundef nonnull %3) #12
-  %226 = getelementptr inbounds i8, ptr %221, i64 56
-  store ptr %225, ptr %226, align 8
-  br label %356
+219:                                              ; preds = %214
+  %220 = load ptr, ptr %19, align 8
+  %221 = call ptr @Abc_SopCreateFromTruth(ptr noundef %220, i32 noundef %87, ptr noundef nonnull %3) #12
+  %222 = getelementptr inbounds i8, ptr %217, i64 56
+  store ptr %221, ptr %222, align 8
+  br label %352
 
-227:                                              ; preds = %218
-  %228 = load i8, ptr %.0198.i, align 1
-  switch i8 %228, label %237 [
-    i8 50, label %229
-    i8 49, label %233
+223:                                              ; preds = %214
+  %224 = load i8, ptr %.0198.i, align 1
+  switch i8 %224, label %233 [
+    i8 50, label %225
+    i8 49, label %229
   ]
 
-229:                                              ; preds = %227
+225:                                              ; preds = %223
+  %226 = load ptr, ptr %19, align 8
+  %227 = call ptr @Abc_SopCreateBuf(ptr noundef %226) #12
+  %228 = getelementptr inbounds i8, ptr %217, i64 56
+  store ptr %227, ptr %228, align 8
+  br label %352
+
+229:                                              ; preds = %223
   %230 = load ptr, ptr %19, align 8
-  %231 = call ptr @Abc_SopCreateBuf(ptr noundef %230) #12
-  %232 = getelementptr inbounds i8, ptr %221, i64 56
+  %231 = call ptr @Abc_SopCreateInv(ptr noundef %230) #12
+  %232 = getelementptr inbounds i8, ptr %217, i64 56
   store ptr %231, ptr %232, align 8
-  br label %356
+  br label %352
 
-233:                                              ; preds = %227
-  %234 = load ptr, ptr %19, align 8
-  %235 = call ptr @Abc_SopCreateInv(ptr noundef %234) #12
-  %236 = getelementptr inbounds i8, ptr %221, i64 56
-  store ptr %235, ptr %236, align 8
-  br label %356
-
-237:                                              ; preds = %227
-  %238 = call ptr @Extra_FileReaderGetFileName(ptr noundef nonnull %5) #12
-  %239 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.22, ptr noundef %238, ptr noundef nonnull %.0198.i)
+233:                                              ; preds = %223
+  %234 = call ptr @Extra_FileReaderGetFileName(ptr noundef nonnull %5) #12
+  %235 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.22, ptr noundef %234, ptr noundef nonnull %.0198.i)
   call fastcc void @Vec_StrFree(ptr noundef nonnull %11)
   br label %Io_ReadBenchNetwork.exit.thread
 
-240:                                              ; preds = %82
-  %241 = getelementptr inbounds i8, ptr %37, i64 16
-  %242 = add nsw i32 %29, -2
-  %243 = call ptr @Io_ReadCreateNode(ptr noundef %9, ptr noundef %38, ptr noundef nonnull %241, i32 noundef %242) #12
-  %244 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(4) @.str.23) #14
-  %245 = icmp eq i32 %244, 0
-  br i1 %245, label %249, label %246
+236:                                              ; preds = %82
+  %237 = getelementptr inbounds i8, ptr %37, i64 16
+  %238 = add nsw i32 %29, -2
+  %239 = call ptr @Io_ReadCreateNode(ptr noundef %9, ptr noundef %38, ptr noundef nonnull %237, i32 noundef %238) #12
+  %240 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(4) @.str.23) #14
+  %241 = icmp eq i32 %240, 0
+  br i1 %241, label %245, label %242
 
-246:                                              ; preds = %240
-  %247 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(4) @.str.24) #14
-  %248 = icmp eq i32 %247, 0
-  br i1 %248, label %249, label %253
+242:                                              ; preds = %236
+  %243 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(4) @.str.24) #14
+  %244 = icmp eq i32 %243, 0
+  br i1 %244, label %245, label %249
 
-249:                                              ; preds = %246, %240
-  %250 = load ptr, ptr %19, align 8
-  %251 = call ptr @Abc_SopCreateAnd(ptr noundef %250, i32 noundef %242, ptr noundef null) #12
-  %252 = getelementptr inbounds i8, ptr %243, i64 56
-  store ptr %251, ptr %252, align 8
-  br label %356
+245:                                              ; preds = %242, %236
+  %246 = load ptr, ptr %19, align 8
+  %247 = call ptr @Abc_SopCreateAnd(ptr noundef %246, i32 noundef %238, ptr noundef null) #12
+  %248 = getelementptr inbounds i8, ptr %239, i64 56
+  store ptr %247, ptr %248, align 8
+  br label %352
 
-253:                                              ; preds = %246
-  %254 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(3) @.str.25) #14
-  %255 = icmp eq i32 %254, 0
-  br i1 %255, label %259, label %256
+249:                                              ; preds = %242
+  %250 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(3) @.str.25) #14
+  %251 = icmp eq i32 %250, 0
+  br i1 %251, label %255, label %252
 
-256:                                              ; preds = %253
-  %257 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(3) @.str.26) #14
-  %258 = icmp eq i32 %257, 0
-  br i1 %258, label %259, label %263
+252:                                              ; preds = %249
+  %253 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(3) @.str.26) #14
+  %254 = icmp eq i32 %253, 0
+  br i1 %254, label %255, label %259
 
-259:                                              ; preds = %256, %253
-  %260 = load ptr, ptr %19, align 8
-  %261 = call ptr @Abc_SopCreateOr(ptr noundef %260, i32 noundef %242, ptr noundef null) #12
-  %262 = getelementptr inbounds i8, ptr %243, i64 56
-  store ptr %261, ptr %262, align 8
-  br label %356
+255:                                              ; preds = %252, %249
+  %256 = load ptr, ptr %19, align 8
+  %257 = call ptr @Abc_SopCreateOr(ptr noundef %256, i32 noundef %238, ptr noundef null) #12
+  %258 = getelementptr inbounds i8, ptr %239, i64 56
+  store ptr %257, ptr %258, align 8
+  br label %352
 
-263:                                              ; preds = %256
-  %264 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(5) @.str.27) #14
-  %265 = icmp eq i32 %264, 0
-  br i1 %265, label %269, label %266
+259:                                              ; preds = %252
+  %260 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(5) @.str.27) #14
+  %261 = icmp eq i32 %260, 0
+  br i1 %261, label %265, label %262
 
-266:                                              ; preds = %263
-  %267 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(5) @.str.28) #14
-  %268 = icmp eq i32 %267, 0
-  br i1 %268, label %269, label %273
+262:                                              ; preds = %259
+  %263 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(5) @.str.28) #14
+  %264 = icmp eq i32 %263, 0
+  br i1 %264, label %265, label %269
 
-269:                                              ; preds = %266, %263
-  %270 = load ptr, ptr %19, align 8
-  %271 = call ptr @Abc_SopCreateNand(ptr noundef %270, i32 noundef %242) #12
-  %272 = getelementptr inbounds i8, ptr %243, i64 56
-  store ptr %271, ptr %272, align 8
-  br label %356
+265:                                              ; preds = %262, %259
+  %266 = load ptr, ptr %19, align 8
+  %267 = call ptr @Abc_SopCreateNand(ptr noundef %266, i32 noundef %238) #12
+  %268 = getelementptr inbounds i8, ptr %239, i64 56
+  store ptr %267, ptr %268, align 8
+  br label %352
 
-273:                                              ; preds = %266
-  %274 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(4) @.str.29) #14
-  %275 = icmp eq i32 %274, 0
-  br i1 %275, label %279, label %276
+269:                                              ; preds = %262
+  %270 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(4) @.str.29) #14
+  %271 = icmp eq i32 %270, 0
+  br i1 %271, label %275, label %272
 
-276:                                              ; preds = %273
-  %277 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(4) @.str.30) #14
-  %278 = icmp eq i32 %277, 0
-  br i1 %278, label %279, label %283
+272:                                              ; preds = %269
+  %273 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(4) @.str.30) #14
+  %274 = icmp eq i32 %273, 0
+  br i1 %274, label %275, label %279
 
-279:                                              ; preds = %276, %273
-  %280 = load ptr, ptr %19, align 8
-  %281 = call ptr @Abc_SopCreateNor(ptr noundef %280, i32 noundef %242) #12
-  %282 = getelementptr inbounds i8, ptr %243, i64 56
-  store ptr %281, ptr %282, align 8
-  br label %356
+275:                                              ; preds = %272, %269
+  %276 = load ptr, ptr %19, align 8
+  %277 = call ptr @Abc_SopCreateNor(ptr noundef %276, i32 noundef %238) #12
+  %278 = getelementptr inbounds i8, ptr %239, i64 56
+  store ptr %277, ptr %278, align 8
+  br label %352
 
-283:                                              ; preds = %276
-  %284 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(4) @.str.31) #14
-  %285 = icmp eq i32 %284, 0
-  br i1 %285, label %289, label %286
+279:                                              ; preds = %272
+  %280 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(4) @.str.31) #14
+  %281 = icmp eq i32 %280, 0
+  br i1 %281, label %285, label %282
 
-286:                                              ; preds = %283
-  %287 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(4) @.str.32) #14
-  %288 = icmp eq i32 %287, 0
-  br i1 %288, label %289, label %293
+282:                                              ; preds = %279
+  %283 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(4) @.str.32) #14
+  %284 = icmp eq i32 %283, 0
+  br i1 %284, label %285, label %289
 
-289:                                              ; preds = %286, %283
-  %290 = load ptr, ptr %19, align 8
-  %291 = call ptr @Abc_SopCreateXor(ptr noundef %290, i32 noundef %242) #12
-  %292 = getelementptr inbounds i8, ptr %243, i64 56
-  store ptr %291, ptr %292, align 8
-  br label %356
+285:                                              ; preds = %282, %279
+  %286 = load ptr, ptr %19, align 8
+  %287 = call ptr @Abc_SopCreateXor(ptr noundef %286, i32 noundef %238) #12
+  %288 = getelementptr inbounds i8, ptr %239, i64 56
+  store ptr %287, ptr %288, align 8
+  br label %352
 
-293:                                              ; preds = %286
-  %294 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(5) @.str.33) #14
-  %295 = icmp eq i32 %294, 0
-  br i1 %295, label %305, label %296
+289:                                              ; preds = %282
+  %290 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(5) @.str.33) #14
+  %291 = icmp eq i32 %290, 0
+  br i1 %291, label %301, label %292
 
-296:                                              ; preds = %293
-  %297 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(5) @.str.34) #14
-  %298 = icmp eq i32 %297, 0
-  br i1 %298, label %305, label %299
+292:                                              ; preds = %289
+  %293 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(5) @.str.34) #14
+  %294 = icmp eq i32 %293, 0
+  br i1 %294, label %301, label %295
 
-299:                                              ; preds = %296
-  %300 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(5) @.str.35) #14
-  %301 = icmp eq i32 %300, 0
-  br i1 %301, label %305, label %302
+295:                                              ; preds = %292
+  %296 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(5) @.str.35) #14
+  %297 = icmp eq i32 %296, 0
+  br i1 %297, label %301, label %298
 
-302:                                              ; preds = %299
-  %303 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(5) @.str.36) #14
-  %304 = icmp eq i32 %303, 0
-  br i1 %304, label %305, label %309
+298:                                              ; preds = %295
+  %299 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(5) @.str.36) #14
+  %300 = icmp eq i32 %299, 0
+  br i1 %300, label %301, label %305
 
-305:                                              ; preds = %302, %299, %296, %293
-  %306 = load ptr, ptr %19, align 8
-  %307 = call ptr @Abc_SopCreateNxor(ptr noundef %306, i32 noundef %242) #12
-  %308 = getelementptr inbounds i8, ptr %243, i64 56
-  store ptr %307, ptr %308, align 8
-  br label %356
+301:                                              ; preds = %298, %295, %292, %289
+  %302 = load ptr, ptr %19, align 8
+  %303 = call ptr @Abc_SopCreateNxor(ptr noundef %302, i32 noundef %238) #12
+  %304 = getelementptr inbounds i8, ptr %239, i64 56
+  store ptr %303, ptr %304, align 8
+  br label %352
 
-309:                                              ; preds = %302
-  %310 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(4) @.str.37, i64 noundef 3) #14
-  %311 = icmp eq i32 %310, 0
-  br i1 %311, label %315, label %312
+305:                                              ; preds = %298
+  %306 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(4) @.str.37, i64 noundef 3) #14
+  %307 = icmp eq i32 %306, 0
+  br i1 %307, label %311, label %308
 
-312:                                              ; preds = %309
-  %313 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(4) @.str.38) #14
-  %314 = icmp eq i32 %313, 0
-  br i1 %314, label %315, label %319
+308:                                              ; preds = %305
+  %309 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(4) @.str.38) #14
+  %310 = icmp eq i32 %309, 0
+  br i1 %310, label %311, label %315
 
-315:                                              ; preds = %312, %309
-  %316 = load ptr, ptr %19, align 8
-  %317 = call ptr @Abc_SopCreateBuf(ptr noundef %316) #12
-  %318 = getelementptr inbounds i8, ptr %243, i64 56
-  store ptr %317, ptr %318, align 8
-  br label %356
+311:                                              ; preds = %308, %305
+  %312 = load ptr, ptr %19, align 8
+  %313 = call ptr @Abc_SopCreateBuf(ptr noundef %312) #12
+  %314 = getelementptr inbounds i8, ptr %239, i64 56
+  store ptr %313, ptr %314, align 8
+  br label %352
 
-319:                                              ; preds = %312
-  %320 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(4) @.str.39) #14
-  %321 = icmp eq i32 %320, 0
-  br i1 %321, label %325, label %322
+315:                                              ; preds = %308
+  %316 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(4) @.str.39) #14
+  %317 = icmp eq i32 %316, 0
+  br i1 %317, label %321, label %318
 
-322:                                              ; preds = %319
-  %323 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(4) @.str.40) #14
-  %324 = icmp eq i32 %323, 0
-  br i1 %324, label %325, label %329
+318:                                              ; preds = %315
+  %319 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(4) @.str.40) #14
+  %320 = icmp eq i32 %319, 0
+  br i1 %320, label %321, label %325
 
-325:                                              ; preds = %322, %319
-  %326 = load ptr, ptr %19, align 8
-  %327 = call ptr @Abc_SopCreateInv(ptr noundef %326) #12
-  %328 = getelementptr inbounds i8, ptr %243, i64 56
-  store ptr %327, ptr %328, align 8
-  br label %356
+321:                                              ; preds = %318, %315
+  %322 = load ptr, ptr %19, align 8
+  %323 = call ptr @Abc_SopCreateInv(ptr noundef %322) #12
+  %324 = getelementptr inbounds i8, ptr %239, i64 56
+  store ptr %323, ptr %324, align 8
+  br label %352
 
-329:                                              ; preds = %322
-  %330 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(4) @.str.41, i64 noundef 3) #14
-  %331 = icmp eq i32 %330, 0
-  br i1 %331, label %335, label %332
+325:                                              ; preds = %318
+  %326 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(4) @.str.41, i64 noundef 3) #14
+  %327 = icmp eq i32 %326, 0
+  br i1 %327, label %331, label %328
 
-332:                                              ; preds = %329
-  %333 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(4) @.str.42) #14
-  %334 = icmp eq i32 %333, 0
-  br i1 %334, label %335, label %339
+328:                                              ; preds = %325
+  %329 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(4) @.str.42) #14
+  %330 = icmp eq i32 %329, 0
+  br i1 %330, label %331, label %335
 
-335:                                              ; preds = %332, %329
-  %336 = load ptr, ptr %19, align 8
-  %337 = call ptr @Abc_SopRegister(ptr noundef %336, ptr noundef nonnull @.str.43) #12
-  %338 = getelementptr inbounds i8, ptr %243, i64 56
-  store ptr %337, ptr %338, align 8
-  br label %356
+331:                                              ; preds = %328, %325
+  %332 = load ptr, ptr %19, align 8
+  %333 = call ptr @Abc_SopRegister(ptr noundef %332, ptr noundef nonnull @.str.43) #12
+  %334 = getelementptr inbounds i8, ptr %239, i64 56
+  store ptr %333, ptr %334, align 8
+  br label %352
 
-339:                                              ; preds = %332
-  %340 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(4) @.str.44, i64 noundef 3) #14
-  %341 = icmp eq i32 %340, 0
-  br i1 %341, label %342, label %346
+335:                                              ; preds = %328
+  %336 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(4) @.str.44, i64 noundef 3) #14
+  %337 = icmp eq i32 %336, 0
+  br i1 %337, label %338, label %342
 
-342:                                              ; preds = %339
-  %343 = load ptr, ptr %19, align 8
-  %344 = call ptr @Abc_SopRegister(ptr noundef %343, ptr noundef nonnull @.str.20) #12
-  %345 = getelementptr inbounds i8, ptr %243, i64 56
-  store ptr %344, ptr %345, align 8
-  br label %356
+338:                                              ; preds = %335
+  %339 = load ptr, ptr %19, align 8
+  %340 = call ptr @Abc_SopRegister(ptr noundef %339, ptr noundef nonnull @.str.20) #12
+  %341 = getelementptr inbounds i8, ptr %239, i64 56
+  store ptr %340, ptr %341, align 8
+  br label %352
 
-346:                                              ; preds = %339
-  %347 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(4) @.str.45, i64 noundef 3) #14
-  %348 = icmp eq i32 %347, 0
-  br i1 %348, label %349, label %353
+342:                                              ; preds = %335
+  %343 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(4) @.str.45, i64 noundef 3) #14
+  %344 = icmp eq i32 %343, 0
+  br i1 %344, label %345, label %349
 
-349:                                              ; preds = %346
-  %350 = load ptr, ptr %19, align 8
-  %351 = call ptr @Abc_SopRegister(ptr noundef %350, ptr noundef nonnull @.str.21) #12
-  %352 = getelementptr inbounds i8, ptr %243, i64 56
-  store ptr %351, ptr %352, align 8
-  br label %356
+345:                                              ; preds = %342
+  %346 = load ptr, ptr %19, align 8
+  %347 = call ptr @Abc_SopRegister(ptr noundef %346, ptr noundef nonnull @.str.21) #12
+  %348 = getelementptr inbounds i8, ptr %239, i64 56
+  store ptr %347, ptr %348, align 8
+  br label %352
 
-353:                                              ; preds = %346
-  %354 = call i32 @Extra_FileReaderGetLineNumber(ptr noundef nonnull %5, i32 noundef 0) #12
-  %355 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46, ptr noundef %49, i32 noundef %354)
+349:                                              ; preds = %342
+  %350 = call i32 @Extra_FileReaderGetLineNumber(ptr noundef nonnull %5, i32 noundef 0) #12
+  %351 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46, ptr noundef %49, i32 noundef %350)
   call fastcc void @Vec_StrFree(ptr noundef nonnull %11)
   br label %Io_ReadBenchNetwork.exit.thread
 
-356:                                              ; preds = %349, %342, %335, %325, %315, %305, %289, %279, %269, %259, %249, %233, %229, %223, %Extra_TruthIsConst1.exit.i, %Extra_TruthIsConst0.exit.i, %81, %80, %79, %.critedge.i, %50, %41
-  %357 = phi ptr [ %21, %41 ], [ %21, %50 ], [ %21, %.critedge.i ], [ %21, %79 ], [ %21, %80 ], [ %21, %81 ], [ %183, %Extra_TruthIsConst0.exit.i ], [ %183, %Extra_TruthIsConst1.exit.i ], [ %183, %223 ], [ %183, %229 ], [ %183, %233 ], [ %21, %249 ], [ %21, %259 ], [ %21, %269 ], [ %21, %279 ], [ %21, %289 ], [ %21, %305 ], [ %21, %315 ], [ %21, %325 ], [ %21, %335 ], [ %21, %342 ], [ %21, %349 ]
-  %.1.i = phi i32 [ %.0196277.i, %41 ], [ %.0196277.i, %50 ], [ %.0196277.i, %.critedge.i ], [ %.0196277.i, %79 ], [ %.0196277.i, %80 ], [ %.0196277.i, %81 ], [ 1, %Extra_TruthIsConst0.exit.i ], [ 1, %Extra_TruthIsConst1.exit.i ], [ 1, %223 ], [ 1, %229 ], [ 1, %233 ], [ %.0196277.i, %249 ], [ %.0196277.i, %259 ], [ %.0196277.i, %269 ], [ %.0196277.i, %279 ], [ %.0196277.i, %289 ], [ %.0196277.i, %305 ], [ %.0196277.i, %315 ], [ %.0196277.i, %325 ], [ %.0196277.i, %335 ], [ %.0196277.i, %342 ], [ %.0196277.i, %349 ]
-  %358 = call ptr @Extra_FileReaderGetTokens(ptr noundef nonnull %5) #12
-  %.not.i = icmp eq ptr %358, null
+352:                                              ; preds = %345, %338, %331, %321, %311, %301, %285, %275, %265, %255, %245, %229, %225, %219, %Extra_TruthIsConst1.exit.i, %Extra_TruthIsConst0.exit.i, %81, %80, %79, %.critedge.i, %50, %41
+  %353 = phi ptr [ %21, %41 ], [ %21, %50 ], [ %21, %.critedge.i ], [ %21, %79 ], [ %21, %80 ], [ %21, %81 ], [ %183, %Extra_TruthIsConst0.exit.i ], [ %183, %Extra_TruthIsConst1.exit.i ], [ %183, %219 ], [ %183, %225 ], [ %183, %229 ], [ %21, %245 ], [ %21, %255 ], [ %21, %265 ], [ %21, %275 ], [ %21, %285 ], [ %21, %301 ], [ %21, %311 ], [ %21, %321 ], [ %21, %331 ], [ %21, %338 ], [ %21, %345 ]
+  %.1.i = phi i32 [ %.0196279.i, %41 ], [ %.0196279.i, %50 ], [ %.0196279.i, %.critedge.i ], [ %.0196279.i, %79 ], [ %.0196279.i, %80 ], [ %.0196279.i, %81 ], [ 1, %Extra_TruthIsConst0.exit.i ], [ 1, %Extra_TruthIsConst1.exit.i ], [ 1, %219 ], [ 1, %225 ], [ 1, %229 ], [ %.0196279.i, %245 ], [ %.0196279.i, %255 ], [ %.0196279.i, %265 ], [ %.0196279.i, %275 ], [ %.0196279.i, %285 ], [ %.0196279.i, %301 ], [ %.0196279.i, %311 ], [ %.0196279.i, %321 ], [ %.0196279.i, %331 ], [ %.0196279.i, %338 ], [ %.0196279.i, %345 ]
+  %354 = call ptr @Extra_FileReaderGetTokens(ptr noundef nonnull %5) #12
+  %.not.i = icmp eq ptr %354, null
   br i1 %.not.i, label %._crit_edge.loopexit.i, label %20, !llvm.loop !9
 
-._crit_edge.loopexit.i:                           ; preds = %356
-  %359 = icmp eq i32 %.1.i, 0
+._crit_edge.loopexit.i:                           ; preds = %352
+  %355 = icmp eq i32 %.1.i, 0
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %7
-  %360 = phi ptr [ %13, %7 ], [ %357, %._crit_edge.loopexit.i ]
-  %.0196.lcssa.i = phi i1 [ true, %7 ], [ %359, %._crit_edge.loopexit.i ]
+  %356 = phi ptr [ %13, %7 ], [ %353, %._crit_edge.loopexit.i ]
+  %.0196.lcssa.i = phi i1 [ true, %7 ], [ %355, %._crit_edge.loopexit.i ]
   call void @Extra_ProgressBarStop(ptr noundef %17) #12
-  %.not.i250.i = icmp eq ptr %360, null
-  br i1 %.not.i250.i, label %Vec_StrFree.exit251.i, label %361
+  %.not.i252.i = icmp eq ptr %356, null
+  br i1 %.not.i252.i, label %Vec_StrFree.exit253.i, label %357
 
-361:                                              ; preds = %._crit_edge.i
-  call void @free(ptr noundef nonnull %360) #12
-  br label %Vec_StrFree.exit251.i
+357:                                              ; preds = %._crit_edge.i
+  call void @free(ptr noundef nonnull %356) #12
+  br label %Vec_StrFree.exit253.i
 
-Vec_StrFree.exit251.i:                            ; preds = %361, %._crit_edge.i
+Vec_StrFree.exit253.i:                            ; preds = %357, %._crit_edge.i
   call void @free(ptr noundef nonnull %11) #12
-  %362 = call ptr @Abc_NtkFindNet(ptr noundef %9, ptr noundef nonnull @.str.44) #12
-  %.not210.i = icmp eq ptr %362, null
-  br i1 %.not210.i, label %368, label %363
+  %358 = call ptr @Abc_NtkFindNet(ptr noundef %9, ptr noundef nonnull @.str.44) #12
+  %.not210.i = icmp eq ptr %358, null
+  br i1 %.not210.i, label %364, label %359
 
-363:                                              ; preds = %Vec_StrFree.exit251.i
-  %364 = getelementptr i8, ptr %362, i64 28
-  %.val227.i = load i32, ptr %364, align 4
-  %365 = icmp eq i32 %.val227.i, 0
-  br i1 %365, label %366, label %368
+359:                                              ; preds = %Vec_StrFree.exit253.i
+  %360 = getelementptr i8, ptr %358, i64 28
+  %.val227.i = load i32, ptr %360, align 4
+  %361 = icmp eq i32 %.val227.i, 0
+  br i1 %361, label %362, label %364
 
-366:                                              ; preds = %363
-  %367 = call ptr @Io_ReadCreateConst(ptr noundef %9, ptr noundef nonnull @.str.44, i32 noundef 0) #12
-  br label %368
+362:                                              ; preds = %359
+  %363 = call ptr @Io_ReadCreateConst(ptr noundef %9, ptr noundef nonnull @.str.44, i32 noundef 0) #12
+  br label %364
 
-368:                                              ; preds = %366, %363, %Vec_StrFree.exit251.i
-  %369 = call ptr @Abc_NtkFindNet(ptr noundef %9, ptr noundef nonnull @.str.47) #12
-  %.not211.i = icmp eq ptr %369, null
-  br i1 %.not211.i, label %375, label %370
+364:                                              ; preds = %362, %359, %Vec_StrFree.exit253.i
+  %365 = call ptr @Abc_NtkFindNet(ptr noundef %9, ptr noundef nonnull @.str.47) #12
+  %.not211.i = icmp eq ptr %365, null
+  br i1 %.not211.i, label %371, label %366
 
-370:                                              ; preds = %368
-  %371 = getelementptr i8, ptr %369, i64 28
-  %.val228.i = load i32, ptr %371, align 4
-  %372 = icmp eq i32 %.val228.i, 0
-  br i1 %372, label %373, label %375
+366:                                              ; preds = %364
+  %367 = getelementptr i8, ptr %365, i64 28
+  %.val228.i = load i32, ptr %367, align 4
+  %368 = icmp eq i32 %.val228.i, 0
+  br i1 %368, label %369, label %371
 
-373:                                              ; preds = %370
+369:                                              ; preds = %366
   %puts.i = call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
-  %374 = call ptr @Io_ReadCreateConst(ptr noundef %9, ptr noundef nonnull @.str.47, i32 noundef 0) #12
-  br label %375
+  %370 = call ptr @Io_ReadCreateConst(ptr noundef %9, ptr noundef nonnull @.str.47, i32 noundef 0) #12
+  br label %371
 
-375:                                              ; preds = %373, %370, %368
-  %376 = call ptr @Abc_NtkFindNet(ptr noundef %9, ptr noundef nonnull @.str.45) #12
-  %.not212.i = icmp eq ptr %376, null
-  br i1 %.not212.i, label %382, label %377
+371:                                              ; preds = %369, %366, %364
+  %372 = call ptr @Abc_NtkFindNet(ptr noundef %9, ptr noundef nonnull @.str.45) #12
+  %.not212.i = icmp eq ptr %372, null
+  br i1 %.not212.i, label %378, label %373
 
-377:                                              ; preds = %375
-  %378 = getelementptr i8, ptr %376, i64 28
-  %.val229.i = load i32, ptr %378, align 4
-  %379 = icmp eq i32 %.val229.i, 0
-  br i1 %379, label %380, label %382
+373:                                              ; preds = %371
+  %374 = getelementptr i8, ptr %372, i64 28
+  %.val229.i = load i32, ptr %374, align 4
+  %375 = icmp eq i32 %.val229.i, 0
+  br i1 %375, label %376, label %378
 
-380:                                              ; preds = %377
-  %381 = call ptr @Io_ReadCreateConst(ptr noundef %9, ptr noundef nonnull @.str.45, i32 noundef 1) #12
-  br label %382
+376:                                              ; preds = %373
+  %377 = call ptr @Io_ReadCreateConst(ptr noundef %9, ptr noundef nonnull @.str.45, i32 noundef 1) #12
+  br label %378
 
-382:                                              ; preds = %380, %377, %375
-  %383 = call ptr @Abc_NtkFindNet(ptr noundef %9, ptr noundef nonnull @.str.49) #12
-  %.not213.i = icmp eq ptr %383, null
-  br i1 %.not213.i, label %389, label %384
+378:                                              ; preds = %376, %373, %371
+  %379 = call ptr @Abc_NtkFindNet(ptr noundef %9, ptr noundef nonnull @.str.49) #12
+  %.not213.i = icmp eq ptr %379, null
+  br i1 %.not213.i, label %385, label %380
 
-384:                                              ; preds = %382
-  %385 = getelementptr i8, ptr %383, i64 28
-  %.val230.i = load i32, ptr %385, align 4
-  %386 = icmp eq i32 %.val230.i, 0
-  br i1 %386, label %387, label %389
+380:                                              ; preds = %378
+  %381 = getelementptr i8, ptr %379, i64 28
+  %.val230.i = load i32, ptr %381, align 4
+  %382 = icmp eq i32 %.val230.i, 0
+  br i1 %382, label %383, label %385
 
-387:                                              ; preds = %384
+383:                                              ; preds = %380
   %puts214.i = call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
-  %388 = call ptr @Io_ReadCreateConst(ptr noundef %9, ptr noundef nonnull @.str.49, i32 noundef 1) #12
-  br label %389
+  %384 = call ptr @Io_ReadCreateConst(ptr noundef %9, ptr noundef nonnull @.str.49, i32 noundef 1) #12
+  br label %385
 
-389:                                              ; preds = %387, %384, %382
+385:                                              ; preds = %383, %380, %378
   call void @Abc_NtkFinalizeRead(ptr noundef %9) #12
-  br i1 %.0196.lcssa.i, label %Io_ReadBenchNetwork.exit, label %390
+  br i1 %.0196.lcssa.i, label %Io_ReadBenchNetwork.exit, label %386
 
-390:                                              ; preds = %389
-  %391 = call i32 @Abc_NtkToBdd(ptr noundef %9) #12
-  %.not216.i = icmp eq i32 %391, 0
-  br i1 %.not216.i, label %392, label %393
+386:                                              ; preds = %385
+  %387 = call i32 @Abc_NtkToBdd(ptr noundef %9) #12
+  %.not216.i = icmp eq i32 %387, 0
+  br i1 %.not216.i, label %388, label %389
 
-392:                                              ; preds = %390
+388:                                              ; preds = %386
   %puts217.i = call i32 @puts(ptr nonnull dereferenceable(1) @str.3)
   br label %Io_ReadBenchNetwork.exit.thread
 
-393:                                              ; preds = %390
-  %394 = call i32 @Abc_NtkToSop(ptr noundef %9, i32 noundef -1, i32 noundef 1000000000) #12
-  %.not218.i = icmp eq i32 %394, 0
-  br i1 %.not218.i, label %395, label %Io_ReadBenchNetwork.exit
+389:                                              ; preds = %386
+  %390 = call i32 @Abc_NtkToSop(ptr noundef %9, i32 noundef -1, i32 noundef 1000000000) #12
+  %.not218.i = icmp eq i32 %390, 0
+  br i1 %.not218.i, label %391, label %Io_ReadBenchNetwork.exit
 
-395:                                              ; preds = %393
+391:                                              ; preds = %389
   %puts219.i = call i32 @puts(ptr nonnull dereferenceable(1) @str.4)
   br label %Io_ReadBenchNetwork.exit.thread
 
-Io_ReadBenchNetwork.exit.thread:                  ; preds = %Vec_StrFree.exit.i, %Vec_StrFree.exit233.i, %Vec_StrFree.exit235.i, %Vec_StrFree.exit242.i, %237, %353, %392, %395
+Io_ReadBenchNetwork.exit.thread:                  ; preds = %Vec_StrFree.exit.i, %Vec_StrFree.exit233.i, %Vec_StrFree.exit235.i, %Vec_StrFree.exit242.i, %233, %349, %388, %391
   call void @Abc_NtkDelete(ptr noundef %9) #12
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 1000, ptr nonnull %4)
   call void @Extra_FileReaderFree(ptr noundef nonnull %5) #12
-  br label %401
+  br label %397
 
-Io_ReadBenchNetwork.exit:                         ; preds = %389, %393
+Io_ReadBenchNetwork.exit:                         ; preds = %385, %389
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 1000, ptr nonnull %4)
   call void @Extra_FileReaderFree(ptr noundef nonnull %5) #12
-  %396 = icmp eq ptr %9, null
-  br i1 %396, label %401, label %397
+  %392 = icmp eq ptr %9, null
+  br i1 %392, label %397, label %393
 
-397:                                              ; preds = %Io_ReadBenchNetwork.exit
+393:                                              ; preds = %Io_ReadBenchNetwork.exit
   %.not = icmp eq i32 %1, 0
-  br i1 %.not, label %401, label %398
+  br i1 %.not, label %397, label %394
 
-398:                                              ; preds = %397
-  %399 = call i32 @Abc_NtkCheckRead(ptr noundef nonnull %9) #12
-  %.not11 = icmp eq i32 %399, 0
-  br i1 %.not11, label %400, label %401
+394:                                              ; preds = %393
+  %395 = call i32 @Abc_NtkCheckRead(ptr noundef nonnull %9) #12
+  %.not11 = icmp eq i32 %395, 0
+  br i1 %.not11, label %396, label %397
 
-400:                                              ; preds = %398
+396:                                              ; preds = %394
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
   call void @Abc_NtkDelete(ptr noundef nonnull %9) #12
-  br label %401
+  br label %397
 
-401:                                              ; preds = %Io_ReadBenchNetwork.exit.thread, %397, %398, %Io_ReadBenchNetwork.exit, %2, %400
-  %.0 = phi ptr [ null, %400 ], [ null, %2 ], [ null, %Io_ReadBenchNetwork.exit ], [ %9, %398 ], [ %9, %397 ], [ null, %Io_ReadBenchNetwork.exit.thread ]
+397:                                              ; preds = %Io_ReadBenchNetwork.exit.thread, %393, %394, %Io_ReadBenchNetwork.exit, %2, %396
+  %.0 = phi ptr [ null, %396 ], [ null, %2 ], [ null, %Io_ReadBenchNetwork.exit ], [ %9, %394 ], [ %9, %393 ], [ null, %Io_ReadBenchNetwork.exit.thread ]
   ret ptr %.0
 }
 

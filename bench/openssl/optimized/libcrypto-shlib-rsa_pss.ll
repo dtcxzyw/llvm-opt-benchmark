@@ -486,7 +486,7 @@ if.then110:                                       ; preds = %if.end108
 
 if.end116:                                        ; preds = %if.then110, %if.end108
   %sub117 = add nsw i32 %emLen.0, -1
-  %idxprom118 = sext i32 %sub117 to i64
+  %idxprom118 = zext nneg i32 %sub117 to i64
   %arrayidx119 = getelementptr inbounds i8, ptr %EM.addr.0, i64 %idxprom118
   store i8 -68, ptr %arrayidx119, align 1
   br label %err

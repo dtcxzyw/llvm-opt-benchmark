@@ -40481,7 +40481,7 @@ if.then76:                                        ; preds = %if.end70
 
 cond.true:                                        ; preds = %if.then76
   %sub78 = sub nsw i32 1, %kappa.1
-  %idxprom82 = sext i32 %sub78 to i64
+  %idxprom82 = zext nneg i32 %sub78 to i64
   %arrayidx83 = getelementptr inbounds [10 x i32], ptr @_ZZN9rapidjson8internal8DigitGenERKNS0_5DiyFpES3_mPcPiS5_E6kPow10, i64 0, i64 %idxprom82
   %13 = load i32, ptr %arrayidx83, align 4
   %14 = zext i32 %13 to i64

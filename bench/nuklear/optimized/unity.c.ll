@@ -18467,9 +18467,9 @@ for.body398.i:                                    ; preds = %for.cond395.i.prehe
   br i1 %exitcond.not, label %for.end461.i, label %for.body398.i, !llvm.loop !90
 
 for.end461.i:                                     ; preds = %for.body398.i
-  %add462.i = add nsw i32 %call391.i, %num_vertices.5.i166
-  %conv463.i = sext i32 %add462.i to i64
-  %mul464.i = mul nsw i64 %conv463.i, 14
+  %add462.i = add nuw nsw i32 %call391.i, %num_vertices.5.i166
+  %conv463.i = zext nneg i32 %add462.i to i64
+  %mul464.i = mul nuw nsw i64 %conv463.i, 14
   %132 = load ptr, ptr %info, align 8
   %.val249.i = load ptr, ptr %132, align 8
   %133 = getelementptr i8, ptr %132, i64 8
@@ -18502,10 +18502,10 @@ if.end477.i:                                      ; preds = %for.end461.i
   %cmp478.i = icmp sgt i32 %num_vertices.5.i166, 0
   %tobool480.i = icmp ne ptr %vertices.0.i167, null
   %or.cond.i = select i1 %cmp478.i, i1 %tobool480.i, i1 false
+  %conv482.i = zext nneg i32 %num_vertices.5.i166 to i64
   br i1 %or.cond.i, label %if.end484.i.thread, label %if.end484.i
 
 if.end484.i.thread:                               ; preds = %if.end477.i
-  %conv482.i = zext nneg i32 %num_vertices.5.i166 to i64
   %mul483.i = mul nuw nsw i64 %conv482.i, 14
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %call.i11, ptr nonnull align 2 %vertices.0.i167, i64 %mul483.i, i1 false)
   %add.ptr486.i158 = getelementptr inbounds %struct.stbtt_vertex, ptr %call.i11, i64 %conv482.i
@@ -18514,8 +18514,7 @@ if.end484.i.thread:                               ; preds = %if.end477.i
   br label %if.then490.i
 
 if.end484.i:                                      ; preds = %if.end477.i
-  %idx.ext485.i = sext i32 %num_vertices.5.i166 to i64
-  %add.ptr486.i = getelementptr inbounds %struct.stbtt_vertex, ptr %call.i11, i64 %idx.ext485.i
+  %add.ptr486.i = getelementptr inbounds %struct.stbtt_vertex, ptr %call.i11, i64 %conv482.i
   %mul488.i = mul nuw nsw i64 %wide.trip.count, 14
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %add.ptr486.i, ptr nonnull align 2 %112, i64 %mul488.i, i1 false)
   br i1 %tobool480.i, label %if.then490.i, label %if.end492.i

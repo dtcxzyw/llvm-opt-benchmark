@@ -2262,9 +2262,9 @@ while.body.i:                                     ; preds = %_ZNK6icu_755units22
   %7 = phi i8 [ 0, %while.body.lr.ph.i ], [ %13, %_ZNK6icu_755units22UnitPreferenceMetadata9compareToERKS1_PbS4_S4_.exit.i ]
   %start.09.i = phi i32 [ 0, %while.body.lr.ph.i ], [ %spec.select6.i, %_ZNK6icu_755units22UnitPreferenceMetadata9compareToERKS1_PbS4_S4_.exit.i ]
   %end.08.i = phi i32 [ %1, %while.body.lr.ph.i ], [ %spec.select.i, %_ZNK6icu_755units22UnitPreferenceMetadata9compareToERKS1_PbS4_S4_.exit.i ]
-  %add.i = add nsw i32 %end.08.i, %start.09.i
-  %div.i = sdiv i32 %add.i, 2
-  %conv.i19 = sext i32 %div.i to i64
+  %add.i = add nuw nsw i32 %end.08.i, %start.09.i
+  %div11.i = lshr i32 %add.i, 1
+  %conv.i19 = zext nneg i32 %div11.i to i64
   %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %2, i64 %conv.i19
   %8 = load ptr, ptr %arrayidx.i.i.i, align 8
   %category.i.i = getelementptr inbounds i8, ptr %8, i64 8
@@ -2292,8 +2292,8 @@ _ZNK6icu_755units22UnitPreferenceMetadata9compareToERKS1_PbS4_S4_.exit.i: ; pred
   %13 = phi i8 [ 1, %if.end16.i.i ], [ 1, %if.end.i.i ], [ %7, %while.body.i ]
   %cmp.110.i.i = phi i32 [ %call15.i.i, %if.end16.i.i ], [ %call9.i.i, %if.end.i.i ], [ %call4.i.i, %while.body.i ]
   %cmp5.i = icmp slt i32 %cmp.110.i.i, 0
-  %add7.i = add nsw i32 %div.i, 1
-  %spec.select.i = select i1 %cmp5.i, i32 %end.08.i, i32 %div.i
+  %add7.i = add nuw nsw i32 %div11.i, 1
+  %spec.select.i = select i1 %cmp5.i, i32 %end.08.i, i32 %div11.i
   %spec.select6.i = select i1 %cmp5.i, i32 %add7.i, i32 %start.09.i
   %cmp.i20 = icmp slt i32 %spec.select6.i, %spec.select.i
   br i1 %cmp.i20, label %while.body.i, label %if.end9, !llvm.loop !20
@@ -2389,9 +2389,9 @@ while.body.i33:                                   ; preds = %_ZNK6icu_755units22
   %25 = phi i8 [ 0, %while.body.lr.ph.i28 ], [ %30, %_ZNK6icu_755units22UnitPreferenceMetadata9compareToERKS1_PbS4_S4_.exit.i43 ]
   %start.09.i34 = phi i32 [ 0, %while.body.lr.ph.i28 ], [ %spec.select6.i48, %_ZNK6icu_755units22UnitPreferenceMetadata9compareToERKS1_PbS4_S4_.exit.i43 ]
   %end.08.i35 = phi i32 [ %20, %while.body.lr.ph.i28 ], [ %spec.select.i47, %_ZNK6icu_755units22UnitPreferenceMetadata9compareToERKS1_PbS4_S4_.exit.i43 ]
-  %add.i36 = add nsw i32 %end.08.i35, %start.09.i34
-  %div.i37 = sdiv i32 %add.i36, 2
-  %conv.i38 = sext i32 %div.i37 to i64
+  %add.i36 = add nuw nsw i32 %end.08.i35, %start.09.i34
+  %div11.i37 = lshr i32 %add.i36, 1
+  %conv.i38 = zext nneg i32 %div11.i37 to i64
   %arrayidx.i.i.i39 = getelementptr inbounds ptr, ptr %21, i64 %conv.i38
   %26 = load ptr, ptr %arrayidx.i.i.i39, align 8
   %category.i.i40 = getelementptr inbounds i8, ptr %26, i64 8
@@ -2418,8 +2418,8 @@ _ZNK6icu_755units22UnitPreferenceMetadata9compareToERKS1_PbS4_S4_.exit.i43: ; pr
   %30 = phi i8 [ 1, %if.end16.i.i54 ], [ %25, %if.end.i.i50 ], [ %25, %while.body.i33 ]
   %cmp.110.i.i44 = phi i32 [ %call15.i.i56, %if.end16.i.i54 ], [ %call9.i.i52, %if.end.i.i50 ], [ %call4.i.i41, %while.body.i33 ]
   %cmp5.i45 = icmp slt i32 %cmp.110.i.i44, 0
-  %add7.i46 = add nsw i32 %div.i37, 1
-  %spec.select.i47 = select i1 %cmp5.i45, i32 %end.08.i35, i32 %div.i37
+  %add7.i46 = add nuw nsw i32 %div11.i37, 1
+  %spec.select.i47 = select i1 %cmp5.i45, i32 %end.08.i35, i32 %div11.i37
   %spec.select6.i48 = select i1 %cmp5.i45, i32 %add7.i46, i32 %start.09.i34
   %cmp.i49 = icmp slt i32 %spec.select6.i48, %spec.select.i47
   br i1 %cmp.i49, label %while.body.i33, label %invoke.cont38, !llvm.loop !20
@@ -2467,7 +2467,7 @@ cleanup.sink.split:                               ; preds = %if.else, %if.end61,
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end16.i.i, %if.end37, %if.end16.i.i54, %cleanup.sink.split, %if.end, %if.end61
-  %retval.0 = phi i32 [ %call60, %if.end61 ], [ -1, %if.end ], [ -1, %cleanup.sink.split ], [ %div.i37, %if.end16.i.i54 ], [ -1, %if.end37 ], [ %div.i, %if.end16.i.i ]
+  %retval.0 = phi i32 [ %call60, %if.end61 ], [ -1, %if.end ], [ -1, %cleanup.sink.split ], [ %div11.i37, %if.end16.i.i54 ], [ -1, %if.end37 ], [ %div11.i, %if.end16.i.i ]
   %region.i64 = getelementptr inbounds i8, ptr %desired, i64 136
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %region.i64) #15
   %usage.i65 = getelementptr inbounds i8, ptr %desired, i64 72
@@ -3833,9 +3833,9 @@ while.body.lr.ph:                                 ; preds = %if.end
 while.body:                                       ; preds = %while.body.lr.ph, %_ZNK6icu_755units22UnitPreferenceMetadata9compareToERKS1_PbS4_S4_.exit
   %start.09 = phi i32 [ 0, %while.body.lr.ph ], [ %spec.select6, %_ZNK6icu_755units22UnitPreferenceMetadata9compareToERKS1_PbS4_S4_.exit ]
   %end.08 = phi i32 [ %0, %while.body.lr.ph ], [ %spec.select, %_ZNK6icu_755units22UnitPreferenceMetadata9compareToERKS1_PbS4_S4_.exit ]
-  %add = add nsw i32 %start.09, %end.08
-  %div = sdiv i32 %add, 2
-  %conv = sext i32 %div to i64
+  %add = add nuw nsw i32 %start.09, %end.08
+  %div11 = lshr i32 %add, 1
+  %conv = zext nneg i32 %div11 to i64
   %1 = load ptr, ptr %fPool.i, align 8
   %arrayidx.i.i = getelementptr inbounds ptr, ptr %1, i64 %conv
   %2 = load ptr, ptr %arrayidx.i.i, align 8
@@ -3871,14 +3871,14 @@ if.else.thread:                                   ; preds = %if.end16.i
 _ZNK6icu_755units22UnitPreferenceMetadata9compareToERKS1_PbS4_S4_.exit: ; preds = %while.body, %if.end.i, %if.end16.i
   %cmp.110.i = phi i32 [ %call15.i, %if.end16.i ], [ %call9.i, %if.end.i ], [ %call4.i, %while.body ]
   %cmp5 = icmp slt i32 %cmp.110.i, 0
-  %add7 = add nsw i32 %div, 1
-  %spec.select = select i1 %cmp5, i32 %end.08, i32 %div
+  %add7 = add nuw nsw i32 %div11, 1
+  %spec.select = select i1 %cmp5, i32 %end.08, i32 %div11
   %spec.select6 = select i1 %cmp5, i32 %add7, i32 %start.09
   %cmp = icmp slt i32 %spec.select6, %spec.select
   br i1 %cmp, label %while.body, label %return, !llvm.loop !20
 
 return:                                           ; preds = %_ZNK6icu_755units22UnitPreferenceMetadata9compareToERKS1_PbS4_S4_.exit, %if.end, %if.else.thread, %entry
-  %retval.0 = phi i32 [ -1, %entry ], [ %div, %if.else.thread ], [ -1, %if.end ], [ -1, %_ZNK6icu_755units22UnitPreferenceMetadata9compareToERKS1_PbS4_S4_.exit ]
+  %retval.0 = phi i32 [ -1, %entry ], [ %div11, %if.else.thread ], [ -1, %if.end ], [ -1, %_ZNK6icu_755units22UnitPreferenceMetadata9compareToERKS1_PbS4_S4_.exit ]
   ret i32 %retval.0
 }
 

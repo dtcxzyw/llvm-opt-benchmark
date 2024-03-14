@@ -4727,7 +4727,7 @@ land.lhs.true2279:                                ; preds = %land.lhs.true2221, 
   br i1 %cmp2290.not, label %lor.lhs.false2309, label %if.then2292
 
 if.then2292:                                      ; preds = %land.lhs.true2279
-  %idxprom2293 = sext i32 %sbuf_off.0 to i64
+  %idxprom2293 = zext nneg i32 %sbuf_off.0 to i64
   %arrayidx2294 = getelementptr inbounds i8, ptr %call30, i64 %idxprom2293
   %call2295 = call i32 @raw_write_stdout(ptr noundef %arrayidx2294, i32 noundef %sbuf_len.0) #16
   %cmp2296 = icmp slt i32 %call2295, 1
@@ -4740,7 +4740,7 @@ if.then2298:                                      ; preds = %if.then2292
 
 if.end2300:                                       ; preds = %if.then2292
   %sub2301 = sub nsw i32 %sbuf_len.0, %call2295
-  %add2302 = add nsw i32 %call2295, %sbuf_off.0
+  %add2302 = add nuw nsw i32 %call2295, %sbuf_off.0
   %cmp2303 = icmp slt i32 %sub2301, 1
   %spec.select703 = select i1 %cmp2303, i32 0, i32 %write_tty.0
   %spec.select704 = select i1 %cmp2303, i32 1, i32 %read_ssl.0

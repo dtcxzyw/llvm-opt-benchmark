@@ -444,7 +444,7 @@ define hidden noundef i32 @ir_gcm(ptr nocapture noundef readonly %0) local_unnam
   br i1 %221, label %222, label %224
 
 222:                                              ; preds = %217
-  %223 = call fastcc i32 @ir_gcm_schedule_early(ptr noundef nonnull %0, ptr noundef nonnull %4, i32 noundef %215, ptr noundef nonnull %2)
+  %223 = call fastcc i32 @ir_gcm_schedule_early(ptr noundef nonnull %0, ptr noundef nonnull %4, i32 noundef %215, ptr noundef nonnull %2), !range !5
   br label %224
 
 224:                                              ; preds = %.lr.ph461, %217, %222
@@ -793,7 +793,7 @@ define internal fastcc i32 @ir_gcm_schedule_early(ptr nocapture noundef readonly
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %16
-  %22 = tail call fastcc i32 @ir_gcm_schedule_early(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %14, ptr noundef %3)
+  %22 = tail call fastcc i32 @ir_gcm_schedule_early(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %14, ptr noundef %3), !range !5
   br label %24
 
 23:                                               ; preds = %16
@@ -803,7 +803,7 @@ define internal fastcc i32 @ir_gcm_schedule_early(ptr nocapture noundef readonly
 24:                                               ; preds = %23, %21
   %.038 = phi i32 [ %22, %21 ], [ %spec.select, %23 ]
   %25 = load ptr, ptr %12, align 8
-  %26 = sext i32 %.038 to i64
+  %26 = zext nneg i32 %.038 to i64
   %27 = getelementptr inbounds %struct._ir_block, ptr %25, i64 %26, i32 8
   %28 = load i32, ptr %27, align 4
   %29 = icmp ult i32 %.03951, %28
@@ -2602,3 +2602,4 @@ attributes #12 = { nounwind allocsize(1) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
+!5 = !{i32 1, i32 -2147483648}

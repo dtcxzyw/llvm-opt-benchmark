@@ -2751,7 +2751,7 @@ cond.false5.i.i.i:                                ; preds = %while.cond.i
 cond.true7.i.i.i:                                 ; preds = %cond.false5.i.i.i
   %21 = xor i32 %xStart.0.i, -1
   %sub9.i.i.i = add nuw i32 %toSlice.sroa.12.0.copyload.i, %21
-  %div10.i.i.i = sdiv i32 %sub9.i.i.i, %toSlice.sroa.12.0.copyload.i
+  %div10.i.i.i = udiv i32 %sub9.i.i.i, %toSlice.sroa.12.0.copyload.i
   %sub11.i.i.i = sub nsw i32 0, %div10.i.i.i
   br label %_ZN9Imath_3_24modpEii.exit.i
 
@@ -2796,7 +2796,7 @@ cond.false5.i.i94.i:                              ; preds = %while.cond61.i
 cond.true7.i.i103.i:                              ; preds = %cond.false5.i.i94.i
   %22 = xor i32 %yStart58.0.i, -1
   %sub9.i.i104.i = add nuw i32 %toSlice.sroa.20.0.copyload.i, %22
-  %div10.i.i105.i = sdiv i32 %sub9.i.i104.i, %toSlice.sroa.20.0.copyload.i
+  %div10.i.i105.i = udiv i32 %sub9.i.i104.i, %toSlice.sroa.20.0.copyload.i
   %sub11.i.i106.i = sub nsw i32 0, %div10.i.i105.i
   br label %_ZN9Imath_3_24modpEii.exit114.i
 
@@ -2946,7 +2946,7 @@ cond.false5.i.i:                                  ; preds = %for.body87.i
 cond.true7.i.i:                                   ; preds = %cond.false5.i.i
   %37 = xor i32 %y84.0217.i, -1
   %sub9.i.i = add nuw i32 %toSlice.sroa.20.0.copyload.i, %37
-  %div10.i.i = sdiv i32 %sub9.i.i, %toSlice.sroa.20.0.copyload.i
+  %div10.i.i = udiv i32 %sub9.i.i, %toSlice.sroa.20.0.copyload.i
   %sub11.i.i = sub nsw i32 0, %div10.i.i
   br label %_ZN9Imath_3_24divpEii.exit.i
 
@@ -2978,7 +2978,7 @@ cond.false5.i121.i:                               ; preds = %_ZN9Imath_3_24divpE
   br i1 %cmp1.i.i.i, label %cond.true7.i128.i, label %cond.false12.i122.i
 
 cond.true7.i128.i:                                ; preds = %cond.false5.i121.i
-  %div10.i130.i = sdiv i32 %sub9.i129.i, %toSlice.sroa.12.0.copyload.i
+  %div10.i130.i = udiv i32 %sub9.i129.i, %toSlice.sroa.12.0.copyload.i
   %sub11.i131.i = sub nsw i32 0, %div10.i130.i
   br label %_ZN9Imath_3_24divpEii.exit139.i
 
@@ -3052,7 +3052,7 @@ cond.false5.i142.i:                               ; preds = %for.body137.i
 cond.true7.i149.i:                                ; preds = %cond.false5.i142.i
   %42 = xor i32 %y134.0228.i, -1
   %sub9.i150.i = add nuw i32 %toSlice.sroa.20.0.copyload.i, %42
-  %div10.i151.i = sdiv i32 %sub9.i150.i, %toSlice.sroa.20.0.copyload.i
+  %div10.i151.i = udiv i32 %sub9.i150.i, %toSlice.sroa.20.0.copyload.i
   %sub11.i152.i = sub nsw i32 0, %div10.i151.i
   br label %_ZN9Imath_3_24divpEii.exit160.i
 
@@ -3084,7 +3084,7 @@ cond.false5.i163.i:                               ; preds = %_ZN9Imath_3_24divpE
   br i1 %cmp1.i.i.i, label %cond.true7.i170.i, label %cond.false12.i164.i
 
 cond.true7.i170.i:                                ; preds = %cond.false5.i163.i
-  %div10.i172.i = sdiv i32 %sub9.i171.i, %toSlice.sroa.12.0.copyload.i
+  %div10.i172.i = udiv i32 %sub9.i171.i, %toSlice.sroa.12.0.copyload.i
   %sub11.i173.i = sub nsw i32 0, %div10.i172.i
   br label %_ZN9Imath_3_24divpEii.exit181.i
 

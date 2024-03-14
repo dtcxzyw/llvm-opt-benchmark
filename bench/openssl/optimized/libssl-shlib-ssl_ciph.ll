@@ -3432,8 +3432,8 @@ if.end:                                           ; preds = %land.lhs.true, %whi
 while.end:                                        ; preds = %if.end, %entry
   %max_strength_bits.0.lcssa = phi i32 [ 0, %entry ], [ %max_strength_bits.1, %if.end ]
   %add = add nuw nsw i32 %max_strength_bits.0.lcssa, 1
-  %conv = sext i32 %add to i64
-  %mul = shl nsw i64 %conv, 2
+  %conv = zext nneg i32 %add to i64
+  %mul = shl nuw nsw i64 %conv, 2
   %call = tail call noalias ptr @CRYPTO_zalloc(i64 noundef %mul, ptr noundef nonnull @.str.12, i32 noundef 973) #15
   %cmp4 = icmp eq ptr %call, null
   br i1 %cmp4, label %return, label %while.cond8.preheader
@@ -3747,7 +3747,7 @@ land.lhs.true130:                                 ; preds = %land.lhs.true122
   br i1 %cmp137, label %if.end147, label %if.else140
 
 if.else140:                                       ; preds = %land.lhs.true130, %land.lhs.true122, %if.else117
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %arrayidx = getelementptr inbounds ptr, ptr %ca_list, i64 %indvars.iv.next
   %15 = load ptr, ptr %arrayidx, align 8
   %tobool.not = icmp eq ptr %15, null

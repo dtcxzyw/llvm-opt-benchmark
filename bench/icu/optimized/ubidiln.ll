@@ -871,7 +871,7 @@ while.end:                                        ; preds = %land.rhs
   store i32 %sub, ptr %visualLimit, align 4
   %insertRemove = getelementptr inbounds i8, ptr %arrayidx49, i64 8
   store i32 0, ptr %insertRemove, align 4
-  %indvars.iv.next185 = add nuw i64 %indvars.iv184, 1
+  %indvars.iv.next185 = add nuw nsw i64 %indvars.iv184, 1
   br label %do.body
 
 do.end:                                           ; preds = %while.cond
@@ -1987,7 +1987,7 @@ if.end72:                                         ; preds = %if.then67
 
 for.inc:                                          ; preds = %if.end64, %if.end72
   %markFound.2 = phi i32 [ %inc73, %if.end72 ], [ %markFound.1, %if.end64 ]
-  %indvars.iv.next159 = add nuw i64 %indvars.iv158, 1
+  %indvars.iv.next159 = add nuw nsw i64 %indvars.iv158, 1
   br label %for.cond, !llvm.loop !39
 
 if.else77:                                        ; preds = %if.end38
@@ -2130,7 +2130,7 @@ for.cond154:                                      ; preds = %if.end151, %for.con
   %visualLimit157 = getelementptr inbounds %struct.Run, ptr %9, i64 %indvars.iv161, i32 1
   %34 = load i32, ptr %visualLimit157, align 4
   %cmp158.not = icmp slt i32 %visualIndex.addr.0, %34
-  %indvars.iv.next162 = add nuw i64 %indvars.iv161, 1
+  %indvars.iv.next162 = add nuw nsw i64 %indvars.iv161, 1
   br i1 %cmp158.not, label %if.end185.loopexit, label %for.cond154, !llvm.loop !42
 
 for.cond164:                                      ; preds = %for.cond164.outer, %lor.lhs.false174
@@ -2945,8 +2945,8 @@ while.end:                                        ; preds = %while.body
 
 if.then12:                                        ; preds = %while.end
   %inc10 = add nsw i32 %spec.select, 1
-  %conv = sext i32 %inc10 to i64
-  %mul = shl nsw i64 %conv, 2
+  %conv = zext nneg i32 %inc10 to i64
+  %mul = shl nuw nsw i64 %conv, 2
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %destMap, i8 -1, i64 %mul, i1 false)
   br label %while.body18.preheader
 

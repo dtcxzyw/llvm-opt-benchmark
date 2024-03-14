@@ -10745,7 +10745,7 @@ for.end.i16306:                                   ; preds = %bigint_mul_u64.exit
   br i1 %tobool.i16307.not, label %if.end2427.i2913, label %if.then.i16309
 
 if.then.i16309:                                   ; preds = %for.end.i16306
-  %idxprom.i16310 = sext i32 %sub.i16313 to i64
+  %idxprom.i16310 = zext nneg i32 %sub.i16313 to i64
   %arrayidx.i16311 = getelementptr inbounds [20 x i64], ptr @u64_pow10_table, i64 0, i64 %idxprom.i16310
   %229 = load i64, ptr %arrayidx.i16311, align 8
   %cmp.i187719609.not = icmp eq i32 %inc17.i187439602, 0
@@ -17715,7 +17715,7 @@ for.end.i16280:                                   ; preds = %bigint_mul_u64.exit
   br i1 %tobool.i16281.not, label %if.end2427.i4898, label %if.then.i16283
 
 if.then.i16283:                                   ; preds = %for.end.i16280
-  %idxprom.i16284 = sext i32 %sub.i16287 to i64
+  %idxprom.i16284 = zext nneg i32 %sub.i16287 to i64
   %arrayidx.i16285 = getelementptr inbounds [20 x i64], ptr @u64_pow10_table, i64 0, i64 %idxprom.i16284
   %969 = load i64, ptr %arrayidx.i16285, align 8
   %cmp.i189159398.not = icmp eq i32 %inc17.i188879391, 0
@@ -21264,7 +21264,7 @@ for.end.i16358:                                   ; preds = %bigint_mul_u64.exit
   br i1 %tobool.i16359.not, label %if.end2427.i, label %if.then.i16361
 
 if.then.i16361:                                   ; preds = %for.end.i16358
-  %idxprom.i16362 = sext i32 %sub.i16365 to i64
+  %idxprom.i16362 = zext nneg i32 %sub.i16365 to i64
   %arrayidx.i16363 = getelementptr inbounds [20 x i64], ptr @u64_pow10_table, i64 0, i64 %idxprom.i16362
   %1290 = load i64, ptr %arrayidx.i16363, align 8
   %cmp.i1848310141.not = icmp eq i32 %inc17.i10134, 0
@@ -28172,7 +28172,7 @@ for.end.i16332:                                   ; preds = %bigint_mul_u64.exit
   br i1 %tobool.i16333.not, label %if.end2427.i928, label %if.then.i16335
 
 if.then.i16335:                                   ; preds = %for.end.i16332
-  %idxprom.i16336 = sext i32 %sub.i16339 to i64
+  %idxprom.i16336 = zext nneg i32 %sub.i16339 to i64
   %arrayidx.i16337 = getelementptr inbounds [20 x i64], ptr @u64_pow10_table, i64 0, i64 %idxprom.i16336
   %2051 = load i64, ptr %arrayidx.i16337, align 8
   %cmp.i186279940.not = icmp eq i32 %inc17.i185999933, 0
@@ -31535,7 +31535,6 @@ if.else2425.i.i:                                  ; preds = %if.end2397.i.i
 
 if.then.i1429.thread.i:                           ; preds = %if.else2425.i.i
   store i32 1, ptr %big_comp.i.i, align 8
-  %idxprom.i14302095.i = zext nneg i32 %sub2426.i.i to i64
   br label %for.body.i1953.preheader.i
 
 for.body.i1432.i:                                 ; preds = %if.else2425.i.i, %bigint_mul_u64.exit.i
@@ -31613,13 +31612,13 @@ for.end.i1426.i:                                  ; preds = %bigint_mul_u64.exit
   br i1 %tobool.i1427.not.i, label %if.end2427.i.i, label %if.then.i1429.i
 
 if.then.i1429.i:                                  ; preds = %for.end.i1426.i
-  %idxprom.i1430.i = sext i32 %sub.i1433.i to i64
   %cmp.i19341786.not.i = icmp eq i32 %inc17.i1779.i, 0
   br i1 %cmp.i19341786.not.i, label %if.end2427.i.i, label %for.body.i1953.preheader.i
 
 for.body.i1953.preheader.i:                       ; preds = %if.then.i1429.i, %if.then.i1429.thread.i
-  %idxprom.i14302095.i.pn = phi i64 [ %idxprom.i14302095.i, %if.then.i1429.thread.i ], [ %idxprom.i1430.i, %if.then.i1429.i ]
+  %idxprom.i14302095.i.pn.in = phi i32 [ %sub2426.i.i, %if.then.i1429.thread.i ], [ %sub.i1433.i, %if.then.i1429.i ]
   %2366 = phi i32 [ 1, %if.then.i1429.thread.i ], [ %inc17.i1779.i, %if.then.i1429.i ]
+  %idxprom.i14302095.i.pn = zext i32 %idxprom.i14302095.i.pn.in to i64
   %.in = getelementptr inbounds [20 x i64], ptr @u64_pow10_table, i64 0, i64 %idxprom.i14302095.i.pn
   %2367 = load i64, ptr %.in, align 8
   %wide.trip.count2016.i = zext i32 %2366 to i64
@@ -36386,7 +36385,7 @@ for.end.i283:                                     ; preds = %bigint_mul_u64.exit
   br i1 %tobool.i284.not, label %if.end2427.i, label %if.then.i286
 
 if.then.i286:                                     ; preds = %for.end.i283
-  %idxprom.i287 = sext i32 %sub.i290 to i64
+  %idxprom.i287 = zext nneg i32 %sub.i290 to i64
   %arrayidx.i288 = getelementptr inbounds [20 x i64], ptr @u64_pow10_table, i64 0, i64 %idxprom.i287
   %185 = load i64, ptr %arrayidx.i288, align 8
   %cmp.i7881139.not = icmp eq i32 %inc17.i1132, 0

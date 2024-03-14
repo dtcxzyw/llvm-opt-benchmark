@@ -5315,7 +5315,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %add = add nuw nsw i32 %usedLength, %size
-  %conv = sext i32 %add to i64
+  %conv = zext nneg i32 %add to i64
   %call = tail call ptr @wolfSSL_Malloc(i64 noundef %conv) #27
   %cmp5 = icmp eq ptr %call, null
   br i1 %cmp5, label %return, label %if.end8

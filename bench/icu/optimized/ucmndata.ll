@@ -243,105 +243,104 @@ if.end3.i:                                        ; preds = %_ZL17strcmpAfterPre
   %idx.ext6.i = zext i32 %7 to i64
   %add.ptr7.i = getelementptr inbounds i8, ptr %0, i64 %idx.ext6.i
   %8 = load i8, ptr %add.ptr7.i, align 1
-  %cmp510.i21.i = icmp ne i8 %3, %8
-  %or.cond12.i23.i = or i1 %cmp611.i.i, %cmp510.i21.i
-  br i1 %or.cond12.i23.i, label %_ZL17strcmpAfterPrefixPKcS0_Pi.exit40.i, label %if.end.i24.i
+  %cmp510.i22.i = icmp ne i8 %3, %8
+  %or.cond12.i24.i = or i1 %cmp611.i.i, %cmp510.i22.i
+  br i1 %or.cond12.i24.i, label %_ZL17strcmpAfterPrefixPKcS0_Pi.exit41.i, label %if.end.i25.i
 
-if.end.i24.i:                                     ; preds = %if.end3.i, %if.end.i24.i
-  %s1.addr.015.i25.i = phi ptr [ %incdec.ptr.i29.i, %if.end.i24.i ], [ %tocEntryName, %if.end3.i ]
-  %s2.addr.014.i26.i = phi ptr [ %incdec.ptr3.i28.i, %if.end.i24.i ], [ %add.ptr7.i, %if.end3.i ]
-  %pl.013.i27.i = phi i32 [ %inc.i30.i, %if.end.i24.i ], [ 0, %if.end3.i ]
-  %incdec.ptr3.i28.i = getelementptr inbounds i8, ptr %s2.addr.014.i26.i, i64 1
-  %incdec.ptr.i29.i = getelementptr inbounds i8, ptr %s1.addr.015.i25.i, i64 1
-  %inc.i30.i = add nuw nsw i32 %pl.013.i27.i, 1
-  %9 = load i8, ptr %incdec.ptr.i29.i, align 1
-  %10 = load i8, ptr %incdec.ptr3.i28.i, align 1
-  %cmp5.i31.i = icmp ne i8 %9, %10
-  %cmp6.i32.i = icmp eq i8 %9, 0
-  %or.cond.i33.i = or i1 %cmp6.i32.i, %cmp5.i31.i
-  br i1 %or.cond.i33.i, label %_ZL17strcmpAfterPrefixPKcS0_Pi.exit40.i, label %if.end.i24.i, !llvm.loop !4
+if.end.i25.i:                                     ; preds = %if.end3.i, %if.end.i25.i
+  %s1.addr.015.i26.i = phi ptr [ %incdec.ptr.i30.i, %if.end.i25.i ], [ %tocEntryName, %if.end3.i ]
+  %s2.addr.014.i27.i = phi ptr [ %incdec.ptr3.i29.i, %if.end.i25.i ], [ %add.ptr7.i, %if.end3.i ]
+  %pl.013.i28.i = phi i32 [ %inc.i31.i, %if.end.i25.i ], [ 0, %if.end3.i ]
+  %incdec.ptr3.i29.i = getelementptr inbounds i8, ptr %s2.addr.014.i27.i, i64 1
+  %incdec.ptr.i30.i = getelementptr inbounds i8, ptr %s1.addr.015.i26.i, i64 1
+  %inc.i31.i = add nuw nsw i32 %pl.013.i28.i, 1
+  %9 = load i8, ptr %incdec.ptr.i30.i, align 1
+  %10 = load i8, ptr %incdec.ptr3.i29.i, align 1
+  %cmp5.i32.i = icmp ne i8 %9, %10
+  %cmp6.i33.i = icmp eq i8 %9, 0
+  %or.cond.i34.i = or i1 %cmp6.i33.i, %cmp5.i32.i
+  br i1 %or.cond.i34.i, label %_ZL17strcmpAfterPrefixPKcS0_Pi.exit41.i, label %if.end.i25.i, !llvm.loop !4
 
-_ZL17strcmpAfterPrefixPKcS0_Pi.exit40.i:          ; preds = %if.end.i24.i, %if.end3.i
-  %pl.0.lcssa.i34.i = phi i32 [ 0, %if.end3.i ], [ %inc.i30.i, %if.end.i24.i ]
-  %.lcssa9.i35.i = phi i8 [ %3, %if.end3.i ], [ %9, %if.end.i24.i ]
-  %.lcssa.i36.i = phi i8 [ %8, %if.end3.i ], [ %10, %if.end.i24.i ]
-  %cmp9.i = icmp eq i8 %.lcssa9.i35.i, %.lcssa.i36.i
+_ZL17strcmpAfterPrefixPKcS0_Pi.exit41.i:          ; preds = %if.end.i25.i, %if.end3.i
+  %pl.0.lcssa.i35.i = phi i32 [ 0, %if.end3.i ], [ %inc.i31.i, %if.end.i25.i ]
+  %.lcssa9.i36.i = phi i8 [ %3, %if.end3.i ], [ %9, %if.end.i25.i ]
+  %.lcssa.i37.i = phi i8 [ %8, %if.end3.i ], [ %10, %if.end.i25.i ]
+  %cmp9.i = icmp eq i8 %.lcssa9.i36.i, %.lcssa.i37.i
   br i1 %cmp9.i, label %_ZL27offsetTOCPrefixBinarySearchPKcS0_PK19UDataOffsetTOCEntryi.exit, label %while.cond.preheader.i
 
-while.cond.preheader.i:                           ; preds = %_ZL17strcmpAfterPrefixPKcS0_Pi.exit40.i
-  %cmp1273.i = icmp sgt i32 %1, 2
-  br i1 %cmp1273.i, label %while.body.i, label %return
+while.cond.preheader.i:                           ; preds = %_ZL17strcmpAfterPrefixPKcS0_Pi.exit41.i
+  %cmp1274.i = icmp sgt i32 %1, 2
+  br i1 %cmp1274.i, label %while.body.i, label %return
 
 while.body.i:                                     ; preds = %while.cond.preheader.i, %if.end28.i
-  %start.077.i = phi i32 [ %start.1.i, %if.end28.i ], [ 1, %while.cond.preheader.i ]
-  %limit.076.i = phi i32 [ %limit.1.i, %if.end28.i ], [ %dec.i, %while.cond.preheader.i ]
-  %limitPrefixLength.075.i = phi i32 [ %limitPrefixLength.1.i, %if.end28.i ], [ %pl.0.lcssa.i34.i, %while.cond.preheader.i ]
-  %startPrefixLength.074.i = phi i32 [ %startPrefixLength.1.i, %if.end28.i ], [ %pl.0.lcssa.i.i, %while.cond.preheader.i ]
-  %add.i = add nsw i32 %limit.076.i, %start.077.i
-  %div.i = sdiv i32 %add.i, 2
-  %cond.i = tail call i32 @llvm.smin.i32(i32 %startPrefixLength.074.i, i32 %limitPrefixLength.075.i)
-  %idxprom15.i = sext i32 %div.i to i64
+  %start.078.i = phi i32 [ %start.1.i, %if.end28.i ], [ 1, %while.cond.preheader.i ]
+  %limit.077.i = phi i32 [ %limit.1.i, %if.end28.i ], [ %dec.i, %while.cond.preheader.i ]
+  %limitPrefixLength.076.i = phi i32 [ %limitPrefixLength.1.i, %if.end28.i ], [ %pl.0.lcssa.i35.i, %while.cond.preheader.i ]
+  %startPrefixLength.075.i = phi i32 [ %startPrefixLength.1.i, %if.end28.i ], [ %pl.0.lcssa.i.i, %while.cond.preheader.i ]
+  %add.i = add nuw nsw i32 %limit.077.i, %start.078.i
+  %div18.i = lshr i32 %add.i, 1
+  %cond.i = tail call i32 @llvm.smin.i32(i32 %startPrefixLength.075.i, i32 %limitPrefixLength.076.i)
+  %idxprom15.i = zext nneg i32 %div18.i to i64
   %arrayidx16.i = getelementptr inbounds %struct.UDataOffsetTOCEntry, ptr %entry3, i64 %idxprom15.i
   %11 = load i32, ptr %arrayidx16.i, align 4
   %idx.ext18.i = zext i32 %11 to i64
   %add.ptr19.i = getelementptr inbounds i8, ptr %0, i64 %idx.ext18.i
-  %idx.ext.i41.i = sext i32 %cond.i to i64
-  %add.ptr.i42.i = getelementptr inbounds i8, ptr %tocEntryName, i64 %idx.ext.i41.i
-  %add.ptr2.i43.i = getelementptr inbounds i8, ptr %add.ptr19.i, i64 %idx.ext.i41.i
-  %12 = load i8, ptr %add.ptr.i42.i, align 1
-  %13 = load i8, ptr %add.ptr2.i43.i, align 1
-  %cmp510.i44.i = icmp ne i8 %12, %13
-  %cmp611.i45.i = icmp eq i8 %12, 0
-  %or.cond12.i46.i = or i1 %cmp611.i45.i, %cmp510.i44.i
-  br i1 %or.cond12.i46.i, label %_ZL17strcmpAfterPrefixPKcS0_Pi.exit63.i, label %if.end.i47.i
+  %idx.ext.i42.i = sext i32 %cond.i to i64
+  %add.ptr.i43.i = getelementptr inbounds i8, ptr %tocEntryName, i64 %idx.ext.i42.i
+  %add.ptr2.i44.i = getelementptr inbounds i8, ptr %add.ptr19.i, i64 %idx.ext.i42.i
+  %12 = load i8, ptr %add.ptr.i43.i, align 1
+  %13 = load i8, ptr %add.ptr2.i44.i, align 1
+  %cmp510.i45.i = icmp ne i8 %12, %13
+  %cmp611.i46.i = icmp eq i8 %12, 0
+  %or.cond12.i47.i = or i1 %cmp611.i46.i, %cmp510.i45.i
+  br i1 %or.cond12.i47.i, label %_ZL17strcmpAfterPrefixPKcS0_Pi.exit64.i, label %if.end.i48.i
 
-if.end.i47.i:                                     ; preds = %while.body.i, %if.end.i47.i
-  %s1.addr.015.i48.i = phi ptr [ %incdec.ptr.i52.i, %if.end.i47.i ], [ %add.ptr.i42.i, %while.body.i ]
-  %s2.addr.014.i49.i = phi ptr [ %incdec.ptr3.i51.i, %if.end.i47.i ], [ %add.ptr2.i43.i, %while.body.i ]
-  %pl.013.i50.i = phi i32 [ %inc.i53.i, %if.end.i47.i ], [ %cond.i, %while.body.i ]
-  %incdec.ptr3.i51.i = getelementptr inbounds i8, ptr %s2.addr.014.i49.i, i64 1
-  %incdec.ptr.i52.i = getelementptr inbounds i8, ptr %s1.addr.015.i48.i, i64 1
-  %inc.i53.i = add nsw i32 %pl.013.i50.i, 1
-  %14 = load i8, ptr %incdec.ptr.i52.i, align 1
-  %15 = load i8, ptr %incdec.ptr3.i51.i, align 1
-  %cmp5.i54.i = icmp ne i8 %14, %15
-  %cmp6.i55.i = icmp eq i8 %14, 0
-  %or.cond.i56.i = or i1 %cmp6.i55.i, %cmp5.i54.i
-  br i1 %or.cond.i56.i, label %_ZL17strcmpAfterPrefixPKcS0_Pi.exit63.i, label %if.end.i47.i, !llvm.loop !4
+if.end.i48.i:                                     ; preds = %while.body.i, %if.end.i48.i
+  %s1.addr.015.i49.i = phi ptr [ %incdec.ptr.i53.i, %if.end.i48.i ], [ %add.ptr.i43.i, %while.body.i ]
+  %s2.addr.014.i50.i = phi ptr [ %incdec.ptr3.i52.i, %if.end.i48.i ], [ %add.ptr2.i44.i, %while.body.i ]
+  %pl.013.i51.i = phi i32 [ %inc.i54.i, %if.end.i48.i ], [ %cond.i, %while.body.i ]
+  %incdec.ptr3.i52.i = getelementptr inbounds i8, ptr %s2.addr.014.i50.i, i64 1
+  %incdec.ptr.i53.i = getelementptr inbounds i8, ptr %s1.addr.015.i49.i, i64 1
+  %inc.i54.i = add nsw i32 %pl.013.i51.i, 1
+  %14 = load i8, ptr %incdec.ptr.i53.i, align 1
+  %15 = load i8, ptr %incdec.ptr3.i52.i, align 1
+  %cmp5.i55.i = icmp ne i8 %14, %15
+  %cmp6.i56.i = icmp eq i8 %14, 0
+  %or.cond.i57.i = or i1 %cmp6.i56.i, %cmp5.i55.i
+  br i1 %or.cond.i57.i, label %_ZL17strcmpAfterPrefixPKcS0_Pi.exit64.i, label %if.end.i48.i, !llvm.loop !4
 
-_ZL17strcmpAfterPrefixPKcS0_Pi.exit63.i:          ; preds = %if.end.i47.i, %while.body.i
-  %pl.0.lcssa.i57.i = phi i32 [ %cond.i, %while.body.i ], [ %inc.i53.i, %if.end.i47.i ]
-  %.lcssa9.i58.i = phi i8 [ %12, %while.body.i ], [ %14, %if.end.i47.i ]
-  %.lcssa.i59.i = phi i8 [ %13, %while.body.i ], [ %15, %if.end.i47.i ]
-  %cmp21.i = icmp ult i8 %.lcssa9.i58.i, %.lcssa.i59.i
+_ZL17strcmpAfterPrefixPKcS0_Pi.exit64.i:          ; preds = %if.end.i48.i, %while.body.i
+  %pl.0.lcssa.i58.i = phi i32 [ %cond.i, %while.body.i ], [ %inc.i54.i, %if.end.i48.i ]
+  %.lcssa9.i59.i = phi i8 [ %12, %while.body.i ], [ %14, %if.end.i48.i ]
+  %.lcssa.i60.i = phi i8 [ %13, %while.body.i ], [ %15, %if.end.i48.i ]
+  %cmp21.i = icmp ult i8 %.lcssa9.i59.i, %.lcssa.i60.i
   br i1 %cmp21.i, label %if.end28.i, label %if.else.i
 
-if.else.i:                                        ; preds = %_ZL17strcmpAfterPrefixPKcS0_Pi.exit63.i
-  %cmp23.i = icmp eq i8 %.lcssa9.i58.i, %.lcssa.i59.i
-  br i1 %cmp23.i, label %_ZL27offsetTOCPrefixBinarySearchPKcS0_PK19UDataOffsetTOCEntryi.exit, label %if.else25.i
+if.else.i:                                        ; preds = %_ZL17strcmpAfterPrefixPKcS0_Pi.exit64.i
+  %cmp23.i = icmp eq i8 %.lcssa9.i59.i, %.lcssa.i60.i
+  br i1 %cmp23.i, label %if.then5, label %if.else25.i
 
 if.else25.i:                                      ; preds = %if.else.i
-  %add26.i = add nsw i32 %div.i, 1
+  %add26.i = add nuw nsw i32 %div18.i, 1
   br label %if.end28.i
 
-if.end28.i:                                       ; preds = %if.else25.i, %_ZL17strcmpAfterPrefixPKcS0_Pi.exit63.i
-  %startPrefixLength.1.i = phi i32 [ %pl.0.lcssa.i57.i, %if.else25.i ], [ %startPrefixLength.074.i, %_ZL17strcmpAfterPrefixPKcS0_Pi.exit63.i ]
-  %limitPrefixLength.1.i = phi i32 [ %limitPrefixLength.075.i, %if.else25.i ], [ %pl.0.lcssa.i57.i, %_ZL17strcmpAfterPrefixPKcS0_Pi.exit63.i ]
-  %limit.1.i = phi i32 [ %limit.076.i, %if.else25.i ], [ %div.i, %_ZL17strcmpAfterPrefixPKcS0_Pi.exit63.i ]
-  %start.1.i = phi i32 [ %add26.i, %if.else25.i ], [ %start.077.i, %_ZL17strcmpAfterPrefixPKcS0_Pi.exit63.i ]
+if.end28.i:                                       ; preds = %if.else25.i, %_ZL17strcmpAfterPrefixPKcS0_Pi.exit64.i
+  %startPrefixLength.1.i = phi i32 [ %pl.0.lcssa.i58.i, %if.else25.i ], [ %startPrefixLength.075.i, %_ZL17strcmpAfterPrefixPKcS0_Pi.exit64.i ]
+  %limitPrefixLength.1.i = phi i32 [ %limitPrefixLength.076.i, %if.else25.i ], [ %pl.0.lcssa.i58.i, %_ZL17strcmpAfterPrefixPKcS0_Pi.exit64.i ]
+  %limit.1.i = phi i32 [ %limit.077.i, %if.else25.i ], [ %div18.i, %_ZL17strcmpAfterPrefixPKcS0_Pi.exit64.i ]
+  %start.1.i = phi i32 [ %add26.i, %if.else25.i ], [ %start.078.i, %_ZL17strcmpAfterPrefixPKcS0_Pi.exit64.i ]
   %cmp12.i = icmp slt i32 %start.1.i, %limit.1.i
   br i1 %cmp12.i, label %while.body.i, label %return, !llvm.loop !6
 
-_ZL27offsetTOCPrefixBinarySearchPKcS0_PK19UDataOffsetTOCEntryi.exit: ; preds = %if.else.i, %_ZL17strcmpAfterPrefixPKcS0_Pi.exit40.i
-  %retval.0.i = phi i32 [ %dec.i, %_ZL17strcmpAfterPrefixPKcS0_Pi.exit40.i ], [ %div.i, %if.else.i ]
-  %cmp4 = icmp sgt i32 %retval.0.i, -1
+_ZL27offsetTOCPrefixBinarySearchPKcS0_PK19UDataOffsetTOCEntryi.exit: ; preds = %_ZL17strcmpAfterPrefixPKcS0_Pi.exit41.i
+  %cmp4 = icmp sgt i32 %1, 0
   br i1 %cmp4, label %if.then5, label %return
 
-if.then5:                                         ; preds = %_ZL17strcmpAfterPrefixPKcS0_Pi.exit.i, %_ZL27offsetTOCPrefixBinarySearchPKcS0_PK19UDataOffsetTOCEntryi.exit
-  %retval.0.i18 = phi i32 [ %retval.0.i, %_ZL27offsetTOCPrefixBinarySearchPKcS0_PK19UDataOffsetTOCEntryi.exit ], [ 0, %_ZL17strcmpAfterPrefixPKcS0_Pi.exit.i ]
-  %idx.ext = zext nneg i32 %retval.0.i18 to i64
+if.then5:                                         ; preds = %if.else.i, %_ZL17strcmpAfterPrefixPKcS0_Pi.exit.i, %_ZL27offsetTOCPrefixBinarySearchPKcS0_PK19UDataOffsetTOCEntryi.exit
+  %retval.0.i19 = phi i32 [ %dec.i, %_ZL27offsetTOCPrefixBinarySearchPKcS0_PK19UDataOffsetTOCEntryi.exit ], [ 0, %_ZL17strcmpAfterPrefixPKcS0_Pi.exit.i ], [ %div18.i, %if.else.i ]
+  %idx.ext = zext nneg i32 %retval.0.i19 to i64
   %add.ptr = getelementptr inbounds %struct.UDataOffsetTOCEntry, ptr %entry3, i64 %idx.ext
-  %add = add nuw nsw i32 %retval.0.i18, 1
+  %add = add nuw nsw i32 %retval.0.i19, 1
   %cmp9 = icmp slt i32 %add, %1
   br i1 %cmp9, label %if.then10, label %if.end
 
@@ -439,102 +438,101 @@ if.end3.i:                                        ; preds = %_ZL17strcmpAfterPre
   %arrayidx4.i = getelementptr inbounds %struct.PointerTOCEntry, ptr %entry4, i64 %idxprom.i
   %7 = load ptr, ptr %arrayidx4.i, align 8
   %8 = load i8, ptr %7, align 1
-  %cmp510.i19.i = icmp ne i8 %3, %8
-  %or.cond12.i21.i = or i1 %cmp611.i.i, %cmp510.i19.i
-  br i1 %or.cond12.i21.i, label %_ZL17strcmpAfterPrefixPKcS0_Pi.exit38.i, label %if.end.i22.i
+  %cmp510.i20.i = icmp ne i8 %3, %8
+  %or.cond12.i22.i = or i1 %cmp611.i.i, %cmp510.i20.i
+  br i1 %or.cond12.i22.i, label %_ZL17strcmpAfterPrefixPKcS0_Pi.exit39.i, label %if.end.i23.i
 
-if.end.i22.i:                                     ; preds = %if.end3.i, %if.end.i22.i
-  %s1.addr.015.i23.i = phi ptr [ %incdec.ptr.i27.i, %if.end.i22.i ], [ %name, %if.end3.i ]
-  %s2.addr.014.i24.i = phi ptr [ %incdec.ptr3.i26.i, %if.end.i22.i ], [ %7, %if.end3.i ]
-  %pl.013.i25.i = phi i32 [ %inc.i28.i, %if.end.i22.i ], [ 0, %if.end3.i ]
-  %incdec.ptr3.i26.i = getelementptr inbounds i8, ptr %s2.addr.014.i24.i, i64 1
-  %incdec.ptr.i27.i = getelementptr inbounds i8, ptr %s1.addr.015.i23.i, i64 1
-  %inc.i28.i = add nuw nsw i32 %pl.013.i25.i, 1
-  %9 = load i8, ptr %incdec.ptr.i27.i, align 1
-  %10 = load i8, ptr %incdec.ptr3.i26.i, align 1
-  %cmp5.i29.i = icmp ne i8 %9, %10
-  %cmp6.i30.i = icmp eq i8 %9, 0
-  %or.cond.i31.i = or i1 %cmp6.i30.i, %cmp5.i29.i
-  br i1 %or.cond.i31.i, label %_ZL17strcmpAfterPrefixPKcS0_Pi.exit38.i, label %if.end.i22.i, !llvm.loop !4
+if.end.i23.i:                                     ; preds = %if.end3.i, %if.end.i23.i
+  %s1.addr.015.i24.i = phi ptr [ %incdec.ptr.i28.i, %if.end.i23.i ], [ %name, %if.end3.i ]
+  %s2.addr.014.i25.i = phi ptr [ %incdec.ptr3.i27.i, %if.end.i23.i ], [ %7, %if.end3.i ]
+  %pl.013.i26.i = phi i32 [ %inc.i29.i, %if.end.i23.i ], [ 0, %if.end3.i ]
+  %incdec.ptr3.i27.i = getelementptr inbounds i8, ptr %s2.addr.014.i25.i, i64 1
+  %incdec.ptr.i28.i = getelementptr inbounds i8, ptr %s1.addr.015.i24.i, i64 1
+  %inc.i29.i = add nuw nsw i32 %pl.013.i26.i, 1
+  %9 = load i8, ptr %incdec.ptr.i28.i, align 1
+  %10 = load i8, ptr %incdec.ptr3.i27.i, align 1
+  %cmp5.i30.i = icmp ne i8 %9, %10
+  %cmp6.i31.i = icmp eq i8 %9, 0
+  %or.cond.i32.i = or i1 %cmp6.i31.i, %cmp5.i30.i
+  br i1 %or.cond.i32.i, label %_ZL17strcmpAfterPrefixPKcS0_Pi.exit39.i, label %if.end.i23.i, !llvm.loop !4
 
-_ZL17strcmpAfterPrefixPKcS0_Pi.exit38.i:          ; preds = %if.end.i22.i, %if.end3.i
-  %pl.0.lcssa.i32.i = phi i32 [ 0, %if.end3.i ], [ %inc.i28.i, %if.end.i22.i ]
-  %.lcssa9.i33.i = phi i8 [ %3, %if.end3.i ], [ %9, %if.end.i22.i ]
-  %.lcssa.i34.i = phi i8 [ %8, %if.end3.i ], [ %10, %if.end.i22.i ]
-  %cmp7.i = icmp eq i8 %.lcssa9.i33.i, %.lcssa.i34.i
+_ZL17strcmpAfterPrefixPKcS0_Pi.exit39.i:          ; preds = %if.end.i23.i, %if.end3.i
+  %pl.0.lcssa.i33.i = phi i32 [ 0, %if.end3.i ], [ %inc.i29.i, %if.end.i23.i ]
+  %.lcssa9.i34.i = phi i8 [ %3, %if.end3.i ], [ %9, %if.end.i23.i ]
+  %.lcssa.i35.i = phi i8 [ %8, %if.end3.i ], [ %10, %if.end.i23.i ]
+  %cmp7.i = icmp eq i8 %.lcssa9.i34.i, %.lcssa.i35.i
   br i1 %cmp7.i, label %_ZL28pointerTOCPrefixBinarySearchPKcPK15PointerTOCEntryi.exit, label %while.cond.preheader.i
 
-while.cond.preheader.i:                           ; preds = %_ZL17strcmpAfterPrefixPKcS0_Pi.exit38.i
-  %cmp1071.i = icmp sgt i32 %1, 2
-  br i1 %cmp1071.i, label %while.body.i, label %return
+while.cond.preheader.i:                           ; preds = %_ZL17strcmpAfterPrefixPKcS0_Pi.exit39.i
+  %cmp1072.i = icmp sgt i32 %1, 2
+  br i1 %cmp1072.i, label %while.body.i, label %return
 
 while.body.i:                                     ; preds = %while.cond.preheader.i, %if.end24.i
-  %start.075.i = phi i32 [ %start.1.i, %if.end24.i ], [ 1, %while.cond.preheader.i ]
-  %limit.074.i = phi i32 [ %limit.1.i, %if.end24.i ], [ %dec.i, %while.cond.preheader.i ]
-  %limitPrefixLength.073.i = phi i32 [ %limitPrefixLength.1.i, %if.end24.i ], [ %pl.0.lcssa.i32.i, %while.cond.preheader.i ]
-  %startPrefixLength.072.i = phi i32 [ %startPrefixLength.1.i, %if.end24.i ], [ %pl.0.lcssa.i.i, %while.cond.preheader.i ]
-  %add.i = add nsw i32 %limit.074.i, %start.075.i
-  %div.i = sdiv i32 %add.i, 2
-  %cond.i = tail call i32 @llvm.smin.i32(i32 %startPrefixLength.072.i, i32 %limitPrefixLength.073.i)
-  %idxprom13.i = sext i32 %div.i to i64
+  %start.076.i = phi i32 [ %start.1.i, %if.end24.i ], [ 1, %while.cond.preheader.i ]
+  %limit.075.i = phi i32 [ %limit.1.i, %if.end24.i ], [ %dec.i, %while.cond.preheader.i ]
+  %limitPrefixLength.074.i = phi i32 [ %limitPrefixLength.1.i, %if.end24.i ], [ %pl.0.lcssa.i33.i, %while.cond.preheader.i ]
+  %startPrefixLength.073.i = phi i32 [ %startPrefixLength.1.i, %if.end24.i ], [ %pl.0.lcssa.i.i, %while.cond.preheader.i ]
+  %add.i = add nuw nsw i32 %limit.075.i, %start.076.i
+  %div16.i = lshr i32 %add.i, 1
+  %cond.i = tail call i32 @llvm.smin.i32(i32 %startPrefixLength.073.i, i32 %limitPrefixLength.074.i)
+  %idxprom13.i = zext nneg i32 %div16.i to i64
   %arrayidx14.i = getelementptr inbounds %struct.PointerTOCEntry, ptr %entry4, i64 %idxprom13.i
   %11 = load ptr, ptr %arrayidx14.i, align 8
-  %idx.ext.i39.i = sext i32 %cond.i to i64
-  %add.ptr.i40.i = getelementptr inbounds i8, ptr %name, i64 %idx.ext.i39.i
-  %add.ptr2.i41.i = getelementptr inbounds i8, ptr %11, i64 %idx.ext.i39.i
-  %12 = load i8, ptr %add.ptr.i40.i, align 1
-  %13 = load i8, ptr %add.ptr2.i41.i, align 1
-  %cmp510.i42.i = icmp ne i8 %12, %13
-  %cmp611.i43.i = icmp eq i8 %12, 0
-  %or.cond12.i44.i = or i1 %cmp611.i43.i, %cmp510.i42.i
-  br i1 %or.cond12.i44.i, label %_ZL17strcmpAfterPrefixPKcS0_Pi.exit61.i, label %if.end.i45.i
+  %idx.ext.i40.i = sext i32 %cond.i to i64
+  %add.ptr.i41.i = getelementptr inbounds i8, ptr %name, i64 %idx.ext.i40.i
+  %add.ptr2.i42.i = getelementptr inbounds i8, ptr %11, i64 %idx.ext.i40.i
+  %12 = load i8, ptr %add.ptr.i41.i, align 1
+  %13 = load i8, ptr %add.ptr2.i42.i, align 1
+  %cmp510.i43.i = icmp ne i8 %12, %13
+  %cmp611.i44.i = icmp eq i8 %12, 0
+  %or.cond12.i45.i = or i1 %cmp611.i44.i, %cmp510.i43.i
+  br i1 %or.cond12.i45.i, label %_ZL17strcmpAfterPrefixPKcS0_Pi.exit62.i, label %if.end.i46.i
 
-if.end.i45.i:                                     ; preds = %while.body.i, %if.end.i45.i
-  %s1.addr.015.i46.i = phi ptr [ %incdec.ptr.i50.i, %if.end.i45.i ], [ %add.ptr.i40.i, %while.body.i ]
-  %s2.addr.014.i47.i = phi ptr [ %incdec.ptr3.i49.i, %if.end.i45.i ], [ %add.ptr2.i41.i, %while.body.i ]
-  %pl.013.i48.i = phi i32 [ %inc.i51.i, %if.end.i45.i ], [ %cond.i, %while.body.i ]
-  %incdec.ptr3.i49.i = getelementptr inbounds i8, ptr %s2.addr.014.i47.i, i64 1
-  %incdec.ptr.i50.i = getelementptr inbounds i8, ptr %s1.addr.015.i46.i, i64 1
-  %inc.i51.i = add nsw i32 %pl.013.i48.i, 1
-  %14 = load i8, ptr %incdec.ptr.i50.i, align 1
-  %15 = load i8, ptr %incdec.ptr3.i49.i, align 1
-  %cmp5.i52.i = icmp ne i8 %14, %15
-  %cmp6.i53.i = icmp eq i8 %14, 0
-  %or.cond.i54.i = or i1 %cmp6.i53.i, %cmp5.i52.i
-  br i1 %or.cond.i54.i, label %_ZL17strcmpAfterPrefixPKcS0_Pi.exit61.i, label %if.end.i45.i, !llvm.loop !4
+if.end.i46.i:                                     ; preds = %while.body.i, %if.end.i46.i
+  %s1.addr.015.i47.i = phi ptr [ %incdec.ptr.i51.i, %if.end.i46.i ], [ %add.ptr.i41.i, %while.body.i ]
+  %s2.addr.014.i48.i = phi ptr [ %incdec.ptr3.i50.i, %if.end.i46.i ], [ %add.ptr2.i42.i, %while.body.i ]
+  %pl.013.i49.i = phi i32 [ %inc.i52.i, %if.end.i46.i ], [ %cond.i, %while.body.i ]
+  %incdec.ptr3.i50.i = getelementptr inbounds i8, ptr %s2.addr.014.i48.i, i64 1
+  %incdec.ptr.i51.i = getelementptr inbounds i8, ptr %s1.addr.015.i47.i, i64 1
+  %inc.i52.i = add nsw i32 %pl.013.i49.i, 1
+  %14 = load i8, ptr %incdec.ptr.i51.i, align 1
+  %15 = load i8, ptr %incdec.ptr3.i50.i, align 1
+  %cmp5.i53.i = icmp ne i8 %14, %15
+  %cmp6.i54.i = icmp eq i8 %14, 0
+  %or.cond.i55.i = or i1 %cmp6.i54.i, %cmp5.i53.i
+  br i1 %or.cond.i55.i, label %_ZL17strcmpAfterPrefixPKcS0_Pi.exit62.i, label %if.end.i46.i, !llvm.loop !4
 
-_ZL17strcmpAfterPrefixPKcS0_Pi.exit61.i:          ; preds = %if.end.i45.i, %while.body.i
-  %pl.0.lcssa.i55.i = phi i32 [ %cond.i, %while.body.i ], [ %inc.i51.i, %if.end.i45.i ]
-  %.lcssa9.i56.i = phi i8 [ %12, %while.body.i ], [ %14, %if.end.i45.i ]
-  %.lcssa.i57.i = phi i8 [ %13, %while.body.i ], [ %15, %if.end.i45.i ]
-  %cmp17.i = icmp ult i8 %.lcssa9.i56.i, %.lcssa.i57.i
+_ZL17strcmpAfterPrefixPKcS0_Pi.exit62.i:          ; preds = %if.end.i46.i, %while.body.i
+  %pl.0.lcssa.i56.i = phi i32 [ %cond.i, %while.body.i ], [ %inc.i52.i, %if.end.i46.i ]
+  %.lcssa9.i57.i = phi i8 [ %12, %while.body.i ], [ %14, %if.end.i46.i ]
+  %.lcssa.i58.i = phi i8 [ %13, %while.body.i ], [ %15, %if.end.i46.i ]
+  %cmp17.i = icmp ult i8 %.lcssa9.i57.i, %.lcssa.i58.i
   br i1 %cmp17.i, label %if.end24.i, label %if.else.i
 
-if.else.i:                                        ; preds = %_ZL17strcmpAfterPrefixPKcS0_Pi.exit61.i
-  %cmp19.i = icmp eq i8 %.lcssa9.i56.i, %.lcssa.i57.i
-  br i1 %cmp19.i, label %_ZL28pointerTOCPrefixBinarySearchPKcPK15PointerTOCEntryi.exit, label %if.else21.i
+if.else.i:                                        ; preds = %_ZL17strcmpAfterPrefixPKcS0_Pi.exit62.i
+  %cmp19.i = icmp eq i8 %.lcssa9.i57.i, %.lcssa.i58.i
+  br i1 %cmp19.i, label %if.then6, label %if.else21.i
 
 if.else21.i:                                      ; preds = %if.else.i
-  %add22.i = add nsw i32 %div.i, 1
+  %add22.i = add nuw nsw i32 %div16.i, 1
   br label %if.end24.i
 
-if.end24.i:                                       ; preds = %if.else21.i, %_ZL17strcmpAfterPrefixPKcS0_Pi.exit61.i
-  %startPrefixLength.1.i = phi i32 [ %pl.0.lcssa.i55.i, %if.else21.i ], [ %startPrefixLength.072.i, %_ZL17strcmpAfterPrefixPKcS0_Pi.exit61.i ]
-  %limitPrefixLength.1.i = phi i32 [ %limitPrefixLength.073.i, %if.else21.i ], [ %pl.0.lcssa.i55.i, %_ZL17strcmpAfterPrefixPKcS0_Pi.exit61.i ]
-  %limit.1.i = phi i32 [ %limit.074.i, %if.else21.i ], [ %div.i, %_ZL17strcmpAfterPrefixPKcS0_Pi.exit61.i ]
-  %start.1.i = phi i32 [ %add22.i, %if.else21.i ], [ %start.075.i, %_ZL17strcmpAfterPrefixPKcS0_Pi.exit61.i ]
+if.end24.i:                                       ; preds = %if.else21.i, %_ZL17strcmpAfterPrefixPKcS0_Pi.exit62.i
+  %startPrefixLength.1.i = phi i32 [ %pl.0.lcssa.i56.i, %if.else21.i ], [ %startPrefixLength.073.i, %_ZL17strcmpAfterPrefixPKcS0_Pi.exit62.i ]
+  %limitPrefixLength.1.i = phi i32 [ %limitPrefixLength.074.i, %if.else21.i ], [ %pl.0.lcssa.i56.i, %_ZL17strcmpAfterPrefixPKcS0_Pi.exit62.i ]
+  %limit.1.i = phi i32 [ %limit.075.i, %if.else21.i ], [ %div16.i, %_ZL17strcmpAfterPrefixPKcS0_Pi.exit62.i ]
+  %start.1.i = phi i32 [ %add22.i, %if.else21.i ], [ %start.076.i, %_ZL17strcmpAfterPrefixPKcS0_Pi.exit62.i ]
   %cmp10.i = icmp slt i32 %start.1.i, %limit.1.i
   br i1 %cmp10.i, label %while.body.i, label %return, !llvm.loop !7
 
-_ZL28pointerTOCPrefixBinarySearchPKcPK15PointerTOCEntryi.exit: ; preds = %if.else.i, %_ZL17strcmpAfterPrefixPKcS0_Pi.exit38.i
-  %retval.0.i = phi i32 [ %dec.i, %_ZL17strcmpAfterPrefixPKcS0_Pi.exit38.i ], [ %div.i, %if.else.i ]
-  %cmp5 = icmp sgt i32 %retval.0.i, -1
+_ZL28pointerTOCPrefixBinarySearchPKcPK15PointerTOCEntryi.exit: ; preds = %_ZL17strcmpAfterPrefixPKcS0_Pi.exit39.i
+  %cmp5 = icmp sgt i32 %1, 0
   br i1 %cmp5, label %if.then6, label %return
 
-if.then6:                                         ; preds = %_ZL17strcmpAfterPrefixPKcS0_Pi.exit.i, %_ZL28pointerTOCPrefixBinarySearchPKcPK15PointerTOCEntryi.exit
-  %retval.0.i11 = phi i32 [ %retval.0.i, %_ZL28pointerTOCPrefixBinarySearchPKcPK15PointerTOCEntryi.exit ], [ 0, %_ZL17strcmpAfterPrefixPKcS0_Pi.exit.i ]
+if.then6:                                         ; preds = %if.else.i, %_ZL17strcmpAfterPrefixPKcS0_Pi.exit.i, %_ZL28pointerTOCPrefixBinarySearchPKcPK15PointerTOCEntryi.exit
+  %retval.0.i12 = phi i32 [ %dec.i, %_ZL28pointerTOCPrefixBinarySearchPKcPK15PointerTOCEntryi.exit ], [ 0, %_ZL17strcmpAfterPrefixPKcS0_Pi.exit.i ], [ %div16.i, %if.else.i ]
   store i32 -1, ptr %pLength, align 4
-  %idxprom = zext nneg i32 %retval.0.i11 to i64
+  %idxprom = zext nneg i32 %retval.0.i12 to i64
   %pHeader = getelementptr inbounds [1 x %struct.PointerTOCEntry], ptr %entry4, i64 0, i64 %idxprom, i32 1
   %16 = load ptr, ptr %pHeader, align 8
   %call8 = tail call ptr @UDataMemory_normalizeDataPointer_75(ptr noundef %16)

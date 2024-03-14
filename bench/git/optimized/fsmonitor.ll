@@ -935,7 +935,7 @@ if.then5:                                         ; preds = %do.end
   br i1 %cmp1243, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %if.then5
-  %2 = sext i32 %spec.select to i64
+  %2 = zext i32 %spec.select to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %if.end20
@@ -956,10 +956,10 @@ if.end20:                                         ; preds = %for.body
   %7 = load i32, ptr %ce_flags, align 8
   %and = and i32 %7, -2097153
   store i32 %and, ptr %ce_flags, align 8
-  %indvars.iv.next47 = add nsw i64 %indvars.iv46, 1
+  %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
   %8 = load i32, ptr %cache_nr, align 4
-  %9 = trunc i64 %indvars.iv.next47 to i32
-  %cmp12 = icmp ugt i32 %8, %9
+  %9 = zext i32 %8 to i64
+  %cmp12 = icmp ult i64 %indvars.iv.next47, %9
   br i1 %cmp12, label %for.body, label %for.end, !llvm.loop !9
 
 for.end:                                          ; preds = %if.end20, %for.body, %if.then5
