@@ -1093,7 +1093,7 @@ common.ret33:                                     ; preds = %5, %16
 
 16:                                               ; preds = %13
   tail call fastcc void @Cnf_AddCardinConstrRange(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %10, ptr noundef %4)
-  %17 = add nsw i32 %10, 1
+  %17 = add nuw nsw i32 %10, 1
   tail call fastcc void @Cnf_AddCardinConstrRange(ptr noundef %0, ptr noundef %1, i32 noundef %17, i32 noundef %3, ptr noundef %4)
   tail call fastcc void @Cnf_AddCardinConstrMerge(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef 1, ptr noundef %4)
   br label %common.ret33
@@ -1135,24 +1135,24 @@ define void @Cnf_AddCardinConstrGeneral(ptr noundef %0, ptr nocapture noundef re
   %25 = getelementptr inbounds i8, ptr %4, i64 4
   %26 = getelementptr inbounds i8, ptr %4, i64 8
   %27 = zext nneg i32 %.val77 to i64
-  %28 = zext i32 %9 to i64
+  %28 = sext i32 %9 to i64
   %wide.trip.count = zext nneg i32 %.val77 to i64
   br label %29
 
-29:                                               ; preds = %.lr.ph98, %128
-  %indvars.iv103 = phi i64 [ 0, %.lr.ph98 ], [ %indvars.iv.next104, %128 ]
-  %.197 = phi i32 [ 0, %.lr.ph98 ], [ %129, %128 ]
+29:                                               ; preds = %.lr.ph98, %132
+  %indvars.iv103 = phi i64 [ 0, %.lr.ph98 ], [ %indvars.iv.next104, %132 ]
+  %.197 = phi i32 [ 0, %.lr.ph98 ], [ %133, %132 ]
   %30 = and i32 %.197, 1
   %31 = zext nneg i32 %30 to i64
   %32 = add nsw i64 %indvars.iv103, -1
-  %33 = mul i64 %32, %27
-  %34 = add i64 %33, %28
-  %35 = mul i64 %indvars.iv103, %27
-  %36 = add i64 %35, %28
+  %33 = mul nsw i64 %32, %27
+  %34 = add nsw i64 %33, %28
+  %35 = mul nsw i64 %indvars.iv103, %27
+  %36 = add nsw i64 %35, %28
   %37 = trunc i64 %indvars.iv103 to i32
   %38 = and i32 %37, 1
   %.not75 = icmp eq i32 %38, 0
-  br i1 %.not75, label %53, label %39
+  br i1 %.not75, label %54, label %39
 
 39:                                               ; preds = %29
   %.not.i = icmp eq i64 %indvars.iv103, 0
@@ -1167,8 +1167,8 @@ define void @Cnf_AddCardinConstrGeneral(ptr noundef %0, ptr nocapture noundef re
 Cnf_AddCardinVar.exit:                            ; preds = %39, %41
   %43 = phi i32 [ %42, %41 ], [ %40, %39 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  %44 = trunc i64 %36 to i32
-  %45 = shl nsw i32 %44, 1
+  %44 = shl nsw i64 %36, 1
+  %45 = trunc i64 %44 to i32
   store i32 %45, ptr %7, align 4
   %46 = shl nsw i32 %43, 1
   %47 = or disjoint i32 %46, 1
@@ -1178,190 +1178,194 @@ Cnf_AddCardinVar.exit:                            ; preds = %39, %41
   br i1 %49, label %sat_solver_add_buffer.exit, label %50
 
 50:                                               ; preds = %Cnf_AddCardinVar.exit
-  %51 = or disjoint i32 %45, 1
-  store i32 %51, ptr %7, align 4
+  %51 = trunc i64 %44 to i32
+  %52 = or disjoint i32 %51, 1
+  store i32 %52, ptr %7, align 4
   store i32 %46, ptr %15, align 4
-  %52 = call i32 @sat_solver_addclause(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %16) #22
+  %53 = call i32 @sat_solver_addclause(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %16) #22
   br label %sat_solver_add_buffer.exit
 
 sat_solver_add_buffer.exit:                       ; preds = %Cnf_AddCardinVar.exit, %50
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  br label %53
+  br label %54
 
-53:                                               ; preds = %sat_solver_add_buffer.exit, %29
-  %54 = add nuw nsw i32 %38, 1
-  %55 = icmp slt i32 %54, %.val77
-  br i1 %55, label %.lr.ph, label %._crit_edge
+54:                                               ; preds = %sat_solver_add_buffer.exit, %29
+  %55 = add nuw nsw i32 %38, 1
+  %56 = icmp slt i32 %55, %.val77
+  br i1 %56, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %53
+.lr.ph:                                           ; preds = %54
   %.not.i78 = icmp eq i64 %indvars.iv103, 0
-  %56 = trunc i64 %34 to i32
   %57 = trunc i64 %34 to i32
-  br label %58
+  %58 = trunc i64 %34 to i32
+  br label %59
 
-58:                                               ; preds = %.lr.ph, %Cnf_AddCardinVar.exit89
+59:                                               ; preds = %.lr.ph, %Cnf_AddCardinVar.exit89
   %indvars.iv100 = phi i64 [ %31, %.lr.ph ], [ %indvars.iv.next101, %Cnf_AddCardinVar.exit89 ]
-  %59 = phi i32 [ %54, %.lr.ph ], [ %105, %Cnf_AddCardinVar.exit89 ]
-  %60 = add i64 %indvars.iv100, %36
-  br i1 %.not.i78, label %65, label %61
+  %60 = phi i32 [ %55, %.lr.ph ], [ %109, %Cnf_AddCardinVar.exit89 ]
+  %61 = add nsw i64 %indvars.iv100, %36
+  br i1 %.not.i78, label %66, label %62
 
-61:                                               ; preds = %58
-  %62 = add i64 %indvars.iv100, %34
-  %63 = add nsw i32 %59, %56
-  %64 = trunc i64 %62 to i32
+62:                                               ; preds = %59
+  %63 = add nsw i64 %indvars.iv100, %34
+  %64 = add nsw i32 %60, %57
+  %65 = trunc i64 %63 to i32
   br label %Cnf_AddCardinVar.exit83
 
-65:                                               ; preds = %58
+66:                                               ; preds = %59
   %.val.i79 = load ptr, ptr %14, align 8
-  %66 = getelementptr inbounds i32, ptr %.val.i79, i64 %indvars.iv100
-  %67 = load i32, ptr %66, align 4
-  %68 = zext nneg i32 %59 to i64
-  %69 = getelementptr inbounds i32, ptr %.val.i79, i64 %68
-  %70 = load i32, ptr %69, align 4
+  %67 = getelementptr inbounds i32, ptr %.val.i79, i64 %indvars.iv100
+  %68 = load i32, ptr %67, align 4
+  %69 = zext nneg i32 %60 to i64
+  %70 = getelementptr inbounds i32, ptr %.val.i79, i64 %69
+  %71 = load i32, ptr %70, align 4
   br label %Cnf_AddCardinVar.exit83
 
-Cnf_AddCardinVar.exit83:                          ; preds = %61, %65
-  %71 = phi i32 [ %64, %61 ], [ %67, %65 ]
-  %72 = phi i32 [ %63, %61 ], [ %70, %65 ]
+Cnf_AddCardinVar.exit83:                          ; preds = %62, %66
+  %72 = phi i32 [ %65, %62 ], [ %68, %66 ]
+  %73 = phi i32 [ %64, %62 ], [ %71, %66 ]
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6)
-  %73 = trunc i64 %60 to i32
-  %74 = shl i32 %73, 1
-  store i32 %74, ptr %6, align 4
-  %75 = shl nsw i32 %71, 1
-  %76 = or disjoint i32 %75, 1
+  %74 = shl nsw i64 %61, 1
+  %75 = trunc i64 %74 to i32
+  store i32 %75, ptr %6, align 4
+  %76 = shl nsw i32 %72, 1
+  %77 = or disjoint i32 %76, 1
+  store i32 %77, ptr %17, align 4
+  %78 = call i32 @sat_solver_addclause(ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %18) #22
+  store i32 %75, ptr %6, align 4
+  %79 = shl nsw i32 %73, 1
+  %80 = or disjoint i32 %79, 1
+  store i32 %80, ptr %17, align 4
+  %81 = call i32 @sat_solver_addclause(ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %18) #22
+  %82 = trunc i64 %74 to i32
+  %83 = or disjoint i32 %82, 1
+  store i32 %83, ptr %6, align 4
   store i32 %76, ptr %17, align 4
-  %77 = call i32 @sat_solver_addclause(ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %18) #22
-  store i32 %74, ptr %6, align 4
-  %78 = shl nsw i32 %72, 1
-  %79 = or disjoint i32 %78, 1
-  store i32 %79, ptr %17, align 4
-  %80 = call i32 @sat_solver_addclause(ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %18) #22
-  %81 = or disjoint i32 %74, 1
-  store i32 %81, ptr %6, align 4
-  store i32 %75, ptr %17, align 4
-  store i32 %78, ptr %18, align 4
-  %82 = call i32 @sat_solver_addclause(ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %19) #22
+  store i32 %79, ptr %18, align 4
+  %84 = call i32 @sat_solver_addclause(ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %19) #22
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6)
-  br i1 %.not.i78, label %87, label %83
+  br i1 %.not.i78, label %89, label %85
 
-83:                                               ; preds = %Cnf_AddCardinVar.exit83
-  %84 = add i64 %indvars.iv100, %34
-  %85 = add nsw i32 %59, %57
-  %86 = trunc i64 %84 to i32
+85:                                               ; preds = %Cnf_AddCardinVar.exit83
+  %86 = add nsw i64 %indvars.iv100, %34
+  %87 = add nsw i32 %60, %58
+  %88 = trunc i64 %86 to i32
   br label %Cnf_AddCardinVar.exit89
 
-87:                                               ; preds = %Cnf_AddCardinVar.exit83
+89:                                               ; preds = %Cnf_AddCardinVar.exit83
   %.val.i85 = load ptr, ptr %14, align 8
-  %88 = getelementptr inbounds i32, ptr %.val.i85, i64 %indvars.iv100
-  %89 = load i32, ptr %88, align 4
-  %90 = zext nneg i32 %59 to i64
-  %91 = getelementptr inbounds i32, ptr %.val.i85, i64 %90
-  %92 = load i32, ptr %91, align 4
+  %90 = getelementptr inbounds i32, ptr %.val.i85, i64 %indvars.iv100
+  %91 = load i32, ptr %90, align 4
+  %92 = zext nneg i32 %60 to i64
+  %93 = getelementptr inbounds i32, ptr %.val.i85, i64 %92
+  %94 = load i32, ptr %93, align 4
   br label %Cnf_AddCardinVar.exit89
 
-Cnf_AddCardinVar.exit89:                          ; preds = %83, %87
-  %93 = phi i32 [ %86, %83 ], [ %89, %87 ]
-  %94 = phi i32 [ %85, %83 ], [ %92, %87 ]
+Cnf_AddCardinVar.exit89:                          ; preds = %85, %89
+  %95 = phi i32 [ %88, %85 ], [ %91, %89 ]
+  %96 = phi i32 [ %87, %85 ], [ %94, %89 ]
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5)
-  %95 = add i32 %74, 2
-  %96 = or disjoint i32 %95, 1
-  store i32 %96, ptr %5, align 4
-  %97 = shl nsw i32 %93, 1
-  store i32 %97, ptr %20, align 4
-  %98 = call i32 @sat_solver_addclause(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %21) #22
-  store i32 %96, ptr %5, align 4
-  %99 = shl nsw i32 %94, 1
-  store i32 %99, ptr %20, align 4
-  %100 = call i32 @sat_solver_addclause(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %21) #22
-  store i32 %95, ptr %5, align 4
-  %101 = or disjoint i32 %97, 1
+  %97 = trunc i64 %61 to i32
+  %98 = shl i32 %97, 1
+  %99 = add i32 %98, 2
+  %100 = or disjoint i32 %99, 1
+  store i32 %100, ptr %5, align 4
+  %101 = shl nsw i32 %95, 1
   store i32 %101, ptr %20, align 4
-  %102 = or disjoint i32 %99, 1
-  store i32 %102, ptr %21, align 4
-  %103 = call i32 @sat_solver_addclause(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %22) #22
+  %102 = call i32 @sat_solver_addclause(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %21) #22
+  store i32 %100, ptr %5, align 4
+  %103 = shl nsw i32 %96, 1
+  store i32 %103, ptr %20, align 4
+  %104 = call i32 @sat_solver_addclause(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %21) #22
+  store i32 %99, ptr %5, align 4
+  %105 = or disjoint i32 %101, 1
+  store i32 %105, ptr %20, align 4
+  %106 = or disjoint i32 %103, 1
+  store i32 %106, ptr %21, align 4
+  %107 = call i32 @sat_solver_addclause(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %22) #22
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5)
   %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 2
-  %104 = trunc i64 %indvars.iv100 to i32
-  %105 = add i32 %104, 3
-  %106 = icmp slt i32 %105, %.val77
-  br i1 %106, label %58, label %._crit_edge.loopexit, !llvm.loop !8
+  %108 = trunc i64 %indvars.iv100 to i32
+  %109 = add i32 %108, 3
+  %110 = icmp slt i32 %109, %.val77
+  br i1 %110, label %59, label %._crit_edge.loopexit, !llvm.loop !8
 
 ._crit_edge.loopexit:                             ; preds = %Cnf_AddCardinVar.exit89
-  %107 = trunc i64 %indvars.iv.next101 to i32
+  %111 = trunc i64 %indvars.iv.next101 to i32
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %53
-  %.071.lcssa = phi i32 [ %38, %53 ], [ %107, %._crit_edge.loopexit ]
-  %108 = icmp eq i32 %.071.lcssa, %23
-  br i1 %108, label %109, label %128
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %54
+  %.071.lcssa = phi i32 [ %38, %54 ], [ %111, %._crit_edge.loopexit ]
+  %112 = icmp eq i32 %.071.lcssa, %23
+  br i1 %112, label %113, label %132
 
-109:                                              ; preds = %._crit_edge
+113:                                              ; preds = %._crit_edge
   %.not.i90 = icmp eq i64 %indvars.iv103, 0
-  br i1 %.not.i90, label %113, label %110
+  br i1 %.not.i90, label %117, label %114
 
-110:                                              ; preds = %109
-  %111 = trunc i64 %34 to i32
-  %112 = add i32 %23, %111
+114:                                              ; preds = %113
+  %115 = trunc i64 %34 to i32
+  %116 = add i32 %23, %115
   br label %Cnf_AddCardinVar.exit92
 
-113:                                              ; preds = %109
+117:                                              ; preds = %113
   %.val.i91 = load ptr, ptr %14, align 8
-  %114 = getelementptr inbounds i32, ptr %.val.i91, i64 %24
-  %115 = load i32, ptr %114, align 4
+  %118 = getelementptr inbounds i32, ptr %.val.i91, i64 %24
+  %119 = load i32, ptr %118, align 4
   br label %Cnf_AddCardinVar.exit92
 
-Cnf_AddCardinVar.exit92:                          ; preds = %110, %113
-  %116 = phi i32 [ %112, %110 ], [ %115, %113 ]
+Cnf_AddCardinVar.exit92:                          ; preds = %114, %117
+  %120 = phi i32 [ %116, %114 ], [ %119, %117 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  %117 = trunc i64 %36 to i32
-  %118 = add i32 %.val77, %117
-  %119 = shl i32 %118, 1
-  %120 = add i32 %119, -2
-  store i32 %120, ptr %4, align 4
-  %121 = shl nsw i32 %116, 1
-  %122 = or disjoint i32 %121, 1
-  store i32 %122, ptr %25, align 4
-  %123 = call i32 @sat_solver_addclause(ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %26) #22
-  %124 = icmp eq i32 %123, 0
-  br i1 %124, label %sat_solver_add_buffer.exit95, label %125
-
-125:                                              ; preds = %Cnf_AddCardinVar.exit92
-  %126 = or disjoint i32 %120, 1
-  store i32 %126, ptr %4, align 4
-  store i32 %121, ptr %25, align 4
+  %121 = trunc i64 %36 to i32
+  %122 = add i32 %.val77, %121
+  %123 = shl i32 %122, 1
+  %124 = add i32 %123, -2
+  store i32 %124, ptr %4, align 4
+  %125 = shl nsw i32 %120, 1
+  %126 = or disjoint i32 %125, 1
+  store i32 %126, ptr %25, align 4
   %127 = call i32 @sat_solver_addclause(ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %26) #22
+  %128 = icmp eq i32 %127, 0
+  br i1 %128, label %sat_solver_add_buffer.exit95, label %129
+
+129:                                              ; preds = %Cnf_AddCardinVar.exit92
+  %130 = or disjoint i32 %124, 1
+  store i32 %130, ptr %4, align 4
+  store i32 %125, ptr %25, align 4
+  %131 = call i32 @sat_solver_addclause(ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %26) #22
   br label %sat_solver_add_buffer.exit95
 
-sat_solver_add_buffer.exit95:                     ; preds = %Cnf_AddCardinVar.exit92, %125
+sat_solver_add_buffer.exit95:                     ; preds = %Cnf_AddCardinVar.exit92, %129
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  br label %128
+  br label %132
 
-128:                                              ; preds = %._crit_edge, %sat_solver_add_buffer.exit95
+132:                                              ; preds = %._crit_edge, %sat_solver_add_buffer.exit95
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
-  %129 = add nuw nsw i32 %.197, 1
+  %133 = add nuw nsw i32 %.197, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next104, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge99, label %29, !llvm.loop !9
 
-._crit_edge99:                                    ; preds = %128, %.critedge.._crit_edge99_crit_edge
-  %.pre-phi = phi i32 [ %.pre, %.critedge.._crit_edge99_crit_edge ], [ %23, %128 ]
-  %130 = mul nsw i32 %.pre-phi, %.val77
-  %131 = add i32 %9, %2
-  %132 = add i32 %131, %130
-  %133 = shl i32 %132, 1
-  %134 = or disjoint i32 %133, 1
-  store i32 %134, ptr %8, align 4
-  %135 = getelementptr inbounds i8, ptr %8, i64 4
-  %136 = call i32 @sat_solver_addclause(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %135) #22
-  %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %140, label %137
-
-137:                                              ; preds = %._crit_edge99
-  %138 = add i32 %133, -2
+._crit_edge99:                                    ; preds = %132, %.critedge.._crit_edge99_crit_edge
+  %.pre-phi = phi i32 [ %.pre, %.critedge.._crit_edge99_crit_edge ], [ %23, %132 ]
+  %134 = mul nsw i32 %.pre-phi, %.val77
+  %135 = add i32 %9, %2
+  %136 = add i32 %135, %134
+  %137 = shl i32 %136, 1
+  %138 = or disjoint i32 %137, 1
   store i32 %138, ptr %8, align 4
-  %139 = call i32 @sat_solver_addclause(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %135) #22
-  br label %140
+  %139 = getelementptr inbounds i8, ptr %8, i64 4
+  %140 = call i32 @sat_solver_addclause(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %139) #22
+  %.not = icmp eq i32 %3, 0
+  br i1 %.not, label %144, label %141
 
-140:                                              ; preds = %137, %._crit_edge99
+141:                                              ; preds = %._crit_edge99
+  %142 = add i32 %137, -2
+  store i32 %142, ptr %8, align 4
+  %143 = call i32 @sat_solver_addclause(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %139) #22
+  br label %144
+
+144:                                              ; preds = %141, %._crit_edge99
   ret void
 }
 

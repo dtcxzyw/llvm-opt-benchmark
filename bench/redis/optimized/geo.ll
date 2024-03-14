@@ -985,32 +985,31 @@ for.body38.lr.ph:                                 ; preds = %for.cond35.preheade
   %argv39 = getelementptr inbounds i8, ptr %c, i64 96
   %idx.ext = zext i32 %longidx.0.lcssa98105 to i64
   %9 = getelementptr inbounds i8, ptr %hash, i64 8
-  %10 = sext i32 %longidx.0.lcssa98105 to i64
+  %add77 = add nuw nsw i32 %longidx.0.lcssa98105, 1
+  %10 = zext i32 %add77 to i64
   %wide.trip.count86 = zext nneg i32 %div to i64
-  %invariant.gep = getelementptr ptr, ptr %call22, i64 %10
-  %11 = sext i32 %longidx.0.lcssa98105 to i64
-  %invariant.gep113 = getelementptr ptr, ptr %call22, i64 %11
-  %invariant.gep115 = getelementptr i8, ptr %invariant.gep113, i64 8
+  %invariant.gep = getelementptr ptr, ptr %call22, i64 %idx.ext
+  %invariant.gep113 = getelementptr ptr, ptr %call22, i64 %10
   br label %for.body38
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv73 = phi i64 [ 1, %for.body.lr.ph ], [ %indvars.iv.next74, %for.body ]
-  %12 = load ptr, ptr %argv27, align 8
-  %arrayidx29 = getelementptr inbounds ptr, ptr %12, i64 %indvars.iv73
-  %13 = load ptr, ptr %arrayidx29, align 8
+  %11 = load ptr, ptr %argv27, align 8
+  %arrayidx29 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv73
+  %12 = load ptr, ptr %arrayidx29, align 8
   %arrayidx31 = getelementptr inbounds ptr, ptr %call22, i64 %indvars.iv73
-  store ptr %13, ptr %arrayidx31, align 8
-  tail call void @incrRefCount(ptr noundef %13) #14
+  store ptr %12, ptr %arrayidx31, align 8
+  tail call void @incrRefCount(ptr noundef %12) #14
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
   %exitcond77.not = icmp eq i64 %indvars.iv.next74, %wide.trip.count76
   br i1 %exitcond77.not, label %for.cond35.preheader, label %for.body, !llvm.loop !13
 
 for.body38:                                       ; preds = %for.body38.lr.ph, %if.end61
   %indvars.iv78 = phi i64 [ 0, %for.body38.lr.ph ], [ %indvars.iv.next79, %if.end61 ]
-  %14 = load ptr, ptr %argv39, align 8
-  %add.ptr = getelementptr inbounds ptr, ptr %14, i64 %idx.ext
-  %15 = mul nuw nsw i64 %indvars.iv78, 3
-  %add.ptr42 = getelementptr inbounds ptr, ptr %add.ptr, i64 %15
+  %13 = load ptr, ptr %argv39, align 8
+  %add.ptr = getelementptr inbounds ptr, ptr %13, i64 %idx.ext
+  %14 = mul nuw nsw i64 %indvars.iv78, 3
+  %add.ptr42 = getelementptr inbounds ptr, ptr %add.ptr, i64 %14
   br label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
@@ -1021,23 +1020,23 @@ for.body.i:                                       ; preds = %for.cond.i, %for.bo
   %indvars.iv.i.sroa.phi = phi ptr [ %xy, %for.body38 ], [ %indvars.iv.i.sroa.gep49, %for.cond.i ]
   %indvars.iv.i = phi i64 [ 0, %for.body38 ], [ 1, %for.cond.i ]
   %arrayidx.i = getelementptr inbounds ptr, ptr %add.ptr42, i64 %indvars.iv.i
-  %16 = load ptr, ptr %arrayidx.i, align 8
-  %call.i = call i32 @getDoubleFromObjectOrReply(ptr noundef %c, ptr noundef %16, ptr noundef nonnull %indvars.iv.i.sroa.phi, ptr noundef null) #14
+  %15 = load ptr, ptr %arrayidx.i, align 8
+  %call.i = call i32 @getDoubleFromObjectOrReply(ptr noundef %c, ptr noundef %15, ptr noundef nonnull %indvars.iv.i.sroa.phi, ptr noundef null) #14
   %cmp1.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp1.not.i, label %for.cond.i, label %extractLongLatOrReply.exit
 
 for.end.i:                                        ; preds = %for.cond.i
-  %17 = load double, ptr %xy, align 16
-  %18 = call double @llvm.fabs.f64(double %17)
-  %or.cond.i = fcmp ogt double %18, 1.800000e+02
+  %16 = load double, ptr %xy, align 16
+  %17 = call double @llvm.fabs.f64(double %16)
+  %or.cond.i = fcmp ogt double %17, 1.800000e+02
   %.pre.i = load double, ptr %indvars.iv.i.sroa.gep49, align 8
-  %19 = call double @llvm.fabs.f64(double %.pre.i)
-  %or.cond12.i = fcmp ogt double %19, 0x40554345B1A57F00
+  %18 = call double @llvm.fabs.f64(double %.pre.i)
+  %or.cond12.i = fcmp ogt double %18, 0x40554345B1A57F00
   %or.cond15.i = select i1 %or.cond.i, i1 true, i1 %or.cond12.i
   br i1 %or.cond15.i, label %if.then12.i, label %if.end61
 
 if.then12.i:                                      ; preds = %for.end.i
-  call void (ptr, ptr, ...) @addReplyErrorFormat(ptr noundef %c, ptr noundef nonnull @.str, double noundef %17, double noundef %.pre.i) #14
+  call void (ptr, ptr, ...) @addReplyErrorFormat(ptr noundef %c, ptr noundef nonnull @.str, double noundef %16, double noundef %.pre.i) #14
   br label %extractLongLatOrReply.exit
 
 extractLongLatOrReply.exit:                       ; preds = %for.body.i, %if.then12.i
@@ -1051,12 +1050,12 @@ for.body50.preheader:                             ; preds = %extractLongLatOrRep
 for.body50:                                       ; preds = %for.body50.preheader, %for.inc58
   %indvars.iv88 = phi i64 [ 0, %for.body50.preheader ], [ %indvars.iv.next89, %for.inc58 ]
   %arrayidx52 = getelementptr inbounds ptr, ptr %call22, i64 %indvars.iv88
-  %20 = load ptr, ptr %arrayidx52, align 8
-  %tobool53.not = icmp eq ptr %20, null
+  %19 = load ptr, ptr %arrayidx52, align 8
+  %tobool53.not = icmp eq ptr %19, null
   br i1 %tobool53.not, label %for.inc58, label %if.then54
 
 if.then54:                                        ; preds = %for.body50
-  call void @decrRefCount(ptr noundef nonnull %20) #14
+  call void @decrRefCount(ptr noundef nonnull %19) #14
   br label %for.inc58
 
 for.inc58:                                        ; preds = %for.body50, %if.then54
@@ -1069,22 +1068,22 @@ for.end60:                                        ; preds = %for.inc58, %extract
   br label %return
 
 if.end61:                                         ; preds = %for.end.i
-  %call64 = call i32 @geohashEncodeWGS84(double noundef %17, double noundef %.pre.i, i8 noundef zeroext 26, ptr noundef nonnull %hash) #14
-  %21 = load i64, ptr %hash, align 8
-  %22 = load i8, ptr %9, align 8
-  %call65 = call i64 @geohashAlign52Bits(i64 %21, i8 %22) #14
+  %call64 = call i32 @geohashEncodeWGS84(double noundef %16, double noundef %.pre.i, i8 noundef zeroext 26, ptr noundef nonnull %hash) #14
+  %20 = load i64, ptr %hash, align 8
+  %21 = load i8, ptr %9, align 8
+  %call65 = call i64 @geohashAlign52Bits(i64 %20, i8 %21) #14
   %call66 = call ptr @createStringObjectFromLongLongWithSds(i64 noundef %call65) #14
-  %23 = load ptr, ptr %argv39, align 8
-  %24 = getelementptr ptr, ptr %23, i64 %15
-  %25 = getelementptr ptr, ptr %24, i64 %idx.ext
-  %arrayidx72 = getelementptr i8, ptr %25, i64 16
-  %26 = load ptr, ptr %arrayidx72, align 8
-  %27 = shl nuw nsw i64 %indvars.iv78, 1
-  %gep = getelementptr ptr, ptr %invariant.gep, i64 %27
+  %22 = load ptr, ptr %argv39, align 8
+  %23 = getelementptr ptr, ptr %22, i64 %14
+  %24 = getelementptr ptr, ptr %23, i64 %idx.ext
+  %arrayidx72 = getelementptr i8, ptr %24, i64 16
+  %25 = load ptr, ptr %arrayidx72, align 8
+  %26 = shl nuw nsw i64 %indvars.iv78, 1
+  %gep = getelementptr ptr, ptr %invariant.gep, i64 %26
   store ptr %call66, ptr %gep, align 8
-  %gep116 = getelementptr ptr, ptr %invariant.gep115, i64 %27
-  store ptr %26, ptr %gep116, align 8
-  call void @incrRefCount(ptr noundef %26) #14
+  %gep114 = getelementptr ptr, ptr %invariant.gep113, i64 %26
+  store ptr %25, ptr %gep114, align 8
+  call void @incrRefCount(ptr noundef %25) #14
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
   %exitcond87.not = icmp eq i64 %indvars.iv.next79, %wide.trip.count86
   br i1 %exitcond87.not, label %for.end84, label %for.body38, !llvm.loop !15

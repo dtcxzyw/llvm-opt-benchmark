@@ -11410,99 +11410,102 @@ define void @Gia_ManDumpIoList(ptr nocapture noundef readonly %0, ptr nocapture 
 .lr.ph:                                           ; preds = %10
   %.not31 = icmp eq i32 %3, 0
   %15 = getelementptr i8, ptr %5, i64 8
-  br i1 %.not31, label %.lr.ph.split.us, label %.lr.ph.split
+  br i1 %.not31, label %.lr.ph.split.us, label %.lr.ph.split.preheader
+
+.lr.ph.split.preheader:                           ; preds = %.lr.ph
+  %16 = zext nneg i32 %.val35 to i64
+  br label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %Gia_ManPrintOneName.exit.us
   %indvars.iv45 = phi i64 [ %indvars.iv.next46, %Gia_ManPrintOneName.exit.us ], [ 0, %.lr.ph ]
-  %16 = or disjoint i64 %indvars.iv45, 1
-  %.027.in.us = getelementptr inbounds i32, ptr %.val39, i64 %16
+  %17 = or disjoint i64 %indvars.iv45, 1
+  %.027.in.us = getelementptr inbounds i32, ptr %.val39, i64 %17
   %.027.us = load i32, ptr %.027.in.us, align 4
   %.028.in.us = getelementptr inbounds i32, ptr %.val39, i64 %indvars.iv45
   %.028.us = load i32, ptr %.028.in.us, align 4
   %.not32.us = icmp eq i64 %indvars.iv45, 0
-  br i1 %.not32.us, label %19, label %17
+  br i1 %.not32.us, label %20, label %18
 
-17:                                               ; preds = %.lr.ph.split.us
-  %18 = tail call i64 @fwrite(ptr nonnull @.str.87, i64 2, i64 1, ptr %1)
-  br label %19
+18:                                               ; preds = %.lr.ph.split.us
+  %19 = tail call i64 @fwrite(ptr nonnull @.str.87, i64 2, i64 1, ptr %1)
+  br label %20
 
-19:                                               ; preds = %17, %.lr.ph.split.us
+20:                                               ; preds = %18, %.lr.ph.split.us
   %.val.us = load ptr, ptr %15, align 8
-  %20 = sext i32 %.028.us to i64
-  %21 = getelementptr inbounds ptr, ptr %.val.us, i64 %20
-  %22 = load ptr, ptr %21, align 8
-  %23 = icmp sgt i32 %.027.us, 0
-  br i1 %23, label %.lr.ph.preheader.i.us, label %Gia_ManPrintOneName.exit.us
+  %21 = sext i32 %.028.us to i64
+  %22 = getelementptr inbounds ptr, ptr %.val.us, i64 %21
+  %23 = load ptr, ptr %22, align 8
+  %24 = icmp sgt i32 %.027.us, 0
+  br i1 %24, label %.lr.ph.preheader.i.us, label %Gia_ManPrintOneName.exit.us
 
-.lr.ph.preheader.i.us:                            ; preds = %19
+.lr.ph.preheader.i.us:                            ; preds = %20
   %wide.trip.count.i.us = zext nneg i32 %.027.us to i64
   br label %.lr.ph.i.us
 
 .lr.ph.i.us:                                      ; preds = %.lr.ph.i.us, %.lr.ph.preheader.i.us
   %indvars.iv.i.us = phi i64 [ 0, %.lr.ph.preheader.i.us ], [ %indvars.iv.next.i.us, %.lr.ph.i.us ]
-  %24 = getelementptr inbounds i8, ptr %22, i64 %indvars.iv.i.us
-  %25 = load i8, ptr %24, align 1
-  %26 = sext i8 %25 to i32
-  %fputc.i.us = tail call i32 @fputc(i32 %26, ptr %1)
+  %25 = getelementptr inbounds i8, ptr %23, i64 %indvars.iv.i.us
+  %26 = load i8, ptr %25, align 1
+  %27 = sext i8 %26 to i32
+  %fputc.i.us = tail call i32 @fputc(i32 %27, ptr %1)
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i.us
   br i1 %exitcond.not.i.us, label %Gia_ManPrintOneName.exit.us, label %.lr.ph.i.us, !llvm.loop !90
 
-Gia_ManPrintOneName.exit.us:                      ; preds = %.lr.ph.i.us, %19
+Gia_ManPrintOneName.exit.us:                      ; preds = %.lr.ph.i.us, %20
   %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 2
-  %27 = trunc i64 %indvars.iv.next46 to i32
-  %28 = or disjoint i32 %27, 1
-  %29 = icmp slt i32 %28, %.val35
-  br i1 %29, label %.lr.ph.split.us, label %.critedge, !llvm.loop !93
+  %28 = trunc i64 %indvars.iv.next46 to i32
+  %29 = or disjoint i32 %28, 1
+  %30 = icmp slt i32 %29, %.val35
+  br i1 %30, label %.lr.ph.split.us, label %.critedge, !llvm.loop !93
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %Gia_ManPrintOneName.exit
-  %indvars.iv = phi i64 [ %indvars.iv.next, %Gia_ManPrintOneName.exit ], [ 0, %.lr.ph ]
-  %30 = trunc i64 %indvars.iv to i32
-  %31 = sub i32 %.val35, %30
-  %32 = add i32 %31, -2
-  %33 = sext i32 %32 to i64
-  %34 = trunc i64 %indvars.iv to i32
-  %35 = xor i32 %34, -1
-  %36 = add nsw i32 %.val35, %35
-  %37 = sext i32 %36 to i64
-  %.027.in = getelementptr inbounds i32, ptr %.val39, i64 %37
+.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %Gia_ManPrintOneName.exit
+  %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %Gia_ManPrintOneName.exit ]
+  %31 = trunc i64 %indvars.iv to i32
+  %32 = sub i32 %.val35, %31
+  %33 = add i32 %32, -2
+  %34 = sext i32 %33 to i64
+  %35 = trunc i64 %indvars.iv to i32
+  %36 = xor i32 %35, -1
+  %37 = add nsw i32 %.val35, %36
+  %38 = sext i32 %37 to i64
+  %.027.in = getelementptr inbounds i32, ptr %.val39, i64 %38
   %.027 = load i32, ptr %.027.in, align 4
-  %.028.in = getelementptr inbounds i32, ptr %.val39, i64 %33
+  %.028.in = getelementptr inbounds i32, ptr %.val39, i64 %34
   %.028 = load i32, ptr %.028.in, align 4
   %.not32 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not32, label %40, label %38
+  br i1 %.not32, label %41, label %39
 
-38:                                               ; preds = %.lr.ph.split
-  %39 = tail call i64 @fwrite(ptr nonnull @.str.87, i64 2, i64 1, ptr %1)
-  br label %40
+39:                                               ; preds = %.lr.ph.split
+  %40 = tail call i64 @fwrite(ptr nonnull @.str.87, i64 2, i64 1, ptr %1)
+  br label %41
 
-40:                                               ; preds = %38, %.lr.ph.split
+41:                                               ; preds = %39, %.lr.ph.split
   %.val = load ptr, ptr %15, align 8
-  %41 = sext i32 %.028 to i64
-  %42 = getelementptr inbounds ptr, ptr %.val, i64 %41
-  %43 = load ptr, ptr %42, align 8
-  %44 = icmp sgt i32 %.027, 0
-  br i1 %44, label %.lr.ph.preheader.i, label %Gia_ManPrintOneName.exit
+  %42 = sext i32 %.028 to i64
+  %43 = getelementptr inbounds ptr, ptr %.val, i64 %42
+  %44 = load ptr, ptr %43, align 8
+  %45 = icmp sgt i32 %.027, 0
+  br i1 %45, label %.lr.ph.preheader.i, label %Gia_ManPrintOneName.exit
 
-.lr.ph.preheader.i:                               ; preds = %40
+.lr.ph.preheader.i:                               ; preds = %41
   %wide.trip.count.i = zext nneg i32 %.027 to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %45 = getelementptr inbounds i8, ptr %43, i64 %indvars.iv.i
-  %46 = load i8, ptr %45, align 1
-  %47 = sext i8 %46 to i32
-  %fputc.i = tail call i32 @fputc(i32 %47, ptr %1)
+  %46 = getelementptr inbounds i8, ptr %44, i64 %indvars.iv.i
+  %47 = load i8, ptr %46, align 1
+  %48 = sext i8 %47 to i32
+  %fputc.i = tail call i32 @fputc(i32 %48, ptr %1)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %Gia_ManPrintOneName.exit, label %.lr.ph.i, !llvm.loop !90
 
-Gia_ManPrintOneName.exit:                         ; preds = %.lr.ph.i, %40
+Gia_ManPrintOneName.exit:                         ; preds = %.lr.ph.i, %41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %48 = trunc i64 %indvars.iv.next to i32
-  %49 = or disjoint i32 %48, 1
-  %50 = icmp slt i32 %49, %.val35
+  %49 = or disjoint i64 %indvars.iv.next, 1
+  %50 = icmp ult i64 %49, %16
   br i1 %50, label %.lr.ph.split, label %.critedge, !llvm.loop !93
 
 .critedge:                                        ; preds = %Gia_ManPrintOneName.exit, %Gia_ManPrintOneName.exit.us, %10

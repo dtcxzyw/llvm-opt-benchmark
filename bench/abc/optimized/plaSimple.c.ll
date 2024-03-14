@@ -1075,10 +1075,10 @@ Vec_WrdPush.exit:                                 ; preds = %.Vec_WrdGrow.exit10
   %312 = getelementptr inbounds i64, ptr %309, i64 %311
   store i64 %.lcssa166, ptr %312, align 8
   %indvars.iv.next198 = add nuw nsw i64 %indvars.iv197, 2
-  %313 = or disjoint i64 %indvars.iv.next198, 1
   %.val = load i32, ptr %19, align 4
-  %314 = sext i32 %.val to i64
-  %315 = icmp slt i64 %313, %314
+  %313 = trunc i64 %indvars.iv.next198 to i32
+  %314 = or disjoint i32 %313, 1
+  %315 = icmp slt i32 %314, %.val
   br i1 %315, label %263, label %.critedge, !llvm.loop !24
 
 .critedge:                                        ; preds = %Vec_WrdPush.exit, %260

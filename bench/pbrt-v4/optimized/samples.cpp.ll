@@ -5824,7 +5824,7 @@ if.then.i:                                        ; preds = %for.body.i
 for.inc.i:                                        ; preds = %if.then.i, %for.body.i
   %v.1.i = phi i32 [ %xor.i, %if.then.i ], [ %v.08.i, %for.body.i ]
   %shr.i = ashr i64 %a.addr.07.i, 1
-  %indvars.iv.next.i = add i64 %indvars.iv.i, 1
+  %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %cmp.not.i = icmp ult i64 %a.addr.07.i, 2
   br i1 %cmp.not.i, label %for.end.loopexit.i, label %for.body.i, !llvm.loop !90
 
@@ -5885,7 +5885,7 @@ if.then.i16:                                      ; preds = %for.body.i10
 for.inc.i19:                                      ; preds = %if.then.i16, %for.body.i10
   %v.1.i20 = phi i32 [ %xor.i18, %if.then.i16 ], [ %v.08.i12, %for.body.i10 ]
   %shr.i21 = ashr i64 %a.addr.07.i13, 1
-  %indvars.iv.next.i22 = add i64 %indvars.iv.i11, 1
+  %indvars.iv.next.i22 = add nsw i64 %indvars.iv.i11, 1
   %cmp.not.i23 = icmp ult i64 %a.addr.07.i13, 2
   br i1 %cmp.not.i23, label %_ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit, label %for.body.i10, !llvm.loop !91
 
@@ -5921,7 +5921,7 @@ if.then.i36:                                      ; preds = %for.body.i30
 for.inc.i39:                                      ; preds = %if.then.i36, %for.body.i30
   %v.1.i40 = phi i32 [ %xor.i38, %if.then.i36 ], [ %v.08.i32, %for.body.i30 ]
   %shr.i41 = ashr i64 %a.addr.07.i33, 1
-  %indvars.iv.next.i42 = add i64 %indvars.iv.i31, 1
+  %indvars.iv.next.i42 = add nsw i64 %indvars.iv.i31, 1
   %cmp.not.i43 = icmp ult i64 %a.addr.07.i33, 2
   br i1 %cmp.not.i43, label %_ZN4pbrt11SobolSampleINS_17FastOwenScramblerEEEfliT_.exit, label %for.body.i30, !llvm.loop !92
 
@@ -5968,7 +5968,7 @@ if.then.i61:                                      ; preds = %for.body.i55
 for.inc.i64:                                      ; preds = %if.then.i61, %for.body.i55
   %v.1.i65 = phi i32 [ %xor.i63, %if.then.i61 ], [ %v.08.i57, %for.body.i55 ]
   %shr.i66 = ashr i64 %a.addr.07.i58, 1
-  %indvars.iv.next.i67 = add i64 %indvars.iv.i56, 1
+  %indvars.iv.next.i67 = add nsw i64 %indvars.iv.i56, 1
   %cmp.not.i68 = icmp ult i64 %a.addr.07.i58, 2
   br i1 %cmp.not.i68, label %for.end.i, label %for.body.i55, !llvm.loop !93
 
@@ -6612,15 +6612,13 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %indvars.iv.i = phi i64 [ %4, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.body.i ]
   %sampleIndex.021.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %or.i, %for.body.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %6 = trunc i64 %indvars.iv.next.i to i32
-  %mul.i = shl nuw nsw i32 %6, 1
-  %sub5.i = sub nsw i32 %mul.i, %and.i
-  %sh_prom.i = zext i32 %sub5.i to i64
+  %6 = shl nuw nsw i64 %indvars.iv.next.i, 1
+  %7 = sub nsw i64 %6, %5
+  %sh_prom.i = and i64 %7, 4294967295
   %shr.i = lshr i64 %2, %sh_prom.i
   %conv.i = and i64 %shr.i, 3
-  %add.i = add nsw i32 %sub5.i, 2
-  %sh_prom8.i = zext nneg i32 %add.i to i64
-  %shr9.i = lshr i64 %2, %sh_prom8.i
+  %8 = add nsw i64 %7, 2
+  %shr9.i = lshr i64 %2, %8
   %xor.i = xor i64 %shr9.i, %conv11.i
   %shr.i.i = lshr i64 %xor.i, 31
   %xor.i.i = xor i64 %shr.i.i, %xor.i
@@ -6628,13 +6626,13 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %shr1.i.i = lshr i64 %mul.i.i, 27
   %xor2.i.i = xor i64 %shr1.i.i, %mul.i.i
   %mul3.i.i = mul i64 %xor2.i.i, -9089707755183418291
-  %7 = lshr i64 %mul3.i.i, 57
-  %8 = lshr i64 %mul3.i.i, 24
-  %shr12.i = xor i64 %7, %8
+  %9 = lshr i64 %mul3.i.i, 57
+  %10 = lshr i64 %mul3.i.i, 24
+  %shr12.i = xor i64 %9, %10
   %rem.i = urem i64 %shr12.i, 24
   %arrayidx15.i = getelementptr inbounds [24 x [4 x i8]], ptr @_ZZNK4pbrt13ZSobolSampler14GetSampleIndexEvE12permutations, i64 0, i64 %rem.i, i64 %conv.i
-  %9 = load i8, ptr %arrayidx15.i, align 1
-  %conv17.i = zext i8 %9 to i64
+  %11 = load i8, ptr %arrayidx15.i, align 1
+  %conv17.i = zext i8 %11 to i64
   %shl.i = shl i64 %conv17.i, %sh_prom.i
   %or.i = or i64 %shl.i, %sampleIndex.021.i
   %cmp.not.not.i = icmp sgt i64 %indvars.iv.next.i, %5
@@ -6651,11 +6649,11 @@ for.end.i._ZNK4pbrt13ZSobolSampler14GetSampleIndexEv.exit_crit_edge: ; preds = %
 
 if.then.i:                                        ; preds = %for.end.i
   %mortonIndex21.i = getelementptr inbounds i8, ptr %this, i64 16
-  %10 = load i64, ptr %mortonIndex21.i, align 8
-  %shr26.i = lshr i64 %10, 1
+  %12 = load i64, ptr %mortonIndex21.i, align 8
+  %shr26.i = lshr i64 %12, 1
   %dimension27.i = getelementptr inbounds i8, ptr %this, i64 24
-  %11 = load i32, ptr %dimension27.i, align 8
-  %mul28.i = mul i32 %11, 1431655765
+  %13 = load i32, ptr %dimension27.i, align 8
+  %mul28.i = mul i32 %13, 1431655765
   %conv29.i = zext i32 %mul28.i to i64
   %xor30.i = xor i64 %shr26.i, %conv29.i
   %shr.i11.i = lshr i64 %xor30.i, 31
@@ -6665,21 +6663,21 @@ if.then.i:                                        ; preds = %for.end.i
   %xor2.i15.i = xor i64 %shr1.i14.i, %mul.i13.i
   %mul3.i16.i = mul i64 %xor2.i15.i, -9089707755183418291
   %shr4.i17.i = lshr i64 %mul3.i16.i, 33
-  %12 = xor i64 %10, %shr4.i17.i
-  %conv2310.i = xor i64 %12, %mul3.i16.i
+  %14 = xor i64 %12, %shr4.i17.i
+  %conv2310.i = xor i64 %14, %mul3.i16.i
   %xor33.i = and i64 %conv2310.i, 1
   %or34.i = or i64 %xor33.i, %sampleIndex.0.lcssa.i
   br label %_ZNK4pbrt13ZSobolSampler14GetSampleIndexEv.exit
 
 _ZNK4pbrt13ZSobolSampler14GetSampleIndexEv.exit:  ; preds = %for.end.i._ZNK4pbrt13ZSobolSampler14GetSampleIndexEv.exit_crit_edge, %if.then.i
-  %13 = phi i32 [ %11, %if.then.i ], [ %.pre, %for.end.i._ZNK4pbrt13ZSobolSampler14GetSampleIndexEv.exit_crit_edge ]
+  %15 = phi i32 [ %13, %if.then.i ], [ %.pre, %for.end.i._ZNK4pbrt13ZSobolSampler14GetSampleIndexEv.exit_crit_edge ]
   %sampleIndex.1.i = phi i64 [ %or34.i, %if.then.i ], [ %sampleIndex.0.lcssa.i, %for.end.i._ZNK4pbrt13ZSobolSampler14GetSampleIndexEv.exit_crit_edge ]
   %dimension = getelementptr inbounds i8, ptr %this, i64 24
-  %inc = add nsw i32 %13, 1
+  %inc = add nsw i32 %15, 1
   store i32 %inc, ptr %dimension, align 8
   %seed = getelementptr inbounds i8, ptr %this, i64 4
-  %14 = load i32, ptr %seed, align 4
-  %buf.sroa.2.0.insert.ext.i = zext i32 %14 to i64
+  %16 = load i32, ptr %seed, align 4
+  %buf.sroa.2.0.insert.ext.i = zext i32 %16 to i64
   %buf.sroa.2.0.insert.shift.i = shl nuw i64 %buf.sroa.2.0.insert.ext.i, 32
   %buf.sroa.0.0.insert.ext.i = zext i32 %inc to i64
   %buf.sroa.0.0.insert.insert.i = or disjoint i64 %buf.sroa.2.0.insert.shift.i, %buf.sroa.0.0.insert.ext.i
@@ -6695,9 +6693,9 @@ _ZNK4pbrt13ZSobolSampler14GetSampleIndexEv.exit:  ; preds = %for.end.i._ZNK4pbrt
   %shr42.i.i = lshr i64 %mul41.i.i, 47
   %xor43.i.i = xor i64 %shr42.i.i, %mul41.i.i
   %conv = trunc i64 %xor43.i.i to i32
-  %15 = load i32, ptr %this, align 8
+  %17 = load i32, ptr %this, align 8
   %cmp.not6.i64 = icmp eq i64 %sampleIndex.1.i, 0
-  switch i32 %15, label %if.else17 [
+  switch i32 %17, label %if.else17 [
     i32 0, label %if.then
     i32 1, label %if.then7
     i32 2, label %if.then13
@@ -6716,20 +6714,20 @@ for.body.i8:                                      ; preds = %if.then, %for.inc.i
 
 if.then.i11:                                      ; preds = %for.body.i8
   %arrayidx.i = getelementptr inbounds [53248 x i32], ptr @_ZN4pbrt15SobolMatrices32E, i64 0, i64 %indvars.iv.i9
-  %16 = load i32, ptr %arrayidx.i, align 4
-  %xor.i12 = xor i32 %16, %v.08.i
+  %18 = load i32, ptr %arrayidx.i, align 4
+  %xor.i12 = xor i32 %18, %v.08.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then.i11, %for.body.i8
   %v.1.i = phi i32 [ %xor.i12, %if.then.i11 ], [ %v.08.i, %for.body.i8 ]
   %shr.i13 = ashr i64 %a.addr.07.i, 1
-  %indvars.iv.next.i14 = add i64 %indvars.iv.i9, 1
+  %indvars.iv.next.i14 = add nuw nsw i64 %indvars.iv.i9, 1
   %cmp.not.i = icmp ult i64 %a.addr.07.i, 2
   br i1 %cmp.not.i, label %for.end.loopexit.i, label %for.body.i8, !llvm.loop !90
 
 for.end.loopexit.i:                               ; preds = %for.inc.i
-  %17 = uitofp i32 %v.1.i to float
-  %18 = fmul float %17, 0x3DF0000000000000
+  %19 = uitofp i32 %v.1.i to float
+  %20 = fmul float %19, 0x3DF0000000000000
   br label %return
 
 if.then7:                                         ; preds = %_ZNK4pbrt13ZSobolSampler14GetSampleIndexEv.exit
@@ -6745,14 +6743,14 @@ for.body.i18:                                     ; preds = %if.then7, %for.inc.
 
 if.then.i24:                                      ; preds = %for.body.i18
   %arrayidx.i25 = getelementptr inbounds [53248 x i32], ptr @_ZN4pbrt15SobolMatrices32E, i64 0, i64 %indvars.iv.i19
-  %19 = load i32, ptr %arrayidx.i25, align 4
-  %xor.i26 = xor i32 %19, %v.08.i20
+  %21 = load i32, ptr %arrayidx.i25, align 4
+  %xor.i26 = xor i32 %21, %v.08.i20
   br label %for.inc.i27
 
 for.inc.i27:                                      ; preds = %if.then.i24, %for.body.i18
   %v.1.i28 = phi i32 [ %xor.i26, %if.then.i24 ], [ %v.08.i20, %for.body.i18 ]
   %shr.i29 = ashr i64 %a.addr.07.i21, 1
-  %indvars.iv.next.i30 = add i64 %indvars.iv.i19, 1
+  %indvars.iv.next.i30 = add nuw nsw i64 %indvars.iv.i19, 1
   %cmp.not.i31 = icmp ult i64 %a.addr.07.i21, 2
   br i1 %cmp.not.i31, label %_ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit, label %for.body.i18, !llvm.loop !91
 
@@ -6776,14 +6774,14 @@ for.body.i40:                                     ; preds = %if.then13, %for.inc
 
 if.then.i46:                                      ; preds = %for.body.i40
   %arrayidx.i47 = getelementptr inbounds [53248 x i32], ptr @_ZN4pbrt15SobolMatrices32E, i64 0, i64 %indvars.iv.i41
-  %20 = load i32, ptr %arrayidx.i47, align 4
-  %xor.i48 = xor i32 %20, %v.08.i42
+  %22 = load i32, ptr %arrayidx.i47, align 4
+  %xor.i48 = xor i32 %22, %v.08.i42
   br label %for.inc.i49
 
 for.inc.i49:                                      ; preds = %if.then.i46, %for.body.i40
   %v.1.i50 = phi i32 [ %xor.i48, %if.then.i46 ], [ %v.08.i42, %for.body.i40 ]
   %shr.i51 = ashr i64 %a.addr.07.i43, 1
-  %indvars.iv.next.i52 = add i64 %indvars.iv.i41, 1
+  %indvars.iv.next.i52 = add nuw nsw i64 %indvars.iv.i41, 1
   %cmp.not.i53 = icmp ult i64 %a.addr.07.i43, 2
   br i1 %cmp.not.i53, label %_ZN4pbrt11SobolSampleINS_17FastOwenScramblerEEEfliT_.exit, label %for.body.i40, !llvm.loop !92
 
@@ -6818,21 +6816,21 @@ for.body.i66:                                     ; preds = %if.else17, %for.inc
 
 if.then.i72:                                      ; preds = %for.body.i66
   %arrayidx.i73 = getelementptr inbounds [53248 x i32], ptr @_ZN4pbrt15SobolMatrices32E, i64 0, i64 %indvars.iv.i67
-  %21 = load i32, ptr %arrayidx.i73, align 4
-  %xor.i74 = xor i32 %21, %v.08.i68
+  %23 = load i32, ptr %arrayidx.i73, align 4
+  %xor.i74 = xor i32 %23, %v.08.i68
   br label %for.inc.i75
 
 for.inc.i75:                                      ; preds = %if.then.i72, %for.body.i66
   %v.1.i76 = phi i32 [ %xor.i74, %if.then.i72 ], [ %v.08.i68, %for.body.i66 ]
   %shr.i77 = ashr i64 %a.addr.07.i69, 1
-  %indvars.iv.next.i78 = add i64 %indvars.iv.i67, 1
+  %indvars.iv.next.i78 = add nuw nsw i64 %indvars.iv.i67, 1
   %cmp.not.i79 = icmp ult i64 %a.addr.07.i69, 2
   br i1 %cmp.not.i79, label %for.end.i80, label %for.body.i66, !llvm.loop !93
 
 for.end.i80:                                      ; preds = %for.inc.i75, %if.else17
   %v.0.lcssa.i81 = phi i32 [ 0, %if.else17 ], [ %v.1.i76, %for.inc.i75 ]
-  %22 = shl i32 %conv, 31
-  %spec.select.i.i = xor i32 %v.0.lcssa.i81, %22
+  %24 = shl i32 %conv, 31
+  %spec.select.i.i = xor i32 %v.0.lcssa.i81, %24
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.end.i80
@@ -6869,7 +6867,7 @@ _ZN4pbrt11SobolSampleINS_13OwenScramblerEEEfliT_.exit: ; preds = %for.body.i.i
   br label %return
 
 return:                                           ; preds = %for.end.loopexit.i, %if.then, %_ZN4pbrt11SobolSampleINS_13OwenScramblerEEEfliT_.exit, %_ZN4pbrt11SobolSampleINS_17FastOwenScramblerEEEfliT_.exit, %_ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit
-  %mul3.i84.sink87 = phi float [ %mul3.i84, %_ZN4pbrt11SobolSampleINS_13OwenScramblerEEEfliT_.exit ], [ %mul3.i61, %_ZN4pbrt11SobolSampleINS_17FastOwenScramblerEEEfliT_.exit ], [ %mul3.i, %_ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit ], [ 0.000000e+00, %if.then ], [ %18, %for.end.loopexit.i ]
+  %mul3.i84.sink87 = phi float [ %mul3.i84, %_ZN4pbrt11SobolSampleINS_13OwenScramblerEEEfliT_.exit ], [ %mul3.i61, %_ZN4pbrt11SobolSampleINS_17FastOwenScramblerEEEfliT_.exit ], [ %mul3.i, %_ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit ], [ 0.000000e+00, %if.then ], [ %20, %for.end.loopexit.i ]
   %cmp.i.i85 = fcmp ogt float %mul3.i84.sink87, 0x3FEFFFFFE0000000
   %.sroa.speculated.i86 = select i1 %cmp.i.i85, float 0x3FEFFFFFE0000000, float %mul3.i84.sink87
   ret float %.sroa.speculated.i86
@@ -6902,15 +6900,13 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %indvars.iv.i = phi i64 [ %4, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.body.i ]
   %sampleIndex.021.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %or.i, %for.body.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %6 = trunc i64 %indvars.iv.next.i to i32
-  %mul.i = shl nuw nsw i32 %6, 1
-  %sub5.i = sub nsw i32 %mul.i, %and.i
-  %sh_prom.i = zext i32 %sub5.i to i64
+  %6 = shl nuw nsw i64 %indvars.iv.next.i, 1
+  %7 = sub nsw i64 %6, %5
+  %sh_prom.i = and i64 %7, 4294967295
   %shr.i = lshr i64 %2, %sh_prom.i
   %conv.i = and i64 %shr.i, 3
-  %add.i = add nsw i32 %sub5.i, 2
-  %sh_prom8.i = zext nneg i32 %add.i to i64
-  %shr9.i = lshr i64 %2, %sh_prom8.i
+  %8 = add nsw i64 %7, 2
+  %shr9.i = lshr i64 %2, %8
   %xor.i = xor i64 %shr9.i, %conv11.i
   %shr.i.i = lshr i64 %xor.i, 31
   %xor.i.i = xor i64 %shr.i.i, %xor.i
@@ -6918,13 +6914,13 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %shr1.i.i = lshr i64 %mul.i.i, 27
   %xor2.i.i = xor i64 %shr1.i.i, %mul.i.i
   %mul3.i.i = mul i64 %xor2.i.i, -9089707755183418291
-  %7 = lshr i64 %mul3.i.i, 57
-  %8 = lshr i64 %mul3.i.i, 24
-  %shr12.i = xor i64 %7, %8
+  %9 = lshr i64 %mul3.i.i, 57
+  %10 = lshr i64 %mul3.i.i, 24
+  %shr12.i = xor i64 %9, %10
   %rem.i = urem i64 %shr12.i, 24
   %arrayidx15.i = getelementptr inbounds [24 x [4 x i8]], ptr @_ZZNK4pbrt13ZSobolSampler14GetSampleIndexEvE12permutations, i64 0, i64 %rem.i, i64 %conv.i
-  %9 = load i8, ptr %arrayidx15.i, align 1
-  %conv17.i = zext i8 %9 to i64
+  %11 = load i8, ptr %arrayidx15.i, align 1
+  %conv17.i = zext i8 %11 to i64
   %shl.i = shl i64 %conv17.i, %sh_prom.i
   %or.i = or i64 %shl.i, %sampleIndex.021.i
   %cmp.not.not.i = icmp sgt i64 %indvars.iv.next.i, %5
@@ -6941,11 +6937,11 @@ for.end.i._ZNK4pbrt13ZSobolSampler14GetSampleIndexEv.exit_crit_edge: ; preds = %
 
 if.then.i:                                        ; preds = %for.end.i
   %mortonIndex21.i = getelementptr inbounds i8, ptr %this, i64 16
-  %10 = load i64, ptr %mortonIndex21.i, align 8
-  %shr26.i = lshr i64 %10, 1
+  %12 = load i64, ptr %mortonIndex21.i, align 8
+  %shr26.i = lshr i64 %12, 1
   %dimension27.i = getelementptr inbounds i8, ptr %this, i64 24
-  %11 = load i32, ptr %dimension27.i, align 8
-  %mul28.i = mul i32 %11, 1431655765
+  %13 = load i32, ptr %dimension27.i, align 8
+  %mul28.i = mul i32 %13, 1431655765
   %conv29.i = zext i32 %mul28.i to i64
   %xor30.i = xor i64 %shr26.i, %conv29.i
   %shr.i11.i = lshr i64 %xor30.i, 31
@@ -6955,21 +6951,21 @@ if.then.i:                                        ; preds = %for.end.i
   %xor2.i15.i = xor i64 %shr1.i14.i, %mul.i13.i
   %mul3.i16.i = mul i64 %xor2.i15.i, -9089707755183418291
   %shr4.i17.i = lshr i64 %mul3.i16.i, 33
-  %12 = xor i64 %10, %shr4.i17.i
-  %conv2310.i = xor i64 %12, %mul3.i16.i
+  %14 = xor i64 %12, %shr4.i17.i
+  %conv2310.i = xor i64 %14, %mul3.i16.i
   %xor33.i = and i64 %conv2310.i, 1
   %or34.i = or i64 %xor33.i, %sampleIndex.0.lcssa.i
   br label %_ZNK4pbrt13ZSobolSampler14GetSampleIndexEv.exit
 
 _ZNK4pbrt13ZSobolSampler14GetSampleIndexEv.exit:  ; preds = %for.end.i._ZNK4pbrt13ZSobolSampler14GetSampleIndexEv.exit_crit_edge, %if.then.i
-  %13 = phi i32 [ %11, %if.then.i ], [ %.pre, %for.end.i._ZNK4pbrt13ZSobolSampler14GetSampleIndexEv.exit_crit_edge ]
+  %15 = phi i32 [ %13, %if.then.i ], [ %.pre, %for.end.i._ZNK4pbrt13ZSobolSampler14GetSampleIndexEv.exit_crit_edge ]
   %sampleIndex.1.i = phi i64 [ %or34.i, %if.then.i ], [ %sampleIndex.0.lcssa.i, %for.end.i._ZNK4pbrt13ZSobolSampler14GetSampleIndexEv.exit_crit_edge ]
   %dimension = getelementptr inbounds i8, ptr %this, i64 24
-  %add = add nsw i32 %13, 2
+  %add = add nsw i32 %15, 2
   store i32 %add, ptr %dimension, align 8
   %seed = getelementptr inbounds i8, ptr %this, i64 4
-  %14 = load i32, ptr %seed, align 4
-  %buf.sroa.2.0.insert.ext.i = zext i32 %14 to i64
+  %16 = load i32, ptr %seed, align 4
+  %buf.sroa.2.0.insert.ext.i = zext i32 %16 to i64
   %buf.sroa.2.0.insert.shift.i = shl nuw i64 %buf.sroa.2.0.insert.ext.i, 32
   %buf.sroa.0.0.insert.ext.i = zext i32 %add to i64
   %buf.sroa.0.0.insert.insert.i = or disjoint i64 %buf.sroa.2.0.insert.shift.i, %buf.sroa.0.0.insert.ext.i
@@ -6987,9 +6983,9 @@ _ZNK4pbrt13ZSobolSampler14GetSampleIndexEv.exit:  ; preds = %for.end.i._ZNK4pbrt
   %conv = trunc i64 %xor43.i.i to i32
   %shr = lshr i64 %mul41.i.i, 32
   %conv4 = trunc i64 %shr to i32
-  %15 = load i32, ptr %this, align 8
+  %17 = load i32, ptr %this, align 8
   %cmp.not6.i154 = icmp eq i64 %sampleIndex.1.i, 0
-  switch i32 %15, label %if.else29 [
+  switch i32 %17, label %if.else29 [
     i32 0, label %if.then
     i32 1, label %if.then10
     i32 2, label %if.then20
@@ -7008,21 +7004,21 @@ for.body.i15:                                     ; preds = %if.then, %for.inc.i
 
 if.then.i18:                                      ; preds = %for.body.i15
   %arrayidx.i = getelementptr inbounds [53248 x i32], ptr @_ZN4pbrt15SobolMatrices32E, i64 0, i64 %indvars.iv.i16
-  %16 = load i32, ptr %arrayidx.i, align 4
-  %xor.i19 = xor i32 %16, %v.08.i
+  %18 = load i32, ptr %arrayidx.i, align 4
+  %xor.i19 = xor i32 %18, %v.08.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then.i18, %for.body.i15
   %v.1.i = phi i32 [ %xor.i19, %if.then.i18 ], [ %v.08.i, %for.body.i15 ]
   %shr.i20 = ashr i64 %a.addr.07.i, 1
-  %indvars.iv.next.i21 = add i64 %indvars.iv.i16, 1
+  %indvars.iv.next.i21 = add nuw nsw i64 %indvars.iv.i16, 1
   %cmp.not.i = icmp ult i64 %a.addr.07.i, 2
   br i1 %cmp.not.i, label %_ZN4pbrt11SobolSampleINS_12NoRandomizerEEEfliT_.exit, label %for.body.i15, !llvm.loop !90
 
 _ZN4pbrt11SobolSampleINS_12NoRandomizerEEEfliT_.exit: ; preds = %for.inc.i
-  %17 = uitofp i32 %v.1.i to float
-  %18 = fmul float %17, 0x3DF0000000000000
-  %cmp.i.i = fcmp ogt float %18, 0x3FEFFFFFE0000000
+  %19 = uitofp i32 %v.1.i to float
+  %20 = fmul float %19, 0x3DF0000000000000
+  %cmp.i.i = fcmp ogt float %20, 0x3FEFFFFFE0000000
   br label %for.body.i25
 
 for.body.i25:                                     ; preds = %_ZN4pbrt11SobolSampleINS_12NoRandomizerEEEfliT_.exit, %for.inc.i34
@@ -7035,21 +7031,21 @@ for.body.i25:                                     ; preds = %_ZN4pbrt11SobolSamp
 
 if.then.i31:                                      ; preds = %for.body.i25
   %arrayidx.i32 = getelementptr inbounds [53248 x i32], ptr @_ZN4pbrt15SobolMatrices32E, i64 0, i64 %indvars.iv.i26
-  %19 = load i32, ptr %arrayidx.i32, align 4
-  %xor.i33 = xor i32 %19, %v.08.i27
+  %21 = load i32, ptr %arrayidx.i32, align 4
+  %xor.i33 = xor i32 %21, %v.08.i27
   br label %for.inc.i34
 
 for.inc.i34:                                      ; preds = %if.then.i31, %for.body.i25
   %v.1.i35 = phi i32 [ %xor.i33, %if.then.i31 ], [ %v.08.i27, %for.body.i25 ]
   %shr.i36 = ashr i64 %a.addr.07.i28, 1
-  %indvars.iv.next.i37 = add i64 %indvars.iv.i26, 1
+  %indvars.iv.next.i37 = add nuw nsw i64 %indvars.iv.i26, 1
   %cmp.not.i38 = icmp ult i64 %a.addr.07.i28, 2
   br i1 %cmp.not.i38, label %for.end.loopexit.i39, label %for.body.i25, !llvm.loop !90
 
 for.end.loopexit.i39:                             ; preds = %for.inc.i34
-  %.sroa.speculated.i = select i1 %cmp.i.i, float 0x3FEFFFFFE0000000, float %18
-  %20 = uitofp i32 %v.1.i35 to float
-  %21 = fmul float %20, 0x3DF0000000000000
+  %.sroa.speculated.i = select i1 %cmp.i.i, float 0x3FEFFFFFE0000000, float %20
+  %22 = uitofp i32 %v.1.i35 to float
+  %23 = fmul float %22, 0x3DF0000000000000
   br label %return
 
 if.then10:                                        ; preds = %_ZNK4pbrt13ZSobolSampler14GetSampleIndexEv.exit
@@ -7072,14 +7068,14 @@ for.body.i47:                                     ; preds = %if.then10, %for.inc
 
 if.then.i53:                                      ; preds = %for.body.i47
   %arrayidx.i54 = getelementptr inbounds [53248 x i32], ptr @_ZN4pbrt15SobolMatrices32E, i64 0, i64 %indvars.iv.i48
-  %22 = load i32, ptr %arrayidx.i54, align 4
-  %xor.i55 = xor i32 %22, %v.08.i49
+  %24 = load i32, ptr %arrayidx.i54, align 4
+  %xor.i55 = xor i32 %24, %v.08.i49
   br label %for.inc.i56
 
 for.inc.i56:                                      ; preds = %if.then.i53, %for.body.i47
   %v.1.i57 = phi i32 [ %xor.i55, %if.then.i53 ], [ %v.08.i49, %for.body.i47 ]
   %shr.i58 = ashr i64 %a.addr.07.i50, 1
-  %indvars.iv.next.i59 = add i64 %indvars.iv.i48, 1
+  %indvars.iv.next.i59 = add nuw nsw i64 %indvars.iv.i48, 1
   %cmp.not.i60 = icmp ult i64 %a.addr.07.i50, 2
   br i1 %cmp.not.i60, label %_ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit, label %for.body.i47, !llvm.loop !91
 
@@ -7100,14 +7096,14 @@ for.body.i69:                                     ; preds = %_ZN4pbrt11SobolSamp
 
 if.then.i75:                                      ; preds = %for.body.i69
   %arrayidx.i76 = getelementptr inbounds [53248 x i32], ptr @_ZN4pbrt15SobolMatrices32E, i64 0, i64 %indvars.iv.i70
-  %23 = load i32, ptr %arrayidx.i76, align 4
-  %xor.i77 = xor i32 %23, %v.08.i71
+  %25 = load i32, ptr %arrayidx.i76, align 4
+  %xor.i77 = xor i32 %25, %v.08.i71
   br label %for.inc.i78
 
 for.inc.i78:                                      ; preds = %if.then.i75, %for.body.i69
   %v.1.i79 = phi i32 [ %xor.i77, %if.then.i75 ], [ %v.08.i71, %for.body.i69 ]
   %shr.i80 = ashr i64 %a.addr.07.i72, 1
-  %indvars.iv.next.i81 = add i64 %indvars.iv.i70, 1
+  %indvars.iv.next.i81 = add nuw nsw i64 %indvars.iv.i70, 1
   %cmp.not.i82 = icmp ult i64 %a.addr.07.i72, 2
   br i1 %cmp.not.i82, label %_ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit90.loopexit, label %for.body.i69, !llvm.loop !91
 
@@ -7136,14 +7132,14 @@ for.body.i94:                                     ; preds = %if.then20, %for.inc
 
 if.then.i100:                                     ; preds = %for.body.i94
   %arrayidx.i101 = getelementptr inbounds [53248 x i32], ptr @_ZN4pbrt15SobolMatrices32E, i64 0, i64 %indvars.iv.i95
-  %24 = load i32, ptr %arrayidx.i101, align 4
-  %xor.i102 = xor i32 %24, %v.08.i96
+  %26 = load i32, ptr %arrayidx.i101, align 4
+  %xor.i102 = xor i32 %26, %v.08.i96
   br label %for.inc.i103
 
 for.inc.i103:                                     ; preds = %if.then.i100, %for.body.i94
   %v.1.i104 = phi i32 [ %xor.i102, %if.then.i100 ], [ %v.08.i96, %for.body.i94 ]
   %shr.i105 = ashr i64 %a.addr.07.i97, 1
-  %indvars.iv.next.i106 = add i64 %indvars.iv.i95, 1
+  %indvars.iv.next.i106 = add nuw nsw i64 %indvars.iv.i95, 1
   %cmp.not.i107 = icmp ult i64 %a.addr.07.i97, 2
   br i1 %cmp.not.i107, label %_ZN4pbrt11SobolSampleINS_17FastOwenScramblerEEEfliT_.exit, label %for.body.i94, !llvm.loop !92
 
@@ -7177,14 +7173,14 @@ for.body.i120:                                    ; preds = %_ZN4pbrt11SobolSamp
 
 if.then.i126:                                     ; preds = %for.body.i120
   %arrayidx.i127 = getelementptr inbounds [53248 x i32], ptr @_ZN4pbrt15SobolMatrices32E, i64 0, i64 %indvars.iv.i121
-  %25 = load i32, ptr %arrayidx.i127, align 4
-  %xor.i128 = xor i32 %25, %v.08.i122
+  %27 = load i32, ptr %arrayidx.i127, align 4
+  %xor.i128 = xor i32 %27, %v.08.i122
   br label %for.inc.i129
 
 for.inc.i129:                                     ; preds = %if.then.i126, %for.body.i120
   %v.1.i130 = phi i32 [ %xor.i128, %if.then.i126 ], [ %v.08.i122, %for.body.i120 ]
   %shr.i131 = ashr i64 %a.addr.07.i123, 1
-  %indvars.iv.next.i132 = add i64 %indvars.iv.i121, 1
+  %indvars.iv.next.i132 = add nuw nsw i64 %indvars.iv.i121, 1
   %cmp.not.i133 = icmp ult i64 %a.addr.07.i123, 2
   br i1 %cmp.not.i133, label %_ZN4pbrt11SobolSampleINS_17FastOwenScramblerEEEfliT_.exit152, label %for.body.i120, !llvm.loop !92
 
@@ -7219,21 +7215,21 @@ for.body.i156:                                    ; preds = %if.else29, %for.inc
 
 if.then.i162:                                     ; preds = %for.body.i156
   %arrayidx.i163 = getelementptr inbounds [53248 x i32], ptr @_ZN4pbrt15SobolMatrices32E, i64 0, i64 %indvars.iv.i157
-  %26 = load i32, ptr %arrayidx.i163, align 4
-  %xor.i164 = xor i32 %26, %v.08.i158
+  %28 = load i32, ptr %arrayidx.i163, align 4
+  %xor.i164 = xor i32 %28, %v.08.i158
   br label %for.inc.i165
 
 for.inc.i165:                                     ; preds = %if.then.i162, %for.body.i156
   %v.1.i166 = phi i32 [ %xor.i164, %if.then.i162 ], [ %v.08.i158, %for.body.i156 ]
   %shr.i167 = ashr i64 %a.addr.07.i159, 1
-  %indvars.iv.next.i168 = add i64 %indvars.iv.i157, 1
+  %indvars.iv.next.i168 = add nuw nsw i64 %indvars.iv.i157, 1
   %cmp.not.i169 = icmp ult i64 %a.addr.07.i159, 2
   br i1 %cmp.not.i169, label %for.end.i170, label %for.body.i156, !llvm.loop !93
 
 for.end.i170:                                     ; preds = %for.inc.i165, %if.else29
   %v.0.lcssa.i171 = phi i32 [ 0, %if.else29 ], [ %v.1.i166, %for.inc.i165 ]
-  %27 = shl i32 %conv, 31
-  %spec.select.i.i = xor i32 %v.0.lcssa.i171, %27
+  %29 = shl i32 %conv, 31
+  %spec.select.i.i = xor i32 %v.0.lcssa.i171, %29
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.end.i170
@@ -7281,21 +7277,21 @@ for.body.i179:                                    ; preds = %_ZN4pbrt11SobolSamp
 
 if.then.i185:                                     ; preds = %for.body.i179
   %arrayidx.i186 = getelementptr inbounds [53248 x i32], ptr @_ZN4pbrt15SobolMatrices32E, i64 0, i64 %indvars.iv.i180
-  %28 = load i32, ptr %arrayidx.i186, align 4
-  %xor.i187 = xor i32 %28, %v.08.i181
+  %30 = load i32, ptr %arrayidx.i186, align 4
+  %xor.i187 = xor i32 %30, %v.08.i181
   br label %for.inc.i188
 
 for.inc.i188:                                     ; preds = %if.then.i185, %for.body.i179
   %v.1.i189 = phi i32 [ %xor.i187, %if.then.i185 ], [ %v.08.i181, %for.body.i179 ]
   %shr.i190 = ashr i64 %a.addr.07.i182, 1
-  %indvars.iv.next.i191 = add i64 %indvars.iv.i180, 1
+  %indvars.iv.next.i191 = add nuw nsw i64 %indvars.iv.i180, 1
   %cmp.not.i192 = icmp ult i64 %a.addr.07.i182, 2
   br i1 %cmp.not.i192, label %for.end.i193, label %for.body.i179, !llvm.loop !93
 
 for.end.i193:                                     ; preds = %for.inc.i188, %_ZN4pbrt11SobolSampleINS_13OwenScramblerEEEfliT_.exit
   %v.0.lcssa.i194 = phi i32 [ 0, %_ZN4pbrt11SobolSampleINS_13OwenScramblerEEEfliT_.exit ], [ %v.1.i189, %for.inc.i188 ]
-  %29 = shl i32 %conv4, 31
-  %spec.select.i.i195 = xor i32 %v.0.lcssa.i194, %29
+  %31 = shl i32 %conv4, 31
+  %spec.select.i.i195 = xor i32 %v.0.lcssa.i194, %31
   br label %for.body.i.i196
 
 for.body.i.i196:                                  ; preds = %for.body.i.i196, %for.end.i193
@@ -7332,7 +7328,7 @@ _ZN4pbrt11SobolSampleINS_13OwenScramblerEEEfliT_.exit226: ; preds = %for.body.i.
   br label %return
 
 return:                                           ; preds = %for.end.loopexit.i39, %if.then, %_ZN4pbrt11SobolSampleINS_13OwenScramblerEEEfliT_.exit226, %_ZN4pbrt11SobolSampleINS_17FastOwenScramblerEEEfliT_.exit152, %_ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit90
-  %mul3.i223.sink252 = phi float [ %mul3.i223, %_ZN4pbrt11SobolSampleINS_13OwenScramblerEEEfliT_.exit226 ], [ %mul3.i149, %_ZN4pbrt11SobolSampleINS_17FastOwenScramblerEEEfliT_.exit152 ], [ %mul3.i87, %_ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit90 ], [ %21, %for.end.loopexit.i39 ], [ 0.000000e+00, %if.then ]
+  %mul3.i223.sink252 = phi float [ %mul3.i223, %_ZN4pbrt11SobolSampleINS_13OwenScramblerEEEfliT_.exit226 ], [ %mul3.i149, %_ZN4pbrt11SobolSampleINS_17FastOwenScramblerEEEfliT_.exit152 ], [ %mul3.i87, %_ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit90 ], [ %23, %for.end.loopexit.i39 ], [ 0.000000e+00, %if.then ]
   %.sroa.speculated.i176.sink = phi float [ %.sroa.speculated.i176, %_ZN4pbrt11SobolSampleINS_13OwenScramblerEEEfliT_.exit226 ], [ %.sroa.speculated.i117, %_ZN4pbrt11SobolSampleINS_17FastOwenScramblerEEEfliT_.exit152 ], [ %.sroa.speculated.i66251, %_ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit90 ], [ %.sroa.speculated.i, %for.end.loopexit.i39 ], [ 0.000000e+00, %if.then ]
   %cmp.i.i224 = fcmp ogt float %mul3.i223.sink252, 0x3FEFFFFFE0000000
   %.sroa.speculated.i225 = select i1 %cmp.i.i224, float 0x3FEFFFFFE0000000, float %mul3.i223.sink252

@@ -439,7 +439,7 @@ define i32 @Gia_ManInseHighestScore(ptr nocapture noundef readonly %0, ptr nocap
   br i1 %.not50.us, label %32, label %36
 
 32:                                               ; preds = %29
-  %33 = load i64, ptr %44, align 8
+  %33 = load i64, ptr %43, align 8
   %34 = and i64 %33, %30
   %35 = icmp ne i64 %34, 0
   br label %36
@@ -459,9 +459,9 @@ define i32 @Gia_ManInseHighestScore(ptr nocapture noundef readonly %0, ptr nocap
   %indvars.iv74 = phi i64 [ 0, %.preheader.lr.ph.us ], [ %indvars.iv.next75, %28 ]
   %41 = getelementptr inbounds i64, ptr %26, i64 %indvars.iv74
   %42 = load i64, ptr %41, align 8
-  %43 = shl i64 %indvars.iv74, 6
-  %44 = getelementptr inbounds i64, ptr %27, i64 %indvars.iv74
-  %45 = and i64 %43, 4294967232
+  %43 = getelementptr inbounds i64, ptr %27, i64 %indvars.iv74
+  %44 = shl i64 %indvars.iv74, 6
+  %45 = and i64 %44, 4294967232
   %invariant.gep = getelementptr i32, ptr %7, i64 %45
   br label %29
 

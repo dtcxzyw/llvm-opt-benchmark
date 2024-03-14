@@ -556,165 +556,159 @@ define void @Fxu_CreateCovers(ptr noundef %0, ptr nocapture noundef readonly %1)
 
 12:                                               ; preds = %11, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %11 ]
-  %13 = trunc i64 %indvars.iv.i to i32
-  %14 = shl nsw i32 %13, 1
-  %15 = or disjoint i32 %14, 1
-  %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds ptr, ptr %10, i64 %16
+  %13 = shl nuw nsw i64 %indvars.iv.i, 1
+  %14 = or disjoint i64 %13, 1
+  %15 = getelementptr inbounds ptr, ptr %10, i64 %14
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
-  %20 = load ptr, ptr %19, align 8
-  %.not.i = icmp eq ptr %20, null
+  %.not.i = icmp eq ptr %18, null
   br i1 %.not.i, label %11, label %Fxu_CreateCoversFirstCube.exit
 
 Fxu_CreateCoversFirstCube.exit:                   ; preds = %11, %12, %2
-  %.09.i = phi ptr [ null, %2 ], [ %20, %12 ], [ null, %11 ]
-  %21 = icmp sgt i32 %4, 0
-  br i1 %21, label %.lr.ph68, label %.preheader
+  %.09.i = phi ptr [ null, %2 ], [ %18, %12 ], [ null, %11 ]
+  %19 = icmp sgt i32 %4, 0
+  br i1 %19, label %.lr.ph68, label %.preheader
 
 .lr.ph68:                                         ; preds = %Fxu_CreateCoversFirstCube.exit
-  %22 = getelementptr inbounds i8, ptr %1, i64 48
-  %23 = getelementptr inbounds i8, ptr %0, i64 48
-  br label %27
+  %20 = getelementptr inbounds i8, ptr %1, i64 48
+  %21 = getelementptr inbounds i8, ptr %0, i64 48
+  br label %25
 
 .preheader.loopexit:                              ; preds = %.critedge
   %.pre73 = load i32, ptr %5, align 4
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.loopexit, %Fxu_CreateCoversFirstCube.exit
-  %24 = phi i32 [ %6, %Fxu_CreateCoversFirstCube.exit ], [ %.pre73, %.preheader.loopexit ]
+  %22 = phi i32 [ %6, %Fxu_CreateCoversFirstCube.exit ], [ %.pre73, %.preheader.loopexit ]
   %.040.lcssa = phi ptr [ %.09.i, %Fxu_CreateCoversFirstCube.exit ], [ %.141, %.preheader.loopexit ]
-  %25 = icmp sgt i32 %24, 0
-  br i1 %25, label %.lr.ph71, label %._crit_edge
+  %23 = icmp sgt i32 %22, 0
+  br i1 %23, label %.lr.ph71, label %._crit_edge
 
 .lr.ph71:                                         ; preds = %.preheader
-  %26 = getelementptr inbounds i8, ptr %0, i64 48
-  br label %64
+  %24 = getelementptr inbounds i8, ptr %0, i64 48
+  br label %60
 
-27:                                               ; preds = %.lr.ph68, %.critedge
-  %28 = phi i32 [ %4, %.lr.ph68 ], [ %61, %.critedge ]
+25:                                               ; preds = %.lr.ph68, %.critedge
+  %26 = phi i32 [ %4, %.lr.ph68 ], [ %57, %.critedge ]
   %indvars.iv = phi i64 [ 0, %.lr.ph68 ], [ %.pre74, %.critedge ]
   %.04065 = phi ptr [ %.09.i, %.lr.ph68 ], [ %.141, %.critedge ]
-  %29 = load ptr, ptr %22, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 8
+  %27 = load ptr, ptr %20, align 8
+  %28 = getelementptr inbounds i8, ptr %27, i64 8
+  %29 = load ptr, ptr %28, align 8
+  %30 = getelementptr inbounds ptr, ptr %29, i64 %indvars.iv
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds ptr, ptr %31, i64 %indvars.iv
-  %33 = load ptr, ptr %32, align 8
-  %.not = icmp eq ptr %33, null
+  %.not = icmp eq ptr %31, null
   %.pre74 = add nuw nsw i64 %indvars.iv, 1
-  br i1 %.not, label %.critedge, label %34
+  br i1 %.not, label %.critedge, label %32
 
-34:                                               ; preds = %27
-  %35 = load i32, ptr %5, align 4
-  %36 = add nsw i32 %35, %28
-  %37 = sext i32 %36 to i64
-  %38 = icmp slt i64 %.pre74, %37
-  br i1 %38, label %.lr.ph.i48, label %Fxu_CreateCoversFirstCube.exit54
+32:                                               ; preds = %25
+  %33 = load i32, ptr %5, align 4
+  %34 = add nsw i32 %33, %26
+  %35 = sext i32 %34 to i64
+  %36 = icmp slt i64 %.pre74, %35
+  br i1 %36, label %.lr.ph.i48, label %Fxu_CreateCoversFirstCube.exit54
 
-.lr.ph.i48:                                       ; preds = %34
-  %39 = load ptr, ptr %23, align 8
-  br label %41
+.lr.ph.i48:                                       ; preds = %32
+  %37 = load ptr, ptr %21, align 8
+  br label %39
 
-40:                                               ; preds = %41
+38:                                               ; preds = %39
   %indvars.iv.next.i52 = add nuw nsw i64 %indvars.iv.i50, 1
-  %exitcond.not.i53 = icmp eq i64 %indvars.iv.next.i52, %37
-  br i1 %exitcond.not.i53, label %Fxu_CreateCoversFirstCube.exit54, label %41, !llvm.loop !15
+  %exitcond.not.i53 = icmp eq i64 %indvars.iv.next.i52, %35
+  br i1 %exitcond.not.i53, label %Fxu_CreateCoversFirstCube.exit54, label %39, !llvm.loop !15
 
-41:                                               ; preds = %40, %.lr.ph.i48
-  %indvars.iv.i50 = phi i64 [ %.pre74, %.lr.ph.i48 ], [ %indvars.iv.next.i52, %40 ]
-  %42 = trunc i64 %indvars.iv.i50 to i32
-  %43 = shl nsw i32 %42, 1
-  %44 = or disjoint i32 %43, 1
-  %45 = sext i32 %44 to i64
-  %46 = getelementptr inbounds ptr, ptr %39, i64 %45
-  %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 8
-  %49 = load ptr, ptr %48, align 8
-  %.not.i51 = icmp eq ptr %49, null
-  br i1 %.not.i51, label %40, label %Fxu_CreateCoversFirstCube.exit54
+39:                                               ; preds = %38, %.lr.ph.i48
+  %indvars.iv.i50 = phi i64 [ %.pre74, %.lr.ph.i48 ], [ %indvars.iv.next.i52, %38 ]
+  %40 = shl nuw nsw i64 %indvars.iv.i50, 1
+  %41 = or disjoint i64 %40, 1
+  %42 = getelementptr inbounds ptr, ptr %37, i64 %41
+  %43 = load ptr, ptr %42, align 8
+  %44 = getelementptr inbounds i8, ptr %43, i64 8
+  %45 = load ptr, ptr %44, align 8
+  %.not.i51 = icmp eq ptr %45, null
+  br i1 %.not.i51, label %38, label %Fxu_CreateCoversFirstCube.exit54
 
-Fxu_CreateCoversFirstCube.exit54:                 ; preds = %40, %41, %34
-  %.09.i47 = phi ptr [ null, %34 ], [ %49, %41 ], [ null, %40 ]
+Fxu_CreateCoversFirstCube.exit54:                 ; preds = %38, %39, %32
+  %.09.i47 = phi ptr [ null, %32 ], [ %45, %39 ], [ null, %38 ]
   %.not4463 = icmp eq ptr %.04065, %.09.i47
   br i1 %.not4463, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %Fxu_CreateCoversFirstCube.exit54
-  %50 = shl nsw i32 %28, 1
-  br label %51
+  %46 = shl nsw i32 %26, 1
+  br label %47
 
-51:                                               ; preds = %.lr.ph, %56
-  %.03964 = phi ptr [ %.04065, %.lr.ph ], [ %58, %56 ]
-  %52 = getelementptr inbounds i8, ptr %.03964, i64 32
-  %53 = load ptr, ptr %52, align 8
-  %.not45 = icmp eq ptr %53, null
-  br i1 %.not45, label %56, label %54
+47:                                               ; preds = %.lr.ph, %52
+  %.03964 = phi ptr [ %.04065, %.lr.ph ], [ %54, %52 ]
+  %48 = getelementptr inbounds i8, ptr %.03964, i64 32
+  %49 = load ptr, ptr %48, align 8
+  %.not45 = icmp eq ptr %49, null
+  br i1 %.not45, label %52, label %50
 
-54:                                               ; preds = %51
-  %55 = load i32, ptr %53, align 8
-  %.not46 = icmp slt i32 %55, %50
-  br i1 %.not46, label %56, label %59
+50:                                               ; preds = %47
+  %51 = load i32, ptr %49, align 8
+  %.not46 = icmp slt i32 %51, %46
+  br i1 %.not46, label %52, label %55
 
-56:                                               ; preds = %51, %54
-  %57 = getelementptr inbounds i8, ptr %.03964, i64 56
-  %58 = load ptr, ptr %57, align 8
-  %.not44 = icmp eq ptr %58, %.09.i47
-  br i1 %.not44, label %.critedge, label %51, !llvm.loop !16
+52:                                               ; preds = %47, %50
+  %53 = getelementptr inbounds i8, ptr %.03964, i64 56
+  %54 = load ptr, ptr %53, align 8
+  %.not44 = icmp eq ptr %54, %.09.i47
+  br i1 %.not44, label %.critedge, label %47, !llvm.loop !16
 
-59:                                               ; preds = %54
-  %60 = trunc i64 %indvars.iv to i32
-  tail call fastcc void @Fxu_CreateCoversNode(ptr noundef %0, ptr noundef %1, i32 noundef %60, ptr noundef %.04065, ptr noundef %.09.i47)
+55:                                               ; preds = %50
+  %56 = trunc i64 %indvars.iv to i32
+  tail call fastcc void @Fxu_CreateCoversNode(ptr noundef %0, ptr noundef %1, i32 noundef %56, ptr noundef %.04065, ptr noundef %.09.i47)
   %.pre = load i32, ptr %3, align 8
   br label %.critedge
 
-.critedge:                                        ; preds = %56, %27, %Fxu_CreateCoversFirstCube.exit54, %59
-  %61 = phi i32 [ %28, %Fxu_CreateCoversFirstCube.exit54 ], [ %.pre, %59 ], [ %28, %27 ], [ %28, %56 ]
-  %.141 = phi ptr [ %.04065, %Fxu_CreateCoversFirstCube.exit54 ], [ %.09.i47, %59 ], [ %.04065, %27 ], [ %.09.i47, %56 ]
-  %62 = sext i32 %61 to i64
-  %63 = icmp slt i64 %.pre74, %62
-  br i1 %63, label %27, label %.preheader.loopexit, !llvm.loop !17
+.critedge:                                        ; preds = %52, %25, %Fxu_CreateCoversFirstCube.exit54, %55
+  %57 = phi i32 [ %26, %Fxu_CreateCoversFirstCube.exit54 ], [ %.pre, %55 ], [ %26, %25 ], [ %26, %52 ]
+  %.141 = phi ptr [ %.04065, %Fxu_CreateCoversFirstCube.exit54 ], [ %.09.i47, %55 ], [ %.04065, %25 ], [ %.09.i47, %52 ]
+  %58 = sext i32 %57 to i64
+  %59 = icmp slt i64 %.pre74, %58
+  br i1 %59, label %25, label %.preheader.loopexit, !llvm.loop !17
 
-64:                                               ; preds = %.lr.ph71, %Fxu_CreateCoversFirstCube.exit62
-  %65 = phi i32 [ %24, %.lr.ph71 ], [ %84, %Fxu_CreateCoversFirstCube.exit62 ]
-  %.170 = phi i32 [ 0, %.lr.ph71 ], [ %83, %Fxu_CreateCoversFirstCube.exit62 ]
+60:                                               ; preds = %.lr.ph71, %Fxu_CreateCoversFirstCube.exit62
+  %61 = phi i32 [ %22, %.lr.ph71 ], [ %78, %Fxu_CreateCoversFirstCube.exit62 ]
+  %.170 = phi i32 [ 0, %.lr.ph71 ], [ %77, %Fxu_CreateCoversFirstCube.exit62 ]
   %.269 = phi ptr [ %.040.lcssa, %.lr.ph71 ], [ %.09.i55, %Fxu_CreateCoversFirstCube.exit62 ]
-  %66 = load i32, ptr %3, align 8
-  %67 = add nsw i32 %66, %.170
-  %68 = add nsw i32 %67, 1
-  %69 = add nsw i32 %66, %65
-  %70 = icmp sgt i32 %69, %68
-  br i1 %70, label %.lr.ph.i56, label %Fxu_CreateCoversFirstCube.exit62
+  %62 = load i32, ptr %3, align 8
+  %63 = add nsw i32 %62, %.170
+  %64 = add nsw i32 %63, 1
+  %65 = add nsw i32 %62, %61
+  %66 = icmp sgt i32 %65, %64
+  br i1 %66, label %.lr.ph.i56, label %Fxu_CreateCoversFirstCube.exit62
 
-.lr.ph.i56:                                       ; preds = %64
-  %71 = load ptr, ptr %26, align 8
-  %72 = sext i32 %68 to i64
-  %wide.trip.count.i57 = sext i32 %69 to i64
-  br label %74
+.lr.ph.i56:                                       ; preds = %60
+  %67 = load ptr, ptr %24, align 8
+  %68 = sext i32 %64 to i64
+  %wide.trip.count.i57 = sext i32 %65 to i64
+  br label %70
 
-73:                                               ; preds = %74
+69:                                               ; preds = %70
   %indvars.iv.next.i60 = add nsw i64 %indvars.iv.i58, 1
   %exitcond.not.i61 = icmp eq i64 %indvars.iv.next.i60, %wide.trip.count.i57
-  br i1 %exitcond.not.i61, label %Fxu_CreateCoversFirstCube.exit62, label %74, !llvm.loop !15
+  br i1 %exitcond.not.i61, label %Fxu_CreateCoversFirstCube.exit62, label %70, !llvm.loop !15
 
-74:                                               ; preds = %73, %.lr.ph.i56
-  %indvars.iv.i58 = phi i64 [ %72, %.lr.ph.i56 ], [ %indvars.iv.next.i60, %73 ]
-  %75 = trunc i64 %indvars.iv.i58 to i32
-  %76 = shl nsw i32 %75, 1
-  %77 = or disjoint i32 %76, 1
-  %78 = sext i32 %77 to i64
-  %79 = getelementptr inbounds ptr, ptr %71, i64 %78
-  %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 8
-  %82 = load ptr, ptr %81, align 8
-  %.not.i59 = icmp eq ptr %82, null
-  br i1 %.not.i59, label %73, label %Fxu_CreateCoversFirstCube.exit62
+70:                                               ; preds = %69, %.lr.ph.i56
+  %indvars.iv.i58 = phi i64 [ %68, %.lr.ph.i56 ], [ %indvars.iv.next.i60, %69 ]
+  %71 = shl nsw i64 %indvars.iv.i58, 1
+  %72 = or disjoint i64 %71, 1
+  %73 = getelementptr inbounds ptr, ptr %67, i64 %72
+  %74 = load ptr, ptr %73, align 8
+  %75 = getelementptr inbounds i8, ptr %74, i64 8
+  %76 = load ptr, ptr %75, align 8
+  %.not.i59 = icmp eq ptr %76, null
+  br i1 %.not.i59, label %69, label %Fxu_CreateCoversFirstCube.exit62
 
-Fxu_CreateCoversFirstCube.exit62:                 ; preds = %73, %74, %64
-  %.09.i55 = phi ptr [ null, %64 ], [ %82, %74 ], [ null, %73 ]
-  tail call fastcc void @Fxu_CreateCoversNode(ptr noundef %0, ptr noundef %1, i32 noundef %67, ptr noundef %.269, ptr noundef %.09.i55)
-  %83 = add nuw nsw i32 %.170, 1
-  %84 = load i32, ptr %5, align 4
-  %85 = icmp slt i32 %83, %84
-  br i1 %85, label %64, label %._crit_edge, !llvm.loop !18
+Fxu_CreateCoversFirstCube.exit62:                 ; preds = %69, %70, %60
+  %.09.i55 = phi ptr [ null, %60 ], [ %76, %70 ], [ null, %69 ]
+  tail call fastcc void @Fxu_CreateCoversNode(ptr noundef %0, ptr noundef %1, i32 noundef %63, ptr noundef %.269, ptr noundef %.09.i55)
+  %77 = add nuw nsw i32 %.170, 1
+  %78 = load i32, ptr %5, align 4
+  %79 = icmp slt i32 %77, %78
+  br i1 %79, label %60, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %Fxu_CreateCoversFirstCube.exit62, %.preheader
   ret void

@@ -110,53 +110,53 @@ define ptr @Abc_EnumeratePaths(i32 noundef %0) local_unnamed_addr #1 {
 
 .lr.ph67:                                         ; preds = %.lr.ph71, %._crit_edge68
   %indvars.iv80 = phi i64 [ 1, %.lr.ph71 ], [ %indvars.iv.next81, %._crit_edge68 ]
-  %18 = phi i32 [ %.promoted, %.lr.ph71 ], [ %22, %._crit_edge68 ]
+  %18 = phi i32 [ %.promoted, %.lr.ph71 ], [ %21, %._crit_edge68 ]
   %19 = trunc i64 %indvars.iv80 to i32
-  %20 = add i32 %10, %19
-  %21 = shl nsw i32 %20, 1
-  %22 = tail call i32 @Gia_ManHashAnd(ptr noundef %2, i32 noundef %18, i32 noundef %21) #23
-  store i32 %22, ptr %5, align 4
-  %23 = trunc i64 %indvars.iv80 to i32
-  %24 = mul i32 %23, %0
-  %25 = trunc i64 %indvars.iv80 to i32
-  br label %26
+  %.tr = add i32 %10, %19
+  %20 = shl i32 %.tr, 1
+  %21 = tail call i32 @Gia_ManHashAnd(ptr noundef %2, i32 noundef %18, i32 noundef %20) #23
+  store i32 %21, ptr %5, align 4
+  %22 = trunc i64 %indvars.iv80 to i32
+  %23 = mul i32 %22, %0
+  %24 = trunc i64 %indvars.iv80 to i32
+  br label %25
 
-26:                                               ; preds = %.lr.ph67, %26
-  %indvars.iv75 = phi i64 [ 1, %.lr.ph67 ], [ %indvars.iv.next76, %26 ]
-  %27 = getelementptr i32, ptr %5, i64 %indvars.iv75
-  %28 = getelementptr i8, ptr %27, i64 -4
-  %29 = load i32, ptr %28, align 4
-  %30 = trunc i64 %indvars.iv75 to i32
-  %31 = add i32 %24, %30
-  %32 = shl nuw nsw i32 %31, 1
-  %33 = tail call i32 @Gia_ManHashAnd(ptr noundef %2, i32 noundef %29, i32 noundef %32) #23
-  %34 = load i32, ptr %27, align 4
-  %35 = trunc i64 %indvars.iv75 to i32
-  %36 = add i32 %3, %35
-  %37 = mul i32 %36, %0
-  %38 = add nsw i32 %37, %25
-  %39 = shl nsw i32 %38, 1
-  %40 = tail call i32 @Gia_ManHashAnd(ptr noundef %2, i32 noundef %34, i32 noundef %39) #23
-  %41 = tail call i32 @Gia_ManHashOr(ptr noundef %2, i32 noundef %33, i32 noundef %40) #23
-  store i32 %41, ptr %27, align 4
+25:                                               ; preds = %.lr.ph67, %25
+  %indvars.iv75 = phi i64 [ 1, %.lr.ph67 ], [ %indvars.iv.next76, %25 ]
+  %26 = getelementptr i32, ptr %5, i64 %indvars.iv75
+  %27 = getelementptr i8, ptr %26, i64 -4
+  %28 = load i32, ptr %27, align 4
+  %29 = trunc i64 %indvars.iv75 to i32
+  %.tr85 = add i32 %23, %29
+  %30 = shl i32 %.tr85, 1
+  %31 = tail call i32 @Gia_ManHashAnd(ptr noundef %2, i32 noundef %28, i32 noundef %30) #23
+  %32 = load i32, ptr %26, align 4
+  %33 = trunc i64 %indvars.iv75 to i32
+  %34 = add i32 %3, %33
+  %35 = mul i32 %34, %0
+  %36 = add nsw i32 %35, %24
+  %37 = shl nsw i32 %36, 1
+  %38 = tail call i32 @Gia_ManHashAnd(ptr noundef %2, i32 noundef %32, i32 noundef %37) #23
+  %39 = tail call i32 @Gia_ManHashOr(ptr noundef %2, i32 noundef %31, i32 noundef %38) #23
+  store i32 %39, ptr %26, align 4
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
   %exitcond79.not = icmp eq i64 %indvars.iv.next76, %11
-  br i1 %exitcond79.not, label %._crit_edge68, label %26, !llvm.loop !7
+  br i1 %exitcond79.not, label %._crit_edge68, label %25, !llvm.loop !7
 
-._crit_edge68:                                    ; preds = %26
+._crit_edge68:                                    ; preds = %25
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %exitcond84.not = icmp eq i64 %indvars.iv.next81, %11
   br i1 %exitcond84.not, label %._crit_edge72, label %.lr.ph67, !llvm.loop !8
 
 ._crit_edge72:                                    ; preds = %._crit_edge68, %.preheader.._crit_edge72_crit_edge
   %.pre-phi = phi i64 [ %.pre, %.preheader.._crit_edge72_crit_edge ], [ %12, %._crit_edge68 ]
-  %42 = getelementptr inbounds i32, ptr %5, i64 %.pre-phi
-  %43 = load i32, ptr %42, align 4
-  tail call fastcc void @Gia_ManAppendCo(ptr noundef %2, i32 noundef %43)
-  %44 = tail call ptr @Gia_ManCleanup(ptr noundef %2) #23
+  %40 = getelementptr inbounds i32, ptr %5, i64 %.pre-phi
+  %41 = load i32, ptr %40, align 4
+  tail call fastcc void @Gia_ManAppendCo(ptr noundef %2, i32 noundef %41)
+  %42 = tail call ptr @Gia_ManCleanup(ptr noundef %2) #23
   tail call void @Gia_ManStop(ptr noundef %2) #23
   tail call void @free(ptr noundef nonnull %5) #23
-  ret ptr %44
+  ret ptr %42
 }
 
 declare ptr @Gia_ManStart(i32 noundef) local_unnamed_addr #2
@@ -764,56 +764,56 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
 .lr.ph:                                           ; preds = %Vec_IntStartFull.exit
   %18 = getelementptr i8, ptr %0, i64 8
   %.val26.pre = load ptr, ptr %18, align 8
-  %19 = zext nneg i32 %.val34 to i64
-  br label %20
+  br label %19
 
-20:                                               ; preds = %.lr.ph, %._crit_edge
+19:                                               ; preds = %.lr.ph, %._crit_edge
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %._crit_edge ]
-  %21 = or disjoint i64 %indvars.iv, 1
-  %22 = getelementptr inbounds i32, ptr %.val26.pre, i64 %indvars.iv
-  %23 = load i32, ptr %22, align 4
-  %24 = getelementptr inbounds i32, ptr %.val26.pre, i64 %21
-  %25 = load i32, ptr %24, align 4
-  %26 = shl nsw i32 %23, 1
-  %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds i32, ptr %.val28, i64 %27
-  %29 = load i32, ptr %28, align 4
-  %30 = icmp eq i32 %29, -1
-  br i1 %30, label %31, label %34
+  %20 = or disjoint i64 %indvars.iv, 1
+  %21 = getelementptr inbounds i32, ptr %.val26.pre, i64 %indvars.iv
+  %22 = load i32, ptr %21, align 4
+  %23 = getelementptr inbounds i32, ptr %.val26.pre, i64 %20
+  %24 = load i32, ptr %23, align 4
+  %25 = shl nsw i32 %22, 1
+  %26 = sext i32 %25 to i64
+  %27 = getelementptr inbounds i32, ptr %.val28, i64 %26
+  %28 = load i32, ptr %27, align 4
+  %29 = icmp eq i32 %28, -1
+  br i1 %29, label %30, label %33
 
-31:                                               ; preds = %20
-  %32 = lshr exact i64 %indvars.iv, 1
-  %33 = trunc i64 %32 to i32
-  store i32 %33, ptr %28, align 4
-  br label %34
+30:                                               ; preds = %19
+  %31 = lshr exact i64 %indvars.iv, 1
+  %32 = trunc i64 %31 to i32
+  store i32 %32, ptr %27, align 4
+  br label %33
 
-34:                                               ; preds = %31, %20
-  %35 = shl nsw i32 %25, 1
-  %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds i32, ptr %.val28, i64 %36
-  %38 = load i32, ptr %37, align 4
-  %39 = icmp eq i32 %38, -1
-  %40 = lshr exact i64 %indvars.iv, 1
-  %41 = trunc i64 %40 to i32
-  br i1 %39, label %42, label %._crit_edge
+33:                                               ; preds = %30, %19
+  %34 = shl nsw i32 %24, 1
+  %35 = sext i32 %34 to i64
+  %36 = getelementptr inbounds i32, ptr %.val28, i64 %35
+  %37 = load i32, ptr %36, align 4
+  %38 = icmp eq i32 %37, -1
+  %39 = lshr exact i64 %indvars.iv, 1
+  %40 = trunc i64 %39 to i32
+  br i1 %38, label %41, label %._crit_edge
 
-42:                                               ; preds = %34
-  store i32 %41, ptr %37, align 4
+41:                                               ; preds = %33
+  store i32 %40, ptr %36, align 4
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %34, %42
-  %43 = or disjoint i32 %26, 1
-  %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds i32, ptr %.val28, i64 %44
-  store i32 %41, ptr %45, align 4
-  %46 = or disjoint i32 %35, 1
-  %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds i32, ptr %.val28, i64 %47
-  store i32 %41, ptr %48, align 4
+._crit_edge:                                      ; preds = %33, %41
+  %42 = or disjoint i32 %25, 1
+  %43 = sext i32 %42 to i64
+  %44 = getelementptr inbounds i32, ptr %.val28, i64 %43
+  store i32 %40, ptr %44, align 4
+  %45 = or disjoint i32 %34, 1
+  %46 = sext i32 %45 to i64
+  %47 = getelementptr inbounds i32, ptr %.val28, i64 %46
+  store i32 %40, ptr %47, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %49 = or disjoint i64 %indvars.iv.next, 1
-  %50 = icmp ult i64 %49, %19
-  br i1 %50, label %20, label %.critedge, !llvm.loop !11
+  %48 = trunc i64 %indvars.iv.next to i32
+  %49 = or disjoint i32 %48, 1
+  %50 = icmp slt i32 %49, %.val34
+  br i1 %50, label %19, label %.critedge, !llvm.loop !11
 
 .critedge:                                        ; preds = %._crit_edge, %Vec_IntStartFull.exit
   ret ptr %5

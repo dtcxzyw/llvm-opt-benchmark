@@ -1813,11 +1813,11 @@ Aig_ManObj.exit.thread.i:                         ; preds = %Aig_ManObj.exit.i, 
 Saig_BmcObjFrame.exit:                            ; preds = %Aig_ManObj.exit.i, %Aig_ManObj.exit, %Aig_ManObj.exit.thread.i
   %125 = phi ptr [ %92, %Aig_ManObj.exit.i ], [ %92, %Aig_ManObj.exit ], [ %.pre65, %Aig_ManObj.exit.thread.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %126 = or disjoint i64 %indvars.iv.next, 1
-  %127 = getelementptr i8, ptr %125, i64 4
-  %.val52 = load i32, ptr %127, align 4
-  %128 = sext i32 %.val52 to i64
-  %129 = icmp slt i64 %126, %128
+  %126 = getelementptr i8, ptr %125, i64 4
+  %.val52 = load i32, ptr %126, align 4
+  %127 = trunc i64 %indvars.iv.next to i32
+  %128 = or disjoint i32 %127, 1
+  %129 = icmp slt i32 %128, %.val52
   br i1 %129, label %Aig_ManObj.exit, label %.critedge, !llvm.loop !16
 
 .critedge:                                        ; preds = %Saig_BmcObjFrame.exit, %Vec_PtrPush.exit

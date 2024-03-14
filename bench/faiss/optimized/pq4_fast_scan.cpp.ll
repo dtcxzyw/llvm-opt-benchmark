@@ -775,25 +775,23 @@ define void @_ZN5faiss12pq4_pack_LUTEiiPKhPh(i32 noundef %0, i32 noundef %1, ptr
 10:                                               ; preds = %.preheader.us, %10
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %10 ]
   %11 = lshr exact i64 %indvars.iv, 1
-  %12 = mul i64 %11, %7
-  %13 = add i64 %12, %indvars.iv29
-  %14 = shl i64 %13, 5
-  %15 = and i64 %14, 4294967264
-  %16 = getelementptr inbounds i8, ptr %3, i64 %15
-  %17 = add nuw nsw i64 %indvars.iv, %9
-  %18 = trunc i64 %17 to i32
-  %19 = shl nsw i32 %18, 4
-  %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr inbounds i8, ptr %2, i64 %20
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %16, ptr noundef nonnull align 1 dereferenceable(16) %21, i64 16, i1 false)
-  %22 = getelementptr inbounds i8, ptr %16, i64 16
-  %23 = add nuw i32 %19, 16
-  %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds i8, ptr %2, i64 %24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %22, ptr noundef nonnull align 1 dereferenceable(16) %25, i64 16, i1 false)
+  %12 = mul nsw i64 %11, %7
+  %13 = add nuw nsw i64 %12, %indvars.iv29
+  %14 = shl nsw i64 %13, 5
+  %15 = getelementptr inbounds i8, ptr %3, i64 %14
+  %16 = add nuw nsw i64 %indvars.iv, %9
+  %17 = shl nsw i64 %16, 4
+  %18 = getelementptr inbounds i8, ptr %2, i64 %17
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %15, ptr noundef nonnull align 1 dereferenceable(16) %18, i64 16, i1 false)
+  %19 = getelementptr inbounds i8, ptr %15, i64 16
+  %20 = shl i64 %16, 36
+  %sext = add i64 %20, 68719476736
+  %21 = ashr exact i64 %sext, 32
+  %22 = getelementptr inbounds i8, ptr %2, i64 %21
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %19, ptr noundef nonnull align 1 dereferenceable(16) %22, i64 16, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %26 = icmp ult i64 %indvars.iv.next, %8
-  br i1 %26, label %10, label %._crit_edge.us, !llvm.loop !19
+  %23 = icmp ult i64 %indvars.iv.next, %8
+  br i1 %23, label %10, label %._crit_edge.us, !llvm.loop !19
 
 ._crit_edge.us:                                   ; preds = %10
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
@@ -832,7 +830,7 @@ define noundef i32 @_ZN5faiss16pq4_pack_LUT_qbsEiiPKhPh(i32 noundef %0, i32 noun
 
 18:                                               ; preds = %14
   invoke void @__cxa_throw(ptr nonnull %17, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #16
-          to label %58 unwind label %19
+          to label %55 unwind label %19
 
 19:                                               ; preds = %18, %12, %8
   %20 = landingpad { ptr, i32 }
@@ -872,7 +870,7 @@ _ZN5faiss12pq4_pack_LUTEiiPKhPh.exit.us:          ; preds = %.lr.ph, %_ZN5faiss1
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZN5faiss12pq4_pack_LUTEiiPKhPh.exit
   %.01925 = phi i32 [ %33, %_ZN5faiss12pq4_pack_LUTEiiPKhPh.exit ], [ %0, %.lr.ph ]
-  %.02024 = phi i32 [ %57, %_ZN5faiss12pq4_pack_LUTEiiPKhPh.exit ], [ 0, %.lr.ph ]
+  %.02024 = phi i32 [ %54, %_ZN5faiss12pq4_pack_LUTEiiPKhPh.exit ], [ 0, %.lr.ph ]
   %32 = and i32 %.01925, 15
   %33 = ashr i32 %.01925, 4
   %34 = zext nneg i32 %.02024 to i64
@@ -896,23 +894,21 @@ _ZN5faiss12pq4_pack_LUTEiiPKhPh.exit.us:          ; preds = %.lr.ph, %_ZN5faiss1
   %41 = lshr exact i64 %indvars.iv.i, 1
   %42 = mul nuw nsw i64 %41, %38
   %43 = add nuw nsw i64 %42, %indvars.iv29.i
-  %44 = shl i64 %43, 5
-  %45 = and i64 %44, 4294967264
-  %46 = getelementptr inbounds i8, ptr %37, i64 %45
-  %47 = add nuw nsw i64 %indvars.iv.i, %39
-  %48 = trunc i64 %47 to i32
-  %49 = shl nsw i32 %48, 4
-  %50 = zext nneg i32 %49 to i64
-  %51 = getelementptr inbounds i8, ptr %36, i64 %50
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %46, ptr noundef nonnull align 1 dereferenceable(16) %51, i64 16, i1 false)
-  %52 = getelementptr inbounds i8, ptr %46, i64 16
-  %53 = or disjoint i32 %49, 16
-  %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds i8, ptr %36, i64 %54
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %52, ptr noundef nonnull align 1 dereferenceable(16) %55, i64 16, i1 false)
+  %44 = shl nsw i64 %43, 5
+  %45 = getelementptr inbounds i8, ptr %37, i64 %44
+  %46 = add nuw nsw i64 %indvars.iv.i, %39
+  %47 = shl nsw i64 %46, 4
+  %48 = getelementptr inbounds i8, ptr %36, i64 %47
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %45, ptr noundef nonnull align 1 dereferenceable(16) %48, i64 16, i1 false)
+  %49 = getelementptr inbounds i8, ptr %45, i64 16
+  %50 = shl i64 %46, 36
+  %sext.i = ashr exact i64 %50, 32
+  %51 = or i64 %sext.i, 16
+  %52 = getelementptr inbounds i8, ptr %36, i64 %51
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %49, ptr noundef nonnull align 1 dereferenceable(16) %52, i64 16, i1 false)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %56 = icmp ult i64 %indvars.iv.next.i, %28
-  br i1 %56, label %40, label %._crit_edge.us.i, !llvm.loop !19
+  %53 = icmp ult i64 %indvars.iv.next.i, %28
+  br i1 %53, label %40, label %._crit_edge.us.i, !llvm.loop !19
 
 ._crit_edge.us.i:                                 ; preds = %40
   %indvars.iv.next30.i = add nuw nsw i64 %indvars.iv29.i, 1
@@ -920,15 +916,15 @@ _ZN5faiss12pq4_pack_LUTEiiPKhPh.exit.us:          ; preds = %.lr.ph, %_ZN5faiss1
   br i1 %exitcond.not.i, label %_ZN5faiss12pq4_pack_LUTEiiPKhPh.exit, label %.preheader.us.i, !llvm.loop !20
 
 _ZN5faiss12pq4_pack_LUTEiiPKhPh.exit:             ; preds = %._crit_edge.us.i, %.lr.ph.split
-  %57 = add nuw nsw i32 %32, %.02024
+  %54 = add nuw nsw i32 %32, %.02024
   %.not = icmp ult i32 %.01925, 16
   br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %_ZN5faiss12pq4_pack_LUTEiiPKhPh.exit.us, %_ZN5faiss12pq4_pack_LUTEiiPKhPh.exit, %24
-  %.020.lcssa = phi i32 [ 0, %24 ], [ %57, %_ZN5faiss12pq4_pack_LUTEiiPKhPh.exit ], [ %31, %_ZN5faiss12pq4_pack_LUTEiiPKhPh.exit.us ]
+  %.020.lcssa = phi i32 [ 0, %24 ], [ %54, %_ZN5faiss12pq4_pack_LUTEiiPKhPh.exit ], [ %31, %_ZN5faiss12pq4_pack_LUTEiiPKhPh.exit.us ]
   ret i32 %.020.lcssa
 
-58:                                               ; preds = %18
+55:                                               ; preds = %18
   unreachable
 }
 
@@ -960,7 +956,7 @@ define noundef i32 @_ZN5faiss22pq4_pack_LUT_qbs_q_mapEiiPKhPKiPh(i32 noundef %0,
 
 19:                                               ; preds = %15
   invoke void @__cxa_throw(ptr nonnull %18, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #16
-          to label %61 unwind label %20
+          to label %59 unwind label %20
 
 20:                                               ; preds = %19, %13, %9
   %21 = landingpad { ptr, i32 }
@@ -1000,7 +996,7 @@ _ZN5faiss12_GLOBAL__N_116pack_LUT_1_q_mapEiPKiiPKhPh.exit.us: ; preds = %.lr.ph,
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZN5faiss12_GLOBAL__N_116pack_LUT_1_q_mapEiPKiiPKhPh.exit
   %.01925 = phi i32 [ %34, %_ZN5faiss12_GLOBAL__N_116pack_LUT_1_q_mapEiPKiiPKhPh.exit ], [ %0, %.lr.ph ]
-  %.02024 = phi i32 [ %60, %_ZN5faiss12_GLOBAL__N_116pack_LUT_1_q_mapEiPKiiPKhPh.exit ], [ 0, %.lr.ph ]
+  %.02024 = phi i32 [ %58, %_ZN5faiss12_GLOBAL__N_116pack_LUT_1_q_mapEiPKiiPKhPh.exit ], [ 0, %.lr.ph ]
   %33 = and i32 %.01925, 15
   %34 = ashr i32 %.01925, 4
   %35 = zext nneg i32 %.02024 to i64
@@ -1019,46 +1015,45 @@ _ZN5faiss12_GLOBAL__N_116pack_LUT_1_q_mapEiPKiiPKhPh.exit.us: ; preds = %.lr.ph,
   %40 = getelementptr inbounds i32, ptr %36, i64 %indvars.iv33.i
   %41 = load i32, ptr %40, align 4
   %42 = mul nsw i32 %41, %1
-  br label %43
+  %43 = sext i32 %42 to i64
+  br label %44
 
-43:                                               ; preds = %43, %.lr.ph.us.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.us.i ], [ %indvars.iv.next.i, %43 ]
-  %44 = lshr exact i64 %indvars.iv.i, 1
-  %45 = mul nuw nsw i64 %44, %39
-  %46 = add nuw nsw i64 %45, %indvars.iv33.i
-  %47 = shl i64 %46, 5
-  %48 = and i64 %47, 4294967264
+44:                                               ; preds = %44, %.lr.ph.us.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.us.i ], [ %indvars.iv.next.i, %44 ]
+  %45 = lshr exact i64 %indvars.iv.i, 1
+  %46 = mul nuw nsw i64 %45, %39
+  %47 = add nuw nsw i64 %46, %indvars.iv33.i
+  %48 = shl nsw i64 %47, 5
   %49 = getelementptr inbounds i8, ptr %38, i64 %48
-  %50 = trunc i64 %indvars.iv.i to i32
-  %51 = add i32 %42, %50
-  %52 = shl nsw i32 %51, 4
-  %53 = sext i32 %52 to i64
-  %54 = getelementptr inbounds i8, ptr %2, i64 %53
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %49, ptr noundef nonnull align 1 dereferenceable(16) %54, i64 16, i1 false)
-  %55 = getelementptr inbounds i8, ptr %49, i64 16
-  %56 = or disjoint i32 %52, 16
-  %57 = sext i32 %56 to i64
-  %58 = getelementptr inbounds i8, ptr %2, i64 %57
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %55, ptr noundef nonnull align 1 dereferenceable(16) %58, i64 16, i1 false)
+  %50 = add nsw i64 %indvars.iv.i, %43
+  %51 = shl nsw i64 %50, 4
+  %52 = getelementptr inbounds i8, ptr %2, i64 %51
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %49, ptr noundef nonnull align 1 dereferenceable(16) %52, i64 16, i1 false)
+  %53 = getelementptr inbounds i8, ptr %49, i64 16
+  %54 = shl i64 %50, 36
+  %sext.i = ashr exact i64 %54, 32
+  %55 = or i64 %sext.i, 16
+  %56 = getelementptr inbounds i8, ptr %2, i64 %55
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %53, ptr noundef nonnull align 1 dereferenceable(16) %56, i64 16, i1 false)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %59 = icmp ult i64 %indvars.iv.next.i, %29
-  br i1 %59, label %43, label %._crit_edge.us.i, !llvm.loop !23
+  %57 = icmp ult i64 %indvars.iv.next.i, %29
+  br i1 %57, label %44, label %._crit_edge.us.i, !llvm.loop !23
 
-._crit_edge.us.i:                                 ; preds = %43
+._crit_edge.us.i:                                 ; preds = %44
   %indvars.iv.next34.i = add nuw nsw i64 %indvars.iv33.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next34.i, %39
   br i1 %exitcond.not.i, label %_ZN5faiss12_GLOBAL__N_116pack_LUT_1_q_mapEiPKiiPKhPh.exit, label %.lr.ph.us.i, !llvm.loop !24
 
 _ZN5faiss12_GLOBAL__N_116pack_LUT_1_q_mapEiPKiiPKhPh.exit: ; preds = %._crit_edge.us.i, %.lr.ph.split
-  %60 = add nuw nsw i32 %33, %.02024
+  %58 = add nuw nsw i32 %33, %.02024
   %.not = icmp ult i32 %.01925, 16
   br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %_ZN5faiss12_GLOBAL__N_116pack_LUT_1_q_mapEiPKiiPKhPh.exit.us, %_ZN5faiss12_GLOBAL__N_116pack_LUT_1_q_mapEiPKiiPKhPh.exit, %25
-  %.020.lcssa = phi i32 [ 0, %25 ], [ %60, %_ZN5faiss12_GLOBAL__N_116pack_LUT_1_q_mapEiPKiiPKhPh.exit ], [ %32, %_ZN5faiss12_GLOBAL__N_116pack_LUT_1_q_mapEiPKiiPKhPh.exit.us ]
+  %.020.lcssa = phi i32 [ 0, %25 ], [ %58, %_ZN5faiss12_GLOBAL__N_116pack_LUT_1_q_mapEiPKiiPKhPh.exit ], [ %32, %_ZN5faiss12_GLOBAL__N_116pack_LUT_1_q_mapEiPKiiPKhPh.exit.us ]
   ret i32 %.020.lcssa
 
-61:                                               ; preds = %19
+59:                                               ; preds = %19
   unreachable
 }
 

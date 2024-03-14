@@ -9393,7 +9393,7 @@ define internal fastcc i32 @dissect_tds5_capability_token(ptr noundef %0, ptr no
   br i1 %14, label %.lr.ph11, label %._crit_edge12
 
 .lr.ph11:                                         ; preds = %4, %._crit_edge
-  %.0388 = phi i32 [ %66, %._crit_edge ], [ 2, %4 ]
+  %.0388 = phi i32 [ %60, %._crit_edge ], [ 2, %4 ]
   %15 = load i32, ptr @hf_tds_capability_captype, align 4
   %16 = add i32 %.0388, %2
   %17 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %3, i32 noundef %15, ptr noundef %0, i32 noundef %16, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %6) #11
@@ -9425,12 +9425,13 @@ define internal fastcc i32 @dissect_tds5_capability_token(ptr noundef %0, ptr no
   br label %34
 
 34:                                               ; preds = %.lr.ph, %.thread
-  %35 = phi i32 [ %32, %.lr.ph ], [ %62, %.thread ]
+  %35 = phi i32 [ %32, %.lr.ph ], [ %56, %.thread ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.thread ]
+  %indvars17 = trunc i64 %indvars.iv to i32
   %36 = load i32, ptr %6, align 4
   switch i32 %36, label %.thread [
     i32 1, label %37
-    i32 2, label %46
+    i32 2, label %41
   ]
 
 37:                                               ; preds = %34
@@ -9439,63 +9440,59 @@ define internal fastcc i32 @dissect_tds5_capability_token(ptr noundef %0, ptr no
 
 39:                                               ; preds = %37
   %40 = getelementptr [11 x ptr], ptr @hf_req_array, i64 0, i64 %indvars.iv
-  %41 = load ptr, ptr %40, align 8
-  %42 = trunc i64 %indvars.iv to i32
-  %43 = shl nuw nsw i32 %42, 3
-  %44 = or disjoint i32 %43, 7
-  %45 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 240, ptr noundef nonnull @.str.1338, i32 noundef %43, i32 noundef %44) #11
-  br label %55
+  br label %45
 
-46:                                               ; preds = %34
-  %47 = icmp ult i64 %indvars.iv, 9
-  br i1 %47, label %48, label %.thread
+41:                                               ; preds = %34
+  %42 = icmp ult i64 %indvars.iv, 9
+  br i1 %42, label %43, label %.thread
 
-48:                                               ; preds = %46
-  %49 = getelementptr [9 x ptr], ptr @hf_resp_array, i64 0, i64 %indvars.iv
-  %50 = load ptr, ptr %49, align 8
-  %51 = trunc i64 %indvars.iv to i32
-  %52 = shl nuw nsw i32 %51, 3
-  %53 = or disjoint i32 %52, 7
-  %54 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 240, ptr noundef nonnull @.str.1339, i32 noundef %52, i32 noundef %53) #11
-  br label %55
+43:                                               ; preds = %41
+  %44 = getelementptr [9 x ptr], ptr @hf_resp_array, i64 0, i64 %indvars.iv
+  br label %45
 
-55:                                               ; preds = %48, %39
-  %.037 = phi ptr [ %50, %48 ], [ %41, %39 ]
-  %.2.in = phi ptr [ @ett_tds_capability_resp, %48 ], [ @ett_tds_capability_req, %39 ]
-  %.not = icmp eq ptr %.037, null
+45:                                               ; preds = %43, %39
+  %.sink = phi ptr [ %44, %43 ], [ %40, %39 ]
+  %.str.1339.sink = phi ptr [ @.str.1339, %43 ], [ @.str.1338, %39 ]
+  %.2.in = phi ptr [ @ett_tds_capability_resp, %43 ], [ @ett_tds_capability_req, %39 ]
+  %46 = load ptr, ptr %.sink, align 8
+  %47 = shl nuw nsw i32 %indvars17, 3
+  %48 = or disjoint i32 %47, 7
+  %indvars.iv.tr = trunc i64 %indvars.iv to i32
+  %49 = shl nuw nsw i32 %indvars.iv.tr, 3
+  %50 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 240, ptr noundef nonnull %.str.1339.sink, i32 noundef %49, i32 noundef %48) #11
+  %.not = icmp eq ptr %46, null
   %.pre18 = load i32, ptr %7, align 4
-  br i1 %.not, label %.thread, label %56
+  br i1 %.not, label %.thread, label %51
 
-56:                                               ; preds = %55
+51:                                               ; preds = %45
   %.2 = load i32, ptr %.2.in, align 4
-  %57 = trunc i64 %indvars.iv to i32
-  %58 = xor i32 %57, -1
-  %59 = add i32 %33, %58
-  %60 = add i32 %59, %.pre18
-  %61 = call ptr @proto_tree_add_bitmask_text(ptr noundef %3, ptr noundef %0, i32 noundef %60, i32 noundef 1, ptr noundef nonnull %8, ptr noundef null, i32 noundef %.2, ptr noundef nonnull %.037, i32 noundef 0, i32 noundef 10) #11
+  %52 = xor i32 %indvars17, -1
+  %53 = add i32 %33, %52
+  %54 = add i32 %53, %.pre18
+  %55 = call ptr @proto_tree_add_bitmask_text(ptr noundef %3, ptr noundef %0, i32 noundef %54, i32 noundef 1, ptr noundef nonnull %8, ptr noundef null, i32 noundef %.2, ptr noundef nonnull %46, i32 noundef 0, i32 noundef 10) #11
   %.pre = load i32, ptr %7, align 4
   br label %.thread
 
-.thread:                                          ; preds = %37, %46, %34, %55, %56
-  %62 = phi i32 [ %.pre18, %55 ], [ %.pre, %56 ], [ %35, %34 ], [ %35, %46 ], [ %35, %37 ]
+.thread:                                          ; preds = %37, %41, %34, %45, %51
+  %56 = phi i32 [ %.pre18, %45 ], [ %.pre, %51 ], [ %35, %34 ], [ %35, %41 ], [ %35, %37 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %63 = zext i32 %62 to i64
-  %64 = icmp ult i64 %indvars.iv.next, %63
-  br i1 %64, label %34, label %._crit_edge.loopexit, !llvm.loop !37
+  %57 = zext i32 %56 to i64
+  %58 = icmp ult i64 %indvars.iv.next, %57
+  br i1 %58, label %34, label %._crit_edge.loopexit, !llvm.loop !37
 
 ._crit_edge.loopexit:                             ; preds = %.thread
   %.pre19 = load i32, ptr %5, align 4
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %30
-  %65 = phi i32 [ %31, %30 ], [ %.pre19, %._crit_edge.loopexit ]
-  %.lcssa = phi i32 [ 0, %30 ], [ %62, %._crit_edge.loopexit ]
-  %66 = add i32 %.lcssa, %21
-  %67 = icmp ult i32 %66, %65
-  br i1 %67, label %.lr.ph11, label %._crit_edge12, !llvm.loop !38
+  %59 = phi i32 [ %31, %30 ], [ %.pre19, %._crit_edge.loopexit ]
+  %.lcssa = phi i32 [ 0, %30 ], [ %56, %._crit_edge.loopexit ]
+  %60 = add i32 %.lcssa, %21
+  %61 = icmp ult i32 %60, %59
+  br i1 %61, label %.lr.ph11, label %._crit_edge12, !llvm.loop !38
 
 ._crit_edge12:                                    ; preds = %._crit_edge, %4
-  %.038.lcssa = phi i32 [ 2, %4 ], [ %66, %._crit_edge ]
+  %.038.lcssa = phi i32 [ 2, %4 ], [ %60, %._crit_edge ]
   ret i32 %.038.lcssa
 }
 

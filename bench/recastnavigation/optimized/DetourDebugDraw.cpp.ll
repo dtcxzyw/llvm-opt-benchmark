@@ -1869,7 +1869,7 @@ define void @_Z32duDebugDrawTileCacheLayerRegionsP11duDebugDrawRK16dtTileCacheLa
 ; Function Attrs: mustprogress uwtable
 define void @_Z28duDebugDrawTileCacheContoursP11duDebugDrawRK21dtTileCacheContourSetPKfff(ptr noundef %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture noundef readonly %2, float noundef %3, float noundef %4) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %164, label %6
+  br i1 %.not, label %163, label %6
 
 6:                                                ; preds = %5
   %7 = load ptr, ptr %0, align 8
@@ -2017,7 +2017,7 @@ define void @_Z28duDebugDrawTileCacheContoursP11duDebugDrawRK21dtTileCacheContou
   br label %114
 
 114:                                              ; preds = %.lr.ph119, %._crit_edge116
-  %115 = phi i32 [ %109, %.lr.ph119 ], [ %158, %._crit_edge116 ]
+  %115 = phi i32 [ %109, %.lr.ph119 ], [ %157, %._crit_edge116 ]
   %indvars.iv128 = phi i64 [ 0, %.lr.ph119 ], [ %indvars.iv.next129, %._crit_edge116 ]
   %116 = load ptr, ptr %111, align 8
   %117 = getelementptr inbounds %struct.dtTileCacheContour, ptr %116, i64 %indvars.iv128
@@ -2035,63 +2035,62 @@ define void @_Z28duDebugDrawTileCacheContoursP11duDebugDrawRK21dtTileCacheContou
 124:                                              ; preds = %.lr.ph115, %124
   %indvars.iv125 = phi i64 [ 0, %.lr.ph115 ], [ %indvars.iv.next126, %124 ]
   %125 = load ptr, ptr %120, align 8
-  %126 = shl i64 %indvars.iv125, 2
-  %127 = and i64 %126, 4294967292
-  %128 = getelementptr inbounds i8, ptr %125, i64 %127
-  %129 = tail call noundef i32 @_Z10duIntToColii(i32 noundef %121, i32 noundef 255)
-  %130 = lshr i32 %129, 1
-  %131 = and i32 %130, 8355711
-  %132 = and i32 %129, -16777216
-  %133 = or disjoint i32 %131, %132
-  %134 = getelementptr inbounds i8, ptr %128, i64 3
-  %135 = load i8, ptr %134, align 1
-  %.not106 = icmp sgt i8 %135, -1
-  %spec.select = select i1 %.not106, i32 %133, i32 -16776961
-  %136 = load float, ptr %2, align 4
-  %137 = load i8, ptr %128, align 1
-  %138 = uitofp i8 %137 to float
-  %139 = tail call float @llvm.fmuladd.f32(float %138, float %3, float %136)
-  %140 = load float, ptr %112, align 4
-  %141 = getelementptr inbounds i8, ptr %128, i64 1
-  %142 = load i8, ptr %141, align 1
-  %143 = zext i8 %142 to i32
-  %144 = add nuw nsw i32 %123, %143
-  %145 = uitofp i32 %144 to float
-  %146 = tail call float @llvm.fmuladd.f32(float %145, float %4, float %140)
-  %147 = load float, ptr %113, align 4
-  %148 = getelementptr inbounds i8, ptr %128, i64 2
-  %149 = load i8, ptr %148, align 1
-  %150 = uitofp i8 %149 to float
-  %151 = tail call float @llvm.fmuladd.f32(float %150, float %3, float %147)
-  %152 = load ptr, ptr %0, align 8
-  %153 = getelementptr inbounds i8, ptr %152, i64 48
-  %154 = load ptr, ptr %153, align 8
-  tail call void %154(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %139, float noundef %146, float noundef %151, i32 noundef %spec.select)
+  %126 = shl nsw i64 %indvars.iv125, 2
+  %127 = getelementptr inbounds i8, ptr %125, i64 %126
+  %128 = tail call noundef i32 @_Z10duIntToColii(i32 noundef %121, i32 noundef 255)
+  %129 = lshr i32 %128, 1
+  %130 = and i32 %129, 8355711
+  %131 = and i32 %128, -16777216
+  %132 = or disjoint i32 %130, %131
+  %133 = getelementptr inbounds i8, ptr %127, i64 3
+  %134 = load i8, ptr %133, align 1
+  %.not106 = icmp sgt i8 %134, -1
+  %spec.select = select i1 %.not106, i32 %132, i32 -16776961
+  %135 = load float, ptr %2, align 4
+  %136 = load i8, ptr %127, align 1
+  %137 = uitofp i8 %136 to float
+  %138 = tail call float @llvm.fmuladd.f32(float %137, float %3, float %135)
+  %139 = load float, ptr %112, align 4
+  %140 = getelementptr inbounds i8, ptr %127, i64 1
+  %141 = load i8, ptr %140, align 1
+  %142 = zext i8 %141 to i32
+  %143 = add nuw nsw i32 %123, %142
+  %144 = uitofp i32 %143 to float
+  %145 = tail call float @llvm.fmuladd.f32(float %144, float %4, float %139)
+  %146 = load float, ptr %113, align 4
+  %147 = getelementptr inbounds i8, ptr %127, i64 2
+  %148 = load i8, ptr %147, align 1
+  %149 = uitofp i8 %148 to float
+  %150 = tail call float @llvm.fmuladd.f32(float %149, float %3, float %146)
+  %151 = load ptr, ptr %0, align 8
+  %152 = getelementptr inbounds i8, ptr %151, i64 48
+  %153 = load ptr, ptr %152, align 8
+  tail call void %153(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %138, float noundef %145, float noundef %150, i32 noundef %spec.select)
   %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 1
-  %155 = load i32, ptr %117, align 8
-  %156 = sext i32 %155 to i64
-  %157 = icmp slt i64 %indvars.iv.next126, %156
-  br i1 %157, label %124, label %._crit_edge116.loopexit, !llvm.loop !37
+  %154 = load i32, ptr %117, align 8
+  %155 = sext i32 %154 to i64
+  %156 = icmp slt i64 %indvars.iv.next126, %155
+  br i1 %156, label %124, label %._crit_edge116.loopexit, !llvm.loop !37
 
 ._crit_edge116.loopexit:                          ; preds = %124
   %.pre = load i32, ptr %1, align 8
   br label %._crit_edge116
 
 ._crit_edge116:                                   ; preds = %._crit_edge116.loopexit, %114
-  %158 = phi i32 [ %.pre, %._crit_edge116.loopexit ], [ %115, %114 ]
+  %157 = phi i32 [ %.pre, %._crit_edge116.loopexit ], [ %115, %114 ]
   %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
-  %159 = sext i32 %158 to i64
-  %160 = icmp slt i64 %indvars.iv.next129, %159
-  br i1 %160, label %114, label %._crit_edge120, !llvm.loop !38
+  %158 = sext i32 %157 to i64
+  %159 = icmp slt i64 %indvars.iv.next129, %158
+  br i1 %159, label %114, label %._crit_edge120, !llvm.loop !38
 
 ._crit_edge120:                                   ; preds = %._crit_edge116, %._crit_edge112
-  %161 = load ptr, ptr %0, align 8
-  %162 = getelementptr inbounds i8, ptr %161, i64 72
-  %163 = load ptr, ptr %162, align 8
-  tail call void %163(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  br label %164
+  %160 = load ptr, ptr %0, align 8
+  %161 = getelementptr inbounds i8, ptr %160, i64 72
+  %162 = load ptr, ptr %161, align 8
+  tail call void %162(ptr noundef nonnull align 8 dereferenceable(8) %0)
+  br label %163
 
-164:                                              ; preds = %5, %._crit_edge120
+163:                                              ; preds = %5, %._crit_edge120
   ret void
 }
 

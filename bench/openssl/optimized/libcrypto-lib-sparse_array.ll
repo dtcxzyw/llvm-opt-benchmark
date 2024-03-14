@@ -442,16 +442,15 @@ for.body:                                         ; preds = %for.body.preheader,
   %indvars.iv = phi i64 [ %4, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
   %p.016 = phi ptr [ %p.012, %for.body.preheader ], [ %p.0, %for.body ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %mul = shl i64 %indvars.iv.next, 2
-  %sh_prom = and i64 %mul, 4294967292
-  %shr = lshr i64 %n, %sh_prom
+  %5 = shl nsw i64 %indvars.iv.next, 2
+  %shr = lshr i64 %n, %5
   %and = and i64 %shr, 15
   %arrayidx = getelementptr inbounds ptr, ptr %p.016, i64 %and
   %p.0 = load ptr, ptr %arrayidx, align 8
   %cmp4 = icmp ne ptr %p.0, null
   %cmp5 = icmp ugt i64 %indvars.iv, 2
-  %5 = and i1 %cmp4, %cmp5
-  br i1 %5, label %for.body, label %for.end, !llvm.loop !6
+  %6 = and i1 %cmp4, %cmp5
+  br i1 %6, label %for.body, label %for.end, !llvm.loop !6
 
 for.end:                                          ; preds = %for.body, %if.then3
   %p.0.lcssa = phi ptr [ %p.012, %if.then3 ], [ %p.0, %for.body ]
@@ -461,11 +460,11 @@ for.end:                                          ; preds = %for.body, %if.then3
 cond.false:                                       ; preds = %for.end
   %and7 = and i64 %n, 15
   %arrayidx8 = getelementptr inbounds ptr, ptr %p.0.lcssa, i64 %and7
-  %6 = load ptr, ptr %arrayidx8, align 8
+  %7 = load ptr, ptr %arrayidx8, align 8
   br label %return
 
 return:                                           ; preds = %if.end, %for.end, %cond.false, %entry, %lor.lhs.false
-  %retval.0 = phi ptr [ null, %lor.lhs.false ], [ null, %entry ], [ null, %if.end ], [ %6, %cond.false ], [ null, %for.end ]
+  %retval.0 = phi ptr [ null, %lor.lhs.false ], [ null, %entry ], [ null, %if.end ], [ %7, %cond.false ], [ null, %for.end ]
   ret ptr %retval.0
 }
 
@@ -539,13 +538,12 @@ for.body24:                                       ; preds = %for.body24.preheade
   %indvars.iv = phi i64 [ %4, %for.body24.preheader ], [ %indvars.iv.next, %if.end35 ]
   %p.046 = phi ptr [ %p.043, %for.body24.preheader ], [ %p.0, %if.end35 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %mul = shl i64 %indvars.iv.next, 2
-  %sh_prom = and i64 %mul, 4294967292
-  %shr25 = lshr i64 %posn, %sh_prom
+  %5 = shl nsw i64 %indvars.iv.next, 2
+  %shr25 = lshr i64 %posn, %5
   %conv = and i64 %shr25, 15
   %arrayidx26 = getelementptr inbounds ptr, ptr %p.046, i64 %conv
-  %5 = load ptr, ptr %arrayidx26, align 8
-  %cmp27 = icmp eq ptr %5, null
+  %6 = load ptr, ptr %arrayidx26, align 8
+  %cmp27 = icmp eq ptr %6, null
   br i1 %cmp27, label %land.lhs.true, label %if.end35
 
 land.lhs.true:                                    ; preds = %for.body24
@@ -555,7 +553,7 @@ land.lhs.true:                                    ; preds = %for.body24
   br i1 %cmp32, label %return, label %if.end35
 
 if.end35:                                         ; preds = %land.lhs.true, %for.body24
-  %p.0 = phi ptr [ %call.i33, %land.lhs.true ], [ %5, %for.body24 ]
+  %p.0 = phi ptr [ %call.i33, %land.lhs.true ], [ %6, %for.body24 ]
   %cmp23 = icmp ugt i64 %indvars.iv, 2
   br i1 %cmp23, label %for.body24, label %for.end39, !llvm.loop !9
 
@@ -564,8 +562,8 @@ for.end39:                                        ; preds = %if.end35, %if.end19
   %and40 = and i64 %posn, 15
   %add.ptr = getelementptr inbounds ptr, ptr %p.0.lcssa, i64 %and40
   %cond = icmp eq ptr %val, null
-  %6 = load ptr, ptr %add.ptr, align 8
-  %cmp44.not = icmp eq ptr %6, null
+  %7 = load ptr, ptr %add.ptr, align 8
+  %cmp44.not = icmp eq ptr %7, null
   br i1 %cond, label %land.lhs.true43, label %land.lhs.true50
 
 land.lhs.true43:                                  ; preds = %for.end39
@@ -575,10 +573,10 @@ land.lhs.true50:                                  ; preds = %for.end39
   br i1 %cmp44.not, label %if.end57.sink.split, label %if.end57
 
 if.end57.sink.split:                              ; preds = %land.lhs.true50, %land.lhs.true43
-  %.sink55 = phi i64 [ -1, %land.lhs.true43 ], [ 1, %land.lhs.true50 ]
+  %.sink56 = phi i64 [ -1, %land.lhs.true43 ], [ 1, %land.lhs.true50 ]
   %nelem = getelementptr inbounds i8, ptr %sa, i64 16
-  %7 = load i64, ptr %nelem, align 8
-  %inc55 = add i64 %7, %.sink55
+  %8 = load i64, ptr %nelem, align 8
+  %inc55 = add i64 %8, %.sink56
   store i64 %inc55, ptr %nelem, align 8
   br label %if.end57
 

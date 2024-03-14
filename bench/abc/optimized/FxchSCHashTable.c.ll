@@ -1103,26 +1103,26 @@ define i32 @Fxch_SCHashTableRemove(ptr nocapture noundef %0, ptr nocapture nound
 
 35:                                               ; preds = %7
   %36 = and i32 %32, -65536
-  br label %190
+  br label %191
 
 37:                                               ; preds = %.lr.ph, %41
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %41 ]
   %38 = getelementptr inbounds %struct.Fxch_SubCube_t_, ptr %.pre, i64 %indvars.iv, i32 1
   %39 = load i32, ptr %38, align 4
   %40 = icmp eq i32 %39, %3
-  br i1 %40, label %._crit_edge.split.loop.exit176, label %41
+  br i1 %40, label %._crit_edge.split.loop.exit174, label %41
 
 41:                                               ; preds = %37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %37, !llvm.loop !13
 
-._crit_edge.split.loop.exit176:                   ; preds = %37
+._crit_edge.split.loop.exit174:                   ; preds = %37
   %42 = trunc i64 %indvars.iv to i32
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %41, %._crit_edge.split.loop.exit176
-  %.085.lcssa = phi i32 [ %42, %._crit_edge.split.loop.exit176 ], [ %33, %41 ]
+._crit_edge:                                      ; preds = %41, %._crit_edge.split.loop.exit174
+  %.085.lcssa = phi i32 [ %42, %._crit_edge.split.loop.exit174 ], [ %33, %41 ]
   %43 = zext i32 %.085.lcssa to i64
   %44 = getelementptr inbounds %struct.Fxch_SubCube_t_, ptr %.pre, i64 %43
   br i1 %.not141, label %._crit_edge138, label %.lr.ph137
@@ -1134,11 +1134,11 @@ define i32 @Fxch_SCHashTableRemove(ptr nocapture noundef %0, ptr nocapture nound
   %48 = sext i8 %6 to i32
   br label %49
 
-49:                                               ; preds = %.lr.ph137, %172
-  %indvars.iv157 = phi i64 [ 0, %.lr.ph137 ], [ %indvars.iv.next158, %172 ]
-  %.086135 = phi i32 [ 0, %.lr.ph137 ], [ %.1, %172 ]
+49:                                               ; preds = %.lr.ph137, %173
+  %indvars.iv157 = phi i64 [ 0, %.lr.ph137 ], [ %indvars.iv.next158, %173 ]
+  %.086135 = phi i32 [ 0, %.lr.ph137 ], [ %.1, %173 ]
   %.not = icmp eq i64 %indvars.iv157, %43
-  br i1 %.not, label %172, label %50
+  br i1 %.not, label %173, label %50
 
 50:                                               ; preds = %49
   %51 = load ptr, ptr %30, align 8
@@ -1167,35 +1167,35 @@ define i32 @Fxch_SCHashTableRemove(ptr nocapture noundef %0, ptr nocapture nound
   br i1 %.not95, label %72, label %71
 
 71:                                               ; preds = %50
-  br i1 %.not96, label %172, label %73
+  br i1 %.not96, label %173, label %73
 
 72:                                               ; preds = %50
-  br i1 %.not96, label %73, label %172
+  br i1 %.not96, label %73, label %173
 
 73:                                               ; preds = %71, %72
   %.val107 = load ptr, ptr %47, align 8
   %74 = tail call fastcc i32 @Fxch_SCHashTableEntryCompare(ptr noundef nonnull %0, ptr %.val107, ptr noundef nonnull %44, ptr noundef nonnull %52)
   %.not97 = icmp eq i32 %74, 0
-  br i1 %.not97, label %172, label %75
+  br i1 %.not97, label %173, label %75
 
 75:                                               ; preds = %73
   %76 = load i32, ptr %46, align 4
   %77 = and i32 %76, 65535
   %78 = icmp eq i32 %77, 0
-  br i1 %78, label %172, label %79
+  br i1 %78, label %173, label %79
 
 79:                                               ; preds = %75
   %80 = getelementptr inbounds i8, ptr %52, i64 8
   %81 = load i32, ptr %80, align 4
   %82 = and i32 %81, 65535
   %83 = icmp eq i32 %82, 0
-  br i1 %83, label %172, label %84
+  br i1 %83, label %173, label %84
 
 84:                                               ; preds = %79
   %85 = load ptr, ptr %0, align 8
   %86 = tail call i32 @Fxch_DivCreate(ptr noundef %85, ptr noundef nonnull %52, ptr noundef nonnull %44) #15
   %87 = icmp slt i32 %86, 0
-  br i1 %87, label %172, label %.preheader113
+  br i1 %87, label %173, label %.preheader113
 
 .preheader113:                                    ; preds = %84
   %88 = load ptr, ptr %0, align 8
@@ -1287,18 +1287,14 @@ define i32 @Fxch_SCHashTableRemove(ptr nocapture noundef %0, ptr nocapture nound
   %136 = icmp eq i32 %132, %135
   %.pre161 = load i32, ptr %45, align 4
   %137 = icmp eq i32 %134, %.pre161
-  %or.cond178 = select i1 %136, i1 %137, i1 false
-  br i1 %or.cond178, label %141, label %138
+  %or.cond176 = select i1 %136, i1 %137, i1 false
+  br i1 %or.cond176, label %141, label %138
 
 138:                                              ; preds = %129
   %139 = icmp eq i32 %132, %.pre161
   %140 = icmp eq i32 %134, %135
   %or.cond = select i1 %139, i1 %140, i1 false
-  br i1 %or.cond, label %141, label %.Vec_IntDrop.exit111_crit_edge
-
-.Vec_IntDrop.exit111_crit_edge:                   ; preds = %138
-  %.pre165 = sext i32 %.val104162 to i64
-  br label %Vec_IntDrop.exit111
+  br i1 %or.cond, label %141, label %Vec_IntDrop.exit111
 
 141:                                              ; preds = %129, %138
   %142 = add nsw i32 %.val104162, -1
@@ -1341,74 +1337,74 @@ Vec_IntDrop.exit:                                 ; preds = %.lr.ph.i, %141
   %162 = icmp slt i64 %indvars.iv.next.i110, %161
   br i1 %162, label %.lr.ph.i108, label %Vec_IntDrop.exit111, !llvm.loop !11
 
-Vec_IntDrop.exit111:                              ; preds = %.lr.ph.i108, %.Vec_IntDrop.exit111_crit_edge, %Vec_IntDrop.exit
-  %.pre-phi = phi i64 [ %.pre165, %.Vec_IntDrop.exit111_crit_edge ], [ %154, %Vec_IntDrop.exit ], [ %161, %.lr.ph.i108 ]
-  %.val104 = phi i32 [ %.val104162, %.Vec_IntDrop.exit111_crit_edge ], [ %153, %Vec_IntDrop.exit ], [ %160, %.lr.ph.i108 ]
+Vec_IntDrop.exit111:                              ; preds = %.lr.ph.i108, %Vec_IntDrop.exit, %138
+  %.val104 = phi i32 [ %153, %Vec_IntDrop.exit ], [ %.val104162, %138 ], [ %160, %.lr.ph.i108 ]
   %indvars.iv.next155 = add nuw nsw i64 %indvars.iv154, 2
-  %163 = or disjoint i64 %indvars.iv.next155, 1
-  %164 = icmp slt i64 %163, %.pre-phi
-  br i1 %164, label %129, label %.critedge, !llvm.loop !16
+  %163 = trunc i64 %indvars.iv.next155 to i32
+  %164 = or disjoint i32 %163, 1
+  %165 = icmp slt i32 %164, %.val104
+  br i1 %165, label %129, label %.critedge, !llvm.loop !16
 
 .critedge:                                        ; preds = %Vec_IntDrop.exit111, %._crit_edge125
   %.val104.lcssa = phi i32 [ %.val104127, %._crit_edge125 ], [ %.val104, %Vec_IntDrop.exit111 ]
-  %165 = icmp eq i32 %.val104.lcssa, 0
-  br i1 %165, label %166, label %170
+  %166 = icmp eq i32 %.val104.lcssa, 0
+  br i1 %166, label %167, label %171
 
-166:                                              ; preds = %.critedge
-  %167 = getelementptr inbounds i8, ptr %125, i64 8
-  %168 = load ptr, ptr %167, align 8
-  %.not.i = icmp eq ptr %168, null
-  br i1 %.not.i, label %Vec_IntErase.exit, label %169
+167:                                              ; preds = %.critedge
+  %168 = getelementptr inbounds i8, ptr %125, i64 8
+  %169 = load ptr, ptr %168, align 8
+  %.not.i = icmp eq ptr %169, null
+  br i1 %.not.i, label %Vec_IntErase.exit, label %170
 
-169:                                              ; preds = %166
-  tail call void @free(ptr noundef nonnull %168) #15
-  store ptr null, ptr %167, align 8
+170:                                              ; preds = %167
+  tail call void @free(ptr noundef nonnull %169) #15
+  store ptr null, ptr %168, align 8
   br label %Vec_IntErase.exit
 
-Vec_IntErase.exit:                                ; preds = %166, %169
+Vec_IntErase.exit:                                ; preds = %167, %170
   store i32 0, ptr %126, align 4
   store i32 0, ptr %125, align 8
-  br label %170
+  br label %171
 
-170:                                              ; preds = %Vec_IntErase.exit, %.critedge
-  %171 = add nsw i32 %.086135, 1
-  br label %172
+171:                                              ; preds = %Vec_IntErase.exit, %.critedge
+  %172 = add nsw i32 %.086135, 1
+  br label %173
 
-172:                                              ; preds = %49, %170, %84, %73, %75, %79, %71, %72
-  %.1 = phi i32 [ %.086135, %71 ], [ %.086135, %72 ], [ %.086135, %75 ], [ %.086135, %79 ], [ %.086135, %84 ], [ %171, %170 ], [ %.086135, %73 ], [ %.086135, %49 ]
+173:                                              ; preds = %49, %171, %84, %73, %75, %79, %71, %72
+  %.1 = phi i32 [ %.086135, %71 ], [ %.086135, %72 ], [ %.086135, %75 ], [ %.086135, %79 ], [ %.086135, %84 ], [ %172, %171 ], [ %.086135, %73 ], [ %.086135, %49 ]
   %indvars.iv.next158 = add nuw nsw i64 %indvars.iv157, 1
-  %173 = load i32, ptr %31, align 8
-  %174 = and i32 %173, 65535
-  %175 = zext nneg i32 %174 to i64
-  %176 = icmp ult i64 %indvars.iv.next158, %175
-  br i1 %176, label %49, label %._crit_edge138.loopexit, !llvm.loop !17
+  %174 = load i32, ptr %31, align 8
+  %175 = and i32 %174, 65535
+  %176 = zext nneg i32 %175 to i64
+  %177 = icmp ult i64 %indvars.iv.next158, %176
+  br i1 %177, label %49, label %._crit_edge138.loopexit, !llvm.loop !17
 
-._crit_edge138.loopexit:                          ; preds = %172
+._crit_edge138.loopexit:                          ; preds = %173
   %.pre164 = load ptr, ptr %30, align 8
   br label %._crit_edge138
 
 ._crit_edge138:                                   ; preds = %.preheader114, %._crit_edge138.loopexit, %._crit_edge
-  %177 = phi i64 [ %43, %._crit_edge ], [ %43, %._crit_edge138.loopexit ], [ 0, %.preheader114 ]
-  %.085.lcssa167 = phi i32 [ %.085.lcssa, %._crit_edge ], [ %.085.lcssa, %._crit_edge138.loopexit ], [ 0, %.preheader114 ]
-  %178 = phi ptr [ %.pre, %._crit_edge ], [ %.pre164, %._crit_edge138.loopexit ], [ %.pre, %.preheader114 ]
+  %178 = phi i64 [ %43, %._crit_edge ], [ %43, %._crit_edge138.loopexit ], [ 0, %.preheader114 ]
+  %.085.lcssa166 = phi i32 [ %.085.lcssa, %._crit_edge ], [ %.085.lcssa, %._crit_edge138.loopexit ], [ 0, %.preheader114 ]
+  %179 = phi ptr [ %.pre, %._crit_edge ], [ %.pre164, %._crit_edge138.loopexit ], [ %.pre, %.preheader114 ]
   %.086.lcssa = phi i32 [ 0, %._crit_edge ], [ %.1, %._crit_edge138.loopexit ], [ 0, %.preheader114 ]
-  %.lcssa115 = phi i32 [ 0, %._crit_edge ], [ %174, %._crit_edge138.loopexit ], [ 0, %.preheader114 ]
-  %179 = getelementptr inbounds %struct.Fxch_SubCube_t_, ptr %178, i64 %177
-  %180 = getelementptr inbounds i8, ptr %179, i64 12
-  %181 = xor i32 %.085.lcssa167, -1
-  %182 = add nsw i32 %.lcssa115, %181
-  %183 = sext i32 %182 to i64
-  %184 = mul nsw i64 %183, 12
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %179, ptr nonnull align 4 %180, i64 %184, i1 false)
-  %185 = load i32, ptr %31, align 8
-  %186 = add i32 %185, 65535
-  %187 = and i32 %186, 65535
-  %188 = and i32 %185, -65536
-  %189 = or disjoint i32 %187, %188
-  br label %190
+  %.lcssa115 = phi i32 [ 0, %._crit_edge ], [ %175, %._crit_edge138.loopexit ], [ 0, %.preheader114 ]
+  %180 = getelementptr inbounds %struct.Fxch_SubCube_t_, ptr %179, i64 %178
+  %181 = getelementptr inbounds i8, ptr %180, i64 12
+  %182 = xor i32 %.085.lcssa166, -1
+  %183 = add nsw i32 %.lcssa115, %182
+  %184 = sext i32 %183 to i64
+  %185 = mul nsw i64 %184, 12
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %180, ptr nonnull align 4 %181, i64 %185, i1 false)
+  %186 = load i32, ptr %31, align 8
+  %187 = add i32 %186, 65535
+  %188 = and i32 %187, 65535
+  %189 = and i32 %186, -65536
+  %190 = or disjoint i32 %188, %189
+  br label %191
 
-190:                                              ; preds = %._crit_edge138, %35
-  %storemerge = phi i32 [ %189, %._crit_edge138 ], [ %36, %35 ]
+191:                                              ; preds = %._crit_edge138, %35
+  %storemerge = phi i32 [ %190, %._crit_edge138 ], [ %36, %35 ]
   %.084 = phi i32 [ %.086.lcssa, %._crit_edge138 ], [ 0, %35 ]
   store i32 %storemerge, ptr %31, align 8
   ret i32 %.084

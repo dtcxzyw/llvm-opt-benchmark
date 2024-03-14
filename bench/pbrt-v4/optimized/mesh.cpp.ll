@@ -3555,7 +3555,7 @@ for.cond107.preheader:                            ; preds = %for.body78, %for.bo
 
 for.body109.lr.ph:                                ; preds = %for.cond107.preheader
   %28 = load ptr, ptr %faceIndices, align 8
-  %wide.trip.count131 = and i64 %div2257, 2147483647
+  %wide.trip.count135 = and i64 %div2257, 2147483647
   br label %for.body109
 
 for.body78:                                       ; preds = %for.body78.lr.ph, %for.body78
@@ -3585,44 +3585,39 @@ for.body78:                                       ; preds = %for.body78.lr.ph, %
 for.body109:                                      ; preds = %for.body109.lr.ph, %for.inc141
   %indvars.iv128 = phi i64 [ 0, %for.body109.lr.ph ], [ %indvars.iv.next129, %for.inc141 ]
   %call110 = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef %call1, double noundef 4.000000e+00)
-  %34 = trunc i64 %indvars.iv128 to i32
-  %mul111 = shl nsw i32 %34, 2
-  %conv112 = zext nneg i32 %mul111 to i64
-  %arrayidx.i82 = getelementptr inbounds i32, ptr %quadIndices.coerce0, i64 %conv112
+  %34 = shl nsw i64 %indvars.iv128, 2
+  %arrayidx.i82 = getelementptr inbounds i32, ptr %quadIndices.coerce0, i64 %34
   %35 = load i32, ptr %arrayidx.i82, align 4
   %conv114 = sitofp i32 %35 to double
   %call115 = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef %call1, double noundef %conv114)
-  %add117 = or disjoint i32 %mul111, 1
-  %conv118 = zext nneg i32 %add117 to i64
-  %arrayidx.i83 = getelementptr inbounds i32, ptr %quadIndices.coerce0, i64 %conv118
-  %36 = load i32, ptr %arrayidx.i83, align 4
-  %conv120 = sitofp i32 %36 to double
+  %36 = or disjoint i64 %34, 1
+  %arrayidx.i83 = getelementptr inbounds i32, ptr %quadIndices.coerce0, i64 %36
+  %37 = load i32, ptr %arrayidx.i83, align 4
+  %conv120 = sitofp i32 %37 to double
   %call121 = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef %call1, double noundef %conv120)
-  %add123 = or disjoint i32 %mul111, 2
-  %conv124 = zext nneg i32 %add123 to i64
-  %arrayidx.i84 = getelementptr inbounds i32, ptr %quadIndices.coerce0, i64 %conv124
-  %37 = load i32, ptr %arrayidx.i84, align 4
-  %conv126 = sitofp i32 %37 to double
+  %38 = or disjoint i64 %34, 2
+  %arrayidx.i84 = getelementptr inbounds i32, ptr %quadIndices.coerce0, i64 %38
+  %39 = load i32, ptr %arrayidx.i84, align 4
+  %conv126 = sitofp i32 %39 to double
   %call127 = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef %call1, double noundef %conv126)
-  %add129 = or disjoint i32 %mul111, 3
-  %conv130 = zext nneg i32 %add129 to i64
-  %arrayidx.i85 = getelementptr inbounds i32, ptr %quadIndices.coerce0, i64 %conv130
-  %38 = load i32, ptr %arrayidx.i85, align 4
-  %conv132 = sitofp i32 %38 to double
+  %40 = or disjoint i64 %34, 3
+  %arrayidx.i85 = getelementptr inbounds i32, ptr %quadIndices.coerce0, i64 %40
+  %41 = load i32, ptr %arrayidx.i85, align 4
+  %conv132 = sitofp i32 %41 to double
   %call133 = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef %call1, double noundef %conv132)
   br i1 %cmp.i64, label %for.inc141, label %if.then135
 
 if.then135:                                       ; preds = %for.body109
   %arrayidx.i88 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv128
-  %39 = load i32, ptr %arrayidx.i88, align 4
-  %conv138 = sitofp i32 %39 to double
+  %42 = load i32, ptr %arrayidx.i88, align 4
+  %conv138 = sitofp i32 %42 to double
   %call139 = tail call noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef %call1, double noundef %conv138)
   br label %for.inc141
 
 for.inc141:                                       ; preds = %for.body109, %if.then135
   %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
-  %exitcond132.not = icmp eq i64 %indvars.iv.next129, %wide.trip.count131
-  br i1 %exitcond132.not, label %for.end143, label %for.body109, !llvm.loop !9
+  %exitcond136.not = icmp eq i64 %indvars.iv.next129, %wide.trip.count135
+  br i1 %exitcond136.not, label %for.end143, label %for.body109, !llvm.loop !9
 
 for.end143:                                       ; preds = %for.inc141, %for.cond107.preheader
   %call144 = tail call noundef i32 @_Z9ply_closeP6t_ply_(ptr noundef %call1)

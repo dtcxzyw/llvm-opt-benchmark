@@ -133,7 +133,7 @@ define hidden void @parse_data(ptr noundef %0, ptr noundef %1, i32 noundef %2) l
   %9 = zext i32 %8 to i64
   %10 = getelementptr i8, ptr %5, i64 %9
   %switch = icmp ult i32 %2, 4
-  br i1 %switch, label %switch.lookup, label %97
+  br i1 %switch, label %switch.lookup, label %98
 
 switch.lookup:                                    ; preds = %3
   %11 = load i32, ptr @curr_offset, align 4
@@ -151,9 +151,9 @@ switch.lookup:                                    ; preds = %3
   %20 = getelementptr inbounds i8, ptr %switch.load, i64 8
   br label %21
 
-21:                                               ; preds = %91, %switch.lookup
-  %.011 = phi ptr [ %0, %switch.lookup ], [ %.213, %91 ]
-  %.010 = phi ptr [ %13, %switch.lookup ], [ %96, %91 ]
+21:                                               ; preds = %92, %switch.lookup
+  %.011 = phi ptr [ %0, %switch.lookup ], [ %.213, %92 ]
+  %.010 = phi ptr [ %13, %switch.lookup ], [ %97, %92 ]
   %.01129 = ptrtoint ptr %.011 to i64
   %22 = tail call i32 @ws_log_get_level() #15
   %.not.i = icmp eq i32 %22, 0
@@ -233,7 +233,7 @@ switch.lookup:                                    ; preds = %3
   br i1 %exitcond33.not, label %.critedge.i, label %.lr.ph5.i.split.us.split, !llvm.loop !4
 
 .lr.ph5.i.split:                                  ; preds = %.lr.ph5.i.split.preheader, %.loopexit.i
-  %.112 = phi ptr [ %71, %.loopexit.i ], [ %.011, %.lr.ph5.i.split.preheader ]
+  %.112 = phi ptr [ %72, %.loopexit.i ], [ %.011, %.lr.ph5.i.split.preheader ]
   %.1 = phi ptr [ %.3, %.loopexit.i ], [ %.010, %.lr.ph5.i.split.preheader ]
   %.0433.i = phi i32 [ %.144.i, %.loopexit.i ], [ 0, %.lr.ph5.i.split.preheader ]
   %.0452.i = phi i64 [ %.146.i, %.loopexit.i ], [ 0, %.lr.ph5.i.split.preheader ]
@@ -266,24 +266,25 @@ switch.lookup:                                    ; preds = %3
   br i1 %64, label %.lr.ph.i, label %.loopexit.i
 
 .lr.ph.i:                                         ; preds = %58, %.lr.ph.i
-  %.2 = phi ptr [ %69, %.lr.ph.i ], [ %.1, %58 ]
+  %.2 = phi ptr [ %70, %.lr.ph.i ], [ %.1, %58 ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ %29, %58 ]
-  %65 = shl nuw nsw i64 %indvars.iv.i, 3
-  %66 = add nsw i64 %65, -8
-  %67 = lshr i64 %61, %66
-  %68 = trunc i64 %67 to i8
-  store i8 %68, ptr %.2, align 1
-  %69 = getelementptr i8, ptr %.2, i64 1
+  %65 = shl i64 %indvars.iv.i, 3
+  %66 = add nsw i64 %65, 4294967288
+  %67 = and i64 %66, 4294967288
+  %68 = lshr i64 %61, %67
+  %69 = trunc i64 %68 to i8
+  store i8 %69, ptr %.2, align 1
+  %70 = getelementptr i8, ptr %.2, i64 1
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %70 = icmp ugt i64 %indvars.iv.i, 1
-  br i1 %70, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !6
+  %71 = icmp ugt i64 %indvars.iv.i, 1
+  br i1 %71, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !6
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %58, %56
-  %.3 = phi ptr [ %.1, %58 ], [ %.1, %56 ], [ %69, %.lr.ph.i ]
+  %.3 = phi ptr [ %.1, %58 ], [ %.1, %56 ], [ %70, %.lr.ph.i ]
   %.146.i = phi i64 [ %61, %58 ], [ %.0452.i, %56 ], [ %61, %.lr.ph.i ]
   %.144.i = phi i32 [ %62, %58 ], [ %.0433.i, %56 ], [ 0, %.lr.ph.i ]
-  %71 = getelementptr i8, ptr %.112, i64 1
-  %exitcond.not = icmp eq ptr %71, %scevgep30
+  %72 = getelementptr i8, ptr %.112, i64 1
+  %exitcond.not = icmp eq ptr %72, %scevgep30
   br i1 %exitcond.not, label %.critedge.i, label %.lr.ph5.i.split, !llvm.loop !4
 
 .critedge.i:                                      ; preds = %.lr.ph5.i.split, %51, %.loopexit.i, %.lr.ph5.i.split.us.split, %.loopexit.i.us, %.lr.ph5.i.split.us, %26
@@ -291,55 +292,55 @@ switch.lookup:                                    ; preds = %3
   %.4 = phi ptr [ %.010, %26 ], [ %.010, %.lr.ph5.i.split.us ], [ %.010, %.loopexit.i.us ], [ %.010, %.lr.ph5.i.split.us.split ], [ %.1, %51 ], [ %.3, %.loopexit.i ], [ %.1, %.lr.ph5.i.split ]
   %.045.lcssa.i = phi i64 [ 0, %26 ], [ 0, %.lr.ph5.i.split.us ], [ %.0452.i.us, %.lr.ph5.i.split.us.split ], [ %.146.i.us, %.loopexit.i.us ], [ %.0452.i, %51 ], [ %.146.i, %.loopexit.i ], [ %.0452.i, %.lr.ph5.i.split ]
   %.043.lcssa.i = phi i32 [ 0, %26 ], [ 0, %.lr.ph5.i.split.us ], [ %.0433.i.us, %.lr.ph5.i.split.us.split ], [ %.144.i.us, %.loopexit.i.us ], [ %.0433.i, %51 ], [ %.144.i, %.loopexit.i ], [ %.0433.i, %.lr.ph5.i.split ]
-  %72 = lshr i16 %.fr23, 3
-  %73 = and i16 %72, 63
-  %74 = zext nneg i16 %73 to i32
-  %75 = mul i32 %.043.lcssa.i, %74
-  %76 = icmp sgt i32 %75, 7
-  br i1 %76, label %.lr.ph20.preheader.i, label %parse_plain_data.exit
+  %73 = lshr i16 %.fr23, 3
+  %74 = and i16 %73, 63
+  %75 = zext nneg i16 %74 to i32
+  %76 = mul i32 %.043.lcssa.i, %75
+  %77 = icmp sgt i32 %76, 7
+  br i1 %77, label %.lr.ph20.preheader.i, label %parse_plain_data.exit
 
 .lr.ph20.preheader.i:                             ; preds = %.critedge.i
-  %77 = zext nneg i32 %75 to i64
+  %78 = zext nneg i32 %76 to i64
   br label %.lr.ph20.i
 
 .lr.ph20.i:                                       ; preds = %.lr.ph20.i, %.lr.ph20.preheader.i
-  %.5 = phi ptr [ %.4, %.lr.ph20.preheader.i ], [ %80, %.lr.ph20.i ]
-  %indvars.iv23.i = phi i64 [ %77, %.lr.ph20.preheader.i ], [ %indvars.iv.next24.i, %.lr.ph20.i ]
+  %.5 = phi ptr [ %.4, %.lr.ph20.preheader.i ], [ %81, %.lr.ph20.i ]
+  %indvars.iv23.i = phi i64 [ %78, %.lr.ph20.preheader.i ], [ %indvars.iv.next24.i, %.lr.ph20.i ]
   %indvars.iv.next24.i = add nsw i64 %indvars.iv23.i, -8
-  %78 = lshr i64 %.045.lcssa.i, %indvars.iv.next24.i
-  %79 = trunc i64 %78 to i8
-  store i8 %79, ptr %.5, align 1
-  %80 = getelementptr i8, ptr %.5, i64 1
-  %81 = icmp ugt i64 %indvars.iv23.i, 15
-  br i1 %81, label %.lr.ph20.i, label %parse_plain_data.exit, !llvm.loop !7
+  %79 = lshr i64 %.045.lcssa.i, %indvars.iv.next24.i
+  %80 = trunc i64 %79 to i8
+  store i8 %80, ptr %.5, align 1
+  %81 = getelementptr i8, ptr %.5, i64 1
+  %82 = icmp ugt i64 %indvars.iv23.i, 15
+  br i1 %82, label %.lr.ph20.i, label %parse_plain_data.exit, !llvm.loop !7
 
 parse_plain_data.exit:                            ; preds = %.lr.ph20.i, %.critedge.i
-  %.6 = phi ptr [ %.4, %.critedge.i ], [ %80, %.lr.ph20.i ]
-  %82 = load ptr, ptr @packet_buf, align 8
-  %83 = ptrtoint ptr %.6 to i64
-  %84 = ptrtoint ptr %82 to i64
-  %85 = sub i64 %83, %84
-  %86 = trunc i64 %85 to i32
-  store i32 %86, ptr @curr_offset, align 4
-  %87 = load ptr, ptr @info_p, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 184
-  %89 = load i32, ptr %88, align 8
-  %90 = icmp eq i32 %89, %86
-  br i1 %90, label %91, label %.loopexit
+  %.6 = phi ptr [ %.4, %.critedge.i ], [ %81, %.lr.ph20.i ]
+  %83 = load ptr, ptr @packet_buf, align 8
+  %84 = ptrtoint ptr %.6 to i64
+  %85 = ptrtoint ptr %83 to i64
+  %86 = sub i64 %84, %85
+  %87 = trunc i64 %86 to i32
+  store i32 %87, ptr @curr_offset, align 4
+  %88 = load ptr, ptr @info_p, align 8
+  %89 = getelementptr inbounds i8, ptr %88, i64 184
+  %90 = load i32, ptr %89, align 8
+  %91 = icmp eq i32 %90, %87
+  br i1 %91, label %92, label %.loopexit
 
-91:                                               ; preds = %parse_plain_data.exit
-  %92 = tail call fastcc i32 @write_current_packet(i32 noundef 1), !range !8
-  %93 = load ptr, ptr @packet_buf, align 8
-  %94 = load i32, ptr @curr_offset, align 4
-  %95 = zext i32 %94 to i64
-  %96 = getelementptr i8, ptr %93, i64 %95
+92:                                               ; preds = %parse_plain_data.exit
+  %93 = tail call fastcc i32 @write_current_packet(i32 noundef 1), !range !8
+  %94 = load ptr, ptr @packet_buf, align 8
+  %95 = load i32, ptr @curr_offset, align 4
+  %96 = zext i32 %95 to i64
+  %97 = getelementptr i8, ptr %94, i64 %96
   br label %21
 
-97:                                               ; preds = %3
+98:                                               ; preds = %3
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 6, ptr noundef nonnull @.str.1, i64 noundef 1007, ptr noundef nonnull @__func__.parse_data, ptr noundef nonnull @.str.2) #15
   br label %.loopexit
 
-.loopexit:                                        ; preds = %parse_plain_data.exit, %97
+.loopexit:                                        ; preds = %parse_plain_data.exit, %98
   ret void
 }
 

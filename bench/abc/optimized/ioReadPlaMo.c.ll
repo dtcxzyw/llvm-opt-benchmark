@@ -1391,9 +1391,9 @@ Vec_IntAlloc.exit:                                ; preds = %Vec_IntStart.exit, 
 .critedge:                                        ; preds = %45, %52
   %.val84 = phi i32 [ %.val84134, %45 ], [ %.val84.pre, %52 ]
   %indvars.iv.next125 = add nuw nsw i64 %indvars.iv124, 2
-  %54 = or disjoint i64 %indvars.iv.next125, 1
-  %55 = sext i32 %.val84 to i64
-  %56 = icmp slt i64 %54, %55
+  %54 = trunc i64 %indvars.iv.next125 to i32
+  %55 = or disjoint i32 %54, 1
+  %56 = icmp slt i32 %55, %.val84
   br i1 %56, label %35, label %.critedge2.preheader, !llvm.loop !23
 
 .critedge4.preheader:                             ; preds = %.critedge2
@@ -1436,9 +1436,9 @@ Vec_IntAlloc.exit:                                ; preds = %Vec_IntStart.exit, 
 .critedge2:                                       ; preds = %59, %69, %74
   %.val83 = phi i32 [ %.val83137, %59 ], [ %.val83137, %69 ], [ %.val83.pre, %74 ]
   %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 2
-  %75 = or disjoint i64 %indvars.iv.next128, 1
-  %76 = sext i32 %.val83 to i64
-  %77 = icmp slt i64 %75, %76
+  %75 = trunc i64 %indvars.iv.next128 to i32
+  %76 = or disjoint i32 %75, 1
+  %77 = icmp slt i32 %76, %.val83
   br i1 %77, label %59, label %.critedge4.preheader, !llvm.loop !24
 
 78:                                               ; preds = %.lr.ph122, %.critedge4
@@ -1483,9 +1483,9 @@ Vec_IntAlloc.exit:                                ; preds = %Vec_IntStart.exit, 
 .critedge4:                                       ; preds = %88, %95
   %.val = phi i32 [ %.val140, %88 ], [ %.val.pre, %95 ]
   %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 2
-  %97 = or disjoint i64 %indvars.iv.next131, 1
-  %98 = sext i32 %.val to i64
-  %99 = icmp slt i64 %97, %98
+  %97 = trunc i64 %indvars.iv.next131 to i32
+  %98 = or disjoint i32 %97, 1
+  %99 = icmp slt i32 %98, %.val
   br i1 %99, label %78, label %.critedge6.thread149, !llvm.loop !25
 
 .critedge6:                                       ; preds = %Vec_IntAlloc.exit
@@ -2304,9 +2304,9 @@ Vec_IntPush.exit128:                              ; preds = %.Vec_IntGrow.exit10
 194:                                              ; preds = %Mop_ManFindDiffVar.exit, %Vec_IntPush.exit128
   %.val98 = phi i32 [ %.val98170, %Mop_ManFindDiffVar.exit ], [ %.val98.pre, %Vec_IntPush.exit128 ]
   %indvars.iv.next165 = add nuw nsw i64 %indvars.iv164, 2
-  %195 = or disjoint i64 %indvars.iv.next165, 1
-  %196 = sext i32 %.val98 to i64
-  %197 = icmp slt i64 %195, %196
+  %195 = trunc i64 %indvars.iv.next165 to i32
+  %196 = or disjoint i32 %195, 1
+  %197 = icmp slt i32 %196, %.val98
   br i1 %197, label %32, label %.critedge.preheader, !llvm.loop !35
 
 198:                                              ; preds = %.lr.ph157, %.critedge

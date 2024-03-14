@@ -3308,7 +3308,7 @@ Vec_WrdFill.exit:                                 ; preds = %68, %Vec_WrdGrow.ex
 
 .lr.ph:                                           ; preds = %Vec_WrdFill.exit, %Abc_TtAndCompl.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %Abc_TtAndCompl.exit ], [ 0, %Vec_WrdFill.exit ]
-  %75 = phi ptr [ %167, %Abc_TtAndCompl.exit ], [ %72, %Vec_WrdFill.exit ]
+  %75 = phi ptr [ %166, %Abc_TtAndCompl.exit ], [ %72, %Vec_WrdFill.exit ]
   %76 = or disjoint i64 %indvars.iv, 1
   %77 = getelementptr i8, ptr %75, i64 8
   %.val110 = load ptr, ptr %77, align 8
@@ -3504,12 +3504,12 @@ Vec_WrdFill.exit:                                 ; preds = %68, %Vec_WrdGrow.ex
 
 Abc_TtAndCompl.exit:                              ; preds = %.lr.ph.i146, %.lr.ph.i140, %.lr.ph48.i, %.lr.ph50.i, %.lr.ph52.i, %.preheader.i, %.preheader40.i, %.preheader42.i, %.preheader44.i, %157
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %166 = or disjoint i64 %indvars.iv.next, 1
-  %167 = load ptr, ptr %6, align 8
-  %168 = getelementptr i8, ptr %167, i64 4
-  %.val106 = load i32, ptr %168, align 4
-  %169 = sext i32 %.val106 to i64
-  %170 = icmp slt i64 %166, %169
+  %166 = load ptr, ptr %6, align 8
+  %167 = getelementptr i8, ptr %166, i64 4
+  %.val106 = load i32, ptr %167, align 4
+  %168 = trunc i64 %indvars.iv.next to i32
+  %169 = or disjoint i32 %168, 1
+  %170 = icmp slt i32 %169, %.val106
   br i1 %170, label %.lr.ph, label %.critedge, !llvm.loop !34
 
 .critedge:                                        ; preds = %Abc_TtAndCompl.exit, %Vec_WrdFill.exit

@@ -44745,7 +44745,7 @@ _ZN3vcg3tri9AllocatorI6CMeshOE8AddFacesERS2_m.exit: ; preds = %11, %14
   %indvars.iv72 = phi i64 [ 0, %.preheader66.us.preheader ], [ %indvars.iv.next73, %._crit_edge.us ]
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
   %26 = mul nsw i64 %indvars.iv.next73, %24
-  %27 = mul i64 %indvars.iv72, %25
+  %27 = mul nsw i64 %indvars.iv72, %25
   %28 = mul nsw i64 %indvars.iv72, %24
   br label %29
 
@@ -44755,42 +44755,39 @@ _ZN3vcg3tri9AllocatorI6CMeshOE8AddFacesERS2_m.exit: ; preds = %11, %14
   %31 = add nuw nsw i64 %30, 1
   %32 = load ptr, ptr %22, align 8
   %33 = getelementptr inbounds %class.CVertexO, ptr %32, i64 %31
-  %34 = add i64 %indvars.iv, %27
-  %35 = trunc i64 %34 to i32
-  %36 = shl nsw i32 %35, 1
-  %37 = sext i32 %36 to i64
-  %38 = load ptr, ptr %23, align 8
-  %39 = getelementptr inbounds %class.CFaceO, ptr %38, i64 %37, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
-  store ptr %33, ptr %39, align 8
-  %40 = add nuw nsw i64 %indvars.iv, %28
-  %41 = load ptr, ptr %22, align 8
-  %42 = getelementptr %class.CVertexO, ptr %41, i64 %40
-  %43 = getelementptr i8, ptr %42, i64 48
-  %44 = load ptr, ptr %23, align 8
-  %45 = getelementptr inbounds %class.CFaceO, ptr %44, i64 %37, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i64 1
-  store ptr %43, ptr %45, align 8
-  %46 = load ptr, ptr %22, align 8
-  %47 = getelementptr inbounds %class.CVertexO, ptr %46, i64 %40
-  %48 = load ptr, ptr %23, align 8
-  %49 = getelementptr inbounds %class.CFaceO, ptr %48, i64 %37, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i64 2
-  store ptr %47, ptr %49, align 8
-  %50 = load ptr, ptr %22, align 8
-  %51 = getelementptr inbounds %class.CVertexO, ptr %50, i64 %40
-  %52 = or disjoint i32 %36, 1
-  %53 = sext i32 %52 to i64
-  %54 = load ptr, ptr %23, align 8
-  %55 = getelementptr inbounds %class.CFaceO, ptr %54, i64 %53, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
-  store ptr %51, ptr %55, align 8
-  %56 = load ptr, ptr %22, align 8
-  %57 = getelementptr inbounds %class.CVertexO, ptr %56, i64 %30
-  %58 = load ptr, ptr %23, align 8
-  %59 = getelementptr inbounds %class.CFaceO, ptr %58, i64 %53, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i64 1
-  store ptr %57, ptr %59, align 8
-  %60 = load ptr, ptr %22, align 8
-  %61 = getelementptr inbounds %class.CVertexO, ptr %60, i64 %31
-  %62 = load ptr, ptr %23, align 8
-  %63 = getelementptr inbounds %class.CFaceO, ptr %62, i64 %53, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i64 2
-  store ptr %61, ptr %63, align 8
+  %34 = add nuw nsw i64 %indvars.iv, %27
+  %35 = shl nuw nsw i64 %34, 1
+  %36 = load ptr, ptr %23, align 8
+  %37 = getelementptr inbounds %class.CFaceO, ptr %36, i64 %35, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  store ptr %33, ptr %37, align 8
+  %38 = add nuw nsw i64 %indvars.iv, %28
+  %39 = load ptr, ptr %22, align 8
+  %40 = getelementptr %class.CVertexO, ptr %39, i64 %38
+  %41 = getelementptr i8, ptr %40, i64 48
+  %42 = load ptr, ptr %23, align 8
+  %43 = getelementptr inbounds %class.CFaceO, ptr %42, i64 %35, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i64 1
+  store ptr %41, ptr %43, align 8
+  %44 = load ptr, ptr %22, align 8
+  %45 = getelementptr inbounds %class.CVertexO, ptr %44, i64 %38
+  %46 = load ptr, ptr %23, align 8
+  %47 = getelementptr inbounds %class.CFaceO, ptr %46, i64 %35, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i64 2
+  store ptr %45, ptr %47, align 8
+  %48 = load ptr, ptr %22, align 8
+  %49 = getelementptr inbounds %class.CVertexO, ptr %48, i64 %38
+  %50 = or disjoint i64 %35, 1
+  %51 = load ptr, ptr %23, align 8
+  %52 = getelementptr inbounds %class.CFaceO, ptr %51, i64 %50, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  store ptr %49, ptr %52, align 8
+  %53 = load ptr, ptr %22, align 8
+  %54 = getelementptr inbounds %class.CVertexO, ptr %53, i64 %30
+  %55 = load ptr, ptr %23, align 8
+  %56 = getelementptr inbounds %class.CFaceO, ptr %55, i64 %50, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i64 1
+  store ptr %54, ptr %56, align 8
+  %57 = load ptr, ptr %22, align 8
+  %58 = getelementptr inbounds %class.CVertexO, ptr %57, i64 %31
+  %59 = load ptr, ptr %23, align 8
+  %60 = getelementptr inbounds %class.CFaceO, ptr %59, i64 %50, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i64 2
+  store ptr %58, ptr %60, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %29, !llvm.loop !199
@@ -44800,26 +44797,26 @@ _ZN3vcg3tri9AllocatorI6CMeshOE8AddFacesERS2_m.exit: ; preds = %11, %14
   br i1 %exitcond76.not, label %.preheader, label %.preheader66.us, !llvm.loop !200
 
 .preheader:                                       ; preds = %._crit_edge.us, %.preheader66.lr.ph, %_ZN3vcg3tri9AllocatorI6CMeshOE8AddFacesERS2_m.exit
-  %64 = icmp sgt i32 %8, 0
-  br i1 %64, label %.lr.ph, label %._crit_edge
+  %61 = icmp sgt i32 %8, 0
+  br i1 %61, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %65 = getelementptr inbounds i8, ptr %0, i64 304
+  %62 = getelementptr inbounds i8, ptr %0, i64 304
   %wide.trip.count80 = zext nneg i32 %8 to i64
-  br label %66
+  br label %63
 
-66:                                               ; preds = %.lr.ph, %66
-  %indvars.iv77 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next78, %66 ]
-  %67 = load ptr, ptr %65, align 8
-  %68 = getelementptr inbounds %class.CFaceO, ptr %67, i64 %indvars.iv77, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
-  %69 = load i32, ptr %68, align 4
-  %70 = or i32 %69, 1048576
-  store i32 %70, ptr %68, align 4
+63:                                               ; preds = %.lr.ph, %63
+  %indvars.iv77 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next78, %63 ]
+  %64 = load ptr, ptr %62, align 8
+  %65 = getelementptr inbounds %class.CFaceO, ptr %64, i64 %indvars.iv77, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %66 = load i32, ptr %65, align 4
+  %67 = or i32 %66, 1048576
+  store i32 %67, ptr %65, align 4
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
   %exitcond81.not = icmp eq i64 %indvars.iv.next78, %wide.trip.count80
-  br i1 %exitcond81.not, label %._crit_edge, label %66, !llvm.loop !201
+  br i1 %exitcond81.not, label %._crit_edge, label %63, !llvm.loop !201
 
-._crit_edge:                                      ; preds = %66, %.preheader
+._crit_edge:                                      ; preds = %63, %.preheader
   ret void
 }
 

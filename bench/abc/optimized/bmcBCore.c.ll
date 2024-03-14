@@ -290,9 +290,9 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 .critedge2:                                       ; preds = %42, %Vec_IntPush.exit
   %.val52 = phi i32 [ %.val5276, %42 ], [ %.val52.pre, %Vec_IntPush.exit ]
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 2
-  %79 = or disjoint i64 %indvars.iv.next71, 1
-  %80 = sext i32 %.val52 to i64
-  %81 = icmp slt i64 %79, %80
+  %79 = trunc i64 %indvars.iv.next71 to i32
+  %80 = or disjoint i32 %79, 1
+  %81 = icmp slt i32 %80, %.val52
   br i1 %81, label %42, label %.critedge4.preheader, !llvm.loop !8
 
 .lr.ph65:                                         ; preds = %.critedge4.preheader, %.critedge4

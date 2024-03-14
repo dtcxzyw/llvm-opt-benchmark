@@ -4137,9 +4137,9 @@ Cbs3_ManAddConstr.exit.i.i:                       ; preds = %Vec_WecGrow.exit.i6
 438:                                              ; preds = %Cbs3_ManAddConstr.exit.i.i, %.lr.ph.i.i
   %.val16.i.i = phi i32 [ %.val1625.i.i, %.lr.ph.i.i ], [ %.val16.pre.i.i, %Cbs3_ManAddConstr.exit.i.i ]
   %indvars.iv.next21.i.i = add nuw nsw i64 %indvars.iv20.i.i, 2
-  %439 = or disjoint i64 %indvars.iv.next21.i.i, 1
-  %440 = sext i32 %.val16.i.i to i64
-  %441 = icmp slt i64 %439, %440
+  %439 = trunc i64 %indvars.iv.next21.i.i to i32
+  %440 = or disjoint i32 %439, 1
+  %441 = icmp slt i32 %440, %.val16.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 2
   br i1 %441, label %.lr.ph.i.i, label %Cbs3_ManToSolver2.exit, !llvm.loop !25
 

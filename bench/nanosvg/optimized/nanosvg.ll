@@ -12489,9 +12489,9 @@ define internal fastcc void @nsvg__getLocalBounds(ptr nocapture noundef %0, ptr 
   %32 = icmp sgt i32 %31, 1
   br i1 %32, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %15, %99
-  %indvars.iv = phi i64 [ %indvars.iv.next, %99 ], [ 0, %15 ]
-  %.140 = phi i32 [ 0, %99 ], [ %.043, %15 ]
+.lr.ph:                                           ; preds = %15, %96
+  %indvars.iv = phi i64 [ %indvars.iv.next, %96 ], [ 0, %15 ]
+  %.140 = phi i32 [ 0, %96 ], [ %.043, %15 ]
   %33 = load ptr, ptr %.03744, align 8
   %34 = shl i64 %indvars.iv, 33
   %sext = add i64 %34, 8589934592
@@ -12514,82 +12514,79 @@ define internal fastcc void @nsvg__getLocalBounds(ptr nocapture noundef %0, ptr 
   %49 = getelementptr inbounds float, ptr %33, i64 %48
   %50 = load float, ptr %49, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 3
-  %51 = trunc i64 %indvars.iv.next to i32
-  %52 = shl nuw nsw i32 %51, 1
-  %53 = zext nneg i32 %52 to i64
-  %54 = getelementptr inbounds float, ptr %33, i64 %53
-  %55 = load float, ptr %54, align 4
-  %56 = or disjoint i32 %52, 1
-  %57 = zext nneg i32 %56 to i64
-  %58 = getelementptr inbounds float, ptr %33, i64 %57
-  %59 = load float, ptr %58, align 4
-  %60 = load <2 x float>, ptr %7, align 4
-  %61 = shufflevector <2 x float> %60, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
-  %62 = load <2 x float>, ptr %2, align 4
-  %63 = shufflevector <2 x float> %62, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
-  %64 = load <2 x float>, ptr %8, align 4
-  %65 = shufflevector <2 x float> %64, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
-  %66 = insertelement <4 x float> poison, float %41, i64 0
-  %67 = insertelement <4 x float> %66, float %50, i64 1
-  %68 = shufflevector <4 x float> %67, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 1, i32 1>
-  %69 = fmul <4 x float> %68, %61
-  %70 = insertelement <4 x float> poison, float %37, i64 0
-  %71 = insertelement <4 x float> %70, float %46, i64 1
-  %72 = shufflevector <4 x float> %71, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 1, i32 1>
-  %73 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %72, <4 x float> %63, <4 x float> %69)
-  %74 = fadd <4 x float> %65, %73
-  store <4 x float> %74, ptr %9, align 8
-  %75 = insertelement <2 x float> poison, float %59, i64 0
+  %51 = shl nuw nsw i64 %indvars.iv.next, 1
+  %52 = getelementptr inbounds float, ptr %33, i64 %51
+  %53 = load float, ptr %52, align 4
+  %54 = or disjoint i64 %51, 1
+  %55 = getelementptr inbounds float, ptr %33, i64 %54
+  %56 = load float, ptr %55, align 4
+  %57 = load <2 x float>, ptr %7, align 4
+  %58 = shufflevector <2 x float> %57, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
+  %59 = load <2 x float>, ptr %2, align 4
+  %60 = shufflevector <2 x float> %59, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
+  %61 = load <2 x float>, ptr %8, align 4
+  %62 = shufflevector <2 x float> %61, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
+  %63 = insertelement <4 x float> poison, float %41, i64 0
+  %64 = insertelement <4 x float> %63, float %50, i64 1
+  %65 = shufflevector <4 x float> %64, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 1, i32 1>
+  %66 = fmul <4 x float> %65, %58
+  %67 = insertelement <4 x float> poison, float %37, i64 0
+  %68 = insertelement <4 x float> %67, float %46, i64 1
+  %69 = shufflevector <4 x float> %68, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 1, i32 1>
+  %70 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %69, <4 x float> %60, <4 x float> %66)
+  %71 = fadd <4 x float> %62, %70
+  store <4 x float> %71, ptr %9, align 8
+  %72 = insertelement <2 x float> poison, float %56, i64 0
+  %73 = shufflevector <2 x float> %72, <2 x float> poison, <2 x i32> zeroinitializer
+  %74 = fmul <2 x float> %57, %73
+  %75 = insertelement <2 x float> poison, float %53, i64 0
   %76 = shufflevector <2 x float> %75, <2 x float> poison, <2 x i32> zeroinitializer
-  %77 = fmul <2 x float> %60, %76
-  %78 = insertelement <2 x float> poison, float %55, i64 0
-  %79 = shufflevector <2 x float> %78, <2 x float> poison, <2 x i32> zeroinitializer
-  %80 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %79, <2 x float> %62, <2 x float> %77)
-  %81 = fadd <2 x float> %64, %80
-  store <2 x float> %81, ptr %10, align 8
+  %77 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %76, <2 x float> %59, <2 x float> %74)
+  %78 = fadd <2 x float> %61, %77
+  store <2 x float> %78, ptr %10, align 8
   call fastcc void @nsvg__curveBounds(ptr noundef nonnull %5, ptr noundef nonnull %4)
   %.not38 = icmp eq i32 %.140, 0
-  br i1 %.not38, label %86, label %82
+  br i1 %.not38, label %83, label %79
 
-82:                                               ; preds = %.lr.ph
-  %83 = load <2 x float>, ptr %5, align 16
-  store <2 x float> %83, ptr %0, align 4
-  %84 = load float, ptr %11, align 8
-  store float %84, ptr %12, align 4
-  %85 = load float, ptr %13, align 4
-  br label %99
+79:                                               ; preds = %.lr.ph
+  %80 = load <2 x float>, ptr %5, align 16
+  store <2 x float> %80, ptr %0, align 4
+  %81 = load float, ptr %11, align 8
+  store float %81, ptr %12, align 4
+  %82 = load float, ptr %13, align 4
+  br label %96
 
-86:                                               ; preds = %.lr.ph
-  %87 = load <2 x float>, ptr %0, align 4
-  %88 = load <2 x float>, ptr %5, align 16
-  %89 = fcmp olt <2 x float> %87, %88
-  %90 = select <2 x i1> %89, <2 x float> %87, <2 x float> %88
-  store <2 x float> %90, ptr %0, align 4
-  %91 = load float, ptr %12, align 4
-  %92 = load float, ptr %11, align 8
-  %93 = fcmp ogt float %91, %92
-  %94 = select i1 %93, float %91, float %92
-  store float %94, ptr %12, align 4
-  %95 = load float, ptr %14, align 4
-  %96 = load float, ptr %13, align 4
-  %97 = fcmp ogt float %95, %96
-  %98 = select i1 %97, float %95, float %96
-  br label %99
+83:                                               ; preds = %.lr.ph
+  %84 = load <2 x float>, ptr %0, align 4
+  %85 = load <2 x float>, ptr %5, align 16
+  %86 = fcmp olt <2 x float> %84, %85
+  %87 = select <2 x i1> %86, <2 x float> %84, <2 x float> %85
+  store <2 x float> %87, ptr %0, align 4
+  %88 = load float, ptr %12, align 4
+  %89 = load float, ptr %11, align 8
+  %90 = fcmp ogt float %88, %89
+  %91 = select i1 %90, float %88, float %89
+  store float %91, ptr %12, align 4
+  %92 = load float, ptr %14, align 4
+  %93 = load float, ptr %13, align 4
+  %94 = fcmp ogt float %92, %93
+  %95 = select i1 %94, float %92, float %93
+  br label %96
 
-99:                                               ; preds = %86, %82
-  %storemerge = phi float [ %85, %82 ], [ %98, %86 ]
+96:                                               ; preds = %83, %79
+  %storemerge = phi float [ %82, %79 ], [ %95, %83 ]
   store float %storemerge, ptr %14, align 4
-  store <2 x float> %81, ptr %4, align 16
-  %100 = load i32, ptr %20, align 8
-  %101 = add nsw i32 %100, -1
-  %102 = sext i32 %101 to i64
-  %103 = icmp slt i64 %indvars.iv.next, %102
-  br i1 %103, label %.lr.ph, label %._crit_edge, !llvm.loop !117
+  store <2 x float> %78, ptr %4, align 16
+  %97 = load i32, ptr %20, align 8
+  %98 = add nsw i32 %97, -1
+  %99 = sext i32 %98 to i64
+  %100 = icmp slt i64 %indvars.iv.next, %99
+  br i1 %100, label %.lr.ph, label %._crit_edge, !llvm.loop !117
 
-._crit_edge:                                      ; preds = %99, %15
-  %.1.lcssa = phi i32 [ %.043, %15 ], [ 0, %99 ]
-  %104 = getelementptr inbounds i8, ptr %.03744, i64 32
-  %.037 = load ptr, ptr %104, align 8
+._crit_edge:                                      ; preds = %96, %15
+  %.1.lcssa = phi i32 [ %.043, %15 ], [ 0, %96 ]
+  %101 = getelementptr inbounds i8, ptr %.03744, i64 32
+  %.037 = load ptr, ptr %101, align 8
   %.not = icmp eq ptr %.037, null
   br i1 %.not, label %._crit_edge47, label %15, !llvm.loop !118
 

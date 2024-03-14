@@ -2020,7 +2020,7 @@ define internal noundef i32 @mca_coll_han_allgather_uag_task(ptr noundef %0) #0 
   %3 = load i8, ptr %2, align 8
   %4 = and i8 %3, 1
   %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %5, label %117
+  br i1 %.not, label %5, label %116
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 16
@@ -2123,7 +2123,7 @@ opal_datatype_span.exit:                          ; preds = %22, %34
   %73 = load i8, ptr %14, align 1
   %74 = and i8 %73, 1
   %.not58 = icmp eq i8 %74, 0
-  br i1 %.not58, label %75, label %117
+  br i1 %.not58, label %75, label %116
 
 75:                                               ; preds = %72
   %76 = load ptr, ptr %65, align 8
@@ -2187,35 +2187,34 @@ opal_datatype_span.exit:                          ; preds = %22, %34
   %100 = getelementptr inbounds i8, ptr %.053, i64 %99
   %101 = load ptr, ptr %82, align 8
   %102 = load ptr, ptr %83, align 8
-  %103 = shl nuw i64 %98, 1
-  %104 = and i64 %103, 4294967294
-  %105 = or disjoint i64 %104, 1
-  %106 = getelementptr inbounds i32, ptr %102, i64 %105
-  %107 = load i32, ptr %106, align 4
-  %108 = sext i32 %107 to i64
-  %109 = mul i64 %97, %108
-  %110 = getelementptr inbounds i8, ptr %101, i64 %109
+  %103 = shl nuw nsw i64 %98, 1
+  %104 = or disjoint i64 %103, 1
+  %105 = getelementptr inbounds i32, ptr %102, i64 %104
+  %106 = load i32, ptr %105, align 4
+  %107 = sext i32 %106 to i64
+  %108 = mul i64 %97, %107
+  %109 = getelementptr inbounds i8, ptr %101, i64 %108
   br label %.lr.ph.i.us
 
-.lr.ph.i.us:                                      ; preds = %.lr.ph.i.us.preheader, %112
-  %.01828.i.us = phi ptr [ %115, %112 ], [ %100, %.lr.ph.i.us.preheader ]
-  %.01927.i.us = phi ptr [ %114, %112 ], [ %110, %.lr.ph.i.us.preheader ]
-  %.02026.i.us = phi i64 [ %116, %112 ], [ %96, %.lr.ph.i.us.preheader ]
+.lr.ph.i.us:                                      ; preds = %.lr.ph.i.us.preheader, %111
+  %.01828.i.us = phi ptr [ %114, %111 ], [ %100, %.lr.ph.i.us.preheader ]
+  %.01927.i.us = phi ptr [ %113, %111 ], [ %109, %.lr.ph.i.us.preheader ]
+  %.02026.i.us = phi i64 [ %115, %111 ], [ %96, %.lr.ph.i.us.preheader ]
   %spec.select24.i.us = tail call i64 @llvm.umin.i64(i64 %.02026.i.us, i64 2147483647)
   %spec.select.i.us = trunc i64 %spec.select24.i.us to i32
-  %111 = tail call i32 @opal_datatype_copy_content_same_ddt(ptr noundef %91, i32 noundef %spec.select.i.us, ptr noundef %.01927.i.us, ptr noundef %.01828.i.us) #7
-  %.not22.i.us = icmp eq i32 %111, 0
-  br i1 %.not22.i.us, label %112, label %ompi_datatype_copy_content_same_ddt.exit.us72
+  %110 = tail call i32 @opal_datatype_copy_content_same_ddt(ptr noundef %91, i32 noundef %spec.select.i.us, ptr noundef %.01927.i.us, ptr noundef %.01828.i.us) #7
+  %.not22.i.us = icmp eq i32 %110, 0
+  br i1 %.not22.i.us, label %111, label %ompi_datatype_copy_content_same_ddt.exit.us72
 
-112:                                              ; preds = %.lr.ph.i.us
-  %113 = mul nsw i64 %spec.select24.i.us, %95
-  %114 = getelementptr inbounds i8, ptr %.01927.i.us, i64 %113
-  %115 = getelementptr inbounds i8, ptr %.01828.i.us, i64 %113
-  %116 = sub i64 %.02026.i.us, %spec.select24.i.us
-  %.not.i.us = icmp eq i64 %116, 0
+111:                                              ; preds = %.lr.ph.i.us
+  %112 = mul nsw i64 %spec.select24.i.us, %95
+  %113 = getelementptr inbounds i8, ptr %.01927.i.us, i64 %112
+  %114 = getelementptr inbounds i8, ptr %.01828.i.us, i64 %112
+  %115 = sub i64 %.02026.i.us, %spec.select24.i.us
+  %.not.i.us = icmp eq i64 %115, 0
   br i1 %.not.i.us, label %ompi_datatype_copy_content_same_ddt.exit.us72, label %.lr.ph.i.us, !llvm.loop !7
 
-ompi_datatype_copy_content_same_ddt.exit.us72:    ; preds = %.lr.ph.i.us, %112, %.lr.ph.split.us74
+ompi_datatype_copy_content_same_ddt.exit.us72:    ; preds = %.lr.ph.i.us, %111, %.lr.ph.split.us74
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %.lr.ph.split.us74, !llvm.loop !8
@@ -2227,43 +2226,43 @@ ompi_datatype_copy_content_same_ddt.exit.us72:    ; preds = %.lr.ph.i.us, %112, 
 
 ._crit_edge70:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph.split.us, %.preheader.lr.ph, %75
   tail call void @free(ptr noundef %.0) #7
-  br label %117
+  br label %116
 
-117:                                              ; preds = %72, %._crit_edge70, %1
-  %118 = load ptr, ptr %0, align 8
-  %119 = load i32, ptr @opal_class_init_epoch, align 4
-  %120 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @mca_coll_task_t_class, i64 0, i32 4), align 8
-  %.not.i65 = icmp eq i32 %119, %120
-  br i1 %.not.i65, label %122, label %121
+116:                                              ; preds = %72, %._crit_edge70, %1
+  %117 = load ptr, ptr %0, align 8
+  %118 = load i32, ptr @opal_class_init_epoch, align 4
+  %119 = load i32, ptr getelementptr inbounds (%struct.opal_class_t, ptr @mca_coll_task_t_class, i64 0, i32 4), align 8
+  %.not.i65 = icmp eq i32 %118, %119
+  br i1 %.not.i65, label %121, label %120
 
-121:                                              ; preds = %117
+120:                                              ; preds = %116
   tail call void @opal_class_initialize(ptr noundef nonnull @mca_coll_task_t_class) #7
-  br label %122
+  br label %121
 
-122:                                              ; preds = %121, %117
-  store ptr @mca_coll_task_t_class, ptr %118, align 8
-  %123 = getelementptr inbounds i8, ptr %118, i64 8
-  store volatile i32 1, ptr %123, align 8
-  %124 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @mca_coll_task_t_class, i64 0, i32 6), align 8
-  %125 = load ptr, ptr %124, align 8
-  %.not6.i.i = icmp eq ptr %125, null
+121:                                              ; preds = %120, %116
+  store ptr @mca_coll_task_t_class, ptr %117, align 8
+  %122 = getelementptr inbounds i8, ptr %117, i64 8
+  store volatile i32 1, ptr %122, align 8
+  %123 = load ptr, ptr getelementptr inbounds (%struct.opal_class_t, ptr @mca_coll_task_t_class, i64 0, i32 6), align 8
+  %124 = load ptr, ptr %123, align 8
+  %.not6.i.i = icmp eq ptr %124, null
   br i1 %.not6.i.i, label %init_task.exit, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %122, %.lr.ph.i.i
-  %126 = phi ptr [ %128, %.lr.ph.i.i ], [ %125, %122 ]
-  %.07.i.i = phi ptr [ %127, %.lr.ph.i.i ], [ %124, %122 ]
-  tail call void %126(ptr noundef nonnull %118) #7
-  %127 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
-  %128 = load ptr, ptr %127, align 8
-  %.not.i.i = icmp eq ptr %128, null
+.lr.ph.i.i:                                       ; preds = %121, %.lr.ph.i.i
+  %125 = phi ptr [ %127, %.lr.ph.i.i ], [ %124, %121 ]
+  %.07.i.i = phi ptr [ %126, %.lr.ph.i.i ], [ %123, %121 ]
+  tail call void %125(ptr noundef nonnull %117) #7
+  %126 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
+  %127 = load ptr, ptr %126, align 8
+  %.not.i.i = icmp eq ptr %127, null
   br i1 %.not.i.i, label %init_task.exit, label %.lr.ph.i.i, !llvm.loop !6
 
-init_task.exit:                                   ; preds = %.lr.ph.i.i, %122
-  %129 = getelementptr inbounds i8, ptr %118, i64 16
-  store ptr @mca_coll_han_allgather_lb_task, ptr %129, align 8
-  %130 = getelementptr inbounds i8, ptr %118, i64 24
-  store ptr %0, ptr %130, align 8
-  %131 = tail call i32 @mca_coll_han_allgather_lb_task(ptr noundef nonnull %0) #7
+init_task.exit:                                   ; preds = %.lr.ph.i.i, %121
+  %128 = getelementptr inbounds i8, ptr %117, i64 16
+  store ptr @mca_coll_han_allgather_lb_task, ptr %128, align 8
+  %129 = getelementptr inbounds i8, ptr %117, i64 24
+  store ptr %0, ptr %129, align 8
+  %130 = tail call i32 @mca_coll_han_allgather_lb_task(ptr noundef nonnull %0) #7
   ret i32 0
 }
 

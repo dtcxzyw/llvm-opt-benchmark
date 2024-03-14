@@ -1001,83 +1001,83 @@ define i32 @BlockRefTableEntryGetBlocks(ptr nocapture noundef readonly %0, i32 n
   ]
 
 .lr.ph:                                           ; preds = %23
-  %32 = trunc i64 %indvars.iv101 to i32
-  %33 = shl nuw i32 %32, 16
   %wide.trip.count = zext i16 %26 to i64
-  br label %54
+  %indvars.iv101.tr = trunc i64 %indvars.iv101 to i32
+  %32 = shl i32 %indvars.iv101.tr, 16
+  br label %52
 
 .preheader:                                       ; preds = %23
-  %34 = icmp ult i32 %spec.select72, %.062
-  br i1 %34, label %.lr.ph87, label %.loopexit
+  %33 = icmp ult i32 %spec.select72, %.062
+  br i1 %33, label %.lr.ph87, label %.loopexit
 
 .lr.ph87:                                         ; preds = %.preheader
-  %35 = trunc i64 %indvars.iv101 to i32
-  %36 = shl nuw i32 %35, 16
-  br label %37
+  %indvars.iv101.tr105 = trunc i64 %indvars.iv101 to i32
+  %34 = shl i32 %indvars.iv101.tr105, 16
+  br label %35
 
-37:                                               ; preds = %.lr.ph87, %52
-  %.16086 = phi i32 [ %.05989, %.lr.ph87 ], [ %.2, %52 ]
-  %.06185 = phi i32 [ %spec.select72, %.lr.ph87 ], [ %53, %52 ]
-  %38 = lshr i32 %.06185, 4
-  %39 = zext nneg i32 %38 to i64
-  %40 = getelementptr i16, ptr %29, i64 %39
-  %41 = load i16, ptr %40, align 2
-  %42 = zext i16 %41 to i32
-  %43 = and i32 %.06185, 15
-  %44 = shl nuw nsw i32 1, %43
-  %45 = and i32 %44, %42
-  %.not71 = icmp eq i32 %45, 0
-  br i1 %.not71, label %52, label %46
+35:                                               ; preds = %.lr.ph87, %50
+  %.16086 = phi i32 [ %.05989, %.lr.ph87 ], [ %.2, %50 ]
+  %.06185 = phi i32 [ %spec.select72, %.lr.ph87 ], [ %51, %50 ]
+  %36 = lshr i32 %.06185, 4
+  %37 = zext nneg i32 %36 to i64
+  %38 = getelementptr i16, ptr %29, i64 %37
+  %39 = load i16, ptr %38, align 2
+  %40 = zext i16 %39 to i32
+  %41 = and i32 %.06185, 15
+  %42 = shl nuw nsw i32 1, %41
+  %43 = and i32 %42, %40
+  %.not71 = icmp eq i32 %43, 0
+  br i1 %.not71, label %50, label %44
 
-46:                                               ; preds = %37
-  %47 = add nuw i32 %.06185, %36
-  %48 = add i32 %.16086, 1
-  %49 = sext i32 %.16086 to i64
-  %50 = getelementptr i32, ptr %3, i64 %49
-  store i32 %47, ptr %50, align 4
-  %51 = icmp eq i32 %48, %4
-  br i1 %51, label %.loopexit73, label %52
+44:                                               ; preds = %35
+  %45 = add nuw i32 %.06185, %34
+  %46 = add i32 %.16086, 1
+  %47 = sext i32 %.16086 to i64
+  %48 = getelementptr i32, ptr %3, i64 %47
+  store i32 %45, ptr %48, align 4
+  %49 = icmp eq i32 %46, %4
+  br i1 %49, label %.loopexit73, label %50
 
-52:                                               ; preds = %37, %46
-  %.2 = phi i32 [ %48, %46 ], [ %.16086, %37 ]
-  %53 = add nuw nsw i32 %.06185, 1
-  %exitcond100.not = icmp eq i32 %53, %.062
-  br i1 %exitcond100.not, label %.loopexit, label %37, !llvm.loop !15
+50:                                               ; preds = %35, %44
+  %.2 = phi i32 [ %46, %44 ], [ %.16086, %35 ]
+  %51 = add nuw nsw i32 %.06185, 1
+  %exitcond100.not = icmp eq i32 %51, %.062
+  br i1 %exitcond100.not, label %.loopexit, label %35, !llvm.loop !15
 
-54:                                               ; preds = %.lr.ph, %65
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %65 ]
-  %.383 = phi i32 [ %.05989, %.lr.ph ], [ %.4, %65 ]
-  %55 = getelementptr i16, ptr %29, i64 %indvars.iv
-  %56 = load i16, ptr %55, align 2
-  %57 = zext i16 %56 to i32
-  %.not70 = icmp ule i32 %spec.select72, %57
-  %58 = icmp ugt i32 %.062, %57
-  %or.cond = select i1 %.not70, i1 %58, i1 false
-  br i1 %or.cond, label %59, label %65
+52:                                               ; preds = %.lr.ph, %63
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %63 ]
+  %.383 = phi i32 [ %.05989, %.lr.ph ], [ %.4, %63 ]
+  %53 = getelementptr i16, ptr %29, i64 %indvars.iv
+  %54 = load i16, ptr %53, align 2
+  %55 = zext i16 %54 to i32
+  %.not70 = icmp ule i32 %spec.select72, %55
+  %56 = icmp ugt i32 %.062, %55
+  %or.cond = select i1 %.not70, i1 %56, i1 false
+  br i1 %or.cond, label %57, label %63
 
-59:                                               ; preds = %54
-  %60 = or disjoint i32 %33, %57
-  %61 = add i32 %.383, 1
-  %62 = sext i32 %.383 to i64
-  %63 = getelementptr i32, ptr %3, i64 %62
-  store i32 %60, ptr %63, align 4
-  %64 = icmp eq i32 %61, %4
-  br i1 %64, label %.loopexit73, label %65
+57:                                               ; preds = %52
+  %58 = or disjoint i32 %32, %55
+  %59 = add i32 %.383, 1
+  %60 = sext i32 %.383 to i64
+  %61 = getelementptr i32, ptr %3, i64 %60
+  store i32 %58, ptr %61, align 4
+  %62 = icmp eq i32 %59, %4
+  br i1 %62, label %.loopexit73, label %63
 
-65:                                               ; preds = %54, %59
-  %.4 = phi i32 [ %61, %59 ], [ %.383, %54 ]
+63:                                               ; preds = %52, %57
+  %.4 = phi i32 [ %59, %57 ], [ %.383, %52 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %54, !llvm.loop !16
+  br i1 %exitcond.not, label %.loopexit, label %52, !llvm.loop !16
 
-.loopexit:                                        ; preds = %52, %65, %23, %.preheader
-  %.5 = phi i32 [ %.05989, %.preheader ], [ %.05989, %23 ], [ %.4, %65 ], [ %.2, %52 ]
+.loopexit:                                        ; preds = %50, %63, %23, %.preheader
+  %.5 = phi i32 [ %.05989, %.preheader ], [ %.05989, %23 ], [ %.4, %63 ], [ %.2, %50 ]
   %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
   %exitcond104.not = icmp eq i64 %indvars.iv.next102, %wide.trip.count103
   br i1 %exitcond104.not, label %.loopexit73, label %23, !llvm.loop !17
 
-.loopexit73:                                      ; preds = %.loopexit, %46, %59, %5
-  %.0 = phi i32 [ 0, %5 ], [ %4, %59 ], [ %4, %46 ], [ %.5, %.loopexit ]
+.loopexit73:                                      ; preds = %.loopexit, %44, %57, %5
+  %.0 = phi i32 [ 0, %5 ], [ %4, %57 ], [ %4, %44 ], [ %.5, %.loopexit ]
   ret i32 %.0
 }
 

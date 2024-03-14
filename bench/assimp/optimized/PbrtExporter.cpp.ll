@@ -4380,76 +4380,75 @@ for.cond11.preheader.lr.ph:                       ; preds = %for.cond8.preheader
   br i1 %cmp1226, label %for.cond11.preheader.us.preheader, label %sw.epilog
 
 for.cond11.preheader.us.preheader:                ; preds = %for.cond11.preheader.lr.ph
-  %wide.trip.count60 = zext nneg i32 %8 to i64
-  %wide.trip.count55 = zext nneg i32 %9 to i64
+  %wide.trip.count61 = zext nneg i32 %8 to i64
+  %wide.trip.count56 = zext nneg i32 %9 to i64
   br label %for.cond11.preheader.us
 
 for.cond11.preheader.us:                          ; preds = %for.cond11.preheader.us.preheader, %for.inc26.us
-  %indvars.iv57 = phi i64 [ 0, %for.cond11.preheader.us.preheader ], [ %indvars.iv.next58, %for.inc26.us ]
+  %indvars.iv58 = phi i64 [ 0, %for.cond11.preheader.us.preheader ], [ %indvars.iv.next59, %for.inc26.us ]
   %hasMask.031.us = phi i8 [ 0, %for.cond11.preheader.us.preheader ], [ %hasMask.1.us, %for.inc26.us ]
-  %10 = trunc i64 %indvars.iv57 to i32
+  %10 = trunc i64 %indvars.iv58 to i32
   %11 = mul i32 %9, %10
+  %12 = zext i32 %11 to i64
   br label %for.body13.us
 
 for.cond11.us:                                    ; preds = %for.body13.us
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
-  %exitcond56.not = icmp eq i64 %indvars.iv.next51, %wide.trip.count55
-  br i1 %exitcond56.not, label %for.inc26.us, label %for.body13.us, !llvm.loop !40
+  %exitcond57.not = icmp eq i64 %indvars.iv.next51, %wide.trip.count56
+  br i1 %exitcond57.not, label %for.inc26.us, label %for.body13.us, !llvm.loop !40
 
 for.body13.us:                                    ; preds = %for.cond11.preheader.us, %for.cond11.us
   %indvars.iv50 = phi i64 [ 0, %for.cond11.preheader.us ], [ %indvars.iv.next51, %for.cond11.us ]
-  %12 = trunc i64 %indvars.iv50 to i32
-  %13 = add i32 %11, %12
-  %mul15.us = shl nuw nsw i32 %13, 1
-  %add16.us = or disjoint i32 %mul15.us, 1
-  %idxprom17.us = zext nneg i32 %add16.us to i64
-  %arrayidx18.us = getelementptr inbounds i8, ptr %call1, i64 %idxprom17.us
-  %14 = load i8, ptr %arrayidx18.us, align 1
-  %cmp20.not.us = icmp eq i8 %14, -1
+  %13 = add nuw nsw i64 %indvars.iv50, %12
+  %14 = shl nuw nsw i64 %13, 1
+  %15 = or disjoint i64 %14, 1
+  %arrayidx18.us = getelementptr inbounds i8, ptr %call1, i64 %15
+  %16 = load i8, ptr %arrayidx18.us, align 1
+  %cmp20.not.us = icmp eq i8 %16, -1
   br i1 %cmp20.not.us, label %for.cond11.us, label %for.inc26.us
 
 for.inc26.us:                                     ; preds = %for.cond11.us, %for.body13.us
   %hasMask.1.us = phi i8 [ 1, %for.body13.us ], [ %hasMask.031.us, %for.cond11.us ]
-  %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
-  %exitcond61.not = icmp eq i64 %indvars.iv.next58, %wide.trip.count60
-  br i1 %exitcond61.not, label %sw.epilog, label %for.cond11.preheader.us, !llvm.loop !41
+  %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
+  %exitcond62.not = icmp eq i64 %indvars.iv.next59, %wide.trip.count61
+  br i1 %exitcond62.not, label %sw.epilog, label %for.cond11.preheader.us, !llvm.loop !41
 
 for.cond.preheader:                               ; preds = %if.end
-  %15 = load i32, ptr %xSize, align 4
-  %16 = load i32, ptr %ySize, align 4
-  %mul = mul nsw i32 %16, %15
+  %17 = load i32, ptr %xSize, align 4
+  %18 = load i32, ptr %ySize, align 4
+  %mul = mul nsw i32 %18, %17
   %cmp35 = icmp sgt i32 %mul, 0
   br i1 %cmp35, label %for.body.preheader, label %sw.epilog
 
 for.body.preheader:                               ; preds = %for.cond.preheader
-  %wide.trip.count65 = zext nneg i32 %mul to i64
+  %wide.trip.count66 = zext nneg i32 %mul to i64
   br label %for.body
 
 for.cond:                                         ; preds = %for.body
-  %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
-  %exitcond66.not = icmp eq i64 %indvars.iv.next63, %wide.trip.count65
-  br i1 %exitcond66.not, label %sw.epilog, label %for.body, !llvm.loop !42
+  %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
+  %exitcond67.not = icmp eq i64 %indvars.iv.next64, %wide.trip.count66
+  br i1 %exitcond67.not, label %sw.epilog, label %for.body, !llvm.loop !42
 
 for.body:                                         ; preds = %for.body.preheader, %for.cond
-  %indvars.iv62 = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next63, %for.cond ]
-  %arrayidx = getelementptr inbounds i8, ptr %call1, i64 %indvars.iv62
-  %17 = load i8, ptr %arrayidx, align 1
-  %cmp4.not = icmp eq i8 %17, -1
+  %indvars.iv63 = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next64, %for.cond ]
+  %arrayidx = getelementptr inbounds i8, ptr %call1, i64 %indvars.iv63
+  %19 = load i8, ptr %arrayidx, align 1
+  %cmp4.not = icmp eq i8 %19, -1
   br i1 %cmp4.not, label %for.cond, label %sw.epilog
 
 sw.default:                                       ; preds = %if.end
   %call55 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull align 8 dereferenceable(32) %filename)
   %call56 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call55, ptr noundef nonnull @.str.69)
-  %18 = load i32, ptr %nComponents, align 4
-  %call57 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call56, i32 noundef %18)
+  %20 = load i32, ptr %nComponents, align 4
+  %call57 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call56, i32 noundef %20)
   %call58 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call57, ptr noundef nonnull @.str.70)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %for.inc52.us, %for.inc26.us, %for.cond, %for.body, %for.cond11.preheader.lr.ph, %for.cond36.preheader.lr.ph, %for.cond32.preheader, %for.cond8.preheader, %for.cond.preheader, %if.end, %sw.default
   %hasMask.4 = phi i8 [ 0, %sw.default ], [ 0, %if.end ], [ 0, %for.cond.preheader ], [ 0, %for.cond8.preheader ], [ 0, %for.cond32.preheader ], [ 0, %for.cond36.preheader.lr.ph ], [ 0, %for.cond11.preheader.lr.ph ], [ 0, %for.cond ], [ 1, %for.body ], [ %hasMask.1.us, %for.inc26.us ], [ %hasMask.3.us, %for.inc52.us ]
   call void @assimp_stbi_image_free(ptr noundef nonnull %call1)
-  %19 = and i8 %hasMask.4, 1
-  %tobool59 = icmp ne i8 %19, 0
+  %21 = and i8 %hasMask.4, 1
+  %tobool59 = icmp ne i8 %21, 0
   br label %return
 
 return:                                           ; preds = %sw.epilog, %if.then

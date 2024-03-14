@@ -2085,11 +2085,11 @@ Vec_IntPushTwo.exit:                              ; preds = %.Vec_IntGrow.exit10
 77:                                               ; preds = %.lr.ph, %Vec_IntPushTwo.exit
   %78 = phi ptr [ %10, %.lr.ph ], [ %.pre, %Vec_IntPushTwo.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %79 = or disjoint i64 %indvars.iv.next, 1
-  %80 = getelementptr i8, ptr %78, i64 4
-  %.val14 = load i32, ptr %80, align 4
-  %81 = sext i32 %.val14 to i64
-  %82 = icmp slt i64 %79, %81
+  %79 = getelementptr i8, ptr %78, i64 4
+  %.val14 = load i32, ptr %79, align 4
+  %80 = trunc i64 %indvars.iv.next to i32
+  %81 = or disjoint i32 %80, 1
+  %82 = icmp slt i32 %81, %.val14
   br i1 %82, label %.lr.ph, label %.critedge, !llvm.loop !26
 
 .critedge:                                        ; preds = %77, %1

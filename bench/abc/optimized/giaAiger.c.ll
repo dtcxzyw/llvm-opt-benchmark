@@ -8615,7 +8615,7 @@ define void @Aiger_Write(ptr noundef %0, ptr nocapture noundef readonly %1, i32 
 10:                                               ; preds = %7
   %11 = load ptr, ptr @stdout, align 8
   %12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.101, ptr noundef %0) #23
-  br label %65
+  br label %62
 
 13:                                               ; preds = %7
   %14 = add i32 %4, %3
@@ -8626,108 +8626,105 @@ define void @Aiger_Write(ptr noundef %0, ptr nocapture noundef readonly %1, i32 
 
 .lr.ph:                                           ; preds = %13
   %18 = sub i32 %2, %4
+  %19 = sext i32 %18 to i64
   %wide.trip.count = zext nneg i32 %4 to i64
-  br label %22
+  br label %24
 
-.preheader61:                                     ; preds = %22, %13
-  %19 = icmp sgt i32 %5, 0
-  br i1 %19, label %.lr.ph65, label %.preheader
+.preheader61:                                     ; preds = %24, %13
+  %20 = icmp sgt i32 %5, 0
+  br i1 %20, label %.lr.ph65, label %.preheader
 
 .lr.ph65:                                         ; preds = %.preheader61
-  %20 = add i32 %4, %5
-  %21 = sub i32 %2, %20
+  %21 = add i32 %4, %5
+  %22 = sub i32 %2, %21
+  %23 = sext i32 %22 to i64
   %wide.trip.count73 = zext nneg i32 %5 to i64
-  br label %32
+  br label %33
 
-22:                                               ; preds = %.lr.ph, %22
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %22 ]
-  %23 = trunc i64 %indvars.iv to i32
-  %24 = add i32 %18, %23
-  %25 = shl nsw i32 %24, 1
-  %26 = sext i32 %25 to i64
+24:                                               ; preds = %.lr.ph, %24
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %24 ]
+  %25 = add nsw i64 %indvars.iv, %19
+  %26 = shl nsw i64 %25, 1
   %27 = getelementptr inbounds i32, ptr %1, i64 %26
   %28 = load i32, ptr %27, align 4
   %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %8, ptr noundef nonnull @.str.103, i32 noundef %28) #23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader61, label %22, !llvm.loop !84
+  br i1 %exitcond.not, label %.preheader61, label %24, !llvm.loop !84
 
-.preheader:                                       ; preds = %32, %.preheader61
+.preheader:                                       ; preds = %33, %.preheader61
   %30 = icmp sgt i32 %6, 0
   br i1 %30, label %.lr.ph67, label %._crit_edge
 
 .lr.ph67:                                         ; preds = %.preheader
   %31 = add i32 %14, 1
+  %32 = sext i32 %31 to i64
   %wide.trip.count78 = zext nneg i32 %6 to i64
-  br label %40
+  br label %39
 
-32:                                               ; preds = %.lr.ph65, %32
-  %indvars.iv70 = phi i64 [ 0, %.lr.ph65 ], [ %indvars.iv.next71, %32 ]
-  %33 = trunc i64 %indvars.iv70 to i32
-  %34 = add i32 %21, %33
-  %35 = shl nsw i32 %34, 1
-  %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds i32, ptr %1, i64 %36
-  %38 = load i32, ptr %37, align 4
-  %39 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %8, ptr noundef nonnull @.str.103, i32 noundef %38) #23
+33:                                               ; preds = %.lr.ph65, %33
+  %indvars.iv70 = phi i64 [ 0, %.lr.ph65 ], [ %indvars.iv.next71, %33 ]
+  %34 = add nsw i64 %indvars.iv70, %23
+  %35 = shl nsw i64 %34, 1
+  %36 = getelementptr inbounds i32, ptr %1, i64 %35
+  %37 = load i32, ptr %36, align 4
+  %38 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %8, ptr noundef nonnull @.str.103, i32 noundef %37) #23
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %exitcond74.not = icmp eq i64 %indvars.iv.next71, %wide.trip.count73
-  br i1 %exitcond74.not, label %.preheader, label %32, !llvm.loop !85
+  br i1 %exitcond74.not, label %.preheader, label %33, !llvm.loop !85
 
-40:                                               ; preds = %.lr.ph67, %Aiger_WriteUnsigned.exit58
+39:                                               ; preds = %.lr.ph67, %Aiger_WriteUnsigned.exit58
   %indvars.iv75 = phi i64 [ 0, %.lr.ph67 ], [ %indvars.iv.next76, %Aiger_WriteUnsigned.exit58 ]
-  %41 = trunc i64 %indvars.iv75 to i32
-  %42 = add i32 %31, %41
-  %43 = shl nsw i32 %42, 1
-  %44 = sext i32 %43 to i64
+  %40 = add nsw i64 %indvars.iv75, %32
+  %41 = shl nsw i64 %40, 1
+  %42 = getelementptr inbounds i32, ptr %1, i64 %41
+  %43 = load i32, ptr %42, align 4
+  %44 = or disjoint i64 %41, 1
   %45 = getelementptr inbounds i32, ptr %1, i64 %44
   %46 = load i32, ptr %45, align 4
-  %47 = or disjoint i32 %43, 1
-  %48 = sext i32 %47 to i64
-  %49 = getelementptr inbounds i32, ptr %1, i64 %48
-  %50 = load i32, ptr %49, align 4
-  %51 = sub nsw i32 %43, %50
-  %.not7.i = icmp ult i32 %51, 128
+  %47 = trunc i64 %41 to i32
+  %48 = sub nsw i32 %47, %46
+  %.not7.i = icmp ult i32 %48, 128
   br i1 %.not7.i, label %Aiger_WriteUnsigned.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %40, %.lr.ph.i
-  %.08.i = phi i32 [ %55, %.lr.ph.i ], [ %51, %40 ]
-  %52 = and i32 %.08.i, 127
-  %53 = or disjoint i32 %52, 128
-  %54 = tail call i32 @fputc(i32 noundef %53, ptr noundef nonnull %8)
-  %55 = lshr i32 %.08.i, 7
+.lr.ph.i:                                         ; preds = %39, %.lr.ph.i
+  %.08.i = phi i32 [ %52, %.lr.ph.i ], [ %48, %39 ]
+  %49 = and i32 %.08.i, 127
+  %50 = or disjoint i32 %49, 128
+  %51 = tail call i32 @fputc(i32 noundef %50, ptr noundef nonnull %8)
+  %52 = lshr i32 %.08.i, 7
   %.not.i = icmp ult i32 %.08.i, 16384
   br i1 %.not.i, label %Aiger_WriteUnsigned.exit, label %.lr.ph.i, !llvm.loop !86
 
-Aiger_WriteUnsigned.exit:                         ; preds = %.lr.ph.i, %40
-  %.0.lcssa.i = phi i32 [ %51, %40 ], [ %55, %.lr.ph.i ]
-  %56 = tail call i32 @fputc(i32 noundef %.0.lcssa.i, ptr noundef nonnull %8)
-  %57 = sub nsw i32 %50, %46
-  %.not7.i53 = icmp ult i32 %57, 128
+Aiger_WriteUnsigned.exit:                         ; preds = %.lr.ph.i, %39
+  %.0.lcssa.i = phi i32 [ %48, %39 ], [ %52, %.lr.ph.i ]
+  %53 = tail call i32 @fputc(i32 noundef %.0.lcssa.i, ptr noundef nonnull %8)
+  %54 = sub nsw i32 %46, %43
+  %.not7.i53 = icmp ult i32 %54, 128
   br i1 %.not7.i53, label %Aiger_WriteUnsigned.exit58, label %.lr.ph.i54
 
 .lr.ph.i54:                                       ; preds = %Aiger_WriteUnsigned.exit, %.lr.ph.i54
-  %.08.i55 = phi i32 [ %61, %.lr.ph.i54 ], [ %57, %Aiger_WriteUnsigned.exit ]
-  %58 = and i32 %.08.i55, 127
-  %59 = or disjoint i32 %58, 128
-  %60 = tail call i32 @fputc(i32 noundef %59, ptr noundef nonnull %8)
-  %61 = lshr i32 %.08.i55, 7
+  %.08.i55 = phi i32 [ %58, %.lr.ph.i54 ], [ %54, %Aiger_WriteUnsigned.exit ]
+  %55 = and i32 %.08.i55, 127
+  %56 = or disjoint i32 %55, 128
+  %57 = tail call i32 @fputc(i32 noundef %56, ptr noundef nonnull %8)
+  %58 = lshr i32 %.08.i55, 7
   %.not.i56 = icmp ult i32 %.08.i55, 16384
   br i1 %.not.i56, label %Aiger_WriteUnsigned.exit58, label %.lr.ph.i54, !llvm.loop !86
 
 Aiger_WriteUnsigned.exit58:                       ; preds = %.lr.ph.i54, %Aiger_WriteUnsigned.exit
-  %.0.lcssa.i57 = phi i32 [ %57, %Aiger_WriteUnsigned.exit ], [ %61, %.lr.ph.i54 ]
-  %62 = tail call i32 @fputc(i32 noundef %.0.lcssa.i57, ptr noundef nonnull %8)
+  %.0.lcssa.i57 = phi i32 [ %54, %Aiger_WriteUnsigned.exit ], [ %58, %.lr.ph.i54 ]
+  %59 = tail call i32 @fputc(i32 noundef %.0.lcssa.i57, ptr noundef nonnull %8)
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
   %exitcond79.not = icmp eq i64 %indvars.iv.next76, %wide.trip.count78
-  br i1 %exitcond79.not, label %._crit_edge, label %40, !llvm.loop !87
+  br i1 %exitcond79.not, label %._crit_edge, label %39, !llvm.loop !87
 
 ._crit_edge:                                      ; preds = %Aiger_WriteUnsigned.exit58, %.preheader
-  %63 = tail call i64 @fwrite(ptr nonnull @.str.63, i64 2, i64 1, ptr nonnull %8)
-  %64 = tail call i32 @fclose(ptr noundef nonnull %8)
-  br label %65
+  %60 = tail call i64 @fwrite(ptr nonnull @.str.63, i64 2, i64 1, ptr nonnull %8)
+  %61 = tail call i32 @fclose(ptr noundef nonnull %8)
+  br label %62
 
-65:                                               ; preds = %._crit_edge, %10
+62:                                               ; preds = %._crit_edge, %10
   ret void
 }
 

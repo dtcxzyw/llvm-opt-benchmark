@@ -6905,7 +6905,7 @@ for.cond.preheader:                               ; preds = %cond.end
   br i1 %cmp562, label %for.body.preheader, label %if.end83
 
 for.body.preheader:                               ; preds = %for.cond.preheader
-  %wide.trip.count70 = zext nneg i32 %width to i64
+  %wide.trip.count78 = zext nneg i32 %width to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
@@ -6919,85 +6919,77 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %cmp11, label %if.then12, label %if.else
 
 if.then12:                                        ; preds = %for.body
-  %4 = trunc i64 %indvars.iv67 to i32
-  %mul = shl nsw i32 %4, 2
-  %conv13 = zext nneg i32 %mul to i64
-  %arrayidx.i28 = getelementptr inbounds i8, ptr %dst.coerce0, i64 %conv13
+  %4 = shl nsw i64 %indvars.iv67, 2
+  %arrayidx.i28 = getelementptr inbounds i8, ptr %dst.coerce0, i64 %4
   store i8 0, ptr %arrayidx.i28, align 1
-  %add16 = or disjoint i32 %mul, 1
-  %conv17 = zext nneg i32 %add16 to i64
-  %arrayidx.i29 = getelementptr inbounds i8, ptr %dst.coerce0, i64 %conv17
+  %5 = or disjoint i64 %4, 1
+  %arrayidx.i29 = getelementptr inbounds i8, ptr %dst.coerce0, i64 %5
   store i8 0, ptr %arrayidx.i29, align 1
   br label %for.inc
 
 if.else:                                          ; preds = %for.body
   %conv27 = zext i8 %2 to i64
-  %5 = load ptr, ptr %data, align 8
-  %arrayidx.i32 = getelementptr inbounds i8, ptr %5, i64 %conv27
-  %6 = load i8, ptr %arrayidx.i32, align 1
-  %7 = trunc i64 %indvars.iv67 to i32
-  %mul29 = shl nsw i32 %7, 2
-  %conv31 = zext nneg i32 %mul29 to i64
-  %arrayidx.i33 = getelementptr inbounds i8, ptr %dst.coerce0, i64 %conv31
-  store i8 %6, ptr %arrayidx.i33, align 1
+  %6 = load ptr, ptr %data, align 8
+  %arrayidx.i32 = getelementptr inbounds i8, ptr %6, i64 %conv27
+  %7 = load i8, ptr %arrayidx.i32, align 1
+  %8 = shl nsw i64 %indvars.iv67, 2
+  %arrayidx.i33 = getelementptr inbounds i8, ptr %dst.coerce0, i64 %8
+  store i8 %7, ptr %arrayidx.i33, align 1
   %add33 = or disjoint i32 %conv8, 256
   %conv34 = zext nneg i32 %add33 to i64
-  %8 = load ptr, ptr %data, align 8
-  %arrayidx.i34 = getelementptr inbounds i8, ptr %8, i64 %conv34
-  %9 = load i8, ptr %arrayidx.i34, align 1
-  %add37 = or disjoint i32 %mul29, 1
-  %conv38 = zext nneg i32 %add37 to i64
-  %arrayidx.i35 = getelementptr inbounds i8, ptr %dst.coerce0, i64 %conv38
-  store i8 %9, ptr %arrayidx.i35, align 1
+  %9 = load ptr, ptr %data, align 8
+  %arrayidx.i34 = getelementptr inbounds i8, ptr %9, i64 %conv34
+  %10 = load i8, ptr %arrayidx.i34, align 1
+  %11 = or disjoint i64 %8, 1
+  %arrayidx.i35 = getelementptr inbounds i8, ptr %dst.coerce0, i64 %11
+  store i8 %10, ptr %arrayidx.i35, align 1
   %add40 = or disjoint i32 %conv8, 512
   %conv41 = zext nneg i32 %add40 to i64
-  %10 = load ptr, ptr %data, align 8
-  %arrayidx.i36 = getelementptr inbounds i8, ptr %10, i64 %conv41
-  %11 = load i8, ptr %arrayidx.i36, align 1
+  %12 = load ptr, ptr %data, align 8
+  %arrayidx.i36 = getelementptr inbounds i8, ptr %12, i64 %conv41
+  %13 = load i8, ptr %arrayidx.i36, align 1
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then12, %if.else
-  %mul.sink74 = phi i32 [ %mul, %if.then12 ], [ %mul29, %if.else ]
-  %.sink73 = phi i8 [ 0, %if.then12 ], [ %11, %if.else ]
+  %.sink85 = phi i64 [ %4, %if.then12 ], [ %8, %if.else ]
+  %.sink83 = phi i8 [ 0, %if.then12 ], [ %13, %if.else ]
   %.sink = phi i8 [ 0, %if.then12 ], [ -1, %if.else ]
-  %add20 = or disjoint i32 %mul.sink74, 2
-  %conv21 = zext nneg i32 %add20 to i64
-  %arrayidx.i30 = getelementptr inbounds i8, ptr %dst.coerce0, i64 %conv21
-  store i8 %.sink73, ptr %arrayidx.i30, align 1
-  %add24 = or disjoint i32 %mul.sink74, 3
-  %conv25 = zext nneg i32 %add24 to i64
-  %arrayidx.i31 = getelementptr inbounds i8, ptr %dst.coerce0, i64 %conv25
+  %14 = or disjoint i64 %.sink85, 2
+  %arrayidx.i30 = getelementptr inbounds i8, ptr %dst.coerce0, i64 %14
+  store i8 %.sink83, ptr %arrayidx.i30, align 1
+  %15 = or disjoint i64 %.sink85, 3
+  %arrayidx.i31 = getelementptr inbounds i8, ptr %dst.coerce0, i64 %15
   store i8 %.sink, ptr %arrayidx.i31, align 1
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
-  %exitcond71.not = icmp eq i64 %indvars.iv.next68, %wide.trip.count70
-  br i1 %exitcond71.not, label %if.end83, label %for.body, !llvm.loop !85
+  %exitcond79.not = icmp eq i64 %indvars.iv.next68, %wide.trip.count78
+  br i1 %exitcond79.not, label %if.end83, label %for.body, !llvm.loop !85
 
 for.body55:                                       ; preds = %for.body55.preheader, %for.body55
   %indvars.iv = phi i64 [ 0, %for.body55.preheader ], [ %indvars.iv.next, %for.body55 ]
   %arrayidx.i39 = getelementptr inbounds i8, ptr %src.coerce0, i64 %indvars.iv
-  %12 = load i8, ptr %arrayidx.i39, align 1
-  %conv59 = zext i8 %12 to i32
-  %conv60 = zext i8 %12 to i64
-  %13 = load ptr, ptr %data, align 8
-  %arrayidx.i40 = getelementptr inbounds i8, ptr %13, i64 %conv60
-  %14 = load i8, ptr %arrayidx.i40, align 1
-  %15 = mul nuw nsw i64 %indvars.iv, 3
-  %arrayidx.i41 = getelementptr inbounds i8, ptr %dst.coerce0, i64 %15
-  store i8 %14, ptr %arrayidx.i41, align 1
+  %16 = load i8, ptr %arrayidx.i39, align 1
+  %conv59 = zext i8 %16 to i32
+  %conv60 = zext i8 %16 to i64
+  %17 = load ptr, ptr %data, align 8
+  %arrayidx.i40 = getelementptr inbounds i8, ptr %17, i64 %conv60
+  %18 = load i8, ptr %arrayidx.i40, align 1
+  %19 = mul nuw nsw i64 %indvars.iv, 3
+  %arrayidx.i41 = getelementptr inbounds i8, ptr %dst.coerce0, i64 %19
+  store i8 %18, ptr %arrayidx.i41, align 1
   %add66 = or disjoint i32 %conv59, 256
   %conv67 = zext nneg i32 %add66 to i64
-  %16 = load ptr, ptr %data, align 8
-  %arrayidx.i42 = getelementptr inbounds i8, ptr %16, i64 %conv67
-  %17 = load i8, ptr %arrayidx.i42, align 1
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %15
-  store i8 %17, ptr %gep, align 1
+  %20 = load ptr, ptr %data, align 8
+  %arrayidx.i42 = getelementptr inbounds i8, ptr %20, i64 %conv67
+  %21 = load i8, ptr %arrayidx.i42, align 1
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %19
+  store i8 %21, ptr %gep, align 1
   %add73 = or disjoint i32 %conv59, 512
   %conv74 = zext nneg i32 %add73 to i64
-  %18 = load ptr, ptr %data, align 8
-  %arrayidx.i44 = getelementptr inbounds i8, ptr %18, i64 %conv74
-  %19 = load i8, ptr %arrayidx.i44, align 1
-  %gep59 = getelementptr i8, ptr %invariant.gep58, i64 %15
-  store i8 %19, ptr %gep59, align 1
+  %22 = load ptr, ptr %data, align 8
+  %arrayidx.i44 = getelementptr inbounds i8, ptr %22, i64 %conv74
+  %23 = load i8, ptr %arrayidx.i44, align 1
+  %gep59 = getelementptr i8, ptr %invariant.gep58, i64 %19
+  store i8 %23, ptr %gep59, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %if.end83, label %for.body55, !llvm.loop !86

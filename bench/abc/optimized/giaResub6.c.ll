@@ -1542,7 +1542,7 @@ define i32 @Res6_FindBestEval(ptr nocapture noundef readonly %0, ptr nocapture n
 
 13:                                               ; preds = %.lr.ph, %Abc_TtXor.exit51
   %indvars.iv = phi i64 [ %12, %.lr.ph ], [ %indvars.iv.next, %Abc_TtXor.exit51 ]
-  %14 = phi i32 [ %6, %.lr.ph ], [ %88, %Abc_TtXor.exit51 ]
+  %14 = phi i32 [ %6, %.lr.ph ], [ %90, %Abc_TtXor.exit51 ]
   %.val48 = load ptr, ptr %8, align 8
   %15 = getelementptr inbounds i32, ptr %.val48, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4
@@ -1690,82 +1690,83 @@ Abc_TtAnd.exit:                                   ; preds = %Abc_TtAnd.exit.loop
 
 Abc_TtXor.exit51:                                 ; preds = %.lr.ph.i60, %.lr.ph.i, %36, %Abc_TtAnd.exit, %Abc_TtXor.exit
   %indvars.iv.next = add nsw i64 %indvars.iv, 2
-  %87 = trunc i64 %indvars.iv.next to i32
-  %88 = or disjoint i32 %87, 1
+  %87 = or disjoint i64 %indvars.iv.next, 1
   %.val = load i32, ptr %5, align 4
-  %89 = icmp slt i32 %88, %.val
+  %88 = sext i32 %.val to i64
+  %89 = icmp slt i64 %87, %88
+  %90 = trunc i64 %87 to i32
   br i1 %89, label %13, label %.critedge, !llvm.loop !30
 
 .critedge:                                        ; preds = %Abc_TtXor.exit51, %3
   %.val.lcssa = phi i32 [ %.val70, %3 ], [ %.val, %Abc_TtXor.exit51 ]
-  %90 = getelementptr inbounds i8, ptr %0, i64 20
-  %91 = load i32, ptr %90, align 4
-  %92 = icmp sgt i32 %91, 0
-  br i1 %92, label %.lr.ph.i64, label %Res6_FindGetCost.exit
+  %91 = getelementptr inbounds i8, ptr %0, i64 20
+  %92 = load i32, ptr %91, align 4
+  %93 = icmp sgt i32 %92, 0
+  br i1 %93, label %.lr.ph.i64, label %Res6_FindGetCost.exit
 
 .lr.ph.i64:                                       ; preds = %.critedge
-  %93 = getelementptr i8, ptr %1, i64 8
-  %.val50 = load ptr, ptr %93, align 8
-  %94 = sext i32 %.val.lcssa to i64
-  %95 = getelementptr i32, ptr %.val50, i64 %94
-  %96 = getelementptr i8, ptr %95, i64 -4
-  %97 = load i32, ptr %96, align 4
-  %98 = getelementptr inbounds i8, ptr %0, i64 56
-  %99 = load ptr, ptr %98, align 8
-  %100 = sext i32 %97 to i64
-  %101 = getelementptr inbounds ptr, ptr %99, i64 %100
-  %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %0, i64 64
-  %104 = load ptr, ptr %103, align 8
+  %94 = getelementptr i8, ptr %1, i64 8
+  %.val50 = load ptr, ptr %94, align 8
+  %95 = sext i32 %.val.lcssa to i64
+  %96 = getelementptr i32, ptr %.val50, i64 %95
+  %97 = getelementptr i8, ptr %96, i64 -4
+  %98 = load i32, ptr %97, align 4
+  %99 = getelementptr inbounds i8, ptr %0, i64 56
+  %100 = load ptr, ptr %99, align 8
+  %101 = sext i32 %98 to i64
+  %102 = getelementptr inbounds ptr, ptr %100, i64 %101
+  %103 = load ptr, ptr %102, align 8
+  %104 = getelementptr inbounds i8, ptr %0, i64 64
   %105 = load ptr, ptr %104, align 8
-  %106 = xor i32 %97, 1
-  %107 = sext i32 %106 to i64
-  %108 = getelementptr inbounds ptr, ptr %99, i64 %107
-  %109 = load ptr, ptr %108, align 8
-  %110 = getelementptr inbounds i8, ptr %104, i64 8
-  %111 = load ptr, ptr %110, align 8
-  %wide.trip.count.i65 = zext nneg i32 %91 to i64
-  br label %112
+  %106 = load ptr, ptr %105, align 8
+  %107 = xor i32 %98, 1
+  %108 = sext i32 %107 to i64
+  %109 = getelementptr inbounds ptr, ptr %100, i64 %108
+  %110 = load ptr, ptr %109, align 8
+  %111 = getelementptr inbounds i8, ptr %105, i64 8
+  %112 = load ptr, ptr %111, align 8
+  %wide.trip.count.i65 = zext nneg i32 %92 to i64
+  br label %113
 
-112:                                              ; preds = %112, %.lr.ph.i64
-  %indvars.iv.i66 = phi i64 [ 0, %.lr.ph.i64 ], [ %indvars.iv.next.i67, %112 ]
-  %.016.i = phi i32 [ 0, %.lr.ph.i64 ], [ %142, %112 ]
-  %113 = getelementptr inbounds i64, ptr %102, i64 %indvars.iv.i66
-  %114 = load i64, ptr %113, align 8
-  %115 = getelementptr inbounds i64, ptr %105, i64 %indvars.iv.i66
-  %116 = load i64, ptr %115, align 8
-  %117 = and i64 %116, %114
-  %118 = getelementptr inbounds i64, ptr %109, i64 %indvars.iv.i66
-  %119 = load i64, ptr %118, align 8
-  %120 = getelementptr inbounds i64, ptr %111, i64 %indvars.iv.i66
-  %121 = load i64, ptr %120, align 8
-  %122 = and i64 %121, %119
-  %123 = or i64 %122, %117
-  %124 = lshr i64 %123, 1
-  %125 = and i64 %124, 6148914691236517205
-  %126 = sub i64 %123, %125
-  %127 = and i64 %126, 3689348814741910323
-  %128 = lshr i64 %126, 2
-  %129 = and i64 %128, 3689348814741910323
-  %130 = add nuw nsw i64 %129, %127
-  %131 = lshr i64 %130, 4
-  %132 = add nuw nsw i64 %131, %130
-  %133 = and i64 %132, 1085102592571150095
-  %134 = lshr i64 %133, 8
-  %135 = add nuw nsw i64 %134, %133
-  %136 = lshr i64 %135, 16
-  %137 = add nuw nsw i64 %136, %135
-  %138 = lshr i64 %137, 32
-  %139 = add nuw nsw i64 %138, %137
-  %140 = trunc i64 %139 to i32
-  %141 = and i32 %140, 255
-  %142 = add nuw nsw i32 %141, %.016.i
+113:                                              ; preds = %113, %.lr.ph.i64
+  %indvars.iv.i66 = phi i64 [ 0, %.lr.ph.i64 ], [ %indvars.iv.next.i67, %113 ]
+  %.016.i = phi i32 [ 0, %.lr.ph.i64 ], [ %143, %113 ]
+  %114 = getelementptr inbounds i64, ptr %103, i64 %indvars.iv.i66
+  %115 = load i64, ptr %114, align 8
+  %116 = getelementptr inbounds i64, ptr %106, i64 %indvars.iv.i66
+  %117 = load i64, ptr %116, align 8
+  %118 = and i64 %117, %115
+  %119 = getelementptr inbounds i64, ptr %110, i64 %indvars.iv.i66
+  %120 = load i64, ptr %119, align 8
+  %121 = getelementptr inbounds i64, ptr %112, i64 %indvars.iv.i66
+  %122 = load i64, ptr %121, align 8
+  %123 = and i64 %122, %120
+  %124 = or i64 %123, %118
+  %125 = lshr i64 %124, 1
+  %126 = and i64 %125, 6148914691236517205
+  %127 = sub i64 %124, %126
+  %128 = and i64 %127, 3689348814741910323
+  %129 = lshr i64 %127, 2
+  %130 = and i64 %129, 3689348814741910323
+  %131 = add nuw nsw i64 %130, %128
+  %132 = lshr i64 %131, 4
+  %133 = add nuw nsw i64 %132, %131
+  %134 = and i64 %133, 1085102592571150095
+  %135 = lshr i64 %134, 8
+  %136 = add nuw nsw i64 %135, %134
+  %137 = lshr i64 %136, 16
+  %138 = add nuw nsw i64 %137, %136
+  %139 = lshr i64 %138, 32
+  %140 = add nuw nsw i64 %139, %138
+  %141 = trunc i64 %140 to i32
+  %142 = and i32 %141, 255
+  %143 = add nuw nsw i32 %142, %.016.i
   %indvars.iv.next.i67 = add nuw nsw i64 %indvars.iv.i66, 1
   %exitcond.not.i68 = icmp eq i64 %indvars.iv.next.i67, %wide.trip.count.i65
-  br i1 %exitcond.not.i68, label %Res6_FindGetCost.exit, label %112, !llvm.loop !24
+  br i1 %exitcond.not.i68, label %Res6_FindGetCost.exit, label %113, !llvm.loop !24
 
-Res6_FindGetCost.exit:                            ; preds = %112, %.critedge
-  %.0.lcssa.i = phi i32 [ 0, %.critedge ], [ %142, %112 ]
+Res6_FindGetCost.exit:                            ; preds = %113, %.critedge
+  %.0.lcssa.i = phi i32 [ 0, %.critedge ], [ %143, %113 ]
   ret i32 %.0.lcssa.i
 }
 

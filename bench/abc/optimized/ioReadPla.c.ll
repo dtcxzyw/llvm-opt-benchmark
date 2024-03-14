@@ -820,9 +820,9 @@ Vec_BitFill.exit:                                 ; preds = %28, %Vec_BitGrow.ex
 
 .lr.ph.i74.us:                                    ; preds = %.split.us.us, %65
   %indvars.iv.i75.us = phi i64 [ 0, %.split.us.us ], [ %indvars.iv.next.i77.us, %65 ]
-  %47 = getelementptr inbounds i64, ptr %153, i64 %indvars.iv.i75.us
+  %47 = getelementptr inbounds i64, ptr %152, i64 %indvars.iv.i75.us
   %48 = load i64, ptr %47, align 8
-  %49 = getelementptr inbounds i64, ptr %154, i64 %indvars.iv.i75.us
+  %49 = getelementptr inbounds i64, ptr %153, i64 %indvars.iv.i75.us
   %50 = load i64, ptr %49, align 8
   %51 = and i64 %50, %48
   %.not.i76.us = icmp eq i64 %51, %48
@@ -830,23 +830,23 @@ Vec_BitFill.exit:                                 ; preds = %28, %Vec_BitGrow.ex
 
 .lr.ph.i82.us:                                    ; preds = %.lr.ph.i74.us, %64
   %indvars.iv.i83.us = phi i64 [ %indvars.iv.next.i85.us, %64 ], [ 0, %.lr.ph.i74.us ]
-  %52 = getelementptr inbounds i64, ptr %154, i64 %indvars.iv.i83.us
+  %52 = getelementptr inbounds i64, ptr %153, i64 %indvars.iv.i83.us
   %53 = load i64, ptr %52, align 8
-  %54 = getelementptr inbounds i64, ptr %153, i64 %indvars.iv.i83.us
+  %54 = getelementptr inbounds i64, ptr %152, i64 %indvars.iv.i83.us
   %55 = load i64, ptr %54, align 8
   %56 = and i64 %55, %53
   %.not.i84.us = icmp eq i64 %56, %53
   br i1 %.not.i84.us, label %64, label %Abc_TtImply.exit87.us
 
 Abc_TtImply.exit87.us:                            ; preds = %.lr.ph.i82.us
-  %57 = getelementptr inbounds i64, ptr %153, i64 %134
+  %57 = getelementptr inbounds i64, ptr %152, i64 %133
   %58 = load i64, ptr %57, align 8
-  %59 = xor i64 %58, %146
+  %59 = xor i64 %58, %145
   store i64 %59, ptr %57, align 8
-  %60 = load ptr, ptr %132, align 8
-  %61 = getelementptr inbounds i64, ptr %60, i64 %134
+  %60 = load ptr, ptr %131, align 8
+  %61 = getelementptr inbounds i64, ptr %60, i64 %133
   %62 = load i64, ptr %61, align 8
-  %63 = xor i64 %62, %149
+  %63 = xor i64 %62, %148
   store i64 %63, ptr %61, align 8
   br label %.loopexit105.us
 
@@ -868,9 +868,9 @@ Abc_TtImply.exit87.us:                            ; preds = %.lr.ph.i82.us
   br i1 %exitcond147.not, label %._crit_edge, label %.lr.ph129.split.us, !llvm.loop !19
 
 .loopexit.us:                                     ; preds = %64
-  %66 = getelementptr inbounds i64, ptr %154, i64 %134
+  %66 = getelementptr inbounds i64, ptr %153, i64 %133
   %67 = load i64, ptr %66, align 8
-  %68 = xor i64 %67, %149
+  %68 = xor i64 %67, %148
   store i64 %68, ptr %66, align 8
   %.val65.us = load ptr, ptr %34, align 8
   %69 = getelementptr inbounds i32, ptr %.val65.us, i64 %39
@@ -881,9 +881,9 @@ Abc_TtImply.exit87.us:                            ; preds = %.lr.ph.i82.us
   br label %.loopexit105.us
 
 .loopexit104.us:                                  ; preds = %65
-  %73 = getelementptr inbounds i64, ptr %153, i64 %134
+  %73 = getelementptr inbounds i64, ptr %152, i64 %133
   %74 = load i64, ptr %73, align 8
-  %75 = xor i64 %74, %146
+  %75 = xor i64 %74, %145
   store i64 %75, ptr %73, align 8
   %.val66.us = load ptr, ptr %34, align 8
   %76 = getelementptr inbounds i32, ptr %.val66.us, i64 %84
@@ -918,7 +918,7 @@ Abc_TtImply.exit87.us:                            ; preds = %.lr.ph.i82.us
   br label %.lr.ph.i68.us.us.outer
 
 .lr.ph.i68.us.us.outer:                           ; preds = %.thread, %.lr.ph.preheader.i.us.us
-  %.2.us.us.ph = phi i32 [ %131, %.thread ], [ %.196116.us.us, %.lr.ph.preheader.i.us.us ]
+  %.2.us.us.ph = phi i32 [ %130, %.thread ], [ %.196116.us.us, %.lr.ph.preheader.i.us.us ]
   %indvars.iv.i69.us.us.ph = phi i64 [ %indvars.iv.next.i70.us.us150, %.thread ], [ 0, %.lr.ph.preheader.i.us.us ]
   %.not.i.us.us = phi i1 [ false, %.thread ], [ true, %.lr.ph.preheader.i.us.us ]
   br label %.lr.ph.i68.us.us
@@ -950,43 +950,43 @@ Abc_TtImply.exit87.us:                            ; preds = %.lr.ph.i82.us
   br i1 %exitcond.not.i71.us.us, label %Io_ReadPlaConsensus.exit.us.us, label %.lr.ph.i68.us.us, !llvm.loop !20
 
 .thread:                                          ; preds = %99
-  %106 = trunc i64 %indvars.iv.i69.us.us to i32
-  %107 = shl nsw i32 %106, 5
-  %108 = and i64 %102, 1431655765
-  %109 = icmp eq i64 %108, 0
-  %110 = lshr exact i64 %103, 32
-  %spec.select.i.i.us.us = select i1 %109, i64 %110, i64 %103
-  %spec.select27.i.i.us.us = select i1 %109, i32 32, i32 0
-  %111 = and i64 %spec.select.i.i.us.us, 21845
-  %112 = icmp eq i64 %111, 0
-  %113 = or disjoint i32 %spec.select27.i.i.us.us, 16
-  %114 = lshr exact i64 %spec.select.i.i.us.us, 16
-  %.121.i.i.us.us = select i1 %112, i64 %114, i64 %spec.select.i.i.us.us
-  %.1.i.i.us.us = select i1 %112, i32 %113, i32 %spec.select27.i.i.us.us
-  %115 = and i64 %.121.i.i.us.us, 85
-  %116 = icmp eq i64 %115, 0
-  %117 = or disjoint i32 %.1.i.i.us.us, 8
-  %118 = lshr exact i64 %.121.i.i.us.us, 8
-  %.222.i.i.us.us = select i1 %116, i64 %118, i64 %.121.i.i.us.us
-  %.2.i.i.us.us = select i1 %116, i32 %117, i32 %.1.i.i.us.us
-  %119 = and i64 %.222.i.i.us.us, 15
-  %120 = icmp eq i64 %119, 0
-  %121 = or disjoint i32 %.2.i.i.us.us, 4
-  %122 = lshr exact i64 %.222.i.i.us.us, 4
-  %.323.i.i.us.us = select i1 %120, i64 %122, i64 %.222.i.i.us.us
-  %.3.i.i.us.us = select i1 %120, i32 %121, i32 %.2.i.i.us.us
-  %123 = and i64 %.323.i.i.us.us, 3
-  %124 = icmp eq i64 %123, 0
-  %125 = add nuw nsw i32 %.3.i.i.us.us, 2
-  %126 = lshr exact i64 %.323.i.i.us.us, 2
-  %.424.i.i.us.us = select i1 %124, i64 %126, i64 %.323.i.i.us.us
-  %.4.i.i.us.us = select i1 %124, i32 %125, i32 %.3.i.i.us.us
-  %127 = trunc i64 %.424.i.i.us.us to i32
-  %128 = and i32 %127, 1
-  %129 = xor i32 %128, 1
-  %.5.i.i.us.us = add nuw nsw i32 %129, %.4.i.i.us.us
-  %130 = lshr i32 %.5.i.i.us.us, 1
-  %131 = add nuw nsw i32 %130, %107
+  %106 = and i64 %102, 1431655765
+  %107 = icmp eq i64 %106, 0
+  %108 = lshr exact i64 %103, 32
+  %spec.select.i.i.us.us = select i1 %107, i64 %108, i64 %103
+  %spec.select27.i.i.us.us = select i1 %107, i32 32, i32 0
+  %109 = and i64 %spec.select.i.i.us.us, 21845
+  %110 = icmp eq i64 %109, 0
+  %111 = or disjoint i32 %spec.select27.i.i.us.us, 16
+  %112 = lshr exact i64 %spec.select.i.i.us.us, 16
+  %.121.i.i.us.us = select i1 %110, i64 %112, i64 %spec.select.i.i.us.us
+  %.1.i.i.us.us = select i1 %110, i32 %111, i32 %spec.select27.i.i.us.us
+  %113 = and i64 %.121.i.i.us.us, 85
+  %114 = icmp eq i64 %113, 0
+  %115 = or disjoint i32 %.1.i.i.us.us, 8
+  %116 = lshr exact i64 %.121.i.i.us.us, 8
+  %.222.i.i.us.us = select i1 %114, i64 %116, i64 %.121.i.i.us.us
+  %.2.i.i.us.us = select i1 %114, i32 %115, i32 %.1.i.i.us.us
+  %117 = and i64 %.222.i.i.us.us, 15
+  %118 = icmp eq i64 %117, 0
+  %119 = or disjoint i32 %.2.i.i.us.us, 4
+  %120 = lshr exact i64 %.222.i.i.us.us, 4
+  %.323.i.i.us.us = select i1 %118, i64 %120, i64 %.222.i.i.us.us
+  %.3.i.i.us.us = select i1 %118, i32 %119, i32 %.2.i.i.us.us
+  %121 = and i64 %.323.i.i.us.us, 3
+  %122 = icmp eq i64 %121, 0
+  %123 = add nuw nsw i32 %.3.i.i.us.us, 2
+  %124 = lshr exact i64 %.323.i.i.us.us, 2
+  %.424.i.i.us.us = select i1 %122, i64 %124, i64 %.323.i.i.us.us
+  %.4.i.i.us.us = select i1 %122, i32 %123, i32 %.3.i.i.us.us
+  %125 = trunc i64 %.424.i.i.us.us to i32
+  %126 = and i32 %125, 1
+  %127 = xor i32 %126, 1
+  %.5.i.i.us.us = add nuw nsw i32 %127, %.4.i.i.us.us
+  %128 = lshr i32 %.5.i.i.us.us, 1
+  %indvars.iv.tr.i.us.us = trunc i64 %indvars.iv.i69.us.us to i32
+  %129 = shl i32 %indvars.iv.tr.i.us.us, 5
+  %130 = add nuw nsw i32 %128, %129
   %indvars.iv.next.i70.us.us150 = add nuw nsw i64 %indvars.iv.i69.us.us, 1
   %exitcond.not.i71.us.us151 = icmp eq i64 %indvars.iv.next.i70.us.us150, %wide.trip.count.i67
   br i1 %exitcond.not.i71.us.us151, label %.split.us.us, label %.lr.ph.i68.us.us.outer, !llvm.loop !20
@@ -1001,32 +1001,32 @@ Io_ReadPlaConsensus.exit.thread.us.us:            ; preds = %98, %99, %Io_ReadPl
   br i1 %exitcond.not, label %.loopexit105.us, label %81, !llvm.loop !21
 
 .split.us.us:                                     ; preds = %Io_ReadPlaConsensus.exit.us.us, %.thread
-  %.3.us.us152157 = phi i32 [ %131, %.thread ], [ %.2.us.us.ph, %Io_ReadPlaConsensus.exit.us.us ]
-  %132 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv139
-  %133 = ashr i32 %.3.us.us152157, 5
-  %134 = sext i32 %133 to i64
-  %135 = getelementptr inbounds i64, ptr %90, i64 %134
-  %136 = load i64, ptr %135, align 8
-  %137 = shl i32 %.3.us.us152157, 1
-  %138 = and i32 %137, 62
-  %139 = zext nneg i32 %138 to i64
-  %140 = lshr i64 %136, %139
-  %141 = and i64 %140, 3
-  %142 = getelementptr inbounds i64, ptr %92, i64 %134
-  %143 = load i64, ptr %142, align 8
-  %144 = lshr i64 %143, %139
-  %145 = and i64 %144, 3
-  %146 = shl nuw i64 %141, %139
-  %147 = xor i64 %146, %136
-  store i64 %147, ptr %135, align 8
-  %148 = load ptr, ptr %132, align 8
-  %149 = shl nuw i64 %145, %139
-  %150 = getelementptr inbounds i64, ptr %148, i64 %134
-  %151 = load i64, ptr %150, align 8
-  %152 = xor i64 %151, %149
-  store i64 %152, ptr %150, align 8
-  %153 = load ptr, ptr %80, align 8
-  %154 = load ptr, ptr %132, align 8
+  %.3.us.us152157 = phi i32 [ %130, %.thread ], [ %.2.us.us.ph, %Io_ReadPlaConsensus.exit.us.us ]
+  %131 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv139
+  %132 = ashr i32 %.3.us.us152157, 5
+  %133 = sext i32 %132 to i64
+  %134 = getelementptr inbounds i64, ptr %90, i64 %133
+  %135 = load i64, ptr %134, align 8
+  %136 = shl i32 %.3.us.us152157, 1
+  %137 = and i32 %136, 62
+  %138 = zext nneg i32 %137 to i64
+  %139 = lshr i64 %135, %138
+  %140 = and i64 %139, 3
+  %141 = getelementptr inbounds i64, ptr %92, i64 %133
+  %142 = load i64, ptr %141, align 8
+  %143 = lshr i64 %142, %138
+  %144 = and i64 %143, 3
+  %145 = shl nuw i64 %140, %138
+  %146 = xor i64 %145, %135
+  store i64 %146, ptr %134, align 8
+  %147 = load ptr, ptr %131, align 8
+  %148 = shl nuw i64 %144, %138
+  %149 = getelementptr inbounds i64, ptr %147, i64 %133
+  %150 = load i64, ptr %149, align 8
+  %151 = xor i64 %150, %148
+  store i64 %151, ptr %149, align 8
+  %152 = load ptr, ptr %80, align 8
+  %153 = load ptr, ptr %131, align 8
   br label %.lr.ph.i74.us
 
 ._crit_edge:                                      ; preds = %.loopexit105.us, %.lr.ph129, %Vec_BitFill.exit

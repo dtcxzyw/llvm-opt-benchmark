@@ -2455,10 +2455,10 @@ Hash_IntObj.exit:                                 ; preds = %156, %161
   %207 = or i32 %.2137, %186
   tail call fastcc void @Vec_IntPushThree(ptr noundef nonnull %8, i32 noundef %178, i32 noundef %190, i32 noundef %207)
   %indvars.iv.next251 = add nuw nsw i64 %indvars.iv250, 2
-  %208 = or disjoint i64 %indvars.iv.next251, 1
   %.val = load i32, ptr %171, align 4
-  %209 = sext i32 %.val to i64
-  %210 = icmp slt i64 %208, %209
+  %208 = trunc i64 %indvars.iv.next251 to i32
+  %209 = or disjoint i32 %208, 1
+  %210 = icmp slt i32 %209, %.val
   br i1 %210, label %187, label %.critedge23.loopexit, !llvm.loop !32
 
 .critedge23.loopexit:                             ; preds = %.thread
@@ -2469,9 +2469,9 @@ Hash_IntObj.exit:                                 ; preds = %156, %161
   %.val148 = phi i32 [ %.val148.pre, %.critedge23.loopexit ], [ %.val148268, %.lr.ph230.split ]
   %.val225267 = phi i32 [ %.val, %.critedge23.loopexit ], [ %.val225, %.lr.ph230.split ]
   %indvars.iv.next254 = add nuw nsw i64 %indvars.iv253, 2
-  %211 = or disjoint i64 %indvars.iv.next254, 1
-  %212 = sext i32 %.val148 to i64
-  %213 = icmp slt i64 %211, %212
+  %211 = trunc i64 %indvars.iv.next254 to i32
+  %212 = or disjoint i32 %211, 1
+  %213 = icmp slt i32 %212, %.val148
   br i1 %213, label %.lr.ph230.split, label %.critedge21, !llvm.loop !33
 
 .critedge21:                                      ; preds = %.critedge23, %.lr.ph230, %Hash_IntObj.exit

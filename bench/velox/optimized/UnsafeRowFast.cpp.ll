@@ -1985,7 +1985,7 @@ for.body.lr.ph:                                   ; preds = %_ZNK8facebook5velox
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %10 = phi ptr [ %9, %for.body.lr.ph ], [ %31, %for.inc ]
+  %10 = phi ptr [ %9, %for.body.lr.ph ], [ %32, %for.inc ]
   %variableWidthOffset.035 = phi i64 [ %add, %for.body.lr.ph ], [ %variableWidthOffset.1, %for.inc ]
   %add.ptr.i = getelementptr inbounds %"class.facebook::velox::row::UnsafeRowFast", ptr %10, i64 %indvars.iv
   %nulls_.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 32
@@ -2069,9 +2069,8 @@ if.end:                                           ; preds = %for.body, %if.then8
 if.then12:                                        ; preds = %if.end
   %27 = load i64, ptr %rowNullBytes_, align 8
   %add.ptr = getelementptr inbounds i8, ptr %buffer, i64 %27
-  %mul14 = shl i64 %indvars.iv, 3
-  %idx.ext = and i64 %mul14, 4294967288
-  %add.ptr15 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext
+  %28 = shl nsw i64 %indvars.iv, 3
+  %add.ptr15 = getelementptr inbounds i8, ptr %add.ptr, i64 %28
   tail call void @_ZN8facebook5velox3row13UnsafeRowFast19serializeFixedWidthEiPc(ptr noundef nonnull align 8 dereferenceable(224) %add.ptr.i, i32 noundef %retval.0.i, ptr noundef %add.ptr15)
   br label %for.inc
 
@@ -2081,24 +2080,24 @@ if.else:                                          ; preds = %if.end
   %shl = shl i64 %variableWidthOffset.035, 32
   %conv18 = sext i32 %call17 to i64
   %or = or i64 %shl, %conv18
-  %28 = load i64, ptr %rowNullBytes_, align 8
-  %add.ptr20 = getelementptr inbounds i8, ptr %buffer, i64 %28
+  %29 = load i64, ptr %rowNullBytes_, align 8
+  %add.ptr20 = getelementptr inbounds i8, ptr %buffer, i64 %29
   %arrayidx = getelementptr inbounds i64, ptr %add.ptr20, i64 %indvars.iv
   store i64 %or, ptr %arrayidx, align 8
   %add.i.i = add i32 %call17, 7
-  %29 = srem i32 %add.i.i, 8
-  %mul.i.i = sub nsw i32 %add.i.i, %29
+  %30 = srem i32 %add.i.i, 8
+  %mul.i.i = sub nsw i32 %add.i.i, %30
   %conv22 = sext i32 %mul.i.i to i64
   %add23 = add nsw i64 %variableWidthOffset.035, %conv22
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then12, %if.else, %if.then
   %variableWidthOffset.1 = phi i64 [ %variableWidthOffset.035, %if.then ], [ %variableWidthOffset.035, %if.then12 ], [ %add23, %if.else ]
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
-  %30 = load ptr, ptr %_M_finish.i, align 8
-  %31 = load ptr, ptr %children_, align 8
-  %sub.ptr.lhs.cast.i19 = ptrtoint ptr %30 to i64
-  %sub.ptr.rhs.cast.i20 = ptrtoint ptr %31 to i64
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %31 = load ptr, ptr %_M_finish.i, align 8
+  %32 = load ptr, ptr %children_, align 8
+  %sub.ptr.lhs.cast.i19 = ptrtoint ptr %31 to i64
+  %sub.ptr.rhs.cast.i20 = ptrtoint ptr %32 to i64
   %sub.ptr.sub.i21 = sub i64 %sub.ptr.lhs.cast.i19, %sub.ptr.rhs.cast.i20
   %sub.ptr.div.i22 = sdiv exact i64 %sub.ptr.sub.i21, 224
   %cmp = icmp ugt i64 %sub.ptr.div.i22, %indvars.iv.next
@@ -3135,7 +3134,7 @@ return:                                           ; preds = %for.inc45.us, %for.
   ret i32 %retval.0
 }
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #8
 
 declare void @_ZN8facebook5velox13DecodedVector6decodeERKNS0_10BaseVectorEPKNS0_17SelectivityVectorEb(ptr noundef nonnull align 8 dereferenceable(120), ptr noundef nonnull align 8 dereferenceable(99), ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
@@ -3726,7 +3725,7 @@ attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #5 = { mustprogress nounwind memory(readwrite, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #8 = { nofree nounwind memory(read) }
+attributes #8 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #9 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }

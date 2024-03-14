@@ -3658,9 +3658,9 @@ Vec_VecPushInt.exit:                              ; preds = %.Vec_IntGrow.exit10
 Aig_ManObj.exit.thread:                           ; preds = %.lr.ph.split, %Aig_ManObj.exit, %42, %Vec_VecPushInt.exit
   %.val54 = phi i32 [ %.val5494, %.lr.ph.split ], [ %.val5494, %Aig_ManObj.exit ], [ %.val5494, %42 ], [ %.val54.pre, %Vec_VecPushInt.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %115 = or disjoint i64 %indvars.iv.next, 1
-  %116 = sext i32 %.val54 to i64
-  %117 = icmp slt i64 %115, %116
+  %115 = trunc i64 %indvars.iv.next to i32
+  %116 = or disjoint i32 %115, 1
+  %117 = icmp slt i32 %116, %.val54
   br i1 %117, label %.lr.ph.split, label %.critedge2.loopexit86, !llvm.loop !36
 
 .critedge2.loopexit86:                            ; preds = %Aig_ManObj.exit.thread

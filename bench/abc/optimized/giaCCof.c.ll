@@ -127,9 +127,9 @@ define void @Gia_ManCofExtendSolver(ptr nocapture noundef readonly %0) local_unn
   %13 = sext i32 %5 to i64
   br label %14
 
-14:                                               ; preds = %.lr.ph, %47
-  %15 = phi ptr [ %7, %.lr.ph ], [ %48, %47 ]
-  %indvars.iv = phi i64 [ %13, %.lr.ph ], [ %indvars.iv.next, %47 ]
+14:                                               ; preds = %.lr.ph, %49
+  %15 = phi ptr [ %7, %.lr.ph ], [ %50, %49 ]
+  %indvars.iv = phi i64 [ %13, %.lr.ph ], [ %indvars.iv.next, %49 ]
   %16 = getelementptr i8, ptr %15, i64 32
   %.val17 = load ptr, ptr %16, align 8
   %17 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val17, i64 %indvars.iv
@@ -139,7 +139,7 @@ define void @Gia_ManCofExtendSolver(ptr nocapture noundef readonly %0) local_unn
   %19 = and i64 %.val18, 536870911
   %20 = icmp eq i64 %19, 536870911
   %narrow.i.not = or i1 %.not.i, %20
-  br i1 %narrow.i.not, label %47, label %21
+  br i1 %narrow.i.not, label %49, label %21
 
 21:                                               ; preds = %14
   %22 = load ptr, ptr %3, align 8
@@ -157,41 +157,43 @@ define void @Gia_ManCofExtendSolver(ptr nocapture noundef readonly %0) local_unn
   %34 = trunc i64 %33 to i32
   %35 = and i32 %34, 1
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %2)
-  %36 = shl nsw i32 %25, 1
-  %37 = or disjoint i32 %36, 1
-  store i32 %37, ptr %2, align 4
-  %38 = shl nsw i32 %26, 1
-  %39 = or disjoint i32 %38, %32
-  store i32 %39, ptr %10, align 4
-  %40 = call i32 @sat_solver_addclause(ptr noundef %22, ptr noundef nonnull %2, ptr noundef nonnull %11) #16
-  store i32 %37, ptr %2, align 4
-  %41 = shl nsw i32 %30, 1
-  %42 = or disjoint i32 %41, %35
-  store i32 %42, ptr %10, align 4
-  %43 = call i32 @sat_solver_addclause(ptr noundef %22, ptr noundef nonnull %2, ptr noundef nonnull %11) #16
-  store i32 %36, ptr %2, align 4
-  %44 = xor i32 %39, 1
-  store i32 %44, ptr %10, align 4
-  %45 = xor i32 %42, 1
-  store i32 %45, ptr %11, align 4
-  %46 = call i32 @sat_solver_addclause(ptr noundef %22, ptr noundef nonnull %2, ptr noundef nonnull %12) #16
+  %36 = shl nsw i64 %indvars.iv, 1
+  %37 = trunc i64 %36 to i32
+  %38 = or disjoint i32 %37, 1
+  store i32 %38, ptr %2, align 4
+  %39 = shl nsw i32 %26, 1
+  %40 = or disjoint i32 %39, %32
+  store i32 %40, ptr %10, align 4
+  %41 = call i32 @sat_solver_addclause(ptr noundef %22, ptr noundef nonnull %2, ptr noundef nonnull %11) #16
+  store i32 %38, ptr %2, align 4
+  %42 = shl nsw i32 %30, 1
+  %43 = or disjoint i32 %42, %35
+  store i32 %43, ptr %10, align 4
+  %44 = call i32 @sat_solver_addclause(ptr noundef %22, ptr noundef nonnull %2, ptr noundef nonnull %11) #16
+  %45 = trunc i64 %36 to i32
+  store i32 %45, ptr %2, align 4
+  %46 = xor i32 %40, 1
+  store i32 %46, ptr %10, align 4
+  %47 = xor i32 %43, 1
+  store i32 %47, ptr %11, align 4
+  %48 = call i32 @sat_solver_addclause(ptr noundef %22, ptr noundef nonnull %2, ptr noundef nonnull %12) #16
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %2)
   %.pre = load ptr, ptr %6, align 8
-  br label %47
+  br label %49
 
-47:                                               ; preds = %14, %21
-  %48 = phi ptr [ %15, %14 ], [ %.pre, %21 ]
+49:                                               ; preds = %14, %21
+  %50 = phi ptr [ %15, %14 ], [ %.pre, %21 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %49 = getelementptr i8, ptr %48, i64 24
-  %.val = load i32, ptr %49, align 8
-  %50 = sext i32 %.val to i64
-  %51 = icmp slt i64 %indvars.iv.next, %50
-  br i1 %51, label %14, label %._crit_edge, !llvm.loop !4
+  %51 = getelementptr i8, ptr %50, i64 24
+  %.val = load i32, ptr %51, align 8
+  %52 = sext i32 %.val to i64
+  %53 = icmp slt i64 %indvars.iv.next, %52
+  br i1 %53, label %14, label %._crit_edge, !llvm.loop !4
 
-._crit_edge:                                      ; preds = %47, %1
-  %.val.lcssa = phi i32 [ %.val25, %1 ], [ %.val, %47 ]
-  %52 = load ptr, ptr %3, align 8
-  call void @sat_solver_setnvars(ptr noundef %52, i32 noundef %.val.lcssa) #16
+._crit_edge:                                      ; preds = %49, %1
+  %.val.lcssa = phi i32 [ %.val25, %1 ], [ %.val, %49 ]
+  %54 = load ptr, ptr %3, align 8
+  call void @sat_solver_setnvars(ptr noundef %54, i32 noundef %.val.lcssa) #16
   ret void
 }
 

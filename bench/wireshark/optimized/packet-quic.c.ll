@@ -5616,15 +5616,15 @@ quic_is_pp_cipher_initialized.exit:               ; preds = %21
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %41 = trunc i64 %indvars.iv.i to i32
-  %42 = shl i64 %indvars.iv.i, 3
-  %43 = lshr i64 %25, %42
-  %44 = trunc i64 %43 to i8
-  %45 = xor i32 %41, -1
+  %41 = shl nuw nsw i64 %indvars.iv.i, 3
+  %42 = lshr i64 %25, %41
+  %43 = trunc i64 %42 to i8
+  %44 = trunc i64 %indvars.iv.i to i32
+  %45 = xor i32 %44, -1
   %46 = add i32 %45, %4
   %47 = zext i32 %46 to i64
   %48 = getelementptr i8, ptr %40, i64 %47
-  store i8 %44, ptr %48, align 1
+  store i8 %43, ptr %48, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !21

@@ -209,10 +209,10 @@ Gia_ObjEdgeAdd.exit49:                            ; preds = %72, %.sink.split.i4
   %.0.i46 = phi i32 [ 1, %72 ], [ 0, %.sink.split.i47 ]
   %78 = add nsw i32 %67, %.0.i46
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %79 = or disjoint i64 %indvars.iv.next, 1
   %.val27 = load i32, ptr %46, align 4
-  %80 = sext i32 %.val27 to i64
-  %81 = icmp slt i64 %79, %80
+  %79 = trunc i64 %indvars.iv.next to i32
+  %80 = or disjoint i32 %79, 1
+  %81 = icmp slt i32 %80, %.val27
   br i1 %81, label %49, label %.critedge, !llvm.loop !4
 
 .critedge:                                        ; preds = %Gia_ObjEdgeAdd.exit49

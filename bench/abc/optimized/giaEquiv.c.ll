@@ -352,36 +352,36 @@ Vec_IntStartFull.exit:                            ; preds = %2, %Vec_IntAlloc.ex
 .lr.ph:                                           ; preds = %Vec_IntStartFull.exit
   %13 = getelementptr i8, ptr %0, i64 8
   %.val29.pre = load ptr, ptr %13, align 8
-  %14 = zext nneg i32 %.val3043 to i64
-  br label %15
+  br label %14
 
-15:                                               ; preds = %.lr.ph, %Gia_ManOrigIdsRemapPairsInsert.exit
+14:                                               ; preds = %.lr.ph, %Gia_ManOrigIdsRemapPairsInsert.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Gia_ManOrigIdsRemapPairsInsert.exit ]
-  %16 = or disjoint i64 %indvars.iv, 1
-  %17 = getelementptr inbounds i32, ptr %.val29.pre, i64 %indvars.iv
-  %18 = load i32, ptr %17, align 4
-  %19 = getelementptr inbounds i32, ptr %.val29.pre, i64 %16
-  %20 = load i32, ptr %19, align 4
+  %15 = or disjoint i64 %indvars.iv, 1
+  %16 = getelementptr inbounds i32, ptr %.val29.pre, i64 %indvars.iv
+  %17 = load i32, ptr %16, align 4
+  %18 = getelementptr inbounds i32, ptr %.val29.pre, i64 %15
+  %19 = load i32, ptr %18, align 4
   br label %tailrecurse.i
 
-tailrecurse.i:                                    ; preds = %tailrecurse.i, %15
-  %.tr18.i = phi i32 [ %18, %15 ], [ %21, %tailrecurse.i ]
-  %.tr19.i = phi i32 [ %20, %15 ], [ %25, %tailrecurse.i ]
-  %21 = tail call i32 @llvm.smin.i32(i32 %.tr18.i, i32 %.tr19.i)
-  %22 = tail call i32 @llvm.smax.i32(i32 %.tr18.i, i32 %.tr19.i)
-  %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds i32, ptr %10, i64 %23
-  %25 = load i32, ptr %24, align 4
-  %26 = icmp eq i32 %25, -1
-  br i1 %26, label %Gia_ManOrigIdsRemapPairsInsert.exit, label %tailrecurse.i
+tailrecurse.i:                                    ; preds = %tailrecurse.i, %14
+  %.tr18.i = phi i32 [ %17, %14 ], [ %20, %tailrecurse.i ]
+  %.tr19.i = phi i32 [ %19, %14 ], [ %24, %tailrecurse.i ]
+  %20 = tail call i32 @llvm.smin.i32(i32 %.tr18.i, i32 %.tr19.i)
+  %21 = tail call i32 @llvm.smax.i32(i32 %.tr18.i, i32 %.tr19.i)
+  %22 = sext i32 %21 to i64
+  %23 = getelementptr inbounds i32, ptr %10, i64 %22
+  %24 = load i32, ptr %23, align 4
+  %25 = icmp eq i32 %24, -1
+  br i1 %25, label %Gia_ManOrigIdsRemapPairsInsert.exit, label %tailrecurse.i
 
 Gia_ManOrigIdsRemapPairsInsert.exit:              ; preds = %tailrecurse.i
-  %27 = getelementptr inbounds i32, ptr %10, i64 %23
-  store i32 %21, ptr %27, align 4
+  %26 = getelementptr inbounds i32, ptr %10, i64 %22
+  store i32 %20, ptr %26, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %28 = or disjoint i64 %indvars.iv.next, 1
-  %29 = icmp ult i64 %28, %14
-  br i1 %29, label %15, label %.critedge, !llvm.loop !7
+  %27 = trunc i64 %indvars.iv.next to i32
+  %28 = or disjoint i32 %27, 1
+  %29 = icmp slt i32 %28, %.val3043
+  br i1 %29, label %14, label %.critedge, !llvm.loop !7
 
 .critedge:                                        ; preds = %Gia_ManOrigIdsRemapPairsInsert.exit, %Vec_IntStartFull.exit
   %30 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #27

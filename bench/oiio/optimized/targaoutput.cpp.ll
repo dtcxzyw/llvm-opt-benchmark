@@ -2229,15 +2229,15 @@ if.then.i:                                        ; preds = %entry
   %mul.i.i = mul i64 %mul.i.i.i, %conv.i
   %mul.i = mul i64 %mul.i.i, %call.i.i.i
   %.pre = load i8, ptr %format, align 4
-  %.pre197 = load i8, ptr %aggregate3.i, align 1
-  %.pre198 = load i8, ptr %vecsemantics4.i, align 2
-  %.pre199 = load i32, ptr %arraylen5.i, align 4
+  %.pre201 = load i8, ptr %aggregate3.i, align 1
+  %.pre202 = load i8, ptr %vecsemantics4.i, align 2
+  %.pre203 = load i32, ptr %arraylen5.i, align 4
   br label %_ZN18OpenImageIO_v2_6_09ImageSpec11auto_strideERlNS_8TypeDescEi.exit
 
 _ZN18OpenImageIO_v2_6_09ImageSpec11auto_strideERlNS_8TypeDescEi.exit: ; preds = %entry, %if.then.i
-  %6 = phi i32 [ %.pre199, %if.then.i ], [ %4, %entry ]
-  %7 = phi i8 [ %.pre198, %if.then.i ], [ %3, %entry ]
-  %8 = phi i8 [ %.pre197, %if.then.i ], [ %2, %entry ]
+  %6 = phi i32 [ %.pre203, %if.then.i ], [ %4, %entry ]
+  %7 = phi i8 [ %.pre202, %if.then.i ], [ %3, %entry ]
+  %8 = phi i8 [ %.pre201, %if.then.i ], [ %2, %entry ]
   %9 = phi i8 [ %.pre, %if.then.i ], [ %1, %entry ]
   %xstride.addr.0 = phi i64 [ %mul.i, %if.then.i ], [ %xstride, %entry ]
   store i8 %9, ptr %agg.tmp4, align 4
@@ -2429,36 +2429,31 @@ sw.bb:                                            ; preds = %for.body
 
 sw.bb40:                                          ; preds = %for.body
   %36 = load ptr, ptr %bdata, align 8
-  %37 = trunc i64 %indvars.iv to i32
-  %mul41 = shl nsw i32 %37, 2
-  %add42 = or disjoint i32 %mul41, 2
-  %idxprom43 = zext nneg i32 %add42 to i64
-  %arrayidx44 = getelementptr inbounds i8, ptr %36, i64 %idxprom43
-  %38 = load i8, ptr %arrayidx44, align 1
-  %add47 = or disjoint i32 %mul41, 1
-  %idxprom48 = zext nneg i32 %add47 to i64
-  %arrayidx49 = getelementptr inbounds i8, ptr %36, i64 %idxprom48
-  %39 = load i8, ptr %arrayidx49, align 1
-  %idxprom53 = zext nneg i32 %mul41 to i64
-  %arrayidx54 = getelementptr inbounds i8, ptr %36, i64 %idxprom53
-  %40 = load i8, ptr %arrayidx54, align 1
-  %add57 = or disjoint i32 %mul41, 3
-  %idxprom58 = zext nneg i32 %add57 to i64
-  %arrayidx59 = getelementptr inbounds i8, ptr %36, i64 %idxprom58
-  %41 = load i8, ptr %arrayidx59, align 1
+  %37 = shl nsw i64 %indvars.iv, 2
+  %38 = or disjoint i64 %37, 2
+  %arrayidx44 = getelementptr inbounds i8, ptr %36, i64 %38
+  %39 = load i8, ptr %arrayidx44, align 1
+  %40 = or disjoint i64 %37, 1
+  %arrayidx49 = getelementptr inbounds i8, ptr %36, i64 %40
+  %41 = load i8, ptr %arrayidx49, align 1
+  %arrayidx54 = getelementptr inbounds i8, ptr %36, i64 %37
+  %42 = load i8, ptr %arrayidx54, align 1
+  %43 = or disjoint i64 %37, 3
+  %arrayidx59 = getelementptr inbounds i8, ptr %36, i64 %43
+  %44 = load i8, ptr %arrayidx59, align 1
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb40, %sw.bb, %for.body
-  %buf.sroa.6.1 = phi i8 [ %buf.sroa.6.0176, %for.body ], [ %39, %sw.bb40 ], [ %34, %sw.bb ]
-  %buf.sroa.10.1 = phi i8 [ %buf.sroa.10.0177, %for.body ], [ %40, %sw.bb40 ], [ %35, %sw.bb ]
-  %buf.sroa.14.1 = phi i8 [ %buf.sroa.14.0178, %for.body ], [ %41, %sw.bb40 ], [ %buf.sroa.14.0178, %sw.bb ]
-  %buf.sroa.0.1 = phi i8 [ %buf.sroa.0.0183, %for.body ], [ %38, %sw.bb40 ], [ %33, %sw.bb ]
+  %buf.sroa.6.1 = phi i8 [ %buf.sroa.6.0176, %for.body ], [ %41, %sw.bb40 ], [ %34, %sw.bb ]
+  %buf.sroa.10.1 = phi i8 [ %buf.sroa.10.0177, %for.body ], [ %42, %sw.bb40 ], [ %35, %sw.bb ]
+  %buf.sroa.14.1 = phi i8 [ %buf.sroa.14.0178, %for.body ], [ %44, %sw.bb40 ], [ %buf.sroa.14.0178, %sw.bb ]
+  %buf.sroa.0.1 = phi i8 [ %buf.sroa.0.0183, %for.body ], [ %39, %sw.bb40 ], [ %33, %sw.bb ]
   %cmp61 = icmp eq i64 %indvars.iv, 0
   br i1 %cmp61, label %for.inc, label %if.end63
 
 if.end63:                                         ; preds = %sw.epilog
-  %42 = and i8 %rlp.0179, 1
-  %tobool64.not = icmp eq i8 %42, 0
+  %45 = and i8 %rlp.0179, 1
+  %tobool64.not = icmp eq i8 %45, 0
   %cmp104 = icmp eq i8 %buf.sroa.0.1, %buf.sroa.0.0183
   %cmp110 = icmp eq i8 %buf.sroa.6.1, %buf.sroa.6.0176
   %cmp116 = icmp eq i8 %buf.sroa.10.1, %buf.sroa.10.0177
@@ -2482,9 +2477,9 @@ if.else:                                          ; preds = %if.then65
   br i1 %cmp.i80, label %_ZN18OpenImageIO_v2_6_09TGAOutput9flush_rlpEPhi.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.else
-  %43 = trunc i32 %rlcount.0180 to i8
-  %44 = add i8 %43, 127
-  %conv.i81 = or i8 %44, -128
+  %46 = trunc i32 %rlcount.0180 to i8
+  %47 = add i8 %46, 127
+  %conv.i81 = or i8 %47, -128
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %i.addr.i.i)
   store i8 %conv.i81, ptr %i.addr.i.i, align 1
   %call.i.i = call noundef zeroext i1 @_ZN18OpenImageIO_v2_6_011ImageOutput7iowriteEPKvmm(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull %i.addr.i.i, i64 noundef 1, i64 noundef 1)
@@ -2492,15 +2487,15 @@ if.end.i:                                         ; preds = %if.else
   br i1 %call.i.i, label %lor.lhs.false.i, label %_ZN18OpenImageIO_v2_6_09TGAOutput9flush_rlpEPhi.exit
 
 lor.lhs.false.i:                                  ; preds = %if.end.i
-  %45 = load i32, ptr %nchannels28, align 4
-  %conv2.i = sext i32 %45 to i64
+  %48 = load i32, ptr %nchannels28, align 4
+  %conv2.i = sext i32 %48 to i64
   %call.i2.i = call noundef zeroext i1 @_ZN18OpenImageIO_v2_6_011ImageOutput7iowriteEPKvmm(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull %buf2, i64 noundef %conv2.i, i64 noundef 1)
   br label %_ZN18OpenImageIO_v2_6_09TGAOutput9flush_rlpEPhi.exit
 
 _ZN18OpenImageIO_v2_6_09TGAOutput9flush_rlpEPhi.exit: ; preds = %if.else, %if.end.i, %lor.lhs.false.i
   %inc91 = add nsw i32 %rawcount.0181, 1
-  %46 = call i32 @llvm.smax.i32(i32 %rlcount.0180, i32 128)
-  %spec.store.select = add nsw i32 %46, -128
+  %49 = call i32 @llvm.smax.i32(i32 %rlcount.0180, i32 128)
+  %spec.store.select = add nsw i32 %49, -128
   br label %for.inc
 
 if.else97:                                        ; preds = %if.end63
@@ -2519,9 +2514,9 @@ if.else129:                                       ; preds = %if.else97
 
 if.then133:                                       ; preds = %if.else129
   %sub134 = add nsw i32 %add131, -128
-  %47 = trunc i64 %indvars.iv to i32
-  %48 = add i32 %47, -127
-  call void @_ZN18OpenImageIO_v2_6_09TGAOutput10flush_rawpERPhii(ptr noundef nonnull align 8 dereferenceable(296) %this, ptr noundef nonnull align 8 dereferenceable(8) %bdata, i32 noundef 128, i32 noundef %48)
+  %50 = trunc i64 %indvars.iv to i32
+  %51 = add i32 %50, -127
+  call void @_ZN18OpenImageIO_v2_6_09TGAOutput10flush_rawpERPhii(ptr noundef nonnull align 8 dereferenceable(296) %this, ptr noundef nonnull align 8 dereferenceable(8) %bdata, i32 noundef 128, i32 noundef %51)
   br label %for.inc
 
 if.end138:                                        ; preds = %if.else97
@@ -2530,16 +2525,16 @@ if.end138:                                        ; preds = %if.else97
   %dec = sext i1 %cmp124 to i32
   %spec.select72 = add nsw i32 %rawcount.0181, %dec
   %inc128 = add nsw i32 %spec.select, 1
-  %49 = add i32 %29, 1
-  %50 = icmp ult i32 %49, 3
-  %add141 = select i1 %50, i32 %49, i32 1
+  %52 = add i32 %29, 1
+  %53 = icmp ult i32 %52, 3
+  %add141 = select i1 %53, i32 %52, i32 1
   %cmp142.not = icmp slt i32 %spec.select, %add141
   br i1 %cmp142.not, label %for.inc, label %if.then143
 
 if.then143:                                       ; preds = %if.end138
-  %51 = add nuw i32 %spec.select, %spec.select72
-  %52 = trunc i64 %indvars.iv to i32
-  %add146 = sub i32 %52, %51
+  %54 = add nuw i32 %spec.select, %spec.select72
+  %55 = trunc i64 %indvars.iv to i32
+  %add146 = sub i32 %55, %54
   call void @_ZN18OpenImageIO_v2_6_09TGAOutput10flush_rawpERPhii(ptr noundef nonnull align 8 dereferenceable(296) %this, ptr noundef nonnull align 8 dereferenceable(8) %bdata, i32 noundef %spec.select72, i32 noundef %add146)
   br label %for.inc
 
@@ -2548,24 +2543,24 @@ for.inc:                                          ; preds = %if.else129, %if.the
   %rlcount.3 = phi i32 [ %inc, %if.then89 ], [ %spec.store.select, %_ZN18OpenImageIO_v2_6_09TGAOutput9flush_rlpEPhi.exit ], [ %inc128, %if.then143 ], [ %inc128, %if.end138 ], [ 0, %sw.epilog ], [ 0, %if.then133 ], [ 0, %if.else129 ]
   %rawcount.3 = phi i32 [ %rawcount.0181, %if.then89 ], [ %inc91, %_ZN18OpenImageIO_v2_6_09TGAOutput9flush_rlpEPhi.exit ], [ 0, %if.then143 ], [ %spec.select72, %if.end138 ], [ 1, %sw.epilog ], [ %sub134, %if.then133 ], [ %add131, %if.else129 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %53 = load i32, ptr %width24, align 4
-  %54 = sext i32 %53 to i64
-  %cmp25 = icmp slt i64 %indvars.iv.next, %54
+  %56 = load i32, ptr %width24, align 4
+  %57 = sext i32 %56 to i64
+  %cmp25 = icmp slt i64 %indvars.iv.next, %57
   br i1 %cmp25, label %for.body, label %for.end, !llvm.loop !12
 
 for.end:                                          ; preds = %for.inc
-  %55 = and i8 %rlp.1, 1
-  %56 = icmp eq i8 %55, 0
-  br i1 %56, label %if.else153, label %if.then151
+  %58 = and i8 %rlp.1, 1
+  %59 = icmp eq i8 %58, 0
+  br i1 %59, label %if.else153, label %if.then151
 
 if.then151:                                       ; preds = %for.end
   %cmp.i83 = icmp slt i32 %rlcount.3, 1
   br i1 %cmp.i83, label %if.end210, label %if.end.i84
 
 if.end.i84:                                       ; preds = %if.then151
-  %57 = trunc i32 %rlcount.3 to i8
-  %58 = add i8 %57, 127
-  %conv.i85 = or i8 %58, -128
+  %60 = trunc i32 %rlcount.3 to i8
+  %61 = add i8 %60, 127
+  %conv.i85 = or i8 %61, -128
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %i.addr.i.i82)
   store i8 %conv.i85, ptr %i.addr.i.i82, align 1
   %call.i.i86 = call noundef zeroext i1 @_ZN18OpenImageIO_v2_6_011ImageOutput7iowriteEPKvmm(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull %i.addr.i.i82, i64 noundef 1, i64 noundef 1)
@@ -2574,41 +2569,41 @@ if.end.i84:                                       ; preds = %if.then151
 
 lor.lhs.false.i87:                                ; preds = %if.end.i84
   %nchannels.i88 = getelementptr inbounds i8, ptr %this, i64 68
-  %59 = load i32, ptr %nchannels.i88, align 4
-  %conv2.i89 = sext i32 %59 to i64
+  %62 = load i32, ptr %nchannels.i88, align 4
+  %conv2.i89 = sext i32 %62 to i64
   %call.i2.i90 = call noundef zeroext i1 @_ZN18OpenImageIO_v2_6_011ImageOutput7iowriteEPKvmm(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull %buf2, i64 noundef %conv2.i89, i64 noundef 1)
   br label %if.end210
 
 if.else153:                                       ; preds = %if.then22, %for.end
-  %.lcssa206 = phi i32 [ %53, %for.end ], [ %28, %if.then22 ]
-  %rawcount.0.lcssa205 = phi i32 [ %rawcount.3, %for.end ], [ 0, %if.then22 ]
-  %rlcount.0.lcssa204 = phi i32 [ %rlcount.3, %for.end ], [ 0, %if.then22 ]
-  %add154 = add nsw i32 %rawcount.0.lcssa205, %rlcount.0.lcssa204
-  %sub157 = sub nsw i32 %.lcssa206, %add154
+  %.lcssa210 = phi i32 [ %56, %for.end ], [ %28, %if.then22 ]
+  %rawcount.0.lcssa209 = phi i32 [ %rawcount.3, %for.end ], [ 0, %if.then22 ]
+  %rlcount.0.lcssa208 = phi i32 [ %rlcount.3, %for.end ], [ 0, %if.then22 ]
+  %add154 = add nsw i32 %rawcount.0.lcssa209, %rlcount.0.lcssa208
+  %sub157 = sub nsw i32 %.lcssa210, %add154
   call void @_ZN18OpenImageIO_v2_6_09TGAOutput10flush_rawpERPhii(ptr noundef nonnull align 8 dereferenceable(296) %this, ptr noundef nonnull align 8 dereferenceable(8) %bdata, i32 noundef %add154, i32 noundef %sub157)
   br label %if.end210
 
 if.else159:                                       ; preds = %if.end20
   %nchannels161 = getelementptr inbounds i8, ptr %this, i64 68
-  %60 = load i32, ptr %nchannels161, align 4
+  %63 = load i32, ptr %nchannels161, align 4
   %width163 = getelementptr inbounds i8, ptr %this, i64 20
-  %61 = load i32, ptr %width163, align 4
-  %conv164 = sext i32 %61 to i64
+  %64 = load i32, ptr %width163, align 4
+  %conv164 = sext i32 %64 to i64
   %m_idlen = getelementptr inbounds i8, ptr %this, i64 248
-  %62 = load i32, ptr %m_idlen, align 8
-  %add165 = add nsw i32 %62, 18
+  %65 = load i32, ptr %m_idlen, align 8
+  %add165 = add nsw i32 %65, 18
   %conv166 = sext i32 %add165 to i64
   %height = getelementptr inbounds i8, ptr %this, i64 24
-  %63 = load i32, ptr %height, align 8
-  %64 = xor i32 %sub, -1
-  %sub169 = add i32 %63, %64
+  %66 = load i32, ptr %height, align 8
+  %67 = xor i32 %sub, -1
+  %sub169 = add i32 %66, %67
   %conv170 = sext i32 %sub169 to i64
-  %conv172 = sext i32 %60 to i64
+  %conv172 = sext i32 %63 to i64
   %mul171 = mul nsw i64 %conv164, %conv172
   %mul173 = mul i64 %mul171, %conv170
   %add174 = add nsw i64 %mul173, %conv166
   %call175 = call noundef zeroext i1 @_ZN18OpenImageIO_v2_6_011ImageOutput6ioseekEli(ptr noundef nonnull align 8 dereferenceable(184) %this, i64 noundef %add174, i32 noundef 0)
-  %cmp176 = icmp slt i32 %60, 3
+  %cmp176 = icmp slt i32 %63, 3
   br i1 %cmp176, label %if.then177, label %if.else182
 
 if.then177:                                       ; preds = %if.else159
@@ -2616,7 +2611,7 @@ if.then177:                                       ; preds = %if.else159
   br i1 %call.i, label %if.end210, label %return
 
 if.else182:                                       ; preds = %if.else159
-  %cmp.i.i.i99.not = icmp eq i32 %61, 0
+  %cmp.i.i.i99.not = icmp eq i32 %64, 0
   br i1 %cmp.i.i.i99.not, label %_ZNSt6vectorIhSaIhEE6assignIPhvEEvT_S4_.exit149, label %if.then.i.i.i135
 
 if.then.i.i.i135:                                 ; preds = %if.else182
@@ -2634,26 +2629,26 @@ _ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.i.i.i.i137: ; preds = %if.then.i
 
 _ZNSt6vectorIhSaIhEE6assignIPhvEEvT_S4_.exit149:  ; preds = %if.else182, %_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.i.i.i.i137
   %buf183.sroa.0.0 = phi ptr [ %call5.i.i.i.i.i.i.i138148, %_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.i.i.i.i137 ], [ null, %if.else182 ]
-  %65 = load i32, ptr %width163, align 4
-  %cmp191187 = icmp sgt i32 %65, 0
+  %68 = load i32, ptr %width163, align 4
+  %cmp191187 = icmp sgt i32 %68, 0
   br i1 %cmp191187, label %for.body192.preheader, label %for.end202
 
 for.body192.preheader:                            ; preds = %_ZNSt6vectorIhSaIhEE6assignIPhvEEvT_S4_.exit149
-  %wide.trip.count = zext nneg i32 %65 to i64
+  %wide.trip.count = zext nneg i32 %68 to i64
   br label %for.body192
 
 for.body192:                                      ; preds = %for.body192.preheader, %for.body192
-  %indvars.iv192 = phi i64 [ 0, %for.body192.preheader ], [ %indvars.iv.next193, %for.body192 ]
-  %66 = mul nsw i64 %indvars.iv192, %conv172
-  %add.ptr.i = getelementptr inbounds i8, ptr %buf183.sroa.0.0, i64 %66
-  %67 = add nuw nsw i64 %66, 2
-  %add.ptr.i150 = getelementptr inbounds i8, ptr %buf183.sroa.0.0, i64 %67
-  %68 = load i8, ptr %add.ptr.i, align 1
-  %69 = load i8, ptr %add.ptr.i150, align 1
-  store i8 %69, ptr %add.ptr.i, align 1
-  store i8 %68, ptr %add.ptr.i150, align 1
-  %indvars.iv.next193 = add nuw nsw i64 %indvars.iv192, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next193, %wide.trip.count
+  %indvars.iv196 = phi i64 [ 0, %for.body192.preheader ], [ %indvars.iv.next197, %for.body192 ]
+  %69 = mul nsw i64 %indvars.iv196, %conv172
+  %add.ptr.i = getelementptr inbounds i8, ptr %buf183.sroa.0.0, i64 %69
+  %70 = add nuw nsw i64 %69, 2
+  %add.ptr.i150 = getelementptr inbounds i8, ptr %buf183.sroa.0.0, i64 %70
+  %71 = load i8, ptr %add.ptr.i, align 1
+  %72 = load i8, ptr %add.ptr.i150, align 1
+  store i8 %72, ptr %add.ptr.i, align 1
+  store i8 %71, ptr %add.ptr.i150, align 1
+  %indvars.iv.next197 = add nuw nsw i64 %indvars.iv196, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next197, %wide.trip.count
   br i1 %exitcond.not, label %for.end202, label %for.body192, !llvm.loop !13
 
 lpad:                                             ; preds = %for.end202

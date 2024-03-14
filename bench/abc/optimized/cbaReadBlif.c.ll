@@ -4455,10 +4455,10 @@ Cba_NtkSetMap.exit:                               ; preds = %.Vec_IntGrow.exit10
 
 .critedge4:                                       ; preds = %Vec_IntFillExtra.exit376, %Cba_NtkSetMap.exit
   %indvars.iv.next559 = add nuw nsw i64 %indvars.iv558, 2
-  %450 = or disjoint i64 %indvars.iv.next559, 1
   %Prs_BoxSignals.V.val = load i32, ptr @Prs_BoxSignals.V.1, align 8
-  %451 = sext i32 %Prs_BoxSignals.V.val to i64
-  %452 = icmp slt i64 %450, %451
+  %450 = trunc i64 %indvars.iv.next559 to i32
+  %451 = or disjoint i32 %450, 1
+  %452 = icmp slt i32 %451, %Prs_BoxSignals.V.val
   br i1 %452, label %.lr.ph533, label %.critedge6, !llvm.loop !25
 
 .critedge6.sink.split:                            ; preds = %89, %72

@@ -1343,129 +1343,128 @@ define void @generateNonoverlapConstraints(ptr nocapture noundef %0, float nound
 
 .lr.ph391:                                        ; preds = %64
   %78 = getelementptr inbounds i8, ptr %0, i64 24
-  br label %79
+  %79 = sext i32 %.0357 to i64
+  br label %80
 
-79:                                               ; preds = %.lr.ph391, %163
+80:                                               ; preds = %.lr.ph391, %163
   %indvars.iv438 = phi i64 [ 0, %.lr.ph391 ], [ %indvars.iv.next439, %163 ]
-  %80 = phi ptr [ %74, %.lr.ph391 ], [ %166, %163 ]
+  %81 = phi ptr [ %74, %.lr.ph391 ], [ %166, %163 ]
   %.0355388 = phi i32 [ 0, %.lr.ph391 ], [ %165, %163 ]
-  %81 = getelementptr inbounds i8, ptr %80, i64 8
-  %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds i32, ptr %82, i64 %indvars.iv438
-  %84 = load i32, ptr %83, align 4
-  %85 = add nsw i32 %84, 2
-  %86 = sext i32 %85 to i64
-  %87 = tail call fastcc ptr @gv_calloc(i64 noundef %86, i64 noundef 8)
-  %88 = tail call fastcc ptr @gv_calloc(i64 noundef %86, i64 noundef 32)
-  %89 = icmp sgt i32 %84, 0
+  %82 = getelementptr inbounds i8, ptr %81, i64 8
+  %83 = load ptr, ptr %82, align 8
+  %84 = getelementptr inbounds i32, ptr %83, i64 %indvars.iv438
+  %85 = load i32, ptr %84, align 4
+  %86 = add nsw i32 %85, 2
+  %87 = sext i32 %86 to i64
+  %88 = tail call fastcc ptr @gv_calloc(i64 noundef %87, i64 noundef 8)
+  %89 = tail call fastcc ptr @gv_calloc(i64 noundef %87, i64 noundef 32)
+  %90 = icmp sgt i32 %85, 0
   %.pre = load ptr, ptr %15, align 8
-  br i1 %89, label %.lr.ph383, label %._crit_edge384
+  br i1 %90, label %.lr.ph383, label %._crit_edge384
 
-.lr.ph383:                                        ; preds = %79
-  %90 = getelementptr inbounds i8, ptr %.pre, i64 16
-  %91 = load ptr, ptr %78, align 8
-  %wide.trip.count436 = zext nneg i32 %84 to i64
-  br label %92
+.lr.ph383:                                        ; preds = %80
+  %91 = getelementptr inbounds i8, ptr %.pre, i64 16
+  %92 = load ptr, ptr %78, align 8
+  %wide.trip.count436 = zext nneg i32 %85 to i64
+  br label %93
 
-92:                                               ; preds = %.lr.ph383, %92
-  %indvars.iv433 = phi i64 [ 0, %.lr.ph383 ], [ %indvars.iv.next434, %92 ]
-  %93 = phi <2 x double> [ <double 0x7FEFFFFFFFFFFFFF, double 0x7FEFFFFFFFFFFFFF>, %.lr.ph383 ], [ %110, %92 ]
-  %94 = phi <2 x double> [ <double 0xFFEFFFFFFFFFFFFF, double 0xFFEFFFFFFFFFFFFF>, %.lr.ph383 ], [ %113, %92 ]
-  %95 = load ptr, ptr %90, align 8
-  %96 = getelementptr inbounds ptr, ptr %95, i64 %indvars.iv438
-  %97 = load ptr, ptr %96, align 8
-  %98 = getelementptr inbounds i32, ptr %97, i64 %indvars.iv433
-  %99 = load i32, ptr %98, align 4
-  %100 = sext i32 %99 to i64
-  %101 = getelementptr inbounds ptr, ptr %91, i64 %100
-  %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds ptr, ptr %87, i64 %indvars.iv433
-  store ptr %102, ptr %103, align 8
-  %104 = getelementptr inbounds %struct.boxf, ptr %14, i64 %100
-  %105 = getelementptr inbounds %struct.boxf, ptr %88, i64 %indvars.iv433
-  %106 = getelementptr inbounds i8, ptr %104, i64 16
+93:                                               ; preds = %.lr.ph383, %93
+  %indvars.iv433 = phi i64 [ 0, %.lr.ph383 ], [ %indvars.iv.next434, %93 ]
+  %94 = phi <2 x double> [ <double 0x7FEFFFFFFFFFFFFF, double 0x7FEFFFFFFFFFFFFF>, %.lr.ph383 ], [ %111, %93 ]
+  %95 = phi <2 x double> [ <double 0xFFEFFFFFFFFFFFFF, double 0xFFEFFFFFFFFFFFFF>, %.lr.ph383 ], [ %114, %93 ]
+  %96 = load ptr, ptr %91, align 8
+  %97 = getelementptr inbounds ptr, ptr %96, i64 %indvars.iv438
+  %98 = load ptr, ptr %97, align 8
+  %99 = getelementptr inbounds i32, ptr %98, i64 %indvars.iv433
+  %100 = load i32, ptr %99, align 4
+  %101 = sext i32 %100 to i64
+  %102 = getelementptr inbounds ptr, ptr %92, i64 %101
+  %103 = load ptr, ptr %102, align 8
+  %104 = getelementptr inbounds ptr, ptr %88, i64 %indvars.iv433
+  store ptr %103, ptr %104, align 8
+  %105 = getelementptr inbounds %struct.boxf, ptr %14, i64 %101
+  %106 = getelementptr inbounds %struct.boxf, ptr %89, i64 %indvars.iv433
   %107 = getelementptr inbounds i8, ptr %105, i64 16
-  %108 = load <2 x double>, ptr %104, align 8
-  store <2 x double> %108, ptr %105, align 8
-  %109 = fcmp olt <2 x double> %93, %108
-  %110 = select <2 x i1> %109, <2 x double> %93, <2 x double> %108
-  %111 = load <2 x double>, ptr %106, align 8
-  store <2 x double> %111, ptr %107, align 8
-  %112 = fcmp ogt <2 x double> %94, %111
-  %113 = select <2 x i1> %112, <2 x double> %94, <2 x double> %111
+  %108 = getelementptr inbounds i8, ptr %106, i64 16
+  %109 = load <2 x double>, ptr %105, align 8
+  store <2 x double> %109, ptr %106, align 8
+  %110 = fcmp olt <2 x double> %94, %109
+  %111 = select <2 x i1> %110, <2 x double> %94, <2 x double> %109
+  %112 = load <2 x double>, ptr %107, align 8
+  store <2 x double> %112, ptr %108, align 8
+  %113 = fcmp ogt <2 x double> %95, %112
+  %114 = select <2 x i1> %113, <2 x double> %95, <2 x double> %112
   %indvars.iv.next434 = add nuw nsw i64 %indvars.iv433, 1
   %exitcond437.not = icmp eq i64 %indvars.iv.next434, %wide.trip.count436
-  br i1 %exitcond437.not, label %._crit_edge384, label %92
+  br i1 %exitcond437.not, label %._crit_edge384, label %93
 
-._crit_edge384:                                   ; preds = %92, %79
-  %114 = phi <2 x double> [ <double 0x7FEFFFFFFFFFFFFF, double 0x7FEFFFFFFFFFFFFF>, %79 ], [ %110, %92 ]
-  %115 = phi <2 x double> [ <double 0xFFEFFFFFFFFFFFFF, double 0xFFEFFFFFFFFFFFFF>, %79 ], [ %113, %92 ]
-  %116 = getelementptr inbounds i8, ptr %.pre, i64 40
-  %117 = load ptr, ptr %116, align 8
-  %118 = getelementptr inbounds %struct.boxf, ptr %117, i64 %indvars.iv438
-  %119 = extractelement <2 x double> %114, i64 0
-  store double %119, ptr %118, align 8
-  %120 = load ptr, ptr %15, align 8
-  %121 = getelementptr inbounds i8, ptr %120, i64 40
-  %122 = load ptr, ptr %121, align 8
-  %123 = getelementptr inbounds %struct.boxf, ptr %122, i64 %indvars.iv438, i32 0, i32 1
-  %124 = extractelement <2 x double> %114, i64 1
-  store double %124, ptr %123, align 8
-  %125 = load ptr, ptr %15, align 8
-  %126 = getelementptr inbounds i8, ptr %125, i64 40
-  %127 = load ptr, ptr %126, align 8
-  %128 = getelementptr inbounds %struct.boxf, ptr %127, i64 %indvars.iv438, i32 1
-  %129 = extractelement <2 x double> %115, i64 0
-  store double %129, ptr %128, align 8
-  %130 = load ptr, ptr %15, align 8
-  %131 = getelementptr inbounds i8, ptr %130, i64 40
-  %132 = load ptr, ptr %131, align 8
-  %133 = getelementptr inbounds %struct.boxf, ptr %132, i64 %indvars.iv438, i32 1, i32 1
-  %134 = extractelement <2 x double> %115, i64 1
-  store double %134, ptr %133, align 8
-  %135 = load ptr, ptr %78, align 8
-  %indvars.iv438.tr = trunc i64 %indvars.iv438 to i32
-  %136 = shl i32 %indvars.iv438.tr, 1
-  %137 = add nsw i32 %136, %.0357
-  %138 = sext i32 %137 to i64
-  %139 = getelementptr inbounds ptr, ptr %135, i64 %138
+._crit_edge384:                                   ; preds = %93, %80
+  %115 = phi <2 x double> [ <double 0x7FEFFFFFFFFFFFFF, double 0x7FEFFFFFFFFFFFFF>, %80 ], [ %111, %93 ]
+  %116 = phi <2 x double> [ <double 0xFFEFFFFFFFFFFFFF, double 0xFFEFFFFFFFFFFFFF>, %80 ], [ %114, %93 ]
+  %117 = getelementptr inbounds i8, ptr %.pre, i64 40
+  %118 = load ptr, ptr %117, align 8
+  %119 = getelementptr inbounds %struct.boxf, ptr %118, i64 %indvars.iv438
+  %120 = extractelement <2 x double> %115, i64 0
+  store double %120, ptr %119, align 8
+  %121 = load ptr, ptr %15, align 8
+  %122 = getelementptr inbounds i8, ptr %121, i64 40
+  %123 = load ptr, ptr %122, align 8
+  %124 = getelementptr inbounds %struct.boxf, ptr %123, i64 %indvars.iv438, i32 0, i32 1
+  %125 = extractelement <2 x double> %115, i64 1
+  store double %125, ptr %124, align 8
+  %126 = load ptr, ptr %15, align 8
+  %127 = getelementptr inbounds i8, ptr %126, i64 40
+  %128 = load ptr, ptr %127, align 8
+  %129 = getelementptr inbounds %struct.boxf, ptr %128, i64 %indvars.iv438, i32 1
+  %130 = extractelement <2 x double> %116, i64 0
+  store double %130, ptr %129, align 8
+  %131 = load ptr, ptr %15, align 8
+  %132 = getelementptr inbounds i8, ptr %131, i64 40
+  %133 = load ptr, ptr %132, align 8
+  %134 = getelementptr inbounds %struct.boxf, ptr %133, i64 %indvars.iv438, i32 1, i32 1
+  %135 = extractelement <2 x double> %116, i64 1
+  store double %135, ptr %134, align 8
+  %136 = load ptr, ptr %78, align 8
+  %137 = shl nuw nsw i64 %indvars.iv438, 1
+  %138 = getelementptr ptr, ptr %136, i64 %137
+  %139 = getelementptr ptr, ptr %138, i64 %79
   %140 = load ptr, ptr %139, align 8
-  %141 = sext i32 %84 to i64
-  %142 = getelementptr inbounds ptr, ptr %87, i64 %141
+  %141 = sext i32 %85 to i64
+  %142 = getelementptr inbounds ptr, ptr %88, i64 %141
   store ptr %140, ptr %142, align 8
   %143 = getelementptr i8, ptr %139, i64 8
   %144 = load ptr, ptr %143, align 8
-  %145 = add nsw i32 %84, 1
+  %145 = add nsw i32 %85, 1
   %146 = sext i32 %145 to i64
-  %147 = getelementptr inbounds ptr, ptr %87, i64 %146
+  %147 = getelementptr inbounds ptr, ptr %88, i64 %146
   store ptr %144, ptr %147, align 8
-  %148 = getelementptr inbounds %struct.boxf, ptr %88, i64 %141
-  store <2 x double> %114, ptr %148, align 8
+  %148 = getelementptr inbounds %struct.boxf, ptr %89, i64 %141
+  store <2 x double> %115, ptr %148, align 8
   %149 = getelementptr inbounds i8, ptr %148, i64 16
-  store <2 x double> %115, ptr %149, align 8
-  %150 = getelementptr inbounds %struct.boxf, ptr %88, i64 %146
-  store <2 x double> %114, ptr %150, align 8
+  store <2 x double> %116, ptr %149, align 8
+  %150 = getelementptr inbounds %struct.boxf, ptr %89, i64 %146
+  store <2 x double> %115, ptr %150, align 8
   %151 = getelementptr inbounds i8, ptr %150, i64 16
-  store <2 x double> %115, ptr %151, align 8
+  store <2 x double> %116, ptr %151, align 8
   %152 = getelementptr inbounds ptr, ptr %67, i64 %indvars.iv438
   br i1 %22, label %153, label %157
 
 153:                                              ; preds = %._crit_edge384
-  %154 = fadd double %119, 1.000000e-04
+  %154 = fadd double %120, 1.000000e-04
   store double %154, ptr %149, align 8
-  %155 = fadd double %129, -1.000000e-04
+  %155 = fadd double %130, -1.000000e-04
   store double %155, ptr %150, align 8
-  %156 = tail call i32 @genXConstraints(i32 noundef %85, ptr noundef nonnull %88, ptr noundef nonnull %87, ptr noundef %152, i1 noundef zeroext %4) #12
+  %156 = tail call i32 @genXConstraints(i32 noundef %86, ptr noundef nonnull %89, ptr noundef nonnull %88, ptr noundef %152, i1 noundef zeroext %4) #12
   br label %163
 
 157:                                              ; preds = %._crit_edge384
   %158 = getelementptr inbounds i8, ptr %150, i64 8
   %159 = getelementptr inbounds i8, ptr %148, i64 24
-  %160 = fadd double %124, 1.000000e-04
+  %160 = fadd double %125, 1.000000e-04
   store double %160, ptr %159, align 8
-  %161 = fadd double %134, -1.000000e-04
+  %161 = fadd double %135, -1.000000e-04
   store double %161, ptr %158, align 8
-  %162 = tail call i32 @genYConstraints(i32 noundef %85, ptr noundef nonnull %88, ptr noundef nonnull %87, ptr noundef %152) #12
+  %162 = tail call i32 @genYConstraints(i32 noundef %86, ptr noundef nonnull %89, ptr noundef nonnull %88, ptr noundef %152) #12
   br label %163
 
 163:                                              ; preds = %157, %153
@@ -1473,15 +1472,15 @@ define void @generateNonoverlapConstraints(ptr nocapture noundef %0, float nound
   %164 = getelementptr inbounds i32, ptr %73, i64 %indvars.iv438
   store i32 %.sink, ptr %164, align 4
   %165 = add nsw i32 %.sink, %.0355388
-  tail call void @free(ptr noundef nonnull %87) #12
   tail call void @free(ptr noundef nonnull %88) #12
+  tail call void @free(ptr noundef nonnull %89) #12
   %indvars.iv.next439 = add nuw nsw i64 %indvars.iv438, 1
   %166 = load ptr, ptr %15, align 8
   %167 = getelementptr inbounds i8, ptr %166, i64 4
   %168 = load i32, ptr %167, align 4
   %169 = sext i32 %168 to i64
   %170 = icmp slt i64 %indvars.iv.next439, %169
-  br i1 %170, label %79, label %._crit_edge392
+  br i1 %170, label %80, label %._crit_edge392
 
 ._crit_edge392:                                   ; preds = %163, %64
   %.0355.lcssa = phi i32 [ 0, %64 ], [ %165, %163 ]

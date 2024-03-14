@@ -34978,25 +34978,25 @@ JS_FreeValue.exit3738:                            ; preds = %.preheader4966, %97
 
 .lr.ph5558:                                       ; preds = %993, %997
   %indvars.iv6114 = phi i64 [ %indvars.iv.next6115, %997 ], [ 0, %993 ]
-  %998 = trunc i64 %indvars.iv6114 to i32
-  %999 = or disjoint i32 %998, -2147483648
-  %1000 = getelementptr %struct.JSValue, ptr %996, i64 %indvars.iv6114
+  %998 = getelementptr %struct.JSValue, ptr %996, i64 %indvars.iv6114
+  %999 = load i64, ptr %998, align 8
+  %1000 = getelementptr inbounds i8, ptr %998, i64 8
   %1001 = load i64, ptr %1000, align 8
-  %1002 = getelementptr inbounds i8, ptr %1000, i64 8
-  %1003 = load i64, ptr %1002, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %59)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %60)
   store i32 0, ptr %59, align 8
   store i64 3, ptr %294, align 8
   store i32 0, ptr %60, align 8
   store i64 3, ptr %295, align 8
-  %1004 = call i32 @JS_DefineProperty(ptr noundef %.0, i64 %990, i64 %991, i32 noundef %999, i64 %1001, i64 %1003, ptr noundef nonnull byval(%struct.JSValue) align 8 %59, ptr noundef nonnull byval(%struct.JSValue) align 8 %60, i32 noundef 26375)
-  %1005 = trunc i64 %1003 to i32
+  %1002 = trunc i64 %indvars.iv6114 to i32
+  %1003 = or i32 %1002, -2147483648
+  %1004 = call i32 @JS_DefineProperty(ptr noundef %.0, i64 %990, i64 %991, i32 noundef %1003, i64 %999, i64 %1001, ptr noundef nonnull byval(%struct.JSValue) align 8 %59, ptr noundef nonnull byval(%struct.JSValue) align 8 %60, i32 noundef 26375)
+  %1005 = trunc i64 %1001 to i32
   %1006 = icmp ugt i32 %1005, -12
   br i1 %1006, label %1007, label %JS_DefinePropertyValue.exit
 
 1007:                                             ; preds = %.lr.ph5558
-  %1008 = inttoptr i64 %1001 to ptr
+  %1008 = inttoptr i64 %999 to ptr
   %1009 = load i32, ptr %1008, align 4
   %1010 = add i32 %1009, -1
   store i32 %1010, ptr %1008, align 4
@@ -35005,14 +35005,14 @@ JS_FreeValue.exit3738:                            ; preds = %.preheader4966, %97
 
 1012:                                             ; preds = %1007
   %1013 = load ptr, ptr %239, align 8
-  call void @__JS_FreeValueRT(ptr noundef %1013, i64 %1001, i64 %1003)
+  call void @__JS_FreeValueRT(ptr noundef %1013, i64 %999, i64 %1001)
   br label %JS_DefinePropertyValue.exit
 
 JS_DefinePropertyValue.exit:                      ; preds = %.lr.ph5558, %1007, %1012
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %59)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %60)
-  store i32 0, ptr %1000, align 8
-  store i64 3, ptr %1002, align 8
+  store i32 0, ptr %998, align 8
+  store i64 3, ptr %1000, align 8
   %1014 = icmp slt i32 %1004, 0
   br i1 %1014, label %1015, label %997
 
@@ -115523,225 +115523,226 @@ js_get_length32.exit:                             ; preds = %46
 
 61:                                               ; preds = %.lr.ph, %60
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %60 ]
-  br i1 %.not100147202, label %77, label %62
+  br i1 %.not100147202, label %78, label %62
 
 62:                                               ; preds = %61
   call void @llvm.lifetime.start.p0(i64 11, ptr nonnull %11)
   %63 = trunc i64 %indvars.iv to i32
   %64 = icmp sgt i32 %63, -1
-  br i1 %64, label %JS_NewAtomUInt32.exit.thread152, label %66
+  br i1 %64, label %JS_NewAtomUInt32.exit.thread152, label %67
 
 JS_NewAtomUInt32.exit.thread152:                  ; preds = %62
-  %65 = or disjoint i32 %63, -2147483648
   call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %11)
+  %65 = trunc i64 %indvars.iv to i32
+  %66 = or disjoint i32 %65, -2147483648
   br label %JS_DupAtom.exit
 
-66:                                               ; preds = %62
-  %67 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 11, ptr noundef nonnull @.str, i32 noundef %63) #42
-  %68 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #43
-  %69 = call { i64, i64 } @JS_NewStringLen(ptr noundef %0, ptr noundef nonnull %11, i64 noundef %68)
-  %70 = extractvalue { i64, i64 } %69, 1
-  %71 = and i64 %70, 4294967295
-  %.not.i114 = icmp eq i64 %71, 6
+67:                                               ; preds = %62
+  %68 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 11, ptr noundef nonnull @.str, i32 noundef %63) #42
+  %69 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #43
+  %70 = call { i64, i64 } @JS_NewStringLen(ptr noundef %0, ptr noundef nonnull %11, i64 noundef %69)
+  %71 = extractvalue { i64, i64 } %70, 1
+  %72 = and i64 %71, 4294967295
+  %.not.i114 = icmp eq i64 %72, 6
   br i1 %.not.i114, label %JS_NewAtomUInt32.exit.thread, label %JS_NewAtomUInt32.exit
 
-JS_NewAtomUInt32.exit.thread:                     ; preds = %66
+JS_NewAtomUInt32.exit.thread:                     ; preds = %67
   call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %11)
   br label %JS_IsArray.exit
 
-JS_NewAtomUInt32.exit:                            ; preds = %66
-  %72 = extractvalue { i64, i64 } %69, 0
-  %73 = inttoptr i64 %72 to ptr
-  %74 = load ptr, ptr %15, align 8
-  %75 = call fastcc i32 @__JS_NewAtom(ptr noundef %74, ptr noundef %73, i32 noundef 1)
+JS_NewAtomUInt32.exit:                            ; preds = %67
+  %73 = extractvalue { i64, i64 } %70, 0
+  %74 = inttoptr i64 %73 to ptr
+  %75 = load ptr, ptr %15, align 8
+  %76 = call fastcc i32 @__JS_NewAtom(ptr noundef %75, ptr noundef %74, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %11)
-  %76 = icmp eq i32 %75, 0
-  br i1 %76, label %JS_IsArray.exit, label %JS_DupAtom.exit
+  %77 = icmp eq i32 %76, 0
+  br i1 %77, label %JS_IsArray.exit, label %JS_DupAtom.exit
 
-77:                                               ; preds = %61
-  %78 = getelementptr %struct.JSPropertyEnum, ptr %.pre199, i64 %indvars.iv, i32 1
-  %79 = load i32, ptr %78, align 4
-  %80 = icmp sgt i32 %79, 226
-  br i1 %80, label %81, label %JS_DupAtom.exit
+78:                                               ; preds = %61
+  %79 = getelementptr %struct.JSPropertyEnum, ptr %.pre199, i64 %indvars.iv, i32 1
+  %80 = load i32, ptr %79, align 4
+  %81 = icmp sgt i32 %80, 226
+  br i1 %81, label %82, label %JS_DupAtom.exit
 
-81:                                               ; preds = %77
-  %82 = load ptr, ptr %15, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 96
-  %84 = load ptr, ptr %83, align 8
-  %85 = zext nneg i32 %79 to i64
-  %86 = getelementptr ptr, ptr %84, i64 %85
-  %87 = load ptr, ptr %86, align 8
-  %88 = load i32, ptr %87, align 4
-  %89 = add i32 %88, 1
-  store i32 %89, ptr %87, align 4
+82:                                               ; preds = %78
+  %83 = load ptr, ptr %15, align 8
+  %84 = getelementptr inbounds i8, ptr %83, i64 96
+  %85 = load ptr, ptr %84, align 8
+  %86 = zext nneg i32 %80 to i64
+  %87 = getelementptr ptr, ptr %85, i64 %86
+  %88 = load ptr, ptr %87, align 8
+  %89 = load i32, ptr %88, align 4
+  %90 = add i32 %89, 1
+  store i32 %90, ptr %88, align 4
   br label %JS_DupAtom.exit
 
-JS_DupAtom.exit:                                  ; preds = %81, %77, %JS_NewAtomUInt32.exit.thread152, %JS_NewAtomUInt32.exit
-  %.093 = phi i32 [ %75, %JS_NewAtomUInt32.exit ], [ %65, %JS_NewAtomUInt32.exit.thread152 ], [ %79, %77 ], [ %79, %81 ]
-  %90 = call fastcc { i64, i64 } @internalize_json_property(ptr noundef %0, i64 %24, i64 %25, i32 noundef %.093, i64 %4, i64 %5)
-  %91 = extractvalue { i64, i64 } %90, 0
-  %92 = extractvalue { i64, i64 } %90, 1
-  %trunc179 = trunc i64 %92 to i32
-  switch i32 %trunc179, label %110 [
-    i32 6, label %93
-    i32 3, label %94
+JS_DupAtom.exit:                                  ; preds = %82, %78, %JS_NewAtomUInt32.exit.thread152, %JS_NewAtomUInt32.exit
+  %.093 = phi i32 [ %76, %JS_NewAtomUInt32.exit ], [ %66, %JS_NewAtomUInt32.exit.thread152 ], [ %80, %78 ], [ %80, %82 ]
+  %91 = call fastcc { i64, i64 } @internalize_json_property(ptr noundef %0, i64 %24, i64 %25, i32 noundef %.093, i64 %4, i64 %5)
+  %92 = extractvalue { i64, i64 } %91, 0
+  %93 = extractvalue { i64, i64 } %91, 1
+  %trunc179 = trunc i64 %93 to i32
+  switch i32 %trunc179, label %111 [
+    i32 6, label %94
+    i32 3, label %95
   ]
 
-93:                                               ; preds = %JS_DupAtom.exit
+94:                                               ; preds = %JS_DupAtom.exit
   call void @JS_FreeAtom(ptr noundef %0, i32 noundef %.093)
   br label %JS_IsArray.exit
 
-94:                                               ; preds = %JS_DupAtom.exit
-  %95 = call fastcc { i64, i64 } @JS_ToObject(ptr noundef %0, i64 %24, i64 %25) #45
-  %96 = extractvalue { i64, i64 } %95, 0
-  %97 = extractvalue { i64, i64 } %95, 1
-  %98 = and i64 %97, 4294967295
-  %.not.i116 = icmp eq i64 %98, 6
-  %99 = inttoptr i64 %96 to ptr
-  br i1 %.not.i116, label %JS_DeleteProperty.exit, label %100
+95:                                               ; preds = %JS_DupAtom.exit
+  %96 = call fastcc { i64, i64 } @JS_ToObject(ptr noundef %0, i64 %24, i64 %25) #45
+  %97 = extractvalue { i64, i64 } %96, 0
+  %98 = extractvalue { i64, i64 } %96, 1
+  %99 = and i64 %98, 4294967295
+  %.not.i116 = icmp eq i64 %99, 6
+  %100 = inttoptr i64 %97 to ptr
+  br i1 %.not.i116, label %JS_DeleteProperty.exit, label %101
 
-100:                                              ; preds = %94
-  %101 = call fastcc i32 @delete_property(ptr noundef %0, ptr noundef %99, i32 noundef %.093) #45
-  %102 = trunc i64 %97 to i32
-  %103 = icmp ugt i32 %102, -12
-  br i1 %103, label %104, label %JS_DeleteProperty.exit
+101:                                              ; preds = %95
+  %102 = call fastcc i32 @delete_property(ptr noundef %0, ptr noundef %100, i32 noundef %.093) #45
+  %103 = trunc i64 %98 to i32
+  %104 = icmp ugt i32 %103, -12
+  br i1 %104, label %105, label %JS_DeleteProperty.exit
 
-104:                                              ; preds = %100
-  %105 = load i32, ptr %99, align 4
-  %106 = add i32 %105, -1
-  store i32 %106, ptr %99, align 4
-  %107 = icmp slt i32 %106, 1
-  br i1 %107, label %108, label %JS_DeleteProperty.exit
+105:                                              ; preds = %101
+  %106 = load i32, ptr %100, align 4
+  %107 = add i32 %106, -1
+  store i32 %107, ptr %100, align 4
+  %108 = icmp slt i32 %107, 1
+  br i1 %108, label %109, label %JS_DeleteProperty.exit
 
-108:                                              ; preds = %104
-  %109 = load ptr, ptr %15, align 8
-  call void @__JS_FreeValueRT(ptr noundef %109, i64 %96, i64 %97)
+109:                                              ; preds = %105
+  %110 = load ptr, ptr %15, align 8
+  call void @__JS_FreeValueRT(ptr noundef %110, i64 %97, i64 %98)
   br label %JS_DeleteProperty.exit
 
-110:                                              ; preds = %JS_DupAtom.exit
+111:                                              ; preds = %JS_DupAtom.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
   store i32 0, ptr %9, align 8
   store i64 3, ptr %58, align 8
   store i32 0, ptr %10, align 8
   store i64 3, ptr %59, align 8
-  %111 = call i32 @JS_DefineProperty(ptr noundef %0, i64 %24, i64 %25, i32 noundef %.093, i64 %91, i64 %92, ptr noundef nonnull byval(%struct.JSValue) align 8 %9, ptr noundef nonnull byval(%struct.JSValue) align 8 %10, i32 noundef 9991)
-  %112 = icmp ugt i32 %trunc179, -12
-  br i1 %112, label %113, label %JS_DefinePropertyValue.exit
+  %112 = call i32 @JS_DefineProperty(ptr noundef %0, i64 %24, i64 %25, i32 noundef %.093, i64 %92, i64 %93, ptr noundef nonnull byval(%struct.JSValue) align 8 %9, ptr noundef nonnull byval(%struct.JSValue) align 8 %10, i32 noundef 9991)
+  %113 = icmp ugt i32 %trunc179, -12
+  br i1 %113, label %114, label %JS_DefinePropertyValue.exit
 
-113:                                              ; preds = %110
-  %114 = inttoptr i64 %91 to ptr
-  %115 = load i32, ptr %114, align 4
-  %116 = add i32 %115, -1
-  store i32 %116, ptr %114, align 4
-  %117 = icmp slt i32 %116, 1
-  br i1 %117, label %118, label %JS_DefinePropertyValue.exit
+114:                                              ; preds = %111
+  %115 = inttoptr i64 %92 to ptr
+  %116 = load i32, ptr %115, align 4
+  %117 = add i32 %116, -1
+  store i32 %117, ptr %115, align 4
+  %118 = icmp slt i32 %117, 1
+  br i1 %118, label %119, label %JS_DefinePropertyValue.exit
 
-118:                                              ; preds = %113
-  %119 = load ptr, ptr %15, align 8
-  call void @__JS_FreeValueRT(ptr noundef %119, i64 %91, i64 %92)
+119:                                              ; preds = %114
+  %120 = load ptr, ptr %15, align 8
+  call void @__JS_FreeValueRT(ptr noundef %120, i64 %92, i64 %93)
   br label %JS_DefinePropertyValue.exit
 
-JS_DefinePropertyValue.exit:                      ; preds = %110, %113, %118
+JS_DefinePropertyValue.exit:                      ; preds = %111, %114, %119
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   br label %JS_DeleteProperty.exit
 
-JS_DeleteProperty.exit:                           ; preds = %100, %104, %108, %94, %JS_DefinePropertyValue.exit
-  %.0 = phi i32 [ %111, %JS_DefinePropertyValue.exit ], [ -1, %94 ], [ %101, %108 ], [ %101, %104 ], [ %101, %100 ]
-  %120 = icmp sgt i32 %.093, 226
-  br i1 %120, label %121, label %JS_FreeAtom.exit
+JS_DeleteProperty.exit:                           ; preds = %101, %105, %109, %95, %JS_DefinePropertyValue.exit
+  %.0 = phi i32 [ %112, %JS_DefinePropertyValue.exit ], [ -1, %95 ], [ %102, %109 ], [ %102, %105 ], [ %102, %101 ]
+  %121 = icmp sgt i32 %.093, 226
+  br i1 %121, label %122, label %JS_FreeAtom.exit
 
-121:                                              ; preds = %JS_DeleteProperty.exit
-  %122 = load ptr, ptr %15, align 8
-  %123 = getelementptr inbounds i8, ptr %122, i64 96
-  %124 = load ptr, ptr %123, align 8
-  %125 = zext nneg i32 %.093 to i64
-  %126 = getelementptr ptr, ptr %124, i64 %125
-  %127 = load ptr, ptr %126, align 8
-  %128 = load i32, ptr %127, align 4
-  %129 = add i32 %128, -1
-  store i32 %129, ptr %127, align 4
-  %130 = icmp sgt i32 %129, 0
-  br i1 %130, label %JS_FreeAtom.exit, label %131
+122:                                              ; preds = %JS_DeleteProperty.exit
+  %123 = load ptr, ptr %15, align 8
+  %124 = getelementptr inbounds i8, ptr %123, i64 96
+  %125 = load ptr, ptr %124, align 8
+  %126 = zext nneg i32 %.093 to i64
+  %127 = getelementptr ptr, ptr %125, i64 %126
+  %128 = load ptr, ptr %127, align 8
+  %129 = load i32, ptr %128, align 4
+  %130 = add i32 %129, -1
+  store i32 %130, ptr %128, align 4
+  %131 = icmp sgt i32 %130, 0
+  br i1 %131, label %JS_FreeAtom.exit, label %132
 
-131:                                              ; preds = %121
-  %132 = getelementptr inbounds i8, ptr %127, i64 12
-  %133 = load i32, ptr %132, align 4
-  %134 = getelementptr inbounds i8, ptr %127, i64 4
-  %135 = load i64, ptr %134, align 4
-  %.not.i.i.i = icmp ugt i64 %135, -4611686018427387905
-  br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %136
+132:                                              ; preds = %122
+  %133 = getelementptr inbounds i8, ptr %128, i64 12
+  %134 = load i32, ptr %133, align 4
+  %135 = getelementptr inbounds i8, ptr %128, i64 4
+  %136 = load i64, ptr %135, align 4
+  %.not.i.i.i = icmp ugt i64 %136, -4611686018427387905
+  br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %137
 
-._crit_edge.i.i.i:                                ; preds = %131
-  %.pre.i.i.i = zext i32 %133 to i64
+._crit_edge.i.i.i:                                ; preds = %132
+  %.pre.i.i.i = zext i32 %134 to i64
   br label %JS_FreeAtomStruct.exit.i.i
 
-136:                                              ; preds = %131
-  %137 = lshr i64 %135, 32
-  %138 = trunc i64 %137 to i32
-  %139 = and i32 %138, 1073741823
-  %140 = getelementptr inbounds i8, ptr %122, i64 72
-  %141 = load i32, ptr %140, align 8
-  %142 = add i32 %141, -1
-  %143 = and i32 %139, %142
-  %144 = getelementptr inbounds i8, ptr %122, i64 88
-  %145 = load ptr, ptr %144, align 8
-  %146 = zext nneg i32 %143 to i64
-  %147 = getelementptr i32, ptr %145, i64 %146
-  %148 = load i32, ptr %147, align 4
-  %149 = load ptr, ptr %123, align 8
-  %150 = zext i32 %148 to i64
-  %151 = getelementptr ptr, ptr %149, i64 %150
-  %152 = load ptr, ptr %151, align 8
-  %153 = icmp eq ptr %152, %127
-  br i1 %153, label %154, label %.preheader.i.i.i
+137:                                              ; preds = %132
+  %138 = lshr i64 %136, 32
+  %139 = trunc i64 %138 to i32
+  %140 = and i32 %139, 1073741823
+  %141 = getelementptr inbounds i8, ptr %123, i64 72
+  %142 = load i32, ptr %141, align 8
+  %143 = add i32 %142, -1
+  %144 = and i32 %140, %143
+  %145 = getelementptr inbounds i8, ptr %123, i64 88
+  %146 = load ptr, ptr %145, align 8
+  %147 = zext nneg i32 %144 to i64
+  %148 = getelementptr i32, ptr %146, i64 %147
+  %149 = load i32, ptr %148, align 4
+  %150 = load ptr, ptr %124, align 8
+  %151 = zext i32 %149 to i64
+  %152 = getelementptr ptr, ptr %150, i64 %151
+  %153 = load ptr, ptr %152, align 8
+  %154 = icmp eq ptr %153, %128
+  br i1 %154, label %155, label %.preheader.i.i.i
 
-154:                                              ; preds = %136
-  store i32 %133, ptr %147, align 4
+155:                                              ; preds = %137
+  store i32 %134, ptr %148, align 4
   br label %JS_FreeAtomStruct.exit.i.i
 
-.preheader.i.i.i:                                 ; preds = %136, %.preheader.i.i.i
-  %.028.i.i.i = phi ptr [ %159, %.preheader.i.i.i ], [ %152, %136 ]
-  %155 = getelementptr inbounds i8, ptr %.028.i.i.i, i64 12
-  %156 = load i32, ptr %155, align 4
-  %157 = zext i32 %156 to i64
-  %158 = getelementptr ptr, ptr %149, i64 %157
-  %159 = load ptr, ptr %158, align 8
-  %160 = icmp eq ptr %159, %127
-  br i1 %160, label %161, label %.preheader.i.i.i
+.preheader.i.i.i:                                 ; preds = %137, %.preheader.i.i.i
+  %.028.i.i.i = phi ptr [ %160, %.preheader.i.i.i ], [ %153, %137 ]
+  %156 = getelementptr inbounds i8, ptr %.028.i.i.i, i64 12
+  %157 = load i32, ptr %156, align 4
+  %158 = zext i32 %157 to i64
+  %159 = getelementptr ptr, ptr %150, i64 %158
+  %160 = load ptr, ptr %159, align 8
+  %161 = icmp eq ptr %160, %128
+  br i1 %161, label %162, label %.preheader.i.i.i
 
-161:                                              ; preds = %.preheader.i.i.i
-  %162 = getelementptr inbounds i8, ptr %.028.i.i.i, i64 12
-  store i32 %133, ptr %162, align 4
+162:                                              ; preds = %.preheader.i.i.i
+  %163 = getelementptr inbounds i8, ptr %.028.i.i.i, i64 12
+  store i32 %134, ptr %163, align 4
   br label %JS_FreeAtomStruct.exit.i.i
 
-JS_FreeAtomStruct.exit.i.i:                       ; preds = %161, %154, %._crit_edge.i.i.i
-  %.pre-phi.i.i.i = phi i64 [ %.pre.i.i.i, %._crit_edge.i.i.i ], [ %150, %154 ], [ %157, %161 ]
-  %.0.i.i.i = phi i32 [ %133, %._crit_edge.i.i.i ], [ %148, %154 ], [ %156, %161 ]
-  %163 = getelementptr inbounds i8, ptr %122, i64 104
-  %164 = load i32, ptr %163, align 8
-  %165 = zext i32 %164 to i64
-  %166 = shl nuw nsw i64 %165, 1
-  %167 = or disjoint i64 %166, 1
-  %168 = inttoptr i64 %167 to ptr
-  %169 = load ptr, ptr %123, align 8
-  %170 = getelementptr ptr, ptr %169, i64 %.pre-phi.i.i.i
-  store ptr %168, ptr %170, align 8
-  store i32 %.0.i.i.i, ptr %163, align 8
-  %171 = getelementptr inbounds i8, ptr %122, i64 8
-  %172 = load ptr, ptr %171, align 8
-  %173 = getelementptr inbounds i8, ptr %122, i64 32
-  call void %172(ptr noundef nonnull %173, ptr noundef nonnull %127) #42
-  %174 = getelementptr inbounds i8, ptr %122, i64 76
-  %175 = load i32, ptr %174, align 4
-  %176 = add i32 %175, -1
-  store i32 %176, ptr %174, align 4
+JS_FreeAtomStruct.exit.i.i:                       ; preds = %162, %155, %._crit_edge.i.i.i
+  %.pre-phi.i.i.i = phi i64 [ %.pre.i.i.i, %._crit_edge.i.i.i ], [ %151, %155 ], [ %158, %162 ]
+  %.0.i.i.i = phi i32 [ %134, %._crit_edge.i.i.i ], [ %149, %155 ], [ %157, %162 ]
+  %164 = getelementptr inbounds i8, ptr %123, i64 104
+  %165 = load i32, ptr %164, align 8
+  %166 = zext i32 %165 to i64
+  %167 = shl nuw nsw i64 %166, 1
+  %168 = or disjoint i64 %167, 1
+  %169 = inttoptr i64 %168 to ptr
+  %170 = load ptr, ptr %124, align 8
+  %171 = getelementptr ptr, ptr %170, i64 %.pre-phi.i.i.i
+  store ptr %169, ptr %171, align 8
+  store i32 %.0.i.i.i, ptr %164, align 8
+  %172 = getelementptr inbounds i8, ptr %123, i64 8
+  %173 = load ptr, ptr %172, align 8
+  %174 = getelementptr inbounds i8, ptr %123, i64 32
+  call void %173(ptr noundef nonnull %174, ptr noundef nonnull %128) #42
+  %175 = getelementptr inbounds i8, ptr %123, i64 76
+  %176 = load i32, ptr %175, align 4
+  %177 = add i32 %176, -1
+  store i32 %177, ptr %175, align 4
   br label %JS_FreeAtom.exit
 
-JS_FreeAtom.exit:                                 ; preds = %JS_DeleteProperty.exit, %121, %JS_FreeAtomStruct.exit.i.i
-  %177 = icmp slt i32 %.0, 0
-  br i1 %177, label %JS_IsArray.exit, label %60
+JS_FreeAtom.exit:                                 ; preds = %JS_DeleteProperty.exit, %122, %JS_FreeAtomStruct.exit.i.i
+  %178 = icmp slt i32 %.0, 0
+  br i1 %178, label %JS_IsArray.exit, label %60
 
 .loopexit:                                        ; preds = %60
   %.not.i119 = icmp eq ptr %.pre199, null
@@ -115753,216 +115754,216 @@ JS_FreeAtom.exit:                                 ; preds = %JS_DeleteProperty.e
 
 .lr.ph.i120:                                      ; preds = %.loopexit
   %wide.trip.count.i = zext i32 %57 to i64
-  br label %178
+  br label %179
 
-178:                                              ; preds = %JS_FreeAtom.exit.i, %.lr.ph.i120
+179:                                              ; preds = %JS_FreeAtom.exit.i, %.lr.ph.i120
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i120 ], [ %indvars.iv.next.i, %JS_FreeAtom.exit.i ]
-  %179 = getelementptr %struct.JSPropertyEnum, ptr %.pre199, i64 %indvars.iv.i, i32 1
-  %180 = load i32, ptr %179, align 4
-  %181 = icmp sgt i32 %180, 226
-  br i1 %181, label %182, label %JS_FreeAtom.exit.i
+  %180 = getelementptr %struct.JSPropertyEnum, ptr %.pre199, i64 %indvars.iv.i, i32 1
+  %181 = load i32, ptr %180, align 4
+  %182 = icmp sgt i32 %181, 226
+  br i1 %182, label %183, label %JS_FreeAtom.exit.i
 
-182:                                              ; preds = %178
-  %183 = load ptr, ptr %15, align 8
-  %184 = getelementptr inbounds i8, ptr %183, i64 96
-  %185 = load ptr, ptr %184, align 8
-  %186 = zext nneg i32 %180 to i64
-  %187 = getelementptr ptr, ptr %185, i64 %186
-  %188 = load ptr, ptr %187, align 8
-  %189 = load i32, ptr %188, align 4
-  %190 = add i32 %189, -1
-  store i32 %190, ptr %188, align 4
-  %191 = icmp sgt i32 %190, 0
-  br i1 %191, label %JS_FreeAtom.exit.i, label %192
+183:                                              ; preds = %179
+  %184 = load ptr, ptr %15, align 8
+  %185 = getelementptr inbounds i8, ptr %184, i64 96
+  %186 = load ptr, ptr %185, align 8
+  %187 = zext nneg i32 %181 to i64
+  %188 = getelementptr ptr, ptr %186, i64 %187
+  %189 = load ptr, ptr %188, align 8
+  %190 = load i32, ptr %189, align 4
+  %191 = add i32 %190, -1
+  store i32 %191, ptr %189, align 4
+  %192 = icmp sgt i32 %191, 0
+  br i1 %192, label %JS_FreeAtom.exit.i, label %193
 
-192:                                              ; preds = %182
-  %193 = getelementptr inbounds i8, ptr %188, i64 12
-  %194 = load i32, ptr %193, align 4
-  %195 = getelementptr inbounds i8, ptr %188, i64 4
-  %196 = load i64, ptr %195, align 4
-  %.not.i.i.i.i = icmp ugt i64 %196, -4611686018427387905
-  br i1 %.not.i.i.i.i, label %._crit_edge.i.i.i.i, label %197
+193:                                              ; preds = %183
+  %194 = getelementptr inbounds i8, ptr %189, i64 12
+  %195 = load i32, ptr %194, align 4
+  %196 = getelementptr inbounds i8, ptr %189, i64 4
+  %197 = load i64, ptr %196, align 4
+  %.not.i.i.i.i = icmp ugt i64 %197, -4611686018427387905
+  br i1 %.not.i.i.i.i, label %._crit_edge.i.i.i.i, label %198
 
-._crit_edge.i.i.i.i:                              ; preds = %192
-  %.pre.i.i.i.i = zext i32 %194 to i64
+._crit_edge.i.i.i.i:                              ; preds = %193
+  %.pre.i.i.i.i = zext i32 %195 to i64
   br label %JS_FreeAtomStruct.exit.i.i.i
 
-197:                                              ; preds = %192
-  %198 = lshr i64 %196, 32
-  %199 = trunc i64 %198 to i32
-  %200 = and i32 %199, 1073741823
-  %201 = getelementptr inbounds i8, ptr %183, i64 72
-  %202 = load i32, ptr %201, align 8
-  %203 = add i32 %202, -1
-  %204 = and i32 %200, %203
-  %205 = getelementptr inbounds i8, ptr %183, i64 88
-  %206 = load ptr, ptr %205, align 8
-  %207 = zext nneg i32 %204 to i64
-  %208 = getelementptr i32, ptr %206, i64 %207
-  %209 = load i32, ptr %208, align 4
-  %210 = load ptr, ptr %184, align 8
-  %211 = zext i32 %209 to i64
-  %212 = getelementptr ptr, ptr %210, i64 %211
-  %213 = load ptr, ptr %212, align 8
-  %214 = icmp eq ptr %213, %188
-  br i1 %214, label %215, label %.preheader.i.i.i.i
+198:                                              ; preds = %193
+  %199 = lshr i64 %197, 32
+  %200 = trunc i64 %199 to i32
+  %201 = and i32 %200, 1073741823
+  %202 = getelementptr inbounds i8, ptr %184, i64 72
+  %203 = load i32, ptr %202, align 8
+  %204 = add i32 %203, -1
+  %205 = and i32 %201, %204
+  %206 = getelementptr inbounds i8, ptr %184, i64 88
+  %207 = load ptr, ptr %206, align 8
+  %208 = zext nneg i32 %205 to i64
+  %209 = getelementptr i32, ptr %207, i64 %208
+  %210 = load i32, ptr %209, align 4
+  %211 = load ptr, ptr %185, align 8
+  %212 = zext i32 %210 to i64
+  %213 = getelementptr ptr, ptr %211, i64 %212
+  %214 = load ptr, ptr %213, align 8
+  %215 = icmp eq ptr %214, %189
+  br i1 %215, label %216, label %.preheader.i.i.i.i
 
-215:                                              ; preds = %197
-  store i32 %194, ptr %208, align 4
+216:                                              ; preds = %198
+  store i32 %195, ptr %209, align 4
   br label %JS_FreeAtomStruct.exit.i.i.i
 
-.preheader.i.i.i.i:                               ; preds = %197, %.preheader.i.i.i.i
-  %.028.i.i.i.i = phi ptr [ %220, %.preheader.i.i.i.i ], [ %213, %197 ]
-  %216 = getelementptr inbounds i8, ptr %.028.i.i.i.i, i64 12
-  %217 = load i32, ptr %216, align 4
-  %218 = zext i32 %217 to i64
-  %219 = getelementptr ptr, ptr %210, i64 %218
-  %220 = load ptr, ptr %219, align 8
-  %221 = icmp eq ptr %220, %188
-  br i1 %221, label %222, label %.preheader.i.i.i.i
+.preheader.i.i.i.i:                               ; preds = %198, %.preheader.i.i.i.i
+  %.028.i.i.i.i = phi ptr [ %221, %.preheader.i.i.i.i ], [ %214, %198 ]
+  %217 = getelementptr inbounds i8, ptr %.028.i.i.i.i, i64 12
+  %218 = load i32, ptr %217, align 4
+  %219 = zext i32 %218 to i64
+  %220 = getelementptr ptr, ptr %211, i64 %219
+  %221 = load ptr, ptr %220, align 8
+  %222 = icmp eq ptr %221, %189
+  br i1 %222, label %223, label %.preheader.i.i.i.i
 
-222:                                              ; preds = %.preheader.i.i.i.i
-  %223 = getelementptr inbounds i8, ptr %.028.i.i.i.i, i64 12
-  store i32 %194, ptr %223, align 4
+223:                                              ; preds = %.preheader.i.i.i.i
+  %224 = getelementptr inbounds i8, ptr %.028.i.i.i.i, i64 12
+  store i32 %195, ptr %224, align 4
   br label %JS_FreeAtomStruct.exit.i.i.i
 
-JS_FreeAtomStruct.exit.i.i.i:                     ; preds = %222, %215, %._crit_edge.i.i.i.i
-  %.pre-phi.i.i.i.i = phi i64 [ %.pre.i.i.i.i, %._crit_edge.i.i.i.i ], [ %211, %215 ], [ %218, %222 ]
-  %.0.i.i.i.i = phi i32 [ %194, %._crit_edge.i.i.i.i ], [ %209, %215 ], [ %217, %222 ]
-  %224 = getelementptr inbounds i8, ptr %183, i64 104
-  %225 = load i32, ptr %224, align 8
-  %226 = zext i32 %225 to i64
-  %227 = shl nuw nsw i64 %226, 1
-  %228 = or disjoint i64 %227, 1
-  %229 = inttoptr i64 %228 to ptr
-  %230 = load ptr, ptr %184, align 8
-  %231 = getelementptr ptr, ptr %230, i64 %.pre-phi.i.i.i.i
-  store ptr %229, ptr %231, align 8
-  store i32 %.0.i.i.i.i, ptr %224, align 8
-  %232 = getelementptr inbounds i8, ptr %183, i64 8
-  %233 = load ptr, ptr %232, align 8
-  %234 = getelementptr inbounds i8, ptr %183, i64 32
-  call void %233(ptr noundef nonnull %234, ptr noundef nonnull %188) #42
-  %235 = getelementptr inbounds i8, ptr %183, i64 76
-  %236 = load i32, ptr %235, align 4
-  %237 = add i32 %236, -1
-  store i32 %237, ptr %235, align 4
+JS_FreeAtomStruct.exit.i.i.i:                     ; preds = %223, %216, %._crit_edge.i.i.i.i
+  %.pre-phi.i.i.i.i = phi i64 [ %.pre.i.i.i.i, %._crit_edge.i.i.i.i ], [ %212, %216 ], [ %219, %223 ]
+  %.0.i.i.i.i = phi i32 [ %195, %._crit_edge.i.i.i.i ], [ %210, %216 ], [ %218, %223 ]
+  %225 = getelementptr inbounds i8, ptr %184, i64 104
+  %226 = load i32, ptr %225, align 8
+  %227 = zext i32 %226 to i64
+  %228 = shl nuw nsw i64 %227, 1
+  %229 = or disjoint i64 %228, 1
+  %230 = inttoptr i64 %229 to ptr
+  %231 = load ptr, ptr %185, align 8
+  %232 = getelementptr ptr, ptr %231, i64 %.pre-phi.i.i.i.i
+  store ptr %230, ptr %232, align 8
+  store i32 %.0.i.i.i.i, ptr %225, align 8
+  %233 = getelementptr inbounds i8, ptr %184, i64 8
+  %234 = load ptr, ptr %233, align 8
+  %235 = getelementptr inbounds i8, ptr %184, i64 32
+  call void %234(ptr noundef nonnull %235, ptr noundef nonnull %189) #42
+  %236 = getelementptr inbounds i8, ptr %184, i64 76
+  %237 = load i32, ptr %236, align 4
+  %238 = add i32 %237, -1
+  store i32 %238, ptr %236, align 4
   br label %JS_FreeAtom.exit.i
 
-JS_FreeAtom.exit.i:                               ; preds = %JS_FreeAtomStruct.exit.i.i.i, %182, %178
+JS_FreeAtom.exit.i:                               ; preds = %JS_FreeAtomStruct.exit.i.i.i, %183, %179
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %178, !llvm.loop !91
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %179, !llvm.loop !91
 
 ._crit_edge.i:                                    ; preds = %JS_FreeAtom.exit.i, %.loopexit.thread190
   %.pre201 = phi ptr [ %.pre.pre, %.loopexit.thread190 ], [ %.pre199, %JS_FreeAtom.exit.i ]
-  %238 = load ptr, ptr %15, align 8
-  %239 = getelementptr inbounds i8, ptr %238, i64 8
-  %240 = load ptr, ptr %239, align 8
-  %241 = getelementptr inbounds i8, ptr %238, i64 32
-  call void %240(ptr noundef nonnull %241, ptr noundef nonnull %.pre201) #42
+  %239 = load ptr, ptr %15, align 8
+  %240 = getelementptr inbounds i8, ptr %239, i64 8
+  %241 = load ptr, ptr %240, align 8
+  %242 = getelementptr inbounds i8, ptr %239, i64 32
+  call void %241(ptr noundef nonnull %242, ptr noundef nonnull %.pre201) #42
   br label %js_free_prop_enum.exit
 
 js_free_prop_enum.exit:                           ; preds = %.thread195, %22, %.loopexit.thread190, %.loopexit, %._crit_edge.i
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8)
   %.not.i.i121 = icmp sgt i32 %3, -1
-  br i1 %.not.i.i121, label %247, label %242
+  br i1 %.not.i.i121, label %248, label %243
 
-242:                                              ; preds = %js_free_prop_enum.exit
-  %243 = and i32 %3, 2147483647
-  %244 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 64, ptr noundef nonnull @.str, i32 noundef %243) #42
-  %245 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #43
-  %246 = call { i64, i64 } @JS_NewStringLen(ptr noundef %0, ptr noundef nonnull %8, i64 noundef %245) #45
+243:                                              ; preds = %js_free_prop_enum.exit
+  %244 = and i32 %3, 2147483647
+  %245 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 64, ptr noundef nonnull @.str, i32 noundef %244) #42
+  %246 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #43
+  %247 = call { i64, i64 } @JS_NewStringLen(ptr noundef %0, ptr noundef nonnull %8, i64 noundef %246) #45
   br label %JS_AtomToValue.exit
 
-247:                                              ; preds = %js_free_prop_enum.exit
-  %248 = load ptr, ptr %15, align 8
-  %249 = getelementptr inbounds i8, ptr %248, i64 96
-  %250 = load ptr, ptr %249, align 8
-  %251 = zext nneg i32 %3 to i64
-  %252 = getelementptr ptr, ptr %250, i64 %251
-  %253 = load ptr, ptr %252, align 8
-  %254 = getelementptr inbounds i8, ptr %253, i64 4
-  %255 = load i64, ptr %254, align 4
-  %.mask.i.i = and i64 %255, -4611686018427387904
-  %256 = icmp eq i64 %.mask.i.i, 4611686018427387904
-  %.sroa.01.0..sroa.01.0.20.cast.i.i = ptrtoint ptr %253 to i64
-  %257 = load i32, ptr %253, align 4
-  %258 = add i32 %257, 1
-  store i32 %258, ptr %253, align 4
+248:                                              ; preds = %js_free_prop_enum.exit
+  %249 = load ptr, ptr %15, align 8
+  %250 = getelementptr inbounds i8, ptr %249, i64 96
+  %251 = load ptr, ptr %250, align 8
+  %252 = zext nneg i32 %3 to i64
+  %253 = getelementptr ptr, ptr %251, i64 %252
+  %254 = load ptr, ptr %253, align 8
+  %255 = getelementptr inbounds i8, ptr %254, i64 4
+  %256 = load i64, ptr %255, align 4
+  %.mask.i.i = and i64 %256, -4611686018427387904
+  %257 = icmp eq i64 %.mask.i.i, 4611686018427387904
+  %.sroa.01.0..sroa.01.0.20.cast.i.i = ptrtoint ptr %254 to i64
+  %258 = load i32, ptr %254, align 4
+  %259 = add i32 %258, 1
+  store i32 %259, ptr %254, align 4
   %.fca.0.insert.i.i = insertvalue { i64, i64 } poison, i64 %.sroa.01.0..sroa.01.0.20.cast.i.i, 0
-  br i1 %256, label %260, label %259
+  br i1 %257, label %261, label %260
 
-259:                                              ; preds = %247
+260:                                              ; preds = %248
   %.fca.1.insert.i2.i = insertvalue { i64, i64 } %.fca.0.insert.i.i, i64 -8, 1
   br label %JS_AtomToValue.exit
 
-260:                                              ; preds = %247
+261:                                              ; preds = %248
   %.fca.1.insert.i.i = insertvalue { i64, i64 } %.fca.0.insert.i.i, i64 -7, 1
   br label %JS_AtomToValue.exit
 
-JS_AtomToValue.exit:                              ; preds = %242, %259, %260
-  %.pn.i.i = phi { i64, i64 } [ %246, %242 ], [ %.fca.1.insert.i.i, %260 ], [ %.fca.1.insert.i2.i, %259 ]
+JS_AtomToValue.exit:                              ; preds = %243, %260, %261
+  %.pn.i.i = phi { i64, i64 } [ %247, %243 ], [ %.fca.1.insert.i.i, %261 ], [ %.fca.1.insert.i2.i, %260 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
-  %261 = extractvalue { i64, i64 } %.pn.i.i, 0
-  %262 = extractvalue { i64, i64 } %.pn.i.i, 1
-  %263 = and i64 %262, 4294967295
-  %.not163 = icmp eq i64 %263, 6
-  br i1 %.not163, label %js_free_prop_enum.exit141, label %264
+  %262 = extractvalue { i64, i64 } %.pn.i.i, 0
+  %263 = extractvalue { i64, i64 } %.pn.i.i, 1
+  %264 = and i64 %263, 4294967295
+  %.not163 = icmp eq i64 %264, 6
+  br i1 %.not163, label %js_free_prop_enum.exit141, label %265
 
-264:                                              ; preds = %JS_AtomToValue.exit
-  store i64 %261, ptr %12, align 16
+265:                                              ; preds = %JS_AtomToValue.exit
+  store i64 %262, ptr %12, align 16
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 8
-  store i64 %262, ptr %.sroa.4.0..sroa_idx, align 8
-  %265 = getelementptr inbounds i8, ptr %12, i64 16
-  store i64 %24, ptr %265, align 16
+  store i64 %263, ptr %.sroa.4.0..sroa_idx, align 8
+  %266 = getelementptr inbounds i8, ptr %12, i64 16
+  store i64 %24, ptr %266, align 16
   %.sroa.13.0..sroa_idx43 = getelementptr inbounds i8, ptr %12, i64 24
   store i64 %25, ptr %.sroa.13.0..sroa_idx43, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   store i32 0, ptr %7, align 8
-  %266 = getelementptr inbounds i8, ptr %7, i64 8
-  store i64 3, ptr %266, align 8
-  %267 = call fastcc { i64, i64 } @JS_CallInternal(ptr noundef %0, i64 %4, i64 %5, i64 %1, i64 %2, ptr noundef nonnull byval(%struct.JSValue) align 8 %7, i32 noundef 2, ptr noundef nonnull %12, i32 noundef 2)
+  %267 = getelementptr inbounds i8, ptr %7, i64 8
+  store i64 3, ptr %267, align 8
+  %268 = call fastcc { i64, i64 } @JS_CallInternal(ptr noundef %0, i64 %4, i64 %5, i64 %1, i64 %2, ptr noundef nonnull byval(%struct.JSValue) align 8 %7, i32 noundef 2, ptr noundef nonnull %12, i32 noundef 2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  %268 = extractvalue { i64, i64 } %267, 0
-  %269 = extractvalue { i64, i64 } %267, 1
-  %270 = trunc i64 %262 to i32
-  %271 = icmp ugt i32 %270, -12
-  br i1 %271, label %272, label %JS_FreeValue.exit
+  %269 = extractvalue { i64, i64 } %268, 0
+  %270 = extractvalue { i64, i64 } %268, 1
+  %271 = trunc i64 %263 to i32
+  %272 = icmp ugt i32 %271, -12
+  br i1 %272, label %273, label %JS_FreeValue.exit
 
-272:                                              ; preds = %264
-  %273 = inttoptr i64 %261 to ptr
-  %274 = load i32, ptr %273, align 4
-  %275 = add i32 %274, -1
-  store i32 %275, ptr %273, align 4
-  %276 = icmp slt i32 %275, 1
-  br i1 %276, label %277, label %JS_FreeValue.exit
+273:                                              ; preds = %265
+  %274 = inttoptr i64 %262 to ptr
+  %275 = load i32, ptr %274, align 4
+  %276 = add i32 %275, -1
+  store i32 %276, ptr %274, align 4
+  %277 = icmp slt i32 %276, 1
+  br i1 %277, label %278, label %JS_FreeValue.exit
 
-277:                                              ; preds = %272
-  %278 = load ptr, ptr %15, align 8
-  call void @__JS_FreeValueRT(ptr noundef %278, i64 %261, i64 %262)
+278:                                              ; preds = %273
+  %279 = load ptr, ptr %15, align 8
+  call void @__JS_FreeValueRT(ptr noundef %279, i64 %262, i64 %263)
   br label %JS_FreeValue.exit
 
-JS_FreeValue.exit:                                ; preds = %264, %272, %277
-  %279 = icmp ugt i32 %trunc, -12
-  br i1 %279, label %280, label %JS_FreeValue.exit122
+JS_FreeValue.exit:                                ; preds = %265, %273, %278
+  %280 = icmp ugt i32 %trunc, -12
+  br i1 %280, label %281, label %JS_FreeValue.exit122
 
-280:                                              ; preds = %JS_FreeValue.exit
-  %281 = load i32, ptr %26, align 4
-  %282 = add i32 %281, -1
-  store i32 %282, ptr %26, align 4
-  %283 = icmp slt i32 %282, 1
-  br i1 %283, label %284, label %JS_FreeValue.exit122
+281:                                              ; preds = %JS_FreeValue.exit
+  %282 = load i32, ptr %26, align 4
+  %283 = add i32 %282, -1
+  store i32 %283, ptr %26, align 4
+  %284 = icmp slt i32 %283, 1
+  br i1 %284, label %285, label %JS_FreeValue.exit122
 
-284:                                              ; preds = %280
-  %285 = load ptr, ptr %15, align 8
-  call void @__JS_FreeValueRT(ptr noundef %285, i64 %24, i64 %25)
+285:                                              ; preds = %281
+  %286 = load ptr, ptr %15, align 8
+  call void @__JS_FreeValueRT(ptr noundef %286, i64 %24, i64 %25)
   br label %JS_FreeValue.exit122
 
-JS_IsArray.exit:                                  ; preds = %JS_FreeAtom.exit, %JS_NewAtomUInt32.exit, %.thread, %JS_NewAtomUInt32.exit.thread, %93
-  %286 = phi ptr [ %.pre199, %JS_NewAtomUInt32.exit.thread ], [ %.pre199, %93 ], [ %.pre.pre, %.thread ], [ %.pre199, %JS_NewAtomUInt32.exit ], [ %.pre199, %JS_FreeAtom.exit ]
+JS_IsArray.exit:                                  ; preds = %JS_FreeAtom.exit, %JS_NewAtomUInt32.exit, %.thread, %JS_NewAtomUInt32.exit.thread, %94
+  %287 = phi ptr [ %.pre199, %JS_NewAtomUInt32.exit.thread ], [ %.pre199, %94 ], [ %.pre.pre, %.thread ], [ %.pre199, %JS_NewAtomUInt32.exit ], [ %.pre199, %JS_FreeAtom.exit ]
   %.pr154 = load i32, ptr %13, align 4
-  %.not.i123 = icmp eq ptr %286, null
+  %.not.i123 = icmp eq ptr %287, null
   br i1 %.not.i123, label %js_free_prop_enum.exit141, label %.preheader.i124
 
 .preheader.i124:                                  ; preds = %JS_IsArray.exit
@@ -115971,135 +115972,135 @@ JS_IsArray.exit:                                  ; preds = %JS_FreeAtom.exit, %
 
 .lr.ph.i126:                                      ; preds = %.preheader.i124
   %wide.trip.count.i127 = zext i32 %.pr154 to i64
-  br label %287
+  br label %288
 
-287:                                              ; preds = %JS_FreeAtom.exit.i129, %.lr.ph.i126
+288:                                              ; preds = %JS_FreeAtom.exit.i129, %.lr.ph.i126
   %indvars.iv.i128 = phi i64 [ 0, %.lr.ph.i126 ], [ %indvars.iv.next.i130, %JS_FreeAtom.exit.i129 ]
-  %288 = getelementptr %struct.JSPropertyEnum, ptr %286, i64 %indvars.iv.i128, i32 1
-  %289 = load i32, ptr %288, align 4
-  %290 = icmp sgt i32 %289, 226
-  br i1 %290, label %291, label %JS_FreeAtom.exit.i129
+  %289 = getelementptr %struct.JSPropertyEnum, ptr %287, i64 %indvars.iv.i128, i32 1
+  %290 = load i32, ptr %289, align 4
+  %291 = icmp sgt i32 %290, 226
+  br i1 %291, label %292, label %JS_FreeAtom.exit.i129
 
-291:                                              ; preds = %287
-  %292 = load ptr, ptr %15, align 8
-  %293 = getelementptr inbounds i8, ptr %292, i64 96
-  %294 = load ptr, ptr %293, align 8
-  %295 = zext nneg i32 %289 to i64
-  %296 = getelementptr ptr, ptr %294, i64 %295
-  %297 = load ptr, ptr %296, align 8
-  %298 = load i32, ptr %297, align 4
-  %299 = add i32 %298, -1
-  store i32 %299, ptr %297, align 4
-  %300 = icmp sgt i32 %299, 0
-  br i1 %300, label %JS_FreeAtom.exit.i129, label %301
+292:                                              ; preds = %288
+  %293 = load ptr, ptr %15, align 8
+  %294 = getelementptr inbounds i8, ptr %293, i64 96
+  %295 = load ptr, ptr %294, align 8
+  %296 = zext nneg i32 %290 to i64
+  %297 = getelementptr ptr, ptr %295, i64 %296
+  %298 = load ptr, ptr %297, align 8
+  %299 = load i32, ptr %298, align 4
+  %300 = add i32 %299, -1
+  store i32 %300, ptr %298, align 4
+  %301 = icmp sgt i32 %300, 0
+  br i1 %301, label %JS_FreeAtom.exit.i129, label %302
 
-301:                                              ; preds = %291
-  %302 = getelementptr inbounds i8, ptr %297, i64 12
-  %303 = load i32, ptr %302, align 4
-  %304 = getelementptr inbounds i8, ptr %297, i64 4
-  %305 = load i64, ptr %304, align 4
-  %.not.i.i.i.i133 = icmp ugt i64 %305, -4611686018427387905
-  br i1 %.not.i.i.i.i133, label %._crit_edge.i.i.i.i139, label %306
+302:                                              ; preds = %292
+  %303 = getelementptr inbounds i8, ptr %298, i64 12
+  %304 = load i32, ptr %303, align 4
+  %305 = getelementptr inbounds i8, ptr %298, i64 4
+  %306 = load i64, ptr %305, align 4
+  %.not.i.i.i.i133 = icmp ugt i64 %306, -4611686018427387905
+  br i1 %.not.i.i.i.i133, label %._crit_edge.i.i.i.i139, label %307
 
-._crit_edge.i.i.i.i139:                           ; preds = %301
-  %.pre.i.i.i.i140 = zext i32 %303 to i64
+._crit_edge.i.i.i.i139:                           ; preds = %302
+  %.pre.i.i.i.i140 = zext i32 %304 to i64
   br label %JS_FreeAtomStruct.exit.i.i.i136
 
-306:                                              ; preds = %301
-  %307 = lshr i64 %305, 32
-  %308 = trunc i64 %307 to i32
-  %309 = and i32 %308, 1073741823
-  %310 = getelementptr inbounds i8, ptr %292, i64 72
-  %311 = load i32, ptr %310, align 8
-  %312 = add i32 %311, -1
-  %313 = and i32 %309, %312
-  %314 = getelementptr inbounds i8, ptr %292, i64 88
-  %315 = load ptr, ptr %314, align 8
-  %316 = zext nneg i32 %313 to i64
-  %317 = getelementptr i32, ptr %315, i64 %316
-  %318 = load i32, ptr %317, align 4
-  %319 = load ptr, ptr %293, align 8
-  %320 = zext i32 %318 to i64
-  %321 = getelementptr ptr, ptr %319, i64 %320
-  %322 = load ptr, ptr %321, align 8
-  %323 = icmp eq ptr %322, %297
-  br i1 %323, label %324, label %.preheader.i.i.i.i134
+307:                                              ; preds = %302
+  %308 = lshr i64 %306, 32
+  %309 = trunc i64 %308 to i32
+  %310 = and i32 %309, 1073741823
+  %311 = getelementptr inbounds i8, ptr %293, i64 72
+  %312 = load i32, ptr %311, align 8
+  %313 = add i32 %312, -1
+  %314 = and i32 %310, %313
+  %315 = getelementptr inbounds i8, ptr %293, i64 88
+  %316 = load ptr, ptr %315, align 8
+  %317 = zext nneg i32 %314 to i64
+  %318 = getelementptr i32, ptr %316, i64 %317
+  %319 = load i32, ptr %318, align 4
+  %320 = load ptr, ptr %294, align 8
+  %321 = zext i32 %319 to i64
+  %322 = getelementptr ptr, ptr %320, i64 %321
+  %323 = load ptr, ptr %322, align 8
+  %324 = icmp eq ptr %323, %298
+  br i1 %324, label %325, label %.preheader.i.i.i.i134
 
-324:                                              ; preds = %306
-  store i32 %303, ptr %317, align 4
+325:                                              ; preds = %307
+  store i32 %304, ptr %318, align 4
   br label %JS_FreeAtomStruct.exit.i.i.i136
 
-.preheader.i.i.i.i134:                            ; preds = %306, %.preheader.i.i.i.i134
-  %.028.i.i.i.i135 = phi ptr [ %329, %.preheader.i.i.i.i134 ], [ %322, %306 ]
-  %325 = getelementptr inbounds i8, ptr %.028.i.i.i.i135, i64 12
-  %326 = load i32, ptr %325, align 4
-  %327 = zext i32 %326 to i64
-  %328 = getelementptr ptr, ptr %319, i64 %327
-  %329 = load ptr, ptr %328, align 8
-  %330 = icmp eq ptr %329, %297
-  br i1 %330, label %331, label %.preheader.i.i.i.i134
+.preheader.i.i.i.i134:                            ; preds = %307, %.preheader.i.i.i.i134
+  %.028.i.i.i.i135 = phi ptr [ %330, %.preheader.i.i.i.i134 ], [ %323, %307 ]
+  %326 = getelementptr inbounds i8, ptr %.028.i.i.i.i135, i64 12
+  %327 = load i32, ptr %326, align 4
+  %328 = zext i32 %327 to i64
+  %329 = getelementptr ptr, ptr %320, i64 %328
+  %330 = load ptr, ptr %329, align 8
+  %331 = icmp eq ptr %330, %298
+  br i1 %331, label %332, label %.preheader.i.i.i.i134
 
-331:                                              ; preds = %.preheader.i.i.i.i134
-  %332 = getelementptr inbounds i8, ptr %.028.i.i.i.i135, i64 12
-  store i32 %303, ptr %332, align 4
+332:                                              ; preds = %.preheader.i.i.i.i134
+  %333 = getelementptr inbounds i8, ptr %.028.i.i.i.i135, i64 12
+  store i32 %304, ptr %333, align 4
   br label %JS_FreeAtomStruct.exit.i.i.i136
 
-JS_FreeAtomStruct.exit.i.i.i136:                  ; preds = %331, %324, %._crit_edge.i.i.i.i139
-  %.pre-phi.i.i.i.i137 = phi i64 [ %.pre.i.i.i.i140, %._crit_edge.i.i.i.i139 ], [ %320, %324 ], [ %327, %331 ]
-  %.0.i.i.i.i138 = phi i32 [ %303, %._crit_edge.i.i.i.i139 ], [ %318, %324 ], [ %326, %331 ]
-  %333 = getelementptr inbounds i8, ptr %292, i64 104
-  %334 = load i32, ptr %333, align 8
-  %335 = zext i32 %334 to i64
-  %336 = shl nuw nsw i64 %335, 1
-  %337 = or disjoint i64 %336, 1
-  %338 = inttoptr i64 %337 to ptr
-  %339 = load ptr, ptr %293, align 8
-  %340 = getelementptr ptr, ptr %339, i64 %.pre-phi.i.i.i.i137
-  store ptr %338, ptr %340, align 8
-  store i32 %.0.i.i.i.i138, ptr %333, align 8
-  %341 = getelementptr inbounds i8, ptr %292, i64 8
-  %342 = load ptr, ptr %341, align 8
-  %343 = getelementptr inbounds i8, ptr %292, i64 32
-  call void %342(ptr noundef nonnull %343, ptr noundef nonnull %297) #42
-  %344 = getelementptr inbounds i8, ptr %292, i64 76
-  %345 = load i32, ptr %344, align 4
-  %346 = add i32 %345, -1
-  store i32 %346, ptr %344, align 4
+JS_FreeAtomStruct.exit.i.i.i136:                  ; preds = %332, %325, %._crit_edge.i.i.i.i139
+  %.pre-phi.i.i.i.i137 = phi i64 [ %.pre.i.i.i.i140, %._crit_edge.i.i.i.i139 ], [ %321, %325 ], [ %328, %332 ]
+  %.0.i.i.i.i138 = phi i32 [ %304, %._crit_edge.i.i.i.i139 ], [ %319, %325 ], [ %327, %332 ]
+  %334 = getelementptr inbounds i8, ptr %293, i64 104
+  %335 = load i32, ptr %334, align 8
+  %336 = zext i32 %335 to i64
+  %337 = shl nuw nsw i64 %336, 1
+  %338 = or disjoint i64 %337, 1
+  %339 = inttoptr i64 %338 to ptr
+  %340 = load ptr, ptr %294, align 8
+  %341 = getelementptr ptr, ptr %340, i64 %.pre-phi.i.i.i.i137
+  store ptr %339, ptr %341, align 8
+  store i32 %.0.i.i.i.i138, ptr %334, align 8
+  %342 = getelementptr inbounds i8, ptr %293, i64 8
+  %343 = load ptr, ptr %342, align 8
+  %344 = getelementptr inbounds i8, ptr %293, i64 32
+  call void %343(ptr noundef nonnull %344, ptr noundef nonnull %298) #42
+  %345 = getelementptr inbounds i8, ptr %293, i64 76
+  %346 = load i32, ptr %345, align 4
+  %347 = add i32 %346, -1
+  store i32 %347, ptr %345, align 4
   br label %JS_FreeAtom.exit.i129
 
-JS_FreeAtom.exit.i129:                            ; preds = %JS_FreeAtomStruct.exit.i.i.i136, %291, %287
+JS_FreeAtom.exit.i129:                            ; preds = %JS_FreeAtomStruct.exit.i.i.i136, %292, %288
   %indvars.iv.next.i130 = add nuw nsw i64 %indvars.iv.i128, 1
   %exitcond.not.i131 = icmp eq i64 %indvars.iv.next.i130, %wide.trip.count.i127
-  br i1 %exitcond.not.i131, label %._crit_edge.i132, label %287, !llvm.loop !91
+  br i1 %exitcond.not.i131, label %._crit_edge.i132, label %288, !llvm.loop !91
 
 ._crit_edge.i132:                                 ; preds = %JS_FreeAtom.exit.i129, %.preheader.i124
-  %347 = load ptr, ptr %15, align 8
-  %348 = getelementptr inbounds i8, ptr %347, i64 8
-  %349 = load ptr, ptr %348, align 8
-  %350 = getelementptr inbounds i8, ptr %347, i64 32
-  call void %349(ptr noundef nonnull %350, ptr noundef nonnull %286) #42
+  %348 = load ptr, ptr %15, align 8
+  %349 = getelementptr inbounds i8, ptr %348, i64 8
+  %350 = load ptr, ptr %349, align 8
+  %351 = getelementptr inbounds i8, ptr %348, i64 32
+  call void %350(ptr noundef nonnull %351, ptr noundef nonnull %287) #42
   br label %js_free_prop_enum.exit141
 
 js_free_prop_enum.exit141:                        ; preds = %46, %js_get_length32.exit, %JS_AtomToValue.exit, %34, %39, %JS_IsArray.exit, %._crit_edge.i132
-  %351 = icmp ugt i32 %trunc, -12
-  br i1 %351, label %352, label %JS_FreeValue.exit122
+  %352 = icmp ugt i32 %trunc, -12
+  br i1 %352, label %353, label %JS_FreeValue.exit122
 
-352:                                              ; preds = %js_free_prop_enum.exit141
-  %353 = load i32, ptr %26, align 4
-  %354 = add i32 %353, -1
-  store i32 %354, ptr %26, align 4
-  %355 = icmp slt i32 %354, 1
-  br i1 %355, label %356, label %JS_FreeValue.exit122
+353:                                              ; preds = %js_free_prop_enum.exit141
+  %354 = load i32, ptr %26, align 4
+  %355 = add i32 %354, -1
+  store i32 %355, ptr %26, align 4
+  %356 = icmp slt i32 %355, 1
+  br i1 %356, label %357, label %JS_FreeValue.exit122
 
-356:                                              ; preds = %352
-  %357 = load ptr, ptr %15, align 8
-  call void @__JS_FreeValueRT(ptr noundef %357, i64 %24, i64 %25)
+357:                                              ; preds = %353
+  %358 = load ptr, ptr %15, align 8
+  call void @__JS_FreeValueRT(ptr noundef %358, i64 %24, i64 %25)
   br label %JS_FreeValue.exit122
 
-JS_FreeValue.exit122:                             ; preds = %22, %356, %352, %js_free_prop_enum.exit141, %284, %280, %JS_FreeValue.exit, %20
-  %358 = phi i64 [ 0, %20 ], [ %24, %22 ], [ %268, %JS_FreeValue.exit ], [ %268, %280 ], [ %268, %284 ], [ 0, %js_free_prop_enum.exit141 ], [ 0, %352 ], [ 0, %356 ]
-  %.sroa.5.0 = phi i64 [ 6, %20 ], [ %25, %22 ], [ %269, %JS_FreeValue.exit ], [ %269, %280 ], [ %269, %284 ], [ 6, %js_free_prop_enum.exit141 ], [ 6, %352 ], [ 6, %356 ]
-  %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %358, 0
+JS_FreeValue.exit122:                             ; preds = %22, %357, %353, %js_free_prop_enum.exit141, %285, %281, %JS_FreeValue.exit, %20
+  %359 = phi i64 [ 0, %20 ], [ %24, %22 ], [ %269, %JS_FreeValue.exit ], [ %269, %281 ], [ %269, %285 ], [ 0, %js_free_prop_enum.exit141 ], [ 0, %353 ], [ 0, %357 ]
+  %.sroa.5.0 = phi i64 [ 6, %20 ], [ %25, %22 ], [ %270, %JS_FreeValue.exit ], [ %270, %281 ], [ %270, %285 ], [ 6, %js_free_prop_enum.exit141 ], [ 6, %353 ], [ 6, %357 ]
+  %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %359, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.5.0, 1
   ret { i64, i64 } %.fca.1.insert
 }
