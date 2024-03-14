@@ -505,8 +505,8 @@ graph_ensure_capacity.exit.i:                     ; preds = %st_mult.exit30.i.i,
   %mul.i = shl nsw i32 %add.i, 1
   %mapping_size.i = getelementptr inbounds i8, ptr %graph, i64 68
   store i32 %mul.i, ptr %mapping_size.i, align 4
-  %cmp150.i = icmp sgt i32 %add.i, 0
-  br i1 %cmp150.i, label %for.body.lr.ph.i, label %for.end.i
+  %cmp149.i = icmp sgt i32 %add.i, 0
+  br i1 %cmp149.i, label %for.body.lr.ph.i, label %for.end.i
 
 for.body.lr.ph.i:                                 ; preds = %graph_ensure_capacity.exit.i
   %mapping.i = getelementptr inbounds i8, ptr %graph, i64 88
@@ -524,7 +524,7 @@ for.body.i51:                                     ; preds = %for.body.i51, %for.
   br i1 %cmp.i, label %for.body.i51, label %for.end.i, !llvm.loop !10
 
 for.end.i:                                        ; preds = %for.body.i51, %graph_ensure_capacity.exit.i
-  %.pr170.i = phi i32 [ %mul.i, %graph_ensure_capacity.exit.i ], [ %32, %for.body.i51 ]
+  %.pr169.i = phi i32 [ %mul.i, %graph_ensure_capacity.exit.i ], [ %32, %for.body.i51 ]
   %width.i = getelementptr inbounds i8, ptr %graph, i64 20
   store i32 0, ptr %width.i, align 4
   %edges_added.i = getelementptr inbounds i8, ptr %graph, i64 48
@@ -533,36 +533,36 @@ for.end.i:                                        ; preds = %for.body.i51, %grap
   store i32 %34, ptr %prev_edges_added.i, align 4
   store i32 0, ptr %edges_added.i, align 8
   %35 = load i32, ptr %num_columns.i, align 4
-  %cmp8.not154.i = icmp slt i32 %35, 0
-  br i1 %cmp8.not154.i, label %for.end42.i, label %for.body9.lr.ph.i
+  %cmp8.not153.i = icmp slt i32 %35, 0
+  br i1 %cmp8.not153.i, label %for.end42.i, label %for.body9.lr.ph.i
 
 for.body9.lr.ph.i:                                ; preds = %for.end.i
-  %revs.i.i.i87.i = getelementptr i8, ptr %graph, i64 8
-  %default_column_color.i.i.i91.i = getelementptr inbounds i8, ptr %graph, i64 104
-  %mapping.i115.i = getelementptr inbounds i8, ptr %graph, i64 88
+  %revs.i.i.i86.i = getelementptr i8, ptr %graph, i64 8
+  %default_column_color.i.i.i90.i = getelementptr inbounds i8, ptr %graph, i64 104
+  %mapping.i114.i = getelementptr inbounds i8, ptr %graph, i64 88
   %merge_layout.i = getelementptr inbounds i8, ptr %graph, i64 44
   br label %for.body9.i
 
 for.body9.i:                                      ; preds = %for.inc40.i, %for.body9.lr.ph.i
-  %indvars.iv165.i = phi i64 [ 0, %for.body9.lr.ph.i ], [ %indvars.iv.next166.i, %for.inc40.i ]
-  %36 = phi i32 [ %35, %for.body9.lr.ph.i ], [ %96, %for.inc40.i ]
-  %seen_this.0156.i = phi i32 [ 0, %for.body9.lr.ph.i ], [ %seen_this.1.i, %for.inc40.i ]
-  %is_commit_in_columns.0155.i = phi i32 [ 1, %for.body9.lr.ph.i ], [ %is_commit_in_columns.1.i, %for.inc40.i ]
+  %indvars.iv164.i = phi i64 [ 0, %for.body9.lr.ph.i ], [ %indvars.iv.next165.i, %for.inc40.i ]
+  %36 = phi i32 [ %35, %for.body9.lr.ph.i ], [ %97, %for.inc40.i ]
+  %seen_this.0155.i = phi i32 [ 0, %for.body9.lr.ph.i ], [ %seen_this.1.i, %for.inc40.i ]
+  %is_commit_in_columns.0154.i = phi i32 [ 1, %for.body9.lr.ph.i ], [ %is_commit_in_columns.1.i, %for.inc40.i ]
   %37 = zext i32 %36 to i64
-  %cmp11.i = icmp eq i64 %indvars.iv165.i, %37
+  %cmp11.i = icmp eq i64 %indvars.iv164.i, %37
   br i1 %cmp11.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %for.body9.i
-  %tobool.not.i50 = icmp eq i32 %seen_this.0156.i, 0
+  %tobool.not.i50 = icmp eq i32 %seen_this.0155.i, 0
   br i1 %tobool.not.i50, label %if.end17.i, label %for.end42.loopexit.i
 
 if.else.i:                                        ; preds = %for.body9.i
   %38 = load ptr, ptr %columns.i, align 8
-  %arrayidx15.i = getelementptr inbounds %struct.column, ptr %38, i64 %indvars.iv165.i
+  %arrayidx15.i = getelementptr inbounds %struct.column, ptr %38, i64 %indvars.iv164.i
   br label %if.end17.i
 
 if.end17.i:                                       ; preds = %if.else.i, %if.then.i
-  %is_commit_in_columns.1.i = phi i32 [ %is_commit_in_columns.0155.i, %if.else.i ], [ 0, %if.then.i ]
+  %is_commit_in_columns.1.i = phi i32 [ %is_commit_in_columns.0154.i, %if.else.i ], [ 0, %if.then.i ]
   %col_commit.0.in.i = phi ptr [ %arrayidx15.i, %if.else.i ], [ %graph, %if.then.i ]
   %col_commit.0.i = load ptr, ptr %col_commit.0.in.i, align 8
   %39 = load ptr, ptr %graph, align 8
@@ -570,7 +570,7 @@ if.end17.i:                                       ; preds = %if.else.i, %if.then
   br i1 %cmp19.i, label %if.then20.i, label %if.else38.i
 
 if.then20.i:                                      ; preds = %if.end17.i
-  %40 = trunc i64 %indvars.iv165.i to i32
+  %40 = trunc i64 %indvars.iv164.i to i32
   store i32 %40, ptr %commit_index, align 4
   store i32 -1, ptr %merge_layout.i, align 4
   %parents1.i.i = getelementptr inbounds i8, ptr %col_commit.0.i, i64 48
@@ -580,7 +580,7 @@ if.then20.i:                                      ; preds = %if.end17.i
 
 if.end.i.i:                                       ; preds = %if.then20.i
   %42 = load ptr, ptr %41, align 8
-  %graph.val.i.i30 = load ptr, ptr %revs.i.i.i87.i, align 8
+  %graph.val.i.i30 = load ptr, ptr %revs.i.i.i86.i, align 8
   %tobool.not.i.i.i31 = icmp eq ptr %graph.val.i.i30, null
   br i1 %tobool.not.i.i.i31, label %graph_is_interesting.exit.i.i47, label %land.lhs.true.i.i.i32
 
@@ -603,7 +603,7 @@ graph_is_interesting.exit.i.i47:                  ; preds = %if.then.i.i50.i, %l
   br i1 %cmp.i.not.i.i49, label %for.body23.lr.ph.i, label %if.end4.i.i
 
 if.end4.i.i:                                      ; preds = %graph_is_interesting.exit.i.i47
-  %45 = load ptr, ptr %revs.i.i.i87.i, align 8
+  %45 = load ptr, ptr %revs.i.i.i86.i, align 8
   %first_parent_only.i.i.i = getelementptr inbounds i8, ptr %45, i64 280
   %bf.load.i6.i.i = load i64, ptr %first_parent_only.i.i.i, align 8
   %46 = and i64 %bf.load.i6.i.i, 274877906944
@@ -619,7 +619,7 @@ for.cond.i.i.i:                                   ; preds = %if.end4.i.i, %graph
 
 for.body.i.i.i:                                   ; preds = %for.cond.i.i.i
   %47 = load ptr, ptr %list.0.i.i.i, align 8
-  %graph.val.i.i.i = load ptr, ptr %revs.i.i.i87.i, align 8
+  %graph.val.i.i.i = load ptr, ptr %revs.i.i.i86.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %graph.val.i.i.i, null
   br i1 %tobool.not.i.i.i.i, label %graph_is_interesting.exit.i.i.i, label %land.lhs.true.i.i.i.i
 
@@ -647,25 +647,25 @@ for.body23.lr.ph.i:                               ; preds = %graph_is_interestin
   br label %for.body23.i
 
 for.body23.i:                                     ; preds = %next_interesting_parent.exit.i, %for.body23.lr.ph.i
-  %parent.0153.i = phi ptr [ %retval.0.i.ph.i, %for.body23.lr.ph.i ], [ %list.0.i.i44, %next_interesting_parent.exit.i ]
+  %parent.0152.i = phi ptr [ %retval.0.i.ph.i, %for.body23.lr.ph.i ], [ %list.0.i.i44, %next_interesting_parent.exit.i ]
   %50 = load i32, ptr %num_parents, align 8
   %cmp25.i = icmp slt i32 %50, 2
   %or.cond.i = select i1 %cmp25.i, i1 %tobool26.i, i1 false
   br i1 %or.cond.i, label %if.end28.i, label %if.then27.i
 
 if.then27.i:                                      ; preds = %for.body23.i
-  %51 = load i16, ptr %default_column_color.i.i.i91.i, align 8
+  %51 = load i16, ptr %default_column_color.i.i.i90.i, align 8
   %conv.i51.i = zext i16 %51 to i32
   %add.i.i = add nuw nsw i32 %conv.i51.i, 1
   %52 = load i16, ptr @column_colors_max, align 2
   %conv1.i.i = zext i16 %52 to i32
   %rem.i.i = urem i32 %add.i.i, %conv1.i.i
   %conv2.i.i = trunc i32 %rem.i.i to i16
-  store i16 %conv2.i.i, ptr %default_column_color.i.i.i91.i, align 8
+  store i16 %conv2.i.i, ptr %default_column_color.i.i.i90.i, align 8
   br label %if.end28.i
 
 if.end28.i:                                       ; preds = %if.then27.i, %for.body23.i
-  %53 = load ptr, ptr %parent.0153.i, align 8
+  %53 = load ptr, ptr %parent.0152.i, align 8
   %54 = load i32, ptr %num_new_columns.i, align 8
   %cmp5.i.i.i = icmp sgt i32 %54, 0
   %55 = load ptr, ptr %new_columns.i, align 8
@@ -673,21 +673,21 @@ if.end28.i:                                       ; preds = %if.then27.i, %for.b
 
 for.body.lr.ph.i.i.i:                             ; preds = %if.end28.i
   %wide.trip.count.i.i.i = zext nneg i32 %54 to i64
-  br label %for.body.i.i61.i
+  br label %for.body.i.i60.i
 
-for.body.i.i61.i:                                 ; preds = %for.inc.i.i.i, %for.body.lr.ph.i.i.i
+for.body.i.i60.i:                                 ; preds = %for.inc.i.i.i, %for.body.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %for.body.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %for.inc.i.i.i ]
   %arrayidx.i.i.i = getelementptr inbounds %struct.column, ptr %55, i64 %indvars.iv.i.i.i
   %56 = load ptr, ptr %arrayidx.i.i.i, align 8
   %cmp2.i.i.i = icmp eq ptr %56, %53
   br i1 %cmp2.i.i.i, label %graph_find_new_column_by_commit.exit.i.i, label %for.inc.i.i.i
 
-for.inc.i.i.i:                                    ; preds = %for.body.i.i61.i
+for.inc.i.i.i:                                    ; preds = %for.body.i.i60.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %if.then.i.i38, label %for.body.i.i61.i, !llvm.loop !11
+  br i1 %exitcond.not.i.i.i, label %if.then.i.i38, label %for.body.i.i60.i, !llvm.loop !11
 
-graph_find_new_column_by_commit.exit.i.i:         ; preds = %for.body.i.i61.i
+graph_find_new_column_by_commit.exit.i.i:         ; preds = %for.body.i.i60.i
   %57 = trunc i64 %indvars.iv.i.i.i to i32
   %cmp.i.i = icmp slt i32 %57, 0
   br i1 %cmp.i.i, label %if.then.i.i38, label %if.end.i55.i
@@ -707,42 +707,42 @@ for.body.lr.ph.i34.i.i:                           ; preds = %if.then.i.i38
   %wide.trip.count.i35.i.i = zext nneg i32 %58 to i64
   br label %for.body.i36.i.i
 
-for.cond.i.i59.i:                                 ; preds = %for.body.i36.i.i
+for.cond.i.i58.i:                                 ; preds = %for.body.i36.i.i
   %indvars.iv.next.i40.i.i = add nuw nsw i64 %indvars.iv.i37.i.i, 1
   %exitcond.not.i41.i.i = icmp eq i64 %indvars.iv.next.i40.i.i, %wide.trip.count.i35.i.i
   br i1 %exitcond.not.i41.i.i, label %for.end.i.i.i, label %for.body.i36.i.i, !llvm.loop !12
 
-for.body.i36.i.i:                                 ; preds = %for.cond.i.i59.i, %for.body.lr.ph.i34.i.i
-  %indvars.iv.i37.i.i = phi i64 [ 0, %for.body.lr.ph.i34.i.i ], [ %indvars.iv.next.i40.i.i, %for.cond.i.i59.i ]
+for.body.i36.i.i:                                 ; preds = %for.cond.i.i58.i, %for.body.lr.ph.i34.i.i
+  %indvars.iv.i37.i.i = phi i64 [ 0, %for.body.lr.ph.i34.i.i ], [ %indvars.iv.next.i40.i.i, %for.cond.i.i58.i ]
   %arrayidx.i38.i.i = getelementptr inbounds %struct.column, ptr %59, i64 %indvars.iv.i37.i.i
   %60 = load ptr, ptr %arrayidx.i38.i.i, align 8
   %cmp2.i39.i.i = icmp eq ptr %60, %53
-  br i1 %cmp2.i39.i.i, label %if.then.i.i60.i, label %for.cond.i.i59.i
+  br i1 %cmp2.i39.i.i, label %if.then.i.i59.i, label %for.cond.i.i58.i
 
-if.then.i.i60.i:                                  ; preds = %for.body.i36.i.i
+if.then.i.i59.i:                                  ; preds = %for.body.i36.i.i
   %color.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i38.i.i, i64 8
   br label %graph_find_commit_color.exit.i.i
 
-for.end.i.i.i:                                    ; preds = %for.cond.i.i59.i, %if.then.i.i38
-  %61 = load ptr, ptr %revs.i.i.i87.i, align 8
+for.end.i.i.i:                                    ; preds = %for.cond.i.i58.i, %if.then.i.i38
+  %61 = load ptr, ptr %revs.i.i.i86.i, align 8
   %use_color.i.i.i.i = getelementptr inbounds i8, ptr %61, i64 1724
   %62 = load i32, ptr %use_color.i.i.i.i, align 4
   %call.i.i.i53.i = tail call i32 @want_color_fd(i32 noundef 1, i32 noundef %62) #15
   %tobool.not.i.i.i54.i = icmp eq i32 %call.i.i.i53.i, 0
-  %retval.0.in.i.i.i.i = select i1 %tobool.not.i.i.i54.i, ptr @column_colors_max, ptr %default_column_color.i.i.i91.i
+  %retval.0.in.i.i.i.i = select i1 %tobool.not.i.i.i54.i, ptr @column_colors_max, ptr %default_column_color.i.i.i90.i
   br label %graph_find_commit_color.exit.i.i
 
-graph_find_commit_color.exit.i.i:                 ; preds = %for.end.i.i.i, %if.then.i.i60.i
-  %retval.0.in.i.i.i = phi ptr [ %color.i.i.i, %if.then.i.i60.i ], [ %retval.0.in.i.i.i.i, %for.end.i.i.i ]
+graph_find_commit_color.exit.i.i:                 ; preds = %for.end.i.i.i, %if.then.i.i59.i
+  %retval.0.in.i.i.i = phi ptr [ %color.i.i.i, %if.then.i.i59.i ], [ %retval.0.in.i.i.i.i, %for.end.i.i.i ]
   %retval.0.i33.i.i = load i16, ptr %retval.0.in.i.i.i, align 2
   %63 = load ptr, ptr %new_columns.i, align 8
   %color.i.i = getelementptr inbounds %struct.column, ptr %63, i64 %idxprom.i.i, i32 1
   store i16 %retval.0.i33.i.i, ptr %color.i.i, align 8
-  %.pre168.i = load i32, ptr %num_parents, align 8
+  %.pre167.i = load i32, ptr %num_parents, align 8
   br label %if.end.i55.i
 
 if.end.i55.i:                                     ; preds = %graph_find_commit_color.exit.i.i, %graph_find_new_column_by_commit.exit.i.i
-  %64 = phi i32 [ %.pre168.i, %graph_find_commit_color.exit.i.i ], [ %50, %graph_find_new_column_by_commit.exit.i.i ]
+  %64 = phi i32 [ %.pre167.i, %graph_find_commit_color.exit.i.i ], [ %50, %graph_find_new_column_by_commit.exit.i.i ]
   %i.0.i.i = phi i32 [ %54, %graph_find_commit_color.exit.i.i ], [ %57, %graph_find_new_column_by_commit.exit.i.i ]
   %cmp6.i.i = icmp sgt i32 %64, 1
   br i1 %cmp6.i.i, label %land.lhs.true8.i.i, label %if.else.i.i
@@ -755,42 +755,40 @@ land.lhs.true8.i.i:                               ; preds = %if.end.i55.i
 if.then10.i.i:                                    ; preds = %land.lhs.true8.i.i
   %sub.i.i = sub nsw i32 %40, %i.0.i.i
   %cmp11.i.i = icmp sgt i32 %sub.i.i, 1
-  %mul.i57.i = shl nsw i32 %sub.i.i, 1
-  %sub12.i.i = add nsw i32 %mul.i57.i, -3
-  %cond.i.i = select i1 %cmp11.i.i, i32 %sub12.i.i, i32 1
+  %66 = shl i32 %sub.i.i, 1
+  %sub12.neg.i.i = sub i32 3, %66
+  %cond.neg44.i.i = select i1 %cmp11.i.i, i32 %sub12.neg.i.i, i32 -1
   %cmp13.i.i = icmp slt i32 %sub.i.i, 1
   %cond14.i.i = zext i1 %cmp13.i.i to i32
   store i32 %cond14.i.i, ptr %merge_layout.i, align 4
-  %add.i58.i = add nsw i32 %64, -2
-  %sub18.i.i = add nuw nsw i32 %add.i58.i, %cond14.i.i
+  %add.i57.i = add nsw i32 %64, -2
+  %sub18.i.i = add nuw nsw i32 %add.i57.i, %cond14.i.i
   store i32 %sub18.i.i, ptr %edges_added.i, align 8
-  %66 = load i32, ptr %width.i, align 4
-  %not.cmp13.i.i = xor i1 %cmp13.i.i, true
-  %sub20.i.i = sext i1 %not.cmp13.i.i to i32
-  %mul21.i.i = mul nsw i32 %cond.i.i, %sub20.i.i
-  %add22.i.i = add nsw i32 %66, %mul21.i.i
+  %67 = load i32, ptr %width.i, align 4
+  %mul21.i.i = select i1 %cmp13.i.i, i32 0, i32 %cond.neg44.i.i
+  %add22.i.i = add nsw i32 %67, %mul21.i.i
   %mul24.i.i = select i1 %cmp13.i.i, i32 2, i32 0
-  %add26.i.i = add nsw i32 %66, %mul24.i.i
+  %add26.i.i = add nsw i32 %67, %mul24.i.i
   store i32 %add26.i.i, ptr %width.i, align 4
   br label %graph_insert_into_new_columns.exit.i
 
 if.else.i.i:                                      ; preds = %land.lhs.true8.i.i, %if.end.i55.i
-  %67 = load i32, ptr %edges_added.i, align 8
-  %cmp28.i.i = icmp sgt i32 %67, 0
+  %68 = load i32, ptr %edges_added.i, align 8
+  %cmp28.i.i = icmp sgt i32 %68, 0
   br i1 %cmp28.i.i, label %land.lhs.true29.i.i, label %if.else.if.else39_crit_edge.i.i
 
 if.else.if.else39_crit_edge.i.i:                  ; preds = %if.else.i.i
-  %.pre48.i.i = load i32, ptr %width.i, align 4
+  %.pre49.i.i = load i32, ptr %width.i, align 4
   br label %if.else39.i.i
 
 land.lhs.true29.i.i:                              ; preds = %if.else.i.i
-  %68 = load ptr, ptr %mapping.i115.i, align 8
-  %69 = load i32, ptr %width.i, align 4
-  %sub31.i.i = add nsw i32 %69, -2
+  %69 = load ptr, ptr %mapping.i114.i, align 8
+  %70 = load i32, ptr %width.i, align 4
+  %sub31.i.i = add nsw i32 %70, -2
   %idxprom32.i.i = sext i32 %sub31.i.i to i64
-  %arrayidx33.i.i = getelementptr inbounds i32, ptr %68, i64 %idxprom32.i.i
-  %70 = load i32, ptr %arrayidx33.i.i, align 4
-  %cmp34.i.i = icmp eq i32 %i.0.i.i, %70
+  %arrayidx33.i.i = getelementptr inbounds i32, ptr %69, i64 %idxprom32.i.i
+  %71 = load i32, ptr %arrayidx33.i.i, align 4
+  %cmp34.i.i = icmp eq i32 %i.0.i.i, %71
   br i1 %cmp34.i.i, label %if.then35.i.i, label %if.else39.i.i
 
 if.then35.i.i:                                    ; preds = %land.lhs.true29.i.i
@@ -798,246 +796,246 @@ if.then35.i.i:                                    ; preds = %land.lhs.true29.i.i
   br label %graph_insert_into_new_columns.exit.i
 
 if.else39.i.i:                                    ; preds = %land.lhs.true29.i.i, %if.else.if.else39_crit_edge.i.i
-  %71 = phi i32 [ %.pre48.i.i, %if.else.if.else39_crit_edge.i.i ], [ %69, %land.lhs.true29.i.i ]
-  %add42.i.i = add nsw i32 %71, 2
+  %72 = phi i32 [ %.pre49.i.i, %if.else.if.else39_crit_edge.i.i ], [ %70, %land.lhs.true29.i.i ]
+  %add42.i.i = add nsw i32 %72, 2
   store i32 %add42.i.i, ptr %width.i, align 4
   br label %graph_insert_into_new_columns.exit.i
 
 graph_insert_into_new_columns.exit.i:             ; preds = %if.else39.i.i, %if.then35.i.i, %if.then10.i.i
-  %mapping_idx.0.i.i = phi i32 [ %add22.i.i, %if.then10.i.i ], [ %sub31.i.i, %if.then35.i.i ], [ %71, %if.else39.i.i ]
-  %72 = load ptr, ptr %mapping.i115.i, align 8
+  %mapping_idx.0.i.i = phi i32 [ %add22.i.i, %if.then10.i.i ], [ %sub31.i.i, %if.then35.i.i ], [ %72, %if.else39.i.i ]
+  %73 = load ptr, ptr %mapping.i114.i, align 8
   %idxprom46.i.i = sext i32 %mapping_idx.0.i.i to i64
-  %arrayidx47.i.i = getelementptr inbounds i32, ptr %72, i64 %idxprom46.i.i
+  %arrayidx47.i.i = getelementptr inbounds i32, ptr %73, i64 %idxprom46.i.i
   store i32 %i.0.i.i, ptr %arrayidx47.i.i, align 4
-  %73 = load ptr, ptr %revs.i.i.i87.i, align 8
-  %first_parent_only.i.i39 = getelementptr inbounds i8, ptr %73, i64 280
+  %74 = load ptr, ptr %revs.i.i.i86.i, align 8
+  %first_parent_only.i.i39 = getelementptr inbounds i8, ptr %74, i64 280
   %bf.load.i.i40 = load i64, ptr %first_parent_only.i.i39, align 8
-  %74 = and i64 %bf.load.i.i40, 274877906944
-  %tobool.not.i62.i = icmp eq i64 %74, 0
-  br i1 %tobool.not.i62.i, label %for.cond.i.i41, label %for.end31.i
+  %75 = and i64 %bf.load.i.i40, 274877906944
+  %tobool.not.i61.i = icmp eq i64 %75, 0
+  br i1 %tobool.not.i61.i, label %for.cond.i.i41, label %for.end31.i
 
-for.cond.i.i41:                                   ; preds = %graph_insert_into_new_columns.exit.i, %graph_is_interesting.exit.i73.i
-  %orig.pn.i.i42 = phi ptr [ %list.0.i.i44, %graph_is_interesting.exit.i73.i ], [ %parent.0153.i, %graph_insert_into_new_columns.exit.i ]
+for.cond.i.i41:                                   ; preds = %graph_insert_into_new_columns.exit.i, %graph_is_interesting.exit.i72.i
+  %orig.pn.i.i42 = phi ptr [ %list.0.i.i44, %graph_is_interesting.exit.i72.i ], [ %parent.0152.i, %graph_insert_into_new_columns.exit.i ]
   %list.0.in.i.i43 = getelementptr inbounds i8, ptr %orig.pn.i.i42, i64 8
   %list.0.i.i44 = load ptr, ptr %list.0.in.i.i43, align 8
   %tobool1.not.i.i45 = icmp eq ptr %list.0.i.i44, null
   br i1 %tobool1.not.i.i45, label %for.end31.i, label %for.body.i.i46
 
 for.body.i.i46:                                   ; preds = %for.cond.i.i41
-  %75 = load ptr, ptr %list.0.i.i44, align 8
-  %graph.val.i64.i = load ptr, ptr %revs.i.i.i87.i, align 8
-  %tobool.not.i.i65.i = icmp eq ptr %graph.val.i64.i, null
-  br i1 %tobool.not.i.i65.i, label %graph_is_interesting.exit.i73.i, label %land.lhs.true.i.i66.i
+  %76 = load ptr, ptr %list.0.i.i44, align 8
+  %graph.val.i63.i = load ptr, ptr %revs.i.i.i86.i, align 8
+  %tobool.not.i.i64.i = icmp eq ptr %graph.val.i63.i, null
+  br i1 %tobool.not.i.i64.i, label %graph_is_interesting.exit.i72.i, label %land.lhs.true.i.i65.i
 
-land.lhs.true.i.i66.i:                            ; preds = %for.body.i.i46
-  %boundary.i.i67.i = getelementptr inbounds i8, ptr %graph.val.i64.i, i64 280
-  %bf.load.i.i68.i = load i64, ptr %boundary.i.i67.i, align 8
-  %76 = and i64 %bf.load.i.i68.i, 12582912
-  %tobool2.not.i.i69.i = icmp eq i64 %76, 0
-  br i1 %tobool2.not.i.i69.i, label %graph_is_interesting.exit.i73.i, label %if.then.i.i70.i
+land.lhs.true.i.i65.i:                            ; preds = %for.body.i.i46
+  %boundary.i.i66.i = getelementptr inbounds i8, ptr %graph.val.i63.i, i64 280
+  %bf.load.i.i67.i = load i64, ptr %boundary.i.i66.i, align 8
+  %77 = and i64 %bf.load.i.i67.i, 12582912
+  %tobool2.not.i.i68.i = icmp eq i64 %77, 0
+  br i1 %tobool2.not.i.i68.i, label %graph_is_interesting.exit.i72.i, label %if.then.i.i69.i
 
-if.then.i.i70.i:                                  ; preds = %land.lhs.true.i.i66.i
-  %bf.load3.i.i71.i = load i32, ptr %75, align 8
-  %77 = and i32 %bf.load3.i.i71.i, 1024
-  %tobool5.not.i.i72.i = icmp eq i32 %77, 0
-  br i1 %tobool5.not.i.i72.i, label %graph_is_interesting.exit.i73.i, label %next_interesting_parent.exit.i
+if.then.i.i69.i:                                  ; preds = %land.lhs.true.i.i65.i
+  %bf.load3.i.i70.i = load i32, ptr %76, align 8
+  %78 = and i32 %bf.load3.i.i70.i, 1024
+  %tobool5.not.i.i71.i = icmp eq i32 %78, 0
+  br i1 %tobool5.not.i.i71.i, label %graph_is_interesting.exit.i72.i, label %next_interesting_parent.exit.i
 
-graph_is_interesting.exit.i73.i:                  ; preds = %if.then.i.i70.i, %land.lhs.true.i.i66.i, %for.body.i.i46
-  %call.i.i74.i = tail call i32 @get_commit_action(ptr noundef %graph.val.i64.i, ptr noundef %75) #15
-  %cmp.i.not.i75.i = icmp eq i32 %call.i.i74.i, 1
-  br i1 %cmp.i.not.i75.i, label %next_interesting_parent.exit.i, label %for.cond.i.i41, !llvm.loop !7
+graph_is_interesting.exit.i72.i:                  ; preds = %if.then.i.i69.i, %land.lhs.true.i.i65.i, %for.body.i.i46
+  %call.i.i73.i = tail call i32 @get_commit_action(ptr noundef %graph.val.i63.i, ptr noundef %76) #15
+  %cmp.i.not.i74.i = icmp eq i32 %call.i.i73.i, 1
+  br i1 %cmp.i.not.i74.i, label %next_interesting_parent.exit.i, label %for.cond.i.i41, !llvm.loop !7
 
-next_interesting_parent.exit.i:                   ; preds = %graph_is_interesting.exit.i73.i, %if.then.i.i70.i
+next_interesting_parent.exit.i:                   ; preds = %graph_is_interesting.exit.i72.i, %if.then.i.i69.i
   br label %for.body23.i, !llvm.loop !13
 
 for.end31.i:                                      ; preds = %for.cond.i.i.i, %graph_insert_into_new_columns.exit.i, %for.cond.i.i41, %if.end4.i.i, %if.then20.i
-  %78 = load i32, ptr %num_parents, align 8
-  %cmp33.i = icmp eq i32 %78, 0
+  %79 = load i32, ptr %num_parents, align 8
+  %cmp33.i = icmp eq i32 %79, 0
   br i1 %cmp33.i, label %if.then34.i, label %for.inc40.i
 
 if.then34.i:                                      ; preds = %for.end31.i
-  %79 = load i32, ptr %width.i, align 4
-  %add36.i = add nsw i32 %79, 2
+  %80 = load i32, ptr %width.i, align 4
+  %add36.i = add nsw i32 %80, 2
   store i32 %add36.i, ptr %width.i, align 4
   br label %for.inc40.i
 
 if.else38.i:                                      ; preds = %if.end17.i
-  %80 = load i32, ptr %num_new_columns.i, align 8
-  %cmp5.i.i77.i = icmp sgt i32 %80, 0
-  %81 = load ptr, ptr %new_columns.i, align 8
-  br i1 %cmp5.i.i77.i, label %for.body.lr.ph.i.i134.i, label %if.then.i79.i
+  %81 = load i32, ptr %num_new_columns.i, align 8
+  %cmp5.i.i76.i = icmp sgt i32 %81, 0
+  %82 = load ptr, ptr %new_columns.i, align 8
+  br i1 %cmp5.i.i76.i, label %for.body.lr.ph.i.i133.i, label %if.then.i78.i
 
-for.body.lr.ph.i.i134.i:                          ; preds = %if.else38.i
-  %wide.trip.count.i.i135.i = zext nneg i32 %80 to i64
-  br label %for.body.i.i136.i
+for.body.lr.ph.i.i133.i:                          ; preds = %if.else38.i
+  %wide.trip.count.i.i134.i = zext nneg i32 %81 to i64
+  br label %for.body.i.i135.i
 
-for.body.i.i136.i:                                ; preds = %for.inc.i.i140.i, %for.body.lr.ph.i.i134.i
-  %indvars.iv.i.i137.i = phi i64 [ 0, %for.body.lr.ph.i.i134.i ], [ %indvars.iv.next.i.i141.i, %for.inc.i.i140.i ]
-  %arrayidx.i.i138.i = getelementptr inbounds %struct.column, ptr %81, i64 %indvars.iv.i.i137.i
-  %82 = load ptr, ptr %arrayidx.i.i138.i, align 8
-  %cmp2.i.i139.i = icmp eq ptr %82, %col_commit.0.i
-  br i1 %cmp2.i.i139.i, label %graph_find_new_column_by_commit.exit.i143.i, label %for.inc.i.i140.i
+for.body.i.i135.i:                                ; preds = %for.inc.i.i139.i, %for.body.lr.ph.i.i133.i
+  %indvars.iv.i.i136.i = phi i64 [ 0, %for.body.lr.ph.i.i133.i ], [ %indvars.iv.next.i.i140.i, %for.inc.i.i139.i ]
+  %arrayidx.i.i137.i = getelementptr inbounds %struct.column, ptr %82, i64 %indvars.iv.i.i136.i
+  %83 = load ptr, ptr %arrayidx.i.i137.i, align 8
+  %cmp2.i.i138.i = icmp eq ptr %83, %col_commit.0.i
+  br i1 %cmp2.i.i138.i, label %graph_find_new_column_by_commit.exit.i142.i, label %for.inc.i.i139.i
 
-for.inc.i.i140.i:                                 ; preds = %for.body.i.i136.i
-  %indvars.iv.next.i.i141.i = add nuw nsw i64 %indvars.iv.i.i137.i, 1
-  %exitcond.not.i.i142.i = icmp eq i64 %indvars.iv.next.i.i141.i, %wide.trip.count.i.i135.i
-  br i1 %exitcond.not.i.i142.i, label %if.then.i79.i, label %for.body.i.i136.i, !llvm.loop !11
+for.inc.i.i139.i:                                 ; preds = %for.body.i.i135.i
+  %indvars.iv.next.i.i140.i = add nuw nsw i64 %indvars.iv.i.i136.i, 1
+  %exitcond.not.i.i141.i = icmp eq i64 %indvars.iv.next.i.i140.i, %wide.trip.count.i.i134.i
+  br i1 %exitcond.not.i.i141.i, label %if.then.i78.i, label %for.body.i.i135.i, !llvm.loop !11
 
-graph_find_new_column_by_commit.exit.i143.i:      ; preds = %for.body.i.i136.i
-  %83 = trunc i64 %indvars.iv.i.i137.i to i32
-  %cmp.i144.i = icmp slt i32 %83, 0
-  br i1 %cmp.i144.i, label %if.then.i79.i, label %if.end.i97.i
+graph_find_new_column_by_commit.exit.i142.i:      ; preds = %for.body.i.i135.i
+  %84 = trunc i64 %indvars.iv.i.i136.i to i32
+  %cmp.i143.i = icmp slt i32 %84, 0
+  br i1 %cmp.i143.i, label %if.then.i78.i, label %if.end.i96.i
 
-if.then.i79.i:                                    ; preds = %for.inc.i.i140.i, %graph_find_new_column_by_commit.exit.i143.i, %if.else38.i
-  %inc.i80.i = add nsw i32 %80, 1
-  store i32 %inc.i80.i, ptr %num_new_columns.i, align 8
-  %idxprom.i82.i = sext i32 %80 to i64
-  %arrayidx.i83.i = getelementptr inbounds %struct.column, ptr %81, i64 %idxprom.i82.i
-  store ptr %col_commit.0.i, ptr %arrayidx.i83.i, align 8
-  %84 = load i32, ptr %num_columns.i, align 4
-  %cmp7.i.i85.i = icmp sgt i32 %84, 0
-  br i1 %cmp7.i.i85.i, label %for.body.lr.ph.i34.i122.i, label %for.end.i.i86.i
+if.then.i78.i:                                    ; preds = %for.inc.i.i139.i, %graph_find_new_column_by_commit.exit.i142.i, %if.else38.i
+  %inc.i79.i = add nsw i32 %81, 1
+  store i32 %inc.i79.i, ptr %num_new_columns.i, align 8
+  %idxprom.i81.i = sext i32 %81 to i64
+  %arrayidx.i82.i = getelementptr inbounds %struct.column, ptr %82, i64 %idxprom.i81.i
+  store ptr %col_commit.0.i, ptr %arrayidx.i82.i, align 8
+  %85 = load i32, ptr %num_columns.i, align 4
+  %cmp7.i.i84.i = icmp sgt i32 %85, 0
+  br i1 %cmp7.i.i84.i, label %for.body.lr.ph.i34.i121.i, label %for.end.i.i85.i
 
-for.body.lr.ph.i34.i122.i:                        ; preds = %if.then.i79.i
-  %85 = load ptr, ptr %columns.i, align 8
-  %wide.trip.count.i35.i124.i = zext nneg i32 %84 to i64
-  br label %for.body.i36.i125.i
+for.body.lr.ph.i34.i121.i:                        ; preds = %if.then.i78.i
+  %86 = load ptr, ptr %columns.i, align 8
+  %wide.trip.count.i35.i123.i = zext nneg i32 %85 to i64
+  br label %for.body.i36.i124.i
 
-for.cond.i.i129.i:                                ; preds = %for.body.i36.i125.i
-  %indvars.iv.next.i40.i130.i = add nuw nsw i64 %indvars.iv.i37.i126.i, 1
-  %exitcond.not.i41.i131.i = icmp eq i64 %indvars.iv.next.i40.i130.i, %wide.trip.count.i35.i124.i
-  br i1 %exitcond.not.i41.i131.i, label %for.end.i.i86.i, label %for.body.i36.i125.i, !llvm.loop !12
+for.cond.i.i128.i:                                ; preds = %for.body.i36.i124.i
+  %indvars.iv.next.i40.i129.i = add nuw nsw i64 %indvars.iv.i37.i125.i, 1
+  %exitcond.not.i41.i130.i = icmp eq i64 %indvars.iv.next.i40.i129.i, %wide.trip.count.i35.i123.i
+  br i1 %exitcond.not.i41.i130.i, label %for.end.i.i85.i, label %for.body.i36.i124.i, !llvm.loop !12
 
-for.body.i36.i125.i:                              ; preds = %for.cond.i.i129.i, %for.body.lr.ph.i34.i122.i
-  %indvars.iv.i37.i126.i = phi i64 [ 0, %for.body.lr.ph.i34.i122.i ], [ %indvars.iv.next.i40.i130.i, %for.cond.i.i129.i ]
-  %arrayidx.i38.i127.i = getelementptr inbounds %struct.column, ptr %85, i64 %indvars.iv.i37.i126.i
-  %86 = load ptr, ptr %arrayidx.i38.i127.i, align 8
-  %cmp2.i39.i128.i = icmp eq ptr %86, %col_commit.0.i
-  br i1 %cmp2.i39.i128.i, label %if.then.i.i132.i, label %for.cond.i.i129.i
+for.body.i36.i124.i:                              ; preds = %for.cond.i.i128.i, %for.body.lr.ph.i34.i121.i
+  %indvars.iv.i37.i125.i = phi i64 [ 0, %for.body.lr.ph.i34.i121.i ], [ %indvars.iv.next.i40.i129.i, %for.cond.i.i128.i ]
+  %arrayidx.i38.i126.i = getelementptr inbounds %struct.column, ptr %86, i64 %indvars.iv.i37.i125.i
+  %87 = load ptr, ptr %arrayidx.i38.i126.i, align 8
+  %cmp2.i39.i127.i = icmp eq ptr %87, %col_commit.0.i
+  br i1 %cmp2.i39.i127.i, label %if.then.i.i131.i, label %for.cond.i.i128.i
 
-if.then.i.i132.i:                                 ; preds = %for.body.i36.i125.i
-  %color.i.i133.i = getelementptr inbounds i8, ptr %arrayidx.i38.i127.i, i64 8
-  br label %graph_find_commit_color.exit.i93.i
+if.then.i.i131.i:                                 ; preds = %for.body.i36.i124.i
+  %color.i.i132.i = getelementptr inbounds i8, ptr %arrayidx.i38.i126.i, i64 8
+  br label %graph_find_commit_color.exit.i92.i
 
-for.end.i.i86.i:                                  ; preds = %for.cond.i.i129.i, %if.then.i79.i
-  %87 = load ptr, ptr %revs.i.i.i87.i, align 8
-  %use_color.i.i.i88.i = getelementptr inbounds i8, ptr %87, i64 1724
-  %88 = load i32, ptr %use_color.i.i.i88.i, align 4
-  %call.i.i.i89.i = tail call i32 @want_color_fd(i32 noundef 1, i32 noundef %88) #15
-  %tobool.not.i.i.i90.i = icmp eq i32 %call.i.i.i89.i, 0
-  %retval.0.in.i.i.i92.i = select i1 %tobool.not.i.i.i90.i, ptr @column_colors_max, ptr %default_column_color.i.i.i91.i
-  br label %graph_find_commit_color.exit.i93.i
+for.end.i.i85.i:                                  ; preds = %for.cond.i.i128.i, %if.then.i78.i
+  %88 = load ptr, ptr %revs.i.i.i86.i, align 8
+  %use_color.i.i.i87.i = getelementptr inbounds i8, ptr %88, i64 1724
+  %89 = load i32, ptr %use_color.i.i.i87.i, align 4
+  %call.i.i.i88.i = tail call i32 @want_color_fd(i32 noundef 1, i32 noundef %89) #15
+  %tobool.not.i.i.i89.i = icmp eq i32 %call.i.i.i88.i, 0
+  %retval.0.in.i.i.i91.i = select i1 %tobool.not.i.i.i89.i, ptr @column_colors_max, ptr %default_column_color.i.i.i90.i
+  br label %graph_find_commit_color.exit.i92.i
 
-graph_find_commit_color.exit.i93.i:               ; preds = %for.end.i.i86.i, %if.then.i.i132.i
-  %retval.0.in.i.i94.i = phi ptr [ %color.i.i133.i, %if.then.i.i132.i ], [ %retval.0.in.i.i.i92.i, %for.end.i.i86.i ]
-  %retval.0.i33.i95.i = load i16, ptr %retval.0.in.i.i94.i, align 2
-  %89 = load ptr, ptr %new_columns.i, align 8
-  %color.i96.i = getelementptr inbounds %struct.column, ptr %89, i64 %idxprom.i82.i, i32 1
-  store i16 %retval.0.i33.i95.i, ptr %color.i96.i, align 8
-  br label %if.end.i97.i
+graph_find_commit_color.exit.i92.i:               ; preds = %for.end.i.i85.i, %if.then.i.i131.i
+  %retval.0.in.i.i93.i = phi ptr [ %color.i.i132.i, %if.then.i.i131.i ], [ %retval.0.in.i.i.i91.i, %for.end.i.i85.i ]
+  %retval.0.i33.i94.i = load i16, ptr %retval.0.in.i.i93.i, align 2
+  %90 = load ptr, ptr %new_columns.i, align 8
+  %color.i95.i = getelementptr inbounds %struct.column, ptr %90, i64 %idxprom.i81.i, i32 1
+  store i16 %retval.0.i33.i94.i, ptr %color.i95.i, align 8
+  br label %if.end.i96.i
 
-if.end.i97.i:                                     ; preds = %graph_find_commit_color.exit.i93.i, %graph_find_new_column_by_commit.exit.i143.i
-  %i.0.i98.i = phi i32 [ %80, %graph_find_commit_color.exit.i93.i ], [ %83, %graph_find_new_column_by_commit.exit.i143.i ]
-  %90 = load i32, ptr %edges_added.i, align 8
-  %cmp28.i103.i = icmp sgt i32 %90, 0
-  br i1 %cmp28.i103.i, label %land.lhs.true29.i114.i, label %if.else.if.else39_crit_edge.i104.i
+if.end.i96.i:                                     ; preds = %graph_find_commit_color.exit.i92.i, %graph_find_new_column_by_commit.exit.i142.i
+  %i.0.i97.i = phi i32 [ %81, %graph_find_commit_color.exit.i92.i ], [ %84, %graph_find_new_column_by_commit.exit.i142.i ]
+  %91 = load i32, ptr %edges_added.i, align 8
+  %cmp28.i102.i = icmp sgt i32 %91, 0
+  br i1 %cmp28.i102.i, label %land.lhs.true29.i113.i, label %if.else.if.else39_crit_edge.i103.i
 
-if.else.if.else39_crit_edge.i104.i:               ; preds = %if.end.i97.i
-  %.pre48.i106.i = load i32, ptr %width.i, align 4
-  %.pre.pre.i = load ptr, ptr %mapping.i115.i, align 8
-  br label %if.else39.i107.i
+if.else.if.else39_crit_edge.i103.i:               ; preds = %if.end.i96.i
+  %.pre49.i105.i = load i32, ptr %width.i, align 4
+  %.pre.pre.i = load ptr, ptr %mapping.i114.i, align 8
+  br label %if.else39.i106.i
 
-land.lhs.true29.i114.i:                           ; preds = %if.end.i97.i
-  %91 = load ptr, ptr %mapping.i115.i, align 8
-  %92 = load i32, ptr %width.i, align 4
-  %sub31.i117.i = add nsw i32 %92, -2
-  %idxprom32.i118.i = sext i32 %sub31.i117.i to i64
-  %arrayidx33.i119.i = getelementptr inbounds i32, ptr %91, i64 %idxprom32.i118.i
-  %93 = load i32, ptr %arrayidx33.i119.i, align 4
-  %cmp34.i120.i = icmp eq i32 %i.0.i98.i, %93
-  br i1 %cmp34.i120.i, label %if.then35.i121.i, label %if.else39.i107.i
+land.lhs.true29.i113.i:                           ; preds = %if.end.i96.i
+  %92 = load ptr, ptr %mapping.i114.i, align 8
+  %93 = load i32, ptr %width.i, align 4
+  %sub31.i116.i = add nsw i32 %93, -2
+  %idxprom32.i117.i = sext i32 %sub31.i116.i to i64
+  %arrayidx33.i118.i = getelementptr inbounds i32, ptr %92, i64 %idxprom32.i117.i
+  %94 = load i32, ptr %arrayidx33.i118.i, align 4
+  %cmp34.i119.i = icmp eq i32 %i.0.i97.i, %94
+  br i1 %cmp34.i119.i, label %if.then35.i120.i, label %if.else39.i106.i
 
-if.then35.i121.i:                                 ; preds = %land.lhs.true29.i114.i
+if.then35.i120.i:                                 ; preds = %land.lhs.true29.i113.i
   store i32 -1, ptr %edges_added.i, align 8
-  br label %graph_insert_into_new_columns.exit145.i
+  br label %graph_insert_into_new_columns.exit144.i
 
-if.else39.i107.i:                                 ; preds = %land.lhs.true29.i114.i, %if.else.if.else39_crit_edge.i104.i
-  %.pre.i = phi ptr [ %.pre.pre.i, %if.else.if.else39_crit_edge.i104.i ], [ %91, %land.lhs.true29.i114.i ]
-  %94 = phi i32 [ %.pre48.i106.i, %if.else.if.else39_crit_edge.i104.i ], [ %92, %land.lhs.true29.i114.i ]
-  %add42.i109.i = add nsw i32 %94, 2
-  store i32 %add42.i109.i, ptr %width.i, align 4
-  %.pre172.i = sext i32 %94 to i64
-  br label %graph_insert_into_new_columns.exit145.i
+if.else39.i106.i:                                 ; preds = %land.lhs.true29.i113.i, %if.else.if.else39_crit_edge.i103.i
+  %.pre.i = phi ptr [ %.pre.pre.i, %if.else.if.else39_crit_edge.i103.i ], [ %92, %land.lhs.true29.i113.i ]
+  %95 = phi i32 [ %.pre49.i105.i, %if.else.if.else39_crit_edge.i103.i ], [ %93, %land.lhs.true29.i113.i ]
+  %add42.i108.i = add nsw i32 %95, 2
+  store i32 %add42.i108.i, ptr %width.i, align 4
+  %.pre171.i = sext i32 %95 to i64
+  br label %graph_insert_into_new_columns.exit144.i
 
-graph_insert_into_new_columns.exit145.i:          ; preds = %if.else39.i107.i, %if.then35.i121.i
-  %idxprom46.i112.pre-phi.i = phi i64 [ %idxprom32.i118.i, %if.then35.i121.i ], [ %.pre172.i, %if.else39.i107.i ]
-  %95 = phi ptr [ %91, %if.then35.i121.i ], [ %.pre.i, %if.else39.i107.i ]
-  %arrayidx47.i113.i = getelementptr inbounds i32, ptr %95, i64 %idxprom46.i112.pre-phi.i
-  store i32 %i.0.i98.i, ptr %arrayidx47.i113.i, align 4
+graph_insert_into_new_columns.exit144.i:          ; preds = %if.else39.i106.i, %if.then35.i120.i
+  %idxprom46.i111.pre-phi.i = phi i64 [ %idxprom32.i117.i, %if.then35.i120.i ], [ %.pre171.i, %if.else39.i106.i ]
+  %96 = phi ptr [ %92, %if.then35.i120.i ], [ %.pre.i, %if.else39.i106.i ]
+  %arrayidx47.i112.i = getelementptr inbounds i32, ptr %96, i64 %idxprom46.i111.pre-phi.i
+  store i32 %i.0.i97.i, ptr %arrayidx47.i112.i, align 4
   br label %for.inc40.i
 
-for.inc40.i:                                      ; preds = %graph_insert_into_new_columns.exit145.i, %if.then34.i, %for.end31.i
-  %seen_this.1.i = phi i32 [ 1, %if.then34.i ], [ 1, %for.end31.i ], [ %seen_this.0156.i, %graph_insert_into_new_columns.exit145.i ]
-  %indvars.iv.next166.i = add nuw nsw i64 %indvars.iv165.i, 1
-  %96 = load i32, ptr %num_columns.i, align 4
-  %97 = sext i32 %96 to i64
-  %cmp8.not.not.i = icmp slt i64 %indvars.iv165.i, %97
+for.inc40.i:                                      ; preds = %graph_insert_into_new_columns.exit144.i, %if.then34.i, %for.end31.i
+  %seen_this.1.i = phi i32 [ 1, %if.then34.i ], [ 1, %for.end31.i ], [ %seen_this.0155.i, %graph_insert_into_new_columns.exit144.i ]
+  %indvars.iv.next165.i = add nuw nsw i64 %indvars.iv164.i, 1
+  %97 = load i32, ptr %num_columns.i, align 4
+  %98 = sext i32 %97 to i64
+  %cmp8.not.not.i = icmp slt i64 %indvars.iv164.i, %98
   br i1 %cmp8.not.not.i, label %for.body9.i, label %for.end42.loopexit.i, !llvm.loop !14
 
 for.end42.loopexit.i:                             ; preds = %for.inc40.i, %if.then.i
-  %98 = phi i32 [ %96, %for.inc40.i ], [ %36, %if.then.i ]
+  %99 = phi i32 [ %97, %for.inc40.i ], [ %36, %if.then.i ]
   %.pr.pre.i = load i32, ptr %mapping_size.i, align 4
   br label %for.end42.i
 
 for.end42.i:                                      ; preds = %for.end42.loopexit.i, %for.end.i
-  %99 = phi i32 [ %98, %for.end42.loopexit.i ], [ %35, %for.end.i ]
-  %.pr.i = phi i32 [ %.pr.pre.i, %for.end42.loopexit.i ], [ %.pr170.i, %for.end.i ]
-  %cmp44159.i = icmp sgt i32 %.pr.i, 1
-  br i1 %cmp44159.i, label %land.rhs.lr.ph.i, label %graph_update_columns.exit
+  %100 = phi i32 [ %99, %for.end42.loopexit.i ], [ %35, %for.end.i ]
+  %.pr.i = phi i32 [ %.pr.pre.i, %for.end42.loopexit.i ], [ %.pr169.i, %for.end.i ]
+  %cmp44158.i = icmp sgt i32 %.pr.i, 1
+  br i1 %cmp44158.i, label %land.rhs.lr.ph.i, label %graph_update_columns.exit
 
 land.rhs.lr.ph.i:                                 ; preds = %for.end42.i
   %mapping45.i = getelementptr inbounds i8, ptr %graph, i64 88
-  %100 = load ptr, ptr %mapping45.i, align 8
-  %invariant.gep.i = getelementptr i8, ptr %100, i64 -4
+  %101 = load ptr, ptr %mapping45.i, align 8
+  %invariant.gep.i = getelementptr i8, ptr %101, i64 -4
   br label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %while.body.i, %land.rhs.lr.ph.i
-  %101 = phi i32 [ %.pr.i, %land.rhs.lr.ph.i ], [ %dec.i, %while.body.i ]
-  %102 = zext nneg i32 %101 to i64
-  %gep.i = getelementptr i32, ptr %invariant.gep.i, i64 %102
-  %103 = load i32, ptr %gep.i, align 4
-  %cmp49.i = icmp slt i32 %103, 0
+  %102 = phi i32 [ %.pr.i, %land.rhs.lr.ph.i ], [ %dec.i, %while.body.i ]
+  %103 = zext nneg i32 %102 to i64
+  %gep.i = getelementptr i32, ptr %invariant.gep.i, i64 %103
+  %104 = load i32, ptr %gep.i, align 4
+  %cmp49.i = icmp slt i32 %104, 0
   br i1 %cmp49.i, label %while.body.i, label %graph_update_columns.exit
 
 while.body.i:                                     ; preds = %land.rhs.i
-  %dec.i = add nsw i32 %101, -1
+  %dec.i = add nsw i32 %102, -1
   store i32 %dec.i, ptr %mapping_size.i, align 4
-  %cmp44.i = icmp sgt i32 %101, 2
+  %cmp44.i = icmp sgt i32 %102, 2
   br i1 %cmp44.i, label %land.rhs.i, label %graph_update_columns.exit, !llvm.loop !15
 
 graph_update_columns.exit:                        ; preds = %land.rhs.i, %while.body.i, %for.end42.i
   %expansion_row = getelementptr inbounds i8, ptr %graph, i64 24
   store i32 0, ptr %expansion_row, align 8
   %state = getelementptr inbounds i8, ptr %graph, i64 28
-  %104 = load i32, ptr %state, align 4
-  %cmp.not = icmp eq i32 %104, 0
+  %105 = load i32, ptr %state, align 4
+  %cmp.not = icmp eq i32 %105, 0
   br i1 %cmp.not, label %if.else, label %if.end11
 
 if.else:                                          ; preds = %graph_update_columns.exit
-  %105 = load i32, ptr %num_parents, align 8
-  %cmp.i54 = icmp sgt i32 %105, 2
+  %106 = load i32, ptr %num_parents, align 8
+  %cmp.i54 = icmp sgt i32 %106, 2
   br i1 %cmp.i54, label %land.lhs.true.i, label %if.else9
 
 land.lhs.true.i:                                  ; preds = %if.else
-  %106 = load i32, ptr %commit_index, align 4
-  %sub.i = add nsw i32 %99, -1
-  %cmp1.i = icmp slt i32 %106, %sub.i
+  %107 = load i32, ptr %commit_index, align 4
+  %sub.i = add nsw i32 %100, -1
+  %cmp1.i = icmp slt i32 %107, %sub.i
   br i1 %cmp1.i, label %graph_needs_pre_commit_line.exit, label %if.else9
 
 graph_needs_pre_commit_line.exit:                 ; preds = %land.lhs.true.i
-  %107 = getelementptr i8, ptr %graph, i64 44
-  %graph.val5.i = load i32, ptr %107, align 4
-  %add.i.i.i = add nsw i32 %105, -3
+  %108 = getelementptr i8, ptr %graph, i64 44
+  %graph.val5.i = load i32, ptr %108, align 4
+  %add.i.i.i = add nsw i32 %106, -3
   %sub.i.i.i = add i32 %add.i.i.i, %graph.val5.i
   %cmp2.i = icmp slt i32 %sub.i.i.i, 1
   br i1 %cmp2.i, label %if.else9, label %if.end11
