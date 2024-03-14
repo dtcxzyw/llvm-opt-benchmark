@@ -4208,7 +4208,7 @@ entry:
   %aborted_ = getelementptr inbounds i8, ptr %this, i64 728
   %bf.load = load i32, ptr %aborted_, align 8
   %1 = and i32 %bf.load, 64
-  %bf.cast.not = icmp ne i32 %1, 0
+  %bf.cast.not = icmp eq i32 %1, 0
   %egressState_.i = getelementptr inbounds i8, ptr %this, i64 241
   %2 = load i8, ptr %egressState_.i, align 1
   %cmp.i = icmp eq i8 %2, 9
@@ -4355,11 +4355,10 @@ invoke.cont104:                                   ; preds = %invoke.cont103
 
 land.lhs.true108:                                 ; preds = %invoke.cont104
   %19 = load i32, ptr %proxygenError_.i, align 4
-  %cmp111.not = icmp ne i32 %19, 25
-  %brmerge13 = select i1 %cmp111.not, i1 true, i1 %bf.cast.not
-  %tobool.not = xor i1 %tobool, true
-  %brmerge78 = select i1 %brmerge13, i1 true, i1 %tobool.not
-  br i1 %brmerge78, label %if.then.i65, label %land.lhs.true155
+  %cmp111.not = icmp eq i32 %19, 25
+  %brmerge13.not79 = select i1 %cmp111.not, i1 %bf.cast.not, i1 false
+  %brmerge78.not = select i1 %brmerge13.not79, i1 %tobool, i1 false
+  br i1 %brmerge78.not, label %land.lhs.true155, label %if.then.i65
 
 sw.bb115:                                         ; preds = %if.end102
   invoke void @_ZN8proxygen15HTTPTransaction18markEgressCompleteEv(ptr noundef nonnull align 8 dereferenceable(912) %this)
@@ -15860,10 +15859,10 @@ lpad42:                                           ; preds = %call.i.i.noexc28, %
 if.end61:                                         ; preds = %cleanup.done53, %if.then58, %_ZNK8proxygen15HTTPTransaction29getOutstandingEgressBodyBytesEv.exit
   %bf.load63 = load i32, ptr %useFlowControl_, align 8
   %29 = and i32 %bf.load63, 32
-  %bf.cast66 = icmp eq i32 %29, 0
-  %cmp67 = icmp sgt i64 %sub, 0
-  %.not = or i1 %cmp67, %bf.cast66
-  %bf.shl = select i1 %.not, i32 0, i32 4
+  %bf.cast66 = icmp ne i32 %29, 0
+  %cmp67 = icmp slt i64 %sub, 1
+  %.not.not73 = and i1 %cmp67, %bf.cast66
+  %bf.shl = select i1 %.not.not73, i32 4, i32 0
   %bf.clear70 = and i32 %bf.load63, -5
   %bf.set = or disjoint i32 %bf.shl, %bf.clear70
   store i32 %bf.set, ptr %useFlowControl_, align 8
@@ -15903,10 +15902,9 @@ _ZNK8proxygen15HTTPTransaction29getOutstandingEgressBodyBytesEv.exit47: ; preds 
   %39 = and i32 %bf.load63, 2
   %bf.cast77.not = icmp eq i32 %39, 0
   %40 = and i32 %bf.load63, 18
-  %41 = icmp eq i32 %40, 0
-  %or.cond19 = and i1 %41, %.not
-  %not.or.cond19 = xor i1 %or.cond19, true
-  %spec.select = select i1 %not.or.cond19, i1 true, i1 %cmp72
+  %41 = icmp ne i32 %40, 0
+  %or.cond19.not = or i1 %41, %.not.not73
+  %spec.select = select i1 %or.cond19.not, i1 true, i1 %cmp72
   %brmerge.not = select i1 %bf.cast77.not, i1 %cmp72, i1 false
   br i1 %brmerge.not, label %if.then97, label %if.end129
 

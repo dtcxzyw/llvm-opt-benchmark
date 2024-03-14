@@ -73805,7 +73805,6 @@ if.end13:                                         ; preds = %land.lhs.true, %for
 
 lor.lhs.false.i.i:                                ; preds = %if.end13
   %12 = and i16 %11, 32767
-  %call.not.i.i = xor i1 %tobool.i.i.i, true
   %brmerge.not.i.i = icmp eq i16 %11, -1024
   br i1 %brmerge.not.i.i, label %if.then.i.i, label %lor.lhs.false3.i.i
 
@@ -73818,12 +73817,11 @@ lor.lhs.false3.i.i:                               ; preds = %lor.lhs.false.i.i
   br i1 %brmerge21.not.i.i, label %if.then.i.i, label %lor.lhs.false7.i.i
 
 lor.lhs.false7.i.i:                               ; preds = %lor.lhs.false3.i.i
-  %15 = and i16 %11, 31744
-  %cmp.i26.i.i = icmp ne i16 %15, 0
-  %cmp.i27.i.i = icmp eq i16 %12, 0
-  %16 = or i1 %cmp.i26.i.i, %call.not.i.i
-  %or.cond.i.i = or i1 %cmp.i27.i.i, %16
-  br i1 %or.cond.i.i, label %if.end.i.i, label %if.then.i.i
+  %cmp.i27.i.i = icmp ne i16 %12, 0
+  %15 = and i16 %11, -1024
+  %16 = icmp eq i16 %15, -32768
+  %or.cond.not.i.i = and i1 %cmp.i27.i.i, %16
+  br i1 %or.cond.not.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %lor.lhs.false7.i.i, %lor.lhs.false3.i.i, %lor.lhs.false.i.i, %if.end13
   %17 = load i16, ptr %fp_status.i, align 2
@@ -73841,7 +73839,8 @@ if.then16.i.i:                                    ; preds = %if.end.i.i
   br label %do_vfrsqrt7_v_h.exit
 
 if.end18.i.i:                                     ; preds = %if.end.i.i
-  br i1 %cmp.i27.i.i, label %if.then20.i.i, label %if.end28.i.i
+  %cmp.i28.i.i = icmp eq i16 %12, 0
+  br i1 %cmp.i28.i.i, label %if.then20.i.i, label %if.end28.i.i
 
 if.then20.i.i:                                    ; preds = %if.end18.i.i
   %19 = load i16, ptr %fp_status.i, align 2
@@ -73999,7 +73998,6 @@ if.end13:                                         ; preds = %land.lhs.true, %for
 
 lor.lhs.false.i.i:                                ; preds = %if.end13
   %and.i.i.i22 = and i32 %11, 2147483647
-  %call.not.i.i = xor i1 %tobool.i.i.i, true
   %brmerge.not.i.i = icmp eq i32 %11, -8388608
   br i1 %brmerge.not.i.i, label %if.then.i.i, label %lor.lhs.false3.i.i
 
@@ -74012,17 +74010,16 @@ lor.lhs.false3.i.i:                               ; preds = %lor.lhs.false.i.i
   br i1 %brmerge21.not.i.i, label %if.then.i.i, label %lor.lhs.false7.i.i
 
 lor.lhs.false7.i.i:                               ; preds = %lor.lhs.false3.i.i
-  %and.i27.i.i = and i32 %11, 2139095040
-  %cmp.i28.i.i = icmp ne i32 %and.i27.i.i, 0
-  %cmp.i30.i.i = icmp eq i32 %and.i.i.i22, 0
-  %12 = or i1 %cmp.i28.i.i, %call.not.i.i
-  %or.cond.i.i = or i1 %cmp.i30.i.i, %12
-  br i1 %or.cond.i.i, label %if.end.i.i, label %if.then.i.i
+  %cmp.i30.i.i = icmp ne i32 %and.i.i.i22, 0
+  %12 = and i32 %11, -8388608
+  %13 = icmp eq i32 %12, -2147483648
+  %or.cond.not.i.i = and i1 %cmp.i30.i.i, %13
+  br i1 %or.cond.not.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %lor.lhs.false7.i.i, %lor.lhs.false3.i.i, %lor.lhs.false.i.i, %if.end13
-  %13 = load i16, ptr %fp_status.i, align 2
-  %14 = or i16 %13, 1
-  store i16 %14, ptr %fp_status.i, align 2
+  %14 = load i16, ptr %fp_status.i, align 2
+  %15 = or i16 %14, 1
+  store i16 %15, ptr %fp_status.i, align 2
   %call14.i.i = tail call i32 @float32_default_nan(ptr noundef nonnull %fp_status.i) #10
   br label %do_vfrsqrt7_v_w.exit
 
@@ -74035,12 +74032,13 @@ if.then16.i.i:                                    ; preds = %if.end.i.i
   br label %do_vfrsqrt7_v_w.exit
 
 if.end18.i.i:                                     ; preds = %if.end.i.i
-  br i1 %cmp.i30.i.i, label %if.then20.i.i, label %if.end28.i.i
+  %cmp.i32.i.i = icmp eq i32 %and.i.i.i22, 0
+  br i1 %cmp.i32.i.i, label %if.then20.i.i, label %if.end28.i.i
 
 if.then20.i.i:                                    ; preds = %if.end18.i.i
-  %15 = load i16, ptr %fp_status.i, align 2
-  %16 = or i16 %15, 2
-  store i16 %16, ptr %fp_status.i, align 2
+  %16 = load i16, ptr %fp_status.i, align 2
+  %17 = or i16 %16, 2
+  store i16 %17, ptr %fp_status.i, align 2
   %or.i.i.i = or disjoint i32 %11, 2139095040
   br label %do_vfrsqrt7_v_w.exit
 
@@ -74059,8 +74057,8 @@ if.end37.i.i:                                     ; preds = %if.end28.i.i
   br i1 %or.cond.i, label %while.cond.preheader.split.i, label %frsqrt7.exit
 
 while.cond.preheader.split.i:                     ; preds = %if.end37.i.i
-  %17 = and i64 %conv38.i.i, 4194304
-  %cmp581.i = icmp eq i64 %17, 0
+  %18 = and i64 %conv38.i.i, 4194304
+  %cmp581.i = icmp eq i64 %18, 0
   br i1 %cmp581.i, label %while.body.i.preheader, label %if.end.thread90.i
 
 while.body.i.preheader:                           ; preds = %while.cond.preheader.split.i
@@ -74069,7 +74067,7 @@ while.body.i.preheader:                           ; preds = %while.cond.preheade
   %and.i40.i.masked.leadingonepos = xor i64 %and.i40.i.masked.numleadingzeros, 63
   %while.body.i.backedgetakencount = sub nuw nsw i64 21, %and.i40.i.masked.leadingonepos
   %frac.082.i = shl nuw nsw i64 %and.i40.i, %while.body.i.backedgetakencount
-  %18 = sub nsw i64 41, %and.i40.i.masked.numleadingzeros
+  %19 = sub nsw i64 41, %and.i40.i.masked.numleadingzeros
   %shl6.i = shl nuw nsw i64 %frac.082.i, 2
   %and.i = and i64 %shl6.i, 8388604
   br label %frsqrt7.exit
@@ -74080,23 +74078,23 @@ if.end.thread90.i:                                ; preds = %while.cond.preheade
   br label %frsqrt7.exit
 
 frsqrt7.exit:                                     ; preds = %if.end37.i.i, %if.end.thread90.i, %while.body.i.preheader
-  %exp.189.i = phi i64 [ %18, %while.body.i.preheader ], [ 0, %if.end.thread90.i ], [ %and.i31.i, %if.end37.i.i ]
+  %exp.189.i = phi i64 [ %19, %while.body.i.preheader ], [ 0, %if.end.thread90.i ], [ %and.i31.i, %if.end37.i.i ]
   %frac.188.i = phi i64 [ %and.i, %while.body.i.preheader ], [ %and94.i, %if.end.thread90.i ], [ %and.i40.i, %if.end37.i.i ]
   %and9.i = shl nsw i64 %exp.189.i, 6
   %shl10.i = and i64 %and9.i, 64
   %shr14.i = lshr i64 %frac.188.i, 17
   %or.i = or disjoint i64 %shl10.i, %shr14.i
   %arrayidx.i25 = getelementptr [128 x i8], ptr @__const.frsqrt7.lookup_table, i64 0, i64 %or.i
-  %19 = load i8, ptr %arrayidx.i25, align 1
-  %conv15.i = zext i8 %19 to i64
+  %20 = load i8, ptr %arrayidx.i25, align 1
+  %conv15.i = zext i8 %20 to i64
   %shl18.i = shl nuw nsw i64 %conv15.i, 16
-  %20 = and i64 %shl18.i, 8323072
-  %21 = shl nsw i64 %exp.189.i, 22
-  %22 = sub nsw i64 1593835520, %21
-  %and8.i.i = and i64 %22, 2139095040
+  %21 = and i64 %shl18.i, 8323072
+  %22 = shl nsw i64 %exp.189.i, 22
+  %23 = sub nsw i64 1593835520, %22
+  %and8.i.i = and i64 %23, 2139095040
   %shr.i.i = and i64 %conv38.i.i, 2147483648
   %or.i.i = or disjoint i64 %and8.i.i, %shr.i.i
-  %or.i76.i = or disjoint i64 %or.i.i, %20
+  %or.i76.i = or disjoint i64 %or.i.i, %21
   %conv40.i.i = trunc i64 %or.i76.i to i32
   br label %do_vfrsqrt7_v_w.exit
 
@@ -74193,7 +74191,6 @@ if.end13:                                         ; preds = %land.lhs.true, %for
 
 lor.lhs.false.i.i:                                ; preds = %if.end13
   %and.i.i.i22 = and i64 %11, 9223372036854775807
-  %call.not.i.i = xor i1 %tobool.i.i.i, true
   %brmerge.not.i.i = icmp eq i64 %11, -4503599627370496
   br i1 %brmerge.not.i.i, label %if.then.i.i, label %lor.lhs.false3.i.i
 
@@ -74206,17 +74203,16 @@ lor.lhs.false3.i.i:                               ; preds = %lor.lhs.false.i.i
   br i1 %brmerge21.not.i.i, label %if.then.i.i, label %lor.lhs.false7.i.i
 
 lor.lhs.false7.i.i:                               ; preds = %lor.lhs.false3.i.i
-  %and.i27.i.i = and i64 %11, 9218868437227405312
-  %cmp.i28.i.i = icmp ne i64 %and.i27.i.i, 0
-  %cmp.i30.i.i = icmp eq i64 %and.i.i.i22, 0
-  %12 = or i1 %cmp.i28.i.i, %call.not.i.i
-  %or.cond.i.i = or i1 %cmp.i30.i.i, %12
-  br i1 %or.cond.i.i, label %if.end.i.i, label %if.then.i.i
+  %cmp.i30.i.i = icmp ne i64 %and.i.i.i22, 0
+  %12 = and i64 %11, -4503599627370496
+  %13 = icmp eq i64 %12, -9223372036854775808
+  %or.cond.not.i.i = and i1 %cmp.i30.i.i, %13
+  br i1 %or.cond.not.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %lor.lhs.false7.i.i, %lor.lhs.false3.i.i, %lor.lhs.false.i.i, %if.end13
-  %13 = load i16, ptr %fp_status.i, align 2
-  %14 = or i16 %13, 1
-  store i16 %14, ptr %fp_status.i, align 2
+  %14 = load i16, ptr %fp_status.i, align 2
+  %15 = or i16 %14, 1
+  store i16 %15, ptr %fp_status.i, align 2
   %call14.i.i = tail call i64 @float64_default_nan(ptr noundef nonnull %fp_status.i) #10
   br label %do_vfrsqrt7_v_d.exit
 
@@ -74229,12 +74225,13 @@ if.then16.i.i:                                    ; preds = %if.end.i.i
   br label %do_vfrsqrt7_v_d.exit
 
 if.end18.i.i:                                     ; preds = %if.end.i.i
-  br i1 %cmp.i30.i.i, label %if.then20.i.i, label %if.end28.i.i
+  %cmp.i32.i.i = icmp eq i64 %and.i.i.i22, 0
+  br i1 %cmp.i32.i.i, label %if.then20.i.i, label %if.end28.i.i
 
 if.then20.i.i:                                    ; preds = %if.end18.i.i
-  %15 = load i16, ptr %fp_status.i, align 2
-  %16 = or i16 %15, 2
-  store i16 %16, ptr %fp_status.i, align 2
+  %16 = load i16, ptr %fp_status.i, align 2
+  %17 = or i16 %16, 2
+  store i16 %17, ptr %fp_status.i, align 2
   %or.i.i.i = or disjoint i64 %11, 9218868437227405312
   br label %do_vfrsqrt7_v_d.exit
 
@@ -74251,8 +74248,8 @@ if.end37.i.i:                                     ; preds = %if.end28.i.i
   br i1 %or.cond.i, label %while.cond.preheader.split.i, label %frsqrt7.exit
 
 while.cond.preheader.split.i:                     ; preds = %if.end37.i.i
-  %17 = and i64 %11, 2251799813685248
-  %cmp581.i = icmp eq i64 %17, 0
+  %18 = and i64 %11, 2251799813685248
+  %cmp581.i = icmp eq i64 %18, 0
   br i1 %cmp581.i, label %while.body.i.preheader, label %if.end.thread90.i
 
 while.body.i.preheader:                           ; preds = %while.cond.preheader.split.i
@@ -74261,7 +74258,7 @@ while.body.i.preheader:                           ; preds = %while.cond.preheade
   %and.i40.i.masked.leadingonepos = xor i64 %and.i40.i.masked.numleadingzeros, 63
   %while.body.i.backedgetakencount = sub nuw nsw i64 50, %and.i40.i.masked.leadingonepos
   %frac.082.i = shl i64 %11, %while.body.i.backedgetakencount
-  %18 = sub nsw i64 12, %and.i40.i.masked.numleadingzeros
+  %19 = sub nsw i64 12, %and.i40.i.masked.numleadingzeros
   %shl6.i = shl i64 %frac.082.i, 2
   %and.i = and i64 %shl6.i, 4503599627370492
   br label %frsqrt7.exit
@@ -74272,23 +74269,23 @@ if.end.thread90.i:                                ; preds = %while.cond.preheade
   br label %frsqrt7.exit
 
 frsqrt7.exit:                                     ; preds = %if.end37.i.i, %if.end.thread90.i, %while.body.i.preheader
-  %exp.189.i = phi i64 [ %18, %while.body.i.preheader ], [ 0, %if.end.thread90.i ], [ %and.i31.i, %if.end37.i.i ]
+  %exp.189.i = phi i64 [ %19, %while.body.i.preheader ], [ 0, %if.end.thread90.i ], [ %and.i31.i, %if.end37.i.i ]
   %frac.188.i = phi i64 [ %and.i, %while.body.i.preheader ], [ %and94.i, %if.end.thread90.i ], [ %and.i40.i, %if.end37.i.i ]
   %and9.i = shl nsw i64 %exp.189.i, 6
   %shl10.i = and i64 %and9.i, 64
   %shr14.i = lshr i64 %frac.188.i, 46
   %or.i = or disjoint i64 %shl10.i, %shr14.i
   %arrayidx.i25 = getelementptr [128 x i8], ptr @__const.frsqrt7.lookup_table, i64 0, i64 %or.i
-  %19 = load i8, ptr %arrayidx.i25, align 1
-  %conv15.i = zext i8 %19 to i64
+  %20 = load i8, ptr %arrayidx.i25, align 1
+  %conv15.i = zext i8 %20 to i64
   %shl18.i = shl nuw nsw i64 %conv15.i, 45
-  %20 = and i64 %shl18.i, 4468415255281664
-  %21 = shl nsw i64 %exp.189.i, 51
-  %22 = sub i64 6908521828386340864, %21
-  %and8.i.i = and i64 %22, 9218868437227405312
+  %21 = and i64 %shl18.i, 4468415255281664
+  %22 = shl nsw i64 %exp.189.i, 51
+  %23 = sub i64 6908521828386340864, %22
+  %and8.i.i = and i64 %23, 9218868437227405312
   %shr.i.i = and i64 %11, -9223372036854775808
   %or.i.i = or disjoint i64 %and8.i.i, %shr.i.i
-  %or.i76.i = or disjoint i64 %or.i.i, %20
+  %or.i76.i = or disjoint i64 %or.i.i, %21
   br label %do_vfrsqrt7_v_d.exit
 
 do_vfrsqrt7_v_d.exit:                             ; preds = %if.then.i.i, %if.then16.i.i, %if.then20.i.i, %if.end28.i.i, %frsqrt7.exit

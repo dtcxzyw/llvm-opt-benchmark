@@ -894,16 +894,16 @@ entry:
 define internal fastcc i32 @_DhSetKey(ptr noundef %key, ptr noundef %p, i32 noundef %pSz, ptr noundef %g, i32 noundef %gSz, ptr noundef %q, i32 noundef %qSz, i32 noundef %trusted, ptr noundef %rng) unnamed_addr #1 {
 entry:
   %isPrime = alloca i32, align 4
-  %cmp = icmp eq ptr %key, null
-  %cmp1 = icmp eq ptr %p, null
-  %cmp3 = icmp eq ptr %g, null
-  %0 = or i1 %cmp1, %cmp3
-  %cmp5 = icmp eq i32 %pSz, 0
-  %1 = or i1 %0, %cmp5
-  %cmp7 = icmp eq i32 %gSz, 0
-  %2 = or i1 %1, %cmp7
-  %or.cond3 = or i1 %2, %cmp
-  br i1 %or.cond3, label %if.end50, label %if.then9
+  %cmp = icmp ne ptr %key, null
+  %cmp1 = icmp ne ptr %p, null
+  %cmp3 = icmp ne ptr %g, null
+  %0 = and i1 %cmp1, %cmp3
+  %cmp5 = icmp ne i32 %pSz, 0
+  %1 = and i1 %cmp5, %0
+  %cmp7 = icmp ne i32 %gSz, 0
+  %2 = and i1 %cmp7, %1
+  %or.cond3.not = and i1 %cmp, %2
+  br i1 %or.cond3.not, label %if.then9, label %if.end50
 
 if.then9:                                         ; preds = %entry
   %3 = load i8, ptr %p, align 1
@@ -946,10 +946,10 @@ if.then42:                                        ; preds = %if.end33
   br label %if.end50
 
 if.end50:                                         ; preds = %entry, %if.end33, %if.then42
-  %qSz.addr.168 = phi i32 [ %qSz.addr.0, %if.then42 ], [ %qSz.addr.0, %if.end33 ], [ %qSz, %entry ]
-  %q.addr.166 = phi ptr [ %q.addr.0, %if.then42 ], [ %q.addr.0, %if.end33 ], [ %q, %entry ]
-  %gSz.addr.164 = phi i32 [ %gSz.addr.0, %if.then42 ], [ %gSz.addr.0, %if.end33 ], [ %gSz, %entry ]
-  %g.addr.162 = phi ptr [ %g.addr.0, %if.then42 ], [ %g.addr.0, %if.end33 ], [ %g, %entry ]
+  %qSz.addr.171 = phi i32 [ %qSz.addr.0, %if.then42 ], [ %qSz.addr.0, %if.end33 ], [ %qSz, %entry ]
+  %q.addr.169 = phi ptr [ %q.addr.0, %if.then42 ], [ %q.addr.0, %if.end33 ], [ %q, %entry ]
+  %gSz.addr.167 = phi i32 [ %gSz.addr.0, %if.then42 ], [ %gSz.addr.0, %if.end33 ], [ %gSz, %entry ]
+  %g.addr.165 = phi ptr [ %g.addr.0, %if.then42 ], [ %g.addr.0, %if.end33 ], [ %g, %entry ]
   %ret.2 = phi i32 [ %., %if.then42 ], [ -110, %if.end33 ], [ -173, %entry ]
   %keyP.0 = phi ptr [ %key., %if.then42 ], [ null, %if.end33 ], [ null, %entry ]
   %6 = or i32 %ret.2, %trusted
@@ -975,24 +975,24 @@ if.end60:                                         ; preds = %if.else58, %if.then
   %7 = load i32, ptr %isPrime, align 4
   %cmp64 = icmp eq i32 %7, 0
   %or.cond5 = select i1 %cmp61, i1 %cmp64, i1 false
-  br i1 %or.cond5, label %if.end116.thread106, label %if.end68
+  br i1 %or.cond5, label %if.end116.thread108, label %if.end68
 
 if.end68:                                         ; preds = %if.end60, %if.end50
   %ret.4 = phi i32 [ %ret.2, %if.end50 ], [ %ret.3, %if.end60 ]
   %cmp69 = icmp eq i32 %ret.4, 0
-  br i1 %cmp69, label %land.lhs.true71, label %if.end116.thread106
+  br i1 %cmp69, label %land.lhs.true71, label %if.end116.thread108
 
 land.lhs.true71:                                  ; preds = %if.end68
   %g72 = getelementptr inbounds i8, ptr %key, i64 1040
   %call73 = call i32 @sp_init(ptr noundef nonnull %g72) #13
   %cmp74.not = icmp eq i32 %call73, 0
-  br i1 %cmp74.not, label %if.end89, label %if.end116.thread106
+  br i1 %cmp74.not, label %if.end89, label %if.end116.thread108
 
 if.end89:                                         ; preds = %land.lhs.true71
-  %call82 = call i32 @sp_read_unsigned_bin(ptr noundef nonnull %g72, ptr noundef %g.addr.162, i32 noundef %gSz.addr.164) #13
+  %call82 = call i32 @sp_read_unsigned_bin(ptr noundef nonnull %g72, ptr noundef %g.addr.165, i32 noundef %gSz.addr.167) #13
   %cmp83.not = icmp eq i32 %call82, 0
-  %.52 = select i1 %cmp83.not, i32 0, i32 -158
-  %cmp93 = icmp ne ptr %q.addr.166, null
+  %.55 = select i1 %cmp83.not, i32 0, i32 -158
+  %cmp93 = icmp ne ptr %q.addr.169, null
   %or.cond6 = select i1 %cmp83.not, i1 %cmp93, i1 false
   br i1 %or.cond6, label %if.then95, label %if.end102
 
@@ -1000,18 +1000,18 @@ if.then95:                                        ; preds = %if.end89
   %q96 = getelementptr inbounds i8, ptr %key, i64 2080
   %call97 = call i32 @sp_init(ptr noundef nonnull %q96) #13
   %cmp98.not = icmp eq i32 %call97, 0
-  %spec.select53 = select i1 %cmp98.not, i32 0, i32 -110
+  %spec.select56 = select i1 %cmp98.not, i32 0, i32 -110
   br label %if.end102
 
 if.end102:                                        ; preds = %if.then95, %if.end89
-  %ret.7 = phi i32 [ %.52, %if.end89 ], [ %spec.select53, %if.then95 ]
+  %ret.7 = phi i32 [ %.55, %if.end89 ], [ %spec.select56, %if.then95 ]
   %cmp103 = icmp eq i32 %ret.7, 0
   %or.cond7 = select i1 %cmp103, i1 %cmp93, i1 false
   br i1 %or.cond7, label %if.then108, label %if.end116
 
 if.then108:                                       ; preds = %if.end102
   %q109 = getelementptr inbounds i8, ptr %key, i64 2080
-  %call110 = call i32 @sp_read_unsigned_bin(ptr noundef nonnull %q109, ptr noundef nonnull %q.addr.166, i32 noundef %qSz.addr.168) #13
+  %call110 = call i32 @sp_read_unsigned_bin(ptr noundef nonnull %q109, ptr noundef nonnull %q.addr.169, i32 noundef %qSz.addr.171) #13
   %cmp111.not = icmp eq i32 %call110, 0
   br i1 %cmp111.not, label %if.end116.thread, label %if.end116
 
@@ -1023,13 +1023,12 @@ if.end116.thread:                                 ; preds = %if.then108
 if.end116:                                        ; preds = %if.then108, %if.end102
   %ret.8 = phi i32 [ %ret.7, %if.end102 ], [ -110, %if.then108 ]
   %cmp117 = icmp ne i32 %ret.8, 0
-  %cmp120 = icmp ne ptr %key, null
-  %or.cond8 = and i1 %cmp120, %cmp117
+  %or.cond8 = and i1 %cmp, %cmp117
   br i1 %or.cond8, label %if.then122, label %do.end131
 
-if.end116.thread106:                              ; preds = %if.end60, %land.lhs.true71, %if.end68
+if.end116.thread108:                              ; preds = %if.end60, %land.lhs.true71, %if.end68
   %ret.5.ph = phi i32 [ -110, %land.lhs.true71 ], [ %ret.4, %if.end68 ], [ -243, %if.end60 ]
-  br i1 %cmp, label %do.end131, label %if.end125
+  br i1 %cmp, label %if.end125, label %do.end131
 
 if.then122:                                       ; preds = %if.end116
   br i1 %cmp83.not, label %if.then124, label %if.end125
@@ -1038,8 +1037,8 @@ if.then124:                                       ; preds = %if.then122
   call void @sp_clear(ptr noundef nonnull %g72) #13
   br label %if.end125
 
-if.end125:                                        ; preds = %if.end116.thread106, %if.then124, %if.then122
-  %ret.8113117 = phi i32 [ %ret.8, %if.then124 ], [ %ret.8, %if.then122 ], [ %ret.5.ph, %if.end116.thread106 ]
+if.end125:                                        ; preds = %if.end116.thread108, %if.then124, %if.then122
+  %ret.8114118 = phi i32 [ %ret.8, %if.then124 ], [ %ret.8, %if.then122 ], [ %ret.5.ph, %if.end116.thread108 ]
   %tobool126.not = icmp eq ptr %keyP.0, null
   br i1 %tobool126.not, label %do.end131, label %if.then127
 
@@ -1047,9 +1046,9 @@ if.then127:                                       ; preds = %if.end125
   call void @sp_clear(ptr noundef nonnull %keyP.0) #13
   br label %do.end131
 
-do.end131:                                        ; preds = %if.end116.thread106, %if.end116.thread, %if.end125, %if.then127, %if.end116
-  %ret.8105 = phi i32 [ 0, %if.end116.thread ], [ %ret.8113117, %if.end125 ], [ %ret.8113117, %if.then127 ], [ %ret.8, %if.end116 ], [ %ret.5.ph, %if.end116.thread106 ]
-  ret i32 %ret.8105
+do.end131:                                        ; preds = %if.end116.thread108, %if.end116.thread, %if.end125, %if.then127, %if.end116
+  %ret.8107 = phi i32 [ 0, %if.end116.thread ], [ %ret.8114118, %if.end125 ], [ %ret.8114118, %if.then127 ], [ %ret.8, %if.end116 ], [ %ret.5.ph, %if.end116.thread108 ]
+  ret i32 %ret.8107
 }
 
 ; Function Attrs: nounwind uwtable

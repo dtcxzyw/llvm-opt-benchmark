@@ -47,18 +47,18 @@ declare zeroext i1 @mi_is_in_heap_region(ptr noundef) local_unnamed_addr #1
 declare void @mi_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @mi_posix_memalign(ptr noundef writeonly %p, i64 noundef %alignment, i64 noundef %size) local_unnamed_addr #0 {
+define noundef i32 @mi_posix_memalign(ptr noundef writeonly %p, i64 noundef %alignment, i64 noundef %size) local_unnamed_addr #0 {
 entry:
-  %cmp = icmp eq ptr %p, null
+  %cmp = icmp ne ptr %p, null
   %rem = and i64 %alignment, 7
-  %cmp1.not = icmp ne i64 %rem, 0
-  %or.cond7.not10 = or i1 %cmp, %cmp1.not
-  %cmp4 = icmp eq i64 %alignment, 0
-  %or.cond8 = or i1 %cmp4, %or.cond7.not10
+  %cmp1.not = icmp eq i64 %rem, 0
+  %or.cond7.not10.not12 = and i1 %cmp, %cmp1.not
+  %cmp4 = icmp ne i64 %alignment, 0
+  %or.cond8.not11 = and i1 %cmp4, %or.cond7.not10.not12
   %0 = tail call i64 @llvm.ctpop.i64(i64 %alignment), !range !4
-  %cmp.i = icmp ugt i64 %0, 1
-  %or.cond9.not = select i1 %or.cond8, i1 true, i1 %cmp.i
-  br i1 %or.cond9.not, label %return, label %if.end6
+  %cmp.i = icmp ult i64 %0, 2
+  %or.cond9 = select i1 %or.cond8.not11, i1 %cmp.i, i1 false
+  br i1 %or.cond9, label %if.end6, label %return
 
 if.end6:                                          ; preds = %entry
   %call7 = tail call noalias ptr @mi_malloc_aligned(i64 noundef %size, i64 noundef %alignment) #7
@@ -159,7 +159,7 @@ declare ptr @mi_reallocn(ptr noundef, i64 noundef, i64 noundef) local_unnamed_ad
 declare ptr @__errno_location() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @mi_reallocarr(ptr noundef %p, i64 noundef %count, i64 noundef %size) local_unnamed_addr #0 {
+define noundef i32 @mi_reallocarr(ptr noundef %p, i64 noundef %count, i64 noundef %size) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %p, null
   br i1 %cmp, label %if.then, label %if.end
@@ -297,7 +297,7 @@ declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #3
 declare i64 @_mi_strlen(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define i32 @mi_wdupenv_s(ptr noundef writeonly %buf, ptr noundef writeonly %size, ptr noundef readnone %name) local_unnamed_addr #4 {
+define noundef i32 @mi_wdupenv_s(ptr noundef writeonly %buf, ptr noundef writeonly %size, ptr noundef readnone %name) local_unnamed_addr #4 {
 entry:
   %cmp = icmp eq ptr %buf, null
   %cmp1 = icmp eq ptr %name, null

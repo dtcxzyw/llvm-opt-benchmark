@@ -1405,13 +1405,13 @@ define noundef i32 @Gia_ManOrderWithBoxes_rec(ptr noundef %0, ptr noundef %1, pt
   %26 = lshr i64 %.val, 32
   %27 = trunc i64 %26 to i32
   %28 = and i32 %27, 536870911
-  %29 = icmp eq i32 %25, %28
-  %.not.i = icmp ne i32 %25, 536870911
-  %or.cond.not.i = and i1 %.not.i, %29
+  %29 = icmp ne i32 %25, %28
+  %.not.i = icmp eq i32 %25, 536870911
+  %or.cond.not.i.not53 = or i1 %.not.i, %29
   %30 = and i64 %.val, 2147483648
-  %.not4.i = icmp eq i64 %30, 0
-  %narrow.i47 = and i1 %.not4.i, %or.cond.not.i
-  br i1 %narrow.i47, label %31, label %72
+  %.not4.i = icmp ne i64 %30, 0
+  %narrow.i47.not = or i1 %.not4.i, %or.cond.not.i.not53
+  br i1 %narrow.i47.not, label %72, label %31
 
 31:                                               ; preds = %23
   %32 = and i64 %.val, 536870911

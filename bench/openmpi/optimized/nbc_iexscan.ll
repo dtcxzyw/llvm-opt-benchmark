@@ -44,16 +44,16 @@ define i32 @ompi_coll_libnbc_iexscan(ptr noundef %0, ptr noundef %1, i32 noundef
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @nbc_exscan_init(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, i1 noundef zeroext %8) unnamed_addr #0 {
-  %10 = icmp eq ptr %1, %0
-  %11 = icmp ne ptr %0, null
-  %or.cond = and i1 %11, %10
-  %12 = icmp eq ptr %0, inttoptr (i64 1 to ptr)
-  %or.cond134 = or i1 %or.cond, %12
-  %13 = icmp eq ptr %1, inttoptr (i64 1 to ptr)
-  %spec.select100 = select i1 %13, ptr %0, ptr %1
-  %narrow = or i1 %or.cond134, %13
-  %.082 = select i1 %or.cond134, ptr %1, ptr %spec.select100
-  %.081 = select i1 %or.cond134, ptr %1, ptr %0
+  %10 = icmp ne ptr %1, %0
+  %11 = icmp eq ptr %0, null
+  %or.cond.not140 = or i1 %11, %10
+  %12 = icmp ne ptr %0, inttoptr (i64 1 to ptr)
+  %or.cond134.not137 = and i1 %or.cond.not140, %12
+  %13 = icmp ne ptr %1, inttoptr (i64 1 to ptr)
+  %spec.select100 = select i1 %13, ptr %1, ptr %0
+  %narrow.not = and i1 %or.cond134.not137, %13
+  %.082 = select i1 %or.cond134.not137, ptr %spec.select100, ptr %1
+  %.081 = select i1 %or.cond134.not137, ptr %0, ptr %1
   %14 = getelementptr i8, ptr %5, i64 220
   %.val = load i32, ptr %14, align 4
   %15 = getelementptr i8, ptr %5, i64 248
@@ -198,7 +198,7 @@ opal_datatype_span.exit.i:                        ; preds = %81, %78
 85:                                               ; preds = %opal_datatype_span.exit.i
   %86 = sub i64 0, %.062.i
   %87 = getelementptr inbounds i8, ptr %.086, i64 %86
-  %..i = select i1 %narrow, ptr %.082, ptr %.081
+  %..i = select i1 %narrow.not, ptr %.081, ptr %.082
   %88 = tail call i32 @NBC_Sched_copy(ptr noundef %..i, i8 noundef signext 0, i64 noundef %23, ptr noundef nonnull %3, ptr noundef %87, i8 noundef signext 0, i64 noundef %23, ptr noundef nonnull %3, ptr noundef nonnull %66, i1 noundef zeroext false) #4
   %.not55.i = icmp eq i32 %88, 0
   br i1 %.not55.i, label %89, label %exscan_sched_linear.exit.thread
@@ -231,7 +231,7 @@ opal_datatype_span.exit.i:                        ; preds = %81, %78
   br label %exscan_sched_linear.exit
 
 103:                                              ; preds = %opal_datatype_span.exit.i
-  br i1 %narrow, label %104, label %106
+  br i1 %narrow.not, label %106, label %104
 
 104:                                              ; preds = %103
   %105 = tail call i32 @NBC_Sched_send(ptr noundef %.082, i8 noundef signext 0, i64 noundef %23, ptr noundef nonnull %3, i32 noundef 1, ptr noundef nonnull %66, i1 noundef zeroext false) #4
@@ -242,7 +242,7 @@ opal_datatype_span.exit.i:                        ; preds = %81, %78
   br label %exscan_sched_linear.exit
 
 108:                                              ; preds = %opal_obj_new.exit.thread126
-  %..i104 = select i1 %narrow, ptr %.082, ptr %.081
+  %..i104 = select i1 %narrow.not, ptr %.081, ptr %.082
   %109 = tail call i32 @NBC_Sched_copy(ptr noundef %..i104, i8 noundef signext 0, i64 noundef %23, ptr noundef %3, ptr noundef %.085, i8 noundef signext 1, i64 noundef %23, ptr noundef %3, ptr noundef nonnull %66, i1 noundef zeroext true) #4
   %.not101.i = icmp eq i32 %109, 0
   br i1 %.not101.i, label %110, label %exscan_sched_linear.exit.thread

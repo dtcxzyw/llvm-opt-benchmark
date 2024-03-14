@@ -28143,13 +28143,12 @@ lor.lhs.false:                                    ; preds = %entry
 
 lor.lhs.false4:                                   ; preds = %lor.lhs.false
   %sub5 = fsub double %t1, %t0
-  %cmp6 = fcmp olt double %sub5, 0x3870000000000000
-  %cmp8 = fcmp ogt double %s0, 1.000000e+00
-  %or.cond1 = or i1 %cmp8, %cmp6
-  %cmp10 = fcmp ogt double %t0, 1.000000e+00
-  %or.cond2 = or i1 %cmp10, %or.cond1
-  %not.or.cond2 = xor i1 %or.cond2, true
-  %spec.select = zext i1 %not.or.cond2 to i32
+  %cmp6 = fcmp uge double %sub5, 0x3870000000000000
+  %cmp8 = fcmp ule double %s0, 1.000000e+00
+  %or.cond1.not15 = and i1 %cmp8, %cmp6
+  %cmp10 = fcmp ule double %t0, 1.000000e+00
+  %or.cond2.not = and i1 %cmp10, %or.cond1.not15
+  %spec.select = zext i1 %or.cond2.not to i32
   br label %return
 
 return:                                           ; preds = %lor.lhs.false4, %entry, %lor.lhs.false
@@ -28186,13 +28185,12 @@ lor.lhs.false2:                                   ; preds = %entry
 
 lor.lhs.false4:                                   ; preds = %lor.lhs.false2
   %add5 = add nsw i32 %subh, %suby
-  %cmp6 = icmp slt i32 %add5, 1
-  %cmp8 = icmp eq i32 %subw, 0
-  %or.cond = or i1 %cmp8, %cmp6
-  %cmp10 = icmp eq i32 %subh, 0
-  %or.cond1 = or i1 %cmp10, %or.cond
-  %not.or.cond1 = xor i1 %or.cond1, true
-  %spec.select = zext i1 %not.or.cond1 to i32
+  %cmp6 = icmp sgt i32 %add5, 0
+  %cmp8 = icmp ne i32 %subw, 0
+  %or.cond.not17 = and i1 %cmp8, %cmp6
+  %cmp10 = icmp ne i32 %subh, 0
+  %or.cond1.not = and i1 %cmp10, %or.cond.not17
+  %spec.select = zext i1 %or.cond1.not to i32
   br label %return
 
 return:                                           ; preds = %lor.lhs.false4, %entry, %lor.lhs.false2
@@ -28241,13 +28239,12 @@ entry:
 
 lor.lhs.false23:                                  ; preds = %entry
   %14 = extractelement <2 x i32> %5, i64 1
-  %cmp25 = icmp slt i32 %14, 1
-  %cmp28 = icmp eq i32 %subw, 0
-  %or.cond = or i1 %cmp28, %cmp25
-  %cmp31 = icmp eq i32 %subh, 0
-  %or.cond1 = or i1 %cmp31, %or.cond
-  %not.or.cond1 = xor i1 %or.cond1, true
-  %spec.select = zext i1 %not.or.cond1 to i32
+  %cmp25 = icmp sgt i32 %14, 0
+  %cmp28 = icmp ne i32 %subw, 0
+  %or.cond.not33 = and i1 %cmp28, %cmp25
+  %cmp31 = icmp ne i32 %subh, 0
+  %or.cond1.not = and i1 %cmp31, %or.cond.not33
+  %spec.select = zext i1 %or.cond1.not to i32
   br label %return
 
 return:                                           ; preds = %lor.lhs.false23, %entry

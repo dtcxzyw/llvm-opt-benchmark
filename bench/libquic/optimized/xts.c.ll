@@ -90,14 +90,14 @@ entry:
 lor.lhs.false:                                    ; preds = %entry
   %key2 = getelementptr inbounds i8, ptr %0, i64 504
   %2 = load ptr, ptr %key2, align 8
-  %tobool2 = icmp ne ptr %2, null
-  %tobool4 = icmp ne ptr %out, null
-  %or.cond = and i1 %tobool4, %tobool2
-  %tobool6 = icmp ne ptr %in, null
-  %or.cond1 = and i1 %tobool6, %or.cond
-  %cmp = icmp ugt i64 %len, 15
-  %or.cond2.not = and i1 %cmp, %or.cond1
-  br i1 %or.cond2.not, label %lor.lhs.false8, label %return
+  %tobool2 = icmp eq ptr %2, null
+  %tobool4 = icmp eq ptr %out, null
+  %or.cond.not11 = or i1 %tobool4, %tobool2
+  %tobool6 = icmp eq ptr %in, null
+  %or.cond1.not10 = or i1 %tobool6, %or.cond.not11
+  %cmp = icmp ult i64 %len, 16
+  %or.cond2 = or i1 %cmp, %or.cond1.not10
+  br i1 %or.cond2, label %return, label %lor.lhs.false8
 
 lor.lhs.false8:                                   ; preds = %lor.lhs.false
   %iv = getelementptr inbounds i8, ptr %ctx, i64 52

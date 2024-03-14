@@ -8179,34 +8179,34 @@ define internal fastcc noundef ptr @getid(ptr noundef readonly %0, ptr nocapture
   br i1 %.not, label %.preheader, label %6, !llvm.loop !33
 
 .preheader:                                       ; preds = %6
-  %.not3242 = icmp eq i8 %7, 0
-  br i1 %.not3242, label %.critedge, label %.lr.ph
+  %.not3246 = icmp eq i8 %7, 0
+  br i1 %.not3246, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %39
   %13 = phi i8 [ %40, %39 ], [ %7, %.preheader ]
-  %.02645 = phi i8 [ %.1, %39 ], [ 0, %.preheader ]
-  %.02744 = phi i32 [ %.128, %39 ], [ 0, %.preheader ]
-  %.13043 = phi ptr [ %41, %39 ], [ %.029, %.preheader ]
+  %.02649 = phi i8 [ %.1, %39 ], [ 0, %.preheader ]
+  %.02748 = phi i32 [ %.128, %39 ], [ 0, %.preheader ]
+  %.13047 = phi ptr [ %41, %39 ], [ %.029, %.preheader ]
   %14 = load ptr, ptr %4, align 8
   %15 = zext i8 %13 to i64
   %16 = getelementptr i16, ptr %14, i64 %15
   %17 = load i16, ptr %16, align 2
   %18 = and i16 %17, 8
-  %.not33 = icmp ne i16 %18, 0
-  %19 = icmp eq i8 %13, 95
-  %or.cond = or i1 %19, %.not33
-  %20 = icmp eq i8 %13, 34
-  %or.cond38 = or i1 %20, %or.cond
-  %21 = and i8 %.02645, 1
-  %.not34 = icmp ne i8 %21, 0
-  %or.cond39.not = select i1 %or.cond38, i1 true, i1 %.not34
-  br i1 %or.cond39.not, label %.critedge2, label %.critedge.loopexit
+  %.not33 = icmp eq i16 %18, 0
+  %19 = icmp ne i8 %13, 95
+  %or.cond.not43 = and i1 %19, %.not33
+  %20 = icmp ne i8 %13, 34
+  %or.cond38.not41 = and i1 %20, %or.cond.not43
+  %21 = and i8 %.02649, 1
+  %.not34 = icmp eq i8 %21, 0
+  %or.cond39 = select i1 %or.cond38.not41, i1 %.not34, i1 false
+  br i1 %or.cond39, label %.critedge.loopexit, label %.critedge2
 
 .critedge2:                                       ; preds = %.lr.ph
-  br i1 %20, label %22, label %27
+  br i1 %20, label %27, label %22
 
 22:                                               ; preds = %.critedge2
-  %23 = getelementptr i8, ptr %.13043, i64 1
+  %23 = getelementptr i8, ptr %.13047, i64 1
   %24 = load i8, ptr %23, align 1
   %.not36 = icmp eq i8 %24, 34
   br i1 %.not36, label %27, label %25
@@ -8216,8 +8216,8 @@ define internal fastcc noundef ptr @getid(ptr noundef readonly %0, ptr nocapture
   br label %39
 
 27:                                               ; preds = %22, %.critedge2
-  %.2 = phi ptr [ %.13043, %.critedge2 ], [ %23, %22 ]
-  %28 = icmp sgt i32 %.02744, 62
+  %.2 = phi ptr [ %.13047, %.critedge2 ], [ %23, %22 ]
+  %28 = icmp sgt i32 %.02748, 62
   br i1 %28, label %29, label %35
 
 29:                                               ; preds = %27
@@ -8232,8 +8232,8 @@ define internal fastcc noundef ptr @getid(ptr noundef readonly %0, ptr nocapture
   br label %.loopexit
 
 35:                                               ; preds = %27
-  %36 = add nsw i32 %.02744, 1
-  %37 = sext i32 %.02744 to i64
+  %36 = add nsw i32 %.02748, 1
+  %37 = sext i32 %.02748 to i64
   %38 = getelementptr i8, ptr %1, i64 %37
   store i8 %13, ptr %38, align 1
   %.phi.trans.insert = getelementptr i8, ptr %.2, i64 1
@@ -8242,16 +8242,16 @@ define internal fastcc noundef ptr @getid(ptr noundef readonly %0, ptr nocapture
 
 39:                                               ; preds = %35, %25
   %40 = phi i8 [ %24, %25 ], [ %.pre, %35 ]
-  %.3 = phi ptr [ %.13043, %25 ], [ %.2, %35 ]
-  %.128 = phi i32 [ %.02744, %25 ], [ %36, %35 ]
-  %.1 = phi i8 [ %26, %25 ], [ %.02645, %35 ]
+  %.3 = phi ptr [ %.13047, %25 ], [ %.2, %35 ]
+  %.128 = phi i32 [ %.02748, %25 ], [ %36, %35 ]
+  %.1 = phi i8 [ %26, %25 ], [ %.02649, %35 ]
   %41 = getelementptr i8, ptr %.3, i64 1
   %.not32 = icmp eq i8 %40, 0
   br i1 %.not32, label %.critedge.loopexit, label %.lr.ph, !llvm.loop !34
 
 .critedge.loopexit:                               ; preds = %.lr.ph, %39
-  %.130.lcssa.ph = phi ptr [ %41, %39 ], [ %.13043, %.lr.ph ]
-  %.027.lcssa.ph = phi i32 [ %.128, %39 ], [ %.02744, %.lr.ph ]
+  %.130.lcssa.ph = phi ptr [ %41, %39 ], [ %.13047, %.lr.ph ]
+  %.027.lcssa.ph = phi i32 [ %.128, %39 ], [ %.02748, %.lr.ph ]
   %42 = sext i32 %.027.lcssa.ph to i64
   br label %.critedge
 

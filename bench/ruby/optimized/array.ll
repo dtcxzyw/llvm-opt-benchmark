@@ -251,26 +251,26 @@ define hidden i64 @rb_ary_size_as_embedded(i64 noundef %0) local_unnamed_addr #0
 
 11:                                               ; preds = %9
   %12 = and i64 %0, 7
-  %13 = icmp ne i64 %12, 0
-  %14 = icmp eq i64 %0, 0
-  %15 = or i1 %14, %13
-  %16 = and i64 %3, 31
-  %17 = icmp eq i64 %16, 27
-  %or.cond.i = or i1 %15, %17
-  %18 = and i64 %3, 18432
-  %19 = icmp ne i64 %18, 0
-  %or.cond.not = or i1 %19, %or.cond.i
-  br i1 %or.cond.not, label %rb_ary_embeddable_p.exit.thread, label %20
+  %13 = icmp eq i64 %12, 0
+  %14 = icmp ne i64 %0, 0
+  %.not12 = and i1 %14, %13
+  %15 = and i64 %3, 31
+  %16 = icmp ne i64 %15, 27
+  %or.cond.i.not9 = and i1 %.not12, %16
+  %17 = and i64 %3, 18432
+  %18 = icmp eq i64 %17, 0
+  %or.cond = and i1 %18, %or.cond.i.not9
+  br i1 %or.cond, label %19, label %rb_ary_embeddable_p.exit.thread
 
-20:                                               ; preds = %11
-  %21 = getelementptr inbounds i8, ptr %2, i64 24
-  %22 = load i64, ptr %21, align 8
-  %23 = shl i64 %22, 3
-  %24 = add i64 %23, 16
+19:                                               ; preds = %11
+  %20 = getelementptr inbounds i8, ptr %2, i64 24
+  %21 = load i64, ptr %20, align 8
+  %22 = shl i64 %21, 3
+  %23 = add i64 %22, 16
   br label %rb_ary_embeddable_p.exit.thread
 
-rb_ary_embeddable_p.exit.thread:                  ; preds = %11, %9, %20, %5
-  %.0 = phi i64 [ %8, %5 ], [ %24, %20 ], [ 40, %9 ], [ 40, %11 ]
+rb_ary_embeddable_p.exit.thread:                  ; preds = %11, %9, %19, %5
+  %.0 = phi i64 [ %8, %5 ], [ %23, %19 ], [ 40, %9 ], [ 40, %11 ]
   ret i64 %.0
 }
 

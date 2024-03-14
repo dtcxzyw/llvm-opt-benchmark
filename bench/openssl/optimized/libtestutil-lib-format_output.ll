@@ -498,8 +498,7 @@ if.then58:                                        ; preds = %land.lhs.true53
 if.end61:                                         ; preds = %if.then58, %land.lhs.true53, %if.end42
   %len.0 = phi i64 [ 2000, %if.then58 ], [ %div5079, %land.lhs.true53 ], [ %div5079, %if.end42 ]
   %bufp.0 = phi ptr [ %buffer, %if.then58 ], [ %call55, %land.lhs.true53 ], [ %buffer, %if.end42 ]
-  %cmp62 = icmp ne ptr %bn1, null
-  br i1 %cmp62, label %if.then64, label %if.end67
+  br i1 %cmp, label %if.end67, label %if.then64
 
 if.then64:                                        ; preds = %if.end61
   %conv65 = trunc i64 %len.0 to i32
@@ -518,26 +517,25 @@ if.then70:                                        ; preds = %if.end67
 
 if.end73:                                         ; preds = %if.then70, %if.end67
   %m2.0 = phi ptr [ %add.ptr, %if.then70 ], [ null, %if.end67 ]
-  %cmp74.not118 = icmp eq i64 %len.0, 0
-  br i1 %cmp74.not118, label %fin, label %while.body.lr.ph
+  %cmp74.not121 = icmp eq i64 %len.0, 0
+  br i1 %cmp74.not121, label %fin, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end73
-  %cmp62.not = xor i1 %cmp62, true
-  %brmerge82 = or i1 %cmp4, %cmp62.not
+  %brmerge82 = or i1 %cmp, %cmp4
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end186
-  %m2.1121 = phi ptr [ %m2.0, %while.body.lr.ph ], [ %m2.2, %if.end186 ]
-  %m1.1120 = phi ptr [ %m1.0, %while.body.lr.ph ], [ %spec.select, %if.end186 ]
-  %len.1119 = phi i64 [ %len.0, %while.body.lr.ph ], [ %sub76, %if.end186 ]
-  %sub76 = add i64 %len.1119, -32
+  %m2.1124 = phi ptr [ %m2.0, %while.body.lr.ph ], [ %m2.2, %if.end186 ]
+  %m1.1123 = phi ptr [ %m1.0, %while.body.lr.ph ], [ %spec.select, %if.end186 ]
+  %len.1122 = phi i64 [ %len.0, %while.body.lr.ph ], [ %sub76, %if.end186 ]
+  %sub76 = add i64 %len.1122, -32
   %sub76.tr = trunc i64 %sub76 to i32
   %conv78 = shl i32 %sub76.tr, 3
-  %call80 = call fastcc i32 @convert_bn_memory(ptr noundef %m1.1120, ptr noundef nonnull %b1, ptr noundef nonnull %lz1, ptr noundef %bn1)
-  %call83 = call fastcc i32 @convert_bn_memory(ptr noundef %m2.1121, ptr noundef nonnull %b2, ptr noundef nonnull %lz2, ptr noundef %bn2)
+  %call80 = call fastcc i32 @convert_bn_memory(ptr noundef %m1.1123, ptr noundef nonnull %b1, ptr noundef nonnull %lz1, ptr noundef %bn1)
+  %call83 = call fastcc i32 @convert_bn_memory(ptr noundef %m2.1124, ptr noundef nonnull %b2, ptr noundef nonnull %lz2, ptr noundef %bn2)
   %2 = load i8, ptr %b1, align 16
-  %cmp87.not111 = icmp eq i8 %2, 0
-  br i1 %cmp87.not111, label %for.end.thread, label %for.body
+  %cmp87.not114 = icmp eq i8 %2, 0
+  br i1 %cmp87.not114, label %for.end.thread, label %for.body
 
 for.end.thread:                                   ; preds = %while.body
   store i8 0, ptr %bdiff, align 16
@@ -545,11 +543,11 @@ for.end.thread:                                   ; preds = %while.body
 
 for.body:                                         ; preds = %while.body, %for.body
   %3 = phi i8 [ %5, %for.body ], [ %2, %while.body ]
-  %real_diff.0115 = phi i32 [ %real_diff.1, %for.body ], [ 0, %while.body ]
-  %diff.0114 = phi i32 [ %diff.1, %for.body ], [ 0, %while.body ]
-  %p.0113 = phi ptr [ %p.1, %for.body ], [ %bdiff, %while.body ]
-  %i.0112 = phi i64 [ %inc, %for.body ], [ 0, %while.body ]
-  %arrayidx91 = getelementptr inbounds [81 x i8], ptr %b2, i64 0, i64 %i.0112
+  %real_diff.0118 = phi i32 [ %real_diff.1, %for.body ], [ 0, %while.body ]
+  %diff.0117 = phi i32 [ %diff.1, %for.body ], [ 0, %while.body ]
+  %p.0116 = phi ptr [ %p.1, %for.body ], [ %bdiff, %while.body ]
+  %i.0115 = phi i64 [ %inc, %for.body ], [ 0, %while.body ]
+  %arrayidx91 = getelementptr inbounds [81 x i8], ptr %b2, i64 0, i64 %i.0115
   %4 = load i8, ptr %arrayidx91, align 1
   %cmp93 = icmp eq i8 %3, %4
   %cmp98 = icmp eq i8 %3, 32
@@ -558,13 +556,13 @@ for.body:                                         ; preds = %while.body, %for.bo
   %or.cond81 = or i1 %cmp103, %or.cond80
   %cmp110 = icmp ne i8 %3, %4
   %conv111 = zext i1 %cmp110 to i32
-  %or = or i32 %diff.0114, %conv111
+  %or = or i32 %diff.0117, %conv111
   %.sink = select i1 %or.cond81, i8 32, i8 94
   %diff.1 = select i1 %or.cond81, i32 %or, i32 1
-  %real_diff.1 = select i1 %or.cond81, i32 %real_diff.0115, i32 1
-  store i8 %.sink, ptr %p.0113, align 1
-  %p.1 = getelementptr inbounds i8, ptr %p.0113, i64 1
-  %inc = add i64 %i.0112, 1
+  %real_diff.1 = select i1 %or.cond81, i32 %real_diff.0118, i32 1
+  store i8 %.sink, ptr %p.0116, align 1
+  %p.1 = getelementptr inbounds i8, ptr %p.0116, i64 1
+  %inc = add i64 %i.0115, 1
   %arrayidx = getelementptr inbounds [81 x i8], ptr %b1, i64 0, i64 %inc
   %5 = load i8, ptr %arrayidx, align 1
   %cmp87.not = icmp eq i8 %5, 0
@@ -624,12 +622,11 @@ land.lhs.true167:                                 ; preds = %if.end165
   br i1 %cmp128, label %land.lhs.true176, label %lor.lhs.false170
 
 lor.lhs.false170:                                 ; preds = %land.lhs.true167
-  %cmp171 = icmp ne i32 %call80, 0
-  %cmp174 = icmp ne i32 %call83, 0
-  %or.cond7 = select i1 %cmp171, i1 %cmp174, i1 false
-  %or.cond8 = and i1 %cmp62, %or.cond7
-  %or.cond8.not = xor i1 %or.cond8, true
-  %brmerge = or i1 %cmp4, %or.cond8.not
+  %cmp171 = icmp eq i32 %call80, 0
+  %cmp174 = icmp eq i32 %call83, 0
+  %or.cond7.not113 = select i1 %cmp171, i1 true, i1 %cmp174
+  %or.cond8.not112 = or i1 %cmp, %or.cond7.not113
+  %brmerge = or i1 %cmp4, %or.cond8.not112
   br i1 %brmerge, label %if.end186, label %if.then182
 
 land.lhs.true176:                                 ; preds = %land.lhs.true167
@@ -640,11 +637,11 @@ if.then182:                                       ; preds = %land.lhs.true176, %
   br label %if.end186
 
 if.end186:                                        ; preds = %land.lhs.true176, %lor.lhs.false170, %if.end165, %if.then182, %if.then117
-  %cmp187.not = icmp eq ptr %m1.1120, null
-  %add.ptr190 = getelementptr inbounds i8, ptr %m1.1120, i64 32
+  %cmp187.not = icmp eq ptr %m1.1123, null
+  %add.ptr190 = getelementptr inbounds i8, ptr %m1.1123, i64 32
   %spec.select = select i1 %cmp187.not, ptr null, ptr %add.ptr190
-  %cmp192.not = icmp eq ptr %m2.1121, null
-  %add.ptr195 = getelementptr inbounds i8, ptr %m2.1121, i64 32
+  %cmp192.not = icmp eq ptr %m2.1124, null
+  %add.ptr195 = getelementptr inbounds i8, ptr %m2.1124, i64 32
   %m2.2 = select i1 %cmp192.not, ptr null, ptr %add.ptr195
   %cmp74.not = icmp eq i64 %sub76, 0
   br i1 %cmp74.not, label %fin, label %while.body, !llvm.loop !10

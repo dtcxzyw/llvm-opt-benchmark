@@ -127,19 +127,19 @@ define i32 @Gia_ManCombMarkUsed(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %5, label %.lr.ph.preheader, label %.critedge
 
 .lr.ph.preheader:                                 ; preds = %1
-  %.val83 = load ptr, ptr %2, align 8
-  %.not84 = icmp eq ptr %.val83, null
-  br i1 %.not84, label %.critedge, label %.lr.ph86
+  %.val85 = load ptr, ptr %2, align 8
+  %.not86 = icmp eq ptr %.val85, null
+  br i1 %.not86, label %.critedge, label %.lr.ph88
 
 .lr.ph:                                           ; preds = %.thread
   %.val = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val, i64 %indvars.iv.next
   %.not = icmp eq ptr %.val, null
-  br i1 %.not, label %.critedge, label %.lr.ph86, !llvm.loop !4
+  br i1 %.not, label %.critedge, label %.lr.ph88, !llvm.loop !4
 
-.lr.ph86:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %7 = phi ptr [ %6, %.lr.ph ], [ %.val83, %.lr.ph.preheader ]
-  %indvars.iv85 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+.lr.ph88:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %7 = phi ptr [ %6, %.lr.ph ], [ %.val85, %.lr.ph.preheader ]
+  %indvars.iv87 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %.val44 = load i64, ptr %7, align 4
   %8 = and i64 %.val44, 2147483648
   %.not.i = icmp eq i64 %8, 0
@@ -148,7 +148,7 @@ define i32 @Gia_ManCombMarkUsed(ptr noundef %0) local_unnamed_addr #0 {
   %narrow.i = and i1 %.not.i, %10
   br i1 %narrow.i, label %11, label %.thread
 
-11:                                               ; preds = %.lr.ph86
+11:                                               ; preds = %.lr.ph88
   %12 = trunc i64 %.val44 to i32
   %13 = and i32 %12, 536870911
   %14 = lshr i64 %.val44, 32
@@ -161,12 +161,12 @@ define i32 @Gia_ManCombMarkUsed(ptr noundef %0) local_unnamed_addr #0 {
   %spec.select = select i1 %narrow.i52.fr, i64 0, i64 1073741824
   br label %.thread
 
-.thread:                                          ; preds = %11, %.lr.ph86
-  %18 = phi i64 [ 0, %.lr.ph86 ], [ %spec.select, %11 ]
+.thread:                                          ; preds = %11, %.lr.ph88
+  %18 = phi i64 [ 0, %.lr.ph88 ], [ %spec.select, %11 ]
   %19 = and i64 %.val44, -1073741825
   %20 = or disjoint i64 %18, %19
   store i64 %20, ptr %7, align 4
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv85, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv87, 1
   %21 = load i32, ptr %3, align 8
   %22 = sext i32 %21 to i64
   %23 = icmp slt i64 %indvars.iv.next, %22
@@ -179,74 +179,74 @@ define i32 @Gia_ManCombMarkUsed(ptr noundef %0) local_unnamed_addr #0 {
   %.not37 = icmp eq i32 %.val47, 0
   %spec.select58 = select i1 %.not37, i32 %24, i32 0
   %26 = icmp slt i32 %spec.select58, %24
-  br i1 %26, label %.lr.ph65.preheader, label %.critedge2
+  br i1 %26, label %.lr.ph67.preheader, label %.critedge2
 
-.lr.ph65.preheader:                               ; preds = %.critedge
+.lr.ph67.preheader:                               ; preds = %.critedge
   %27 = sext i32 %spec.select58 to i64
-  br label %.lr.ph65
+  br label %.lr.ph67
 
-.lr.ph65:                                         ; preds = %.lr.ph65.preheader, %44
-  %28 = phi i32 [ %24, %.lr.ph65.preheader ], [ %45, %44 ]
-  %indvars.iv77 = phi i64 [ %27, %.lr.ph65.preheader ], [ %indvars.iv.next78, %44 ]
-  %.064 = phi i32 [ 0, %.lr.ph65.preheader ], [ %.1, %44 ]
+.lr.ph67:                                         ; preds = %.lr.ph67.preheader, %44
+  %28 = phi i32 [ %24, %.lr.ph67.preheader ], [ %45, %44 ]
+  %indvars.iv79 = phi i64 [ %27, %.lr.ph67.preheader ], [ %indvars.iv.next80, %44 ]
+  %.066 = phi i32 [ 0, %.lr.ph67.preheader ], [ %.1, %44 ]
   %.val43 = load ptr, ptr %2, align 8
-  %29 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val43, i64 %indvars.iv77
+  %29 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val43, i64 %indvars.iv79
   %.not38 = icmp eq ptr %.val43, null
   br i1 %.not38, label %.critedge2, label %30
 
-30:                                               ; preds = %.lr.ph65
+30:                                               ; preds = %.lr.ph67
   %.val46 = load i64, ptr %29, align 4
   %31 = trunc i64 %.val46 to i32
   %32 = and i32 %31, 536870911
   %33 = lshr i64 %.val46, 32
   %34 = trunc i64 %33 to i32
   %35 = and i32 %34, 536870911
-  %36 = icmp eq i32 %32, %35
-  %.not.i53 = icmp ne i32 %32, 536870911
-  %or.cond.not.i54 = and i1 %.not.i53, %36
+  %36 = icmp ne i32 %32, %35
+  %.not.i53 = icmp eq i32 %32, 536870911
+  %or.cond.not.i54.not60 = or i1 %.not.i53, %36
   %37 = and i64 %.val46, 2147483648
-  %.not4.i55 = icmp eq i64 %37, 0
-  %narrow.i56 = and i1 %.not4.i55, %or.cond.not.i54
-  br i1 %narrow.i56, label %38, label %44
+  %.not4.i55 = icmp ne i64 %37, 0
+  %narrow.i56.not = or i1 %.not4.i55, %or.cond.not.i54.not60
+  br i1 %narrow.i56.not, label %44, label %38
 
 38:                                               ; preds = %30
   %39 = and i64 %.val46, 536870911
   %40 = sub nsw i64 0, %39
   %41 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %29, i64 %40
   %42 = tail call i32 @Gia_ManCombMarkUsed_rec(ptr noundef nonnull %0, ptr noundef nonnull %41)
-  %43 = add nsw i32 %42, %.064
+  %43 = add nsw i32 %42, %.066
   %.pre = load i32, ptr %3, align 8
   br label %44
 
 44:                                               ; preds = %38, %30
   %45 = phi i32 [ %.pre, %38 ], [ %28, %30 ]
-  %.1 = phi i32 [ %43, %38 ], [ %.064, %30 ]
-  %indvars.iv.next78 = add nsw i64 %indvars.iv77, 1
+  %.1 = phi i32 [ %43, %38 ], [ %.066, %30 ]
+  %indvars.iv.next80 = add nsw i64 %indvars.iv79, 1
   %46 = sext i32 %45 to i64
-  %47 = icmp slt i64 %indvars.iv.next78, %46
-  br i1 %47, label %.lr.ph65, label %.critedge2, !llvm.loop !6
+  %47 = icmp slt i64 %indvars.iv.next80, %46
+  br i1 %47, label %.lr.ph67, label %.critedge2, !llvm.loop !6
 
-.critedge2:                                       ; preds = %.lr.ph65, %44, %.critedge
-  %.0.lcssa = phi i32 [ 0, %.critedge ], [ %.1, %44 ], [ %.064, %.lr.ph65 ]
+.critedge2:                                       ; preds = %.lr.ph67, %44, %.critedge
+  %.0.lcssa = phi i32 [ 0, %.critedge ], [ %.1, %44 ], [ %.066, %.lr.ph67 ]
   %48 = getelementptr inbounds i8, ptr %0, i64 72
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr i8, ptr %49, i64 4
-  %.val4869 = load i32, ptr %50, align 4
-  %51 = icmp sgt i32 %.val4869, 0
-  br i1 %51, label %.lr.ph72, label %.critedge4
+  %.val4871 = load i32, ptr %50, align 4
+  %51 = icmp sgt i32 %.val4871, 0
+  br i1 %51, label %.lr.ph74, label %.critedge4
 
-.lr.ph72:                                         ; preds = %.critedge2, %53
-  %indvars.iv80 = phi i64 [ %indvars.iv.next81, %53 ], [ 0, %.critedge2 ]
+.lr.ph74:                                         ; preds = %.critedge2, %53
+  %indvars.iv82 = phi i64 [ %indvars.iv.next83, %53 ], [ 0, %.critedge2 ]
   %52 = phi ptr [ %65, %53 ], [ %49, %.critedge2 ]
-  %.271 = phi i32 [ %64, %53 ], [ %.0.lcssa, %.critedge2 ]
+  %.273 = phi i32 [ %64, %53 ], [ %.0.lcssa, %.critedge2 ]
   %.val49 = load ptr, ptr %2, align 8
   %.not39 = icmp eq ptr %.val49, null
   br i1 %.not39, label %.critedge4, label %53
 
-53:                                               ; preds = %.lr.ph72
+53:                                               ; preds = %.lr.ph74
   %54 = getelementptr i8, ptr %52, i64 8
   %.val50.val = load ptr, ptr %54, align 8
-  %55 = getelementptr inbounds i32, ptr %.val50.val, i64 %indvars.iv80
+  %55 = getelementptr inbounds i32, ptr %.val50.val, i64 %indvars.iv82
   %56 = load i32, ptr %55, align 4
   %57 = sext i32 %56 to i64
   %58 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val49, i64 %57
@@ -255,17 +255,17 @@ define i32 @Gia_ManCombMarkUsed(ptr noundef %0) local_unnamed_addr #0 {
   %61 = sub nsw i64 0, %60
   %62 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %58, i64 %61
   %63 = tail call i32 @Gia_ManCombMarkUsed_rec(ptr noundef nonnull %0, ptr noundef nonnull %62)
-  %64 = add nsw i32 %63, %.271
-  %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
+  %64 = add nsw i32 %63, %.273
+  %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
   %65 = load ptr, ptr %48, align 8
   %66 = getelementptr i8, ptr %65, i64 4
   %.val48 = load i32, ptr %66, align 4
   %67 = sext i32 %.val48 to i64
-  %68 = icmp slt i64 %indvars.iv.next81, %67
-  br i1 %68, label %.lr.ph72, label %.critedge4, !llvm.loop !7
+  %68 = icmp slt i64 %indvars.iv.next83, %67
+  br i1 %68, label %.lr.ph74, label %.critedge4, !llvm.loop !7
 
-.critedge4:                                       ; preds = %.lr.ph72, %53, %.critedge2
-  %.2.lcssa = phi i32 [ %.0.lcssa, %.critedge2 ], [ %64, %53 ], [ %.271, %.lr.ph72 ]
+.critedge4:                                       ; preds = %.lr.ph74, %53, %.critedge2
+  %.2.lcssa = phi i32 [ %.0.lcssa, %.critedge2 ], [ %64, %53 ], [ %.273, %.lr.ph74 ]
   ret i32 %.2.lcssa
 }
 

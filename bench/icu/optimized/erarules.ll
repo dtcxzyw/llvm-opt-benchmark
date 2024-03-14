@@ -361,15 +361,15 @@ lor.lhs.false113:                                 ; preds = %if.end111
   %12 = load i32, ptr %arrayidx114, align 4
   %arrayidx115 = getelementptr inbounds i8, ptr %call106, i64 8
   %13 = load i32, ptr %arrayidx115, align 4
-  %14 = add i32 %11, 32768
-  %or.cond.i = icmp ult i32 %14, 65536
-  %15 = add i32 %12, -1
-  %16 = icmp ult i32 %15, 12
-  %or.cond2.i = and i1 %or.cond.i, %16
-  %17 = add i32 %13, -1
-  %18 = icmp ult i32 %17, 31
-  %narrow.i = and i1 %or.cond2.i, %18
-  br i1 %narrow.i, label %if.end120, label %if.then119
+  %14 = add i32 %11, -32768
+  %or.cond.i = icmp ult i32 %14, -65536
+  %15 = add i32 %12, -13
+  %16 = icmp ult i32 %15, -12
+  %or.cond2.i.not89 = or i1 %or.cond.i, %16
+  %17 = add i32 %13, -32
+  %18 = icmp ult i32 %17, -31
+  %narrow.i.not = or i1 %or.cond2.i.not89, %18
+  br i1 %narrow.i.not, label %if.then119, label %if.end120
 
 if.then119:                                       ; preds = %lor.lhs.false113, %if.end111
   store i32 3, ptr %status, align 4

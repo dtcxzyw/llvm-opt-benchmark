@@ -194898,12 +194898,12 @@ define linkonce_odr void @_ZN4CGAL8internal33Ray_3_Triangle_3_traversal_traitsIN
   %82 = extractelement <2 x double> %72, i64 0
   %83 = fcmp ule double %82, %.sroa.speculated18.i6.i.i
   %84 = fcmp uge double %82, %.sroa.speculated33.i3.i.i
-  %or.cond.i.not = select i1 %83, i1 %84, i1 false
+  %or.cond.i.not49 = select i1 %83, i1 %84, i1 false
   %85 = extractelement <2 x double> %72, i64 1
   %86 = fcmp ole double %85, %.sroa.speculated13.i7.i.i
-  %or.cond26.i = select i1 %or.cond.i.not, i1 %86, i1 false
+  %or.cond26.i.not46 = select i1 %or.cond.i.not49, i1 %86, i1 false
   %87 = fcmp oge double %85, %.sroa.speculated28.i4.i.i
-  %or.cond = select i1 %or.cond26.i, i1 %87, i1 false
+  %or.cond = select i1 %or.cond26.i.not46, i1 %87, i1 false
   br i1 %or.cond, label %88, label %_ZNK4CGAL8internal33Ray_3_Triangle_3_traversal_traitsINS_11AABB_traitsINS_5EpickENS_34AABB_face_graph_triangle_primitiveINS_12Surface_meshINS_7Point_3IS3_EEEENS8_12Property_mapINS_15SM_Vertex_indexES7_EENS_11Boolean_tagILb1EEENSC_ILb0EEEEENS_7DefaultEEES3_NS0_19Default_tree_helperINS_9AABB_treeISH_EEEESD_E12do_intersectINS_5Ray_3IS3_EEEEbRKT_RKNS_6Bbox_3E.exit.thread
 
 88:                                               ; preds = %81
@@ -195102,11 +195102,11 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
 _ZNK4CGAL8internal33Ray_3_Triangle_3_traversal_traitsINS_11AABB_traitsINS_5EpickENS_34AABB_face_graph_triangle_primitiveINS_12Surface_meshINS_7Point_3IS3_EEEENS8_12Property_mapINS_15SM_Vertex_indexES7_EENS_11Boolean_tagILb1EEENSC_ILb0EEEEENS_7DefaultEEES3_NS0_19Default_tree_helperINS_9AABB_treeISH_EEEESD_E12do_intersectINS_5Ray_3IS3_EEEEbRKT_RKNS_9AABB_nodeISH_EE.exit: ; preds = %18, %.critedge.i.i
   %21 = fcmp ule double %.sroa.018.0.copyload.i.i, %.sroa.4.0.copyload.i
   %22 = fcmp uge double %.sroa.018.0.copyload.i.i, %.sroa.0.0.copyload.i
-  %or.cond.i.not.i = select i1 %21, i1 %22, i1 false
+  %or.cond.i.not5.i = select i1 %21, i1 %22, i1 false
   %23 = fcmp ole double %.sroa.3.0.copyload.i.i, %.sroa.5.0.copyload.i
-  %or.cond26.i.i = select i1 %or.cond.i.not.i, i1 %23, i1 false
+  %or.cond26.i.not.i = select i1 %or.cond.i.not5.i, i1 %23, i1 false
   %24 = fcmp oge double %.sroa.3.0.copyload.i.i, %.sroa.2.0.copyload.i
-  %spec.select.i = select i1 %or.cond26.i.i, i1 %24, i1 false
+  %spec.select.i = select i1 %or.cond26.i.not.i, i1 %24, i1 false
   br i1 %spec.select.i, label %25, label %_ZNK4CGAL9AABB_nodeINS_11AABB_traitsINS_5EpickENS_34AABB_face_graph_triangle_primitiveINS_12Surface_meshINS_7Point_3IS2_EEEENS7_12Property_mapINS_15SM_Vertex_indexES6_EENS_11Boolean_tagILb1EEENSB_ILb0EEEEENS_7DefaultEEEE9traversalINS_8internal33Ray_3_Triangle_3_traversal_traitsISG_S2_NSJ_19Default_tree_helperINS_9AABB_treeISG_EEEESC_EENS_5Ray_3IS2_EEEEvRKT0_RT_m.exit
 
 25:                                               ; preds = %_ZNK4CGAL8internal33Ray_3_Triangle_3_traversal_traitsINS_11AABB_traitsINS_5EpickENS_34AABB_face_graph_triangle_primitiveINS_12Surface_meshINS_7Point_3IS3_EEEENS8_12Property_mapINS_15SM_Vertex_indexES7_EENS_11Boolean_tagILb1EEENSC_ILb0EEEEENS_7DefaultEEES3_NS0_19Default_tree_helperINS_9AABB_treeISH_EEEESD_E12do_intersectINS_5Ray_3IS3_EEEEbRKT_RKNS_9AABB_nodeISH_EE.exit
@@ -195172,11 +195172,11 @@ _ZNK4CGAL8internal33Ray_3_Triangle_3_traversal_traitsINS_11AABB_traitsINS_5Epick
 _ZNK4CGAL8internal33Ray_3_Triangle_3_traversal_traitsINS_11AABB_traitsINS_5EpickENS_34AABB_face_graph_triangle_primitiveINS_12Surface_meshINS_7Point_3IS3_EEEENS8_12Property_mapINS_15SM_Vertex_indexES7_EENS_11Boolean_tagILb1EEENSC_ILb0EEEEENS_7DefaultEEES3_NS0_19Default_tree_helperINS_9AABB_treeISH_EEEESD_E12do_intersectINS_5Ray_3IS3_EEEEbRKT_RKNS_9AABB_nodeISH_EE.exit55: ; preds = %32, %.critedge.i.i46
   %39 = fcmp ule double %.sroa.018.0.copyload.i.i39, %.sroa.4.0.copyload.i36
   %40 = fcmp uge double %.sroa.018.0.copyload.i.i39, %.sroa.0.0.copyload.i32
-  %or.cond.i.not.i49 = select i1 %39, i1 %40, i1 false
+  %or.cond.i.not5.i49 = select i1 %39, i1 %40, i1 false
   %41 = fcmp ole double %.sroa.3.0.copyload.i.i41, %.sroa.5.0.copyload.i38
-  %or.cond26.i.i50 = select i1 %or.cond.i.not.i49, i1 %41, i1 false
+  %or.cond26.i.not.i50 = select i1 %or.cond.i.not5.i49, i1 %41, i1 false
   %42 = fcmp oge double %.sroa.3.0.copyload.i.i41, %.sroa.2.0.copyload.i34
-  %spec.select.i51 = select i1 %or.cond26.i.i50, i1 %42, i1 false
+  %spec.select.i51 = select i1 %or.cond26.i.not.i50, i1 %42, i1 false
   br i1 %spec.select.i51, label %43, label %_ZNK4CGAL8internal33Ray_3_Triangle_3_traversal_traitsINS_11AABB_traitsINS_5EpickENS_34AABB_face_graph_triangle_primitiveINS_12Surface_meshINS_7Point_3IS3_EEEENS8_12Property_mapINS_15SM_Vertex_indexES7_EENS_11Boolean_tagILb1EEENSC_ILb0EEEEENS_7DefaultEEES3_NS0_19Default_tree_helperINS_9AABB_treeISH_EEEESD_E12do_intersectINS_5Ray_3IS3_EEEEbRKT_RKNS_9AABB_nodeISH_EE.exit55.thread
 
 43:                                               ; preds = %_ZNK4CGAL8internal33Ray_3_Triangle_3_traversal_traitsINS_11AABB_traitsINS_5EpickENS_34AABB_face_graph_triangle_primitiveINS_12Surface_meshINS_7Point_3IS3_EEEENS8_12Property_mapINS_15SM_Vertex_indexES7_EENS_11Boolean_tagILb1EEENSC_ILb0EEEEENS_7DefaultEEES3_NS0_19Default_tree_helperINS_9AABB_treeISH_EEEESD_E12do_intersectINS_5Ray_3IS3_EEEEbRKT_RKNS_9AABB_nodeISH_EE.exit55
@@ -195219,11 +195219,11 @@ _ZNK4CGAL8internal33Ray_3_Triangle_3_traversal_traitsINS_11AABB_traitsINS_5Epick
 _ZNK4CGAL8internal33Ray_3_Triangle_3_traversal_traitsINS_11AABB_traitsINS_5EpickENS_34AABB_face_graph_triangle_primitiveINS_12Surface_meshINS_7Point_3IS3_EEEENS8_12Property_mapINS_15SM_Vertex_indexES7_EENS_11Boolean_tagILb1EEENSC_ILb0EEEEENS_7DefaultEEES3_NS0_19Default_tree_helperINS_9AABB_treeISH_EEEESD_E12do_intersectINS_5Ray_3IS3_EEEEbRKT_RKNS_9AABB_nodeISH_EE.exit80: ; preds = %51, %.critedge.i.i71
   %54 = fcmp ule double %.sroa.018.0.copyload.i.i64, %.sroa.4.0.copyload.i61
   %55 = fcmp uge double %.sroa.018.0.copyload.i.i64, %.sroa.0.0.copyload.i57
-  %or.cond.i.not.i74 = select i1 %54, i1 %55, i1 false
+  %or.cond.i.not5.i74 = select i1 %54, i1 %55, i1 false
   %56 = fcmp ole double %.sroa.3.0.copyload.i.i66, %.sroa.5.0.copyload.i63
-  %or.cond26.i.i75 = select i1 %or.cond.i.not.i74, i1 %56, i1 false
+  %or.cond26.i.not.i75 = select i1 %or.cond.i.not5.i74, i1 %56, i1 false
   %57 = fcmp oge double %.sroa.3.0.copyload.i.i66, %.sroa.2.0.copyload.i59
-  %spec.select.i76 = select i1 %or.cond26.i.i75, i1 %57, i1 false
+  %spec.select.i76 = select i1 %or.cond26.i.not.i75, i1 %57, i1 false
   br i1 %spec.select.i76, label %tailrecurse.backedge, label %_ZNK4CGAL9AABB_nodeINS_11AABB_traitsINS_5EpickENS_34AABB_face_graph_triangle_primitiveINS_12Surface_meshINS_7Point_3IS2_EEEENS7_12Property_mapINS_15SM_Vertex_indexES6_EENS_11Boolean_tagILb1EEENSB_ILb0EEEEENS_7DefaultEEEE9traversalINS_8internal33Ray_3_Triangle_3_traversal_traitsISG_S2_NSJ_19Default_tree_helperINS_9AABB_treeISG_EEEESC_EENS_5Ray_3IS2_EEEEvRKT0_RT_m.exit
 
 tailrecurse.backedge:                             ; preds = %_ZNK4CGAL8internal33Ray_3_Triangle_3_traversal_traitsINS_11AABB_traitsINS_5EpickENS_34AABB_face_graph_triangle_primitiveINS_12Surface_meshINS_7Point_3IS3_EEEENS8_12Property_mapINS_15SM_Vertex_indexES7_EENS_11Boolean_tagILb1EEENSC_ILb0EEEEENS_7DefaultEEES3_NS0_19Default_tree_helperINS_9AABB_treeISH_EEEESD_E12do_intersectINS_5Ray_3IS3_EEEEbRKT_RKNS_9AABB_nodeISH_EE.exit80, %70
@@ -195274,11 +195274,11 @@ _ZNK4CGAL8internal33Ray_3_Triangle_3_traversal_traitsINS_11AABB_traitsINS_5Epick
   %65 = phi ptr [ %61, %60 ], [ %63, %.critedge.i.i95 ]
   %66 = fcmp ule double %.sroa.018.0.copyload.i.i39, %.sroa.4.0.copyload.i85120
   %67 = fcmp uge double %.sroa.018.0.copyload.i.i39, %.sroa.0.0.copyload.i81116
-  %or.cond.i.not.i98 = select i1 %66, i1 %67, i1 false
+  %or.cond.i.not5.i98 = select i1 %66, i1 %67, i1 false
   %68 = fcmp ole double %.sroa.3.0.copyload.i.i41, %.sroa.5.0.copyload.i87122
-  %or.cond26.i.i99 = select i1 %or.cond.i.not.i98, i1 %68, i1 false
+  %or.cond26.i.not.i99 = select i1 %or.cond.i.not5.i98, i1 %68, i1 false
   %69 = fcmp oge double %.sroa.3.0.copyload.i.i41, %.sroa.2.0.copyload.i83118
-  %spec.select.i100 = select i1 %or.cond26.i.i99, i1 %69, i1 false
+  %spec.select.i100 = select i1 %or.cond26.i.not.i99, i1 %69, i1 false
   br i1 %spec.select.i100, label %70, label %_ZNK4CGAL9AABB_nodeINS_11AABB_traitsINS_5EpickENS_34AABB_face_graph_triangle_primitiveINS_12Surface_meshINS_7Point_3IS2_EEEENS7_12Property_mapINS_15SM_Vertex_indexES6_EENS_11Boolean_tagILb1EEENSB_ILb0EEEEENS_7DefaultEEEE9traversalINS_8internal33Ray_3_Triangle_3_traversal_traitsISG_S2_NSJ_19Default_tree_helperINS_9AABB_treeISG_EEEESC_EENS_5Ray_3IS2_EEEEvRKT0_RT_m.exit
 
 70:                                               ; preds = %_ZNK4CGAL8internal33Ray_3_Triangle_3_traversal_traitsINS_11AABB_traitsINS_5EpickENS_34AABB_face_graph_triangle_primitiveINS_12Surface_meshINS_7Point_3IS3_EEEENS8_12Property_mapINS_15SM_Vertex_indexES7_EENS_11Boolean_tagILb1EEENSC_ILb0EEEEENS_7DefaultEEES3_NS0_19Default_tree_helperINS_9AABB_treeISH_EEEESD_E12do_intersectINS_5Ray_3IS3_EEEEbRKT_RKNS_9AABB_nodeISH_EE.exit104

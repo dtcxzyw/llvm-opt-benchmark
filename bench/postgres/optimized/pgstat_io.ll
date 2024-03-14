@@ -190,9 +190,9 @@ pgstat_tracks_io_object.exit.thread48:            ; preds = %pgstat_tracks_io_ob
   br i1 %or.cond15, label %pgstat_tracks_io_object.exit.thread, label %24
 
 24:                                               ; preds = %22
-  %or.cond17 = icmp ult i32 %2, 2
-  %25 = icmp eq i32 %2, 3
-  %spec.select = or i1 %or.cond17, %25
+  %or.cond17 = icmp ugt i32 %2, 1
+  %25 = icmp ne i32 %2, 3
+  %spec.select.not53 = and i1 %or.cond17, %25
   %.not = icmp eq i32 %3, 5
   br i1 %.not, label %switch.early.test, label %26
 
@@ -204,13 +204,12 @@ switch.early.test:                                ; preds = %24
   ]
 
 26:                                               ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %24
-  %27 = icmp eq i32 %3, 2
-  %or.cond21 = and i1 %spec.select, %27
-  %not.or.cond21 = xor i1 %or.cond21, true
+  %27 = icmp ne i32 %3, 2
+  %or.cond21.not = or i1 %spec.select.not53, %27
   br label %pgstat_tracks_io_object.exit.thread
 
 pgstat_tracks_io_object.exit.thread:              ; preds = %4, %13, %12, %12, %12, %switch.edge.i, %5, %switch.early.test, %26, %22, %21, %21, %pgstat_tracks_io_object.exit.thread48, %16, %16, %16, %pgstat_tracks_io_object.exit
-  %.0 = phi i1 [ false, %pgstat_tracks_io_object.exit ], [ false, %16 ], [ false, %16 ], [ false, %16 ], [ false, %pgstat_tracks_io_object.exit.thread48 ], [ false, %21 ], [ false, %21 ], [ false, %22 ], [ false, %switch.early.test ], [ %not.or.cond21, %26 ], [ false, %5 ], [ false, %switch.edge.i ], [ false, %12 ], [ false, %12 ], [ false, %12 ], [ false, %13 ], [ false, %4 ]
+  %.0 = phi i1 [ false, %pgstat_tracks_io_object.exit ], [ false, %16 ], [ false, %16 ], [ false, %16 ], [ false, %pgstat_tracks_io_object.exit.thread48 ], [ false, %21 ], [ false, %21 ], [ false, %22 ], [ false, %switch.early.test ], [ %or.cond21.not, %26 ], [ false, %5 ], [ false, %switch.edge.i ], [ false, %12 ], [ false, %12 ], [ false, %12 ], [ false, %13 ], [ false, %4 ]
   ret i1 %.0
 }
 

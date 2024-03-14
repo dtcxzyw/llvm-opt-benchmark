@@ -764,14 +764,14 @@ entry:
   %6 = load ptr, ptr %y4.i, align 8
   %arrayidx7.i = getelementptr inbounds i32, ptr %6, i64 %idxprom.i
   store i32 %add5, ptr %arrayidx7.i, align 4
-  %cmp.not.i = icmp slt i32 %rem, 0
-  %cmp4.i = icmp sge i32 %add, %pixelBounds.sroa.4.8.extract.trunc
-  %or.cond.not7.i = select i1 %cmp.not.i, i1 true, i1 %cmp4.i
-  %cmp8.not.i = icmp slt i32 %add5, %pixelBounds.sroa.3.0.extract.trunc
-  %or.cond6.i = or i1 %or.cond.not7.i, %cmp8.not.i
-  %cmp12.i = icmp sge i32 %add5, %pixelBounds.sroa.7.8.extract.trunc
-  %or.cond.not = or i1 %cmp12.i, %or.cond6.i
-  br i1 %or.cond.not, label %return, label %if.end
+  %cmp.not.i = icmp sgt i32 %rem, -1
+  %cmp4.i = icmp slt i32 %add, %pixelBounds.sroa.4.8.extract.trunc
+  %or.cond.not7.i.not161 = select i1 %cmp.not.i, i1 %cmp4.i, i1 false
+  %cmp8.not.i = icmp sge i32 %add5, %pixelBounds.sroa.3.0.extract.trunc
+  %or.cond6.i.not160 = and i1 %or.cond.not7.i.not161, %cmp8.not.i
+  %cmp12.i = icmp slt i32 %add5, %pixelBounds.sroa.7.8.extract.trunc
+  %or.cond = and i1 %cmp12.i, %or.cond6.i.not160
+  br i1 %or.cond, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   %pPixel.sroa.5.0.insert.ext154 = zext i32 %add5 to i64
@@ -4179,14 +4179,14 @@ entry:
   %pPixel.sroa.5.0.insert.shift168 = shl nuw i64 %pPixel.sroa.5.0.insert.ext167, 32
   %pPixel.sroa.0.0.insert.ext160 = zext i32 %add to i64
   %pPixel.sroa.0.0.insert.insert162 = or disjoint i64 %pPixel.sroa.5.0.insert.shift168, %pPixel.sroa.0.0.insert.ext160
-  %cmp.not.i = icmp slt i32 %rem, 0
-  %cmp4.i = icmp sge i32 %add, %pixelBounds.sroa.4.8.extract.trunc
-  %or.cond.not7.i = select i1 %cmp.not.i, i1 true, i1 %cmp4.i
-  %cmp8.not.i = icmp slt i32 %add5, %pixelBounds.sroa.3.0.extract.trunc
-  %or.cond6.i = or i1 %or.cond.not7.i, %cmp8.not.i
-  %cmp12.i = icmp sge i32 %add5, %pixelBounds.sroa.7.8.extract.trunc
-  %or.cond.not = or i1 %cmp12.i, %or.cond6.i
-  br i1 %or.cond.not, label %return, label %if.end
+  %cmp.not.i = icmp sgt i32 %rem, -1
+  %cmp4.i = icmp slt i32 %add, %pixelBounds.sroa.4.8.extract.trunc
+  %or.cond.not7.i.not174 = select i1 %cmp.not.i, i1 %cmp4.i, i1 false
+  %cmp8.not.i = icmp sge i32 %add5, %pixelBounds.sroa.3.0.extract.trunc
+  %or.cond6.i.not173 = and i1 %or.cond.not7.i.not174, %cmp8.not.i
+  %cmp12.i = icmp slt i32 %add5, %pixelBounds.sroa.7.8.extract.trunc
+  %or.cond = and i1 %cmp12.i, %or.cond6.i.not173
+  br i1 %or.cond, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   %sampler = getelementptr inbounds i8, ptr %0, i64 64
@@ -5079,14 +5079,14 @@ entry:
   %6 = load ptr, ptr %y4.i, align 8
   %arrayidx7.i = getelementptr inbounds i32, ptr %6, i64 %idxprom.i
   store i32 %add5, ptr %arrayidx7.i, align 4
-  %cmp.not.i = icmp slt i32 %rem, 0
-  %cmp4.i = icmp sge i32 %add, %pixelBounds.sroa.4.8.extract.trunc
-  %or.cond.not7.i = select i1 %cmp.not.i, i1 true, i1 %cmp4.i
-  %cmp8.not.i = icmp slt i32 %add5, %pixelBounds.sroa.3.0.extract.trunc
-  %or.cond6.i = or i1 %or.cond.not7.i, %cmp8.not.i
-  %cmp12.i = icmp sge i32 %add5, %pixelBounds.sroa.7.8.extract.trunc
-  %or.cond.not = or i1 %cmp12.i, %or.cond6.i
-  br i1 %or.cond.not, label %return, label %if.end
+  %cmp.not.i = icmp sgt i32 %rem, -1
+  %cmp4.i = icmp slt i32 %add, %pixelBounds.sroa.4.8.extract.trunc
+  %or.cond.not7.i.not167 = select i1 %cmp.not.i, i1 %cmp4.i, i1 false
+  %cmp8.not.i = icmp sge i32 %add5, %pixelBounds.sroa.3.0.extract.trunc
+  %or.cond6.i.not166 = and i1 %or.cond.not7.i.not167, %cmp8.not.i
+  %cmp12.i = icmp slt i32 %add5, %pixelBounds.sroa.7.8.extract.trunc
+  %or.cond = and i1 %cmp12.i, %or.cond6.i.not166
+  br i1 %or.cond, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   %pPixel.sroa.5.0.insert.ext160 = zext i32 %add5 to i64
@@ -6209,14 +6209,14 @@ entry:
   %6 = load ptr, ptr %y4.i, align 8
   %arrayidx7.i = getelementptr inbounds i32, ptr %6, i64 %idxprom.i
   store i32 %add5, ptr %arrayidx7.i, align 4
-  %cmp.not.i = icmp slt i32 %rem, 0
-  %cmp4.i = icmp sge i32 %add, %pixelBounds.sroa.4.8.extract.trunc
-  %or.cond.not7.i = select i1 %cmp.not.i, i1 true, i1 %cmp4.i
-  %cmp8.not.i = icmp slt i32 %add5, %pixelBounds.sroa.3.0.extract.trunc
-  %or.cond6.i = or i1 %or.cond.not7.i, %cmp8.not.i
-  %cmp12.i = icmp sge i32 %add5, %pixelBounds.sroa.7.8.extract.trunc
-  %or.cond.not = or i1 %cmp12.i, %or.cond6.i
-  br i1 %or.cond.not, label %return, label %if.end
+  %cmp.not.i = icmp sgt i32 %rem, -1
+  %cmp4.i = icmp slt i32 %add, %pixelBounds.sroa.4.8.extract.trunc
+  %or.cond.not7.i.not153 = select i1 %cmp.not.i, i1 %cmp4.i, i1 false
+  %cmp8.not.i = icmp sge i32 %add5, %pixelBounds.sroa.3.0.extract.trunc
+  %or.cond6.i.not152 = and i1 %or.cond.not7.i.not153, %cmp8.not.i
+  %cmp12.i = icmp slt i32 %add5, %pixelBounds.sroa.7.8.extract.trunc
+  %or.cond = and i1 %cmp12.i, %or.cond6.i.not152
+  br i1 %or.cond, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   %pPixel.sroa.5.0.insert.ext146 = zext i32 %add5 to i64
@@ -7482,14 +7482,14 @@ entry:
   %6 = load ptr, ptr %y4.i, align 8
   %arrayidx7.i = getelementptr inbounds i32, ptr %6, i64 %idxprom.i
   store i32 %add5, ptr %arrayidx7.i, align 4
-  %cmp.not.i = icmp slt i32 %rem, 0
-  %cmp4.i = icmp sge i32 %add, %pixelBounds.sroa.4.8.extract.trunc
-  %or.cond.not7.i = select i1 %cmp.not.i, i1 true, i1 %cmp4.i
-  %cmp8.not.i = icmp slt i32 %add5, %pixelBounds.sroa.3.0.extract.trunc
-  %or.cond6.i = or i1 %or.cond.not7.i, %cmp8.not.i
-  %cmp12.i = icmp sge i32 %add5, %pixelBounds.sroa.7.8.extract.trunc
-  %or.cond.not = or i1 %cmp12.i, %or.cond6.i
-  br i1 %or.cond.not, label %return, label %if.end
+  %cmp.not.i = icmp sgt i32 %rem, -1
+  %cmp4.i = icmp slt i32 %add, %pixelBounds.sroa.4.8.extract.trunc
+  %or.cond.not7.i.not156 = select i1 %cmp.not.i, i1 %cmp4.i, i1 false
+  %cmp8.not.i = icmp sge i32 %add5, %pixelBounds.sroa.3.0.extract.trunc
+  %or.cond6.i.not155 = and i1 %or.cond.not7.i.not156, %cmp8.not.i
+  %cmp12.i = icmp slt i32 %add5, %pixelBounds.sroa.7.8.extract.trunc
+  %or.cond = and i1 %cmp12.i, %or.cond6.i.not155
+  br i1 %or.cond, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   %pPixel.sroa.5.0.insert.ext149 = zext i32 %add5 to i64
@@ -8681,14 +8681,14 @@ entry:
   %pPixel.sroa.5.0.insert.shift156 = shl nuw i64 %pPixel.sroa.5.0.insert.ext155, 32
   %pPixel.sroa.0.0.insert.ext148 = zext i32 %add to i64
   %pPixel.sroa.0.0.insert.insert150 = or disjoint i64 %pPixel.sroa.5.0.insert.shift156, %pPixel.sroa.0.0.insert.ext148
-  %cmp.not.i = icmp slt i32 %rem, 0
-  %cmp4.i = icmp sge i32 %add, %pixelBounds.sroa.4.8.extract.trunc
-  %or.cond.not7.i = select i1 %cmp.not.i, i1 true, i1 %cmp4.i
-  %cmp8.not.i = icmp slt i32 %add5, %pixelBounds.sroa.3.0.extract.trunc
-  %or.cond6.i = or i1 %or.cond.not7.i, %cmp8.not.i
-  %cmp12.i = icmp sge i32 %add5, %pixelBounds.sroa.7.8.extract.trunc
-  %or.cond.not = or i1 %cmp12.i, %or.cond6.i
-  br i1 %or.cond.not, label %return, label %if.end
+  %cmp.not.i = icmp sgt i32 %rem, -1
+  %cmp4.i = icmp slt i32 %add, %pixelBounds.sroa.4.8.extract.trunc
+  %or.cond.not7.i.not162 = select i1 %cmp.not.i, i1 %cmp4.i, i1 false
+  %cmp8.not.i = icmp sge i32 %add5, %pixelBounds.sroa.3.0.extract.trunc
+  %or.cond6.i.not161 = and i1 %or.cond.not7.i.not162, %cmp8.not.i
+  %cmp12.i = icmp slt i32 %add5, %pixelBounds.sroa.7.8.extract.trunc
+  %or.cond = and i1 %cmp12.i, %or.cond6.i.not161
+  br i1 %or.cond, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   %sampler = getelementptr inbounds i8, ptr %0, i64 64
@@ -9890,14 +9890,14 @@ entry:
   %6 = load ptr, ptr %y4.i, align 8
   %arrayidx7.i = getelementptr inbounds i32, ptr %6, i64 %idxprom.i
   store i32 %add5, ptr %arrayidx7.i, align 4
-  %cmp.not.i = icmp slt i32 %rem, 0
-  %cmp4.i = icmp sge i32 %add, %pixelBounds.sroa.4.8.extract.trunc
-  %or.cond.not7.i = select i1 %cmp.not.i, i1 true, i1 %cmp4.i
-  %cmp8.not.i = icmp slt i32 %add5, %pixelBounds.sroa.3.0.extract.trunc
-  %or.cond6.i = or i1 %or.cond.not7.i, %cmp8.not.i
-  %cmp12.i = icmp sge i32 %add5, %pixelBounds.sroa.7.8.extract.trunc
-  %or.cond.not = or i1 %cmp12.i, %or.cond6.i
-  br i1 %or.cond.not, label %return, label %if.end
+  %cmp.not.i = icmp sgt i32 %rem, -1
+  %cmp4.i = icmp slt i32 %add, %pixelBounds.sroa.4.8.extract.trunc
+  %or.cond.not7.i.not156 = select i1 %cmp.not.i, i1 %cmp4.i, i1 false
+  %cmp8.not.i = icmp sge i32 %add5, %pixelBounds.sroa.3.0.extract.trunc
+  %or.cond6.i.not155 = and i1 %or.cond.not7.i.not156, %cmp8.not.i
+  %cmp12.i = icmp slt i32 %add5, %pixelBounds.sroa.7.8.extract.trunc
+  %or.cond = and i1 %cmp12.i, %or.cond6.i.not155
+  br i1 %or.cond, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   %pPixel.sroa.5.0.insert.ext149 = zext i32 %add5 to i64

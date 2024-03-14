@@ -494,14 +494,13 @@ if.end110:                                        ; preds = %if.end107, %if.end8
   %15 = phi i64 [ %.pre50, %if.end84 ], [ %conv108, %if.end107 ]
   %record_mac.0 = phi ptr [ %record_mac_tmp, %if.end84 ], [ %arrayidx109, %if.end107 ]
   %call112 = call i32 @CRYPTO_memcmp(ptr noundef %record_mac.0, ptr noundef nonnull %mac, i64 noundef %15) #7
-  %sub.i.i.i = add i32 %call112, -1
-  %xor.i.i = xor i32 %padding_ok.0, 1
-  %sub.i.i.i46 = add i32 %xor.i.i, -1
-  %16 = or i32 %padding_ok.0, %call112
-  %17 = xor i32 %16, -1
-  %and.i.i.i47 = and i32 %sub.i.i.i46, %17
-  %shr.i.i.i.i49 = and i32 %and.i.i.i47, %sub.i.i.i
-  %tobool116.not = icmp sgt i32 %shr.i.i.i.i49, -1
+  %16 = xor i32 %padding_ok.0, -2
+  %xor.i.i.neg = add i32 %16, 1
+  %17 = sub i32 0, %call112
+  %18 = or i32 %xor.i.i.neg, %17
+  %19 = or i32 %18, %padding_ok.0
+  %20 = or i32 %19, %call112
+  %tobool116.not = icmp slt i32 %20, 0
   br i1 %tobool116.not, label %if.then117, label %if.end118
 
 if.then117:                                       ; preds = %if.end110

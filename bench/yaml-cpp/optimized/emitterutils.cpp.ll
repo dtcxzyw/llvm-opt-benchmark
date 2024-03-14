@@ -1201,7 +1201,7 @@ if.then13:                                        ; preds = %if.else11
 if.else27:                                        ; preds = %if.else11
   %shr28 = lshr i32 %spec.store.select, 18
   %8 = trunc i32 %shr28 to i8
-  %conv30 = or i8 %8, -16
+  %conv30 = or disjoint i8 %8, -16
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ch.addr.i23)
   store i8 %conv30, ptr %ch.addr.i23, align 1
   call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %out, ptr noundef nonnull %ch.addr.i23, i64 noundef 1)
@@ -2048,17 +2048,17 @@ if.end.i2:                                        ; preds = %sw.epilog.i
 _ZN4YAML5Utils12_GLOBAL__N_112IsAnchorCharEi.exit: ; preds = %for.body.i, %lor.lhs.false.i, %for.end.i, %if.end.i2.thread, %if.end.i2
   %codePoint.211253137 = phi i32 [ 65533, %if.end.i2.thread ], [ %codePoint.211, %if.end.i2 ], [ 65533, %for.end.i ], [ 65533, %lor.lhs.false.i ], [ 65533, %for.body.i ]
   %i.sroa.0.312243236 = phi ptr [ %incdec.ptr.i.i, %if.end.i2.thread ], [ %i.sroa.0.312, %if.end.i2 ], [ %scevgep72, %for.end.i ], [ %scevgep, %for.body.i ], [ %i.sroa.0.1, %lor.lhs.false.i ]
-  %cmp5.i = icmp ult i32 %codePoint.211253137, 160
+  %cmp5.i = icmp ugt i32 %codePoint.211253137, 159
   %10 = and i32 %codePoint.211253137, 2147481600
-  %or.cond.i3 = icmp eq i32 %10, 55296
-  %or.cond11.i = or i1 %cmp5.i, %or.cond.i3
+  %or.cond.i3 = icmp ne i32 %10, 55296
+  %or.cond11.not15.i = and i1 %cmp5.i, %or.cond.i3
   %and.i4 = and i32 %codePoint.211253137, 65534
-  %cmp12.i = icmp eq i32 %and.i4, 65534
-  %or.cond12.i = or i1 %cmp12.i, %or.cond11.i
-  %11 = add nsw i32 %codePoint.211253137, -64976
-  %or.cond1.i = icmp ult i32 %11, 32
-  %or.cond13.i.not = select i1 %or.cond12.i, i1 true, i1 %or.cond1.i
-  br i1 %or.cond13.i.not, label %return, label %if.end
+  %cmp12.i = icmp ne i32 %and.i4, 65534
+  %or.cond12.not14.i = and i1 %cmp12.i, %or.cond11.not15.i
+  %11 = add nsw i32 %codePoint.211253137, -65008
+  %or.cond1.i = icmp ult i32 %11, -32
+  %or.cond13.not.i = select i1 %or.cond12.not14.i, i1 %or.cond1.i, i1 false
+  br i1 %or.cond13.not.i, label %if.end, label %return
 
 if.end:                                           ; preds = %for.body, %if.end.i2, %_ZN4YAML5Utils12_GLOBAL__N_112IsAnchorCharEi.exit
   %codePoint.21126 = phi i32 [ %codePoint.211253137, %_ZN4YAML5Utils12_GLOBAL__N_112IsAnchorCharEi.exit ], [ %codePoint.211, %if.end.i2 ], [ %codePoint.211, %for.body ]

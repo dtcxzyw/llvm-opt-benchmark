@@ -93,33 +93,32 @@ define dso_local noundef zeroext i1 @nf_conntrack_invert_icmpv6_tuple(ptr nocapt
   %4 = load i8, ptr %3, align 4
   %5 = zext i8 %4 to i64
   %6 = add nsw i64 %5, -128
-  %7 = icmp sgt i8 %4, -1
-  %8 = icmp ugt i64 %6, 12
-  %9 = select i1 %7, i1 true, i1 %8
-  %10 = add nsw i64 %5, -130
-  %11 = icmp ult i64 %10, 9
-  %12 = select i1 %9, i1 true, i1 %11
-  br i1 %12, label %24, label %13
+  %7 = icmp slt i8 %4, 0
+  %8 = icmp ult i64 %6, 13
+  %.not5 = select i1 %7, i1 %8, i1 false
+  %9 = add nsw i64 %5, -139
+  %10 = icmp ult i64 %9, -9
+  %.not2 = select i1 %.not5, i1 %10, i1 false
+  br i1 %.not2, label %11, label %22
 
-13:                                               ; preds = %2
-  %14 = getelementptr [13 x i8], ptr @invmap, i64 0, i64 %6
-  %15 = getelementptr inbounds i8, ptr %1, i64 16
-  %16 = load i16, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
-  store i16 %16, ptr %17, align 4
-  %18 = load i8, ptr %14, align 1
-  %19 = add i8 %18, -1
-  %20 = getelementptr inbounds i8, ptr %0, i64 36
-  store i8 %19, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %1, i64 37
-  %22 = load i8, ptr %21, align 1
-  %23 = getelementptr inbounds i8, ptr %0, i64 37
-  store i8 %22, ptr %23, align 1
-  br label %24
+11:                                               ; preds = %2
+  %12 = getelementptr [13 x i8], ptr @invmap, i64 0, i64 %6
+  %13 = getelementptr inbounds i8, ptr %1, i64 16
+  %14 = load i16, ptr %13, align 4
+  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  store i16 %14, ptr %15, align 4
+  %16 = load i8, ptr %12, align 1
+  %17 = add i8 %16, -1
+  %18 = getelementptr inbounds i8, ptr %0, i64 36
+  store i8 %17, ptr %18, align 4
+  %19 = getelementptr inbounds i8, ptr %1, i64 37
+  %20 = load i8, ptr %19, align 1
+  %21 = getelementptr inbounds i8, ptr %0, i64 37
+  store i8 %20, ptr %21, align 1
+  br label %22
 
-24:                                               ; preds = %13, %2
-  %25 = xor i1 %12, true
-  ret i1 %25
+22:                                               ; preds = %11, %2
+  ret i1 %.not2
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

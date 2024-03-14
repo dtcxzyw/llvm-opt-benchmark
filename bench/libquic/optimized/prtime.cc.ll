@@ -379,7 +379,7 @@ if.end13.i:                                       ; preds = %if.then9.i, %if.the
   br i1 %or.cond52.i, label %if.then19.i, label %if.end13.if.end33_crit_edge.i
 
 if.end13.if.end33_crit_edge.i:                    ; preds = %if.end13.i
-  %.pre70.i = load i32, ptr %tm_hour59, align 4
+  %.pre71.i = load i32, ptr %tm_hour59, align 4
   br label %if.end33.i
 
 if.then19.i:                                      ; preds = %if.end13.i
@@ -400,7 +400,7 @@ if.then27.i:                                      ; preds = %if.then19.i
   br label %if.end33.i
 
 if.end33.i:                                       ; preds = %if.then27.i, %if.then19.i, %if.end13.if.end33_crit_edge.i
-  %32 = phi i32 [ %.pre70.i, %if.end13.if.end33_crit_edge.i ], [ %add22.i, %if.then19.i ], [ %dec31.i, %if.then27.i ]
+  %32 = phi i32 [ %.pre71.i, %if.end13.if.end33_crit_edge.i ], [ %add22.i, %if.then19.i ], [ %dec31.i, %if.then27.i ]
   %cmp35.i = icmp slt i32 %32, 0
   br i1 %cmp35.i, label %if.then36.i, label %if.else70.i
 
@@ -424,10 +424,10 @@ if.then43.i:                                      ; preds = %if.then36.i
   br i1 %cmp46.i, label %if.then47.i, label %if.then43.if.end55_crit_edge.i
 
 if.then43.if.end55_crit_edge.i:                   ; preds = %if.then43.i
-  %.pre71.i = load i16, ptr %tm_year152, align 4
-  %.pre72.i = and i16 %.pre71.i, 3
-  %.pre73.i = srem i16 %.pre71.i, 100
-  %.pre74.i = srem i16 %.pre71.i, 400
+  %.pre72.i = load i16, ptr %tm_year152, align 4
+  %.pre73.i = and i16 %.pre72.i, 3
+  %.pre74.i = srem i16 %.pre72.i, 100
+  %.pre75.i = srem i16 %.pre72.i, 400
   %36 = zext nneg i32 %dec44.i to i64
   br label %if.end55.i
 
@@ -437,14 +437,14 @@ if.then47.i:                                      ; preds = %if.then43.i
   %dec49.i = add i16 %37, -1
   store i16 %dec49.i, ptr %tm_year152, align 4
   %38 = and i16 %dec49.i, 3
-  %cmp.i.i = icmp eq i16 %38, 0
+  %cmp.i.i = icmp ne i16 %38, 0
   %rem24.i.i = srem i16 %dec49.i, 100
-  %cmp3.not.i.i = icmp ne i16 %rem24.i.i, 0
-  %or.cond.not6.i.i = and i1 %cmp.i.i, %cmp3.not.i.i
+  %cmp3.not.i.i = icmp eq i16 %rem24.i.i, 0
+  %or.cond.not6.i.not70.i = or i1 %cmp.i.i, %cmp3.not.i.i
   %rem55.i.i = srem i16 %dec49.i, 400
-  %cmp6.i.i = icmp eq i16 %rem55.i.i, 0
-  %or.cond3.i.i = or i1 %cmp6.i.i, %or.cond.not6.i.i
-  br i1 %or.cond3.i.i, label %if.then51.i, label %if.else.i
+  %cmp6.i.i = icmp ne i16 %rem55.i.i, 0
+  %or.cond3.i.not.i = and i1 %cmp6.i.i, %or.cond.not6.i.not70.i
+  br i1 %or.cond3.i.not.i, label %if.else.i, label %if.then51.i
 
 if.then51.i:                                      ; preds = %if.then47.i
   store i16 365, ptr %tm_yday, align 4
@@ -455,9 +455,9 @@ if.else.i:                                        ; preds = %if.then47.i
   br label %if.end55.i
 
 if.end55.i:                                       ; preds = %if.else.i, %if.then51.i, %if.then43.if.end55_crit_edge.i
-  %rem55.i58.pre-phi.i = phi i16 [ %.pre74.i, %if.then43.if.end55_crit_edge.i ], [ %rem55.i.i, %if.then51.i ], [ %rem55.i.i, %if.else.i ]
-  %rem24.i55.pre-phi.i = phi i16 [ %.pre73.i, %if.then43.if.end55_crit_edge.i ], [ %rem24.i.i, %if.then51.i ], [ %rem24.i.i, %if.else.i ]
-  %.pre-phi.i = phi i16 [ %.pre72.i, %if.then43.if.end55_crit_edge.i ], [ %38, %if.then51.i ], [ %38, %if.else.i ]
+  %rem55.i58.pre-phi.i = phi i16 [ %.pre75.i, %if.then43.if.end55_crit_edge.i ], [ %rem55.i.i, %if.then51.i ], [ 1, %if.else.i ]
+  %rem24.i55.pre-phi.i = phi i16 [ %.pre74.i, %if.then43.if.end55_crit_edge.i ], [ %rem24.i.i, %if.then51.i ], [ %rem24.i.i, %if.else.i ]
+  %.pre-phi.i = phi i16 [ %.pre73.i, %if.then43.if.end55_crit_edge.i ], [ %38, %if.then51.i ], [ %38, %if.else.i ]
   %idxprom59.i = phi i64 [ %36, %if.then43.if.end55_crit_edge.i ], [ 11, %if.then51.i ], [ 11, %if.else.i ]
   %cmp.i54.i = icmp eq i16 %.pre-phi.i, 0
   %cmp3.not.i56.i = icmp ne i16 %rem24.i55.pre-phi.i, 0

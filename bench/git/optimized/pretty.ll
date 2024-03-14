@@ -1251,17 +1251,14 @@ if.end.i.us:                                      ; preds = %lor.rhs.us
 
 if.end22.i.us:                                    ; preds = %if.end.i.us
   %and30.i.us = and i32 %conv6.i.us, 6
-  %cmp31.i.us = icmp ne i32 %and30.i.us, 0
-  %cmp35.i.us = icmp eq i8 %11, 33
-  %or.cond5.i.us = or i1 %cmp35.i.us, %cmp31.i.us
+  %cmp31.i.us = icmp eq i32 %and30.i.us, 0
+  %cmp35.i.us = icmp ne i8 %11, 33
+  %or.cond5.not22.i.us = and i1 %cmp35.i.us, %cmp31.i.us
   %16 = and i8 %11, 126
-  %17 = icmp eq i8 %16, 42
-  %or.cond7.i.us = or i1 %17, %or.cond5.i.us
-  %cmp47.i.us = icmp eq i8 %11, 45
-  %or.cond8.i.us = or i1 %cmp47.i.us, %or.cond7.i.us
-  %cmp50.i.us = icmp ne i8 %11, 47
-  %not.or.cond8.i.us = xor i1 %or.cond8.i.us, true
-  %narrow.i.us = and i1 %cmp50.i.us, %not.or.cond8.i.us
+  %17 = icmp ne i8 %16, 42
+  %or.cond7.not21.i.us = and i1 %17, %or.cond5.not22.i.us
+  %18 = icmp ne i8 %14, 45
+  %narrow.i.us = and i1 %18, %or.cond7.not21.i.us
   %cond.fr22.us = freeze i1 %narrow.i.us
   %mul1338.us = mul nsw i32 %call7.us, 3
   %spec.select.us = select i1 %cond.fr22.us, ptr @.str.43, ptr @.str.44
@@ -1273,17 +1270,17 @@ if.end22.i.us:                                    ; preds = %if.end.i.us
   br label %.thread35.us
 
 .thread35.us:                                     ; preds = %.thread.us, %if.end22.i.us
-  %18 = phi ptr [ @.str.43, %.thread.us ], [ %spec.select.us, %if.end22.i.us ]
-  %19 = phi i32 [ %mul1332.us, %.thread.us ], [ %spec.select40.us, %if.end22.i.us ]
-  %add15.us = add nsw i32 %19, %line_len.045.us
+  %19 = phi ptr [ @.str.43, %.thread.us ], [ %spec.select.us, %if.end22.i.us ]
+  %20 = phi i32 [ %mul1332.us, %.thread.us ], [ %spec.select40.us, %if.end22.i.us ]
+  %add15.us = add nsw i32 %20, %line_len.045.us
   %cmp17.us = icmp sgt i32 %add15.us, 74
   br i1 %cmp17.us, label %if.then.us, label %if.end.us
 
 if.then.us:                                       ; preds = %.thread35.us
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %sb, ptr noundef nonnull @.str.45, ptr noundef %encoding) #19
   %call19.us = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %encoding) #20
-  %20 = trunc i64 %call19.us to i32
-  %conv22.us = add i32 %20, 6
+  %21 = trunc i64 %call19.us to i32
+  %conv22.us = add i32 %21, 6
   br label %if.end.us
 
 if.end.us:                                        ; preds = %if.then.us, %.thread35.us
@@ -1296,44 +1293,44 @@ for.body.us.preheader:                            ; preds = %if.end.us
   br label %for.body.us
 
 for.end.us:                                       ; preds = %for.body.us, %if.end.us
-  %add26.us = add nsw i32 %line_len.1.us, %19
-  %21 = load i64, ptr %len.addr, align 8
-  %tobool.not.us = icmp eq i64 %21, 0
+  %add26.us = add nsw i32 %line_len.1.us, %20
+  %22 = load i64, ptr %len.addr, align 8
+  %tobool.not.us = icmp eq i64 %22, 0
   br i1 %tobool.not.us, label %while.end, label %while.body.us, !llvm.loop !15
 
 for.body.us:                                      ; preds = %for.body.us.preheader, %for.body.us
   %indvars.iv49 = phi i64 [ 0, %for.body.us.preheader ], [ %indvars.iv.next50, %for.body.us ]
   %arrayidx.us = getelementptr inbounds i8, ptr %10, i64 %indvars.iv49
-  %22 = load i8, ptr %arrayidx.us, align 1
-  %conv25.us = zext i8 %22 to i32
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %sb, ptr noundef nonnull %18, i32 noundef %conv25.us) #19
+  %23 = load i8, ptr %arrayidx.us, align 1
+  %conv25.us = zext i8 %23 to i32
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %sb, ptr noundef nonnull %19, i32 noundef %conv25.us) #19
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
   %exitcond53.not = icmp eq i64 %indvars.iv.next50, %wide.trip.count52
   br i1 %exitcond53.not, label %for.end.us, label %for.body.us, !llvm.loop !16
 
 while.body:                                       ; preds = %while.body.lr.ph, %for.end
   %line_len.045 = phi i32 [ %add26, %for.end ], [ %conv6, %while.body.lr.ph ]
-  %23 = load ptr, ptr %line.addr, align 8
+  %24 = load ptr, ptr %line.addr, align 8
   %call7 = call i32 @mbs_chrlen(ptr noundef nonnull %line.addr, ptr noundef nonnull %len.addr, ptr noundef %encoding) #19
   %cmp = icmp sgt i32 %call7, 1
   br i1 %cmp, label %.thread, label %lor.rhs
 
 lor.rhs:                                          ; preds = %while.body
-  %24 = load i8, ptr %23, align 1
-  %25 = add i8 %24, -32
-  %or.cond1.i = icmp ult i8 %25, 95
+  %25 = load i8, ptr %24, align 1
+  %26 = add i8 %25, -32
+  %or.cond1.i = icmp ult i8 %26, 95
   br i1 %or.cond1.i, label %if.end.i, label %.thread
 
 if.end.i:                                         ; preds = %lor.rhs
-  %idxprom.i20 = zext nneg i8 %24 to i64
+  %idxprom.i20 = zext nneg i8 %25 to i64
   %arrayidx.i21 = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom.i20
-  %26 = load i8, ptr %arrayidx.i21, align 1
-  %27 = and i8 %26, 1
-  %cmp7.i = icmp ne i8 %27, 0
-  %28 = and i8 %24, 125
-  %29 = icmp eq i8 %28, 61
-  %or.cond3.i = or i1 %29, %cmp7.i
-  %cmp19.i = icmp eq i8 %24, 95
+  %27 = load i8, ptr %arrayidx.i21, align 1
+  %28 = and i8 %27, 1
+  %cmp7.i = icmp ne i8 %28, 0
+  %29 = and i8 %25, 125
+  %30 = icmp eq i8 %29, 61
+  %or.cond3.i = or i1 %30, %cmp7.i
+  %cmp19.i = icmp eq i8 %25, 95
   %or.cond4.i = or i1 %cmp19.i, %or.cond3.i
   br i1 %or.cond4.i, label %.thread, label %.thread35
 
@@ -1342,17 +1339,17 @@ if.end.i:                                         ; preds = %lor.rhs
   br label %.thread35
 
 .thread35:                                        ; preds = %if.end.i, %.thread
-  %30 = phi ptr [ @.str.43, %.thread ], [ @.str.44, %if.end.i ]
-  %31 = phi i32 [ %mul1332, %.thread ], [ 1, %if.end.i ]
-  %add15 = add nsw i32 %31, %line_len.045
+  %31 = phi ptr [ @.str.43, %.thread ], [ @.str.44, %if.end.i ]
+  %32 = phi i32 [ %mul1332, %.thread ], [ 1, %if.end.i ]
+  %add15 = add nsw i32 %32, %line_len.045
   %cmp17 = icmp sgt i32 %add15, 74
   br i1 %cmp17, label %if.then, label %if.end
 
 if.then:                                          ; preds = %.thread35
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %sb, ptr noundef nonnull @.str.45, ptr noundef %encoding) #19
   %call19 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %encoding) #20
-  %32 = trunc i64 %call19 to i32
-  %conv22 = add i32 %32, 6
+  %33 = trunc i64 %call19 to i32
+  %conv22 = add i32 %33, 6
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %.thread35
@@ -1366,18 +1363,18 @@ for.body.preheader:                               ; preds = %if.end
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
-  %arrayidx = getelementptr inbounds i8, ptr %23, i64 %indvars.iv
-  %33 = load i8, ptr %arrayidx, align 1
-  %conv25 = zext i8 %33 to i32
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %sb, ptr noundef nonnull %30, i32 noundef %conv25) #19
+  %arrayidx = getelementptr inbounds i8, ptr %24, i64 %indvars.iv
+  %34 = load i8, ptr %arrayidx, align 1
+  %conv25 = zext i8 %34 to i32
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %sb, ptr noundef nonnull %31, i32 noundef %conv25) #19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !16
 
 for.end:                                          ; preds = %for.body, %if.end
-  %add26 = add nsw i32 %line_len.1, %31
-  %34 = load i64, ptr %len.addr, align 8
-  %tobool.not = icmp eq i64 %34, 0
+  %add26 = add nsw i32 %line_len.1, %32
+  %35 = load i64, ptr %len.addr, align 8
+  %tobool.not = icmp eq i64 %35, 0
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !15
 
 while.end:                                        ; preds = %for.end, %for.end.us, %last_line_length.exit

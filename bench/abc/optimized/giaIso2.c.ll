@@ -78,14 +78,14 @@ Vec_IntAlloc.exit:                                ; preds = %1, %16
   %26 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val, i64 %indvars.iv
   %.val11 = load i64, ptr %26, align 4
   %27 = and i64 %.val11, 2147483648
-  %.not.i.i = icmp eq i64 %27, 0
+  %.not.i.i = icmp ne i64 %27, 0
   %28 = and i64 %.val11, 536870911
-  %29 = icmp ne i64 %28, 536870911
-  %narrow.i.not.not.i = and i1 %.not.i.i, %29
+  %29 = icmp eq i64 %28, 536870911
+  %narrow.i.not.not.i.not13 = or i1 %.not.i.i, %29
   %30 = and i64 %.val11, 2684354559
-  %narrow.i3.i = icmp eq i64 %30, 2684354559
-  %narrow.i = or i1 %narrow.i3.i, %narrow.i.not.not.i
-  br i1 %narrow.i, label %31, label %60
+  %narrow.i3.i = icmp ne i64 %30, 2684354559
+  %narrow.i.not = and i1 %narrow.i3.i, %narrow.i.not.not.i.not13
+  br i1 %narrow.i.not, label %60, label %31
 
 31:                                               ; preds = %25
   %32 = load i32, ptr %15, align 4

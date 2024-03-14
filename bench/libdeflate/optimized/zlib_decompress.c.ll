@@ -17,16 +17,16 @@ if.end:                                           ; preds = %entry
   %add.ptr1 = getelementptr inbounds i8, ptr %in, i64 2
   %conv = zext i16 %0 to i32
   %rem22 = urem i16 %0, 31
-  %cmp2.not = icmp ne i16 %rem22, 0
+  %cmp2.not = icmp eq i16 %rem22, 0
   %1 = and i32 %conv, 3840
-  %cmp7.not = icmp ne i32 %1, 2048
-  %or.cond.not23 = or i1 %cmp2.not, %cmp7.not
-  %cmp13 = icmp slt i16 %0, 0
-  %or.cond20 = or i1 %cmp13, %or.cond.not23
+  %cmp7.not = icmp eq i32 %1, 2048
+  %or.cond.not23.not25 = and i1 %cmp2.not, %cmp7.not
+  %cmp13 = icmp sgt i16 %0, -1
+  %or.cond20.not24 = and i1 %cmp13, %or.cond.not23.not25
   %2 = and i32 %conv, 32
-  %tobool.not = icmp ne i32 %2, 0
-  %or.cond21.not = or i1 %tobool.not, %or.cond20
-  br i1 %or.cond21.not, label %return, label %if.end21
+  %tobool.not = icmp eq i32 %2, 0
+  %or.cond21 = and i1 %tobool.not, %or.cond20.not24
+  br i1 %or.cond21, label %if.end21, label %return
 
 if.end21:                                         ; preds = %if.end
   %add.ptr22 = getelementptr inbounds i8, ptr %add.ptr, i64 -4
@@ -91,16 +91,16 @@ if.end.i:                                         ; preds = %entry
   %add.ptr1.i = getelementptr inbounds i8, ptr %in, i64 2
   %conv.i = zext i16 %0 to i32
   %rem22.i = urem i16 %0, 31
-  %cmp2.not.i = icmp ne i16 %rem22.i, 0
+  %cmp2.not.i = icmp eq i16 %rem22.i, 0
   %1 = and i32 %conv.i, 3840
-  %cmp7.not.i = icmp ne i32 %1, 2048
-  %or.cond.not23.i = or i1 %cmp2.not.i, %cmp7.not.i
-  %cmp13.i = icmp slt i16 %0, 0
-  %or.cond20.i = or i1 %cmp13.i, %or.cond.not23.i
+  %cmp7.not.i = icmp eq i32 %1, 2048
+  %or.cond.not23.not25.i = and i1 %cmp2.not.i, %cmp7.not.i
+  %cmp13.i = icmp sgt i16 %0, -1
+  %or.cond20.not24.i = and i1 %cmp13.i, %or.cond.not23.not25.i
   %2 = and i32 %conv.i, 32
-  %tobool.not.i = icmp ne i32 %2, 0
-  %or.cond21.not.i = or i1 %tobool.not.i, %or.cond20.i
-  br i1 %or.cond21.not.i, label %libdeflate_zlib_decompress_ex.exit, label %if.end21.i
+  %tobool.not.i = icmp eq i32 %2, 0
+  %or.cond21.i = and i1 %tobool.not.i, %or.cond20.not24.i
+  br i1 %or.cond21.i, label %if.end21.i, label %libdeflate_zlib_decompress_ex.exit
 
 if.end21.i:                                       ; preds = %if.end.i
   %add.ptr22.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 -4

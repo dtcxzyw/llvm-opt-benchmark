@@ -17,9 +17,9 @@ define i64 @f32_to_ui32_r_minMag(i32 %0, i1 noundef zeroext %1) local_unnamed_ad
 
 9:                                                ; preds = %2
   %10 = or i64 %5, %6
-  %.not27 = icmp ne i64 %10, 0
-  %or.cond29.not = and i1 %.not27, %1
-  br i1 %or.cond29.not, label %11, label %29
+  %.not30 = icmp ne i64 %10, 0
+  %or.cond32.not = and i1 %.not30, %1
+  br i1 %or.cond32.not, label %11, label %29
 
 11:                                               ; preds = %9
   %12 = load i8, ptr @softfloat_exceptionFlags, align 1
@@ -35,12 +35,11 @@ define i64 @f32_to_ui32_r_minMag(i32 %0, i1 noundef zeroext %1) local_unnamed_ad
 
 17:                                               ; preds = %14
   tail call void @softfloat_raiseFlags(i8 noundef zeroext 16) #2
-  %18 = icmp eq i64 %5, 255
-  %19 = icmp ne i64 %6, 0
-  %or.cond3 = and i1 %19, %18
-  %not. = xor i1 %15, true
-  %narrow = or i1 %or.cond3, %not.
-  %20 = select i1 %narrow, i64 4294967295, i64 0
+  %18 = icmp ne i64 %5, 255
+  %19 = icmp eq i64 %6, 0
+  %or.cond3.not29 = or i1 %19, %18
+  %narrow.not = and i1 %15, %or.cond3.not29
+  %20 = select i1 %narrow.not, i64 0, i64 4294967295
   br label %29
 
 21:                                               ; preds = %14
@@ -49,8 +48,8 @@ define i64 @f32_to_ui32_r_minMag(i32 %0, i1 noundef zeroext %1) local_unnamed_ad
   %24 = lshr i64 %23, %7
   %25 = shl nuw nsw i64 %24, %7
   %.not = icmp ne i64 %25, %23
-  %or.cond31.not = select i1 %1, i1 %.not, i1 false
-  br i1 %or.cond31.not, label %26, label %29
+  %or.cond34.not = select i1 %1, i1 %.not, i1 false
+  br i1 %or.cond34.not, label %26, label %29
 
 26:                                               ; preds = %21
   %27 = load i8, ptr @softfloat_exceptionFlags, align 1

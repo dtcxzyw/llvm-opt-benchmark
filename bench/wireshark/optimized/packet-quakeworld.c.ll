@@ -256,12 +256,12 @@ define internal i32 @dissect_quakeworld(ptr noundef %0, ptr noundef %1, ptr noun
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %116, %.preheader.lr.ph.i.i
-  %.077.i.i = phi i32 [ 0, %.preheader.lr.ph.i.i ], [ %117, %116 ]
-  %.02076.i.i = phi ptr [ %42, %.preheader.lr.ph.i.i ], [ %.0.i.i.i, %116 ]
-  %54 = load i8, ptr %.02076.i.i, align 1
+  %.079.i.i = phi i32 [ 0, %.preheader.lr.ph.i.i ], [ %117, %116 ]
+  %.02078.i.i = phi ptr [ %42, %.preheader.lr.ph.i.i ], [ %.0.i.i.i, %116 ]
+  %54 = load i8, ptr %.02078.i.i, align 1
   %.fr.i.i = freeze i8 %54
-  %55 = icmp sgt i8 %.fr.i.i, 32
-  br i1 %55, label %.critedge.i.i, label %switch.early.test.i.i
+  %55 = icmp slt i8 %.fr.i.i, 33
+  br i1 %55, label %switch.early.test.i.i, label %.critedge.i.i
 
 switch.early.test.i.i:                            ; preds = %.preheader.i.i
   switch i8 %.fr.i.i, label %.lr.ph.i.i [
@@ -270,23 +270,23 @@ switch.early.test.i.i:                            ; preds = %.preheader.i.i
   ]
 
 .lr.ph.i.i:                                       ; preds = %switch.early.test.i.i, %.lr.ph.i.i
-  %.173.i.i = phi i32 [ %57, %.lr.ph.i.i ], [ %.077.i.i, %switch.early.test.i.i ]
-  %.12172.i.i = phi ptr [ %56, %.lr.ph.i.i ], [ %.02076.i.i, %switch.early.test.i.i ]
-  %56 = getelementptr i8, ptr %.12172.i.i, i64 1
-  %57 = add nsw i32 %.173.i.i, 1
+  %.175.i.i = phi i32 [ %57, %.lr.ph.i.i ], [ %.079.i.i, %switch.early.test.i.i ]
+  %.12174.i.i = phi ptr [ %56, %.lr.ph.i.i ], [ %.02078.i.i, %switch.early.test.i.i ]
+  %56 = getelementptr i8, ptr %.12174.i.i, i64 1
+  %57 = add nsw i32 %.175.i.i, 1
   %58 = load i8, ptr %56, align 1
-  %.not.i.i = icmp eq i8 %58, 0
-  %59 = icmp sgt i8 %58, 32
-  %or.cond.not49.i.i = or i1 %.not.i.i, %59
-  %.not26.i.i = icmp eq i8 %58, 10
-  %or.cond29.i.i = or i1 %.not26.i.i, %or.cond.not49.i.i
-  %60 = icmp sge i32 %57, %51
-  %or.cond30.not.i.i = select i1 %or.cond29.i.i, i1 true, i1 %60
-  br i1 %or.cond30.not.i.i, label %.critedge.i.i, label %.lr.ph.i.i, !llvm.loop !4
+  %.not.i.i = icmp ne i8 %58, 0
+  %59 = icmp slt i8 %58, 33
+  %or.cond.not49.not52.i.i = and i1 %.not.i.i, %59
+  %.not26.i.i = icmp ne i8 %58, 10
+  %or.cond29.not50.i.i = and i1 %.not26.i.i, %or.cond.not49.not52.i.i
+  %60 = icmp slt i32 %57, %51
+  %or.cond30.i.i = select i1 %or.cond29.not50.i.i, i1 %60, i1 false
+  br i1 %or.cond30.i.i, label %.lr.ph.i.i, label %.critedge.i.i, !llvm.loop !4
 
 .critedge.i.i:                                    ; preds = %.lr.ph.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %.preheader.i.i
-  %.121.lcssa.i.i = phi ptr [ %.02076.i.i, %switch.early.test.i.i ], [ %.02076.i.i, %.preheader.i.i ], [ %.02076.i.i, %switch.early.test.i.i ], [ %56, %.lr.ph.i.i ]
-  %.1.lcssa.i.i = phi i32 [ %.077.i.i, %switch.early.test.i.i ], [ %.077.i.i, %.preheader.i.i ], [ %.077.i.i, %switch.early.test.i.i ], [ %57, %.lr.ph.i.i ]
+  %.121.lcssa.i.i = phi ptr [ %.02078.i.i, %switch.early.test.i.i ], [ %.02078.i.i, %.preheader.i.i ], [ %.02078.i.i, %switch.early.test.i.i ], [ %56, %.lr.ph.i.i ]
+  %.1.lcssa.i.i = phi i32 [ %.079.i.i, %switch.early.test.i.i ], [ %.079.i.i, %.preheader.i.i ], [ %.079.i.i, %switch.early.test.i.i ], [ %57, %.lr.ph.i.i ]
   %.lcssa.i.i = phi i8 [ %.fr.i.i, %switch.early.test.i.i ], [ %.fr.i.i, %.preheader.i.i ], [ %.fr.i.i, %switch.early.test.i.i ], [ %58, %.lr.ph.i.i ]
   switch i8 %.lcssa.i.i, label %61 [
     i8 10, label %Cmd_TokenizeString.exit.i
@@ -376,8 +376,8 @@ switch.early.test.i.i:                            ; preds = %.preheader.i.i
   %90 = getelementptr i8, ptr %.386.i.i.i, i64 1
   %91 = load i8, ptr %.386.i.i.i, align 1
   switch i8 %91, label %92 [
-    i8 34, label %COM_Parse.exit.loopexit80.i.i
-    i8 0, label %COM_Parse.exit.loopexit80.i.i
+    i8 34, label %COM_Parse.exit.loopexit82.i.i
+    i8 0, label %COM_Parse.exit.loopexit82.i.i
   ]
 
 92:                                               ; preds = %.lr.ph.i.i.i
@@ -419,18 +419,18 @@ switch.early.test.i.i:                            ; preds = %.preheader.i.i
   %or.cond.i.i.i = and i1 %104, %.not66.i.i.i
   br i1 %or.cond.i.i.i, label %.preheader.i.i.i, label %COM_Parse.exit.i.loopexit.i, !llvm.loop !8
 
-COM_Parse.exit.loopexit80.i.i:                    ; preds = %.lr.ph.i.i.i, %.lr.ph.i.i.i
-  %indvars100.i.i = trunc i64 %indvars.iv.i.i.i to i32
+COM_Parse.exit.loopexit82.i.i:                    ; preds = %.lr.ph.i.i.i, %.lr.ph.i.i.i
+  %indvars102.i.i = trunc i64 %indvars.iv.i.i.i to i32
   br label %COM_Parse.exit.i.i
 
 COM_Parse.exit.i.loopexit.i:                      ; preds = %99, %.preheader.i.i.i
   %105 = trunc i64 %indvars.iv.next.i to i32
   br label %COM_Parse.exit.i.i
 
-COM_Parse.exit.i.i:                               ; preds = %92, %COM_Parse.exit.i.loopexit.i, %COM_Parse.exit.loopexit80.i.i, %.loopexit.i.i.i
-  %.4.i.i = phi i32 [ %.3.i.i, %.loopexit.i.i.i ], [ %88, %COM_Parse.exit.loopexit80.i.i ], [ %.3.i.i, %COM_Parse.exit.i.loopexit.i ], [ %88, %92 ]
-  %.2.i.i = phi i32 [ 0, %.loopexit.i.i.i ], [ %indvars100.i.i, %COM_Parse.exit.loopexit80.i.i ], [ %105, %COM_Parse.exit.i.loopexit.i ], [ %63, %92 ]
-  %.0.i.i.i = phi ptr [ %.4.i.i.i, %.loopexit.i.i.i ], [ %90, %COM_Parse.exit.loopexit80.i.i ], [ %97, %COM_Parse.exit.i.loopexit.i ], [ %90, %92 ]
+COM_Parse.exit.i.i:                               ; preds = %92, %COM_Parse.exit.i.loopexit.i, %COM_Parse.exit.loopexit82.i.i, %.loopexit.i.i.i
+  %.4.i.i = phi i32 [ %.3.i.i, %.loopexit.i.i.i ], [ %88, %COM_Parse.exit.loopexit82.i.i ], [ %.3.i.i, %COM_Parse.exit.i.loopexit.i ], [ %88, %92 ]
+  %.2.i.i = phi i32 [ 0, %.loopexit.i.i.i ], [ %indvars102.i.i, %COM_Parse.exit.loopexit82.i.i ], [ %105, %COM_Parse.exit.i.loopexit.i ], [ %63, %92 ]
+  %.0.i.i.i = phi ptr [ %.4.i.i.i, %.loopexit.i.i.i ], [ %90, %COM_Parse.exit.loopexit82.i.i ], [ %97, %COM_Parse.exit.i.loopexit.i ], [ %90, %92 ]
   %.not28.i.i = icmp eq ptr %.0.i.i.i, null
   br i1 %.not28.i.i, label %Cmd_TokenizeString.exit.i, label %106
 

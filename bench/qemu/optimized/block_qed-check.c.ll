@@ -251,13 +251,13 @@ if.end.i.i:                                       ; preds = %if.end.i
 
 qed_check_table_offset.exit:                      ; preds = %if.end.i.i
   %16 = load i64, ptr %file_size.i.i, align 8
-  %cmp8.i.i = icmp ule i64 %16, %12
+  %cmp8.i.i = icmp ugt i64 %16, %12
   %and.i10.i = and i64 %add.i39, %conv6.i.i
-  %tobool.not.i11.i = icmp ne i64 %and.i10.i, 0
-  %or.cond.not25.i = or i1 %tobool.not.i11.i, %cmp8.i.i
-  %cmp8.i21.i = icmp ule i64 %16, %add.i39
-  %spec.select.i43.not = or i1 %cmp8.i21.i, %or.cond.not25.i
-  br i1 %spec.select.i43.not, label %if.then5, label %if.end14
+  %tobool.not.i11.i = icmp eq i64 %and.i10.i, 0
+  %or.cond.not25.not26.i = and i1 %tobool.not.i11.i, %cmp8.i.i
+  %cmp8.i21.i = icmp ugt i64 %16, %add.i39
+  %spec.select.i43 = and i1 %cmp8.i21.i, %or.cond.not25.not26.i
+  br i1 %spec.select.i43, label %if.end14, label %if.then5
 
 if.then5:                                         ; preds = %if.end.i.i, %if.end.i, %if.end, %qed_check_table_offset.exit
   %17 = load i8, ptr %fix.i, align 8

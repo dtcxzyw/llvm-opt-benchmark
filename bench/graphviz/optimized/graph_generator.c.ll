@@ -436,7 +436,7 @@ define dso_local void @makeSquareGrid(i32 noundef %0, i32 noundef %1, i32 nounde
 .preheader.lr.ph:                                 ; preds = %5
   %7 = icmp sgt i32 %1, 0
   %8 = add nsw i32 %1, -1
-  %.not = icmp ne i32 %3, 0
+  %.not = icmp eq i32 %3, 0
   %9 = sdiv i32 %1, 3
   %10 = shl nsw i32 %1, 2
   %11 = sdiv i32 %10, 6
@@ -452,8 +452,8 @@ define dso_local void @makeSquareGrid(i32 noundef %0, i32 noundef %1, i32 nounde
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %._crit_edge.us
   %.0131.us = phi i32 [ %22, %._crit_edge.us ], [ 0, %.preheader.lr.ph ]
   %19 = mul nsw i32 %.0131.us, %1
-  %.not120.us = icmp ugt i32 %.0131.us, %12
-  %20 = icmp ule i32 %.0131.us, %14
+  %.not120.us = icmp ule i32 %.0131.us, %12
+  %20 = icmp ugt i32 %.0131.us, %14
   %21 = icmp slt i32 %.0131.us, %15
   %22 = add nuw nsw i32 %.0131.us, 1
   %23 = mul nsw i32 %22, %1
@@ -471,13 +471,13 @@ define dso_local void @makeSquareGrid(i32 noundef %0, i32 noundef %1, i32 nounde
   br i1 %31, label %32, label %36
 
 32:                                               ; preds = %28
-  %33 = icmp sge i32 %.0108130.us, %9
-  %or.cond122.us.not135 = and i1 %.not, %33
-  %.not119.us = icmp slt i32 %.0108130.us, %11
-  %or.cond123.us = and i1 %.not120.us, %.not119.us
-  %or.cond = select i1 %or.cond122.us.not135, i1 %or.cond123.us, i1 false
-  %brmerge.not = select i1 %or.cond, i1 %20, i1 false
-  br i1 %brmerge.not, label %36, label %34
+  %33 = icmp slt i32 %.0108130.us, %9
+  %or.cond122.us.not135.not138 = or i1 %.not, %33
+  %.not119.us = icmp sge i32 %.0108130.us, %11
+  %or.cond123.us.not139 = or i1 %.not120.us, %.not119.us
+  %or.cond.not136 = select i1 %or.cond122.us.not135.not138, i1 true, i1 %or.cond123.us.not139
+  %brmerge = select i1 %or.cond.not136, i1 true, i1 %20
+  br i1 %brmerge, label %34, label %36
 
 34:                                               ; preds = %32
   %35 = add nuw nsw i32 %29, 2
@@ -538,8 +538,8 @@ define dso_local void @makeSquareGrid(i32 noundef %0, i32 noundef %1, i32 nounde
   %57 = icmp eq i32 %.0108130.us, %8
   %or.cond124.us = and i1 %27, %57
   %58 = icmp slt i32 %29, %16
-  %or.cond139 = select i1 %or.cond124.us, i1 %58, i1 false
-  br i1 %or.cond139, label %.sink.split, label %63
+  %or.cond = select i1 %or.cond124.us, i1 %58, i1 false
+  br i1 %or.cond, label %.sink.split, label %63
 
 59:                                               ; preds = %54
   %60 = icmp slt i32 %30, %1
@@ -560,8 +560,8 @@ define dso_local void @makeSquareGrid(i32 noundef %0, i32 noundef %1, i32 nounde
   br i1 %exitcond.not, label %._crit_edge.us, label %28
 
 ._crit_edge.us:                                   ; preds = %63
-  %exitcond138.not = icmp eq i32 %22, %0
-  br i1 %exitcond138.not, label %._crit_edge132, label %.preheader.us
+  %exitcond141.not = icmp eq i32 %22, %0
+  br i1 %exitcond141.not, label %._crit_edge132, label %.preheader.us
 
 ._crit_edge132:                                   ; preds = %._crit_edge.us, %.preheader.lr.ph, %5
   ret void

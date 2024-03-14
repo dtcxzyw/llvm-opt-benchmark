@@ -11057,16 +11057,16 @@ define noundef i64 @_ZN18OpenImageIO_v2_6_010Filesystem6IOFile5preadEPvml(ptr no
 entry:
   %m_file = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load ptr, ptr %m_file, align 8
-  %tobool = icmp eq ptr %0, null
-  %tobool2 = icmp eq i64 %size, 0
-  %or.cond.not5 = or i1 %tobool2, %tobool
-  %cmp = icmp slt i64 %offset, 0
-  %or.cond1 = or i1 %cmp, %or.cond.not5
+  %tobool = icmp ne ptr %0, null
+  %tobool2 = icmp ne i64 %size, 0
+  %or.cond.not5.not7 = and i1 %tobool2, %tobool
+  %cmp = icmp sgt i64 %offset, -1
+  %or.cond1.not6 = and i1 %cmp, %or.cond.not5.not7
   %m_mode = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load i32, ptr %m_mode, align 8
-  %cmp5.not = icmp ne i32 %1, 114
-  %or.cond.not = select i1 %or.cond1, i1 true, i1 %cmp5.not
-  br i1 %or.cond.not, label %return, label %if.end
+  %cmp5.not = icmp eq i32 %1, 114
+  %or.cond = select i1 %or.cond1.not6, i1 %cmp5.not, i1 false
+  br i1 %or.cond, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   %call = tail call i32 @fileno(ptr noundef nonnull %0) #32
@@ -11127,16 +11127,16 @@ define noundef i64 @_ZN18OpenImageIO_v2_6_010Filesystem6IOFile6pwriteEPKvml(ptr 
 entry:
   %m_file = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load ptr, ptr %m_file, align 8
-  %tobool = icmp eq ptr %0, null
-  %tobool2 = icmp eq i64 %size, 0
-  %or.cond.not5 = or i1 %tobool2, %tobool
-  %cmp = icmp slt i64 %offset, 0
-  %or.cond1 = or i1 %cmp, %or.cond.not5
+  %tobool = icmp ne ptr %0, null
+  %tobool2 = icmp ne i64 %size, 0
+  %or.cond.not5.not7 = and i1 %tobool2, %tobool
+  %cmp = icmp sgt i64 %offset, -1
+  %or.cond1.not6 = and i1 %cmp, %or.cond.not5.not7
   %m_mode = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load i32, ptr %m_mode, align 8
-  %cmp5.not = icmp ne i32 %1, 119
-  %or.cond.not = select i1 %or.cond1, i1 true, i1 %cmp5.not
-  br i1 %or.cond.not, label %return, label %if.end
+  %cmp5.not = icmp eq i32 %1, 119
+  %or.cond = select i1 %or.cond1.not6, i1 %cmp5.not, i1 false
+  br i1 %or.cond, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   %call = tail call i32 @fileno(ptr noundef nonnull %0) #32

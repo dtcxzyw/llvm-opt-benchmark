@@ -2295,17 +2295,17 @@ _ZN7rocksdb6StatusaSERKS0_.exit:                  ; preds = %if.then18, %cond.en
   br label %cleanup904
 
 lpad.loopexit:                                    ; preds = %invoke.cont311, %while.cond299, %land.lhs.true303, %land.lhs.true307, %while.body332, %_ZN7rocksdb19SequenceIterWrapper4NextEv.exit.i122
-  %lpad.loopexit538 = landingpad { ptr, i32 }
-          cleanup
-  br label %ehcleanup907
-
-lpad.loopexit.split-lp.loopexit:                  ; preds = %_ZN7rocksdb19SequenceIterWrapper4NextEv.exit.i331, %while.body701, %land.lhs.true660, %land.lhs.true656, %invoke.cont664
   %lpad.loopexit540 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup907
 
+lpad.loopexit.split-lp.loopexit:                  ; preds = %_ZN7rocksdb19SequenceIterWrapper4NextEv.exit.i331, %while.body701, %land.lhs.true660, %land.lhs.true656, %invoke.cont664
+  %lpad.loopexit542 = landingpad { ptr, i32 }
+          cleanup
+  br label %ehcleanup907
+
 lpad.loopexit.split-lp.loopexit.split-lp:         ; preds = %_ZN7rocksdb19SequenceIterWrapper4NextEv.exit.i210.invoke, %_ZN7rocksdb19SequenceIterWrapper4NextEv.exit.i414.invoke, %if.then901, %if.then882, %if.then750, %land.lhs.true707, %while.end703, %_ZN7rocksdb19SequenceIterWrapper4NextEv.exit.i277, %invoke.cont648, %if.end628, %lor.rhs.i247, %if.end581, %lor.rhs.i220, %if.end483, %lor.rhs.i196, %lor.rhs.i186, %land.rhs.i169, %if.then369, %land.lhs.true337, %while.end, %_ZN7rocksdb19SequenceIterWrapper4NextEv.exit.i, %invoke.cont297, %lor.rhs.i78, %lor.rhs.i, %if.then7.i, %if.end.i, %if.then.i.i.i.i, %if.then.i.i.i38, %cond.false.i, %if.then874, %invoke.cont860, %if.else857, %cond.true817, %invoke.cont799, %if.then791, %if.then782, %_ZN7rocksdb6StatusD2Ev.exit376, %if.end759, %invoke.cont711, %land.lhs.true608, %if.then567, %land.lhs.true513, %if.then395, %invoke.cont341, %if.then244, %if.then230, %cond.false203, %land.lhs.true181, %land.lhs.true146, %cond.false101, %invoke.cont72, %if.then61
-  %lpad.loopexit.split-lp541 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp543 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup907
 
@@ -2515,16 +2515,15 @@ invoke.cont117:                                   ; preds = %call9.i.noexc, %cal
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i56)
   %93 = load i8, ptr %has_current_user_key_, align 8
   %94 = and i8 %93, 1
-  %tobool119.not = icmp eq i8 %94, 0
+  %tobool119.not = icmp ne i8 %94, 0
   %95 = load i64, ptr %timestamp_size_, align 8
-  %tobool122.not = icmp eq i64 %95, 0
-  %or.cond20 = select i1 %tobool119.not, i1 true, i1 %tobool122.not
+  %tobool122.not = icmp ne i64 %95, 0
+  %or.cond20.not539 = select i1 %tobool119.not, i1 %tobool122.not, i1 false
   %96 = load ptr, ptr %full_history_ts_low_, align 8
-  %tobool125.not = icmp eq ptr %96, null
-  %or.cond21 = select i1 %or.cond20, i1 true, i1 %tobool125.not
-  %user_key_equal_without_ts.0.not = xor i1 %user_key_equal_without_ts.0520, true
-  %brmerge = or i1 %or.cond21, %user_key_equal_without_ts.0.not
-  br i1 %brmerge, label %if.then132, label %lor.lhs.false128
+  %tobool125.not = icmp ne ptr %96, null
+  %or.cond21.not538 = select i1 %or.cond20.not539, i1 %tobool125.not, i1 false
+  %brmerge.not = and i1 %user_key_equal_without_ts.0520, %or.cond21.not538
+  br i1 %brmerge.not, label %lor.lhs.false128, label %if.then132
 
 lor.lhs.false128:                                 ; preds = %invoke.cont117
   %97 = load i32, ptr %cmp_with_history_ts_low_.i, align 4
@@ -2695,7 +2694,7 @@ invoke.cont237:                                   ; preds = %if.then230
 
 invoke.cont240:                                   ; preds = %invoke.cont237
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp233) #20
-  %.pre543 = load i64, ptr %current_user_key_snapshot_, align 8
+  %.pre545 = load i64, ptr %current_user_key_snapshot_, align 8
   br label %if.end241
 
 lpad239:                                          ; preds = %invoke.cont237
@@ -2705,7 +2704,7 @@ lpad239:                                          ; preds = %invoke.cont237
   br label %ehcleanup907
 
 if.end241:                                        ; preds = %if.then215, %if.then215, %if.then215, %invoke.cont240
-  %134 = phi i64 [ %cond209, %if.then215 ], [ %cond209, %if.then215 ], [ %cond209, %if.then215 ], [ %.pre543, %invoke.cont240 ]
+  %134 = phi i64 [ %cond209, %if.then215 ], [ %cond209, %if.then215 ], [ %cond209, %if.then215 ], [ %.pre545, %invoke.cont240 ]
   %cmp243 = icmp ult i64 %134, %122
   br i1 %cmp243, label %if.then244, label %if.end257
 
@@ -3198,11 +3197,11 @@ invoke.cont455:                                   ; preds = %lor.rhs.i186
   br i1 %cmp4.i190, label %if.then467, label %invoke.cont455.lor.lhs.false457_crit_edge
 
 invoke.cont455.lor.lhs.false457_crit_edge:        ; preds = %invoke.cont455
-  %.pre546 = load i64, ptr %earliest_write_conflict_snapshot_, align 8
+  %.pre548 = load i64, ptr %earliest_write_conflict_snapshot_, align 8
   br label %lor.lhs.false457
 
 lor.lhs.false457:                                 ; preds = %invoke.cont455.lor.lhs.false457_crit_edge, %lor.lhs.false452
-  %217 = phi i64 [ %.pre546, %invoke.cont455.lor.lhs.false457_crit_edge ], [ %214, %lor.lhs.false452 ]
+  %217 = phi i64 [ %.pre548, %invoke.cont455.lor.lhs.false457_crit_edge ], [ %214, %lor.lhs.false452 ]
   %218 = load i64, ptr %earliest_snapshot_, align 8
   %cmp460 = icmp ult i64 %218, %217
   br i1 %cmp460, label %land.lhs.true461, label %if.else491
@@ -3308,11 +3307,11 @@ invoke.cont511:                                   ; preds = %lor.rhs.i220
   br i1 %cmp4.i224, label %invoke.cont511.land.lhs.true513_crit_edge, label %if.else535
 
 invoke.cont511.land.lhs.true513_crit_edge:        ; preds = %invoke.cont511
-  %.pre545 = load ptr, ptr %compaction_587, align 8
+  %.pre547 = load ptr, ptr %compaction_587, align 8
   br label %land.lhs.true513
 
 land.lhs.true513:                                 ; preds = %invoke.cont511.land.lhs.true513_crit_edge, %land.rhs.i217
-  %235 = phi ptr [ %.pre545, %invoke.cont511.land.lhs.true513_crit_edge ], [ %230, %land.rhs.i217 ]
+  %235 = phi ptr [ %.pre547, %invoke.cont511.land.lhs.true513_crit_edge ], [ %230, %land.rhs.i217 ]
   %vtable518 = load ptr, ptr %235, align 8
   %vfn519 = getelementptr inbounds i8, ptr %vtable518, i64 24
   %236 = load ptr, ptr %vfn519, align 8
@@ -3458,11 +3457,11 @@ invoke.cont606:                                   ; preds = %lor.rhs.i247
   br i1 %cmp4.i251, label %invoke.cont606.land.lhs.true608_crit_edge, label %if.else630
 
 invoke.cont606.land.lhs.true608_crit_edge:        ; preds = %invoke.cont606
-  %.pre544 = load ptr, ptr %compaction_587, align 8
+  %.pre546 = load ptr, ptr %compaction_587, align 8
   br label %land.lhs.true608
 
 land.lhs.true608:                                 ; preds = %invoke.cont606.land.lhs.true608_crit_edge, %land.rhs.i244
-  %263 = phi ptr [ %.pre544, %invoke.cont606.land.lhs.true608_crit_edge ], [ %257, %land.rhs.i244 ]
+  %263 = phi ptr [ %.pre546, %invoke.cont606.land.lhs.true608_crit_edge ], [ %257, %land.rhs.i244 ]
   %vtable614 = load ptr, ptr %263, align 8
   %vfn615 = getelementptr inbounds i8, ptr %vtable614, i64 24
   %264 = load ptr, ptr %vfn615, align 8
@@ -4019,11 +4018,11 @@ _ZN7rocksdb19SequenceIterWrapper4NextEv.exit.i414.invoke.sink.split: ; preds = %
   br label %_ZN7rocksdb19SequenceIterWrapper4NextEv.exit.i414.invoke
 
 _ZN7rocksdb19SequenceIterWrapper4NextEv.exit.i414.invoke: ; preds = %_ZN7rocksdb19SequenceIterWrapper4NextEv.exit.i414.invoke.sink.split, %call.i.i410.noexc, %call.i.i257.noexc, %call.i.i232.noexc
-  %.sink547 = load ptr, ptr %inner_iter_.i, align 8
-  %vtable3.i.i237 = load ptr, ptr %.sink547, align 8
+  %.sink549 = load ptr, ptr %inner_iter_.i, align 8
+  %vtable3.i.i237 = load ptr, ptr %.sink549, align 8
   %vfn4.i.i238 = getelementptr inbounds i8, ptr %vtable3.i.i237, i64 64
   %373 = load ptr, ptr %vfn4.i.i238, align 8
-  invoke void %373(ptr noundef nonnull align 8 dereferenceable(40) %.sink547)
+  invoke void %373(ptr noundef nonnull align 8 dereferenceable(40) %.sink549)
           to label %if.end899 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 if.else889:                                       ; preds = %if.else868, %if.end880
@@ -4059,7 +4058,7 @@ _ZN7rocksdb6StatusD2Ev.exit424:                   ; preds = %cleanup904, %_ZNKSt
   ], !llvm.loop !20
 
 ehcleanup907:                                     ; preds = %lpad.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit, %lpad826, %cleanup.action835, %_ZN7rocksdb6StatusD2Ev.exit361, %_ZN7rocksdb6StatusD2Ev.exit340, %_ZN7rocksdb6StatusD2Ev.exit165, %_ZN7rocksdb6StatusD2Ev.exit131, %lpad578, %ehcleanup, %lpad255, %lpad239
-  %.pn18 = phi { ptr, i32 } [ %138, %lpad255 ], [ %133, %lpad239 ], [ %.pn, %ehcleanup ], [ %192, %_ZN7rocksdb6StatusD2Ev.exit165 ], [ %172, %_ZN7rocksdb6StatusD2Ev.exit131 ], [ %253, %lpad578 ], [ %324, %_ZN7rocksdb6StatusD2Ev.exit361 ], [ %310, %_ZN7rocksdb6StatusD2Ev.exit340 ], [ %354, %cleanup.action835 ], [ %354, %lpad826 ], [ %lpad.loopexit538, %lpad.loopexit ], [ %lpad.loopexit540, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp541, %lpad.loopexit.split-lp.loopexit.split-lp ]
+  %.pn18 = phi { ptr, i32 } [ %138, %lpad255 ], [ %133, %lpad239 ], [ %.pn, %ehcleanup ], [ %192, %_ZN7rocksdb6StatusD2Ev.exit165 ], [ %172, %_ZN7rocksdb6StatusD2Ev.exit131 ], [ %253, %lpad578 ], [ %324, %_ZN7rocksdb6StatusD2Ev.exit361 ], [ %310, %_ZN7rocksdb6StatusD2Ev.exit340 ], [ %354, %cleanup.action835 ], [ %354, %lpad826 ], [ %lpad.loopexit540, %lpad.loopexit ], [ %lpad.loopexit542, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp543, %lpad.loopexit.split-lp.loopexit.split-lp ]
   %377 = load ptr, ptr %state_.i, align 8
   %cmp.not.i.i426 = icmp eq ptr %377, null
   br i1 %cmp.not.i.i426, label %_ZN7rocksdb6StatusD2Ev.exit428, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i427

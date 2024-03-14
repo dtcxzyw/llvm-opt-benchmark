@@ -1999,31 +1999,31 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %3 = load i16, ptr %quantizedQueryAabbMax, align 2
   %4 = load i16, ptr %rootNode.024, align 2
   %cmp8.i = icmp uge i16 %3, %4
-  %and9.i = and i1 %cmp.i, %cmp8.i
+  %and9.not17.not21.i = and i1 %cmp.i, %cmp8.i
   %5 = load i16, ptr %arrayidx10.i, align 2
   %arrayidx12.i = getelementptr inbounds i8, ptr %rootNode.024, i64 10
   %6 = load i16, ptr %arrayidx12.i, align 2
   %cmp14.i = icmp ule i16 %5, %6
-  %and1610.i = and i1 %and9.i, %cmp14.i
+  %and1610.not16.not20.i = and i1 %and9.not17.not21.i, %cmp14.i
   %7 = load i16, ptr %arrayidx17.i, align 2
   %arrayidx19.i = getelementptr inbounds i8, ptr %rootNode.024, i64 4
   %8 = load i16, ptr %arrayidx19.i, align 2
   %cmp21.i = icmp uge i16 %7, %8
-  %and2311.i = and i1 %and1610.i, %cmp21.i
+  %and2311.not15.not19.i = and i1 %and1610.not16.not20.i, %cmp21.i
   %9 = load i16, ptr %arrayidx24.i, align 2
   %arrayidx26.i = getelementptr inbounds i8, ptr %rootNode.024, i64 8
   %10 = load i16, ptr %arrayidx26.i, align 2
   %cmp28.i = icmp ule i16 %9, %10
-  %and3012.i = and i1 %and2311.i, %cmp28.i
+  %and3012.not14.not18.i = and i1 %and2311.not15.not19.i, %cmp28.i
   %11 = load i16, ptr %arrayidx31.i, align 2
   %arrayidx33.i = getelementptr inbounds i8, ptr %rootNode.024, i64 2
   %12 = load i16, ptr %arrayidx33.i, align 2
   %cmp35.i = icmp uge i16 %11, %12
-  %and3713.i = and i1 %and3012.i, %cmp35.i
+  %and3713.not.not.i = and i1 %and3012.not14.not18.i, %cmp35.i
   %m_escapeIndexOrTriangleIndex.i = getelementptr inbounds i8, ptr %rootNode.024, i64 12
   %13 = load i32, ptr %m_escapeIndexOrTriangleIndex.i, align 4
   %cmp.i18 = icmp sgt i32 %13, -1
-  %or.cond = and i1 %cmp.i18, %and3713.i
+  %or.cond = and i1 %cmp.i18, %and3713.not.not.i
   br i1 %or.cond, label %if.end.thread, label %if.end
 
 if.end.thread:                                    ; preds = %while.body
@@ -2036,7 +2036,7 @@ if.end.thread:                                    ; preds = %while.body
   br label %if.then10
 
 if.end:                                           ; preds = %while.body
-  %brmerge = or i1 %and3713.i, %cmp.i18
+  %brmerge = or i1 %and3713.not.not.i, %cmp.i18
   br i1 %brmerge, label %if.then10, label %if.else
 
 if.then10:                                        ; preds = %if.end.thread, %if.end
@@ -2076,8 +2076,8 @@ define dso_local void @_ZNK14b3QuantizedBvh39walkStacklessQuantizedTreeCacheFrie
 entry:
   %m_size.i = getelementptr inbounds i8, ptr %this, i64 220
   %0 = load i32, ptr %m_size.i, align 4
-  %cmp11 = icmp sgt i32 %0, 0
-  br i1 %cmp11, label %for.body.lr.ph, label %for.end
+  %cmp15 = icmp sgt i32 %0, 0
+  br i1 %cmp15, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
   %m_data.i = getelementptr inbounds i8, ptr %this, i64 232
@@ -2095,32 +2095,32 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %m_quantizedAabbMax = getelementptr inbounds i8, ptr %arrayidx.i, i64 6
   %2 = load i16, ptr %quantizedQueryAabbMin, align 2
   %3 = load i16, ptr %m_quantizedAabbMax, align 2
-  %cmp.i = icmp ule i16 %2, %3
+  %cmp.i = icmp ugt i16 %2, %3
   %4 = load i16, ptr %quantizedQueryAabbMax, align 2
   %5 = load i16, ptr %arrayidx.i, align 2
-  %cmp8.i = icmp uge i16 %4, %5
-  %and9.i = and i1 %cmp.i, %cmp8.i
+  %cmp8.i = icmp ult i16 %4, %5
+  %and9.not17.not21.i.not14 = or i1 %cmp.i, %cmp8.i
   %6 = load i16, ptr %arrayidx10.i, align 2
   %arrayidx12.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 10
   %7 = load i16, ptr %arrayidx12.i, align 2
-  %cmp14.i = icmp ule i16 %6, %7
-  %and1610.i = and i1 %and9.i, %cmp14.i
+  %cmp14.i = icmp ugt i16 %6, %7
+  %and1610.not16.not20.i.not13 = or i1 %and9.not17.not21.i.not14, %cmp14.i
   %8 = load i16, ptr %arrayidx17.i, align 2
   %arrayidx19.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
   %9 = load i16, ptr %arrayidx19.i, align 2
-  %cmp21.i = icmp uge i16 %8, %9
-  %and2311.i = and i1 %and1610.i, %cmp21.i
+  %cmp21.i = icmp ult i16 %8, %9
+  %and2311.not15.not19.i.not12 = or i1 %and1610.not16.not20.i.not13, %cmp21.i
   %10 = load i16, ptr %arrayidx24.i, align 2
   %arrayidx26.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %11 = load i16, ptr %arrayidx26.i, align 2
-  %cmp28.i = icmp ule i16 %10, %11
-  %and3012.i = and i1 %and2311.i, %cmp28.i
+  %cmp28.i = icmp ugt i16 %10, %11
+  %and3012.not14.not18.i.not11 = or i1 %and2311.not15.not19.i.not12, %cmp28.i
   %12 = load i16, ptr %arrayidx31.i, align 2
   %arrayidx33.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 2
   %13 = load i16, ptr %arrayidx33.i, align 2
-  %cmp35.i = icmp uge i16 %12, %13
-  %and3713.i = and i1 %and3012.i, %cmp35.i
-  br i1 %and3713.i, label %if.then, label %for.inc
+  %cmp35.i = icmp ult i16 %12, %13
+  %and3713.not.not.i.not = or i1 %and3012.not14.not18.i.not11, %cmp35.i
+  br i1 %and3713.not.not.i.not, label %for.inc, label %if.then
 
 if.then:                                          ; preds = %for.body
   %m_rootNodeIndex = getelementptr inbounds i8, ptr %arrayidx.i, i64 12
@@ -2149,31 +2149,31 @@ while.body.i:                                     ; preds = %if.end13.i, %while.
   %19 = load i16, ptr %quantizedQueryAabbMax, align 2
   %20 = load i16, ptr %rootNode.024.i, align 2
   %cmp8.i.i = icmp uge i16 %19, %20
-  %and9.i.i = and i1 %cmp.i.i, %cmp8.i.i
+  %and9.not17.not21.i.i = and i1 %cmp.i.i, %cmp8.i.i
   %21 = load i16, ptr %arrayidx10.i, align 2
   %arrayidx12.i.i = getelementptr inbounds i8, ptr %rootNode.024.i, i64 10
   %22 = load i16, ptr %arrayidx12.i.i, align 2
   %cmp14.i.i = icmp ule i16 %21, %22
-  %and1610.i.i = and i1 %and9.i.i, %cmp14.i.i
+  %and1610.not16.not20.i.i = and i1 %and9.not17.not21.i.i, %cmp14.i.i
   %23 = load i16, ptr %arrayidx17.i, align 2
   %arrayidx19.i.i = getelementptr inbounds i8, ptr %rootNode.024.i, i64 4
   %24 = load i16, ptr %arrayidx19.i.i, align 2
   %cmp21.i.i = icmp uge i16 %23, %24
-  %and2311.i.i = and i1 %and1610.i.i, %cmp21.i.i
+  %and2311.not15.not19.i.i = and i1 %and1610.not16.not20.i.i, %cmp21.i.i
   %25 = load i16, ptr %arrayidx24.i, align 2
   %arrayidx26.i.i = getelementptr inbounds i8, ptr %rootNode.024.i, i64 8
   %26 = load i16, ptr %arrayidx26.i.i, align 2
   %cmp28.i.i = icmp ule i16 %25, %26
-  %and3012.i.i = and i1 %and2311.i.i, %cmp28.i.i
+  %and3012.not14.not18.i.i = and i1 %and2311.not15.not19.i.i, %cmp28.i.i
   %27 = load i16, ptr %arrayidx31.i, align 2
   %arrayidx33.i.i = getelementptr inbounds i8, ptr %rootNode.024.i, i64 2
   %28 = load i16, ptr %arrayidx33.i.i, align 2
   %cmp35.i.i = icmp uge i16 %27, %28
-  %and3713.i.i = and i1 %and3012.i.i, %cmp35.i.i
+  %and3713.not.not.i.i = and i1 %and3012.not14.not18.i.i, %cmp35.i.i
   %m_escapeIndexOrTriangleIndex.i.i = getelementptr inbounds i8, ptr %rootNode.024.i, i64 12
   %29 = load i32, ptr %m_escapeIndexOrTriangleIndex.i.i, align 4
   %cmp.i18.i = icmp sgt i32 %29, -1
-  %or.cond.i = and i1 %cmp.i18.i, %and3713.i.i
+  %or.cond.i = and i1 %cmp.i18.i, %and3713.not.not.i.i
   br i1 %or.cond.i, label %if.end.thread.i, label %if.end.i
 
 if.end.thread.i:                                  ; preds = %while.body.i
@@ -2186,7 +2186,7 @@ if.end.thread.i:                                  ; preds = %while.body.i
   br label %if.then10.i
 
 if.end.i:                                         ; preds = %while.body.i
-  %brmerge.i = or i1 %and3713.i.i, %cmp.i18.i
+  %brmerge.i = or i1 %and3713.not.not.i.i, %cmp.i18.i
   br i1 %brmerge.i, label %if.then10.i, label %if.else.i
 
 if.then10.i:                                      ; preds = %if.end.i, %if.end.thread.i
@@ -2242,32 +2242,32 @@ tailrecurse:                                      ; preds = %if.else, %entry
   %m_quantizedAabbMax = getelementptr inbounds i8, ptr %currentNode.tr, i64 6
   %0 = load i16, ptr %quantizedQueryAabbMin, align 2
   %1 = load i16, ptr %m_quantizedAabbMax, align 2
-  %cmp.i = icmp ule i16 %0, %1
+  %cmp.i = icmp ugt i16 %0, %1
   %2 = load i16, ptr %quantizedQueryAabbMax, align 2
   %3 = load i16, ptr %currentNode.tr, align 2
-  %cmp8.i = icmp uge i16 %2, %3
-  %and9.i = and i1 %cmp.i, %cmp8.i
+  %cmp8.i = icmp ult i16 %2, %3
+  %and9.not17.not21.i.not25 = or i1 %cmp.i, %cmp8.i
   %4 = load i16, ptr %arrayidx10.i, align 2
   %arrayidx12.i = getelementptr inbounds i8, ptr %currentNode.tr, i64 10
   %5 = load i16, ptr %arrayidx12.i, align 2
-  %cmp14.i = icmp ule i16 %4, %5
-  %and1610.i = and i1 %and9.i, %cmp14.i
+  %cmp14.i = icmp ugt i16 %4, %5
+  %and1610.not16.not20.i.not24 = or i1 %and9.not17.not21.i.not25, %cmp14.i
   %6 = load i16, ptr %arrayidx17.i, align 2
   %arrayidx19.i = getelementptr inbounds i8, ptr %currentNode.tr, i64 4
   %7 = load i16, ptr %arrayidx19.i, align 2
-  %cmp21.i = icmp uge i16 %6, %7
-  %and2311.i = and i1 %and1610.i, %cmp21.i
+  %cmp21.i = icmp ult i16 %6, %7
+  %and2311.not15.not19.i.not23 = or i1 %and1610.not16.not20.i.not24, %cmp21.i
   %8 = load i16, ptr %arrayidx24.i, align 2
   %arrayidx26.i = getelementptr inbounds i8, ptr %currentNode.tr, i64 8
   %9 = load i16, ptr %arrayidx26.i, align 2
-  %cmp28.i = icmp ule i16 %8, %9
-  %and3012.i = and i1 %and2311.i, %cmp28.i
+  %cmp28.i = icmp ugt i16 %8, %9
+  %and3012.not14.not18.i.not22 = or i1 %and2311.not15.not19.i.not23, %cmp28.i
   %10 = load i16, ptr %arrayidx31.i, align 2
   %arrayidx33.i = getelementptr inbounds i8, ptr %currentNode.tr, i64 2
   %11 = load i16, ptr %arrayidx33.i, align 2
-  %cmp35.i = icmp uge i16 %10, %11
-  %and3713.i = and i1 %and3012.i, %cmp35.i
-  br i1 %and3713.i, label %if.then, label %if.end11
+  %cmp35.i = icmp ult i16 %10, %11
+  %and3713.not.not.i.not = or i1 %and3012.not14.not18.i.not22, %cmp35.i
+  br i1 %and3713.not.not.i.not, label %if.end11, label %if.then
 
 if.then:                                          ; preds = %tailrecurse
   %m_escapeIndexOrTriangleIndex.i = getelementptr inbounds i8, ptr %currentNode.tr, i64 12
@@ -2293,8 +2293,8 @@ if.else:                                          ; preds = %if.then
   %sub.i = sub nsw i32 0, %14
   %idx.ext = zext nneg i32 %sub.i to i64
   %add.ptr10 = getelementptr inbounds %struct.b3QuantizedBvhNode, ptr %add.ptr, i64 %idx.ext
-  %cmp.i2022 = icmp slt i32 %14, 0
-  %cond = select i1 %cmp.i2022, ptr %add.ptr10, ptr %add.ptr8
+  %cmp.i2026 = icmp slt i32 %14, 0
+  %cond = select i1 %cmp.i2026, ptr %add.ptr10, ptr %add.ptr8
   br label %tailrecurse
 
 if.end11:                                         ; preds = %tailrecurse, %if.then4
@@ -2833,8 +2833,8 @@ entry:
   %75 = or <4 x i16> %74, <i16 1, i16 1, i16 1, i16 poison>
   %76 = and <4 x i16> %74, <i16 poison, i16 poison, i16 poison, i16 -2>
   %77 = shufflevector <4 x i16> %75, <4 x i16> %76, <4 x i32> <i32 0, i32 1, i32 2, i32 7>
-  %cmp56208 = icmp slt i32 %startNodeIndex, %endNodeIndex
-  br i1 %cmp56208, label %while.body.lr.ph, label %while.end
+  %cmp56212 = icmp slt i32 %startNodeIndex, %endNodeIndex
+  br i1 %cmp56212, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
   %cmp51 = fcmp olt float %cond35, 0.000000e+00
@@ -2867,37 +2867,37 @@ while.body.lr.ph:                                 ; preds = %entry
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end96
-  %curIndex.0211 = phi i32 [ %startNodeIndex, %while.body.lr.ph ], [ %curIndex.1, %if.end96 ]
-  %walkIterations.0210 = phi i32 [ 0, %while.body.lr.ph ], [ %inc, %if.end96 ]
-  %rootNode.0209 = phi ptr [ %arrayidx.i, %while.body.lr.ph ], [ %rootNode.1, %if.end96 ]
-  %inc = add nuw nsw i32 %walkIterations.0210, 1
-  %m_quantizedAabbMax = getelementptr inbounds i8, ptr %rootNode.0209, i64 6
+  %curIndex.0215 = phi i32 [ %startNodeIndex, %while.body.lr.ph ], [ %curIndex.1, %if.end96 ]
+  %walkIterations.0214 = phi i32 [ 0, %while.body.lr.ph ], [ %inc, %if.end96 ]
+  %rootNode.0213 = phi ptr [ %arrayidx.i, %while.body.lr.ph ], [ %rootNode.1, %if.end96 ]
+  %inc = add nuw nsw i32 %walkIterations.0214, 1
+  %m_quantizedAabbMax = getelementptr inbounds i8, ptr %rootNode.0213, i64 6
   %81 = load i16, ptr %m_quantizedAabbMax, align 2
-  %arrayidx19.i = getelementptr inbounds i8, ptr %rootNode.0209, i64 4
+  %arrayidx19.i = getelementptr inbounds i8, ptr %rootNode.0213, i64 4
   %82 = load i16, ptr %arrayidx19.i, align 2
-  %arrayidx26.i = getelementptr inbounds i8, ptr %rootNode.0209, i64 8
+  %arrayidx26.i = getelementptr inbounds i8, ptr %rootNode.0213, i64 8
   %83 = load <2 x i16>, ptr %arrayidx26.i, align 2
-  %84 = icmp ule <2 x i16> %44, %83
-  %85 = load <2 x i16>, ptr %rootNode.0209, align 2
+  %84 = icmp ugt <2 x i16> %44, %83
+  %85 = load <2 x i16>, ptr %rootNode.0213, align 2
   %86 = shufflevector <2 x i16> %85, <2 x i16> poison, <4 x i32> <i32 0, i32 poison, i32 1, i32 poison>
   %87 = insertelement <4 x i16> %86, i16 %82, i64 1
   %88 = insertelement <4 x i16> %87, i16 %81, i64 3
-  %89 = icmp uge <4 x i16> %77, %88
-  %90 = icmp ule <4 x i16> %77, %88
+  %89 = icmp ult <4 x i16> %77, %88
+  %90 = icmp ugt <4 x i16> %77, %88
   %91 = shufflevector <4 x i1> %89, <4 x i1> %90, <4 x i32> <i32 0, i32 1, i32 2, i32 7>
   %92 = bitcast <4 x i1> %91 to i4
-  %93 = icmp eq i4 %92, -1
+  %93 = icmp ne i4 %92, 0
   %94 = extractelement <2 x i1> %84, i64 1
-  %op.rdx = and i1 %93, %94
+  %op.rdx = or i1 %93, %94
   %95 = extractelement <2 x i1> %84, i64 0
-  %op.rdx214 = and i1 %op.rdx, %95
-  %m_escapeIndexOrTriangleIndex.i = getelementptr inbounds i8, ptr %rootNode.0209, i64 12
+  %op.rdx218 = or i1 %op.rdx, %95
+  %m_escapeIndexOrTriangleIndex.i = getelementptr inbounds i8, ptr %rootNode.0213, i64 12
   %96 = load i32, ptr %m_escapeIndexOrTriangleIndex.i, align 4
   %cmp.i107 = icmp sgt i32 %96, -1
-  br i1 %op.rdx214, label %if.then, label %if.end90
+  br i1 %op.rdx218, label %if.end90, label %if.then
 
 if.then:                                          ; preds = %while.body
-  %arrayidx12.i = getelementptr inbounds i8, ptr %rootNode.0209, i64 10
+  %arrayidx12.i = getelementptr inbounds i8, ptr %rootNode.0213, i64 10
   %97 = uitofp <2 x i16> %85 to <2 x float>
   %conv10.i = uitofp i16 %82 to float
   %98 = load float, ptr %arrayidx6.i9.i.i, align 8
@@ -3001,16 +3001,16 @@ if.end90:                                         ; preds = %if.end.i, %if.then,
   br i1 %brmerge, label %if.then93, label %if.else
 
 if.then93:                                        ; preds = %if.end90.thread, %if.end90
-  %incdec.ptr = getelementptr inbounds i8, ptr %rootNode.0209, i64 16
-  %inc94 = add nsw i32 %curIndex.0211, 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %rootNode.0213, i64 16
+  %inc94 = add nsw i32 %curIndex.0215, 1
   br label %if.end96
 
 if.else:                                          ; preds = %if.end90
   %144 = load i32, ptr %m_escapeIndexOrTriangleIndex.i, align 4
   %sub.i154 = sub nsw i32 0, %144
   %idx.ext = sext i32 %sub.i154 to i64
-  %add.ptr = getelementptr inbounds %struct.b3QuantizedBvhNode, ptr %rootNode.0209, i64 %idx.ext
-  %add = sub i32 %curIndex.0211, %144
+  %add.ptr = getelementptr inbounds %struct.b3QuantizedBvhNode, ptr %rootNode.0213, i64 %idx.ext
+  %add = sub i32 %curIndex.0215, %144
   br label %if.end96
 
 if.end96:                                         ; preds = %if.else, %if.then93

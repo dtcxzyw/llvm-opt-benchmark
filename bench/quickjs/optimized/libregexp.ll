@@ -4643,23 +4643,23 @@ cr_init_char_range.exit:                          ; preds = %40, %49
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6)
   %72 = load i8, ptr %15, align 1
   %.not.i64 = icmp eq i8 %72, 123
-  br i1 %.not.i64, label %.preheader83.i, label %81
+  br i1 %.not.i64, label %.preheader89.i, label %81
 
-.preheader83.i:                                   ; preds = %71
-  %.05389.i = getelementptr i8, ptr %8, i64 3
-  %73 = load i8, ptr %.05389.i, align 1
+.preheader89.i:                                   ; preds = %71
+  %.05395.i = getelementptr i8, ptr %8, i64 3
+  %73 = load i8, ptr %.05395.i, align 1
   %74 = zext i8 %73 to i32
-  %75 = add nsw i32 %74, -48
-  %or.cond.i90.i = icmp ult i32 %75, 10
+  %75 = add nsw i32 %74, -58
+  %or.cond.i96.i = icmp ult i32 %75, -10
   %76 = and i32 %74, 223
-  %77 = add nsw i32 %76, -65
-  %78 = icmp ult i32 %77, 26
-  %or.cond13.i91.i = or i1 %or.cond.i90.i, %78
-  %79 = icmp eq i8 %73, 95
-  %narrow.i92.i = or i1 %79, %or.cond13.i91.i
-  br i1 %narrow.i92.i, label %.lr.ph.i66, label %._crit_edge.i65
+  %77 = add nsw i32 %76, -91
+  %78 = icmp ult i32 %77, -26
+  %or.cond13.i.not8597.i = and i1 %or.cond.i96.i, %78
+  %79 = icmp ne i8 %73, 95
+  %narrow.i.not98.i = and i1 %79, %or.cond13.i.not8597.i
+  br i1 %narrow.i.not98.i, label %._crit_edge.i66, label %.lr.ph.i65
 
-.lr.ph.i66:                                       ; preds = %.preheader83.i
+.lr.ph.i65:                                       ; preds = %.preheader89.i
   %80 = ptrtoint ptr %5 to i64
   br label %82
 
@@ -4667,62 +4667,62 @@ cr_init_char_range.exit:                          ; preds = %40, %49
   tail call void (ptr, ptr, ...) @re_parse_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.20)
   br label %parse_unicode_property.exit.thread
 
-82:                                               ; preds = %87, %.lr.ph.i66
-  %83 = phi i8 [ %73, %.lr.ph.i66 ], [ %89, %87 ]
-  %.05394.i = phi ptr [ %.05389.i, %.lr.ph.i66 ], [ %.053.i, %87 ]
-  %.05293.i = phi ptr [ %5, %.lr.ph.i66 ], [ %88, %87 ]
-  %84 = ptrtoint ptr %.05293.i to i64
+82:                                               ; preds = %87, %.lr.ph.i65
+  %83 = phi i8 [ %73, %.lr.ph.i65 ], [ %89, %87 ]
+  %.053100.i = phi ptr [ %.05395.i, %.lr.ph.i65 ], [ %.053.i, %87 ]
+  %.05299.i = phi ptr [ %5, %.lr.ph.i65 ], [ %88, %87 ]
+  %84 = ptrtoint ptr %.05299.i to i64
   %85 = sub i64 %84, %80
   %86 = icmp ugt i64 %85, 62
-  br i1 %86, label %.loopexit84.i, label %87
+  br i1 %86, label %.loopexit90.i, label %87
 
 87:                                               ; preds = %82
-  %88 = getelementptr i8, ptr %.05293.i, i64 1
-  store i8 %83, ptr %.05293.i, align 1
-  %.053.i = getelementptr i8, ptr %.05394.i, i64 1
+  %88 = getelementptr i8, ptr %.05299.i, i64 1
+  store i8 %83, ptr %.05299.i, align 1
+  %.053.i = getelementptr i8, ptr %.053100.i, i64 1
   %89 = load i8, ptr %.053.i, align 1
   %90 = zext i8 %89 to i32
-  %91 = add nsw i32 %90, -48
-  %or.cond.i.i = icmp ult i32 %91, 10
+  %91 = add nsw i32 %90, -58
+  %or.cond.i.i = icmp ult i32 %91, -10
   %92 = and i32 %90, 223
-  %93 = add nsw i32 %92, -65
-  %94 = icmp ult i32 %93, 26
-  %or.cond13.i.i = or i1 %or.cond.i.i, %94
-  %95 = icmp eq i8 %89, 95
-  %narrow.i.i = or i1 %95, %or.cond13.i.i
-  br i1 %narrow.i.i, label %82, label %._crit_edge.i65, !llvm.loop !26
+  %93 = add nsw i32 %92, -91
+  %94 = icmp ult i32 %93, -26
+  %or.cond13.i.not85.i = and i1 %or.cond.i.i, %94
+  %95 = icmp ne i8 %89, 95
+  %narrow.i.not.i = and i1 %95, %or.cond13.i.not85.i
+  br i1 %narrow.i.not.i, label %._crit_edge.i66, label %82, !llvm.loop !26
 
-._crit_edge.i65:                                  ; preds = %87, %.preheader83.i
-  %96 = phi i8 [ %73, %.preheader83.i ], [ %89, %87 ]
-  %.052.lcssa.i = phi ptr [ %5, %.preheader83.i ], [ %88, %87 ]
-  %.053.lcssa.i = phi ptr [ %.05389.i, %.preheader83.i ], [ %.053.i, %87 ]
+._crit_edge.i66:                                  ; preds = %87, %.preheader89.i
+  %96 = phi i8 [ %73, %.preheader89.i ], [ %89, %87 ]
+  %.052.lcssa.i = phi ptr [ %5, %.preheader89.i ], [ %88, %87 ]
+  %.053.lcssa.i = phi ptr [ %.05395.i, %.preheader89.i ], [ %.053.i, %87 ]
   store i8 0, ptr %.052.lcssa.i, align 1
   %97 = icmp eq i8 %96, 61
   br i1 %97, label %.preheader.i, label %.loopexit.i
 
-.preheader.i:                                     ; preds = %._crit_edge.i65
-  %.15496.i = getelementptr i8, ptr %.053.lcssa.i, i64 1
-  %98 = load i8, ptr %.15496.i, align 1
+.preheader.i:                                     ; preds = %._crit_edge.i66
+  %.154102.i = getelementptr i8, ptr %.053.lcssa.i, i64 1
+  %98 = load i8, ptr %.154102.i, align 1
   %99 = zext i8 %98 to i32
-  %100 = add nsw i32 %99, -48
-  %or.cond.i8097.i = icmp ult i32 %100, 10
+  %100 = add nsw i32 %99, -58
+  %or.cond.i80103.i = icmp ult i32 %100, -10
   %101 = and i32 %99, 223
-  %102 = add nsw i32 %101, -65
-  %103 = icmp ult i32 %102, 26
-  %or.cond13.i8198.i = or i1 %or.cond.i8097.i, %103
-  %104 = icmp eq i8 %98, 95
-  %narrow.i8299.i = or i1 %104, %or.cond13.i8198.i
-  br i1 %narrow.i8299.i, label %.lr.ph102.i, label %.loopexit.i
+  %102 = add nsw i32 %101, -91
+  %103 = icmp ult i32 %102, -26
+  %or.cond13.i81.not88104.i = and i1 %or.cond.i80103.i, %103
+  %104 = icmp ne i8 %98, 95
+  %narrow.i82.not105.i = and i1 %104, %or.cond13.i81.not88104.i
+  br i1 %narrow.i82.not105.i, label %.loopexit.i, label %.lr.ph108.i
 
-.lr.ph102.i:                                      ; preds = %.preheader.i
+.lr.ph108.i:                                      ; preds = %.preheader.i
   %105 = ptrtoint ptr %6 to i64
   br label %106
 
-106:                                              ; preds = %112, %.lr.ph102.i
-  %107 = phi i8 [ %98, %.lr.ph102.i ], [ %114, %112 ]
-  %.154101.i = phi ptr [ %.15496.i, %.lr.ph102.i ], [ %.154.i, %112 ]
-  %.1100.i = phi ptr [ %6, %.lr.ph102.i ], [ %113, %112 ]
-  %108 = ptrtoint ptr %.1100.i to i64
+106:                                              ; preds = %112, %.lr.ph108.i
+  %107 = phi i8 [ %98, %.lr.ph108.i ], [ %114, %112 ]
+  %.154107.i = phi ptr [ %.154102.i, %.lr.ph108.i ], [ %.154.i, %112 ]
+  %.1106.i = phi ptr [ %6, %.lr.ph108.i ], [ %113, %112 ]
+  %108 = ptrtoint ptr %.1106.i to i64
   %109 = sub i64 %108, %105
   %110 = icmp ugt i64 %109, 62
   br i1 %110, label %111, label %112
@@ -4732,24 +4732,24 @@ cr_init_char_range.exit:                          ; preds = %40, %49
   br label %parse_unicode_property.exit.thread
 
 112:                                              ; preds = %106
-  %113 = getelementptr i8, ptr %.1100.i, i64 1
-  store i8 %107, ptr %.1100.i, align 1
-  %.154.i = getelementptr i8, ptr %.154101.i, i64 1
+  %113 = getelementptr i8, ptr %.1106.i, i64 1
+  store i8 %107, ptr %.1106.i, align 1
+  %.154.i = getelementptr i8, ptr %.154107.i, i64 1
   %114 = load i8, ptr %.154.i, align 1
   %115 = zext i8 %114 to i32
-  %116 = add nsw i32 %115, -48
-  %or.cond.i80.i = icmp ult i32 %116, 10
+  %116 = add nsw i32 %115, -58
+  %or.cond.i80.i = icmp ult i32 %116, -10
   %117 = and i32 %115, 223
-  %118 = add nsw i32 %117, -65
-  %119 = icmp ult i32 %118, 26
-  %or.cond13.i81.i = or i1 %or.cond.i80.i, %119
-  %120 = icmp eq i8 %114, 95
-  %narrow.i82.i = or i1 %120, %or.cond13.i81.i
-  br i1 %narrow.i82.i, label %106, label %.loopexit.i, !llvm.loop !27
+  %118 = add nsw i32 %117, -91
+  %119 = icmp ult i32 %118, -26
+  %or.cond13.i81.not88.i = and i1 %or.cond.i80.i, %119
+  %120 = icmp ne i8 %114, 95
+  %narrow.i82.not.i = and i1 %120, %or.cond13.i81.not88.i
+  br i1 %narrow.i82.not.i, label %.loopexit.i, label %106, !llvm.loop !27
 
-.loopexit.i:                                      ; preds = %112, %.preheader.i, %._crit_edge.i65
-  %.255.i = phi ptr [ %.053.lcssa.i, %._crit_edge.i65 ], [ %.15496.i, %.preheader.i ], [ %.154.i, %112 ]
-  %.2.i = phi ptr [ %6, %._crit_edge.i65 ], [ %6, %.preheader.i ], [ %113, %112 ]
+.loopexit.i:                                      ; preds = %112, %.preheader.i, %._crit_edge.i66
+  %.255.i = phi ptr [ %.053.lcssa.i, %._crit_edge.i66 ], [ %.154102.i, %.preheader.i ], [ %.154.i, %112 ]
+  %.2.i = phi ptr [ %6, %._crit_edge.i66 ], [ %6, %.preheader.i ], [ %113, %112 ]
   store i8 0, ptr %.2.i, align 1
   %121 = load i8, ptr %.255.i, align 1
   %.not63.i = icmp eq i8 %121, 125
@@ -4826,7 +4826,7 @@ cr_init_char_range.exit:                          ; preds = %40, %49
 143:                                              ; preds = %135
   %144 = load i8, ptr %6, align 16
   %145 = icmp eq i8 %144, 0
-  br i1 %145, label %146, label %.loopexit84.i
+  br i1 %145, label %146, label %.loopexit90.i
 
 146:                                              ; preds = %143
   %147 = getelementptr inbounds i8, ptr %0, i64 104
@@ -4852,9 +4852,9 @@ cr_init_char_range.exit:                          ; preds = %40, %49
 156:                                              ; preds = %154
   call void @cr_free(ptr noundef %1) #17
   %157 = icmp eq i32 %155, -2
-  br i1 %157, label %.loopexit84.i, label %162
+  br i1 %157, label %.loopexit90.i, label %162
 
-.loopexit84.i:                                    ; preds = %82, %156, %143
+.loopexit90.i:                                    ; preds = %82, %156, %143
   call void (ptr, ptr, ...) @re_parse_error(ptr noundef %0, ptr noundef nonnull @.str.31)
   br label %parse_unicode_property.exit.thread
 
@@ -4874,7 +4874,7 @@ cr_init_char_range.exit:                          ; preds = %40, %49
   call void (ptr, ptr, ...) @re_parse_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.33)
   br label %parse_unicode_property.exit.thread
 
-parse_unicode_property.exit.thread:               ; preds = %81, %.loopexit84.i, %111, %122, %162, %161, %142, %133
+parse_unicode_property.exit.thread:               ; preds = %81, %.loopexit90.i, %111, %122, %162, %161, %142, %133
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
   br label %192

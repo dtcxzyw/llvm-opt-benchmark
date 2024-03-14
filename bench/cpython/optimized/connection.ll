@@ -3131,24 +3131,24 @@ if.end:                                           ; preds = %entry, %lor.lhs.fal
   %1 = load ptr, ptr %arrayidx2, align 8
   %arrayidx3 = getelementptr i8, ptr %args, i64 16
   %2 = load ptr, ptr %arrayidx3, align 8
-  %cmp.i = icmp eq ptr %0, @_Py_NoneStruct
-  %cmp1.i = icmp eq ptr %1, @_Py_NoneStruct
-  %or.cond.i = and i1 %cmp.i, %cmp1.i
-  %cmp3.i = icmp eq ptr %2, @_Py_NoneStruct
-  %or.cond1.i = and i1 %or.cond.i, %cmp3.i
-  br i1 %or.cond1.i, label %if.end.i, label %if.end.thread.i
+  %cmp.i = icmp ne ptr %0, @_Py_NoneStruct
+  %cmp1.i = icmp ne ptr %1, @_Py_NoneStruct
+  %or.cond.not12.i = or i1 %cmp.i, %cmp1.i
+  %cmp3.i = icmp ne ptr %2, @_Py_NoneStruct
+  %or.cond1.not.i = or i1 %or.cond.not12.i, %cmp3.i
+  br i1 %or.cond1.not.i, label %if.end.i, label %if.end.thread.i
 
 if.end.i:                                         ; preds = %if.end
-  %call.i = tail call fastcc ptr @pysqlite_connection_commit_impl(ptr noundef %self)
-  %cmp5.i = icmp eq ptr %call.i, null
-  br i1 %cmp5.i, label %if.then7.i, label %if.end15.i
+  %call4.i = tail call fastcc ptr @pysqlite_connection_rollback_impl(ptr noundef %self)
+  %cmp5.i = icmp eq ptr %call4.i, null
+  br i1 %cmp5.i, label %exit, label %if.end15.i
 
 if.end.thread.i:                                  ; preds = %if.end
-  %call4.i = tail call fastcc ptr @pysqlite_connection_rollback_impl(ptr noundef %self)
-  %cmp513.i = icmp eq ptr %call4.i, null
-  br i1 %cmp513.i, label %exit, label %if.end15.i
+  %call.i = tail call fastcc ptr @pysqlite_connection_commit_impl(ptr noundef %self)
+  %cmp514.i = icmp eq ptr %call.i, null
+  br i1 %cmp514.i, label %if.then7.i, label %if.end15.i
 
-if.then7.i:                                       ; preds = %if.end.i
+if.then7.i:                                       ; preds = %if.end.thread.i
   %call8.i = tail call ptr @PyErr_GetRaisedException() #6
   %call9.i = tail call fastcc ptr @pysqlite_connection_rollback_impl(ptr noundef %self)
   %cmp10.i = icmp eq ptr %call9.i, null
@@ -3179,24 +3179,24 @@ Py_DECREF.exit24.i:                               ; preds = %if.then1.i22.i, %if
   br label %exit
 
 if.end15.i:                                       ; preds = %if.end.thread.i, %if.end.i
-  %result.014.i = phi ptr [ %call4.i, %if.end.thread.i ], [ %call.i, %if.end.i ]
-  %5 = load i64, ptr %result.014.i, align 8
+  %result.015.i = phi ptr [ %call.i, %if.end.thread.i ], [ %call4.i, %if.end.i ]
+  %5 = load i64, ptr %result.015.i, align 8
   %6 = and i64 %5, 2147483648
   %cmp.i29.not.i = icmp eq i64 %6, 0
   br i1 %cmp.i29.not.i, label %if.end.i.i, label %exit
 
 if.end.i.i:                                       ; preds = %if.end15.i
   %dec.i.i = add i64 %5, -1
-  store i64 %dec.i.i, ptr %result.014.i, align 8
+  store i64 %dec.i.i, ptr %result.015.i, align 8
   %cmp.i.i = icmp eq i64 %dec.i.i, 0
   br i1 %cmp.i.i, label %if.then1.i.i, label %exit
 
 if.then1.i.i:                                     ; preds = %if.end.i.i
-  tail call void @_Py_Dealloc(ptr noundef nonnull %result.014.i) #6
+  tail call void @_Py_Dealloc(ptr noundef nonnull %result.015.i) #6
   br label %exit
 
-exit:                                             ; preds = %if.then1.i.i, %if.end.i.i, %if.end15.i, %Py_DECREF.exit24.i, %if.then11.i, %if.end.thread.i, %lor.lhs.false
-  %return_value.0 = phi ptr [ null, %lor.lhs.false ], [ null, %if.then11.i ], [ null, %Py_DECREF.exit24.i ], [ @_Py_FalseStruct, %if.end15.i ], [ @_Py_FalseStruct, %if.then1.i.i ], [ @_Py_FalseStruct, %if.end.i.i ], [ null, %if.end.thread.i ]
+exit:                                             ; preds = %if.then1.i.i, %if.end.i.i, %if.end15.i, %Py_DECREF.exit24.i, %if.then11.i, %if.end.i, %lor.lhs.false
+  %return_value.0 = phi ptr [ null, %lor.lhs.false ], [ null, %if.then11.i ], [ null, %Py_DECREF.exit24.i ], [ @_Py_FalseStruct, %if.end15.i ], [ @_Py_FalseStruct, %if.then1.i.i ], [ @_Py_FalseStruct, %if.end.i.i ], [ null, %if.end.i ]
   ret ptr %return_value.0
 }
 

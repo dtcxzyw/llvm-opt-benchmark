@@ -3197,16 +3197,16 @@ define internal noundef i32 @vlv_crtc_compute_clock(ptr nocapture noundef readon
   %28 = mul i32 %.sroa.0.0, %15
   br label %.split.preheader
 
-.split.preheader:                                 ; preds = %25, %.split49.us
-  %.sroa.12.0 = phi i32 [ 3, %25 ], [ %125, %.split49.us ]
-  %29 = phi i8 [ %26, %25 ], [ %120, %.split49.us ]
-  %30 = phi i32 [ %27, %25 ], [ %119, %.split49.us ]
+.split.preheader:                                 ; preds = %25, %.split51.us
+  %.sroa.12.0 = phi i32 [ 3, %25 ], [ %125, %.split51.us ]
+  %29 = phi i8 [ %26, %25 ], [ %120, %.split51.us ]
+  %30 = phi i32 [ %27, %25 ], [ %119, %.split51.us ]
   br label %.split
 
-.split:                                           ; preds = %.split.preheader, %.split40
-  %.sroa.15.0 = phi i32 [ %123, %.split40 ], [ 20, %.split.preheader ]
-  %31 = phi i8 [ %120, %.split40 ], [ %29, %.split.preheader ]
-  %32 = phi i32 [ %119, %.split40 ], [ %30, %.split.preheader ]
+.split:                                           ; preds = %.split.preheader, %.split42
+  %.sroa.15.0 = phi i32 [ %123, %.split42 ], [ 20, %.split.preheader ]
+  %31 = phi i8 [ %120, %.split42 ], [ %29, %.split.preheader ]
+  %32 = phi i32 [ %119, %.split42 ], [ %30, %.split.preheader ]
   %33 = mul i32 %.sroa.15.0, %.sroa.12.0
   %34 = mul i32 %33, 5
   %35 = icmp eq i32 %33, 0
@@ -3269,14 +3269,14 @@ define internal noundef i32 @vlv_crtc_compute_clock(ptr nocapture noundef readon
 
 76:                                               ; preds = %._crit_edge.i
   %77 = or i32 %49, %33
-  %or.cond24 = icmp ne i32 %77, 0
-  %78 = add i32 %55, -6000001
-  %79 = icmp ult i32 %78, -2000001
-  %or.cond27 = or i1 %or.cond24, %79
-  %80 = add i32 %65, -270001
-  %81 = icmp ult i32 %80, -245001
-  %or.cond33.not = or i1 %or.cond27, %81
-  br i1 %or.cond33.not, label %intel_pll_is_valid.exit.thread, label %86
+  %or.cond24 = icmp eq i32 %77, 0
+  %78 = add i32 %55, -4000000
+  %79 = icmp ult i32 %78, 2000001
+  %or.cond27.not39 = and i1 %or.cond24, %79
+  %80 = add i32 %65, -25000
+  %81 = icmp ult i32 %80, 245001
+  %or.cond33 = and i1 %or.cond27.not39, %81
+  br i1 %or.cond33, label %86, label %intel_pll_is_valid.exit.thread
 
 82:                                               ; preds = %._crit_edge.i
   %83 = add i32 %55, -4000000
@@ -3364,21 +3364,21 @@ vlv_PLL_is_optimal.exit.thread16:                 ; preds = %114, %89, %vlv_PLL_
 intel_pll_is_valid.exit.thread:                   ; preds = %68, %.thread.i, %105, %82, %76, %64, %89, %vlv_PLL_is_optimal.exit.thread16, %vlv_PLL_is_optimal.exit
   %119 = phi i32 [ %.018, %vlv_PLL_is_optimal.exit.thread16 ], [ %42, %vlv_PLL_is_optimal.exit ], [ %42, %89 ], [ %42, %64 ], [ %42, %76 ], [ %42, %82 ], [ %42, %105 ], [ %42, %.thread.i ], [ %42, %68 ]
   %120 = phi i8 [ 1, %vlv_PLL_is_optimal.exit.thread16 ], [ %41, %vlv_PLL_is_optimal.exit ], [ %41, %89 ], [ %41, %64 ], [ %41, %76 ], [ %41, %82 ], [ %41, %105 ], [ %41, %.thread.i ], [ %41, %68 ]
-  br i1 %40, label %.split40, label %39, !llvm.loop !52
+  br i1 %40, label %.split42, label %39, !llvm.loop !52
 
-.split40:                                         ; preds = %intel_pll_is_valid.exit.thread
+.split42:                                         ; preds = %intel_pll_is_valid.exit.thread
   %121 = icmp sgt i32 %.sroa.15.0, 10
   %122 = select i1 %121, i32 -2, i32 -1
   %123 = add nsw i32 %122, %.sroa.15.0
   %124 = icmp sgt i32 %123, 1
-  br i1 %124, label %.split, label %.split49.us, !llvm.loop !53
+  br i1 %124, label %.split, label %.split51.us, !llvm.loop !53
 
-.split49.us:                                      ; preds = %.split40
+.split51.us:                                      ; preds = %.split42
   %125 = add nsw i32 %.sroa.12.0, -1
   %126 = icmp ugt i32 %.sroa.12.0, 2
   br i1 %126, label %.split.preheader, label %127, !llvm.loop !54
 
-127:                                              ; preds = %.split49.us
+127:                                              ; preds = %.split51.us
   %128 = add nuw nsw i32 %.sroa.0.0, 1
   %129 = icmp eq i32 %128, 6
   br i1 %129, label %130, label %25, !llvm.loop !55
@@ -3477,9 +3477,9 @@ intel_pll_is_valid.exit.thread:                   ; preds = %68, %.thread.i, %10
   br label %.sink.split
 
 .sink.split:                                      ; preds = %189, %184
-  %.sink56 = phi i64 [ 932, %184 ], [ 636, %189 ]
+  %.sink58 = phi i64 [ 932, %184 ], [ 636, %189 ]
   %.sink = phi i32 [ %188, %184 ], [ %197, %189 ]
-  %198 = getelementptr inbounds i8, ptr %9, i64 %.sink56
+  %198 = getelementptr inbounds i8, ptr %9, i64 %.sink58
   store i32 %.sink, ptr %198, align 4
   br label %199
 

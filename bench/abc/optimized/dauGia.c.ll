@@ -1739,8 +1739,8 @@ Dau_DsdAddToArray.exit212:                        ; preds = %.lr.ph.i205, %101, 
 .lr.ph281:                                        ; preds = %._crit_edge277
   %364 = getelementptr i8, ptr %0, i64 32
   %365 = getelementptr inbounds i8, ptr %0, i64 120
-  %366 = getelementptr i8, ptr %0, i64 40
-  %367 = getelementptr i8, ptr %0, i64 160
+  %366 = getelementptr i8, ptr %0, i64 160
+  %367 = getelementptr i8, ptr %0, i64 40
   %368 = sext i32 %.val203 to i64
   br label %369
 
@@ -1759,19 +1759,19 @@ Dau_DsdAddToArray.exit212:                        ; preds = %.lr.ph.i205, %101, 
   %375 = lshr i64 %.val18.i, 32
   %376 = trunc i64 %375 to i32
   %377 = and i32 %376, 536870911
-  %378 = icmp eq i32 %374, %377
-  %.not.i.i = icmp ne i32 %374, 536870911
-  %or.cond.not.i.i = and i1 %.not.i.i, %378
+  %378 = icmp ne i32 %374, %377
+  %.not.i.i = icmp eq i32 %374, 536870911
+  %or.cond.not.i.not44.i = or i1 %.not.i.i, %378
   %379 = and i64 %.val18.i, 2147483648
-  %.not4.i.i = icmp eq i64 %379, 0
-  %narrow.i.i = and i1 %.not4.i.i, %or.cond.not.i.i
-  br i1 %narrow.i.i, label %380, label %403
+  %.not4.i.i = icmp ne i64 %379, 0
+  %narrow.i.not.i = or i1 %.not4.i.i, %or.cond.not.i.not44.i
+  br i1 %narrow.i.not.i, label %403, label %380
 
 380:                                              ; preds = %372
   %381 = and i64 %.val18.i, 536870911
   %382 = sub nsw i64 0, %381
   %383 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %370, i64 %382
-  %.val4.i.i = load ptr, ptr %367, align 8
+  %.val4.i.i = load ptr, ptr %366, align 8
   %384 = ptrtoint ptr %383 to i64
   %385 = ptrtoint ptr %.val198 to i64
   %386 = sub i64 %384, %385
@@ -1786,7 +1786,7 @@ Dau_DsdAddToArray.exit212:                        ; preds = %.lr.ph.i205, %101, 
   %392 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i, i64 %391
   %393 = load i32, ptr %392, align 4
   %.val5.i.i = load ptr, ptr %364, align 8
-  %.val6.i.i = load ptr, ptr %367, align 8
+  %.val6.i.i = load ptr, ptr %366, align 8
   %394 = ptrtoint ptr %370 to i64
   %395 = ptrtoint ptr %.val5.i.i to i64
   %396 = sub i64 %394, %395
@@ -1803,15 +1803,15 @@ Dau_DsdAddToArray.exit212:                        ; preds = %.lr.ph.i205, %101, 
   br label %Gia_ObjSetGateLevel.exit
 
 403:                                              ; preds = %372, %369
-  %.val20.i = load ptr, ptr %366, align 8
+  %.val20.i = load ptr, ptr %367, align 8
   %.not.i.i.i = icmp eq ptr %.val20.i, null
   br i1 %.not.i.i.i, label %Gia_ObjIsMux.exit.thread.i, label %Gia_ObjIsMux.exit.i
 
 Gia_ObjIsMux.exit.i:                              ; preds = %403
   %404 = getelementptr inbounds i32, ptr %.val20.i, i64 %indvars.iv296
   %405 = load i32, ptr %404, align 4
-  %.not43.i = icmp eq i32 %405, 0
-  br i1 %.not43.i, label %Gia_ObjIsMux.exit.thread.i, label %406
+  %.not45.i = icmp eq i32 %405, 0
+  br i1 %.not45.i, label %Gia_ObjIsMux.exit.thread.i, label %406
 
 406:                                              ; preds = %Gia_ObjIsMux.exit.i
   call fastcc void @Gia_ObjSetMuxLevel(ptr noundef nonnull %0, ptr noundef %370)
@@ -1832,10 +1832,10 @@ Gia_ObjIsXor.exit.i:                              ; preds = %Gia_ObjIsMux.exit.t
   %412 = lshr i64 %.val21.i, 32
   %413 = trunc i64 %412 to i32
   %414 = and i32 %413, 536870911
-  %.not44.i = icmp ult i32 %411, %414
+  %.not46.i = icmp ult i32 %411, %414
   %415 = sub nsw i64 0, %408
   %416 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %370, i64 %415
-  %.val6.i24.i = load ptr, ptr %367, align 8
+  %.val6.i24.i = load ptr, ptr %366, align 8
   %417 = ptrtoint ptr %416 to i64
   %418 = ptrtoint ptr %.val198 to i64
   %419 = sub i64 %417, %418
@@ -1855,7 +1855,7 @@ Gia_ObjIsXor.exit.i:                              ; preds = %Gia_ObjIsMux.exit.t
   %430 = sub nsw i64 0, %429
   %431 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %370, i64 %430
   %.val7.i.i = load ptr, ptr %364, align 8
-  %.val8.i.i = load ptr, ptr %367, align 8
+  %.val8.i.i = load ptr, ptr %366, align 8
   %432 = ptrtoint ptr %431 to i64
   %433 = ptrtoint ptr %.val7.i.i to i64
   %434 = sub i64 %432, %433
@@ -1871,7 +1871,7 @@ Gia_ObjIsXor.exit.i:                              ; preds = %Gia_ObjIsMux.exit.t
   %441 = load i32, ptr %440, align 4
   %442 = call noundef i32 @llvm.smax.i32(i32 %426, i32 %441)
   %.val9.i.i = load ptr, ptr %364, align 8
-  %.val10.i.i = load ptr, ptr %367, align 8
+  %.val10.i.i = load ptr, ptr %366, align 8
   %443 = ptrtoint ptr %370 to i64
   %444 = ptrtoint ptr %.val9.i.i to i64
   %445 = sub i64 %443, %444
@@ -1884,7 +1884,7 @@ Gia_ObjIsXor.exit.i:                              ; preds = %Gia_ObjIsMux.exit.t
   %sext.i14.i.i = shl i64 %446, 32
   %450 = ashr exact i64 %sext.i14.i.i, 32
   %451 = getelementptr inbounds i32, ptr %.val.i.i.i13.i.i, i64 %450
-  br i1 %.not44.i, label %452, label %Gia_ObjIsXor.exit.thread.i
+  br i1 %.not46.i, label %452, label %Gia_ObjIsXor.exit.thread.i
 
 452:                                              ; preds = %Gia_ObjIsXor.exit.i
   %453 = add nsw i32 %442, 2

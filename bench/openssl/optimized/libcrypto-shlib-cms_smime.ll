@@ -1479,9 +1479,9 @@ if.end8:                                          ; preds = %entry, %if.then6, %
   br i1 %cmp10, label %if.then11, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end8
-  %call1451 = tail call i32 @OPENSSL_sk_num(ptr noundef %call) #4
-  %cmp1552 = icmp sgt i32 %call1451, 0
-  br i1 %cmp1552, label %for.body.lr.ph, label %if.then68
+  %call1453 = tail call i32 @OPENSSL_sk_num(ptr noundef %call) #4
+  %cmp1554 = icmp sgt i32 %call1453, 0
+  br i1 %cmp1554, label %for.body.lr.ph, label %if.then68
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %cmp31 = icmp eq ptr %cert, null
@@ -1497,9 +1497,9 @@ if.then11:                                        ; preds = %if.end8
   br label %return
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %i.054 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
-  %match_ri.053 = phi i32 [ 0, %for.body.lr.ph ], [ %match_ri.1, %for.inc ]
-  %call17 = tail call ptr @OPENSSL_sk_value(ptr noundef %call, i32 noundef %i.054) #4
+  %i.056 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %match_ri.055 = phi i32 [ 0, %for.body.lr.ph ], [ %match_ri.1, %for.inc ]
+  %call17 = tail call ptr @OPENSSL_sk_value(ptr noundef %call, i32 noundef %i.056) #4
   %call18 = tail call i32 @CMS_RecipientInfo_type(ptr noundef %call17) #4
   %call19 = tail call i32 @ossl_cms_pkey_is_ri_type_supported(ptr noundef %pk, i32 noundef %call18) #4
   %tobool.not = icmp eq i32 %call19, 0
@@ -1578,24 +1578,23 @@ if.end46:                                         ; preds = %if.end43
 
 if.else47:                                        ; preds = %if.then34
   %cmp48 = icmp sgt i32 %call37, 0
-  %or.cond40 = select i1 %cmp48, i1 %or.cond1, i1 false
-  br i1 %or.cond40, label %return, label %for.inc
+  %or.cond42 = select i1 %cmp48, i1 %or.cond1, i1 false
+  br i1 %or.cond42, label %return, label %for.inc
 
 for.inc:                                          ; preds = %for.cond.i, %if.end.i, %if.then23, %if.else47, %lor.lhs.false, %for.body
-  %match_ri.1 = phi i32 [ 1, %if.else47 ], [ 1, %lor.lhs.false ], [ %match_ri.053, %for.body ], [ 1, %if.then23 ], [ 1, %if.end.i ], [ 1, %for.cond.i ]
-  %inc = add nuw nsw i32 %i.054, 1
+  %match_ri.1 = phi i32 [ 1, %if.else47 ], [ 1, %lor.lhs.false ], [ %match_ri.055, %for.body ], [ 1, %if.then23 ], [ 1, %if.end.i ], [ 1, %for.cond.i ]
+  %inc = add nuw nsw i32 %i.056, 1
   %call14 = tail call i32 @OPENSSL_sk_num(ptr noundef %call) #4
   %cmp15 = icmp slt i32 %inc, %call14
   br i1 %cmp15, label %for.body, label %for.end, !llvm.loop !15
 
 for.end:                                          ; preds = %for.inc
-  %4 = icmp ne i32 %match_ri.1, 0
-  %cmp58 = icmp eq ptr %cert, null
-  %cmp60 = icmp eq i32 %call9, 0
-  %or.cond2 = and i1 %cmp58, %cmp60
-  %or.cond3 = select i1 %or.cond2, i1 %4, i1 false
-  %or.cond3.not = xor i1 %or.cond3, true
-  %or.cond4 = select i1 %or.cond3.not, i1 true, i1 %debug.0
+  %4 = icmp eq i32 %match_ri.1, 0
+  %cmp58 = icmp ne ptr %cert, null
+  %cmp60 = icmp ne i32 %call9, 0
+  %or.cond2.not41 = or i1 %cmp58, %cmp60
+  %or.cond3.not40 = select i1 %or.cond2.not41, i1 true, i1 %4
+  %or.cond4 = select i1 %or.cond3.not40, i1 true, i1 %debug.0
   br i1 %or.cond4, label %if.end66, label %if.then65
 
 if.then65:                                        ; preds = %for.end
@@ -1603,7 +1602,7 @@ if.then65:                                        ; preds = %for.end
   br label %return
 
 if.end66:                                         ; preds = %for.end
-  br i1 %4, label %return, label %if.then68
+  br i1 %4, label %if.then68, label %return
 
 if.then68:                                        ; preds = %for.cond.preheader, %if.end66
   tail call void @ERR_new() #4

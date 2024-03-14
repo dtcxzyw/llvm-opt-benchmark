@@ -234,15 +234,15 @@ if.end:                                           ; preds = %entry
   %72 = fsub <2 x float> %69, %71
   %73 = fsub <2 x float> %72, %36
   %74 = fcmp ule <2 x float> %73, zeroinitializer
-  %shift53 = shufflevector <2 x i1> %74, <2 x i1> poison, <2 x i32> <i32 1, i32 poison>
-  %75 = or <2 x i1> %74, %shift53
-  %or.cond2.not = extractelement <2 x i1> %75, i64 0
+  %shift54 = shufflevector <2 x i1> %74, <2 x i1> poison, <2 x i32> <i32 1, i32 poison>
+  %75 = or <2 x i1> %74, %shift54
+  %or.cond2.not53 = extractelement <2 x i1> %75, i64 0
   %cmp35 = fcmp ule float %sub30, 0.000000e+00
-  %or.cond3 = select i1 %or.cond2.not, i1 true, i1 %cmp35
+  %or.cond3.not = select i1 %or.cond2.not53, i1 true, i1 %cmp35
   br label %return
 
 return:                                           ; preds = %if.end, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ %or.cond3, %if.end ]
+  %retval.0 = phi i1 [ false, %entry ], [ %or.cond3.not, %if.end ]
   ret i1 %retval.0
 }
 
@@ -1167,8 +1167,8 @@ entry:
   %56 = shufflevector <2 x float> %55, <2 x float> poison, <2 x i32> zeroinitializer
   %57 = fsub <2 x float> %54, %56
   %58 = fcmp ogt <2 x float> %57, zeroinitializer
-  %shift99 = shufflevector <2 x i1> %58, <2 x i1> poison, <2 x i32> <i32 1, i32 poison>
-  %59 = and <2 x i1> %58, %shift99
+  %shift100 = shufflevector <2 x i1> %58, <2 x i1> poison, <2 x i32> <i32 1, i32 poison>
+  %59 = and <2 x i1> %58, %shift100
   %or.cond = extractelement <2 x i1> %59, i64 0
   %cmp16 = fcmp ogt float %sub13, 0.000000e+00
   %or.cond1 = and i1 %cmp16, %or.cond
@@ -1213,8 +1213,8 @@ if.end:                                           ; preds = %entry
   %80 = insertelement <2 x float> poison, float %mul7.i.i.i.i39, i64 0
   %81 = shufflevector <2 x float> %80, <2 x float> poison, <2 x i32> zeroinitializer
   %82 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %79, <2 x float> %81, <2 x float> %77)
-  %shift100 = shufflevector <2 x float> %82, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %83 = fsub <2 x float> %82, %shift100
+  %shift101 = shufflevector <2 x float> %82, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %83 = fsub <2 x float> %82, %shift101
   %sub.i82 = extractelement <2 x float> %83, i64 0
   %sub28 = fsub float %sub.i82, %add
   %84 = insertelement <2 x float> poison, float %5, i64 0
@@ -1229,17 +1229,16 @@ if.end:                                           ; preds = %entry
   %93 = shufflevector <2 x float> %82, <2 x float> poison, <2 x i32> <i32 1, i32 1>
   %94 = fsub <2 x float> %92, %93
   %95 = fsub <2 x float> %94, %56
-  %96 = fcmp ogt <2 x float> %95, zeroinitializer
-  %shift101 = shufflevector <2 x i1> %96, <2 x i1> poison, <2 x i32> <i32 1, i32 poison>
-  %97 = and <2 x i1> %96, %shift101
-  %or.cond2 = extractelement <2 x i1> %97, i64 0
-  %cmp33 = fcmp ogt float %sub28, 0.000000e+00
-  %or.cond3 = and i1 %cmp33, %or.cond2
-  %not.or.cond3 = xor i1 %or.cond3, true
+  %96 = fcmp ule <2 x float> %95, zeroinitializer
+  %shift102 = shufflevector <2 x i1> %96, <2 x i1> poison, <2 x i32> <i32 1, i32 poison>
+  %97 = or <2 x i1> %96, %shift102
+  %or.cond2.not99 = extractelement <2 x i1> %97, i64 0
+  %cmp33 = fcmp ule float %sub28, 0.000000e+00
+  %or.cond3.not = or i1 %cmp33, %or.cond2.not99
   br label %return
 
 return:                                           ; preds = %if.end, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ %not.or.cond3, %if.end ]
+  %retval.0 = phi i1 [ false, %entry ], [ %or.cond3.not, %if.end ]
   ret i1 %retval.0
 }
 

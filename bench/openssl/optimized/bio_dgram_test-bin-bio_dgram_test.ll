@@ -433,10 +433,10 @@ lor.end.i:                                        ; preds = %lor.rhs.i, %if.end1
 if.end185.i:                                      ; preds = %lor.end.i
   %call186.i = call i64 @BIO_ctrl(ptr noundef %call82.i, i32 noundef 82, i64 noundef 0, ptr noundef null) #6
   %conv187.i = trunc i64 %call186.i to i32
-  %cmp188.i = icmp sgt i32 %conv187.i, 0
-  %tobool190.i = icmp ne i32 %1, 0
-  %or.cond.i = and i1 %tobool190.i, %cmp188.i
-  br i1 %or.cond.i, label %if.then191.i, label %if.else198.i
+  %cmp188.i = icmp slt i32 %conv187.i, 1
+  %tobool190.i = icmp eq i32 %1, 0
+  %or.cond.not106.i = or i1 %tobool190.i, %cmp188.i
+  br i1 %or.cond.not106.i, label %if.else198.i, label %if.then191.i
 
 if.then191.i:                                     ; preds = %if.end185.i
   %call192.i = call i64 @BIO_ctrl(ptr noundef %call82.i, i32 noundef 84, i64 noundef 1, ptr noundef null) #6
@@ -524,9 +524,9 @@ if.end269.i:                                      ; preds = %if.end263.i
 if.end275.i:                                      ; preds = %if.end269.i
   %call276.i = call i64 @BIO_ctrl(ptr noundef %call87.i, i32 noundef 82, i64 noundef 0, ptr noundef null) #6
   %conv277.i = trunc i64 %call276.i to i32
-  %cmp278.i = icmp sgt i32 %conv277.i, 0
-  %or.cond1.i = and i1 %or.cond.i, %cmp278.i
-  br i1 %or.cond1.i, label %if.then282.i, label %if.else289.i
+  %cmp278.i = icmp slt i32 %conv277.i, 1
+  %or.cond1.not.i = or i1 %or.cond.not106.i, %cmp278.i
+  br i1 %or.cond1.not.i, label %if.else289.i, label %if.then282.i
 
 if.then282.i:                                     ; preds = %if.end275.i
   %call283.i = call i64 @BIO_ctrl(ptr noundef %call87.i, i32 noundef 84, i64 noundef 1, ptr noundef null) #6
@@ -636,15 +636,15 @@ if.end379.i:                                      ; preds = %if.then374.i
   br i1 %tobool382.not.i, label %err.i, label %if.end385.i
 
 if.end385.i:                                      ; preds = %if.end379.i, %if.end369.i
-  %cond.i = select i1 %or.cond1.i, ptr %call5.i, ptr null
+  %cond.i = select i1 %or.cond1.not.i, ptr null, ptr %call5.i
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %if.end385.i
-  %i.0106.i = phi i64 [ 0, %if.end385.i ], [ %inc.i, %for.body.i ]
-  %conv388.i = trunc i64 %i.0106.i to i8
-  %arrayidx389.i = getelementptr inbounds [128 x i8], ptr %tx_buf.i, i64 0, i64 %i.0106.i
+  %i.0107.i = phi i64 [ 0, %if.end385.i ], [ %inc.i, %for.body.i ]
+  %conv388.i = trunc i64 %i.0107.i to i8
+  %arrayidx389.i = getelementptr inbounds [128 x i8], ptr %tx_buf.i, i64 0, i64 %i.0107.i
   store i8 %conv388.i, ptr %arrayidx389.i, align 1
-  %arrayidx391.i = getelementptr inbounds [128 x %struct.bio_msg_st], ptr %tx_msg.i, i64 0, i64 %i.0106.i
+  %arrayidx391.i = getelementptr inbounds [128 x %struct.bio_msg_st], ptr %tx_msg.i, i64 0, i64 %i.0107.i
   store ptr %arrayidx389.i, ptr %arrayidx391.i, align 8
   %data_len394.i = getelementptr inbounds i8, ptr %arrayidx391.i, i64 8
   store i64 1, ptr %data_len394.i, align 8
@@ -654,7 +654,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.end
   store ptr %cond.i, ptr %local399.i, align 8
   %flags401.i = getelementptr inbounds i8, ptr %arrayidx391.i, i64 32
   store i64 0, ptr %flags401.i, align 8
-  %inc.i = add nuw nsw i64 %i.0106.i, 1
+  %inc.i = add nuw nsw i64 %i.0107.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 128
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !6
 
@@ -675,17 +675,17 @@ for.body416.preheader.i:                          ; preds = %lor.lhs.false408.i
   br label %for.body416.i
 
 for.body416.i:                                    ; preds = %for.body416.i, %for.body416.preheader.i
-  %i.1107.i = phi i64 [ %inc431.i, %for.body416.i ], [ 0, %for.body416.preheader.i ]
-  %add.ptr419.i = getelementptr inbounds i8, ptr %rx_buf.i, i64 %i.1107.i
-  %arrayidx420.i = getelementptr inbounds [128 x %struct.bio_msg_st], ptr %rx_msg.i, i64 0, i64 %i.1107.i
+  %i.1108.i = phi i64 [ %inc431.i, %for.body416.i ], [ 0, %for.body416.preheader.i ]
+  %add.ptr419.i = getelementptr inbounds i8, ptr %rx_buf.i, i64 %i.1108.i
+  %arrayidx420.i = getelementptr inbounds [128 x %struct.bio_msg_st], ptr %rx_msg.i, i64 0, i64 %i.1108.i
   store ptr %add.ptr419.i, ptr %arrayidx420.i, align 8
   %data_len423.i = getelementptr inbounds i8, ptr %arrayidx420.i, i64 8
   store i64 1, ptr %data_len423.i, align 8
   %peer425.i = getelementptr inbounds i8, ptr %arrayidx420.i, i64 16
-  %inc431.i = add nuw nsw i64 %i.1107.i, 1
-  %exitcond108.not.i = icmp eq i64 %inc431.i, 128
+  %inc431.i = add nuw nsw i64 %i.1108.i, 1
+  %exitcond109.not.i = icmp eq i64 %inc431.i, 128
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %peer425.i, i8 0, i64 24, i1 false)
-  br i1 %exitcond108.not.i, label %for.end432.i, label %for.body416.i, !llvm.loop !8
+  br i1 %exitcond109.not.i, label %for.end432.i, label %for.body416.i, !llvm.loop !8
 
 for.end432.i:                                     ; preds = %for.body416.i
   %call434.i = call fastcc i32 @do_recvmmsg(ptr noundef %call87.i, ptr noundef nonnull %rx_msg.i, i64 noundef 128, ptr noundef nonnull %num_processed.i)

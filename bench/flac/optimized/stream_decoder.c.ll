@@ -5368,11 +5368,11 @@ if.end34:                                         ; preds = %if.end24
   br i1 %switch29, label %while.body.i, label %if.end34.if.end56_crit_edge
 
 if.end34.if.end56_crit_edge:                      ; preds = %if.end34
-  %.pre127 = load ptr, ptr %private_, align 8
+  %.pre126 = load ptr, ptr %private_, align 8
   br label %if.end56
 
 while.body.i:                                     ; preds = %if.end34, %sw.epilog.i
-  %13 = phi i32 [ %.pre126, %sw.epilog.i ], [ %12, %if.end34 ]
+  %13 = phi i32 [ %.pre125, %sw.epilog.i ], [ %12, %if.end34 ]
   %14 = phi ptr [ %.pre, %sw.epilog.i ], [ %11, %if.end34 ]
   switch i32 %13, label %return.sink.split.sink.split [
     i32 0, label %sw.bb.i
@@ -5395,7 +5395,7 @@ sw.bb1.i:                                         ; preds = %while.body.i
 
 sw.epilog.i:                                      ; preds = %sw.bb1.i, %sw.bb.i
   %.pre = load ptr, ptr %decoder, align 8
-  %.pre126 = load i32, ptr %.pre, align 8
+  %.pre125 = load i32, ptr %.pre, align 8
   br label %while.body.i
 
 if.end46:                                         ; preds = %while.body.i, %while.body.i, %while.body.i, %while.body.i
@@ -5409,12 +5409,12 @@ FLAC__stream_decoder_get_total_samples.exit44:    ; preds = %if.end46
   %total_samples.i42 = getelementptr inbounds i8, ptr %15, i64 512
   %17 = load i64, ptr %total_samples.i42, align 8
   %18 = add i64 %17, -1
-  %or.cond151.not = icmp ult i64 %18, %sample
-  br i1 %or.cond151.not, label %return.sink.split, label %if.end56
+  %or.cond150.not = icmp ult i64 %18, %sample
+  br i1 %or.cond150.not, label %return.sink.split, label %if.end56
 
 if.end56:                                         ; preds = %if.end34.if.end56_crit_edge, %if.end46, %FLAC__stream_decoder_get_total_samples.exit44
   %19 = phi ptr [ %11, %if.end34.if.end56_crit_edge ], [ %14, %if.end46 ], [ %14, %FLAC__stream_decoder_get_total_samples.exit44 ]
-  %20 = phi ptr [ %.pre127, %if.end34.if.end56_crit_edge ], [ %15, %if.end46 ], [ %15, %FLAC__stream_decoder_get_total_samples.exit44 ]
+  %20 = phi ptr [ %.pre126, %if.end34.if.end56_crit_edge ], [ %15, %if.end46 ], [ %15, %FLAC__stream_decoder_get_total_samples.exit44 ]
   %21 = load i32, ptr %20, align 8
   %tobool58.not = icmp eq i32 %21, 0
   %22 = load i64, ptr %length, align 8
@@ -5435,8 +5435,8 @@ FLAC__stream_decoder_get_total_samples.exit.i:    ; preds = %cond.true.i.i, %con
   %cond.i.i = phi i64 [ %24, %cond.true.i.i ], [ 0, %cond.true ]
   %target_sample1.i = getelementptr inbounds i8, ptr %20, i64 8912
   store i64 %sample, ptr %target_sample1.i, align 8
-  %cmp2.not53.not.i = icmp eq i64 %22, 0
-  br i1 %cmp2.not53.not.i, label %return.sink.split.sink.split.i, label %lor.lhs.false.preheader.i
+  %cmp2.not54.not.i = icmp eq i64 %22, 0
+  br i1 %cmp2.not54.not.i, label %return.sink.split.sink.split.i, label %lor.lhs.false.preheader.i
 
 lor.lhs.false.preheader.i:                        ; preds = %FLAC__stream_decoder_get_total_samples.exit.i
   %cmp.i = icmp eq i64 %cond.i.i, 0
@@ -5445,40 +5445,40 @@ lor.lhs.false.preheader.i:                        ; preds = %FLAC__stream_decode
   br label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %for.inc.i, %lor.lhs.false.preheader.i
-  %BINARY_SEARCH_AFTER_ITERATION.161.i = phi i32 [ %BINARY_SEARCH_AFTER_ITERATION.2.i, %for.inc.i ], [ %spec.select45.i, %lor.lhs.false.preheader.i ]
-  %iteration.060.i = phi i32 [ %inc.i, %for.inc.i ], [ 0, %lor.lhs.false.preheader.i ]
-  %pos.059.i = phi i64 [ %pos.2.i, %for.inc.i ], [ 0, %lor.lhs.false.preheader.i ]
-  %this_frame_sample.058.i = phi i64 [ %this_frame_sample.1.i, %for.inc.i ], [ -1, %lor.lhs.false.preheader.i ]
-  %right_sample.157.i = phi i64 [ %right_sample.2.i, %for.inc.i ], [ %spec.select.i, %lor.lhs.false.preheader.i ]
-  %left_sample.056.i = phi i64 [ %left_sample.1.i, %for.inc.i ], [ 0, %lor.lhs.false.preheader.i ]
-  %right_pos.055.i = phi i64 [ %right_pos.1.i, %for.inc.i ], [ %22, %lor.lhs.false.preheader.i ]
-  %left_pos.054.i = phi i64 [ %left_pos.1.i, %for.inc.i ], [ 0, %lor.lhs.false.preheader.i ]
-  %sub.i = sub i64 %right_pos.055.i, %left_pos.054.i
+  %BINARY_SEARCH_AFTER_ITERATION.162.i = phi i32 [ %BINARY_SEARCH_AFTER_ITERATION.2.i, %for.inc.i ], [ %spec.select45.i, %lor.lhs.false.preheader.i ]
+  %iteration.061.i = phi i32 [ %inc.i, %for.inc.i ], [ 0, %lor.lhs.false.preheader.i ]
+  %pos.060.i = phi i64 [ %pos.2.i, %for.inc.i ], [ 0, %lor.lhs.false.preheader.i ]
+  %this_frame_sample.059.i = phi i64 [ %this_frame_sample.1.i, %for.inc.i ], [ -1, %lor.lhs.false.preheader.i ]
+  %right_sample.158.i = phi i64 [ %right_sample.2.i, %for.inc.i ], [ %spec.select.i, %lor.lhs.false.preheader.i ]
+  %left_sample.057.i = phi i64 [ %left_sample.1.i, %for.inc.i ], [ 0, %lor.lhs.false.preheader.i ]
+  %right_pos.056.i = phi i64 [ %right_pos.1.i, %for.inc.i ], [ %22, %lor.lhs.false.preheader.i ]
+  %left_pos.055.i = phi i64 [ %left_pos.1.i, %for.inc.i ], [ 0, %lor.lhs.false.preheader.i ]
+  %sub.i = sub i64 %right_pos.056.i, %left_pos.055.i
   %cmp3.i = icmp ult i64 %sub.i, 9
   br i1 %cmp3.i, label %return.sink.split.sink.split.i, label %if.end5.i
 
 if.end5.i:                                        ; preds = %lor.lhs.false.i
-  %cmp6.i = icmp eq i32 %iteration.060.i, 0
-  %cmp8.i = icmp ugt i64 %this_frame_sample.058.i, %sample
-  %or.cond.i = select i1 %cmp6.i, i1 true, i1 %cmp8.i
-  %sub10.i = sub i64 %sample, %this_frame_sample.058.i
-  %cmp11.i = icmp ugt i64 %sub10.i, 131070
-  %or.cond46.i = select i1 %or.cond.i, i1 true, i1 %cmp11.i
-  br i1 %or.cond46.i, label %if.then12.i, label %if.end36.i
+  %cmp6.i = icmp ne i32 %iteration.061.i, 0
+  %cmp8.i = icmp ule i64 %this_frame_sample.059.i, %sample
+  %or.cond.not51.i = select i1 %cmp6.i, i1 %cmp8.i, i1 false
+  %sub10.i = sub i64 %sample, %this_frame_sample.059.i
+  %cmp11.i = icmp ult i64 %sub10.i, 131071
+  %or.cond46.not.i = select i1 %or.cond.not51.i, i1 %cmp11.i, i1 false
+  br i1 %or.cond46.not.i, label %if.end36.i, label %if.then12.i
 
 if.then12.i:                                      ; preds = %if.end5.i
-  %cmp13.not.i = icmp ult i32 %iteration.060.i, %BINARY_SEARCH_AFTER_ITERATION.161.i
+  %cmp13.not.i = icmp ult i32 %iteration.061.i, %BINARY_SEARCH_AFTER_ITERATION.162.i
   br i1 %cmp13.not.i, label %if.else.i, label %if.then14.i
 
 if.then14.i:                                      ; preds = %if.then12.i
-  %add.i = add i64 %left_pos.054.i, %right_pos.055.i
+  %add.i = add i64 %left_pos.055.i, %right_pos.056.i
   %div44.i = lshr i64 %add.i, 1
   br label %if.end22.i
 
 if.else.i:                                        ; preds = %if.then12.i
-  %sub15.i = sub i64 %sample, %left_sample.056.i
+  %sub15.i = sub i64 %sample, %left_sample.057.i
   %conv.i = uitofp i64 %sub15.i to double
-  %sub16.i = sub i64 %right_sample.157.i, %left_sample.056.i
+  %sub16.i = sub i64 %right_sample.158.i, %left_sample.057.i
   %conv17.i = uitofp i64 %sub16.i to double
   %conv20.i = uitofp i64 %sub.i to double
   %25 = fmul reassoc nsz arcp double %conv20.i, %conv.i
@@ -5546,7 +5546,7 @@ FLAC__stream_decoder_flush.exit.i:                ; preds = %if.then7.i.i, %if.e
   br i1 %tobool11.not.i.not.i, label %return.sink.split.sink.split, label %if.end36.i
 
 if.end36.i:                                       ; preds = %FLAC__stream_decoder_flush.exit.i, %if.end5.i
-  %pos.2.i = phi i64 [ %pos.1.i, %FLAC__stream_decoder_flush.exit.i ], [ %pos.059.i, %if.end5.i ]
+  %pos.2.i = phi i64 [ %pos.1.i, %FLAC__stream_decoder_flush.exit.i ], [ %pos.060.i, %if.end5.i ]
   %42 = load ptr, ptr %private_, align 8
   %got_a_frame.i = getelementptr inbounds i8, ptr %42, i64 8924
   store i32 0, ptr %got_a_frame.i, align 4
@@ -5568,7 +5568,7 @@ if.end48.i:                                       ; preds = %lor.lhs.false40.i
   br i1 %tobool51.not.i, label %if.then52.i, label %if.else59.i
 
 if.then52.i:                                      ; preds = %if.end48.i
-  br i1 %or.cond46.i, label %for.inc.i, label %return.sink.split.i
+  br i1 %or.cond46.not.i, label %return.sink.split.i, label %for.inc.i
 
 if.else59.i:                                      ; preds = %if.end48.i
   %is_seeking.i = getelementptr inbounds i8, ptr %44, i64 5128
@@ -5579,28 +5579,28 @@ if.else59.i:                                      ; preds = %if.end48.i
 if.else63.i:                                      ; preds = %if.else59.i
   %number.i = getelementptr inbounds i8, ptr %44, i64 5280
   %47 = load i64, ptr %number.i, align 8
-  br i1 %or.cond46.i, label %if.then66.i, label %for.inc.i
+  br i1 %or.cond46.not.i, label %for.inc.i, label %if.then66.i
 
 if.then66.i:                                      ; preds = %if.else63.i
   %cmp67.not.i = icmp ugt i64 %47, %sample
   br i1 %cmp67.not.i, label %if.else76.i, label %if.then69.i
 
 if.then69.i:                                      ; preds = %if.then66.i
-  %cmp70.i = icmp eq i64 %left_pos.054.i, %pos.2.i
+  %cmp70.i = icmp eq i64 %left_pos.055.i, %pos.2.i
   br i1 %cmp70.i, label %return.sink.split.i, label %for.inc.i
 
 if.else76.i:                                      ; preds = %if.then66.i
-  %cmp77.i = icmp eq i64 %right_pos.055.i, %pos.2.i
+  %cmp77.i = icmp eq i64 %right_pos.056.i, %pos.2.i
   br i1 %cmp77.i, label %return.sink.split.i, label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.else76.i, %if.then69.i, %if.else63.i, %if.then52.i
-  %left_pos.1.i = phi i64 [ %left_pos.054.i, %if.else63.i ], [ %left_pos.054.i, %if.then52.i ], [ %pos.2.i, %if.then69.i ], [ %left_pos.054.i, %if.else76.i ]
-  %right_pos.1.i = phi i64 [ %right_pos.055.i, %if.else63.i ], [ %pos.2.i, %if.then52.i ], [ %right_pos.055.i, %if.then69.i ], [ %pos.2.i, %if.else76.i ]
-  %left_sample.1.i = phi i64 [ %left_sample.056.i, %if.else63.i ], [ %left_sample.056.i, %if.then52.i ], [ %47, %if.then69.i ], [ %left_sample.056.i, %if.else76.i ]
-  %right_sample.2.i = phi i64 [ %right_sample.157.i, %if.else63.i ], [ %right_sample.157.i, %if.then52.i ], [ %right_sample.157.i, %if.then69.i ], [ %47, %if.else76.i ]
-  %this_frame_sample.1.i = phi i64 [ %47, %if.else63.i ], [ %this_frame_sample.058.i, %if.then52.i ], [ %47, %if.then69.i ], [ %47, %if.else76.i ]
-  %BINARY_SEARCH_AFTER_ITERATION.2.i = phi i32 [ %BINARY_SEARCH_AFTER_ITERATION.161.i, %if.else63.i ], [ 0, %if.then52.i ], [ %BINARY_SEARCH_AFTER_ITERATION.161.i, %if.then69.i ], [ %BINARY_SEARCH_AFTER_ITERATION.161.i, %if.else76.i ]
-  %inc.i = add i32 %iteration.060.i, 1
+  %left_pos.1.i = phi i64 [ %left_pos.055.i, %if.else63.i ], [ %left_pos.055.i, %if.then52.i ], [ %pos.2.i, %if.then69.i ], [ %left_pos.055.i, %if.else76.i ]
+  %right_pos.1.i = phi i64 [ %right_pos.056.i, %if.else63.i ], [ %pos.2.i, %if.then52.i ], [ %right_pos.056.i, %if.then69.i ], [ %pos.2.i, %if.else76.i ]
+  %left_sample.1.i = phi i64 [ %left_sample.057.i, %if.else63.i ], [ %left_sample.057.i, %if.then52.i ], [ %47, %if.then69.i ], [ %left_sample.057.i, %if.else76.i ]
+  %right_sample.2.i = phi i64 [ %right_sample.158.i, %if.else63.i ], [ %right_sample.158.i, %if.then52.i ], [ %right_sample.158.i, %if.then69.i ], [ %47, %if.else76.i ]
+  %this_frame_sample.1.i = phi i64 [ %47, %if.else63.i ], [ %this_frame_sample.059.i, %if.then52.i ], [ %47, %if.then69.i ], [ %47, %if.else76.i ]
+  %BINARY_SEARCH_AFTER_ITERATION.2.i = phi i32 [ %BINARY_SEARCH_AFTER_ITERATION.162.i, %if.else63.i ], [ 0, %if.then52.i ], [ %BINARY_SEARCH_AFTER_ITERATION.162.i, %if.then69.i ], [ %BINARY_SEARCH_AFTER_ITERATION.162.i, %if.else76.i ]
+  %inc.i = add i32 %iteration.061.i, 1
   %cmp2.not.i = icmp ugt i64 %right_pos.1.i, %left_pos.1.i
   br i1 %cmp2.not.i, label %lor.lhs.false.i, label %return.sink.split.sink.split.i
 
@@ -5609,8 +5609,8 @@ return.sink.split.sink.split.i:                   ; preds = %for.inc.i, %if.end2
   br label %return.sink.split.i
 
 return.sink.split.i:                              ; preds = %if.else76.i, %if.then69.i, %if.then52.i, %lor.lhs.false40.i, %if.end36.i, %return.sink.split.sink.split.i
-  %.pre.lcssa65.sink.i = phi ptr [ %48, %return.sink.split.sink.split.i ], [ %.pre.i, %if.end36.i ], [ %.pre.i, %lor.lhs.false40.i ], [ %.pre.i, %if.then52.i ], [ %.pre.i, %if.then69.i ], [ %.pre.i, %if.else76.i ]
-  store i32 6, ptr %.pre.lcssa65.sink.i, align 8
+  %.pre.lcssa66.sink.i = phi ptr [ %48, %return.sink.split.sink.split.i ], [ %.pre.i, %if.end36.i ], [ %.pre.i, %lor.lhs.false40.i ], [ %.pre.i, %if.then52.i ], [ %.pre.i, %if.then69.i ], [ %.pre.i, %if.else76.i ]
+  store i32 6, ptr %.pre.lcssa66.sink.i, align 8
   br label %return.sink.split.sink.split
 
 cond.false:                                       ; preds = %if.end56
@@ -5679,12 +5679,12 @@ if.then33.i:                                      ; preds = %if.end31.i63
 if.else.i77:                                      ; preds = %if.end31.i63
   %cmp35.i = icmp eq i32 %52, %53
   %cmp36.i = icmp ne i32 %52, 0
-  %or.cond.i78 = and i1 %cmp36.i, %cmp35.i
-  br i1 %or.cond.i78, label %if.then37.i, label %if.else41.i
+  %or.cond.i = and i1 %cmp36.i, %cmp35.i
+  br i1 %or.cond.i, label %if.then37.i, label %if.else41.i
 
 if.then37.i:                                      ; preds = %if.else.i77
-  %mul.i79 = mul i32 %channels.0.i, %52
-  %mul38.i = mul i32 %mul.i79, %bps.0.i
+  %mul.i78 = mul i32 %channels.0.i, %52
+  %mul38.i = mul i32 %mul.i78, %bps.0.i
   %div39138.i = lshr i32 %mul38.i, 3
   %add40.i = add nuw nsw i32 %div39138.i, 64
   br label %if.end47.i
@@ -6047,11 +6047,11 @@ if.then236.us.i:                                  ; preds = %if.end222.us.i
   br i1 %cmp239.not.us.i, label %return.sink.split.i66, label %if.then236.us.i.land.lhs.true241.us.i_crit_edge
 
 if.then236.us.i.land.lhs.true241.us.i_crit_edge:  ; preds = %if.then236.us.i
-  %.pre128 = load ptr, ptr %private_, align 8
+  %.pre127 = load ptr, ptr %private_, align 8
   br label %land.lhs.true241.us.i
 
 land.lhs.true241.us.i:                            ; preds = %if.then236.us.i.land.lhs.true241.us.i_crit_edge, %lor.lhs.false231.us.i
-  %124 = phi ptr [ %.pre128, %if.then236.us.i.land.lhs.true241.us.i_crit_edge ], [ %122, %lor.lhs.false231.us.i ]
+  %124 = phi ptr [ %.pre127, %if.then236.us.i.land.lhs.true241.us.i_crit_edge ], [ %122, %lor.lhs.false231.us.i ]
   %eof_callback.us.i = getelementptr inbounds i8, ptr %124, i64 40
   %125 = load ptr, ptr %eof_callback.us.i, align 8
   %client_data244.us.i = getelementptr inbounds i8, ptr %124, i64 72

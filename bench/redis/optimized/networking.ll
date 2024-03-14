@@ -1934,18 +1934,18 @@ land.lhs.true16:                                  ; preds = %land.lhs.true
 cmdHasPushAsReply.exit:                           ; preds = %land.lhs.true16
   %proc.i = getelementptr inbounds i8, ptr %7, i64 96
   %8 = load ptr, ptr %proc.i, align 8
-  %cmp.i = icmp eq ptr %8, @subscribeCommand
-  %cmp2.i = icmp eq ptr %8, @unsubscribeCommand
-  %or.cond.i23 = or i1 %cmp.i, %cmp2.i
-  %cmp5.i = icmp eq ptr %8, @psubscribeCommand
-  %or.cond7.i = or i1 %cmp5.i, %or.cond.i23
-  %cmp8.i = icmp eq ptr %8, @punsubscribeCommand
-  %or.cond8.i = or i1 %cmp8.i, %or.cond7.i
-  %cmp11.i = icmp eq ptr %8, @ssubscribeCommand
-  %or.cond9.i = or i1 %cmp11.i, %or.cond8.i
-  %cmp13.i = icmp eq ptr %8, @sunsubscribeCommand
-  %narrow.i = or i1 %cmp13.i, %or.cond9.i
-  br i1 %narrow.i, label %if.end20, label %if.then19
+  %cmp.i = icmp ne ptr %8, @subscribeCommand
+  %cmp2.i = icmp ne ptr %8, @unsubscribeCommand
+  %or.cond.i23.not41 = and i1 %cmp.i, %cmp2.i
+  %cmp5.i = icmp ne ptr %8, @psubscribeCommand
+  %or.cond7.i.not40 = and i1 %cmp5.i, %or.cond.i23.not41
+  %cmp8.i = icmp ne ptr %8, @punsubscribeCommand
+  %or.cond8.i.not39 = and i1 %cmp8.i, %or.cond7.i.not40
+  %cmp11.i = icmp ne ptr %8, @ssubscribeCommand
+  %or.cond9.i.not38 = and i1 %cmp11.i, %or.cond8.i.not39
+  %cmp13.i = icmp ne ptr %8, @sunsubscribeCommand
+  %narrow.i.not = and i1 %cmp13.i, %or.cond9.i.not38
+  br i1 %narrow.i.not, label %if.then19, label %if.end20
 
 if.then19:                                        ; preds = %land.lhs.true16, %cmdHasPushAsReply.exit
   %9 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 332), align 8

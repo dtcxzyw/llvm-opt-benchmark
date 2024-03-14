@@ -30990,7 +30990,7 @@ define zeroext i1 @zend_may_throw_ex(ptr noundef %0, ptr nocapture noundef reado
   %63 = load i32, ptr %62, align 4
   %64 = and i32 %63, 33554432
   %.not648 = icmp eq i32 %64, 0
-  br i1 %.not648, label %65, label %.thread753
+  br i1 %.not648, label %65, label %.thread755
 
 65:                                               ; preds = %61
   %66 = getelementptr inbounds i8, ptr %2, i64 176
@@ -31003,7 +31003,7 @@ define zeroext i1 @zend_may_throw_ex(ptr noundef %0, ptr nocapture noundef reado
   %73 = icmp eq i8 %72, 4
   br i1 %73, label %.thread, label %.critedge
 
-.thread753:                                       ; preds = %61
+.thread755:                                       ; preds = %61
   %74 = getelementptr inbounds i8, ptr %0, i64 12
   %75 = load i32, ptr %74, align 4
   %76 = sext i32 %75 to i64
@@ -31030,10 +31030,10 @@ define zeroext i1 @zend_may_throw_ex(ptr noundef %0, ptr nocapture noundef reado
   %90 = getelementptr inbounds %struct._zend_ssa_var_info, ptr %83, i64 %89, i32 1
   %91 = load i8, ptr %90, align 4
   %92 = and i8 %91, 1
-  %.not737 = icmp eq i8 %92, 0
-  br i1 %.not737, label %.critedge, label %104
+  %.not739 = icmp eq i8 %92, 0
+  br i1 %.not739, label %.critedge, label %104
 
-.thread.thread:                                   ; preds = %.thread753
+.thread.thread:                                   ; preds = %.thread755
   %93 = sext i32 %75 to i64
   %94 = getelementptr inbounds i8, ptr %0, i64 %93
   br label %99
@@ -31050,7 +31050,7 @@ define zeroext i1 @zend_may_throw_ex(ptr noundef %0, ptr nocapture noundef reado
   %101 = getelementptr inbounds i8, ptr %100, i64 8
   %102 = load i8, ptr %101, align 8
   %103 = icmp eq i8 %102, 4
-  br i1 %103, label %.thread754, label %.thread691.thread
+  br i1 %103, label %.thread756, label %.thread691.thread
 
 104:                                              ; preds = %88
   %105 = getelementptr inbounds %struct._zend_ssa_var_info, ptr %83, i64 %89, i32 2
@@ -31058,22 +31058,22 @@ define zeroext i1 @zend_may_throw_ex(ptr noundef %0, ptr nocapture noundef reado
   %106 = icmp slt i64 %.0500, 1
   br i1 %106, label %.thread691, label %144
 
-.thread754:                                       ; preds = %99
-  %.0500756 = load i64, ptr %100, align 8
-  %107 = icmp slt i64 %.0500756, 1
+.thread756:                                       ; preds = %99
+  %.0500758 = load i64, ptr %100, align 8
+  %107 = icmp slt i64 %.0500758, 1
   br i1 %107, label %.thread691..thread691.thread_crit_edge, label %144
 
 .thread691:                                       ; preds = %104
   %cond = icmp eq i8 %24, 1
   br i1 %cond, label %.thread691..thread691.thread_crit_edge, label %127
 
-.thread691..thread691.thread_crit_edge:           ; preds = %.thread754, %.thread691
-  %.phi.trans.insert751 = getelementptr inbounds i8, ptr %2, i64 4
-  %.pre752 = load i32, ptr %.phi.trans.insert751, align 4
+.thread691..thread691.thread_crit_edge:           ; preds = %.thread756, %.thread691
+  %.phi.trans.insert753 = getelementptr inbounds i8, ptr %2, i64 4
+  %.pre754 = load i32, ptr %.phi.trans.insert753, align 4
   br label %.thread691.thread
 
 .thread691.thread:                                ; preds = %.thread691..thread691.thread_crit_edge, %99
-  %108 = phi i32 [ %.pre752, %.thread691..thread691.thread_crit_edge ], [ %63, %99 ]
+  %108 = phi i32 [ %.pre754, %.thread691..thread691.thread_crit_edge ], [ %63, %99 ]
   %109 = and i32 %108, 33554432
   %.not656 = icmp eq i32 %109, 0
   br i1 %.not656, label %115, label %110
@@ -31132,7 +31132,7 @@ define zeroext i1 @zend_may_throw_ex(ptr noundef %0, ptr nocapture noundef reado
   %143 = icmp sgt i64 %.0496, -1
   br i1 %143, label %.critedge, label %144
 
-144:                                              ; preds = %.thread754, %104, %142, %38, %38, %38
+144:                                              ; preds = %.thread756, %104, %142, %38, %38, %38
   %145 = or i32 %5, %4
   %146 = and i32 %145, 960
   %147 = icmp ne i32 %146, 0
@@ -31149,7 +31149,7 @@ define zeroext i1 @zend_may_throw_ex(ptr noundef %0, ptr nocapture noundef reado
   %151 = load i32, ptr %150, align 4
   %152 = and i32 %151, 33554432
   %.not628 = icmp eq i32 %152, 0
-  br i1 %.not628, label %153, label %.thread759
+  br i1 %.not628, label %153, label %.thread761
 
 153:                                              ; preds = %149
   %154 = getelementptr inbounds i8, ptr %2, i64 176
@@ -31162,7 +31162,7 @@ define zeroext i1 @zend_may_throw_ex(ptr noundef %0, ptr nocapture noundef reado
   %161 = icmp eq i8 %160, 4
   br i1 %161, label %.thread696, label %.critedge
 
-.thread759:                                       ; preds = %149
+.thread761:                                       ; preds = %149
   %162 = getelementptr inbounds i8, ptr %0, i64 12
   %163 = load i32, ptr %162, align 4
   %164 = sext i32 %163 to i64
@@ -31189,10 +31189,10 @@ define zeroext i1 @zend_may_throw_ex(ptr noundef %0, ptr nocapture noundef reado
   %178 = getelementptr inbounds %struct._zend_ssa_var_info, ptr %171, i64 %177, i32 1
   %179 = load i8, ptr %178, align 4
   %180 = and i8 %179, 1
-  %.not735 = icmp eq i8 %180, 0
-  br i1 %.not735, label %.critedge, label %192
+  %.not737 = icmp eq i8 %180, 0
+  br i1 %.not737, label %.critedge, label %192
 
-.thread696.thread:                                ; preds = %.thread759
+.thread696.thread:                                ; preds = %.thread761
   %181 = sext i32 %163 to i64
   %182 = getelementptr inbounds i8, ptr %0, i64 %181
   br label %187
@@ -31209,7 +31209,7 @@ define zeroext i1 @zend_may_throw_ex(ptr noundef %0, ptr nocapture noundef reado
   %189 = getelementptr inbounds i8, ptr %188, i64 8
   %190 = load i8, ptr %189, align 8
   %191 = icmp eq i8 %190, 4
-  br i1 %191, label %.thread760, label %.thread698.thread
+  br i1 %191, label %.thread762, label %.thread698.thread
 
 192:                                              ; preds = %176
   %193 = getelementptr inbounds %struct._zend_ssa_var_info, ptr %171, i64 %177, i32 2
@@ -31217,22 +31217,22 @@ define zeroext i1 @zend_may_throw_ex(ptr noundef %0, ptr nocapture noundef reado
   %194 = icmp slt i64 %.0501, 1
   br i1 %194, label %.thread698, label %232
 
-.thread760:                                       ; preds = %187
-  %.0501762 = load i64, ptr %188, align 8
-  %195 = icmp slt i64 %.0501762, 1
+.thread762:                                       ; preds = %187
+  %.0501764 = load i64, ptr %188, align 8
+  %195 = icmp slt i64 %.0501764, 1
   br i1 %195, label %.thread698..thread698.thread_crit_edge, label %232
 
 .thread698:                                       ; preds = %192
   %cond726 = icmp eq i8 %24, 1
   br i1 %cond726, label %.thread698..thread698.thread_crit_edge, label %215
 
-.thread698..thread698.thread_crit_edge:           ; preds = %.thread760, %.thread698
-  %.phi.trans.insert744 = getelementptr inbounds i8, ptr %2, i64 4
-  %.pre745 = load i32, ptr %.phi.trans.insert744, align 4
+.thread698..thread698.thread_crit_edge:           ; preds = %.thread762, %.thread698
+  %.phi.trans.insert746 = getelementptr inbounds i8, ptr %2, i64 4
+  %.pre747 = load i32, ptr %.phi.trans.insert746, align 4
   br label %.thread698.thread
 
 .thread698.thread:                                ; preds = %.thread698..thread698.thread_crit_edge, %187
-  %196 = phi i32 [ %.pre745, %.thread698..thread698.thread_crit_edge ], [ %151, %187 ]
+  %196 = phi i32 [ %.pre747, %.thread698..thread698.thread_crit_edge ], [ %151, %187 ]
   %197 = and i32 %196, 33554432
   %.not636 = icmp eq i32 %197, 0
   br i1 %.not636, label %203, label %198
@@ -31291,7 +31291,7 @@ define zeroext i1 @zend_may_throw_ex(ptr noundef %0, ptr nocapture noundef reado
   %231 = icmp sgt i64 %.0497, -1
   br i1 %231, label %.critedge, label %232
 
-232:                                              ; preds = %.thread760, %192, %230, %38, %38
+232:                                              ; preds = %.thread762, %192, %230, %38, %38
   %233 = or i32 %5, %4
   %234 = and i32 %233, 992
   %or.cond665 = icmp eq i32 %234, 0
@@ -31308,7 +31308,7 @@ define zeroext i1 @zend_may_throw_ex(ptr noundef %0, ptr nocapture noundef reado
   %238 = load i32, ptr %237, align 4
   %239 = and i32 %238, 33554432
   %.not641 = icmp eq i32 %239, 0
-  br i1 %.not641, label %240, label %.thread765
+  br i1 %.not641, label %240, label %.thread767
 
 240:                                              ; preds = %236
   %241 = getelementptr inbounds i8, ptr %2, i64 176
@@ -31321,7 +31321,7 @@ define zeroext i1 @zend_may_throw_ex(ptr noundef %0, ptr nocapture noundef reado
   %248 = icmp eq i8 %247, 4
   br i1 %248, label %.thread703, label %.critedge
 
-.thread765:                                       ; preds = %236
+.thread767:                                       ; preds = %236
   %249 = getelementptr inbounds i8, ptr %0, i64 12
   %250 = load i32, ptr %249, align 4
   %251 = sext i32 %250 to i64
@@ -31348,10 +31348,10 @@ define zeroext i1 @zend_may_throw_ex(ptr noundef %0, ptr nocapture noundef reado
   %265 = getelementptr inbounds %struct._zend_ssa_var_info, ptr %258, i64 %264, i32 1
   %266 = load i8, ptr %265, align 4
   %267 = and i8 %266, 1
-  %.not736 = icmp eq i8 %267, 0
-  br i1 %.not736, label %.critedge, label %279
+  %.not738 = icmp eq i8 %267, 0
+  br i1 %.not738, label %.critedge, label %279
 
-.thread703.thread:                                ; preds = %.thread765
+.thread703.thread:                                ; preds = %.thread767
   %268 = sext i32 %250 to i64
   %269 = getelementptr inbounds i8, ptr %0, i64 %268
   br label %274
@@ -31483,7 +31483,7 @@ define zeroext i1 @zend_may_throw_ex(ptr noundef %0, ptr nocapture noundef reado
   %336 = load i32, ptr %335, align 4
   %337 = and i32 %336, 33554432
   %.not617 = icmp eq i32 %337, 0
-  br i1 %.not617, label %338, label %.thread766
+  br i1 %.not617, label %338, label %.thread768
 
 338:                                              ; preds = %334
   %339 = getelementptr inbounds i8, ptr %2, i64 176
@@ -31496,7 +31496,7 @@ define zeroext i1 @zend_may_throw_ex(ptr noundef %0, ptr nocapture noundef reado
   %346 = icmp eq i8 %345, 4
   br i1 %346, label %.thread704, label %.critedge
 
-.thread766:                                       ; preds = %334
+.thread768:                                       ; preds = %334
   %347 = getelementptr inbounds i8, ptr %0, i64 12
   %348 = load i32, ptr %347, align 4
   %349 = sext i32 %348 to i64
@@ -31523,10 +31523,10 @@ define zeroext i1 @zend_may_throw_ex(ptr noundef %0, ptr nocapture noundef reado
   %363 = getelementptr inbounds %struct._zend_ssa_var_info, ptr %356, i64 %362, i32 1
   %364 = load i8, ptr %363, align 4
   %365 = and i8 %364, 1
-  %.not734 = icmp eq i8 %365, 0
-  br i1 %.not734, label %.critedge, label %377
+  %.not736 = icmp eq i8 %365, 0
+  br i1 %.not736, label %.critedge, label %377
 
-.thread704.thread:                                ; preds = %.thread766
+.thread704.thread:                                ; preds = %.thread768
   %366 = sext i32 %348 to i64
   %367 = getelementptr inbounds i8, ptr %0, i64 %366
   br label %372
@@ -31543,7 +31543,7 @@ define zeroext i1 @zend_may_throw_ex(ptr noundef %0, ptr nocapture noundef reado
   %374 = getelementptr inbounds i8, ptr %373, i64 8
   %375 = load i8, ptr %374, align 8
   %376 = icmp eq i8 %375, 4
-  br i1 %376, label %.thread767, label %.thread706.thread
+  br i1 %376, label %.thread769, label %.thread706.thread
 
 377:                                              ; preds = %361
   %378 = getelementptr inbounds %struct._zend_ssa_var_info, ptr %356, i64 %362, i32 2
@@ -31551,16 +31551,16 @@ define zeroext i1 @zend_may_throw_ex(ptr noundef %0, ptr nocapture noundef reado
   %379 = icmp slt i64 %.0503, 1
   br i1 %379, label %.thread706, label %417
 
-.thread767:                                       ; preds = %372
-  %.0503769 = load i64, ptr %373, align 8
-  %380 = icmp slt i64 %.0503769, 1
+.thread769:                                       ; preds = %372
+  %.0503771 = load i64, ptr %373, align 8
+  %380 = icmp slt i64 %.0503771, 1
   br i1 %380, label %.thread706..thread706.thread_crit_edge, label %417
 
 .thread706:                                       ; preds = %377
   %cond727 = icmp eq i8 %24, 1
   br i1 %cond727, label %.thread706..thread706.thread_crit_edge, label %400
 
-.thread706..thread706.thread_crit_edge:           ; preds = %.thread767, %.thread706
+.thread706..thread706.thread_crit_edge:           ; preds = %.thread769, %.thread706
   %.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 4
   %.pre = load i32, ptr %.phi.trans.insert, align 4
   br label %.thread706.thread
@@ -31625,7 +31625,7 @@ define zeroext i1 @zend_may_throw_ex(ptr noundef %0, ptr nocapture noundef reado
   %416 = icmp sgt i64 %.0499, -1
   br i1 %416, label %.critedge, label %417
 
-417:                                              ; preds = %.thread767, %415, %377
+417:                                              ; preds = %.thread769, %415, %377
   %418 = or i32 %5, %4
   %419 = and i32 %418, 960
   %420 = icmp ne i32 %419, 0
@@ -31654,7 +31654,7 @@ define zeroext i1 @zend_may_throw_ex(ptr noundef %0, ptr nocapture noundef reado
   %431 = load i32, ptr %430, align 4
   %432 = and i32 %431, 33554432
   %.not610 = icmp eq i32 %432, 0
-  br i1 %.not610, label %433, label %.thread772
+  br i1 %.not610, label %433, label %.thread774
 
 433:                                              ; preds = %429
   %434 = getelementptr inbounds i8, ptr %2, i64 176
@@ -31667,7 +31667,7 @@ define zeroext i1 @zend_may_throw_ex(ptr noundef %0, ptr nocapture noundef reado
   %441 = icmp eq i8 %440, 4
   br i1 %441, label %.thread711, label %.critedge
 
-.thread772:                                       ; preds = %429
+.thread774:                                       ; preds = %429
   %442 = getelementptr inbounds i8, ptr %0, i64 12
   %443 = load i32, ptr %442, align 4
   %444 = sext i32 %443 to i64
@@ -31694,10 +31694,10 @@ define zeroext i1 @zend_may_throw_ex(ptr noundef %0, ptr nocapture noundef reado
   %458 = getelementptr inbounds %struct._zend_ssa_var_info, ptr %451, i64 %457, i32 1
   %459 = load i8, ptr %458, align 4
   %460 = and i8 %459, 1
-  %.not733 = icmp eq i8 %460, 0
-  br i1 %.not733, label %.critedge, label %472
+  %.not735 = icmp eq i8 %460, 0
+  br i1 %.not735, label %.critedge, label %472
 
-.thread711.thread:                                ; preds = %.thread772
+.thread711.thread:                                ; preds = %.thread774
   %461 = sext i32 %443 to i64
   %462 = getelementptr inbounds i8, ptr %0, i64 %461
   br label %467
@@ -31714,15 +31714,15 @@ define zeroext i1 @zend_may_throw_ex(ptr noundef %0, ptr nocapture noundef reado
   %469 = getelementptr inbounds i8, ptr %468, i64 8
   %470 = load i8, ptr %469, align 8
   %471 = icmp eq i8 %470, 4
-  br i1 %471, label %.sink.split773, label %.critedge
+  br i1 %471, label %.sink.split775, label %.critedge
 
 472:                                              ; preds = %456
   %473 = getelementptr inbounds %struct._zend_ssa_var_info, ptr %451, i64 %457, i32 2
-  br label %.sink.split773
+  br label %.sink.split775
 
-.sink.split773:                                   ; preds = %467, %472
-  %.sink774 = phi ptr [ %473, %472 ], [ %468, %467 ]
-  %474 = load i64, ptr %.sink774, align 8
+.sink.split775:                                   ; preds = %467, %472
+  %.sink776 = phi ptr [ %473, %472 ], [ %468, %467 ]
+  %474 = load i64, ptr %.sink776, align 8
   %475 = icmp slt i64 %474, 0
   br label %.critedge
 
@@ -32049,11 +32049,11 @@ define zeroext i1 @zend_may_throw_ex(ptr noundef %0, ptr nocapture noundef reado
   br i1 %.not582, label %.critedge, label %668
 
 668:                                              ; preds = %666, %664
-  %.sink777 = phi i32 [ %665, %664 ], [ %663, %666 ]
-  %.sink775.in = getelementptr inbounds i8, ptr %2, i64 40
-  %.sink775 = load ptr, ptr %.sink775.in, align 8
-  %669 = zext i32 %.sink777 to i64
-  %670 = getelementptr inbounds %struct._zend_arg_info, ptr %.sink775, i64 %669, i32 1, i32 1
+  %.sink779 = phi i32 [ %665, %664 ], [ %663, %666 ]
+  %.sink777.in = getelementptr inbounds i8, ptr %2, i64 40
+  %.sink777 = load ptr, ptr %.sink777.in, align 8
+  %669 = zext i32 %.sink779 to i64
+  %670 = getelementptr inbounds %struct._zend_arg_info, ptr %.sink777, i64 %669, i32 1, i32 1
   %671 = load i32, ptr %670, align 8
   %672 = and i32 %671, 33554431
   %673 = icmp ne i32 %672, 0
@@ -32128,14 +32128,12 @@ define zeroext i1 @zend_may_throw_ex(ptr noundef %0, ptr nocapture noundef reado
   br i1 %.not573, label %708, label %.critedge
 
 708:                                              ; preds = %706
-  %709 = icmp ne i8 %24, 8
-  %710 = and i32 %5, 1073741824
-  %.not574 = icmp eq i32 %710, 0
-  %or.cond685 = or i1 %.not574, %709
-  %711 = and i32 %5, 918272
-  %.not575 = icmp eq i32 %711, 0
-  %or.cond686 = or i1 %.not575, %or.cond685
-  %not.or.cond686 = xor i1 %or.cond686, true
+  %709 = and i32 %5, 1073741824
+  %.not574 = icmp ne i32 %709, 0
+  %710 = and i32 %5, 918272
+  %.not575 = icmp ne i32 %710, 0
+  %711 = and i1 %.not574, %.not575
+  %or.cond686.not = and i1 %711, %25
   br label %.critedge
 
 712:                                              ; preds = %38, %38
@@ -32150,8 +32148,8 @@ define zeroext i1 @zend_may_throw_ex(ptr noundef %0, ptr nocapture noundef reado
 717:                                              ; preds = %38
   br label %.critedge
 
-.critedge:                                        ; preds = %467, %.sink.split773, %274, %.sink.split, %.thread772, %.thread766, %.thread765, %.thread759, %.thread753, %712, %525, %528, %500, %395, %407, %403, %400, %210, %222, %218, %215, %122, %134, %130, %127, %433, %338, %240, %153, %65, %708, %503, %706, %704, %702, %700, %687, %657, %666, %652, %537, %603, %607, %598, %591, %539, %550, %553, %558, %561, %564, %567, %532, %519, %515, %516, %507, %494, %489, %321, %480, %425, %456, %428, %449, %452, %361, %415, %333, %354, %357, %324, %312, %287, %232, %263, %235, %256, %259, %176, %230, %148, %169, %172, %88, %142, %60, %81, %84, %51, %43, %38, %38, %38, %38, %38, %38, %38, %38, %38, %38, %38, %38, %38, %38, %38, %38, %38, %38, %38, %38, %38, %38, %38, %38, %38, %38, %38, %38, %35, %28, %19, %12, %717, %696, %693, %690, %682, %677, %674, %668, %633, %630, %625, %620, %617, %613, %491, %485, %476, %421, %417, %329, %317, %308, %305, %302, %299, %296, %292, %283, %144, %56, %47, %41
-  %.0498 = phi i1 [ true, %717 ], [ %698, %696 ], [ %695, %693 ], [ %692, %690 ], [ %686, %682 ], [ %681, %677 ], [ %676, %674 ], [ %673, %668 ], [ %635, %633 ], [ %632, %630 ], [ %629, %625 ], [ %624, %620 ], [ %619, %617 ], [ %.not598, %613 ], [ %493, %491 ], [ %332, %329 ], [ %420, %417 ], [ %424, %421 ], [ %479, %476 ], [ %488, %485 ], [ %320, %317 ], [ %311, %308 ], [ %307, %305 ], [ %304, %302 ], [ %301, %299 ], [ %298, %296 ], [ %295, %292 ], [ %286, %283 ], [ %147, %144 ], [ %59, %56 ], [ %50, %47 ], [ %42, %41 ], [ true, %12 ], [ true, %19 ], [ true, %28 ], [ true, %35 ], [ false, %38 ], [ false, %38 ], [ false, %38 ], [ false, %38 ], [ false, %38 ], [ false, %38 ], [ false, %38 ], [ false, %38 ], [ false, %38 ], [ false, %38 ], [ false, %38 ], [ false, %38 ], [ false, %38 ], [ false, %38 ], [ false, %38 ], [ false, %38 ], [ false, %38 ], [ false, %38 ], [ false, %38 ], [ false, %38 ], [ false, %38 ], [ false, %38 ], [ false, %38 ], [ false, %38 ], [ false, %38 ], [ false, %38 ], [ false, %38 ], [ false, %38 ], [ false, %43 ], [ false, %51 ], [ true, %84 ], [ true, %81 ], [ true, %60 ], [ true, %142 ], [ true, %88 ], [ true, %172 ], [ true, %169 ], [ true, %148 ], [ true, %230 ], [ true, %176 ], [ true, %263 ], [ true, %232 ], [ true, %235 ], [ true, %256 ], [ true, %259 ], [ false, %287 ], [ false, %312 ], [ false, %324 ], [ true, %357 ], [ true, %354 ], [ true, %333 ], [ true, %415 ], [ true, %361 ], [ true, %456 ], [ true, %425 ], [ true, %428 ], [ true, %449 ], [ true, %452 ], [ false, %480 ], [ true, %321 ], [ true, %489 ], [ %.not604, %494 ], [ true, %507 ], [ true, %515 ], [ %518, %516 ], [ true, %519 ], [ true, %532 ], [ true, %567 ], [ true, %564 ], [ true, %561 ], [ true, %558 ], [ true, %553 ], [ true, %550 ], [ true, %539 ], [ true, %591 ], [ true, %598 ], [ false, %603 ], [ %612, %607 ], [ true, %537 ], [ true, %652 ], [ false, %666 ], [ false, %657 ], [ false, %687 ], [ true, %700 ], [ %.not578, %702 ], [ %.not576, %704 ], [ true, %706 ], [ true, %503 ], [ %not.or.cond686, %708 ], [ true, %65 ], [ true, %153 ], [ true, %240 ], [ true, %338 ], [ true, %433 ], [ true, %127 ], [ true, %130 ], [ true, %134 ], [ true, %122 ], [ true, %215 ], [ true, %218 ], [ true, %222 ], [ true, %210 ], [ true, %400 ], [ true, %403 ], [ true, %407 ], [ true, %395 ], [ true, %500 ], [ true, %528 ], [ true, %525 ], [ %spec.select732, %712 ], [ true, %.thread753 ], [ true, %.thread759 ], [ true, %.thread765 ], [ true, %.thread766 ], [ true, %.thread772 ], [ true, %274 ], [ %282, %.sink.split ], [ true, %467 ], [ %475, %.sink.split773 ]
+.critedge:                                        ; preds = %467, %.sink.split775, %274, %.sink.split, %.thread774, %.thread768, %.thread767, %.thread761, %.thread755, %712, %525, %528, %500, %395, %407, %403, %400, %210, %222, %218, %215, %122, %134, %130, %127, %433, %338, %240, %153, %65, %708, %503, %706, %704, %702, %700, %687, %657, %666, %652, %537, %603, %607, %598, %591, %539, %550, %553, %558, %561, %564, %567, %532, %519, %515, %516, %507, %494, %489, %321, %480, %425, %456, %428, %449, %452, %361, %415, %333, %354, %357, %324, %312, %287, %232, %263, %235, %256, %259, %176, %230, %148, %169, %172, %88, %142, %60, %81, %84, %51, %43, %38, %38, %38, %38, %38, %38, %38, %38, %38, %38, %38, %38, %38, %38, %38, %38, %38, %38, %38, %38, %38, %38, %38, %38, %38, %38, %38, %38, %35, %28, %19, %12, %717, %696, %693, %690, %682, %677, %674, %668, %633, %630, %625, %620, %617, %613, %491, %485, %476, %421, %417, %329, %317, %308, %305, %302, %299, %296, %292, %283, %144, %56, %47, %41
+  %.0498 = phi i1 [ true, %717 ], [ %698, %696 ], [ %695, %693 ], [ %692, %690 ], [ %686, %682 ], [ %681, %677 ], [ %676, %674 ], [ %673, %668 ], [ %635, %633 ], [ %632, %630 ], [ %629, %625 ], [ %624, %620 ], [ %619, %617 ], [ %.not598, %613 ], [ %493, %491 ], [ %332, %329 ], [ %420, %417 ], [ %424, %421 ], [ %479, %476 ], [ %488, %485 ], [ %320, %317 ], [ %311, %308 ], [ %307, %305 ], [ %304, %302 ], [ %301, %299 ], [ %298, %296 ], [ %295, %292 ], [ %286, %283 ], [ %147, %144 ], [ %59, %56 ], [ %50, %47 ], [ %42, %41 ], [ true, %12 ], [ true, %19 ], [ true, %28 ], [ true, %35 ], [ false, %38 ], [ false, %38 ], [ false, %38 ], [ false, %38 ], [ false, %38 ], [ false, %38 ], [ false, %38 ], [ false, %38 ], [ false, %38 ], [ false, %38 ], [ false, %38 ], [ false, %38 ], [ false, %38 ], [ false, %38 ], [ false, %38 ], [ false, %38 ], [ false, %38 ], [ false, %38 ], [ false, %38 ], [ false, %38 ], [ false, %38 ], [ false, %38 ], [ false, %38 ], [ false, %38 ], [ false, %38 ], [ false, %38 ], [ false, %38 ], [ false, %38 ], [ false, %43 ], [ false, %51 ], [ true, %84 ], [ true, %81 ], [ true, %60 ], [ true, %142 ], [ true, %88 ], [ true, %172 ], [ true, %169 ], [ true, %148 ], [ true, %230 ], [ true, %176 ], [ true, %263 ], [ true, %232 ], [ true, %235 ], [ true, %256 ], [ true, %259 ], [ false, %287 ], [ false, %312 ], [ false, %324 ], [ true, %357 ], [ true, %354 ], [ true, %333 ], [ true, %415 ], [ true, %361 ], [ true, %456 ], [ true, %425 ], [ true, %428 ], [ true, %449 ], [ true, %452 ], [ false, %480 ], [ true, %321 ], [ true, %489 ], [ %.not604, %494 ], [ true, %507 ], [ true, %515 ], [ %518, %516 ], [ true, %519 ], [ true, %532 ], [ true, %567 ], [ true, %564 ], [ true, %561 ], [ true, %558 ], [ true, %553 ], [ true, %550 ], [ true, %539 ], [ true, %591 ], [ true, %598 ], [ false, %603 ], [ %612, %607 ], [ true, %537 ], [ true, %652 ], [ false, %666 ], [ false, %657 ], [ false, %687 ], [ true, %700 ], [ %.not578, %702 ], [ %.not576, %704 ], [ true, %706 ], [ true, %503 ], [ %or.cond686.not, %708 ], [ true, %65 ], [ true, %153 ], [ true, %240 ], [ true, %338 ], [ true, %433 ], [ true, %127 ], [ true, %130 ], [ true, %134 ], [ true, %122 ], [ true, %215 ], [ true, %218 ], [ true, %222 ], [ true, %210 ], [ true, %400 ], [ true, %403 ], [ true, %407 ], [ true, %395 ], [ true, %500 ], [ true, %528 ], [ true, %525 ], [ %spec.select732, %712 ], [ true, %.thread755 ], [ true, %.thread761 ], [ true, %.thread767 ], [ true, %.thread768 ], [ true, %.thread774 ], [ true, %274 ], [ %282, %.sink.split ], [ true, %467 ], [ %475, %.sink.split775 ]
   ret i1 %.0498
 }
 

@@ -8301,32 +8301,32 @@ define internal fastcc noundef zeroext i1 @ExecComputeSlotInfo(ptr readonly %.64
   %.050 = phi ptr [ %6, %7 ], [ %28, %27 ], [ %31, %29 ], [ null, %.thread ], [ %46, %45 ], [ %49, %47 ], [ null, %.thread1 ], [ %52, %58 ], [ %52, %50 ], [ null, %13 ], [ null, %12 ], [ null, %20 ], [ null, %38 ]
   %63 = load i8, ptr %2, align 1
   %64 = and i8 %63, 1
-  %65 = icmp ne i8 %64, 0
-  %66 = icmp ne ptr %.050, null
-  %or.cond = select i1 %65, i1 %66, i1 false
-  %67 = icmp ne ptr %.1, null
-  %or.cond3 = select i1 %or.cond, i1 %67, i1 false
+  %65 = icmp eq i8 %64, 0
+  %66 = icmp eq ptr %.050, null
+  %or.cond.not6 = select i1 %65, i1 true, i1 %66
+  %67 = icmp eq ptr %.1, null
+  %or.cond3.not = select i1 %or.cond.not6, i1 true, i1 %67
   %68 = getelementptr inbounds i8, ptr %0, i64 28
-  br i1 %or.cond3, label %70, label %69
+  br i1 %or.cond3.not, label %.thread7, label %69
 
-69:                                               ; preds = %62
+.thread7:                                         ; preds = %62
   store i8 0, ptr %68, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
+  br label %72
+
+69:                                               ; preds = %62
+  %70 = getelementptr inbounds i8, ptr %0, i64 40
+  store i8 1, ptr %68, align 4
+  store ptr %.1, ptr %70, align 8
+  store ptr %.050, ptr %5, align 8
+  %71 = icmp eq ptr %.1, @TTSOpsVirtual
+  br i1 %71, label %73, label %72
+
+72:                                               ; preds = %.thread7, %69
   br label %73
 
-70:                                               ; preds = %62
-  %71 = getelementptr inbounds i8, ptr %0, i64 40
-  store i8 1, ptr %68, align 4
-  store ptr %.1, ptr %71, align 8
-  store ptr %.050, ptr %5, align 8
-  %72 = icmp eq ptr %.1, @TTSOpsVirtual
-  br i1 %72, label %74, label %73
-
-73:                                               ; preds = %69, %70
-  br label %74
-
-74:                                               ; preds = %70, %73
-  %.0 = phi i1 [ true, %73 ], [ false, %70 ]
+73:                                               ; preds = %69, %72
+  %.0 = phi i1 [ true, %72 ], [ false, %69 ]
   ret i1 %.0
 }
 

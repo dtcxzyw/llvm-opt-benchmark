@@ -16715,8 +16715,8 @@ define internal fastcc ptr @rb_method_entry_make(i64 noundef %0, i64 noundef %1,
   %23 = icmp eq i64 %22, 27
   %24 = and i64 %.fr180, 4096
   %25 = icmp eq i64 %24, 0
-  %or.cond185 = or i1 %23, %25
-  br i1 %or.cond185, label %switch.early.test, label %28
+  %or.cond190 = or i1 %23, %25
+  br i1 %or.cond190, label %switch.early.test, label %28
 
 switch.early.test:                                ; preds = %19, %8
   switch i32 %4, label %26 [
@@ -16755,8 +16755,8 @@ switch.early.test:                                ; preds = %19, %8
   %31 = inttoptr i64 %spec.select to ptr
   %32 = load i64, ptr %31, align 8
   %33 = and i64 %32, 32799
-  %or.cond186.not = icmp eq i64 %33, 32771
-  br i1 %or.cond186.not, label %34, label %.critedge
+  %or.cond191.not = icmp eq i64 %33, 32771
+  br i1 %or.cond191.not, label %34, label %.critedge
 
 34:                                               ; preds = %30
   %35 = tail call i64 @rb_refinement_module_get_refined_class(i64 noundef %spec.select) #20
@@ -17011,14 +17011,14 @@ rb_method_entry_create.exit:                      ; preds = %.thread173, %119
   br label %158
 
 158:                                              ; preds = %155, %156, %152
-  %159 = icmp eq i64 %1, 2817
-  %160 = icmp eq i64 %1, 3105
-  %or.cond9 = or i1 %159, %160
-  %161 = icmp eq i32 %4, 0
-  %or.cond11 = and i1 %or.cond9, %161
-  %.not18.i.i = icmp ne i64 %.1, 0
-  %or.cond179.not = and i1 %or.cond11, %.not18.i.i
-  br i1 %or.cond179.not, label %.lr.ph.split.i.i, label %search_method.exit.thread
+  %159 = icmp ne i64 %1, 2817
+  %160 = icmp ne i64 %1, 3105
+  %or.cond9.not187 = and i1 %159, %160
+  %161 = icmp ne i32 %4, 0
+  %or.cond11.not184 = or i1 %or.cond9.not187, %161
+  %.not18.i.i = icmp eq i64 %.1, 0
+  %or.cond179 = or i1 %or.cond11.not184, %.not18.i.i
+  br i1 %or.cond179, label %search_method.exit.thread, label %.lr.ph.split.i.i
 
 .lr.ph.split.i.i:                                 ; preds = %158, %167
   %.01119.i.i = phi i64 [ %169, %167 ], [ %.1, %158 ]
@@ -17055,61 +17055,60 @@ search_method.exit.thread:                        ; preds = %167, %search_method
 172:                                              ; preds = %171, %search_method.exit.thread
   %173 = and i64 %.1, 7
   %174 = icmp ne i64 %173, 0
-  %175 = icmp eq i64 %.1, 0
-  %176 = or i1 %175, %174
-  br i1 %176, label %.critedge.i, label %177
+  %175 = or i1 %.not18.i.i, %174
+  br i1 %175, label %.critedge.i, label %176
 
-177:                                              ; preds = %172
-  %178 = load i64, ptr %.pre-phi, align 8
-  %179 = and i64 %178, 31
-  %180 = icmp ne i64 %179, 28
-  %181 = and i64 %178, 36864
-  %182 = icmp eq i64 %181, 4096
-  %or.cond.i = or i1 %180, %182
-  br i1 %or.cond.i, label %.critedge.i, label %183
+176:                                              ; preds = %172
+  %177 = load i64, ptr %.pre-phi, align 8
+  %178 = and i64 %177, 31
+  %179 = icmp ne i64 %178, 28
+  %180 = and i64 %177, 36864
+  %181 = icmp eq i64 %180, 4096
+  %or.cond.i = or i1 %179, %181
+  br i1 %or.cond.i, label %.critedge.i, label %182
 
-183:                                              ; preds = %177
-  %184 = getelementptr inbounds i8, ptr %.pre-phi, i64 8
-  %185 = load i64, ptr %184, align 8
+182:                                              ; preds = %176
+  %183 = getelementptr inbounds i8, ptr %.pre-phi, i64 8
+  %184 = load i64, ptr %183, align 8
   br label %.critedge.i
 
-.critedge.i:                                      ; preds = %183, %177, %172
-  %.0.i161 = phi i64 [ %185, %183 ], [ %.1, %177 ], [ %.1, %172 ]
-  %186 = call i32 @rb_id_table_insert(ptr noundef %60, i64 noundef %1, i64 noundef %122) #20
-  %187 = and i64 %122, 7
-  %.not183 = icmp eq i64 %187, 0
-  br i1 %.not183, label %188, label %rb_method_table_insert.exit
+.critedge.i:                                      ; preds = %182, %176, %172
+  %.0.i161 = phi i64 [ %184, %182 ], [ %.1, %176 ], [ %.1, %172 ]
+  %185 = call i32 @rb_id_table_insert(ptr noundef %60, i64 noundef %1, i64 noundef %122) #20
+  %186 = and i64 %122, 7
+  %.not188 = icmp eq i64 %186, 0
+  br i1 %.not188, label %187, label %rb_method_table_insert.exit
 
-188:                                              ; preds = %.critedge.i
+187:                                              ; preds = %.critedge.i
   call void @rb_gc_writebarrier(i64 noundef %.0.i161, i64 noundef %122) #20
   br label %rb_method_table_insert.exit
 
-rb_method_table_insert.exit:                      ; preds = %.critedge.i, %188
-  br i1 %18, label %.critedge154, label %189
+rb_method_table_insert.exit:                      ; preds = %.critedge.i, %187
+  br i1 %18, label %.critedge154, label %188
 
-189:                                              ; preds = %rb_method_table_insert.exit
-  %190 = inttoptr i64 %spec.select to ptr
-  %191 = load i64, ptr %190, align 8
-  %192 = and i64 %191, 31
-  %193 = icmp eq i64 %192, 3
-  br i1 %193, label %194, label %.critedge154
+188:                                              ; preds = %rb_method_table_insert.exit
+  %189 = inttoptr i64 %spec.select to ptr
+  %190 = load i64, ptr %189, align 8
+  %191 = and i64 %190, 31
+  %192 = icmp eq i64 %191, 3
+  br i1 %192, label %193, label %.critedge154
 
-194:                                              ; preds = %189
-  %195 = load ptr, ptr @vm_opt_mid_table, align 8
-  %.not.i.i162 = icmp eq ptr %195, null
+193:                                              ; preds = %188
+  %194 = load ptr, ptr @vm_opt_mid_table, align 8
+  %.not.i.i162 = icmp eq ptr %194, null
   br i1 %.not.i.i162, label %.critedge154, label %rb_vm_check_optimizable_mid.exit.i
 
-rb_vm_check_optimizable_mid.exit.i:               ; preds = %194
-  %196 = call i32 @rb_st_lookup(ptr noundef nonnull %195, i64 noundef %1, ptr noundef null) #20
-  %.not.i163 = icmp eq i32 %196, 0
-  br i1 %.not.i163, label %.critedge154, label %197
+rb_vm_check_optimizable_mid.exit.i:               ; preds = %193
+  %195 = call i32 @rb_st_lookup(ptr noundef nonnull %194, i64 noundef %1, ptr noundef null) #20
+  %.not.i163 = icmp eq i32 %195, 0
+  br i1 %.not.i163, label %.critedge154, label %196
 
-197:                                              ; preds = %rb_vm_check_optimizable_mid.exit.i
+196:                                              ; preds = %rb_vm_check_optimizable_mid.exit.i
   call void @check_override_opt_method_i(i64 noundef %.1, i64 noundef %1)
   br label %.critedge154
 
-.critedge154:                                     ; preds = %197, %rb_vm_check_optimizable_mid.exit.i, %194, %189, %rb_method_table_insert.exit, %62
-  %.0129 = phi ptr [ %64, %62 ], [ %123, %rb_method_table_insert.exit ], [ %123, %189 ], [ %123, %194 ], [ %123, %rb_vm_check_optimizable_mid.exit.i ], [ %123, %197 ]
+.critedge154:                                     ; preds = %196, %rb_vm_check_optimizable_mid.exit.i, %193, %188, %rb_method_table_insert.exit, %62
+  %.0129 = phi ptr [ %64, %62 ], [ %123, %rb_method_table_insert.exit ], [ %123, %188 ], [ %123, %193 ], [ %123, %rb_vm_check_optimizable_mid.exit.i ], [ %123, %196 ]
   ret ptr %.0129
 }
 

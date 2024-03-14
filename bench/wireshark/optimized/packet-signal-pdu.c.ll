@@ -3002,12 +3002,12 @@ define internal void @post_update_spdu_signal_list_cb() #0 {
   store ptr %7, ptr @data_spdu_signal_list, align 8
   %8 = load ptr, ptr @spdu_signal_list, align 8
   %9 = load i32, ptr @spdu_signal_list_num, align 4
-  %10 = icmp eq ptr %7, null
-  %11 = icmp eq ptr %8, null
-  %or.cond.i = or i1 %10, %11
-  %12 = icmp eq i32 %9, 0
-  %or.cond3.i = or i1 %12, %or.cond.i
-  br i1 %or.cond3.i, label %post_update_spdu_signal_list_read_in_data.exit, label %13
+  %10 = icmp ne ptr %7, null
+  %11 = icmp ne ptr %8, null
+  %or.cond.not204.i = and i1 %10, %11
+  %12 = icmp ne i32 %9, 0
+  %or.cond3.not201.i = and i1 %12, %or.cond.not204.i
+  br i1 %or.cond3.not201.i, label %13, label %post_update_spdu_signal_list_read_in_data.exit
 
 13:                                               ; preds = %6
   store i32 %9, ptr @dynamic_hf_number_of_entries, align 4
@@ -3043,7 +3043,7 @@ define internal void @post_update_spdu_signal_list_cb() #0 {
   %31 = load i32, ptr %30, align 8
   %32 = zext i32 %31 to i64
   store i64 %32, ptr %29, align 8
-  %33 = call ptr @g_hash_table_lookup(ptr noundef %7, ptr noundef nonnull %29) #13
+  %33 = call ptr @g_hash_table_lookup(ptr noundef nonnull %7, ptr noundef nonnull %29) #13
   %34 = icmp eq ptr %33, null
   %35 = call ptr @wmem_epan_scope() #13
   br i1 %34, label %36, label %49
@@ -3063,7 +3063,7 @@ define internal void @post_update_spdu_signal_list_cb() #0 {
   %46 = call noalias ptr @wmem_alloc0(ptr noundef %42, i64 noundef %45) #13
   %47 = getelementptr inbounds i8, ptr %37, i64 16
   store ptr %46, ptr %47, align 8
-  %48 = call i32 @g_hash_table_insert(ptr noundef %7, ptr noundef nonnull %29, ptr noundef nonnull %37) #13
+  %48 = call i32 @g_hash_table_insert(ptr noundef nonnull %7, ptr noundef nonnull %29, ptr noundef nonnull %37) #13
   br label %50
 
 49:                                               ; preds = %27
@@ -3122,9 +3122,9 @@ define internal void @post_update_spdu_signal_list_cb() #0 {
   %84 = load i32, ptr %83, align 4
   %switch.selectcmp.i = icmp eq i32 %84, 16
   %switch.select.i = select i1 %switch.selectcmp.i, i32 4, i32 0
-  %switch.selectcmp221.i = icmp eq i32 %84, 8
-  %switch.select222.i = select i1 %switch.selectcmp221.i, i32 2, i32 %switch.select.i
-  store i32 %switch.select222.i, ptr %70, align 4
+  %switch.selectcmp225.i = icmp eq i32 %84, 8
+  %switch.select226.i = select i1 %switch.selectcmp225.i, i32 2, i32 %switch.select.i
+  store i32 %switch.select226.i, ptr %70, align 4
   br label %85
 
 85:                                               ; preds = %.sink.split.i, %79
@@ -3183,9 +3183,9 @@ define internal void @post_update_spdu_signal_list_cb() #0 {
   br label %121
 
 121:                                              ; preds = %117, %113, %109, %105, %101, %97, %93, %89, %85
-  %.sink219.i = phi i32 [ 1, %85 ], [ 2, %89 ], [ 3, %93 ], [ 4, %101 ], [ 4, %97 ], [ 5, %109 ], [ 5, %105 ], [ 6, %113 ], [ %spec.select.i, %117 ]
+  %.sink223.i = phi i32 [ 1, %85 ], [ 2, %89 ], [ 3, %93 ], [ 4, %101 ], [ 4, %97 ], [ 5, %109 ], [ 5, %105 ], [ 6, %113 ], [ %spec.select.i, %117 ]
   %122 = getelementptr inbounds i8, ptr %64, i64 16
-  store i32 %.sink219.i, ptr %122, align 8
+  store i32 %.sink223.i, ptr %122, align 8
   %123 = getelementptr inbounds i8, ptr %30, i64 40
   %124 = load i32, ptr %123, align 8
   %125 = getelementptr inbounds i8, ptr %64, i64 20
@@ -3270,8 +3270,8 @@ define internal void @post_update_spdu_signal_list_cb() #0 {
   %190 = getelementptr inbounds i8, ptr %64, i64 96
   store ptr %189, ptr %190, align 8
   %191 = load i32, ptr %155, align 4
-  %.not204.i = icmp eq i32 %191, 0
-  br i1 %.not204.i, label %223, label %192
+  %.not208.i = icmp eq i32 %191, 0
+  br i1 %.not208.i, label %223, label %192
 
 192:                                              ; preds = %121
   %193 = load ptr, ptr @dynamic_hf_agg_sum, align 8
@@ -3334,8 +3334,8 @@ create_hf_entry.exit.i:                           ; preds = %get_signal_value_na
 
 223:                                              ; preds = %create_hf_entry.exit.i, %121
   %224 = load i32, ptr %158, align 8
-  %.not205.i = icmp eq i32 %224, 0
-  br i1 %.not205.i, label %256, label %225
+  %.not209.i = icmp eq i32 %224, 0
+  br i1 %.not209.i, label %256, label %225
 
 225:                                              ; preds = %223
   %226 = load ptr, ptr @dynamic_hf_agg_avg, align 8
@@ -3351,13 +3351,13 @@ create_hf_entry.exit.i:                           ; preds = %get_signal_value_na
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   %234 = load ptr, ptr @data_spdu_signal_list, align 8
   %235 = icmp eq ptr %234, null
-  br i1 %235, label %get_signal_value_name_config.exit.thread.i210.i, label %get_signal_value_name_config.exit.i207.i
+  br i1 %235, label %get_signal_value_name_config.exit.thread.i214.i, label %get_signal_value_name_config.exit.i211.i
 
-get_signal_value_name_config.exit.thread.i210.i:  ; preds = %225
+get_signal_value_name_config.exit.thread.i214.i:  ; preds = %225
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  br label %create_hf_entry.exit211.i
+  br label %create_hf_entry.exit215.i
 
-get_signal_value_name_config.exit.i207.i:         ; preds = %225
+get_signal_value_name_config.exit.i211.i:         ; preds = %225
   %236 = zext i32 %229 to i64
   %237 = and i32 %230, 65535
   %238 = zext nneg i32 %237 to i64
@@ -3367,9 +3367,9 @@ get_signal_value_name_config.exit.i207.i:         ; preds = %225
   %241 = load ptr, ptr @data_spdu_signal_value_names, align 8
   %242 = call ptr @g_hash_table_lookup(ptr noundef %241, ptr noundef nonnull %2) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  br label %create_hf_entry.exit211.i
+  br label %create_hf_entry.exit215.i
 
-create_hf_entry.exit211.i:                        ; preds = %get_signal_value_name_config.exit.i207.i, %get_signal_value_name_config.exit.thread.i210.i
+create_hf_entry.exit215.i:                        ; preds = %get_signal_value_name_config.exit.i211.i, %get_signal_value_name_config.exit.thread.i214.i
   %243 = zext i32 %227 to i64
   %244 = getelementptr %struct.hf_register_info, ptr %226, i64 %243
   store ptr %233, ptr %244, align 8
@@ -3396,10 +3396,10 @@ create_hf_entry.exit211.i:                        ; preds = %get_signal_value_na
   store ptr %233, ptr %255, align 8
   br label %256
 
-256:                                              ; preds = %create_hf_entry.exit211.i, %223
+256:                                              ; preds = %create_hf_entry.exit215.i, %223
   %257 = load i32, ptr %161, align 4
-  %.not206.i = icmp eq i32 %257, 0
-  br i1 %.not206.i, label %289, label %258
+  %.not210.i = icmp eq i32 %257, 0
+  br i1 %.not210.i, label %289, label %258
 
 258:                                              ; preds = %256
   %259 = load ptr, ptr @dynamic_hf_agg_int, align 8
@@ -3415,13 +3415,13 @@ create_hf_entry.exit211.i:                        ; preds = %get_signal_value_na
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1)
   %267 = load ptr, ptr @data_spdu_signal_list, align 8
   %268 = icmp eq ptr %267, null
-  br i1 %268, label %get_signal_value_name_config.exit.thread.i215.i, label %get_signal_value_name_config.exit.i212.i
+  br i1 %268, label %get_signal_value_name_config.exit.thread.i219.i, label %get_signal_value_name_config.exit.i216.i
 
-get_signal_value_name_config.exit.thread.i215.i:  ; preds = %258
+get_signal_value_name_config.exit.thread.i219.i:  ; preds = %258
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
-  br label %create_hf_entry.exit216.i
+  br label %create_hf_entry.exit220.i
 
-get_signal_value_name_config.exit.i212.i:         ; preds = %258
+get_signal_value_name_config.exit.i216.i:         ; preds = %258
   %269 = zext i32 %262 to i64
   %270 = and i32 %263, 65535
   %271 = zext nneg i32 %270 to i64
@@ -3431,9 +3431,9 @@ get_signal_value_name_config.exit.i212.i:         ; preds = %258
   %274 = load ptr, ptr @data_spdu_signal_value_names, align 8
   %275 = call ptr @g_hash_table_lookup(ptr noundef %274, ptr noundef nonnull %1) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
-  br label %create_hf_entry.exit216.i
+  br label %create_hf_entry.exit220.i
 
-create_hf_entry.exit216.i:                        ; preds = %get_signal_value_name_config.exit.i212.i, %get_signal_value_name_config.exit.thread.i215.i
+create_hf_entry.exit220.i:                        ; preds = %get_signal_value_name_config.exit.i216.i, %get_signal_value_name_config.exit.thread.i219.i
   %276 = zext i32 %260 to i64
   %277 = getelementptr %struct.hf_register_info, ptr %259, i64 %276
   store ptr %266, ptr %277, align 8
@@ -3460,7 +3460,7 @@ create_hf_entry.exit216.i:                        ; preds = %get_signal_value_na
   store ptr %266, ptr %288, align 8
   br label %289
 
-289:                                              ; preds = %create_hf_entry.exit216.i, %256, %56, %50
+289:                                              ; preds = %create_hf_entry.exit220.i, %256, %56, %50
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %290, label %27, !llvm.loop !9
@@ -3478,8 +3478,8 @@ create_hf_entry.exit216.i:                        ; preds = %get_signal_value_na
 
 295:                                              ; preds = %292, %290
   %296 = load i32, ptr @dynamic_hf_agg_sum_number, align 4
-  %.not201.i = icmp eq i32 %296, 0
-  br i1 %.not201.i, label %300, label %297
+  %.not205.i = icmp eq i32 %296, 0
+  br i1 %.not205.i, label %300, label %297
 
 297:                                              ; preds = %295
   %298 = load i32, ptr @proto_signal_pdu, align 4
@@ -3489,8 +3489,8 @@ create_hf_entry.exit216.i:                        ; preds = %get_signal_value_na
 
 300:                                              ; preds = %297, %295
   %301 = load i32, ptr @dynamic_hf_agg_avg_number, align 4
-  %.not202.i = icmp eq i32 %301, 0
-  br i1 %.not202.i, label %305, label %302
+  %.not206.i = icmp eq i32 %301, 0
+  br i1 %.not206.i, label %305, label %302
 
 302:                                              ; preds = %300
   %303 = load i32, ptr @proto_signal_pdu, align 4
@@ -3500,8 +3500,8 @@ create_hf_entry.exit216.i:                        ; preds = %get_signal_value_na
 
 305:                                              ; preds = %302, %300
   %306 = load i32, ptr @dynamic_hf_agg_int_number, align 4
-  %.not203.i = icmp eq i32 %306, 0
-  br i1 %.not203.i, label %post_update_spdu_signal_list_read_in_data.exit, label %307
+  %.not207.i = icmp eq i32 %306, 0
+  br i1 %.not207.i, label %post_update_spdu_signal_list_read_in_data.exit, label %307
 
 307:                                              ; preds = %305
   %308 = load i32, ptr @proto_signal_pdu, align 4

@@ -1654,15 +1654,15 @@ get_header_err.exit:                              ; preds = %44
   ]
 
 64:                                               ; preds = %63, %63
-  %65 = add i16 %28, -3
-  %or.cond.i = icmp ult i16 %65, 2
+  %65 = add i16 %28, -5
+  %or.cond.i = icmp ult i16 %65, -2
   %66 = and i8 %23, 10
-  %67 = icmp eq i8 %66, 0
-  %or.cond7.i = and i1 %67, %or.cond.i
+  %67 = icmp ne i8 %66, 0
+  %or.cond7.i.not81 = or i1 %67, %or.cond.i
   %68 = and i8 %23, 12
-  %69 = icmp eq i8 %68, 8
-  %narrow.i = or i1 %69, %or.cond7.i
-  %spec.select = select i1 %narrow.i, i32 7, i32 %4
+  %69 = icmp ne i8 %68, 8
+  %narrow.i.not = and i1 %69, %or.cond7.i.not81
+  %spec.select = select i1 %narrow.i.not, i32 %4, i32 7
   br label %70
 
 70:                                               ; preds = %64, %63
@@ -1705,16 +1705,16 @@ get_header_err.exit:                              ; preds = %44
   br label %95
 
 95:                                               ; preds = %93, %71
-  %.sink81 = phi i8 [ %94, %93 ], [ %74, %71 ]
-  %.sink80 = phi i8 [ %33, %93 ], [ %76, %71 ]
-  %.sink79 = phi i16 [ %14, %93 ], [ %81, %71 ]
+  %.sink84 = phi i8 [ %94, %93 ], [ %74, %71 ]
+  %.sink83 = phi i8 [ %33, %93 ], [ %76, %71 ]
+  %.sink82 = phi i16 [ %14, %93 ], [ %81, %71 ]
   %.sink = phi i16 [ %28, %93 ], [ %83, %71 ]
   %96 = getelementptr inbounds i8, ptr %8, i64 4
-  store i8 %.sink81, ptr %96, align 4
+  store i8 %.sink84, ptr %96, align 4
   %97 = getelementptr inbounds i8, ptr %8, i64 5
-  store i8 %.sink80, ptr %97, align 1
+  store i8 %.sink83, ptr %97, align 1
   %98 = getelementptr inbounds i8, ptr %8, i64 8
-  store i16 %.sink79, ptr %98, align 4
+  store i16 %.sink82, ptr %98, align 4
   %99 = getelementptr inbounds i8, ptr %8, i64 10
   store i16 %.sink, ptr %99, align 2
   call fastcc void @dissect_atm_cell_payload(ptr noundef %0, i32 noundef %.072, ptr noundef %1, ptr noundef %2, i32 noundef %.071, i32 noundef 1, ptr noundef nonnull %8)

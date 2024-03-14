@@ -2419,12 +2419,11 @@ Vec_PtrFree.exit103:                              ; preds = %52, %56
   br i1 %exitcond173.not, label %.loopexit, label %39, !llvm.loop !39
 
 60:                                               ; preds = %.loopexit111
-  %61 = icmp eq i32 %4, 0
-  %62 = icmp ne i32 %2, 0
-  %or.cond7.not202 = or i1 %62, %61
-  %.not199 = xor i1 %8, true
-  %brmerge = or i1 %or.cond7.not202, %.not199
-  br i1 %brmerge, label %.thread, label %.lr.ph133
+  %61 = icmp ne i32 %4, 0
+  %62 = icmp eq i32 %2, 0
+  %or.cond7.not202.not205 = and i1 %62, %61
+  %brmerge.not = and i1 %or.cond7.not202.not205, %8
+  br i1 %brmerge.not, label %.lr.ph133, label %.thread
 
 .lr.ph133:                                        ; preds = %60
   %.not90 = icmp eq i32 %5, 0

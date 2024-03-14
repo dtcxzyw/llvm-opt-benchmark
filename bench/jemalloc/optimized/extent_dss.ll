@@ -307,11 +307,10 @@ acquire.i:                                        ; preds = %entry
   %cmp.i = icmp ule ptr %3, %addr_a
   %cmp1.i = icmp ugt ptr %2, %addr_a
   %4 = and i1 %cmp1.i, %cmp.i
-  %cmp.i4 = icmp ule ptr %3, %addr_b
-  %cmp1.i5 = icmp ugt ptr %2, %addr_b
-  %5 = and i1 %cmp1.i5, %cmp.i4
-  %6 = xor i1 %4, %5
-  %cmp5 = xor i1 %6, true
+  %5 = icmp ule ptr %2, %addr_b
+  %6 = icmp ugt ptr %3, %addr_b
+  %7 = or i1 %5, %6
+  %cmp5 = xor i1 %4, %7
   br label %return
 
 return:                                           ; preds = %entry, %acquire.i

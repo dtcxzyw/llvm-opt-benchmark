@@ -12857,15 +12857,14 @@ _ZN5ImGui20ScaleRatioFromValueTIjifEEfiT_S1_S1_bff.exit: ; preds = %if.then50, %
   %30 = tail call noundef float @llvm.fmuladd.f32(float %sub.i, float %grab_t.0, float %5)
   %31 = tail call float @llvm.fmuladd.f32(float %neg, float 5.000000e-01, float %30)
   %sub60 = fadd float %31, -1.000000e+00
-  %cmp61 = fcmp ult float %26, %sub60
+  %cmp61 = fcmp oge float %26, %sub60
   %32 = tail call float @llvm.fmuladd.f32(float %cond.i176, float 5.000000e-01, float %30)
   %add63 = fadd float %32, 1.000000e+00
-  %cmp64 = fcmp ugt float %26, %add63
-  %.not466 = select i1 %cmp61, i1 true, i1 %cmp64
-  %.not.not = xor i1 %.not, true
-  %brmerge = or i1 %.not466, %.not.not
+  %cmp64 = fcmp ole float %26, %add63
+  %.not466.not467 = select i1 %cmp61, i1 %cmp64, i1 false
+  %brmerge.not = and i1 %.not, %.not466.not467
   %sub70 = fsub float %26, %30
-  %cond73 = select i1 %brmerge, float 0.000000e+00, float %sub70
+  %cond73 = select i1 %brmerge.not, float %sub70, float 0.000000e+00
   %SliderGrabClickOffset = getelementptr inbounds i8, ptr %0, i64 24120
   store float %cond73, ptr %SliderGrabClickOffset, align 8
   br label %if.end74
@@ -14345,15 +14344,14 @@ _ZN5ImGui20ScaleRatioFromValueTIyxdEEfiT_S1_S1_bff.exit: ; preds = %if.then50, %
   %30 = tail call noundef float @llvm.fmuladd.f32(float %sub.i, float %grab_t.0, float %5)
   %31 = tail call float @llvm.fmuladd.f32(float %neg, float 5.000000e-01, float %30)
   %sub60 = fadd float %31, -1.000000e+00
-  %cmp61 = fcmp ult float %26, %sub60
+  %cmp61 = fcmp oge float %26, %sub60
   %32 = tail call float @llvm.fmuladd.f32(float %cond.i176, float 5.000000e-01, float %30)
   %add63 = fadd float %32, 1.000000e+00
-  %cmp64 = fcmp ugt float %26, %add63
-  %.not480 = select i1 %cmp61, i1 true, i1 %cmp64
-  %.not.not = xor i1 %.not, true
-  %brmerge = or i1 %.not480, %.not.not
+  %cmp64 = fcmp ole float %26, %add63
+  %.not480.not481 = select i1 %cmp61, i1 %cmp64, i1 false
+  %brmerge.not = and i1 %.not, %.not480.not481
   %sub70 = fsub float %26, %30
-  %cond73 = select i1 %brmerge, float 0.000000e+00, float %sub70
+  %cond73 = select i1 %brmerge.not, float %sub70, float 0.000000e+00
   %SliderGrabClickOffset = getelementptr inbounds i8, ptr %0, i64 24120
   store float %cond73, ptr %SliderGrabClickOffset, align 8
   br label %if.end74

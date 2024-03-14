@@ -2500,12 +2500,12 @@ get_protocol.exit.i:                              ; preds = %if.end12.i.i, %if.e
 if.else7.i:                                       ; preds = %if.end.i
   %call.i25.i = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %url.0.i, i32 noundef 58) #25
   %call1.i26.i = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %url.0.i, i32 noundef 47) #25
-  %tobool.not.i27.i = icmp eq ptr %call.i25.i, null
-  %tobool2.not.i28.i = icmp ne ptr %call1.i26.i, null
-  %cmp.i.i = icmp ult ptr %call1.i26.i, %call.i25.i
-  %or.cond.i.i = and i1 %tobool2.not.i28.i, %cmp.i.i
-  %narrow.i.i = select i1 %tobool.not.i27.i, i1 true, i1 %or.cond.i.i
-  br i1 %narrow.i.i, label %if.end12.i, label %if.then10.i
+  %tobool.not.i27.i = icmp ne ptr %call.i25.i, null
+  %tobool2.not.i28.i = icmp eq ptr %call1.i26.i, null
+  %cmp.i.i = icmp uge ptr %call1.i26.i, %call.i25.i
+  %or.cond.i.not36.i = or i1 %tobool2.not.i28.i, %cmp.i.i
+  %narrow.i.not.i = select i1 %tobool.not.i27.i, i1 %or.cond.i.not36.i, i1 false
+  br i1 %narrow.i.not.i, label %if.then10.i, label %if.end12.i
 
 if.then10.i:                                      ; preds = %if.else7.i
   br label %if.end12.i
@@ -3031,8 +3031,8 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
   store i8 0, ptr %arrayidx3.i, align 1
   call void @sq_quote_buf(ptr noundef nonnull %cmd, ptr noundef %call63.i) #23
   %55 = load ptr, ptr @local_repo_env, align 8
-  %tobool34.not108 = icmp eq ptr %55, null
-  br i1 %tobool34.not108, label %for.end, label %for.body.lr.ph
+  %tobool34.not107 = icmp eq ptr %55, null
+  br i1 %tobool34.not107, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %strbuf_addch.exit
   %env = getelementptr inbounds i8, ptr %call28, i64 24
@@ -3040,9 +3040,9 @@ for.body.lr.ph:                                   ; preds = %strbuf_addch.exit
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %56 = phi ptr [ %55, %for.body.lr.ph ], [ %57, %for.body ]
-  %var.0109 = phi ptr [ @local_repo_env, %for.body.lr.ph ], [ %incdec.ptr, %for.body ]
+  %var.0108 = phi ptr [ @local_repo_env, %for.body.lr.ph ], [ %incdec.ptr, %for.body ]
   %call35 = call ptr @strvec_push(ptr noundef nonnull %env, ptr noundef nonnull %56) #23
-  %incdec.ptr = getelementptr inbounds i8, ptr %var.0109, i64 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %var.0108, i64 8
   %57 = load ptr, ptr %incdec.ptr, align 8
   %tobool34.not = icmp eq ptr %57, null
   br i1 %tobool34.not, label %for.end, label %for.body, !llvm.loop !22
@@ -3141,33 +3141,33 @@ if.end.i76:                                       ; preds = %if.end71
   %call.i.i77 = call ptr @getenv(ptr noundef nonnull @.str.100) #23
   store ptr %call.i.i77, ptr %ssh.i.i, align 8
   %tobool.not.i.i78 = icmp eq ptr %call.i.i77, null
-  br i1 %tobool.not.i.i78, label %if.end.i.i90, label %get_ssh_command.exit.thread45.i
+  br i1 %tobool.not.i.i78, label %if.end.i.i89, label %get_ssh_command.exit.thread45.i
 
 get_ssh_command.exit.thread45.i:                  ; preds = %if.end.i76
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ssh.i.i)
   br label %if.then4.i
 
-if.end.i.i90:                                     ; preds = %if.end.i76
-  %call1.i.i91 = call i32 @git_config_get_string_tmp(ptr noundef nonnull @.str.101, ptr noundef nonnull %ssh.i.i) #23
-  %tobool2.not.i.i92 = icmp eq i32 %call1.i.i91, 0
-  br i1 %tobool2.not.i.i92, label %get_ssh_command.exit.i, label %get_ssh_command.exit.thread.i
+if.end.i.i89:                                     ; preds = %if.end.i76
+  %call1.i.i90 = call i32 @git_config_get_string_tmp(ptr noundef nonnull @.str.101, ptr noundef nonnull %ssh.i.i) #23
+  %tobool2.not.i.i91 = icmp eq i32 %call1.i.i90, 0
+  br i1 %tobool2.not.i.i91, label %get_ssh_command.exit.i, label %get_ssh_command.exit.thread.i
 
-get_ssh_command.exit.thread.i:                    ; preds = %if.end.i.i90
+get_ssh_command.exit.thread.i:                    ; preds = %if.end.i.i89
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ssh.i.i)
-  br label %if.else.i93
+  br label %if.else.i92
 
-get_ssh_command.exit.i:                           ; preds = %if.end.i.i90
+get_ssh_command.exit.i:                           ; preds = %if.end.i.i89
   %62 = load ptr, ptr %ssh.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ssh.i.i)
   %tobool3.not.i = icmp eq ptr %62, null
-  br i1 %tobool3.not.i, label %if.else.i93, label %if.then4.i
+  br i1 %tobool3.not.i, label %if.else.i92, label %if.then4.i
 
 if.then4.i:                                       ; preds = %get_ssh_command.exit.i, %get_ssh_command.exit.thread45.i
   %retval.0.i48.i = phi ptr [ %call.i.i77, %get_ssh_command.exit.thread45.i ], [ %62, %get_ssh_command.exit.i ]
   %call5.i79 = call fastcc i32 @determine_ssh_variant(ptr noundef nonnull %retval.0.i48.i, i32 noundef 1)
   br label %if.end11.i
 
-if.else.i93:                                      ; preds = %get_ssh_command.exit.i, %get_ssh_command.exit.thread.i
+if.else.i92:                                      ; preds = %get_ssh_command.exit.i, %get_ssh_command.exit.thread.i
   %bf.load.i = load i16, ptr %use_shell, align 8
   %bf.clear.i = and i16 %bf.load.i, -33
   store i16 %bf.clear.i, ptr %use_shell, align 8
@@ -3177,13 +3177,13 @@ if.else.i93:                                      ; preds = %get_ssh_command.exi
   %call10.i = call fastcc i32 @determine_ssh_variant(ptr noundef nonnull %spec.store.select.i, i32 noundef 0)
   br label %if.end11.i
 
-if.end11.i:                                       ; preds = %if.else.i93, %if.then4.i
-  %ssh.0.i = phi ptr [ %retval.0.i48.i, %if.then4.i ], [ %spec.store.select.i, %if.else.i93 ]
-  %variant.0.i = phi i32 [ %call5.i79, %if.then4.i ], [ %call10.i, %if.else.i93 ]
+if.end11.i:                                       ; preds = %if.else.i92, %if.then4.i
+  %ssh.0.i = phi ptr [ %retval.0.i48.i, %if.then4.i ], [ %spec.store.select.i, %if.else.i92 ]
+  %variant.0.i = phi i32 [ %call5.i79, %if.then4.i ], [ %call10.i, %if.else.i92 ]
   %cmp.i80 = icmp eq i32 %variant.0.i, 0
-  br i1 %cmp.i80, label %if.then12.i83, label %if.end37.i
+  br i1 %cmp.i80, label %if.then12.i82, label %if.end37.i
 
-if.then12.i83:                                    ; preds = %if.end11.i
+if.then12.i82:                                    ; preds = %if.end11.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %detect.i, ptr noundef nonnull align 8 dereferenceable(120) @__const.fill_ssh_args.detect, i64 120, i1 false)
   %bf.load14.i = load i16, ptr %use_shell, align 8
   %bf.clear15.i = and i16 %bf.load14.i, 32
@@ -3193,28 +3193,28 @@ if.then12.i83:                                    ; preds = %if.end11.i
   %call29.i = call ptr @strvec_push(ptr noundef nonnull %detect.i, ptr noundef nonnull %ssh.0.i) #23
   %call31.i = call ptr @strvec_push(ptr noundef nonnull %detect.i, ptr noundef nonnull @.str.99) #23
   %cmp1.i.i = icmp sgt i32 %version.0, 0
-  br i1 %cmp1.i.i, label %if.then.i.i87, label %if.end.i18.i
+  br i1 %cmp1.i.i, label %if.then.i.i86, label %if.end.i18.i
 
-if.then.i.i87:                                    ; preds = %if.then12.i83
+if.then.i.i86:                                    ; preds = %if.then12.i82
   %env.i = getelementptr inbounds i8, ptr %detect.i, i64 24
   %call.i20.i = call ptr @strvec_push(ptr noundef nonnull %detect.i, ptr noundef nonnull @.str.112) #23
-  %call2.i.i88 = call ptr @strvec_push(ptr noundef nonnull %detect.i, ptr noundef nonnull @.str.113) #23
-  %call3.i.i89 = call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef nonnull %env.i, ptr noundef nonnull @.str.42, i32 noundef %version.0) #23
+  %call2.i.i87 = call ptr @strvec_push(ptr noundef nonnull %detect.i, ptr noundef nonnull @.str.113) #23
+  %call3.i.i88 = call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef nonnull %env.i, ptr noundef nonnull @.str.42, i32 noundef %version.0) #23
   br label %if.end.i18.i
 
-if.end.i18.i:                                     ; preds = %if.then.i.i87, %if.then12.i83
+if.end.i18.i:                                     ; preds = %if.then.i.i86, %if.then12.i82
   %and.i.i = and i32 %flags, 4
   %tobool.not.i19.i = icmp eq i32 %and.i.i, 0
   br i1 %tobool.not.i19.i, label %if.else.i.i, label %if.end19.sink.split.i.i
 
 if.else.i.i:                                      ; preds = %if.end.i18.i
   %and9.i.i = and i32 %flags, 8
-  %tobool10.not.i.i86 = icmp eq i32 %and9.i.i, 0
-  br i1 %tobool10.not.i.i86, label %if.end19.i.i, label %if.end19.sink.split.i.i
+  %tobool10.not.i.i85 = icmp eq i32 %and9.i.i, 0
+  br i1 %tobool10.not.i.i85, label %if.end19.i.i, label %if.end19.sink.split.i.i
 
 if.end19.sink.split.i.i:                          ; preds = %if.else.i.i, %if.end.i18.i
   %.str.118.sink.i.i = phi ptr [ @.str.116, %if.end.i18.i ], [ @.str.118, %if.else.i.i ]
-  %call16.i.i84 = call ptr @strvec_push(ptr noundef nonnull %detect.i, ptr noundef nonnull %.str.118.sink.i.i) #23
+  %call16.i.i83 = call ptr @strvec_push(ptr noundef nonnull %detect.i, ptr noundef nonnull %.str.118.sink.i.i) #23
   br label %if.end19.i.i
 
 if.end19.i.i:                                     ; preds = %if.end19.sink.split.i.i, %if.else.i.i
@@ -3230,16 +3230,16 @@ push_ssh_options.exit.i:                          ; preds = %if.then25.i.i, %if.
   %call34.i = call ptr @strvec_push(ptr noundef nonnull %detect.i, ptr noundef %call64.i) #23
   %call35.i = call i32 @run_command(ptr noundef nonnull %detect.i) #23
   %tobool36.not.i = icmp eq i32 %call35.i, 0
-  %cond.i85 = select i1 %tobool36.not.i, i32 2, i32 1
+  %cond.i84 = select i1 %tobool36.not.i, i32 2, i32 1
   br label %if.end37.i
 
 if.end37.i:                                       ; preds = %push_ssh_options.exit.i, %if.end11.i
-  %variant.1.i = phi i32 [ %cond.i85, %push_ssh_options.exit.i ], [ %variant.0.i, %if.end11.i ]
+  %variant.1.i = phi i32 [ %cond.i84, %push_ssh_options.exit.i ], [ %variant.0.i, %if.end11.i ]
   %call39.i = call ptr @strvec_push(ptr noundef nonnull %call28, ptr noundef nonnull %ssh.0.i) #23
   %cmp.i.i81 = icmp eq i32 %variant.1.i, 2
   %cmp1.i21.i = icmp sgt i32 %version.0, 0
-  %or.cond.i.i82 = and i1 %cmp1.i21.i, %cmp.i.i81
-  br i1 %or.cond.i.i82, label %if.then.i38.i, label %if.end.i22.i
+  %or.cond.i.i = and i1 %cmp1.i21.i, %cmp.i.i81
+  br i1 %or.cond.i.i, label %if.then.i38.i, label %if.end.i22.i
 
 if.then.i38.i:                                    ; preds = %if.end37.i
   %env41.i = getelementptr inbounds i8, ptr %call28, i64 24

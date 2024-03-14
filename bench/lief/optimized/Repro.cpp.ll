@@ -7364,23 +7364,22 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3fmt2v96detail12is_printableEj
   %86 = shufflevector <4 x i32> %85, <4 x i32> poison, <4 x i32> zeroinitializer
   %87 = add <4 x i32> %86, <i32 -177973, i32 -173790, i32 -183970, i32 -191457>
   %88 = and i32 %0, -2
-  %or.cond5 = icmp eq i32 %88, 178206
+  %or.cond5 = icmp ne i32 %88, 178206
   %89 = icmp ult <4 x i32> %87, <i32 11, i32 34, i32 14, i32 3103>
-  %90 = add i32 %0, -195102
-  %or.cond11 = icmp ult i32 %90, 1506
-  %91 = add i32 %0, -201547
-  %or.cond13 = icmp ult i32 %91, 716213
-  %92 = add i32 %0, -918000
-  %or.cond15 = icmp ult i32 %92, 196112
+  %90 = add i32 %0, -196608
+  %or.cond11 = icmp ult i32 %90, -1506
+  %91 = add i32 %0, -917760
+  %or.cond13 = icmp ult i32 %91, -716213
+  %92 = add i32 %0, -1114112
+  %or.cond15 = icmp ult i32 %92, -196112
   %93 = bitcast <4 x i1> %89 to i4
-  %94 = icmp ne i4 %93, 0
-  %op.rdx = or i1 %94, %or.cond11
-  %op.rdx82 = or i1 %or.cond13, %or.cond15
-  %op.rdx83 = or i1 %op.rdx, %op.rdx82
-  %op.rdx84 = or i1 %op.rdx83, %or.cond5
+  %94 = icmp eq i4 %93, 0
+  %op.rdx.not86 = and i1 %94, %or.cond11
+  %op.rdx82.not87 = and i1 %or.cond13, %or.cond15
+  %op.rdx83.not85 = and i1 %op.rdx.not86, %op.rdx82.not87
+  %op.rdx84.not = and i1 %op.rdx83.not85, %or.cond5
   %95 = icmp ult i32 %0, 1114112
-  %not.or.cond44 = xor i1 %op.rdx84, true
-  %spec.select = and i1 %95, %not.or.cond44
+  %spec.select = and i1 %95, %op.rdx84.not
   br label %_ZN3fmt2v96detail12is_printableEtPKNS1_9singletonEmPKhS6_m.exit
 
 _ZN3fmt2v96detail12is_printableEtPKNS1_9singletonEmPKhS6_m.exit: ; preds = %.lr.ph.i62, %80, %76, %.lr.ph.i, %38, %34, %84

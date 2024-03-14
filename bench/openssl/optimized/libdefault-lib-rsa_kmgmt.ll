@@ -493,12 +493,11 @@ if.then6:                                         ; preds = %land.rhs
 if.then9:                                         ; preds = %if.then6
   %call10 = tail call ptr @RSA_get0_n(ptr noundef %keydata1) #5
   %call11 = tail call ptr @RSA_get0_n(ptr noundef %keydata2) #5
-  %cmp12 = icmp eq ptr %call10, null
-  %cmp13 = icmp eq ptr %call11, null
-  %or.cond.not23 = select i1 %cmp12, i1 true, i1 %cmp13
-  %cmp.not = xor i1 %cmp, true
-  %brmerge = select i1 %or.cond.not23, i1 true, i1 %cmp.not
-  br i1 %brmerge, label %if.end22, label %if.end22.thread20
+  %cmp12 = icmp ne ptr %call10, null
+  %cmp13 = icmp ne ptr %call11, null
+  %or.cond.not23.not24 = select i1 %cmp12, i1 %cmp13, i1 false
+  %brmerge.not = select i1 %or.cond.not23.not24, i1 %cmp, i1 false
+  br i1 %brmerge.not, label %if.end22.thread20, label %if.end22
 
 if.end22.thread20:                                ; preds = %if.then9
   %call17 = tail call i32 @BN_cmp(ptr noundef nonnull %call10, ptr noundef nonnull %call11) #5
@@ -506,7 +505,7 @@ if.end22.thread20:                                ; preds = %if.then9
   br label %if.end43
 
 if.end22:                                         ; preds = %if.then9
-  br i1 %or.cond.not23, label %land.lhs.true24, label %if.end43
+  br i1 %or.cond.not23.not24, label %if.end43, label %land.lhs.true24
 
 land.lhs.true24:                                  ; preds = %if.then6, %if.end22
   %and25 = and i32 %selection, 1
@@ -518,12 +517,12 @@ if.then27:                                        ; preds = %land.lhs.true24
   %call31 = tail call ptr @RSA_get0_d(ptr noundef %keydata2) #5
   %cmp32 = icmp eq ptr %call29, null
   %cmp34 = icmp eq ptr %call31, null
-  %or.cond1.not26 = select i1 %cmp32, i1 true, i1 %cmp34
-  %cmp.not24 = xor i1 %cmp, true
-  %brmerge25 = select i1 %or.cond1.not26, i1 true, i1 %cmp.not24
-  %not.or.cond1.not26 = xor i1 %or.cond1.not26, true
-  %cmp.mux = select i1 %or.cond1.not26, i1 %cmp, i1 false
-  br i1 %brmerge25, label %if.end43, label %land.rhs37
+  %or.cond1.not25 = select i1 %cmp32, i1 true, i1 %cmp34
+  %cmp.not = xor i1 %cmp, true
+  %brmerge = select i1 %or.cond1.not25, i1 true, i1 %cmp.not
+  %not.or.cond1.not25 = xor i1 %or.cond1.not25, true
+  %cmp.mux = select i1 %or.cond1.not25, i1 %cmp, i1 false
+  br i1 %brmerge, label %if.end43, label %land.rhs37
 
 land.rhs37:                                       ; preds = %if.then27
   %call38 = tail call i32 @BN_cmp(ptr noundef nonnull %call29, ptr noundef nonnull %call31) #5
@@ -531,7 +530,7 @@ land.rhs37:                                       ; preds = %if.then27
   br label %if.end43
 
 if.end43:                                         ; preds = %if.then27, %if.end22.thread20, %land.rhs37, %land.lhs.true24, %if.end22
-  %tobool46 = phi i1 [ true, %if.end22 ], [ %not.or.cond1.not26, %if.then27 ], [ false, %land.lhs.true24 ], [ true, %land.rhs37 ], [ true, %if.end22.thread20 ]
+  %tobool46 = phi i1 [ true, %if.end22 ], [ %not.or.cond1.not25, %if.then27 ], [ false, %land.lhs.true24 ], [ true, %land.rhs37 ], [ true, %if.end22.thread20 ]
   %ok.1 = phi i1 [ false, %if.end22 ], [ %cmp.mux, %if.then27 ], [ %cmp, %land.lhs.true24 ], [ %cmp39, %land.rhs37 ], [ %cmp18, %if.end22.thread20 ]
   %0 = and i1 %tobool46, %ok.1
   br label %return

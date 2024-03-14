@@ -612,20 +612,19 @@ if.then45:                                        ; preds = %invoke.cont39
 
 invoke.cont48:                                    ; preds = %if.then45
   %6 = load i32, ptr %err, align 4
-  %cmp.i43 = icmp sgt i32 %6, 0
-  %cmp54 = icmp ne i32 %call49, 0
-  %tobool58.not.not = xor i1 %tobool58.not, true
-  %7 = or i1 %cmp54, %tobool58.not.not
-  %brmerge = or i1 %7, %cmp.i43
-  br i1 %brmerge, label %cleanup, label %if.then59
+  %cmp.i43 = icmp slt i32 %6, 1
+  %cmp54 = icmp eq i32 %call49, 0
+  %or.cond2.not55 = and i1 %cmp54, %cmp.i43
+  %brmerge.not = and i1 %tobool58.not, %or.cond2.not55
+  br i1 %brmerge.not, label %if.then59, label %cleanup
 
 lpad:                                             ; preds = %if.then59, %if.then45, %if.end37
-  %8 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad38:                                           ; preds = %invoke.cont
-  %9 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7518CharStringByteSinkD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %sink) #10
   br label %ehcleanup
@@ -642,8 +641,8 @@ invoke.cont61:                                    ; preds = %if.then59
   br i1 %cmp63.not, label %cleanup, label %if.then64
 
 if.then64:                                        ; preds = %invoke.cont61
-  %10 = load i32, ptr %err, align 4
-  %cmp.i.i45 = icmp slt i32 %10, 1
+  %9 = load i32, ptr %err, align 4
+  %cmp.i.i45 = icmp slt i32 %9, 1
   br i1 %cmp.i.i45, label %if.end.i47, label %cleanup
 
 if.end.i47:                                       ; preds = %if.then64
@@ -664,7 +663,7 @@ cleanup:                                          ; preds = %if.end2.i49, %if.th
   br label %return
 
 ehcleanup:                                        ; preds = %lpad38, %lpad
-  %.pn = phi { ptr, i32 } [ %8, %lpad ], [ %9, %lpad38 ]
+  %.pn = phi { ptr, i32 } [ %7, %lpad ], [ %8, %lpad38 ]
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %likely) #10
   resume { ptr, i32 } %.pn
 

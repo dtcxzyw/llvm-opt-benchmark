@@ -627,13 +627,12 @@ timelib_daynr_from_weeknr.exit:                   ; preds = %11, %13
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef i32 @timelib_valid_time(i64 noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
-  %or.cond = icmp ugt i64 %0, 23
-  %4 = icmp ugt i64 %1, 59
-  %or.cond5 = or i1 %or.cond, %4
-  %5 = icmp ugt i64 %2, 59
-  %or.cond9 = or i1 %or.cond5, %5
-  %not.or.cond9 = xor i1 %or.cond9, true
-  %. = zext i1 %not.or.cond9 to i32
+  %or.cond = icmp ult i64 %0, 24
+  %4 = icmp ult i64 %1, 60
+  %or.cond5.not17 = and i1 %or.cond, %4
+  %5 = icmp ult i64 %2, 60
+  %or.cond9.not = and i1 %or.cond5.not17, %5
+  %. = zext i1 %or.cond9.not to i32
   ret i32 %.
 }
 

@@ -1999,8 +1999,8 @@ while.body.i:                                     ; preds = %if.end, %while.body
 _ZN4base8internal10JSONParser7ReadIntEb.exit:     ; preds = %while.body.i
   %cmp4.i = icmp eq i32 %len.012.i, 0
   %cmp6.i = icmp ne i8 %3, 48
-  %or.cond1.i = select i1 %cmp4.i, i1 true, i1 %cmp6.i
-  br i1 %or.cond1.i, label %if.end5, label %if.then4
+  %or.cond1.not.i = select i1 %cmp4.i, i1 true, i1 %cmp6.i
+  br i1 %or.cond1.not.i, label %if.end5, label %if.then4
 
 if.then4:                                         ; preds = %if.end, %_ZN4base8internal10JSONParser7ReadIntEb.exit
   %12 = phi i32 [ %index_.i.promoted.i, %if.end ], [ %inc.i.i, %_ZN4base8internal10JSONParser7ReadIntEb.exit ]
@@ -3383,13 +3383,13 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 
 if.end:                                           ; preds = %while.body
   %cmp4 = icmp eq i32 %len.012, 0
+  %or.cond.not = or i1 %cmp4, %allow_leading_zeros
   %cmp6 = icmp ne i8 %1, 48
-  %not.or.cond = or i1 %cmp4, %allow_leading_zeros
-  %or.cond1 = select i1 %not.or.cond, i1 true, i1 %cmp6
+  %or.cond1.not = select i1 %or.cond.not, i1 true, i1 %cmp6
   br label %return
 
 return:                                           ; preds = %entry, %if.end
-  %retval.0 = phi i1 [ %or.cond1, %if.end ], [ false, %entry ]
+  %retval.0 = phi i1 [ %or.cond1.not, %if.end ], [ false, %entry ]
   ret i1 %retval.0
 }
 

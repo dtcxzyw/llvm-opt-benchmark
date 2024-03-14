@@ -2919,14 +2919,13 @@ if.end:                                           ; preds = %for.body, %if.then
 lor.lhs.false:                                    ; preds = %if.end
   %mTangents.i = getelementptr inbounds i8, ptr %mesh, i64 32
   %44 = load ptr, ptr %mTangents.i, align 8
-  %cmp.not.i32 = icmp eq ptr %44, null
+  %cmp.not.i32 = icmp ne ptr %44, null
   %mBitangents.i = getelementptr inbounds i8, ptr %mesh, i64 40
   %45 = load ptr, ptr %mBitangents.i, align 8
-  %cmp2.not.i = icmp eq ptr %45, null
-  %or.cond.i = select i1 %cmp.not.i32, i1 true, i1 %cmp2.not.i
-  %cmp2.i31.not = xor i1 %cmp2.i31, true
-  %brmerge = select i1 %or.cond.i, i1 true, i1 %cmp2.i31.not
-  br i1 %brmerge, label %if.end63, label %if.then10
+  %cmp2.not.i = icmp ne ptr %45, null
+  %or.cond.i.not160 = select i1 %cmp.not.i32, i1 %cmp2.not.i, i1 false
+  %brmerge.not = select i1 %or.cond.i.not160, i1 %cmp2.i31, i1 false
+  br i1 %brmerge.not, label %if.then10, label %if.end63
 
 if.then10:                                        ; preds = %lor.lhs.false, %if.end
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %mWorldIT, ptr noundef nonnull align 4 dereferenceable(64) %mat, i64 64, i1 false)
@@ -3001,9 +3000,9 @@ for.body19.preheader:                             ; preds = %if.then10
   br label %for.body19
 
 for.body19:                                       ; preds = %for.body19.preheader, %for.body19
-  %indvars.iv167 = phi i64 [ %indvars.iv.next168, %for.body19 ], [ 0, %for.body19.preheader ]
+  %indvars.iv168 = phi i64 [ %indvars.iv.next169, %for.body19 ], [ 0, %for.body19.preheader ]
   %76 = load ptr, ptr %mNormals.i, align 8
-  %arrayidx22 = getelementptr inbounds %class.aiVector3t, ptr %76, i64 %indvars.iv167
+  %arrayidx22 = getelementptr inbounds %class.aiVector3t, ptr %76, i64 %indvars.iv168
   %77 = load float, ptr %arrayidx22, align 4
   %y.i56 = getelementptr inbounds i8, ptr %arrayidx22, i64 4
   %78 = load float, ptr %y.i56, align 4
@@ -3037,10 +3036,10 @@ for.body19:                                       ; preds = %for.body19.preheade
   %ref.tmp20.sroa.0.0 = select i1 %cmp.i, <2 x float> %88, <2 x float> %97
   store <2 x float> %ref.tmp20.sroa.0.0, ptr %arrayidx22, align 4
   store float %ref.tmp20.sroa.6.0, ptr %z.i59, align 4
-  %indvars.iv.next168 = add nuw nsw i64 %indvars.iv167, 1
+  %indvars.iv.next169 = add nuw nsw i64 %indvars.iv168, 1
   %98 = load i32, ptr %mNumVertices.i, align 4
   %99 = zext i32 %98 to i64
-  %cmp18 = icmp ult i64 %indvars.iv.next168, %99
+  %cmp18 = icmp ult i64 %indvars.iv.next169, %99
   br i1 %cmp18, label %for.body19, label %if.end32, !llvm.loop !53
 
 if.end32:                                         ; preds = %for.body19, %if.then10
@@ -3066,9 +3065,9 @@ for.body39.preheader:                             ; preds = %if.end32
   br label %for.body39
 
 for.body39:                                       ; preds = %for.body39.preheader, %for.body39
-  %indvars.iv170 = phi i64 [ %indvars.iv.next171, %for.body39 ], [ 0, %for.body39.preheader ]
+  %indvars.iv171 = phi i64 [ %indvars.iv.next172, %for.body39 ], [ 0, %for.body39.preheader ]
   %109 = load ptr, ptr %mTangents.i71, align 8
-  %arrayidx42 = getelementptr inbounds %class.aiVector3t, ptr %109, i64 %indvars.iv170
+  %arrayidx42 = getelementptr inbounds %class.aiVector3t, ptr %109, i64 %indvars.iv171
   %110 = load float, ptr %arrayidx42, align 4
   %y.i81 = getelementptr inbounds i8, ptr %arrayidx42, i64 4
   %111 = load float, ptr %y.i81, align 4
@@ -3103,7 +3102,7 @@ for.body39:                                       ; preds = %for.body39.preheade
   store <2 x float> %ref.tmp40.sroa.0.0, ptr %arrayidx42, align 4
   store float %ref.tmp40.sroa.6.0, ptr %z.i84, align 4
   %131 = load ptr, ptr %mBitangents.i73, align 8
-  %arrayidx51 = getelementptr inbounds %class.aiVector3t, ptr %131, i64 %indvars.iv170
+  %arrayidx51 = getelementptr inbounds %class.aiVector3t, ptr %131, i64 %indvars.iv171
   %132 = load float, ptr %arrayidx51, align 4
   %y.i109 = getelementptr inbounds i8, ptr %arrayidx51, i64 4
   %133 = load float, ptr %y.i109, align 4
@@ -3137,10 +3136,10 @@ for.body39:                                       ; preds = %for.body39.preheade
   %ref.tmp49.sroa.0.0 = select i1 %cmp.i129, <2 x float> %143, <2 x float> %152
   store <2 x float> %ref.tmp49.sroa.0.0, ptr %arrayidx51, align 4
   store float %ref.tmp49.sroa.6.0, ptr %z.i112, align 4
-  %indvars.iv.next171 = add nuw nsw i64 %indvars.iv170, 1
+  %indvars.iv.next172 = add nuw nsw i64 %indvars.iv171, 1
   %153 = load i32, ptr %mNumVertices.i, align 4
   %154 = zext i32 %153 to i64
-  %cmp38 = icmp ult i64 %indvars.iv.next171, %154
+  %cmp38 = icmp ult i64 %indvars.iv.next172, %154
   br i1 %cmp38, label %for.body39, label %if.end63, !llvm.loop !54
 
 if.end63:                                         ; preds = %for.body39, %lor.lhs.false, %if.end32, %entry

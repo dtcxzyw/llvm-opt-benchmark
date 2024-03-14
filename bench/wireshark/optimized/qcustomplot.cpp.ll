@@ -148997,13 +148997,13 @@ _ZNK8QPointerI20QCPAbstractPlottableEptEv.exit:   ; preds = %10
   call void @_ZN8QCPRangeC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
   %16 = load double, ptr %3, align 8
   %17 = load double, ptr %6, align 8
-  %18 = fcmp oeq double %16, %17
+  %18 = fcmp une double %16, %17
   %19 = getelementptr inbounds i8, ptr %3, i64 8
   %20 = load double, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %6, i64 8
   %22 = load double, ptr %21, align 8
-  %23 = fcmp oeq double %20, %22
-  %.not3.i.not = select i1 %18, i1 %23, i1 false
+  %23 = fcmp une double %20, %22
+  %.not3.i.not.not113 = select i1 %18, i1 true, i1 %23
   %24 = getelementptr inbounds i8, ptr %0, i64 192
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 8
@@ -149025,9 +149025,8 @@ _ZNK8QPointerI20QCPAbstractPlottableEptEv.exit:   ; preds = %10
   %41 = getelementptr inbounds i8, ptr %40, i64 64
   %42 = load ptr, ptr %41, align 8
   %43 = call noundef zeroext i1 %42(ptr noundef nonnull align 8 dereferenceable(8) %39)
-  %.not81 = xor i1 %43, true
-  %brmerge = or i1 %.not3.i.not, %.not81
-  br i1 %brmerge, label %65, label %44
+  %brmerge.not = and i1 %.not3.i.not.not113, %43
+  br i1 %brmerge.not, label %44, label %65
 
 44:                                               ; preds = %_ZNK8QPointerI20QCPAbstractPlottableEptEv.exit
   %45 = load ptr, ptr %24, align 8
@@ -149055,8 +149054,8 @@ _ZNK8QPointerI20QCPAbstractPlottableEptEv.exit:   ; preds = %10
 65:                                               ; preds = %_ZNK8QPointerI20QCPAbstractPlottableEptEv.exit, %44
   %.sroa.036.0 = phi ptr [ %64, %44 ], [ %30, %_ZNK8QPointerI20QCPAbstractPlottableEptEv.exit ]
   %.sroa.037.0 = phi ptr [ %54, %44 ], [ %27, %_ZNK8QPointerI20QCPAbstractPlottableEptEv.exit ]
-  %.not111112 = icmp eq ptr %.sroa.037.0, %.sroa.036.0
-  br i1 %.not111112, label %._crit_edge123, label %.lr.ph
+  %.not114115 = icmp eq ptr %.sroa.037.0, %.sroa.036.0
+  br i1 %.not114115, label %._crit_edge126, label %.lr.ph
 
 .lr.ph:                                           ; preds = %65
   %66 = getelementptr inbounds i8, ptr %0, i64 224
@@ -149067,10 +149066,10 @@ _ZNK8QPointerI20QCPAbstractPlottableEptEv.exit:   ; preds = %10
   br label %71
 
 71:                                               ; preds = %.lr.ph, %163
-  %.0115 = phi i8 [ 0, %.lr.ph ], [ %.2, %163 ]
-  %.066114 = phi i8 [ 0, %.lr.ph ], [ %.268, %163 ]
-  %.sroa.0.0113 = phi ptr [ %.sroa.037.0, %.lr.ph ], [ %164, %163 ]
-  br i1 %.not3.i.not, label %97, label %_ZNK8QPointerI20QCPAbstractPlottableEptEv.exit93
+  %.0118 = phi i8 [ 0, %.lr.ph ], [ %.2, %163 ]
+  %.066117 = phi i8 [ 0, %.lr.ph ], [ %.268, %163 ]
+  %.sroa.0.0116 = phi ptr [ %.sroa.037.0, %.lr.ph ], [ %164, %163 ]
+  br i1 %.not3.i.not.not113, label %_ZNK8QPointerI20QCPAbstractPlottableEptEv.exit93, label %97
 
 _ZNK8QPointerI20QCPAbstractPlottableEptEv.exit93: ; preds = %71
   %72 = load ptr, ptr %7, align 8, !nonnull !116, !noundef !116
@@ -149086,7 +149085,7 @@ _ZNK8QPointerI20QCPAbstractPlottableEptEv.exit93: ; preds = %71
   %81 = load ptr, ptr %24, align 8
   %82 = getelementptr inbounds i8, ptr %81, i64 8
   %83 = load ptr, ptr %82, align 8
-  %84 = ptrtoint ptr %.sroa.0.0113 to i64
+  %84 = ptrtoint ptr %.sroa.0.0116 to i64
   %85 = ptrtoint ptr %83 to i64
   %86 = sub i64 %84, %85
   %87 = lshr exact i64 %86, 4
@@ -149118,7 +149117,7 @@ _ZNK8QPointerI20QCPAbstractPlottableEptEv.exit93: ; preds = %71
   %109 = load ptr, ptr %24, align 8
   %110 = getelementptr inbounds i8, ptr %109, i64 8
   %111 = load ptr, ptr %110, align 8
-  %112 = ptrtoint ptr %.sroa.0.0113 to i64
+  %112 = ptrtoint ptr %.sroa.0.0116 to i64
   %113 = ptrtoint ptr %111 to i64
   %114 = sub i64 %112, %113
   %115 = lshr exact i64 %114, 4
@@ -149134,7 +149133,7 @@ _ZNK8QPointerI20QCPAbstractPlottableEptEv.exit94: ; preds = %97
   br i1 %121, label %163, label %122
 
 122:                                              ; preds = %_ZNK8QPointerI20QCPAbstractPlottableEptEv.exit94
-  %123 = getelementptr inbounds i8, ptr %.sroa.0.0113, i64 8
+  %123 = getelementptr inbounds i8, ptr %.sroa.0.0116, i64 8
   %124 = load double, ptr %123, align 8
   %125 = call noundef zeroext i1 @_Z6qIsNaNd(double noundef %124) #52
   %126 = select i1 %125, double 0.000000e+00, double %124
@@ -149144,13 +149143,13 @@ _ZNK8QPointerI20QCPAbstractPlottableEptEv.exit94: ; preds = %97
   %129 = fcmp ogt double %127, 0.000000e+00
   %or.cond3 = and i1 %69, %129
   %130 = or i1 %or.cond, %or.cond3
-  %or.cond118 = or i1 %130, %67
-  br i1 %or.cond118, label %131, label %136
+  %or.cond121 = or i1 %130, %67
+  br i1 %or.cond121, label %131, label %136
 
 131:                                              ; preds = %122
   %132 = load double, ptr %70, align 8
   %133 = fcmp ogt double %127, %132
-  %134 = and i8 %.066114, 1
+  %134 = and i8 %.066117, 1
   %.not79 = icmp eq i8 %134, 0
   %or.cond86 = select i1 %133, i1 true, i1 %.not79
   br i1 %or.cond86, label %135, label %136
@@ -149160,8 +149159,8 @@ _ZNK8QPointerI20QCPAbstractPlottableEptEv.exit94: ; preds = %97
   br label %136
 
 136:                                              ; preds = %122, %131, %135
-  %.167 = phi i8 [ 1, %135 ], [ %.066114, %131 ], [ %.066114, %122 ]
-  %137 = load double, ptr %.sroa.0.0113, align 8
+  %.167 = phi i8 [ 1, %135 ], [ %.066117, %131 ], [ %.066117, %122 ]
+  %137 = load double, ptr %.sroa.0.0116, align 8
   %138 = call noundef zeroext i1 @_Z6qIsNaNd(double noundef %137) #52
   %139 = select i1 %138, double 0.000000e+00, double %137
   %140 = fsub double %120, %139
@@ -149170,13 +149169,13 @@ _ZNK8QPointerI20QCPAbstractPlottableEptEv.exit94: ; preds = %97
   %142 = fcmp ogt double %140, 0.000000e+00
   %or.cond7 = and i1 %69, %142
   %143 = or i1 %or.cond5, %or.cond7
-  %or.cond120 = or i1 %143, %67
-  br i1 %or.cond120, label %144, label %163
+  %or.cond123 = or i1 %143, %67
+  br i1 %or.cond123, label %144, label %163
 
 144:                                              ; preds = %136
   %145 = load double, ptr %5, align 8
   %146 = fcmp olt double %140, %145
-  %147 = and i8 %.0115, 1
+  %147 = and i8 %.0118, 1
   %.not80 = icmp eq i8 %147, 0
   %or.cond87 = select i1 %146, i1 true, i1 %.not80
   br i1 %or.cond87, label %148, label %163
@@ -149194,13 +149193,13 @@ _ZNK8QPointerI20QCPAbstractPlottableEptEv.exit95: ; preds = %97
   %151 = fcmp ogt double %120, 0.000000e+00
   %or.cond11 = and i1 %69, %151
   %152 = or i1 %or.cond9, %or.cond11
-  %or.cond122 = or i1 %152, %67
-  br i1 %or.cond122, label %153, label %163
+  %or.cond125 = or i1 %152, %67
+  br i1 %or.cond125, label %153, label %163
 
 153:                                              ; preds = %149
   %154 = load double, ptr %5, align 8
   %155 = fcmp olt double %120, %154
-  %156 = and i8 %.0115, 1
+  %156 = and i8 %.0118, 1
   %.not77 = icmp eq i8 %156, 0
   %or.cond88 = select i1 %155, i1 true, i1 %.not77
   br i1 %or.cond88, label %157, label %158
@@ -149210,10 +149209,10 @@ _ZNK8QPointerI20QCPAbstractPlottableEptEv.exit95: ; preds = %97
   br label %158
 
 158:                                              ; preds = %153, %157
-  %.1 = phi i8 [ 1, %157 ], [ %.0115, %153 ]
+  %.1 = phi i8 [ 1, %157 ], [ %.0118, %153 ]
   %159 = load double, ptr %70, align 8
   %160 = fcmp ogt double %120, %159
-  %161 = and i8 %.066114, 1
+  %161 = and i8 %.066117, 1
   %.not78 = icmp eq i8 %161, 0
   %or.cond89 = select i1 %160, i1 true, i1 %.not78
   br i1 %or.cond89, label %162, label %163
@@ -149223,11 +149222,11 @@ _ZNK8QPointerI20QCPAbstractPlottableEptEv.exit95: ; preds = %97
   br label %163
 
 163:                                              ; preds = %149, %136, %158, %144, %148, %162, %_ZNK8QPointerI20QCPAbstractPlottableEptEv.exit95, %_ZNK8QPointerI20QCPAbstractPlottableEptEv.exit94, %_ZNK8QPointerI20QCPAbstractPlottableEptEv.exit93
-  %.268 = phi i8 [ %.066114, %_ZNK8QPointerI20QCPAbstractPlottableEptEv.exit93 ], [ %.066114, %_ZNK8QPointerI20QCPAbstractPlottableEptEv.exit94 ], [ %.167, %148 ], [ %.066114, %_ZNK8QPointerI20QCPAbstractPlottableEptEv.exit95 ], [ 1, %162 ], [ %.167, %144 ], [ %.066114, %158 ], [ %.167, %136 ], [ %.066114, %149 ]
-  %.2 = phi i8 [ %.0115, %_ZNK8QPointerI20QCPAbstractPlottableEptEv.exit93 ], [ %.0115, %_ZNK8QPointerI20QCPAbstractPlottableEptEv.exit94 ], [ 1, %148 ], [ %.0115, %_ZNK8QPointerI20QCPAbstractPlottableEptEv.exit95 ], [ %.1, %162 ], [ %.0115, %144 ], [ %.1, %158 ], [ %.0115, %136 ], [ %.0115, %149 ]
-  %164 = getelementptr i8, ptr %.sroa.0.0113, i64 16
-  %.not111 = icmp eq ptr %164, %.sroa.036.0
-  br i1 %.not111, label %._crit_edge, label %71, !llvm.loop !1244
+  %.268 = phi i8 [ %.066117, %_ZNK8QPointerI20QCPAbstractPlottableEptEv.exit93 ], [ %.066117, %_ZNK8QPointerI20QCPAbstractPlottableEptEv.exit94 ], [ %.167, %148 ], [ %.066117, %_ZNK8QPointerI20QCPAbstractPlottableEptEv.exit95 ], [ 1, %162 ], [ %.167, %144 ], [ %.066117, %158 ], [ %.167, %136 ], [ %.066117, %149 ]
+  %.2 = phi i8 [ %.0118, %_ZNK8QPointerI20QCPAbstractPlottableEptEv.exit93 ], [ %.0118, %_ZNK8QPointerI20QCPAbstractPlottableEptEv.exit94 ], [ 1, %148 ], [ %.0118, %_ZNK8QPointerI20QCPAbstractPlottableEptEv.exit95 ], [ %.1, %162 ], [ %.0118, %144 ], [ %.1, %158 ], [ %.0118, %136 ], [ %.0118, %149 ]
+  %164 = getelementptr i8, ptr %.sroa.0.0116, i64 16
+  %.not114 = icmp eq ptr %164, %.sroa.036.0
+  br i1 %.not114, label %._crit_edge, label %71, !llvm.loop !1244
 
 ._crit_edge:                                      ; preds = %163
   %165 = and i8 %.268, 1
@@ -149245,12 +149244,12 @@ _ZNK8QPointerI20QCPAbstractPlottableEptEv.exit95: ; preds = %97
 
 170:                                              ; preds = %._crit_edge
   %brmerge92 = or i1 %.not74, %.not75
-  br i1 %brmerge92, label %._crit_edge123, label %172
+  br i1 %brmerge92, label %._crit_edge126, label %172
 
-._crit_edge123:                                   ; preds = %65, %170
-  %.066.lcssa129139 = phi i8 [ %.268, %170 ], [ 0, %65 ]
-  %.0.lcssa130138 = phi i8 [ %.2, %170 ], [ 0, %65 ]
-  %.pre = and i8 %.0.lcssa130138, %.066.lcssa129139
+._crit_edge126:                                   ; preds = %65, %170
+  %.066.lcssa132142 = phi i8 [ %.268, %170 ], [ 0, %65 ]
+  %.0.lcssa133141 = phi i8 [ %.2, %170 ], [ 0, %65 ]
+  %.pre = and i8 %.0.lcssa133141, %.066.lcssa132142
   %171 = and i8 %.pre, 1
   br label %175
 
@@ -149260,8 +149259,8 @@ _ZNK8QPointerI20QCPAbstractPlottableEptEv.exit95: ; preds = %97
   store double %173, ptr %174, align 8
   br label %175
 
-175:                                              ; preds = %._crit_edge123, %172, %167
-  %.pre-phi = phi i8 [ %171, %._crit_edge123 ], [ %166, %172 ], [ 1, %167 ]
+175:                                              ; preds = %._crit_edge126, %172, %167
+  %.pre-phi = phi i8 [ %171, %._crit_edge126 ], [ %166, %172 ], [ 1, %167 ]
   store i8 %.pre-phi, ptr %1, align 1
   br label %176
 

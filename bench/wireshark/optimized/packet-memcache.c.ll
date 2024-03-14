@@ -697,58 +697,59 @@ define internal fastcc void @dissect_key(ptr noundef %0, ptr noundef %1, ptr nou
 8:                                                ; preds = %7
   %9 = load i32, ptr @hf_key, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef %3, i32 noundef %4, i32 noundef 0) #8
-  %11 = icmp ult i8 %5, 24
+  %11 = icmp ugt i8 %5, 23
   %switch.cast = zext nneg i8 %5 to i24
-  %switch.downshift = lshr i24 -8385408, %switch.cast
+  %switch.downshift = lshr i24 8385407, %switch.cast
   %12 = and i24 %switch.downshift, 1
   %switch.masked = icmp ne i24 %12, 0
-  %.not154.not = select i1 %11, i1 %switch.masked, i1 false
+  %.not161 = select i1 %11, i1 true, i1 %switch.masked
   %13 = and i8 %5, -17
-  %14 = add i8 %13, -1
-  %or.cond29 = icmp ult i8 %14, 4
-  %15 = icmp eq i8 %5, 8
-  %or.cond32 = or i1 %15, %or.cond29
+  %14 = add i8 %13, -5
+  %or.cond29 = icmp ult i8 %14, -4
+  %15 = icmp ne i8 %5, 8
+  %or.cond32.not160 = and i1 %15, %or.cond29
   %16 = and i8 %5, -2
-  %17 = icmp eq i8 %16, 14
-  %or.cond38 = or i1 %17, %or.cond32
-  %18 = icmp eq i8 %16, 24
-  %or.cond44 = or i1 %18, %or.cond38
-  %19 = icmp eq i8 %5, 26
-  %or.cond47 = or i1 %19, %or.cond44
-  %20 = icmp eq i32 %6, 0
-  %or.cond94.not = and i1 %20, %or.cond47
-  %or.cond.not = or i1 %or.cond94.not, %.not154.not
-  br i1 %or.cond.not, label %.thread165, label %.thread172
+  %17 = icmp ne i8 %16, 14
+  %or.cond38.not158 = and i1 %17, %or.cond32.not160
+  %18 = icmp ne i8 %16, 24
+  %or.cond44.not156 = and i1 %18, %or.cond38.not158
+  %19 = icmp ne i8 %5, 26
+  %or.cond47.not154 = and i1 %19, %or.cond44.not156
+  %20 = icmp ne i32 %6, 0
+  %or.cond94 = or i1 %20, %or.cond47.not154
+  %or.cond = and i1 %or.cond94, %.not161
+  br i1 %or.cond, label %.thread179, label %.thread172
 
-.thread165:                                       ; preds = %8
+.thread172:                                       ; preds = %8
   %21 = zext i8 %5 to i32
   %22 = tail call ptr @val_to_str(i32 noundef %21, ptr noundef nonnull @opcode_vals, ptr noundef nonnull @.str.158) #8
-  %23 = select i1 %20, ptr @.str.48, ptr @.str.110
+  %.not163 = icmp eq i32 %6, 0
+  %23 = select i1 %.not163, ptr @.str.48, ptr @.str.110
   %24 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %10, ptr noundef nonnull @ei_key_unknown, ptr noundef nonnull @.str.162, ptr noundef %22, ptr noundef nonnull %23) #8
-  br label %.thread172
+  br label %.thread179
 
 25:                                               ; preds = %7
-  %26 = icmp eq i8 %5, 0
-  %27 = icmp eq i8 %5, 9
-  %or.cond50 = or i1 %26, %27
+  %26 = icmp ne i8 %5, 0
+  %27 = icmp ne i8 %5, 9
+  %or.cond50.not189 = and i1 %26, %27
   %28 = and i8 %5, -2
-  %29 = icmp eq i8 %28, 12
-  %or.cond56 = or i1 %or.cond50, %29
+  %29 = icmp ne i8 %28, 12
+  %or.cond56.not186 = and i1 %or.cond50.not189, %29
   %30 = and i8 %5, -17
-  %31 = add i8 %30, -1
-  %32 = icmp ult i8 %31, 6
-  %or.cond92 = or i1 %or.cond56, %32
-  %33 = icmp ne i32 %6, 0
-  %or.cond96 = and i1 %33, %or.cond92
-  br i1 %or.cond96, label %34, label %.thread172
+  %31 = add i8 %30, -7
+  %32 = icmp ult i8 %31, -6
+  %or.cond92.not184 = and i1 %or.cond56.not186, %32
+  %33 = icmp eq i32 %6, 0
+  %or.cond96.not = or i1 %33, %or.cond92.not184
+  br i1 %or.cond96.not, label %.thread179, label %34
 
 34:                                               ; preds = %25
   %35 = zext i8 %5 to i32
   %36 = tail call ptr @val_to_str(i32 noundef %35, ptr noundef nonnull @opcode_vals, ptr noundef nonnull @.str.158) #8
   %37 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_key_missing, ptr noundef %0, i32 noundef %3, i32 noundef 0, ptr noundef nonnull @.str.163, ptr noundef %36) #8
-  br label %.thread172
+  br label %.thread179
 
-.thread172:                                       ; preds = %8, %25, %34, %.thread165
+.thread179:                                       ; preds = %8, %25, %34, %.thread172
   ret void
 }
 
@@ -761,8 +762,8 @@ define internal fastcc void @dissect_value(ptr noundef %0, ptr noundef %1, ptr n
   %.not176 = icmp eq i32 %6, 0
   %9 = add i8 %5, -5
   %or.cond = icmp ult i8 %9, 2
-  %or.cond183 = and i1 %.not176, %or.cond
-  br i1 %or.cond183, label %10, label %15
+  %or.cond187 = and i1 %.not176, %or.cond
+  br i1 %or.cond187, label %10, label %15
 
 10:                                               ; preds = %8
   %11 = load i32, ptr @hf_uint64_response, align 4
@@ -808,46 +809,46 @@ define internal fastcc void @dissect_value(ptr noundef %0, ptr noundef %1, ptr n
   %or.cond44 = or i1 %35, %or.cond38
   %narrow = or i1 %or.cond44, %or.cond100
   %36 = and i8 %5, -17
-  %37 = add i8 %36, -1
-  %or.cond59 = icmp ult i8 %37, 3
-  %38 = icmp eq i8 %21, 14
-  %or.cond65 = or i1 %38, %or.cond59
-  %39 = add i8 %5, -25
-  %40 = icmp ult i8 %39, 2
-  %or.cond71 = or i1 %40, %or.cond65
-  %.not211 = xor i1 %28, true
-  %not.or.cond102 = and i1 %or.cond71, %.not211
+  %37 = add i8 %36, -4
+  %or.cond59 = icmp ult i8 %37, -3
+  %38 = icmp ne i8 %21, 14
+  %or.cond65.not182 = and i1 %38, %or.cond59
+  %39 = add i8 %5, -27
+  %40 = icmp ult i8 %39, -2
+  %or.cond71.not180 = and i1 %40, %or.cond65.not182
+  %or.cond102 = or i1 %28, %or.cond71.not180
+  %not.or.cond102 = xor i1 %or.cond102, true
   %41 = select i1 %not.or.cond102, i1 true, i1 %narrow
-  br i1 %41, label %.thread200, label %.thread207
+  br i1 %41, label %.thread204, label %.thread211
 
-.thread200:                                       ; preds = %18
+.thread204:                                       ; preds = %18
   %42 = zext i8 %5 to i32
   %43 = tail call ptr @val_to_str(i32 noundef %42, ptr noundef nonnull @opcode_vals, ptr noundef nonnull @.str.158) #8
   %44 = select i1 %.not176, ptr @.str.48, ptr @.str.110
   %45 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %.0172, ptr noundef nonnull @ei_value_unknown, ptr noundef nonnull @.str.164, ptr noundef %43, ptr noundef nonnull %44) #8
-  br label %.thread207
+  br label %.thread211
 
 46:                                               ; preds = %7
   %47 = and i8 %5, -17
-  %48 = add i8 %47, -1
-  %or.cond86 = icmp ult i8 %48, 3
+  %48 = add i8 %47, -4
+  %or.cond86 = icmp ult i8 %48, -3
   %49 = and i8 %5, -2
-  %50 = icmp eq i8 %49, 14
-  %or.cond92 = or i1 %50, %or.cond86
-  %51 = add i8 %5, -25
-  %52 = icmp ult i8 %51, 2
-  %or.cond98 = or i1 %52, %or.cond92
-  %53 = icmp ne i32 %6, 0
-  %or.cond104 = and i1 %53, %or.cond98
-  br i1 %or.cond104, label %54, label %.thread207
+  %50 = icmp ne i8 %49, 14
+  %or.cond92.not219 = and i1 %50, %or.cond86
+  %51 = add i8 %5, -27
+  %52 = icmp ult i8 %51, -2
+  %or.cond98.not217 = and i1 %52, %or.cond92.not219
+  %53 = icmp eq i32 %6, 0
+  %or.cond104.not = or i1 %53, %or.cond98.not217
+  br i1 %or.cond104.not, label %.thread211, label %54
 
 54:                                               ; preds = %46
   %55 = zext i8 %5 to i32
   %56 = tail call ptr @val_to_str(i32 noundef %55, ptr noundef nonnull @opcode_vals, ptr noundef nonnull @.str.158) #8
   %57 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_value_missing, ptr noundef %0, i32 noundef %3, i32 noundef 0, ptr noundef nonnull @.str.165, ptr noundef %56, ptr noundef nonnull @.str.110) #8
-  br label %.thread207
+  br label %.thread211
 
-.thread207:                                       ; preds = %18, %46, %54, %.thread200
+.thread211:                                       ; preds = %18, %46, %54, %.thread204
   ret void
 }
 

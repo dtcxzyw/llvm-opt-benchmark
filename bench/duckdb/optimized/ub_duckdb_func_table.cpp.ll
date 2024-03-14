@@ -51056,14 +51056,14 @@ cleanup172.i.i:                                   ; preds = %for.inc.i.i, %_ZN6d
   %high_comparison_type.6.i.i = phi i8 [ 0, %invoke.cont22.i.i ], [ %high_comparison_type.5.i.i, %_ZN6duckdb27ComparisonExpressionMatcherD2Ev.exit.i.i ], [ %high_comparison_type.5.i.i, %for.inc.i.i ]
   %low_comparison_type.6.i.i = phi i8 [ 0, %invoke.cont22.i.i ], [ %low_comparison_type.5.i.i, %_ZN6duckdb27ComparisonExpressionMatcherD2Ev.exit.i.i ], [ %low_comparison_type.5.i.i, %for.inc.i.i ]
   %81 = load i8, ptr %is_null.i.i.i, align 8, !tbaa !141, !range !146, !noundef !147
-  %tobool.i.i.i = icmp ne i8 %81, 0
+  %tobool.i.i.i = icmp eq i8 %81, 0
   %82 = load i8, ptr %is_null.i385.i.i, align 8, !range !146
-  %tobool.i386.i.i = icmp ne i8 %82, 0
-  %or.cond543.i.i = select i1 %tobool.i.i.i, i1 %tobool.i386.i.i, i1 false
+  %tobool.i386.i.i = icmp eq i8 %82, 0
+  %or.cond543.i.i.not31 = select i1 %tobool.i.i.i, i1 true, i1 %tobool.i386.i.i
   %83 = load i8, ptr %is_null.i387.i.i, align 8, !range !146
-  %tobool.i388.i.i = icmp ne i8 %83, 0
-  %or.cond544.i.i = select i1 %or.cond543.i.i, i1 %tobool.i388.i.i, i1 false
-  br i1 %or.cond544.i.i, label %cleanup254.i.i, label %if.then183.i.i
+  %tobool.i388.i.i = icmp eq i8 %83, 0
+  %or.cond544.i.i.not = select i1 %or.cond543.i.i.not31, i1 true, i1 %tobool.i388.i.i
+  br i1 %or.cond544.i.i.not, label %if.then183.i.i, label %cleanup254.i.i
 
 if.then183.i.i:                                   ; preds = %cleanup172.i.i
   %84 = load ptr, ptr %table1, align 8, !tbaa !1111
@@ -51466,7 +51466,6 @@ _ZNSt10unique_ptrIN6duckdb14IndexScanStateESt14default_deleteIS1_EED2Ev.exit456.
   br label %ehcleanup255.i.i
 
 cleanup254.i.i:                                   ; preds = %_ZNSt10unique_ptrIN6duckdb14IndexScanStateESt14default_deleteIS1_EED2Ev.exit451.i.i, %cleanup172.i.i
-  %retval.0.i.i = xor i1 %or.cond544.i.i, true
   call void @_ZN6duckdb5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %equal_value.i.i) #29
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %equal_value.i.i) #29
   call void @_ZN6duckdb5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %high_value.i.i) #29
@@ -51498,7 +51497,7 @@ ehcleanup269.i.i:                                 ; preds = %ehcleanup265.i.i, %
   br label %ehcleanup271.i.i
 
 cleanup270.i.i:                                   ; preds = %cleanup254.i.i, %invoke.cont6.i.i
-  %retval.1.i.i = phi i1 [ %retval.0.i.i, %cleanup254.i.i ], [ false, %invoke.cont6.i.i ]
+  %retval.1.i.i = phi i1 [ %or.cond544.i.i.not, %cleanup254.i.i ], [ false, %invoke.cont6.i.i ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %rewrite_possible.i.i) #29
   %139 = load ptr, ptr %index_expression.i.i, align 8, !tbaa !9
   %cmp.not.i457.i.i = icmp eq ptr %139, null

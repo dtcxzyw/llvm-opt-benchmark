@@ -1616,14 +1616,13 @@ if.end13:                                         ; preds = %for.body, %if.end5
 lor.lhs.false:                                    ; preds = %if.end13
   %mTangents.i = getelementptr inbounds i8, ptr %mesh, i64 32
   %47 = load ptr, ptr %mTangents.i, align 8
-  %cmp.not.i37 = icmp eq ptr %47, null
+  %cmp.not.i37 = icmp ne ptr %47, null
   %mBitangents.i = getelementptr inbounds i8, ptr %mesh, i64 40
   %48 = load ptr, ptr %mBitangents.i, align 8
-  %cmp2.not.i = icmp eq ptr %48, null
-  %or.cond.i = select i1 %cmp.not.i37, i1 true, i1 %cmp2.not.i
-  %cmp2.i36.not = xor i1 %cmp2.i36, true
-  %brmerge = select i1 %or.cond.i, i1 true, i1 %cmp2.i36.not
-  br i1 %brmerge, label %if.end69, label %if.then16
+  %cmp2.not.i = icmp ne ptr %48, null
+  %or.cond.i.not170 = select i1 %cmp.not.i37, i1 %cmp2.not.i, i1 false
+  %brmerge.not = select i1 %or.cond.i.not170, i1 %cmp2.i36, i1 false
+  br i1 %brmerge.not, label %if.then16, label %if.end69
 
 if.then16:                                        ; preds = %lor.lhs.false, %if.end13
   %49 = load float, ptr %mat, align 4
@@ -1716,9 +1715,9 @@ for.body26.preheader:                             ; preds = %_ZN12aiMatrix3x3tIf
   br label %for.body26
 
 for.body26:                                       ; preds = %for.body26.preheader, %for.body26
-  %indvars.iv177 = phi i64 [ %indvars.iv.next178, %for.body26 ], [ 0, %for.body26.preheader ]
+  %indvars.iv178 = phi i64 [ %indvars.iv.next179, %for.body26 ], [ 0, %for.body26.preheader ]
   %108 = load ptr, ptr %mNormals.i, align 8
-  %arrayidx29 = getelementptr inbounds %class.aiVector3t, ptr %108, i64 %indvars.iv177
+  %arrayidx29 = getelementptr inbounds %class.aiVector3t, ptr %108, i64 %indvars.iv178
   %109 = load float, ptr %arrayidx29, align 4
   %y.i58 = getelementptr inbounds i8, ptr %arrayidx29, i64 4
   %110 = load float, ptr %y.i58, align 4
@@ -1752,10 +1751,10 @@ for.body26:                                       ; preds = %for.body26.preheade
   %ref.tmp27.sroa.0.0 = select i1 %cmp.i73, <2 x float> %120, <2 x float> %129
   store <2 x float> %ref.tmp27.sroa.0.0, ptr %arrayidx29, align 4
   store float %ref.tmp27.sroa.6.0, ptr %z.i61, align 4
-  %indvars.iv.next178 = add nuw nsw i64 %indvars.iv177, 1
+  %indvars.iv.next179 = add nuw nsw i64 %indvars.iv178, 1
   %130 = load i32, ptr %mNumVertices.i, align 4
   %131 = zext i32 %130 to i64
-  %cmp25 = icmp ult i64 %indvars.iv.next178, %131
+  %cmp25 = icmp ult i64 %indvars.iv.next179, %131
   br i1 %cmp25, label %for.body26, label %if.end39, !llvm.loop !20
 
 if.end39:                                         ; preds = %for.body26, %_ZN12aiMatrix3x3tIfE7InverseEv.exit
@@ -1777,9 +1776,9 @@ for.body46.preheader:                             ; preds = %if.end39
   br label %for.body46
 
 for.body46:                                       ; preds = %for.body46.preheader, %for.body46
-  %indvars.iv180 = phi i64 [ %indvars.iv.next181, %for.body46 ], [ 0, %for.body46.preheader ]
+  %indvars.iv181 = phi i64 [ %indvars.iv.next182, %for.body46 ], [ 0, %for.body46.preheader ]
   %137 = load ptr, ptr %mTangents.i75, align 8
-  %arrayidx49 = getelementptr inbounds %class.aiVector3t, ptr %137, i64 %indvars.iv180
+  %arrayidx49 = getelementptr inbounds %class.aiVector3t, ptr %137, i64 %indvars.iv181
   %138 = load float, ptr %arrayidx49, align 4
   %y.i85 = getelementptr inbounds i8, ptr %arrayidx49, i64 4
   %139 = load float, ptr %y.i85, align 4
@@ -1814,7 +1813,7 @@ for.body46:                                       ; preds = %for.body46.preheade
   store <2 x float> %ref.tmp47.sroa.0.0, ptr %arrayidx49, align 4
   store float %ref.tmp47.sroa.6.0, ptr %z.i88, align 4
   %159 = load ptr, ptr %mBitangents.i77, align 8
-  %arrayidx58 = getelementptr inbounds %class.aiVector3t, ptr %159, i64 %indvars.iv180
+  %arrayidx58 = getelementptr inbounds %class.aiVector3t, ptr %159, i64 %indvars.iv181
   %160 = load float, ptr %arrayidx58, align 4
   %y.i113 = getelementptr inbounds i8, ptr %arrayidx58, i64 4
   %161 = load float, ptr %y.i113, align 4
@@ -1848,10 +1847,10 @@ for.body46:                                       ; preds = %for.body46.preheade
   %ref.tmp56.sroa.0.0 = select i1 %cmp.i133, <2 x float> %171, <2 x float> %180
   store <2 x float> %ref.tmp56.sroa.0.0, ptr %arrayidx58, align 4
   store float %ref.tmp56.sroa.6.0, ptr %z.i116, align 4
-  %indvars.iv.next181 = add nuw nsw i64 %indvars.iv180, 1
+  %indvars.iv.next182 = add nuw nsw i64 %indvars.iv181, 1
   %181 = load i32, ptr %mNumVertices.i, align 4
   %182 = zext i32 %181 to i64
-  %cmp45 = icmp ult i64 %indvars.iv.next181, %182
+  %cmp45 = icmp ult i64 %indvars.iv.next182, %182
   br i1 %cmp45, label %for.body46, label %if.end69, !llvm.loop !21
 
 if.end69:                                         ; preds = %for.body46, %lor.lhs.false, %if.end39, %entry

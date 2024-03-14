@@ -854,8 +854,8 @@ can_change_pte_writable.exit:                     ; preds = %331
   br label %450
 
 444:                                              ; preds = %374
-  %445 = and i64 %375, 1024
-  %446 = icmp ne i64 %445, 0
+  %445 = and i64 %219, 1024
+  %446 = icmp eq i64 %445, 0
   %447 = or i1 %67, %446
   br i1 %447, label %.thread15, label %448
 

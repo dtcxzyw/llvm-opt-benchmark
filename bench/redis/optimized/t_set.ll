@@ -3399,12 +3399,11 @@ for.end:                                          ; preds = %for.inc, %entry
 
 land.lhs.true22:                                  ; preds = %for.end
   %3 = load ptr, ptr %call, align 8
-  %tobool24 = icmp eq ptr %3, null
-  %tobool26 = icmp ne i32 %sameset.0.lcssa, 0
-  %or.cond = select i1 %tobool24, i1 true, i1 %tobool26
-  %cmp278.not = xor i1 %cmp278, true
-  %brmerge391 = or i1 %or.cond, %cmp278.not
-  br i1 %brmerge391, label %if.else.sink.split, label %for.body31.preheader
+  %tobool24 = icmp ne ptr %3, null
+  %tobool26 = icmp eq i32 %sameset.0.lcssa, 0
+  %or.cond.not392 = select i1 %tobool24, i1 %tobool26, i1 false
+  %brmerge391.not = and i1 %or.cond.not392, %cmp278
+  br i1 %brmerge391.not, label %for.body31.preheader, label %if.else.sink.split
 
 for.body31.preheader:                             ; preds = %land.lhs.true22
   %wide.trip.count353 = zext nneg i32 %setnum to i64

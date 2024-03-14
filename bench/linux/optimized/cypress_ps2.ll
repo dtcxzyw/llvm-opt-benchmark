@@ -32,31 +32,30 @@ define dso_local i32 @cypress_detect(ptr noundef %0, i1 noundef zeroext %1) loca
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %3, i8 0, i64 3, i1 false), !annotation !5
   %4 = call fastcc i32 @cypress_send_ext_cmd(ptr noundef %0, i8 noundef zeroext 0, ptr noundef nonnull %3), !range !6
   %5 = icmp eq i32 %4, 0
-  br i1 %5, label %6, label %19
+  br i1 %5, label %6, label %16
 
 6:                                                ; preds = %2
   %7 = load i8, ptr %3, align 1
-  %8 = icmp ne i8 %7, 51
+  %8 = icmp eq i8 %7, 51
   %9 = getelementptr inbounds i8, ptr %3, i64 1
   %10 = load i8, ptr %9, align 1
-  %11 = icmp ne i8 %10, -52
-  %12 = select i1 %8, i1 true, i1 %11
-  %13 = xor i1 %1, true
-  %14 = or i1 %12, %13
-  %15 = select i1 %12, i32 -19, i32 0
-  br i1 %14, label %19, label %16
+  %11 = icmp eq i8 %10, -52
+  %.not4 = select i1 %8, i1 %11, i1 false
+  %.not1 = and i1 %.not4, %1
+  %12 = select i1 %.not4, i32 0, i32 -19
+  br i1 %.not1, label %13, label %16
 
-16:                                               ; preds = %6
-  %17 = getelementptr inbounds i8, ptr %0, i64 208
-  store ptr @.str, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 216
-  store ptr @.str.1, ptr %18, align 8
-  br label %19
+13:                                               ; preds = %6
+  %14 = getelementptr inbounds i8, ptr %0, i64 208
+  store ptr @.str, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %0, i64 216
+  store ptr @.str.1, ptr %15, align 8
+  br label %16
 
-19:                                               ; preds = %16, %6, %2
-  %20 = phi i32 [ -19, %2 ], [ %15, %6 ], [ 0, %16 ]
+16:                                               ; preds = %13, %6, %2
+  %17 = phi i32 [ -19, %2 ], [ %12, %6 ], [ 0, %13 ]
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %3) #8
-  ret i32 %20
+  ret i32 %17
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

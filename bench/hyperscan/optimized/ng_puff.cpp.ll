@@ -2731,14 +2731,14 @@ if.end:                                           ; preds = %entry
   %maxOffset.i = getelementptr inbounds i8, ptr %ir, i64 16
   %2 = load i64, ptr %maxOffset.i, align 8
   %cmp2.not.i = icmp eq i64 %2, -1
+  %or.cond.i.not = select i1 %cmp.not.i, i1 %cmp2.not.i, i1 false
   %minLength.i = getelementptr inbounds i8, ptr %ir, i64 24
   %3 = load i64, ptr %minLength.i, align 8
   %cmp3.i = icmp eq i64 %3, 0
-  %not.or.cond.i = select i1 %cmp.not.i, i1 %cmp2.not.i, i1 false
-  %or.cond5 = select i1 %not.or.cond.i, i1 %cmp3.i, i1 false
+  %or.cond5.not7 = select i1 %or.cond.i.not, i1 %cmp3.i, i1 false
   %tobool1.not = icmp eq i64 %3, 0
   %or.cond = select i1 %cmp.not.i, i1 %tobool1.not, i1 false
-  %or.cond6 = select i1 %or.cond5, i1 true, i1 %or.cond
+  %or.cond6 = select i1 %or.cond5.not7, i1 true, i1 %or.cond
   br i1 %or.cond6, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end

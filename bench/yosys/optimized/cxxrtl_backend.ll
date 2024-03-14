@@ -85561,21 +85561,21 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit50:              ; preds = %_ZN5Yosys5RTLIL8IdS
   unreachable
 
 _ZN5Yosys5RTLIL8IdStringD2Ev.exit52:              ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit50, %275, %282
-  %286 = icmp ne i32 %158, %160
+  %286 = icmp ne i32 %158, %165
   %287 = icmp ne i32 %158, %159
-  %288 = icmp ne i32 %158, %161
-  %or.cond.not = select i1 %287, i1 %286, i1 false
-  %or.cond56 = select i1 %or.cond.not, i1 %288, i1 false
-  %289 = icmp ne i32 %158, %162
-  %or.cond58 = select i1 %or.cond56, i1 %289, i1 false
-  %290 = icmp ne i32 %158, %163
-  %or.cond60 = select i1 %or.cond58, i1 %290, i1 false
-  %291 = icmp ne i32 %158, %164
-  %or.cond62 = select i1 %or.cond60, i1 %291, i1 false
-  %292 = icmp ne i32 %158, %165
-  %or.cond64 = select i1 %or.cond62, i1 %292, i1 false
+  %288 = icmp ne i32 %158, %160
+  %or.cond.not75 = select i1 %287, i1 %288, i1 false
+  %289 = icmp ne i32 %158, %161
+  %or.cond56.not72 = select i1 %or.cond.not75, i1 %289, i1 false
+  %290 = icmp ne i32 %158, %162
+  %or.cond58.not70 = select i1 %or.cond56.not72, i1 %290, i1 false
+  %291 = icmp ne i32 %158, %163
+  %or.cond60.not68 = select i1 %or.cond58.not70, i1 %291, i1 false
+  %292 = icmp ne i32 %158, %164
+  %or.cond62.not66 = select i1 %or.cond60.not68, i1 %292, i1 false
   %293 = icmp ne i32 %158, %150
-  %spec.select = select i1 %or.cond64, i1 %293, i1 false
+  %or.cond64.not = select i1 %or.cond62.not66, i1 %286, i1 false
+  %spec.select = select i1 %or.cond64.not, i1 %293, i1 false
   ret i1 %spec.select
 
 .body33:                                          ; preds = %138, %.body37

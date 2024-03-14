@@ -901,12 +901,11 @@ invoke.cont:                                      ; preds = %.noexc
   %memtable_range_tombstone_iter_.i = getelementptr inbounds i8, ptr %call, i64 2536
   store ptr null, ptr %memtable_range_tombstone_iter_.i, align 8
   tail call void @_ZN7rocksdb18ArenaWrappedDBIter4InitEPNS_3EnvERKNS_11ReadOptionsERKNS_16ImmutableOptionsERKNS_16MutableCFOptionsEPKNS_7VersionERKmmmPNS_12ReadCallbackEPNS_6DBImplEPNS_16ColumnFamilyDataEbb(ptr noundef nonnull align 16 dereferenceable(2544) %call, ptr noundef %env, ptr noundef nonnull align 8 dereferenceable(154) %read_options, ptr noundef nonnull align 8 dereferenceable(857) %ioptions, ptr noundef nonnull align 8 dereferenceable(560) %mutable_cf_options, ptr noundef %version, ptr noundef nonnull align 8 dereferenceable(8) %sequence, i64 noundef %max_sequential_skip_in_iterations, i64 noundef %version_number, ptr noundef %read_callback, ptr noundef %db_impl, ptr noundef %cfd, i1 noundef zeroext %expose_blob_index, i1 noundef zeroext %allow_refresh)
-  %cmp = icmp eq ptr %db_impl, null
-  %cmp3 = icmp eq ptr %cfd, null
-  %or.cond.not12 = or i1 %cmp, %cmp3
-  %allow_refresh.not = xor i1 %allow_refresh, true
-  %brmerge = or i1 %or.cond.not12, %allow_refresh.not
-  br i1 %brmerge, label %if.end, label %if.then
+  %cmp = icmp ne ptr %db_impl, null
+  %cmp3 = icmp ne ptr %cfd, null
+  %or.cond.not12.not13 = and i1 %cmp, %cmp3
+  %brmerge.not = and i1 %or.cond.not12.not13, %allow_refresh
+  br i1 %brmerge.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %invoke.cont
   %frombool.i = zext i1 %expose_blob_index to i8

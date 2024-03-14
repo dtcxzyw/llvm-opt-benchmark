@@ -321,14 +321,13 @@ if.else94:                                        ; preds = %lor.lhs.false
   ]
 
 land.lhs.true96:                                  ; preds = %if.else94
-  %cmp.i81 = icmp slt i32 %11, 769
   %and.i82 = and i32 %16, 4
-  %tobool.not.i83 = icmp eq i32 %and.i82, 0
-  %or.cond.i = or i1 %cmp.i81, %tobool.not.i83
+  %tobool.not.i83 = icmp ne i32 %and.i82, 0
+  %or.cond.i.not103 = and i1 %cmp59, %tobool.not.i83
   %and5.i = and i32 %16, 80
-  %tobool6.not.i = icmp eq i32 %and5.i, 0
-  %narrow.i = and i1 %tobool6.not.i, %or.cond.i
-  br i1 %narrow.i, label %if.then99, label %if.end193
+  %tobool6.not.i = icmp ne i32 %and5.i, 0
+  %narrow.i.not = or i1 %tobool6.not.i, %or.cond.i.not103
+  br i1 %narrow.i.not, label %if.end193, label %if.then99
 
 if.then99:                                        ; preds = %land.lhs.true96
   store i32 8, ptr %hand_state, align 4
@@ -390,11 +389,11 @@ if.then140:                                       ; preds = %sw.bb138
   %25 = load i32, ptr %algorithm_auth.i90, align 8
   %and.i91 = and i32 %25, 4
   %tobool.not.i92 = icmp ne i32 %and.i91, 0
-  %or.cond.i93.not = select i1 %cmp.i88, i1 %tobool.not.i92, i1 false
+  %or.cond.i93.not102 = select i1 %cmp.i88, i1 %tobool.not.i92, i1 false
   %and5.i94 = and i32 %25, 80
   %tobool6.not.i95 = icmp ne i32 %and5.i94, 0
-  %narrow.i96 = select i1 %or.cond.i93.not, i1 true, i1 %tobool6.not.i95
-  br i1 %narrow.i96, label %if.end193, label %if.then143
+  %narrow.i96.not = select i1 %or.cond.i93.not102, i1 true, i1 %tobool6.not.i95
+  br i1 %narrow.i96.not, label %if.end193, label %if.then143
 
 if.then143:                                       ; preds = %if.then140
   store i32 8, ptr %hand_state, align 4

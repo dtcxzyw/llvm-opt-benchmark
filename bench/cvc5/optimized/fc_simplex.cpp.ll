@@ -4197,11 +4197,8 @@ if.end.i.i14.i:                                   ; preds = %_ZNK4cvc58internal6
 _ZNK4cvc58internal6theory5arith6linear10UpdateInfo13nonbasicDeltaEv.exit15.i: ; preds = %_ZNK4cvc58internal6theory5arith6linear10UpdateInfo13nonbasicDeltaEv.exit.i
   %_mp_size.i.i.i = getelementptr inbounds i8, ptr %a, i64 12
   %35 = load i32, ptr %_mp_size.i.i.i, align 4
-  %cmp6.i.i.not.i = icmp eq i32 %35, 0
   %_mp_size.i.i.i.i = getelementptr inbounds i8, ptr %a, i64 44
   %36 = load i32, ptr %_mp_size.i.i.i.i, align 4
-  %cmp6.i.i.i.not.i = icmp eq i32 %36, 0
-  %retval.0.i.i = select i1 %cmp6.i.i.not.i, i1 %cmp6.i.i.i.not.i, i1 false
   %_mp_size.i.i16.i = getelementptr inbounds i8, ptr %b, i64 12
   %37 = load i32, ptr %_mp_size.i.i16.i, align 4
   %cmp6.i.i17.not.i = icmp eq i32 %37, 0
@@ -4209,8 +4206,11 @@ _ZNK4cvc58internal6theory5arith6linear10UpdateInfo13nonbasicDeltaEv.exit15.i: ; 
   %38 = load i32, ptr %_mp_size.i.i.i24.i, align 4
   %cmp6.i.i.i25.not.i = icmp eq i32 %38, 0
   %retval.0.i22.i = select i1 %cmp6.i.i17.not.i, i1 %cmp6.i.i.i25.not.i, i1 false
-  %39 = xor i1 %retval.0.i.i, %retval.0.i22.i
-  br i1 %39, label %return, label %if.else.i58
+  %39 = icmp ne i32 %35, 0
+  %40 = icmp ne i32 %36, 0
+  %41 = select i1 %39, i1 true, i1 %40
+  %or.cond.i = xor i1 %41, %retval.0.i22.i
+  br i1 %or.cond.i, label %if.else.i58, label %return
 
 if.else.i58:                                      ; preds = %_ZNK4cvc58internal6theory5arith6linear10UpdateInfo13nonbasicDeltaEv.exit15.i
   %call16.i = tail call noundef i32 @_ZNK4cvc58internal6theory5arith6linear10UpdateInfo7leavingEv(ptr noundef nonnull align 8 dereferenceable(204) %a)
@@ -4223,29 +4223,29 @@ if.else19.i:                                      ; preds = %sw.bb15
   br label %return
 
 sw.bb17:                                          ; preds = %if.then
-  %40 = load ptr, ptr %this, align 8
-  %41 = load i32, ptr %a, align 8
-  %call2.i59 = tail call noundef zeroext i1 @_ZNK4cvc58internal6theory5arith6linear14ArithVariables14hasEitherBoundEj(ptr noundef nonnull align 8 dereferenceable(568) %40, i32 noundef %41)
   %42 = load ptr, ptr %this, align 8
-  %43 = load i32, ptr %b, align 8
-  %call5.i60 = tail call noundef zeroext i1 @_ZNK4cvc58internal6theory5arith6linear14ArithVariables14hasEitherBoundEj(ptr noundef nonnull align 8 dereferenceable(568) %42, i32 noundef %43)
-  %44 = xor i1 %call2.i59, %call5.i60
-  br i1 %44, label %if.else.i64, label %if.then.i61
+  %43 = load i32, ptr %a, align 8
+  %call2.i59 = tail call noundef zeroext i1 @_ZNK4cvc58internal6theory5arith6linear14ArithVariables14hasEitherBoundEj(ptr noundef nonnull align 8 dereferenceable(568) %42, i32 noundef %43)
+  %44 = load ptr, ptr %this, align 8
+  %45 = load i32, ptr %b, align 8
+  %call5.i60 = tail call noundef zeroext i1 @_ZNK4cvc58internal6theory5arith6linear14ArithVariables14hasEitherBoundEj(ptr noundef nonnull align 8 dereferenceable(568) %44, i32 noundef %45)
+  %46 = xor i1 %call2.i59, %call5.i60
+  br i1 %46, label %if.else.i64, label %if.then.i61
 
 if.then.i61:                                      ; preds = %sw.bb17
   %call7.i62 = tail call noundef zeroext i1 @_ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule12preferFrozenERKNS3_10UpdateInfoES7_(ptr noundef nonnull align 8 dereferenceable(456) %this, ptr noundef nonnull align 8 dereferenceable(204) %a, ptr noundef nonnull align 8 dereferenceable(204) %b)
   br label %return
 
 if.else.i64:                                      ; preds = %sw.bb17
-  %45 = load ptr, ptr %this, align 8
-  %46 = load i32, ptr %a, align 8
-  %call10.i65 = tail call noundef zeroext i1 @_ZNK4cvc58internal6theory5arith6linear14ArithVariables14hasEitherBoundEj(ptr noundef nonnull align 8 dereferenceable(568) %45, i32 noundef %46)
+  %47 = load ptr, ptr %this, align 8
+  %48 = load i32, ptr %a, align 8
+  %call10.i65 = tail call noundef zeroext i1 @_ZNK4cvc58internal6theory5arith6linear14ArithVariables14hasEitherBoundEj(ptr noundef nonnull align 8 dereferenceable(568) %47, i32 noundef %48)
   br label %return
 
 sw.bb19:                                          ; preds = %if.then
-  %47 = load i32, ptr %a, align 8
-  %48 = load i32, ptr %b, align 8
-  %cmp.i67 = icmp uge i32 %47, %48
+  %49 = load i32, ptr %a, align 8
+  %50 = load i32, ptr %b, align 8
+  %cmp.i67 = icmp uge i32 %49, %50
   br label %return
 
 sw.bb21:                                          ; preds = %if.then, %if.then
@@ -4262,7 +4262,7 @@ invoke.cont23:                                    ; preds = %invoke.cont
   unreachable
 
 lpad:                                             ; preds = %invoke.cont, %sw.bb21
-  %49 = landingpad { ptr, i32 }
+  %51 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4cvc58internal11FatalStreamD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #23
   unreachable
@@ -4281,7 +4281,7 @@ invoke.cont29:                                    ; preds = %invoke.cont27
   unreachable
 
 lpad26:                                           ; preds = %invoke.cont27, %sw.epilog
-  %50 = landingpad { ptr, i32 }
+  %52 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4cvc58internal11FatalStreamD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp25) #23
   unreachable
@@ -5620,11 +5620,8 @@ if.end.i.i14.i:                                   ; preds = %_ZNK4cvc58internal6
 _ZNK4cvc58internal6theory5arith6linear10UpdateInfo13nonbasicDeltaEv.exit15.i: ; preds = %_ZNK4cvc58internal6theory5arith6linear10UpdateInfo13nonbasicDeltaEv.exit.i
   %_mp_size.i.i.i = getelementptr inbounds i8, ptr %a, i64 12
   %35 = load i32, ptr %_mp_size.i.i.i, align 4
-  %cmp6.i.i.not.i = icmp eq i32 %35, 0
   %_mp_size.i.i.i.i = getelementptr inbounds i8, ptr %a, i64 44
   %36 = load i32, ptr %_mp_size.i.i.i.i, align 4
-  %cmp6.i.i.i.not.i = icmp eq i32 %36, 0
-  %retval.0.i.i = select i1 %cmp6.i.i.not.i, i1 %cmp6.i.i.i.not.i, i1 false
   %_mp_size.i.i16.i = getelementptr inbounds i8, ptr %b, i64 12
   %37 = load i32, ptr %_mp_size.i.i16.i, align 4
   %cmp6.i.i17.not.i = icmp eq i32 %37, 0
@@ -5632,8 +5629,11 @@ _ZNK4cvc58internal6theory5arith6linear10UpdateInfo13nonbasicDeltaEv.exit15.i: ; 
   %38 = load i32, ptr %_mp_size.i.i.i24.i, align 4
   %cmp6.i.i.i25.not.i = icmp eq i32 %38, 0
   %retval.0.i22.i = select i1 %cmp6.i.i17.not.i, i1 %cmp6.i.i.i25.not.i, i1 false
-  %39 = xor i1 %retval.0.i.i, %retval.0.i22.i
-  br i1 %39, label %return, label %if.else.i58
+  %39 = icmp ne i32 %35, 0
+  %40 = icmp ne i32 %36, 0
+  %41 = select i1 %39, i1 true, i1 %40
+  %or.cond.i = xor i1 %41, %retval.0.i22.i
+  br i1 %or.cond.i, label %if.else.i58, label %return
 
 if.else.i58:                                      ; preds = %_ZNK4cvc58internal6theory5arith6linear10UpdateInfo13nonbasicDeltaEv.exit15.i
   %call16.i = tail call noundef i32 @_ZNK4cvc58internal6theory5arith6linear10UpdateInfo7leavingEv(ptr noundef nonnull align 8 dereferenceable(204) %a)
@@ -5646,29 +5646,29 @@ if.else19.i:                                      ; preds = %sw.bb15
   br label %return
 
 sw.bb17:                                          ; preds = %if.then
-  %40 = load ptr, ptr %this, align 8
-  %41 = load i32, ptr %a, align 8
-  %call2.i59 = tail call noundef zeroext i1 @_ZNK4cvc58internal6theory5arith6linear14ArithVariables14hasEitherBoundEj(ptr noundef nonnull align 8 dereferenceable(568) %40, i32 noundef %41)
   %42 = load ptr, ptr %this, align 8
-  %43 = load i32, ptr %b, align 8
-  %call5.i60 = tail call noundef zeroext i1 @_ZNK4cvc58internal6theory5arith6linear14ArithVariables14hasEitherBoundEj(ptr noundef nonnull align 8 dereferenceable(568) %42, i32 noundef %43)
-  %44 = xor i1 %call2.i59, %call5.i60
-  br i1 %44, label %if.else.i64, label %if.then.i61
+  %43 = load i32, ptr %a, align 8
+  %call2.i59 = tail call noundef zeroext i1 @_ZNK4cvc58internal6theory5arith6linear14ArithVariables14hasEitherBoundEj(ptr noundef nonnull align 8 dereferenceable(568) %42, i32 noundef %43)
+  %44 = load ptr, ptr %this, align 8
+  %45 = load i32, ptr %b, align 8
+  %call5.i60 = tail call noundef zeroext i1 @_ZNK4cvc58internal6theory5arith6linear14ArithVariables14hasEitherBoundEj(ptr noundef nonnull align 8 dereferenceable(568) %44, i32 noundef %45)
+  %46 = xor i1 %call2.i59, %call5.i60
+  br i1 %46, label %if.else.i64, label %if.then.i61
 
 if.then.i61:                                      ; preds = %sw.bb17
   %call7.i62 = tail call noundef zeroext i1 @_ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule12preferFrozenERKNS3_10UpdateInfoES7_(ptr noundef nonnull align 8 dereferenceable(456) %this, ptr noundef nonnull align 8 dereferenceable(204) %a, ptr noundef nonnull align 8 dereferenceable(204) %b)
   br label %return
 
 if.else.i64:                                      ; preds = %sw.bb17
-  %45 = load ptr, ptr %this, align 8
-  %46 = load i32, ptr %a, align 8
-  %call10.i65 = tail call noundef zeroext i1 @_ZNK4cvc58internal6theory5arith6linear14ArithVariables14hasEitherBoundEj(ptr noundef nonnull align 8 dereferenceable(568) %45, i32 noundef %46)
+  %47 = load ptr, ptr %this, align 8
+  %48 = load i32, ptr %a, align 8
+  %call10.i65 = tail call noundef zeroext i1 @_ZNK4cvc58internal6theory5arith6linear14ArithVariables14hasEitherBoundEj(ptr noundef nonnull align 8 dereferenceable(568) %47, i32 noundef %48)
   br label %return
 
 sw.bb19:                                          ; preds = %if.then
-  %47 = load i32, ptr %a, align 8
-  %48 = load i32, ptr %b, align 8
-  %cmp.i67 = icmp uge i32 %47, %48
+  %49 = load i32, ptr %a, align 8
+  %50 = load i32, ptr %b, align 8
+  %cmp.i67 = icmp uge i32 %49, %50
   br label %return
 
 sw.bb21:                                          ; preds = %if.then, %if.then
@@ -5685,7 +5685,7 @@ invoke.cont23:                                    ; preds = %invoke.cont
   unreachable
 
 lpad:                                             ; preds = %invoke.cont, %sw.bb21
-  %49 = landingpad { ptr, i32 }
+  %51 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4cvc58internal11FatalStreamD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #23
   unreachable
@@ -5704,7 +5704,7 @@ invoke.cont29:                                    ; preds = %invoke.cont27
   unreachable
 
 lpad26:                                           ; preds = %invoke.cont27, %sw.epilog
-  %50 = landingpad { ptr, i32 }
+  %52 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4cvc58internal11FatalStreamD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp25) #23
   unreachable

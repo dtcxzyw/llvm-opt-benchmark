@@ -517,7 +517,7 @@ if.end:                                           ; preds = %if.then, %entry
   %scope_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 5
   %scope_10.i = getelementptr inbounds i8, ptr %agg.result, i64 5
   %state_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  %.neg95 = select i1 %tobool.not, i64 32761, i64 32757
+  %.neg96 = select i1 %tobool.not, i64 32761, i64 32757
   %compressed_buffer_ = getelementptr inbounds i8, ptr %this, i64 88
   %cmp.not.i49 = icmp eq ptr %ref.tmp88, %agg.result
   %subcode_.i51 = getelementptr inbounds i8, ptr %ref.tmp88, i64 1
@@ -528,7 +528,7 @@ if.end:                                           ; preds = %if.then, %entry
   br label %do.body
 
 do.body:                                          ; preds = %land.rhs94, %if.end
-  %.pre100104 = phi i64 [ %1, %if.end ], [ %sub91, %land.rhs94 ]
+  %.pre101105 = phi i64 [ %1, %if.end ], [ %sub91, %land.rhs94 ]
   %compress_start.1 = phi i8 [ %compress_start.0, %if.end ], [ %compress_start.2, %land.rhs94 ]
   %compress_remaining.0 = phi i32 [ 0, %if.end ], [ %compress_remaining.1, %land.rhs94 ]
   %begin.0 = phi i1 [ true, %if.end ], [ false, %land.rhs94 ]
@@ -550,7 +550,7 @@ if.then7:                                         ; preds = %if.then5
           to label %invoke.cont10 unwind label %lpad.loopexit
 
 invoke.cont10:                                    ; preds = %if.then7
-  %.pre99 = load ptr, ptr %state_.i, align 8
+  %.pre100 = load ptr, ptr %state_.i, align 8
   br i1 %cmp.not.i, label %_ZN7rocksdb8IOStatusaSEOS0_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont10
@@ -571,7 +571,7 @@ if.then.i:                                        ; preds = %invoke.cont10
   store i8 0, ptr %scope_.i, align 1
   store ptr null, ptr %state_.i, align 8
   %15 = load ptr, ptr %state_.i.i.i, align 8
-  store ptr %.pre99, ptr %state_.i.i.i, align 8
+  store ptr %.pre100, ptr %state_.i.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %15, null
   br i1 %tobool.not.i.i.i.i.i, label %invoke.cont12, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i.i
 
@@ -581,7 +581,7 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
   br label %_ZN7rocksdb8IOStatusaSEOS0_.exit
 
 _ZN7rocksdb8IOStatusaSEOS0_.exit:                 ; preds = %invoke.cont10, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i.i
-  %16 = phi ptr [ %.pre99, %invoke.cont10 ], [ %.pre, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i.i ]
+  %16 = phi ptr [ %.pre100, %invoke.cont10 ], [ %.pre, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i.i ]
   %cmp.not.i.i.i = icmp eq ptr %16, null
   br i1 %cmp.not.i.i.i, label %invoke.cont12, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i
 
@@ -596,21 +596,21 @@ invoke.cont12:                                    ; preds = %if.then.i, %_ZNKSt1
   br i1 %cmp.i, label %invoke.cont12.if.end16_crit_edge, label %nrvo.skipdtor
 
 invoke.cont12.if.end16_crit_edge:                 ; preds = %invoke.cont12
-  %.pre100.pre.pre = load i64, ptr %left, align 8
+  %.pre101.pre.pre = load i64, ptr %left, align 8
   br label %if.end16
 
 lpad.loopexit:                                    ; preds = %if.then7, %if.then27, %if.end87
-  %lpad.loopexit96 = landingpad { ptr, i32 }
+  %lpad.loopexit97 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.loopexit.split-lp:                           ; preds = %if.then102
-  %lpad.loopexit.split-lp97 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp98 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.body:                                        ; preds = %lpad.loopexit, %lpad.loopexit.split-lp, %_ZN7rocksdb6StatusD2Ev.exit.i.i.i
-  %eh.lpad-body = phi { ptr, i32 } [ %26, %_ZN7rocksdb6StatusD2Ev.exit.i.i.i ], [ %lpad.loopexit96, %lpad.loopexit ], [ %lpad.loopexit.split-lp97, %lpad.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %26, %_ZN7rocksdb6StatusD2Ev.exit.i.i.i ], [ %lpad.loopexit97, %lpad.loopexit ], [ %lpad.loopexit.split-lp98, %lpad.loopexit.split-lp ]
   %18 = load ptr, ptr %state_.i.i.i, align 8
   %cmp.not.i.i.i23 = icmp eq ptr %18, null
   br i1 %cmp.not.i.i.i23, label %_ZN7rocksdb8IOStatusD2Ev.exit25, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i24
@@ -624,14 +624,14 @@ _ZN7rocksdb8IOStatusD2Ev.exit25:                  ; preds = %lpad.body, %_ZNKSt1
   resume { ptr, i32 } %eh.lpad-body
 
 if.end16:                                         ; preds = %invoke.cont12.if.end16_crit_edge, %if.then5
-  %.pre100.pre = phi i64 [ %.pre100.pre.pre, %invoke.cont12.if.end16_crit_edge ], [ %.pre100104, %if.then5 ]
+  %.pre101.pre = phi i64 [ %.pre101.pre.pre, %invoke.cont12.if.end16_crit_edge ], [ %.pre101105, %if.then5 ]
   store i64 0, ptr %block_offset_, align 8
   br label %if.end18
 
 if.end18:                                         ; preds = %if.end16, %do.body
-  %.pre100 = phi i64 [ %.pre100.pre, %if.end16 ], [ %.pre100104, %do.body ]
+  %.pre101 = phi i64 [ %.pre101.pre, %if.end16 ], [ %.pre101105, %do.body ]
   %19 = phi i64 [ 0, %if.end16 ], [ %6, %do.body ]
-  %sub22 = sub i64 %.neg95, %19
+  %sub22 = sub i64 %.neg96, %19
   %20 = load ptr, ptr %compress_, align 8
   %tobool24.not = icmp eq ptr %20, null
   br i1 %tobool24.not, label %if.end57, label %land.lhs.true
@@ -639,7 +639,7 @@ if.end18:                                         ; preds = %if.end16, %do.body
 land.lhs.true:                                    ; preds = %if.end18
   %21 = and i8 %compress_start.1, 1
   %tobool25 = icmp ne i8 %21, 0
-  %cmp26 = icmp eq i64 %.pre100, 0
+  %cmp26 = icmp eq i64 %.pre101, 0
   %or.cond = select i1 %tobool25, i1 true, i1 %cmp26
   br i1 %or.cond, label %if.then27, label %if.end57
 
@@ -699,41 +699,40 @@ if.end54:                                         ; preds = %if.else
   br label %if.end57
 
 if.end57:                                         ; preds = %land.lhs.true, %if.end54, %if.end18
-  %30 = phi i64 [ %28, %if.end54 ], [ %.pre100, %land.lhs.true ], [ %.pre100, %if.end18 ]
+  %30 = phi i64 [ %28, %if.end54 ], [ %.pre101, %land.lhs.true ], [ %.pre101, %if.end18 ]
   %compress_start.2 = phi i8 [ 0, %if.end54 ], [ %compress_start.1, %land.lhs.true ], [ %compress_start.1, %if.end18 ]
   %compress_remaining.1 = phi i32 [ %call37, %if.end54 ], [ %compress_remaining.0, %land.lhs.true ], [ %compress_remaining.0, %if.end18 ]
   %ptr.1 = phi ptr [ %29, %if.end54 ], [ %ptr.0, %land.lhs.true ], [ %ptr.0, %if.end18 ]
   %cond59 = call i64 @llvm.umin.i64(i64 %30, i64 %sub22)
-  %cmp60 = icmp ugt i64 %30, %sub22
-  %cmp61 = icmp ne i32 %compress_remaining.1, 0
-  %.not94 = select i1 %cmp60, i1 true, i1 %cmp61
-  %begin.0.not = xor i1 %begin.0, true
-  %brmerge20 = select i1 %begin.0.not, i1 true, i1 %.not94
+  %cmp60 = icmp ule i64 %30, %sub22
+  %cmp61 = icmp eq i32 %compress_remaining.1, 0
+  %.not94.not95 = select i1 %cmp60, i1 %cmp61, i1 false
+  %brmerge20.not = select i1 %begin.0, i1 %.not94.not95, i1 false
   %31 = load i8, ptr %recycle_log_files_, align 8
   %32 = and i8 %31, 1
-  %tobool73.not = icmp eq i8 %32, 0
-  br i1 %brmerge20, label %if.else69, label %if.then65
+  %tobool67.not = icmp eq i8 %32, 0
+  br i1 %brmerge20.not, label %if.then65, label %if.else69
 
 if.then65:                                        ; preds = %if.end57
-  %cond68 = select i1 %tobool73.not, i32 1, i32 5
+  %cond68 = select i1 %tobool67.not, i32 1, i32 5
   br label %if.end87
 
 if.else69:                                        ; preds = %if.end57
   br i1 %begin.0, label %if.then71, label %if.else75
 
 if.then71:                                        ; preds = %if.else69
-  %cond74 = select i1 %tobool73.not, i32 2, i32 6
+  %cond74 = select i1 %tobool67.not, i32 2, i32 6
   br label %if.end87
 
 if.else75:                                        ; preds = %if.else69
-  br i1 %.not94, label %if.else81, label %if.then77
+  br i1 %.not94.not95, label %if.then77, label %if.else81
 
 if.then77:                                        ; preds = %if.else75
-  %cond80 = select i1 %tobool73.not, i32 4, i32 8
+  %cond80 = select i1 %tobool67.not, i32 4, i32 8
   br label %if.end87
 
 if.else81:                                        ; preds = %if.else75
-  %cond84 = select i1 %tobool73.not, i32 3, i32 7
+  %cond84 = select i1 %tobool67.not, i32 3, i32 7
   br label %if.end87
 
 if.end87:                                         ; preds = %if.then71, %if.else81, %if.then77, %if.then65
@@ -742,7 +741,7 @@ if.end87:                                         ; preds = %if.then71, %if.else
           to label %invoke.cont89 unwind label %lpad.loopexit
 
 invoke.cont89:                                    ; preds = %if.end87
-  %.pre102 = load ptr, ptr %state_.i59, align 8
+  %.pre103 = load ptr, ptr %state_.i59, align 8
   br i1 %cmp.not.i49, label %_ZN7rocksdb8IOStatusaSEOS0_.exit63, label %if.then.i50
 
 if.then.i50:                                      ; preds = %invoke.cont89
@@ -763,17 +762,17 @@ if.then.i50:                                      ; preds = %invoke.cont89
   store i8 0, ptr %scope_.i57, align 1
   store ptr null, ptr %state_.i59, align 8
   %40 = load ptr, ptr %state_.i.i.i, align 8
-  store ptr %.pre102, ptr %state_.i.i.i, align 8
+  store ptr %.pre103, ptr %state_.i.i.i, align 8
   %tobool.not.i.i.i.i.i61 = icmp eq ptr %40, null
   br i1 %tobool.not.i.i.i.i.i61, label %invoke.cont92, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i.i62
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i.i62: ; preds = %if.then.i50
   call void @_ZdaPv(ptr noundef nonnull %40) #16
-  %.pre101 = load ptr, ptr %state_.i59, align 8
+  %.pre102 = load ptr, ptr %state_.i59, align 8
   br label %_ZN7rocksdb8IOStatusaSEOS0_.exit63
 
 _ZN7rocksdb8IOStatusaSEOS0_.exit63:               ; preds = %invoke.cont89, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i.i62
-  %41 = phi ptr [ %.pre102, %invoke.cont89 ], [ %.pre101, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i.i62 ]
+  %41 = phi ptr [ %.pre103, %invoke.cont89 ], [ %.pre102, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i.i62 ]
   %cmp.not.i.i.i65 = icmp eq ptr %41, null
   br i1 %cmp.not.i.i.i65, label %invoke.cont92, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i66
 

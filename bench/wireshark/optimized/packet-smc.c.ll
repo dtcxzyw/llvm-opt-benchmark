@@ -1156,7 +1156,7 @@ define internal noundef i32 @dissect_smc_tcp_heur(ptr noundef %0, ptr noundef %1
 define internal noundef i32 @dissect_smcr_infiniband_heur(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 0) #3
   %6 = icmp slt i32 %5, 2
-  br i1 %6, label %29, label %7
+  br i1 %6, label %31, label %7
 
 7:                                                ; preds = %4
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #3
@@ -1169,7 +1169,7 @@ define internal noundef i32 @dissect_smcr_infiniband_heur(ptr noundef %0, ptr no
   %or.cond = icmp ult i8 %12, 9
   %13 = icmp eq i8 %8, -2
   %or.cond3 = or i1 %13, %or.cond
-  br i1 %or.cond3, label %18, label %14
+  br i1 %or.cond3, label %20, label %14
 
 14:                                               ; preds = %7, %11
   %15 = add i8 %8, -33
@@ -1178,38 +1178,38 @@ define internal noundef i32 @dissect_smcr_infiniband_heur(ptr noundef %0, ptr no
 
 ._crit_edge:                                      ; preds = %14
   %16 = and i8 %8, -4
-  %or.cond749 = icmp eq i8 %16, 36
-  %17 = icmp eq i8 %8, 41
-  %or.cond950 = or i1 %17, %or.cond749
-  br i1 %or.cond950, label %.thread48, label %29
+  %17 = icmp ne i8 %16, 36
+  %18 = icmp ne i8 %8, 41
+  %19 = and i1 %18, %17
+  br i1 %19, label %31, label %.thread48
 
-18:                                               ; preds = %11
-  %19 = and i8 %8, -4
-  %or.cond7.not = icmp eq i8 %19, 36
-  br i1 %or.cond7.not, label %29, label %20
+20:                                               ; preds = %11
+  %21 = and i8 %8, -4
+  %.not49 = icmp eq i8 %21, 36
+  br i1 %.not49, label %31, label %22
 
-20:                                               ; preds = %18
-  %21 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #3
-  %22 = zext i8 %21 to i16
-  br label %24
+22:                                               ; preds = %20
+  %23 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #3
+  %24 = zext i8 %23 to i16
+  br label %26
 
 .thread48:                                        ; preds = %._crit_edge, %14
-  %23 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef 1, i32 noundef 0) #3
-  br label %24
+  %25 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef 1, i32 noundef 0) #3
+  br label %26
 
-24:                                               ; preds = %.thread48, %20
-  %.040 = phi i16 [ %22, %20 ], [ %23, %.thread48 ]
-  %25 = zext i16 %.040 to i32
-  %26 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #3
-  %.not = icmp eq i32 %26, %25
-  br i1 %.not, label %27, label %29
+26:                                               ; preds = %.thread48, %22
+  %.040 = phi i16 [ %24, %22 ], [ %25, %.thread48 ]
+  %27 = zext i16 %.040 to i32
+  %28 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #3
+  %.not = icmp eq i32 %28, %27
+  br i1 %.not, label %29, label %31
 
-27:                                               ; preds = %24
-  %28 = tail call i32 @dissect_smcr_infiniband(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr poison)
-  br label %29
+29:                                               ; preds = %26
+  %30 = tail call i32 @dissect_smcr_infiniband(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr poison)
+  br label %31
 
-29:                                               ; preds = %._crit_edge, %24, %18, %4, %27
-  %.039 = phi i32 [ 1, %27 ], [ 0, %4 ], [ 0, %18 ], [ 0, %24 ], [ 0, %._crit_edge ]
+31:                                               ; preds = %._crit_edge, %26, %20, %4, %29
+  %.039 = phi i32 [ 1, %29 ], [ 0, %4 ], [ 0, %20 ], [ 0, %26 ], [ 0, %._crit_edge ]
   ret i32 %.039
 }
 

@@ -1826,15 +1826,15 @@ define internal fastcc noundef i32 @usblp_wwait(ptr noundef %0, i32 noundef %1) 
   %15 = getelementptr inbounds i8, ptr %0, i64 345
   %16 = getelementptr inbounds i8, ptr %0, i64 72
   %17 = getelementptr inbounds i8, ptr %0, i64 320
-  %.not = icmp eq i32 %1, 0
+  %.not6 = icmp eq i32 %1, 0
   %18 = getelementptr inbounds i8, ptr %0, i64 340
   %19 = getelementptr inbounds i8, ptr %0, i64 88
   %20 = getelementptr inbounds i8, ptr %0, i64 204
   %21 = getelementptr inbounds i8, ptr %0, i64 316
-  br i1 %.not, label %.split.us, label %.split
+  br i1 %.not6, label %.split.us, label %.split
 
-.split.us:                                        ; preds = %13, %.thread4.us
-  %22 = phi i32 [ %87, %.thread4.us ], [ 0, %13 ]
+.split.us:                                        ; preds = %13, %.thread5.us
+  %22 = phi i32 [ %84, %.thread5.us ], [ 0, %13 ]
   %23 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %14, i32 1, ptr elementtype(i32) %14) #11, !srcloc !26
   %24 = load i8, ptr %15, align 1
   %25 = icmp eq i8 %24, 0
@@ -1863,7 +1863,7 @@ define internal fastcc noundef i32 @usblp_wwait(ptr noundef %0, i32 noundef %1) 
   call void @mutex_unlock(ptr noundef %10) #11
   %39 = call i64 @schedule_timeout(i64 noundef 1500) #11
   %40 = icmp eq i64 %39, 0
-  br i1 %40, label %41, label %.thread4.us
+  br i1 %40, label %41, label %.thread5.us
 
 41:                                               ; preds = %38
   %42 = load i32, ptr %18, align 4
@@ -1878,103 +1878,102 @@ define internal fastcc noundef i32 @usblp_wwait(ptr noundef %0, i32 noundef %1) 
   %50 = load i32, ptr %20, align 4
   %51 = trunc i32 %50 to i16
   %52 = call i32 @usb_control_msg(ptr noundef %45, i32 noundef %48, i8 noundef zeroext 1, i8 noundef zeroext -95, i16 noundef zeroext 0, i16 noundef zeroext %51, ptr noundef %49, i16 noundef zeroext 1, i32 noundef 5000) #11
-  br i1 %44, label %86, label %53
+  br i1 %44, label %83, label %53
 
 53:                                               ; preds = %41
   %54 = call i32 @llvm.smin.i32(i32 %52, i32 0)
   %55 = icmp slt i32 %52, 0
-  br i1 %55, label %80, label %56
+  br i1 %55, label %77, label %56
 
 56:                                               ; preds = %53
   %57 = load ptr, ptr %19, align 8
   %58 = load i8, ptr %57, align 1
   call void @mutex_unlock(ptr noundef %10) #11
   %59 = zext i8 %58 to i32
-  %60 = xor i32 %59, -1
-  %61 = and i32 %60, 8
-  %62 = icmp eq i32 %61, 0
-  %63 = select i1 %62, i8 0, i8 3
-  %64 = and i32 %59, 32
-  %65 = icmp eq i32 %64, 0
-  %66 = select i1 %65, i8 %63, i8 1
-  %67 = and i32 %60, 16
-  %68 = icmp eq i32 %67, 0
-  %69 = select i1 %68, i8 %66, i8 2
-  %70 = zext nneg i8 %69 to i32
-  %71 = icmp eq i32 %22, %70
-  br i1 %71, label %78, label %72
+  %60 = and i32 %59, 8
+  %.not.us = icmp eq i32 %60, 0
+  %61 = select i1 %.not.us, i8 3, i8 0
+  %62 = and i32 %59, 32
+  %63 = icmp eq i32 %62, 0
+  %64 = select i1 %63, i8 %61, i8 1
+  %65 = and i32 %59, 16
+  %.not3.us = icmp eq i32 %65, 0
+  %66 = select i1 %.not3.us, i8 2, i8 %64
+  %67 = zext nneg i8 %66 to i32
+  %68 = icmp eq i32 %22, %67
+  br i1 %68, label %75, label %69
 
-72:                                               ; preds = %56
-  %73 = load i32, ptr %21, align 4
-  %74 = zext nneg i8 %69 to i64
-  %75 = getelementptr [4 x ptr], ptr @usblp_messages, i64 0, i64 %74
-  %76 = load ptr, ptr %75, align 8
-  %77 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.22, i32 noundef %73, ptr noundef %76) #13
-  br label %78
+69:                                               ; preds = %56
+  %70 = load i32, ptr %21, align 4
+  %71 = zext nneg i8 %66 to i64
+  %72 = getelementptr [4 x ptr], ptr @usblp_messages, i64 0, i64 %71
+  %73 = load ptr, ptr %72, align 8
+  %74 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.22, i32 noundef %70, ptr noundef %73) #13
+  br label %75
 
-78:                                               ; preds = %72, %56
-  %79 = icmp eq i8 %69, 1
-  br i1 %79, label %.loopexit, label %.thread4.us
+75:                                               ; preds = %69, %56
+  %76 = icmp eq i8 %66, 1
+  br i1 %76, label %.loopexit, label %.thread5.us
 
-80:                                               ; preds = %53
+77:                                               ; preds = %53
   call void @mutex_unlock(ptr noundef %10) #11
-  %81 = call i32 @___ratelimit(ptr noundef nonnull @usblp_check_status._rs, ptr noundef nonnull @__func__.usblp_check_status) #11
-  %82 = icmp eq i32 %81, 0
-  br i1 %82, label %.thread4.us, label %83
+  %78 = call i32 @___ratelimit(ptr noundef nonnull @usblp_check_status._rs, ptr noundef nonnull @__func__.usblp_check_status) #11
+  %79 = icmp eq i32 %78, 0
+  br i1 %79, label %.thread5.us, label %80
 
-83:                                               ; preds = %80
-  %84 = load i32, ptr %21, align 4
-  %85 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.21, i32 noundef %84, i32 noundef %54) #13
-  br label %.thread4.us
+80:                                               ; preds = %77
+  %81 = load i32, ptr %21, align 4
+  %82 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.21, i32 noundef %81, i32 noundef %54) #13
+  br label %.thread5.us
 
-86:                                               ; preds = %41
+83:                                               ; preds = %41
   call void @mutex_unlock(ptr noundef %10) #11
-  br label %.thread4.us
+  br label %.thread5.us
 
-.thread4.us:                                      ; preds = %86, %83, %80, %78, %38
-  %87 = phi i32 [ %70, %78 ], [ %22, %86 ], [ %22, %38 ], [ 0, %83 ], [ 0, %80 ]
-  %88 = call i32 @mutex_lock_interruptible(ptr noundef %10) #11
-  %89 = icmp eq i32 %88, 0
-  br i1 %89, label %.split.us, label %.loopexit, !llvm.loop !27
+.thread5.us:                                      ; preds = %83, %80, %77, %75, %38
+  %84 = phi i32 [ %67, %75 ], [ %22, %83 ], [ %22, %38 ], [ 0, %80 ], [ 0, %77 ]
+  %85 = call i32 @mutex_lock_interruptible(ptr noundef %10) #11
+  %86 = icmp eq i32 %85, 0
+  br i1 %86, label %.split.us, label %.loopexit, !llvm.loop !27
 
 .split:                                           ; preds = %13
-  %90 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %14, i32 1, ptr elementtype(i32) %14) #11, !srcloc !26
-  %91 = load i8, ptr %15, align 1
-  %92 = icmp eq i8 %91, 0
-  br i1 %92, label %.loopexit.sink.split, label %93
+  %87 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %14, i32 1, ptr elementtype(i32) %14) #11, !srcloc !26
+  %88 = load i8, ptr %15, align 1
+  %89 = icmp eq i8 %88, 0
+  br i1 %89, label %.loopexit.sink.split, label %90
 
-93:                                               ; preds = %.split
-  %94 = load volatile i64, ptr %6, align 8
-  %95 = and i64 %94, 131072
-  %96 = icmp eq i64 %95, 0
-  br i1 %96, label %97, label %.loopexit.sink.split, !prof !17
+90:                                               ; preds = %.split
+  %91 = load volatile i64, ptr %6, align 8
+  %92 = and i64 %91, 131072
+  %93 = icmp eq i64 %92, 0
+  br i1 %93, label %94, label %.loopexit.sink.split, !prof !17
 
-97:                                               ; preds = %93
-  %98 = load volatile i64, ptr %6, align 8
-  %99 = and i64 %98, 4
-  %100 = icmp eq i64 %99, 0
-  br i1 %100, label %101, label %.loopexit.sink.split
+94:                                               ; preds = %90
+  %95 = load volatile i64, ptr %6, align 8
+  %96 = and i64 %95, 4
+  %97 = icmp eq i64 %96, 0
+  br i1 %97, label %98, label %.loopexit.sink.split
 
-101:                                              ; preds = %97
-  %102 = call i64 @_raw_spin_lock_irqsave(ptr noundef %16) #11
-  %103 = load i32, ptr %17, align 8
-  %104 = icmp eq i32 %103, 0
-  call void @_raw_spin_unlock_irqrestore(ptr noundef %16, i64 noundef %102) #11
-  %spec.select = select i1 %104, i32 -11, i32 0
+98:                                               ; preds = %94
+  %99 = call i64 @_raw_spin_lock_irqsave(ptr noundef %16) #11
+  %100 = load i32, ptr %17, align 8
+  %101 = icmp eq i32 %100, 0
+  call void @_raw_spin_unlock_irqrestore(ptr noundef %16, i64 noundef %99) #11
+  %spec.select = select i1 %101, i32 -11, i32 0
   br label %.loopexit.sink.split
 
-.loopexit.sink.split:                             ; preds = %34, %30, %26, %.split.us, %101, %.split, %97, %93
-  %.ph = phi i32 [ -4, %93 ], [ -4, %97 ], [ -19, %.split ], [ %spec.select, %101 ], [ 0, %34 ], [ -4, %26 ], [ -4, %30 ], [ -19, %.split.us ]
+.loopexit.sink.split:                             ; preds = %34, %30, %26, %.split.us, %98, %.split, %94, %90
+  %.ph = phi i32 [ -4, %90 ], [ -4, %94 ], [ -19, %.split ], [ %spec.select, %98 ], [ 0, %34 ], [ -4, %26 ], [ -4, %30 ], [ -19, %.split.us ]
   call void @mutex_unlock(ptr noundef %10) #11
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.thread4.us, %78, %.loopexit.sink.split, %2
-  %105 = phi i32 [ -4, %2 ], [ %.ph, %.loopexit.sink.split ], [ -28, %78 ], [ -4, %.thread4.us ]
-  %106 = getelementptr inbounds i8, ptr %6, i64 24
-  %107 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %106, i32 0, ptr elementtype(i32) %106) #11, !srcloc !28
+.loopexit:                                        ; preds = %.thread5.us, %75, %.loopexit.sink.split, %2
+  %102 = phi i32 [ -4, %2 ], [ %.ph, %.loopexit.sink.split ], [ -28, %75 ], [ -4, %.thread5.us ]
+  %103 = getelementptr inbounds i8, ptr %6, i64 24
+  %104 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %103, i32 0, ptr elementtype(i32) %103) #11, !srcloc !28
   call void @remove_wait_queue(ptr noundef %9, ptr noundef nonnull %3) #11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #11
-  ret i32 %105
+  ret i32 %102
 }
 
 ; Function Attrs: null_pointer_is_valid

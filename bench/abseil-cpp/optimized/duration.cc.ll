@@ -287,9 +287,8 @@ if.then75:                                        ; preds = %_ZN4absl12_GLOBAL__
   br label %return
 
 if.end78:                                         ; preds = %_ZN4absl12_GLOBAL__N_120MakeDurationFromU128ENS_7uint128Eb.exit
-  %coerce.sroa.0.0.insert.insert.i118 = add i64 %quotient128.sroa.0.0, 9223372036854775807
-  %and84 = and i64 %coerce.sroa.0.0.insert.insert.i118, 9223372036854775807
-  %sub85 = xor i64 %and84, -1
+  %8 = sub i64 0, %quotient128.sroa.0.0
+  %sub85 = or i64 %8, -9223372036854775808
   br label %return
 
 return:                                           ; preds = %if.end78, %if.then75, %if.then37, %if.then24, %if.then

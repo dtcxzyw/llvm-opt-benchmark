@@ -88,12 +88,12 @@ copyOrder.exit:                                   ; preds = %.copyOrder.exit_cri
   br i1 %38, label %.preheader, label %stopping_criterion.exit
 
 stopping_criterion.exit:                          ; preds = %37
-  %39 = icmp eq i32 %.0111, %.0110
-  %40 = icmp eq i32 %.0111, %.0109
-  %or.cond.i = and i1 %39, %40
-  %41 = icmp eq i32 %.0111, %.0108
-  %or.cond8.i = and i1 %or.cond.i, %41
-  br i1 %or.cond8.i, label %198, label %.preheader
+  %39 = icmp ne i32 %.0111, %.0110
+  %40 = icmp ne i32 %.0111, %.0109
+  %or.cond.i.not197 = or i1 %39, %40
+  %41 = icmp ne i32 %.0111, %.0108
+  %or.cond8.i.not = or i1 %or.cond.i.not197, %41
+  br i1 %or.cond8.i.not, label %.preheader, label %198
 
 .preheader:                                       ; preds = %37, %stopping_criterion.exit
   br i1 %36, label %.lr.ph, label %._crit_edge

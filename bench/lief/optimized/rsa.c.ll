@@ -191,13 +191,13 @@ define hidden i32 @mbedtls_rsa_complete(ptr noundef %0) local_unnamed_addr #0 {
   %15 = icmp ne i32 %14, 0
   %16 = getelementptr inbounds i8, ptr %0, i64 136
   %17 = tail call i32 @mbedtls_mpi_cmp_int(ptr noundef nonnull %16, i64 noundef 0) #14
-  %18 = icmp ne i32 %17, 0
+  %18 = icmp eq i32 %17, 0
   %19 = getelementptr inbounds i8, ptr %0, i64 160
   %20 = tail call i32 @mbedtls_mpi_cmp_int(ptr noundef nonnull %19, i64 noundef 0) #14
-  %21 = icmp ne i32 %20, 0
+  %21 = icmp eq i32 %20, 0
   %22 = getelementptr inbounds i8, ptr %0, i64 184
   %23 = tail call i32 @mbedtls_mpi_cmp_int(ptr noundef nonnull %22, i64 noundef 0) #14
-  %24 = icmp ne i32 %23, 0
+  %24 = icmp eq i32 %23, 0
   %or.cond = select i1 %6, i1 %9, i1 false
   %or.cond5 = select i1 %.not, i1 true, i1 %6
   %or.cond7 = select i1 %or.cond5, i1 true, i1 %9
@@ -262,11 +262,10 @@ define hidden i32 @mbedtls_rsa_complete(ptr noundef %0) local_unnamed_addr #0 {
   br label %54
 
 47:                                               ; preds = %42, %43, %38
-  %spec.select108.not = xor i1 %spec.select108, true
-  %or.cond29 = select i1 %18, i1 %21, i1 false
-  %or.cond31 = select i1 %or.cond29, i1 %24, i1 false
-  %or.cond109 = select i1 %spec.select108.not, i1 true, i1 %or.cond31
-  br i1 %or.cond109, label %52, label %48
+  %or.cond29.not117 = select i1 %18, i1 true, i1 %21
+  %or.cond31.not114 = select i1 %or.cond29.not117, i1 true, i1 %24
+  %or.cond109.not = select i1 %spec.select108, i1 %or.cond31.not114, i1 false
+  br i1 %or.cond109.not, label %48, label %52
 
 48:                                               ; preds = %47
   %49 = tail call i32 @mbedtls_rsa_deduce_crt(ptr noundef nonnull %4, ptr noundef nonnull %7, ptr noundef nonnull %10, ptr noundef nonnull %16, ptr noundef nonnull %19, ptr noundef nonnull %22) #14

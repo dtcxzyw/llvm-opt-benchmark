@@ -1046,8 +1046,8 @@ Abc_Clock.exit191:                                ; preds = %72, %75
   store i32 0, ptr %87, align 4
   %88 = load ptr, ptr %49, align 8
   %89 = getelementptr i8, ptr %88, i64 4
-  %.val173243 = load i32, ptr %89, align 4
-  %90 = icmp sgt i32 %.val173243, 0
+  %.val173245 = load i32, ptr %89, align 4
+  %90 = icmp sgt i32 %.val173245, 0
   br i1 %90, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %Abc_Clock.exit191, %92
@@ -1103,9 +1103,9 @@ Abc_Clock.exit191:                                ; preds = %72, %75
   call void @Ssc_GiaSavePiPattern(ptr noundef nonnull %0, ptr noundef %122) #18
   %123 = load i32, ptr %50, align 8
   %124 = icmp sgt i32 %123, 0
-  br i1 %124, label %.lr.ph248, label %.critedge2
+  br i1 %124, label %.lr.ph250, label %.critedge2
 
-.lr.ph248:                                        ; preds = %.critedge
+.lr.ph250:                                        ; preds = %.critedge
   %125 = getelementptr inbounds i8, ptr %0, i64 812
   %126 = getelementptr inbounds i8, ptr %11, i64 8
   %127 = getelementptr inbounds i8, ptr %31, i64 96
@@ -1123,24 +1123,24 @@ Abc_Clock.exit191:                                ; preds = %72, %75
   %139 = getelementptr inbounds i8, ptr %31, i64 160
   br label %140
 
-140:                                              ; preds = %.lr.ph248, %353
-  %indvars.iv252 = phi i64 [ 0, %.lr.ph248 ], [ %indvars.iv.next253, %353 ]
+140:                                              ; preds = %.lr.ph250, %353
+  %indvars.iv254 = phi i64 [ 0, %.lr.ph250 ], [ %indvars.iv.next255, %353 ]
   %.val = load ptr, ptr %86, align 8
-  %141 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val, i64 %indvars.iv252
+  %141 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val, i64 %indvars.iv254
   %.not162 = icmp eq ptr %.val, null
   br i1 %.not162, label %.critedge2, label %142
 
 142:                                              ; preds = %140
   %.val181 = load i64, ptr %141, align 4
   %143 = and i64 %.val181, 2147483648
-  %.not.i.i = icmp eq i64 %143, 0
+  %.not.i.i = icmp ne i64 %143, 0
   %144 = and i64 %.val181, 536870911
-  %145 = icmp ne i64 %144, 536870911
-  %narrow.i.not.not.i = and i1 %.not.i.i, %145
+  %145 = icmp eq i64 %144, 536870911
+  %narrow.i.not.not.i.not228 = or i1 %.not.i.i, %145
   %146 = and i64 %.val181, 2684354559
-  %narrow.i3.i = icmp eq i64 %146, 2684354559
-  %narrow.i = or i1 %narrow.i3.i, %narrow.i.not.not.i
-  br i1 %narrow.i, label %147, label %353
+  %narrow.i3.i = icmp ne i64 %146, 2684354559
+  %narrow.i.not = and i1 %narrow.i3.i, %narrow.i.not.not.i.not228
+  br i1 %narrow.i.not, label %353, label %147
 
 147:                                              ; preds = %142
   %148 = load i32, ptr %125, align 4
@@ -1157,14 +1157,14 @@ Abc_Clock.exit191:                                ; preds = %72, %75
 
 155:                                              ; preds = %152
   %156 = load i64, ptr %11, align 8
-  %.neg228 = mul i64 %156, -1000000
+  %.neg230 = mul i64 %156, -1000000
   %157 = load i64, ptr %126, align 8
-  %.neg227 = sdiv i64 %157, -1000
-  %.neg229 = add i64 %.neg227, %.neg228
+  %.neg229 = sdiv i64 %157, -1000
+  %.neg231 = add i64 %.neg229, %.neg230
   br label %Abc_Clock.exit193
 
 Abc_Clock.exit193:                                ; preds = %152, %155
-  %.0.i192.neg = phi i64 [ %.neg229, %155 ], [ 1, %152 ]
+  %.0.i192.neg = phi i64 [ %.neg231, %155 ], [ 1, %152 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
   call void @Ssc_GiaSimRound(ptr noundef nonnull %0) #18
   %158 = call i32 @Ssc_GiaClassesRefine(ptr noundef nonnull %0) #18
@@ -1244,11 +1244,11 @@ Abc_Clock.exit195:                                ; preds = %161, %169
 
 201:                                              ; preds = %181, %178
   %.val182 = load ptr, ptr %130, align 8
-  %202 = getelementptr inbounds %struct.Gia_Rpr_t_, ptr %.val182, i64 %indvars.iv252
+  %202 = getelementptr inbounds %struct.Gia_Rpr_t_, ptr %.val182, i64 %indvars.iv254
   %203 = load i32, ptr %202, align 4
   %204 = and i32 %203, 268435455
-  %.not231 = icmp eq i32 %204, 268435455
-  br i1 %.not231, label %353, label %Gia_ObjReprObj.exit
+  %.not233 = icmp eq i32 %204, 268435455
+  br i1 %.not233, label %353, label %Gia_ObjReprObj.exit
 
 Gia_ObjReprObj.exit:                              ; preds = %201
   %.val.i197 = load ptr, ptr %86, align 8
@@ -1283,14 +1283,14 @@ Gia_ObjReprObj.exit:                              ; preds = %201
 
 225:                                              ; preds = %219
   %226 = load i64, ptr %9, align 8
-  %.neg234 = mul i64 %226, -1000000
+  %.neg236 = mul i64 %226, -1000000
   %227 = load i64, ptr %131, align 8
-  %.neg233 = sdiv i64 %227, -1000
-  %.neg235 = add i64 %.neg233, %.neg234
+  %.neg235 = sdiv i64 %227, -1000
+  %.neg237 = add i64 %.neg235, %.neg236
   br label %Abc_Clock.exit199
 
 Abc_Clock.exit199:                                ; preds = %219, %225
-  %.0.i198.neg = phi i64 [ %.neg235, %225 ], [ 1, %219 ]
+  %.0.i198.neg = phi i64 [ %.neg237, %225 ], [ 1, %219 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   %228 = load i32, ptr %132, align 4
   %229 = add nsw i32 %228, 1
@@ -1314,12 +1314,12 @@ Abc_Clock.exit199:                                ; preds = %219, %225
   %239 = load i64, ptr %206, align 4
   %240 = load i64, ptr %141, align 4
   %241 = xor i64 %240, %239
-  %.lobit232 = lshr i64 %241, 63
-  %242 = trunc i64 %.lobit232 to i32
+  %.lobit234 = lshr i64 %241, 63
+  %242 = trunc i64 %.lobit234 to i32
   %243 = xor i32 %238, %242
   store i32 %243, ptr %207, align 4
   %.val184 = load ptr, ptr %130, align 8
-  %244 = getelementptr inbounds %struct.Gia_Rpr_t_, ptr %.val184, i64 %indvars.iv252
+  %244 = getelementptr inbounds %struct.Gia_Rpr_t_, ptr %.val184, i64 %indvars.iv254
   %245 = load i32, ptr %244, align 4
   %246 = or i32 %245, 268435456
   store i32 %246, ptr %244, align 4
@@ -1335,7 +1335,7 @@ Abc_Clock.exit199:                                ; preds = %219, %225
   %252 = load ptr, ptr %136, align 8
   %253 = getelementptr i8, ptr %252, i64 192
   %.val185 = load ptr, ptr %253, align 8
-  %254 = getelementptr inbounds %struct.Gia_Rpr_t_, ptr %.val185, i64 %indvars.iv252
+  %254 = getelementptr inbounds %struct.Gia_Rpr_t_, ptr %.val185, i64 %indvars.iv254
   %255 = load i32, ptr %254, align 4
   %256 = and i32 %255, 268435455
   %257 = getelementptr inbounds i8, ptr %251, i64 4
@@ -1470,12 +1470,12 @@ Vec_IntPush.exit206:                              ; preds = %.Vec_IntGrow.exit10
   store i32 %317, ptr %289, align 4
   %318 = sext i32 %316 to i64
   %319 = getelementptr inbounds i32, ptr %315, i64 %318
-  %320 = trunc i64 %indvars.iv252 to i32
+  %320 = trunc i64 %indvars.iv254 to i32
   store i32 %320, ptr %319, align 4
   %321 = load ptr, ptr %136, align 8
   %322 = getelementptr i8, ptr %321, i64 192
   %.val186 = load ptr, ptr %322, align 8
-  %323 = getelementptr inbounds %struct.Gia_Rpr_t_, ptr %.val186, i64 %indvars.iv252
+  %323 = getelementptr inbounds %struct.Gia_Rpr_t_, ptr %.val186, i64 %indvars.iv254
   %324 = load i32, ptr %323, align 4
   %325 = and i32 %324, 268435455
   %.not172 = icmp eq i32 %325, 0
@@ -1536,10 +1536,10 @@ Abc_Clock.exit209:                                ; preds = %341, %344
   br label %353
 
 353:                                              ; preds = %Abc_Clock.exit209, %142, %201, %217
-  %indvars.iv.next253 = add nuw nsw i64 %indvars.iv252, 1
+  %indvars.iv.next255 = add nuw nsw i64 %indvars.iv254, 1
   %354 = load i32, ptr %50, align 8
   %355 = sext i32 %354 to i64
-  %356 = icmp slt i64 %indvars.iv.next253, %355
+  %356 = icmp slt i64 %indvars.iv.next255, %355
   br i1 %356, label %140, label %.critedge2, !llvm.loop !8
 
 .critedge2:                                       ; preds = %140, %353, %.critedge
@@ -1556,32 +1556,32 @@ Abc_Clock.exit209:                                ; preds = %341, %344
 
 363:                                              ; preds = %360
   %364 = load i64, ptr %7, align 8
-  %.neg237 = mul i64 %364, -1000000
+  %.neg239 = mul i64 %364, -1000000
   %365 = getelementptr inbounds i8, ptr %7, i64 8
   %366 = load i64, ptr %365, align 8
-  %.neg236 = sdiv i64 %366, -1000
-  %.neg238 = add i64 %.neg236, %.neg237
+  %.neg238 = sdiv i64 %366, -1000
+  %.neg240 = add i64 %.neg238, %.neg239
   br label %Abc_Clock.exit211
 
 Abc_Clock.exit211:                                ; preds = %360, %363
-  %.0.i210.neg = phi i64 [ %.neg238, %363 ], [ 1, %360 ]
+  %.0.i210.neg = phi i64 [ %.neg240, %363 ], [ 1, %360 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   %367 = load i32, ptr %357, align 4
   %368 = load i32, ptr %2, align 4
   %369 = shl nsw i32 %368, 6
   %370 = icmp slt i32 %367, %369
-  br i1 %370, label %.lr.ph250, label %._crit_edge
+  br i1 %370, label %.lr.ph252, label %._crit_edge
 
-.lr.ph250:                                        ; preds = %Abc_Clock.exit211, %.lr.ph250
+.lr.ph252:                                        ; preds = %Abc_Clock.exit211, %.lr.ph252
   %371 = load ptr, ptr %47, align 8
   call void @Ssc_GiaSavePiPattern(ptr noundef nonnull %0, ptr noundef %371) #18
   %372 = load i32, ptr %357, align 4
   %373 = load i32, ptr %2, align 4
   %374 = shl nsw i32 %373, 6
   %375 = icmp slt i32 %372, %374
-  br i1 %375, label %.lr.ph250, label %._crit_edge, !llvm.loop !9
+  br i1 %375, label %.lr.ph252, label %._crit_edge, !llvm.loop !9
 
-._crit_edge:                                      ; preds = %.lr.ph250, %Abc_Clock.exit211
+._crit_edge:                                      ; preds = %.lr.ph252, %Abc_Clock.exit211
   call void @Ssc_GiaSimRound(ptr noundef nonnull %0) #18
   %376 = call i32 @Ssc_GiaClassesRefine(ptr noundef nonnull %0) #18
   %377 = load i32, ptr %48, align 4

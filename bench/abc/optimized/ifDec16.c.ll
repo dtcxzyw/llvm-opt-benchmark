@@ -8435,8 +8435,8 @@ define noundef i32 @If_CluCheckDecOut(i64 noundef %0, i32 noundef %1) local_unna
   %13 = xor i64 %7, -1
   %14 = and i64 %13, %0
   %15 = icmp eq i64 %14, 0
-  %16 = and i64 %13, %3
-  %17 = icmp eq i64 %16, 0
+  %16 = or i64 %7, %0
+  %17 = icmp eq i64 %16, -1
   %or.cond = or i1 %15, %17
   br i1 %or.cond, label %._crit_edge, label %5
 
@@ -8447,33 +8447,32 @@ define noundef i32 @If_CluCheckDecOut(i64 noundef %0, i32 noundef %1) local_unna
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
 define noundef i32 @If_CluCheckDecOutU(i64 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = xor i64 %0, -1
-  %4 = icmp sgt i32 %1, 0
-  br i1 %4, label %.lr.ph.preheader, label %._crit_edge
+  %3 = icmp sgt i32 %1, 0
+  br i1 %3, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %2
   %wide.trip.count = zext nneg i32 %1 to i64
   br label %.lr.ph
 
-5:                                                ; preds = %.lr.ph
+4:                                                ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !138
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %5
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %5 ]
-  %6 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %indvars.iv
-  %7 = load i64, ptr %6, align 8
-  %8 = xor i64 %7, -1
-  %9 = and i64 %8, %0
-  %10 = icmp eq i64 %9, 0
-  %11 = and i64 %8, %3
-  %12 = icmp eq i64 %11, 0
-  %or.cond = or i1 %10, %12
-  br i1 %or.cond, label %._crit_edge, label %5
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %4
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %4 ]
+  %5 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %indvars.iv
+  %6 = load i64, ptr %5, align 8
+  %7 = xor i64 %6, -1
+  %8 = and i64 %7, %0
+  %9 = icmp eq i64 %8, 0
+  %10 = or i64 %6, %0
+  %11 = icmp eq i64 %10, -1
+  %or.cond = or i1 %9, %11
+  br i1 %or.cond, label %._crit_edge, label %4
 
-._crit_edge:                                      ; preds = %.lr.ph, %5, %2
-  %.08 = phi i32 [ 0, %2 ], [ 0, %5 ], [ 1, %.lr.ph ]
+._crit_edge:                                      ; preds = %.lr.ph, %4, %2
+  %.08 = phi i32 [ 0, %2 ], [ 0, %4 ], [ 1, %.lr.ph ]
   ret i32 %.08
 }
 
@@ -8560,8 +8559,8 @@ If_CluAdjust.exit22.thread:                       ; preds = %If_CluAdjust.exit, 
   %49 = xor i64 %43, -1
   %50 = and i64 %.035.i2135, %49
   %51 = icmp eq i64 %50, 0
-  %52 = and i64 %49, %40
-  %53 = icmp eq i64 %52, 0
+  %52 = or i64 %43, %.035.i2135
+  %53 = icmp eq i64 %52, -1
   %or.cond.i = or i1 %51, %53
   br i1 %or.cond.i, label %If_CluCheckDecOutU.exit, label %41
 
@@ -8569,31 +8568,27 @@ If_CluCheckDecOut.exit:                           ; preds = %41, %If_CluAdjust.e
   %54 = getelementptr inbounds i8, ptr %36, i64 140
   %55 = load i32, ptr %54, align 4
   %.not9 = icmp eq i32 %55, 0
-  br i1 %.not9, label %If_CluCheckDecOutU.exit, label %56
+  br i1 %.not9, label %If_CluCheckDecOutU.exit, label %.lr.ph.i23
 
-56:                                               ; preds = %If_CluCheckDecOut.exit
-  %57 = xor i64 %.035.i2135, -1
-  br label %.lr.ph.i23
-
-58:                                               ; preds = %.lr.ph.i23
+56:                                               ; preds = %.lr.ph.i23
   %indvars.iv.next.i26 = add nuw nsw i64 %indvars.iv.i24, 1
   %exitcond.not.i27 = icmp eq i64 %indvars.iv.next.i26, 5
   br i1 %exitcond.not.i27, label %If_CluCheckDecOutU.exit, label %.lr.ph.i23, !llvm.loop !138
 
-.lr.ph.i23:                                       ; preds = %58, %56
-  %indvars.iv.i24 = phi i64 [ 0, %56 ], [ %indvars.iv.next.i26, %58 ]
-  %59 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %indvars.iv.i24
-  %60 = load i64, ptr %59, align 8
-  %61 = xor i64 %60, -1
-  %62 = and i64 %.035.i2135, %61
-  %63 = icmp eq i64 %62, 0
-  %64 = and i64 %61, %57
-  %65 = icmp eq i64 %64, 0
-  %or.cond.i25 = or i1 %63, %65
-  br i1 %or.cond.i25, label %If_CluCheckDecOutU.exit, label %58
+.lr.ph.i23:                                       ; preds = %If_CluCheckDecOut.exit, %56
+  %indvars.iv.i24 = phi i64 [ %indvars.iv.next.i26, %56 ], [ 0, %If_CluCheckDecOut.exit ]
+  %57 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %indvars.iv.i24
+  %58 = load i64, ptr %57, align 8
+  %59 = xor i64 %58, -1
+  %60 = and i64 %.035.i2135, %59
+  %61 = icmp eq i64 %60, 0
+  %62 = or i64 %58, %.035.i2135
+  %63 = icmp eq i64 %62, -1
+  %or.cond.i25 = or i1 %61, %63
+  br i1 %or.cond.i25, label %If_CluCheckDecOutU.exit, label %56
 
-If_CluCheckDecOutU.exit:                          ; preds = %48, %.lr.ph.i, %58, %.lr.ph.i23, %If_CluCheckDecOut.exit, %If_CluAdjust.exit22, %5
-  %.0 = phi i32 [ 0, %5 ], [ 1, %If_CluAdjust.exit22 ], [ 0, %If_CluCheckDecOut.exit ], [ 0, %58 ], [ 1, %.lr.ph.i23 ], [ 1, %.lr.ph.i ], [ 1, %48 ]
+If_CluCheckDecOutU.exit:                          ; preds = %48, %.lr.ph.i, %56, %.lr.ph.i23, %If_CluCheckDecOut.exit, %If_CluAdjust.exit22, %5
+  %.0 = phi i32 [ 0, %5 ], [ 1, %If_CluAdjust.exit22 ], [ 0, %If_CluCheckDecOut.exit ], [ 0, %56 ], [ 1, %.lr.ph.i23 ], [ 1, %.lr.ph.i ], [ 1, %48 ]
   ret i32 %.0
 }
 

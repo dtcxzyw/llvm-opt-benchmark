@@ -2208,13 +2208,13 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   %.sroa.speculated26 = phi i32 [ %depth.promoted, %for.body.lr.ph ], [ %.sroa.speculated, %if.end23 ]
   %storemerge20 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %if.end23 ]
   %5 = phi <2 x i32> [ %4, %for.body.lr.ph ], [ %10, %if.end23 ]
-  %6 = icmp eq <2 x i32> %5, <i32 1, i32 1>
+  %6 = icmp ne <2 x i32> %5, <i32 1, i32 1>
   %7 = extractelement <2 x i1> %6, i64 0
   %8 = extractelement <2 x i1> %6, i64 1
-  %or.cond = select i1 %7, i1 %8, i1 false
-  %cmp21 = icmp eq i32 %.sroa.speculated26, 1
-  %or.cond5 = select i1 %or.cond, i1 %cmp21, i1 false
-  br i1 %or.cond5, label %return.loopexit.loopexit, label %if.end23
+  %or.cond.not27 = select i1 %7, i1 true, i1 %8
+  %cmp21 = icmp ne i32 %.sroa.speculated26, 1
+  %or.cond5.not = select i1 %or.cond.not27, i1 true, i1 %cmp21
+  br i1 %or.cond5.not, label %if.end23, label %return.loopexit
 
 if.end23:                                         ; preds = %for.body
   %9 = sdiv <2 x i32> %5, <i32 2, i32 2>
@@ -2231,16 +2231,11 @@ if.end23:                                         ; preds = %for.body
   store i32 %.sroa.speculated, ptr %full_depth, align 4
   %inc = add nuw nsw i32 %storemerge20, 1
   %exitcond.not = icmp eq i32 %inc, %miplevel
-  br i1 %exitcond.not, label %return.loopexit.loopexit, label %for.body, !llvm.loop !11
+  br i1 %exitcond.not, label %return.loopexit, label %for.body, !llvm.loop !11
 
-return.loopexit.loopexit:                         ; preds = %for.body, %if.end23
-  %storemerge.lcssa.ph = phi i32 [ %miplevel, %if.end23 ], [ %storemerge20, %for.body ]
-  %retval.0.ph.ph = xor i1 %or.cond5, true
-  br label %return.loopexit
-
-return.loopexit:                                  ; preds = %return.loopexit.loopexit, %if.end10
-  %storemerge.lcssa = phi i32 [ 0, %if.end10 ], [ %storemerge.lcssa.ph, %return.loopexit.loopexit ]
-  %retval.0.ph = phi i1 [ true, %if.end10 ], [ %retval.0.ph.ph, %return.loopexit.loopexit ]
+return.loopexit:                                  ; preds = %if.end23, %for.body, %if.end10
+  %storemerge.lcssa = phi i32 [ 0, %if.end10 ], [ %storemerge20, %for.body ], [ %miplevel, %if.end23 ]
+  %retval.0.ph = phi i1 [ true, %if.end10 ], [ %or.cond5.not, %for.body ], [ %or.cond5.not, %if.end23 ]
   store i32 %storemerge.lcssa, ptr %m_miplevel.i, align 4
   br label %return
 
