@@ -1428,7 +1428,7 @@ define internal fastcc i32 @Bdc_CountSpfd(i64 noundef %0, i64 noundef %1) unname
   %43 = add nuw nsw <2 x i64> %42, %40
   %44 = lshr <2 x i64> %43, <i64 32, i64 32>
   %45 = add nuw nsw <2 x i64> %44, %43
-  %46 = trunc <2 x i64> %45 to <2 x i16>
+  %46 = trunc <2 x i64> %45 to <2 x i32>
   %47 = and <2 x i64> %31, <i64 506381209866536711, i64 506381209866536711>
   %48 = and <2 x i64> %32, <i64 506381209866536711, i64 506381209866536711>
   %49 = add nuw nsw <2 x i64> %48, %47
@@ -1442,14 +1442,12 @@ define internal fastcc i32 @Bdc_CountSpfd(i64 noundef %0, i64 noundef %1) unname
   %57 = add nuw nsw <2 x i64> %56, %54
   %58 = lshr <2 x i64> %57, <i64 32, i64 32>
   %59 = add nuw nsw <2 x i64> %58, %57
-  %60 = trunc <2 x i64> %59 to <2 x i16>
-  %61 = mul nuw <2 x i16> %46, %60
-  %62 = extractelement <2 x i16> %61, i64 0
-  %63 = zext i16 %62 to i32
-  %64 = extractelement <2 x i16> %61, i64 1
-  %65 = zext i16 %64 to i32
-  %66 = add nuw nsw i32 %63, %65
-  ret i32 %66
+  %60 = trunc <2 x i64> %59 to <2 x i32>
+  %61 = mul nuw nsw <2 x i32> %46, %60
+  %shift = shufflevector <2 x i32> %61, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
+  %62 = add nuw nsw <2 x i32> %61, %shift
+  %63 = extractelement <2 x i32> %62, i64 0
+  ret i32 %63
 }
 
 declare ptr @Abc_MergeSortCost(ptr noundef, i32 noundef) local_unnamed_addr #4

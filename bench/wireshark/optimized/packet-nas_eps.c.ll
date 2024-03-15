@@ -4300,128 +4300,131 @@ define internal noundef zeroext i16 @de_emm_ciph_key_data(ptr noundef %0, ptr no
   %17 = getelementptr inbounds i8, ptr %10, i64 20
   %18 = getelementptr inbounds i8, ptr %10, i64 16
   %19 = getelementptr inbounds i8, ptr %10, i64 12
-  %20 = getelementptr inbounds i8, ptr %10, i64 4
-  %21 = getelementptr inbounds i8, ptr %11, i64 8
-  %22 = getelementptr inbounds i8, ptr %2, i64 408
-  br label %23
+  %20 = getelementptr inbounds i8, ptr %10, i64 8
+  %21 = getelementptr inbounds i8, ptr %10, i64 4
+  %22 = getelementptr inbounds i8, ptr %11, i64 8
+  %23 = getelementptr inbounds i8, ptr %2, i64 408
+  br label %24
 
-23:                                               ; preds = %.lr.ph, %100
-  %.090 = phi i32 [ %3, %.lr.ph ], [ %.2, %100 ]
-  %.08489 = phi i32 [ 1, %.lr.ph ], [ %25, %100 ]
-  %24 = load i32, ptr @ett_nas_eps_ciph_data_set, align 4
-  %25 = add i32 %.08489, 1
-  %26 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1, ptr noundef %0, i32 noundef %.090, i32 noundef -1, i32 noundef %24, ptr noundef nonnull %12, ptr noundef nonnull @.str.981, i32 noundef %.08489) #10
-  %27 = load i32, ptr @hf_nas_eps_emm_ciph_key_data_ciphering_set_id, align 4
-  %28 = call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %27, ptr noundef %0, i32 noundef %.090, i32 noundef 2, i32 noundef 0) #10
-  %29 = add i32 %.090, 2
-  %30 = load i32, ptr @hf_nas_eps_emm_ciph_key_data_ciphering_key, align 4
-  %31 = call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %30, ptr noundef %0, i32 noundef %29, i32 noundef 16, i32 noundef 0) #10
-  %32 = add i32 %.090, 18
-  %33 = load i32, ptr @hf_nas_eps_spare_bits, align 4
-  %34 = call ptr @proto_tree_add_bits_item(ptr noundef %26, i32 noundef %33, ptr noundef %0, i32 noundef %13, i32 noundef 3, i32 noundef 0) #10
-  %35 = load i32, ptr @hf_nas_eps_emm_ciph_key_data_c0_len, align 4
-  %36 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %26, i32 noundef %35, ptr noundef %0, i32 noundef %32, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %8) #10
-  %37 = add i32 %.090, 19
-  %38 = load i32, ptr %8, align 4
-  %.not = icmp eq i32 %38, 0
-  br i1 %.not, label %44, label %39
+24:                                               ; preds = %.lr.ph, %103
+  %.090 = phi i32 [ %3, %.lr.ph ], [ %.2, %103 ]
+  %.08489 = phi i32 [ 1, %.lr.ph ], [ %26, %103 ]
+  %25 = load i32, ptr @ett_nas_eps_ciph_data_set, align 4
+  %26 = add i32 %.08489, 1
+  %27 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1, ptr noundef %0, i32 noundef %.090, i32 noundef -1, i32 noundef %25, ptr noundef nonnull %12, ptr noundef nonnull @.str.981, i32 noundef %.08489) #10
+  %28 = load i32, ptr @hf_nas_eps_emm_ciph_key_data_ciphering_set_id, align 4
+  %29 = call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %28, ptr noundef %0, i32 noundef %.090, i32 noundef 2, i32 noundef 0) #10
+  %30 = add i32 %.090, 2
+  %31 = load i32, ptr @hf_nas_eps_emm_ciph_key_data_ciphering_key, align 4
+  %32 = call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %31, ptr noundef %0, i32 noundef %30, i32 noundef 16, i32 noundef 0) #10
+  %33 = add i32 %.090, 18
+  %34 = load i32, ptr @hf_nas_eps_spare_bits, align 4
+  %35 = call ptr @proto_tree_add_bits_item(ptr noundef %27, i32 noundef %34, ptr noundef %0, i32 noundef %13, i32 noundef 3, i32 noundef 0) #10
+  %36 = load i32, ptr @hf_nas_eps_emm_ciph_key_data_c0_len, align 4
+  %37 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %27, i32 noundef %36, ptr noundef %0, i32 noundef %33, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %8) #10
+  %38 = add i32 %.090, 19
+  %39 = load i32, ptr %8, align 4
+  %.not = icmp eq i32 %39, 0
+  br i1 %.not, label %45, label %40
 
-39:                                               ; preds = %23
-  %40 = load i32, ptr @hf_nas_eps_emm_ciph_key_data_c0, align 4
-  %41 = call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %40, ptr noundef %0, i32 noundef %37, i32 noundef %38, i32 noundef 0) #10
-  %42 = load i32, ptr %8, align 4
-  %43 = add i32 %42, %37
-  br label %44
+40:                                               ; preds = %24
+  %41 = load i32, ptr @hf_nas_eps_emm_ciph_key_data_c0, align 4
+  %42 = call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %41, ptr noundef %0, i32 noundef %38, i32 noundef %39, i32 noundef 0) #10
+  %43 = load i32, ptr %8, align 4
+  %44 = add i32 %43, %38
+  br label %45
 
-44:                                               ; preds = %39, %23
-  %.1 = phi i32 [ %43, %39 ], [ %37, %23 ]
-  call void @proto_tree_add_bitmask_list(ptr noundef %26, ptr noundef %0, i32 noundef %.1, i32 noundef 1, ptr noundef nonnull @de_emm_ciph_key_data.flags1, i32 noundef 0) #10
-  %45 = add i32 %.1, 1
-  call void @proto_tree_add_bitmask_list(ptr noundef %26, ptr noundef %0, i32 noundef %45, i32 noundef 1, ptr noundef nonnull @de_emm_ciph_key_data.flags2, i32 noundef 0) #10
-  %46 = add i32 %.1, 2
-  call void @proto_tree_add_bitmask_list(ptr noundef %26, ptr noundef %0, i32 noundef %46, i32 noundef 1, ptr noundef nonnull @de_emm_ciph_key_data.flags3, i32 noundef 0) #10
-  %47 = add i32 %.1, 3
-  call void @proto_tree_add_bitmask_list(ptr noundef %26, ptr noundef %0, i32 noundef %47, i32 noundef 1, ptr noundef nonnull @de_emm_ciph_key_data.flags4, i32 noundef 0) #10
-  %48 = add i32 %.1, 4
+45:                                               ; preds = %40, %24
+  %.1 = phi i32 [ %44, %40 ], [ %38, %24 ]
+  call void @proto_tree_add_bitmask_list(ptr noundef %27, ptr noundef %0, i32 noundef %.1, i32 noundef 1, ptr noundef nonnull @de_emm_ciph_key_data.flags1, i32 noundef 0) #10
+  %46 = add i32 %.1, 1
+  call void @proto_tree_add_bitmask_list(ptr noundef %27, ptr noundef %0, i32 noundef %46, i32 noundef 1, ptr noundef nonnull @de_emm_ciph_key_data.flags2, i32 noundef 0) #10
+  %47 = add i32 %.1, 2
+  call void @proto_tree_add_bitmask_list(ptr noundef %27, ptr noundef %0, i32 noundef %47, i32 noundef 1, ptr noundef nonnull @de_emm_ciph_key_data.flags3, i32 noundef 0) #10
+  %48 = add i32 %.1, 3
+  call void @proto_tree_add_bitmask_list(ptr noundef %27, ptr noundef %0, i32 noundef %48, i32 noundef 1, ptr noundef nonnull @de_emm_ciph_key_data.flags4, i32 noundef 0) #10
+  %49 = add i32 %.1, 4
   store i32 0, ptr %14, align 8
   store i32 0, ptr %15, align 4
   store i32 -1, ptr %16, align 8
-  %49 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %48) #10
-  %50 = zext i8 %49 to i32
-  %51 = and i32 %50, 15
-  %52 = mul nuw nsw i32 %51, 10
-  %53 = lshr i32 %50, 4
-  %54 = add nuw nsw i32 %53, 100
-  %55 = add nuw nsw i32 %54, %52
-  store i32 %55, ptr %17, align 4
-  %56 = add i32 %.1, 5
-  %57 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %56) #10
-  %58 = zext i8 %57 to i32
-  %59 = and i32 %58, 15
-  %60 = mul nuw nsw i32 %59, 10
-  %61 = lshr i32 %58, 4
-  %62 = add nsw i32 %61, -1
-  %63 = add nsw i32 %62, %60
-  store i32 %63, ptr %18, align 8
-  %64 = add i32 %.1, 6
-  %65 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %64) #10
-  %66 = zext i8 %65 to i32
-  %67 = and i32 %66, 15
-  %68 = mul nuw nsw i32 %67, 10
-  %69 = lshr i32 %66, 4
-  %70 = add nuw nsw i32 %68, %69
-  store i32 %70, ptr %19, align 4
-  %71 = add i32 %.1, 7
-  %72 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %71) #10
-  %73 = add i32 %.1, 8
-  %74 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %73) #10
-  %75 = insertelement <2 x i8> poison, i8 %74, i64 0
-  %76 = insertelement <2 x i8> %75, i8 %72, i64 1
-  %77 = and <2 x i8> %76, <i8 15, i8 15>
-  %narrow = mul nuw <2 x i8> %77, <i8 10, i8 10>
-  %78 = zext <2 x i8> %narrow to <2 x i16>
-  %79 = lshr <2 x i8> %76, <i8 4, i8 4>
-  %80 = zext nneg <2 x i8> %79 to <2 x i16>
-  %81 = add nuw nsw <2 x i16> %78, %80
-  %82 = zext nneg <2 x i16> %81 to <2 x i32>
-  store <2 x i32> %82, ptr %20, align 4
+  %50 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %49) #10
+  %51 = zext i8 %50 to i32
+  %52 = and i32 %51, 15
+  %53 = mul nuw nsw i32 %52, 10
+  %54 = lshr i32 %51, 4
+  %55 = add nuw nsw i32 %54, 100
+  %56 = add nuw nsw i32 %55, %53
+  store i32 %56, ptr %17, align 4
+  %57 = add i32 %.1, 5
+  %58 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %57) #10
+  %59 = zext i8 %58 to i32
+  %60 = and i32 %59, 15
+  %61 = mul nuw nsw i32 %60, 10
+  %62 = lshr i32 %59, 4
+  %63 = add nsw i32 %62, -1
+  %64 = add nsw i32 %63, %61
+  store i32 %64, ptr %18, align 8
+  %65 = add i32 %.1, 6
+  %66 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %65) #10
+  %67 = zext i8 %66 to i32
+  %68 = and i32 %67, 15
+  %69 = mul nuw nsw i32 %68, 10
+  %70 = lshr i32 %67, 4
+  %71 = add nuw nsw i32 %69, %70
+  store i32 %71, ptr %19, align 4
+  %72 = add i32 %.1, 7
+  %73 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %72) #10
+  %74 = zext i8 %73 to i32
+  %75 = and i32 %74, 15
+  %76 = mul nuw nsw i32 %75, 10
+  %77 = lshr i32 %74, 4
+  %78 = add nuw nsw i32 %76, %77
+  store i32 %78, ptr %20, align 8
+  %79 = add i32 %.1, 8
+  %80 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %79) #10
+  %81 = zext i8 %80 to i32
+  %82 = and i32 %81, 15
+  %83 = mul nuw nsw i32 %82, 10
+  %84 = lshr i32 %81, 4
+  %85 = add nuw nsw i32 %83, %84
+  store i32 %85, ptr %21, align 4
   store i32 0, ptr %10, align 8
-  %83 = call i64 @mktime(ptr noundef nonnull %10) #10
-  store i64 %83, ptr %11, align 8
-  store i32 0, ptr %21, align 8
-  %84 = load i32, ptr @hf_nas_eps_emm_ciph_key_data_validity_start_time, align 4
-  %85 = load ptr, ptr %22, align 8
-  %86 = call ptr @abs_time_to_str_ex(ptr noundef %85, ptr noundef nonnull %11, i32 noundef 18, i32 noundef 0) #10
-  %87 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_time_format_value(ptr noundef %26, i32 noundef %84, ptr noundef %0, i32 noundef %48, i32 noundef 5, ptr noundef nonnull %11, ptr noundef nonnull @.str.944, ptr noundef %86) #10
-  %88 = add i32 %.1, 9
-  %89 = load i32, ptr @hf_nas_eps_emm_ciph_key_data_validity_duration, align 4
-  %90 = call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %89, ptr noundef %0, i32 noundef %88, i32 noundef 2, i32 noundef 0) #10
-  %91 = add i32 %.1, 11
-  %92 = load i32, ptr @hf_nas_eps_emm_ciph_key_data_tais_list_len, align 4
-  %93 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %26, i32 noundef %92, ptr noundef %0, i32 noundef %91, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %9) #10
-  %94 = add i32 %.1, 12
-  %95 = load i32, ptr %9, align 4
-  %.not88 = icmp eq i32 %95, 0
-  br i1 %.not88, label %100, label %96
-
-96:                                               ; preds = %44
-  %97 = call zeroext i16 @de_emm_trac_area_id_lst(ptr noundef %0, ptr noundef %26, ptr noundef nonnull %2, i32 noundef %94, i32 noundef %95, ptr poison, i32 poison)
+  %86 = call i64 @mktime(ptr noundef nonnull %10) #10
+  store i64 %86, ptr %11, align 8
+  store i32 0, ptr %22, align 8
+  %87 = load i32, ptr @hf_nas_eps_emm_ciph_key_data_validity_start_time, align 4
+  %88 = load ptr, ptr %23, align 8
+  %89 = call ptr @abs_time_to_str_ex(ptr noundef %88, ptr noundef nonnull %11, i32 noundef 18, i32 noundef 0) #10
+  %90 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_time_format_value(ptr noundef %27, i32 noundef %87, ptr noundef %0, i32 noundef %49, i32 noundef 5, ptr noundef nonnull %11, ptr noundef nonnull @.str.944, ptr noundef %89) #10
+  %91 = add i32 %.1, 9
+  %92 = load i32, ptr @hf_nas_eps_emm_ciph_key_data_validity_duration, align 4
+  %93 = call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %92, ptr noundef %0, i32 noundef %91, i32 noundef 2, i32 noundef 0) #10
+  %94 = add i32 %.1, 11
+  %95 = load i32, ptr @hf_nas_eps_emm_ciph_key_data_tais_list_len, align 4
+  %96 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %27, i32 noundef %95, ptr noundef %0, i32 noundef %94, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %9) #10
+  %97 = add i32 %.1, 12
   %98 = load i32, ptr %9, align 4
-  %99 = add i32 %98, %94
-  br label %100
+  %.not88 = icmp eq i32 %98, 0
+  br i1 %.not88, label %103, label %99
 
-100:                                              ; preds = %96, %44
-  %.2 = phi i32 [ %99, %96 ], [ %94, %44 ]
-  %101 = load ptr, ptr %12, align 8
-  %102 = sub i32 %.2, %.090
-  call void @proto_item_set_len(ptr noundef %101, i32 noundef %102) #10
-  %103 = sub i32 %.2, %3
-  %104 = icmp ult i32 %103, %4
-  br i1 %104, label %23, label %._crit_edge, !llvm.loop !12
+99:                                               ; preds = %45
+  %100 = call zeroext i16 @de_emm_trac_area_id_lst(ptr noundef %0, ptr noundef %27, ptr noundef nonnull %2, i32 noundef %97, i32 noundef %98, ptr poison, i32 poison)
+  %101 = load i32, ptr %9, align 4
+  %102 = add i32 %101, %97
+  br label %103
 
-._crit_edge:                                      ; preds = %100, %7
-  %105 = trunc i32 %4 to i16
-  ret i16 %105
+103:                                              ; preds = %99, %45
+  %.2 = phi i32 [ %102, %99 ], [ %97, %45 ]
+  %104 = load ptr, ptr %12, align 8
+  %105 = sub i32 %.2, %.090
+  call void @proto_item_set_len(ptr noundef %104, i32 noundef %105) #10
+  %106 = sub i32 %.2, %3
+  %107 = icmp ult i32 %106, %4
+  br i1 %107, label %24, label %._crit_edge, !llvm.loop !12
+
+._crit_edge:                                      ; preds = %103, %7
+  %108 = trunc i32 %4 to i16
+  ret i16 %108
 }
 
 ; Function Attrs: nounwind uwtable

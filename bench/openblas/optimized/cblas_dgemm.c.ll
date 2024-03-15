@@ -65,20 +65,20 @@ define void @cblas_dgemm(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 nou
   %42 = select <2 x i1> %38, <2 x i32> <i32 1, i32 1>, <2 x i32> %41
   %43 = select <2 x i1> %39, <2 x i32> zeroinitializer, <2 x i32> %42
   %44 = select <2 x i1> %40, <2 x i32> <i32 1, i32 1>, <2 x i32> %43
-  %45 = and <2 x i32> %44, <i32 1, i32 1>
-  %46 = icmp eq <2 x i32> %45, zeroinitializer
-  %47 = extractelement <2 x i1> %46, i64 1
+  %45 = extractelement <2 x i32> %44, i64 1
+  %46 = and i32 %45, 1
+  %47 = icmp eq i32 %46, 0
   %48 = select i1 %47, i64 %21, i64 %25
-  %49 = extractelement <2 x i1> %46, i64 0
-  %50 = select i1 %49, i64 %25, i64 %23
-  %51 = icmp slt i32 %13, %3
-  %52 = select i1 %51, i32 13, i32 -1
-  %53 = icmp sgt i64 %50, %31
-  %54 = select i1 %53, i32 10, i32 %52
-  %55 = icmp sgt i64 %48, %29
-  %56 = select i1 %55, i32 8, i32 %54
-  %57 = extractelement <2 x i32> %44, i64 0
-  %58 = extractelement <2 x i32> %44, i64 1
+  %49 = extractelement <2 x i32> %44, i64 0
+  %50 = and i32 %49, 1
+  %51 = icmp eq i32 %50, 0
+  %52 = select i1 %51, i64 %25, i64 %23
+  %53 = icmp slt i32 %13, %3
+  %54 = select i1 %53, i32 13, i32 -1
+  %55 = icmp sgt i64 %52, %31
+  %56 = select i1 %55, i32 10, i32 %54
+  %57 = icmp sgt i64 %48, %29
+  %58 = select i1 %57, i32 8, i32 %56
   br label %thread-pre-split
 
 59:                                               ; preds = %14
@@ -115,28 +115,26 @@ define void @cblas_dgemm(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 nou
   %81 = select <2 x i1> %77, <2 x i32> <i32 1, i32 1>, <2 x i32> %80
   %82 = select <2 x i1> %78, <2 x i32> zeroinitializer, <2 x i32> %81
   %83 = select <2 x i1> %79, <2 x i32> <i32 1, i32 1>, <2 x i32> %82
-  %84 = and <2 x i32> %83, <i32 1, i32 1>
-  %85 = icmp eq <2 x i32> %84, zeroinitializer
-  %86 = extractelement <2 x i1> %85, i64 1
+  %84 = extractelement <2 x i32> %83, i64 1
+  %85 = and i32 %84, 1
+  %86 = icmp eq i32 %85, 0
   %87 = select i1 %86, i64 %60, i64 %64
-  %88 = extractelement <2 x i1> %85, i64 0
-  %89 = select i1 %88, i64 %64, i64 %62
-  %90 = icmp slt i32 %13, %4
-  %91 = select i1 %90, i32 13, i32 -1
-  %92 = icmp sgt i64 %89, %70
-  %93 = select i1 %92, i32 10, i32 %91
-  %94 = icmp sgt i64 %87, %68
-  %95 = select i1 %94, i32 8, i32 %93
-  %96 = extractelement <2 x i32> %83, i64 0
-  %97 = extractelement <2 x i32> %83, i64 1
+  %88 = extractelement <2 x i32> %83, i64 0
+  %89 = and i32 %88, 1
+  %90 = icmp eq i32 %89, 0
+  %91 = select i1 %90, i64 %64, i64 %62
+  %92 = icmp slt i32 %13, %4
+  %93 = select i1 %92, i32 13, i32 -1
+  %94 = icmp sgt i64 %91, %70
+  %95 = select i1 %94, i32 10, i32 %93
+  %96 = icmp sgt i64 %87, %68
+  %97 = select i1 %96, i32 8, i32 %95
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %.thread, %59
-  %.sink11 = phi i32 [ %56, %.thread ], [ %95, %59 ]
+  %.sink11 = phi i32 [ %58, %.thread ], [ %97, %59 ]
   %.sink10 = phi i32 [ %4, %.thread ], [ %3, %59 ]
   %.sink8 = phi i32 [ %3, %.thread ], [ %4, %59 ]
-  %.sink6 = phi i32 [ %57, %.thread ], [ %96, %59 ]
-  %.sink4 = phi i32 [ %58, %.thread ], [ %97, %59 ]
   %98 = phi i64 [ %33, %.thread ], [ %72, %59 ]
   %99 = phi i64 [ %31, %.thread ], [ %70, %59 ]
   %100 = phi ptr [ %9, %.thread ], [ %7, %59 ]
@@ -145,89 +143,93 @@ thread-pre-split:                                 ; preds = %.thread, %59
   %103 = phi i64 [ %25, %.thread ], [ %64, %59 ]
   %104 = phi i64 [ %23, %.thread ], [ %62, %59 ]
   %105 = phi i64 [ %21, %.thread ], [ %60, %59 ]
-  %106 = icmp slt i32 %5, 0
-  %107 = select i1 %106, i32 5, i32 %.sink11
-  %108 = icmp slt i32 %.sink10, 0
-  %109 = select i1 %108, i32 4, i32 %107
-  %110 = icmp slt i32 %.sink8, 0
-  %111 = select i1 %110, i32 3, i32 %109
-  %112 = icmp slt i32 %.sink6, 0
-  %113 = select i1 %112, i32 2, i32 %111
-  %114 = icmp slt i32 %.sink4, 0
-  %115 = select i1 %114, i32 1, i32 %113
-  store i32 %115, ptr %18, align 4
-  %116 = icmp sgt i32 %115, -1
-  br i1 %116, label %thread-pre-split.thread, label %118
+  %106 = phi i32 [ %49, %.thread ], [ %88, %59 ]
+  %107 = phi i32 [ %45, %.thread ], [ %84, %59 ]
+  %108 = phi <2 x i32> [ %44, %.thread ], [ %83, %59 ]
+  %109 = icmp slt i32 %5, 0
+  %110 = select i1 %109, i32 5, i32 %.sink11
+  %111 = icmp slt i32 %.sink10, 0
+  %112 = select i1 %111, i32 4, i32 %110
+  %113 = icmp slt i32 %.sink8, 0
+  %114 = select i1 %113, i32 3, i32 %112
+  %115 = icmp slt <2 x i32> %108, zeroinitializer
+  %116 = extractelement <2 x i1> %115, i64 0
+  %117 = select i1 %116, i32 2, i32 %114
+  %118 = extractelement <2 x i1> %115, i64 1
+  %119 = select i1 %118, i32 1, i32 %117
+  store i32 %119, ptr %18, align 4
+  %120 = icmp sgt i32 %119, -1
+  br i1 %120, label %thread-pre-split.thread, label %122
 
 thread-pre-split.thread:                          ; preds = %14, %thread-pre-split
-  %117 = call i32 @xerbla_(ptr noundef nonnull @.str, ptr noundef nonnull %18, i32 noundef 7) #3
-  br label %167
+  %121 = call i32 @xerbla_(ptr noundef nonnull @.str, ptr noundef nonnull %18, i32 noundef 7) #3
+  br label %171
 
-118:                                              ; preds = %thread-pre-split
-  %119 = icmp eq i64 %105, 0
-  %120 = icmp eq i64 %104, 0
-  %121 = or i1 %119, %120
-  br i1 %121, label %167, label %122
+122:                                              ; preds = %thread-pre-split
+  %123 = icmp eq i64 %105, 0
+  %124 = icmp eq i64 %104, 0
+  %125 = or i1 %123, %124
+  br i1 %125, label %171, label %126
 
-122:                                              ; preds = %118
-  %123 = call i32 @dgemm_small_matrix_permit(i32 noundef %.sink4, i32 noundef %.sink6, i64 noundef %105, i64 noundef %104, i64 noundef %103, double noundef %6, double noundef %11) #3
-  %124 = icmp eq i32 %123, 0
-  br i1 %124, label %142, label %125
+126:                                              ; preds = %122
+  %127 = call i32 @dgemm_small_matrix_permit(i32 noundef %107, i32 noundef %106, i64 noundef %105, i64 noundef %104, i64 noundef %103, double noundef %6, double noundef %11) #3
+  %128 = icmp eq i32 %127, 0
+  br i1 %128, label %146, label %129
 
-125:                                              ; preds = %122
-  %126 = load double, ptr %16, align 8, !tbaa !3
-  %127 = fcmp oeq double %126, 0.000000e+00
-  %128 = shl nsw i32 %.sink6, 2
-  %129 = or i32 %128, %.sink4
-  %130 = sext i32 %129 to i64
-  %131 = load double, ptr %15, align 8, !tbaa !3
-  br i1 %127, label %132, label %137
+129:                                              ; preds = %126
+  %130 = load double, ptr %16, align 8, !tbaa !3
+  %131 = fcmp oeq double %130, 0.000000e+00
+  %132 = shl nsw i32 %106, 2
+  %133 = or i32 %132, %107
+  %134 = sext i32 %133 to i64
+  %135 = load double, ptr %15, align 8, !tbaa !3
+  br i1 %131, label %136, label %141
 
-132:                                              ; preds = %125
-  %133 = getelementptr inbounds [8 x i64], ptr @gemm_small_kernel_b0, i64 0, i64 %130
-  %134 = load i64, ptr %133, align 8, !tbaa !23
-  %135 = inttoptr i64 %134 to ptr
-  %136 = call i32 %135(i64 noundef %105, i64 noundef %104, i64 noundef %103, ptr noundef %102, i64 noundef %101, double noundef %131, ptr noundef %100, i64 noundef %99, ptr noundef %12, i64 noundef %98) #3
-  br label %167
+136:                                              ; preds = %129
+  %137 = getelementptr inbounds [8 x i64], ptr @gemm_small_kernel_b0, i64 0, i64 %134
+  %138 = load i64, ptr %137, align 8, !tbaa !23
+  %139 = inttoptr i64 %138 to ptr
+  %140 = call i32 %139(i64 noundef %105, i64 noundef %104, i64 noundef %103, ptr noundef %102, i64 noundef %101, double noundef %135, ptr noundef %100, i64 noundef %99, ptr noundef %12, i64 noundef %98) #3
+  br label %171
 
-137:                                              ; preds = %125
-  %138 = getelementptr inbounds [8 x i64], ptr @gemm_small_kernel, i64 0, i64 %130
-  %139 = load i64, ptr %138, align 8, !tbaa !23
-  %140 = inttoptr i64 %139 to ptr
-  %141 = call i32 %140(i64 noundef %105, i64 noundef %104, i64 noundef %103, ptr noundef %102, i64 noundef %101, double noundef %131, ptr noundef %100, i64 noundef %99, double noundef %126, ptr noundef %12, i64 noundef %98) #3
-  br label %167
+141:                                              ; preds = %129
+  %142 = getelementptr inbounds [8 x i64], ptr @gemm_small_kernel, i64 0, i64 %134
+  %143 = load i64, ptr %142, align 8, !tbaa !23
+  %144 = inttoptr i64 %143 to ptr
+  %145 = call i32 %144(i64 noundef %105, i64 noundef %104, i64 noundef %103, ptr noundef %102, i64 noundef %101, double noundef %135, ptr noundef %100, i64 noundef %99, double noundef %130, ptr noundef %12, i64 noundef %98) #3
+  br label %171
 
-142:                                              ; preds = %122
-  %143 = call ptr @blas_memory_alloc(i32 noundef 0) #3
-  %144 = ptrtoint ptr %143 to i64
-  %145 = add nsw i64 %144, 589824
-  %146 = inttoptr i64 %145 to ptr
-  %147 = sitofp i64 %105 to double
-  %148 = sitofp i64 %104 to double
-  %149 = fmul double %147, %148
-  %150 = sitofp i64 %103 to double
-  %151 = fmul double %149, %150
-  %152 = fcmp ugt double %151, 2.621440e+05
-  %153 = load i32, ptr @blas_cpu_number, align 4
-  %154 = sext i32 %153 to i64
-  %155 = select i1 %152, i64 %154, i64 1
-  %156 = getelementptr inbounds i8, ptr %17, i64 112
-  store i64 %155, ptr %156, align 8, !tbaa !24
-  %157 = getelementptr inbounds i8, ptr %17, i64 104
-  store ptr null, ptr %157, align 8, !tbaa !25
-  %158 = icmp eq i64 %155, 1
-  %159 = shl nsw i32 %.sink6, 2
-  %160 = or i32 %.sink4, %159
-  %161 = or i32 %160, 16
-  %162 = select i1 %158, i32 %160, i32 %161
-  %163 = sext i32 %162 to i64
-  %164 = getelementptr inbounds [32 x ptr], ptr @gemm, i64 0, i64 %163
-  %165 = load ptr, ptr %164, align 8, !tbaa !26
-  %166 = call i32 %165(ptr noundef nonnull %17, ptr noundef null, ptr noundef null, ptr noundef %143, ptr noundef %146, i64 noundef 0) #3
-  call void @blas_memory_free(ptr noundef %143) #3
-  br label %167
+146:                                              ; preds = %126
+  %147 = call ptr @blas_memory_alloc(i32 noundef 0) #3
+  %148 = ptrtoint ptr %147 to i64
+  %149 = add nsw i64 %148, 589824
+  %150 = inttoptr i64 %149 to ptr
+  %151 = sitofp i64 %105 to double
+  %152 = sitofp i64 %104 to double
+  %153 = fmul double %151, %152
+  %154 = sitofp i64 %103 to double
+  %155 = fmul double %153, %154
+  %156 = fcmp ugt double %155, 2.621440e+05
+  %157 = load i32, ptr @blas_cpu_number, align 4
+  %158 = sext i32 %157 to i64
+  %159 = select i1 %156, i64 %158, i64 1
+  %160 = getelementptr inbounds i8, ptr %17, i64 112
+  store i64 %159, ptr %160, align 8, !tbaa !24
+  %161 = getelementptr inbounds i8, ptr %17, i64 104
+  store ptr null, ptr %161, align 8, !tbaa !25
+  %162 = icmp eq i64 %159, 1
+  %163 = shl nsw i32 %106, 2
+  %164 = or i32 %107, %163
+  %165 = or i32 %164, 16
+  %166 = select i1 %162, i32 %164, i32 %165
+  %167 = sext i32 %166 to i64
+  %168 = getelementptr inbounds [32 x ptr], ptr @gemm, i64 0, i64 %167
+  %169 = load ptr, ptr %168, align 8, !tbaa !26
+  %170 = call i32 %169(ptr noundef nonnull %17, ptr noundef null, ptr noundef null, ptr noundef %147, ptr noundef %150, i64 noundef 0) #3
+  call void @blas_memory_free(ptr noundef %147) #3
+  br label %171
 
-167:                                              ; preds = %142, %137, %132, %118, %thread-pre-split.thread
+171:                                              ; preds = %146, %141, %136, %122, %thread-pre-split.thread
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #3
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %17) #3
   ret void
