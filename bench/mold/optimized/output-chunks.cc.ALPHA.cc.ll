@@ -26641,7 +26641,7 @@ while.body.i:                                     ; preds = %if.end.i.i.i.i.i, %
   br i1 %cmp.i, label %land.rhs.i, label %_ZSt11__push_heapIPN4mold3elf6ElfRelINS1_5ALPHAEEElS4_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_13RelDynSectionIS3_E4sortERNS1_7ContextIS3_EEEUlRKS4_SF_E_EEEvT_T0_SJ_T1_RT2_.exit, !llvm.loop !238
 
 _ZSt11__push_heapIPN4mold3elf6ElfRelINS1_5ALPHAEEElS4_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_13RelDynSectionIS3_E4sortERNS1_7ContextIS3_EEEUlRKS4_SF_E_EEEvT_T0_SJ_T1_RT2_.exit: ; preds = %if.end.i.i.i.i.i, %while.body.i, %land.rhs.us.i, %if.end.i.i.i.i.us.i, %while.body.us.i, %if.end17
-  %__holeIndex.addr.0.lcssa.i = phi i64 [ %__holeIndex.addr.1, %if.end17 ], [ %__holeIndex.addr.013.us.i, %land.rhs.us.i ], [ %__parent.014.us.i, %while.body.us.i ], [ %__holeIndex.addr.013.us.i, %if.end.i.i.i.i.us.i ], [ %__holeIndex.addr.013.i, %if.end.i.i.i.i.i ], [ %__parent.014.i, %while.body.i ]
+  %__holeIndex.addr.0.lcssa.i = phi i64 [ %__holeIndex.addr.1, %if.end17 ], [ %__holeIndex.addr.013.us.i, %land.rhs.us.i ], [ %__parent.014.us.i, %while.body.us.i ], [ %__holeIndex.addr.013.us.i, %if.end.i.i.i.i.us.i ], [ %__parent.014.i, %while.body.i ], [ %__holeIndex.addr.013.i, %if.end.i.i.i.i.i ]
   %add.ptr5.i = getelementptr inbounds %"struct.mold::elf::ElfRel", ptr %__first, i64 %__holeIndex.addr.0.lcssa.i
   store i64 %agg.tmp.sroa.0.0.copyload, ptr %add.ptr5.i, align 1
   %agg.tmp23.sroa.5.0.add.ptr5.i.sroa_idx = getelementptr inbounds i8, ptr %add.ptr5.i, i64 8

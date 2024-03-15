@@ -2474,7 +2474,7 @@ _Z5floorRK8rational.exit71:                       ; preds = %.noexc.i70
   %cmp.i.i5.i.i.i = icmp eq i8 %bf.clear.i.i4.i.i.i, 0
   %48 = select i1 %cmp.i.i.i.i.i75, i1 %cmp.i.i5.i.i.i, i1 false
   %cmp.i.i5.i.i.i.not = xor i1 %cmp.i.i5.i.i.i, true
-  %brmerge = select i1 %48, i1 true, i1 %cmp.i.i5.i.i.i.not
+  %brmerge = select i1 %cmp.i.i.i.i.i75, i1 true, i1 %cmp.i.i5.i.i.i.not
   br i1 %brmerge, label %cleanup.action, label %_ZNK8rational8is_int64Ev.exit.i
 
 _ZNK8rational8is_int64Ev.exit.i:                  ; preds = %_Z5floorRK8rational.exit71

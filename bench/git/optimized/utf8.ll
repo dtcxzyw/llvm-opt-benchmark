@@ -595,20 +595,15 @@ if.then:                                          ; preds = %while.cond, %while.
   store ptr %incdec.ptr, ptr %text.addr, align 8
   br label %while.cond.backedge
 
-while.cond.backedge:                              ; preds = %if.end, %if.then
+while.cond.backedge:                              ; preds = %if.then, %if.end
   %.be = phi ptr [ %incdec.ptr, %if.then ], [ %2, %if.end ]
   br label %while.cond, !llvm.loop !11
 
 if.end:                                           ; preds = %while.cond
   %call.i = call fastcc i32 @pick_one_utf8_char(ptr noundef nonnull %text.addr, ptr noundef null), !range !7
   %2 = load ptr, ptr %text.addr, align 8
-  %tobool.not.i = icmp eq ptr %2, null
-  %cmp.i.i = icmp eq i32 %call.i, 0
-  %or.cond.i = select i1 %tobool.not.i, i1 true, i1 %cmp.i.i
-  %or.cond.i.not = xor i1 %or.cond.i, true
-  %tobool.not.i.not = xor i1 %tobool.not.i, true
-  %brmerge = or i1 %or.cond.i.not, %tobool.not.i.not
-  br i1 %brmerge, label %while.cond.backedge, label %return
+  %tobool.not.i.not = icmp eq ptr %2, null
+  br i1 %tobool.not.i.not, label %return, label %while.cond.backedge
 
 return:                                           ; preds = %if.end, %while.cond
   %retval.0 = phi i32 [ 1, %while.cond ], [ 0, %if.end ]

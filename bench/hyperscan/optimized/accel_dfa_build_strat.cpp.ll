@@ -4441,9 +4441,8 @@ invoke.cont47:                                    ; preds = %lor.rhs.i95, %if.th
   %m_size.i.i4.i = getelementptr inbounds i8, ptr %__i.sroa.0.0.i98, i64 48
   %104 = load i64, ptr %m_size.i.i4.i, align 8
   %tobool.not.i.i5.i = icmp eq i64 %104, 0
-  %or.cond.i107 = select i1 %tobool.not.i.i.i106, i1 %tobool.not.i.i5.i, i1 false
   %tobool.not.i.i5.not.i = xor i1 %tobool.not.i.i5.i, true
-  %brmerge.i = select i1 %or.cond.i107, i1 true, i1 %tobool.not.i.i5.not.i
+  %brmerge.i = select i1 %tobool.not.i.i.i106, i1 true, i1 %tobool.not.i.i5.not.i
   br i1 %brmerge.i, label %invoke.cont49, label %if.end6.i
 
 if.end6.i:                                        ; preds = %invoke.cont47
@@ -4458,6 +4457,7 @@ if.end6.i:                                        ; preds = %invoke.cont47
   br i1 %cmp.i109, label %if.then51, label %for.inc57
 
 invoke.cont49:                                    ; preds = %invoke.cont47
+  %or.cond.i107 = select i1 %tobool.not.i.i.i106, i1 %tobool.not.i.i5.i, i1 false
   br i1 %or.cond.i107, label %if.then51, label %for.inc57
 
 if.then51:                                        ; preds = %_ZNKSt8_Rb_treeItSt4pairIKtN3ue211AccelSchemeEESt10_Select1stIS4_ESt4lessItESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i68, %if.end6.i, %invoke.cont49, %invoke.cont45

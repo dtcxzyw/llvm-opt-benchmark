@@ -59336,13 +59336,11 @@ sqlite3OsFileControl.exit.i:                      ; preds = %39
   br i1 %47, label %databaseIsUnmoved.exit.thread, label %48
 
 48:                                               ; preds = %sqlite3OsFileControl.exit.i
-  %49 = icmp eq i32 %.fr, 0
+  %49 = icmp ne i32 %.fr, 0
   %50 = load i32, ptr %3, align 4
   %51 = icmp ne i32 %50, 0
-  %or.cond.i = select i1 %49, i1 %51, i1 false
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  %.not46 = xor i1 %49, true
-  %brmerge = or i1 %or.cond.i, %.not46
+  %brmerge = select i1 %49, i1 true, i1 %51
   br i1 %brmerge, label %databaseIsUnmoved.exit.thread42, label %52
 
 databaseIsUnmoved.exit.thread:                    ; preds = %32, %35, %sqlite3OsFileControl.exit.i, %39

@@ -29419,9 +29419,7 @@ stbi__mad3sizes_valid.exit._crit_edge:            ; preds = %39, %stbi__mul2size
   br i1 %310, label %.preheader700, label %472
 
 ._crit_edge825.thread:                            ; preds = %.preheader737
-  %.not1017 = xor i1 %9, true
-  %brmerge = or i1 %49, %.not1017
-  br i1 %brmerge, label %.loopexit701, label %.thread
+  br i1 %9, label %.thread, label %.loopexit701
 
 .preheader700:                                    ; preds = %._crit_edge825
   br i1 %20, label %.loopexit701, label %.lr.ph862

@@ -49639,9 +49639,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearE
 42:                                               ; preds = %40
   %43 = mul nsw i64 %37, %35
   %44 = icmp sgt i64 %43, 1000
-  %not. = xor i1 %3, true
-  %or.cond85 = select i1 %not., i1 true, i1 %44
-  %spec.select = and i1 %or.cond85, %3
+  %spec.select = select i1 %3, i1 %44, i1 false
   %45 = icmp sgt i64 %35, 6
   %46 = icmp sgt i64 %37, 6
   %47 = getelementptr inbounds i64, ptr %39, i64 %37

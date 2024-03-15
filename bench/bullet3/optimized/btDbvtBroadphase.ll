@@ -3230,9 +3230,8 @@ cond.end24.i:                                     ; preds = %cond.true20.i, %con
 lor.lhs.false.i:                                  ; preds = %cond.end24.i
   %cmp28.i = icmp eq ptr %3, %x.sroa.0.0.copyload
   %cmp29.i = icmp sgt i32 %cond17.i, %cond25.i
-  %or.cond.i = select i1 %cmp28.i, i1 %cmp29.i, i1 false
   %cmp28.not.i = xor i1 %cmp28.i, true
-  %brmerge.i = or i1 %or.cond.i, %cmp28.not.i
+  %brmerge.i = select i1 %cmp28.not.i, i1 true, i1 %cmp29.i
   br i1 %brmerge.i, label %_ZNK29btBroadphasePairSortPredicateclERK16btBroadphasePairS2_.exit, label %land.lhs.true33.i
 
 land.lhs.true33.i:                                ; preds = %lor.lhs.false.i
@@ -3251,6 +3250,7 @@ land.rhs.i:                                       ; preds = %land.lhs.true33.i
   br i1 %cmp38.i, label %while.body, label %while.cond5.preheader
 
 _ZNK29btBroadphasePairSortPredicateclERK16btBroadphasePairS2_.exit: ; preds = %lor.lhs.false.i
+  %or.cond.i = select i1 %cmp28.i, i1 %cmp29.i, i1 false
   br i1 %or.cond.i, label %while.body, label %while.cond5.preheader
 
 while.body:                                       ; preds = %cond.end24.i, %land.rhs.i, %_ZNK29btBroadphasePairSortPredicateclERK16btBroadphasePairS2_.exit
@@ -3305,9 +3305,8 @@ cond.end24.i44:                                   ; preds = %cond.true20.i42, %c
 lor.lhs.false.i47:                                ; preds = %cond.end24.i44
   %cmp28.i48 = icmp eq ptr %x.sroa.0.0.copyload, %13
   %cmp29.i49 = icmp sgt i32 %cond17.i39, %cond25.i45
-  %or.cond.i50 = select i1 %cmp28.i48, i1 %cmp29.i49, i1 false
   %cmp28.not.i51 = xor i1 %cmp28.i48, true
-  %brmerge.i52 = or i1 %or.cond.i50, %cmp28.not.i51
+  %brmerge.i52 = select i1 %cmp28.not.i51, i1 true, i1 %cmp29.i49
   br i1 %brmerge.i52, label %_ZNK29btBroadphasePairSortPredicateclERK16btBroadphasePairS2_.exit59, label %land.lhs.true33.i53
 
 land.lhs.true33.i53:                              ; preds = %lor.lhs.false.i47
@@ -3321,6 +3320,7 @@ land.rhs.i55:                                     ; preds = %land.lhs.true33.i53
   br i1 %cmp38.i58, label %while.body10, label %while.end11
 
 _ZNK29btBroadphasePairSortPredicateclERK16btBroadphasePairS2_.exit59: ; preds = %lor.lhs.false.i47
+  %or.cond.i50 = select i1 %cmp28.i48, i1 %cmp29.i49, i1 false
   br i1 %or.cond.i50, label %while.body10, label %while.end11
 
 while.body10:                                     ; preds = %cond.end24.i44, %land.rhs.i55, %_ZNK29btBroadphasePairSortPredicateclERK16btBroadphasePairS2_.exit59

@@ -3228,7 +3228,7 @@ current_time.exit.us:                             ; preds = %while.body.us
   %div.i.us = fdiv double %conv1.i.us, 1.000000e+06
   %add.i.us = fadd double %div.i.us, %conv.i.us
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i)
-  %or.cond1.us = select i1 %or.cond.not, i1 true, i1 %2
+  %or.cond1.us = select i1 %or.cond.not, i1 true, i1 %cmp.us
   br label %for.body.us
 
 current_time.exit62.us:                           ; preds = %for.cond.for.end_crit_edge.us

@@ -358,7 +358,7 @@ scp_dump_value.exit:                              ; preds = %94, %97, %100, %107
 
 168:                                              ; preds = %164, %160
   %169 = trunc i64 %indvars.iv.next.i52 to i32
-  %170 = call fastcc i32 @try_remove_definition(ptr noundef nonnull %8, i32 noundef %169, ptr noundef nonnull %136, ptr noundef null)
+  %170 = call fastcc i32 @try_remove_definition(ptr noundef nonnull %8, i32 noundef %169, ptr noundef nonnull %136, ptr noundef null), !range !5
   %171 = add nsw i32 %170, %.098124.i
   br label %288
 
@@ -672,7 +672,7 @@ try_replace_op2.exit.thread.i:                    ; preds = %270, %265, %263, %2
   br i1 %spec.select.i116.i, label %285, label %288
 
 285:                                              ; preds = %._crit_edge.i
-  %286 = call fastcc i32 @try_remove_definition(ptr noundef nonnull %8, i32 noundef %.pre77, ptr noundef %136, ptr noundef %.0100.i)
+  %286 = call fastcc i32 @try_remove_definition(ptr noundef nonnull %8, i32 noundef %.pre77, ptr noundef %136, ptr noundef %.0100.i), !range !5
   %287 = add nsw i32 %286, %.1.lcssa.i
   br label %288
 
@@ -1130,7 +1130,7 @@ get_op1_value.exit1995:                           ; preds = %94, %102, %105
   br label %208
 
 196:                                              ; preds = %190
-  %197 = call fastcc i32 @ct_eval_del_array_elem(ptr noundef nonnull %4, ptr noundef nonnull %.0.i1992), !range !5
+  %197 = call fastcc i32 @ct_eval_del_array_elem(ptr noundef nonnull %4, ptr noundef nonnull %.0.i1992), !range !6
   %198 = icmp eq i32 %197, 0
   %199 = load i32, ptr %180, align 4
   %200 = icmp sgt i32 %199, -1
@@ -1221,7 +1221,7 @@ get_op1_value.exit1995:                           ; preds = %94, %102, %105
   br i1 %.not1745, label %239, label %.split
 
 .split:                                           ; preds = %237
-  %238 = call fastcc i32 @ct_eval_assign_dim(ptr noundef nonnull %4, ptr noundef nonnull %.0.i1994, ptr noundef nonnull %.0.i1992), !range !5
+  %238 = call fastcc i32 @ct_eval_assign_dim(ptr noundef nonnull %4, ptr noundef nonnull %.0.i1994, ptr noundef nonnull %.0.i1992), !range !6
   br label %256
 
 239:                                              ; preds = %237
@@ -1231,7 +1231,7 @@ get_op1_value.exit1995:                           ; preds = %94, %102, %105
   br i1 %242, label %244, label %.split1522
 
 .split1522:                                       ; preds = %239
-  %243 = call fastcc i32 @ct_eval_assign_dim(ptr noundef nonnull %4, ptr noundef nonnull %.0.i1994, ptr noundef null), !range !5
+  %243 = call fastcc i32 @ct_eval_assign_dim(ptr noundef nonnull %4, ptr noundef nonnull %.0.i1994, ptr noundef null), !range !6
   br label %256
 
 244:                                              ; preds = %239
@@ -1652,7 +1652,7 @@ get_op1_value.exit1998:                           ; preds = %317, %325, %328
   br label %453
 
 453:                                              ; preds = %450, %445, %441
-  %454 = call fastcc i32 @ct_eval_assign_obj(ptr noundef nonnull %4, ptr noundef nonnull %.0.i1997, ptr noundef nonnull %.0.i1992), !range !5
+  %454 = call fastcc i32 @ct_eval_assign_obj(ptr noundef nonnull %4, ptr noundef nonnull %.0.i1997, ptr noundef nonnull %.0.i1992), !range !6
   %455 = icmp eq i32 %454, 0
   %456 = getelementptr inbounds i8, ptr %2, i64 20
   %457 = load i32, ptr %456, align 4
@@ -2005,7 +2005,7 @@ get_op1_value.exit1998:                           ; preds = %317, %325, %328
   br label %650
 
 638:                                              ; preds = %632
-  %639 = call fastcc i32 @ct_eval_del_array_elem(ptr noundef nonnull %4, ptr noundef nonnull %.0.i1992), !range !5
+  %639 = call fastcc i32 @ct_eval_del_array_elem(ptr noundef nonnull %4, ptr noundef nonnull %.0.i1992), !range !6
   %640 = icmp eq i32 %639, 0
   %641 = load i32, ptr %621, align 4
   %642 = icmp sgt i32 %641, -1
@@ -2078,7 +2078,7 @@ get_op1_value.exit1998:                           ; preds = %317, %325, %328
   br i1 %.not1723, label %672, label %.split1523
 
 .split1523:                                       ; preds = %670
-  %671 = call fastcc i32 @ct_eval_add_array_elem(ptr noundef nonnull %4, ptr noundef nonnull %.0.i, ptr noundef nonnull %.0.i1992), !range !5
+  %671 = call fastcc i32 @ct_eval_add_array_elem(ptr noundef nonnull %4, ptr noundef nonnull %.0.i, ptr noundef nonnull %.0.i1992), !range !6
   br label %683
 
 672:                                              ; preds = %670
@@ -2088,7 +2088,7 @@ get_op1_value.exit1998:                           ; preds = %317, %325, %328
   br i1 %675, label %677, label %.split1524
 
 .split1524:                                       ; preds = %672
-  %676 = call fastcc i32 @ct_eval_add_array_elem(ptr noundef nonnull %4, ptr noundef nonnull %.0.i, ptr noundef null), !range !5
+  %676 = call fastcc i32 @ct_eval_add_array_elem(ptr noundef nonnull %4, ptr noundef nonnull %.0.i, ptr noundef null), !range !6
   br label %683
 
 677:                                              ; preds = %672
@@ -2234,7 +2234,7 @@ get_op1_value.exit1998:                           ; preds = %317, %325, %328
   %754 = getelementptr inbounds i8, ptr %4, i64 8
   store i32 %753, ptr %754, align 8
   store i32 1, ptr %727, align 8
-  %755 = call fastcc i32 @ct_eval_add_array_unpack(ptr noundef nonnull %4, ptr noundef nonnull %.0.i), !range !5
+  %755 = call fastcc i32 @ct_eval_add_array_unpack(ptr noundef nonnull %4, ptr noundef nonnull %.0.i), !range !6
   %756 = icmp eq i32 %755, 0
   %757 = getelementptr inbounds i8, ptr %2, i64 20
   %758 = load i32, ptr %757, align 4
@@ -2747,7 +2747,7 @@ get_op1_value.exit2004:                           ; preds = %963, %971, %974
   br i1 %981, label %.loopexit, label %982
 
 982:                                              ; preds = %get_op1_value.exit2004
-  %983 = call fastcc i32 @ct_eval_fetch_dim(ptr noundef nonnull %5, ptr noundef nonnull %.0.i, ptr noundef nonnull %.0.i1992, i32 noundef 0), !range !5
+  %983 = call fastcc i32 @ct_eval_fetch_dim(ptr noundef nonnull %5, ptr noundef nonnull %.0.i, ptr noundef nonnull %.0.i1992, i32 noundef 0), !range !6
   %984 = icmp eq i32 %983, 0
   br i1 %984, label %985, label %ct_eval_binary_op.exit2001.thread
 
@@ -2762,7 +2762,7 @@ get_op1_value.exit2004:                           ; preds = %963, %971, %974
   %990 = load ptr, ptr %.0.i, align 8
   %991 = tail call ptr @zend_array_dup(ptr noundef %990) #13
   store ptr %991, ptr %4, align 8
-  %992 = call fastcc i32 @ct_eval_del_array_elem(ptr noundef nonnull %4, ptr noundef nonnull %.0.i1992), !range !5
+  %992 = call fastcc i32 @ct_eval_del_array_elem(ptr noundef nonnull %4, ptr noundef nonnull %.0.i1992), !range !6
   %993 = getelementptr inbounds i8, ptr %.015182033, i64 20
   %994 = load i32, ptr %993, align 4
   %995 = icmp sgt i32 %994, -1
@@ -2920,7 +2920,7 @@ ct_eval_binary_op.exit2006.thread:                ; preds = %1024, %ct_eval_bina
   br label %1071
 
 1071:                                             ; preds = %1068, %1063, %1059
-  %1072 = call fastcc i32 @ct_eval_assign_dim(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %.0.i1992), !range !5
+  %1072 = call fastcc i32 @ct_eval_assign_dim(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %.0.i1992), !range !6
   %1073 = icmp eq i32 %1072, 0
   br i1 %1073, label %1074, label %1105
 
@@ -3092,7 +3092,7 @@ get_op1_value.exit2009:                           ; preds = %1147, %1155, %1158
   br i1 %1165, label %.loopexit, label %1166
 
 1166:                                             ; preds = %get_op1_value.exit2009
-  %1167 = call fastcc i32 @ct_eval_fetch_obj(ptr noundef nonnull %6, ptr noundef nonnull %.0.i, ptr noundef %.0.i1992), !range !5
+  %1167 = call fastcc i32 @ct_eval_fetch_obj(ptr noundef nonnull %6, ptr noundef nonnull %.0.i, ptr noundef %.0.i1992), !range !6
   %1168 = icmp eq i32 %1167, 0
   br i1 %1168, label %1169, label %ct_eval_binary_op.exit2001.thread
 
@@ -3240,7 +3240,7 @@ ct_eval_binary_op.exit2011.thread:                ; preds = %1207, %ct_eval_bina
   %1241 = load ptr, ptr %.0.i, align 8
   %1242 = call ptr @zend_array_dup(ptr noundef %1241) #13
   store ptr %1242, ptr %4, align 8
-  %1243 = call fastcc i32 @ct_eval_assign_obj(ptr noundef nonnull %4, ptr noundef nonnull %6, ptr noundef %.0.i1992), !range !5
+  %1243 = call fastcc i32 @ct_eval_assign_obj(ptr noundef nonnull %4, ptr noundef nonnull %6, ptr noundef %.0.i1992), !range !6
   %1244 = icmp eq i32 %1243, 0
   br i1 %1244, label %1245, label %1276
 
@@ -3415,13 +3415,13 @@ ct_eval_binary_op.exit2001.thread:                ; preds = %ct_eval_binary_op.e
   br i1 %1331, label %1332, label %1393
 
 1332:                                             ; preds = %1322
-  %1333 = call fastcc i32 @ct_eval_fetch_obj(ptr noundef nonnull %7, ptr noundef nonnull %.0.i, ptr noundef nonnull %.0.i1992), !range !5
+  %1333 = call fastcc i32 @ct_eval_fetch_obj(ptr noundef nonnull %7, ptr noundef nonnull %.0.i, ptr noundef nonnull %.0.i1992), !range !6
   %1334 = icmp eq i32 %1333, 0
   br i1 %1334, label %1335, label %1393
 
 1335:                                             ; preds = %1332
   %1336 = load i8, ptr %869, align 4
-  %1337 = call fastcc i32 @ct_eval_incdec(ptr noundef nonnull %8, i8 noundef zeroext %1336, ptr noundef nonnull %7), !range !5
+  %1337 = call fastcc i32 @ct_eval_incdec(ptr noundef nonnull %8, i8 noundef zeroext %1336, ptr noundef nonnull %7), !range !6
   %1338 = icmp eq i32 %1337, 0
   br i1 %1338, label %1339, label %1384
 
@@ -3431,7 +3431,7 @@ ct_eval_binary_op.exit2001.thread:                ; preds = %ct_eval_binary_op.e
   %1341 = load ptr, ptr %.0.i, align 8
   %1342 = call ptr @zend_array_dup(ptr noundef %1341) #13
   store ptr %1342, ptr %4, align 8
-  %1343 = call fastcc i32 @ct_eval_assign_obj(ptr noundef nonnull %4, ptr noundef nonnull %8, ptr noundef nonnull %.0.i1992), !range !5
+  %1343 = call fastcc i32 @ct_eval_assign_obj(ptr noundef nonnull %4, ptr noundef nonnull %8, ptr noundef nonnull %.0.i1992), !range !6
   %1344 = getelementptr inbounds i8, ptr %.015182033, i64 20
   %1345 = load i32, ptr %1344, align 4
   %1346 = icmp sgt i32 %1345, -1
@@ -3573,7 +3573,7 @@ ct_eval_binary_op.exit2001.thread:                ; preds = %ct_eval_binary_op.e
   br i1 %1410, label %.loopexit, label %1411
 
 1411:                                             ; preds = %1407
-  %1412 = call fastcc i32 @ct_eval_incdec(ptr noundef nonnull %4, i8 noundef zeroext %870, ptr noundef nonnull %.0.i), !range !5
+  %1412 = call fastcc i32 @ct_eval_incdec(ptr noundef nonnull %4, i8 noundef zeroext %870, ptr noundef nonnull %.0.i), !range !6
   %1413 = icmp eq i32 %1412, 0
   %1414 = getelementptr inbounds i8, ptr %.015182033, i64 12
   %1415 = load i32, ptr %1414, align 4
@@ -3666,7 +3666,7 @@ ct_eval_binary_op.exit2001.thread:                ; preds = %ct_eval_binary_op.e
 
 1457:                                             ; preds = %1451, %1455
   %1458 = phi i8 [ %870, %1451 ], [ %.pre2095, %1455 ]
-  %1459 = call fastcc i32 @ct_eval_incdec(ptr noundef nonnull %4, i8 noundef zeroext %1458, ptr noundef nonnull %.0.i), !range !5
+  %1459 = call fastcc i32 @ct_eval_incdec(ptr noundef nonnull %4, i8 noundef zeroext %1458, ptr noundef nonnull %.0.i), !range !6
   %1460 = icmp eq i32 %1459, 0
   %1461 = getelementptr inbounds i8, ptr %.015182033, i64 12
   %1462 = load i32, ptr %1461, align 4
@@ -4089,7 +4089,7 @@ ct_eval_bool_cast.exit:                           ; preds = %1552
 1667:                                             ; preds = %1663
   %1668 = getelementptr inbounds i8, ptr %.015172036, i64 20
   %1669 = load i32, ptr %1668, align 4
-  %1670 = call fastcc i32 @ct_eval_in_array(ptr noundef nonnull %4, i32 noundef %1669, ptr noundef nonnull %.0.i, ptr noundef nonnull %.0.i1992), !range !5
+  %1670 = call fastcc i32 @ct_eval_in_array(ptr noundef nonnull %4, i32 noundef %1669, ptr noundef nonnull %.0.i, ptr noundef nonnull %.0.i1992), !range !6
   %1671 = icmp eq i32 %1670, 0
   %1672 = getelementptr inbounds i8, ptr %.015182033, i64 20
   %1673 = load i32, ptr %1672, align 4
@@ -4149,7 +4149,7 @@ ct_eval_bool_cast.exit:                           ; preds = %1552
   br i1 %1699, label %.loopexit, label %1700
 
 1700:                                             ; preds = %1696
-  %1701 = call fastcc i32 @ct_eval_array_key_exists(ptr noundef nonnull %4, ptr noundef nonnull %.0.i, ptr noundef nonnull %.0.i1992), !range !5
+  %1701 = call fastcc i32 @ct_eval_array_key_exists(ptr noundef nonnull %4, ptr noundef nonnull %.0.i, ptr noundef nonnull %.0.i1992), !range !6
   %1702 = icmp eq i32 %1701, 0
   %1703 = getelementptr inbounds i8, ptr %.015182033, i64 20
   %1704 = load i32, ptr %1703, align 4
@@ -4211,7 +4211,7 @@ ct_eval_bool_cast.exit:                           ; preds = %1552
 1731:                                             ; preds = %1727
   %1732 = icmp ne i8 %870, 98
   %1733 = zext i1 %1732 to i32
-  %1734 = call fastcc i32 @ct_eval_fetch_dim(ptr noundef nonnull %4, ptr noundef nonnull %.0.i, ptr noundef nonnull %.0.i1992, i32 noundef %1733), !range !5
+  %1734 = call fastcc i32 @ct_eval_fetch_dim(ptr noundef nonnull %4, ptr noundef nonnull %.0.i, ptr noundef nonnull %.0.i1992, i32 noundef %1733), !range !6
   %1735 = icmp eq i32 %1734, 0
   %1736 = getelementptr inbounds i8, ptr %.015182033, i64 20
   %1737 = load i32, ptr %1736, align 4
@@ -4273,7 +4273,7 @@ ct_eval_bool_cast.exit:                           ; preds = %1552
 1764:                                             ; preds = %1760
   %1765 = getelementptr inbounds i8, ptr %.015172036, i64 20
   %1766 = load i32, ptr %1765, align 4
-  %1767 = call fastcc i32 @ct_eval_isset_dim(ptr noundef nonnull %4, i32 noundef %1766, ptr noundef nonnull %.0.i, ptr noundef nonnull %.0.i1992), !range !5
+  %1767 = call fastcc i32 @ct_eval_isset_dim(ptr noundef nonnull %4, i32 noundef %1766, ptr noundef nonnull %.0.i, ptr noundef nonnull %.0.i1992), !range !6
   %1768 = icmp eq i32 %1767, 0
   %1769 = getelementptr inbounds i8, ptr %.015182033, i64 20
   %1770 = load i32, ptr %1769, align 4
@@ -4336,7 +4336,7 @@ ct_eval_bool_cast.exit:                           ; preds = %1552
   br i1 %1797, label %.loopexit, label %1798
 
 1798:                                             ; preds = %1794
-  %1799 = call fastcc i32 @ct_eval_fetch_obj(ptr noundef nonnull %4, ptr noundef nonnull %.0.i, ptr noundef nonnull %.0.i1992), !range !5
+  %1799 = call fastcc i32 @ct_eval_fetch_obj(ptr noundef nonnull %4, ptr noundef nonnull %.0.i, ptr noundef nonnull %.0.i1992), !range !6
   %1800 = icmp eq i32 %1799, 0
   br i1 %1800, label %1801, label %1817
 
@@ -4404,7 +4404,7 @@ ct_eval_bool_cast.exit:                           ; preds = %1552
 1833:                                             ; preds = %1829
   %1834 = getelementptr inbounds i8, ptr %.015172036, i64 20
   %1835 = load i32, ptr %1834, align 4
-  %1836 = call fastcc i32 @ct_eval_isset_obj(ptr noundef nonnull %4, i32 noundef %1835, ptr noundef nonnull %.0.i, ptr noundef nonnull %.0.i1992), !range !5
+  %1836 = call fastcc i32 @ct_eval_isset_obj(ptr noundef nonnull %4, i32 noundef %1835, ptr noundef nonnull %.0.i, ptr noundef nonnull %.0.i1992), !range !6
   %1837 = icmp eq i32 %1836, 0
   br i1 %1837, label %1838, label %1854
 
@@ -4505,7 +4505,7 @@ switch.lookup:                                    ; preds = %868
 1886:                                             ; preds = %1882
   %1887 = getelementptr inbounds i8, ptr %.015172036, i64 20
   %1888 = load i32, ptr %1887, align 4
-  %1889 = call fastcc i32 @ct_eval_isset_isempty(ptr noundef nonnull %4, i32 noundef %1888, ptr noundef nonnull %.0.i), !range !5
+  %1889 = call fastcc i32 @ct_eval_isset_isempty(ptr noundef nonnull %4, i32 noundef %1888, ptr noundef nonnull %.0.i), !range !6
   %1890 = icmp eq i32 %1889, 0
   %1891 = getelementptr inbounds i8, ptr %.015182033, i64 20
   %1892 = load i32, ptr %1891, align 4
@@ -4936,7 +4936,7 @@ get_op1_value.exit2020:                           ; preds = %2086, %2101
 
 2112:                                             ; preds = %._crit_edge2056
   %2113 = load ptr, ptr %2043, align 8
-  %2114 = call fastcc i32 @ct_eval_func_call(ptr noundef %2027, ptr noundef nonnull %4, ptr noundef %2113, i32 noundef %2056, ptr noundef nonnull %9), !range !5
+  %2114 = call fastcc i32 @ct_eval_func_call(ptr noundef %2027, ptr noundef nonnull %4, ptr noundef %2113, i32 noundef %2056, ptr noundef nonnull %9), !range !6
   %2115 = icmp eq i32 %2114, 0
   %2116 = load i32, ptr %2044, align 4
   %2117 = icmp sgt i32 %2116, -1
@@ -5199,7 +5199,7 @@ get_op1_value.exit2029:                           ; preds = %2217, %2224, %2237
 
 ._crit_edge:                                      ; preds = %2256, %2240
   %2257 = load ptr, ptr %0, align 8
-  %2258 = call fastcc i32 @ct_eval_func_call_ex(ptr noundef %2257, ptr noundef nonnull %4, ptr noundef %2150, i32 noundef %2152, ptr noundef nonnull %10), !range !5
+  %2258 = call fastcc i32 @ct_eval_func_call_ex(ptr noundef %2257, ptr noundef nonnull %4, ptr noundef %2150, i32 noundef %2152, ptr noundef nonnull %10), !range !6
   %2259 = icmp eq i32 %2258, 0
   %2260 = load i32, ptr %2134, align 4
   %2261 = icmp sgt i32 %2260, -1
@@ -5986,110 +5986,110 @@ define internal fastcc noundef i32 @ct_eval_del_array_elem(ptr nocapture noundef
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i8, ptr %4, align 8
-  switch i8 %5, label %58 [
+  switch i8 %5, label %59 [
     i8 1, label %6
     i8 2, label %10
     i8 3, label %13
     i8 4, label %16
     i8 5, label %20
-    i8 6, label %37
+    i8 6, label %38
   ]
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr %0, align 8
   %8 = load ptr, ptr @zend_empty_string, align 8
   %9 = tail call i32 @zend_hash_del(ptr noundef %7, ptr noundef %8) #13
-  br label %58
+  br label %59
 
 10:                                               ; preds = %2
   %11 = load ptr, ptr %0, align 8
   %12 = tail call i32 @zend_hash_index_del(ptr noundef %11, i64 noundef 0) #13
-  br label %58
+  br label %59
 
 13:                                               ; preds = %2
   %14 = load ptr, ptr %0, align 8
   %15 = tail call i32 @zend_hash_index_del(ptr noundef %14, i64 noundef 1) #13
-  br label %58
+  br label %59
 
 16:                                               ; preds = %2
   %17 = load ptr, ptr %0, align 8
   %18 = load i64, ptr %1, align 8
   %19 = tail call i32 @zend_hash_index_del(ptr noundef %17, i64 noundef %18) #13
-  br label %58
+  br label %59
 
 20:                                               ; preds = %2
   %21 = load double, ptr %1, align 8
   %22 = tail call double @llvm.fabs.f64(double %21)
-  %or.cond45 = fcmp ueq double %22, 0x7FF0000000000000
-  br i1 %or.cond45, label %30, label %23
+  %23 = fcmp ueq double %22, 0x7FF0000000000000
+  br i1 %23, label %31, label %24
 
-23:                                               ; preds = %20
-  %24 = fcmp oge double %21, 0x43E0000000000000
-  %25 = fcmp olt double %21, 0xC3E0000000000000
-  %or.cond = or i1 %24, %25
-  br i1 %or.cond, label %26, label %28
+24:                                               ; preds = %20
+  %25 = fcmp oge double %21, 0x43E0000000000000
+  %26 = fcmp olt double %21, 0xC3E0000000000000
+  %or.cond = or i1 %25, %26
+  br i1 %or.cond, label %27, label %29
 
-26:                                               ; preds = %23
-  %27 = tail call i64 @zend_dval_to_lval_slow(double noundef %21) #13
+27:                                               ; preds = %24
+  %28 = tail call i64 @zend_dval_to_lval_slow(double noundef %21) #13
   %.pre = load double, ptr %1, align 8
-  br label %30
+  br label %31
 
-28:                                               ; preds = %23
-  %29 = fptosi double %21 to i64
-  br label %30
+29:                                               ; preds = %24
+  %30 = fptosi double %21 to i64
+  br label %31
 
-30:                                               ; preds = %20, %28, %26
-  %31 = phi double [ %.pre, %26 ], [ %21, %28 ], [ %21, %20 ]
-  %.041 = phi i64 [ %27, %26 ], [ %29, %28 ], [ 0, %20 ]
-  %32 = sitofp i64 %.041 to double
-  %33 = fcmp oeq double %31, %32
-  br i1 %33, label %34, label %58
+31:                                               ; preds = %20, %29, %27
+  %32 = phi double [ %.pre, %27 ], [ %21, %29 ], [ %21, %20 ]
+  %.041 = phi i64 [ %28, %27 ], [ %30, %29 ], [ 0, %20 ]
+  %33 = sitofp i64 %.041 to double
+  %34 = fcmp oeq double %32, %33
+  br i1 %34, label %35, label %59
 
-34:                                               ; preds = %30
-  %35 = load ptr, ptr %0, align 8
-  %36 = tail call i32 @zend_hash_index_del(ptr noundef %35, i64 noundef %.041) #13
-  br label %58
+35:                                               ; preds = %31
+  %36 = load ptr, ptr %0, align 8
+  %37 = tail call i32 @zend_hash_index_del(ptr noundef %36, i64 noundef %.041) #13
+  br label %59
 
-37:                                               ; preds = %2
-  %38 = load ptr, ptr %0, align 8
-  %39 = load ptr, ptr %1, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 24
-  %41 = getelementptr inbounds i8, ptr %39, i64 16
-  %42 = load i64, ptr %41, align 8
-  %43 = load i8, ptr %40, align 1
-  %44 = icmp sgt i8 %43, 57
-  br i1 %44, label %.critedge, label %45
+38:                                               ; preds = %2
+  %39 = load ptr, ptr %0, align 8
+  %40 = load ptr, ptr %1, align 8
+  %41 = getelementptr inbounds i8, ptr %40, i64 24
+  %42 = getelementptr inbounds i8, ptr %40, i64 16
+  %43 = load i64, ptr %42, align 8
+  %44 = load i8, ptr %41, align 1
+  %45 = icmp sgt i8 %44, 57
+  br i1 %45, label %.critedge, label %46
 
-45:                                               ; preds = %37
-  %46 = icmp slt i8 %43, 48
-  br i1 %46, label %47, label %52
+46:                                               ; preds = %38
+  %47 = icmp slt i8 %44, 48
+  br i1 %47, label %48, label %53
 
-47:                                               ; preds = %45
-  %.not = icmp eq i8 %43, 45
-  br i1 %.not, label %48, label %.critedge
+48:                                               ; preds = %46
+  %.not = icmp eq i8 %44, 45
+  br i1 %.not, label %49, label %.critedge
 
-48:                                               ; preds = %47
-  %49 = getelementptr inbounds i8, ptr %39, i64 25
-  %50 = load i8, ptr %49, align 1
-  %51 = add i8 %50, -58
-  %or.cond46 = icmp ult i8 %51, -10
-  br i1 %or.cond46, label %.critedge, label %52
+49:                                               ; preds = %48
+  %50 = getelementptr inbounds i8, ptr %40, i64 25
+  %51 = load i8, ptr %50, align 1
+  %52 = add i8 %51, -58
+  %or.cond45 = icmp ult i8 %52, -10
+  br i1 %or.cond45, label %.critedge, label %53
 
-52:                                               ; preds = %48, %45
-  %53 = call zeroext i1 @_zend_handle_numeric_str_ex(ptr noundef nonnull %40, i64 noundef %42, ptr noundef nonnull %3) #13
-  br i1 %53, label %54, label %.critedge
+53:                                               ; preds = %49, %46
+  %54 = call zeroext i1 @_zend_handle_numeric_str_ex(ptr noundef nonnull %41, i64 noundef %43, ptr noundef nonnull %3) #13
+  br i1 %54, label %55, label %.critedge
 
-54:                                               ; preds = %52
-  %55 = load i64, ptr %3, align 8
-  %56 = call i32 @zend_hash_index_del(ptr noundef %38, i64 noundef %55) #13
-  br label %58
+55:                                               ; preds = %53
+  %56 = load i64, ptr %3, align 8
+  %57 = call i32 @zend_hash_index_del(ptr noundef %39, i64 noundef %56) #13
+  br label %59
 
-.critedge:                                        ; preds = %37, %47, %48, %52
-  %57 = call i32 @zend_hash_del(ptr noundef %38, ptr noundef nonnull %39) #13
-  br label %58
+.critedge:                                        ; preds = %38, %48, %49, %53
+  %58 = call i32 @zend_hash_del(ptr noundef %39, ptr noundef nonnull %40) #13
+  br label %59
 
-58:                                               ; preds = %6, %10, %13, %16, %34, %.critedge, %54, %2, %30
-  %.040 = phi i32 [ -1, %30 ], [ -1, %2 ], [ 0, %54 ], [ 0, %.critedge ], [ 0, %34 ], [ 0, %16 ], [ 0, %13 ], [ 0, %10 ], [ 0, %6 ]
+59:                                               ; preds = %6, %10, %13, %16, %35, %.critedge, %55, %2, %31
+  %.040 = phi i32 [ -1, %31 ], [ -1, %2 ], [ 0, %55 ], [ 0, %.critedge ], [ 0, %35 ], [ 0, %16 ], [ 0, %13 ], [ 0, %10 ], [ 0, %6 ]
   ret i32 %.040
 }
 
@@ -6111,7 +6111,7 @@ define internal fastcc noundef i32 @ct_eval_assign_dim(ptr nocapture noundef %0,
   br label %8
 
 8:                                                ; preds = %6, %3, %3
-  %9 = tail call fastcc i32 @ct_eval_add_array_elem(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2), !range !5
+  %9 = tail call fastcc i32 @ct_eval_add_array_elem(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2), !range !6
   br label %10
 
 10:                                               ; preds = %3, %8
@@ -6284,31 +6284,31 @@ define internal fastcc noundef i32 @ct_eval_add_array_elem(ptr nocapture noundef
   %16 = load i32, ptr %6, align 4
   %17 = add i32 %16, -1
   store i32 %17, ptr %6, align 4
-  %.pre174 = load ptr, ptr %0, align 8
+  %.pre173 = load ptr, ptr %0, align 8
   br label %18
 
 18:                                               ; preds = %5, %15, %9
-  %19 = phi ptr [ %6, %5 ], [ %.pre174, %15 ], [ %10, %9 ]
+  %19 = phi ptr [ %6, %5 ], [ %.pre173, %15 ], [ %10, %9 ]
   %20 = tail call ptr @zend_hash_next_index_insert(ptr noundef %19, ptr noundef %1) #13
   %.not156 = icmp eq ptr %20, null
-  br i1 %.not156, label %163, label %21
+  br i1 %.not156, label %164, label %21
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds i8, ptr %20, i64 9
   %23 = load i8, ptr %22, align 1
   %.not157 = icmp eq i8 %23, 0
-  br i1 %.not157, label %163, label %.sink.split
+  br i1 %.not157, label %164, label %.sink.split
 
 24:                                               ; preds = %3
   %25 = getelementptr inbounds i8, ptr %2, i64 8
   %26 = load i8, ptr %25, align 8
-  switch i8 %26, label %163 [
+  switch i8 %26, label %164 [
     i8 1, label %27
     i8 2, label %44
     i8 3, label %60
     i8 4, label %76
     i8 5, label %93
-    i8 6, label %123
+    i8 6, label %124
   ]
 
 27:                                               ; preds = %24
@@ -6332,14 +6332,14 @@ define internal fastcc noundef i32 @ct_eval_add_array_elem(ptr nocapture noundef
   %38 = load i32, ptr %28, align 4
   %39 = add i32 %38, -1
   store i32 %39, ptr %28, align 4
-  %.pre173 = load ptr, ptr %0, align 8
+  %.pre172 = load ptr, ptr %0, align 8
   br label %40
 
 40:                                               ; preds = %27, %37, %31
-  %41 = phi ptr [ %28, %27 ], [ %.pre173, %37 ], [ %32, %31 ]
+  %41 = phi ptr [ %28, %27 ], [ %.pre172, %37 ], [ %32, %31 ]
   %42 = load ptr, ptr @zend_empty_string, align 8
   %43 = tail call ptr @zend_hash_update(ptr noundef %41, ptr noundef %42, ptr noundef %1) #13
-  br label %157
+  br label %158
 
 44:                                               ; preds = %24
   %45 = load ptr, ptr %0, align 8
@@ -6362,13 +6362,13 @@ define internal fastcc noundef i32 @ct_eval_add_array_elem(ptr nocapture noundef
   %55 = load i32, ptr %45, align 4
   %56 = add i32 %55, -1
   store i32 %56, ptr %45, align 4
-  %.pre172 = load ptr, ptr %0, align 8
+  %.pre171 = load ptr, ptr %0, align 8
   br label %57
 
 57:                                               ; preds = %44, %54, %48
-  %58 = phi ptr [ %45, %44 ], [ %.pre172, %54 ], [ %49, %48 ]
+  %58 = phi ptr [ %45, %44 ], [ %.pre171, %54 ], [ %49, %48 ]
   %59 = tail call ptr @zend_hash_index_update(ptr noundef %58, i64 noundef 0, ptr noundef %1) #13
-  br label %157
+  br label %158
 
 60:                                               ; preds = %24
   %61 = load ptr, ptr %0, align 8
@@ -6391,13 +6391,13 @@ define internal fastcc noundef i32 @ct_eval_add_array_elem(ptr nocapture noundef
   %71 = load i32, ptr %61, align 4
   %72 = add i32 %71, -1
   store i32 %72, ptr %61, align 4
-  %.pre171 = load ptr, ptr %0, align 8
+  %.pre170 = load ptr, ptr %0, align 8
   br label %73
 
 73:                                               ; preds = %60, %70, %64
-  %74 = phi ptr [ %61, %60 ], [ %.pre171, %70 ], [ %65, %64 ]
+  %74 = phi ptr [ %61, %60 ], [ %.pre170, %70 ], [ %65, %64 ]
   %75 = tail call ptr @zend_hash_index_update(ptr noundef %74, i64 noundef 1, ptr noundef %1) #13
-  br label %157
+  br label %158
 
 76:                                               ; preds = %24
   %77 = load ptr, ptr %0, align 8
@@ -6420,151 +6420,151 @@ define internal fastcc noundef i32 @ct_eval_add_array_elem(ptr nocapture noundef
   %87 = load i32, ptr %77, align 4
   %88 = add i32 %87, -1
   store i32 %88, ptr %77, align 4
-  %.pre170 = load ptr, ptr %0, align 8
+  %.pre169 = load ptr, ptr %0, align 8
   br label %89
 
 89:                                               ; preds = %76, %86, %80
-  %90 = phi ptr [ %77, %76 ], [ %.pre170, %86 ], [ %81, %80 ]
+  %90 = phi ptr [ %77, %76 ], [ %.pre169, %86 ], [ %81, %80 ]
   %91 = load i64, ptr %2, align 8
   %92 = tail call ptr @zend_hash_index_update(ptr noundef %90, i64 noundef %91, ptr noundef %1) #13
-  br label %157
+  br label %158
 
 93:                                               ; preds = %24
   %94 = load double, ptr %2, align 8
   %95 = tail call double @llvm.fabs.f64(double %94)
-  %or.cond166 = fcmp ueq double %95, 0x7FF0000000000000
-  br i1 %or.cond166, label %103, label %96
+  %96 = fcmp ueq double %95, 0x7FF0000000000000
+  br i1 %96, label %104, label %97
 
-96:                                               ; preds = %93
-  %97 = fcmp oge double %94, 0x43E0000000000000
-  %98 = fcmp olt double %94, 0xC3E0000000000000
-  %or.cond = or i1 %97, %98
-  br i1 %or.cond, label %99, label %101
+97:                                               ; preds = %93
+  %98 = fcmp oge double %94, 0x43E0000000000000
+  %99 = fcmp olt double %94, 0xC3E0000000000000
+  %or.cond = or i1 %98, %99
+  br i1 %or.cond, label %100, label %102
 
-99:                                               ; preds = %96
-  %100 = tail call i64 @zend_dval_to_lval_slow(double noundef %94) #13
-  %.pre168 = load double, ptr %2, align 8
-  br label %103
+100:                                              ; preds = %97
+  %101 = tail call i64 @zend_dval_to_lval_slow(double noundef %94) #13
+  %.pre167 = load double, ptr %2, align 8
+  br label %104
 
-101:                                              ; preds = %96
-  %102 = fptosi double %94 to i64
-  br label %103
+102:                                              ; preds = %97
+  %103 = fptosi double %94 to i64
+  br label %104
 
-103:                                              ; preds = %93, %101, %99
-  %104 = phi double [ %.pre168, %99 ], [ %94, %101 ], [ %94, %93 ]
-  %.0147 = phi i64 [ %100, %99 ], [ %102, %101 ], [ 0, %93 ]
-  %105 = sitofp i64 %.0147 to double
-  %106 = fcmp oeq double %104, %105
-  br i1 %106, label %107, label %163
+104:                                              ; preds = %93, %102, %100
+  %105 = phi double [ %.pre167, %100 ], [ %94, %102 ], [ %94, %93 ]
+  %.0147 = phi i64 [ %101, %100 ], [ %103, %102 ], [ 0, %93 ]
+  %106 = sitofp i64 %.0147 to double
+  %107 = fcmp oeq double %105, %106
+  br i1 %107, label %108, label %164
 
-107:                                              ; preds = %103
-  %108 = load ptr, ptr %0, align 8
-  %109 = load i32, ptr %108, align 4
-  %110 = icmp ugt i32 %109, 1
-  br i1 %110, label %111, label %120
+108:                                              ; preds = %104
+  %109 = load ptr, ptr %0, align 8
+  %110 = load i32, ptr %109, align 4
+  %111 = icmp ugt i32 %110, 1
+  br i1 %111, label %112, label %121
 
-111:                                              ; preds = %107
-  %112 = tail call ptr @zend_array_dup(ptr noundef nonnull %108) #13
-  store ptr %112, ptr %0, align 8
-  %113 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 775, ptr %113, align 8
-  %114 = getelementptr inbounds i8, ptr %108, i64 4
-  %115 = load i32, ptr %114, align 4
-  %116 = and i32 %115, 64
-  %.not160 = icmp eq i32 %116, 0
-  br i1 %.not160, label %117, label %120
+112:                                              ; preds = %108
+  %113 = tail call ptr @zend_array_dup(ptr noundef nonnull %109) #13
+  store ptr %113, ptr %0, align 8
+  %114 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 775, ptr %114, align 8
+  %115 = getelementptr inbounds i8, ptr %109, i64 4
+  %116 = load i32, ptr %115, align 4
+  %117 = and i32 %116, 64
+  %.not160 = icmp eq i32 %117, 0
+  br i1 %.not160, label %118, label %121
 
-117:                                              ; preds = %111
-  %118 = load i32, ptr %108, align 4
-  %119 = add i32 %118, -1
-  store i32 %119, ptr %108, align 4
-  %.pre169 = load ptr, ptr %0, align 8
-  br label %120
+118:                                              ; preds = %112
+  %119 = load i32, ptr %109, align 4
+  %120 = add i32 %119, -1
+  store i32 %120, ptr %109, align 4
+  %.pre168 = load ptr, ptr %0, align 8
+  br label %121
 
-120:                                              ; preds = %107, %117, %111
-  %121 = phi ptr [ %108, %107 ], [ %.pre169, %117 ], [ %112, %111 ]
-  %122 = tail call ptr @zend_hash_index_update(ptr noundef %121, i64 noundef %.0147, ptr noundef %1) #13
-  br label %157
+121:                                              ; preds = %108, %118, %112
+  %122 = phi ptr [ %109, %108 ], [ %.pre168, %118 ], [ %113, %112 ]
+  %123 = tail call ptr @zend_hash_index_update(ptr noundef %122, i64 noundef %.0147, ptr noundef %1) #13
+  br label %158
 
-123:                                              ; preds = %24
-  %124 = load ptr, ptr %0, align 8
-  %125 = load i32, ptr %124, align 4
-  %126 = icmp ugt i32 %125, 1
-  br i1 %126, label %127, label %136
+124:                                              ; preds = %24
+  %125 = load ptr, ptr %0, align 8
+  %126 = load i32, ptr %125, align 4
+  %127 = icmp ugt i32 %126, 1
+  br i1 %127, label %128, label %137
 
-127:                                              ; preds = %123
-  %128 = tail call ptr @zend_array_dup(ptr noundef nonnull %124) #13
-  store ptr %128, ptr %0, align 8
-  %129 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 775, ptr %129, align 8
-  %130 = getelementptr inbounds i8, ptr %124, i64 4
-  %131 = load i32, ptr %130, align 4
-  %132 = and i32 %131, 64
-  %.not158 = icmp eq i32 %132, 0
-  br i1 %.not158, label %133, label %136
+128:                                              ; preds = %124
+  %129 = tail call ptr @zend_array_dup(ptr noundef nonnull %125) #13
+  store ptr %129, ptr %0, align 8
+  %130 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 775, ptr %130, align 8
+  %131 = getelementptr inbounds i8, ptr %125, i64 4
+  %132 = load i32, ptr %131, align 4
+  %133 = and i32 %132, 64
+  %.not158 = icmp eq i32 %133, 0
+  br i1 %.not158, label %134, label %137
 
-133:                                              ; preds = %127
-  %134 = load i32, ptr %124, align 4
-  %135 = add i32 %134, -1
-  store i32 %135, ptr %124, align 4
+134:                                              ; preds = %128
+  %135 = load i32, ptr %125, align 4
+  %136 = add i32 %135, -1
+  store i32 %136, ptr %125, align 4
   %.pre = load ptr, ptr %0, align 8
-  br label %136
+  br label %137
 
-136:                                              ; preds = %123, %133, %127
-  %137 = phi ptr [ %124, %123 ], [ %.pre, %133 ], [ %128, %127 ]
-  %138 = load ptr, ptr %2, align 8
-  %139 = getelementptr inbounds i8, ptr %138, i64 24
-  %140 = getelementptr inbounds i8, ptr %138, i64 16
-  %141 = load i64, ptr %140, align 8
-  %142 = load i8, ptr %139, align 1
-  %143 = icmp sgt i8 %142, 57
-  br i1 %143, label %.critedge, label %144
+137:                                              ; preds = %124, %134, %128
+  %138 = phi ptr [ %125, %124 ], [ %.pre, %134 ], [ %129, %128 ]
+  %139 = load ptr, ptr %2, align 8
+  %140 = getelementptr inbounds i8, ptr %139, i64 24
+  %141 = getelementptr inbounds i8, ptr %139, i64 16
+  %142 = load i64, ptr %141, align 8
+  %143 = load i8, ptr %140, align 1
+  %144 = icmp sgt i8 %143, 57
+  br i1 %144, label %.critedge, label %145
 
-144:                                              ; preds = %136
-  %145 = icmp slt i8 %142, 48
-  br i1 %145, label %146, label %151
+145:                                              ; preds = %137
+  %146 = icmp slt i8 %143, 48
+  br i1 %146, label %147, label %152
 
-146:                                              ; preds = %144
-  %.not159 = icmp eq i8 %142, 45
-  br i1 %.not159, label %147, label %.critedge
+147:                                              ; preds = %145
+  %.not159 = icmp eq i8 %143, 45
+  br i1 %.not159, label %148, label %.critedge
 
-147:                                              ; preds = %146
-  %148 = getelementptr inbounds i8, ptr %138, i64 25
-  %149 = load i8, ptr %148, align 1
-  %150 = add i8 %149, -58
-  %or.cond167 = icmp ult i8 %150, -10
-  br i1 %or.cond167, label %.critedge, label %151
+148:                                              ; preds = %147
+  %149 = getelementptr inbounds i8, ptr %139, i64 25
+  %150 = load i8, ptr %149, align 1
+  %151 = add i8 %150, -58
+  %or.cond166 = icmp ult i8 %151, -10
+  br i1 %or.cond166, label %.critedge, label %152
 
-151:                                              ; preds = %147, %144
-  %152 = call zeroext i1 @_zend_handle_numeric_str_ex(ptr noundef nonnull %139, i64 noundef %141, ptr noundef nonnull %4) #13
-  br i1 %152, label %153, label %.critedge
+152:                                              ; preds = %148, %145
+  %153 = call zeroext i1 @_zend_handle_numeric_str_ex(ptr noundef nonnull %140, i64 noundef %142, ptr noundef nonnull %4) #13
+  br i1 %153, label %154, label %.critedge
 
-153:                                              ; preds = %151
-  %154 = load i64, ptr %4, align 8
-  %155 = call ptr @zend_hash_index_update(ptr noundef %137, i64 noundef %154, ptr noundef %1) #13
-  br label %157
+154:                                              ; preds = %152
+  %155 = load i64, ptr %4, align 8
+  %156 = call ptr @zend_hash_index_update(ptr noundef %138, i64 noundef %155, ptr noundef %1) #13
+  br label %158
 
-.critedge:                                        ; preds = %136, %146, %147, %151
-  %156 = call ptr @zend_hash_update(ptr noundef %137, ptr noundef nonnull %138, ptr noundef %1) #13
-  br label %157
+.critedge:                                        ; preds = %137, %147, %148, %152
+  %157 = call ptr @zend_hash_update(ptr noundef %138, ptr noundef nonnull %139, ptr noundef %1) #13
+  br label %158
 
-157:                                              ; preds = %153, %.critedge, %40, %57, %73, %89, %120
-  %.0149 = phi ptr [ %122, %120 ], [ %92, %89 ], [ %75, %73 ], [ %59, %57 ], [ %43, %40 ], [ %155, %153 ], [ %156, %.critedge ]
-  %158 = getelementptr inbounds i8, ptr %.0149, i64 9
-  %159 = load i8, ptr %158, align 1
-  %.not165 = icmp eq i8 %159, 0
-  br i1 %.not165, label %163, label %.sink.split
+158:                                              ; preds = %154, %.critedge, %40, %57, %73, %89, %121
+  %.0149 = phi ptr [ %123, %121 ], [ %92, %89 ], [ %75, %73 ], [ %59, %57 ], [ %43, %40 ], [ %156, %154 ], [ %157, %.critedge ]
+  %159 = getelementptr inbounds i8, ptr %.0149, i64 9
+  %160 = load i8, ptr %159, align 1
+  %.not165 = icmp eq i8 %160, 0
+  br i1 %.not165, label %164, label %.sink.split
 
-.sink.split:                                      ; preds = %157, %21
-  %.sink177 = phi ptr [ %20, %21 ], [ %.0149, %157 ]
-  %160 = load ptr, ptr %.sink177, align 8
-  %161 = load i32, ptr %160, align 4
-  %162 = add i32 %161, 1
-  store i32 %162, ptr %160, align 4
-  br label %163
+.sink.split:                                      ; preds = %158, %21
+  %.sink176 = phi ptr [ %20, %21 ], [ %.0149, %158 ]
+  %161 = load ptr, ptr %.sink176, align 8
+  %162 = load i32, ptr %161, align 4
+  %163 = add i32 %162, 1
+  store i32 %163, ptr %161, align 4
+  br label %164
 
-163:                                              ; preds = %.sink.split, %157, %24, %103, %18, %21
-  %.0148 = phi i32 [ 0, %21 ], [ -1, %18 ], [ -1, %103 ], [ -1, %24 ], [ 0, %157 ], [ 0, %.sink.split ]
+164:                                              ; preds = %.sink.split, %158, %24, %104, %18, %21
+  %.0148 = phi i32 [ 0, %21 ], [ -1, %18 ], [ -1, %104 ], [ -1, %24 ], [ 0, %158 ], [ 0, %.sink.split ]
   ret i32 %.0148
 }
 
@@ -6691,7 +6691,7 @@ define internal fastcc noundef i32 @ct_eval_fetch_dim(ptr nocapture noundef writ
   ]
 
 9:                                                ; preds = %4, %4
-  %10 = call fastcc i32 @fetch_array_elem(ptr noundef nonnull %5, ptr noundef nonnull %1, ptr noundef %2), !range !5
+  %10 = call fastcc i32 @fetch_array_elem(ptr noundef nonnull %5, ptr noundef nonnull %1, ptr noundef %2), !range !6
   %11 = icmp eq i32 %10, 0
   %12 = load ptr, ptr %5, align 8
   %13 = icmp ne ptr %12, null
@@ -7075,7 +7075,7 @@ define internal fastcc noundef i32 @ct_eval_array_key_exists(ptr nocapture nound
   ]
 
 10:                                               ; preds = %7, %7, %7
-  %11 = call fastcc i32 @fetch_array_elem(ptr noundef nonnull %4, ptr noundef nonnull %2, ptr noundef nonnull %1), !range !5
+  %11 = call fastcc i32 @fetch_array_elem(ptr noundef nonnull %4, ptr noundef nonnull %2, ptr noundef nonnull %1), !range !6
   %12 = icmp eq i32 %11, -1
   br i1 %12, label %24, label %13
 
@@ -7119,7 +7119,7 @@ define internal fastcc noundef i32 @ct_eval_isset_dim(ptr nocapture noundef writ
   ]
 
 8:                                                ; preds = %4, %4
-  %9 = call fastcc i32 @fetch_array_elem(ptr noundef nonnull %5, ptr noundef nonnull %2, ptr noundef %3), !range !5
+  %9 = call fastcc i32 @fetch_array_elem(ptr noundef nonnull %5, ptr noundef nonnull %2, ptr noundef %3), !range !6
   %10 = icmp eq i32 %9, -1
   br i1 %10, label %ct_eval_isset_isempty.exit, label %11
 
@@ -7368,13 +7368,13 @@ define internal fastcc noundef i32 @ct_eval_func_call(ptr noundef %0, ptr nounde
   br i1 %.not, label %.thread, label %8
 
 8:                                                ; preds = %5
-  %9 = load ptr, ptr %7, align 8, !nonnull !6, !noundef !6
+  %9 = load ptr, ptr %7, align 8, !nonnull !7, !noundef !7
   %10 = load i8, ptr %9, align 8
   %.not17 = icmp eq i8 %10, 1
   br i1 %.not17, label %11, label %.thread
 
 11:                                               ; preds = %8
-  %12 = tail call fastcc i32 @ct_eval_func_call_ex(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %9, i32 noundef %3, ptr noundef %4), !range !5
+  %12 = tail call fastcc i32 @ct_eval_func_call_ex(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %9, i32 noundef %3, ptr noundef %4), !range !6
   br label %.thread
 
 .thread:                                          ; preds = %5, %8, %11
@@ -7449,14 +7449,12 @@ define internal fastcc noundef i32 @ct_eval_func_call_ex(ptr noundef %0, ptr nou
   %44 = load ptr, ptr %32, align 8
   %45 = getelementptr inbounds i8, ptr %44, i64 16
   %46 = load i64, ptr %45, align 8
-  %47 = tail call { i64, i64 } asm "mulq $3\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,~{dirflag},~{fpsr},~{flags}"(i64 %46, i64 %43) #16, !srcloc !7
+  %47 = tail call { i64, i64 } asm "mulq $3\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,~{dirflag},~{fpsr},~{flags}"(i64 %46, i64 %43) #16, !srcloc !8
   %48 = extractvalue { i64, i64 } %47, 0
   %49 = extractvalue { i64, i64 } %47, 1
   %.not43.not.i = icmp eq i64 %49, 0
   %50 = icmp ult i64 %48, 65536
-  %not..not43.not.i = xor i1 %.not43.not.i, true
-  %.0.i = select i1 %not..not43.not.i, i1 true, i1 %50
-  %spec.select.i = and i1 %.not43.not.i, %.0.i
+  %spec.select.i = select i1 %.not43.not.i, i1 %50, i1 false
   br i1 %spec.select.i, label %can_ct_eval_func_call.exit.thread65, label %can_ct_eval_func_call.exit.thread
 
 can_ct_eval_func_call.exit:                       ; preds = %23
@@ -7771,13 +7769,13 @@ define internal fastcc noundef i32 @fetch_array_elem(ptr nocapture noundef write
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 8
   %6 = load i8, ptr %5, align 8
-  switch i8 %6, label %59 [
+  switch i8 %6, label %60 [
     i8 1, label %7
     i8 2, label %11
     i8 3, label %14
     i8 4, label %17
     i8 5, label %21
-    i8 6, label %38
+    i8 6, label %39
   ]
 
 7:                                                ; preds = %3
@@ -7805,81 +7803,81 @@ define internal fastcc noundef i32 @fetch_array_elem(ptr nocapture noundef write
 21:                                               ; preds = %3
   %22 = load double, ptr %2, align 8
   %23 = tail call double @llvm.fabs.f64(double %22)
-  %or.cond53 = fcmp ueq double %23, 0x7FF0000000000000
-  br i1 %or.cond53, label %31, label %24
+  %24 = fcmp ueq double %23, 0x7FF0000000000000
+  br i1 %24, label %32, label %25
 
-24:                                               ; preds = %21
-  %25 = fcmp oge double %22, 0x43E0000000000000
-  %26 = fcmp olt double %22, 0xC3E0000000000000
-  %or.cond = or i1 %25, %26
-  br i1 %or.cond, label %27, label %29
+25:                                               ; preds = %21
+  %26 = fcmp oge double %22, 0x43E0000000000000
+  %27 = fcmp olt double %22, 0xC3E0000000000000
+  %or.cond = or i1 %26, %27
+  br i1 %or.cond, label %28, label %30
 
-27:                                               ; preds = %24
-  %28 = tail call i64 @zend_dval_to_lval_slow(double noundef %22) #13
+28:                                               ; preds = %25
+  %29 = tail call i64 @zend_dval_to_lval_slow(double noundef %22) #13
   %.pre = load double, ptr %2, align 8
-  br label %31
+  br label %32
 
-29:                                               ; preds = %24
-  %30 = fptosi double %22 to i64
-  br label %31
+30:                                               ; preds = %25
+  %31 = fptosi double %22 to i64
+  br label %32
 
-31:                                               ; preds = %21, %29, %27
-  %32 = phi double [ %.pre, %27 ], [ %22, %29 ], [ %22, %21 ]
-  %.048 = phi i64 [ %28, %27 ], [ %30, %29 ], [ 0, %21 ]
-  %33 = sitofp i64 %.048 to double
-  %34 = fcmp oeq double %32, %33
-  br i1 %34, label %35, label %59
+32:                                               ; preds = %21, %30, %28
+  %33 = phi double [ %.pre, %28 ], [ %22, %30 ], [ %22, %21 ]
+  %.048 = phi i64 [ %29, %28 ], [ %31, %30 ], [ 0, %21 ]
+  %34 = sitofp i64 %.048 to double
+  %35 = fcmp oeq double %33, %34
+  br i1 %35, label %36, label %60
 
-35:                                               ; preds = %31
-  %36 = load ptr, ptr %1, align 8
-  %37 = tail call ptr @zend_hash_index_find(ptr noundef %36, i64 noundef %.048) #13
+36:                                               ; preds = %32
+  %37 = load ptr, ptr %1, align 8
+  %38 = tail call ptr @zend_hash_index_find(ptr noundef %37, i64 noundef %.048) #13
   br label %.sink.split
 
-38:                                               ; preds = %3
-  %39 = load ptr, ptr %1, align 8
-  %40 = load ptr, ptr %2, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 24
-  %42 = getelementptr inbounds i8, ptr %40, i64 16
-  %43 = load i64, ptr %42, align 8
-  %44 = load i8, ptr %41, align 1
-  %45 = icmp sgt i8 %44, 57
-  br i1 %45, label %.critedge, label %46
+39:                                               ; preds = %3
+  %40 = load ptr, ptr %1, align 8
+  %41 = load ptr, ptr %2, align 8
+  %42 = getelementptr inbounds i8, ptr %41, i64 24
+  %43 = getelementptr inbounds i8, ptr %41, i64 16
+  %44 = load i64, ptr %43, align 8
+  %45 = load i8, ptr %42, align 1
+  %46 = icmp sgt i8 %45, 57
+  br i1 %46, label %.critedge, label %47
 
-46:                                               ; preds = %38
-  %47 = icmp slt i8 %44, 48
-  br i1 %47, label %48, label %53
+47:                                               ; preds = %39
+  %48 = icmp slt i8 %45, 48
+  br i1 %48, label %49, label %54
 
-48:                                               ; preds = %46
-  %.not = icmp eq i8 %44, 45
-  br i1 %.not, label %49, label %.critedge
+49:                                               ; preds = %47
+  %.not = icmp eq i8 %45, 45
+  br i1 %.not, label %50, label %.critedge
 
-49:                                               ; preds = %48
-  %50 = getelementptr inbounds i8, ptr %40, i64 25
-  %51 = load i8, ptr %50, align 1
-  %52 = add i8 %51, -58
-  %or.cond54 = icmp ult i8 %52, -10
-  br i1 %or.cond54, label %.critedge, label %53
+50:                                               ; preds = %49
+  %51 = getelementptr inbounds i8, ptr %41, i64 25
+  %52 = load i8, ptr %51, align 1
+  %53 = add i8 %52, -58
+  %or.cond53 = icmp ult i8 %53, -10
+  br i1 %or.cond53, label %.critedge, label %54
 
-53:                                               ; preds = %49, %46
-  %54 = call zeroext i1 @_zend_handle_numeric_str_ex(ptr noundef nonnull %41, i64 noundef %43, ptr noundef nonnull %4) #13
-  br i1 %54, label %55, label %.critedge
+54:                                               ; preds = %50, %47
+  %55 = call zeroext i1 @_zend_handle_numeric_str_ex(ptr noundef nonnull %42, i64 noundef %44, ptr noundef nonnull %4) #13
+  br i1 %55, label %56, label %.critedge
 
-55:                                               ; preds = %53
-  %56 = load i64, ptr %4, align 8
-  %57 = call ptr @zend_hash_index_find(ptr noundef %39, i64 noundef %56) #13
+56:                                               ; preds = %54
+  %57 = load i64, ptr %4, align 8
+  %58 = call ptr @zend_hash_index_find(ptr noundef %40, i64 noundef %57) #13
   br label %.sink.split
 
-.critedge:                                        ; preds = %38, %48, %49, %53
-  %58 = call ptr @zend_hash_find(ptr noundef %39, ptr noundef nonnull %40) #13
+.critedge:                                        ; preds = %39, %49, %50, %54
+  %59 = call ptr @zend_hash_find(ptr noundef %40, ptr noundef nonnull %41) #13
   br label %.sink.split
 
-.sink.split:                                      ; preds = %55, %.critedge, %7, %11, %14, %17, %35
-  %.047.sink = phi ptr [ %37, %35 ], [ %20, %17 ], [ %16, %14 ], [ %13, %11 ], [ %10, %7 ], [ %57, %55 ], [ %58, %.critedge ]
+.sink.split:                                      ; preds = %56, %.critedge, %7, %11, %14, %17, %36
+  %.047.sink = phi ptr [ %38, %36 ], [ %20, %17 ], [ %16, %14 ], [ %13, %11 ], [ %10, %7 ], [ %58, %56 ], [ %59, %.critedge ]
   store ptr %.047.sink, ptr %0, align 8
-  br label %59
+  br label %60
 
-59:                                               ; preds = %.sink.split, %3, %31
-  %.049 = phi i32 [ -1, %31 ], [ -1, %3 ], [ 0, %.sink.split ]
+60:                                               ; preds = %.sink.split, %3, %32
+  %.049 = phi i32 [ -1, %32 ], [ -1, %3 ], [ 0, %.sink.split ]
   ret i32 %.049
 }
 
@@ -8072,7 +8070,7 @@ join_partial_arrays.exit:                         ; preds = %48, %54, %59
   br i1 %2, label %79, label %76
 
 76:                                               ; preds = %75
-  %77 = tail call fastcc i32 @join_partial_objects(ptr noundef nonnull %0, ptr noundef nonnull %1), !range !5
+  %77 = tail call fastcc i32 @join_partial_objects(ptr noundef nonnull %0, ptr noundef nonnull %1), !range !6
   %78 = icmp eq i32 %77, -1
   br i1 %78, label %79, label %106
 
@@ -8106,7 +8104,7 @@ join_partial_arrays.exit:                         ; preds = %48, %54, %59
   br i1 %91, label %106, label %92
 
 92:                                               ; preds = %90
-  %93 = tail call fastcc i32 @join_partial_arrays(ptr noundef nonnull %0, ptr noundef nonnull %1), !range !5
+  %93 = tail call fastcc i32 @join_partial_arrays(ptr noundef nonnull %0, ptr noundef nonnull %1), !range !6
   %94 = icmp eq i32 %93, -1
   br i1 %94, label %95, label %106
 
@@ -8685,7 +8683,7 @@ define internal fastcc i32 @try_remove_definition(ptr nocapture noundef readonly
   br i1 %99, label %100, label %102
 
 100:                                              ; preds = %95
-  %101 = tail call fastcc i32 @remove_call(ptr noundef nonnull %0, ptr noundef nonnull %15, ptr noundef nonnull %18)
+  %101 = tail call fastcc i32 @remove_call(ptr noundef nonnull %0, ptr noundef nonnull %15, ptr noundef nonnull %18), !range !5
   br label %107
 
 102:                                              ; preds = %95
@@ -8810,7 +8808,7 @@ define internal fastcc i32 @try_remove_definition(ptr nocapture noundef readonly
   br i1 %167, label %168, label %170
 
 168:                                              ; preds = %153
-  %169 = tail call fastcc i32 @remove_call(ptr noundef nonnull %0, ptr noundef nonnull %15, ptr noundef nonnull %18)
+  %169 = tail call fastcc i32 @remove_call(ptr noundef nonnull %0, ptr noundef nonnull %15, ptr noundef nonnull %18), !range !5
   br label %327
 
 170:                                              ; preds = %153
@@ -9131,7 +9129,7 @@ define internal fastcc i32 @remove_call(ptr nocapture noundef readonly %0, ptr n
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 96
-  %8 = load ptr, ptr %7, align 8, !nonnull !6, !noundef !6
+  %8 = load ptr, ptr %7, align 8, !nonnull !7, !noundef !7
   %9 = getelementptr inbounds i8, ptr %6, i64 88
   %10 = load ptr, ptr %9, align 8
   %11 = ptrtoint ptr %1 to i64
@@ -9139,7 +9137,7 @@ define internal fastcc i32 @remove_call(ptr nocapture noundef readonly %0, ptr n
   %13 = sub i64 %11, %12
   %14 = ashr exact i64 %13, 5
   %15 = getelementptr inbounds ptr, ptr %8, i64 %14
-  %16 = load ptr, ptr %15, align 8, !nonnull !6, !noundef !6
+  %16 = load ptr, ptr %15, align 8, !nonnull !7, !noundef !7
   %17 = getelementptr inbounds i8, ptr %16, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, %1
@@ -9251,6 +9249,7 @@ attributes #16 = { nounwind memory(read) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 -1, i32 1}
-!6 = !{}
-!7 = !{i64 2892217, i64 2892238}
+!5 = !{i32 -2147483646, i32 -2147483648}
+!6 = !{i32 -1, i32 1}
+!7 = !{}
+!8 = !{i64 2892217, i64 2892238}

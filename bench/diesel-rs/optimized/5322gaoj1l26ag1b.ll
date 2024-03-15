@@ -15,58 +15,78 @@ define void @_ZN12darling_core5error4kind12did_you_mean17hbc4579dfa0e02237E(ptr 
   store ptr %9, ptr %10, align 8
   %11 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3f6363e757fd19deE"(ptr nonnull align 8 %6)
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %._crit_edge.thread, label %.lr.ph
+  br i1 %12, label %.outer._crit_edge.thread, label %.lr.ph
 
-._crit_edge:                                      ; preds = %.backedge
-  %13 = icmp eq ptr %.sroa.3.2, null
-  br i1 %13, label %._crit_edge.thread, label %23
+.lr.ph:                                           ; preds = %4, %.outer
+  %13 = phi ptr [ %38, %.outer ], [ %11, %4 ]
+  %.sroa.0.0.ph33 = phi double [ %.us-phi, %.outer ], [ undef, %4 ]
+  %.sroa.3.0.ph32 = phi ptr [ %36, %.outer ], [ null, %4 ]
+  %.sroa.7.0.ph31 = phi i64 [ %37, %.outer ], [ undef, %4 ]
+  %.sroa.3.0.ph32.fr = freeze ptr %.sroa.3.0.ph32
+  %.not = icmp eq ptr %.sroa.3.0.ph32.fr, null
+  br i1 %.not, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph:                                           ; preds = %4, %.backedge
-  %.sroa.7.1 = phi i64 [ %.sroa.7.2, %.backedge ], [ undef, %4 ]
-  %.sroa.3.1 = phi ptr [ %.sroa.3.2, %.backedge ], [ null, %4 ]
-  %.sroa.0.1 = phi double [ %.sroa.0.2, %.backedge ], [ undef, %4 ]
-  %14 = phi ptr [ %20, %.backedge ], [ %11, %4 ]
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %.backedge.us
+  %14 = phi ptr [ %20, %.backedge.us ], [ %13, %.lr.ph ]
   %15 = call { ptr, i64 } @"_ZN55_$LT$$RF$T$u20$as$u20$core..convert..AsRef$LT$U$GT$$GT$6as_ref17hc82c5e5076addec2E"(ptr nonnull align 8 %14)
   %16 = extractvalue { ptr, i64 } %15, 0
   %17 = extractvalue { ptr, i64 } %15, 1
   %18 = call double @_ZN6strsim12jaro_winkler17he0868a202fcbf7f8E(ptr align 1 %1, i64 %2, ptr align 1 %16, i64 %17)
   %19 = fcmp ogt double %18, 8.000000e-01
-  br i1 %19, label %25, label %.backedge
+  br i1 %19, label %.outer, label %.backedge.us
 
-.backedge:                                        ; preds = %.lr.ph, %27, %25
-  %.sroa.7.2 = phi i64 [ %30, %27 ], [ %.sroa.7.1, %25 ], [ %.sroa.7.1, %.lr.ph ]
-  %.sroa.3.2 = phi ptr [ %29, %27 ], [ %.sroa.3.1, %25 ], [ %.sroa.3.1, %.lr.ph ]
-  %.sroa.0.2 = phi double [ %18, %27 ], [ %.sroa.0.1, %25 ], [ %.sroa.0.1, %.lr.ph ]
+.backedge.us:                                     ; preds = %.lr.ph.split.us
   %20 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3f6363e757fd19deE"(ptr nonnull align 8 %6)
   %21 = icmp eq ptr %20, null
-  br i1 %21, label %._crit_edge, label %.lr.ph
+  br i1 %21, label %.outer._crit_edge.thread, label %.lr.ph.split.us
 
-._crit_edge.thread:                               ; preds = %4, %._crit_edge
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 -9223372036854775808, ptr %22, align 8
-  br label %24
+.outer._crit_edge:                                ; preds = %.outer, %.backedge
+  %.sroa.7.0.ph.lcssa = phi i64 [ %.sroa.7.0.ph31, %.backedge ], [ %37, %.outer ]
+  %.sroa.3.0.ph.lcssa = phi ptr [ %.sroa.3.0.ph32.fr, %.backedge ], [ %36, %.outer ]
+  %.sroa.0.0.ph.lcssa = phi double [ %.sroa.0.0.ph33, %.backedge ], [ %.us-phi, %.outer ]
+  %22 = icmp eq ptr %.sroa.3.0.ph.lcssa, null
+  br i1 %22, label %.outer._crit_edge.thread, label %33
 
-23:                                               ; preds = %._crit_edge
-  call void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17he3892c731dfcfbefE"(ptr nonnull sret({ { i64, ptr }, i64 }) align 8 %5, ptr nonnull align 1 %.sroa.3.2, i64 %.sroa.7.2)
-  store double %.sroa.0.2, ptr %0, align 8
+.lr.ph.split:                                     ; preds = %.lr.ph, %.backedge
+  %23 = phi ptr [ %30, %.backedge ], [ %13, %.lr.ph ]
+  %24 = call { ptr, i64 } @"_ZN55_$LT$$RF$T$u20$as$u20$core..convert..AsRef$LT$U$GT$$GT$6as_ref17hc82c5e5076addec2E"(ptr nonnull align 8 %23)
+  %25 = extractvalue { ptr, i64 } %24, 0
+  %26 = extractvalue { ptr, i64 } %24, 1
+  %27 = call double @_ZN6strsim12jaro_winkler17he0868a202fcbf7f8E(ptr align 1 %1, i64 %2, ptr align 1 %25, i64 %26)
+  %28 = fcmp ogt double %27, 8.000000e-01
+  %29 = fcmp olt double %.sroa.0.0.ph33, %27
+  %or.cond = and i1 %28, %29
+  br i1 %or.cond, label %.outer, label %.backedge
+
+.backedge:                                        ; preds = %.lr.ph.split
+  %30 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3f6363e757fd19deE"(ptr nonnull align 8 %6)
+  %31 = icmp eq ptr %30, null
+  br i1 %31, label %.outer._crit_edge, label %.lr.ph.split
+
+.outer._crit_edge.thread:                         ; preds = %.backedge.us, %4, %.outer._crit_edge
+  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 -9223372036854775808, ptr %32, align 8
+  br label %34
+
+33:                                               ; preds = %.outer._crit_edge
+  call void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17he3892c731dfcfbefE"(ptr nonnull sret({ { i64, ptr }, i64 }) align 8 %5, ptr nonnull align 1 %.sroa.3.0.ph.lcssa, i64 %.sroa.7.0.ph.lcssa)
+  store double %.sroa.0.0.ph.lcssa, ptr %0, align 8
   %.sroa.211.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.211.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
-  br label %24
+  br label %34
 
-24:                                               ; preds = %23, %._crit_edge.thread
+34:                                               ; preds = %33, %.outer._crit_edge.thread
   ret void
 
-25:                                               ; preds = %.lr.ph
-  %.not = icmp eq ptr %.sroa.3.1, null
-  %26 = fcmp olt double %.sroa.0.1, %18
-  %or.cond = select i1 %.not, i1 true, i1 %26
-  br i1 %or.cond, label %27, label %.backedge
-
-27:                                               ; preds = %25
-  %28 = call { ptr, i64 } @"_ZN55_$LT$$RF$T$u20$as$u20$core..convert..AsRef$LT$U$GT$$GT$6as_ref17hc82c5e5076addec2E"(ptr nonnull align 8 %14)
-  %29 = extractvalue { ptr, i64 } %28, 0
-  %30 = extractvalue { ptr, i64 } %28, 1
-  br label %.backedge
+.outer:                                           ; preds = %.lr.ph.split, %.lr.ph.split.us
+  %.us-phi = phi double [ %18, %.lr.ph.split.us ], [ %27, %.lr.ph.split ]
+  %.us-phi24 = phi ptr [ %14, %.lr.ph.split.us ], [ %23, %.lr.ph.split ]
+  %35 = call { ptr, i64 } @"_ZN55_$LT$$RF$T$u20$as$u20$core..convert..AsRef$LT$U$GT$$GT$6as_ref17hc82c5e5076addec2E"(ptr nonnull align 8 %.us-phi24)
+  %36 = extractvalue { ptr, i64 } %35, 0
+  %37 = extractvalue { ptr, i64 } %35, 1
+  %38 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3f6363e757fd19deE"(ptr nonnull align 8 %6)
+  %39 = icmp eq ptr %38, null
+  br i1 %39, label %.outer._crit_edge, label %.lr.ph
 }
 
 ; Function Attrs: nonlazybind uwtable

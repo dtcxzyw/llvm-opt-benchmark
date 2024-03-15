@@ -1314,9 +1314,7 @@ if.end10.i:                                       ; preds = %3, %entry
   %6 = load i64, ptr %mnCapacity.i.i.i, align 8
   %and.i.i.i = and i64 %6, 9223372036854775807
   %cmp12.i53 = icmp eq i64 %and.i.i.i, 0
-  %not.tobool.i.i29.i = xor i1 %tobool.i.i29.i, true
-  %cmp12.i = select i1 %not.tobool.i.i29.i, i1 %cmp12.i53, i1 false
-  %brmerge.i = or i1 %tobool.i.i29.i, %cmp12.i
+  %brmerge.i = select i1 %tobool.i.i29.i, i1 true, i1 %cmp12.i53
   br i1 %brmerge.i, label %_ZN5eastl12basic_stringIcNS_9allocatorEE12set_capacityEm.exit, label %if.then17.i
 
 if.then17.i:                                      ; preds = %if.end10.i
@@ -1371,9 +1369,7 @@ if.end10.i8:                                      ; preds = %11, %_ZN5eastl12bas
   %14 = load i64, ptr %mnCapacity.i.i.i11, align 8
   %and.i.i.i12 = and i64 %14, 9223372036854775807
   %cmp12.i1454 = icmp eq i64 %and.i.i.i12, 0
-  %not.tobool.i.i29.i10 = xor i1 %tobool.i.i29.i10, true
-  %cmp12.i14 = select i1 %not.tobool.i.i29.i10, i1 %cmp12.i1454, i1 false
-  %brmerge.i15 = or i1 %tobool.i.i29.i10, %cmp12.i14
+  %brmerge.i15 = select i1 %tobool.i.i29.i10, i1 true, i1 %cmp12.i1454
   br i1 %brmerge.i15, label %_ZN5eastl12basic_stringIcNS_9allocatorEE12set_capacityEm.exit26, label %if.then17.i16
 
 if.then17.i16:                                    ; preds = %if.end10.i8
@@ -1428,9 +1424,7 @@ if.end10.i34:                                     ; preds = %19, %_ZN5eastl12bas
   %22 = load i64, ptr %mnCapacity.i.i.i37, align 8
   %and.i.i.i38 = and i64 %22, 9223372036854775807
   %cmp12.i4055 = icmp eq i64 %and.i.i.i38, 0
-  %not.tobool.i.i29.i36 = xor i1 %tobool.i.i29.i36, true
-  %cmp12.i40 = select i1 %not.tobool.i.i29.i36, i1 %cmp12.i4055, i1 false
-  %brmerge.i41 = or i1 %tobool.i.i29.i36, %cmp12.i40
+  %brmerge.i41 = select i1 %tobool.i.i29.i36, i1 true, i1 %cmp12.i4055
   br i1 %brmerge.i41, label %_ZN5eastl12basic_stringIcNS_9allocatorEE12set_capacityEm.exit52, label %if.then17.i42
 
 if.then17.i42:                                    ; preds = %if.end10.i34
@@ -2329,8 +2323,8 @@ if.else.i.i.i:                                    ; preds = %entry
   br label %_ZN5eastl12basic_stringIcNS_9allocatorEEC2ERKS2_.exit
 
 _ZN5eastl12basic_stringIcNS_9allocatorEEC2ERKS2_.exit: ; preds = %if.then.i.i.i, %if.else.i.i.i
-  %tobool.i.i.i.i = phi ptr [ %call.i.i.i.i.i, %if.then.i.i.i ], [ %this, %if.else.i.i.i ]
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %tobool.i.i.i.i, ptr align 1 %spec.select.i.i, i64 %sub.ptr.sub.i.i, i1 false)
+  %spec.select.i.i.i = phi ptr [ %call.i.i.i.i.i, %if.then.i.i.i ], [ %this, %if.else.i.i.i ]
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %spec.select.i.i.i, ptr align 1 %spec.select.i.i, i64 %sub.ptr.sub.i.i, i1 false)
   %5 = load i8, ptr %mRemainingSizeField.i.i.i.i.i.i, align 1
   %tobool.i.i5.i.i = icmp slt i8 %5, 0
   %6 = load ptr, ptr %this, align 8
@@ -2389,8 +2383,8 @@ if.else.i.i.i17:                                  ; preds = %_ZN5eastl12basic_st
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.else.i.i.i17, %call.i.i.i.i.i29.noexc
-  %tobool.i.i.i.i19 = phi ptr [ %call.i.i.i.i.i2933, %call.i.i.i.i.i29.noexc ], [ %msNotes, %if.else.i.i.i17 ]
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %tobool.i.i.i.i19, ptr align 1 %spec.select.i.i6, i64 %sub.ptr.sub.i.i15, i1 false)
+  %spec.select.i.i.i19 = phi ptr [ %call.i.i.i.i.i2933, %call.i.i.i.i.i29.noexc ], [ %msNotes, %if.else.i.i.i17 ]
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %spec.select.i.i.i19, ptr align 1 %spec.select.i.i6, i64 %sub.ptr.sub.i.i15, i1 false)
   %12 = load i8, ptr %mRemainingSizeField.i.i.i.i.i.i3, align 1
   %tobool.i.i5.i.i20 = icmp slt i8 %12, 0
   %13 = load ptr, ptr %msNotes, align 8

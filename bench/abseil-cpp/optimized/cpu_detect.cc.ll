@@ -69,18 +69,18 @@ sw.bb:                                            ; preds = %invoke.cont5.i
   %asmresult4.i.i2 = extractvalue { i32, i32, i32, i32 } %2, 1
   %and11.i = and i32 %asmresult4.i.i2, 255
   %3 = and i32 %asmresult.i.i1, 3840
-  %cmp138.i = icmp eq i32 %3, 1536
-  %cond.i = icmp eq i32 %and11.i, 0
-  %brmerge.not.i = select i1 %cond.i, i1 %cmp138.i, i1 false
-  br i1 %brmerge.not.i, label %sw.bb17.i, label %return
+  %cmp138.i = icmp ne i32 %3, 1536
+  %cond.i = icmp ne i32 %and11.i, 0
+  %brmerge.i = select i1 %cond.i, i1 true, i1 %cmp138.i
+  br i1 %brmerge.i, label %return, label %sw.bb17.i
 
 sw.bb17.i:                                        ; preds = %sw.bb
   %shr2.i = lshr i32 %asmresult.i.i1, 4
   %and3.i = and i32 %shr2.i, 15
   %4 = lshr i32 %asmresult.i.i1, 12
   %shl.i = and i32 %4, 240
-  %model_num.0.i = or disjoint i32 %shl.i, %and3.i
-  %trunc.i = trunc i32 %model_num.0.i to i8
+  %add15.i = or disjoint i32 %and3.i, %shl.i
+  %trunc.i = trunc i32 %add15.i to i8
   switch i8 %trunc.i, label %sw.default.i [
     i8 44, label %return
     i8 45, label %sw.bb19.i
@@ -132,12 +132,12 @@ if.then.i:                                        ; preds = %sw.bb2
   %and6.i = and i32 %shr5.i, 255
   %add.i = add nuw nsw i32 %and6.i, 15
   %6 = lshr i32 %asmresult.i.i5, 12
-  %shl.i11 = and i32 %6, 240
-  %add10.i = or disjoint i32 %and3.i7, %shl.i11
+  %shl.i10 = and i32 %6, 240
+  %add10.i = or disjoint i32 %and3.i7, %shl.i10
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %sw.bb2
-  %model_num.0.i8 = phi i32 [ %add10.i, %if.then.i ], [ %and3.i7, %sw.bb2 ]
+  %model_num.0.i = phi i32 [ %add10.i, %if.then.i ], [ %and3.i7, %sw.bb2 ]
   %family.0.i = phi i32 [ %add.i, %if.then.i ], [ %and.i, %sw.bb2 ]
   switch i32 %family.0.i, label %return [
     i32 23, label %sw.bb.i
@@ -145,7 +145,7 @@ if.end.i:                                         ; preds = %if.then.i, %sw.bb2
   ]
 
 sw.bb.i:                                          ; preds = %if.end.i
-  switch i32 %model_num.0.i8, label %sw.default.i10 [
+  switch i32 %model_num.0.i, label %sw.default.i9 [
     i32 0, label %return
     i32 1, label %return
     i32 48, label %sw.bb12.i
@@ -155,11 +155,11 @@ sw.bb.i:                                          ; preds = %if.end.i
 sw.bb12.i:                                        ; preds = %sw.bb.i, %sw.bb.i
   br label %return
 
-sw.default.i10:                                   ; preds = %sw.bb.i
+sw.default.i9:                                    ; preds = %sw.bb.i
   br label %return
 
 sw.bb13.i:                                        ; preds = %if.end.i
-  switch i32 %model_num.0.i8, label %sw.default17.i [
+  switch i32 %model_num.0.i, label %sw.default17.i [
     i32 0, label %return
     i32 1, label %return
     i32 16, label %sw.bb15.i
@@ -176,8 +176,8 @@ sw.bb16.i:                                        ; preds = %sw.bb13.i
 sw.default17.i:                                   ; preds = %sw.bb13.i
   br label %return
 
-return:                                           ; preds = %if.else.i, %sw.default17.i, %sw.bb16.i, %sw.bb15.i, %sw.bb13.i, %sw.bb13.i, %sw.default.i10, %sw.bb12.i, %sw.bb.i, %sw.bb.i, %if.end.i, %sw.default.i, %sw.bb28.i, %sw.bb23.i, %sw.bb22.i, %sw.bb21.i, %sw.bb20.i, %sw.bb19.i, %sw.bb17.i, %sw.bb
-  %retval.0 = phi i32 [ 0, %sw.default.i ], [ 10, %sw.bb28.i ], [ 9, %sw.bb22.i ], [ 1, %sw.bb21.i ], [ 11, %sw.bb20.i ], [ 12, %sw.bb19.i ], [ 13, %sw.bb17.i ], [ %..i4, %sw.bb23.i ], [ 0, %sw.bb ], [ 0, %sw.default17.i ], [ 6, %sw.bb16.i ], [ 5, %sw.bb15.i ], [ 0, %sw.default.i10 ], [ 2, %sw.bb12.i ], [ 3, %sw.bb.i ], [ 3, %sw.bb.i ], [ 4, %sw.bb13.i ], [ 4, %sw.bb13.i ], [ 0, %if.end.i ], [ 0, %if.else.i ]
+return:                                           ; preds = %if.else.i, %sw.default17.i, %sw.bb16.i, %sw.bb15.i, %sw.bb13.i, %sw.bb13.i, %sw.default.i9, %sw.bb12.i, %sw.bb.i, %sw.bb.i, %if.end.i, %sw.default.i, %sw.bb28.i, %sw.bb23.i, %sw.bb22.i, %sw.bb21.i, %sw.bb20.i, %sw.bb19.i, %sw.bb17.i, %sw.bb
+  %retval.0 = phi i32 [ 0, %sw.default.i ], [ 10, %sw.bb28.i ], [ 9, %sw.bb22.i ], [ 1, %sw.bb21.i ], [ 11, %sw.bb20.i ], [ 12, %sw.bb19.i ], [ 13, %sw.bb17.i ], [ %..i4, %sw.bb23.i ], [ 0, %sw.bb ], [ 0, %sw.default17.i ], [ 6, %sw.bb16.i ], [ 5, %sw.bb15.i ], [ 0, %sw.default.i9 ], [ 2, %sw.bb12.i ], [ 3, %sw.bb.i ], [ 3, %sw.bb.i ], [ 4, %sw.bb13.i ], [ 4, %sw.bb13.i ], [ 0, %if.end.i ], [ 0, %if.else.i ]
   ret i32 %retval.0
 }
 

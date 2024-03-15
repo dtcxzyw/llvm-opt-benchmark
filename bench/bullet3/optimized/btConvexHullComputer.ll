@@ -1551,8 +1551,6 @@ if.then14:                                        ; preds = %_ZNK20btConvexHullI
   br label %if.end51
 
 if.else:                                          ; preds = %sw.bb2
-  %cmp.not.i.not = xor i1 %cmp.not.i, true
-  %cmp4.not.i.mux = select i1 %cmp.not.i.not, i1 %cmp4.not.i, i1 false
   store ptr %add.ptr, ptr %1, align 8
   %prev25 = getelementptr inbounds i8, ptr %1, i64 8
   store ptr %add.ptr, ptr %prev25, align 8
@@ -1568,7 +1566,7 @@ if.else:                                          ; preds = %sw.bb2
   store ptr %spec.select150, ptr %result, align 8
   %11 = getelementptr inbounds i8, ptr %result, i64 8
   store ptr %spec.select151, ptr %11, align 8
-  %or.cond2 = and i1 %cmp28, %cmp4.not.i.mux
+  %or.cond2 = select i1 %cmp28, i1 %cmp4.not.i, i1 false
   %or.cond108 = or i1 %or.cond2, %cmp31
   %.add.ptr = select i1 %or.cond108, ptr %1, ptr %add.ptr
   %add.ptr. = select i1 %or.cond108, ptr %add.ptr, ptr %1

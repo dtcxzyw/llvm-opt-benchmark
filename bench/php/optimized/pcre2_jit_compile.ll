@@ -80514,10 +80514,10 @@ bracketend.exit:                                  ; preds = %36
   %120 = load i8, ptr %119, align 1
   %121 = icmp eq i8 %120, 0
   %. = select i1 %121, i64 64, i64 68
-  %.1769 = select i1 %121, i32 3, i32 4
+  %.1767 = select i1 %121, i32 3, i32 4
   %122 = getelementptr inbounds i8, ptr %0, i64 %.
   %.sink = load i32, ptr %122, align 4
-  %123 = shl nuw nsw i32 %115, %.1769
+  %123 = shl nuw nsw i32 %115, %.1767
   %124 = add nsw i32 %.sink, %123
   %.0629 = shl nuw nsw i32 %115, 1
   %125 = getelementptr inbounds i8, ptr %.0.i.ph, i64 72
@@ -80885,10 +80885,10 @@ sljit_emit_op1.exit727:                           ; preds = %270, %emit_mov.exit
   br label %277
 
 277:                                              ; preds = %sljit_set_label.exit, %264, %sljit_emit_op1.exit727
-  %.sink1764 = phi i32 [ %276, %sljit_emit_op1.exit727 ], [ %.1632, %264 ], [ %.1632, %sljit_set_label.exit ]
-  %.sink1762 = phi i32 [ 129, %sljit_emit_op1.exit727 ], [ 142, %264 ], [ 142, %sljit_set_label.exit ]
-  %278 = sext i32 %.sink1764 to i64
-  %279 = tail call fastcc ptr @sljit_emit_cmp(ptr noundef nonnull %5, i32 noundef 0, i32 noundef 2, i64 noundef 0, i32 noundef %.sink1762, i64 noundef %278)
+  %.sink1762 = phi i32 [ %276, %sljit_emit_op1.exit727 ], [ %.1632, %264 ], [ %.1632, %sljit_set_label.exit ]
+  %.sink1760 = phi i32 [ 129, %sljit_emit_op1.exit727 ], [ 142, %264 ], [ 142, %sljit_set_label.exit ]
+  %278 = sext i32 %.sink1762 to i64
+  %279 = tail call fastcc ptr @sljit_emit_cmp(ptr noundef nonnull %5, i32 noundef 0, i32 noundef 2, i64 noundef 0, i32 noundef %.sink1760, i64 noundef %278)
   %280 = tail call fastcc ptr @sljit_emit_label(ptr noundef nonnull %5)
   %.not.i728 = icmp eq ptr %.0.i718, null
   %.not7.i729 = icmp eq ptr %280, null
@@ -81078,7 +81078,7 @@ emit_mov.exit1119.thread:                         ; preds = %348
 sljit_emit_op1.exit760:                           ; preds = %348, %346, %emit_mov.exit1119.thread, %344
   %or.cond36 = select i1 %142, i1 true, i1 %.0607.in13361344
   %brmerge = or i1 %or.cond36, %.not657.not
-  br i1 %brmerge, label %352, label %sljit_emit_op1.exit780.thread
+  br i1 %brmerge, label %352, label %sljit_emit_op1.exit765.thread.thread
 
 sljit_emit_op1.exit765.thread.thread1652:         ; preds = %340, %338, %emit_mov.exit1116.thread
   tail call fastcc void @allocate_stack(ptr noundef nonnull %0, i32 noundef %337)
@@ -81185,11 +81185,11 @@ emit_mov.exit1131.thread:                         ; preds = %378
   store i8 -119, ptr %382, align 1
   br label %sljit_emit_op1.exit780.thread
 
-sljit_emit_op1.exit765.thread.thread:             ; preds = %352
+sljit_emit_op1.exit765.thread.thread:             ; preds = %sljit_emit_op1.exit760, %352
   br i1 %or.cond36, label %383, label %sljit_emit_op1.exit780.thread
 
 383:                                              ; preds = %sljit_emit_op1.exit765.sljit_emit_op1.exit765.thread.thread_crit_edge, %sljit_emit_op1.exit765.thread.thread
-  %.513951707 = phi i64 [ 8, %sljit_emit_op1.exit765.sljit_emit_op1.exit765.thread.thread_crit_edge ], [ 0, %sljit_emit_op1.exit765.thread.thread ]
+  %.513951705 = phi i64 [ 8, %sljit_emit_op1.exit765.sljit_emit_op1.exit765.thread.thread_crit_edge ], [ 0, %sljit_emit_op1.exit765.thread.thread ]
   %384 = load i32, ptr %5, align 8
   %.not.i781 = icmp eq i32 %384, 0
   br i1 %.not.i781, label %385, label %sljit_emit_op1.exit780.thread
@@ -81197,7 +81197,7 @@ sljit_emit_op1.exit765.thread.thread:             ; preds = %352
 385:                                              ; preds = %383
   %386 = getelementptr inbounds i8, ptr %5, i64 152
   store i32 0, ptr %386, align 8
-  %387 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %5, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef 140, i64 noundef %.513951707)
+  %387 = tail call fastcc ptr @emit_x86_instruction(ptr noundef nonnull %5, i64 noundef 1, i32 noundef 2, i64 noundef 0, i32 noundef 140, i64 noundef %.513951705)
   %.not73.i1132 = icmp eq ptr %387, null
   br i1 %.not73.i1132, label %sljit_emit_op1.exit780.thread, label %emit_mov.exit1134.thread
 
@@ -81316,13 +81316,13 @@ sljit_emit_op1.exit806.thread1442:                ; preds = %412
 emit_mov.exit1144:                                ; preds = %415
   %419 = load i32, ptr %5, align 8
   %.not112.i799 = icmp eq i32 %419, 0
-  br i1 %.not112.i799, label %sljit_emit_op1.exit801.thread, label %sljit_emit_op1.exit806.thread1715
+  br i1 %.not112.i799, label %sljit_emit_op1.exit801.thread, label %sljit_emit_op1.exit806.thread1713
 
 sljit_emit_op1.exit801:                           ; preds = %415
   store i8 -119, ptr %418, align 1
   %.pre1696 = load i32, ptr %5, align 8
   %.not.i802 = icmp eq i32 %.pre1696, 0
-  br i1 %.not.i802, label %sljit_emit_op1.exit801.thread, label %sljit_emit_op1.exit806.thread1715
+  br i1 %.not.i802, label %sljit_emit_op1.exit801.thread, label %sljit_emit_op1.exit806.thread1713
 
 sljit_emit_op1.exit801.thread:                    ; preds = %emit_mov.exit1144, %sljit_emit_op1.exit801
   store i32 0, ptr %417, align 8
@@ -81333,13 +81333,13 @@ sljit_emit_op1.exit801.thread:                    ; preds = %emit_mov.exit1144, 
 emit_mov.exit1147:                                ; preds = %sljit_emit_op1.exit801.thread
   %421 = load i32, ptr %5, align 8
   %.not112.i804 = icmp eq i32 %421, 0
-  br i1 %.not112.i804, label %sljit_emit_op1.exit806.thread, label %sljit_emit_op1.exit806.thread1715
+  br i1 %.not112.i804, label %sljit_emit_op1.exit806.thread, label %sljit_emit_op1.exit806.thread1713
 
 sljit_emit_op1.exit806.thread:                    ; preds = %emit_mov.exit1147
   %422 = select i1 %.not657.not, i32 2, i32 1
   br label %425
 
-sljit_emit_op1.exit806.thread1715:                ; preds = %sljit_emit_op1.exit801, %emit_mov.exit1147, %emit_mov.exit1144
+sljit_emit_op1.exit806.thread1713:                ; preds = %sljit_emit_op1.exit801, %emit_mov.exit1147, %emit_mov.exit1144
   %423 = select i1 %.not657.not, i32 2, i32 1
   br label %sljit_emit_op1.exit811
 
@@ -81403,8 +81403,8 @@ emit_mov.exit1156.thread:                         ; preds = %438
   store i8 -119, ptr %440, align 1
   br label %sljit_emit_op1.exit811
 
-sljit_emit_op1.exit811:                           ; preds = %emit_mov.exit1153, %sljit_emit_op1.exit806.thread1715, %438, %425, %429, %sljit_emit_op1.exit816, %emit_mov.exit1156.thread, %sljit_emit_op1.exit806, %sljit_emit_op1.exit806.thread1442, %emit_mov.exit1150.thread
-  %.7 = phi i32 [ %424, %sljit_emit_op1.exit806 ], [ %414, %sljit_emit_op1.exit806.thread1442 ], [ %426, %emit_mov.exit1150.thread ], [ %430, %emit_mov.exit1156.thread ], [ %430, %sljit_emit_op1.exit816 ], [ %430, %429 ], [ %426, %425 ], [ %430, %438 ], [ %423, %sljit_emit_op1.exit806.thread1715 ], [ %430, %emit_mov.exit1153 ]
+sljit_emit_op1.exit811:                           ; preds = %emit_mov.exit1153, %sljit_emit_op1.exit806.thread1713, %438, %425, %429, %sljit_emit_op1.exit816, %emit_mov.exit1156.thread, %sljit_emit_op1.exit806, %sljit_emit_op1.exit806.thread1442, %emit_mov.exit1150.thread
+  %.7 = phi i32 [ %424, %sljit_emit_op1.exit806 ], [ %414, %sljit_emit_op1.exit806.thread1442 ], [ %426, %emit_mov.exit1150.thread ], [ %430, %emit_mov.exit1156.thread ], [ %430, %sljit_emit_op1.exit816 ], [ %430, %429 ], [ %426, %425 ], [ %430, %438 ], [ %423, %sljit_emit_op1.exit806.thread1713 ], [ %430, %emit_mov.exit1153 ]
   %441 = load i32, ptr %332, align 8
   %442 = add nsw i32 %441, %.7
   tail call fastcc void @init_frame(ptr noundef nonnull %0, ptr noundef nonnull %.0608, ptr noundef null, i32 noundef %442)
@@ -81991,8 +81991,8 @@ emit_mov.exit1219.thread:                         ; preds = %633
   br label %sljit_emit_op1.exit927
 
 sljit_emit_op1.exit927:                           ; preds = %633, %emit_mov.exit1219.thread
-  %.pr1747 = load i32, ptr %5, align 8
-  %.not.i928 = icmp eq i32 %.pr1747, 0
+  %.pr1745 = load i32, ptr %5, align 8
+  %.not.i928 = icmp eq i32 %.pr1745, 0
   br i1 %.not.i928, label %638, label %sljit_emit_op2.exit930
 
 638:                                              ; preds = %sljit_emit_op1.exit927
@@ -82037,7 +82037,7 @@ sljit_emit_op2.exit930thread-pre-split:           ; preds = %sljit_emit_op1.exit
   br label %sljit_emit_op2.exit930
 
 sljit_emit_op2.exit930:                           ; preds = %sljit_emit_op2.exit930thread-pre-split, %emit_mov.exit1291, %sljit_emit_op1.exit927
-  %.pre1689 = phi i32 [ %.pre1689.pr, %sljit_emit_op2.exit930thread-pre-split ], [ %652, %emit_mov.exit1291 ], [ %.pr1747, %sljit_emit_op1.exit927 ]
+  %.pre1689 = phi i32 [ %.pre1689.pr, %sljit_emit_op2.exit930thread-pre-split ], [ %652, %emit_mov.exit1291 ], [ %.pr1745, %sljit_emit_op1.exit927 ]
   %656 = phi ptr [ %.ph, %sljit_emit_op2.exit930thread-pre-split ], [ %632, %emit_mov.exit1291 ], [ %632, %sljit_emit_op1.exit927 ]
   %657 = icmp ugt i32 %588, 1
   br i1 %657, label %.lr.ph1664, label %._crit_edge
@@ -82643,13 +82643,13 @@ sljit_alloc_memory.exit967:                       ; preds = %948, %957
   %964 = tail call fastcc ptr @compile_assert_matchingpath(ptr noundef nonnull %0, ptr noundef nonnull %.1616, ptr noundef nonnull %.0.i963.ph, i32 noundef 1)
   br label %sljit_emit_op1.exit780.thread
 
-sljit_emit_op1.exit780.thread:                    ; preds = %sljit_emit_op1.exit760, %sljit_emit_op1.exit765.sljit_emit_op1.exit765.thread.thread_crit_edge, %385, %378, %870, %925, %834, %.thread1644, %sljit_emit_op1.exit765.thread.thread, %sljit_emit_op1.exit811, %sljit_emit_op1.exit896, %513, %emit_mov.exit1131.thread, %376, %emit_mov.exit1134.thread, %383, %.thread1601, %sljit_emit_op1.exit780, %add_jump.exit, %961, %929, %add_jump.exit961
-  %.0606.shrunk1541 = phi i1 [ false, %add_jump.exit ], [ false, %add_jump.exit961 ], [ false, %929 ], [ false, %961 ], [ false, %sljit_emit_op1.exit780 ], [ false, %.thread1601 ], [ false, %383 ], [ false, %emit_mov.exit1134.thread ], [ false, %376 ], [ false, %emit_mov.exit1131.thread ], [ %511, %sljit_emit_op1.exit896 ], [ %511, %513 ], [ false, %sljit_emit_op1.exit811 ], [ false, %sljit_emit_op1.exit765.thread.thread ], [ false, %.thread1644 ], [ false, %834 ], [ false, %925 ], [ false, %870 ], [ false, %378 ], [ false, %385 ], [ false, %sljit_emit_op1.exit765.sljit_emit_op1.exit765.thread.thread_crit_edge ], [ false, %sljit_emit_op1.exit760 ]
-  %.0607.in13371540 = phi i1 [ %.0607.in1337, %add_jump.exit ], [ %.0607.in1337, %add_jump.exit961 ], [ %.0607.in1337, %929 ], [ %.0607.in1337, %961 ], [ %.0607.in1337, %sljit_emit_op1.exit780 ], [ %.0607.in1337, %.thread1601 ], [ %.0607.in13361344, %383 ], [ %.0607.in13361344, %emit_mov.exit1134.thread ], [ %.0607.in13361344, %376 ], [ %.0607.in13361344, %emit_mov.exit1131.thread ], [ %.0607.in13361344, %sljit_emit_op1.exit896 ], [ %.0607.in13361344, %513 ], [ %.0607.in13361344, %sljit_emit_op1.exit811 ], [ false, %sljit_emit_op1.exit765.thread.thread ], [ %.0607.in1337, %.thread1644 ], [ %.0607.in1337, %834 ], [ %.0607.in1337, %925 ], [ %.0607.in1337, %870 ], [ %.0607.in13361344, %378 ], [ %.0607.in13361344, %385 ], [ false, %sljit_emit_op1.exit765.sljit_emit_op1.exit765.thread.thread_crit_edge ], [ false, %sljit_emit_op1.exit760 ]
-  %.160413781539 = phi ptr [ %.16041379, %add_jump.exit ], [ %.16041379, %add_jump.exit961 ], [ %.16041379, %929 ], [ %.16041379, %961 ], [ %.16041379, %sljit_emit_op1.exit780 ], [ %.16041379, %.thread1601 ], [ %.1604, %383 ], [ %.1604, %emit_mov.exit1134.thread ], [ %.1604, %376 ], [ %.1604, %emit_mov.exit1131.thread ], [ %.16041379, %sljit_emit_op1.exit896 ], [ %.16041379, %513 ], [ %.1604, %sljit_emit_op1.exit811 ], [ %.1604, %sljit_emit_op1.exit765.thread.thread ], [ %.16041379, %.thread1644 ], [ %.16041379, %834 ], [ %.16041379, %925 ], [ %.16041379, %870 ], [ %.1604, %378 ], [ %.1604, %385 ], [ %.1604, %sljit_emit_op1.exit765.sljit_emit_op1.exit765.thread.thread_crit_edge ], [ %.1604, %sljit_emit_op1.exit760 ]
-  %965 = phi i1 [ false, %add_jump.exit ], [ false, %add_jump.exit961 ], [ false, %929 ], [ false, %961 ], [ false, %sljit_emit_op1.exit780 ], [ false, %.thread1601 ], [ true, %383 ], [ true, %emit_mov.exit1134.thread ], [ true, %376 ], [ true, %emit_mov.exit1131.thread ], [ false, %sljit_emit_op1.exit896 ], [ false, %513 ], [ true, %sljit_emit_op1.exit811 ], [ true, %sljit_emit_op1.exit765.thread.thread ], [ false, %.thread1644 ], [ false, %834 ], [ false, %925 ], [ false, %870 ], [ true, %378 ], [ true, %385 ], [ true, %sljit_emit_op1.exit765.sljit_emit_op1.exit765.thread.thread_crit_edge ], [ true, %sljit_emit_op1.exit760 ]
-  %.3 = phi ptr [ %579, %add_jump.exit ], [ %830, %add_jump.exit961 ], [ %931, %929 ], [ %964, %961 ], [ %.1616, %sljit_emit_op1.exit780 ], [ %87, %.thread1601 ], [ %.0615, %383 ], [ %.0615, %emit_mov.exit1134.thread ], [ %.0615, %376 ], [ %.0615, %emit_mov.exit1131.thread ], [ %.0615, %sljit_emit_op1.exit896 ], [ %514, %513 ], [ %.0615, %sljit_emit_op1.exit811 ], [ %.0615, %sljit_emit_op1.exit765.thread.thread ], [ %850, %.thread1644 ], [ %835, %834 ], [ %926, %925 ], [ %spec.select1655, %870 ], [ %.0615, %378 ], [ %.0615, %385 ], [ %.0615, %sljit_emit_op1.exit765.sljit_emit_op1.exit765.thread.thread_crit_edge ], [ %.0615, %sljit_emit_op1.exit760 ]
-  %.1609 = phi ptr [ %87, %add_jump.exit ], [ %87, %add_jump.exit961 ], [ %939, %929 ], [ %87, %961 ], [ %87, %sljit_emit_op1.exit780 ], [ %87, %.thread1601 ], [ %87, %383 ], [ %87, %emit_mov.exit1134.thread ], [ %87, %376 ], [ %87, %emit_mov.exit1131.thread ], [ %87, %sljit_emit_op1.exit896 ], [ %87, %513 ], [ %87, %sljit_emit_op1.exit811 ], [ %87, %sljit_emit_op1.exit765.thread.thread ], [ %87, %.thread1644 ], [ %87, %834 ], [ %87, %925 ], [ %87, %870 ], [ %87, %378 ], [ %87, %385 ], [ %87, %sljit_emit_op1.exit765.sljit_emit_op1.exit765.thread.thread_crit_edge ], [ %87, %sljit_emit_op1.exit760 ]
+sljit_emit_op1.exit780.thread:                    ; preds = %sljit_emit_op1.exit765.sljit_emit_op1.exit765.thread.thread_crit_edge, %385, %378, %870, %925, %834, %.thread1644, %sljit_emit_op1.exit765.thread.thread, %sljit_emit_op1.exit811, %sljit_emit_op1.exit896, %513, %emit_mov.exit1131.thread, %376, %emit_mov.exit1134.thread, %383, %.thread1601, %sljit_emit_op1.exit780, %add_jump.exit, %961, %929, %add_jump.exit961
+  %.0606.shrunk1541 = phi i1 [ false, %add_jump.exit ], [ false, %add_jump.exit961 ], [ false, %929 ], [ false, %961 ], [ false, %sljit_emit_op1.exit780 ], [ false, %.thread1601 ], [ false, %383 ], [ false, %emit_mov.exit1134.thread ], [ false, %376 ], [ false, %emit_mov.exit1131.thread ], [ %511, %sljit_emit_op1.exit896 ], [ %511, %513 ], [ false, %sljit_emit_op1.exit811 ], [ false, %sljit_emit_op1.exit765.thread.thread ], [ false, %.thread1644 ], [ false, %834 ], [ false, %925 ], [ false, %870 ], [ false, %378 ], [ false, %385 ], [ false, %sljit_emit_op1.exit765.sljit_emit_op1.exit765.thread.thread_crit_edge ]
+  %.0607.in13371540 = phi i1 [ %.0607.in1337, %add_jump.exit ], [ %.0607.in1337, %add_jump.exit961 ], [ %.0607.in1337, %929 ], [ %.0607.in1337, %961 ], [ %.0607.in1337, %sljit_emit_op1.exit780 ], [ %.0607.in1337, %.thread1601 ], [ %.0607.in13361344, %383 ], [ %.0607.in13361344, %emit_mov.exit1134.thread ], [ %.0607.in13361344, %376 ], [ %.0607.in13361344, %emit_mov.exit1131.thread ], [ %.0607.in13361344, %sljit_emit_op1.exit896 ], [ %.0607.in13361344, %513 ], [ %.0607.in13361344, %sljit_emit_op1.exit811 ], [ false, %sljit_emit_op1.exit765.thread.thread ], [ %.0607.in1337, %.thread1644 ], [ %.0607.in1337, %834 ], [ %.0607.in1337, %925 ], [ %.0607.in1337, %870 ], [ %.0607.in13361344, %378 ], [ %.0607.in13361344, %385 ], [ false, %sljit_emit_op1.exit765.sljit_emit_op1.exit765.thread.thread_crit_edge ]
+  %.160413781539 = phi ptr [ %.16041379, %add_jump.exit ], [ %.16041379, %add_jump.exit961 ], [ %.16041379, %929 ], [ %.16041379, %961 ], [ %.16041379, %sljit_emit_op1.exit780 ], [ %.16041379, %.thread1601 ], [ %.1604, %383 ], [ %.1604, %emit_mov.exit1134.thread ], [ %.1604, %376 ], [ %.1604, %emit_mov.exit1131.thread ], [ %.16041379, %sljit_emit_op1.exit896 ], [ %.16041379, %513 ], [ %.1604, %sljit_emit_op1.exit811 ], [ %.1604, %sljit_emit_op1.exit765.thread.thread ], [ %.16041379, %.thread1644 ], [ %.16041379, %834 ], [ %.16041379, %925 ], [ %.16041379, %870 ], [ %.1604, %378 ], [ %.1604, %385 ], [ %.1604, %sljit_emit_op1.exit765.sljit_emit_op1.exit765.thread.thread_crit_edge ]
+  %965 = phi i1 [ false, %add_jump.exit ], [ false, %add_jump.exit961 ], [ false, %929 ], [ false, %961 ], [ false, %sljit_emit_op1.exit780 ], [ false, %.thread1601 ], [ true, %383 ], [ true, %emit_mov.exit1134.thread ], [ true, %376 ], [ true, %emit_mov.exit1131.thread ], [ false, %sljit_emit_op1.exit896 ], [ false, %513 ], [ true, %sljit_emit_op1.exit811 ], [ true, %sljit_emit_op1.exit765.thread.thread ], [ false, %.thread1644 ], [ false, %834 ], [ false, %925 ], [ false, %870 ], [ true, %378 ], [ true, %385 ], [ true, %sljit_emit_op1.exit765.sljit_emit_op1.exit765.thread.thread_crit_edge ]
+  %.3 = phi ptr [ %579, %add_jump.exit ], [ %830, %add_jump.exit961 ], [ %931, %929 ], [ %964, %961 ], [ %.1616, %sljit_emit_op1.exit780 ], [ %87, %.thread1601 ], [ %.0615, %383 ], [ %.0615, %emit_mov.exit1134.thread ], [ %.0615, %376 ], [ %.0615, %emit_mov.exit1131.thread ], [ %.0615, %sljit_emit_op1.exit896 ], [ %514, %513 ], [ %.0615, %sljit_emit_op1.exit811 ], [ %.0615, %sljit_emit_op1.exit765.thread.thread ], [ %850, %.thread1644 ], [ %835, %834 ], [ %926, %925 ], [ %spec.select1655, %870 ], [ %.0615, %378 ], [ %.0615, %385 ], [ %.0615, %sljit_emit_op1.exit765.sljit_emit_op1.exit765.thread.thread_crit_edge ]
+  %.1609 = phi ptr [ %87, %add_jump.exit ], [ %87, %add_jump.exit961 ], [ %939, %929 ], [ %87, %961 ], [ %87, %sljit_emit_op1.exit780 ], [ %87, %.thread1601 ], [ %87, %383 ], [ %87, %emit_mov.exit1134.thread ], [ %87, %376 ], [ %87, %emit_mov.exit1131.thread ], [ %87, %sljit_emit_op1.exit896 ], [ %87, %513 ], [ %87, %sljit_emit_op1.exit811 ], [ %87, %sljit_emit_op1.exit765.thread.thread ], [ %87, %.thread1644 ], [ %87, %834 ], [ %87, %925 ], [ %87, %870 ], [ %87, %378 ], [ %87, %385 ], [ %87, %sljit_emit_op1.exit765.sljit_emit_op1.exit765.thread.thread_crit_edge ]
   tail call fastcc void @compile_matchingpath(ptr noundef %0, ptr noundef %.3, ptr noundef %.1609, ptr noundef nonnull %.0.i.ph)
   %.val = load i32, ptr %5, align 8
   %.not666 = icmp eq i32 %.val, 0
