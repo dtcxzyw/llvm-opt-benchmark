@@ -131,8 +131,8 @@ define noundef i64 @_Z18fast_rv32i_scmplt8P11processor_t6insn_tm(ptr nocapture n
   %38 = icmp slt i32 %sext, %sext37
   %39 = xor i64 %28, -1
   %40 = and i64 %.044, %39
-  %41 = sext i1 %38 to i64
-  %42 = mul i64 %32, %41
+  %41 = sub i64 0, %32
+  %42 = select i1 %38, i64 %41, i64 0
   %43 = and i64 %42, %28
   %44 = or i64 %43, %40
   %45 = add nsw i64 %.03643, -1
@@ -226,8 +226,8 @@ define noundef i64 @_Z18fast_rv64i_scmplt8P11processor_t6insn_tm(ptr nocapture n
   %38 = icmp slt i32 %sext, %sext37
   %39 = xor i64 %28, -1
   %40 = and i64 %.044, %39
-  %41 = sext i1 %38 to i64
-  %42 = mul i64 %32, %41
+  %41 = sub i64 0, %32
+  %42 = select i1 %38, i64 %41, i64 0
   %43 = and i64 %42, %28
   %44 = or i64 %43, %40
   %45 = add nsw i64 %.03643, -1
@@ -303,8 +303,8 @@ define noundef i64 @_Z20logged_rv32i_scmplt8P11processor_t6insn_tm(ptr noundef %
   %38 = icmp slt i32 %sext, %sext40
   %39 = xor i64 %28, -1
   %40 = and i64 %.049, %39
-  %41 = sext i1 %38 to i64
-  %42 = mul i64 %32, %41
+  %41 = sub i64 0, %32
+  %42 = select i1 %38, i64 %41, i64 0
   %43 = and i64 %42, %28
   %44 = or i64 %43, %40
   %45 = add nsw i64 %.03948, -1
@@ -441,8 +441,8 @@ define noundef i64 @_Z20logged_rv64i_scmplt8P11processor_t6insn_tm(ptr noundef %
   %38 = icmp slt i32 %sext, %sext40
   %39 = xor i64 %28, -1
   %40 = and i64 %.049, %39
-  %41 = sext i1 %38 to i64
-  %42 = mul i64 %32, %41
+  %41 = sub i64 0, %32
+  %42 = select i1 %38, i64 %41, i64 0
   %43 = and i64 %42, %28
   %44 = or i64 %43, %40
   %45 = add nsw i64 %.03948, -1
@@ -623,8 +623,8 @@ define noundef i64 @_Z18fast_rv32e_scmplt8P11processor_t6insn_tm(ptr nocapture n
   %59 = icmp slt i32 %sext, %sext47
   %60 = xor i64 %49, -1
   %61 = and i64 %.04563, %60
-  %62 = sext i1 %59 to i64
-  %63 = mul i64 %53, %62
+  %62 = sub i64 0, %53
+  %63 = select i1 %59, i64 %62, i64 0
   %64 = and i64 %63, %49
   %65 = or i64 %64, %61
   %66 = add nsw i64 %.04662, -1
@@ -752,8 +752,8 @@ define noundef i64 @_Z18fast_rv64e_scmplt8P11processor_t6insn_tm(ptr nocapture n
   %59 = icmp slt i32 %sext, %sext47
   %60 = xor i64 %49, -1
   %61 = and i64 %.04563, %60
-  %62 = sext i1 %59 to i64
-  %63 = mul i64 %53, %62
+  %62 = sub i64 0, %53
+  %63 = select i1 %59, i64 %62, i64 0
   %64 = and i64 %63, %49
   %65 = or i64 %64, %61
   %66 = add nsw i64 %.04662, -1
@@ -877,8 +877,8 @@ define noundef i64 @_Z20logged_rv32e_scmplt8P11processor_t6insn_tm(ptr noundef %
   %59 = icmp slt i32 %sext, %sext50
   %60 = xor i64 %49, -1
   %61 = and i64 %.04868, %60
-  %62 = sext i1 %59 to i64
-  %63 = mul i64 %53, %62
+  %62 = sub i64 0, %53
+  %63 = select i1 %59, i64 %62, i64 0
   %64 = and i64 %63, %49
   %65 = or i64 %64, %61
   %66 = add nsw i64 %.04967, -1
@@ -1063,8 +1063,8 @@ define noundef i64 @_Z20logged_rv64e_scmplt8P11processor_t6insn_tm(ptr noundef %
   %59 = icmp slt i32 %sext, %sext50
   %60 = xor i64 %49, -1
   %61 = and i64 %.04868, %60
-  %62 = sext i1 %59 to i64
-  %63 = mul i64 %53, %62
+  %62 = sub i64 0, %53
+  %63 = select i1 %59, i64 %62, i64 0
   %64 = and i64 %63, %49
   %65 = or i64 %64, %61
   %66 = add nsw i64 %.04967, -1

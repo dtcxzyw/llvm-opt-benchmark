@@ -129,8 +129,8 @@ define noundef i64 @_Z18fast_rv32i_cmpeq16P11processor_t6insn_tm(ptr nocapture n
   %36 = icmp eq i64 %.mask39, 0
   %37 = xor i64 %28, -1
   %38 = and i64 %.047, %37
-  %39 = sext i1 %36 to i64
-  %40 = mul i64 %32, %39
+  %39 = sub i64 0, %32
+  %40 = select i1 %36, i64 %39, i64 0
   %41 = and i64 %40, %28
   %42 = or i64 %41, %38
   %43 = add nsw i64 %.03646, -1
@@ -222,8 +222,8 @@ define noundef i64 @_Z18fast_rv64i_cmpeq16P11processor_t6insn_tm(ptr nocapture n
   %36 = icmp eq i64 %.mask39, 0
   %37 = xor i64 %28, -1
   %38 = and i64 %.047, %37
-  %39 = sext i1 %36 to i64
-  %40 = mul i64 %32, %39
+  %39 = sub i64 0, %32
+  %40 = select i1 %36, i64 %39, i64 0
   %41 = and i64 %40, %28
   %42 = or i64 %41, %38
   %43 = add nsw i64 %.03646, -1
@@ -297,8 +297,8 @@ define noundef i64 @_Z20logged_rv32i_cmpeq16P11processor_t6insn_tm(ptr noundef %
   %36 = icmp eq i64 %.mask42, 0
   %37 = xor i64 %28, -1
   %38 = and i64 %.052, %37
-  %39 = sext i1 %36 to i64
-  %40 = mul i64 %32, %39
+  %39 = sub i64 0, %32
+  %40 = select i1 %36, i64 %39, i64 0
   %41 = and i64 %40, %28
   %42 = or i64 %41, %38
   %43 = add nsw i64 %.03951, -1
@@ -433,8 +433,8 @@ define noundef i64 @_Z20logged_rv64i_cmpeq16P11processor_t6insn_tm(ptr noundef %
   %36 = icmp eq i64 %.mask42, 0
   %37 = xor i64 %28, -1
   %38 = and i64 %.052, %37
-  %39 = sext i1 %36 to i64
-  %40 = mul i64 %32, %39
+  %39 = sub i64 0, %32
+  %40 = select i1 %36, i64 %39, i64 0
   %41 = and i64 %40, %28
   %42 = or i64 %41, %38
   %43 = add nsw i64 %.03951, -1
@@ -613,8 +613,8 @@ define noundef i64 @_Z18fast_rv32e_cmpeq16P11processor_t6insn_tm(ptr nocapture n
   %57 = icmp eq i64 %.mask49, 0
   %58 = xor i64 %49, -1
   %59 = and i64 %.04566, %58
-  %60 = sext i1 %57 to i64
-  %61 = mul i64 %53, %60
+  %60 = sub i64 0, %53
+  %61 = select i1 %57, i64 %60, i64 0
   %62 = and i64 %61, %49
   %63 = or i64 %62, %59
   %64 = add nsw i64 %.04665, -1
@@ -740,8 +740,8 @@ define noundef i64 @_Z18fast_rv64e_cmpeq16P11processor_t6insn_tm(ptr nocapture n
   %57 = icmp eq i64 %.mask49, 0
   %58 = xor i64 %49, -1
   %59 = and i64 %.04566, %58
-  %60 = sext i1 %57 to i64
-  %61 = mul i64 %53, %60
+  %60 = sub i64 0, %53
+  %61 = select i1 %57, i64 %60, i64 0
   %62 = and i64 %61, %49
   %63 = or i64 %62, %59
   %64 = add nsw i64 %.04665, -1
@@ -863,8 +863,8 @@ define noundef i64 @_Z20logged_rv32e_cmpeq16P11processor_t6insn_tm(ptr noundef %
   %57 = icmp eq i64 %.mask52, 0
   %58 = xor i64 %49, -1
   %59 = and i64 %.04871, %58
-  %60 = sext i1 %57 to i64
-  %61 = mul i64 %53, %60
+  %60 = sub i64 0, %53
+  %61 = select i1 %57, i64 %60, i64 0
   %62 = and i64 %61, %49
   %63 = or i64 %62, %59
   %64 = add nsw i64 %.04970, -1
@@ -1047,8 +1047,8 @@ define noundef i64 @_Z20logged_rv64e_cmpeq16P11processor_t6insn_tm(ptr noundef %
   %57 = icmp eq i64 %.mask52, 0
   %58 = xor i64 %49, -1
   %59 = and i64 %.04871, %58
-  %60 = sext i1 %57 to i64
-  %61 = mul i64 %53, %60
+  %60 = sub i64 0, %53
+  %61 = select i1 %57, i64 %60, i64 0
   %62 = and i64 %61, %49
   %63 = or i64 %62, %59
   %64 = add nsw i64 %.04970, -1

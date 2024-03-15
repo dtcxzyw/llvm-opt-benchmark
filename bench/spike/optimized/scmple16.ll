@@ -128,16 +128,16 @@ define noundef i64 @_Z19fast_rv32i_scmple16P11processor_t6insn_tm(ptr nocapture 
   %37 = trunc i64 %36 to i32
   %sext = shl i32 %34, 16
   %sext37 = shl i32 %37, 16
-  %.not = icmp sle i32 %sext, %sext37
+  %.not.not = icmp sgt i32 %sext, %sext37
   %38 = xor i64 %28, -1
   %39 = and i64 %.045, %38
-  %40 = sext i1 %.not to i64
-  %41 = mul i64 %32, %40
+  %40 = sub i64 0, %32
+  %41 = select i1 %.not.not, i64 0, i64 %40
   %42 = and i64 %41, %28
   %43 = or i64 %42, %39
   %44 = add nsw i64 %.03644, -1
-  %.not46 = icmp eq i64 %.03644, 0
-  br i1 %.not46, label %45, label %25, !llvm.loop !4
+  %.not = icmp eq i64 %.03644, 0
+  br i1 %.not, label %45, label %25, !llvm.loop !4
 
 45:                                               ; preds = %25
   %.not.i = icmp eq i64 %14, 0
@@ -223,16 +223,16 @@ define noundef i64 @_Z19fast_rv64i_scmple16P11processor_t6insn_tm(ptr nocapture 
   %37 = trunc i64 %36 to i32
   %sext = shl i32 %34, 16
   %sext37 = shl i32 %37, 16
-  %.not = icmp sle i32 %sext, %sext37
+  %.not.not = icmp sgt i32 %sext, %sext37
   %38 = xor i64 %28, -1
   %39 = and i64 %.045, %38
-  %40 = sext i1 %.not to i64
-  %41 = mul i64 %32, %40
+  %40 = sub i64 0, %32
+  %41 = select i1 %.not.not, i64 0, i64 %40
   %42 = and i64 %41, %28
   %43 = or i64 %42, %39
   %44 = add nsw i64 %.03644, -1
-  %.not46 = icmp eq i64 %.03644, 0
-  br i1 %.not46, label %45, label %25, !llvm.loop !6
+  %.not = icmp eq i64 %.03644, 0
+  br i1 %.not, label %45, label %25, !llvm.loop !6
 
 45:                                               ; preds = %25
   %.not.i = icmp eq i64 %14, 0
@@ -300,16 +300,16 @@ define noundef i64 @_Z21logged_rv32i_scmple16P11processor_t6insn_tm(ptr noundef 
   %37 = trunc i64 %36 to i32
   %sext = shl i32 %34, 16
   %sext40 = shl i32 %37, 16
-  %.not = icmp sle i32 %sext, %sext40
+  %.not.not = icmp sgt i32 %sext, %sext40
   %38 = xor i64 %28, -1
   %39 = and i64 %.050, %38
-  %40 = sext i1 %.not to i64
-  %41 = mul i64 %32, %40
+  %40 = sub i64 0, %32
+  %41 = select i1 %.not.not, i64 0, i64 %40
   %42 = and i64 %41, %28
   %43 = or i64 %42, %39
   %44 = add nsw i64 %.03949, -1
-  %.not52 = icmp eq i64 %.03949, 0
-  br i1 %.not52, label %45, label %25, !llvm.loop !7
+  %.not = icmp eq i64 %.03949, 0
+  br i1 %.not, label %45, label %25, !llvm.loop !7
 
 45:                                               ; preds = %25
   %46 = shl i64 %43, 32
@@ -438,16 +438,16 @@ define noundef i64 @_Z21logged_rv64i_scmple16P11processor_t6insn_tm(ptr noundef 
   %37 = trunc i64 %36 to i32
   %sext = shl i32 %34, 16
   %sext40 = shl i32 %37, 16
-  %.not = icmp sle i32 %sext, %sext40
+  %.not.not = icmp sgt i32 %sext, %sext40
   %38 = xor i64 %28, -1
   %39 = and i64 %.050, %38
-  %40 = sext i1 %.not to i64
-  %41 = mul i64 %32, %40
+  %40 = sub i64 0, %32
+  %41 = select i1 %.not.not, i64 0, i64 %40
   %42 = and i64 %41, %28
   %43 = or i64 %42, %39
   %44 = add nsw i64 %.03949, -1
-  %.not52 = icmp eq i64 %.03949, 0
-  br i1 %.not52, label %45, label %25, !llvm.loop !9
+  %.not = icmp eq i64 %.03949, 0
+  br i1 %.not, label %45, label %25, !llvm.loop !9
 
 45:                                               ; preds = %25
   %46 = getelementptr inbounds i8, ptr %0, i64 3672
@@ -620,16 +620,16 @@ define noundef i64 @_Z19fast_rv32e_scmple16P11processor_t6insn_tm(ptr nocapture 
   %58 = trunc i64 %57 to i32
   %sext = shl i32 %55, 16
   %sext47 = shl i32 %58, 16
-  %.not = icmp sle i32 %sext, %sext47
+  %.not.not = icmp sgt i32 %sext, %sext47
   %59 = xor i64 %49, -1
   %60 = and i64 %.04564, %59
-  %61 = sext i1 %.not to i64
-  %62 = mul i64 %53, %61
+  %61 = sub i64 0, %53
+  %62 = select i1 %.not.not, i64 0, i64 %61
   %63 = and i64 %62, %49
   %64 = or i64 %63, %60
   %65 = add nsw i64 %.04663, -1
-  %.not65 = icmp eq i64 %.04663, 0
-  br i1 %.not65, label %66, label %46, !llvm.loop !10
+  %.not = icmp eq i64 %.04663, 0
+  br i1 %.not, label %66, label %46, !llvm.loop !10
 
 66:                                               ; preds = %46
   %.not.i = icmp eq i64 %13, 0
@@ -749,16 +749,16 @@ define noundef i64 @_Z19fast_rv64e_scmple16P11processor_t6insn_tm(ptr nocapture 
   %58 = trunc i64 %57 to i32
   %sext = shl i32 %55, 16
   %sext47 = shl i32 %58, 16
-  %.not = icmp sle i32 %sext, %sext47
+  %.not.not = icmp sgt i32 %sext, %sext47
   %59 = xor i64 %49, -1
   %60 = and i64 %.04564, %59
-  %61 = sext i1 %.not to i64
-  %62 = mul i64 %53, %61
+  %61 = sub i64 0, %53
+  %62 = select i1 %.not.not, i64 0, i64 %61
   %63 = and i64 %62, %49
   %64 = or i64 %63, %60
   %65 = add nsw i64 %.04663, -1
-  %.not65 = icmp eq i64 %.04663, 0
-  br i1 %.not65, label %66, label %46, !llvm.loop !11
+  %.not = icmp eq i64 %.04663, 0
+  br i1 %.not, label %66, label %46, !llvm.loop !11
 
 66:                                               ; preds = %46
   %.not.i = icmp eq i64 %13, 0
@@ -874,16 +874,16 @@ define noundef i64 @_Z21logged_rv32e_scmple16P11processor_t6insn_tm(ptr noundef 
   %58 = trunc i64 %57 to i32
   %sext = shl i32 %55, 16
   %sext50 = shl i32 %58, 16
-  %.not = icmp sle i32 %sext, %sext50
+  %.not.not = icmp sgt i32 %sext, %sext50
   %59 = xor i64 %49, -1
   %60 = and i64 %.04869, %59
-  %61 = sext i1 %.not to i64
-  %62 = mul i64 %53, %61
+  %61 = sub i64 0, %53
+  %62 = select i1 %.not.not, i64 0, i64 %61
   %63 = and i64 %62, %49
   %64 = or i64 %63, %60
   %65 = add nsw i64 %.04968, -1
-  %.not71 = icmp eq i64 %.04968, 0
-  br i1 %.not71, label %66, label %46, !llvm.loop !12
+  %.not = icmp eq i64 %.04968, 0
+  br i1 %.not, label %66, label %46, !llvm.loop !12
 
 66:                                               ; preds = %46
   %67 = shl i64 %64, 32
@@ -1060,16 +1060,16 @@ define noundef i64 @_Z21logged_rv64e_scmple16P11processor_t6insn_tm(ptr noundef 
   %58 = trunc i64 %57 to i32
   %sext = shl i32 %55, 16
   %sext50 = shl i32 %58, 16
-  %.not = icmp sle i32 %sext, %sext50
+  %.not.not = icmp sgt i32 %sext, %sext50
   %59 = xor i64 %49, -1
   %60 = and i64 %.04869, %59
-  %61 = sext i1 %.not to i64
-  %62 = mul i64 %53, %61
+  %61 = sub i64 0, %53
+  %62 = select i1 %.not.not, i64 0, i64 %61
   %63 = and i64 %62, %49
   %64 = or i64 %63, %60
   %65 = add nsw i64 %.04968, -1
-  %.not71 = icmp eq i64 %.04968, 0
-  br i1 %.not71, label %66, label %46, !llvm.loop !13
+  %.not = icmp eq i64 %.04968, 0
+  br i1 %.not, label %66, label %46, !llvm.loop !13
 
 66:                                               ; preds = %46
   %67 = getelementptr inbounds i8, ptr %0, i64 3672
