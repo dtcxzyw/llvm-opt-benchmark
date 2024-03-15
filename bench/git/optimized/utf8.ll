@@ -595,8 +595,8 @@ if.then:                                          ; preds = %while.cond, %while.
   store ptr %incdec.ptr, ptr %text.addr, align 8
   br label %while.cond.backedge
 
-while.cond.backedge:                              ; preds = %if.then, %utf8_width.exit, %if.end.i.i
-  %.be = phi ptr [ %incdec.ptr, %if.then ], [ %2, %utf8_width.exit ], [ %2, %if.end.i.i ]
+while.cond.backedge:                              ; preds = %if.end, %if.then
+  %.be = phi ptr [ %incdec.ptr, %if.then ], [ %2, %if.end ]
   br label %while.cond, !llvm.loop !11
 
 if.end:                                           ; preds = %while.cond
@@ -605,25 +605,13 @@ if.end:                                           ; preds = %while.cond
   %tobool.not.i = icmp eq ptr %2, null
   %cmp.i.i = icmp eq i32 %call.i, 0
   %or.cond.i = select i1 %tobool.not.i, i1 true, i1 %cmp.i.i
-  br i1 %or.cond.i, label %utf8_width.exit, label %if.end.i.i
-
-if.end.i.i:                                       ; preds = %if.end
-  %cmp1.i.i = icmp ult i32 %call.i, 32
-  %3 = add nsw i32 %call.i, -127
-  %or.cond.i.i = icmp ult i32 %3, 33
-  %or.cond6.i.i = or i1 %cmp1.i.i, %or.cond.i.i
-  %4 = add nsw i32 %call.i, -918000
-  %or.cond36.i.i = icmp ult i32 %4, -917232
-  %or.cond = select i1 %or.cond6.i.i, i1 true, i1 %or.cond36.i.i
+  %or.cond.i.not = xor i1 %or.cond.i, true
   %tobool.not.i.not = xor i1 %tobool.not.i, true
-  %brmerge = or i1 %or.cond, %tobool.not.i.not
+  %brmerge = or i1 %or.cond.i.not, %tobool.not.i.not
   br i1 %brmerge, label %while.cond.backedge, label %return
 
-utf8_width.exit:                                  ; preds = %if.end
-  br i1 %tobool.not.i, label %return, label %while.cond.backedge
-
-return:                                           ; preds = %if.end.i.i, %while.cond, %utf8_width.exit
-  %retval.0 = phi i32 [ 0, %utf8_width.exit ], [ 1, %while.cond ], [ 0, %if.end.i.i ]
+return:                                           ; preds = %if.end, %while.cond
+  %retval.0 = phi i32 [ 1, %while.cond ], [ 0, %if.end ]
   ret i32 %retval.0
 }
 

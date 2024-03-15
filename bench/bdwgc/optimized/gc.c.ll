@@ -1744,7 +1744,7 @@ GC_setup_atfork.exit:                             ; preds = %GC_init_size_map.ex
   %319 = getelementptr inbounds [1701 x i8], ptr %1, i64 0, i64 %318
   %320 = call i32 @atoi(ptr nocapture noundef nonnull %319) #46
   %.not.i141 = icmp slt i32 %320, %.01925.i
-  %321 = add nsw i32 %320, 1
+  %321 = add nuw nsw i32 %320, 1
   %spec.select.i = select i1 %.not.i141, i32 %.01925.i, i32 %321
   br label %.lr.ph._crit_edge.i
 
@@ -3630,14 +3630,14 @@ GC_find_starting_hblk.exit.i:                     ; preds = %GC_find_header.exit
   %67 = getelementptr inbounds i8, ptr %61, i64 %66
   %68 = getelementptr inbounds i8, ptr %67, i64 %63
   %69 = getelementptr inbounds i8, ptr %.028.i, i64 4096
-  %70 = icmp ule ptr %68, %69
-  %71 = icmp ugt i64 %63, 4096
-  %or.cond.not35.i = or i1 %71, %70
-  %.not30.i = icmp ugt ptr %68, %0
-  %or.cond31.i = and i1 %.not30.i, %or.cond.not35.i
-  %72 = icmp ne i64 %60, 0
-  %or.cond.not = and i1 %72, %or.cond31.i
-  br i1 %or.cond.not, label %74, label %GC_base.exit.thread
+  %70 = icmp ugt ptr %68, %69
+  %71 = icmp ult i64 %63, 4097
+  %or.cond.not35.i.not14 = and i1 %71, %70
+  %.not30.i = icmp ule ptr %68, %0
+  %or.cond31.i.not11 = or i1 %.not30.i, %or.cond.not35.i.not14
+  %72 = icmp eq i64 %60, 0
+  %or.cond = or i1 %72, %or.cond31.i.not11
+  br i1 %or.cond, label %GC_base.exit.thread, label %74
 
 GC_base.exit.thread:                              ; preds = %58, %GC_find_starting_hblk.exit.i, %29, %22, %1
   %73 = load ptr, ptr @GC_is_visible_print_proc, align 8
@@ -7064,14 +7064,14 @@ GC_find_starting_hblk.exit.i:                     ; preds = %GC_find_header.exit
   %55 = getelementptr inbounds i8, ptr %49, i64 %54
   %56 = getelementptr inbounds i8, ptr %55, i64 %51
   %57 = getelementptr inbounds i8, ptr %.028.i, i64 4096
-  %58 = icmp ule ptr %56, %57
-  %59 = icmp ugt i64 %51, 4096
-  %or.cond.not35.i = or i1 %59, %58
-  %.not30.i = icmp ugt ptr %56, %0
-  %or.cond31.i = and i1 %.not30.i, %or.cond.not35.i
-  %60 = icmp ne i64 %48, 0
-  %or.cond.not = and i1 %60, %or.cond31.i
-  br i1 %or.cond.not, label %62, label %GC_base.exit.thread
+  %58 = icmp ugt ptr %56, %57
+  %59 = icmp ult i64 %51, 4097
+  %or.cond.not35.i.not8 = and i1 %59, %58
+  %.not30.i = icmp ule ptr %56, %0
+  %or.cond31.i.not6 = or i1 %.not30.i, %or.cond.not35.i.not8
+  %60 = icmp eq i64 %48, 0
+  %or.cond = or i1 %60, %or.cond31.i.not6
+  br i1 %or.cond, label %GC_base.exit.thread, label %62
 
 GC_base.exit.thread:                              ; preds = %46, %GC_find_starting_hblk.exit.i, %15, %1
   tail call void (ptr, ...) @GC_log_printf(ptr noundef nonnull @.str.19, ptr noundef nonnull %0)
@@ -7396,14 +7396,14 @@ GC_find_starting_hblk.exit.i:                     ; preds = %GC_find_header.exit
   %57 = getelementptr inbounds i8, ptr %51, i64 %56
   %58 = getelementptr inbounds i8, ptr %57, i64 %53
   %59 = getelementptr inbounds i8, ptr %.028.i, i64 4096
-  %60 = icmp ule ptr %58, %59
-  %61 = icmp ugt i64 %53, 4096
-  %or.cond.not35.i = or i1 %61, %60
-  %.not30.i = icmp ugt ptr %58, %0
-  %or.cond31.i = and i1 %.not30.i, %or.cond.not35.i
-  %62 = icmp ne i64 %50, 0
-  %or.cond52.not = and i1 %62, %or.cond31.i
-  br i1 %or.cond52.not, label %64, label %GC_base.exit.thread
+  %60 = icmp ugt ptr %58, %59
+  %61 = icmp ult i64 %53, 4097
+  %or.cond.not35.i.not57 = and i1 %61, %60
+  %.not30.i = icmp ule ptr %58, %0
+  %or.cond31.i.not54 = or i1 %.not30.i, %or.cond.not35.i.not57
+  %62 = icmp eq i64 %50, 0
+  %or.cond52 = or i1 %62, %or.cond31.i.not54
+  br i1 %or.cond52, label %GC_base.exit.thread, label %64
 
 GC_base.exit.thread:                              ; preds = %48, %GC_find_starting_hblk.exit.i, %17, %3
   tail call void (ptr, ...) @GC_log_printf(ptr noundef nonnull @.str.25, ptr noundef nonnull %0)
@@ -7567,18 +7567,18 @@ GC_find_header.exit:                              ; preds = %130
   %144 = getelementptr inbounds i8, ptr %138, i64 32
   %145 = load i64, ptr %144, align 8
   %146 = add i64 %145, -32
-  %.not56 = icmp ult i64 %146, 8
-  br i1 %.not56, label %._crit_edge, label %.lr.ph.preheader
+  %.not59 = icmp ult i64 %146, 8
+  br i1 %.not59, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %143
   %147 = lshr i64 %146, 3
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.055 = phi i64 [ %149, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %148 = getelementptr inbounds i64, ptr %0, i64 %.055
+  %.058 = phi i64 [ %149, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %148 = getelementptr inbounds i64, ptr %0, i64 %.058
   store i64 -1171307680339476753, ptr %148, align 8
-  %149 = add nuw nsw i64 %.055, 1
+  %149 = add nuw nsw i64 %.058, 1
   %exitcond.not = icmp eq i64 %149, %147
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !38
 
@@ -8115,14 +8115,14 @@ GC_find_starting_hblk.exit.i:                     ; preds = %GC_find_header.exit
   %72 = getelementptr inbounds i8, ptr %66, i64 %71
   %73 = getelementptr inbounds i8, ptr %72, i64 %68
   %74 = getelementptr inbounds i8, ptr %.028.i, i64 4096
-  %75 = icmp ule ptr %73, %74
-  %76 = icmp ugt i64 %68, 4096
-  %or.cond.not35.i = or i1 %76, %75
-  %.not30.i = icmp ugt ptr %73, %0
-  %or.cond31.i = and i1 %.not30.i, %or.cond.not35.i
-  %77 = icmp ne i64 %65, 0
-  %or.cond.not = and i1 %77, %or.cond31.i
-  br i1 %or.cond.not, label %79, label %GC_base.exit.thread
+  %75 = icmp ugt ptr %73, %74
+  %76 = icmp ult i64 %68, 4097
+  %or.cond.not35.i.not42 = and i1 %76, %75
+  %.not30.i = icmp ule ptr %73, %0
+  %or.cond31.i.not39 = or i1 %.not30.i, %or.cond.not35.i.not42
+  %77 = icmp eq i64 %65, 0
+  %or.cond = or i1 %77, %or.cond31.i.not39
+  br i1 %or.cond, label %GC_base.exit.thread, label %79
 
 GC_base.exit.thread:                              ; preds = %63, %GC_find_starting_hblk.exit.i, %32, %18
   tail call void (ptr, ...) @GC_log_printf(ptr noundef nonnull @.str.30, ptr noundef nonnull %0)
@@ -8498,14 +8498,14 @@ GC_find_starting_hblk.exit.i:                     ; preds = %GC_find_header.exit
   %61 = getelementptr inbounds i8, ptr %55, i64 %60
   %62 = getelementptr inbounds i8, ptr %61, i64 %57
   %63 = getelementptr inbounds i8, ptr %.028.i, i64 4096
-  %64 = icmp ule ptr %62, %63
-  %65 = icmp ugt i64 %57, 4096
-  %or.cond.not35.i = or i1 %65, %64
-  %.not30.i = icmp ugt ptr %62, %0
-  %or.cond31.i = and i1 %.not30.i, %or.cond.not35.i
-  %66 = icmp ne i64 %54, 0
-  %or.cond.not = and i1 %66, %or.cond31.i
-  br i1 %or.cond.not, label %70, label %GC_base.exit.thread
+  %64 = icmp ugt ptr %62, %63
+  %65 = icmp ult i64 %57, 4097
+  %or.cond.not35.i.not30 = and i1 %65, %64
+  %.not30.i = icmp ule ptr %62, %0
+  %or.cond31.i.not27 = or i1 %.not30.i, %or.cond.not35.i.not30
+  %66 = icmp eq i64 %54, 0
+  %or.cond = or i1 %66, %or.cond31.i.not27
+  br i1 %or.cond, label %GC_base.exit.thread, label %70
 
 GC_base.exit.thread:                              ; preds = %52, %GC_find_starting_hblk.exit.i, %21, %5
   %.not23 = icmp eq ptr %4, null
@@ -8720,14 +8720,14 @@ GC_find_starting_hblk.exit.i:                     ; preds = %GC_find_header.exit
   %61 = getelementptr inbounds i8, ptr %55, i64 %60
   %62 = getelementptr inbounds i8, ptr %61, i64 %57
   %63 = getelementptr inbounds i8, ptr %.028.i, i64 4096
-  %64 = icmp ule ptr %62, %63
-  %65 = icmp ugt i64 %57, 4096
-  %or.cond.not35.i = or i1 %65, %64
-  %.not30.i = icmp ugt ptr %62, %0
-  %or.cond31.i = and i1 %.not30.i, %or.cond.not35.i
-  %66 = icmp ne i64 %54, 0
-  %or.cond.not = and i1 %66, %or.cond31.i
-  br i1 %or.cond.not, label %70, label %GC_base.exit.thread
+  %64 = icmp ugt ptr %62, %63
+  %65 = icmp ult i64 %57, 4097
+  %or.cond.not35.i.not30 = and i1 %65, %64
+  %.not30.i = icmp ule ptr %62, %0
+  %or.cond31.i.not27 = or i1 %.not30.i, %or.cond.not35.i.not30
+  %66 = icmp eq i64 %54, 0
+  %or.cond = or i1 %66, %or.cond31.i.not27
+  br i1 %or.cond, label %GC_base.exit.thread, label %70
 
 GC_base.exit.thread:                              ; preds = %52, %GC_find_starting_hblk.exit.i, %21, %5
   %.not23 = icmp eq ptr %4, null
@@ -8932,14 +8932,14 @@ GC_find_starting_hblk.exit.i:                     ; preds = %GC_find_header.exit
   %61 = getelementptr inbounds i8, ptr %55, i64 %60
   %62 = getelementptr inbounds i8, ptr %61, i64 %57
   %63 = getelementptr inbounds i8, ptr %.028.i, i64 4096
-  %64 = icmp ule ptr %62, %63
-  %65 = icmp ugt i64 %57, 4096
-  %or.cond.not35.i = or i1 %65, %64
-  %.not30.i = icmp ugt ptr %62, %0
-  %or.cond31.i = and i1 %.not30.i, %or.cond.not35.i
-  %66 = icmp ne i64 %54, 0
-  %or.cond.not = and i1 %66, %or.cond31.i
-  br i1 %or.cond.not, label %70, label %GC_base.exit.thread
+  %64 = icmp ugt ptr %62, %63
+  %65 = icmp ult i64 %57, 4097
+  %or.cond.not35.i.not30 = and i1 %65, %64
+  %.not30.i = icmp ule ptr %62, %0
+  %or.cond31.i.not27 = or i1 %.not30.i, %or.cond.not35.i.not30
+  %66 = icmp eq i64 %54, 0
+  %or.cond = or i1 %66, %or.cond31.i.not27
+  br i1 %or.cond, label %GC_base.exit.thread, label %70
 
 GC_base.exit.thread:                              ; preds = %52, %GC_find_starting_hblk.exit.i, %21, %5
   %.not23 = icmp eq ptr %4, null
@@ -9144,14 +9144,14 @@ GC_find_starting_hblk.exit.i:                     ; preds = %GC_find_header.exit
   %61 = getelementptr inbounds i8, ptr %55, i64 %60
   %62 = getelementptr inbounds i8, ptr %61, i64 %57
   %63 = getelementptr inbounds i8, ptr %.028.i, i64 4096
-  %64 = icmp ule ptr %62, %63
-  %65 = icmp ugt i64 %57, 4096
-  %or.cond.not35.i = or i1 %65, %64
-  %.not30.i = icmp ugt ptr %62, %0
-  %or.cond31.i = and i1 %.not30.i, %or.cond.not35.i
-  %66 = icmp ne i64 %54, 0
-  %or.cond.not = and i1 %66, %or.cond31.i
-  br i1 %or.cond.not, label %70, label %GC_base.exit.thread
+  %64 = icmp ugt ptr %62, %63
+  %65 = icmp ult i64 %57, 4097
+  %or.cond.not35.i.not30 = and i1 %65, %64
+  %.not30.i = icmp ule ptr %62, %0
+  %or.cond31.i.not27 = or i1 %.not30.i, %or.cond.not35.i.not30
+  %66 = icmp eq i64 %54, 0
+  %or.cond = or i1 %66, %or.cond31.i.not27
+  br i1 %or.cond, label %GC_base.exit.thread, label %70
 
 GC_base.exit.thread:                              ; preds = %52, %GC_find_starting_hblk.exit.i, %21, %5
   %.not23 = icmp eq ptr %4, null
@@ -9831,14 +9831,14 @@ GC_find_starting_hblk.exit.i.i:                   ; preds = %GC_find_header.exit
   %87 = getelementptr inbounds i8, ptr %81, i64 %86
   %88 = getelementptr inbounds i8, ptr %87, i64 %83
   %89 = getelementptr inbounds i8, ptr %.028.i.i, i64 4096
-  %90 = icmp ule ptr %88, %89
-  %91 = icmp ugt i64 %83, 4096
-  %or.cond.not35.i.i = or i1 %91, %90
-  %.not30.i.i = icmp ugt ptr %88, %22
-  %or.cond31.i.i = and i1 %.not30.i.i, %or.cond.not35.i.i
-  %92 = icmp ne i64 %80, 0
-  %or.cond.not.i = and i1 %92, %or.cond31.i.i
-  br i1 %or.cond.not.i, label %93, label %GC_base.exit.thread.i.preheader
+  %90 = icmp ugt ptr %88, %89
+  %91 = icmp ult i64 %83, 4097
+  %or.cond.not35.i.not55.i = and i1 %91, %90
+  %.not30.i.i = icmp ule ptr %88, %22
+  %or.cond31.i.not52.i = or i1 %.not30.i.i, %or.cond.not35.i.not55.i
+  %92 = icmp eq i64 %80, 0
+  %or.cond.i = or i1 %92, %or.cond31.i.not52.i
+  br i1 %or.cond.i, label %GC_base.exit.thread.i.preheader, label %93
 
 93:                                               ; preds = %78
   %94 = ptrtoint ptr %87 to i64
@@ -9926,10 +9926,10 @@ GC_find_header.exit._crit_edge.i.i:               ; preds = %GC_find_header.exit
 137:                                              ; preds = %133
   %138 = load i32, ptr @GC_all_interior_pointers, align 4
   %.not26.i = icmp eq i32 %138, 0
-  br i1 %.not26.i, label %162, label %.preheader54.i
+  br i1 %.not26.i, label %162, label %.preheader57.i
 
-.preheader54.i:                                   ; preds = %137, %.preheader54.i
-  %.0.in.i.i30.i = phi ptr [ %144, %.preheader54.i ], [ %25, %137 ]
+.preheader57.i:                                   ; preds = %137, %.preheader57.i
+  %.0.in.i.i30.i = phi ptr [ %144, %.preheader57.i ], [ %25, %137 ]
   %.0.i.i31.i = load ptr, ptr %.0.in.i.i30.i, align 8
   %139 = getelementptr inbounds i8, ptr %.0.i.i31.i, i64 8208
   %140 = load i64, ptr %139, align 8
@@ -9937,9 +9937,9 @@ GC_find_header.exit._crit_edge.i.i:               ; preds = %GC_find_header.exit
   %142 = icmp ne ptr %.0.i.i31.i, %26
   %143 = select i1 %141, i1 %142, i1 false
   %144 = getelementptr inbounds i8, ptr %.0.i.i31.i, i64 8216
-  br i1 %143, label %.preheader54.i, label %GC_find_header.exit.i32.i, !llvm.loop !16
+  br i1 %143, label %.preheader57.i, label %GC_find_header.exit.i32.i, !llvm.loop !16
 
-GC_find_header.exit.i32.i:                        ; preds = %.preheader54.i
+GC_find_header.exit.i32.i:                        ; preds = %.preheader57.i
   %145 = and i64 %35, 262143
   %146 = getelementptr inbounds [1024 x ptr], ptr %.0.i.i31.i, i64 0, i64 %36
   %147 = load ptr, ptr %146, align 8
@@ -10067,9 +10067,9 @@ GC_find_header.exit._crit_edge.i46.i:             ; preds = %GC_find_header.exit
 
 216:                                              ; preds = %210
   %.neg.i = mul nsw i64 %207, -16
-  %.neg53.i = sub nsw i64 %.neg.i, %208
+  %.neg56.i = sub nsw i64 %.neg.i, %208
   %217 = sub nsw i64 %202, %207
-  %218 = getelementptr inbounds i8, ptr %.023.i, i64 %.neg53.i
+  %218 = getelementptr inbounds i8, ptr %.023.i, i64 %.neg56.i
   br label %219
 
 219:                                              ; preds = %216, %213, %197
@@ -10233,14 +10233,14 @@ GC_find_starting_hblk.exit.i:                     ; preds = %GC_find_header.exit
   %55 = getelementptr inbounds i8, ptr %49, i64 %54
   %56 = getelementptr inbounds i8, ptr %55, i64 %51
   %57 = getelementptr inbounds i8, ptr %.028.i, i64 4096
-  %58 = icmp ule ptr %56, %57
-  %59 = icmp ugt i64 %51, 4096
-  %or.cond.not35.i = or i1 %59, %58
-  %.not30.i = icmp ugt ptr %56, %0
-  %or.cond31.i = and i1 %.not30.i, %or.cond.not35.i
-  %60 = icmp ne i64 %48, 0
-  %or.cond.not = and i1 %60, %or.cond31.i
-  br i1 %or.cond.not, label %62, label %GC_base.exit.thread
+  %58 = icmp ugt ptr %56, %57
+  %59 = icmp ult i64 %51, 4097
+  %or.cond.not35.i.not8 = and i1 %59, %58
+  %.not30.i = icmp ule ptr %56, %0
+  %or.cond31.i.not6 = or i1 %.not30.i, %or.cond.not35.i.not8
+  %60 = icmp eq i64 %48, 0
+  %or.cond = or i1 %60, %or.cond31.i.not6
+  br i1 %or.cond, label %GC_base.exit.thread, label %62
 
 GC_base.exit.thread:                              ; preds = %46, %GC_find_starting_hblk.exit.i, %15, %1
   %61 = load ptr, ptr @GC_on_abort, align 8
@@ -35244,7 +35244,7 @@ define internal fastcc void @push_roots_and_advance(i32 noundef %0, ptr noundef 
 4:                                                ; preds = %2
   %5 = load i32, ptr getelementptr inbounds (%struct._GC_arrays, ptr @GC_arrays, i64 0, i32 48), align 4
   %6 = icmp sgt i32 %5, 0
-  br i1 %6, label %.lr.ph.i, label %.preheader32.i
+  br i1 %6, label %.lr.ph.i, label %.preheader36.i
 
 .lr.ph.i:                                         ; preds = %4
   %.not.i18.i.i = icmp eq i32 %0, 0
@@ -35252,8 +35252,8 @@ define internal fastcc void @push_roots_and_advance(i32 noundef %0, ptr noundef 
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %GC_push_conditional_with_exclusions.exit.us.i
   %7 = phi i32 [ %52, %GC_push_conditional_with_exclusions.exit.us.i ], [ %5, %.lr.ph.i ]
-  %indvars.iv42.i = phi i64 [ %indvars.iv.next43.i, %GC_push_conditional_with_exclusions.exit.us.i ], [ 0, %.lr.ph.i ]
-  %8 = getelementptr inbounds %struct._GC_arrays, ptr @GC_arrays, i64 0, i32 66, i64 %indvars.iv42.i
+  %indvars.iv46.i = phi i64 [ %indvars.iv.next47.i, %GC_push_conditional_with_exclusions.exit.us.i ], [ 0, %.lr.ph.i ]
+  %8 = getelementptr inbounds %struct._GC_arrays, ptr @GC_arrays, i64 0, i32 66, i64 %indvars.iv46.i
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   %11 = load ptr, ptr %10, align 8
@@ -35354,34 +35354,34 @@ GC_push_conditional_static.exit.us.i.us.i:        ; preds = %44, %33, %32, %27
   br i1 %51, label %.lr.ph.split.us.i.us.i, label %GC_push_conditional_with_exclusions.exit.us.loopexit.i, !llvm.loop !186
 
 GC_push_conditional_with_exclusions.exit.us.loopexit.i: ; preds = %48, %GC_push_conditional_static.exit.us.i.us.i
-  %.pre48.i = load i32, ptr getelementptr inbounds (%struct._GC_arrays, ptr @GC_arrays, i64 0, i32 48), align 4
+  %.pre52.i = load i32, ptr getelementptr inbounds (%struct._GC_arrays, ptr @GC_arrays, i64 0, i32 48), align 4
   br label %GC_push_conditional_with_exclusions.exit.us.i
 
 GC_push_conditional_with_exclusions.exit.us.i:    ; preds = %GC_push_conditional_with_exclusions.exit.us.loopexit.i, %.lr.ph.split.us.i
-  %52 = phi i32 [ %.pre48.i, %GC_push_conditional_with_exclusions.exit.us.loopexit.i ], [ %7, %.lr.ph.split.us.i ]
-  %indvars.iv.next43.i = add nuw nsw i64 %indvars.iv42.i, 1
+  %52 = phi i32 [ %.pre52.i, %GC_push_conditional_with_exclusions.exit.us.loopexit.i ], [ %7, %.lr.ph.split.us.i ]
+  %indvars.iv.next47.i = add nuw nsw i64 %indvars.iv46.i, 1
   %53 = sext i32 %52 to i64
-  %54 = icmp slt i64 %indvars.iv.next43.i, %53
-  br i1 %54, label %.lr.ph.split.us.i, label %.preheader32.i, !llvm.loop !187
+  %54 = icmp slt i64 %indvars.iv.next47.i, %53
+  br i1 %54, label %.lr.ph.split.us.i, label %.preheader36.i, !llvm.loop !187
 
-.preheader32.i:                                   ; preds = %GC_push_conditional_with_exclusions.exit.i, %GC_push_conditional_with_exclusions.exit.us.i, %4
+.preheader36.i:                                   ; preds = %GC_push_conditional_with_exclusions.exit.i, %GC_push_conditional_with_exclusions.exit.us.i, %4
   %55 = load i32, ptr @GC_n_kinds, align 4
-  %.not38.i = icmp eq i32 %55, 0
-  br i1 %.not38.i, label %._crit_edge.i, label %.lr.ph37.preheader.i
+  %.not42.i = icmp eq i32 %55, 0
+  br i1 %.not42.i, label %._crit_edge.i, label %.lr.ph41.preheader.i
 
-.lr.ph37.preheader.i:                             ; preds = %.preheader32.i
+.lr.ph41.preheader.i:                             ; preds = %.preheader36.i
   %.b.i.pre.i = load i1, ptr @GC_is_initialized, align 4
   %56 = zext i32 %55 to i64
-  br i1 %.b.i.pre.i, label %.lr.ph37.i.us.preheader, label %._crit_edge.i
+  br i1 %.b.i.pre.i, label %.lr.ph41.i.us.preheader, label %._crit_edge.i
 
-.lr.ph37.i.us.preheader:                          ; preds = %.lr.ph37.preheader.i
+.lr.ph41.i.us.preheader:                          ; preds = %.lr.ph41.preheader.i
   %.pre7 = load ptr, ptr getelementptr inbounds (%struct._GC_arrays, ptr @GC_arrays, i64 0, i32 30), align 8
-  br label %.lr.ph37.i.us
+  br label %.lr.ph41.i.us
 
-.lr.ph37.i.us:                                    ; preds = %.lr.ph37.i.us.preheader, %GC_set_mark_bit.exit.i.us
-  %57 = phi ptr [ %141, %GC_set_mark_bit.exit.i.us ], [ %.pre7, %.lr.ph37.i.us.preheader ]
-  %indvars.iv45.i.us = phi i64 [ %indvars.iv.next46.i.us, %GC_set_mark_bit.exit.i.us ], [ 0, %.lr.ph37.i.us.preheader ]
-  %58 = getelementptr inbounds [24 x %struct.obj_kind], ptr @GC_obj_kinds, i64 0, i64 %indvars.iv45.i.us
+.lr.ph41.i.us:                                    ; preds = %.lr.ph41.i.us.preheader, %GC_set_mark_bit.exit.i.us
+  %57 = phi ptr [ %141, %GC_set_mark_bit.exit.i.us ], [ %.pre7, %.lr.ph41.i.us.preheader ]
+  %indvars.iv49.i.us = phi i64 [ %indvars.iv.next50.i.us, %GC_set_mark_bit.exit.i.us ], [ 0, %.lr.ph41.i.us.preheader ]
+  %58 = getelementptr inbounds [24 x %struct.obj_kind], ptr @GC_obj_kinds, i64 0, i64 %indvars.iv49.i.us
   %59 = load ptr, ptr %58, align 16
   %60 = ptrtoint ptr %59 to i64
   %61 = lshr i64 %60, 22
@@ -35389,8 +35389,8 @@ GC_push_conditional_with_exclusions.exit.us.i:    ; preds = %GC_push_conditional
   %63 = getelementptr inbounds %struct._GC_arrays, ptr @GC_arrays, i64 0, i32 68, i64 %62
   br label %64
 
-64:                                               ; preds = %64, %.lr.ph37.i.us
-  %.027.in.i.i.us = phi ptr [ %63, %.lr.ph37.i.us ], [ %70, %64 ]
+64:                                               ; preds = %64, %.lr.ph41.i.us
+  %.027.in.i.i.us = phi ptr [ %63, %.lr.ph41.i.us ], [ %70, %64 ]
   %.027.i.i.us = load ptr, ptr %.027.in.i.i.us, align 8
   %65 = getelementptr inbounds i8, ptr %.027.i.i.us, i64 8208
   %66 = load i64, ptr %65, align 8
@@ -35467,14 +35467,14 @@ GC_find_starting_hblk.exit.i.i.us:                ; preds = %GC_find_header.exit
   %111 = getelementptr inbounds i8, ptr %105, i64 %110
   %112 = getelementptr inbounds i8, ptr %111, i64 %107
   %113 = getelementptr inbounds i8, ptr %.028.i.i.us, i64 4096
-  %114 = icmp ule ptr %112, %113
-  %115 = icmp ugt i64 %107, 4096
-  %or.cond.not35.i.i.us = or i1 %115, %114
-  %.not30.i.i.us = icmp ugt ptr %112, %59
-  %or.cond31.i.i.us = and i1 %.not30.i.i.us, %or.cond.not35.i.i.us
-  %.not16.i.us = icmp ne i64 %104, 0
-  %or.cond31.not.i.us = and i1 %.not16.i.us, %or.cond31.i.i.us
-  br i1 %or.cond31.not.i.us, label %116, label %GC_set_mark_bit.exit.i.us
+  %114 = icmp ugt ptr %112, %113
+  %115 = icmp ult i64 %107, 4097
+  %or.cond.not35.i.not35.i.us = and i1 %115, %114
+  %.not30.i.i.us = icmp ule ptr %112, %59
+  %or.cond31.i.not32.i.us = or i1 %.not30.i.i.us, %or.cond.not35.i.not35.i.us
+  %.not16.i.us = icmp eq i64 %104, 0
+  %or.cond31.i.us = or i1 %.not16.i.us, %or.cond31.i.not32.i.us
+  br i1 %or.cond31.i.us, label %GC_set_mark_bit.exit.i.us, label %116
 
 116:                                              ; preds = %102
   %117 = ptrtoint ptr %111 to i64
@@ -35518,9 +35518,9 @@ GC_find_header.exit.i.i.us:                       ; preds = %121
 
 GC_set_mark_bit.exit.i.us:                        ; preds = %137, %GC_find_header.exit.i.i.us, %102, %GC_find_starting_hblk.exit.i.i.us, %71
   %141 = phi ptr [ %.pre, %137 ], [ %57, %GC_find_header.exit.i.i.us ], [ %57, %102 ], [ %57, %GC_find_starting_hblk.exit.i.i.us ], [ %57, %71 ]
-  %indvars.iv.next46.i.us = add nuw nsw i64 %indvars.iv45.i.us, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next46.i.us, %56
-  br i1 %exitcond.not, label %._crit_edge.i, label %.lr.ph37.i.us, !llvm.loop !188
+  %indvars.iv.next50.i.us = add nuw nsw i64 %indvars.iv49.i.us, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next50.i.us, %56
+  br i1 %exitcond.not, label %._crit_edge.i, label %.lr.ph41.i.us, !llvm.loop !188
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %GC_push_conditional_with_exclusions.exit.i
   %142 = phi i32 [ %185, %GC_push_conditional_with_exclusions.exit.i ], [ %5, %.lr.ph.i ]
@@ -35635,9 +35635,9 @@ GC_push_conditional_with_exclusions.exit.i:       ; preds = %GC_push_conditional
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %186 = sext i32 %185 to i64
   %187 = icmp slt i64 %indvars.iv.next.i, %186
-  br i1 %187, label %.lr.ph.split.i, label %.preheader32.i, !llvm.loop !187
+  br i1 %187, label %.lr.ph.split.i, label %.preheader36.i, !llvm.loop !187
 
-._crit_edge.i:                                    ; preds = %GC_set_mark_bit.exit.i.us, %.lr.ph37.preheader.i, %.preheader32.i
+._crit_edge.i:                                    ; preds = %GC_set_mark_bit.exit.i.us, %.lr.ph41.preheader.i, %.preheader36.i
   tail call void @GC_push_all_eager(ptr noundef nonnull getelementptr inbounds (%struct._GC_arrays, ptr @GC_arrays, i64 0, i32 40), ptr noundef nonnull getelementptr inbounds (%struct._GC_arrays, ptr @GC_arrays, i64 0, i32 40, i32 1))
   tail call void @GC_push_all_eager(ptr noundef nonnull getelementptr inbounds (%struct._GC_arrays, ptr @GC_arrays, i64 0, i32 41), ptr noundef nonnull getelementptr inbounds (%struct._GC_arrays, ptr @GC_arrays, i64 0, i32 41, i32 1))
   tail call void @GC_push_all_eager(ptr noundef nonnull getelementptr inbounds (%struct._GC_arrays, ptr @GC_arrays, i64 0, i32 42), ptr noundef nonnull getelementptr inbounds (%struct._GC_arrays, ptr @GC_arrays, i64 0, i32 43))
@@ -39543,24 +39543,24 @@ define internal fastcc void @GC_make_disappearing_links_disappear(ptr nocapture 
   br label %9
 
 9:                                                ; preds = %.preheader, %._crit_edge
-  %.053 = phi i64 [ 0, %.preheader ], [ %174, %._crit_edge ]
-  %.03052 = phi i32 [ 0, %.preheader ], [ %.131.lcssa, %._crit_edge ]
+  %.056 = phi i64 [ 0, %.preheader ], [ %174, %._crit_edge ]
+  %.03055 = phi i32 [ 0, %.preheader ], [ %.131.lcssa, %._crit_edge ]
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds ptr, ptr %10, i64 %.053
+  %11 = getelementptr inbounds ptr, ptr %10, i64 %.056
   %12 = load ptr, ptr %11, align 8
-  %.not48 = icmp eq ptr %12, null
-  br i1 %.not48, label %._crit_edge, label %.lr.ph
+  %.not51 = icmp eq ptr %12, null
+  br i1 %.not51, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %9, %GC_base.exit.thread
-  %.02951 = phi ptr [ %.1, %GC_base.exit.thread ], [ null, %9 ]
-  %.13150 = phi i32 [ %.3, %GC_base.exit.thread ], [ %.03052, %9 ]
-  %.03249 = phi ptr [ %14, %GC_base.exit.thread ], [ %12, %9 ]
-  %13 = getelementptr inbounds i8, ptr %.03249, i64 8
+  %.02954 = phi ptr [ %.1, %GC_base.exit.thread ], [ null, %9 ]
+  %.13153 = phi i32 [ %.3, %GC_base.exit.thread ], [ %.03055, %9 ]
+  %.03252 = phi ptr [ %14, %GC_base.exit.thread ], [ %12, %9 ]
+  %13 = getelementptr inbounds i8, ptr %.03252, i64 8
   %14 = load ptr, ptr %13, align 8
   br i1 %.not35, label %98, label %15
 
 15:                                               ; preds = %.lr.ph
-  %16 = load i64, ptr %.03249, align 8
+  %16 = load i64, ptr %.03252, align 8
   %17 = xor i64 %16, -1
   %18 = inttoptr i64 %17 to ptr
   br i1 %.b.i, label %19, label %GC_base.exit.thread
@@ -39650,14 +39650,14 @@ GC_find_starting_hblk.exit.i:                     ; preds = %GC_find_header.exit
   %71 = getelementptr inbounds i8, ptr %65, i64 %70
   %72 = getelementptr inbounds i8, ptr %71, i64 %67
   %73 = getelementptr inbounds i8, ptr %.028.i, i64 4096
-  %74 = icmp ule ptr %72, %73
-  %75 = icmp ugt i64 %67, 4096
-  %or.cond.not35.i = or i1 %75, %74
-  %.not30.i = icmp ugt ptr %72, %18
-  %or.cond31.i = and i1 %.not30.i, %or.cond.not35.i
-  %76 = icmp ne i64 %64, 0
-  %or.cond46.not = and i1 %76, %or.cond31.i
-  br i1 %or.cond46.not, label %77, label %GC_base.exit.thread
+  %74 = icmp ugt ptr %72, %73
+  %75 = icmp ult i64 %67, 4097
+  %or.cond.not35.i.not50 = and i1 %75, %74
+  %.not30.i = icmp ule ptr %72, %18
+  %or.cond31.i.not47 = or i1 %.not30.i, %or.cond.not35.i.not50
+  %76 = icmp eq i64 %64, 0
+  %or.cond46 = or i1 %76, %or.cond31.i.not47
+  br i1 %or.cond46, label %GC_base.exit.thread, label %77
 
 77:                                               ; preds = %62
   %78 = ptrtoint ptr %71 to i64
@@ -39691,7 +39691,7 @@ GC_is_marked.exit:                                ; preds = %82
   br i1 %.not37, label %126, label %GC_base.exit.thread
 
 98:                                               ; preds = %.lr.ph
-  %99 = getelementptr inbounds i8, ptr %.03249, i64 16
+  %99 = getelementptr inbounds i8, ptr %.03252, i64 16
   %100 = load i64, ptr %99, align 8
   %101 = xor i64 %100, -1
   %102 = lshr i64 %101, 22
@@ -39725,29 +39725,29 @@ GC_is_marked.exit41:                              ; preds = %106
   br i1 %.not36, label %122, label %GC_base.exit.thread
 
 122:                                              ; preds = %GC_is_marked.exit41
-  %123 = load i64, ptr %.03249, align 8
+  %123 = load i64, ptr %.03252, align 8
   %124 = xor i64 %123, -1
   %125 = inttoptr i64 %124 to ptr
   store ptr null, ptr %125, align 8
   br label %126
 
 126:                                              ; preds = %GC_is_marked.exit, %122
-  %127 = icmp eq ptr %.02951, null
+  %127 = icmp eq ptr %.02954, null
   br i1 %127, label %128, label %131
 
 128:                                              ; preds = %126
   %129 = load ptr, ptr %0, align 8
-  %130 = getelementptr inbounds ptr, ptr %129, i64 %.053
+  %130 = getelementptr inbounds ptr, ptr %129, i64 %.056
   store ptr %14, ptr %130, align 8
   br label %142
 
 131:                                              ; preds = %126
-  %132 = getelementptr inbounds i8, ptr %.02951, i64 8
+  %132 = getelementptr inbounds i8, ptr %.02954, i64 8
   store ptr %14, ptr %132, align 8
   br i1 %.b34, label %133, label %142
 
 133:                                              ; preds = %131
-  %134 = ptrtoint ptr %.02951 to i64
+  %134 = ptrtoint ptr %.02954 to i64
   %135 = lshr i64 %134, 12
   %136 = lshr i64 %134, 18
   %137 = and i64 %136, 4095
@@ -39758,8 +39758,8 @@ GC_is_marked.exit41:                              ; preds = %106
   br label %142
 
 142:                                              ; preds = %133, %131, %128
-  %.2 = phi i32 [ 1, %128 ], [ %.13150, %133 ], [ %.13150, %131 ]
-  %143 = ptrtoint ptr %.03249 to i64
+  %.2 = phi i32 [ 1, %128 ], [ %.13153, %133 ], [ %.13153, %131 ]
+  %143 = ptrtoint ptr %.03252 to i64
   %144 = lshr i64 %143, 22
   %145 = and i64 %144, 2047
   %146 = getelementptr inbounds %struct._GC_arrays, ptr @GC_arrays, i64 0, i32 68, i64 %145
@@ -39812,14 +39812,14 @@ GC_clear_mark_bit.exit:                           ; preds = %GC_find_header.exit
   br label %GC_base.exit.thread
 
 GC_base.exit.thread:                              ; preds = %62, %GC_find_starting_hblk.exit.i, %31, %15, %GC_is_marked.exit41, %GC_is_marked.exit, %GC_clear_mark_bit.exit
-  %.3 = phi i32 [ %.2, %GC_clear_mark_bit.exit ], [ %.13150, %GC_is_marked.exit ], [ %.13150, %GC_is_marked.exit41 ], [ %.13150, %15 ], [ %.13150, %31 ], [ %.13150, %GC_find_starting_hblk.exit.i ], [ %.13150, %62 ]
-  %.1 = phi ptr [ %.02951, %GC_clear_mark_bit.exit ], [ %.03249, %GC_is_marked.exit ], [ %.03249, %GC_is_marked.exit41 ], [ %.03249, %15 ], [ %.03249, %31 ], [ %.03249, %GC_find_starting_hblk.exit.i ], [ %.03249, %62 ]
+  %.3 = phi i32 [ %.2, %GC_clear_mark_bit.exit ], [ %.13153, %GC_is_marked.exit ], [ %.13153, %GC_is_marked.exit41 ], [ %.13153, %15 ], [ %.13153, %31 ], [ %.13153, %GC_find_starting_hblk.exit.i ], [ %.13153, %62 ]
+  %.1 = phi ptr [ %.02954, %GC_clear_mark_bit.exit ], [ %.03252, %GC_is_marked.exit ], [ %.03252, %GC_is_marked.exit41 ], [ %.03252, %15 ], [ %.03252, %31 ], [ %.03252, %GC_find_starting_hblk.exit.i ], [ %.03252, %62 ]
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !228
 
 ._crit_edge:                                      ; preds = %GC_base.exit.thread, %9
-  %.131.lcssa = phi i32 [ %.03052, %9 ], [ %.3, %GC_base.exit.thread ]
-  %174 = add i64 %.053, 1
+  %.131.lcssa = phi i32 [ %.03055, %9 ], [ %.3, %GC_base.exit.thread ]
+  %174 = add i64 %.056, 1
   %.0.highbits = lshr i64 %174, %5
   %175 = icmp eq i64 %.0.highbits, 0
   br i1 %175, label %9, label %176, !llvm.loop !229

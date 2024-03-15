@@ -272,14 +272,14 @@ define hidden noalias ptr @blf_get_xml_channel_name(ptr noundef %0, ptr noundef 
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @blf_parse_xml_port(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #1 {
-  %6 = icmp eq ptr %0, null
-  %7 = icmp eq ptr %1, null
-  %or.cond = or i1 %6, %7
-  %8 = icmp eq ptr %2, null
-  %or.cond3 = or i1 %or.cond, %8
-  %.not = icmp ule ptr %1, %0
-  %or.cond50.not = or i1 %.not, %or.cond3
-  br i1 %or.cond50.not, label %53, label %9
+  %6 = icmp ne ptr %0, null
+  %7 = icmp ne ptr %1, null
+  %or.cond.not55 = and i1 %6, %7
+  %8 = icmp ne ptr %2, null
+  %or.cond3.not52 = and i1 %or.cond.not55, %8
+  %.not = icmp ugt ptr %1, %0
+  %or.cond50 = and i1 %.not, %or.cond3.not52
+  br i1 %or.cond50, label %9, label %53
 
 9:                                                ; preds = %5
   %10 = ptrtoint ptr %1 to i64
@@ -304,12 +304,12 @@ define hidden noundef i32 @blf_parse_xml_port(ptr noundef %0, ptr noundef %1, pt
   store i16 -1, ptr %3, align 2
   store i32 0, ptr %4, align 4
   %21 = load ptr, ptr %18, align 8
-  %.not4851 = icmp eq ptr %21, null
-  br i1 %.not4851, label %._crit_edge, label %.lr.ph
+  %.not4856 = icmp eq ptr %21, null
+  br i1 %.not4856, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %20, %48
   %22 = phi ptr [ %52, %48 ], [ %21, %20 ]
-  %.052 = phi i32 [ %49, %48 ], [ 0, %20 ]
+  %.057 = phi i32 [ %49, %48 ], [ 0, %20 ]
   %23 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(6) @blf_parse_xml_port.name_magic, i64 noundef 5) #15
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %25, label %31
@@ -360,7 +360,7 @@ define hidden noundef i32 @blf_parse_xml_port(ptr noundef %0, ptr noundef %1, pt
   br label %48
 
 48:                                               ; preds = %28, %25, %38, %47, %44, %41, %34, %37
-  %49 = add i32 %.052, 1
+  %49 = add i32 %.057, 1
   %50 = sext i32 %49 to i64
   %51 = getelementptr ptr, ptr %18, i64 %50
   %52 = load ptr, ptr %51, align 8
@@ -431,14 +431,14 @@ define hidden i32 @blf_get_xml_pkt_encap(ptr noundef %0, ptr noundef %1) local_u
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @blf_strmem(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
-  %4 = icmp eq ptr %0, null
-  %5 = icmp eq ptr %1, null
-  %or.cond = or i1 %4, %5
-  %6 = icmp eq ptr %2, null
-  %or.cond3 = or i1 %or.cond, %6
-  %.not = icmp ule ptr %1, %0
-  %or.cond17.not = or i1 %.not, %or.cond3
-  br i1 %or.cond17.not, label %13, label %7
+  %4 = icmp ne ptr %0, null
+  %5 = icmp ne ptr %1, null
+  %or.cond.not22 = and i1 %4, %5
+  %6 = icmp ne ptr %2, null
+  %or.cond3.not19 = and i1 %or.cond.not22, %6
+  %.not = icmp ugt ptr %1, %0
+  %or.cond17 = and i1 %.not, %or.cond3.not19
+  br i1 %or.cond17, label %7, label %13
 
 7:                                                ; preds = %3
   %8 = ptrtoint ptr %1 to i64
@@ -4875,8 +4875,8 @@ define internal fastcc void @blf_set_xml_channels(ptr nocapture noundef readonly
 
 10:                                               ; preds = %3
   %11 = getelementptr i8, ptr %1, i64 %2
-  %.not.i.not = icmp ugt ptr %11, %1
-  br i1 %.not.i.not, label %blf_strmem.exit, label %blf_strmem.exit.thread
+  %.not.i = icmp ugt ptr %11, %1
+  br i1 %.not.i, label %blf_strmem.exit, label %blf_strmem.exit.thread
 
 blf_strmem.exit:                                  ; preds = %10
   %12 = tail call ptr @ws_memmem(ptr noundef nonnull %1, i64 noundef %2, ptr noundef nonnull @blf_set_xml_channels.xml_magic, i64 noundef 38) #14
@@ -4885,10 +4885,10 @@ blf_strmem.exit:                                  ; preds = %10
 
 14:                                               ; preds = %blf_strmem.exit
   %15 = getelementptr i8, ptr %12, i64 38
-  %16 = icmp eq ptr %15, null
-  %.not.i165 = icmp ule ptr %11, %15
-  %or.cond17.not.i166 = or i1 %16, %.not.i165
-  br i1 %or.cond17.not.i166, label %blf_strmem.exit.thread, label %blf_strmem.exit173
+  %16 = icmp ne ptr %15, null
+  %.not.i165 = icmp ugt ptr %11, %15
+  %or.cond17.i166 = and i1 %16, %.not.i165
+  br i1 %or.cond17.i166, label %blf_strmem.exit173, label %blf_strmem.exit.thread
 
 blf_strmem.exit173:                               ; preds = %14
   %17 = ptrtoint ptr %11 to i64
@@ -4898,308 +4898,308 @@ blf_strmem.exit173:                               ; preds = %14
   %21 = tail call ptr @ws_memmem(ptr noundef nonnull %15, i64 noundef %19, ptr noundef nonnull @blf_set_xml_channels.channels_end_magic, i64 noundef 11) #14
   %22 = icmp ne ptr %20, null
   %23 = icmp ne ptr %21, null
-  %or.cond3.not263 = select i1 %22, i1 %23, i1 false
+  %or.cond3.not264 = select i1 %22, i1 %23, i1 false
   %24 = getelementptr i8, ptr %20, i64 10
   %.not = icmp ugt ptr %21, %24
-  %or.cond163 = select i1 %or.cond3.not263, i1 %.not, i1 false
-  br i1 %or.cond163, label %.preheader264, label %blf_strmem.exit.thread
+  %or.cond163 = select i1 %or.cond3.not264, i1 %.not, i1 false
+  br i1 %or.cond163, label %.preheader270, label %blf_strmem.exit.thread
 
-.preheader264:                                    ; preds = %blf_strmem.exit173
+.preheader270:                                    ; preds = %blf_strmem.exit173
   %25 = ptrtoint ptr %21 to i64
   br label %26
 
-26:                                               ; preds = %.preheader264, %.backedge265
-  %.0130267 = phi ptr [ %24, %.preheader264 ], [ %.0130.be, %.backedge265 ]
-  %27 = icmp eq ptr %.0130267, null
-  br i1 %27, label %blf_strmem.exit178, label %28
+26:                                               ; preds = %.preheader270, %.backedge271
+  %.0130273 = phi ptr [ %24, %.preheader270 ], [ %.0130.be, %.backedge271 ]
+  %.not265 = icmp eq ptr %.0130273, null
+  br i1 %.not265, label %blf_strmem.exit178, label %27
 
-28:                                               ; preds = %26
-  %29 = ptrtoint ptr %.0130267 to i64
-  %30 = sub i64 %25, %29
-  %31 = call ptr @ws_memmem(ptr noundef nonnull %.0130267, i64 noundef %30, ptr noundef nonnull @blf_set_xml_channels.channel_start_magic, i64 noundef 9) #14
+27:                                               ; preds = %26
+  %28 = ptrtoint ptr %.0130273 to i64
+  %29 = sub i64 %25, %28
+  %30 = call ptr @ws_memmem(ptr noundef nonnull %.0130273, i64 noundef %29, ptr noundef nonnull @blf_set_xml_channels.channel_start_magic, i64 noundef 9) #14
   br label %blf_strmem.exit178
 
-blf_strmem.exit178:                               ; preds = %26, %28
-  %.0.i177 = phi ptr [ %31, %28 ], [ null, %26 ]
-  %32 = getelementptr i8, ptr %.0130267, i64 9
-  %33 = icmp eq ptr %32, null
-  %.not.i180 = icmp ule ptr %21, %32
-  %or.cond17.not.i181 = or i1 %.not.i180, %33
-  br i1 %or.cond17.not.i181, label %blf_strmem.exit.thread, label %blf_strmem.exit183
+blf_strmem.exit178:                               ; preds = %26, %27
+  %.0.i177 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %31 = getelementptr i8, ptr %.0130273, i64 9
+  %32 = icmp ne ptr %31, null
+  %.not.i180 = icmp ugt ptr %21, %31
+  %or.cond17.i181 = and i1 %.not.i180, %32
+  br i1 %or.cond17.i181, label %blf_strmem.exit183, label %blf_strmem.exit.thread
 
 blf_strmem.exit183:                               ; preds = %blf_strmem.exit178
-  %34 = ptrtoint ptr %32 to i64
-  %35 = sub i64 %25, %34
-  %36 = call ptr @ws_memmem(ptr noundef nonnull %32, i64 noundef %35, ptr noundef nonnull @blf_set_xml_channels.channel_end_magic, i64 noundef 10) #14
-  %37 = icmp eq ptr %.0.i177, null
-  %38 = icmp eq ptr %36, null
-  %or.cond5 = select i1 %37, i1 true, i1 %38
-  %39 = getelementptr i8, ptr %.0.i177, i64 9
-  %.not157 = icmp ule ptr %36, %39
-  %or.cond162.not = select i1 %or.cond5, i1 true, i1 %.not157
-  br i1 %or.cond162.not, label %blf_strmem.exit.thread, label %40
+  %33 = ptrtoint ptr %31 to i64
+  %34 = sub i64 %25, %33
+  %35 = call ptr @ws_memmem(ptr noundef nonnull %31, i64 noundef %34, ptr noundef nonnull @blf_set_xml_channels.channel_end_magic, i64 noundef 10) #14
+  %36 = icmp ne ptr %.0.i177, null
+  %37 = icmp ne ptr %35, null
+  %or.cond5.not268 = select i1 %36, i1 %37, i1 false
+  %38 = getelementptr i8, ptr %.0.i177, i64 9
+  %.not157 = icmp ugt ptr %35, %38
+  %or.cond162 = select i1 %or.cond5.not268, i1 %.not157, i1 false
+  br i1 %or.cond162, label %39, label %blf_strmem.exit.thread
 
-40:                                               ; preds = %blf_strmem.exit183
-  %.not.i185.not = icmp ugt ptr %36, %.0.i177
-  br i1 %.not.i185.not, label %blf_strmem.exit188, label %.backedge265
+39:                                               ; preds = %blf_strmem.exit183
+  %.not.i185 = icmp ugt ptr %35, %.0.i177
+  br i1 %.not.i185, label %blf_strmem.exit188, label %.backedge271
 
-blf_strmem.exit188:                               ; preds = %40
-  %41 = ptrtoint ptr %36 to i64
-  %42 = ptrtoint ptr %.0.i177 to i64
-  %43 = sub i64 %41, %42
-  %44 = call ptr @ws_memmem(ptr noundef nonnull %.0.i177, i64 noundef %43, ptr noundef nonnull @blf_set_xml_channels.number_start_magic, i64 noundef 8) #14
-  %45 = icmp eq ptr %44, null
-  br i1 %45, label %.backedge265, label %47
+blf_strmem.exit188:                               ; preds = %39
+  %40 = ptrtoint ptr %35 to i64
+  %41 = ptrtoint ptr %.0.i177 to i64
+  %42 = sub i64 %40, %41
+  %43 = call ptr @ws_memmem(ptr noundef nonnull %.0.i177, i64 noundef %42, ptr noundef nonnull @blf_set_xml_channels.number_start_magic, i64 noundef 8) #14
+  %44 = icmp eq ptr %43, null
+  br i1 %44, label %.backedge271, label %46
 
-.backedge265:                                     ; preds = %85, %94, %blf_strmem.exit215, %79, %blf_strmem.exit210, %blf_strmem.exit205, %69, %blf_strmem.exit200, %blf_get_xml_channel_number.exit, %blf_get_xml_channel_number.exit.thread, %blf_strmem.exit193, %47, %blf_strmem.exit188, %40, %blf_strmem.exit222.thread, %blf_strmem.exit227.thread, %._crit_edge
-  %.0130.be = getelementptr i8, ptr %36, i64 10
-  %46 = icmp ult ptr %.0130.be, %21
-  br i1 %46, label %26, label %blf_strmem.exit.thread, !llvm.loop !13
+.backedge271:                                     ; preds = %84, %93, %blf_strmem.exit215, %78, %blf_strmem.exit210, %blf_strmem.exit205, %68, %blf_strmem.exit200, %blf_get_xml_channel_number.exit, %blf_get_xml_channel_number.exit.thread, %blf_strmem.exit193, %46, %blf_strmem.exit188, %39, %blf_strmem.exit222.thread, %blf_strmem.exit227.thread, %._crit_edge
+  %.0130.be = getelementptr i8, ptr %35, i64 10
+  %45 = icmp ult ptr %.0130.be, %21
+  br i1 %45, label %26, label %blf_strmem.exit.thread, !llvm.loop !13
 
-47:                                               ; preds = %blf_strmem.exit188
-  %48 = getelementptr i8, ptr %44, i64 8
-  %49 = icmp eq ptr %48, null
-  %.not.i190 = icmp ule ptr %36, %48
-  %or.cond17.not.i191 = or i1 %49, %.not.i190
-  br i1 %or.cond17.not.i191, label %.backedge265, label %blf_strmem.exit193
+46:                                               ; preds = %blf_strmem.exit188
+  %47 = getelementptr i8, ptr %43, i64 8
+  %48 = icmp ne ptr %47, null
+  %.not.i190 = icmp ugt ptr %35, %47
+  %or.cond17.i191 = and i1 %.not.i190, %48
+  br i1 %or.cond17.i191, label %blf_strmem.exit193, label %.backedge271
 
-blf_strmem.exit193:                               ; preds = %47
-  %50 = ptrtoint ptr %48 to i64
-  %51 = sub i64 %41, %50
-  %52 = call ptr @ws_memmem(ptr noundef nonnull %48, i64 noundef %51, ptr noundef nonnull @blf_set_xml_channels.number_end_magic, i64 noundef 1) #14
-  %53 = icmp eq ptr %52, null
-  br i1 %53, label %.backedge265, label %54
+blf_strmem.exit193:                               ; preds = %46
+  %49 = ptrtoint ptr %47 to i64
+  %50 = sub i64 %40, %49
+  %51 = call ptr @ws_memmem(ptr noundef nonnull %47, i64 noundef %50, ptr noundef nonnull @blf_set_xml_channels.number_end_magic, i64 noundef 1) #14
+  %52 = icmp eq ptr %51, null
+  br i1 %52, label %.backedge271, label %53
 
-54:                                               ; preds = %blf_strmem.exit193
+53:                                               ; preds = %blf_strmem.exit193
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4)
-  %.not.i194 = icmp ugt ptr %52, %48
-  br i1 %.not.i194, label %55, label %blf_get_xml_channel_number.exit.thread
+  %.not.i194 = icmp ugt ptr %51, %47
+  br i1 %.not.i194, label %54, label %blf_get_xml_channel_number.exit.thread
 
-55:                                               ; preds = %54
-  %56 = ptrtoint ptr %52 to i64
-  %57 = sub i64 %56, %50
-  %58 = add i64 %57, 1
-  %59 = call noalias ptr @g_try_malloc(i64 noundef %58) #13
-  %60 = icmp eq ptr %59, null
-  br i1 %60, label %blf_get_xml_channel_number.exit.thread, label %61
+54:                                               ; preds = %53
+  %55 = ptrtoint ptr %51 to i64
+  %56 = sub i64 %55, %49
+  %57 = add i64 %56, 1
+  %58 = call noalias ptr @g_try_malloc(i64 noundef %57) #13
+  %59 = icmp eq ptr %58, null
+  br i1 %59, label %blf_get_xml_channel_number.exit.thread, label %60
 
-61:                                               ; preds = %55
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %59, ptr nonnull align 1 %48, i64 %57, i1 false)
-  %62 = getelementptr i8, ptr %59, i64 %57
-  store i8 0, ptr %62, align 1
-  %63 = call zeroext i1 @ws_strtou16(ptr noundef nonnull %59, ptr noundef null, ptr noundef nonnull %4) #14
-  br i1 %63, label %blf_get_xml_channel_number.exit, label %64
+60:                                               ; preds = %54
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %58, ptr nonnull align 1 %47, i64 %56, i1 false)
+  %61 = getelementptr i8, ptr %58, i64 %56
+  store i8 0, ptr %61, align 1
+  %62 = call zeroext i1 @ws_strtou16(ptr noundef nonnull %58, ptr noundef null, ptr noundef nonnull %4) #14
+  br i1 %62, label %blf_get_xml_channel_number.exit, label %63
 
-64:                                               ; preds = %61
+63:                                               ; preds = %60
   store i16 -1, ptr %4, align 2
   br label %blf_get_xml_channel_number.exit
 
-blf_get_xml_channel_number.exit.thread:           ; preds = %54, %55
+blf_get_xml_channel_number.exit.thread:           ; preds = %53, %54
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4)
-  br label %.backedge265
+  br label %.backedge271
 
-blf_get_xml_channel_number.exit:                  ; preds = %61, %64
-  call void @g_free(ptr noundef nonnull %59) #14
-  %65 = load i16, ptr %4, align 2
+blf_get_xml_channel_number.exit:                  ; preds = %60, %63
+  call void @g_free(ptr noundef nonnull %58) #14
+  %64 = load i16, ptr %4, align 2
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4)
-  %66 = icmp eq i16 %65, -1
-  br i1 %66, label %.backedge265, label %blf_strmem.exit200
+  %65 = icmp eq i16 %64, -1
+  br i1 %65, label %.backedge271, label %blf_strmem.exit200
 
 blf_strmem.exit200:                               ; preds = %blf_get_xml_channel_number.exit
-  %67 = call ptr @ws_memmem(ptr noundef nonnull %.0.i177, i64 noundef %43, ptr noundef nonnull @blf_set_xml_channels.type_start_magic, i64 noundef 6) #14
-  %68 = icmp eq ptr %67, null
-  br i1 %68, label %.backedge265, label %69
+  %66 = call ptr @ws_memmem(ptr noundef nonnull %.0.i177, i64 noundef %42, ptr noundef nonnull @blf_set_xml_channels.type_start_magic, i64 noundef 6) #14
+  %67 = icmp eq ptr %66, null
+  br i1 %67, label %.backedge271, label %68
 
-69:                                               ; preds = %blf_strmem.exit200
-  %70 = getelementptr i8, ptr %67, i64 6
-  %71 = icmp eq ptr %70, null
-  %.not.i202 = icmp ule ptr %36, %70
-  %or.cond17.not.i203 = or i1 %71, %.not.i202
-  br i1 %or.cond17.not.i203, label %.backedge265, label %blf_strmem.exit205
+68:                                               ; preds = %blf_strmem.exit200
+  %69 = getelementptr i8, ptr %66, i64 6
+  %70 = icmp ne ptr %69, null
+  %.not.i202 = icmp ugt ptr %35, %69
+  %or.cond17.i203 = and i1 %.not.i202, %70
+  br i1 %or.cond17.i203, label %blf_strmem.exit205, label %.backedge271
 
-blf_strmem.exit205:                               ; preds = %69
-  %72 = ptrtoint ptr %70 to i64
-  %73 = sub i64 %41, %72
-  %74 = call ptr @ws_memmem(ptr noundef nonnull %70, i64 noundef %73, ptr noundef nonnull @blf_set_xml_channels.type_end_magic, i64 noundef 1) #14
-  %75 = icmp eq ptr %74, null
-  br i1 %75, label %.backedge265, label %blf_strmem.exit210
+blf_strmem.exit205:                               ; preds = %68
+  %71 = ptrtoint ptr %69 to i64
+  %72 = sub i64 %40, %71
+  %73 = call ptr @ws_memmem(ptr noundef nonnull %69, i64 noundef %72, ptr noundef nonnull @blf_set_xml_channels.type_end_magic, i64 noundef 1) #14
+  %74 = icmp eq ptr %73, null
+  br i1 %74, label %.backedge271, label %blf_strmem.exit210
 
 blf_strmem.exit210:                               ; preds = %blf_strmem.exit205
-  %76 = call i32 @blf_get_xml_pkt_encap(ptr noundef nonnull %70, ptr noundef nonnull %74), !range !14
-  %77 = call ptr @ws_memmem(ptr noundef nonnull %.0.i177, i64 noundef %43, ptr noundef nonnull @blf_set_xml_channels.network_start_magic, i64 noundef 9) #14
-  %78 = icmp eq ptr %77, null
-  br i1 %78, label %.backedge265, label %79
+  %75 = call i32 @blf_get_xml_pkt_encap(ptr noundef nonnull %69, ptr noundef nonnull %73), !range !14
+  %76 = call ptr @ws_memmem(ptr noundef nonnull %.0.i177, i64 noundef %42, ptr noundef nonnull @blf_set_xml_channels.network_start_magic, i64 noundef 9) #14
+  %77 = icmp eq ptr %76, null
+  br i1 %77, label %.backedge271, label %78
 
-79:                                               ; preds = %blf_strmem.exit210
-  %80 = getelementptr i8, ptr %77, i64 9
-  %81 = icmp eq ptr %80, null
-  %.not.i212 = icmp ule ptr %36, %80
-  %or.cond17.not.i213 = or i1 %81, %.not.i212
-  br i1 %or.cond17.not.i213, label %.backedge265, label %blf_strmem.exit215
+78:                                               ; preds = %blf_strmem.exit210
+  %79 = getelementptr i8, ptr %76, i64 9
+  %80 = icmp ne ptr %79, null
+  %.not.i212 = icmp ugt ptr %35, %79
+  %or.cond17.i213 = and i1 %.not.i212, %80
+  br i1 %or.cond17.i213, label %blf_strmem.exit215, label %.backedge271
 
-blf_strmem.exit215:                               ; preds = %79
-  %82 = ptrtoint ptr %80 to i64
-  %83 = sub i64 %41, %82
-  %84 = call ptr @ws_memmem(ptr noundef nonnull %80, i64 noundef %83, ptr noundef nonnull @blf_set_xml_channels.network_end_magic, i64 noundef 1) #14
-  %.not.i216 = icmp ugt ptr %84, %80
-  br i1 %.not.i216, label %85, label %.backedge265
+blf_strmem.exit215:                               ; preds = %78
+  %81 = ptrtoint ptr %79 to i64
+  %82 = sub i64 %40, %81
+  %83 = call ptr @ws_memmem(ptr noundef nonnull %79, i64 noundef %82, ptr noundef nonnull @blf_set_xml_channels.network_end_magic, i64 noundef 1) #14
+  %.not.i216 = icmp ugt ptr %83, %79
+  br i1 %.not.i216, label %84, label %.backedge271
 
-85:                                               ; preds = %blf_strmem.exit215
-  %86 = ptrtoint ptr %84 to i64
-  %87 = sub i64 %86, %82
-  %88 = add i64 %87, 1
-  %89 = call noalias ptr @g_try_malloc(i64 noundef %88) #13
-  %90 = icmp eq ptr %89, null
-  br i1 %90, label %.backedge265, label %91
+84:                                               ; preds = %blf_strmem.exit215
+  %85 = ptrtoint ptr %83 to i64
+  %86 = sub i64 %85, %81
+  %87 = add i64 %86, 1
+  %88 = call noalias ptr @g_try_malloc(i64 noundef %87) #13
+  %89 = icmp eq ptr %88, null
+  br i1 %89, label %.backedge271, label %90
 
-91:                                               ; preds = %85
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %89, ptr nonnull align 1 %80, i64 %87, i1 false)
-  %92 = getelementptr i8, ptr %89, i64 %87
-  store i8 0, ptr %92, align 1
-  %char0 = load i8, ptr %89, align 1
-  %93 = icmp eq i8 %char0, 0
-  br i1 %93, label %94, label %95
+90:                                               ; preds = %84
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %88, ptr nonnull align 1 %79, i64 %86, i1 false)
+  %91 = getelementptr i8, ptr %88, i64 %86
+  store i8 0, ptr %91, align 1
+  %char0 = load i8, ptr %88, align 1
+  %92 = icmp eq i8 %char0, 0
+  br i1 %92, label %93, label %94
 
-94:                                               ; preds = %91
-  call void @g_free(ptr noundef nonnull %89) #14
-  br label %.backedge265
+93:                                               ; preds = %90
+  call void @g_free(ptr noundef nonnull %88) #14
+  br label %.backedge271
 
-95:                                               ; preds = %91
-  %96 = call fastcc i32 @blf_prepare_interface_name(ptr noundef %0, i32 noundef %76, i16 noundef zeroext %65, i16 noundef zeroext -1, ptr noundef nonnull %89, i32 noundef 1), !range !6
-  %97 = getelementptr i8, ptr %52, i64 1
-  %98 = getelementptr i8, ptr %74, i64 1
-  %99 = icmp ugt ptr %97, %98
-  %100 = select i1 %99, ptr %97, ptr %98
-  %101 = getelementptr i8, ptr %84, i64 1
-  %102 = icmp ugt ptr %100, %101
-  %. = select i1 %102, ptr %100, ptr %101
-  %103 = icmp eq ptr %., null
-  %.not.i219 = icmp ule ptr %36, %.
-  %or.cond17.not.i220 = or i1 %103, %.not.i219
-  br i1 %or.cond17.not.i220, label %blf_strmem.exit222.thread, label %blf_strmem.exit222
+94:                                               ; preds = %90
+  %95 = call fastcc i32 @blf_prepare_interface_name(ptr noundef %0, i32 noundef %75, i16 noundef zeroext %64, i16 noundef zeroext -1, ptr noundef nonnull %88, i32 noundef 1), !range !6
+  %96 = getelementptr i8, ptr %51, i64 1
+  %97 = getelementptr i8, ptr %73, i64 1
+  %98 = icmp ugt ptr %96, %97
+  %99 = select i1 %98, ptr %96, ptr %97
+  %100 = getelementptr i8, ptr %83, i64 1
+  %101 = icmp ugt ptr %99, %100
+  %. = select i1 %101, ptr %99, ptr %100
+  %102 = icmp ne ptr %., null
+  %.not.i219 = icmp ugt ptr %35, %.
+  %or.cond17.i220 = and i1 %.not.i219, %102
+  br i1 %or.cond17.i220, label %blf_strmem.exit222, label %blf_strmem.exit222.thread
 
-blf_strmem.exit222:                               ; preds = %95
-  %104 = ptrtoint ptr %. to i64
-  %105 = sub i64 %41, %104
-  %106 = call ptr @ws_memmem(ptr noundef nonnull %., i64 noundef %105, ptr noundef nonnull @blf_set_xml_channels.ports_start_magic, i64 noundef 20) #14
-  %107 = icmp eq ptr %106, null
-  br i1 %107, label %blf_strmem.exit222.thread, label %108
+blf_strmem.exit222:                               ; preds = %94
+  %103 = ptrtoint ptr %. to i64
+  %104 = sub i64 %40, %103
+  %105 = call ptr @ws_memmem(ptr noundef nonnull %., i64 noundef %104, ptr noundef nonnull @blf_set_xml_channels.ports_start_magic, i64 noundef 20) #14
+  %106 = icmp eq ptr %105, null
+  br i1 %106, label %blf_strmem.exit222.thread, label %107
 
-blf_strmem.exit222.thread:                        ; preds = %95, %blf_strmem.exit222
-  call void @g_free(ptr noundef nonnull %89) #14
-  br label %.backedge265
+blf_strmem.exit222.thread:                        ; preds = %94, %blf_strmem.exit222
+  call void @g_free(ptr noundef nonnull %88) #14
+  br label %.backedge271
 
-108:                                              ; preds = %blf_strmem.exit222
-  %109 = getelementptr i8, ptr %106, i64 20
-  %110 = icmp eq ptr %109, null
-  %.not.i224 = icmp ule ptr %36, %109
-  %or.cond17.not.i225 = or i1 %110, %.not.i224
-  br i1 %or.cond17.not.i225, label %blf_strmem.exit227.thread, label %blf_strmem.exit227
+107:                                              ; preds = %blf_strmem.exit222
+  %108 = getelementptr i8, ptr %105, i64 20
+  %109 = icmp ne ptr %108, null
+  %.not.i224 = icmp ugt ptr %35, %108
+  %or.cond17.i225 = and i1 %.not.i224, %109
+  br i1 %or.cond17.i225, label %blf_strmem.exit227, label %blf_strmem.exit227.thread
 
-blf_strmem.exit227:                               ; preds = %108
-  %111 = ptrtoint ptr %109 to i64
-  %112 = sub i64 %41, %111
-  %113 = call ptr @ws_memmem(ptr noundef nonnull %109, i64 noundef %112, ptr noundef nonnull @blf_set_xml_channels.ports_end_magic, i64 noundef 8) #14
-  %114 = icmp eq ptr %113, null
-  br i1 %114, label %blf_strmem.exit227.thread, label %.preheader
+blf_strmem.exit227:                               ; preds = %107
+  %110 = ptrtoint ptr %108 to i64
+  %111 = sub i64 %40, %110
+  %112 = call ptr @ws_memmem(ptr noundef nonnull %108, i64 noundef %111, ptr noundef nonnull @blf_set_xml_channels.ports_end_magic, i64 noundef 8) #14
+  %113 = icmp eq ptr %112, null
+  br i1 %113, label %blf_strmem.exit227.thread, label %.preheader
 
 .preheader:                                       ; preds = %blf_strmem.exit227
-  %115 = icmp ult ptr %109, %113
-  br i1 %115, label %.lr.ph, label %._crit_edge
+  %114 = icmp ult ptr %108, %112
+  br i1 %114, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %116 = ptrtoint ptr %113 to i64
-  %117 = getelementptr i8, ptr %113, i64 8
-  br label %118
+  %115 = ptrtoint ptr %112 to i64
+  %116 = getelementptr i8, ptr %112, i64 8
+  br label %117
 
-blf_strmem.exit227.thread:                        ; preds = %108, %blf_strmem.exit227
-  call void @g_free(ptr noundef nonnull %89) #14
-  br label %.backedge265
+blf_strmem.exit227.thread:                        ; preds = %107, %blf_strmem.exit227
+  call void @g_free(ptr noundef nonnull %88) #14
+  br label %.backedge271
 
-118:                                              ; preds = %.lr.ph, %.backedge
-  %.1266 = phi ptr [ %109, %.lr.ph ], [ %.1.be, %.backedge ]
-  %119 = icmp eq ptr %.1266, null
-  br i1 %119, label %blf_strmem.exit232, label %120
+117:                                              ; preds = %.lr.ph, %.backedge
+  %.1272 = phi ptr [ %108, %.lr.ph ], [ %.1.be, %.backedge ]
+  %.not269 = icmp eq ptr %.1272, null
+  br i1 %.not269, label %blf_strmem.exit232, label %118
 
-120:                                              ; preds = %118
-  %121 = ptrtoint ptr %.1266 to i64
-  %122 = sub i64 %116, %121
-  %123 = call ptr @ws_memmem(ptr noundef nonnull %.1266, i64 noundef %122, ptr noundef nonnull @blf_set_xml_channels.port_start_magic, i64 noundef 17) #14
+118:                                              ; preds = %117
+  %119 = ptrtoint ptr %.1272 to i64
+  %120 = sub i64 %115, %119
+  %121 = call ptr @ws_memmem(ptr noundef nonnull %.1272, i64 noundef %120, ptr noundef nonnull @blf_set_xml_channels.port_start_magic, i64 noundef 17) #14
   br label %blf_strmem.exit232
 
-blf_strmem.exit232:                               ; preds = %118, %120
-  %.0.i231 = phi ptr [ %123, %120 ], [ null, %118 ]
-  %124 = getelementptr i8, ptr %.1266, i64 17
-  %125 = icmp eq ptr %124, null
-  %.not.i234 = icmp ule ptr %113, %124
-  %or.cond17.not.i235 = or i1 %.not.i234, %125
-  br i1 %or.cond17.not.i235, label %.backedge, label %blf_strmem.exit237
+blf_strmem.exit232:                               ; preds = %117, %118
+  %.0.i231 = phi ptr [ %121, %118 ], [ null, %117 ]
+  %122 = getelementptr i8, ptr %.1272, i64 17
+  %123 = icmp ne ptr %122, null
+  %.not.i234 = icmp ugt ptr %112, %122
+  %or.cond17.i235 = and i1 %.not.i234, %123
+  br i1 %or.cond17.i235, label %blf_strmem.exit237, label %.backedge
 
 blf_strmem.exit237:                               ; preds = %blf_strmem.exit232
-  %126 = ptrtoint ptr %124 to i64
-  %127 = sub i64 %116, %126
-  %128 = call ptr @ws_memmem(ptr noundef nonnull %124, i64 noundef %127, ptr noundef nonnull @blf_set_xml_channels.port_end_magic, i64 noundef 6) #14
-  %129 = icmp eq ptr %.0.i231, null
-  %130 = icmp eq ptr %128, null
-  %or.cond7 = select i1 %129, i1 true, i1 %130
-  br i1 %or.cond7, label %.backedge, label %131
+  %124 = ptrtoint ptr %122 to i64
+  %125 = sub i64 %115, %124
+  %126 = call ptr @ws_memmem(ptr noundef nonnull %122, i64 noundef %125, ptr noundef nonnull @blf_set_xml_channels.port_end_magic, i64 noundef 6) #14
+  %127 = icmp eq ptr %.0.i231, null
+  %128 = icmp eq ptr %126, null
+  %or.cond7 = select i1 %127, i1 true, i1 %128
+  br i1 %or.cond7, label %.backedge, label %129
 
-131:                                              ; preds = %blf_strmem.exit237
-  %132 = getelementptr i8, ptr %.0.i231, i64 17
-  %.not158 = icmp ugt ptr %128, %132
-  br i1 %.not158, label %134, label %.backedge
+129:                                              ; preds = %blf_strmem.exit237
+  %130 = getelementptr i8, ptr %.0.i231, i64 17
+  %.not158 = icmp ugt ptr %126, %130
+  br i1 %.not158, label %132, label %.backedge
 
-.backedge:                                        ; preds = %blf_strmem.exit237, %131, %blf_strmem.exit232, %143, %151
-  %.1.be = phi ptr [ %144, %143 ], [ %152, %151 ], [ %117, %blf_strmem.exit232 ], [ %117, %131 ], [ %117, %blf_strmem.exit237 ]
-  %133 = icmp ult ptr %.1.be, %113
-  br i1 %133, label %118, label %._crit_edge, !llvm.loop !15
+.backedge:                                        ; preds = %blf_strmem.exit237, %129, %blf_strmem.exit232, %141, %149
+  %.1.be = phi ptr [ %142, %141 ], [ %150, %149 ], [ %116, %blf_strmem.exit232 ], [ %116, %129 ], [ %116, %blf_strmem.exit237 ]
+  %131 = icmp ult ptr %.1.be, %112
+  br i1 %131, label %117, label %._crit_edge, !llvm.loop !15
 
-134:                                              ; preds = %131
-  %135 = call i32 @blf_parse_xml_port(ptr noundef %132, ptr noundef nonnull %128, ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %7), !range !6
-  %136 = icmp eq i32 %135, 0
-  %137 = load ptr, ptr %6, align 8
-  %138 = icmp eq ptr %137, null
-  %or.cond9 = select i1 %136, i1 true, i1 %138
-  %139 = load i16, ptr %5, align 2
-  %140 = icmp eq i16 %139, -1
-  %or.cond12 = select i1 %or.cond9, i1 true, i1 %140
-  br i1 %or.cond12, label %141, label %145
+132:                                              ; preds = %129
+  %133 = call i32 @blf_parse_xml_port(ptr noundef %130, ptr noundef nonnull %126, ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %7), !range !6
+  %134 = icmp eq i32 %133, 0
+  %135 = load ptr, ptr %6, align 8
+  %136 = icmp eq ptr %135, null
+  %or.cond9 = select i1 %134, i1 true, i1 %136
+  %137 = load i16, ptr %5, align 2
+  %138 = icmp eq i16 %137, -1
+  %or.cond12 = select i1 %or.cond9, i1 true, i1 %138
+  br i1 %or.cond12, label %139, label %143
 
-141:                                              ; preds = %134
-  br i1 %138, label %143, label %142
+139:                                              ; preds = %132
+  br i1 %136, label %141, label %140
 
-142:                                              ; preds = %141
-  call void @g_free(ptr noundef nonnull %137) #14
+140:                                              ; preds = %139
+  call void @g_free(ptr noundef nonnull %135) #14
   store ptr null, ptr %6, align 8
-  br label %143
+  br label %141
 
-143:                                              ; preds = %142, %141
-  %144 = getelementptr i8, ptr %128, i64 6
+141:                                              ; preds = %140, %139
+  %142 = getelementptr i8, ptr %126, i64 6
   br label %.backedge
 
-145:                                              ; preds = %134
-  %146 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.81, ptr noundef nonnull %89, ptr noundef nonnull %137) #14
-  %147 = load i16, ptr %5, align 2
-  %148 = call fastcc i32 @blf_prepare_interface_name(ptr noundef %0, i32 noundef %76, i16 noundef zeroext %65, i16 noundef zeroext %147, ptr noundef %146, i32 noundef 1), !range !6
-  call void @g_free(ptr noundef %146) #14
-  %149 = load ptr, ptr %6, align 8
-  %.not159 = icmp eq ptr %149, null
-  br i1 %.not159, label %151, label %150
+143:                                              ; preds = %132
+  %144 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.81, ptr noundef nonnull %88, ptr noundef nonnull %135) #14
+  %145 = load i16, ptr %5, align 2
+  %146 = call fastcc i32 @blf_prepare_interface_name(ptr noundef %0, i32 noundef %75, i16 noundef zeroext %64, i16 noundef zeroext %145, ptr noundef %144, i32 noundef 1), !range !6
+  call void @g_free(ptr noundef %144) #14
+  %147 = load ptr, ptr %6, align 8
+  %.not159 = icmp eq ptr %147, null
+  br i1 %.not159, label %149, label %148
 
-150:                                              ; preds = %145
-  call void @g_free(ptr noundef nonnull %149) #14
+148:                                              ; preds = %143
+  call void @g_free(ptr noundef nonnull %147) #14
   store ptr null, ptr %6, align 8
-  br label %151
+  br label %149
 
-151:                                              ; preds = %150, %145
-  %152 = getelementptr i8, ptr %128, i64 6
+149:                                              ; preds = %148, %143
+  %150 = getelementptr i8, ptr %126, i64 6
   br label %.backedge
 
 ._crit_edge:                                      ; preds = %.backedge, %.preheader
-  call void @g_free(ptr noundef nonnull %89) #14
-  br label %.backedge265
+  call void @g_free(ptr noundef nonnull %88) #14
+  br label %.backedge271
 
-blf_strmem.exit.thread:                           ; preds = %blf_strmem.exit178, %.backedge265, %blf_strmem.exit183, %14, %10, %blf_strmem.exit173, %blf_strmem.exit, %3
+blf_strmem.exit.thread:                           ; preds = %blf_strmem.exit178, %.backedge271, %blf_strmem.exit183, %14, %10, %blf_strmem.exit173, %blf_strmem.exit, %3
   ret void
 }
 

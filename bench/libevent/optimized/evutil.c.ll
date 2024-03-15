@@ -3678,17 +3678,17 @@ if.then:                                          ; preds = %entry
   %sin_addr = getelementptr inbounds i8, ptr %sa, i64 4
   %1 = load i32, ptr %sin_addr, align 4
   %call.i = tail call i32 @ntohl(i32 noundef %1) #31
-  %cmp.i = icmp eq i32 %call.i, 0
+  %cmp.i = icmp ne i32 %call.i, 0
   %shr.mask.i.i = and i32 %call.i, -16777216
-  %cmp.i.not.i = icmp eq i32 %shr.mask.i.i, 2130706432
-  %or.cond.i = or i1 %cmp.i, %cmp.i.not.i
+  %cmp.i.not.i = icmp ne i32 %shr.mask.i.i, 2130706432
+  %or.cond.i.not13 = and i1 %cmp.i, %cmp.i.not.i
   %and.i.i = and i32 %call.i, -65536
-  %cmp.i4.not.i = icmp eq i32 %and.i.i, -1442971648
-  %or.cond8.i = or i1 %cmp.i4.not.i, %or.cond.i
+  %cmp.i4.not.i = icmp ne i32 %and.i.i, -1442971648
+  %or.cond8.i.not12 = and i1 %cmp.i4.not.i, %or.cond.i.not13
   %2 = and i32 %call.i, -268435456
-  %cmp.i6.i = icmp eq i32 %2, -536870912
-  %narrow.i = or i1 %cmp.i6.i, %or.cond8.i
-  br i1 %narrow.i, label %if.end21, label %do.body
+  %cmp.i6.i = icmp ne i32 %2, -536870912
+  %narrow.i.not = and i1 %cmp.i6.i, %or.cond8.i.not12
+  br i1 %narrow.i.not, label %do.body, label %if.end21
 
 do.body:                                          ; preds = %if.then
   %3 = load i32, ptr @event_debug_logging_mask_, align 4

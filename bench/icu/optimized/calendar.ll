@@ -810,7 +810,7 @@ invoke.cont35:                                    ; preds = %invoke.cont33
   %cmp.i39 = icmp slt i32 %7, 1
   %tobool41 = icmp ne ptr %call36, null
   %or.cond1 = and i1 %tobool41, %cmp.i39
-  br i1 %or.cond1, label %dynamic_cast.notnull49, label %if.then42
+  br i1 %or.cond1, label %dynamic_cast.end51, label %if.then42
 
 if.then42:                                        ; preds = %invoke.cont35
   %cmp.i41 = icmp sgt i32 %7, 0
@@ -831,12 +831,12 @@ lpad32:                                           ; preds = %invoke.cont64, %inv
   call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %actualLoc2) #23
   br label %ehcleanup
 
-dynamic_cast.notnull49:                           ; preds = %invoke.cont35
+dynamic_cast.end51:                               ; preds = %invoke.cont35
   %10 = call ptr @__dynamic_cast(ptr nonnull %call36, ptr nonnull @_ZTIN6icu_758CalendarE, ptr nonnull @_ZTIN6icu_7513UnicodeStringE, i64 -2) #23
   %cmp52.not = icmp eq ptr %10, null
   br i1 %cmp52.not, label %if.end59, label %if.then53
 
-if.then53:                                        ; preds = %dynamic_cast.notnull49
+if.then53:                                        ; preds = %dynamic_cast.end51
   store i32 2, ptr %success, align 4
   %vtable56 = load ptr, ptr %call36, align 8
   %vfn57 = getelementptr inbounds i8, ptr %vtable56, i64 8
@@ -844,7 +844,7 @@ if.then53:                                        ; preds = %dynamic_cast.notnul
   call void %11(ptr noundef nonnull align 8 dereferenceable(618) %call36) #23
   br label %cleanup80.critedge
 
-if.end59:                                         ; preds = %dynamic_cast.notnull49
+if.end59:                                         ; preds = %dynamic_cast.end51
   %vtable60 = load ptr, ptr %call36, align 8
   %vfn61 = getelementptr inbounds i8, ptr %vtable60, i64 184
   %12 = load ptr, ptr %vfn61, align 8
@@ -2706,7 +2706,7 @@ ehcleanup66:                                      ; preds = %ehcleanup, %lpad1, 
   resume { ptr, i32 } %.pn.pn
 }
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #12
 
 declare void @_ZN6icu_756LocaleC1EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(217), ptr noundef, ptr noundef, ptr noundef, ptr noundef) unnamed_addr #5
@@ -7236,13 +7236,13 @@ cond.true:                                        ; preds = %if.then68
   br label %cond.end
 
 cond.false:                                       ; preds = %if.then68
-  %sub69.nonneg = sub i32 0, %sub69
-  %70 = urem i32 %sub69.nonneg, 86400000
-  %.neg = sub nsw i32 0, %70
+  %sub71 = sub nsw i32 0, %sub69
+  %rem72 = urem i32 %sub71, 86400000
+  %sub73 = sub nsw i32 0, %rem72
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i32 [ %rem, %cond.true ], [ %.neg, %cond.false ]
+  %cond = phi i32 [ %rem, %cond.true ], [ %sub73, %cond.false ]
   %cmp74.not = icmp eq i32 %cond, 0
   br i1 %cmp74.not, label %if.end79, label %if.then75
 
@@ -7260,8 +7260,8 @@ if.end79:                                         ; preds = %if.then75, %cond.en
 
 if.then81:                                        ; preds = %if.end79
   %fSkippedWallTime = getelementptr inbounds i8, ptr %this, i64 260
-  %71 = load i32, ptr %fSkippedWallTime, align 4
-  switch i32 %71, label %if.end107 [
+  %70 = load i32, ptr %fSkippedWallTime, align 4
+  switch i32 %70, label %if.end107 [
     i32 1, label %sw.bb82
     i32 0, label %sw.bb86
     i32 2, label %sw.bb90
@@ -7285,18 +7285,18 @@ if.then88:                                        ; preds = %sw.bb86
 
 sw.bb90:                                          ; preds = %if.then81
   %cmp91 = icmp sgt i32 %cond, 0
-  %72 = load double, ptr %fTime.i235, align 8
-  %cond96 = select i1 %cmp91, double %72, double %69
+  %71 = load double, ptr %fTime.i235, align 8
+  %cond96 = select i1 %cmp91, double %71, double %69
   %call97 = call noundef signext i8 @_ZNK6icu_758Calendar34getImmediatePreviousZoneTransitionEdPdR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, double noundef %cond96, ptr noundef nonnull %immediatePrevTrans, ptr noundef nonnull align 4 dereferenceable(4) %status), !range !12
-  %73 = load i32, ptr %status, align 4
-  %cmp.i237 = icmp slt i32 %73, 1
+  %72 = load i32, ptr %status, align 4
+  %cmp.i237 = icmp slt i32 %72, 1
   %tobool100 = icmp ne i8 %call97, 0
   %or.cond1 = and i1 %tobool100, %cmp.i237
   br i1 %or.cond1, label %if.then101, label %if.end107
 
 if.then101:                                       ; preds = %sw.bb90
-  %74 = load double, ptr %immediatePrevTrans, align 8
-  tail call void @_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, double noundef %74, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %73 = load double, ptr %immediatePrevTrans, align 8
+  tail call void @_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, double noundef %73, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %if.end107
 
 if.end107:                                        ; preds = %if.then3.i.i88, %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i98, %if.then10.i.i80, %if.end8.i84, %if.then3.i.i160, %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i170, %if.then10.i.i152, %if.end8.i156, %if.end8.i120, %if.then10.i.i116, %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i134, %if.then3.i.i124, %for.end.sink.split.i, %_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit.thread, %_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit234, %if.end79, %sw.bb90, %if.then101, %sw.bb86, %if.then88, %sw.bb82, %if.then84, %if.then81, %if.then62, %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit, %if.then35, %if.end4, %entry, %_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode.exit, %sw.default, %sw.bb, %if.then3
@@ -9415,7 +9415,7 @@ for.body27.us.us:                                 ; preds = %for.body12.us.us, %
 
 if.else.us.us:                                    ; preds = %for.body27.us.us
   %spec.select.us.us = tail call i32 @llvm.smax.i32(i32 %9, i32 %lineStamp.039.us.us)
-  %indvars.iv.next63 = add nuw i64 %indvars.iv62, 1
+  %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %arrayidx25.us.us = getelementptr inbounds [12 x [8 x i32]], ptr %precedenceTable, i64 %indvars.iv68, i64 %indvars.iv65, i64 %indvars.iv.next63
   %10 = load i32, ptr %arrayidx25.us.us, align 4
   %cmp26.not.us.us = icmp eq i32 %10, -1
@@ -9471,7 +9471,7 @@ for.body27:                                       ; preds = %for.body12, %if.els
 
 if.else:                                          ; preds = %for.body27
   %spec.select = tail call i32 @llvm.smax.i32(i32 %16, i32 %lineStamp.039)
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %arrayidx25 = getelementptr inbounds [12 x [8 x i32]], ptr %precedenceTable, i64 %indvars.iv59, i64 %indvars.iv56, i64 %indvars.iv.next
   %17 = load i32, ptr %arrayidx25, align 4
   %cmp26.not = icmp eq i32 %17, -1
@@ -10790,8 +10790,8 @@ if.end4:                                          ; preds = %if.end
   br i1 %cmp5, label %return, label %if.end12
 
 if.end12:                                         ; preds = %if.end4
-  %cmp8 = icmp sgt i32 %endValue, %startValue
-  %cond = select i1 %cmp8, i32 1, i32 -1
+  %cmp8 = icmp sle i32 %endValue, %startValue
+  %cond = select i1 %cmp8, i32 -1, i32 1
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %1 = load ptr, ptr %vfn, align 8
@@ -10870,8 +10870,7 @@ if.end14.i:                                       ; preds = %if.then10.i
 if.end.i46:                                       ; preds = %if.end14.i, %if.then10.i, %if.end8.i, %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i, %if.then3.i, %if.end16
   %fLenient.i = getelementptr inbounds i8, ptr %call13, i64 240
   store i8 1, ptr %fLenient.i, align 8
-  %not.cmp8 = xor i1 %cmp8, true
-  %conv = zext i1 %not.cmp8 to i8
+  %conv = zext i1 %cmp8 to i8
   %vtable18 = load ptr, ptr %call13, align 8
   %vfn19 = getelementptr inbounds i8, ptr %vtable18, i64 280
   %12 = load ptr, ptr %vfn19, align 8
@@ -11022,11 +11021,11 @@ if.end8.i63:                                      ; preds = %if.then10.i.i
 
 _ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit: ; preds = %if.end8.i.i, %if.end8.i63
   %29 = load i32, ptr %arrayidx.i, align 4
-  %cmp21 = icmp ne i32 %29, %startValue
-  %cmp22 = icmp ne i32 %field, 4
-  %or.cond1 = and i1 %cmp22, %cmp21
-  %or.cond2 = and i1 %cmp8, %or.cond1
-  br i1 %or.cond2, label %delete.notnull, label %do.body.preheader
+  %cmp21 = icmp eq i32 %29, %startValue
+  %cmp22 = icmp eq i32 %field, 4
+  %or.cond1.not115 = or i1 %cmp22, %cmp21
+  %or.cond2.not114 = or i1 %cmp8, %or.cond1.not115
+  br i1 %or.cond2.not114, label %do.body.preheader, label %delete.notnull
 
 do.body.preheader:                                ; preds = %_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit
   %fAreAllFieldsSet.i.i.i99 = getelementptr inbounds i8, ptr %call13, i64 10
@@ -12301,9 +12300,9 @@ entry:
   %ref.tmp15 = alloca %"class.icu_75::UnicodeString", align 8
   %1 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %1, 1
-  br i1 %cmp.i, label %dynamic_cast.notnull, label %return
+  br i1 %cmp.i, label %dynamic_cast.end, label %return
 
-dynamic_cast.notnull:                             ; preds = %entry
+dynamic_cast.end:                                 ; preds = %entry
   %2 = tail call ptr @__dynamic_cast(ptr nonnull %key, ptr nonnull @_ZTIN6icu_7513ICUServiceKeyE, ptr nonnull @_ZTIN6icu_759LocaleKeyE, i64 0) #23
   call void @_ZN6icu_756LocaleC1Ev(ptr noundef nonnull align 8 dereferenceable(217) %loc)
   %vtable = load ptr, ptr %2, align 8
@@ -12312,7 +12311,7 @@ dynamic_cast.notnull:                             ; preds = %entry
   %call2 = invoke noundef nonnull align 8 dereferenceable(217) ptr %3(ptr noundef nonnull align 8 dereferenceable(272) %2, ptr noundef nonnull align 8 dereferenceable(217) %loc)
           to label %invoke.cont unwind label %lpad
 
-invoke.cont:                                      ; preds = %dynamic_cast.notnull
+invoke.cont:                                      ; preds = %dynamic_cast.end
   %call3 = call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 64) #23
   %new.isnull = icmp eq ptr %call3, null
   br i1 %new.isnull, label %if.then6, label %if.else
@@ -12321,7 +12320,7 @@ if.then6:                                         ; preds = %invoke.cont
   store i32 7, ptr %status, align 4
   br label %if.end24
 
-lpad:                                             ; preds = %if.else, %invoke.cont17, %invoke.cont13, %dynamic_cast.notnull
+lpad:                                             ; preds = %if.else, %invoke.cont17, %invoke.cont13, %dynamic_cast.end
   %4 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup25
@@ -13019,7 +13018,7 @@ attributes #8 = { mustprogress nofree norecurse nosync nounwind memory(argmem: w
 attributes #9 = { mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #11 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nofree nounwind memory(read) }
+attributes #12 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #13 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

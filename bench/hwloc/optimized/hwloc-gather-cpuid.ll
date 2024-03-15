@@ -636,8 +636,8 @@ define internal fastcc void @dump_one_proc(ptr noundef %0, ptr nocapture noundef
 
 53:                                               ; preds = %56, %40
   %indvars.iv.i = phi i64 [ 0, %40 ], [ %indvars.iv.next.i, %56 ]
-  %.not733 = icmp eq i64 %indvars.iv.i, 0
-  br i1 %.not733, label %56, label %54
+  %.not737 = icmp eq i64 %indvars.iv.i, 0
+  br i1 %.not737, label %56, label %54
 
 54:                                               ; preds = %53
   %55 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i
@@ -666,34 +666,34 @@ dump_one_cpuid.exit:                              ; preds = %56
   %67 = load i32, ptr %42, align 4
   %68 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %64, i32 noundef %67, i32 noundef %65, i32 noundef %66) #14
   %69 = load i32, ptr %42, align 4
-  %70 = icmp eq i32 %69, 1752462657
+  %70 = icmp ne i32 %69, 1752462657
   %71 = load i32, ptr %43, align 8
-  %72 = icmp eq i32 %71, 1145913699
-  %or.cond = select i1 %70, i1 %72, i1 false
+  %72 = icmp ne i32 %71, 1145913699
+  %or.cond.not251 = select i1 %70, i1 true, i1 %72
   %73 = load i32, ptr %44, align 4
-  %74 = icmp eq i32 %73, 1769238117
-  %or.cond5 = select i1 %or.cond, i1 %74, i1 false
+  %74 = icmp ne i32 %73, 1769238117
+  %or.cond5.not = select i1 %or.cond.not251, i1 true, i1 %74
   %.not242 = icmp eq i32 %46, 0
-  br i1 %.not242, label %.thread679, label %75
+  br i1 %.not242, label %.thread683, label %75
 
 75:                                               ; preds = %dump_one_cpuid.exit
   store i32 1, ptr %4, align 16
   br label %76
 
 76:                                               ; preds = %79, %75
-  %indvars.iv.i260 = phi i64 [ 0, %75 ], [ %indvars.iv.next.i262, %79 ]
-  %.not734 = icmp eq i64 %indvars.iv.i260, 0
-  br i1 %.not734, label %79, label %77
+  %indvars.iv.i264 = phi i64 [ 0, %75 ], [ %indvars.iv.next.i266, %79 ]
+  %.not738 = icmp eq i64 %indvars.iv.i264, 0
+  br i1 %.not738, label %79, label %77
 
 77:                                               ; preds = %76
-  %78 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i260
+  %78 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i264
   store i32 0, ptr %78, align 4
   br label %79
 
 79:                                               ; preds = %77, %76
-  %indvars.iv.next.i262 = add nuw nsw i64 %indvars.iv.i260, 1
-  %exitcond.not.i263 = icmp eq i64 %indvars.iv.next.i262, 4
-  br i1 %exitcond.not.i263, label %80, label %76, !llvm.loop !10
+  %indvars.iv.next.i266 = add nuw nsw i64 %indvars.iv.i264, 1
+  %exitcond.not.i267 = icmp eq i64 %indvars.iv.next.i266, 4
+  br i1 %exitcond.not.i267, label %80, label %76, !llvm.loop !10
 
 80:                                               ; preds = %79
   %81 = load i32, ptr %42, align 4
@@ -714,27 +714,27 @@ dump_one_cpuid.exit:                              ; preds = %56
   %93 = load i32, ptr %43, align 8
   %94 = and i32 %93, 2097152
   %.not243 = icmp ne i32 %94, 0
-  %.not735 = icmp eq i32 %46, 1
-  br i1 %.not735, label %.thread679, label %95
+  %.not739 = icmp eq i32 %46, 1
+  br i1 %.not739, label %.thread683, label %95
 
 95:                                               ; preds = %80
   store i32 2, ptr %4, align 16
   br label %96
 
 96:                                               ; preds = %99, %95
-  %indvars.iv.i265 = phi i64 [ 0, %95 ], [ %indvars.iv.next.i267, %99 ]
-  %.not736 = icmp eq i64 %indvars.iv.i265, 0
-  br i1 %.not736, label %99, label %97
+  %indvars.iv.i269 = phi i64 [ 0, %95 ], [ %indvars.iv.next.i271, %99 ]
+  %.not740 = icmp eq i64 %indvars.iv.i269, 0
+  br i1 %.not740, label %99, label %97
 
 97:                                               ; preds = %96
-  %98 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i265
+  %98 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i269
   store i32 0, ptr %98, align 4
   br label %99
 
 99:                                               ; preds = %97, %96
-  %indvars.iv.next.i267 = add nuw nsw i64 %indvars.iv.i265, 1
-  %exitcond.not.i268 = icmp eq i64 %indvars.iv.next.i267, 4
-  br i1 %exitcond.not.i268, label %100, label %96, !llvm.loop !10
+  %indvars.iv.next.i271 = add nuw nsw i64 %indvars.iv.i269, 1
+  %exitcond.not.i272 = icmp eq i64 %indvars.iv.next.i271, 4
+  br i1 %exitcond.not.i272, label %100, label %96, !llvm.loop !10
 
 100:                                              ; preds = %99
   %101 = load i32, ptr %42, align 4
@@ -753,26 +753,26 @@ dump_one_cpuid.exit:                              ; preds = %56
   %111 = load i32, ptr %42, align 4
   %112 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %108, i32 noundef %111, i32 noundef %109, i32 noundef %110) #14
   %113 = icmp ugt i32 %46, 2
-  br i1 %113, label %114, label %.thread679
+  br i1 %113, label %114, label %.thread683
 
 114:                                              ; preds = %100
   store i32 3, ptr %4, align 16
   br label %115
 
 115:                                              ; preds = %118, %114
-  %indvars.iv.i270 = phi i64 [ 0, %114 ], [ %indvars.iv.next.i272, %118 ]
-  %.not737 = icmp eq i64 %indvars.iv.i270, 0
-  br i1 %.not737, label %118, label %116
+  %indvars.iv.i274 = phi i64 [ 0, %114 ], [ %indvars.iv.next.i276, %118 ]
+  %.not741 = icmp eq i64 %indvars.iv.i274, 0
+  br i1 %.not741, label %118, label %116
 
 116:                                              ; preds = %115
-  %117 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i270
+  %117 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i274
   store i32 0, ptr %117, align 4
   br label %118
 
 118:                                              ; preds = %116, %115
-  %indvars.iv.next.i272 = add nuw nsw i64 %indvars.iv.i270, 1
-  %exitcond.not.i273 = icmp eq i64 %indvars.iv.next.i272, 4
-  br i1 %exitcond.not.i273, label %119, label %115, !llvm.loop !10
+  %indvars.iv.next.i276 = add nuw nsw i64 %indvars.iv.i274, 1
+  %exitcond.not.i277 = icmp eq i64 %indvars.iv.next.i276, 4
+  br i1 %exitcond.not.i277, label %119, label %115, !llvm.loop !10
 
 119:                                              ; preds = %118
   %120 = load i32, ptr %42, align 4
@@ -790,34 +790,34 @@ dump_one_cpuid.exit:                              ; preds = %56
   store i32 %129, ptr %44, align 4
   %130 = load i32, ptr %42, align 4
   %131 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %127, i32 noundef %130, i32 noundef %128, i32 noundef %129) #14
-  %.not738 = icmp eq i32 %46, 3
-  br i1 %.not738, label %.thread679, label %.preheader789
+  %.not742 = icmp eq i32 %46, 3
+  br i1 %.not742, label %.thread683, label %.preheader793
 
-.preheader789:                                    ; preds = %119, %154
-  %.0224790 = phi i32 [ %155, %154 ], [ 0, %119 ]
+.preheader793:                                    ; preds = %119, %154
+  %.0224794 = phi i32 [ %155, %154 ], [ 0, %119 ]
   store i32 4, ptr %4, align 16
-  store i32 %.0224790, ptr %43, align 8
+  store i32 %.0224794, ptr %43, align 8
   br label %132
 
-132:                                              ; preds = %138, %.preheader789
-  %indvars.iv.i275 = phi i64 [ 0, %.preheader789 ], [ %indvars.iv.next.i277, %138 ]
-  %133 = trunc i64 %indvars.iv.i275 to i32
+132:                                              ; preds = %138, %.preheader793
+  %indvars.iv.i279 = phi i64 [ 0, %.preheader793 ], [ %indvars.iv.next.i281, %138 ]
+  %133 = trunc i64 %indvars.iv.i279 to i32
   %134 = shl nuw nsw i32 1, %133
   %135 = and i32 %134, 5
-  %.not.i276 = icmp eq i32 %135, 0
-  br i1 %.not.i276, label %136, label %138
+  %.not.i280 = icmp eq i32 %135, 0
+  br i1 %.not.i280, label %136, label %138
 
 136:                                              ; preds = %132
-  %137 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i275
+  %137 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i279
   store i32 0, ptr %137, align 4
   br label %138
 
 138:                                              ; preds = %136, %132
-  %indvars.iv.next.i277 = add nuw nsw i64 %indvars.iv.i275, 1
-  %exitcond.not.i278 = icmp eq i64 %indvars.iv.next.i277, 4
-  br i1 %exitcond.not.i278, label %dump_one_cpuid.exit279, label %132, !llvm.loop !10
+  %indvars.iv.next.i281 = add nuw nsw i64 %indvars.iv.i279, 1
+  %exitcond.not.i282 = icmp eq i64 %indvars.iv.next.i281, 4
+  br i1 %exitcond.not.i282, label %dump_one_cpuid.exit283, label %132, !llvm.loop !10
 
-dump_one_cpuid.exit279:                           ; preds = %138
+dump_one_cpuid.exit283:                           ; preds = %138
   %139 = load i32, ptr %4, align 16
   %140 = load i32, ptr %42, align 4
   %141 = load i32, ptr %43, align 8
@@ -839,13 +839,13 @@ dump_one_cpuid.exit279:                           ; preds = %138
   %.not244 = icmp eq i32 %153, 0
   br i1 %.not244, label %156, label %154
 
-154:                                              ; preds = %dump_one_cpuid.exit279
-  %155 = add nuw nsw i32 %.0224790, 1
+154:                                              ; preds = %dump_one_cpuid.exit283
+  %155 = add nuw nsw i32 %.0224794, 1
   %exitcond.not = icmp eq i32 %155, 256
-  br i1 %exitcond.not, label %.thread, label %.preheader789, !llvm.loop !11
+  br i1 %exitcond.not, label %.thread, label %.preheader793, !llvm.loop !11
 
-156:                                              ; preds = %dump_one_cpuid.exit279
-  %157 = icmp eq i32 %.0224790, 256
+156:                                              ; preds = %dump_one_cpuid.exit283
+  %157 = icmp eq i32 %.0224794, 256
   br i1 %157, label %.thread, label %159
 
 .thread:                                          ; preds = %154, %156
@@ -854,26 +854,26 @@ dump_one_cpuid.exit279:                           ; preds = %138
 
 159:                                              ; preds = %156, %.thread
   %160 = icmp ugt i32 %46, 4
-  br i1 %160, label %161, label %.thread679
+  br i1 %160, label %161, label %.thread683
 
 161:                                              ; preds = %159
   store i32 5, ptr %4, align 16
   br label %162
 
 162:                                              ; preds = %165, %161
-  %indvars.iv.i280 = phi i64 [ 0, %161 ], [ %indvars.iv.next.i282, %165 ]
-  %.not739 = icmp eq i64 %indvars.iv.i280, 0
-  br i1 %.not739, label %165, label %163
+  %indvars.iv.i284 = phi i64 [ 0, %161 ], [ %indvars.iv.next.i286, %165 ]
+  %.not743 = icmp eq i64 %indvars.iv.i284, 0
+  br i1 %.not743, label %165, label %163
 
 163:                                              ; preds = %162
-  %164 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i280
+  %164 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i284
   store i32 0, ptr %164, align 4
   br label %165
 
 165:                                              ; preds = %163, %162
-  %indvars.iv.next.i282 = add nuw nsw i64 %indvars.iv.i280, 1
-  %exitcond.not.i283 = icmp eq i64 %indvars.iv.next.i282, 4
-  br i1 %exitcond.not.i283, label %166, label %162, !llvm.loop !10
+  %indvars.iv.next.i286 = add nuw nsw i64 %indvars.iv.i284, 1
+  %exitcond.not.i287 = icmp eq i64 %indvars.iv.next.i286, 4
+  br i1 %exitcond.not.i287, label %166, label %162, !llvm.loop !10
 
 166:                                              ; preds = %165
   %167 = load i32, ptr %42, align 4
@@ -891,27 +891,27 @@ dump_one_cpuid.exit279:                           ; preds = %138
   store i32 %176, ptr %44, align 4
   %177 = load i32, ptr %42, align 4
   %178 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %174, i32 noundef %177, i32 noundef %175, i32 noundef %176) #14
-  %.not740 = icmp eq i32 %46, 5
-  br i1 %.not740, label %.thread679, label %179
+  %.not744 = icmp eq i32 %46, 5
+  br i1 %.not744, label %.thread683, label %179
 
 179:                                              ; preds = %166
   store i32 6, ptr %4, align 16
   br label %180
 
 180:                                              ; preds = %183, %179
-  %indvars.iv.i285 = phi i64 [ 0, %179 ], [ %indvars.iv.next.i287, %183 ]
-  %.not741 = icmp eq i64 %indvars.iv.i285, 0
-  br i1 %.not741, label %183, label %181
+  %indvars.iv.i289 = phi i64 [ 0, %179 ], [ %indvars.iv.next.i291, %183 ]
+  %.not745 = icmp eq i64 %indvars.iv.i289, 0
+  br i1 %.not745, label %183, label %181
 
 181:                                              ; preds = %180
-  %182 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i285
+  %182 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i289
   store i32 0, ptr %182, align 4
   br label %183
 
 183:                                              ; preds = %181, %180
-  %indvars.iv.next.i287 = add nuw nsw i64 %indvars.iv.i285, 1
-  %exitcond.not.i288 = icmp eq i64 %indvars.iv.next.i287, 4
-  br i1 %exitcond.not.i288, label %184, label %180, !llvm.loop !10
+  %indvars.iv.next.i291 = add nuw nsw i64 %indvars.iv.i289, 1
+  %exitcond.not.i292 = icmp eq i64 %indvars.iv.next.i291, 4
+  br i1 %exitcond.not.i292, label %184, label %180, !llvm.loop !10
 
 184:                                              ; preds = %183
   %185 = load i32, ptr %42, align 4
@@ -930,7 +930,7 @@ dump_one_cpuid.exit279:                           ; preds = %138
   %195 = load i32, ptr %42, align 4
   %196 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %192, i32 noundef %195, i32 noundef %193, i32 noundef %194) #14
   %197 = icmp ugt i32 %46, 6
-  br i1 %197, label %198, label %.thread679
+  br i1 %197, label %198, label %.thread683
 
 198:                                              ; preds = %184
   store i32 7, ptr %4, align 16
@@ -938,24 +938,24 @@ dump_one_cpuid.exit279:                           ; preds = %138
   br label %199
 
 199:                                              ; preds = %205, %198
-  %indvars.iv.i290 = phi i64 [ 0, %198 ], [ %indvars.iv.next.i292, %205 ]
-  %200 = trunc i64 %indvars.iv.i290 to i32
+  %indvars.iv.i294 = phi i64 [ 0, %198 ], [ %indvars.iv.next.i296, %205 ]
+  %200 = trunc i64 %indvars.iv.i294 to i32
   %201 = shl nuw nsw i32 1, %200
   %202 = and i32 %201, 5
-  %.not.i291 = icmp eq i32 %202, 0
-  br i1 %.not.i291, label %203, label %205
+  %.not.i295 = icmp eq i32 %202, 0
+  br i1 %.not.i295, label %203, label %205
 
 203:                                              ; preds = %199
-  %204 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i290
+  %204 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i294
   store i32 0, ptr %204, align 4
   br label %205
 
 205:                                              ; preds = %203, %199
-  %indvars.iv.next.i292 = add nuw nsw i64 %indvars.iv.i290, 1
-  %exitcond.not.i293 = icmp eq i64 %indvars.iv.next.i292, 4
-  br i1 %exitcond.not.i293, label %dump_one_cpuid.exit294, label %199, !llvm.loop !10
+  %indvars.iv.next.i296 = add nuw nsw i64 %indvars.iv.i294, 1
+  %exitcond.not.i297 = icmp eq i64 %indvars.iv.next.i296, 4
+  br i1 %exitcond.not.i297, label %dump_one_cpuid.exit298, label %199, !llvm.loop !10
 
-dump_one_cpuid.exit294:                           ; preds = %205
+dump_one_cpuid.exit298:                           ; preds = %205
   %206 = load i32, ptr %4, align 16
   %207 = load i32, ptr %42, align 4
   %208 = load i32, ptr %43, align 8
@@ -975,40 +975,40 @@ dump_one_cpuid.exit294:                           ; preds = %205
   %219 = load i32, ptr %44, align 4
   %220 = load i32, ptr %42, align 4
   %221 = load i32, ptr %4, align 16
-  %.not805 = icmp eq i32 %221, 0
-  br i1 %.not805, label %._crit_edge.thread, label %.lr.ph.preheader
+  %.not809 = icmp eq i32 %221, 0
+  br i1 %.not809, label %._crit_edge.thread, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %dump_one_cpuid.exit294
+.lr.ph.preheader:                                 ; preds = %dump_one_cpuid.exit298
   %222 = add i32 %221, -1
   %umin = call i32 @llvm.umin.i32(i32 %222, i32 254)
   %223 = add nuw nsw i32 %umin, 2
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %dump_one_cpuid.exit299
-  %.1791 = phi i32 [ %244, %dump_one_cpuid.exit299 ], [ 1, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %dump_one_cpuid.exit303
+  %.1795 = phi i32 [ %244, %dump_one_cpuid.exit303 ], [ 1, %.lr.ph.preheader ]
   store i32 7, ptr %4, align 16
-  store i32 %.1791, ptr %43, align 8
+  store i32 %.1795, ptr %43, align 8
   br label %224
 
 224:                                              ; preds = %230, %.lr.ph
-  %indvars.iv.i295 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next.i297, %230 ]
-  %225 = trunc i64 %indvars.iv.i295 to i32
+  %indvars.iv.i299 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next.i301, %230 ]
+  %225 = trunc i64 %indvars.iv.i299 to i32
   %226 = shl nuw nsw i32 1, %225
   %227 = and i32 %226, 5
-  %.not.i296 = icmp eq i32 %227, 0
-  br i1 %.not.i296, label %228, label %230
+  %.not.i300 = icmp eq i32 %227, 0
+  br i1 %.not.i300, label %228, label %230
 
 228:                                              ; preds = %224
-  %229 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i295
+  %229 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i299
   store i32 0, ptr %229, align 4
   br label %230
 
 230:                                              ; preds = %228, %224
-  %indvars.iv.next.i297 = add nuw nsw i64 %indvars.iv.i295, 1
-  %exitcond.not.i298 = icmp eq i64 %indvars.iv.next.i297, 4
-  br i1 %exitcond.not.i298, label %dump_one_cpuid.exit299, label %224, !llvm.loop !10
+  %indvars.iv.next.i301 = add nuw nsw i64 %indvars.iv.i299, 1
+  %exitcond.not.i302 = icmp eq i64 %indvars.iv.next.i301, 4
+  br i1 %exitcond.not.i302, label %dump_one_cpuid.exit303, label %224, !llvm.loop !10
 
-dump_one_cpuid.exit299:                           ; preds = %230
+dump_one_cpuid.exit303:                           ; preds = %230
   %231 = load i32, ptr %4, align 16
   %232 = load i32, ptr %42, align 4
   %233 = load i32, ptr %43, align 8
@@ -1025,11 +1025,11 @@ dump_one_cpuid.exit299:                           ; preds = %230
   store i32 %241, ptr %44, align 4
   %242 = load i32, ptr %42, align 4
   %243 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %239, i32 noundef %242, i32 noundef %240, i32 noundef %241) #14
-  %244 = add nuw nsw i32 %.1791, 1
-  %exitcond809.not = icmp eq i32 %244, %223
-  br i1 %exitcond809.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  %244 = add nuw nsw i32 %.1795, 1
+  %exitcond813.not = icmp eq i32 %244, %223
+  br i1 %exitcond813.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
-._crit_edge:                                      ; preds = %dump_one_cpuid.exit299
+._crit_edge:                                      ; preds = %dump_one_cpuid.exit303
   %245 = icmp eq i32 %223, 256
   br i1 %245, label %246, label %._crit_edge.thread
 
@@ -1037,28 +1037,28 @@ dump_one_cpuid.exit299:                           ; preds = %230
   %247 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.43, i32 noundef %221) #14
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %dump_one_cpuid.exit294, %._crit_edge, %246
+._crit_edge.thread:                               ; preds = %dump_one_cpuid.exit298, %._crit_edge, %246
   %248 = icmp ugt i32 %46, 8
-  br i1 %248, label %249, label %.thread679
+  br i1 %248, label %249, label %.thread683
 
 249:                                              ; preds = %._crit_edge.thread
   store i32 9, ptr %4, align 16
   br label %250
 
 250:                                              ; preds = %253, %249
-  %indvars.iv.i300 = phi i64 [ 0, %249 ], [ %indvars.iv.next.i302, %253 ]
-  %.not743 = icmp eq i64 %indvars.iv.i300, 0
-  br i1 %.not743, label %253, label %251
+  %indvars.iv.i304 = phi i64 [ 0, %249 ], [ %indvars.iv.next.i306, %253 ]
+  %.not747 = icmp eq i64 %indvars.iv.i304, 0
+  br i1 %.not747, label %253, label %251
 
 251:                                              ; preds = %250
-  %252 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i300
+  %252 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i304
   store i32 0, ptr %252, align 4
   br label %253
 
 253:                                              ; preds = %251, %250
-  %indvars.iv.next.i302 = add nuw nsw i64 %indvars.iv.i300, 1
-  %exitcond.not.i303 = icmp eq i64 %indvars.iv.next.i302, 4
-  br i1 %exitcond.not.i303, label %254, label %250, !llvm.loop !10
+  %indvars.iv.next.i306 = add nuw nsw i64 %indvars.iv.i304, 1
+  %exitcond.not.i307 = icmp eq i64 %indvars.iv.next.i306, 4
+  br i1 %exitcond.not.i307, label %254, label %250, !llvm.loop !10
 
 254:                                              ; preds = %253
   %255 = load i32, ptr %42, align 4
@@ -1076,27 +1076,27 @@ dump_one_cpuid.exit299:                           ; preds = %230
   store i32 %264, ptr %44, align 4
   %265 = load i32, ptr %42, align 4
   %266 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %262, i32 noundef %265, i32 noundef %263, i32 noundef %264) #14
-  %.not744 = icmp eq i32 %46, 9
-  br i1 %.not744, label %.thread679, label %267
+  %.not748 = icmp eq i32 %46, 9
+  br i1 %.not748, label %.thread683, label %267
 
 267:                                              ; preds = %254
   store i32 10, ptr %4, align 16
   br label %268
 
 268:                                              ; preds = %271, %267
-  %indvars.iv.i305 = phi i64 [ 0, %267 ], [ %indvars.iv.next.i307, %271 ]
-  %.not745 = icmp eq i64 %indvars.iv.i305, 0
-  br i1 %.not745, label %271, label %269
+  %indvars.iv.i309 = phi i64 [ 0, %267 ], [ %indvars.iv.next.i311, %271 ]
+  %.not749 = icmp eq i64 %indvars.iv.i309, 0
+  br i1 %.not749, label %271, label %269
 
 269:                                              ; preds = %268
-  %270 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i305
+  %270 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i309
   store i32 0, ptr %270, align 4
   br label %271
 
 271:                                              ; preds = %269, %268
-  %indvars.iv.next.i307 = add nuw nsw i64 %indvars.iv.i305, 1
-  %exitcond.not.i308 = icmp eq i64 %indvars.iv.next.i307, 4
-  br i1 %exitcond.not.i308, label %272, label %268, !llvm.loop !10
+  %indvars.iv.next.i311 = add nuw nsw i64 %indvars.iv.i309, 1
+  %exitcond.not.i312 = icmp eq i64 %indvars.iv.next.i311, 4
+  br i1 %exitcond.not.i312, label %272, label %268, !llvm.loop !10
 
 272:                                              ; preds = %271
   %273 = load i32, ptr %42, align 4
@@ -1116,33 +1116,33 @@ dump_one_cpuid.exit299:                           ; preds = %230
   %284 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %280, i32 noundef %283, i32 noundef %281, i32 noundef %282) #14
   %285 = icmp ugt i32 %46, 10
   %or.cond7 = select i1 %.not243, i1 %285, i1 false
-  br i1 %or.cond7, label %.preheader788, label %317
+  br i1 %or.cond7, label %.preheader792, label %317
 
-.preheader788:                                    ; preds = %272, %312
-  %.2792 = phi i32 [ %313, %312 ], [ 0, %272 ]
+.preheader792:                                    ; preds = %272, %312
+  %.2796 = phi i32 [ %313, %312 ], [ 0, %272 ]
   store i32 11, ptr %4, align 16
-  store i32 %.2792, ptr %43, align 8
+  store i32 %.2796, ptr %43, align 8
   br label %286
 
-286:                                              ; preds = %292, %.preheader788
-  %indvars.iv.i310 = phi i64 [ 0, %.preheader788 ], [ %indvars.iv.next.i312, %292 ]
-  %287 = trunc i64 %indvars.iv.i310 to i32
+286:                                              ; preds = %292, %.preheader792
+  %indvars.iv.i314 = phi i64 [ 0, %.preheader792 ], [ %indvars.iv.next.i316, %292 ]
+  %287 = trunc i64 %indvars.iv.i314 to i32
   %288 = shl nuw nsw i32 1, %287
   %289 = and i32 %288, 5
-  %.not.i311 = icmp eq i32 %289, 0
-  br i1 %.not.i311, label %290, label %292
+  %.not.i315 = icmp eq i32 %289, 0
+  br i1 %.not.i315, label %290, label %292
 
 290:                                              ; preds = %286
-  %291 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i310
+  %291 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i314
   store i32 0, ptr %291, align 4
   br label %292
 
 292:                                              ; preds = %290, %286
-  %indvars.iv.next.i312 = add nuw nsw i64 %indvars.iv.i310, 1
-  %exitcond.not.i313 = icmp eq i64 %indvars.iv.next.i312, 4
-  br i1 %exitcond.not.i313, label %dump_one_cpuid.exit314, label %286, !llvm.loop !10
+  %indvars.iv.next.i316 = add nuw nsw i64 %indvars.iv.i314, 1
+  %exitcond.not.i317 = icmp eq i64 %indvars.iv.next.i316, 4
+  br i1 %exitcond.not.i317, label %dump_one_cpuid.exit318, label %286, !llvm.loop !10
 
-dump_one_cpuid.exit314:                           ; preds = %292
+dump_one_cpuid.exit318:                           ; preds = %292
   %293 = load i32, ptr %4, align 16
   %294 = load i32, ptr %42, align 4
   %295 = load i32, ptr %43, align 8
@@ -1159,36 +1159,36 @@ dump_one_cpuid.exit314:                           ; preds = %292
   store i32 %303, ptr %44, align 4
   %304 = load i32, ptr %42, align 4
   %305 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %301, i32 noundef %304, i32 noundef %302, i32 noundef %303) #14
-  br i1 %or.cond5, label %306, label %309
+  br i1 %or.cond5.not, label %309, label %306
 
-306:                                              ; preds = %dump_one_cpuid.exit314
+306:                                              ; preds = %dump_one_cpuid.exit318
   %307 = load i32, ptr %42, align 4
   %308 = and i32 %307, 65535
-  %.not249 = icmp eq i32 %308, 0
-  br i1 %.not249, label %314, label %312
+  %.not253 = icmp eq i32 %308, 0
+  br i1 %.not253, label %314, label %312
 
-309:                                              ; preds = %dump_one_cpuid.exit314
+309:                                              ; preds = %dump_one_cpuid.exit318
   %310 = load i32, ptr %43, align 8
   %311 = and i32 %310, 65280
-  %.not248 = icmp eq i32 %311, 0
-  br i1 %.not248, label %314, label %312
+  %.not252 = icmp eq i32 %311, 0
+  br i1 %.not252, label %314, label %312
 
 312:                                              ; preds = %306, %309
-  %313 = add nuw nsw i32 %.2792, 1
-  %exitcond810.not = icmp eq i32 %313, 256
-  br i1 %exitcond810.not, label %.thread824, label %.preheader788, !llvm.loop !13
+  %313 = add nuw nsw i32 %.2796, 1
+  %exitcond814.not = icmp eq i32 %313, 256
+  br i1 %exitcond814.not, label %.thread828, label %.preheader792, !llvm.loop !13
 
 314:                                              ; preds = %309, %306
-  %315 = icmp eq i32 %.2792, 256
-  br i1 %315, label %.thread824, label %317
+  %315 = icmp eq i32 %.2796, 256
+  br i1 %315, label %.thread828, label %317
 
-.thread824:                                       ; preds = %312, %314
+.thread828:                                       ; preds = %312, %314
   %316 = call i64 @fwrite(ptr nonnull @.str.42, i64 21, i64 1, ptr %.0231)
   br label %317
 
-317:                                              ; preds = %314, %.thread824, %272
+317:                                              ; preds = %314, %.thread828, %272
   %318 = icmp ugt i32 %46, 12
-  br i1 %318, label %319, label %.thread679
+  br i1 %318, label %319, label %.thread683
 
 319:                                              ; preds = %317
   store i32 13, ptr %4, align 16
@@ -1196,24 +1196,24 @@ dump_one_cpuid.exit314:                           ; preds = %292
   br label %320
 
 320:                                              ; preds = %326, %319
-  %indvars.iv.i315 = phi i64 [ 0, %319 ], [ %indvars.iv.next.i317, %326 ]
-  %321 = trunc i64 %indvars.iv.i315 to i32
+  %indvars.iv.i319 = phi i64 [ 0, %319 ], [ %indvars.iv.next.i321, %326 ]
+  %321 = trunc i64 %indvars.iv.i319 to i32
   %322 = shl nuw nsw i32 1, %321
   %323 = and i32 %322, 5
-  %.not.i316 = icmp eq i32 %323, 0
-  br i1 %.not.i316, label %324, label %326
+  %.not.i320 = icmp eq i32 %323, 0
+  br i1 %.not.i320, label %324, label %326
 
 324:                                              ; preds = %320
-  %325 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i315
+  %325 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i319
   store i32 0, ptr %325, align 4
   br label %326
 
 326:                                              ; preds = %324, %320
-  %indvars.iv.next.i317 = add nuw nsw i64 %indvars.iv.i315, 1
-  %exitcond.not.i318 = icmp eq i64 %indvars.iv.next.i317, 4
-  br i1 %exitcond.not.i318, label %dump_one_cpuid.exit319, label %320, !llvm.loop !10
+  %indvars.iv.next.i321 = add nuw nsw i64 %indvars.iv.i319, 1
+  %exitcond.not.i322 = icmp eq i64 %indvars.iv.next.i321, 4
+  br i1 %exitcond.not.i322, label %dump_one_cpuid.exit323, label %320, !llvm.loop !10
 
-dump_one_cpuid.exit319:                           ; preds = %326
+dump_one_cpuid.exit323:                           ; preds = %326
   %327 = load i32, ptr %4, align 16
   %328 = load i32, ptr %42, align 4
   %329 = load i32, ptr %43, align 8
@@ -1236,25 +1236,25 @@ dump_one_cpuid.exit319:                           ; preds = %326
   store i32 1, ptr %43, align 8
   br label %342
 
-342:                                              ; preds = %348, %dump_one_cpuid.exit319
-  %indvars.iv.i320 = phi i64 [ 0, %dump_one_cpuid.exit319 ], [ %indvars.iv.next.i322, %348 ]
-  %343 = trunc i64 %indvars.iv.i320 to i32
+342:                                              ; preds = %348, %dump_one_cpuid.exit323
+  %indvars.iv.i324 = phi i64 [ 0, %dump_one_cpuid.exit323 ], [ %indvars.iv.next.i326, %348 ]
+  %343 = trunc i64 %indvars.iv.i324 to i32
   %344 = shl nuw nsw i32 1, %343
   %345 = and i32 %344, 5
-  %.not.i321 = icmp eq i32 %345, 0
-  br i1 %.not.i321, label %346, label %348
+  %.not.i325 = icmp eq i32 %345, 0
+  br i1 %.not.i325, label %346, label %348
 
 346:                                              ; preds = %342
-  %347 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i320
+  %347 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i324
   store i32 0, ptr %347, align 4
   br label %348
 
 348:                                              ; preds = %346, %342
-  %indvars.iv.next.i322 = add nuw nsw i64 %indvars.iv.i320, 1
-  %exitcond.not.i323 = icmp eq i64 %indvars.iv.next.i322, 4
-  br i1 %exitcond.not.i323, label %dump_one_cpuid.exit324, label %342, !llvm.loop !10
+  %indvars.iv.next.i326 = add nuw nsw i64 %indvars.iv.i324, 1
+  %exitcond.not.i327 = icmp eq i64 %indvars.iv.next.i326, 4
+  br i1 %exitcond.not.i327, label %dump_one_cpuid.exit328, label %342, !llvm.loop !10
 
-dump_one_cpuid.exit324:                           ; preds = %348
+dump_one_cpuid.exit328:                           ; preds = %348
   %349 = load i32, ptr %4, align 16
   %350 = load i32, ptr %42, align 4
   %351 = load i32, ptr %43, align 8
@@ -1276,41 +1276,41 @@ dump_one_cpuid.exit324:                           ; preds = %348
   %364 = or i32 %362, %340
   br label %366
 
-.preheader787:                                    ; preds = %390
+.preheader791:                                    ; preds = %390
   %365 = or i32 %363, %341
   br label %392
 
-366:                                              ; preds = %dump_one_cpuid.exit324, %390
-  %.3793 = phi i32 [ 2, %dump_one_cpuid.exit324 ], [ %391, %390 ]
-  %367 = shl nuw i32 1, %.3793
+366:                                              ; preds = %dump_one_cpuid.exit328, %390
+  %.3797 = phi i32 [ 2, %dump_one_cpuid.exit328 ], [ %391, %390 ]
+  %367 = shl nuw i32 1, %.3797
   %368 = and i32 %367, %364
-  %.not257 = icmp eq i32 %368, 0
-  br i1 %.not257, label %390, label %369
+  %.not261 = icmp eq i32 %368, 0
+  br i1 %.not261, label %390, label %369
 
 369:                                              ; preds = %366
   store i32 13, ptr %4, align 16
-  store i32 %.3793, ptr %43, align 8
+  store i32 %.3797, ptr %43, align 8
   br label %370
 
 370:                                              ; preds = %376, %369
-  %indvars.iv.i325 = phi i64 [ 0, %369 ], [ %indvars.iv.next.i327, %376 ]
-  %371 = trunc i64 %indvars.iv.i325 to i32
+  %indvars.iv.i329 = phi i64 [ 0, %369 ], [ %indvars.iv.next.i331, %376 ]
+  %371 = trunc i64 %indvars.iv.i329 to i32
   %372 = shl nuw nsw i32 1, %371
   %373 = and i32 %372, 5
-  %.not.i326 = icmp eq i32 %373, 0
-  br i1 %.not.i326, label %374, label %376
+  %.not.i330 = icmp eq i32 %373, 0
+  br i1 %.not.i330, label %374, label %376
 
 374:                                              ; preds = %370
-  %375 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i325
+  %375 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i329
   store i32 0, ptr %375, align 4
   br label %376
 
 376:                                              ; preds = %374, %370
-  %indvars.iv.next.i327 = add nuw nsw i64 %indvars.iv.i325, 1
-  %exitcond.not.i328 = icmp eq i64 %indvars.iv.next.i327, 4
-  br i1 %exitcond.not.i328, label %dump_one_cpuid.exit329, label %370, !llvm.loop !10
+  %indvars.iv.next.i331 = add nuw nsw i64 %indvars.iv.i329, 1
+  %exitcond.not.i332 = icmp eq i64 %indvars.iv.next.i331, 4
+  br i1 %exitcond.not.i332, label %dump_one_cpuid.exit333, label %370, !llvm.loop !10
 
-dump_one_cpuid.exit329:                           ; preds = %376
+dump_one_cpuid.exit333:                           ; preds = %376
   %377 = load i32, ptr %4, align 16
   %378 = load i32, ptr %42, align 4
   %379 = load i32, ptr %43, align 8
@@ -1329,43 +1329,43 @@ dump_one_cpuid.exit329:                           ; preds = %376
   %389 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %385, i32 noundef %388, i32 noundef %386, i32 noundef %387) #14
   br label %390
 
-390:                                              ; preds = %366, %dump_one_cpuid.exit329
-  %391 = add nuw nsw i32 %.3793, 1
-  %exitcond811.not = icmp eq i32 %391, 32
-  br i1 %exitcond811.not, label %.preheader787, label %366, !llvm.loop !14
+390:                                              ; preds = %366, %dump_one_cpuid.exit333
+  %391 = add nuw nsw i32 %.3797, 1
+  %exitcond815.not = icmp eq i32 %391, 32
+  br i1 %exitcond815.not, label %.preheader791, label %366, !llvm.loop !14
 
-392:                                              ; preds = %.preheader787, %417
-  %.4794 = phi i32 [ 0, %.preheader787 ], [ %418, %417 ]
-  %393 = shl nuw i32 1, %.4794
+392:                                              ; preds = %.preheader791, %417
+  %.4798 = phi i32 [ 0, %.preheader791 ], [ %418, %417 ]
+  %393 = shl nuw i32 1, %.4798
   %394 = and i32 %393, %365
-  %.not256 = icmp eq i32 %394, 0
-  br i1 %.not256, label %417, label %395
+  %.not260 = icmp eq i32 %394, 0
+  br i1 %.not260, label %417, label %395
 
 395:                                              ; preds = %392
   store i32 13, ptr %4, align 16
-  %396 = or disjoint i32 %.4794, 32
+  %396 = or disjoint i32 %.4798, 32
   store i32 %396, ptr %43, align 8
   br label %397
 
 397:                                              ; preds = %403, %395
-  %indvars.iv.i330 = phi i64 [ 0, %395 ], [ %indvars.iv.next.i332, %403 ]
-  %398 = trunc i64 %indvars.iv.i330 to i32
+  %indvars.iv.i334 = phi i64 [ 0, %395 ], [ %indvars.iv.next.i336, %403 ]
+  %398 = trunc i64 %indvars.iv.i334 to i32
   %399 = shl nuw nsw i32 1, %398
   %400 = and i32 %399, 5
-  %.not.i331 = icmp eq i32 %400, 0
-  br i1 %.not.i331, label %401, label %403
+  %.not.i335 = icmp eq i32 %400, 0
+  br i1 %.not.i335, label %401, label %403
 
 401:                                              ; preds = %397
-  %402 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i330
+  %402 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i334
   store i32 0, ptr %402, align 4
   br label %403
 
 403:                                              ; preds = %401, %397
-  %indvars.iv.next.i332 = add nuw nsw i64 %indvars.iv.i330, 1
-  %exitcond.not.i333 = icmp eq i64 %indvars.iv.next.i332, 4
-  br i1 %exitcond.not.i333, label %dump_one_cpuid.exit334, label %397, !llvm.loop !10
+  %indvars.iv.next.i336 = add nuw nsw i64 %indvars.iv.i334, 1
+  %exitcond.not.i337 = icmp eq i64 %indvars.iv.next.i336, 4
+  br i1 %exitcond.not.i337, label %dump_one_cpuid.exit338, label %397, !llvm.loop !10
 
-dump_one_cpuid.exit334:                           ; preds = %403
+dump_one_cpuid.exit338:                           ; preds = %403
   %404 = load i32, ptr %4, align 16
   %405 = load i32, ptr %42, align 4
   %406 = load i32, ptr %43, align 8
@@ -1384,14 +1384,14 @@ dump_one_cpuid.exit334:                           ; preds = %403
   %416 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %412, i32 noundef %415, i32 noundef %413, i32 noundef %414) #14
   br label %417
 
-417:                                              ; preds = %392, %dump_one_cpuid.exit334
-  %418 = add nuw nsw i32 %.4794, 1
-  %exitcond812.not = icmp eq i32 %418, 32
-  br i1 %exitcond812.not, label %419, label %392, !llvm.loop !15
+417:                                              ; preds = %392, %dump_one_cpuid.exit338
+  %418 = add nuw nsw i32 %.4798, 1
+  %exitcond816.not = icmp eq i32 %418, 32
+  br i1 %exitcond816.not, label %419, label %392, !llvm.loop !15
 
 419:                                              ; preds = %417
   %420 = icmp ugt i32 %46, 14
-  br i1 %420, label %421, label %.thread679
+  br i1 %420, label %421, label %.thread683
 
 421:                                              ; preds = %419
   store i32 15, ptr %4, align 16
@@ -1399,24 +1399,24 @@ dump_one_cpuid.exit334:                           ; preds = %403
   br label %422
 
 422:                                              ; preds = %428, %421
-  %indvars.iv.i335 = phi i64 [ 0, %421 ], [ %indvars.iv.next.i337, %428 ]
-  %423 = trunc i64 %indvars.iv.i335 to i32
+  %indvars.iv.i339 = phi i64 [ 0, %421 ], [ %indvars.iv.next.i341, %428 ]
+  %423 = trunc i64 %indvars.iv.i339 to i32
   %424 = shl nuw nsw i32 1, %423
   %425 = and i32 %424, 5
-  %.not.i336 = icmp eq i32 %425, 0
-  br i1 %.not.i336, label %426, label %428
+  %.not.i340 = icmp eq i32 %425, 0
+  br i1 %.not.i340, label %426, label %428
 
 426:                                              ; preds = %422
-  %427 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i335
+  %427 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i339
   store i32 0, ptr %427, align 4
   br label %428
 
 428:                                              ; preds = %426, %422
-  %indvars.iv.next.i337 = add nuw nsw i64 %indvars.iv.i335, 1
-  %exitcond.not.i338 = icmp eq i64 %indvars.iv.next.i337, 4
-  br i1 %exitcond.not.i338, label %dump_one_cpuid.exit339, label %422, !llvm.loop !10
+  %indvars.iv.next.i341 = add nuw nsw i64 %indvars.iv.i339, 1
+  %exitcond.not.i342 = icmp eq i64 %indvars.iv.next.i341, 4
+  br i1 %exitcond.not.i342, label %dump_one_cpuid.exit343, label %422, !llvm.loop !10
 
-dump_one_cpuid.exit339:                           ; preds = %428
+dump_one_cpuid.exit343:                           ; preds = %428
   %429 = load i32, ptr %4, align 16
   %430 = load i32, ptr %42, align 4
   %431 = load i32, ptr %43, align 8
@@ -1437,23 +1437,23 @@ dump_one_cpuid.exit339:                           ; preds = %428
   store i32 1, ptr %43, align 8
   br label %442
 
-442:                                              ; preds = %448, %dump_one_cpuid.exit339
-  %indvars.iv.i340 = phi i64 [ 0, %dump_one_cpuid.exit339 ], [ %indvars.iv.next.i342, %448 ]
-  %443 = trunc i64 %indvars.iv.i340 to i32
+442:                                              ; preds = %448, %dump_one_cpuid.exit343
+  %indvars.iv.i344 = phi i64 [ 0, %dump_one_cpuid.exit343 ], [ %indvars.iv.next.i346, %448 ]
+  %443 = trunc i64 %indvars.iv.i344 to i32
   %444 = shl nuw nsw i32 1, %443
   %445 = and i32 %444, 5
-  %.not.i341 = icmp eq i32 %445, 0
-  br i1 %.not.i341, label %446, label %448
+  %.not.i345 = icmp eq i32 %445, 0
+  br i1 %.not.i345, label %446, label %448
 
 446:                                              ; preds = %442
-  %447 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i340
+  %447 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i344
   store i32 0, ptr %447, align 4
   br label %448
 
 448:                                              ; preds = %446, %442
-  %indvars.iv.next.i342 = add nuw nsw i64 %indvars.iv.i340, 1
-  %exitcond.not.i343 = icmp eq i64 %indvars.iv.next.i342, 4
-  br i1 %exitcond.not.i343, label %449, label %442, !llvm.loop !10
+  %indvars.iv.next.i346 = add nuw nsw i64 %indvars.iv.i344, 1
+  %exitcond.not.i347 = icmp eq i64 %indvars.iv.next.i346, 4
+  br i1 %exitcond.not.i347, label %449, label %442, !llvm.loop !10
 
 449:                                              ; preds = %448
   %450 = load i32, ptr %4, align 16
@@ -1472,8 +1472,8 @@ dump_one_cpuid.exit339:                           ; preds = %428
   store i32 %460, ptr %44, align 4
   %461 = load i32, ptr %42, align 4
   %462 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %458, i32 noundef %461, i32 noundef %459, i32 noundef %460) #14
-  %.not746 = icmp eq i32 %46, 15
-  br i1 %.not746, label %.thread679, label %463
+  %.not750 = icmp eq i32 %46, 15
+  br i1 %.not750, label %.thread683, label %463
 
 463:                                              ; preds = %449
   store i32 16, ptr %4, align 16
@@ -1481,24 +1481,24 @@ dump_one_cpuid.exit339:                           ; preds = %428
   br label %464
 
 464:                                              ; preds = %470, %463
-  %indvars.iv.i345 = phi i64 [ 0, %463 ], [ %indvars.iv.next.i347, %470 ]
-  %465 = trunc i64 %indvars.iv.i345 to i32
+  %indvars.iv.i349 = phi i64 [ 0, %463 ], [ %indvars.iv.next.i351, %470 ]
+  %465 = trunc i64 %indvars.iv.i349 to i32
   %466 = shl nuw nsw i32 1, %465
   %467 = and i32 %466, 5
-  %.not.i346 = icmp eq i32 %467, 0
-  br i1 %.not.i346, label %468, label %470
+  %.not.i350 = icmp eq i32 %467, 0
+  br i1 %.not.i350, label %468, label %470
 
 468:                                              ; preds = %464
-  %469 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i345
+  %469 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i349
   store i32 0, ptr %469, align 4
   br label %470
 
 470:                                              ; preds = %468, %464
-  %indvars.iv.next.i347 = add nuw nsw i64 %indvars.iv.i345, 1
-  %exitcond.not.i348 = icmp eq i64 %indvars.iv.next.i347, 4
-  br i1 %exitcond.not.i348, label %dump_one_cpuid.exit349, label %464, !llvm.loop !10
+  %indvars.iv.next.i351 = add nuw nsw i64 %indvars.iv.i349, 1
+  %exitcond.not.i352 = icmp eq i64 %indvars.iv.next.i351, 4
+  br i1 %exitcond.not.i352, label %dump_one_cpuid.exit353, label %464, !llvm.loop !10
 
-dump_one_cpuid.exit349:                           ; preds = %470
+dump_one_cpuid.exit353:                           ; preds = %470
   %471 = load i32, ptr %4, align 16
   %472 = load i32, ptr %42, align 4
   %473 = load i32, ptr %43, align 8
@@ -1519,25 +1519,25 @@ dump_one_cpuid.exit349:                           ; preds = %470
   store i32 1, ptr %43, align 8
   br label %484
 
-484:                                              ; preds = %490, %dump_one_cpuid.exit349
-  %indvars.iv.i350 = phi i64 [ 0, %dump_one_cpuid.exit349 ], [ %indvars.iv.next.i352, %490 ]
-  %485 = trunc i64 %indvars.iv.i350 to i32
+484:                                              ; preds = %490, %dump_one_cpuid.exit353
+  %indvars.iv.i354 = phi i64 [ 0, %dump_one_cpuid.exit353 ], [ %indvars.iv.next.i356, %490 ]
+  %485 = trunc i64 %indvars.iv.i354 to i32
   %486 = shl nuw nsw i32 1, %485
   %487 = and i32 %486, 5
-  %.not.i351 = icmp eq i32 %487, 0
-  br i1 %.not.i351, label %488, label %490
+  %.not.i355 = icmp eq i32 %487, 0
+  br i1 %.not.i355, label %488, label %490
 
 488:                                              ; preds = %484
-  %489 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i350
+  %489 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i354
   store i32 0, ptr %489, align 4
   br label %490
 
 490:                                              ; preds = %488, %484
-  %indvars.iv.next.i352 = add nuw nsw i64 %indvars.iv.i350, 1
-  %exitcond.not.i353 = icmp eq i64 %indvars.iv.next.i352, 4
-  br i1 %exitcond.not.i353, label %dump_one_cpuid.exit354, label %484, !llvm.loop !10
+  %indvars.iv.next.i356 = add nuw nsw i64 %indvars.iv.i354, 1
+  %exitcond.not.i357 = icmp eq i64 %indvars.iv.next.i356, 4
+  br i1 %exitcond.not.i357, label %dump_one_cpuid.exit358, label %484, !llvm.loop !10
 
-dump_one_cpuid.exit354:                           ; preds = %490
+dump_one_cpuid.exit358:                           ; preds = %490
   %491 = load i32, ptr %4, align 16
   %492 = load i32, ptr %42, align 4
   %493 = load i32, ptr %43, align 8
@@ -1558,25 +1558,25 @@ dump_one_cpuid.exit354:                           ; preds = %490
   store i32 2, ptr %43, align 8
   br label %504
 
-504:                                              ; preds = %510, %dump_one_cpuid.exit354
-  %indvars.iv.i355 = phi i64 [ 0, %dump_one_cpuid.exit354 ], [ %indvars.iv.next.i357, %510 ]
-  %505 = trunc i64 %indvars.iv.i355 to i32
+504:                                              ; preds = %510, %dump_one_cpuid.exit358
+  %indvars.iv.i359 = phi i64 [ 0, %dump_one_cpuid.exit358 ], [ %indvars.iv.next.i361, %510 ]
+  %505 = trunc i64 %indvars.iv.i359 to i32
   %506 = shl nuw nsw i32 1, %505
   %507 = and i32 %506, 5
-  %.not.i356 = icmp eq i32 %507, 0
-  br i1 %.not.i356, label %508, label %510
+  %.not.i360 = icmp eq i32 %507, 0
+  br i1 %.not.i360, label %508, label %510
 
 508:                                              ; preds = %504
-  %509 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i355
+  %509 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i359
   store i32 0, ptr %509, align 4
   br label %510
 
 510:                                              ; preds = %508, %504
-  %indvars.iv.next.i357 = add nuw nsw i64 %indvars.iv.i355, 1
-  %exitcond.not.i358 = icmp eq i64 %indvars.iv.next.i357, 4
-  br i1 %exitcond.not.i358, label %dump_one_cpuid.exit359, label %504, !llvm.loop !10
+  %indvars.iv.next.i361 = add nuw nsw i64 %indvars.iv.i359, 1
+  %exitcond.not.i362 = icmp eq i64 %indvars.iv.next.i361, 4
+  br i1 %exitcond.not.i362, label %dump_one_cpuid.exit363, label %504, !llvm.loop !10
 
-dump_one_cpuid.exit359:                           ; preds = %510
+dump_one_cpuid.exit363:                           ; preds = %510
   %511 = load i32, ptr %4, align 16
   %512 = load i32, ptr %42, align 4
   %513 = load i32, ptr %43, align 8
@@ -1597,23 +1597,23 @@ dump_one_cpuid.exit359:                           ; preds = %510
   store i32 3, ptr %43, align 8
   br label %524
 
-524:                                              ; preds = %530, %dump_one_cpuid.exit359
-  %indvars.iv.i360 = phi i64 [ 0, %dump_one_cpuid.exit359 ], [ %indvars.iv.next.i362, %530 ]
-  %525 = trunc i64 %indvars.iv.i360 to i32
+524:                                              ; preds = %530, %dump_one_cpuid.exit363
+  %indvars.iv.i364 = phi i64 [ 0, %dump_one_cpuid.exit363 ], [ %indvars.iv.next.i366, %530 ]
+  %525 = trunc i64 %indvars.iv.i364 to i32
   %526 = shl nuw nsw i32 1, %525
   %527 = and i32 %526, 5
-  %.not.i361 = icmp eq i32 %527, 0
-  br i1 %.not.i361, label %528, label %530
+  %.not.i365 = icmp eq i32 %527, 0
+  br i1 %.not.i365, label %528, label %530
 
 528:                                              ; preds = %524
-  %529 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i360
+  %529 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i364
   store i32 0, ptr %529, align 4
   br label %530
 
 530:                                              ; preds = %528, %524
-  %indvars.iv.next.i362 = add nuw nsw i64 %indvars.iv.i360, 1
-  %exitcond.not.i363 = icmp eq i64 %indvars.iv.next.i362, 4
-  br i1 %exitcond.not.i363, label %531, label %524, !llvm.loop !10
+  %indvars.iv.next.i366 = add nuw nsw i64 %indvars.iv.i364, 1
+  %exitcond.not.i367 = icmp eq i64 %indvars.iv.next.i366, 4
+  br i1 %exitcond.not.i367, label %531, label %524, !llvm.loop !10
 
 531:                                              ; preds = %530
   %532 = load i32, ptr %4, align 16
@@ -1644,24 +1644,24 @@ dump_one_cpuid.exit359:                           ; preds = %510
   br label %549
 
 549:                                              ; preds = %555, %548
-  %indvars.iv.i365 = phi i64 [ 0, %548 ], [ %indvars.iv.next.i367, %555 ]
-  %550 = trunc i64 %indvars.iv.i365 to i32
+  %indvars.iv.i369 = phi i64 [ 0, %548 ], [ %indvars.iv.next.i371, %555 ]
+  %550 = trunc i64 %indvars.iv.i369 to i32
   %551 = shl nuw nsw i32 1, %550
   %552 = and i32 %551, 5
-  %.not.i366 = icmp eq i32 %552, 0
-  br i1 %.not.i366, label %553, label %555
+  %.not.i370 = icmp eq i32 %552, 0
+  br i1 %.not.i370, label %553, label %555
 
 553:                                              ; preds = %549
-  %554 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i365
+  %554 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i369
   store i32 0, ptr %554, align 4
   br label %555
 
 555:                                              ; preds = %553, %549
-  %indvars.iv.next.i367 = add nuw nsw i64 %indvars.iv.i365, 1
-  %exitcond.not.i368 = icmp eq i64 %indvars.iv.next.i367, 4
-  br i1 %exitcond.not.i368, label %dump_one_cpuid.exit369, label %549, !llvm.loop !10
+  %indvars.iv.next.i371 = add nuw nsw i64 %indvars.iv.i369, 1
+  %exitcond.not.i372 = icmp eq i64 %indvars.iv.next.i371, 4
+  br i1 %exitcond.not.i372, label %dump_one_cpuid.exit373, label %549, !llvm.loop !10
 
-dump_one_cpuid.exit369:                           ; preds = %555
+dump_one_cpuid.exit373:                           ; preds = %555
   %556 = load i32, ptr %4, align 16
   %557 = load i32, ptr %42, align 4
   %558 = load i32, ptr %43, align 8
@@ -1682,25 +1682,25 @@ dump_one_cpuid.exit369:                           ; preds = %555
   store i32 1, ptr %43, align 8
   br label %569
 
-569:                                              ; preds = %575, %dump_one_cpuid.exit369
-  %indvars.iv.i370 = phi i64 [ 0, %dump_one_cpuid.exit369 ], [ %indvars.iv.next.i372, %575 ]
-  %570 = trunc i64 %indvars.iv.i370 to i32
+569:                                              ; preds = %575, %dump_one_cpuid.exit373
+  %indvars.iv.i374 = phi i64 [ 0, %dump_one_cpuid.exit373 ], [ %indvars.iv.next.i376, %575 ]
+  %570 = trunc i64 %indvars.iv.i374 to i32
   %571 = shl nuw nsw i32 1, %570
   %572 = and i32 %571, 5
-  %.not.i371 = icmp eq i32 %572, 0
-  br i1 %.not.i371, label %573, label %575
+  %.not.i375 = icmp eq i32 %572, 0
+  br i1 %.not.i375, label %573, label %575
 
 573:                                              ; preds = %569
-  %574 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i370
+  %574 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i374
   store i32 0, ptr %574, align 4
   br label %575
 
 575:                                              ; preds = %573, %569
-  %indvars.iv.next.i372 = add nuw nsw i64 %indvars.iv.i370, 1
-  %exitcond.not.i373 = icmp eq i64 %indvars.iv.next.i372, 4
-  br i1 %exitcond.not.i373, label %dump_one_cpuid.exit374, label %569, !llvm.loop !10
+  %indvars.iv.next.i376 = add nuw nsw i64 %indvars.iv.i374, 1
+  %exitcond.not.i377 = icmp eq i64 %indvars.iv.next.i376, 4
+  br i1 %exitcond.not.i377, label %dump_one_cpuid.exit378, label %569, !llvm.loop !10
 
-dump_one_cpuid.exit374:                           ; preds = %575
+dump_one_cpuid.exit378:                           ; preds = %575
   %576 = load i32, ptr %4, align 16
   %577 = load i32, ptr %42, align 4
   %578 = load i32, ptr %43, align 8
@@ -1719,31 +1719,31 @@ dump_one_cpuid.exit374:                           ; preds = %575
   %588 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %584, i32 noundef %587, i32 noundef %585, i32 noundef %586) #14
   br label %589
 
-589:                                              ; preds = %dump_one_cpuid.exit374, %612
-  %.5795 = phi i32 [ 2, %dump_one_cpuid.exit374 ], [ %613, %612 ]
+589:                                              ; preds = %dump_one_cpuid.exit378, %612
+  %.5799 = phi i32 [ 2, %dump_one_cpuid.exit378 ], [ %613, %612 ]
   store i32 18, ptr %4, align 16
-  store i32 %.5795, ptr %43, align 8
+  store i32 %.5799, ptr %43, align 8
   br label %590
 
 590:                                              ; preds = %596, %589
-  %indvars.iv.i375 = phi i64 [ 0, %589 ], [ %indvars.iv.next.i377, %596 ]
-  %591 = trunc i64 %indvars.iv.i375 to i32
+  %indvars.iv.i379 = phi i64 [ 0, %589 ], [ %indvars.iv.next.i381, %596 ]
+  %591 = trunc i64 %indvars.iv.i379 to i32
   %592 = shl nuw nsw i32 1, %591
   %593 = and i32 %592, 5
-  %.not.i376 = icmp eq i32 %593, 0
-  br i1 %.not.i376, label %594, label %596
+  %.not.i380 = icmp eq i32 %593, 0
+  br i1 %.not.i380, label %594, label %596
 
 594:                                              ; preds = %590
-  %595 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i375
+  %595 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i379
   store i32 0, ptr %595, align 4
   br label %596
 
 596:                                              ; preds = %594, %590
-  %indvars.iv.next.i377 = add nuw nsw i64 %indvars.iv.i375, 1
-  %exitcond.not.i378 = icmp eq i64 %indvars.iv.next.i377, 4
-  br i1 %exitcond.not.i378, label %dump_one_cpuid.exit379, label %590, !llvm.loop !10
+  %indvars.iv.next.i381 = add nuw nsw i64 %indvars.iv.i379, 1
+  %exitcond.not.i382 = icmp eq i64 %indvars.iv.next.i381, 4
+  br i1 %exitcond.not.i382, label %dump_one_cpuid.exit383, label %590, !llvm.loop !10
 
-dump_one_cpuid.exit379:                           ; preds = %596
+dump_one_cpuid.exit383:                           ; preds = %596
   %597 = load i32, ptr %4, align 16
   %598 = load i32, ptr %42, align 4
   %599 = load i32, ptr %43, align 8
@@ -1762,25 +1762,25 @@ dump_one_cpuid.exit379:                           ; preds = %596
   %609 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %605, i32 noundef %608, i32 noundef %606, i32 noundef %607) #14
   %610 = load i32, ptr %4, align 16
   %611 = and i32 %610, 15
-  %.not250 = icmp eq i32 %611, 0
-  br i1 %.not250, label %614, label %612
+  %.not254 = icmp eq i32 %611, 0
+  br i1 %.not254, label %614, label %612
 
-612:                                              ; preds = %dump_one_cpuid.exit379
-  %613 = add nuw nsw i32 %.5795, 1
-  %exitcond813.not = icmp eq i32 %613, 256
-  br i1 %exitcond813.not, label %.thread826, label %589, !llvm.loop !16
+612:                                              ; preds = %dump_one_cpuid.exit383
+  %613 = add nuw nsw i32 %.5799, 1
+  %exitcond817.not = icmp eq i32 %613, 256
+  br i1 %exitcond817.not, label %.thread830, label %589, !llvm.loop !16
 
-614:                                              ; preds = %dump_one_cpuid.exit379
-  %615 = icmp eq i32 %.5795, 256
-  br i1 %615, label %.thread826, label %617
+614:                                              ; preds = %dump_one_cpuid.exit383
+  %615 = icmp eq i32 %.5799, 256
+  br i1 %615, label %.thread830, label %617
 
-.thread826:                                       ; preds = %612, %614
+.thread830:                                       ; preds = %612, %614
   %616 = call i64 @fwrite(ptr nonnull @.str.42, i64 21, i64 1, ptr %.0231)
   br label %617
 
-617:                                              ; preds = %614, %.thread826, %531
+617:                                              ; preds = %614, %.thread830, %531
   %618 = icmp ugt i32 %46, 19
-  br i1 %618, label %619, label %.thread679
+  br i1 %618, label %619, label %.thread683
 
 619:                                              ; preds = %617
   store i32 20, ptr %4, align 16
@@ -1788,24 +1788,24 @@ dump_one_cpuid.exit379:                           ; preds = %596
   br label %620
 
 620:                                              ; preds = %626, %619
-  %indvars.iv.i380 = phi i64 [ 0, %619 ], [ %indvars.iv.next.i382, %626 ]
-  %621 = trunc i64 %indvars.iv.i380 to i32
+  %indvars.iv.i384 = phi i64 [ 0, %619 ], [ %indvars.iv.next.i386, %626 ]
+  %621 = trunc i64 %indvars.iv.i384 to i32
   %622 = shl nuw nsw i32 1, %621
   %623 = and i32 %622, 5
-  %.not.i381 = icmp eq i32 %623, 0
-  br i1 %.not.i381, label %624, label %626
+  %.not.i385 = icmp eq i32 %623, 0
+  br i1 %.not.i385, label %624, label %626
 
 624:                                              ; preds = %620
-  %625 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i380
+  %625 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i384
   store i32 0, ptr %625, align 4
   br label %626
 
 626:                                              ; preds = %624, %620
-  %indvars.iv.next.i382 = add nuw nsw i64 %indvars.iv.i380, 1
-  %exitcond.not.i383 = icmp eq i64 %indvars.iv.next.i382, 4
-  br i1 %exitcond.not.i383, label %dump_one_cpuid.exit384, label %620, !llvm.loop !10
+  %indvars.iv.next.i386 = add nuw nsw i64 %indvars.iv.i384, 1
+  %exitcond.not.i387 = icmp eq i64 %indvars.iv.next.i386, 4
+  br i1 %exitcond.not.i387, label %dump_one_cpuid.exit388, label %620, !llvm.loop !10
 
-dump_one_cpuid.exit384:                           ; preds = %626
+dump_one_cpuid.exit388:                           ; preds = %626
   %627 = load i32, ptr %4, align 16
   %628 = load i32, ptr %42, align 4
   %629 = load i32, ptr %43, align 8
@@ -1826,23 +1826,23 @@ dump_one_cpuid.exit384:                           ; preds = %626
   store i32 1, ptr %43, align 8
   br label %640
 
-640:                                              ; preds = %646, %dump_one_cpuid.exit384
-  %indvars.iv.i385 = phi i64 [ 0, %dump_one_cpuid.exit384 ], [ %indvars.iv.next.i387, %646 ]
-  %641 = trunc i64 %indvars.iv.i385 to i32
+640:                                              ; preds = %646, %dump_one_cpuid.exit388
+  %indvars.iv.i389 = phi i64 [ 0, %dump_one_cpuid.exit388 ], [ %indvars.iv.next.i391, %646 ]
+  %641 = trunc i64 %indvars.iv.i389 to i32
   %642 = shl nuw nsw i32 1, %641
   %643 = and i32 %642, 5
-  %.not.i386 = icmp eq i32 %643, 0
-  br i1 %.not.i386, label %644, label %646
+  %.not.i390 = icmp eq i32 %643, 0
+  br i1 %.not.i390, label %644, label %646
 
 644:                                              ; preds = %640
-  %645 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i385
+  %645 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i389
   store i32 0, ptr %645, align 4
   br label %646
 
 646:                                              ; preds = %644, %640
-  %indvars.iv.next.i387 = add nuw nsw i64 %indvars.iv.i385, 1
-  %exitcond.not.i388 = icmp eq i64 %indvars.iv.next.i387, 4
-  br i1 %exitcond.not.i388, label %647, label %640, !llvm.loop !10
+  %indvars.iv.next.i391 = add nuw nsw i64 %indvars.iv.i389, 1
+  %exitcond.not.i392 = icmp eq i64 %indvars.iv.next.i391, 4
+  br i1 %exitcond.not.i392, label %647, label %640, !llvm.loop !10
 
 647:                                              ; preds = %646
   %648 = load i32, ptr %4, align 16
@@ -1861,27 +1861,27 @@ dump_one_cpuid.exit384:                           ; preds = %626
   store i32 %658, ptr %44, align 4
   %659 = load i32, ptr %42, align 4
   %660 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %656, i32 noundef %659, i32 noundef %657, i32 noundef %658) #14
-  %.not747 = icmp eq i32 %46, 20
-  br i1 %.not747, label %.thread679, label %661
+  %.not751 = icmp eq i32 %46, 20
+  br i1 %.not751, label %.thread683, label %661
 
 661:                                              ; preds = %647
   store i32 21, ptr %4, align 16
   br label %662
 
 662:                                              ; preds = %665, %661
-  %indvars.iv.i390 = phi i64 [ 0, %661 ], [ %indvars.iv.next.i392, %665 ]
-  %.not748 = icmp eq i64 %indvars.iv.i390, 0
-  br i1 %.not748, label %665, label %663
+  %indvars.iv.i394 = phi i64 [ 0, %661 ], [ %indvars.iv.next.i396, %665 ]
+  %.not752 = icmp eq i64 %indvars.iv.i394, 0
+  br i1 %.not752, label %665, label %663
 
 663:                                              ; preds = %662
-  %664 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i390
+  %664 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i394
   store i32 0, ptr %664, align 4
   br label %665
 
 665:                                              ; preds = %663, %662
-  %indvars.iv.next.i392 = add nuw nsw i64 %indvars.iv.i390, 1
-  %exitcond.not.i393 = icmp eq i64 %indvars.iv.next.i392, 4
-  br i1 %exitcond.not.i393, label %666, label %662, !llvm.loop !10
+  %indvars.iv.next.i396 = add nuw nsw i64 %indvars.iv.i394, 1
+  %exitcond.not.i397 = icmp eq i64 %indvars.iv.next.i396, 4
+  br i1 %exitcond.not.i397, label %666, label %662, !llvm.loop !10
 
 666:                                              ; preds = %665
   %667 = load i32, ptr %42, align 4
@@ -1900,26 +1900,26 @@ dump_one_cpuid.exit384:                           ; preds = %626
   %677 = load i32, ptr %42, align 4
   %678 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %674, i32 noundef %677, i32 noundef %675, i32 noundef %676) #14
   %679 = icmp ugt i32 %46, 21
-  br i1 %679, label %680, label %.thread679
+  br i1 %679, label %680, label %.thread683
 
 680:                                              ; preds = %666
   store i32 22, ptr %4, align 16
   br label %681
 
 681:                                              ; preds = %684, %680
-  %indvars.iv.i395 = phi i64 [ 0, %680 ], [ %indvars.iv.next.i397, %684 ]
-  %.not749 = icmp eq i64 %indvars.iv.i395, 0
-  br i1 %.not749, label %684, label %682
+  %indvars.iv.i399 = phi i64 [ 0, %680 ], [ %indvars.iv.next.i401, %684 ]
+  %.not753 = icmp eq i64 %indvars.iv.i399, 0
+  br i1 %.not753, label %684, label %682
 
 682:                                              ; preds = %681
-  %683 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i395
+  %683 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i399
   store i32 0, ptr %683, align 4
   br label %684
 
 684:                                              ; preds = %682, %681
-  %indvars.iv.next.i397 = add nuw nsw i64 %indvars.iv.i395, 1
-  %exitcond.not.i398 = icmp eq i64 %indvars.iv.next.i397, 4
-  br i1 %exitcond.not.i398, label %685, label %681, !llvm.loop !10
+  %indvars.iv.next.i401 = add nuw nsw i64 %indvars.iv.i399, 1
+  %exitcond.not.i402 = icmp eq i64 %indvars.iv.next.i401, 4
+  br i1 %exitcond.not.i402, label %685, label %681, !llvm.loop !10
 
 685:                                              ; preds = %684
   %686 = load i32, ptr %42, align 4
@@ -1937,8 +1937,8 @@ dump_one_cpuid.exit384:                           ; preds = %626
   store i32 %695, ptr %44, align 4
   %696 = load i32, ptr %42, align 4
   %697 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %693, i32 noundef %696, i32 noundef %694, i32 noundef %695) #14
-  %.not750 = icmp eq i32 %46, 22
-  br i1 %.not750, label %.thread679, label %698
+  %.not754 = icmp eq i32 %46, 22
+  br i1 %.not754, label %.thread683, label %698
 
 698:                                              ; preds = %685
   store i32 23, ptr %4, align 16
@@ -1946,24 +1946,24 @@ dump_one_cpuid.exit384:                           ; preds = %626
   br label %699
 
 699:                                              ; preds = %705, %698
-  %indvars.iv.i400 = phi i64 [ 0, %698 ], [ %indvars.iv.next.i402, %705 ]
-  %700 = trunc i64 %indvars.iv.i400 to i32
+  %indvars.iv.i404 = phi i64 [ 0, %698 ], [ %indvars.iv.next.i406, %705 ]
+  %700 = trunc i64 %indvars.iv.i404 to i32
   %701 = shl nuw nsw i32 1, %700
   %702 = and i32 %701, 5
-  %.not.i401 = icmp eq i32 %702, 0
-  br i1 %.not.i401, label %703, label %705
+  %.not.i405 = icmp eq i32 %702, 0
+  br i1 %.not.i405, label %703, label %705
 
 703:                                              ; preds = %699
-  %704 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i400
+  %704 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i404
   store i32 0, ptr %704, align 4
   br label %705
 
 705:                                              ; preds = %703, %699
-  %indvars.iv.next.i402 = add nuw nsw i64 %indvars.iv.i400, 1
-  %exitcond.not.i403 = icmp eq i64 %indvars.iv.next.i402, 4
-  br i1 %exitcond.not.i403, label %dump_one_cpuid.exit404, label %699, !llvm.loop !10
+  %indvars.iv.next.i406 = add nuw nsw i64 %indvars.iv.i404, 1
+  %exitcond.not.i407 = icmp eq i64 %indvars.iv.next.i406, 4
+  br i1 %exitcond.not.i407, label %dump_one_cpuid.exit408, label %699, !llvm.loop !10
 
-dump_one_cpuid.exit404:                           ; preds = %705
+dump_one_cpuid.exit408:                           ; preds = %705
   %706 = load i32, ptr %4, align 16
   %707 = load i32, ptr %42, align 4
   %708 = load i32, ptr %43, align 8
@@ -1982,39 +1982,39 @@ dump_one_cpuid.exit404:                           ; preds = %705
   %718 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %714, i32 noundef %717, i32 noundef %715, i32 noundef %716) #14
   %719 = load i32, ptr %4, align 16
   %720 = icmp ugt i32 %719, 2
-  br i1 %720, label %.preheader786.preheader, label %748
+  br i1 %720, label %.preheader790.preheader, label %748
 
-.preheader786.preheader:                          ; preds = %dump_one_cpuid.exit404
+.preheader790.preheader:                          ; preds = %dump_one_cpuid.exit408
   %721 = add i32 %719, -1
-  %umin814 = call i32 @llvm.umin.i32(i32 %721, i32 254)
-  %722 = add nuw nsw i32 %umin814, 2
-  br label %.preheader786
+  %umin818 = call i32 @llvm.umin.i32(i32 %721, i32 254)
+  %722 = add nuw nsw i32 %umin818, 2
+  br label %.preheader790
 
-.preheader786:                                    ; preds = %.preheader786.preheader, %dump_one_cpuid.exit409
-  %.6796 = phi i32 [ %743, %dump_one_cpuid.exit409 ], [ 1, %.preheader786.preheader ]
+.preheader790:                                    ; preds = %.preheader790.preheader, %dump_one_cpuid.exit413
+  %.6800 = phi i32 [ %743, %dump_one_cpuid.exit413 ], [ 1, %.preheader790.preheader ]
   store i32 23, ptr %4, align 16
-  store i32 %.6796, ptr %43, align 8
+  store i32 %.6800, ptr %43, align 8
   br label %723
 
-723:                                              ; preds = %729, %.preheader786
-  %indvars.iv.i405 = phi i64 [ 0, %.preheader786 ], [ %indvars.iv.next.i407, %729 ]
-  %724 = trunc i64 %indvars.iv.i405 to i32
+723:                                              ; preds = %729, %.preheader790
+  %indvars.iv.i409 = phi i64 [ 0, %.preheader790 ], [ %indvars.iv.next.i411, %729 ]
+  %724 = trunc i64 %indvars.iv.i409 to i32
   %725 = shl nuw nsw i32 1, %724
   %726 = and i32 %725, 5
-  %.not.i406 = icmp eq i32 %726, 0
-  br i1 %.not.i406, label %727, label %729
+  %.not.i410 = icmp eq i32 %726, 0
+  br i1 %.not.i410, label %727, label %729
 
 727:                                              ; preds = %723
-  %728 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i405
+  %728 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i409
   store i32 0, ptr %728, align 4
   br label %729
 
 729:                                              ; preds = %727, %723
-  %indvars.iv.next.i407 = add nuw nsw i64 %indvars.iv.i405, 1
-  %exitcond.not.i408 = icmp eq i64 %indvars.iv.next.i407, 4
-  br i1 %exitcond.not.i408, label %dump_one_cpuid.exit409, label %723, !llvm.loop !10
+  %indvars.iv.next.i411 = add nuw nsw i64 %indvars.iv.i409, 1
+  %exitcond.not.i412 = icmp eq i64 %indvars.iv.next.i411, 4
+  br i1 %exitcond.not.i412, label %dump_one_cpuid.exit413, label %723, !llvm.loop !10
 
-dump_one_cpuid.exit409:                           ; preds = %729
+dump_one_cpuid.exit413:                           ; preds = %729
   %730 = load i32, ptr %4, align 16
   %731 = load i32, ptr %42, align 4
   %732 = load i32, ptr %43, align 8
@@ -2031,11 +2031,11 @@ dump_one_cpuid.exit409:                           ; preds = %729
   store i32 %740, ptr %44, align 4
   %741 = load i32, ptr %42, align 4
   %742 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %738, i32 noundef %741, i32 noundef %739, i32 noundef %740) #14
-  %743 = add nuw nsw i32 %.6796, 1
-  %exitcond815.not = icmp eq i32 %743, %722
-  br i1 %exitcond815.not, label %744, label %.preheader786, !llvm.loop !17
+  %743 = add nuw nsw i32 %.6800, 1
+  %exitcond819.not = icmp eq i32 %743, %722
+  br i1 %exitcond819.not, label %744, label %.preheader790, !llvm.loop !17
 
-744:                                              ; preds = %dump_one_cpuid.exit409
+744:                                              ; preds = %dump_one_cpuid.exit413
   %745 = icmp eq i32 %722, 256
   br i1 %745, label %746, label %748
 
@@ -2043,9 +2043,9 @@ dump_one_cpuid.exit409:                           ; preds = %729
   %747 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.44, i32 noundef %719) #14
   br label %748
 
-748:                                              ; preds = %dump_one_cpuid.exit404, %746, %744
+748:                                              ; preds = %dump_one_cpuid.exit408, %746, %744
   %749 = icmp ugt i32 %46, 23
-  br i1 %749, label %750, label %.thread679
+  br i1 %749, label %750, label %.thread683
 
 750:                                              ; preds = %748
   store i32 24, ptr %4, align 16
@@ -2053,24 +2053,24 @@ dump_one_cpuid.exit409:                           ; preds = %729
   br label %751
 
 751:                                              ; preds = %757, %750
-  %indvars.iv.i410 = phi i64 [ 0, %750 ], [ %indvars.iv.next.i412, %757 ]
-  %752 = trunc i64 %indvars.iv.i410 to i32
+  %indvars.iv.i414 = phi i64 [ 0, %750 ], [ %indvars.iv.next.i416, %757 ]
+  %752 = trunc i64 %indvars.iv.i414 to i32
   %753 = shl nuw nsw i32 1, %752
   %754 = and i32 %753, 5
-  %.not.i411 = icmp eq i32 %754, 0
-  br i1 %.not.i411, label %755, label %757
+  %.not.i415 = icmp eq i32 %754, 0
+  br i1 %.not.i415, label %755, label %757
 
 755:                                              ; preds = %751
-  %756 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i410
+  %756 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i414
   store i32 0, ptr %756, align 4
   br label %757
 
 757:                                              ; preds = %755, %751
-  %indvars.iv.next.i412 = add nuw nsw i64 %indvars.iv.i410, 1
-  %exitcond.not.i413 = icmp eq i64 %indvars.iv.next.i412, 4
-  br i1 %exitcond.not.i413, label %dump_one_cpuid.exit414, label %751, !llvm.loop !10
+  %indvars.iv.next.i416 = add nuw nsw i64 %indvars.iv.i414, 1
+  %exitcond.not.i417 = icmp eq i64 %indvars.iv.next.i416, 4
+  br i1 %exitcond.not.i417, label %dump_one_cpuid.exit418, label %751, !llvm.loop !10
 
-dump_one_cpuid.exit414:                           ; preds = %757
+dump_one_cpuid.exit418:                           ; preds = %757
   %758 = load i32, ptr %4, align 16
   %759 = load i32, ptr %42, align 4
   %760 = load i32, ptr %43, align 8
@@ -2088,41 +2088,41 @@ dump_one_cpuid.exit414:                           ; preds = %757
   %769 = load i32, ptr %42, align 4
   %770 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %766, i32 noundef %769, i32 noundef %767, i32 noundef %768) #14
   %771 = load i32, ptr %4, align 16
-  %.not806 = icmp eq i32 %771, 0
-  br i1 %.not806, label %._crit_edge799.thread, label %.lr.ph798.preheader
+  %.not810 = icmp eq i32 %771, 0
+  br i1 %.not810, label %._crit_edge803.thread, label %.lr.ph802.preheader
 
-.lr.ph798.preheader:                              ; preds = %dump_one_cpuid.exit414
+.lr.ph802.preheader:                              ; preds = %dump_one_cpuid.exit418
   %772 = add i32 %771, -1
-  %umin816 = call i32 @llvm.umin.i32(i32 %772, i32 254)
-  %773 = add nuw nsw i32 %umin816, 2
-  br label %.lr.ph798
+  %umin820 = call i32 @llvm.umin.i32(i32 %772, i32 254)
+  %773 = add nuw nsw i32 %umin820, 2
+  br label %.lr.ph802
 
-.lr.ph798:                                        ; preds = %.lr.ph798.preheader, %dump_one_cpuid.exit419
-  %.7797 = phi i32 [ %794, %dump_one_cpuid.exit419 ], [ 1, %.lr.ph798.preheader ]
+.lr.ph802:                                        ; preds = %.lr.ph802.preheader, %dump_one_cpuid.exit423
+  %.7801 = phi i32 [ %794, %dump_one_cpuid.exit423 ], [ 1, %.lr.ph802.preheader ]
   store i32 24, ptr %4, align 16
-  store i32 %.7797, ptr %43, align 8
+  store i32 %.7801, ptr %43, align 8
   store i32 0, ptr %44, align 4
   br label %774
 
-774:                                              ; preds = %780, %.lr.ph798
-  %indvars.iv.i415 = phi i64 [ 0, %.lr.ph798 ], [ %indvars.iv.next.i417, %780 ]
-  %775 = trunc i64 %indvars.iv.i415 to i32
+774:                                              ; preds = %780, %.lr.ph802
+  %indvars.iv.i419 = phi i64 [ 0, %.lr.ph802 ], [ %indvars.iv.next.i421, %780 ]
+  %775 = trunc i64 %indvars.iv.i419 to i32
   %776 = shl nuw nsw i32 1, %775
   %777 = and i32 %776, 5
-  %.not.i416 = icmp eq i32 %777, 0
-  br i1 %.not.i416, label %778, label %780
+  %.not.i420 = icmp eq i32 %777, 0
+  br i1 %.not.i420, label %778, label %780
 
 778:                                              ; preds = %774
-  %779 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i415
+  %779 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i419
   store i32 0, ptr %779, align 4
   br label %780
 
 780:                                              ; preds = %778, %774
-  %indvars.iv.next.i417 = add nuw nsw i64 %indvars.iv.i415, 1
-  %exitcond.not.i418 = icmp eq i64 %indvars.iv.next.i417, 4
-  br i1 %exitcond.not.i418, label %dump_one_cpuid.exit419, label %774, !llvm.loop !10
+  %indvars.iv.next.i421 = add nuw nsw i64 %indvars.iv.i419, 1
+  %exitcond.not.i422 = icmp eq i64 %indvars.iv.next.i421, 4
+  br i1 %exitcond.not.i422, label %dump_one_cpuid.exit423, label %774, !llvm.loop !10
 
-dump_one_cpuid.exit419:                           ; preds = %780
+dump_one_cpuid.exit423:                           ; preds = %780
   %781 = load i32, ptr %4, align 16
   %782 = load i32, ptr %42, align 4
   %783 = load i32, ptr %43, align 8
@@ -2139,40 +2139,40 @@ dump_one_cpuid.exit419:                           ; preds = %780
   store i32 %791, ptr %44, align 4
   %792 = load i32, ptr %42, align 4
   %793 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %789, i32 noundef %792, i32 noundef %790, i32 noundef %791) #14
-  %794 = add nuw nsw i32 %.7797, 1
-  %exitcond817.not = icmp eq i32 %794, %773
-  br i1 %exitcond817.not, label %._crit_edge799, label %.lr.ph798, !llvm.loop !18
+  %794 = add nuw nsw i32 %.7801, 1
+  %exitcond821.not = icmp eq i32 %794, %773
+  br i1 %exitcond821.not, label %._crit_edge803, label %.lr.ph802, !llvm.loop !18
 
-._crit_edge799:                                   ; preds = %dump_one_cpuid.exit419
+._crit_edge803:                                   ; preds = %dump_one_cpuid.exit423
   %795 = icmp eq i32 %773, 256
-  br i1 %795, label %796, label %._crit_edge799.thread
+  br i1 %795, label %796, label %._crit_edge803.thread
 
-796:                                              ; preds = %._crit_edge799
+796:                                              ; preds = %._crit_edge803
   %797 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.43, i32 noundef %771) #14
-  br label %._crit_edge799.thread
+  br label %._crit_edge803.thread
 
-._crit_edge799.thread:                            ; preds = %dump_one_cpuid.exit414, %._crit_edge799, %796
-  %.not751 = icmp eq i32 %46, 24
-  br i1 %.not751, label %.thread679, label %798
+._crit_edge803.thread:                            ; preds = %dump_one_cpuid.exit418, %._crit_edge803, %796
+  %.not755 = icmp eq i32 %46, 24
+  br i1 %.not755, label %.thread683, label %798
 
-798:                                              ; preds = %._crit_edge799.thread
+798:                                              ; preds = %._crit_edge803.thread
   store i32 25, ptr %4, align 16
   br label %799
 
 799:                                              ; preds = %802, %798
-  %indvars.iv.i420 = phi i64 [ 0, %798 ], [ %indvars.iv.next.i422, %802 ]
-  %.not752 = icmp eq i64 %indvars.iv.i420, 0
-  br i1 %.not752, label %802, label %800
+  %indvars.iv.i424 = phi i64 [ 0, %798 ], [ %indvars.iv.next.i426, %802 ]
+  %.not756 = icmp eq i64 %indvars.iv.i424, 0
+  br i1 %.not756, label %802, label %800
 
 800:                                              ; preds = %799
-  %801 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i420
+  %801 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i424
   store i32 0, ptr %801, align 4
   br label %802
 
 802:                                              ; preds = %800, %799
-  %indvars.iv.next.i422 = add nuw nsw i64 %indvars.iv.i420, 1
-  %exitcond.not.i423 = icmp eq i64 %indvars.iv.next.i422, 4
-  br i1 %exitcond.not.i423, label %803, label %799, !llvm.loop !10
+  %indvars.iv.next.i426 = add nuw nsw i64 %indvars.iv.i424, 1
+  %exitcond.not.i427 = icmp eq i64 %indvars.iv.next.i426, 4
+  br i1 %exitcond.not.i427, label %803, label %799, !llvm.loop !10
 
 803:                                              ; preds = %802
   %804 = load i32, ptr %42, align 4
@@ -2191,7 +2191,7 @@ dump_one_cpuid.exit419:                           ; preds = %780
   %814 = load i32, ptr %42, align 4
   %815 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %811, i32 noundef %814, i32 noundef %812, i32 noundef %813) #14
   %816 = icmp ugt i32 %46, 25
-  br i1 %816, label %817, label %.thread679
+  br i1 %816, label %817, label %.thread683
 
 817:                                              ; preds = %803
   store i32 26, ptr %4, align 16
@@ -2199,22 +2199,22 @@ dump_one_cpuid.exit419:                           ; preds = %780
   br label %818
 
 818:                                              ; preds = %824, %817
-  %indvars.iv.i425 = phi i64 [ 0, %817 ], [ %indvars.iv.next.i427, %824 ]
-  %819 = trunc i64 %indvars.iv.i425 to i32
+  %indvars.iv.i429 = phi i64 [ 0, %817 ], [ %indvars.iv.next.i431, %824 ]
+  %819 = trunc i64 %indvars.iv.i429 to i32
   %820 = shl nuw nsw i32 1, %819
   %821 = and i32 %820, 5
-  %.not.i426 = icmp eq i32 %821, 0
-  br i1 %.not.i426, label %822, label %824
+  %.not.i430 = icmp eq i32 %821, 0
+  br i1 %.not.i430, label %822, label %824
 
 822:                                              ; preds = %818
-  %823 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i425
+  %823 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i429
   store i32 0, ptr %823, align 4
   br label %824
 
 824:                                              ; preds = %822, %818
-  %indvars.iv.next.i427 = add nuw nsw i64 %indvars.iv.i425, 1
-  %exitcond.not.i428 = icmp eq i64 %indvars.iv.next.i427, 4
-  br i1 %exitcond.not.i428, label %825, label %818, !llvm.loop !10
+  %indvars.iv.next.i431 = add nuw nsw i64 %indvars.iv.i429, 1
+  %exitcond.not.i432 = icmp eq i64 %indvars.iv.next.i431, 4
+  br i1 %exitcond.not.i432, label %825, label %818, !llvm.loop !10
 
 825:                                              ; preds = %824
   %826 = load i32, ptr %4, align 16
@@ -2237,33 +2237,33 @@ dump_one_cpuid.exit419:                           ; preds = %780
   %840 = icmp ne i32 %839, 0
   %841 = icmp ne i32 %46, 26
   %or.cond11 = select i1 %840, i1 %841, i1 false
-  br i1 %or.cond11, label %.preheader785, label %869
+  br i1 %or.cond11, label %.preheader789, label %869
 
-.preheader785:                                    ; preds = %825, %864
-  %.8801 = phi i32 [ %865, %864 ], [ 0, %825 ]
+.preheader789:                                    ; preds = %825, %864
+  %.8805 = phi i32 [ %865, %864 ], [ 0, %825 ]
   store i32 27, ptr %4, align 16
-  store i32 %.8801, ptr %43, align 8
+  store i32 %.8805, ptr %43, align 8
   br label %842
 
-842:                                              ; preds = %848, %.preheader785
-  %indvars.iv.i430 = phi i64 [ 0, %.preheader785 ], [ %indvars.iv.next.i432, %848 ]
-  %843 = trunc i64 %indvars.iv.i430 to i32
+842:                                              ; preds = %848, %.preheader789
+  %indvars.iv.i434 = phi i64 [ 0, %.preheader789 ], [ %indvars.iv.next.i436, %848 ]
+  %843 = trunc i64 %indvars.iv.i434 to i32
   %844 = shl nuw nsw i32 1, %843
   %845 = and i32 %844, 5
-  %.not.i431 = icmp eq i32 %845, 0
-  br i1 %.not.i431, label %846, label %848
+  %.not.i435 = icmp eq i32 %845, 0
+  br i1 %.not.i435, label %846, label %848
 
 846:                                              ; preds = %842
-  %847 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i430
+  %847 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i434
   store i32 0, ptr %847, align 4
   br label %848
 
 848:                                              ; preds = %846, %842
-  %indvars.iv.next.i432 = add nuw nsw i64 %indvars.iv.i430, 1
-  %exitcond.not.i433 = icmp eq i64 %indvars.iv.next.i432, 4
-  br i1 %exitcond.not.i433, label %dump_one_cpuid.exit434, label %842, !llvm.loop !10
+  %indvars.iv.next.i436 = add nuw nsw i64 %indvars.iv.i434, 1
+  %exitcond.not.i437 = icmp eq i64 %indvars.iv.next.i436, 4
+  br i1 %exitcond.not.i437, label %dump_one_cpuid.exit438, label %842, !llvm.loop !10
 
-dump_one_cpuid.exit434:                           ; preds = %848
+dump_one_cpuid.exit438:                           ; preds = %848
   %849 = load i32, ptr %4, align 16
   %850 = load i32, ptr %42, align 4
   %851 = load i32, ptr %43, align 8
@@ -2282,25 +2282,25 @@ dump_one_cpuid.exit434:                           ; preds = %848
   %861 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %857, i32 noundef %860, i32 noundef %858, i32 noundef %859) #14
   %862 = load i32, ptr %4, align 16
   %863 = and i32 %862, 4095
-  %.not251 = icmp eq i32 %863, 0
-  br i1 %.not251, label %866, label %864
+  %.not255 = icmp eq i32 %863, 0
+  br i1 %.not255, label %866, label %864
 
-864:                                              ; preds = %dump_one_cpuid.exit434
-  %865 = add nuw nsw i32 %.8801, 1
-  %exitcond818.not = icmp eq i32 %865, 256
-  br i1 %exitcond818.not, label %.thread829, label %.preheader785, !llvm.loop !19
+864:                                              ; preds = %dump_one_cpuid.exit438
+  %865 = add nuw nsw i32 %.8805, 1
+  %exitcond822.not = icmp eq i32 %865, 256
+  br i1 %exitcond822.not, label %.thread833, label %.preheader789, !llvm.loop !19
 
-866:                                              ; preds = %dump_one_cpuid.exit434
-  %867 = icmp eq i32 %.8801, 256
-  br i1 %867, label %.thread829, label %869
+866:                                              ; preds = %dump_one_cpuid.exit438
+  %867 = icmp eq i32 %.8805, 256
+  br i1 %867, label %.thread833, label %869
 
-.thread829:                                       ; preds = %864, %866
+.thread833:                                       ; preds = %864, %866
   %868 = call i64 @fwrite(ptr nonnull @.str.42, i64 21, i64 1, ptr %.0231)
   br label %869
 
-869:                                              ; preds = %866, %.thread829, %825
+869:                                              ; preds = %866, %.thread833, %825
   %870 = icmp ugt i32 %46, 27
-  br i1 %870, label %871, label %.thread679
+  br i1 %870, label %871, label %.thread683
 
 871:                                              ; preds = %869
   store i32 28, ptr %4, align 16
@@ -2308,22 +2308,22 @@ dump_one_cpuid.exit434:                           ; preds = %848
   br label %872
 
 872:                                              ; preds = %878, %871
-  %indvars.iv.i435 = phi i64 [ 0, %871 ], [ %indvars.iv.next.i437, %878 ]
-  %873 = trunc i64 %indvars.iv.i435 to i32
+  %indvars.iv.i439 = phi i64 [ 0, %871 ], [ %indvars.iv.next.i441, %878 ]
+  %873 = trunc i64 %indvars.iv.i439 to i32
   %874 = shl nuw nsw i32 1, %873
   %875 = and i32 %874, 5
-  %.not.i436 = icmp eq i32 %875, 0
-  br i1 %.not.i436, label %876, label %878
+  %.not.i440 = icmp eq i32 %875, 0
+  br i1 %.not.i440, label %876, label %878
 
 876:                                              ; preds = %872
-  %877 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i435
+  %877 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i439
   store i32 0, ptr %877, align 4
   br label %878
 
 878:                                              ; preds = %876, %872
-  %indvars.iv.next.i437 = add nuw nsw i64 %indvars.iv.i435, 1
-  %exitcond.not.i438 = icmp eq i64 %indvars.iv.next.i437, 4
-  br i1 %exitcond.not.i438, label %879, label %872, !llvm.loop !10
+  %indvars.iv.next.i441 = add nuw nsw i64 %indvars.iv.i439, 1
+  %exitcond.not.i442 = icmp eq i64 %indvars.iv.next.i441, 4
+  br i1 %exitcond.not.i442, label %879, label %872, !llvm.loop !10
 
 879:                                              ; preds = %878
   %880 = load i32, ptr %4, align 16
@@ -2342,8 +2342,8 @@ dump_one_cpuid.exit434:                           ; preds = %848
   store i32 %890, ptr %44, align 4
   %891 = load i32, ptr %42, align 4
   %892 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %888, i32 noundef %891, i32 noundef %889, i32 noundef %890) #14
-  %.not753 = icmp eq i32 %46, 28
-  br i1 %.not753, label %.thread679, label %893
+  %.not757 = icmp eq i32 %46, 28
+  br i1 %.not757, label %.thread683, label %893
 
 893:                                              ; preds = %879
   store i32 29, ptr %4, align 16
@@ -2351,24 +2351,24 @@ dump_one_cpuid.exit434:                           ; preds = %848
   br label %894
 
 894:                                              ; preds = %900, %893
-  %indvars.iv.i440 = phi i64 [ 0, %893 ], [ %indvars.iv.next.i442, %900 ]
-  %895 = trunc i64 %indvars.iv.i440 to i32
+  %indvars.iv.i444 = phi i64 [ 0, %893 ], [ %indvars.iv.next.i446, %900 ]
+  %895 = trunc i64 %indvars.iv.i444 to i32
   %896 = shl nuw nsw i32 1, %895
   %897 = and i32 %896, 5
-  %.not.i441 = icmp eq i32 %897, 0
-  br i1 %.not.i441, label %898, label %900
+  %.not.i445 = icmp eq i32 %897, 0
+  br i1 %.not.i445, label %898, label %900
 
 898:                                              ; preds = %894
-  %899 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i440
+  %899 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i444
   store i32 0, ptr %899, align 4
   br label %900
 
 900:                                              ; preds = %898, %894
-  %indvars.iv.next.i442 = add nuw nsw i64 %indvars.iv.i440, 1
-  %exitcond.not.i443 = icmp eq i64 %indvars.iv.next.i442, 4
-  br i1 %exitcond.not.i443, label %dump_one_cpuid.exit444, label %894, !llvm.loop !10
+  %indvars.iv.next.i446 = add nuw nsw i64 %indvars.iv.i444, 1
+  %exitcond.not.i447 = icmp eq i64 %indvars.iv.next.i446, 4
+  br i1 %exitcond.not.i447, label %dump_one_cpuid.exit448, label %894, !llvm.loop !10
 
-dump_one_cpuid.exit444:                           ; preds = %900
+dump_one_cpuid.exit448:                           ; preds = %900
   %901 = load i32, ptr %4, align 16
   %902 = load i32, ptr %42, align 4
   %903 = load i32, ptr %43, align 8
@@ -2389,23 +2389,23 @@ dump_one_cpuid.exit444:                           ; preds = %900
   store i32 1, ptr %43, align 8
   br label %914
 
-914:                                              ; preds = %920, %dump_one_cpuid.exit444
-  %indvars.iv.i445 = phi i64 [ 0, %dump_one_cpuid.exit444 ], [ %indvars.iv.next.i447, %920 ]
-  %915 = trunc i64 %indvars.iv.i445 to i32
+914:                                              ; preds = %920, %dump_one_cpuid.exit448
+  %indvars.iv.i449 = phi i64 [ 0, %dump_one_cpuid.exit448 ], [ %indvars.iv.next.i451, %920 ]
+  %915 = trunc i64 %indvars.iv.i449 to i32
   %916 = shl nuw nsw i32 1, %915
   %917 = and i32 %916, 5
-  %.not.i446 = icmp eq i32 %917, 0
-  br i1 %.not.i446, label %918, label %920
+  %.not.i450 = icmp eq i32 %917, 0
+  br i1 %.not.i450, label %918, label %920
 
 918:                                              ; preds = %914
-  %919 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i445
+  %919 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i449
   store i32 0, ptr %919, align 4
   br label %920
 
 920:                                              ; preds = %918, %914
-  %indvars.iv.next.i447 = add nuw nsw i64 %indvars.iv.i445, 1
-  %exitcond.not.i448 = icmp eq i64 %indvars.iv.next.i447, 4
-  br i1 %exitcond.not.i448, label %921, label %914, !llvm.loop !10
+  %indvars.iv.next.i451 = add nuw nsw i64 %indvars.iv.i449, 1
+  %exitcond.not.i452 = icmp eq i64 %indvars.iv.next.i451, 4
+  br i1 %exitcond.not.i452, label %921, label %914, !llvm.loop !10
 
 921:                                              ; preds = %920
   %922 = load i32, ptr %4, align 16
@@ -2425,7 +2425,7 @@ dump_one_cpuid.exit444:                           ; preds = %900
   %933 = load i32, ptr %42, align 4
   %934 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %930, i32 noundef %933, i32 noundef %931, i32 noundef %932) #14
   %935 = icmp ugt i32 %46, 29
-  br i1 %935, label %936, label %.thread679
+  br i1 %935, label %936, label %.thread683
 
 936:                                              ; preds = %921
   store i32 30, ptr %4, align 16
@@ -2433,22 +2433,22 @@ dump_one_cpuid.exit444:                           ; preds = %900
   br label %937
 
 937:                                              ; preds = %943, %936
-  %indvars.iv.i450 = phi i64 [ 0, %936 ], [ %indvars.iv.next.i452, %943 ]
-  %938 = trunc i64 %indvars.iv.i450 to i32
+  %indvars.iv.i454 = phi i64 [ 0, %936 ], [ %indvars.iv.next.i456, %943 ]
+  %938 = trunc i64 %indvars.iv.i454 to i32
   %939 = shl nuw nsw i32 1, %938
   %940 = and i32 %939, 5
-  %.not.i451 = icmp eq i32 %940, 0
-  br i1 %.not.i451, label %941, label %943
+  %.not.i455 = icmp eq i32 %940, 0
+  br i1 %.not.i455, label %941, label %943
 
 941:                                              ; preds = %937
-  %942 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i450
+  %942 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i454
   store i32 0, ptr %942, align 4
   br label %943
 
 943:                                              ; preds = %941, %937
-  %indvars.iv.next.i452 = add nuw nsw i64 %indvars.iv.i450, 1
-  %exitcond.not.i453 = icmp eq i64 %indvars.iv.next.i452, 4
-  br i1 %exitcond.not.i453, label %944, label %937, !llvm.loop !10
+  %indvars.iv.next.i456 = add nuw nsw i64 %indvars.iv.i454, 1
+  %exitcond.not.i457 = icmp eq i64 %indvars.iv.next.i456, 4
+  br i1 %exitcond.not.i457, label %944, label %937, !llvm.loop !10
 
 944:                                              ; preds = %943
   %945 = load i32, ptr %4, align 16
@@ -2467,34 +2467,34 @@ dump_one_cpuid.exit444:                           ; preds = %900
   store i32 %955, ptr %44, align 4
   %956 = load i32, ptr %42, align 4
   %957 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %953, i32 noundef %956, i32 noundef %954, i32 noundef %955) #14
-  %.not754 = icmp eq i32 %46, 30
-  br i1 %.not754, label %.thread679, label %.preheader784
+  %.not758 = icmp eq i32 %46, 30
+  br i1 %.not758, label %.thread683, label %.preheader788
 
-.preheader784:                                    ; preds = %944, %980
-  %.9802 = phi i32 [ %981, %980 ], [ 0, %944 ]
+.preheader788:                                    ; preds = %944, %980
+  %.9806 = phi i32 [ %981, %980 ], [ 0, %944 ]
   store i32 31, ptr %4, align 16
-  store i32 %.9802, ptr %43, align 8
+  store i32 %.9806, ptr %43, align 8
   br label %958
 
-958:                                              ; preds = %964, %.preheader784
-  %indvars.iv.i455 = phi i64 [ 0, %.preheader784 ], [ %indvars.iv.next.i457, %964 ]
-  %959 = trunc i64 %indvars.iv.i455 to i32
+958:                                              ; preds = %964, %.preheader788
+  %indvars.iv.i459 = phi i64 [ 0, %.preheader788 ], [ %indvars.iv.next.i461, %964 ]
+  %959 = trunc i64 %indvars.iv.i459 to i32
   %960 = shl nuw nsw i32 1, %959
   %961 = and i32 %960, 5
-  %.not.i456 = icmp eq i32 %961, 0
-  br i1 %.not.i456, label %962, label %964
+  %.not.i460 = icmp eq i32 %961, 0
+  br i1 %.not.i460, label %962, label %964
 
 962:                                              ; preds = %958
-  %963 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i455
+  %963 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i459
   store i32 0, ptr %963, align 4
   br label %964
 
 964:                                              ; preds = %962, %958
-  %indvars.iv.next.i457 = add nuw nsw i64 %indvars.iv.i455, 1
-  %exitcond.not.i458 = icmp eq i64 %indvars.iv.next.i457, 4
-  br i1 %exitcond.not.i458, label %dump_one_cpuid.exit459, label %958, !llvm.loop !10
+  %indvars.iv.next.i461 = add nuw nsw i64 %indvars.iv.i459, 1
+  %exitcond.not.i462 = icmp eq i64 %indvars.iv.next.i461, 4
+  br i1 %exitcond.not.i462, label %dump_one_cpuid.exit463, label %958, !llvm.loop !10
 
-dump_one_cpuid.exit459:                           ; preds = %964
+dump_one_cpuid.exit463:                           ; preds = %964
   %965 = load i32, ptr %4, align 16
   %966 = load i32, ptr %42, align 4
   %967 = load i32, ptr %43, align 8
@@ -2513,25 +2513,25 @@ dump_one_cpuid.exit459:                           ; preds = %964
   %977 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %973, i32 noundef %976, i32 noundef %974, i32 noundef %975) #14
   %978 = load i32, ptr %43, align 8
   %979 = and i32 %978, 65280
-  %.not252 = icmp eq i32 %979, 0
-  br i1 %.not252, label %982, label %980
+  %.not256 = icmp eq i32 %979, 0
+  br i1 %.not256, label %982, label %980
 
-980:                                              ; preds = %dump_one_cpuid.exit459
-  %981 = add nuw nsw i32 %.9802, 1
-  %exitcond819.not = icmp eq i32 %981, 256
-  br i1 %exitcond819.not, label %.thread831, label %.preheader784, !llvm.loop !20
+980:                                              ; preds = %dump_one_cpuid.exit463
+  %981 = add nuw nsw i32 %.9806, 1
+  %exitcond823.not = icmp eq i32 %981, 256
+  br i1 %exitcond823.not, label %.thread835, label %.preheader788, !llvm.loop !20
 
-982:                                              ; preds = %dump_one_cpuid.exit459
-  %983 = icmp eq i32 %.9802, 256
-  br i1 %983, label %.thread831, label %985
+982:                                              ; preds = %dump_one_cpuid.exit463
+  %983 = icmp eq i32 %.9806, 256
+  br i1 %983, label %.thread835, label %985
 
-.thread831:                                       ; preds = %980, %982
+.thread835:                                       ; preds = %980, %982
   %984 = call i64 @fwrite(ptr nonnull @.str.42, i64 21, i64 1, ptr %.0231)
   br label %985
 
-985:                                              ; preds = %982, %.thread831
+985:                                              ; preds = %982, %.thread835
   %986 = icmp ugt i32 %46, 31
-  br i1 %986, label %987, label %.thread679
+  br i1 %986, label %987, label %.thread683
 
 987:                                              ; preds = %985
   store i32 32, ptr %4, align 16
@@ -2539,22 +2539,22 @@ dump_one_cpuid.exit459:                           ; preds = %964
   br label %988
 
 988:                                              ; preds = %994, %987
-  %indvars.iv.i460 = phi i64 [ 0, %987 ], [ %indvars.iv.next.i462, %994 ]
-  %989 = trunc i64 %indvars.iv.i460 to i32
+  %indvars.iv.i464 = phi i64 [ 0, %987 ], [ %indvars.iv.next.i466, %994 ]
+  %989 = trunc i64 %indvars.iv.i464 to i32
   %990 = shl nuw nsw i32 1, %989
   %991 = and i32 %990, 5
-  %.not.i461 = icmp eq i32 %991, 0
-  br i1 %.not.i461, label %992, label %994
+  %.not.i465 = icmp eq i32 %991, 0
+  br i1 %.not.i465, label %992, label %994
 
 992:                                              ; preds = %988
-  %993 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i460
+  %993 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i464
   store i32 0, ptr %993, align 4
   br label %994
 
 994:                                              ; preds = %992, %988
-  %indvars.iv.next.i462 = add nuw nsw i64 %indvars.iv.i460, 1
-  %exitcond.not.i463 = icmp eq i64 %indvars.iv.next.i462, 4
-  br i1 %exitcond.not.i463, label %995, label %988, !llvm.loop !10
+  %indvars.iv.next.i466 = add nuw nsw i64 %indvars.iv.i464, 1
+  %exitcond.not.i467 = icmp eq i64 %indvars.iv.next.i466, 4
+  br i1 %exitcond.not.i467, label %995, label %988, !llvm.loop !10
 
 995:                                              ; preds = %994
   %996 = load i32, ptr %4, align 16
@@ -2574,7 +2574,7 @@ dump_one_cpuid.exit459:                           ; preds = %964
   %1007 = load i32, ptr %42, align 4
   %1008 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %1004, i32 noundef %1007, i32 noundef %1005, i32 noundef %1006) #14
   %1009 = icmp ugt i32 %46, 33
-  br i1 %1009, label %1010, label %.thread679
+  br i1 %1009, label %1010, label %.thread683
 
 1010:                                             ; preds = %995
   %.b = load i1, ptr @dump_one_proc.reported, align 4
@@ -2587,28 +2587,28 @@ dump_one_cpuid.exit459:                           ; preds = %964
 
 1014:                                             ; preds = %1011, %1010
   store i1 true, ptr @dump_one_proc.reported, align 4
-  br label %.thread679
+  br label %.thread683
 
-.thread679:                                       ; preds = %803, %._crit_edge799.thread, %748, %685, %666, %647, %617, %254, %._crit_edge.thread, %184, %166, %159, %119, %100, %80, %dump_one_cpuid.exit, %317, %419, %449, %869, %879, %921, %944, %985, %1014, %995
+.thread683:                                       ; preds = %803, %._crit_edge803.thread, %748, %685, %666, %647, %617, %254, %._crit_edge.thread, %184, %166, %159, %119, %100, %80, %dump_one_cpuid.exit, %317, %419, %449, %869, %879, %921, %944, %985, %1014, %995
   store i32 -2147483648, ptr %4, align 16
   br label %1015
 
-1015:                                             ; preds = %1018, %.thread679
-  %indvars.iv.i465 = phi i64 [ 0, %.thread679 ], [ %indvars.iv.next.i467, %1018 ]
-  %.not755 = icmp eq i64 %indvars.iv.i465, 0
-  br i1 %.not755, label %1018, label %1016
+1015:                                             ; preds = %1018, %.thread683
+  %indvars.iv.i469 = phi i64 [ 0, %.thread683 ], [ %indvars.iv.next.i471, %1018 ]
+  %.not759 = icmp eq i64 %indvars.iv.i469, 0
+  br i1 %.not759, label %1018, label %1016
 
 1016:                                             ; preds = %1015
-  %1017 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i465
+  %1017 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i469
   store i32 0, ptr %1017, align 4
   br label %1018
 
 1018:                                             ; preds = %1016, %1015
-  %indvars.iv.next.i467 = add nuw nsw i64 %indvars.iv.i465, 1
-  %exitcond.not.i468 = icmp eq i64 %indvars.iv.next.i467, 4
-  br i1 %exitcond.not.i468, label %dump_one_cpuid.exit469, label %1015, !llvm.loop !10
+  %indvars.iv.next.i471 = add nuw nsw i64 %indvars.iv.i469, 1
+  %exitcond.not.i472 = icmp eq i64 %indvars.iv.next.i471, 4
+  br i1 %exitcond.not.i472, label %dump_one_cpuid.exit473, label %1015, !llvm.loop !10
 
-dump_one_cpuid.exit469:                           ; preds = %1018
+dump_one_cpuid.exit473:                           ; preds = %1018
   %1019 = load i32, ptr %42, align 4
   %1020 = load i32, ptr %43, align 8
   %1021 = load i32, ptr %44, align 4
@@ -2625,26 +2625,26 @@ dump_one_cpuid.exit469:                           ; preds = %1018
   %1029 = load i32, ptr %42, align 4
   %1030 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %1026, i32 noundef %1029, i32 noundef %1027, i32 noundef %1028) #14
   %1031 = icmp ugt i32 %50, -2147483648
-  br i1 %1031, label %1032, label %.thread732
+  br i1 %1031, label %1032, label %.thread736
 
-1032:                                             ; preds = %dump_one_cpuid.exit469
+1032:                                             ; preds = %dump_one_cpuid.exit473
   store i32 -2147483647, ptr %4, align 16
   br label %1033
 
 1033:                                             ; preds = %1036, %1032
-  %indvars.iv.i470 = phi i64 [ 0, %1032 ], [ %indvars.iv.next.i472, %1036 ]
-  %.not756 = icmp eq i64 %indvars.iv.i470, 0
-  br i1 %.not756, label %1036, label %1034
+  %indvars.iv.i474 = phi i64 [ 0, %1032 ], [ %indvars.iv.next.i476, %1036 ]
+  %.not760 = icmp eq i64 %indvars.iv.i474, 0
+  br i1 %.not760, label %1036, label %1034
 
 1034:                                             ; preds = %1033
-  %1035 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i470
+  %1035 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i474
   store i32 0, ptr %1035, align 4
   br label %1036
 
 1036:                                             ; preds = %1034, %1033
-  %indvars.iv.next.i472 = add nuw nsw i64 %indvars.iv.i470, 1
-  %exitcond.not.i473 = icmp eq i64 %indvars.iv.next.i472, 4
-  br i1 %exitcond.not.i473, label %1037, label %1033, !llvm.loop !10
+  %indvars.iv.next.i476 = add nuw nsw i64 %indvars.iv.i474, 1
+  %exitcond.not.i477 = icmp eq i64 %indvars.iv.next.i476, 4
+  br i1 %exitcond.not.i477, label %1037, label %1033, !llvm.loop !10
 
 1037:                                             ; preds = %1036
   %1038 = load i32, ptr %42, align 4
@@ -2664,28 +2664,28 @@ dump_one_cpuid.exit469:                           ; preds = %1018
   %1049 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %1045, i32 noundef %1048, i32 noundef %1046, i32 noundef %1047) #14
   %1050 = load i32, ptr %43, align 8
   %1051 = and i32 %1050, 4194304
-  %.not253 = icmp ne i32 %1051, 0
-  %.not757 = icmp eq i32 %50, -2147483647
-  br i1 %.not757, label %.thread732, label %1052
+  %.not257 = icmp ne i32 %1051, 0
+  %.not761 = icmp eq i32 %50, -2147483647
+  br i1 %.not761, label %.thread736, label %1052
 
 1052:                                             ; preds = %1037
   store i32 -2147483646, ptr %4, align 16
   br label %1053
 
 1053:                                             ; preds = %1056, %1052
-  %indvars.iv.i475 = phi i64 [ 0, %1052 ], [ %indvars.iv.next.i477, %1056 ]
-  %.not758 = icmp eq i64 %indvars.iv.i475, 0
-  br i1 %.not758, label %1056, label %1054
+  %indvars.iv.i479 = phi i64 [ 0, %1052 ], [ %indvars.iv.next.i481, %1056 ]
+  %.not762 = icmp eq i64 %indvars.iv.i479, 0
+  br i1 %.not762, label %1056, label %1054
 
 1054:                                             ; preds = %1053
-  %1055 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i475
+  %1055 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i479
   store i32 0, ptr %1055, align 4
   br label %1056
 
 1056:                                             ; preds = %1054, %1053
-  %indvars.iv.next.i477 = add nuw nsw i64 %indvars.iv.i475, 1
-  %exitcond.not.i478 = icmp eq i64 %indvars.iv.next.i477, 4
-  br i1 %exitcond.not.i478, label %1057, label %1053, !llvm.loop !10
+  %indvars.iv.next.i481 = add nuw nsw i64 %indvars.iv.i479, 1
+  %exitcond.not.i482 = icmp eq i64 %indvars.iv.next.i481, 4
+  br i1 %exitcond.not.i482, label %1057, label %1053, !llvm.loop !10
 
 1057:                                             ; preds = %1056
   %1058 = load i32, ptr %42, align 4
@@ -2704,26 +2704,26 @@ dump_one_cpuid.exit469:                           ; preds = %1018
   %1068 = load i32, ptr %42, align 4
   %1069 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %1065, i32 noundef %1068, i32 noundef %1066, i32 noundef %1067) #14
   %1070 = icmp ugt i32 %50, -2147483646
-  br i1 %1070, label %1071, label %.thread732
+  br i1 %1070, label %1071, label %.thread736
 
 1071:                                             ; preds = %1057
   store i32 -2147483645, ptr %4, align 16
   br label %1072
 
 1072:                                             ; preds = %1075, %1071
-  %indvars.iv.i480 = phi i64 [ 0, %1071 ], [ %indvars.iv.next.i482, %1075 ]
-  %.not759 = icmp eq i64 %indvars.iv.i480, 0
-  br i1 %.not759, label %1075, label %1073
+  %indvars.iv.i484 = phi i64 [ 0, %1071 ], [ %indvars.iv.next.i486, %1075 ]
+  %.not763 = icmp eq i64 %indvars.iv.i484, 0
+  br i1 %.not763, label %1075, label %1073
 
 1073:                                             ; preds = %1072
-  %1074 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i480
+  %1074 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i484
   store i32 0, ptr %1074, align 4
   br label %1075
 
 1075:                                             ; preds = %1073, %1072
-  %indvars.iv.next.i482 = add nuw nsw i64 %indvars.iv.i480, 1
-  %exitcond.not.i483 = icmp eq i64 %indvars.iv.next.i482, 4
-  br i1 %exitcond.not.i483, label %1076, label %1072, !llvm.loop !10
+  %indvars.iv.next.i486 = add nuw nsw i64 %indvars.iv.i484, 1
+  %exitcond.not.i487 = icmp eq i64 %indvars.iv.next.i486, 4
+  br i1 %exitcond.not.i487, label %1076, label %1072, !llvm.loop !10
 
 1076:                                             ; preds = %1075
   %1077 = load i32, ptr %42, align 4
@@ -2741,27 +2741,27 @@ dump_one_cpuid.exit469:                           ; preds = %1018
   store i32 %1086, ptr %44, align 4
   %1087 = load i32, ptr %42, align 4
   %1088 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %1084, i32 noundef %1087, i32 noundef %1085, i32 noundef %1086) #14
-  %.not760 = icmp eq i32 %50, -2147483645
-  br i1 %.not760, label %.thread732, label %1089
+  %.not764 = icmp eq i32 %50, -2147483645
+  br i1 %.not764, label %.thread736, label %1089
 
 1089:                                             ; preds = %1076
   store i32 -2147483644, ptr %4, align 16
   br label %1090
 
 1090:                                             ; preds = %1093, %1089
-  %indvars.iv.i485 = phi i64 [ 0, %1089 ], [ %indvars.iv.next.i487, %1093 ]
-  %.not761 = icmp eq i64 %indvars.iv.i485, 0
-  br i1 %.not761, label %1093, label %1091
+  %indvars.iv.i489 = phi i64 [ 0, %1089 ], [ %indvars.iv.next.i491, %1093 ]
+  %.not765 = icmp eq i64 %indvars.iv.i489, 0
+  br i1 %.not765, label %1093, label %1091
 
 1091:                                             ; preds = %1090
-  %1092 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i485
+  %1092 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i489
   store i32 0, ptr %1092, align 4
   br label %1093
 
 1093:                                             ; preds = %1091, %1090
-  %indvars.iv.next.i487 = add nuw nsw i64 %indvars.iv.i485, 1
-  %exitcond.not.i488 = icmp eq i64 %indvars.iv.next.i487, 4
-  br i1 %exitcond.not.i488, label %1094, label %1090, !llvm.loop !10
+  %indvars.iv.next.i491 = add nuw nsw i64 %indvars.iv.i489, 1
+  %exitcond.not.i492 = icmp eq i64 %indvars.iv.next.i491, 4
+  br i1 %exitcond.not.i492, label %1094, label %1090, !llvm.loop !10
 
 1094:                                             ; preds = %1093
   %1095 = load i32, ptr %42, align 4
@@ -2780,26 +2780,26 @@ dump_one_cpuid.exit469:                           ; preds = %1018
   %1105 = load i32, ptr %42, align 4
   %1106 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %1102, i32 noundef %1105, i32 noundef %1103, i32 noundef %1104) #14
   %1107 = icmp ugt i32 %50, -2147483644
-  br i1 %1107, label %1108, label %.thread732
+  br i1 %1107, label %1108, label %.thread736
 
 1108:                                             ; preds = %1094
   store i32 -2147483643, ptr %4, align 16
   br label %1109
 
 1109:                                             ; preds = %1112, %1108
-  %indvars.iv.i490 = phi i64 [ 0, %1108 ], [ %indvars.iv.next.i492, %1112 ]
-  %.not762 = icmp eq i64 %indvars.iv.i490, 0
-  br i1 %.not762, label %1112, label %1110
+  %indvars.iv.i494 = phi i64 [ 0, %1108 ], [ %indvars.iv.next.i496, %1112 ]
+  %.not766 = icmp eq i64 %indvars.iv.i494, 0
+  br i1 %.not766, label %1112, label %1110
 
 1110:                                             ; preds = %1109
-  %1111 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i490
+  %1111 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i494
   store i32 0, ptr %1111, align 4
   br label %1112
 
 1112:                                             ; preds = %1110, %1109
-  %indvars.iv.next.i492 = add nuw nsw i64 %indvars.iv.i490, 1
-  %exitcond.not.i493 = icmp eq i64 %indvars.iv.next.i492, 4
-  br i1 %exitcond.not.i493, label %1113, label %1109, !llvm.loop !10
+  %indvars.iv.next.i496 = add nuw nsw i64 %indvars.iv.i494, 1
+  %exitcond.not.i497 = icmp eq i64 %indvars.iv.next.i496, 4
+  br i1 %exitcond.not.i497, label %1113, label %1109, !llvm.loop !10
 
 1113:                                             ; preds = %1112
   %1114 = load i32, ptr %42, align 4
@@ -2817,27 +2817,27 @@ dump_one_cpuid.exit469:                           ; preds = %1018
   store i32 %1123, ptr %44, align 4
   %1124 = load i32, ptr %42, align 4
   %1125 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %1121, i32 noundef %1124, i32 noundef %1122, i32 noundef %1123) #14
-  %.not763 = icmp eq i32 %50, -2147483643
-  br i1 %.not763, label %.thread732, label %1126
+  %.not767 = icmp eq i32 %50, -2147483643
+  br i1 %.not767, label %.thread736, label %1126
 
 1126:                                             ; preds = %1113
   store i32 -2147483642, ptr %4, align 16
   br label %1127
 
 1127:                                             ; preds = %1130, %1126
-  %indvars.iv.i495 = phi i64 [ 0, %1126 ], [ %indvars.iv.next.i497, %1130 ]
-  %.not764 = icmp eq i64 %indvars.iv.i495, 0
-  br i1 %.not764, label %1130, label %1128
+  %indvars.iv.i499 = phi i64 [ 0, %1126 ], [ %indvars.iv.next.i501, %1130 ]
+  %.not768 = icmp eq i64 %indvars.iv.i499, 0
+  br i1 %.not768, label %1130, label %1128
 
 1128:                                             ; preds = %1127
-  %1129 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i495
+  %1129 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i499
   store i32 0, ptr %1129, align 4
   br label %1130
 
 1130:                                             ; preds = %1128, %1127
-  %indvars.iv.next.i497 = add nuw nsw i64 %indvars.iv.i495, 1
-  %exitcond.not.i498 = icmp eq i64 %indvars.iv.next.i497, 4
-  br i1 %exitcond.not.i498, label %1131, label %1127, !llvm.loop !10
+  %indvars.iv.next.i501 = add nuw nsw i64 %indvars.iv.i499, 1
+  %exitcond.not.i502 = icmp eq i64 %indvars.iv.next.i501, 4
+  br i1 %exitcond.not.i502, label %1131, label %1127, !llvm.loop !10
 
 1131:                                             ; preds = %1130
   %1132 = load i32, ptr %42, align 4
@@ -2856,26 +2856,26 @@ dump_one_cpuid.exit469:                           ; preds = %1018
   %1142 = load i32, ptr %42, align 4
   %1143 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %1139, i32 noundef %1142, i32 noundef %1140, i32 noundef %1141) #14
   %1144 = icmp ugt i32 %50, -2147483642
-  br i1 %1144, label %1145, label %.thread732
+  br i1 %1144, label %1145, label %.thread736
 
 1145:                                             ; preds = %1131
   store i32 -2147483641, ptr %4, align 16
   br label %1146
 
 1146:                                             ; preds = %1149, %1145
-  %indvars.iv.i500 = phi i64 [ 0, %1145 ], [ %indvars.iv.next.i502, %1149 ]
-  %.not765 = icmp eq i64 %indvars.iv.i500, 0
-  br i1 %.not765, label %1149, label %1147
+  %indvars.iv.i504 = phi i64 [ 0, %1145 ], [ %indvars.iv.next.i506, %1149 ]
+  %.not769 = icmp eq i64 %indvars.iv.i504, 0
+  br i1 %.not769, label %1149, label %1147
 
 1147:                                             ; preds = %1146
-  %1148 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i500
+  %1148 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i504
   store i32 0, ptr %1148, align 4
   br label %1149
 
 1149:                                             ; preds = %1147, %1146
-  %indvars.iv.next.i502 = add nuw nsw i64 %indvars.iv.i500, 1
-  %exitcond.not.i503 = icmp eq i64 %indvars.iv.next.i502, 4
-  br i1 %exitcond.not.i503, label %1150, label %1146, !llvm.loop !10
+  %indvars.iv.next.i506 = add nuw nsw i64 %indvars.iv.i504, 1
+  %exitcond.not.i507 = icmp eq i64 %indvars.iv.next.i506, 4
+  br i1 %exitcond.not.i507, label %1150, label %1146, !llvm.loop !10
 
 1150:                                             ; preds = %1149
   %1151 = load i32, ptr %42, align 4
@@ -2893,27 +2893,27 @@ dump_one_cpuid.exit469:                           ; preds = %1018
   store i32 %1160, ptr %44, align 4
   %1161 = load i32, ptr %42, align 4
   %1162 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %1158, i32 noundef %1161, i32 noundef %1159, i32 noundef %1160) #14
-  %.not766 = icmp eq i32 %50, -2147483641
-  br i1 %.not766, label %.thread732, label %1163
+  %.not770 = icmp eq i32 %50, -2147483641
+  br i1 %.not770, label %.thread736, label %1163
 
 1163:                                             ; preds = %1150
   store i32 -2147483640, ptr %4, align 16
   br label %1164
 
 1164:                                             ; preds = %1167, %1163
-  %indvars.iv.i505 = phi i64 [ 0, %1163 ], [ %indvars.iv.next.i507, %1167 ]
-  %.not767 = icmp eq i64 %indvars.iv.i505, 0
-  br i1 %.not767, label %1167, label %1165
+  %indvars.iv.i509 = phi i64 [ 0, %1163 ], [ %indvars.iv.next.i511, %1167 ]
+  %.not771 = icmp eq i64 %indvars.iv.i509, 0
+  br i1 %.not771, label %1167, label %1165
 
 1165:                                             ; preds = %1164
-  %1166 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i505
+  %1166 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i509
   store i32 0, ptr %1166, align 4
   br label %1167
 
 1167:                                             ; preds = %1165, %1164
-  %indvars.iv.next.i507 = add nuw nsw i64 %indvars.iv.i505, 1
-  %exitcond.not.i508 = icmp eq i64 %indvars.iv.next.i507, 4
-  br i1 %exitcond.not.i508, label %1168, label %1164, !llvm.loop !10
+  %indvars.iv.next.i511 = add nuw nsw i64 %indvars.iv.i509, 1
+  %exitcond.not.i512 = icmp eq i64 %indvars.iv.next.i511, 4
+  br i1 %exitcond.not.i512, label %1168, label %1164, !llvm.loop !10
 
 1168:                                             ; preds = %1167
   %1169 = load i32, ptr %42, align 4
@@ -2932,26 +2932,26 @@ dump_one_cpuid.exit469:                           ; preds = %1018
   %1179 = load i32, ptr %42, align 4
   %1180 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %1176, i32 noundef %1179, i32 noundef %1177, i32 noundef %1178) #14
   %1181 = icmp ugt i32 %50, -2147483639
-  br i1 %1181, label %1182, label %.thread732
+  br i1 %1181, label %1182, label %.thread736
 
 1182:                                             ; preds = %1168
   store i32 -2147483638, ptr %4, align 16
   br label %1183
 
 1183:                                             ; preds = %1186, %1182
-  %indvars.iv.i510 = phi i64 [ 0, %1182 ], [ %indvars.iv.next.i512, %1186 ]
-  %.not768 = icmp eq i64 %indvars.iv.i510, 0
-  br i1 %.not768, label %1186, label %1184
+  %indvars.iv.i514 = phi i64 [ 0, %1182 ], [ %indvars.iv.next.i516, %1186 ]
+  %.not772 = icmp eq i64 %indvars.iv.i514, 0
+  br i1 %.not772, label %1186, label %1184
 
 1184:                                             ; preds = %1183
-  %1185 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i510
+  %1185 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i514
   store i32 0, ptr %1185, align 4
   br label %1186
 
 1186:                                             ; preds = %1184, %1183
-  %indvars.iv.next.i512 = add nuw nsw i64 %indvars.iv.i510, 1
-  %exitcond.not.i513 = icmp eq i64 %indvars.iv.next.i512, 4
-  br i1 %exitcond.not.i513, label %1187, label %1183, !llvm.loop !10
+  %indvars.iv.next.i516 = add nuw nsw i64 %indvars.iv.i514, 1
+  %exitcond.not.i517 = icmp eq i64 %indvars.iv.next.i516, 4
+  br i1 %exitcond.not.i517, label %1187, label %1183, !llvm.loop !10
 
 1187:                                             ; preds = %1186
   %1188 = load i32, ptr %42, align 4
@@ -2970,26 +2970,26 @@ dump_one_cpuid.exit469:                           ; preds = %1018
   %1198 = load i32, ptr %42, align 4
   %1199 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %1195, i32 noundef %1198, i32 noundef %1196, i32 noundef %1197) #14
   %1200 = icmp ugt i32 %50, -2147483624
-  br i1 %1200, label %1201, label %.thread732
+  br i1 %1200, label %1201, label %.thread736
 
 1201:                                             ; preds = %1187
   store i32 -2147483623, ptr %4, align 16
   br label %1202
 
 1202:                                             ; preds = %1205, %1201
-  %indvars.iv.i515 = phi i64 [ 0, %1201 ], [ %indvars.iv.next.i517, %1205 ]
-  %.not769 = icmp eq i64 %indvars.iv.i515, 0
-  br i1 %.not769, label %1205, label %1203
+  %indvars.iv.i519 = phi i64 [ 0, %1201 ], [ %indvars.iv.next.i521, %1205 ]
+  %.not773 = icmp eq i64 %indvars.iv.i519, 0
+  br i1 %.not773, label %1205, label %1203
 
 1203:                                             ; preds = %1202
-  %1204 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i515
+  %1204 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i519
   store i32 0, ptr %1204, align 4
   br label %1205
 
 1205:                                             ; preds = %1203, %1202
-  %indvars.iv.next.i517 = add nuw nsw i64 %indvars.iv.i515, 1
-  %exitcond.not.i518 = icmp eq i64 %indvars.iv.next.i517, 4
-  br i1 %exitcond.not.i518, label %1206, label %1202, !llvm.loop !10
+  %indvars.iv.next.i521 = add nuw nsw i64 %indvars.iv.i519, 1
+  %exitcond.not.i522 = icmp eq i64 %indvars.iv.next.i521, 4
+  br i1 %exitcond.not.i522, label %1206, label %1202, !llvm.loop !10
 
 1206:                                             ; preds = %1205
   %1207 = load i32, ptr %42, align 4
@@ -3007,27 +3007,27 @@ dump_one_cpuid.exit469:                           ; preds = %1018
   store i32 %1216, ptr %44, align 4
   %1217 = load i32, ptr %42, align 4
   %1218 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %1214, i32 noundef %1217, i32 noundef %1215, i32 noundef %1216) #14
-  %.not770 = icmp eq i32 %50, -2147483623
-  br i1 %.not770, label %.thread732, label %1219
+  %.not774 = icmp eq i32 %50, -2147483623
+  br i1 %.not774, label %.thread736, label %1219
 
 1219:                                             ; preds = %1206
   store i32 -2147483622, ptr %4, align 16
   br label %1220
 
 1220:                                             ; preds = %1223, %1219
-  %indvars.iv.i520 = phi i64 [ 0, %1219 ], [ %indvars.iv.next.i522, %1223 ]
-  %.not771 = icmp eq i64 %indvars.iv.i520, 0
-  br i1 %.not771, label %1223, label %1221
+  %indvars.iv.i524 = phi i64 [ 0, %1219 ], [ %indvars.iv.next.i526, %1223 ]
+  %.not775 = icmp eq i64 %indvars.iv.i524, 0
+  br i1 %.not775, label %1223, label %1221
 
 1221:                                             ; preds = %1220
-  %1222 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i520
+  %1222 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i524
   store i32 0, ptr %1222, align 4
   br label %1223
 
 1223:                                             ; preds = %1221, %1220
-  %indvars.iv.next.i522 = add nuw nsw i64 %indvars.iv.i520, 1
-  %exitcond.not.i523 = icmp eq i64 %indvars.iv.next.i522, 4
-  br i1 %exitcond.not.i523, label %1224, label %1220, !llvm.loop !10
+  %indvars.iv.next.i526 = add nuw nsw i64 %indvars.iv.i524, 1
+  %exitcond.not.i527 = icmp eq i64 %indvars.iv.next.i526, 4
+  br i1 %exitcond.not.i527, label %1224, label %1220, !llvm.loop !10
 
 1224:                                             ; preds = %1223
   %1225 = load i32, ptr %42, align 4
@@ -3046,26 +3046,26 @@ dump_one_cpuid.exit469:                           ; preds = %1018
   %1235 = load i32, ptr %42, align 4
   %1236 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %1232, i32 noundef %1235, i32 noundef %1233, i32 noundef %1234) #14
   %1237 = icmp ugt i32 %50, -2147483622
-  br i1 %1237, label %1238, label %.thread732
+  br i1 %1237, label %1238, label %.thread736
 
 1238:                                             ; preds = %1224
   store i32 -2147483621, ptr %4, align 16
   br label %1239
 
 1239:                                             ; preds = %1242, %1238
-  %indvars.iv.i525 = phi i64 [ 0, %1238 ], [ %indvars.iv.next.i527, %1242 ]
-  %.not772 = icmp eq i64 %indvars.iv.i525, 0
-  br i1 %.not772, label %1242, label %1240
+  %indvars.iv.i529 = phi i64 [ 0, %1238 ], [ %indvars.iv.next.i531, %1242 ]
+  %.not776 = icmp eq i64 %indvars.iv.i529, 0
+  br i1 %.not776, label %1242, label %1240
 
 1240:                                             ; preds = %1239
-  %1241 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i525
+  %1241 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i529
   store i32 0, ptr %1241, align 4
   br label %1242
 
 1242:                                             ; preds = %1240, %1239
-  %indvars.iv.next.i527 = add nuw nsw i64 %indvars.iv.i525, 1
-  %exitcond.not.i528 = icmp eq i64 %indvars.iv.next.i527, 4
-  br i1 %exitcond.not.i528, label %1243, label %1239, !llvm.loop !10
+  %indvars.iv.next.i531 = add nuw nsw i64 %indvars.iv.i529, 1
+  %exitcond.not.i532 = icmp eq i64 %indvars.iv.next.i531, 4
+  br i1 %exitcond.not.i532, label %1243, label %1239, !llvm.loop !10
 
 1243:                                             ; preds = %1242
   %1244 = load i32, ptr %42, align 4
@@ -3083,27 +3083,27 @@ dump_one_cpuid.exit469:                           ; preds = %1018
   store i32 %1253, ptr %44, align 4
   %1254 = load i32, ptr %42, align 4
   %1255 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %1251, i32 noundef %1254, i32 noundef %1252, i32 noundef %1253) #14
-  %.not773 = icmp eq i32 %50, -2147483621
-  br i1 %.not773, label %.thread732, label %1256
+  %.not777 = icmp eq i32 %50, -2147483621
+  br i1 %.not777, label %.thread736, label %1256
 
 1256:                                             ; preds = %1243
   store i32 -2147483620, ptr %4, align 16
   br label %1257
 
 1257:                                             ; preds = %1260, %1256
-  %indvars.iv.i530 = phi i64 [ 0, %1256 ], [ %indvars.iv.next.i532, %1260 ]
-  %.not774 = icmp eq i64 %indvars.iv.i530, 0
-  br i1 %.not774, label %1260, label %1258
+  %indvars.iv.i534 = phi i64 [ 0, %1256 ], [ %indvars.iv.next.i536, %1260 ]
+  %.not778 = icmp eq i64 %indvars.iv.i534, 0
+  br i1 %.not778, label %1260, label %1258
 
 1258:                                             ; preds = %1257
-  %1259 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i530
+  %1259 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i534
   store i32 0, ptr %1259, align 4
   br label %1260
 
 1260:                                             ; preds = %1258, %1257
-  %indvars.iv.next.i532 = add nuw nsw i64 %indvars.iv.i530, 1
-  %exitcond.not.i533 = icmp eq i64 %indvars.iv.next.i532, 4
-  br i1 %exitcond.not.i533, label %1261, label %1257, !llvm.loop !10
+  %indvars.iv.next.i536 = add nuw nsw i64 %indvars.iv.i534, 1
+  %exitcond.not.i537 = icmp eq i64 %indvars.iv.next.i536, 4
+  br i1 %exitcond.not.i537, label %1261, label %1257, !llvm.loop !10
 
 1261:                                             ; preds = %1260
   %1262 = load i32, ptr %42, align 4
@@ -3122,33 +3122,33 @@ dump_one_cpuid.exit469:                           ; preds = %1018
   %1272 = load i32, ptr %42, align 4
   %1273 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %1269, i32 noundef %1272, i32 noundef %1270, i32 noundef %1271) #14
   %1274 = icmp ugt i32 %50, -2147483620
-  br i1 %1274, label %.preheader783, label %.thread732
+  br i1 %1274, label %.preheader787, label %.thread736
 
-.preheader783:                                    ; preds = %1261, %1297
-  %.10803 = phi i32 [ %1298, %1297 ], [ 0, %1261 ]
+.preheader787:                                    ; preds = %1261, %1297
+  %.10807 = phi i32 [ %1298, %1297 ], [ 0, %1261 ]
   store i32 -2147483619, ptr %4, align 16
-  store i32 %.10803, ptr %43, align 8
+  store i32 %.10807, ptr %43, align 8
   br label %1275
 
-1275:                                             ; preds = %1281, %.preheader783
-  %indvars.iv.i535 = phi i64 [ 0, %.preheader783 ], [ %indvars.iv.next.i537, %1281 ]
-  %1276 = trunc i64 %indvars.iv.i535 to i32
+1275:                                             ; preds = %1281, %.preheader787
+  %indvars.iv.i539 = phi i64 [ 0, %.preheader787 ], [ %indvars.iv.next.i541, %1281 ]
+  %1276 = trunc i64 %indvars.iv.i539 to i32
   %1277 = shl nuw nsw i32 1, %1276
   %1278 = and i32 %1277, 5
-  %.not.i536 = icmp eq i32 %1278, 0
-  br i1 %.not.i536, label %1279, label %1281
+  %.not.i540 = icmp eq i32 %1278, 0
+  br i1 %.not.i540, label %1279, label %1281
 
 1279:                                             ; preds = %1275
-  %1280 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i535
+  %1280 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i539
   store i32 0, ptr %1280, align 4
   br label %1281
 
 1281:                                             ; preds = %1279, %1275
-  %indvars.iv.next.i537 = add nuw nsw i64 %indvars.iv.i535, 1
-  %exitcond.not.i538 = icmp eq i64 %indvars.iv.next.i537, 4
-  br i1 %exitcond.not.i538, label %dump_one_cpuid.exit539, label %1275, !llvm.loop !10
+  %indvars.iv.next.i541 = add nuw nsw i64 %indvars.iv.i539, 1
+  %exitcond.not.i542 = icmp eq i64 %indvars.iv.next.i541, 4
+  br i1 %exitcond.not.i542, label %dump_one_cpuid.exit543, label %1275, !llvm.loop !10
 
-dump_one_cpuid.exit539:                           ; preds = %1281
+dump_one_cpuid.exit543:                           ; preds = %1281
   %1282 = load i32, ptr %4, align 16
   %1283 = load i32, ptr %42, align 4
   %1284 = load i32, ptr %43, align 8
@@ -3167,25 +3167,25 @@ dump_one_cpuid.exit539:                           ; preds = %1281
   %1294 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %1290, i32 noundef %1293, i32 noundef %1291, i32 noundef %1292) #14
   %1295 = load i32, ptr %4, align 16
   %1296 = and i32 %1295, 31
-  %.not254 = icmp eq i32 %1296, 0
-  br i1 %.not254, label %1299, label %1297
+  %.not258 = icmp eq i32 %1296, 0
+  br i1 %.not258, label %1299, label %1297
 
-1297:                                             ; preds = %dump_one_cpuid.exit539
-  %1298 = add nuw nsw i32 %.10803, 1
-  %exitcond820.not = icmp eq i32 %1298, 256
-  br i1 %exitcond820.not, label %.thread833, label %.preheader783, !llvm.loop !21
+1297:                                             ; preds = %dump_one_cpuid.exit543
+  %1298 = add nuw nsw i32 %.10807, 1
+  %exitcond824.not = icmp eq i32 %1298, 256
+  br i1 %exitcond824.not, label %.thread837, label %.preheader787, !llvm.loop !21
 
-1299:                                             ; preds = %dump_one_cpuid.exit539
-  %1300 = icmp eq i32 %.10803, 256
-  br i1 %1300, label %.thread833, label %1302
+1299:                                             ; preds = %dump_one_cpuid.exit543
+  %1300 = icmp eq i32 %.10807, 256
+  br i1 %1300, label %.thread837, label %1302
 
-.thread833:                                       ; preds = %1297, %1299
+.thread837:                                       ; preds = %1297, %1299
   %1301 = call i64 @fwrite(ptr nonnull @.str.42, i64 21, i64 1, ptr %.0231)
   br label %1302
 
-1302:                                             ; preds = %1299, %.thread833
+1302:                                             ; preds = %1299, %.thread837
   %1303 = icmp ne i32 %50, -2147483619
-  %or.cond13 = select i1 %.not253, i1 %1303, i1 false
+  %or.cond13 = select i1 %.not257, i1 %1303, i1 false
   br i1 %or.cond13, label %1304, label %1321
 
 1304:                                             ; preds = %1302
@@ -3193,21 +3193,21 @@ dump_one_cpuid.exit539:                           ; preds = %1281
   br label %1305
 
 1305:                                             ; preds = %1308, %1304
-  %indvars.iv.i540 = phi i64 [ 0, %1304 ], [ %indvars.iv.next.i542, %1308 ]
-  %.not775 = icmp eq i64 %indvars.iv.i540, 0
-  br i1 %.not775, label %1308, label %1306
+  %indvars.iv.i544 = phi i64 [ 0, %1304 ], [ %indvars.iv.next.i546, %1308 ]
+  %.not779 = icmp eq i64 %indvars.iv.i544, 0
+  br i1 %.not779, label %1308, label %1306
 
 1306:                                             ; preds = %1305
-  %1307 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i540
+  %1307 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i544
   store i32 0, ptr %1307, align 4
   br label %1308
 
 1308:                                             ; preds = %1306, %1305
-  %indvars.iv.next.i542 = add nuw nsw i64 %indvars.iv.i540, 1
-  %exitcond.not.i543 = icmp eq i64 %indvars.iv.next.i542, 4
-  br i1 %exitcond.not.i543, label %dump_one_cpuid.exit544, label %1305, !llvm.loop !10
+  %indvars.iv.next.i546 = add nuw nsw i64 %indvars.iv.i544, 1
+  %exitcond.not.i547 = icmp eq i64 %indvars.iv.next.i546, 4
+  br i1 %exitcond.not.i547, label %dump_one_cpuid.exit548, label %1305, !llvm.loop !10
 
-dump_one_cpuid.exit544:                           ; preds = %1308
+dump_one_cpuid.exit548:                           ; preds = %1308
   %1309 = load i32, ptr %42, align 4
   %1310 = load i32, ptr %43, align 8
   %1311 = load i32, ptr %44, align 4
@@ -3225,28 +3225,28 @@ dump_one_cpuid.exit544:                           ; preds = %1308
   %1320 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %1316, i32 noundef %1319, i32 noundef %1317, i32 noundef %1318) #14
   br label %1321
 
-1321:                                             ; preds = %dump_one_cpuid.exit544, %1302
+1321:                                             ; preds = %dump_one_cpuid.exit548, %1302
   %1322 = icmp ugt i32 %50, -2147483618
-  br i1 %1322, label %1323, label %.thread732
+  br i1 %1322, label %1323, label %.thread736
 
 1323:                                             ; preds = %1321
   store i32 -2147483617, ptr %4, align 16
   br label %1324
 
 1324:                                             ; preds = %1327, %1323
-  %indvars.iv.i545 = phi i64 [ 0, %1323 ], [ %indvars.iv.next.i547, %1327 ]
-  %.not776 = icmp eq i64 %indvars.iv.i545, 0
-  br i1 %.not776, label %1327, label %1325
+  %indvars.iv.i549 = phi i64 [ 0, %1323 ], [ %indvars.iv.next.i551, %1327 ]
+  %.not780 = icmp eq i64 %indvars.iv.i549, 0
+  br i1 %.not780, label %1327, label %1325
 
 1325:                                             ; preds = %1324
-  %1326 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i545
+  %1326 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i549
   store i32 0, ptr %1326, align 4
   br label %1327
 
 1327:                                             ; preds = %1325, %1324
-  %indvars.iv.next.i547 = add nuw nsw i64 %indvars.iv.i545, 1
-  %exitcond.not.i548 = icmp eq i64 %indvars.iv.next.i547, 4
-  br i1 %exitcond.not.i548, label %1328, label %1324, !llvm.loop !10
+  %indvars.iv.next.i551 = add nuw nsw i64 %indvars.iv.i549, 1
+  %exitcond.not.i552 = icmp eq i64 %indvars.iv.next.i551, 4
+  br i1 %exitcond.not.i552, label %1328, label %1324, !llvm.loop !10
 
 1328:                                             ; preds = %1327
   %1329 = load i32, ptr %42, align 4
@@ -3264,8 +3264,8 @@ dump_one_cpuid.exit544:                           ; preds = %1308
   store i32 %1338, ptr %44, align 4
   %1339 = load i32, ptr %42, align 4
   %1340 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %1336, i32 noundef %1339, i32 noundef %1337, i32 noundef %1338) #14
-  %.not777 = icmp eq i32 %50, -2147483617
-  br i1 %.not777, label %.thread732, label %1341
+  %.not781 = icmp eq i32 %50, -2147483617
+  br i1 %.not781, label %.thread736, label %1341
 
 1341:                                             ; preds = %1328
   store i32 -2147483616, ptr %4, align 16
@@ -3273,24 +3273,24 @@ dump_one_cpuid.exit544:                           ; preds = %1308
   br label %1342
 
 1342:                                             ; preds = %1348, %1341
-  %indvars.iv.i550 = phi i64 [ 0, %1341 ], [ %indvars.iv.next.i552, %1348 ]
-  %1343 = trunc i64 %indvars.iv.i550 to i32
+  %indvars.iv.i554 = phi i64 [ 0, %1341 ], [ %indvars.iv.next.i556, %1348 ]
+  %1343 = trunc i64 %indvars.iv.i554 to i32
   %1344 = shl nuw nsw i32 1, %1343
   %1345 = and i32 %1344, 5
-  %.not.i551 = icmp eq i32 %1345, 0
-  br i1 %.not.i551, label %1346, label %1348
+  %.not.i555 = icmp eq i32 %1345, 0
+  br i1 %.not.i555, label %1346, label %1348
 
 1346:                                             ; preds = %1342
-  %1347 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i550
+  %1347 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i554
   store i32 0, ptr %1347, align 4
   br label %1348
 
 1348:                                             ; preds = %1346, %1342
-  %indvars.iv.next.i552 = add nuw nsw i64 %indvars.iv.i550, 1
-  %exitcond.not.i553 = icmp eq i64 %indvars.iv.next.i552, 4
-  br i1 %exitcond.not.i553, label %dump_one_cpuid.exit554, label %1342, !llvm.loop !10
+  %indvars.iv.next.i556 = add nuw nsw i64 %indvars.iv.i554, 1
+  %exitcond.not.i557 = icmp eq i64 %indvars.iv.next.i556, 4
+  br i1 %exitcond.not.i557, label %dump_one_cpuid.exit558, label %1342, !llvm.loop !10
 
-dump_one_cpuid.exit554:                           ; preds = %1348
+dump_one_cpuid.exit558:                           ; preds = %1348
   %1349 = load i32, ptr %4, align 16
   %1350 = load i32, ptr %42, align 4
   %1351 = load i32, ptr %43, align 8
@@ -3311,23 +3311,23 @@ dump_one_cpuid.exit554:                           ; preds = %1348
   store i32 1, ptr %43, align 8
   br label %1362
 
-1362:                                             ; preds = %1368, %dump_one_cpuid.exit554
-  %indvars.iv.i555 = phi i64 [ 0, %dump_one_cpuid.exit554 ], [ %indvars.iv.next.i557, %1368 ]
-  %1363 = trunc i64 %indvars.iv.i555 to i32
+1362:                                             ; preds = %1368, %dump_one_cpuid.exit558
+  %indvars.iv.i559 = phi i64 [ 0, %dump_one_cpuid.exit558 ], [ %indvars.iv.next.i561, %1368 ]
+  %1363 = trunc i64 %indvars.iv.i559 to i32
   %1364 = shl nuw nsw i32 1, %1363
   %1365 = and i32 %1364, 5
-  %.not.i556 = icmp eq i32 %1365, 0
-  br i1 %.not.i556, label %1366, label %1368
+  %.not.i560 = icmp eq i32 %1365, 0
+  br i1 %.not.i560, label %1366, label %1368
 
 1366:                                             ; preds = %1362
-  %1367 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i555
+  %1367 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i559
   store i32 0, ptr %1367, align 4
   br label %1368
 
 1368:                                             ; preds = %1366, %1362
-  %indvars.iv.next.i557 = add nuw nsw i64 %indvars.iv.i555, 1
-  %exitcond.not.i558 = icmp eq i64 %indvars.iv.next.i557, 4
-  br i1 %exitcond.not.i558, label %1369, label %1362, !llvm.loop !10
+  %indvars.iv.next.i561 = add nuw nsw i64 %indvars.iv.i559, 1
+  %exitcond.not.i562 = icmp eq i64 %indvars.iv.next.i561, 4
+  br i1 %exitcond.not.i562, label %1369, label %1362, !llvm.loop !10
 
 1369:                                             ; preds = %1368
   %1370 = load i32, ptr %4, align 16
@@ -3347,26 +3347,26 @@ dump_one_cpuid.exit554:                           ; preds = %1348
   %1381 = load i32, ptr %42, align 4
   %1382 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %1378, i32 noundef %1381, i32 noundef %1379, i32 noundef %1380) #14
   %1383 = icmp ugt i32 %50, -2147483616
-  br i1 %1383, label %1384, label %.thread732
+  br i1 %1383, label %1384, label %.thread736
 
 1384:                                             ; preds = %1369
   store i32 -2147483615, ptr %4, align 16
   br label %1385
 
 1385:                                             ; preds = %1388, %1384
-  %indvars.iv.i560 = phi i64 [ 0, %1384 ], [ %indvars.iv.next.i562, %1388 ]
-  %.not778 = icmp eq i64 %indvars.iv.i560, 0
-  br i1 %.not778, label %1388, label %1386
+  %indvars.iv.i564 = phi i64 [ 0, %1384 ], [ %indvars.iv.next.i566, %1388 ]
+  %.not782 = icmp eq i64 %indvars.iv.i564, 0
+  br i1 %.not782, label %1388, label %1386
 
 1386:                                             ; preds = %1385
-  %1387 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i560
+  %1387 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i564
   store i32 0, ptr %1387, align 4
   br label %1388
 
 1388:                                             ; preds = %1386, %1385
-  %indvars.iv.next.i562 = add nuw nsw i64 %indvars.iv.i560, 1
-  %exitcond.not.i563 = icmp eq i64 %indvars.iv.next.i562, 4
-  br i1 %exitcond.not.i563, label %1389, label %1385, !llvm.loop !10
+  %indvars.iv.next.i566 = add nuw nsw i64 %indvars.iv.i564, 1
+  %exitcond.not.i567 = icmp eq i64 %indvars.iv.next.i566, 4
+  br i1 %exitcond.not.i567, label %1389, label %1385, !llvm.loop !10
 
 1389:                                             ; preds = %1388
   %1390 = load i32, ptr %42, align 4
@@ -3384,27 +3384,27 @@ dump_one_cpuid.exit554:                           ; preds = %1348
   store i32 %1399, ptr %44, align 4
   %1400 = load i32, ptr %42, align 4
   %1401 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %1397, i32 noundef %1400, i32 noundef %1398, i32 noundef %1399) #14
-  %.not779 = icmp eq i32 %50, -2147483615
-  br i1 %.not779, label %.thread732, label %1402
+  %.not783 = icmp eq i32 %50, -2147483615
+  br i1 %.not783, label %.thread736, label %1402
 
 1402:                                             ; preds = %1389
   store i32 -2147483614, ptr %4, align 16
   br label %1403
 
 1403:                                             ; preds = %1406, %1402
-  %indvars.iv.i565 = phi i64 [ 0, %1402 ], [ %indvars.iv.next.i567, %1406 ]
-  %.not780 = icmp eq i64 %indvars.iv.i565, 0
-  br i1 %.not780, label %1406, label %1404
+  %indvars.iv.i569 = phi i64 [ 0, %1402 ], [ %indvars.iv.next.i571, %1406 ]
+  %.not784 = icmp eq i64 %indvars.iv.i569, 0
+  br i1 %.not784, label %1406, label %1404
 
 1404:                                             ; preds = %1403
-  %1405 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i565
+  %1405 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i569
   store i32 0, ptr %1405, align 4
   br label %1406
 
 1406:                                             ; preds = %1404, %1403
-  %indvars.iv.next.i567 = add nuw nsw i64 %indvars.iv.i565, 1
-  %exitcond.not.i568 = icmp eq i64 %indvars.iv.next.i567, 4
-  br i1 %exitcond.not.i568, label %1407, label %1403, !llvm.loop !10
+  %indvars.iv.next.i571 = add nuw nsw i64 %indvars.iv.i569, 1
+  %exitcond.not.i572 = icmp eq i64 %indvars.iv.next.i571, 4
+  br i1 %exitcond.not.i572, label %1407, label %1403, !llvm.loop !10
 
 1407:                                             ; preds = %1406
   %1408 = load i32, ptr %42, align 4
@@ -3423,26 +3423,26 @@ dump_one_cpuid.exit554:                           ; preds = %1348
   %1418 = load i32, ptr %42, align 4
   %1419 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %1415, i32 noundef %1418, i32 noundef %1416, i32 noundef %1417) #14
   %1420 = icmp ugt i32 %50, -2147483614
-  br i1 %1420, label %1421, label %.thread732
+  br i1 %1420, label %1421, label %.thread736
 
 1421:                                             ; preds = %1407
   store i32 -2147483613, ptr %4, align 16
   br label %1422
 
 1422:                                             ; preds = %1425, %1421
-  %indvars.iv.i570 = phi i64 [ 0, %1421 ], [ %indvars.iv.next.i572, %1425 ]
-  %.not781 = icmp eq i64 %indvars.iv.i570, 0
-  br i1 %.not781, label %1425, label %1423
+  %indvars.iv.i574 = phi i64 [ 0, %1421 ], [ %indvars.iv.next.i576, %1425 ]
+  %.not785 = icmp eq i64 %indvars.iv.i574, 0
+  br i1 %.not785, label %1425, label %1423
 
 1423:                                             ; preds = %1422
-  %1424 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i570
+  %1424 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i574
   store i32 0, ptr %1424, align 4
   br label %1425
 
 1425:                                             ; preds = %1423, %1422
-  %indvars.iv.next.i572 = add nuw nsw i64 %indvars.iv.i570, 1
-  %exitcond.not.i573 = icmp eq i64 %indvars.iv.next.i572, 4
-  br i1 %exitcond.not.i573, label %1426, label %1422, !llvm.loop !10
+  %indvars.iv.next.i576 = add nuw nsw i64 %indvars.iv.i574, 1
+  %exitcond.not.i577 = icmp eq i64 %indvars.iv.next.i576, 4
+  br i1 %exitcond.not.i577, label %1426, label %1422, !llvm.loop !10
 
 1426:                                             ; preds = %1425
   %1427 = load i32, ptr %42, align 4
@@ -3461,33 +3461,33 @@ dump_one_cpuid.exit554:                           ; preds = %1348
   %1437 = load i32, ptr %42, align 4
   %1438 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %1434, i32 noundef %1437, i32 noundef %1435, i32 noundef %1436) #14
   %1439 = icmp ugt i32 %50, -2147483611
-  br i1 %1439, label %.preheader, label %.thread732
+  br i1 %1439, label %.preheader, label %.thread736
 
 .preheader:                                       ; preds = %1426, %1462
-  %.11804 = phi i32 [ %1463, %1462 ], [ 0, %1426 ]
+  %.11808 = phi i32 [ %1463, %1462 ], [ 0, %1426 ]
   store i32 -2147483610, ptr %4, align 16
-  store i32 %.11804, ptr %43, align 8
+  store i32 %.11808, ptr %43, align 8
   br label %1440
 
 1440:                                             ; preds = %1446, %.preheader
-  %indvars.iv.i575 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next.i577, %1446 ]
-  %1441 = trunc i64 %indvars.iv.i575 to i32
+  %indvars.iv.i579 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next.i581, %1446 ]
+  %1441 = trunc i64 %indvars.iv.i579 to i32
   %1442 = shl nuw nsw i32 1, %1441
   %1443 = and i32 %1442, 5
-  %.not.i576 = icmp eq i32 %1443, 0
-  br i1 %.not.i576, label %1444, label %1446
+  %.not.i580 = icmp eq i32 %1443, 0
+  br i1 %.not.i580, label %1444, label %1446
 
 1444:                                             ; preds = %1440
-  %1445 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i575
+  %1445 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i579
   store i32 0, ptr %1445, align 4
   br label %1446
 
 1446:                                             ; preds = %1444, %1440
-  %indvars.iv.next.i577 = add nuw nsw i64 %indvars.iv.i575, 1
-  %exitcond.not.i578 = icmp eq i64 %indvars.iv.next.i577, 4
-  br i1 %exitcond.not.i578, label %dump_one_cpuid.exit579, label %1440, !llvm.loop !10
+  %indvars.iv.next.i581 = add nuw nsw i64 %indvars.iv.i579, 1
+  %exitcond.not.i582 = icmp eq i64 %indvars.iv.next.i581, 4
+  br i1 %exitcond.not.i582, label %dump_one_cpuid.exit583, label %1440, !llvm.loop !10
 
-dump_one_cpuid.exit579:                           ; preds = %1446
+dump_one_cpuid.exit583:                           ; preds = %1446
   %1447 = load i32, ptr %4, align 16
   %1448 = load i32, ptr %42, align 4
   %1449 = load i32, ptr %43, align 8
@@ -3506,25 +3506,25 @@ dump_one_cpuid.exit579:                           ; preds = %1446
   %1459 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %1455, i32 noundef %1458, i32 noundef %1456, i32 noundef %1457) #14
   %1460 = load i32, ptr %42, align 4
   %1461 = and i32 %1460, 65535
-  %.not255 = icmp eq i32 %1461, 0
-  br i1 %.not255, label %1464, label %1462
+  %.not259 = icmp eq i32 %1461, 0
+  br i1 %.not259, label %1464, label %1462
 
-1462:                                             ; preds = %dump_one_cpuid.exit579
-  %1463 = add nuw nsw i32 %.11804, 1
-  %exitcond821.not = icmp eq i32 %1463, 256
-  br i1 %exitcond821.not, label %.thread835, label %.preheader, !llvm.loop !22
+1462:                                             ; preds = %dump_one_cpuid.exit583
+  %1463 = add nuw nsw i32 %.11808, 1
+  %exitcond825.not = icmp eq i32 %1463, 256
+  br i1 %exitcond825.not, label %.thread839, label %.preheader, !llvm.loop !22
 
-1464:                                             ; preds = %dump_one_cpuid.exit579
-  %1465 = icmp eq i32 %.11804, 256
-  br i1 %1465, label %.thread835, label %1467
+1464:                                             ; preds = %dump_one_cpuid.exit583
+  %1465 = icmp eq i32 %.11808, 256
+  br i1 %1465, label %.thread839, label %1467
 
-.thread835:                                       ; preds = %1462, %1464
+.thread839:                                       ; preds = %1462, %1464
   %1466 = call i64 @fwrite(ptr nonnull @.str.42, i64 21, i64 1, ptr %.0231)
   br label %1467
 
-1467:                                             ; preds = %1464, %.thread835
-  %.not782 = icmp eq i32 %50, -2147483610
-  br i1 %.not782, label %.thread732, label %1468
+1467:                                             ; preds = %1464, %.thread839
+  %.not786 = icmp eq i32 %50, -2147483610
+  br i1 %.not786, label %.thread736, label %1468
 
 1468:                                             ; preds = %1467
   %.b238 = load i1, ptr @dump_one_proc.reported.46, align 4
@@ -3537,16 +3537,16 @@ dump_one_cpuid.exit579:                           ; preds = %1446
 
 1472:                                             ; preds = %1469, %1468
   store i1 true, ptr @dump_one_proc.reported.46, align 4
-  br label %.thread732
+  br label %.thread736
 
-.thread732:                                       ; preds = %1261, %1243, %1224, %1206, %1187, %1168, %1150, %1131, %1113, %1094, %1076, %1057, %1037, %dump_one_cpuid.exit469, %1321, %1328, %1369, %1389, %1407, %1426, %1472, %1467
+.thread736:                                       ; preds = %1261, %1243, %1224, %1206, %1187, %1168, %1150, %1131, %1113, %1094, %1076, %1057, %1037, %dump_one_cpuid.exit473, %1321, %1328, %1369, %1389, %1407, %1426, %1472, %1467
   br i1 %.not, label %1475, label %1473
 
-1473:                                             ; preds = %.thread732
+1473:                                             ; preds = %.thread736
   %1474 = call i32 @fclose(ptr noundef %.0231)
   br label %1475
 
-1475:                                             ; preds = %.thread732, %1473, %21, %13
+1475:                                             ; preds = %.thread736, %1473, %21, %13
   ret void
 }
 

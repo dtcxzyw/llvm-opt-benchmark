@@ -7670,11 +7670,11 @@ switch.edge3080:                                  ; preds = %2407, %2404, %2317,
   br i1 %or.cond135, label %more_workspace.exit.thread, label %3368
 
 3368:                                             ; preds = %._crit_edge3338
-  %3369 = icmp eq i32 %.02761, 127
-  %3370 = icmp eq i32 %.02761, 129
-  %3371 = or i1 %3369, %3370
-  %3372 = icmp eq i32 %3365, -1
-  %3373 = xor i1 %3371, %3372
+  %3369 = icmp ne i32 %3365, -1
+  %3370 = icmp ne i32 %.02761, 127
+  %3371 = icmp ne i32 %.02761, 129
+  %3372 = and i1 %3370, %3371
+  %3373 = xor i1 %3372, %3369
   br i1 %3373, label %3374, label %.loopexit3175
 
 3374:                                             ; preds = %3368
@@ -7881,11 +7881,11 @@ switch.edge3080:                                  ; preds = %2407, %2404, %2317,
   br i1 %or.cond146, label %more_workspace.exit.thread, label %3495
 
 3495:                                             ; preds = %._crit_edge3333
-  %3496 = icmp eq i8 %3404, 127
-  %3497 = icmp eq i8 %3404, -127
-  %3498 = or i1 %3496, %3497
-  %3499 = icmp eq i32 %3490, -1
-  %3500 = xor i1 %3498, %3499
+  %3496 = icmp ne i32 %3490, -1
+  %3497 = icmp ne i8 %3404, 127
+  %3498 = icmp ne i8 %3404, -127
+  %3499 = and i1 %3497, %3498
+  %3500 = xor i1 %3499, %3496
   %3501 = icmp slt i32 %.026293373, %45
   br i1 %3500, label %3502, label %3511
 

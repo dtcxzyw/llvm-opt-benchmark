@@ -4981,14 +4981,13 @@ define internal fastcc void @dissect_uds_subfunction(ptr noundef %0, ptr nocaptu
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dissect_uds_certificates_into_tree(ptr noundef %0, ptr noundef %1, ptr noundef readnone %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
   %7 = alloca %struct._asn1_ctx_t, align 8
-  %8 = icmp ne ptr %2, null
-  %9 = icmp ne ptr %0, null
-  %or.cond = and i1 %9, %8
-  %10 = icmp ne ptr %3, null
-  %or.cond3 = and i1 %or.cond, %10
-  %or.cond3.not = xor i1 %or.cond3, true
+  %8 = icmp eq ptr %2, null
+  %9 = icmp eq ptr %0, null
+  %or.cond.not28 = or i1 %9, %8
+  %10 = icmp eq ptr %3, null
+  %or.cond3.not25 = or i1 %or.cond.not28, %10
   %11 = icmp eq i32 %5, 0
-  %or.cond5 = or i1 %11, %or.cond3.not
+  %or.cond5 = or i1 %or.cond3.not25, %11
   %12 = load i32, ptr @uds_certificate_decoding_config, align 4
   %13 = icmp eq i32 %12, -1
   %or.cond7 = select i1 %or.cond5, i1 true, i1 %13

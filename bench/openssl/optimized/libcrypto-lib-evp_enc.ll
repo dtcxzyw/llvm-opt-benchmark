@@ -1380,16 +1380,16 @@ land.lhs.true:                                    ; preds = %if.then75
   %15 = ptrtoint ptr %out to i64
   %16 = ptrtoint ptr %in to i64
   %sub.i = sub i64 %15, %16
-  %cmp.i = icmp sgt i32 %cmpl.088, 0
-  %cmp1.i = icmp ne ptr %out, %in
-  %and5.i = and i1 %cmp1.i, %cmp.i
+  %cmp.i = icmp slt i32 %cmpl.088, 1
+  %cmp1.i = icmp eq ptr %out, %in
+  %and5.i.not90 = or i1 %cmp1.i, %cmp.i
   %conv3.i = sext i32 %cmpl.088 to i64
-  %cmp4.i = icmp ult i64 %sub.i, %conv3.i
+  %cmp4.i = icmp uge i64 %sub.i, %conv3.i
   %sub7.i = sub nsw i64 0, %conv3.i
-  %cmp8.i = icmp ugt i64 %sub.i, %sub7.i
-  %or6.i = or i1 %cmp4.i, %cmp8.i
-  %and107.i = and i1 %and5.i, %or6.i
-  br i1 %and107.i, label %if.then80, label %if.end81
+  %cmp8.i = icmp ule i64 %sub.i, %sub7.i
+  %or6.i.not91 = and i1 %cmp4.i, %cmp8.i
+  %and107.i.not = or i1 %and5.i.not90, %or6.i.not91
+  br i1 %and107.i.not, label %if.end81, label %if.then80
 
 if.then80:                                        ; preds = %land.lhs.true
   tail call void @ERR_new() #8
@@ -1456,13 +1456,13 @@ lor.lhs.false:                                    ; preds = %if.then111
   %20 = ptrtoint ptr %out to i64
   %21 = ptrtoint ptr %in to i64
   %sub.i73 = sub i64 %20, %21
-  %cmp.i74 = icmp ne i32 %8, 0
-  %cmp4.i78 = icmp ult i64 %sub.i73, %conv103
+  %cmp.i74 = icmp eq i32 %8, 0
+  %cmp4.i78 = icmp uge i64 %sub.i73, %conv103
   %sub7.i79 = sub nsw i64 0, %conv103
-  %cmp8.i80 = icmp ugt i64 %sub.i73, %sub7.i79
-  %or6.i81 = or i1 %cmp4.i78, %cmp8.i80
-  %and107.i82 = and i1 %cmp.i74, %or6.i81
-  br i1 %and107.i82, label %if.then116, label %if.end117
+  %cmp8.i80 = icmp ule i64 %sub.i73, %sub7.i79
+  %or6.i81.not92 = and i1 %cmp4.i78, %cmp8.i80
+  %and107.i82.not = or i1 %cmp.i74, %or6.i81.not92
+  br i1 %and107.i82.not, label %if.end117, label %if.then116
 
 if.then116:                                       ; preds = %lor.lhs.false, %if.then111
   tail call void @ERR_new() #8
@@ -2155,16 +2155,16 @@ land.lhs.true:                                    ; preds = %if.then4
   %9 = ptrtoint ptr %out to i64
   %10 = ptrtoint ptr %in to i64
   %sub.i = sub i64 %9, %10
-  %cmp.i = icmp sgt i32 %cmpl.0100, 0
-  %cmp1.i = icmp ne ptr %out, %in
-  %and5.i = and i1 %cmp1.i, %cmp.i
+  %cmp.i = icmp slt i32 %cmpl.0100, 1
+  %cmp1.i = icmp eq ptr %out, %in
+  %and5.i.not105 = or i1 %cmp1.i, %cmp.i
   %conv3.i = sext i32 %cmpl.0100 to i64
-  %cmp4.i = icmp ult i64 %sub.i, %conv3.i
+  %cmp4.i = icmp uge i64 %sub.i, %conv3.i
   %sub7.i = sub nsw i64 0, %conv3.i
-  %cmp8.i = icmp ugt i64 %sub.i, %sub7.i
-  %or6.i = or i1 %cmp4.i, %cmp8.i
-  %and107.i = and i1 %and5.i, %or6.i
-  br i1 %and107.i, label %if.then7, label %if.end8
+  %cmp8.i = icmp ule i64 %sub.i, %sub7.i
+  %or6.i.not106 = and i1 %cmp4.i, %cmp8.i
+  %and107.i.not = or i1 %and5.i.not105, %or6.i.not106
+  br i1 %and107.i.not, label %if.end8, label %if.then7
 
 if.then7:                                         ; preds = %land.lhs.true
   tail call void @ERR_new() #8
@@ -2202,16 +2202,16 @@ if.end21:                                         ; preds = %if.end15
   %13 = ptrtoint ptr %add.ptr to i64
   %14 = ptrtoint ptr %in to i64
   %sub.i84 = sub i64 %13, %14
-  %cmp.i85 = icmp sgt i32 %cmpl.0, 0
-  %cmp1.i86 = icmp ne ptr %add.ptr, %in
-  %and5.i87 = and i1 %cmp.i85, %cmp1.i86
+  %cmp.i85 = icmp slt i32 %cmpl.0, 1
+  %cmp1.i86 = icmp eq ptr %add.ptr, %in
+  %and5.i87.not107 = or i1 %cmp.i85, %cmp1.i86
   %conv3.i88 = sext i32 %cmpl.0 to i64
-  %cmp4.i89 = icmp ult i64 %sub.i84, %conv3.i88
+  %cmp4.i89 = icmp uge i64 %sub.i84, %conv3.i88
   %sub7.i90 = sub nsw i64 0, %conv3.i88
-  %cmp8.i91 = icmp ugt i64 %sub.i84, %sub7.i90
-  %or6.i92 = or i1 %cmp4.i89, %cmp8.i91
-  %and107.i93 = and i1 %and5.i87, %or6.i92
-  br i1 %and107.i93, label %if.then24, label %if.end25
+  %cmp8.i91 = icmp ule i64 %sub.i84, %sub7.i90
+  %or6.i92.not108 = and i1 %cmp4.i89, %cmp8.i91
+  %and107.i93.not = or i1 %and5.i87.not107, %or6.i92.not108
+  br i1 %and107.i93.not, label %if.end25, label %if.then24
 
 if.then24:                                        ; preds = %if.end21
   tail call void @ERR_new() #8

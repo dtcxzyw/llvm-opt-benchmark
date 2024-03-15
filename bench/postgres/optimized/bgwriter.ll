@@ -126,12 +126,10 @@ define dso_local void @BackgroundWriterMain() local_unnamed_addr #0 {
   %45 = load i32, ptr @BgWriterDelay, align 4
   %46 = sext i32 %45 to i64
   %47 = call i32 @WaitLatch(ptr noundef %44, i32 noundef 41, i64 noundef %46, i32 noundef 83886083) #4
-  %48 = icmp ne i32 %47, 8
-  %.not13 = xor i1 %26, true
-  %brmerge = select i1 %48, i1 true, i1 %.not13
-  %.0.not = xor i1 %.0, true
-  %brmerge14 = select i1 %brmerge, i1 true, i1 %.0.not
-  br i1 %brmerge14, label %.backedge, label %49
+  %48 = icmp eq i32 %47, 8
+  %brmerge.not = select i1 %48, i1 %26, i1 false
+  %brmerge14.not = select i1 %brmerge.not, i1 %.0, i1 false
+  br i1 %brmerge14.not, label %49, label %.backedge
 
 .backedge:                                        ; preds = %43, %49
   br label %24

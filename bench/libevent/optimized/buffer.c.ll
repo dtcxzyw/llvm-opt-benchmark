@@ -1381,13 +1381,13 @@ if.else35:                                        ; preds = %do.end23
 
 land.lhs.true:                                    ; preds = %if.else35
   %sub.i = sub i64 %8, %10
-  %cmp.not.i = icmp uge i64 %sub.i, %datlen
+  %cmp.not.i = icmp ult i64 %sub.i, %datlen
   %div5.i = lshr i64 %8, 1
-  %cmp3.i = icmp ugt i64 %div5.i, %10
-  %or.cond.i = and i1 %cmp3.i, %cmp.not.i
-  %cmp5.i = icmp ult i64 %10, 2049
-  %narrow.i = and i1 %cmp5.i, %or.cond.i
-  br i1 %narrow.i, label %if.then41, label %if.end54
+  %cmp3.i = icmp ule i64 %div5.i, %10
+  %or.cond.i.not86 = or i1 %cmp3.i, %cmp.not.i
+  %cmp5.i = icmp ugt i64 %10, 2048
+  %narrow.i.not = or i1 %cmp5.i, %or.cond.i.not86
+  br i1 %narrow.i.not, label %if.end54, label %if.then41
 
 if.then41:                                        ; preds = %land.lhs.true
   %buffer.i = getelementptr inbounds i8, ptr %chain.1, i64 40
@@ -1468,11 +1468,11 @@ if.then67:                                        ; preds = %if.end65
   %23 = load i64, ptr %n_add_for_cb77, align 8
   %add78 = add i64 %23, %remain.0
   store i64 %add78, ptr %n_add_for_cb77, align 8
-  %.pre92 = load ptr, ptr %buffer.i.i, align 8
+  %.pre93 = load ptr, ptr %buffer.i.i, align 8
   br label %if.end79
 
 if.end79:                                         ; preds = %if.then67, %if.end65
-  %24 = phi ptr [ %.pre92, %if.then67 ], [ %add.ptr.i.i, %if.end65 ]
+  %24 = phi ptr [ %.pre93, %if.then67 ], [ %add.ptr.i.i, %if.end65 ]
   %add.ptr80 = getelementptr inbounds i8, ptr %data_in, i64 %remain.0
   %sub81 = sub i64 %datlen, %remain.0
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %24, ptr align 1 %add.ptr80, i64 %sub81, i1 false)
@@ -1541,10 +1541,10 @@ evbuffer_chain_insert.exit:                       ; preds = %do.end8.i, %if.end1
   br label %out
 
 out:                                              ; preds = %evbuffer_chain_insert.exit, %if.then41, %if.then27
-  %.sink96 = phi i64 [ %32, %evbuffer_chain_insert.exit ], [ %datlen, %if.then41 ], [ %datlen, %if.then27 ]
+  %.sink97 = phi i64 [ %32, %evbuffer_chain_insert.exit ], [ %datlen, %if.then41 ], [ %datlen, %if.then27 ]
   %sub81.sink = phi i64 [ %sub81, %evbuffer_chain_insert.exit ], [ %datlen, %if.then41 ], [ %datlen, %if.then27 ]
   %33 = load i64, ptr %total_len, align 8
-  %add.i81 = add i64 %33, %.sink96
+  %add.i81 = add i64 %33, %.sink97
   store i64 %add.i81, ptr %total_len, align 8
   %n_add_for_cb84 = getelementptr inbounds i8, ptr %buf, i64 40
   %34 = load i64, ptr %n_add_for_cb84, align 8
@@ -1770,20 +1770,20 @@ if.end8:                                          ; preds = %cond.false, %land.l
   br i1 %cmp9, label %insert_new, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %cond.false, %if.end8
-  %chainp.0.ph68 = phi ptr [ %1, %if.end8 ], [ %0, %cond.false ]
-  %.pr67 = phi ptr [ %.pr.pre, %if.end8 ], [ %1, %cond.false ]
-  %flags10 = getelementptr inbounds i8, ptr %.pr67, i64 32
+  %chainp.0.ph69 = phi ptr [ %1, %if.end8 ], [ %0, %cond.false ]
+  %.pr68 = phi ptr [ %.pr.pre, %if.end8 ], [ %1, %cond.false ]
+  %flags10 = getelementptr inbounds i8, ptr %.pr68, i64 32
   %7 = load i32, ptr %flags10, align 8
   %and11 = and i32 %7, 56
   %tobool12.not = icmp eq i32 %and11, 0
   br i1 %tobool12.not, label %cond.false19, label %insert_new
 
 cond.false19:                                     ; preds = %lor.lhs.false
-  %buffer_len20 = getelementptr inbounds i8, ptr %.pr67, i64 8
+  %buffer_len20 = getelementptr inbounds i8, ptr %.pr68, i64 8
   %8 = load i64, ptr %buffer_len20, align 8
-  %misalign21 = getelementptr inbounds i8, ptr %.pr67, i64 16
+  %misalign21 = getelementptr inbounds i8, ptr %.pr68, i64 16
   %9 = load i64, ptr %misalign21, align 8
-  %off22 = getelementptr inbounds i8, ptr %.pr67, i64 24
+  %off22 = getelementptr inbounds i8, ptr %.pr68, i64 24
   %10 = load i64, ptr %off22, align 8
   %11 = add i64 %9, %10
   %sub24 = sub i64 %8, %11
@@ -1796,16 +1796,16 @@ if.end29:                                         ; preds = %cond.false19
 
 if.end33:                                         ; preds = %if.end29
   %sub.i = sub i64 %8, %10
-  %cmp.not.i = icmp uge i64 %sub.i, %datlen
+  %cmp.not.i = icmp ult i64 %sub.i, %datlen
   %div5.i = lshr i64 %8, 1
-  %cmp3.i = icmp ugt i64 %div5.i, %10
-  %or.cond.i = and i1 %cmp3.i, %cmp.not.i
-  %cmp5.i = icmp ult i64 %10, 2049
-  %narrow.i = and i1 %cmp5.i, %or.cond.i
-  br i1 %narrow.i, label %if.then35, label %if.end36
+  %cmp3.i = icmp ule i64 %div5.i, %10
+  %or.cond.i.not60 = or i1 %cmp3.i, %cmp.not.i
+  %cmp5.i = icmp ugt i64 %10, 2048
+  %narrow.i.not = or i1 %cmp5.i, %or.cond.i.not60
+  br i1 %narrow.i.not, label %if.end36, label %if.then35
 
 if.then35:                                        ; preds = %if.end33
-  %buffer.i = getelementptr inbounds i8, ptr %.pr67, i64 40
+  %buffer.i = getelementptr inbounds i8, ptr %.pr68, i64 40
   %12 = load ptr, ptr %buffer.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %12, i64 %9
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %12, ptr align 1 %add.ptr.i, i64 %10, i1 false)
@@ -1825,7 +1825,7 @@ lor.lhs.false51:                                  ; preds = %if.end36
   br i1 %or.cond, label %if.else81, label %if.then58
 
 if.then58:                                        ; preds = %lor.lhs.false51, %if.end36
-  %13 = load ptr, ptr %.pr67, align 8
+  %13 = load ptr, ptr %.pr68, align 8
   %tobool60.not = icmp eq ptr %13, null
   br i1 %tobool60.not, label %insert_new, label %land.lhs.true61
 
@@ -1864,15 +1864,15 @@ if.end87:                                         ; preds = %if.else81
   store i64 %19, ptr %off89, align 8
   %buffer = getelementptr inbounds i8, ptr %call84, i64 40
   %20 = load ptr, ptr %buffer, align 8
-  %buffer90 = getelementptr inbounds i8, ptr %.pr67, i64 40
+  %buffer90 = getelementptr inbounds i8, ptr %.pr68, i64 40
   %21 = load ptr, ptr %buffer90, align 8
   %22 = load i64, ptr %misalign21, align 8
   %add.ptr = getelementptr inbounds i8, ptr %21, i64 %22
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %20, ptr align 1 %add.ptr, i64 %19, i1 false)
-  store ptr %call84, ptr %chainp.0.ph68, align 8
+  store ptr %call84, ptr %chainp.0.ph69, align 8
   %last = getelementptr inbounds i8, ptr %buf, i64 8
   %23 = load ptr, ptr %last, align 8
-  %cmp95 = icmp eq ptr %23, %.pr67
+  %cmp95 = icmp eq ptr %23, %.pr68
   br i1 %cmp95, label %if.then96, label %if.end98
 
 if.then96:                                        ; preds = %if.end87
@@ -1880,9 +1880,9 @@ if.then96:                                        ; preds = %if.end87
   br label %if.end98
 
 if.end98:                                         ; preds = %if.then96, %if.end87
-  %24 = load ptr, ptr %.pr67, align 8
+  %24 = load ptr, ptr %.pr68, align 8
   store ptr %24, ptr %call84, align 8
-  tail call fastcc void @evbuffer_chain_free(ptr noundef nonnull %.pr67)
+  tail call fastcc void @evbuffer_chain_free(ptr noundef nonnull %.pr68)
   br label %err
 
 insert_new:                                       ; preds = %entry, %if.then58, %cond.end76, %if.end29, %if.end8, %lor.lhs.false
@@ -1890,7 +1890,7 @@ insert_new:                                       ; preds = %entry, %if.then58, 
   br label %err
 
 err:                                              ; preds = %cond.end76, %cond.false19, %insert_new, %if.then35, %if.end98, %if.else81
-  %result.0 = phi ptr [ %call101, %insert_new ], [ %.pr67, %if.then35 ], [ null, %if.else81 ], [ %call84, %if.end98 ], [ %.pr67, %cond.false19 ], [ %13, %cond.end76 ]
+  %result.0 = phi ptr [ %call101, %insert_new ], [ %.pr68, %if.then35 ], [ null, %if.else81 ], [ %call84, %if.end98 ], [ %.pr68, %cond.false19 ], [ %13, %cond.end76 ]
   ret ptr %result.0
 }
 
@@ -5946,7 +5946,7 @@ if.then38:                                        ; preds = %if.end36
 
 if.end52:                                         ; preds = %if.end36.if.end52_crit_edge, %if.then38
   %20 = phi i64 [ %.pre, %if.end36.if.end52_crit_edge ], [ %19, %if.then38 ]
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %add = add i64 %20, %len_so_far.170
   %21 = load ptr, ptr %chain.168, align 8
   %tobool31.not = icmp eq ptr %21, null

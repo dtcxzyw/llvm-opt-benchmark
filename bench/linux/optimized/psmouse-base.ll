@@ -1168,46 +1168,45 @@ define internal i32 @genius_detect(ptr noundef %0, i1 noundef zeroext %1) #2 ali
   %8 = call i32 @ps2_command(ptr noundef %4, ptr noundef null, i32 noundef 230) #14
   %9 = call i32 @ps2_command(ptr noundef %4, ptr noundef nonnull %3, i32 noundef 1001) #14
   %10 = load i8, ptr %3, align 4
-  %11 = icmp ne i8 %10, 0
+  %11 = icmp eq i8 %10, 0
   %12 = getelementptr inbounds i8, ptr %3, i64 1
   %13 = load i8, ptr %12, align 1
-  %14 = icmp ne i8 %13, 51
-  %15 = select i1 %11, i1 true, i1 %14
-  %16 = getelementptr inbounds i8, ptr %3, i64 2
-  %17 = load i8, ptr %16, align 2
-  %18 = icmp ne i8 %17, 85
-  %19 = select i1 %15, i1 true, i1 %18
-  %20 = xor i1 %1, true
-  %21 = or i1 %19, %20
-  %22 = select i1 %19, i32 -19, i32 0
-  br i1 %21, label %36, label %23
+  %14 = icmp eq i8 %13, 51
+  %.not6 = select i1 %11, i1 %14, i1 false
+  %15 = getelementptr inbounds i8, ptr %3, i64 2
+  %16 = load i8, ptr %15, align 2
+  %17 = icmp eq i8 %16, 85
+  %.not4 = select i1 %.not6, i1 %17, i1 false
+  %.not1 = and i1 %.not4, %1
+  %18 = select i1 %.not4, i32 0, i32 -19
+  br i1 %.not1, label %19, label %32
 
-23:                                               ; preds = %2
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
-  %25 = load ptr, ptr %24, align 8
+19:                                               ; preds = %2
+  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = load ptr, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %21, i64 48
+  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %22, i64 274) #14, !srcloc !19
+  %23 = load ptr, ptr %20, align 8
+  %24 = getelementptr inbounds i8, ptr %23, i64 48
+  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %24, i64 276) #14, !srcloc !19
+  %25 = load ptr, ptr %20, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 48
-  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %26, i64 274) #14, !srcloc !19
-  %27 = load ptr, ptr %24, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 48
-  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %28, i64 276) #14, !srcloc !19
-  %29 = load ptr, ptr %24, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 48
-  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %30, i64 275) #14, !srcloc !19
-  %31 = load ptr, ptr %24, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 144
-  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %32, i64 8) #14, !srcloc !19
-  %33 = getelementptr inbounds i8, ptr %0, i64 208
-  store ptr @.str.42, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 216
-  store ptr @.str.39, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 242
-  store i8 4, ptr %35, align 2
-  br label %36
+  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %26, i64 275) #14, !srcloc !19
+  %27 = load ptr, ptr %20, align 8
+  %28 = getelementptr inbounds i8, ptr %27, i64 144
+  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %28, i64 8) #14, !srcloc !19
+  %29 = getelementptr inbounds i8, ptr %0, i64 208
+  store ptr @.str.42, ptr %29, align 8
+  %30 = getelementptr inbounds i8, ptr %0, i64 216
+  store ptr @.str.39, ptr %30, align 8
+  %31 = getelementptr inbounds i8, ptr %0, i64 242
+  store i8 4, ptr %31, align 2
+  br label %32
 
-36:                                               ; preds = %23, %2
-  %37 = phi i32 [ %22, %2 ], [ 0, %23 ]
+32:                                               ; preds = %19, %2
+  %33 = phi i32 [ %18, %2 ], [ 0, %19 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #14
-  ret i32 %37
+  ret i32 %33
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

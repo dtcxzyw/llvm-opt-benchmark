@@ -2935,7 +2935,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %if.end.i.i.i.i, %if
   %storemerge27.i.i.in.in.i.i.i.i = phi i64 [ %storemerge27.i.i.i.i.i.i, %if.end4.i.i.i.i.i.i ], [ %sub.ptr.div.i.i.i.i123.i, %if.end.i.i.i.i ]
   %storemerge27.i.i.in.i.i.i.i = add nuw nsw i64 %storemerge27.i.i.in.in.i.i.i.i, 1
   %storemerge27.i.i.i.i.i.i = lshr i64 %storemerge27.i.i.in.i.i.i.i, 1
-  %mul.i.i.i.i.i124.i = shl i64 %storemerge27.i.i.i.i.i.i, 3
+  %mul.i.i.i.i.i124.i = shl nuw nsw i64 %storemerge27.i.i.i.i.i.i, 3
   %call.i.i.i.i.i.i = tail call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %mul.i.i.i.i.i124.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #31, !noalias !4
   %cmp2.not.i.i.i.i.i.i = icmp eq ptr %call.i.i.i.i.i.i, null
   br i1 %cmp2.not.i.i.i.i.i.i, label %if.end4.i.i.i.i.i.i, label %if.else.i.i.i.i
@@ -5185,14 +5185,14 @@ entry:
   %ref.tmp.val5 = load ptr, ptr %ref.tmp, align 8
   %0 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %ref.tmp.val = load ptr, ptr %0, align 8
-  %cmp.i10 = icmp eq ptr %ref.tmp.val5, %ref.tmp.val
-  br i1 %cmp.i10, label %for.cond.cleanup, label %for.body.lr.ph
+  %cmp.i11 = icmp eq ptr %ref.tmp.val5, %ref.tmp.val
+  br i1 %cmp.i11, label %for.cond.cleanup, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
   %1 = getelementptr inbounds i8, ptr %ctx, i64 113
   %ctx.val = load i8, ptr %1, align 1
   %2 = and i8 %ctx.val, 1
-  %tobool.i = icmp ne i8 %2, 0
+  %tobool.i = icmp eq i8 %2, 0
   br label %for.body
 
 for.cond.cleanup:                                 ; preds = %for.body, %entry
@@ -5208,18 +5208,17 @@ _ZNSt6vectorIN4mold3elf12_GLOBAL__N_18GotEntryINS1_6RV32LEEEESaIS5_EED2Ev.exit: 
   ret i64 %n.0.lcssa
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
-  %n.012 = phi i64 [ 0, %for.body.lr.ph ], [ %n.1, %for.body ]
-  %__begin1.sroa.0.011 = phi ptr [ %ref.tmp.val5, %for.body.lr.ph ], [ %incdec.ptr.i, %for.body ]
-  %3 = getelementptr i8, ptr %__begin1.sroa.0.011, i64 16
+  %n.013 = phi i64 [ 0, %for.body.lr.ph ], [ %n.1, %for.body ]
+  %__begin1.sroa.0.012 = phi ptr [ %ref.tmp.val5, %for.body.lr.ph ], [ %incdec.ptr.i, %for.body ]
+  %3 = getelementptr i8, ptr %__begin1.sroa.0.012, i64 16
   %call5.val = load i64, ptr %3, align 8
-  %cmp.i9 = icmp eq i64 %call5.val, 3
-  %4 = select i1 %cmp.i9, i1 %tobool.i, i1 false
-  %cmp.not = icmp eq i64 %call5.val, 0
-  %or.cond = or i1 %cmp.not, %4
-  %not.or.cond = xor i1 %or.cond, true
-  %inc = zext i1 %not.or.cond to i64
-  %n.1 = add nuw nsw i64 %n.012, %inc
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.011, i64 32
+  %cmp.i9 = icmp ne i64 %call5.val, 3
+  %.not10 = select i1 %cmp.i9, i1 true, i1 %tobool.i
+  %cmp.not = icmp ne i64 %call5.val, 0
+  %or.cond.not = and i1 %cmp.not, %.not10
+  %inc = zext i1 %or.cond.not to i64
+  %n.1 = add nuw nsw i64 %n.013, %inc
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.012, i64 32
   %cmp.i = icmp eq ptr %incdec.ptr.i, %ref.tmp.val
   br i1 %cmp.i, label %for.cond.cleanup, label %for.body
 }
@@ -10995,7 +10994,7 @@ if.end.i.i19:                                     ; preds = %if.end
 
 while.body.i.i.i.i:                               ; preds = %if.end.i.i19, %if.end4.i.i.i.i
   %storemerge27.i.i.i.i = phi i64 [ %div5.i.i.i.i, %if.end4.i.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %if.end.i.i19 ]
-  %mul.i.i.i.i = shl i64 %storemerge27.i.i.i.i, 3
+  %mul.i.i.i.i = shl nuw nsw i64 %storemerge27.i.i.i.i, 3
   %call.i.i.i.i = call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %mul.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #31
   %cmp2.not.i.i.i.i = icmp eq ptr %call.i.i.i.i, null
   br i1 %cmp2.not.i.i.i.i, label %if.end4.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS3_6RV32LEEEESt6vectorIS7_SaIS7_EEEES7_EC2ESC_l.exit.i.i
@@ -15821,7 +15820,7 @@ while.body.i.i.i.i.i:                             ; preds = %if.end.i.i.i, %if.e
   %storemerge27.i.i.in.in.i.i.i = phi i64 [ %storemerge27.i.i.i.i.i, %if.end4.i.i.i.i.i ], [ %sub.ptr.div.i.i.i.i, %if.end.i.i.i ]
   %storemerge27.i.i.in.i.i.i = add nuw nsw i64 %storemerge27.i.i.in.in.i.i.i, 1
   %storemerge27.i.i.i.i.i = lshr i64 %storemerge27.i.i.in.i.i.i, 1
-  %mul.i.i.i.i.i = shl i64 %storemerge27.i.i.i.i.i, 3
+  %mul.i.i.i.i.i = shl nuw nsw i64 %storemerge27.i.i.i.i.i, 3
   %call.i.i.i.i.i = call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %mul.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #31
   %cmp2.not.i.i.i.i.i = icmp eq ptr %call.i.i.i.i.i, null
   br i1 %cmp2.not.i.i.i.i.i, label %if.end4.i.i.i.i.i, label %if.else.i.i.i

@@ -1630,62 +1630,61 @@ define internal fastcc i32 @scsi_complete_sghdr_rq(ptr nocapture noundef readonl
   store i16 %16, ptr %17, align 4
   %18 = getelementptr inbounds i8, ptr %1, i64 70
   %19 = and i32 %5, 254
-  %20 = icmp ne i32 %19, 2
-  %21 = select i1 %20, i16 0, i16 8
+  %20 = icmp eq i32 %19, 2
+  %21 = select i1 %20, i16 8, i16 0
   store i16 %21, ptr %18, align 2
   %22 = getelementptr inbounds i8, ptr %1, i64 80
-  %23 = icmp ult i8 %9, 2
-  %24 = icmp eq i16 %16, 0
-  %25 = select i1 %23, i1 %24, i1 false
-  %or.cond = select i1 %25, i1 %20, i1 false
-  %not.or.cond = xor i1 %or.cond, true
-  %spec.store.select = zext i1 %not.or.cond to i32
+  %23 = icmp ugt i8 %9, 1
+  %24 = icmp ne i16 %16, 0
+  %.not5 = select i1 %23, i1 true, i1 %24
+  %or.cond.not = select i1 %.not5, i1 true, i1 %20
+  %spec.store.select = zext i1 %or.cond.not to i32
   store i32 %spec.store.select, ptr %22, align 8
-  %26 = getelementptr i8, ptr %0, i64 488
-  %27 = load i32, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %1, i64 72
-  store i32 %27, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 67
-  store i8 0, ptr %29, align 1
-  %30 = getelementptr i8, ptr %0, i64 492
-  %31 = load i32, ptr %30, align 4
-  %32 = icmp eq i32 %31, 0
-  br i1 %32, label %51, label %33
+  %25 = getelementptr i8, ptr %0, i64 488
+  %26 = load i32, ptr %25, align 8
+  %27 = getelementptr inbounds i8, ptr %1, i64 72
+  store i32 %26, ptr %27, align 8
+  %28 = getelementptr inbounds i8, ptr %1, i64 67
+  store i8 0, ptr %28, align 1
+  %29 = getelementptr i8, ptr %0, i64 492
+  %30 = load i32, ptr %29, align 4
+  %31 = icmp eq i32 %30, 0
+  br i1 %31, label %50, label %32
 
-33:                                               ; preds = %3
-  %34 = getelementptr inbounds i8, ptr %1, i64 32
-  %35 = load ptr, ptr %34, align 8
-  %36 = icmp eq ptr %35, null
-  br i1 %36, label %51, label %37
+32:                                               ; preds = %3
+  %33 = getelementptr inbounds i8, ptr %1, i64 32
+  %34 = load ptr, ptr %33, align 8
+  %35 = icmp eq ptr %34, null
+  br i1 %35, label %50, label %36
 
-37:                                               ; preds = %33
-  %38 = getelementptr inbounds i8, ptr %1, i64 9
-  %39 = load i8, ptr %38, align 1
-  %40 = zext i8 %39 to i32
-  %41 = tail call i32 @llvm.umin.i32(i32 %31, i32 %40)
-  %42 = zext nneg i32 %41 to i64
-  %43 = getelementptr i8, ptr %0, i64 496
-  %44 = load ptr, ptr %43, align 8
-  %45 = tail call i64 @_copy_to_user(ptr noundef nonnull %35, ptr noundef %44, i64 noundef %42) #11
-  %46 = icmp eq i64 %45, 0
-  br i1 %46, label %47, label %49
+36:                                               ; preds = %32
+  %37 = getelementptr inbounds i8, ptr %1, i64 9
+  %38 = load i8, ptr %37, align 1
+  %39 = zext i8 %38 to i32
+  %40 = tail call i32 @llvm.umin.i32(i32 %30, i32 %39)
+  %41 = zext nneg i32 %40 to i64
+  %42 = getelementptr i8, ptr %0, i64 496
+  %43 = load ptr, ptr %42, align 8
+  %44 = tail call i64 @_copy_to_user(ptr noundef nonnull %34, ptr noundef %43, i64 noundef %41) #11
+  %45 = icmp eq i64 %44, 0
+  br i1 %45, label %46, label %48
 
-47:                                               ; preds = %37
-  %48 = trunc i32 %41 to i8
-  store i8 %48, ptr %29, align 1
-  br label %51
+46:                                               ; preds = %36
+  %47 = trunc i32 %40 to i8
+  store i8 %47, ptr %28, align 1
+  br label %50
 
-49:                                               ; preds = %37
-  %50 = tail call i32 @blk_rq_unmap_user(ptr noundef %2) #11
-  br label %53
+48:                                               ; preds = %36
+  %49 = tail call i32 @blk_rq_unmap_user(ptr noundef %2) #11
+  br label %52
 
-51:                                               ; preds = %33, %3, %47
-  %52 = tail call i32 @blk_rq_unmap_user(ptr noundef %2) #11
-  br label %53
+50:                                               ; preds = %32, %3, %46
+  %51 = tail call i32 @blk_rq_unmap_user(ptr noundef %2) #11
+  br label %52
 
-53:                                               ; preds = %49, %51
-  %54 = phi i32 [ %52, %51 ], [ -14, %49 ]
-  ret i32 %54
+52:                                               ; preds = %48, %50
+  %53 = phi i32 [ %51, %50 ], [ -14, %48 ]
+  ret i32 %53
 }
 
 ; Function Attrs: null_pointer_is_valid

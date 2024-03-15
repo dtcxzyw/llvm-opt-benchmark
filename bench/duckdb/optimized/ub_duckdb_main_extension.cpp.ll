@@ -31874,13 +31874,12 @@ lpad82:                                           ; preds = %if.then.i.i174
 
 if.end90:                                         ; preds = %if.then87, %invoke.cont83
   %32 = load i8, ptr %socket_should_be_closed_when_request_is_done_, align 8, !tbaa !508, !range !135, !noundef !136
-  %tobool92.not = icmp ne i8 %32, 0
+  %tobool92.not = icmp eq i8 %32, 0
   %33 = load i8, ptr %close_connection, align 1, !range !135
-  %tobool93.not = icmp ne i8 %33, 0
-  %or.cond.not212 = select i1 %tobool92.not, i1 true, i1 %tobool93.not
-  %call76.not = xor i1 %call76, true
-  %brmerge = or i1 %or.cond.not212, %call76.not
-  br i1 %brmerge, label %if.then96, label %if.end106
+  %tobool93.not = icmp eq i8 %33, 0
+  %or.cond.not212.not6 = select i1 %tobool92.not, i1 %tobool93.not, i1 false
+  %brmerge.not = and i1 %call76, %or.cond.not212.not6
+  br i1 %brmerge.not, label %if.end106, label %if.then96
 
 if.then96:                                        ; preds = %if.end90
   %vtable98 = load ptr, ptr %this, align 8, !tbaa !189

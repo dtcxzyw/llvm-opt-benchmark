@@ -11375,22 +11375,22 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
 
 24:                                               ; preds = %.lr.ph, %54
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %54 ]
-  %.03552 = phi i32 [ 0, %.lr.ph ], [ %.1, %54 ]
-  %.03651 = phi i32 [ 0, %.lr.ph ], [ %.137, %54 ]
+  %.03554 = phi i32 [ 0, %.lr.ph ], [ %.1, %54 ]
+  %.03653 = phi i32 [ 0, %.lr.ph ], [ %.137, %54 ]
   %25 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val46, i64 %indvars.iv
   br i1 %.not, label %.critedge, label %26
 
 26:                                               ; preds = %24
   %.val48 = load i64, ptr %25, align 4
   %27 = and i64 %.val48, 2147483648
-  %.not.i.i50 = icmp eq i64 %27, 0
+  %.not.i.i50 = icmp ne i64 %27, 0
   %28 = and i64 %.val48, 536870911
-  %29 = icmp ne i64 %28, 536870911
-  %narrow.i.not.not.i = and i1 %.not.i.i50, %29
+  %29 = icmp eq i64 %28, 536870911
+  %narrow.i.not.not.i.not52 = or i1 %.not.i.i50, %29
   %30 = and i64 %.val48, 2684354559
-  %narrow.i3.i = icmp eq i64 %30, 2684354559
-  %narrow.i = or i1 %narrow.i3.i, %narrow.i.not.not.i
-  br i1 %narrow.i, label %31, label %54
+  %narrow.i3.i = icmp ne i64 %30, 2684354559
+  %narrow.i.not = and i1 %narrow.i3.i, %narrow.i.not.not.i.not52
+  br i1 %narrow.i.not, label %54, label %31
 
 31:                                               ; preds = %26
   %32 = getelementptr inbounds i8, ptr %25, i64 8
@@ -11425,23 +11425,23 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
   br i1 %49, label %50, label %52
 
 50:                                               ; preds = %47
-  %51 = add nsw i32 %.03552, 1
+  %51 = add nsw i32 %.03554, 1
   br label %54
 
 52:                                               ; preds = %47
-  %53 = add nsw i32 %.03651, 1
+  %53 = add nsw i32 %.03653, 1
   br label %54
 
 54:                                               ; preds = %26, %50, %52, %45, %31
-  %.137 = phi i32 [ %.03651, %31 ], [ %.03651, %45 ], [ %.03651, %50 ], [ %53, %52 ], [ %.03651, %26 ]
-  %.1 = phi i32 [ %.03552, %31 ], [ %.03552, %45 ], [ %51, %50 ], [ %.03552, %52 ], [ %.03552, %26 ]
+  %.137 = phi i32 [ %.03653, %31 ], [ %.03653, %45 ], [ %.03653, %50 ], [ %53, %52 ], [ %.03653, %26 ]
+  %.1 = phi i32 [ %.03554, %31 ], [ %.03554, %45 ], [ %51, %50 ], [ %.03554, %52 ], [ %.03554, %26 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %55 = icmp ult i64 %indvars.iv.next, %23
   br i1 %55, label %24, label %.critedge, !llvm.loop !85
 
 .critedge:                                        ; preds = %54, %24, %Vec_IntStartFull.exit
-  %.036.lcssa = phi i32 [ 0, %Vec_IntStartFull.exit ], [ %.03651, %24 ], [ %.137, %54 ]
-  %.035.lcssa = phi i32 [ 0, %Vec_IntStartFull.exit ], [ %.03552, %24 ], [ %.1, %54 ]
+  %.036.lcssa = phi i32 [ 0, %Vec_IntStartFull.exit ], [ %.03653, %24 ], [ %.137, %54 ]
+  %.035.lcssa = phi i32 [ 0, %Vec_IntStartFull.exit ], [ %.03554, %24 ], [ %.1, %54 ]
   tail call void @free(ptr noundef %19) #24
   %.not41 = icmp eq i32 %2, 0
   br i1 %.not41, label %58, label %56

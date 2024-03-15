@@ -937,11 +937,11 @@ if.end3.i:                                        ; preds = %fdt_check_node_offs
   %6 = load i8, ptr %arrayidx8.i.i38, align 1
   %conv9.i.i39 = zext i8 %6 to i32
   %or10.i.i40 = or disjoint i32 %or7.i.i37, %conv9.i.i39
-  %add.i41142 = add i32 %or10.i.i40, %2
-  %cmp3.i43143 = icmp ult i32 %add.i41142, %2
-  %cmp5.i47144 = icmp ugt i32 %add.i41142, -5
-  %or.cond134145 = or i1 %cmp3.i43143, %cmp5.i47144
-  br i1 %or.cond134145, label %return, label %lor.lhs.false6.i48.lr.ph
+  %add.i41141 = add i32 %or10.i.i40, %2
+  %cmp3.i43142 = icmp ult i32 %add.i41141, %2
+  %cmp5.i47143 = icmp ugt i32 %add.i41141, -5
+  %or.cond144 = or i1 %cmp3.i43142, %cmp5.i47143
+  br i1 %or.cond144, label %return, label %lor.lhs.false6.i48.lr.ph
 
 lor.lhs.false6.i48.lr.ph:                         ; preds = %if.end3.i
   %7 = load i8, ptr %totalsize.i49, align 1
@@ -972,10 +972,10 @@ lor.lhs.false6.i48.lr.ph:                         ; preds = %if.end3.i
   br label %lor.lhs.false6.i48
 
 lor.lhs.false6.i48:                               ; preds = %lor.lhs.false6.i48.lr.ph, %do.body.backedge.i
-  %add.i41147 = phi i32 [ %add.i41142, %lor.lhs.false6.i48.lr.ph ], [ %add.i41, %do.body.backedge.i ]
+  %add.i41146 = phi i32 [ %add.i41141, %lor.lhs.false6.i48.lr.ph ], [ %add.i41, %do.body.backedge.i ]
   %11 = phi i32 [ %2, %lor.lhs.false6.i48.lr.ph ], [ %and.i, %do.body.backedge.i ]
-  %depth.1146 = phi i32 [ %depth.0, %lor.lhs.false6.i48.lr.ph ], [ %depth.2, %do.body.backedge.i ]
-  %add4.i46 = add nuw i32 %add.i41147, 4
+  %depth.1145 = phi i32 [ %depth.0, %lor.lhs.false6.i48.lr.ph ], [ %depth.2, %do.body.backedge.i ]
+  %add4.i46 = add nuw i32 %add.i41146, 4
   %cmp9.i63 = icmp ugt i32 %add4.i46, %or10.i29.i62
   br i1 %cmp9.i63, label %return, label %if.end12.i64
 
@@ -1042,13 +1042,13 @@ do.body.i5:                                       ; preds = %do.body.i5.preheade
   %indvars.iv = phi i64 [ %21, %do.body.i5.preheader ], [ %indvars.iv.next, %land.rhs.i ]
   %22 = trunc i64 %indvars.iv to i32
   %add.i21 = add i32 %or10.i.i40, %22
-  %cmp.i22 = icmp slt i32 %22, 0
+  %cmp.i22 = icmp sgt i32 %22, -1
   %23 = zext i32 %add.i21 to i64
-  %cmp3.i = icmp ugt i64 %indvars.iv, %23
-  %or.cond.i23 = or i1 %cmp.i22, %cmp3.i
-  %cmp9.i.not = icmp uge i32 %add.i21, %or10.i29.i62
-  %or.cond.not = or i1 %or.cond.i23, %cmp9.i.not
-  br i1 %or.cond.not, label %return, label %if.end12.i
+  %cmp3.i = icmp ule i64 %indvars.iv, %23
+  %or.cond.i23.not162 = and i1 %cmp.i22, %cmp3.i
+  %cmp9.i.not = icmp ult i32 %add.i21, %or10.i29.i62
+  %or.cond160 = and i1 %or.cond.i23.not162, %cmp9.i.not
+  br i1 %or.cond160, label %if.end12.i, label %return
 
 if.end12.i:                                       ; preds = %do.body.i5
   br i1 %cmp16.i79, label %lor.lhs.false20.i, label %fdt_offset_ptr.exit
@@ -1125,27 +1125,27 @@ fdt_next_tag.exit:                                ; preds = %sw.epilog.i
   ]
 
 do.body.backedge.i:                               ; preds = %sw.bb8.i, %fdt_next_tag.exit
-  %depth.2 = phi i32 [ %depth.1146, %fdt_next_tag.exit ], [ %dec.i, %sw.bb8.i ]
+  %depth.2 = phi i32 [ %depth.1145, %fdt_next_tag.exit ], [ %dec.i, %sw.bb8.i ]
   %add.i41 = add i32 %or10.i.i40, %and.i
   %cmp.i42 = icmp slt i32 %and.i, 0
   %cmp3.i43 = icmp ult i32 %add.i41, %and.i
   %or.cond.i44 = or i1 %cmp.i42, %cmp3.i43
   %cmp5.i47 = icmp ugt i32 %add.i41, -5
-  %or.cond134 = or i1 %or.cond.i44, %cmp5.i47
-  br i1 %or.cond134, label %return, label %lor.lhs.false6.i48, !llvm.loop !7
+  %or.cond = or i1 %or.cond.i44, %cmp5.i47
+  br i1 %or.cond, label %return, label %lor.lhs.false6.i48, !llvm.loop !7
 
 sw.bb8.i:                                         ; preds = %fdt_next_tag.exit
-  %dec.i = add i32 %depth.1146, -1
+  %dec.i = add i32 %depth.1145, -1
   %cmp10.i = icmp slt i32 %dec.i, 0
   br i1 %cmp10.i, label %return, label %do.body.backedge.i
 
 fdt_next_node.exit:                               ; preds = %fdt_next_tag.exit
-  %cmp1 = icmp ugt i32 %depth.1146, 2147483646
+  %cmp1 = icmp ugt i32 %depth.1145, 2147483646
   br i1 %cmp1, label %return, label %do.cond
 
 do.cond:                                          ; preds = %fdt_next_node.exit
-  %inc.i = add nuw nsw i32 %depth.1146, 1
-  %cmp2.not = icmp eq i32 %depth.1146, 0
+  %inc.i = add nuw nsw i32 %depth.1145, 1
+  %cmp2.not = icmp eq i32 %depth.1145, 0
   br i1 %cmp2.not, label %return, label %do.body, !llvm.loop !8
 
 return:                                           ; preds = %fdt_check_node_offset_.exit.i, %do.cond, %fdt_next_node.exit, %if.end3.i, %sw.bb8.i, %lor.lhs.false20.i98, %lor.lhs.false6.i48, %do.body.backedge.i, %sw.epilog.i, %if.end.i, %sw.bb13.i4, %fdt_offset_ptr.exit114, %fdt_next_tag.exit, %fdt_offset_ptr.exit, %do.body.i5, %lor.lhs.false20.i, %fdt_check_node_offset_.exit.thread.i

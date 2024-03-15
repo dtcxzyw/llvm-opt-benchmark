@@ -7196,14 +7196,13 @@ _ZNK11ast_manager6is_andEPK4expr.exit:            ; preds = %land.rhs.i.i
 
 _ZNK11ast_manager5is_orEPK4expr.exit:             ; preds = %_ZNK11ast_manager6is_andEPK4expr.exit
   %9 = load i32, ptr %6, align 8
-  %cmp.i.i.i.i.i21 = icmp ne i32 %9, 0
+  %cmp.i.i.i.i.i21 = icmp eq i32 %9, 0
   %m_kind.i.i.i.i.i22 = getelementptr inbounds i8, ptr %6, i64 4
   %10 = load i32, ptr %m_kind.i.i.i.i.i22, align 4
-  %cmp2.i.i.i.i.i23 = icmp ne i32 %10, 6
-  %.not57 = select i1 %cmp.i.i.i.i.i21, i1 true, i1 %cmp2.i.i.i.i.i23
-  %call3.not = xor i1 %tobool.i, true
-  %brmerge11 = or i1 %.not57, %call3.not
-  br i1 %brmerge11, label %if.end31, label %land.lhs.true9
+  %cmp2.i.i.i.i.i23 = icmp eq i32 %10, 6
+  %.not57.not58 = select i1 %cmp.i.i.i.i.i21, i1 %cmp2.i.i.i.i.i23, i1 false
+  %brmerge11.not = and i1 %tobool.i, %.not57.not58
+  br i1 %brmerge11.not, label %land.lhs.true9, label %if.end31
 
 land.lhs.true9:                                   ; preds = %_ZNK11ast_manager5is_orEPK4expr.exit, %_ZNK11ast_manager6is_andEPK4expr.exit
   %m_num_args.i = getelementptr inbounds i8, ptr %2, i64 24

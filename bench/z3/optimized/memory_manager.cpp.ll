@@ -420,26 +420,25 @@ if.then:                                          ; preds = %_ZNSt10lock_guardIS
 
 if.end:                                           ; preds = %if.then, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
   %8 = load i64, ptr @_ZL17g_memory_max_size, align 8
-  %cmp2.not = icmp eq i64 %8, 0
-  %cmp3 = icmp sle i64 %add, %8
-  %or.cond.not = or i1 %cmp2.not, %cmp3
+  %cmp2.not = icmp ne i64 %8, 0
+  %cmp3 = icmp sgt i64 %add, %8
+  %or.cond.not.not9 = and i1 %cmp2.not, %cmp3
   %9 = load i64, ptr @_ZL24g_memory_max_alloc_count, align 8
   %call1.i.i.i8 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #22
   store i64 0, ptr %1, align 8
-  %allocating.not = xor i1 %allocating, true
-  %brmerge = or i1 %or.cond.not, %allocating.not
-  br i1 %brmerge, label %if.end14, label %if.then13
+  %brmerge.not = and i1 %or.cond.not.not9, %allocating
+  br i1 %brmerge.not, label %if.then13, label %if.end14
 
 if.then13:                                        ; preds = %if.end
   tail call fastcc void @_ZL19throw_out_of_memoryv()
   unreachable
 
 if.end14:                                         ; preds = %if.end
-  %cmp6.not = icmp eq i64 %9, 0
-  %cmp8 = icmp sle i64 %add1, %9
-  %or.cond4.not = select i1 %cmp6.not, i1 true, i1 %cmp8
-  %brmerge6 = or i1 %or.cond4.not, %allocating.not
-  br i1 %brmerge6, label %if.end19, label %if.then18
+  %cmp6.not = icmp ne i64 %9, 0
+  %cmp8 = icmp sgt i64 %add1, %9
+  %or.cond4.not.not10 = select i1 %cmp6.not, i1 %cmp8, i1 false
+  %brmerge6.not = and i1 %or.cond4.not.not10, %allocating
+  br i1 %brmerge6.not, label %if.then18, label %if.end19
 
 if.then18:                                        ; preds = %if.end14
   %call.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.6)

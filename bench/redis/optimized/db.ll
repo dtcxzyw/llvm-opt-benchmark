@@ -747,18 +747,17 @@ dbFind.exit:                                      ; preds = %land.lhs.true1.i.i,
 if.then:                                          ; preds = %dbFind.exit
   %call1 = tail call ptr @dictGetVal(ptr noundef nonnull %call6.i) #16
   %12 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 283), align 8
-  %tobool2 = icmp ne ptr %12, null
+  %tobool2 = icmp eq ptr %12, null
   %13 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 298), align 4
-  %tobool3 = icmp ne i32 %13, 0
-  %14 = select i1 %tobool2, i1 %tobool3, i1 false
+  %tobool3 = icmp eq i32 %13, 0
+  %.not25 = select i1 %tobool2, i1 true, i1 %tobool3
   %and = and i32 %flags, 8
-  %tobool4 = icmp eq i32 %and, 0
-  %or.cond = select i1 %tobool4, i1 true, i1 %14
-  %not.or.cond = xor i1 %or.cond, true
-  %spec.select = zext i1 %not.or.cond to i32
+  %tobool4 = icmp ne i32 %and, 0
+  %or.cond.not = select i1 %tobool4, i1 %.not25, i1 false
+  %spec.select = zext i1 %or.cond.not to i32
   %and7 = lshr i32 %flags, 3
-  %15 = and i32 %and7, 2
-  %expire_flags.1 = or disjoint i32 %15, %spec.select
+  %14 = and i32 %and7, 2
+  %expire_flags.1 = or disjoint i32 %14, %spec.select
   %call12 = tail call i32 @expireIfNeeded(ptr noundef nonnull %db, ptr noundef nonnull %key, i32 noundef %expire_flags.1), !range !8
   %tobool13.not = icmp ne i32 %call12, 0
   %tobool17.not = icmp eq ptr %call1, null
@@ -766,23 +765,23 @@ if.then:                                          ; preds = %dbFind.exit
   br i1 %or.cond24, label %if.else44, label %if.then18
 
 if.then18:                                        ; preds = %if.then
-  %16 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 61), align 8
-  %tobool19.not = icmp eq ptr %16, null
+  %15 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 61), align 8
+  %tobool19.not = icmp eq ptr %15, null
   br i1 %tobool19.not, label %if.end27, label %land.lhs.true20
 
 land.lhs.true20:                                  ; preds = %if.then18
-  %flags21 = getelementptr inbounds i8, ptr %16, i64 8
-  %17 = load i64, ptr %flags21, align 8
-  %and22 = and i64 %17, 35184372088832
+  %flags21 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = load i64, ptr %flags21, align 8
+  %and22 = and i64 %16, 35184372088832
   %tobool23.not = icmp eq i64 %and22, 0
   br i1 %tobool23.not, label %if.end27, label %land.lhs.true24
 
 land.lhs.true24:                                  ; preds = %land.lhs.true20
-  %cmd = getelementptr inbounds i8, ptr %16, i64 128
-  %18 = load ptr, ptr %cmd, align 8
-  %proc = getelementptr inbounds i8, ptr %18, i64 96
-  %19 = load ptr, ptr %proc, align 8
-  %cmp.not = icmp ne ptr %19, @touchCommand
+  %cmd = getelementptr inbounds i8, ptr %15, i64 128
+  %17 = load ptr, ptr %cmd, align 8
+  %proc = getelementptr inbounds i8, ptr %17, i64 96
+  %18 = load ptr, ptr %proc, align 8
+  %cmp.not = icmp ne ptr %18, @touchCommand
   %or26 = zext i1 %cmp.not to i32
   %spec.select17 = or i32 %or26, %flags
   br label %if.end27
@@ -791,13 +790,13 @@ if.end27:                                         ; preds = %land.lhs.true24, %l
   %flags.addr.0 = phi i32 [ %flags, %land.lhs.true20 ], [ %flags, %if.then18 ], [ %spec.select17, %land.lhs.true24 ]
   %call28 = tail call i32 @hasActiveChildProcess() #16
   %and31 = and i32 %flags.addr.0, 1
-  %20 = or i32 %call28, %and31
-  %or.cond18 = icmp eq i32 %20, 0
+  %19 = or i32 %call28, %and31
+  %or.cond18 = icmp eq i32 %19, 0
   br i1 %or.cond18, label %if.then33, label %if.end39
 
 if.then33:                                        ; preds = %if.end27
-  %21 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 316), align 8
-  %and34 = and i32 %21, 2
+  %20 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 316), align 8
+  %and34 = and i32 %20, 2
   %tobool35.not = icmp eq i32 %and34, 0
   br i1 %tobool35.not, label %if.else, label %if.then36
 
@@ -841,8 +840,8 @@ if.else44:                                        ; preds = %if.then, %dbFind.ex
 
 if.then47:                                        ; preds = %if.else44
   %id = getelementptr inbounds i8, ptr %db, i64 48
-  %22 = load i32, ptr %id, align 8
-  tail call void @notifyKeyspaceEvent(i32 noundef 2048, ptr noundef nonnull @.str.3, ptr noundef nonnull %key, i32 noundef %22) #16
+  %21 = load i32, ptr %id, align 8
+  tail call void @notifyKeyspaceEvent(i32 noundef 2048, ptr noundef nonnull @.str.3, ptr noundef nonnull %key, i32 noundef %21) #16
   br label %if.end48
 
 if.end48:                                         ; preds = %if.then47, %if.else44
@@ -851,11 +850,11 @@ if.end48:                                         ; preds = %if.then47, %if.else
   br i1 %tobool50.not, label %if.end54.sink.split, label %if.end54
 
 if.end54.sink.split:                              ; preds = %if.end48, %if.end39
-  %.sink26 = phi ptr [ getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 99), %if.end39 ], [ getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 100), %if.end48 ]
+  %.sink27 = phi ptr [ getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 99), %if.end39 ], [ getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 100), %if.end48 ]
   %val.022.ph = phi ptr [ %call1, %if.end39 ], [ null, %if.end48 ]
-  %23 = load i64, ptr %.sink26, align 8
-  %inc52 = add nsw i64 %23, 1
-  store i64 %inc52, ptr %.sink26, align 8
+  %22 = load i64, ptr %.sink27, align 8
+  %inc52 = add nsw i64 %22, 1
+  store i64 %inc52, ptr %.sink27, align 8
   br label %if.end54
 
 if.end54:                                         ; preds = %if.end54.sink.split, %if.end48, %if.end39
@@ -5029,7 +5028,7 @@ if.end84:                                         ; preds = %land.lhs.true.i, %i
   %type.1 = phi i64 [ %type.0233, %land.end ], [ %type.0233, %if.end ], [ 9223372036854775807, %for.end.i ], [ %sub.i, %if.then5.i ], [ %i.08.i, %land.lhs.true.i ]
   %typename.1 = phi ptr [ %typename.0234, %land.end ], [ %typename.0234, %if.end ], [ %20, %for.end.i ], [ %20, %if.then5.i ], [ %20, %land.lhs.true.i ]
   %pat.1 = phi ptr [ %11, %land.end ], [ %pat.0235, %if.end ], [ %pat.0235, %for.end.i ], [ %pat.0235, %if.then5.i ], [ %pat.0235, %land.lhs.true.i ]
-  %indvars.iv.next = add nuw i64 %indvars.iv, 2
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %24 = load i32, ptr %argc, align 8
   %25 = trunc i64 %indvars.iv.next to i32
   %cmp12 = icmp sgt i32 %24, %25
@@ -9032,7 +9031,7 @@ if.else:                                          ; preds = %lor.lhs.false17
 if.end21:                                         ; preds = %for.body
   %arrayidx = getelementptr inbounds %struct.keyReference, ptr %10, i64 %indvars.iv
   store i32 %j.030, ptr %arrayidx, align 4
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %flags25 = getelementptr inbounds i8, ptr %arrayidx, i64 4
   store i32 0, ptr %flags25, align 4
   %add26 = add nsw i32 %j.030, %3

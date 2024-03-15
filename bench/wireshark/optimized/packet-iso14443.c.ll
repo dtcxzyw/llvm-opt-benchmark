@@ -762,14 +762,14 @@ dissect_iso14443_msg.exit.thread:                 ; preds = %68, %95, %98
 131:                                              ; preds = %128
   %132 = zext i8 %119 to i32
   %133 = and i32 %132, 226
-  %134 = icmp eq i32 %133, 2
+  %134 = icmp ne i32 %133, 2
   %135 = and i32 %132, 230
-  %136 = icmp eq i32 %135, 162
-  %or.cond.i.i.i = or i1 %134, %136
+  %136 = icmp ne i32 %135, 162
+  %or.cond.i.not28.i.i = and i1 %134, %136
   %137 = and i32 %132, 199
-  %138 = icmp eq i32 %137, 194
-  %narrow.i.i.i = or i1 %138, %or.cond.i.i.i
-  br i1 %narrow.i.i.i, label %150, label %iso14443_get_cmd_type.exit.i
+  %138 = icmp ne i32 %137, 194
+  %narrow.i.not.i.i = and i1 %138, %or.cond.i.not28.i.i
+  br i1 %narrow.i.not.i.i, label %iso14443_get_cmd_type.exit.i, label %150
 
 139:                                              ; preds = %118
   %140 = getelementptr inbounds i8, ptr %.0.i.ph.i, i64 8
@@ -780,14 +780,14 @@ dissect_iso14443_msg.exit.thread:                 ; preds = %68, %95, %98
 142:                                              ; preds = %139
   %143 = zext i8 %119 to i32
   %144 = and i32 %143, 226
-  %145 = icmp eq i32 %144, 2
+  %145 = icmp ne i32 %144, 2
   %146 = and i32 %143, 230
-  %147 = icmp eq i32 %146, 162
-  %or.cond.i18.i.i = or i1 %145, %147
+  %147 = icmp ne i32 %146, 162
+  %or.cond.i18.not24.i.i = and i1 %145, %147
   %148 = and i32 %143, 199
-  %149 = icmp eq i32 %148, 194
-  %narrow.i19.i.i = or i1 %149, %or.cond.i18.i.i
-  br i1 %narrow.i19.i.i, label %150, label %iso14443_get_cmd_type.exit.i
+  %149 = icmp ne i32 %148, 194
+  %narrow.i19.not.i.i = and i1 %149, %or.cond.i18.not24.i.i
+  br i1 %narrow.i19.not.i.i, label %iso14443_get_cmd_type.exit.i, label %150
 
 150:                                              ; preds = %142, %139, %131, %128, %127, %126, %125, %124, %121
   %.0.i34.ph.i = phi i32 [ 6, %142 ], [ %141, %139 ], [ 6, %131 ], [ 3, %128 ], [ 1, %124 ], [ 0, %121 ], [ 4, %127 ], [ 5, %126 ], [ 2, %125 ]

@@ -5563,14 +5563,13 @@ land.rhs.i.i:                                     ; preds = %if.end
 
 _ZNK11ast_manager6is_notEPK4expr.exit:            ; preds = %land.rhs.i.i
   %5 = load i32, ptr %4, align 8
-  %cmp.i.i.i.i.i = icmp ne i32 %5, 0
+  %cmp.i.i.i.i.i = icmp eq i32 %5, 0
   %m_kind.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 4
   %6 = load i32, ptr %m_kind.i.i.i.i.i, align 4
-  %cmp2.i.i.i.i.i = icmp ne i32 %6, 8
-  %.not = select i1 %cmp.i.i.i.i.i, i1 true, i1 %cmp2.i.i.i.i.i
-  %gate_ctx.not = xor i1 %gate_ctx, true
-  %brmerge = or i1 %.not, %gate_ctx.not
-  br i1 %brmerge, label %if.end9, label %if.then6
+  %cmp2.i.i.i.i.i = icmp eq i32 %6, 8
+  %.not.not79 = select i1 %cmp.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
+  %brmerge.not = and i1 %.not.not79, %gate_ctx
+  br i1 %brmerge.not, label %if.then6, label %if.end9
 
 if.then6:                                         ; preds = %_ZNK11ast_manager6is_notEPK4expr.exit
   %m_args.i = getelementptr inbounds i8, ptr %n, i64 32
@@ -5620,8 +5619,8 @@ _ZNK6vectorIPN3smt5enodeELb0EjE3getEjRKS2_.exit.i: ; preds = %if.then16
 _ZNK3smt7context14e_internalizedEPK4expr.exit:    ; preds = %_ZNK6vectorIPN3smt5enodeELb0EjE3getEjRKS2_.exit.i
   %arrayidx.i.i35 = getelementptr inbounds ptr, ptr %13, i64 %idxprom.i.i.i
   %.then.val.i = load ptr, ptr %arrayidx.i.i35, align 8
-  %.not79 = icmp eq ptr %.then.val.i, null
-  br i1 %.not79, label %if.else, label %if.then18
+  %.not = icmp eq ptr %.then.val.i, null
+  br i1 %.not, label %if.else, label %if.then18
 
 if.then18:                                        ; preds = %_ZNK3smt7context14e_internalizedEPK4expr.exit
   tail call void @_ZN3smt7context12set_merge_tfEPNS_5enodeEjb(ptr noundef nonnull align 8 dereferenceable(11616) %this, ptr noundef nonnull %.then.val.i, i32 noundef %12, i1 noundef zeroext false)

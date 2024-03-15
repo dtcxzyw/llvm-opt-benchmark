@@ -3552,52 +3552,51 @@ define internal noundef i32 @uart_put_char(ptr nocapture noundef readonly %0, i8
   %30 = icmp ult i8 %29, 2
   tail call void @llvm.assume(i1 %30)
   %31 = icmp eq i8 %29, 0
-  br i1 %31, label %.thread7, label %55
+  br i1 %31, label %.thread7, label %54
 
 32:                                               ; preds = %.thread
   %33 = getelementptr inbounds i8, ptr %4, i64 396
   %34 = load i32, ptr %33, align 4
   %35 = getelementptr inbounds i8, ptr %4, i64 392
   %36 = load i32, ptr %35, align 8
-  %37 = xor i32 %36, -1
-  %38 = add i32 %34, %37
-  %39 = and i32 %38, 4095
-  %40 = icmp eq i32 %39, 0
-  br i1 %40, label %47, label %41
+  %37 = sub i32 %36, %34
+  %38 = and i32 %37, 4095
+  %39 = icmp eq i32 %38, 4095
+  br i1 %39, label %46, label %40
 
-41:                                               ; preds = %32
-  %42 = sext i32 %36 to i64
-  %43 = getelementptr i8, ptr %23, i64 %42
-  store i8 %1, ptr %43, align 1
-  %44 = load i32, ptr %35, align 8
-  %45 = add i32 %44, 1
-  %46 = and i32 %45, 4095
-  store i32 %46, ptr %35, align 8
-  br label %47
+40:                                               ; preds = %32
+  %41 = sext i32 %36 to i64
+  %42 = getelementptr i8, ptr %23, i64 %41
+  store i8 %1, ptr %42, align 1
+  %43 = load i32, ptr %35, align 8
+  %44 = add i32 %43, 1
+  %45 = and i32 %44, 4095
+  store i32 %45, ptr %35, align 8
+  br label %46
 
-47:                                               ; preds = %32, %41
-  %48 = phi i32 [ 1, %41 ], [ 0, %32 ]
+46:                                               ; preds = %32, %40
+  %47 = phi i32 [ 1, %40 ], [ 0, %32 ]
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %20, i64 noundef %22) #19
-  %49 = getelementptr inbounds i8, ptr %20, i64 208
-  %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 400
-  %52 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %51, ptr elementtype(i32) %51) #19, !srcloc !29
-  %53 = icmp ult i8 %52, 2
-  tail call void @llvm.assume(i1 %53)
-  %54 = icmp eq i8 %52, 0
-  br i1 %54, label %.thread7, label %55
+  %48 = getelementptr inbounds i8, ptr %20, i64 208
+  %49 = load ptr, ptr %48, align 8
+  %50 = getelementptr inbounds i8, ptr %49, i64 400
+  %51 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %50, ptr elementtype(i32) %50) #19, !srcloc !29
+  %52 = icmp ult i8 %51, 2
+  tail call void @llvm.assume(i1 %52)
+  %53 = icmp eq i8 %51, 0
+  br i1 %53, label %.thread7, label %54
 
-55:                                               ; preds = %47, %25
-  %56 = phi ptr [ %26, %25 ], [ %49, %47 ]
-  %57 = phi i32 [ 0, %25 ], [ %48, %47 ]
-  %58 = load ptr, ptr %56, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 408
-  %60 = tail call i32 @__wake_up(ptr noundef %59, i32 noundef 3, i32 noundef 1, ptr noundef null) #19
+54:                                               ; preds = %46, %25
+  %55 = phi ptr [ %26, %25 ], [ %48, %46 ]
+  %56 = phi i32 [ 0, %25 ], [ %47, %46 ]
+  %57 = load ptr, ptr %55, align 8
+  %58 = getelementptr inbounds i8, ptr %57, i64 408
+  %59 = tail call i32 @__wake_up(ptr noundef %58, i32 noundef 3, i32 noundef 1, ptr noundef null) #19
   br label %.thread7
 
-.thread7:                                         ; preds = %15, %18, %2, %55, %47, %25
-  %61 = phi i32 [ 0, %25 ], [ %48, %47 ], [ %57, %55 ], [ 0, %2 ], [ 0, %18 ], [ 0, %15 ]
-  ret i32 %61
+.thread7:                                         ; preds = %15, %18, %2, %54, %46, %25
+  %60 = phi i32 [ 0, %25 ], [ %47, %46 ], [ %56, %54 ], [ 0, %2 ], [ 0, %18 ], [ 0, %15 ]
+  ret i32 %60
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

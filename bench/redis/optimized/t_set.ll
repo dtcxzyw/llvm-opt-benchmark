@@ -3399,12 +3399,11 @@ for.end:                                          ; preds = %for.inc, %entry
 
 land.lhs.true22:                                  ; preds = %for.end
   %3 = load ptr, ptr %call, align 8
-  %tobool24 = icmp eq ptr %3, null
-  %tobool26 = icmp ne i32 %sameset.0.lcssa, 0
-  %or.cond = select i1 %tobool24, i1 true, i1 %tobool26
-  %cmp278.not = xor i1 %cmp278, true
-  %brmerge391 = or i1 %or.cond, %cmp278.not
-  br i1 %brmerge391, label %if.else.sink.split, label %for.body31.preheader
+  %tobool24 = icmp ne ptr %3, null
+  %tobool26 = icmp eq i32 %sameset.0.lcssa, 0
+  %or.cond.not392 = select i1 %tobool24, i1 %tobool26, i1 false
+  %brmerge391.not = and i1 %or.cond.not392, %cmp278
+  br i1 %brmerge391.not, label %for.body31.preheader, label %if.else.sink.split
 
 for.body31.preheader:                             ; preds = %land.lhs.true22
   %wide.trip.count353 = zext nneg i32 %setnum to i64
@@ -4628,7 +4627,7 @@ if.then93:                                        ; preds = %if.end87
 while.body99:                                     ; preds = %if.then93, %if.end110
   %count.3114 = phi i64 [ %count.0, %if.then93 ], [ %dec100, %if.end110 ]
   %p.0113 = phi ptr [ %call95, %if.then93 ], [ %call111, %if.end110 ]
-  %dec100 = add i64 %count.3114, -1
+  %dec100 = add nsw i64 %count.3114, -1
   %conv101 = trunc i64 %count.3114 to i32
   %call102 = call ptr @lpNextRandom(ptr noundef %26, ptr noundef %p.0113, ptr noundef nonnull %i96, i32 noundef %conv101, i32 noundef 0) #10
   %call104 = call ptr @lpGetValue(ptr noundef %call102, ptr noundef nonnull %len103, ptr noundef nonnull %llele) #10
@@ -4755,7 +4754,7 @@ if.end186:                                        ; preds = %if.else184, %if.the
   br i1 %cmp188, label %if.then190, label %if.else192
 
 if.then190:                                       ; preds = %if.end186
-  %inc191 = add nuw i64 %added.0106, 1
+  %inc191 = add nuw nsw i64 %added.0106, 1
   br label %if.end193
 
 if.else192:                                       ; preds = %if.end186

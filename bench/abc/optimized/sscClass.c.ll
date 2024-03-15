@@ -1154,11 +1154,11 @@ define void @Ssc_GiaClassesInit(ptr nocapture noundef %0) local_unnamed_addr #4 
   %.not.i.i = icmp ne i64 %12, 0
   %13 = and i64 %.val20, 536870911
   %14 = icmp eq i64 %13, 536870911
-  %narrow.i.not.not.i.not = or i1 %.not.i.i, %14
+  %narrow.i.not.not.i.not22 = or i1 %.not.i.i, %14
   %15 = and i64 %.val20, 2684354559
   %narrow.i3.i = icmp ne i64 %15, 2684354559
-  %narrow.i = select i1 %narrow.i.not.not.i.not, i1 %narrow.i3.i, i1 false
-  %16 = select i1 %narrow.i, i32 268435455, i32 0
+  %narrow.i.not = select i1 %narrow.i.not.not.i.not22, i1 %narrow.i3.i, i1 false
+  %16 = select i1 %narrow.i.not, i32 268435455, i32 0
   %.val = load ptr, ptr %5, align 8
   %17 = getelementptr inbounds %struct.Gia_Rpr_t_, ptr %.val, i64 %indvars.iv
   %18 = load i32, ptr %17, align 4
@@ -1235,7 +1235,7 @@ define i32 @Ssc_GiaClassesRefine(ptr nocapture noundef readonly %0) local_unname
 
 16:                                               ; preds = %.lr.ph, %Ssc_GiaSimIsConst0.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Ssc_GiaSimIsConst0.exit.thread ]
-  %.041 = phi i32 [ 0, %.lr.ph ], [ %.1, %Ssc_GiaSimIsConst0.exit.thread ]
+  %.043 = phi i32 [ 0, %.lr.ph ], [ %.1, %Ssc_GiaSimIsConst0.exit.thread ]
   %.val29 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %.val29, null
   br i1 %.not, label %.critedge, label %17
@@ -1244,14 +1244,14 @@ define i32 @Ssc_GiaClassesRefine(ptr nocapture noundef readonly %0) local_unname
   %18 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val29, i64 %indvars.iv
   %.val31 = load i64, ptr %18, align 4
   %19 = and i64 %.val31, 2147483648
-  %.not.i.i = icmp eq i64 %19, 0
+  %.not.i.i = icmp ne i64 %19, 0
   %20 = and i64 %.val31, 536870911
-  %21 = icmp ne i64 %20, 536870911
-  %narrow.i.not.not.i = and i1 %.not.i.i, %21
+  %21 = icmp eq i64 %20, 536870911
+  %narrow.i.not.not.i.not38 = or i1 %.not.i.i, %21
   %22 = and i64 %.val31, 2684354559
-  %narrow.i3.i = icmp eq i64 %22, 2684354559
-  %narrow.i = or i1 %narrow.i3.i, %narrow.i.not.not.i
-  br i1 %narrow.i, label %23, label %Ssc_GiaSimIsConst0.exit.thread
+  %narrow.i3.i = icmp ne i64 %22, 2684354559
+  %narrow.i.not = and i1 %narrow.i3.i, %narrow.i.not.not.i.not38
+  br i1 %narrow.i.not, label %Ssc_GiaSimIsConst0.exit.thread, label %23
 
 23:                                               ; preds = %17
   %.val7.i = load ptr, ptr %10, align 8
@@ -1272,12 +1272,12 @@ Gia_ObjIsTail.exit:                               ; preds = %23
 
 30:                                               ; preds = %Gia_ObjIsTail.exit
   %31 = tail call i32 @Ssc_GiaSimClassRefineOne(ptr noundef nonnull %0, i32 noundef %26)
-  %32 = add nsw i32 %31, %.041
+  %32 = add nsw i32 %31, %.043
   br label %Ssc_GiaSimIsConst0.exit.thread
 
 Gia_ObjIsTail.exit.thread:                        ; preds = %Gia_ObjIsTail.exit
-  %.not37 = icmp eq i32 %26, 0
-  br i1 %.not37, label %33, label %Ssc_GiaSimIsConst0.exit.thread
+  %.not39 = icmp eq i32 %26, 0
+  br i1 %.not39, label %33, label %Ssc_GiaSimIsConst0.exit.thread
 
 33:                                               ; preds = %23, %Gia_ObjIsTail.exit.thread
   %34 = load ptr, ptr %12, align 8
@@ -1405,7 +1405,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br label %Ssc_GiaSimIsConst0.exit.thread
 
 Ssc_GiaSimIsConst0.exit.thread:                   ; preds = %48, %51, %23, %.preheader18.i, %.preheader.i, %17, %Gia_ObjIsTail.exit.thread, %Vec_IntPush.exit, %30
-  %.1 = phi i32 [ %32, %30 ], [ %.041, %Vec_IntPush.exit ], [ %.041, %Gia_ObjIsTail.exit.thread ], [ %.041, %17 ], [ %.041, %.preheader.i ], [ %.041, %.preheader18.i ], [ %.041, %23 ], [ %.041, %51 ], [ %.041, %48 ]
+  %.1 = phi i32 [ %32, %30 ], [ %.043, %Vec_IntPush.exit ], [ %.043, %Gia_ObjIsTail.exit.thread ], [ %.043, %17 ], [ %.043, %.preheader.i ], [ %.043, %.preheader18.i ], [ %.043, %23 ], [ %.043, %51 ], [ %.043, %48 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %81 = load i32, ptr %7, align 8
   %82 = sext i32 %81 to i64
@@ -1413,7 +1413,7 @@ Ssc_GiaSimIsConst0.exit.thread:                   ; preds = %48, %51, %23, %.pre
   br i1 %83, label %16, label %.critedge, !llvm.loop !19
 
 .critedge:                                        ; preds = %16, %Ssc_GiaSimIsConst0.exit.thread, %1
-  %.0.lcssa = phi i32 [ 0, %1 ], [ %.1, %Ssc_GiaSimIsConst0.exit.thread ], [ %.041, %16 ]
+  %.0.lcssa = phi i32 [ 0, %1 ], [ %.1, %Ssc_GiaSimIsConst0.exit.thread ], [ %.043, %16 ]
   tail call void @Ssc_GiaSimProcessRefined(ptr noundef nonnull %0, ptr noundef nonnull %2)
   %.val = load i32, ptr %3, align 4
   %84 = load ptr, ptr %5, align 8

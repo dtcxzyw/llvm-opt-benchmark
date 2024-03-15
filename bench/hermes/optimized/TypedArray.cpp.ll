@@ -13591,14 +13591,14 @@ if.then:                                          ; preds = %_ZN6hermes2vm15Hand
 if.else:                                          ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit
   %17 = bitcast i64 %retval.sroa.0.0.copyload.i.i.i to double
   %18 = bitcast i64 %call3.i14 to double
-  %cmp = fcmp oeq double %17, 0.000000e+00
-  %cmp33 = fcmp oeq double %18, 0.000000e+00
-  %or.cond = and i1 %cmp33, %cmp
-  %19 = icmp slt i64 %retval.sroa.0.0.copyload.i.i.i, 0
-  %or.cond20 = and i1 %19, %or.cond
-  %20 = icmp sgt i64 %call3.i14, -1
-  %or.cond21.not = select i1 %or.cond20, i1 %20, i1 false
-  br i1 %or.cond21.not, label %cleanup, label %if.end
+  %cmp = fcmp une double %17, 0.000000e+00
+  %cmp33 = fcmp une double %18, 0.000000e+00
+  %or.cond.not23 = or i1 %cmp33, %cmp
+  %19 = icmp sgt i64 %retval.sroa.0.0.copyload.i.i.i, -1
+  %or.cond20.not22 = or i1 %19, %or.cond.not23
+  %20 = icmp slt i64 %call3.i14, 0
+  %or.cond21 = select i1 %or.cond20.not22, i1 true, i1 %20
+  br i1 %or.cond21, label %if.end, label %cleanup
 
 if.end:                                           ; preds = %if.else
   %cmp39 = fcmp olt double %17, %18

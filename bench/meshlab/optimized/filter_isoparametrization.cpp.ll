@@ -12585,18 +12585,18 @@ _ZN3vcg3tri6AppendI8BaseMesh12AbstractMeshE4MeshERS2_RS3_bb.exit: ; preds = %_ZN
   %367 = call double @llvm.fabs.f64(double %366)
   %368 = fcmp olt double %367, 0x3F1A36E2E0000000
   %369 = fcmp ole float %359, 1.000000e+00
-  %or.cond.not.i.i = select i1 %368, i1 %369, i1 false
+  %or.cond.not29.i.i = select i1 %368, i1 %369, i1 false
   %370 = fcmp oge float %359, 0xBF1A36E2E0000000
-  %or.cond14.i.i = select i1 %or.cond.not.i.i, i1 %370, i1 false
+  %or.cond14.not26.i.i = select i1 %or.cond.not29.i.i, i1 %370, i1 false
   %371 = fcmp ole float %361, 1.000000e+00
-  %or.cond15.i.i = select i1 %or.cond14.i.i, i1 %371, i1 false
+  %or.cond15.not24.i.i = select i1 %or.cond14.not26.i.i, i1 %371, i1 false
   %372 = fcmp oge float %361, 0xBF1A36E2E0000000
-  %or.cond16.i.i = select i1 %or.cond15.i.i, i1 %372, i1 false
+  %or.cond16.not22.i.i = select i1 %or.cond15.not24.i.i, i1 %372, i1 false
   %373 = fcmp ole float %362, 1.000000e+00
-  %or.cond17.i.i = select i1 %or.cond16.i.i, i1 %373, i1 false
+  %or.cond17.not20.i.i = select i1 %or.cond16.not22.i.i, i1 %373, i1 false
   %374 = fcmp oge float %362, 0xBF1A36E2E0000000
-  %or.cond18.i.i = select i1 %or.cond17.i.i, i1 %374, i1 false
-  br i1 %or.cond18.i.i, label %375, label %_Z19NormalizeBaryCoordsIN3vcg6Point3IfEEEbRT_.exit
+  %or.cond18.not.i.i = select i1 %or.cond17.not20.i.i, i1 %374, i1 false
+  br i1 %or.cond18.not.i.i, label %375, label %_Z19NormalizeBaryCoordsIN3vcg6Point3IfEEEbRT_.exit
 
 375:                                              ; preds = %353
   %376 = fcmp olt float %359, 0.000000e+00
@@ -12672,20 +12672,20 @@ _Z19NormalizeBaryCoordsIN3vcg6Point3IfEEEbRT_.exit: ; preds = %353, %394, %402
   %415 = call double @llvm.fabs.f64(double %414)
   %416 = fcmp olt double %415, 0x3F1A36E2E0000000
   %417 = fcmp ole float %407, 1.000000e+00
-  %or.cond.not.i.i145 = select i1 %416, i1 %417, i1 false
+  %or.cond.not29.i.i145 = select i1 %416, i1 %417, i1 false
   %418 = fcmp oge float %407, 0xBF1A36E2E0000000
-  %or.cond14.i.i146 = select i1 %or.cond.not.i.i145, i1 %418, i1 false
+  %or.cond14.not26.i.i146 = select i1 %or.cond.not29.i.i145, i1 %418, i1 false
   %419 = fcmp ole float %408, 1.000000e+00
-  %or.cond15.i.i147 = select i1 %or.cond14.i.i146, i1 %419, i1 false
+  %or.cond15.not24.i.i147 = select i1 %or.cond14.not26.i.i146, i1 %419, i1 false
   %420 = fcmp oge float %408, 0xBF1A36E2E0000000
-  %or.cond16.i.i148 = select i1 %or.cond15.i.i147, i1 %420, i1 false
+  %or.cond16.not22.i.i148 = select i1 %or.cond15.not24.i.i147, i1 %420, i1 false
   %421 = fcmp ole float %410, 1.000000e+00
-  %or.cond17.i.i149 = select i1 %or.cond16.i.i148, i1 %421, i1 false
+  %or.cond17.not20.i.i149 = select i1 %or.cond16.not22.i.i148, i1 %421, i1 false
   %422 = fcmp oge float %410, 0xBF1A36E2E0000000
-  %or.cond18.i.i150 = select i1 %or.cond17.i.i149, i1 %422, i1 false
+  %or.cond18.not.i.i150 = select i1 %or.cond17.not20.i.i149, i1 %422, i1 false
   %423 = insertelement <2 x float> poison, float %408, i64 0
   %424 = insertelement <2 x float> %423, float %410, i64 1
-  br i1 %or.cond18.i.i150, label %425, label %_Z19NormalizeBaryCoordsIN3vcg6Point3IfEEEbRT_.exit151
+  br i1 %or.cond18.not.i.i150, label %425, label %_Z19NormalizeBaryCoordsIN3vcg6Point3IfEEEbRT_.exit151
 
 425:                                              ; preds = %406
   %426 = fcmp olt float %407, 0.000000e+00
@@ -13427,18 +13427,18 @@ _ZNSt3mapIP8BaseFaceiSt4lessIS1_ESaISt4pairIKS1_iEEE4findERS5_.exit: ; preds = %
   %106 = call double @llvm.fabs.f64(double %105)
   %107 = fcmp olt double %106, 0x3F1A36E2E0000000
   %108 = fcmp ole float %100, 1.000000e+00
-  %or.cond.not.i.i = select i1 %107, i1 %108, i1 false
+  %or.cond.not29.i.i = select i1 %107, i1 %108, i1 false
   %109 = fcmp oge float %100, 0xBF1A36E2E0000000
-  %or.cond14.i.i = select i1 %or.cond.not.i.i, i1 %109, i1 false
+  %or.cond14.not26.i.i = select i1 %or.cond.not29.i.i, i1 %109, i1 false
   %110 = fcmp ole float %101, 1.000000e+00
-  %or.cond15.i.i = select i1 %or.cond14.i.i, i1 %110, i1 false
+  %or.cond15.not24.i.i = select i1 %or.cond14.not26.i.i, i1 %110, i1 false
   %111 = fcmp oge float %101, 0xBF1A36E2E0000000
-  %or.cond16.i.i = select i1 %or.cond15.i.i, i1 %111, i1 false
+  %or.cond16.not22.i.i = select i1 %or.cond15.not24.i.i, i1 %111, i1 false
   %112 = fcmp ole float %.sroa.9.0.copyload, 1.000000e+00
-  %or.cond17.i.i = select i1 %or.cond16.i.i, i1 %112, i1 false
+  %or.cond17.not20.i.i = select i1 %or.cond16.not22.i.i, i1 %112, i1 false
   %113 = fcmp oge float %.sroa.9.0.copyload, 0xBF1A36E2E0000000
-  %or.cond18.i.i = select i1 %or.cond17.i.i, i1 %113, i1 false
-  br i1 %or.cond18.i.i, label %114, label %132
+  %or.cond18.not.i.i = select i1 %or.cond17.not20.i.i, i1 %113, i1 false
+  br i1 %or.cond18.not.i.i, label %114, label %132
 
 114:                                              ; preds = %_ZNSt3mapIP8BaseFaceiSt4lessIS1_ESaISt4pairIKS1_iEEE4findERS5_.exit
   %115 = fcmp olt <2 x float> %94, zeroinitializer
@@ -17880,33 +17880,33 @@ _ZN18IsoParametrization5ClampERN3vcg6Point2IfEE.exit: ; preds = %75, %79
 
 108:                                              ; preds = %.thread.i, %81
   %indvars.iv.i = phi i64 [ 0, %81 ], [ %indvars.iv.next.i, %.thread.i ]
-  %.02942.i = phi i32 [ 0, %81 ], [ %.1.i, %.thread.i ]
+  %.02947.i = phi i32 [ 0, %81 ], [ %.1.i, %.thread.i ]
   %109 = getelementptr inbounds [3 x ptr], ptr %10, i64 0, i64 %indvars.iv.i
   %110 = load ptr, ptr %109, align 8
-  %111 = icmp eq ptr %97, %110
-  %112 = icmp eq ptr %99, %110
-  %or.cond.i = select i1 %111, i1 true, i1 %112
-  %113 = icmp eq ptr %101, %110
-  %or.cond32.i = select i1 %or.cond.i, i1 true, i1 %113
-  br i1 %or.cond32.i, label %114, label %.thread.i
+  %111 = icmp ne ptr %97, %110
+  %112 = icmp ne ptr %99, %110
+  %or.cond.not42.i = select i1 %111, i1 %112, i1 false
+  %113 = icmp ne ptr %101, %110
+  %or.cond32.not.i = select i1 %or.cond.not42.i, i1 %113, i1 false
+  br i1 %or.cond32.not.i, label %.thread.i, label %114
 
 114:                                              ; preds = %108
   %115 = icmp ne ptr %103, %110
   %116 = icmp ne ptr %105, %110
-  %or.cond33.not.i = select i1 %115, i1 %116, i1 false
+  %or.cond33.not45.i = select i1 %115, i1 %116, i1 false
   %117 = icmp ne ptr %107, %110
-  %or.cond34.i = select i1 %or.cond33.not.i, i1 %117, i1 false
-  br i1 %or.cond34.i, label %.thread.i, label %118
+  %or.cond34.not.i = select i1 %or.cond33.not45.i, i1 %117, i1 false
+  br i1 %or.cond34.not.i, label %.thread.i, label %118
 
 118:                                              ; preds = %114
-  %119 = sext i32 %.02942.i to i64
+  %119 = sext i32 %.02947.i to i64
   %120 = getelementptr inbounds ptr, ptr %14, i64 %119
   store ptr %110, ptr %120, align 8
-  %121 = add nsw i32 %.02942.i, 1
+  %121 = add nsw i32 %.02947.i, 1
   br label %.thread.i
 
 .thread.i:                                        ; preds = %118, %114, %108
-  %.1.i = phi i32 [ %121, %118 ], [ %.02942.i, %114 ], [ %.02942.i, %108 ]
+  %.1.i = phi i32 [ %121, %118 ], [ %.02947.i, %114 ], [ %.02947.i, %108 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
   br i1 %exitcond.not.i, label %_ZN18IsoParametrization17getSharedVerticesEP12AbstractFaceS1_S1_PP14AbstractVertex.exit, label %108, !llvm.loop !155
@@ -36183,18 +36183,18 @@ define linkonce_odr noundef zeroext i1 @_Z19testParametrizationI8BaseMeshEbRT_S2
   %62 = tail call double @llvm.fabs.f64(double %61)
   %63 = fcmp olt double %62, 0x3F1A36E2E0000000
   %64 = fcmp ole float %55, 1.000000e+00
-  %or.cond.not.i.i = select i1 %63, i1 %64, i1 false
+  %or.cond.not29.i.i = select i1 %63, i1 %64, i1 false
   %65 = fcmp oge float %55, 0xBF1A36E2E0000000
-  %or.cond14.i.i = select i1 %or.cond.not.i.i, i1 %65, i1 false
+  %or.cond14.not26.i.i = select i1 %or.cond.not29.i.i, i1 %65, i1 false
   %66 = fcmp ole float %56, 1.000000e+00
-  %or.cond15.i.i = select i1 %or.cond14.i.i, i1 %66, i1 false
+  %or.cond15.not24.i.i = select i1 %or.cond14.not26.i.i, i1 %66, i1 false
   %67 = fcmp oge float %56, 0xBF1A36E2E0000000
-  %or.cond16.i.i = select i1 %or.cond15.i.i, i1 %67, i1 false
+  %or.cond16.not22.i.i = select i1 %or.cond15.not24.i.i, i1 %67, i1 false
   %68 = fcmp ole float %58, 1.000000e+00
-  %or.cond17.i.i = select i1 %or.cond16.i.i, i1 %68, i1 false
+  %or.cond17.not20.i.i = select i1 %or.cond16.not22.i.i, i1 %68, i1 false
   %69 = fcmp oge float %58, 0xBF1A36E2E0000000
-  %or.cond18.i.i = select i1 %or.cond17.i.i, i1 %69, i1 false
-  br i1 %or.cond18.i.i, label %70, label %_Z19NormalizeBaryCoordsIN3vcg6Point3IfEEEbRT_.exit
+  %or.cond18.not.i.i = select i1 %or.cond17.not20.i.i, i1 %69, i1 false
+  br i1 %or.cond18.not.i.i, label %70, label %_Z19NormalizeBaryCoordsIN3vcg6Point3IfEEEbRT_.exit
 
 70:                                               ; preds = %._crit_edge108
   %71 = fcmp olt float %55, 0.000000e+00
@@ -56314,18 +56314,18 @@ _ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17
   %660 = call double @llvm.fabs.f64(double %659)
   %661 = fcmp olt double %660, 0x3F1A36E2E0000000
   %662 = fcmp ole float %653, 1.000000e+00
-  %or.cond.not.i = select i1 %661, i1 %662, i1 false
+  %or.cond.not29.i = select i1 %661, i1 %662, i1 false
   %663 = fcmp oge float %653, 0xBF1A36E2E0000000
-  %or.cond14.i = select i1 %or.cond.not.i, i1 %663, i1 false
+  %or.cond14.not26.i = select i1 %or.cond.not29.i, i1 %663, i1 false
   %664 = fcmp ole float %654, 1.000000e+00
-  %or.cond15.i = select i1 %or.cond14.i, i1 %664, i1 false
+  %or.cond15.not24.i = select i1 %or.cond14.not26.i, i1 %664, i1 false
   %665 = fcmp oge float %654, 0xBF1A36E2E0000000
-  %or.cond16.i = select i1 %or.cond15.i, i1 %665, i1 false
+  %or.cond16.not22.i = select i1 %or.cond15.not24.i, i1 %665, i1 false
   %666 = fcmp ole float %656, 1.000000e+00
-  %or.cond17.i = select i1 %or.cond16.i, i1 %666, i1 false
+  %or.cond17.not20.i = select i1 %or.cond16.not22.i, i1 %666, i1 false
   %667 = fcmp oge float %656, 0xBF1A36E2E0000000
-  %or.cond18.i = select i1 %or.cond17.i, i1 %667, i1 false
-  br i1 %or.cond18.i, label %687, label %.loopexit310
+  %or.cond18.not.i = select i1 %or.cond17.not20.i, i1 %667, i1 false
+  br i1 %or.cond18.not.i, label %687, label %.loopexit310
 
 .loopexit310:                                     ; preds = %647, %646
   %668 = ptrtoint ptr %.sroa.9.2 to i64
@@ -65124,18 +65124,18 @@ _ZNSt6vectorISt4pairIP10BaseVertexN3vcg6Point3IfEEESaIS6_EE6resizeEm.exit: ; pre
   %59 = tail call double @llvm.fabs.f64(double %58)
   %60 = fcmp olt double %59, 0x3F1A36E2E0000000
   %61 = fcmp ole float %.sroa.0.0.copyload, 1.000000e+00
-  %or.cond.not.i.i = select i1 %60, i1 %61, i1 false
+  %or.cond.not29.i.i = select i1 %60, i1 %61, i1 false
   %62 = fcmp oge float %.sroa.0.0.copyload, 0xBF1A36E2E0000000
-  %or.cond14.i.i = select i1 %or.cond.not.i.i, i1 %62, i1 false
+  %or.cond14.not26.i.i = select i1 %or.cond.not29.i.i, i1 %62, i1 false
   %63 = fcmp ole float %53, 1.000000e+00
-  %or.cond15.i.i = select i1 %or.cond14.i.i, i1 %63, i1 false
+  %or.cond15.not24.i.i = select i1 %or.cond14.not26.i.i, i1 %63, i1 false
   %64 = fcmp oge float %53, 0xBF1A36E2E0000000
-  %or.cond16.i.i = select i1 %or.cond15.i.i, i1 %64, i1 false
+  %or.cond16.not22.i.i = select i1 %or.cond15.not24.i.i, i1 %64, i1 false
   %65 = fcmp ole float %55, 1.000000e+00
-  %or.cond17.i.i = select i1 %or.cond16.i.i, i1 %65, i1 false
+  %or.cond17.not20.i.i = select i1 %or.cond16.not22.i.i, i1 %65, i1 false
   %66 = fcmp oge float %55, 0xBF1A36E2E0000000
-  %or.cond18.i.i = select i1 %or.cond17.i.i, i1 %66, i1 false
-  br i1 %or.cond18.i.i, label %67, label %_Z19NormalizeBaryCoordsIN3vcg6Point3IfEEEbRT_.exit
+  %or.cond18.not.i.i = select i1 %or.cond17.not20.i.i, i1 %66, i1 false
+  br i1 %or.cond18.not.i.i, label %67, label %_Z19NormalizeBaryCoordsIN3vcg6Point3IfEEEbRT_.exit
 
 67:                                               ; preds = %.lr.ph
   %68 = fcmp olt float %.sroa.0.0.copyload, 0.000000e+00
@@ -68065,18 +68065,18 @@ _ZNSt6vectorIP8BaseFaceSaIS1_EE9push_backERKS1_.exit: ; preds = %15
   %43 = call double @llvm.fabs.f64(double %42)
   %44 = fcmp olt double %43, 0x3F1A36E2E0000000
   %45 = fcmp ole float %.sroa.0124.0.copyload, 1.000000e+00
-  %or.cond.not.i = select i1 %44, i1 %45, i1 false
+  %or.cond.not29.i = select i1 %44, i1 %45, i1 false
   %46 = fcmp oge float %.sroa.0124.0.copyload, 0xBF1A36E2E0000000
-  %or.cond14.i = select i1 %or.cond.not.i, i1 %46, i1 false
+  %or.cond14.not26.i = select i1 %or.cond.not29.i, i1 %46, i1 false
   %47 = fcmp ole float %.sroa.5.0.copyload, 1.000000e+00
-  %or.cond15.i = select i1 %or.cond14.i, i1 %47, i1 false
+  %or.cond15.not24.i = select i1 %or.cond14.not26.i, i1 %47, i1 false
   %48 = fcmp oge float %.sroa.5.0.copyload, 0xBF1A36E2E0000000
-  %or.cond16.i = select i1 %or.cond15.i, i1 %48, i1 false
+  %or.cond16.not22.i = select i1 %or.cond15.not24.i, i1 %48, i1 false
   %49 = fcmp ole float %.sroa.9.0.copyload, 1.000000e+00
-  %or.cond17.i = select i1 %or.cond16.i, i1 %49, i1 false
+  %or.cond17.not20.i = select i1 %or.cond16.not22.i, i1 %49, i1 false
   %50 = fcmp oge float %.sroa.9.0.copyload, 0xBF1A36E2E0000000
-  %or.cond18.i = select i1 %or.cond17.i, i1 %50, i1 false
-  br i1 %or.cond18.i, label %58, label %51
+  %or.cond18.not.i = select i1 %or.cond17.not20.i, i1 %50, i1 false
+  br i1 %or.cond18.not.i, label %58, label %51
 
 51:                                               ; preds = %.lr.ph
   %52 = fpext float %.sroa.0124.0.copyload to double
@@ -68772,18 +68772,18 @@ _ZNSt6vectorIP8BaseFaceSaIS1_EED2Ev.exit:         ; preds = %443, %445
   %464 = call double @llvm.fabs.f64(double %463)
   %465 = fcmp olt double %464, 0x3F1A36E2E0000000
   %466 = fcmp ole float %457, 1.000000e+00
-  %or.cond.not.i100 = select i1 %465, i1 %466, i1 false
+  %or.cond.not29.i100 = select i1 %465, i1 %466, i1 false
   %467 = fcmp oge float %457, 0xBF1A36E2E0000000
-  %or.cond14.i101 = select i1 %or.cond.not.i100, i1 %467, i1 false
+  %or.cond14.not26.i101 = select i1 %or.cond.not29.i100, i1 %467, i1 false
   %468 = fcmp ole float %458, 1.000000e+00
-  %or.cond15.i102 = select i1 %or.cond14.i101, i1 %468, i1 false
+  %or.cond15.not24.i102 = select i1 %or.cond14.not26.i101, i1 %468, i1 false
   %469 = fcmp oge float %458, 0xBF1A36E2E0000000
-  %or.cond16.i103 = select i1 %or.cond15.i102, i1 %469, i1 false
+  %or.cond16.not22.i103 = select i1 %or.cond15.not24.i102, i1 %469, i1 false
   %470 = fcmp ole float %460, 1.000000e+00
-  %or.cond17.i104 = select i1 %or.cond16.i103, i1 %470, i1 false
+  %or.cond17.not20.i104 = select i1 %or.cond16.not22.i103, i1 %470, i1 false
   %471 = fcmp oge float %460, 0xBF1A36E2E0000000
-  %or.cond18.i105 = select i1 %or.cond17.i104, i1 %471, i1 false
-  br i1 %or.cond18.i105, label %_Z19NormalizeBaryCoordsIN3vcg6Point3IfEEEbRT_.exit, label %472
+  %or.cond18.not.i105 = select i1 %or.cond17.not20.i104, i1 %471, i1 false
+  br i1 %or.cond18.not.i105, label %_Z19NormalizeBaryCoordsIN3vcg6Point3IfEEEbRT_.exit, label %472
 
 472:                                              ; preds = %456
   %473 = fpext float %457 to double
@@ -68800,18 +68800,18 @@ _ZNSt6vectorIP8BaseFaceSaIS1_EED2Ev.exit:         ; preds = %443, %445
   %484 = call double @llvm.fabs.f64(double %483)
   %485 = fcmp olt double %484, 0x3F1A36E2E0000000
   %486 = fcmp ole float %477, 1.000000e+00
-  %or.cond.not.i.i = select i1 %485, i1 %486, i1 false
+  %or.cond.not29.i.i = select i1 %485, i1 %486, i1 false
   %487 = fcmp oge float %477, 0xBF1A36E2E0000000
-  %or.cond14.i.i = select i1 %or.cond.not.i.i, i1 %487, i1 false
+  %or.cond14.not26.i.i = select i1 %or.cond.not29.i.i, i1 %487, i1 false
   %488 = fcmp ole float %478, 1.000000e+00
-  %or.cond15.i.i = select i1 %or.cond14.i.i, i1 %488, i1 false
+  %or.cond15.not24.i.i = select i1 %or.cond14.not26.i.i, i1 %488, i1 false
   %489 = fcmp oge float %478, 0xBF1A36E2E0000000
-  %or.cond16.i.i = select i1 %or.cond15.i.i, i1 %489, i1 false
+  %or.cond16.not22.i.i = select i1 %or.cond15.not24.i.i, i1 %489, i1 false
   %490 = fcmp ole float %480, 1.000000e+00
-  %or.cond17.i.i = select i1 %or.cond16.i.i, i1 %490, i1 false
+  %or.cond17.not20.i.i = select i1 %or.cond16.not22.i.i, i1 %490, i1 false
   %491 = fcmp oge float %480, 0xBF1A36E2E0000000
-  %or.cond18.i.i = select i1 %or.cond17.i.i, i1 %491, i1 false
-  br i1 %or.cond18.i.i, label %492, label %_Z19NormalizeBaryCoordsIN3vcg6Point3IfEEEbRT_.exit
+  %or.cond18.not.i.i = select i1 %or.cond17.not20.i.i, i1 %491, i1 false
+  br i1 %or.cond18.not.i.i, label %492, label %_Z19NormalizeBaryCoordsIN3vcg6Point3IfEEEbRT_.exit
 
 492:                                              ; preds = %472
   %493 = fcmp olt float %477, 0.000000e+00
@@ -104909,7 +104909,7 @@ define linkonce_odr noundef zeroext i1 @_ZN18IsoParametrization6UpdateEb(ptr nou
 
 .lr.ph:                                           ; preds = %15, %59
   %30 = phi i64 [ %61, %59 ], [ 0, %15 ]
-  %.01657 = phi i32 [ %60, %59 ], [ 0, %15 ]
+  %.01667 = phi i32 [ %60, %59 ], [ 0, %15 ]
   %31 = getelementptr inbounds %class.ParamVertex, ptr %25, i64 %30
   %32 = getelementptr inbounds i8, ptr %31, i64 56
   %33 = load i32, ptr %32, align 8
@@ -104934,25 +104934,25 @@ define linkonce_odr noundef zeroext i1 @_ZN18IsoParametrization6UpdateEb(ptr nou
   %49 = tail call double @llvm.fabs.f64(double %48)
   %50 = fcmp uge double %49, 0x3F1A36E2E0000000
   %51 = fcmp ugt float %37, 1.000000e+00
-  %or.cond.not.i.not = select i1 %50, i1 true, i1 %51
+  %or.cond.not29.i.not65 = select i1 %50, i1 true, i1 %51
   %52 = fcmp ult float %37, 0xBF1A36E2E0000000
-  %or.cond14.i = select i1 %or.cond.not.i.not, i1 true, i1 %52
+  %or.cond14.not26.i.not62 = select i1 %or.cond.not29.i.not65, i1 true, i1 %52
   %53 = fcmp ugt float %39, 1.000000e+00
-  %or.cond15.i = select i1 %or.cond14.i, i1 true, i1 %53
+  %or.cond15.not24.i.not60 = select i1 %or.cond14.not26.i.not62, i1 true, i1 %53
   %54 = fcmp ult float %39, 0xBF1A36E2E0000000
-  %or.cond16.i = select i1 %or.cond15.i, i1 true, i1 %54
+  %or.cond16.not22.i.not58 = select i1 %or.cond15.not24.i.not60, i1 true, i1 %54
   %55 = fcmp ugt float %41, 1.000000e+00
-  %or.cond17.i = select i1 %or.cond16.i, i1 true, i1 %55
+  %or.cond17.not20.i.not56 = select i1 %or.cond16.not22.i.not58, i1 true, i1 %55
   %56 = fcmp ult float %41, 0xBF1A36E2E0000000
-  %or.cond18.i = select i1 %or.cond17.i, i1 true, i1 %56
+  %or.cond18.not.i.not = select i1 %or.cond17.not20.i.not56, i1 true, i1 %56
   %57 = icmp slt i16 %43, 0
-  %or.cond = select i1 %or.cond18.i, i1 true, i1 %57
+  %or.cond = select i1 %or.cond18.not.i.not, i1 true, i1 %57
   %58 = icmp slt i32 %18, %44
   %or.cond53 = select i1 %or.cond, i1 true, i1 %58
   br i1 %or.cond53, label %.loopexit, label %59
 
 59:                                               ; preds = %35, %.lr.ph
-  %60 = add i32 %.01657, 1
+  %60 = add i32 %.01667, 1
   %61 = zext i32 %60 to i64
   %62 = icmp ugt i64 %29, %61
   br i1 %62, label %.lr.ph, label %._crit_edge, !llvm.loop !1272
@@ -115547,33 +115547,33 @@ define linkonce_odr noundef i32 @_ZN18IsoParametrization18InterpolationSpaceEP9P
 
 174:                                              ; preds = %.thread.i, %147
   %indvars.iv.i = phi i64 [ 0, %147 ], [ %indvars.iv.next.i, %.thread.i ]
-  %.02942.i = phi i32 [ 0, %147 ], [ %.1.i, %.thread.i ]
+  %.02947.i = phi i32 [ 0, %147 ], [ %.1.i, %.thread.i ]
   %175 = getelementptr inbounds [3 x ptr], ptr %7, i64 0, i64 %indvars.iv.i
   %176 = load ptr, ptr %175, align 8
-  %177 = icmp eq ptr %163, %176
-  %178 = icmp eq ptr %165, %176
-  %or.cond.i = select i1 %177, i1 true, i1 %178
-  %179 = icmp eq ptr %167, %176
-  %or.cond32.i = select i1 %or.cond.i, i1 true, i1 %179
-  br i1 %or.cond32.i, label %180, label %.thread.i
+  %177 = icmp ne ptr %163, %176
+  %178 = icmp ne ptr %165, %176
+  %or.cond.not42.i = select i1 %177, i1 %178, i1 false
+  %179 = icmp ne ptr %167, %176
+  %or.cond32.not.i = select i1 %or.cond.not42.i, i1 %179, i1 false
+  br i1 %or.cond32.not.i, label %.thread.i, label %180
 
 180:                                              ; preds = %174
   %181 = icmp ne ptr %169, %176
   %182 = icmp ne ptr %171, %176
-  %or.cond33.not.i = select i1 %181, i1 %182, i1 false
+  %or.cond33.not45.i = select i1 %181, i1 %182, i1 false
   %183 = icmp ne ptr %173, %176
-  %or.cond34.i = select i1 %or.cond33.not.i, i1 %183, i1 false
-  br i1 %or.cond34.i, label %.thread.i, label %184
+  %or.cond34.not.i = select i1 %or.cond33.not45.i, i1 %183, i1 false
+  br i1 %or.cond34.not.i, label %.thread.i, label %184
 
 184:                                              ; preds = %180
-  %185 = sext i32 %.02942.i to i64
+  %185 = sext i32 %.02947.i to i64
   %186 = getelementptr inbounds ptr, ptr %14, i64 %185
   store ptr %176, ptr %186, align 8
-  %187 = add nsw i32 %.02942.i, 1
+  %187 = add nsw i32 %.02947.i, 1
   br label %.thread.i
 
 .thread.i:                                        ; preds = %184, %180, %174
-  %.1.i = phi i32 [ %187, %184 ], [ %.02942.i, %180 ], [ %.02942.i, %174 ]
+  %.1.i = phi i32 [ %187, %184 ], [ %.02947.i, %180 ], [ %.02947.i, %174 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
   br i1 %exitcond.not.i, label %_ZN18IsoParametrization17getSharedVerticesEP12AbstractFaceS1_S1_PP14AbstractVertex.exit, label %174, !llvm.loop !155
@@ -125886,36 +125886,36 @@ _ZN3vcg4Box2IfE3AddERKNS_6Point2IfEE.exit:
   %86 = extractelement <4 x float> %58, i64 0
   %87 = fcmp ole float %.sroa.0155.2, %86
   %88 = fcmp ole float %86, %.sroa.20.2
-  %or.cond.i.not = and i1 %87, %88
+  %or.cond.i.not186 = and i1 %87, %88
   %89 = extractelement <4 x float> %58, i64 2
   %90 = fcmp ole float %.sroa.0155.2, %89
-  %or.cond177 = select i1 %or.cond.i.not, i1 %90, i1 false
+  %or.cond177.not183 = select i1 %or.cond.i.not186, i1 %90, i1 false
   %91 = fcmp ole float %89, %.sroa.20.2
-  %or.cond178 = select i1 %or.cond177, i1 %91, i1 false
+  %or.cond178 = select i1 %or.cond177.not183, i1 %91, i1 false
   br i1 %or.cond178, label %92, label %_ZNK3vcg4Box2IfE4IsInERKNS_6Point2IfEE.exit.thread
 
 92:                                               ; preds = %_ZN3vcg4Box2IfE3AddERKNS_6Point2IfEE.exit
   %93 = extractelement <4 x float> %58, i64 1
   %94 = fcmp ole float %.sroa.0155.2, %93
   %95 = fcmp ole float %93, %.sroa.20.2
-  %or.cond.i46.not = and i1 %94, %95
+  %or.cond.i46.not190 = and i1 %94, %95
   %96 = extractelement <4 x float> %58, i64 3
   %97 = fcmp ole float %.sroa.0155.2, %96
-  %or.cond179 = select i1 %or.cond.i46.not, i1 %97, i1 false
+  %or.cond179.not187 = select i1 %or.cond.i46.not190, i1 %97, i1 false
   %98 = fcmp ole float %96, %.sroa.20.2
-  %or.cond180 = select i1 %or.cond179, i1 %98, i1 false
+  %or.cond180 = select i1 %or.cond179.not187, i1 %98, i1 false
   br i1 %or.cond180, label %99, label %_ZNK3vcg4Box2IfE4IsInERKNS_6Point2IfEE.exit.thread
 
 99:                                               ; preds = %92
   %100 = extractelement <2 x float> %80, i64 0
   %101 = fcmp ole float %.sroa.0155.2, %100
   %102 = fcmp ole float %100, %.sroa.20.2
-  %or.cond.i48.not = and i1 %101, %102
+  %or.cond.i48.not194 = and i1 %101, %102
   %103 = extractelement <2 x float> %80, i64 1
   %104 = fcmp ole float %.sroa.0155.2, %103
-  %or.cond181 = select i1 %or.cond.i48.not, i1 %104, i1 false
+  %or.cond181.not191 = select i1 %or.cond.i48.not194, i1 %104, i1 false
   %105 = fcmp ole float %103, %.sroa.20.2
-  %or.cond182 = select i1 %or.cond181, i1 %105, i1 false
+  %or.cond182 = select i1 %or.cond181.not191, i1 %105, i1 false
   br i1 %or.cond182, label %206, label %_ZNK3vcg4Box2IfE4IsInERKNS_6Point2IfEE.exit.thread
 
 _ZNK3vcg4Box2IfE4IsInERKNS_6Point2IfEE.exit.thread: ; preds = %99, %92, %_ZN3vcg4Box2IfE3AddERKNS_6Point2IfEE.exit
@@ -125936,16 +125936,16 @@ _ZNK3vcg4Box2IfE4IsInERKNS_6Point2IfEE.exit.thread: ; preds = %99, %92, %_ZN3vcg
   br label %110
 
 .loopexit:                                        ; preds = %_ZN3vcg23LineSegmentIntersectionIfEEbRKNS_5Line2IT_Lb0EEERKNS_8Segment2IS2_EERNS_6Point2IS2_EE.exit.thread
-  %exitcond197.not = icmp eq i64 %indvars.iv.next196, 3
-  br i1 %exitcond197.not, label %203, label %110, !llvm.loop !1598
+  %exitcond206.not = icmp eq i64 %indvars.iv.next205, 3
+  br i1 %exitcond206.not, label %203, label %110, !llvm.loop !1598
 
 110:                                              ; preds = %_ZNK3vcg4Box2IfE4IsInERKNS_6Point2IfEE.exit.thread, %.loopexit
-  %indvars.iv195 = phi i64 [ 0, %_ZNK3vcg4Box2IfE4IsInERKNS_6Point2IfEE.exit.thread ], [ %indvars.iv.next196, %.loopexit ]
-  %.030194 = phi i8 [ 0, %_ZNK3vcg4Box2IfE4IsInERKNS_6Point2IfEE.exit.thread ], [ %.2, %.loopexit ]
-  %111 = getelementptr inbounds [3 x %"class.vcg::Point2.140"], ptr %18, i64 0, i64 %indvars.iv195
-  %indvars.iv.next196 = add nuw nsw i64 %indvars.iv195, 1
-  %112 = icmp eq i64 %indvars.iv.next196, 3
-  %113 = and i64 %indvars.iv.next196, 4294967295
+  %indvars.iv204 = phi i64 [ 0, %_ZNK3vcg4Box2IfE4IsInERKNS_6Point2IfEE.exit.thread ], [ %indvars.iv.next205, %.loopexit ]
+  %.030203 = phi i8 [ 0, %_ZNK3vcg4Box2IfE4IsInERKNS_6Point2IfEE.exit.thread ], [ %.2, %.loopexit ]
+  %111 = getelementptr inbounds [3 x %"class.vcg::Point2.140"], ptr %18, i64 0, i64 %indvars.iv204
+  %indvars.iv.next205 = add nuw nsw i64 %indvars.iv204, 1
+  %112 = icmp eq i64 %indvars.iv.next205, 3
+  %113 = and i64 %indvars.iv.next205, 4294967295
   %114 = select i1 %112, i64 0, i64 %113
   %115 = getelementptr inbounds [3 x %"class.vcg::Point2.140"], ptr %18, i64 0, i64 %114
   %116 = load <2 x float>, ptr %111, align 8
@@ -125981,12 +125981,12 @@ _ZNK3vcg4Box2IfE4IsInERKNS_6Point2IfEE.exit.thread: ; preds = %99, %92, %_ZN3vcg
   %144 = extractelement <2 x float> %143, i64 1
   %145 = call float @llvm.fmuladd.f32(float %141, float %141, float %144)
   %sqrt.i24.i = call float @llvm.sqrt.f32(float %145)
-  %146 = getelementptr inbounds [3 x float], ptr %5, i64 0, i64 %indvars.iv195
+  %146 = getelementptr inbounds [3 x float], ptr %5, i64 0, i64 %indvars.iv204
   %147 = getelementptr inbounds [3 x float], ptr %5, i64 0, i64 %114
-  %148 = getelementptr inbounds %"struct.DiamondParametrizator::InterpData", ptr %4, i64 %indvars.iv195
-  %149 = getelementptr inbounds %"struct.DiamondParametrizator::InterpData", ptr %4, i64 %indvars.iv195, i32 1
-  %150 = getelementptr inbounds %"struct.DiamondParametrizator::InterpData", ptr %4, i64 %indvars.iv195, i32 2
-  %151 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv195
+  %148 = getelementptr inbounds %"struct.DiamondParametrizator::InterpData", ptr %4, i64 %indvars.iv204
+  %149 = getelementptr inbounds %"struct.DiamondParametrizator::InterpData", ptr %4, i64 %indvars.iv204, i32 1
+  %150 = getelementptr inbounds %"struct.DiamondParametrizator::InterpData", ptr %4, i64 %indvars.iv204, i32 2
+  %151 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv204
   %152 = insertelement <2 x float> poison, float %sqrt.i24.i, i64 0
   %153 = shufflevector <2 x float> %152, <2 x float> poison, <2 x i32> zeroinitializer
   %154 = shufflevector <2 x float> %117, <2 x float> %116, <2 x i32> <i32 0, i32 2>
@@ -125995,8 +125995,8 @@ _ZNK3vcg4Box2IfE4IsInERKNS_6Point2IfEE.exit.thread: ; preds = %99, %92, %_ZN3vcg
 
 156:                                              ; preds = %110, %_ZN3vcg23LineSegmentIntersectionIfEEbRKNS_5Line2IT_Lb0EEERKNS_8Segment2IS2_EERNS_6Point2IS2_EE.exit.thread
   %indvars.iv = phi i64 [ 0, %110 ], [ %indvars.iv.next, %_ZN3vcg23LineSegmentIntersectionIfEEbRKNS_5Line2IT_Lb0EEERKNS_8Segment2IS2_EERNS_6Point2IS2_EE.exit.thread ]
-  %.1190 = phi i8 [ %.030194, %110 ], [ %.2, %_ZN3vcg23LineSegmentIntersectionIfEEbRKNS_5Line2IT_Lb0EEERKNS_8Segment2IS2_EERNS_6Point2IS2_EE.exit.thread ]
-  %.031189 = phi float [ 1.000000e+00, %110 ], [ %.132, %_ZN3vcg23LineSegmentIntersectionIfEEbRKNS_5Line2IT_Lb0EEERKNS_8Segment2IS2_EERNS_6Point2IS2_EE.exit.thread ]
+  %.1199 = phi i8 [ %.030203, %110 ], [ %.2, %_ZN3vcg23LineSegmentIntersectionIfEEbRKNS_5Line2IT_Lb0EEERKNS_8Segment2IS2_EERNS_6Point2IS2_EE.exit.thread ]
+  %.031198 = phi float [ 1.000000e+00, %110 ], [ %.132, %_ZN3vcg23LineSegmentIntersectionIfEEbRKNS_5Line2IT_Lb0EEERKNS_8Segment2IS2_EERNS_6Point2IS2_EE.exit.thread ]
   %157 = getelementptr inbounds [4 x %"class.vcg::Line2.1652"], ptr %19, i64 0, i64 %indvars.iv
   %.sroa.062.0.copyload = load float, ptr %157, align 16
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %157, i64 4
@@ -126052,7 +126052,7 @@ _ZN3vcg23LineSegmentIntersectionIfEEbRKNS_5Line2IT_Lb0EEERKNS_8Segment2IS2_EERNS
   %194 = fsub float 1.000000e+00, %193
   %195 = fadd float %194, -5.000000e-01
   %196 = call float @llvm.fabs.f32(float %195)
-  %197 = fcmp olt float %196, %.031189
+  %197 = fcmp olt float %196, %.031198
   br i1 %197, label %198, label %_ZN3vcg23LineSegmentIntersectionIfEEbRKNS_5Line2IT_Lb0EEERKNS_8Segment2IS2_EERNS_6Point2IS2_EE.exit.thread
 
 198:                                              ; preds = %192
@@ -126074,8 +126074,8 @@ _ZN3vcg23LineSegmentIntersectionIfEEbRKNS_5Line2IT_Lb0EEERKNS_8Segment2IS2_EERNS
   br label %_ZN3vcg23LineSegmentIntersectionIfEEbRKNS_5Line2IT_Lb0EEERKNS_8Segment2IS2_EERNS_6Point2IS2_EE.exit.thread
 
 _ZN3vcg23LineSegmentIntersectionIfEEbRKNS_5Line2IT_Lb0EEERKNS_8Segment2IS2_EERNS_6Point2IS2_EE.exit.thread: ; preds = %156, %_ZN3vcg23LineSegmentIntersectionIfEEbRKNS_5Line2IT_Lb0EEERKNS_8Segment2IS2_EERNS_6Point2IS2_EE.exit, %198, %192
-  %.132 = phi float [ %196, %198 ], [ %.031189, %192 ], [ %.031189, %_ZN3vcg23LineSegmentIntersectionIfEEbRKNS_5Line2IT_Lb0EEERKNS_8Segment2IS2_EERNS_6Point2IS2_EE.exit ], [ %.031189, %156 ]
-  %.2 = phi i8 [ 1, %198 ], [ %.1190, %192 ], [ %.1190, %_ZN3vcg23LineSegmentIntersectionIfEEbRKNS_5Line2IT_Lb0EEERKNS_8Segment2IS2_EERNS_6Point2IS2_EE.exit ], [ %.1190, %156 ]
+  %.132 = phi float [ %196, %198 ], [ %.031198, %192 ], [ %.031198, %_ZN3vcg23LineSegmentIntersectionIfEEbRKNS_5Line2IT_Lb0EEERKNS_8Segment2IS2_EERNS_6Point2IS2_EE.exit ], [ %.031198, %156 ]
+  %.2 = phi i8 [ 1, %198 ], [ %.1199, %192 ], [ %.1199, %_ZN3vcg23LineSegmentIntersectionIfEEbRKNS_5Line2IT_Lb0EEERKNS_8Segment2IS2_EERNS_6Point2IS2_EE.exit ], [ %.1199, %156 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %.loopexit, label %156, !llvm.loop !1599
@@ -133743,15 +133743,15 @@ define linkonce_odr noundef ptr @_ZN3vcg11GridClosestINS_13GridStaticPtrI9ParamF
   %40 = load <2 x float>, ptr %35, align 4
   %41 = extractelement <2 x float> %40, i64 0
   %42 = fcmp ole float %41, %36
-  %or.cond.i.not180.not = select i1 %42, i1 %39, i1 false
+  %or.cond.i.not180.not185 = select i1 %42, i1 %39, i1 false
   %43 = extractelement <2 x float> %13, i64 1
   %44 = extractelement <2 x float> %40, i64 1
   %45 = fcmp ole float %44, %43
-  %or.cond = select i1 %or.cond.i.not180.not, i1 %45, i1 false
+  %or.cond.not182 = select i1 %or.cond.i.not180.not185, i1 %45, i1 false
   %46 = getelementptr inbounds i8, ptr %0, i64 20
   %47 = load float, ptr %46, align 4
   %48 = fcmp olt float %43, %47
-  %or.cond169 = select i1 %or.cond, i1 %48, i1 false
+  %or.cond169 = select i1 %or.cond.not182, i1 %48, i1 false
   br i1 %or.cond169, label %49, label %_ZNK3vcg4Box3IfE6IsInExERKNS_6Point3IfEE.exit.thread
 
 49:                                               ; preds = %34
@@ -133779,8 +133779,8 @@ define linkonce_odr noundef ptr @_ZN3vcg11GridClosestINS_13GridStaticPtrI9ParamF
   %71 = load ptr, ptr %70, align 8
   %72 = getelementptr inbounds i8, ptr %70, i64 8
   %73 = load ptr, ptr %72, align 8
-  %.not187 = icmp eq ptr %71, %73
-  br i1 %.not187, label %_ZNK3vcg4Box3IfE6IsInExERKNS_6Point3IfEE.exit.thread, label %.lr.ph
+  %.not190 = icmp eq ptr %71, %73
+  br i1 %.not190, label %_ZNK3vcg4Box3IfE6IsInExERKNS_6Point3IfEE.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %49
   %.sroa.26.0..sroa_idx.i = getelementptr inbounds i8, ptr %10, i64 8
@@ -133789,15 +133789,15 @@ define linkonce_odr noundef ptr @_ZN3vcg11GridClosestINS_13GridStaticPtrI9ParamF
   br label %74
 
 74:                                               ; preds = %.lr.ph, %90
-  %.0190 = phi ptr [ null, %.lr.ph ], [ %.2, %90 ]
-  %.059189 = phi float [ %sqrt.i, %.lr.ph ], [ %.261, %90 ]
-  %.074188 = phi ptr [ %71, %.lr.ph ], [ %91, %90 ]
-  %75 = load ptr, ptr %.074188, align 8
+  %.0193 = phi ptr [ null, %.lr.ph ], [ %.2, %90 ]
+  %.059192 = phi float [ %sqrt.i, %.lr.ph ], [ %.261, %90 ]
+  %.074191 = phi ptr [ %71, %.lr.ph ], [ %91, %90 ]
+  %75 = load ptr, ptr %.074191, align 8
   %76 = getelementptr inbounds i8, ptr %75, i64 92
   %77 = load i32, ptr %76, align 4
   %78 = and i32 %77, 1
-  %.not183 = icmp eq i32 %78, 0
-  br i1 %.not183, label %79, label %90
+  %.not186 = icmp eq i32 %78, 0
+  br i1 %.not186, label %79, label %90
 
 79:                                               ; preds = %74
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %10)
@@ -133826,8 +133826,8 @@ define linkonce_odr noundef ptr @_ZN3vcg11GridClosestINS_13GridStaticPtrI9ParamF
   br label %85
 
 85:                                               ; preds = %83, %79
-  %.160 = phi float [ %84, %83 ], [ %.059189, %79 ]
-  %.1 = phi ptr [ %75, %83 ], [ %.0190, %79 ]
+  %.160 = phi float [ %84, %83 ], [ %.059192, %79 ]
+  %.1 = phi ptr [ %75, %83 ], [ %.0193, %79 ]
   %86 = load ptr, ptr %1, align 8
   %87 = getelementptr inbounds i8, ptr %86, i64 624
   %88 = load i32, ptr %87, align 8
@@ -133836,9 +133836,9 @@ define linkonce_odr noundef ptr @_ZN3vcg11GridClosestINS_13GridStaticPtrI9ParamF
   br label %90
 
 90:                                               ; preds = %85, %74
-  %.261 = phi float [ %.059189, %74 ], [ %.160, %85 ]
-  %.2 = phi ptr [ %.0190, %74 ], [ %.1, %85 ]
-  %91 = getelementptr inbounds i8, ptr %.074188, i64 16
+  %.261 = phi float [ %.059192, %74 ], [ %.160, %85 ]
+  %.2 = phi ptr [ %.0193, %74 ], [ %.1, %85 ]
+  %91 = getelementptr inbounds i8, ptr %.074191, i64 16
   %.not = icmp eq ptr %91, %73
   br i1 %.not, label %_ZNK3vcg4Box3IfE6IsInExERKNS_6Point3IfEE.exit.thread, label %74, !llvm.loop !1691
 
@@ -133917,16 +133917,16 @@ _ZN3vcg4Box3IiE9IntersectERKS1_.exit:             ; preds = %131, %101
   %138 = fcmp ogt <2 x float> %121, %107
   %139 = extractelement <2 x i1> %138, i64 1
   %or.cond172 = select i1 %or.cond171, i1 true, i1 %139
-  %.not76207 = icmp sgt i32 %.sroa.0138.1, %.sroa.19.1
-  %or.cond219 = or i1 %or.cond172, %.not76207
+  %.not76210 = icmp sgt i32 %.sroa.0138.1, %.sroa.19.1
+  %or.cond = or i1 %or.cond172, %.not76210
   %140 = icmp sgt <2 x i32> %133, %132
   %141 = extractelement <2 x i1> %140, i64 0
-  %or.cond224 = or i1 %or.cond219, %141
+  %or.cond226 = or i1 %or.cond, %141
   %142 = extractelement <2 x i1> %140, i64 1
-  %or.cond225 = or i1 %or.cond224, %142
-  br i1 %or.cond225, label %_ZNK3vcg4Box3IfE6IsNullEv.exit.thread, label %.preheader185.preheader
+  %or.cond227 = or i1 %or.cond226, %142
+  br i1 %or.cond227, label %_ZNK3vcg4Box3IfE6IsNullEv.exit.thread, label %.preheader188.preheader
 
-.preheader185.preheader:                          ; preds = %_ZN3vcg4Box3IiE9IntersectERKS1_.exit
+.preheader188.preheader:                          ; preds = %_ZN3vcg4Box3IiE9IntersectERKS1_.exit
   %143 = extractelement <2 x i32> %133, i64 0
   %144 = extractelement <2 x i32> %132, i64 0
   %145 = extractelement <2 x i32> %133, i64 1
@@ -133935,31 +133935,31 @@ _ZN3vcg4Box3IiE9IntersectERKS1_.exit:             ; preds = %131, %101
   %148 = extractelement <2 x i32> %132, i64 1
   %149 = extractelement <4 x i32> %102, i64 1
   %150 = extractelement <4 x i32> %102, i64 3
-  br label %.preheader185
+  br label %.preheader188
 
-.preheader185:                                    ; preds = %.preheader185.preheader, %._crit_edge205.split
-  %.5210 = phi ptr [ %.11, %._crit_edge205.split ], [ %.4, %.preheader185.preheader ]
-  %.070208 = phi i32 [ %195, %._crit_edge205.split ], [ %.sroa.0138.1, %.preheader185.preheader ]
-  %151 = icmp slt i32 %.070208, %.sroa.0146.1
-  %152 = icmp sgt i32 %.070208, %.sroa.12.1
+.preheader188:                                    ; preds = %.preheader188.preheader, %._crit_edge208.split
+  %.5213 = phi ptr [ %.11, %._crit_edge208.split ], [ %.4, %.preheader188.preheader ]
+  %.070211 = phi i32 [ %195, %._crit_edge208.split ], [ %.sroa.0138.1, %.preheader188.preheader ]
+  %151 = icmp slt i32 %.070211, %.sroa.0146.1
+  %152 = icmp sgt i32 %.070211, %.sroa.12.1
   %or.cond173 = or i1 %151, %152
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader185, %._crit_edge
-  %.6204 = phi ptr [ %.5210, %.preheader185 ], [ %.11, %._crit_edge ]
-  %.069203 = phi i32 [ %143, %.preheader185 ], [ %194, %._crit_edge ]
-  %153 = icmp slt i32 %.069203, %146
+.preheader:                                       ; preds = %.preheader188, %._crit_edge
+  %.6207 = phi ptr [ %.5213, %.preheader188 ], [ %.11, %._crit_edge ]
+  %.069206 = phi i32 [ %143, %.preheader188 ], [ %194, %._crit_edge ]
+  %153 = icmp slt i32 %.069206, %146
   %or.cond174 = or i1 %or.cond173, %153
-  %154 = icmp sgt i32 %.069203, %147
+  %154 = icmp sgt i32 %.069206, %147
   %or.cond175 = or i1 %154, %or.cond174
   br label %155
 
 155:                                              ; preds = %.preheader, %.loopexit
-  %.7199 = phi ptr [ %.6204, %.preheader ], [ %.11, %.loopexit ]
-  %.068198 = phi i32 [ %145, %.preheader ], [ %193, %.loopexit ]
-  %156 = icmp slt i32 %.068198, %149
+  %.7202 = phi ptr [ %.6207, %.preheader ], [ %.11, %.loopexit ]
+  %.068201 = phi i32 [ %145, %.preheader ], [ %193, %.loopexit ]
+  %156 = icmp slt i32 %.068201, %149
   %or.cond176 = or i1 %or.cond175, %156
-  %157 = icmp sgt i32 %.068198, %150
+  %157 = icmp sgt i32 %.068201, %150
   %or.cond177 = or i1 %157, %or.cond176
   br i1 %or.cond177, label %158, label %.loopexit
 
@@ -133967,29 +133967,29 @@ _ZN3vcg4Box3IiE9IntersectERKS1_.exit:             ; preds = %131, %101
   %159 = load ptr, ptr %100, align 8
   %160 = load i32, ptr %93, align 4
   %161 = load i32, ptr %96, align 8
-  %162 = mul nsw i32 %161, %.068198
-  %163 = add nsw i32 %162, %.069203
+  %162 = mul nsw i32 %161, %.068201
+  %163 = add nsw i32 %162, %.069206
   %164 = mul nsw i32 %163, %160
-  %165 = add nsw i32 %164, %.070208
+  %165 = add nsw i32 %164, %.070211
   %166 = sext i32 %165 to i64
   %167 = getelementptr inbounds ptr, ptr %159, i64 %166
   %168 = load ptr, ptr %167, align 8
   %169 = getelementptr inbounds i8, ptr %167, i64 8
   %170 = load ptr, ptr %169, align 8
-  %.not79192 = icmp eq ptr %168, %170
-  br i1 %.not79192, label %.loopexit, label %.lr.ph195
+  %.not79195 = icmp eq ptr %168, %170
+  br i1 %.not79195, label %.loopexit, label %.lr.ph198
 
-.lr.ph195:                                        ; preds = %158, %191
-  %.8194 = phi ptr [ %.10, %191 ], [ %.7199, %158 ]
-  %.175193 = phi ptr [ %192, %191 ], [ %168, %158 ]
-  %171 = load ptr, ptr %.175193, align 8
+.lr.ph198:                                        ; preds = %158, %191
+  %.8197 = phi ptr [ %.10, %191 ], [ %.7202, %158 ]
+  %.175196 = phi ptr [ %192, %191 ], [ %168, %158 ]
+  %171 = load ptr, ptr %.175196, align 8
   %172 = getelementptr inbounds i8, ptr %171, i64 92
   %173 = load i32, ptr %172, align 4
   %174 = and i32 %173, 1
-  %.not184 = icmp eq i32 %174, 0
-  br i1 %.not184, label %175, label %191
+  %.not187 = icmp eq i32 %174, 0
+  br i1 %.not187, label %175, label %191
 
-175:                                              ; preds = %.lr.ph195
+175:                                              ; preds = %.lr.ph198
   %176 = load ptr, ptr %1, align 8
   %177 = getelementptr inbounds i8, ptr %171, i64 144
   %178 = load i32, ptr %177, align 8
@@ -134024,37 +134024,37 @@ _ZN3vcg4Box3IiE9IntersectERKS1_.exit:             ; preds = %131, %101
   br label %187
 
 187:                                              ; preds = %186, %182
-  %.9 = phi ptr [ %171, %186 ], [ %.8194, %182 ]
+  %.9 = phi ptr [ %171, %186 ], [ %.8197, %182 ]
   %188 = load ptr, ptr %1, align 8
   %189 = getelementptr inbounds i8, ptr %188, i64 624
   %190 = load i32, ptr %189, align 8
   store i32 %190, ptr %177, align 4
   br label %191
 
-191:                                              ; preds = %187, %.lr.ph195, %175
-  %.10 = phi ptr [ %.8194, %.lr.ph195 ], [ %.8194, %175 ], [ %.9, %187 ]
-  %192 = getelementptr inbounds i8, ptr %.175193, i64 16
+191:                                              ; preds = %187, %.lr.ph198, %175
+  %.10 = phi ptr [ %.8197, %.lr.ph198 ], [ %.8197, %175 ], [ %.9, %187 ]
+  %192 = getelementptr inbounds i8, ptr %.175196, i64 16
   %.not79 = icmp eq ptr %192, %170
-  br i1 %.not79, label %.loopexit, label %.lr.ph195, !llvm.loop !1692
+  br i1 %.not79, label %.loopexit, label %.lr.ph198, !llvm.loop !1692
 
 .loopexit:                                        ; preds = %191, %158, %155
-  %.11 = phi ptr [ %.7199, %155 ], [ %.7199, %158 ], [ %.10, %191 ]
-  %193 = add nuw i32 %.068198, 1
-  %exitcond.not = icmp eq i32 %.068198, %148
+  %.11 = phi ptr [ %.7202, %155 ], [ %.7202, %158 ], [ %.10, %191 ]
+  %193 = add nuw i32 %.068201, 1
+  %exitcond.not = icmp eq i32 %.068201, %148
   br i1 %exitcond.not, label %._crit_edge, label %155, !llvm.loop !1693
 
 ._crit_edge:                                      ; preds = %.loopexit
-  %194 = add nuw i32 %.069203, 1
-  %exitcond222.not = icmp eq i32 %.069203, %144
-  br i1 %exitcond222.not, label %._crit_edge205.split, label %.preheader, !llvm.loop !1694
+  %194 = add nuw i32 %.069206, 1
+  %exitcond224.not = icmp eq i32 %.069206, %144
+  br i1 %exitcond224.not, label %._crit_edge208.split, label %.preheader, !llvm.loop !1694
 
-._crit_edge205.split:                             ; preds = %._crit_edge
-  %195 = add nuw i32 %.070208, 1
-  %exitcond223.not = icmp eq i32 %.070208, %.sroa.19.1
-  br i1 %exitcond223.not, label %_ZNK3vcg4Box3IfE6IsNullEv.exit.thread, label %.preheader185, !llvm.loop !1695
+._crit_edge208.split:                             ; preds = %._crit_edge
+  %195 = add nuw i32 %.070211, 1
+  %exitcond225.not = icmp eq i32 %.070211, %.sroa.19.1
+  br i1 %exitcond225.not, label %_ZNK3vcg4Box3IfE6IsNullEv.exit.thread, label %.preheader188, !llvm.loop !1695
 
-_ZNK3vcg4Box3IfE6IsNullEv.exit.thread:            ; preds = %._crit_edge205.split, %_ZN3vcg4Box3IiE9IntersectERKS1_.exit
-  %.12 = phi ptr [ %.4, %_ZN3vcg4Box3IiE9IntersectERKS1_.exit ], [ %.11, %._crit_edge205.split ]
+_ZNK3vcg4Box3IfE6IsNullEv.exit.thread:            ; preds = %._crit_edge208.split, %_ZN3vcg4Box3IiE9IntersectERKS1_.exit
+  %.12 = phi ptr [ %.4, %_ZN3vcg4Box3IiE9IntersectERKS1_.exit ], [ %.11, %._crit_edge208.split ]
   %.not80 = icmp eq ptr %.12, null
   br i1 %.not80, label %196, label %204
 

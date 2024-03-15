@@ -796,8 +796,8 @@ entry:
   %31 = shufflevector <4 x i16> %29, <4 x i16> %30, <4 x i32> <i32 0, i32 1, i32 2, i32 7>
   %m_size.i = getelementptr inbounds i8, ptr %this, i64 220
   %32 = load i32, ptr %m_size.i, align 4
-  %cmp27 = icmp sgt i32 %32, 0
-  br i1 %cmp27, label %for.body.lr.ph, label %for.end
+  %cmp31 = icmp sgt i32 %32, 0
+  br i1 %cmp31, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
   %m_data.i = getelementptr inbounds i8, ptr %this, i64 232
@@ -811,18 +811,18 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %arrayidx.i = getelementptr inbounds %class.b3BvhSubtreeInfo, ptr %34, i64 %indvars.iv
   %arrayidx26.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %35 = load <2 x i16>, ptr %arrayidx26.i, align 2
-  %36 = icmp ule <2 x i16> %9, %35
+  %36 = icmp ugt <2 x i16> %9, %35
   %37 = load <4 x i16>, ptr %arrayidx.i, align 2
-  %38 = icmp uge <4 x i16> %31, %37
-  %39 = icmp ule <4 x i16> %31, %37
+  %38 = icmp ult <4 x i16> %31, %37
+  %39 = icmp ugt <4 x i16> %31, %37
   %40 = shufflevector <4 x i1> %38, <4 x i1> %39, <4 x i32> <i32 0, i32 1, i32 2, i32 7>
   %41 = bitcast <4 x i1> %40 to i4
-  %42 = icmp eq i4 %41, -1
+  %42 = icmp ne i4 %41, 0
   %43 = extractelement <2 x i1> %36, i64 1
-  %op.rdx = and i1 %42, %43
+  %op.rdx = or i1 %42, %43
   %44 = extractelement <2 x i1> %36, i64 0
-  %op.rdx30 = and i1 %op.rdx, %44
-  br i1 %op.rdx30, label %if.then, label %for.inc
+  %op.rdx34 = or i1 %op.rdx, %44
+  br i1 %op.rdx34, label %for.inc, label %if.then
 
 if.then:                                          ; preds = %for.body
   %arrayidx33.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 2

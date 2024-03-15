@@ -33168,14 +33168,14 @@ define internal noundef i32 @experimental_hooks_install_ctl(ptr noundef %tsd, pt
 entry:
   %hooks = alloca %struct.hooks_s, align 8
   %handle = alloca ptr, align 8
-  %cmp = icmp eq ptr %oldp, null
-  %cmp1 = icmp eq ptr %oldlenp, null
-  %or.cond = or i1 %cmp, %cmp1
-  %cmp3 = icmp eq ptr %newp, null
-  %or.cond1 = or i1 %or.cond, %cmp3
-  %cmp6.not = icmp ne i64 %newlen, 32
-  %or.cond15.not = or i1 %cmp6.not, %or.cond1
-  br i1 %or.cond15.not, label %label_return, label %if.end8
+  %cmp = icmp ne ptr %oldp, null
+  %cmp1 = icmp ne ptr %oldlenp, null
+  %or.cond.not17 = and i1 %cmp, %cmp1
+  %cmp3 = icmp ne ptr %newp, null
+  %or.cond1.not16 = and i1 %or.cond.not17, %cmp3
+  %cmp6.not = icmp eq i64 %newlen, 32
+  %or.cond15 = and i1 %or.cond1.not16, %cmp6.not
+  br i1 %or.cond15, label %if.end8, label %label_return
 
 if.end8:                                          ; preds = %entry
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %hooks, ptr noundef nonnull align 8 dereferenceable(32) %newp, i64 32, i1 false)
@@ -33544,17 +33544,17 @@ label_return:                                     ; preds = %entry, %lor.lhs.fal
 define internal noundef i32 @experimental_utilization_batch_query_ctl(ptr noundef %tsd, ptr nocapture readnone %mib, i64 %miblen, ptr noundef %oldp, ptr noundef readonly %oldlenp, ptr noundef readonly %newp, i64 noundef %newlen) #0 {
 entry:
   %div17 = lshr i64 %newlen, 3
-  %cmp = icmp eq ptr %oldp, null
-  %cmp1 = icmp eq ptr %oldlenp, null
-  %or.cond = or i1 %cmp, %cmp1
-  %cmp3 = icmp eq ptr %newp, null
-  %or.cond1 = or i1 %or.cond, %cmp3
-  %cmp5 = icmp eq i64 %newlen, 0
-  %or.cond2 = or i1 %or.cond1, %cmp5
+  %cmp = icmp ne ptr %oldp, null
+  %cmp1 = icmp ne ptr %oldlenp, null
+  %or.cond.not21 = and i1 %cmp, %cmp1
+  %cmp3 = icmp ne ptr %newp, null
+  %or.cond1.not20 = and i1 %or.cond.not21, %cmp3
+  %cmp5 = icmp ne i64 %newlen, 0
+  %or.cond2.not19 = and i1 %or.cond1.not20, %cmp5
   %0 = and i64 %newlen, 7
-  %cmp7.not = icmp ne i64 %0, 0
-  %or.cond18.not = or i1 %cmp7.not, %or.cond2
-  br i1 %or.cond18.not, label %label_return, label %lor.lhs.false8
+  %cmp7.not = icmp eq i64 %0, 0
+  %or.cond18 = and i1 %or.cond2.not19, %cmp7.not
+  br i1 %or.cond18, label %lor.lhs.false8, label %label_return
 
 lor.lhs.false8:                                   ; preds = %entry
   %1 = load i64, ptr %oldlenp, align 8
@@ -33563,18 +33563,18 @@ lor.lhs.false8:                                   ; preds = %entry
   br i1 %cmp10.not, label %for.cond.preheader, label %label_return
 
 for.cond.preheader:                               ; preds = %lor.lhs.false8
-  %cmp1119.not = icmp ult i64 %newlen, 8
-  br i1 %cmp1119.not, label %label_return, label %for.body
+  %cmp1122.not = icmp ult i64 %newlen, 8
+  br i1 %cmp1122.not, label %label_return, label %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %for.body
-  %i.020 = phi i64 [ %inc, %for.body ], [ 0, %for.cond.preheader ]
-  %arrayidx = getelementptr inbounds ptr, ptr %newp, i64 %i.020
+  %i.023 = phi i64 [ %inc, %for.body ], [ 0, %for.cond.preheader ]
+  %arrayidx = getelementptr inbounds ptr, ptr %newp, i64 %i.023
   %2 = load ptr, ptr %arrayidx, align 8
-  %arrayidx12 = getelementptr inbounds %struct.inspect_extent_util_stats_s, ptr %oldp, i64 %i.020
+  %arrayidx12 = getelementptr inbounds %struct.inspect_extent_util_stats_s, ptr %oldp, i64 %i.023
   %nregs = getelementptr inbounds i8, ptr %arrayidx12, i64 8
   %size = getelementptr inbounds i8, ptr %arrayidx12, i64 16
-  tail call void @inspect_extent_util_stats_get(ptr noundef %tsd, ptr noundef %2, ptr noundef %arrayidx12, ptr noundef nonnull %nregs, ptr noundef nonnull %size) #14
-  %inc = add nuw nsw i64 %i.020, 1
+  tail call void @inspect_extent_util_stats_get(ptr noundef %tsd, ptr noundef %2, ptr noundef nonnull %arrayidx12, ptr noundef nonnull %nregs, ptr noundef nonnull %size) #14
+  %inc = add nuw nsw i64 %i.023, 1
   %exitcond.not = icmp eq i64 %inc, %div17
   br i1 %exitcond.not, label %label_return, label %for.body, !llvm.loop !27
 

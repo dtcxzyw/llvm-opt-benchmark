@@ -1636,15 +1636,14 @@ if.end.i:                                         ; preds = %if.end
 qed_check_cluster_offset.exit:                    ; preds = %if.end.i
   %file_size.i = getelementptr inbounds i8, ptr %s, i64 168
   %3 = load i64, ptr %file_size.i, align 8
-  %cmp8.i = icmp ule i64 %3, %offset
+  %cmp8.i = icmp ugt i64 %3, %offset
   %and.i10 = and i64 %add, %conv6.i
-  %tobool.not.i11 = icmp ne i64 %and.i10, 0
-  %or.cond.not25 = or i1 %tobool.not.i11, %cmp8.i
-  %cmp.not.i18 = icmp ugt i64 %mul.i, %add
-  %or.cond24 = or i1 %or.cond.not25, %cmp.not.i18
+  %tobool.not.i11 = icmp eq i64 %and.i10, 0
+  %or.cond.not25.not26 = and i1 %tobool.not.i11, %cmp8.i
+  %cmp.not.i18 = icmp ule i64 %mul.i, %add
+  %or.cond24.not = and i1 %or.cond.not25.not26, %cmp.not.i18
   %cmp8.i21 = icmp ugt i64 %3, %add
-  %not.or.cond24 = xor i1 %or.cond24, true
-  %spec.select = select i1 %not.or.cond24, i1 %cmp8.i21, i1 false
+  %spec.select = select i1 %or.cond24.not, i1 %cmp8.i21, i1 false
   br label %return
 
 return:                                           ; preds = %qed_check_cluster_offset.exit, %if.end.i, %if.end, %entry

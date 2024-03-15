@@ -717,9 +717,9 @@ _ZN9rcContext10startTimerE12rcTimerLabel.exit350.us: ; preds = %232, %226
   %417 = load i32, ptr %416, align 4
   %418 = and i32 %415, 32768
   %419 = and i32 %418, %417
-  %.not115.i.i.us = icmp eq i32 %419, 0
-  %420 = icmp ne i32 %415, %417
-  %spec.select.not126.i.i.us = or i1 %420, %.not115.i.i.us
+  %.not115.i.i.us = icmp ne i32 %419, 0
+  %420 = icmp eq i32 %415, %417
+  %spec.select.not126.not132.i.i.us = and i1 %420, %.not115.i.i.us
   %421 = xor i64 %indvars.iv.i.i.us, 2
   %422 = getelementptr inbounds [4 x i32], ptr %18, i64 0, i64 %421
   %423 = load i32, ptr %422, align 4
@@ -727,9 +727,9 @@ _ZN9rcContext10startTimerE12rcTimerLabel.exit350.us: ; preds = %232, %226
   %425 = load i32, ptr %424, align 4
   %426 = or i32 %425, %423
   %427 = and i32 %426, 32768
-  %428 = icmp ne i32 %427, 0
+  %428 = icmp eq i32 %427, 0
   %.unshifted.i.i.us = xor i32 %425, %423
-  %429 = icmp ugt i32 %.unshifted.i.i.us, 65535
+  %429 = icmp ult i32 %.unshifted.i.i.us, 65536
   %.not116.i.i.us = icmp eq i32 %415, 0
   br i1 %.not116.i.i.us, label %432, label %430
 
@@ -743,11 +743,10 @@ _ZN9rcContext10startTimerE12rcTimerLabel.exit350.us: ; preds = %232, %226
 
 432:                                              ; preds = %430, %410
   %433 = phi i1 [ false, %410 ], [ %spec.select124.i.i.us, %430 ]
-  %brmerge.i.i.us = select i1 %spec.select.not126.i.i.us, i1 true, i1 %428
-  %brmerge121.i.i.us = select i1 %brmerge.i.i.us, i1 true, i1 %429
-  %.not122.i.i.us = xor i1 %433, true
-  %brmerge123.i.i.us = select i1 %brmerge121.i.i.us, i1 true, i1 %.not122.i.i.us
-  br i1 %brmerge123.i.i.us, label %409, label %_ZL15getCornerHeightiiiiRK20rcCompactHeightfieldRb.exit.i.us, !llvm.loop !11
+  %brmerge.not130.i.i.us = select i1 %spec.select.not126.not132.i.i.us, i1 %428, i1 false
+  %brmerge121.not128.i.i.us = select i1 %brmerge.not130.i.i.us, i1 %429, i1 false
+  %brmerge123.not.i.i.us = select i1 %brmerge121.not128.i.i.us, i1 %433, i1 false
+  br i1 %brmerge123.not.i.i.us, label %_ZL15getCornerHeightiiiiRK20rcCompactHeightfieldRb.exit.i.us, label %409, !llvm.loop !11
 
 _ZL15getCornerHeightiiiiRK20rcCompactHeightfieldRb.exit.i.us: ; preds = %432, %409
   %.1.i.i.us = zext i16 %.1.in.i.i.us to i32

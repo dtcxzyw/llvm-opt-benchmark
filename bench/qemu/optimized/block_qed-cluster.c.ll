@@ -63,13 +63,13 @@ if.end.i.i:                                       ; preds = %if.end.i
 qed_check_table_offset.exit:                      ; preds = %if.end.i.i
   %file_size.i.i = getelementptr inbounds i8, ptr %s, i64 168
   %7 = load i64, ptr %file_size.i.i, align 8
-  %cmp8.i.i = icmp ule i64 %7, %3
+  %cmp8.i.i = icmp ugt i64 %7, %3
   %and.i10.i = and i64 %add.i, %conv6.i.i
-  %tobool.not.i11.i = icmp ne i64 %and.i10.i, 0
-  %or.cond.not25.i = or i1 %tobool.not.i11.i, %cmp8.i.i
-  %cmp8.i21.i = icmp ule i64 %7, %add.i
-  %spec.select.i.not = or i1 %cmp8.i21.i, %or.cond.not25.i
-  br i1 %spec.select.i.not, label %return.sink.split, label %if.end6
+  %tobool.not.i11.i = icmp eq i64 %and.i10.i, 0
+  %or.cond.not25.not26.i = and i1 %tobool.not.i11.i, %cmp8.i.i
+  %cmp8.i21.i = icmp ugt i64 %7, %add.i
+  %spec.select.i = and i1 %cmp8.i21.i, %or.cond.not25.not26.i
+  br i1 %spec.select.i, label %if.end6, label %return.sink.split
 
 if.end6:                                          ; preds = %qed_check_table_offset.exit
   %call7 = tail call i32 @qed_read_l2_table(ptr noundef nonnull %s, ptr noundef %request, i64 noundef %3) #3

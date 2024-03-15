@@ -106,8 +106,8 @@ _ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge:
   %26 = getelementptr inbounds i8, ptr %0, i64 48
   %27 = load i32, ptr %26, align 8
   %.neg = mul i32 %4, -2
-  %.neg65 = sub i32 %.neg, %7
-  %28 = add i32 %.neg65, %27
+  %.neg68 = sub i32 %.neg, %7
+  %28 = add i32 %.neg68, %27
   %29 = sitofp i32 %28 to float
   %30 = fdiv float %29, %11
   %31 = fptosi float %30 to i32
@@ -128,20 +128,19 @@ _ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge:
   %43 = trunc i64 %42 to i32
   %44 = add i32 %.sroa.speculated.i, %43
   %45 = sdiv i32 %44, %32
-  %46 = icmp sgt i32 %25, -1
-  %47 = fcmp oge float %22, 0.000000e+00
-  %or.cond.not = and i1 %47, %46
-  %48 = fcmp oge float %24, 0.000000e+00
-  %or.cond60 = select i1 %or.cond.not, i1 %48, i1 false
-  %49 = icmp uge i32 %.sroa.speculated.i, %23
-  %or.cond61 = and i1 %49, %or.cond60
+  %46 = icmp slt i32 %25, 0
+  %47 = fcmp ult float %22, 0.000000e+00
+  %or.cond.not66.not86 = or i1 %47, %46
+  %48 = fcmp ult float %24, 0.000000e+00
+  %or.cond60.not63.not83 = select i1 %or.cond.not66.not86, i1 true, i1 %48
+  %49 = icmp ult i32 %.sroa.speculated.i, %23
+  %or.cond61.not = or i1 %49, %or.cond60.not63.not83
   %50 = icmp sle i32 %45, %25
-  %not.or.cond61 = xor i1 %or.cond61, true
-  %spec.select = select i1 %not.or.cond61, i1 true, i1 %50
+  %spec.select = select i1 %or.cond61.not, i1 true, i1 %50
   br label %51
 
 51:                                               ; preds = %34, %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge
-  %.not75 = phi i1 [ true, %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge ], [ %spec.select, %34 ]
+  %.not78 = phi i1 [ true, %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge ], [ %spec.select, %34 ]
   %52 = tail call <2 x float> @llvm.floor.v2f32(<2 x float> %21)
   %53 = sitofp i32 %7 to float
   %54 = fdiv float %53, %11
@@ -152,7 +151,7 @@ _ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge:
   %59 = extractelement <2 x i1> %58, i64 0
   %60 = extractelement <2 x i1> %58, i64 1
   %narrow.not = select i1 %59, i1 true, i1 %60
-  %.not = select i1 %narrow.not, i1 true, i1 %.not75
+  %.not = select i1 %narrow.not, i1 true, i1 %.not78
   %61 = mul nsw i32 %32, %25
   %62 = add nsw i32 %61, %23
   %63 = select i1 %.not, i32 -1, i32 %62

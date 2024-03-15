@@ -1902,18 +1902,13 @@ lor.end106.thread3949:                            ; preds = %call2.i.i.i.noexc29
 
 cleanup.done109:                                  ; preds = %lor.lhs.false.i.i.i.i278, %if.end3.i.i.i.i275, %for.cond.i.i.i.i283, %for.body.i.i293, %for.cond.i.i289, %invoke.cont85, %lor.end106.thread3949
   %80 = phi i1 [ %cmp.i2993951, %lor.end106.thread3949 ], [ true, %invoke.cont85 ], [ %cmp.i.not.i.i292.not, %for.cond.i.i289 ], [ %cmp.i.not.i.i292.not, %for.body.i.i293 ], [ true, %for.cond.i.i.i.i283 ], [ false, %if.end3.i.i.i.i275 ], [ false, %lor.lhs.false.i.i.i.i278 ]
-  %.not = xor i1 %40, true
-  %.not109 = xor i1 %60, true
-  %brmerge = or i1 %.not, %.not109
-  br i1 %brmerge, label %lor.lhs.false, label %if.then124
+  %brmerge.demorgan = and i1 %40, %60
+  %brmerge1124046.not = or i1 %40, %60
+  %or.cond.not = and i1 %brmerge1124046.not, %80
+  %or.cond = or i1 %brmerge.demorgan, %or.cond.not
+  br i1 %or.cond, label %if.then124, label %if.else247
 
-lor.lhs.false:                                    ; preds = %cleanup.done109
-  %.not111 = xor i1 %80, true
-  %brmerge1124046 = and i1 %.not, %.not109
-  %or.cond = or i1 %brmerge1124046, %.not111
-  br i1 %or.cond, label %if.else247, label %if.then124
-
-if.then124:                                       ; preds = %lor.lhs.false, %cleanup.done109
+if.then124:                                       ; preds = %cleanup.done109
   %81 = load i64, ptr %_M_element_count.i.i.i2778, align 8
   %cmp.not.not.i.i301 = icmp eq i64 %81, 0
   br i1 %cmp.not.not.i.i301, label %if.then.i.i324, label %if.end15.i.i302
@@ -2466,7 +2461,7 @@ lpad242:                                          ; preds = %if.then13.i4.i, %if
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp240) #16
   br label %ehcleanup1759
 
-if.else247:                                       ; preds = %lor.lhs.false
+if.else247:                                       ; preds = %cleanup.done109
   br i1 %40, label %if.then249, label %if.end1651
 
 if.then249:                                       ; preds = %if.else247

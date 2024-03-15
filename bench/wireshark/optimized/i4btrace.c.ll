@@ -28,33 +28,33 @@ define hidden i32 @i4btrace_open(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %8 = load i32, ptr %1, align 4
   %.not90 = icmp ne i32 %8, -12
   %. = sext i1 %.not90 to i32
-  br label %.loopexit98
+  br label %.loopexit107
 
 9:                                                ; preds = %3
   %10 = load i32, ptr %4, align 4
-  %11 = add i32 %10, -16385
-  %or.cond = icmp ult i32 %11, -16353
+  %11 = add i32 %10, -32
+  %or.cond = icmp ult i32 %11, 16353
   %12 = getelementptr inbounds i8, ptr %4, i64 4
   %13 = load i32, ptr %12, align 4
-  %14 = icmp ugt i32 %13, 4
-  %or.cond5 = select i1 %or.cond, i1 true, i1 %14
+  %14 = icmp ult i32 %13, 5
+  %or.cond5.not104 = select i1 %or.cond, i1 %14, i1 false
   %15 = getelementptr inbounds i8, ptr %4, i64 8
   %16 = load i32, ptr %15, align 4
-  %17 = icmp ugt i32 %16, 3
-  %or.cond8 = select i1 %or.cond5, i1 true, i1 %17
+  %17 = icmp ult i32 %16, 4
+  %or.cond8.not102 = select i1 %or.cond5.not104, i1 %17, i1 false
   %18 = getelementptr inbounds i8, ptr %4, i64 12
   %19 = load i32, ptr %18, align 4
-  %20 = icmp sgt i32 %19, 1
-  %or.cond11 = select i1 %or.cond8, i1 true, i1 %20
+  %20 = icmp slt i32 %19, 2
+  %or.cond11.not100 = select i1 %or.cond8.not102, i1 %20, i1 false
   %21 = getelementptr inbounds i8, ptr %4, i64 16
   %22 = load i32, ptr %21, align 4
-  %23 = icmp ugt i32 %22, 2048
-  %or.cond14 = select i1 %or.cond11, i1 true, i1 %23
+  %23 = icmp ult i32 %22, 2049
+  %or.cond14.not98 = select i1 %or.cond11.not100, i1 %23, i1 false
   %24 = getelementptr inbounds i8, ptr %4, i64 28
   %25 = load i32, ptr %24, align 4
-  %26 = icmp ugt i32 %25, 999999
-  %or.cond17 = select i1 %or.cond14, i1 true, i1 %26
-  br i1 %or.cond17, label %27, label %46
+  %26 = icmp ult i32 %25, 1000000
+  %or.cond17.not = select i1 %or.cond14.not98, i1 %26, i1 false
+  br i1 %or.cond17.not, label %46, label %27
 
 27:                                               ; preds = %9
   %28 = call i32 @llvm.bswap.i32(i32 %10)
@@ -89,136 +89,141 @@ define hidden i32 @i4btrace_open(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %or.cond32 = select i1 %or.cond29, i1 true, i1 %44
   %45 = icmp ugt i32 %39, 999999
   %or.cond35 = select i1 %or.cond32, i1 true, i1 %45
-  br i1 %or.cond35, label %.loopexit98, label %46
+  br i1 %or.cond35, label %.loopexit107, label %.thread
 
-46:                                               ; preds = %27, %9
-  %47 = phi i32 [ %10, %9 ], [ %28, %27 ]
-  %.087 = phi i32 [ 0, %9 ], [ 1, %27 ]
-  %48 = load ptr, ptr %0, align 8
-  %49 = add nsw i32 %47, -32
-  %50 = call i32 @wtap_read_bytes(ptr noundef %48, ptr noundef null, i32 noundef %49, ptr noundef %1, ptr noundef %2) #4
-  %.not91 = icmp eq i32 %50, 0
-  br i1 %.not91, label %78, label %.preheader
+46:                                               ; preds = %9
+  %47 = load ptr, ptr %0, align 8
+  %48 = call i32 @wtap_read_bytes(ptr noundef %47, ptr noundef null, i32 noundef %11, ptr noundef %1, ptr noundef %2) #4
+  %.not91 = icmp eq i32 %48, 0
+  br i1 %.not91, label %72, label %.preheader.split.us
 
-.preheader:                                       ; preds = %46
-  br i1 %or.cond17, label %.preheader.split.us, label %.preheader.split
+.thread:                                          ; preds = %27
+  %.pre = add nsw i32 %28, -32
+  %49 = load ptr, ptr %0, align 8
+  %50 = call i32 @wtap_read_bytes(ptr noundef %49, ptr noundef null, i32 noundef %.pre, ptr noundef %1, ptr noundef %2) #4
+  %.not91118 = icmp eq i32 %50, 0
+  br i1 %.not91118, label %72, label %.preheader.split
 
-.preheader.split.us:                              ; preds = %.preheader, %53
-  %.099.us = phi i32 [ %54, %53 ], [ 1, %.preheader ]
+.preheader.split.us:                              ; preds = %46, %53
+  %.0108.us = phi i32 [ %54, %53 ], [ 1, %46 ]
   %51 = load ptr, ptr %0, align 8
   %52 = call i32 @wtap_read_bytes_or_eof(ptr noundef %51, ptr noundef nonnull %4, i32 noundef 32, ptr noundef %1, ptr noundef %2) #4
   %.not93.us = icmp eq i32 %52, 0
   br i1 %.not93.us, label %.split.us, label %55
 
-53:                                               ; preds = %74
-  %54 = add nuw nsw i32 %.099.us, 1
-  %exitcond106.not = icmp eq i32 %54, 5
-  br i1 %exitcond106.not, label %.loopexit, label %.preheader.split.us, !llvm.loop !4
+53:                                               ; preds = %68
+  %54 = add nuw nsw i32 %.0108.us, 1
+  %exitcond115.not = icmp eq i32 %54, 5
+  br i1 %exitcond115.not, label %.loopexit, label %.preheader.split.us, !llvm.loop !4
 
 55:                                               ; preds = %.preheader.split.us
   %56 = load i32, ptr %4, align 4
-  %57 = call i32 @llvm.bswap.i32(i32 %56)
-  store i32 %57, ptr %4, align 4
+  %57 = add i32 %56, -16385
+  %or.cond38.us = icmp ult i32 %57, -16353
   %58 = load i32, ptr %12, align 4
-  %59 = call i32 @llvm.bswap.i32(i32 %58)
-  store i32 %59, ptr %12, align 4
+  %59 = icmp ugt i32 %58, 4
+  %or.cond41.us = select i1 %or.cond38.us, i1 true, i1 %59
   %60 = load i32, ptr %15, align 4
-  %61 = call i32 @llvm.bswap.i32(i32 %60)
-  store i32 %61, ptr %15, align 4
-  %62 = load <4 x i32>, ptr %18, align 4
-  %63 = call <4 x i32> @llvm.bswap.v4i32(<4 x i32> %62)
-  store <4 x i32> %63, ptr %18, align 4
-  %64 = load i32, ptr %24, align 4
-  %65 = call i32 @llvm.bswap.i32(i32 %64)
-  store i32 %65, ptr %24, align 4
-  %66 = add i32 %57, -16385
-  %or.cond38.us = icmp ult i32 %66, -16353
-  %67 = icmp ugt i32 %59, 4
-  %or.cond41.us = select i1 %or.cond38.us, i1 true, i1 %67
-  %68 = icmp ugt i32 %61, 3
-  %or.cond44.us = select i1 %or.cond41.us, i1 true, i1 %68
-  %69 = extractelement <4 x i32> %63, i64 0
-  %70 = icmp sgt i32 %69, 1
-  %or.cond47.us = select i1 %or.cond44.us, i1 true, i1 %70
-  %71 = extractelement <4 x i32> %63, i64 1
-  %72 = icmp ugt i32 %71, 2048
-  %or.cond50.us = select i1 %or.cond47.us, i1 true, i1 %72
-  %73 = icmp ugt i32 %65, 999999
-  %or.cond53.us = select i1 %or.cond50.us, i1 true, i1 %73
-  br i1 %or.cond53.us, label %.loopexit98, label %74
+  %61 = icmp ugt i32 %60, 3
+  %or.cond44.us = select i1 %or.cond41.us, i1 true, i1 %61
+  %62 = load i32, ptr %18, align 4
+  %63 = icmp sgt i32 %62, 1
+  %or.cond47.us = select i1 %or.cond44.us, i1 true, i1 %63
+  %64 = load i32, ptr %21, align 4
+  %65 = icmp ugt i32 %64, 2048
+  %or.cond50.us = select i1 %or.cond47.us, i1 true, i1 %65
+  %66 = load i32, ptr %24, align 4
+  %67 = icmp ugt i32 %66, 999999
+  %or.cond53.us = select i1 %or.cond50.us, i1 true, i1 %67
+  br i1 %or.cond53.us, label %.loopexit107, label %68
 
-74:                                               ; preds = %55
-  %75 = load ptr, ptr %0, align 8
-  %76 = add nsw i32 %57, -32
-  %77 = call i32 @wtap_read_bytes(ptr noundef %75, ptr noundef null, i32 noundef %76, ptr noundef %1, ptr noundef %2) #4
-  %.not96.us = icmp eq i32 %77, 0
-  br i1 %.not96.us, label %.split101.us, label %53
+68:                                               ; preds = %55
+  %69 = load ptr, ptr %0, align 8
+  %70 = add nsw i32 %56, -32
+  %71 = call i32 @wtap_read_bytes(ptr noundef %69, ptr noundef null, i32 noundef %70, ptr noundef %1, ptr noundef %2) #4
+  %.not105.us = icmp eq i32 %71, 0
+  br i1 %.not105.us, label %.split110.us, label %53
 
-78:                                               ; preds = %46
-  %79 = load i32, ptr %1, align 4
-  %.not92 = icmp eq i32 %79, -12
-  br i1 %.not92, label %.loopexit, label %.loopexit98
+72:                                               ; preds = %.thread, %46
+  %.087121 = phi i32 [ 1, %.thread ], [ 0, %46 ]
+  %73 = load i32, ptr %1, align 4
+  %.not92 = icmp eq i32 %73, -12
+  br i1 %.not92, label %.loopexit, label %.loopexit107
 
-80:                                               ; preds = %99
-  %81 = add nuw nsw i32 %.099, 1
-  %exitcond.not = icmp eq i32 %81, 5
+74:                                               ; preds = %99
+  %75 = add nuw nsw i32 %.0108, 1
+  %exitcond.not = icmp eq i32 %75, 5
   br i1 %exitcond.not, label %.loopexit, label %.preheader.split, !llvm.loop !4
 
-.preheader.split:                                 ; preds = %.preheader, %80
-  %.099 = phi i32 [ %81, %80 ], [ 1, %.preheader ]
-  %82 = load ptr, ptr %0, align 8
-  %83 = call i32 @wtap_read_bytes_or_eof(ptr noundef %82, ptr noundef nonnull %4, i32 noundef 32, ptr noundef %1, ptr noundef %2) #4
-  %.not93 = icmp eq i32 %83, 0
-  br i1 %.not93, label %.split.us, label %86
+.preheader.split:                                 ; preds = %.thread, %74
+  %.0108 = phi i32 [ %75, %74 ], [ 1, %.thread ]
+  %76 = load ptr, ptr %0, align 8
+  %77 = call i32 @wtap_read_bytes_or_eof(ptr noundef %76, ptr noundef nonnull %4, i32 noundef 32, ptr noundef %1, ptr noundef %2) #4
+  %.not93 = icmp eq i32 %77, 0
+  br i1 %.not93, label %.split.us, label %80
 
 .split.us:                                        ; preds = %.preheader.split, %.preheader.split.us
-  %84 = load i32, ptr %1, align 4
-  switch i32 %84, label %.loopexit98 [
+  %.087120124 = phi i32 [ 0, %.preheader.split.us ], [ 1, %.preheader.split ]
+  %78 = load i32, ptr %1, align 4
+  switch i32 %78, label %.loopexit107 [
     i32 0, label %.loopexit
-    i32 -12, label %85
+    i32 -12, label %79
   ]
 
-85:                                               ; preds = %.split.us
-  br label %.loopexit98
+79:                                               ; preds = %.split.us
+  br label %.loopexit107
 
-86:                                               ; preds = %.preheader.split
-  %87 = load i32, ptr %4, align 4
-  %88 = add i32 %87, -16385
-  %or.cond38 = icmp ult i32 %88, -16353
-  %89 = load i32, ptr %12, align 4
-  %90 = icmp ugt i32 %89, 4
-  %or.cond41 = select i1 %or.cond38, i1 true, i1 %90
-  %91 = load i32, ptr %15, align 4
-  %92 = icmp ugt i32 %91, 3
-  %or.cond44 = select i1 %or.cond41, i1 true, i1 %92
-  %93 = load i32, ptr %18, align 4
-  %94 = icmp sgt i32 %93, 1
-  %or.cond47 = select i1 %or.cond44, i1 true, i1 %94
-  %95 = load i32, ptr %21, align 4
-  %96 = icmp ugt i32 %95, 2048
-  %or.cond50 = select i1 %or.cond47, i1 true, i1 %96
-  %97 = load i32, ptr %24, align 4
-  %98 = icmp ugt i32 %97, 999999
+80:                                               ; preds = %.preheader.split
+  %81 = load i32, ptr %4, align 4
+  %82 = call i32 @llvm.bswap.i32(i32 %81)
+  store i32 %82, ptr %4, align 4
+  %83 = load i32, ptr %12, align 4
+  %84 = call i32 @llvm.bswap.i32(i32 %83)
+  store i32 %84, ptr %12, align 4
+  %85 = load i32, ptr %15, align 4
+  %86 = call i32 @llvm.bswap.i32(i32 %85)
+  store i32 %86, ptr %15, align 4
+  %87 = load <4 x i32>, ptr %18, align 4
+  %88 = call <4 x i32> @llvm.bswap.v4i32(<4 x i32> %87)
+  store <4 x i32> %88, ptr %18, align 4
+  %89 = load i32, ptr %24, align 4
+  %90 = call i32 @llvm.bswap.i32(i32 %89)
+  store i32 %90, ptr %24, align 4
+  %91 = add i32 %82, -16385
+  %or.cond38 = icmp ult i32 %91, -16353
+  %92 = icmp ugt i32 %84, 4
+  %or.cond41 = select i1 %or.cond38, i1 true, i1 %92
+  %93 = icmp ugt i32 %86, 3
+  %or.cond44 = select i1 %or.cond41, i1 true, i1 %93
+  %94 = extractelement <4 x i32> %88, i64 0
+  %95 = icmp sgt i32 %94, 1
+  %or.cond47 = select i1 %or.cond44, i1 true, i1 %95
+  %96 = extractelement <4 x i32> %88, i64 1
+  %97 = icmp ugt i32 %96, 2048
+  %or.cond50 = select i1 %or.cond47, i1 true, i1 %97
+  %98 = icmp ugt i32 %90, 999999
   %or.cond53 = select i1 %or.cond50, i1 true, i1 %98
-  br i1 %or.cond53, label %.loopexit98, label %99
+  br i1 %or.cond53, label %.loopexit107, label %99
 
-99:                                               ; preds = %86
+99:                                               ; preds = %80
   %100 = load ptr, ptr %0, align 8
-  %101 = add nsw i32 %87, -32
+  %101 = add nsw i32 %82, -32
   %102 = call i32 @wtap_read_bytes(ptr noundef %100, ptr noundef null, i32 noundef %101, ptr noundef %1, ptr noundef %2) #4
-  %.not96 = icmp eq i32 %102, 0
-  br i1 %.not96, label %.split101.us, label %80
+  %.not105 = icmp eq i32 %102, 0
+  br i1 %.not105, label %.split110.us, label %74
 
-.split101.us:                                     ; preds = %99, %74
+.split110.us:                                     ; preds = %99, %68
+  %.087120125 = phi i32 [ 0, %68 ], [ 1, %99 ]
   %103 = load i32, ptr %1, align 4
-  %.not97 = icmp eq i32 %103, -12
-  br i1 %.not97, label %.loopexit, label %.loopexit98
+  %.not106 = icmp eq i32 %103, -12
+  br i1 %.not106, label %.loopexit, label %.loopexit107
 
-.loopexit:                                        ; preds = %80, %53, %.split.us, %.split101.us, %78
+.loopexit:                                        ; preds = %74, %53, %.split.us, %.split110.us, %72
+  %.087119 = phi i32 [ %.087120124, %.split.us ], [ %.087120125, %.split110.us ], [ %.087121, %72 ], [ 0, %53 ], [ 1, %74 ]
   %104 = load ptr, ptr %0, align 8
   %105 = call i64 @file_seek(ptr noundef %104, i64 noundef 0, i32 noundef 0, ptr noundef %1) #4
   %106 = icmp eq i64 %105, -1
-  br i1 %106, label %.loopexit98, label %107
+  br i1 %106, label %.loopexit107, label %107
 
 107:                                              ; preds = %.loopexit
   %108 = load i32, ptr @i4btrace_file_type_subtype, align 4
@@ -233,16 +238,16 @@ define hidden i32 @i4btrace_open(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   store ptr @i4btrace_seek_read, ptr %113, align 8
   %114 = getelementptr inbounds i8, ptr %0, i64 24
   store i32 0, ptr %114, align 8
-  store i32 %.087, ptr %110, align 4
+  store i32 %.087119, ptr %110, align 4
   %115 = getelementptr inbounds i8, ptr %0, i64 144
   store i32 17, ptr %115, align 8
   %116 = getelementptr inbounds i8, ptr %0, i64 148
   store i32 6, ptr %116, align 4
   call void @wtap_add_generated_idb(ptr noundef nonnull %0) #4
-  br label %.loopexit98
+  br label %.loopexit107
 
-.loopexit98:                                      ; preds = %86, %55, %.loopexit, %.split101.us, %.split.us, %78, %27, %7, %107, %85
-  %.086 = phi i32 [ 1, %107 ], [ 0, %85 ], [ %., %7 ], [ 0, %27 ], [ -1, %78 ], [ -1, %.split.us ], [ -1, %.split101.us ], [ -1, %.loopexit ], [ 0, %55 ], [ 0, %86 ]
+.loopexit107:                                     ; preds = %80, %55, %.loopexit, %.split110.us, %.split.us, %72, %27, %7, %107, %79
+  %.086 = phi i32 [ 1, %107 ], [ 0, %79 ], [ %., %7 ], [ 0, %27 ], [ -1, %72 ], [ -1, %.split.us ], [ -1, %.split110.us ], [ -1, %.loopexit ], [ 0, %55 ], [ 0, %80 ]
   ret i32 %.086
 }
 

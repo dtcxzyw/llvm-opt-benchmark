@@ -1063,8 +1063,8 @@ _ZN3vcg12glMultMatrixERKNS_8Matrix44IfEE.exit:    ; preds = %60
   %84 = getelementptr inbounds i8, ptr %1, i64 16
   %85 = load ptr, ptr %84, align 8
   %86 = load ptr, ptr %83, align 8
-  %.not27.i = icmp eq ptr %85, %86
-  br i1 %.not27.i, label %_ZN3vcg9GLPickTriI6CMeshOE15PickClosestVertEiiRS1_RP8CVertexOii.exit, label %.lr.ph.i
+  %.not31.i = icmp eq ptr %85, %86
+  br i1 %.not31.i, label %_ZN3vcg9GLPickTriI6CMeshOE15PickClosestVertEiiRS1_RP8CVertexOii.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN3vcg12glMultMatrixERKNS_8Matrix44IfEE.exit
   %87 = load float, ptr %8, align 16
@@ -1092,9 +1092,9 @@ _ZN3vcg12glMultMatrixERKNS_8Matrix44IfEE.exit:    ; preds = %60
   br label %107
 
 107:                                              ; preds = %_ZNK3vcg4Box3IfE4IsInERKNS_6Point3IfEE.exit.thread.i, %.lr.ph.i
-  %.026.i = phi float [ 0x47EFFFFFE0000000, %.lr.ph.i ], [ %.1.i, %_ZNK3vcg4Box3IfE4IsInERKNS_6Point3IfEE.exit.thread.i ]
-  %.01825.i = phi i64 [ 0, %.lr.ph.i ], [ %148, %_ZNK3vcg4Box3IfE4IsInERKNS_6Point3IfEE.exit.thread.i ]
-  %108 = getelementptr inbounds %class.CVertexO, ptr %86, i64 %.01825.i
+  %.030.i = phi float [ 0x47EFFFFFE0000000, %.lr.ph.i ], [ %.1.i, %_ZNK3vcg4Box3IfE4IsInERKNS_6Point3IfEE.exit.thread.i ]
+  %.01829.i = phi i64 [ 0, %.lr.ph.i ], [ %148, %_ZNK3vcg4Box3IfE4IsInERKNS_6Point3IfEE.exit.thread.i ]
+  %108 = getelementptr inbounds %class.CVertexO, ptr %86, i64 %.01829.i
   %109 = getelementptr inbounds i8, ptr %108, i64 20
   %110 = load i32, ptr %109, align 4
   %111 = and i32 %110, 1
@@ -1134,7 +1134,7 @@ _ZN3vcg12glMultMatrixERKNS_8Matrix44IfEE.exit:    ; preds = %60
   %.sroa.016.8.vec.extract.i.i = extractelement <4 x float> %133, i64 2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i)
-  %136 = fcmp olt float %.sroa.016.8.vec.extract.i.i, %.026.i
+  %136 = fcmp olt float %.sroa.016.8.vec.extract.i.i, %.030.i
   br i1 %136, label %137, label %_ZNK3vcg4Box3IfE4IsInERKNS_6Point3IfEE.exit.thread.i
 
 137:                                              ; preds = %112
@@ -1147,21 +1147,21 @@ _ZN3vcg12glMultMatrixERKNS_8Matrix44IfEE.exit:    ; preds = %60
   br i1 %or.cond11.i.i, label %_ZNK3vcg4Box3IfE4IsInERKNS_6Point3IfEE.exit.thread.i, label %142
 
 142:                                              ; preds = %137
-  %143 = fcmp ugt float %.sroa.322.0.i, %135
-  %144 = fcmp ugt float %135, %.sroa.11.0.i
-  %or.cond.i.i = or i1 %143, %144
-  %145 = fcmp ult float %.sroa.016.8.vec.extract.i.i, -1.000000e+00
-  %or.cond.i = or i1 %145, %or.cond.i.i
-  %146 = fcmp ugt float %.sroa.016.8.vec.extract.i.i, 1.000000e+00
-  %or.cond23.not.i = or i1 %146, %or.cond.i
-  br i1 %or.cond23.not.i, label %_ZNK3vcg4Box3IfE4IsInERKNS_6Point3IfEE.exit.thread.i, label %147
+  %143 = fcmp ole float %.sroa.322.0.i, %135
+  %144 = fcmp ole float %135, %.sroa.11.0.i
+  %or.cond.i.not28.i = and i1 %143, %144
+  %145 = fcmp oge float %.sroa.016.8.vec.extract.i.i, -1.000000e+00
+  %or.cond.not25.i = and i1 %145, %or.cond.i.not28.i
+  %146 = fcmp ole float %.sroa.016.8.vec.extract.i.i, 1.000000e+00
+  %or.cond23.i = and i1 %146, %or.cond.not25.i
+  br i1 %or.cond23.i, label %147, label %_ZNK3vcg4Box3IfE4IsInERKNS_6Point3IfEE.exit.thread.i
 
 147:                                              ; preds = %142
   br label %_ZNK3vcg4Box3IfE4IsInERKNS_6Point3IfEE.exit.thread.i
 
 _ZNK3vcg4Box3IfE4IsInERKNS_6Point3IfEE.exit.thread.i: ; preds = %147, %142, %137, %112, %107
-  %.1.i = phi float [ %.026.i, %107 ], [ %.sroa.016.8.vec.extract.i.i, %147 ], [ %.026.i, %112 ], [ %.026.i, %142 ], [ %.026.i, %137 ]
-  %148 = add nuw i64 %.01825.i, 1
+  %.1.i = phi float [ %.030.i, %107 ], [ %.sroa.016.8.vec.extract.i.i, %147 ], [ %.030.i, %112 ], [ %.030.i, %142 ], [ %.030.i, %137 ]
+  %148 = add nuw i64 %.01829.i, 1
   %exitcond.not = icmp eq i64 %148, %umax
   br i1 %exitcond.not, label %_ZN3vcg9GLPickTriI6CMeshOE15PickClosestVertEiiRS1_RP8CVertexOii.exit, label %107, !llvm.loop !18
 

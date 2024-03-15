@@ -842,11 +842,11 @@ define linkonce_odr void @_ZN5draco32SequentialNormalAttributeEncoder25CreateInt
   store i32 %17, ptr %4, align 4
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
   %18 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %5)
-          to label %.noexc unwind label %69
+          to label %.noexc unwind label %68
 
 .noexc:                                           ; preds = %3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %18, ptr noundef nonnull align 1 dereferenceable(1) %6)
-          to label %.noexc15 unwind label %69
+          to label %.noexc15 unwind label %68
 
 .noexc15:                                         ; preds = %.noexc
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds ([18 x i8], ptr @.str, i64 0, i64 17))
@@ -860,173 +860,173 @@ define linkonce_odr void @_ZN5draco32SequentialNormalAttributeEncoder25CreateInt
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc15
   %21 = invoke noundef i32 @_ZNK5draco12DracoOptionsIiE15GetAttributeIntERKiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(96) %15, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef -1)
-          to label %22 unwind label %71
+          to label %22 unwind label %70
 
 22:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
   %notmask = shl nsw i32 -1, %21
-  %23 = xor i32 %notmask, -1
   store i32 -1, ptr %7, align 4
-  %24 = getelementptr inbounds i8, ptr %7, i64 4
+  %23 = getelementptr inbounds i8, ptr %7, i64 4
+  store i32 -1, ptr %23, align 4
+  %24 = getelementptr inbounds i8, ptr %7, i64 8
   store i32 -1, ptr %24, align 4
-  %25 = getelementptr inbounds i8, ptr %7, i64 8
-  store i32 -1, ptr %25, align 4
-  %26 = getelementptr inbounds i8, ptr %7, i64 12
-  store float 1.000000e+00, ptr %26, align 4
-  %27 = getelementptr inbounds i8, ptr %7, i64 16
-  store i32 -1, ptr %27, align 4
-  %28 = and i32 %23, 1
-  %29 = icmp eq i32 %28, 0
-  br i1 %29, label %_ZN5draco62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEC2Ei.exit, label %30
+  %25 = getelementptr inbounds i8, ptr %7, i64 12
+  store float 1.000000e+00, ptr %25, align 4
+  %26 = getelementptr inbounds i8, ptr %7, i64 16
+  store i32 -1, ptr %26, align 4
+  %27 = and i32 %notmask, 1
+  %.not = icmp eq i32 %27, 0
+  br i1 %.not, label %28, label %_ZN5draco62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEC2Ei.exit
 
-30:                                               ; preds = %22
-  %31 = call i32 @llvm.ctlz.i32(i32 %23, i1 true), !range !7
-  %32 = add nsw i32 %31, -2
-  %or.cond.i.i.i.i.i = icmp ult i32 %32, 29
-  br i1 %or.cond.i.i.i.i.i, label %33, label %_ZN5draco62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEC2Ei.exit
+28:                                               ; preds = %22
+  %29 = xor i32 %notmask, -1
+  %30 = call i32 @llvm.ctlz.i32(i32 %29, i1 true), !range !7
+  %31 = add nsw i32 %30, -2
+  %or.cond.i.i.i.i.i = icmp ult i32 %31, 29
+  br i1 %or.cond.i.i.i.i.i, label %32, label %_ZN5draco62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEC2Ei.exit
 
-33:                                               ; preds = %30
-  %34 = sub nuw nsw i32 32, %31
-  store i32 %34, ptr %7, align 4
-  %notmask.i.i.i.i.i = shl nsw i32 -1, %34
-  %35 = xor i32 %notmask.i.i.i.i.i, -1
+32:                                               ; preds = %28
+  %33 = sub nuw nsw i32 32, %30
+  store i32 %33, ptr %7, align 4
+  %notmask.i.i.i.i.i = shl nsw i32 -1, %33
+  %34 = xor i32 %notmask.i.i.i.i.i, -1
+  store i32 %34, ptr %23, align 4
+  %35 = sub nuw nsw i32 -2, %notmask.i.i.i.i.i
   store i32 %35, ptr %24, align 4
-  %36 = sub nuw nsw i32 -2, %notmask.i.i.i.i.i
-  store i32 %36, ptr %25, align 4
-  %37 = uitofp i32 %36 to float
-  %38 = fdiv float 2.000000e+00, %37
-  store float %38, ptr %26, align 4
-  %39 = lshr i32 %36, 1
-  store i32 %39, ptr %27, align 4
+  %36 = uitofp i32 %35 to float
+  %37 = fdiv float 2.000000e+00, %36
+  store float %37, ptr %25, align 4
+  %38 = lshr i32 %35, 1
+  store i32 %38, ptr %26, align 4
   br label %_ZN5draco62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEC2Ei.exit
 
-_ZN5draco62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEC2Ei.exit: ; preds = %22, %30, %33
-  %40 = load i32, ptr %16, align 8
-  %41 = load ptr, ptr %12, align 8
-  %42 = call noundef i32 @_ZN5draco22SelectPredictionMethodEiPKNS_17PointCloudEncoderE(i32 noundef %40, ptr noundef %41)
-  %43 = load ptr, ptr %12, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 96
-  %45 = load ptr, ptr %44, align 8
-  %46 = load i32, ptr %16, align 8
-  store i32 %46, ptr %8, align 4
+_ZN5draco62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEC2Ei.exit: ; preds = %22, %28, %32
+  %39 = load i32, ptr %16, align 8
+  %40 = load ptr, ptr %12, align 8
+  %41 = call noundef i32 @_ZN5draco22SelectPredictionMethodEiPKNS_17PointCloudEncoderE(i32 noundef %39, ptr noundef %40)
+  %42 = load ptr, ptr %12, align 8
+  %43 = getelementptr inbounds i8, ptr %42, i64 96
+  %44 = load ptr, ptr %43, align 8
+  %45 = load i32, ptr %16, align 8
+  store i32 %45, ptr %8, align 4
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #17
-  %47 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %9)
-          to label %.noexc16 unwind label %73
+  %46 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %9)
+          to label %.noexc16 unwind label %72
 
 .noexc16:                                         ; preds = %_ZN5draco62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEC2Ei.exit
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %47, ptr noundef nonnull align 1 dereferenceable(1) %10)
-          to label %.noexc17 unwind label %73
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %46, ptr noundef nonnull align 1 dereferenceable(1) %10)
+          to label %.noexc17 unwind label %72
 
 .noexc17:                                         ; preds = %.noexc16
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds ([18 x i8], ptr @.str.1, i64 0, i64 17))
-          to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit20 unwind label %48
+          to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit20 unwind label %47
 
-48:                                               ; preds = %.noexc17
-  %49 = landingpad { ptr, i32 }
+47:                                               ; preds = %.noexc17
+  %48 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #17
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit20: ; preds = %.noexc17
-  %50 = invoke noundef i32 @_ZNK5draco12DracoOptionsIiE15GetAttributeIntERKiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(96) %45, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef %42)
-          to label %51 unwind label %75
+  %49 = invoke noundef i32 @_ZNK5draco12DracoOptionsIiE15GetAttributeIntERKiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(96) %44, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef %41)
+          to label %50 unwind label %74
 
-51:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit20
+50:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #17
-  switch i32 %50, label %_ZNSt10unique_ptrIN5draco23PredictionSchemeEncoderIiNS0_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEEEESt14default_deleteIS4_EED2Ev.exit [
-    i32 6, label %52
-    i32 0, label %77
+  switch i32 %49, label %_ZNSt10unique_ptrIN5draco23PredictionSchemeEncoderIiNS0_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEEEESt14default_deleteIS4_EED2Ev.exit [
+    i32 6, label %51
+    i32 0, label %76
   ]
 
-52:                                               ; preds = %51
-  %53 = load i32, ptr %16, align 8
-  %54 = load ptr, ptr %12, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 8
-  %56 = load ptr, ptr %55, align 8, !noalias !8
-  %57 = getelementptr inbounds i8, ptr %56, i64 16
-  %58 = sext i32 %53 to i64
-  %59 = load ptr, ptr %57, align 8, !noalias !8
-  %60 = getelementptr inbounds %"class.std::unique_ptr", ptr %59, i64 %58
-  %61 = load ptr, ptr %60, align 8, !noalias !8
-  %62 = load ptr, ptr %54, align 8, !noalias !8
-  %63 = getelementptr inbounds i8, ptr %62, i64 16
-  %64 = load ptr, ptr %63, align 8, !noalias !8
-  %65 = call noundef i32 %64(ptr noundef nonnull align 8 dereferenceable(112) %54), !noalias !8
-  %66 = icmp eq i32 %65, 1
-  br i1 %66, label %67, label %_ZNSt10unique_ptrIN5draco23PredictionSchemeEncoderIiNS0_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEEEESt14default_deleteIS4_EED2Ev.exit.sink.split
+51:                                               ; preds = %50
+  %52 = load i32, ptr %16, align 8
+  %53 = load ptr, ptr %12, align 8
+  %54 = getelementptr inbounds i8, ptr %53, i64 8
+  %55 = load ptr, ptr %54, align 8, !noalias !8
+  %56 = getelementptr inbounds i8, ptr %55, i64 16
+  %57 = sext i32 %52 to i64
+  %58 = load ptr, ptr %56, align 8, !noalias !8
+  %59 = getelementptr inbounds %"class.std::unique_ptr", ptr %58, i64 %57
+  %60 = load ptr, ptr %59, align 8, !noalias !8
+  %61 = load ptr, ptr %53, align 8, !noalias !8
+  %62 = getelementptr inbounds i8, ptr %61, i64 16
+  %63 = load ptr, ptr %62, align 8, !noalias !8
+  %64 = call noundef i32 %63(ptr noundef nonnull align 8 dereferenceable(112) %53), !noalias !8
+  %65 = icmp eq i32 %64, 1
+  br i1 %65, label %66, label %_ZNSt10unique_ptrIN5draco23PredictionSchemeEncoderIiNS0_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEEEESt14default_deleteIS4_EED2Ev.exit.sink.split
 
-67:                                               ; preds = %52
-  call void @_ZN5draco26CreateMeshPredictionSchemeINS_11MeshEncoderENS_23PredictionSchemeEncoderIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEEEENS_34MeshPredictionSchemeEncoderFactoryIiEEEESt10unique_ptrIT0_St14default_deleteIS9_EEPKT_NS_22PredictionSchemeMethodEiRKNS9_9TransformEt(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.66") align 8 %11, ptr noundef nonnull %54, i32 noundef 6, i32 noundef %53, ptr noundef nonnull align 4 dereferenceable(20) %7, i16 noundef zeroext 514)
-  %68 = load ptr, ptr %11, align 8
-  %.not.i = icmp eq ptr %68, null
+66:                                               ; preds = %51
+  call void @_ZN5draco26CreateMeshPredictionSchemeINS_11MeshEncoderENS_23PredictionSchemeEncoderIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEEEENS_34MeshPredictionSchemeEncoderFactoryIiEEEESt10unique_ptrIT0_St14default_deleteIS9_EEPKT_NS_22PredictionSchemeMethodEiRKNS9_9TransformEt(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.66") align 8 %11, ptr noundef nonnull %53, i32 noundef 6, i32 noundef %52, ptr noundef nonnull align 4 dereferenceable(20) %7, i16 noundef zeroext 514)
+  %67 = load ptr, ptr %11, align 8
+  %.not.i = icmp eq ptr %67, null
   br i1 %.not.i, label %_ZNSt10unique_ptrIN5draco23PredictionSchemeEncoderIiNS0_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEEEESt14default_deleteIS4_EED2Ev.exit.sink.split, label %_ZNSt10unique_ptrIN5draco23PredictionSchemeEncoderIiNS0_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEEEESt14default_deleteIS4_EED2Ev.exit
 
-69:                                               ; preds = %.noexc, %3
-  %70 = landingpad { ptr, i32 }
+68:                                               ; preds = %.noexc, %3
+  %69 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-71:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
-  %72 = landingpad { ptr, i32 }
+70:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
+  %71 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
   br label %.body
 
-73:                                               ; preds = %.noexc16, %_ZN5draco62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEC2Ei.exit
-  %74 = landingpad { ptr, i32 }
+72:                                               ; preds = %.noexc16, %_ZN5draco62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEC2Ei.exit
+  %73 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-75:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit20
-  %76 = landingpad { ptr, i32 }
+74:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit20
+  %75 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #17
   br label %.body
 
-77:                                               ; preds = %51
-  %78 = load i32, ptr %16, align 8
-  %79 = load ptr, ptr %12, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 8
-  %81 = load ptr, ptr %80, align 8, !noalias !11
-  %82 = getelementptr inbounds i8, ptr %81, i64 16
-  %83 = sext i32 %78 to i64
-  %84 = load ptr, ptr %82, align 8, !noalias !11
-  %85 = getelementptr inbounds %"class.std::unique_ptr", ptr %84, i64 %83
-  %86 = load ptr, ptr %85, align 8, !noalias !11
-  %87 = load ptr, ptr %79, align 8, !noalias !11
-  %88 = getelementptr inbounds i8, ptr %87, i64 16
-  %89 = load ptr, ptr %88, align 8, !noalias !11
-  %90 = call noundef i32 %89(ptr noundef nonnull align 8 dereferenceable(112) %79), !noalias !11
-  %91 = icmp eq i32 %90, 1
-  br i1 %91, label %92, label %_ZNSt10unique_ptrIN5draco23PredictionSchemeEncoderIiNS0_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEEEESt14default_deleteIS4_EED2Ev.exit.sink.split
+76:                                               ; preds = %50
+  %77 = load i32, ptr %16, align 8
+  %78 = load ptr, ptr %12, align 8
+  %79 = getelementptr inbounds i8, ptr %78, i64 8
+  %80 = load ptr, ptr %79, align 8, !noalias !11
+  %81 = getelementptr inbounds i8, ptr %80, i64 16
+  %82 = sext i32 %77 to i64
+  %83 = load ptr, ptr %81, align 8, !noalias !11
+  %84 = getelementptr inbounds %"class.std::unique_ptr", ptr %83, i64 %82
+  %85 = load ptr, ptr %84, align 8, !noalias !11
+  %86 = load ptr, ptr %78, align 8, !noalias !11
+  %87 = getelementptr inbounds i8, ptr %86, i64 16
+  %88 = load ptr, ptr %87, align 8, !noalias !11
+  %89 = call noundef i32 %88(ptr noundef nonnull align 8 dereferenceable(112) %78), !noalias !11
+  %90 = icmp eq i32 %89, 1
+  br i1 %90, label %91, label %_ZNSt10unique_ptrIN5draco23PredictionSchemeEncoderIiNS0_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEEEESt14default_deleteIS4_EED2Ev.exit.sink.split
 
-92:                                               ; preds = %77
-  %93 = load ptr, ptr %79, align 8, !noalias !14
-  %94 = getelementptr inbounds i8, ptr %93, i64 16
-  %95 = load ptr, ptr %94, align 8, !noalias !14
-  %96 = call noundef i32 %95(ptr noundef nonnull align 8 dereferenceable(128) %79), !noalias !14
+91:                                               ; preds = %76
+  %92 = load ptr, ptr %78, align 8, !noalias !14
+  %93 = getelementptr inbounds i8, ptr %92, i64 16
+  %94 = load ptr, ptr %93, align 8, !noalias !14
+  %95 = call noundef i32 %94(ptr noundef nonnull align 8 dereferenceable(128) %78), !noalias !14
   br label %_ZNSt10unique_ptrIN5draco23PredictionSchemeEncoderIiNS0_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEEEESt14default_deleteIS4_EED2Ev.exit.sink.split
 
-_ZNSt10unique_ptrIN5draco23PredictionSchemeEncoderIiNS0_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEEEESt14default_deleteIS4_EED2Ev.exit.sink.split: ; preds = %77, %92, %52, %67
-  %.sink34 = phi ptr [ %61, %67 ], [ %61, %52 ], [ %86, %92 ], [ %86, %77 ]
-  %97 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20
-  %98 = getelementptr inbounds i8, ptr %97, i64 8
-  store ptr %.sink34, ptr %98, align 8
-  %99 = getelementptr inbounds i8, ptr %97, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %99, ptr noundef nonnull align 4 dereferenceable(20) %7, i64 20, i1 false)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5draco28PredictionSchemeDeltaEncoderIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEEEE, i64 0, inrange i32 0, i64 2), ptr %97, align 8
+_ZNSt10unique_ptrIN5draco23PredictionSchemeEncoderIiNS0_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEEEESt14default_deleteIS4_EED2Ev.exit.sink.split: ; preds = %76, %91, %51, %66
+  %.sink34 = phi ptr [ %60, %66 ], [ %60, %51 ], [ %85, %91 ], [ %85, %76 ]
+  %96 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20
+  %97 = getelementptr inbounds i8, ptr %96, i64 8
+  store ptr %.sink34, ptr %97, align 8
+  %98 = getelementptr inbounds i8, ptr %96, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %98, ptr noundef nonnull align 4 dereferenceable(20) %7, i64 20, i1 false)
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5draco28PredictionSchemeDeltaEncoderIiNS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEEEE, i64 0, inrange i32 0, i64 2), ptr %96, align 8
   br label %_ZNSt10unique_ptrIN5draco23PredictionSchemeEncoderIiNS0_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEEEESt14default_deleteIS4_EED2Ev.exit
 
-_ZNSt10unique_ptrIN5draco23PredictionSchemeEncoderIiNS0_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEEEESt14default_deleteIS4_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN5draco23PredictionSchemeEncoderIiNS0_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEEEESt14default_deleteIS4_EED2Ev.exit.sink.split, %51, %67
-  %.sink = phi ptr [ %68, %67 ], [ null, %51 ], [ %97, %_ZNSt10unique_ptrIN5draco23PredictionSchemeEncoderIiNS0_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEEEESt14default_deleteIS4_EED2Ev.exit.sink.split ]
+_ZNSt10unique_ptrIN5draco23PredictionSchemeEncoderIiNS0_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEEEESt14default_deleteIS4_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN5draco23PredictionSchemeEncoderIiNS0_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEEEESt14default_deleteIS4_EED2Ev.exit.sink.split, %50, %66
+  %.sink = phi ptr [ %67, %66 ], [ null, %50 ], [ %96, %_ZNSt10unique_ptrIN5draco23PredictionSchemeEncoderIiNS0_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEEEESt14default_deleteIS4_EED2Ev.exit.sink.split ]
   store ptr %.sink, ptr %0, align 8
   ret void
 
-.body:                                            ; preds = %75, %48, %73, %71, %19, %69
-  %.sink30 = phi ptr [ %6, %69 ], [ %6, %19 ], [ %6, %71 ], [ %10, %73 ], [ %10, %48 ], [ %10, %75 ]
-  %.pn12.pn = phi { ptr, i32 } [ %70, %69 ], [ %20, %19 ], [ %72, %71 ], [ %74, %73 ], [ %49, %48 ], [ %76, %75 ]
+.body:                                            ; preds = %74, %47, %72, %70, %19, %68
+  %.sink30 = phi ptr [ %6, %68 ], [ %6, %19 ], [ %6, %70 ], [ %10, %72 ], [ %10, %47 ], [ %10, %74 ]
+  %.pn12.pn = phi { ptr, i32 } [ %69, %68 ], [ %20, %19 ], [ %71, %70 ], [ %73, %72 ], [ %48, %47 ], [ %75, %74 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink30) #17
   resume { ptr, i32 } %.pn12.pn
 }

@@ -1317,13 +1317,12 @@ define void @ADIOI_P2PContigReadAggregation(ptr noundef %0, ptr noundef %1, ptr 
   br label %256
 
 251:                                              ; preds = %.lr.ph567
-  %.not495 = icmp slt i64 %245, %.2449
-  %.not496 = icmp sgt i64 %245, %.4444
-  %or.cond532 = select i1 %.not495, i1 true, i1 %.not496
-  %.not493.not = xor i1 %.not493, true
-  %brmerge = or i1 %or.cond532, %.not493.not
-  %.mux = select i1 %or.cond532, i32 0, i32 %243
-  br i1 %brmerge, label %256, label %252
+  %.not495 = icmp sge i64 %245, %.2449
+  %.not496 = icmp sle i64 %245, %.4444
+  %or.cond532.not640 = select i1 %.not495, i1 %.not496, i1 false
+  %brmerge.not = and i1 %or.cond532.not640, %.not493
+  %.mux = select i1 %or.cond532.not640, i32 %243, i32 0
+  br i1 %brmerge.not, label %252, label %256
 
 252:                                              ; preds = %251
   %253 = sub nsw i64 %241, %.2449

@@ -3507,8 +3507,8 @@ _ZN3ue2L14is_cyclic_nearERKNS_7raw_dfaEt.exit.i.i: ; preds = %for.inc30.i.i.i, %
 if.end.i.i:                                       ; preds = %_ZN3ue2L14is_cyclic_nearERKNS_7raw_dfaEt.exit.i.i, %land.lhs.true.i.i, %_ZNSt6vectorItSaItEE9push_backERKt.exit.i.i
   %101 = load i16, ptr %start_floating.i.i, align 2
   %102 = add i16 %101, -1
-  %or.cond89.not.i.i = icmp ult i16 %102, %curr_id.tr.i.i
-  br i1 %or.cond89.not.i.i, label %land.lhs.true13.i.i, label %if.end20.i.i
+  %or.cond88.not.i.i = icmp ult i16 %102, %curr_id.tr.i.i
+  br i1 %or.cond88.not.i.i, label %land.lhs.true13.i.i, label %if.end20.i.i
 
 land.lhs.true13.i.i:                              ; preds = %if.end.i.i
   %conv6.i.i = zext i16 %101 to i32
@@ -3524,8 +3524,8 @@ if.end20.i.i:                                     ; preds = %land.lhs.true13.i.i
   %cmp28.i.i = icmp eq i16 %101, %curr_id.tr.i.i
   %or.cond.i.i = or i1 %cmp24.i.i, %cmp28.i.i
   %cmp13.not.i.i.i = icmp eq i16 %94, 0
-  %or.cond101.i.i = select i1 %or.cond.i.i, i1 true, i1 %cmp13.not.i.i.i
-  br i1 %or.cond101.i.i, label %invoke.cont45.i, label %for.body.lr.ph.i25.i.i
+  %or.cond100.i.i = select i1 %or.cond.i.i, i1 true, i1 %cmp13.not.i.i.i
+  br i1 %or.cond100.i.i, label %invoke.cont45.i, label %for.body.lr.ph.i25.i.i
 
 for.body.lr.ph.i25.i.i:                           ; preds = %if.end20.i.i
   %conv2.i26.i.i = zext i16 %curr_id.tr.i.i to i64
@@ -3710,23 +3710,22 @@ if.end38.i.i:                                     ; preds = %_ZN3ue2L12check_cir
   br label %for.body.i50.i.i
 
 for.body.i50.i.i:                                 ; preds = %for.body.i50.i.i, %if.end38.i.i
-  %indvars.iv.i51.i.i = phi i64 [ 0, %if.end38.i.i ], [ %indvars.iv.next.i53.i.i, %for.body.i50.i.i ]
-  %score.02.i.i.i = phi i16 [ 0, %if.end38.i.i ], [ %score.1.i.i.i, %for.body.i50.i.i ]
+  %indvars.iv.i51.i.i = phi i64 [ 0, %if.end38.i.i ], [ %indvars.iv.next.i52.i.i, %for.body.i50.i.i ]
+  %score.03.i.i.i = phi i16 [ 0, %if.end38.i.i ], [ %score.1.i.i.i, %for.body.i50.i.i ]
   %add.ptr.i21.i.i.i = getelementptr inbounds i16, ptr %121, i64 %indvars.iv.i51.i.i
   %125 = load i16, ptr %add.ptr.i21.i.i.i, align 2
   %add.ptr.i22.i.i.i = getelementptr inbounds i16, ptr %122, i64 %indvars.iv.i51.i.i
   %126 = load i16, ptr %add.ptr.i22.i.i.i, align 2
-  %cmp13.i.i.i = icmp ne i16 %125, %126
-  %cmp16.not.i.i.i = icmp eq i64 %indvars.iv.i51.i.i, %124
-  %or.cond.i52.i.i = or i1 %cmp16.not.i.i.i, %cmp13.i.i.i
-  %cmp20.not.i.i.i = icmp eq i64 %indvars.iv.i51.i.i, %123
-  %or.cond19.i.i.i = or i1 %cmp20.not.i.i.i, %or.cond.i52.i.i
-  %not.or.cond19.i.i.i = xor i1 %or.cond19.i.i.i, true
-  %inc.i.i.i = zext i1 %not.or.cond19.i.i.i to i16
-  %score.1.i.i.i = add i16 %score.02.i.i.i, %inc.i.i.i
-  %indvars.iv.next.i53.i.i = add nuw nsw i64 %indvars.iv.i51.i.i, 1
-  %exitcond.not.i54.i.i = icmp eq i64 %indvars.iv.next.i53.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i54.i.i, label %do.end.loopexit.i.i.i, label %for.body.i50.i.i, !llvm.loop !170
+  %cmp13.i.i.i = icmp eq i16 %125, %126
+  %cmp16.not.i.i.i = icmp ne i64 %indvars.iv.i51.i.i, %124
+  %or.cond.not1.i.i.i = and i1 %cmp16.not.i.i.i, %cmp13.i.i.i
+  %cmp20.not.i.i.i = icmp ne i64 %indvars.iv.i51.i.i, %123
+  %or.cond19.not.i.i.i = and i1 %cmp20.not.i.i.i, %or.cond.not1.i.i.i
+  %inc.i.i.i = zext i1 %or.cond19.not.i.i.i to i16
+  %score.1.i.i.i = add i16 %score.03.i.i.i, %inc.i.i.i
+  %indvars.iv.next.i52.i.i = add nuw nsw i64 %indvars.iv.i51.i.i, 1
+  %exitcond.not.i53.i.i = icmp eq i64 %indvars.iv.next.i52.i.i, %wide.trip.count.i.i.i
+  br i1 %exitcond.not.i53.i.i, label %do.end.loopexit.i.i.i, label %for.body.i50.i.i, !llvm.loop !170
 
 do.end.loopexit.i.i.i:                            ; preds = %for.body.i50.i.i
   %127 = zext i16 %score.1.i.i.i to i32
@@ -3759,10 +3758,10 @@ do.end43.i.i:                                     ; preds = %land.lhs.true43.i.i
   br i1 %tobool.not.i.i.i52.i, label %lor.lhs.false47.i.i, label %invoke.cont45.i
 
 lor.lhs.false47.i.i:                              ; preds = %do.end43.i.i
-  %m_size.i.i56.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i46.i.i, i64 72
-  %131 = load i64, ptr %m_size.i.i56.i.i, align 8
-  %tobool.not.i.i57.i.i = icmp eq i64 %131, 0
-  br i1 %tobool.not.i.i57.i.i, label %tailrecurse.i.i, label %invoke.cont45.i
+  %m_size.i.i55.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i46.i.i, i64 72
+  %131 = load i64, ptr %m_size.i.i55.i.i, align 8
+  %tobool.not.i.i56.i.i = icmp eq i64 %131, 0
+  br i1 %tobool.not.i.i56.i.i, label %tailrecurse.i.i, label %invoke.cont45.i
 
 invoke.cont45.i:                                  ; preds = %lor.lhs.false47.i.i, %do.end43.i.i, %land.lhs.true43.i.i.i, %land.lhs.true29.i.i.i, %land.lhs.true25.i.i.i, %_ZN3ue2L12check_circleERKNS_12_GLOBAL__N_111DfaPrevInfoEtRKSt6vectorItSaItEEt.exit.i.i, %_ZN3ue2L15check_property1ERKNS_12_GLOBAL__N_111DfaPrevInfoEttRtS4_.exit.i.i, %if.end20.i.i, %land.lhs.true13.i.i, %_ZN3ue2L14is_cyclic_nearERKNS_7raw_dfaEt.exit.i.i
   %132 = load ptr, ptr %temp_chain.i, align 8

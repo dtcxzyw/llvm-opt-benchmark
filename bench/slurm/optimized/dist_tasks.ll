@@ -827,14 +827,14 @@ define noundef i32 @lllp_distribution(ptr noundef %0, i32 noundef %1, ptr nounde
   br i1 %77, label %81, label %96
 
 81:                                               ; preds = %75
-  br i1 %80, label %82, label %.thread211
+  br i1 %80, label %82, label %.thread213
 
 82:                                               ; preds = %81
   %83 = load i16, ptr %66, align 8
   %84 = zext i16 %83 to i32
   %85 = and i32 %84, 384
   %or.cond142 = icmp eq i32 %85, 0
-  br i1 %or.cond142, label %86, label %.thread210
+  br i1 %or.cond142, label %86, label %.thread212
 
 86:                                               ; preds = %82
   %87 = and i32 %84, 32
@@ -863,16 +863,16 @@ define noundef i32 @lllp_distribution(ptr noundef %0, i32 noundef %1, ptr nounde
   br label %190
 
 96:                                               ; preds = %75
-  br i1 %80, label %.thread210, label %.thread211
+  br i1 %80, label %.thread212, label %.thread213
 
-.thread210:                                       ; preds = %82, %96
+.thread212:                                       ; preds = %82, %96
   %97 = load i16, ptr %66, align 8
   %98 = zext i16 %97 to i32
   %99 = and i32 %98, 256
   %.not140 = icmp eq i32 %99, 0
   br i1 %.not140, label %159, label %100
 
-100:                                              ; preds = %.thread210
+100:                                              ; preds = %.thread212
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %24)
@@ -1044,12 +1044,12 @@ _validate_mask.exit:                              ; preds = %103, %105, %108, %1
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %24)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %25)
   call void @llvm.lifetime.end.p0(i64 257, ptr nonnull %26)
-  br label %.thread211
+  br label %.thread213
 
-159:                                              ; preds = %.thread210
+159:                                              ; preds = %.thread212
   %160 = and i32 %98, 128
   %.not141 = icmp eq i32 %160, 0
-  br i1 %.not141, label %.thread211, label %161
+  br i1 %.not141, label %.thread213, label %161
 
 161:                                              ; preds = %159
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19)
@@ -1134,15 +1134,15 @@ _validate_map.exit:                               ; preds = %164, %166, %169, %1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %21)
-  br label %.thread211
+  br label %.thread213
 
-.thread211:                                       ; preds = %81, %_validate_mask.exit, %_validate_map.exit, %159, %96
+.thread213:                                       ; preds = %81, %_validate_mask.exit, %_validate_map.exit, %159, %96
   %.1 = phi i32 [ %.0.i, %_validate_mask.exit ], [ %.0.i151, %_validate_map.exit ], [ 0, %159 ], [ 0, %96 ], [ 0, %81 ]
   call void @slurm_xfree(ptr noundef nonnull %35) #8
   br label %190
 
-190:                                              ; preds = %72, %74, %91, %.thread211
-  %.2 = phi i32 [ %.1, %.thread211 ], [ %.0109, %91 ], [ 4032, %74 ], [ 4032, %72 ]
+190:                                              ; preds = %72, %74, %91, %.thread213
+  %.2 = phi i32 [ %.1, %.thread213 ], [ %.0109, %91 ], [ 4032, %74 ], [ 4032, %72 ]
   %191 = load i16, ptr %66, align 8
   %192 = zext i16 %191 to i32
   call void @slurm_sprint_cpu_bind_type(ptr noundef nonnull %28, i32 noundef %192) #8
@@ -1172,8 +1172,8 @@ _validate_map.exit:                               ; preds = %164, %166, %169, %1
   store ptr %207, ptr %36, align 8
   %208 = tail call i32 @slurm_get_log_level() #8
   %209 = icmp sgt i32 %208, 4
-  %.pre206 = load i32, ptr %30, align 4
-  %.pre207 = load i32, ptr %33, align 4
+  %.pre208 = load i32, ptr %30, align 4
+  %.pre209 = load i32, ptr %33, align 4
   br i1 %209, label %210, label %215
 
 210:                                              ; preds = %200
@@ -1181,28 +1181,28 @@ _validate_map.exit:                               ; preds = %164, %166, %169, %1
   %212 = load i32, ptr %31, align 4
   %213 = load i32, ptr %34, align 4
   %214 = load i32, ptr %32, align 4
-  tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef 5, ptr noundef nonnull @.str.6, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.lllp_distribution, i32 noundef %206, i32 noundef %211, i32 noundef %.pre206, i32 noundef %.pre207, i32 noundef %212, i32 noundef %213, i32 noundef %214) #8
+  tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef 5, ptr noundef nonnull @.str.6, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.lllp_distribution, i32 noundef %206, i32 noundef %211, i32 noundef %.pre208, i32 noundef %.pre209, i32 noundef %212, i32 noundef %213, i32 noundef %214) #8
   br label %215
 
 215:                                              ; preds = %210, %200
-  %216 = icmp eq i32 %206, %.pre206
-  %217 = icmp eq i32 %.pre207, 0
+  %216 = icmp eq i32 %206, %.pre208
+  %217 = icmp eq i32 %.pre209, 0
   %or.cond = select i1 %216, i1 %217, i1 false
   br i1 %or.cond, label %256, label %218
 
 218:                                              ; preds = %215
   %219 = getelementptr inbounds i8, ptr %0, i64 468
   %220 = load i16, ptr %219, align 4
-  %.not120 = icmp eq i16 %220, -2
-  %221 = icmp ult i16 %220, -32767
-  %or.cond144 = or i1 %.not120, %221
+  %.not120 = icmp ne i16 %220, -2
+  %221 = icmp ugt i16 %220, -32768
+  %or.cond144.not199 = and i1 %.not120, %221
   %222 = and i16 %220, 32767
-  %.not123197 = icmp eq i16 %222, 0
-  %.not123 = or i1 %or.cond144, %.not123197
-  %223 = add nsw i32 %.pre207, %.pre206
-  %224 = icmp ne i32 %206, %223
-  %or.cond146.not = select i1 %.not123, i1 true, i1 %224
-  br i1 %or.cond146.not, label %225, label %256
+  %.not123197 = icmp ne i16 %222, 0
+  %.not123.not198 = and i1 %or.cond144.not199, %.not123197
+  %223 = add nsw i32 %.pre209, %.pre208
+  %224 = icmp eq i32 %206, %223
+  %or.cond146 = select i1 %.not123.not198, i1 %224, i1 false
+  br i1 %or.cond146, label %256, label %225
 
 225:                                              ; preds = %218
   %226 = load i32, ptr %31, align 4
@@ -1214,9 +1214,9 @@ _validate_map.exit:                               ; preds = %164, %166, %169, %1
 
 230:                                              ; preds = %225
   %231 = add nsw i32 %228, %226
-  %232 = icmp ne i32 %206, %231
-  %or.cond149.not = select i1 %.not123, i1 true, i1 %232
-  br i1 %or.cond149.not, label %233, label %256
+  %232 = icmp eq i32 %206, %231
+  %or.cond149 = select i1 %.not123.not198, i1 %232, i1 false
+  br i1 %or.cond149, label %256, label %233
 
 233:                                              ; preds = %230
   %234 = load i32, ptr %32, align 4
@@ -1241,10 +1241,10 @@ _validate_map.exit:                               ; preds = %164, %166, %169, %1
 
 243:                                              ; preds = %241
   %.not127 = icmp eq ptr %207, null
-  br i1 %.not127, label %._crit_edge208, label %244
+  br i1 %.not127, label %._crit_edge210, label %244
 
-._crit_edge208:                                   ; preds = %243
-  %.pre209 = load i16, ptr %66, align 8
+._crit_edge210:                                   ; preds = %243
+  %.pre211 = load i16, ptr %66, align 8
   br label %248
 
 244:                                              ; preds = %243
@@ -1256,8 +1256,8 @@ _validate_map.exit:                               ; preds = %164, %166, %169, %1
   store i16 %247, ptr %66, align 8
   br label %248
 
-248:                                              ; preds = %._crit_edge208, %244
-  %249 = phi i16 [ %.pre209, %._crit_edge208 ], [ %247, %244 ]
+248:                                              ; preds = %._crit_edge210, %244
+  %249 = phi i16 [ %.pre211, %._crit_edge210 ], [ %247, %244 ]
   %250 = zext i16 %249 to i32
   call void @slurm_sprint_cpu_bind_type(ptr noundef nonnull %28, i32 noundef %250) #8
   %251 = call i32 @slurm_get_log_level() #8
@@ -1271,10 +1271,10 @@ _validate_map.exit:                               ; preds = %164, %166, %169, %1
   br label %646
 
 256:                                              ; preds = %241, %239, %236, %233, %225, %230, %215, %218
-  %.sink218 = phi i16 [ 8, %218 ], [ 8, %215 ], [ 4, %230 ], [ 4, %225 ], [ 2, %233 ], [ 2, %236 ], [ 4, %239 ], [ 8, %241 ]
+  %.sink220 = phi i16 [ 8, %218 ], [ 8, %215 ], [ 4, %230 ], [ 4, %225 ], [ 2, %233 ], [ 2, %236 ], [ 4, %239 ], [ 8, %241 ]
   %.0111 = phi ptr [ @.str.10, %218 ], [ @.str.10, %215 ], [ @.str.10, %230 ], [ @.str.10, %225 ], [ @.str.10, %233 ], [ @.str.9, %236 ], [ @.str.9, %239 ], [ @.str.9, %241 ]
   %257 = load i16, ptr %66, align 8
-  %258 = or i16 %257, %.sink218
+  %258 = or i16 %257, %.sink220
   store i16 %258, ptr %66, align 8
   call void @slurm_xfree(ptr noundef nonnull %36) #8
   %259 = load i16, ptr %66, align 8

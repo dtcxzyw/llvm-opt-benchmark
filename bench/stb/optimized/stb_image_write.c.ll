@@ -5278,13 +5278,13 @@ return:                                           ; preds = %return.sink.split, 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @stbi_write_jpg_core(ptr nocapture noundef readonly %s, i32 noundef %width, i32 noundef %height, i32 noundef %comp, ptr noundef readonly %data, i32 noundef %quality) local_unnamed_addr #4 {
 entry:
+  %c.addr.i195 = alloca i8, align 1
   %c.addr.i193 = alloca i8, align 1
-  %c.addr.i191 = alloca i8, align 1
   %c.addr.i13.i = alloca i8, align 1
   %c.addr.i.i = alloca i8, align 1
+  %c.addr.i191 = alloca i8, align 1
   %c.addr.i189 = alloca i8, align 1
   %c.addr.i187 = alloca i8, align 1
-  %c.addr.i185 = alloca i8, align 1
   %c.addr.i = alloca i8, align 1
   %std_dc_luminance_nrcodes = alloca [17 x i8], align 16
   %std_dc_luminance_values = alloca [12 x i8], align 1
@@ -5319,15 +5319,15 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %std_dc_chrominance_values, ptr noundef nonnull align 1 dereferenceable(12) @__const.stbi_write_jpg_core.std_dc_chrominance_values, i64 12, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(17) %std_ac_chrominance_nrcodes, ptr noundef nonnull align 16 dereferenceable(17) @__const.stbi_write_jpg_core.std_ac_chrominance_nrcodes, i64 17, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(162) %std_ac_chrominance_values, ptr noundef nonnull align 16 dereferenceable(162) @__const.stbi_write_jpg_core.std_ac_chrominance_values, i64 162, i1 false)
-  %tobool = icmp ne ptr %data, null
-  %tobool1 = icmp ne i32 %width, 0
-  %or.cond = and i1 %tobool1, %tobool
-  %tobool3 = icmp ne i32 %height, 0
-  %or.cond1 = and i1 %tobool3, %or.cond
-  %0 = add i32 %comp, -1
-  %1 = icmp ult i32 %0, 4
-  %or.cond3.not = and i1 %1, %or.cond1
-  br i1 %or.cond3.not, label %if.end, label %return
+  %tobool = icmp eq ptr %data, null
+  %tobool1 = icmp eq i32 %width, 0
+  %or.cond.not184 = or i1 %tobool1, %tobool
+  %tobool3 = icmp eq i32 %height, 0
+  %or.cond1.not183 = or i1 %tobool3, %or.cond.not184
+  %0 = add i32 %comp, -5
+  %1 = icmp ult i32 %0, -4
+  %or.cond3 = or i1 %1, %or.cond1.not183
+  br i1 %or.cond3, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %tobool7.not = icmp eq i32 %quality, 0
@@ -5340,8 +5340,8 @@ if.end:                                           ; preds = %entry
 
 cond.true21:                                      ; preds = %if.end
   %div.rhs.trunc = trunc i32 %cond19 to i16
-  %div195 = udiv i16 5000, %div.rhs.trunc
-  %div.zext = zext nneg i16 %div195 to i32
+  %div197 = udiv i16 5000, %div.rhs.trunc
+  %div.zext = zext nneg i16 %div197 to i32
   br label %cond.end23
 
 cond.false22:                                     ; preds = %if.end
@@ -5383,29 +5383,29 @@ for.body:                                         ; preds = %cond.end23, %for.bo
   br i1 %exitcond.not, label %for.cond68.preheader, label %for.body, !llvm.loop !59
 
 for.cond68.preheader:                             ; preds = %for.body, %for.inc106
-  %indvars.iv289 = phi i64 [ %indvars.iv.next290, %for.inc106 ], [ 0, %for.body ]
-  %k.0200 = phi i64 [ %indvars.iv.next284, %for.inc106 ], [ 0, %for.body ]
-  %arrayidx79 = getelementptr inbounds [8 x float], ptr @__const.stbi_write_jpg_core.aasf, i64 0, i64 %indvars.iv289
+  %indvars.iv291 = phi i64 [ %indvars.iv.next292, %for.inc106 ], [ 0, %for.body ]
+  %k.0202 = phi i64 [ %indvars.iv.next286, %for.inc106 ], [ 0, %for.body ]
+  %arrayidx79 = getelementptr inbounds [8 x float], ptr @__const.stbi_write_jpg_core.aasf, i64 0, i64 %indvars.iv291
   %5 = load float, ptr %arrayidx79, align 4
-  %sext = shl i64 %k.0200, 32
+  %sext = shl i64 %k.0202, 32
   %6 = ashr exact i64 %sext, 32
   br label %for.body71
 
 for.body71:                                       ; preds = %for.cond68.preheader, %for.body71
-  %indvars.iv283 = phi i64 [ %6, %for.cond68.preheader ], [ %indvars.iv.next284, %for.body71 ]
-  %indvars.iv281 = phi i64 [ 0, %for.cond68.preheader ], [ %indvars.iv.next282, %for.body71 ]
-  %arrayidx73 = getelementptr inbounds [64 x i8], ptr @stbiw__jpg_ZigZag, i64 0, i64 %indvars.iv283
+  %indvars.iv285 = phi i64 [ %6, %for.cond68.preheader ], [ %indvars.iv.next286, %for.body71 ]
+  %indvars.iv283 = phi i64 [ 0, %for.cond68.preheader ], [ %indvars.iv.next284, %for.body71 ]
+  %arrayidx73 = getelementptr inbounds [64 x i8], ptr @stbiw__jpg_ZigZag, i64 0, i64 %indvars.iv285
   %7 = load i8, ptr %arrayidx73, align 1
   %idxprom74 = zext i8 %7 to i64
   %arrayidx75 = getelementptr inbounds [64 x i8], ptr %YTable, i64 0, i64 %idxprom74
   %8 = load i8, ptr %arrayidx75, align 1
   %conv77 = uitofp i8 %8 to float
   %mul80 = fmul float %5, %conv77
-  %arrayidx82 = getelementptr inbounds [8 x float], ptr @__const.stbi_write_jpg_core.aasf, i64 0, i64 %indvars.iv281
+  %arrayidx82 = getelementptr inbounds [8 x float], ptr @__const.stbi_write_jpg_core.aasf, i64 0, i64 %indvars.iv283
   %9 = load float, ptr %arrayidx82, align 4
   %mul83 = fmul float %mul80, %9
   %div84 = fdiv float 1.000000e+00, %mul83
-  %arrayidx86 = getelementptr inbounds [64 x float], ptr %fdtbl_Y, i64 0, i64 %indvars.iv283
+  %arrayidx86 = getelementptr inbounds [64 x float], ptr %fdtbl_Y, i64 0, i64 %indvars.iv285
   store float %div84, ptr %arrayidx86, align 4
   %arrayidx90 = getelementptr inbounds [64 x i8], ptr %UVTable, i64 0, i64 %idxprom74
   %10 = load i8, ptr %arrayidx90, align 1
@@ -5413,17 +5413,17 @@ for.body71:                                       ; preds = %for.cond68.preheade
   %mul95 = fmul float %5, %conv92
   %mul98 = fmul float %9, %mul95
   %div99 = fdiv float 1.000000e+00, %mul98
-  %arrayidx101 = getelementptr inbounds [64 x float], ptr %fdtbl_UV, i64 0, i64 %indvars.iv283
+  %arrayidx101 = getelementptr inbounds [64 x float], ptr %fdtbl_UV, i64 0, i64 %indvars.iv285
   store float %div99, ptr %arrayidx101, align 4
-  %indvars.iv.next282 = add nuw nsw i64 %indvars.iv281, 1
-  %indvars.iv.next284 = add nsw i64 %indvars.iv283, 1
-  %exitcond288.not = icmp eq i64 %indvars.iv.next282, 8
-  br i1 %exitcond288.not, label %for.inc106, label %for.body71, !llvm.loop !60
+  %indvars.iv.next284 = add nuw nsw i64 %indvars.iv283, 1
+  %indvars.iv.next286 = add nsw i64 %indvars.iv285, 1
+  %exitcond290.not = icmp eq i64 %indvars.iv.next284, 8
+  br i1 %exitcond290.not, label %for.inc106, label %for.body71, !llvm.loop !60
 
 for.inc106:                                       ; preds = %for.body71
-  %indvars.iv.next290 = add nuw nsw i64 %indvars.iv289, 1
-  %exitcond292.not = icmp eq i64 %indvars.iv.next290, 8
-  br i1 %exitcond292.not, label %for.end108, label %for.cond68.preheader, !llvm.loop !61
+  %indvars.iv.next292 = add nuw nsw i64 %indvars.iv291, 1
+  %exitcond294.not = icmp eq i64 %indvars.iv.next292, 8
+  br i1 %exitcond294.not, label %for.end108, label %for.cond68.preheader, !llvm.loop !61
 
 for.end108:                                       ; preds = %for.inc106
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(25) %head0, ptr noundef nonnull align 16 dereferenceable(25) @__const.stbi_write_jpg_core.head0, i64 25, i1 false)
@@ -5482,12 +5482,12 @@ for.end108:                                       ; preds = %for.inc106
   %23 = load ptr, ptr %s, align 8
   %24 = load ptr, ptr %context, align 8
   call void %23(ptr noundef %24, ptr noundef nonnull %std_dc_luminance_values, i32 noundef 12) #26
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %c.addr.i185)
-  store i8 16, ptr %c.addr.i185, align 1
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %c.addr.i187)
+  store i8 16, ptr %c.addr.i187, align 1
   %25 = load ptr, ptr %s, align 8
   %26 = load ptr, ptr %context, align 8
-  call void %25(ptr noundef %26, ptr noundef nonnull %c.addr.i185, i32 noundef 1) #26
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %c.addr.i185)
+  call void %25(ptr noundef %26, ptr noundef nonnull %c.addr.i187, i32 noundef 1) #26
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %c.addr.i187)
   %27 = load ptr, ptr %s, align 8
   %28 = load ptr, ptr %context, align 8
   %add.ptr158 = getelementptr inbounds i8, ptr %std_ac_luminance_nrcodes, i64 1
@@ -5495,12 +5495,12 @@ for.end108:                                       ; preds = %for.inc106
   %29 = load ptr, ptr %s, align 8
   %30 = load ptr, ptr %context, align 8
   call void %29(ptr noundef %30, ptr noundef nonnull %std_ac_luminance_values, i32 noundef 162) #26
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %c.addr.i187)
-  store i8 1, ptr %c.addr.i187, align 1
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %c.addr.i189)
+  store i8 1, ptr %c.addr.i189, align 1
   %31 = load ptr, ptr %s, align 8
   %32 = load ptr, ptr %context, align 8
-  call void %31(ptr noundef %32, ptr noundef nonnull %c.addr.i187, i32 noundef 1) #26
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %c.addr.i187)
+  call void %31(ptr noundef %32, ptr noundef nonnull %c.addr.i189, i32 noundef 1) #26
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %c.addr.i189)
   %33 = load ptr, ptr %s, align 8
   %34 = load ptr, ptr %context, align 8
   %add.ptr165 = getelementptr inbounds i8, ptr %std_dc_chrominance_nrcodes, i64 1
@@ -5508,12 +5508,12 @@ for.end108:                                       ; preds = %for.inc106
   %35 = load ptr, ptr %s, align 8
   %36 = load ptr, ptr %context, align 8
   call void %35(ptr noundef %36, ptr noundef nonnull %std_dc_chrominance_values, i32 noundef 12) #26
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %c.addr.i189)
-  store i8 17, ptr %c.addr.i189, align 1
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %c.addr.i191)
+  store i8 17, ptr %c.addr.i191, align 1
   %37 = load ptr, ptr %s, align 8
   %38 = load ptr, ptr %context, align 8
-  call void %37(ptr noundef %38, ptr noundef nonnull %c.addr.i189, i32 noundef 1) #26
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %c.addr.i189)
+  call void %37(ptr noundef %38, ptr noundef nonnull %c.addr.i191, i32 noundef 1) #26
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %c.addr.i191)
   %39 = load ptr, ptr %s, align 8
   %40 = load ptr, ptr %context, align 8
   %add.ptr172 = getelementptr inbounds i8, ptr %std_ac_chrominance_nrcodes, i64 1
@@ -5531,121 +5531,121 @@ for.end108:                                       ; preds = %for.inc106
   %idx.ext = zext i1 %cmp179 to i64
   %add.ptr185 = getelementptr inbounds i8, ptr %data, i64 %idx.ext
   %add.ptr187 = getelementptr inbounds i8, ptr %data, i64 %cond184
-  %cmp191270 = icmp sgt i32 %height, 0
+  %cmp191272 = icmp sgt i32 %height, 0
   br i1 %cmp8, label %for.cond190.preheader, label %for.cond359.preheader
 
 for.cond359.preheader:                            ; preds = %for.end108
-  br i1 %cmp191270, label %for.cond363.preheader.lr.ph, label %if.end466
+  br i1 %cmp191272, label %for.cond363.preheader.lr.ph, label %if.end466
 
 for.cond363.preheader.lr.ph:                      ; preds = %for.cond359.preheader
-  %cmp364206 = icmp sgt i32 %width, 0
+  %cmp364208 = icmp sgt i32 %width, 0
   %sub380 = add nsw i32 %height, -1
   %sub403 = add nsw i32 %width, -1
-  br i1 %cmp364206, label %for.cond363.preheader.us, label %if.end466
+  br i1 %cmp364208, label %for.cond363.preheader.us, label %if.end466
 
 for.cond363.preheader.us:                         ; preds = %for.cond363.preheader.lr.ph, %for.cond363.for.inc463_crit_edge.us
-  %indvars.iv297 = phi i32 [ %indvars.iv.next298, %for.cond363.for.inc463_crit_edge.us ], [ 8, %for.cond363.preheader.lr.ph ]
-  %DCY.2217.us = phi i32 [ %call449.us, %for.cond363.for.inc463_crit_edge.us ], [ 0, %for.cond363.preheader.lr.ph ]
-  %DCU.2216.us = phi i32 [ %call454.us, %for.cond363.for.inc463_crit_edge.us ], [ 0, %for.cond363.preheader.lr.ph ]
-  %DCV.2215.us = phi i32 [ %call459.us, %for.cond363.for.inc463_crit_edge.us ], [ 0, %for.cond363.preheader.lr.ph ]
-  %y.1214.us = phi i32 [ %add464.us, %for.cond363.for.inc463_crit_edge.us ], [ 0, %for.cond363.preheader.lr.ph ]
+  %indvars.iv299 = phi i32 [ %indvars.iv.next300, %for.cond363.for.inc463_crit_edge.us ], [ 8, %for.cond363.preheader.lr.ph ]
+  %DCY.2219.us = phi i32 [ %call449.us, %for.cond363.for.inc463_crit_edge.us ], [ 0, %for.cond363.preheader.lr.ph ]
+  %DCU.2218.us = phi i32 [ %call454.us, %for.cond363.for.inc463_crit_edge.us ], [ 0, %for.cond363.preheader.lr.ph ]
+  %DCV.2217.us = phi i32 [ %call459.us, %for.cond363.for.inc463_crit_edge.us ], [ 0, %for.cond363.preheader.lr.ph ]
+  %y.1216.us = phi i32 [ %add464.us, %for.cond363.for.inc463_crit_edge.us ], [ 0, %for.cond363.preheader.lr.ph ]
   br label %for.cond370.preheader.us
 
-for.body374.us219:                                ; preds = %for.cond370.preheader.us, %for.inc442.us225
-  %row.2205.us220 = phi i32 [ %inc443.us227, %for.inc442.us225 ], [ %y.1214.us, %for.cond370.preheader.us ]
-  %pos.4204.us221 = phi i32 [ %47, %for.inc442.us225 ], [ 0, %for.cond370.preheader.us ]
-  %cmp376.us222 = icmp slt i32 %row.2205.us220, %height
-  %45 = sub i32 %sub380, %row.2205.us220
-  %sub387.us = select i1 %cmp376.us222, i32 %45, i32 0
-  %mul391.us224 = mul nsw i32 %sub387.us, %width
-  %46 = sext i32 %pos.4204.us221 to i64
-  %47 = add i32 %pos.4204.us221, 8
-  br label %for.body397.us229
+for.body374.us221:                                ; preds = %for.cond370.preheader.us, %for.inc442.us227
+  %row.2207.us222 = phi i32 [ %inc443.us229, %for.inc442.us227 ], [ %y.1216.us, %for.cond370.preheader.us ]
+  %pos.4206.us223 = phi i32 [ %47, %for.inc442.us227 ], [ 0, %for.cond370.preheader.us ]
+  %cmp376.us224 = icmp slt i32 %row.2207.us222, %height
+  %45 = sub i32 %sub380, %row.2207.us222
+  %sub387.us = select i1 %cmp376.us224, i32 %45, i32 0
+  %mul391.us226 = mul nsw i32 %sub387.us, %width
+  %46 = sext i32 %pos.4206.us223 to i64
+  %47 = add i32 %pos.4206.us223, 8
+  br label %for.body397.us231
 
-for.inc442.us225:                                 ; preds = %for.body397.us229
-  %inc443.us227 = add nuw nsw i32 %row.2205.us220, 1
-  %exitcond299.not = icmp eq i32 %inc443.us227, %indvars.iv297
-  br i1 %exitcond299.not, label %for.end444.us, label %for.body374.us219, !llvm.loop !62
+for.inc442.us227:                                 ; preds = %for.body397.us231
+  %inc443.us229 = add nuw nsw i32 %row.2207.us222, 1
+  %exitcond301.not = icmp eq i32 %inc443.us229, %indvars.iv299
+  br i1 %exitcond301.not, label %for.end444.us, label %for.body374.us221, !llvm.loop !62
 
-for.body397.us229:                                ; preds = %for.body397.us229, %for.body374.us219
-  %indvars.iv293 = phi i64 [ %indvars.iv.next294, %for.body397.us229 ], [ %46, %for.body374.us219 ]
-  %col.2203.us230 = phi i32 [ %inc439.us251, %for.body397.us229 ], [ %x.1207.us, %for.body374.us219 ]
-  %cmp399.us232 = icmp slt i32 %col.2203.us230, %width
-  %cond405.us233 = select i1 %cmp399.us232, i32 %col.2203.us230, i32 %sub403
-  %mul392183.us234 = add i32 %cond405.us233, %mul391.us224
-  %add407.us235 = mul i32 %mul392183.us234, %comp
-  %idxprom409.us236 = sext i32 %add407.us235 to i64
-  %arrayidx410.us237 = getelementptr inbounds i8, ptr %data, i64 %idxprom409.us236
-  %48 = load i8, ptr %arrayidx410.us237, align 1
-  %conv411.us238 = uitofp i8 %48 to float
-  %arrayidx414.us239 = getelementptr inbounds i8, ptr %add.ptr185, i64 %idxprom409.us236
-  %49 = load i8, ptr %arrayidx414.us239, align 1
-  %conv415.us240 = uitofp i8 %49 to float
-  %arrayidx418.us241 = getelementptr inbounds i8, ptr %add.ptr187, i64 %idxprom409.us236
-  %50 = load i8, ptr %arrayidx418.us241, align 1
-  %conv419.us242 = uitofp i8 %50 to float
-  %mul421.us243 = fmul float %conv415.us240, 0x3FE2C8B440000000
-  %51 = call float @llvm.fmuladd.f32(float %conv411.us238, float 0x3FD322D0E0000000, float %mul421.us243)
-  %52 = call float @llvm.fmuladd.f32(float %conv419.us242, float 0x3FBD2F1AA0000000, float %51)
-  %sub423.us244 = fadd float %52, -1.280000e+02
-  %arrayidx425.us246 = getelementptr inbounds [64 x float], ptr %Y367, i64 0, i64 %indvars.iv293
-  store float %sub423.us244, ptr %arrayidx425.us246, align 4
-  %neg428.us247 = fmul float %conv415.us240, 0xBFD5335D20000000
-  %53 = call float @llvm.fmuladd.f32(float %conv411.us238, float 0xBFC59945C0000000, float %neg428.us247)
-  %54 = call float @llvm.fmuladd.f32(float %conv419.us242, float 5.000000e-01, float %53)
-  %arrayidx431.us248 = getelementptr inbounds [64 x float], ptr %U368, i64 0, i64 %indvars.iv293
-  store float %54, ptr %arrayidx431.us248, align 4
-  %neg434.us249 = fmul float %conv415.us240, 0xBFDACBD120000000
-  %55 = call float @llvm.fmuladd.f32(float %conv411.us238, float 5.000000e-01, float %neg434.us249)
-  %56 = call float @llvm.fmuladd.f32(float %conv419.us242, float 0xBFB4D0BB60000000, float %55)
-  %arrayidx437.us250 = getelementptr inbounds [64 x float], ptr %V369, i64 0, i64 %indvars.iv293
-  store float %56, ptr %arrayidx437.us250, align 4
-  %inc439.us251 = add nuw nsw i32 %col.2203.us230, 1
-  %indvars.iv.next294 = add nsw i64 %indvars.iv293, 1
-  %lftr.wideiv = trunc i64 %indvars.iv.next294 to i32
-  %exitcond296.not = icmp eq i32 %47, %lftr.wideiv
-  br i1 %exitcond296.not, label %for.inc442.us225, label %for.body397.us229, !llvm.loop !63
+for.body397.us231:                                ; preds = %for.body397.us231, %for.body374.us221
+  %indvars.iv295 = phi i64 [ %indvars.iv.next296, %for.body397.us231 ], [ %46, %for.body374.us221 ]
+  %col.2205.us232 = phi i32 [ %inc439.us253, %for.body397.us231 ], [ %x.1209.us, %for.body374.us221 ]
+  %cmp399.us234 = icmp slt i32 %col.2205.us232, %width
+  %cond405.us235 = select i1 %cmp399.us234, i32 %col.2205.us232, i32 %sub403
+  %mul392185.us236 = add i32 %cond405.us235, %mul391.us226
+  %add407.us237 = mul i32 %mul392185.us236, %comp
+  %idxprom409.us238 = sext i32 %add407.us237 to i64
+  %arrayidx410.us239 = getelementptr inbounds i8, ptr %data, i64 %idxprom409.us238
+  %48 = load i8, ptr %arrayidx410.us239, align 1
+  %conv411.us240 = uitofp i8 %48 to float
+  %arrayidx414.us241 = getelementptr inbounds i8, ptr %add.ptr185, i64 %idxprom409.us238
+  %49 = load i8, ptr %arrayidx414.us241, align 1
+  %conv415.us242 = uitofp i8 %49 to float
+  %arrayidx418.us243 = getelementptr inbounds i8, ptr %add.ptr187, i64 %idxprom409.us238
+  %50 = load i8, ptr %arrayidx418.us243, align 1
+  %conv419.us244 = uitofp i8 %50 to float
+  %mul421.us245 = fmul float %conv415.us242, 0x3FE2C8B440000000
+  %51 = call float @llvm.fmuladd.f32(float %conv411.us240, float 0x3FD322D0E0000000, float %mul421.us245)
+  %52 = call float @llvm.fmuladd.f32(float %conv419.us244, float 0x3FBD2F1AA0000000, float %51)
+  %sub423.us246 = fadd float %52, -1.280000e+02
+  %arrayidx425.us248 = getelementptr inbounds [64 x float], ptr %Y367, i64 0, i64 %indvars.iv295
+  store float %sub423.us246, ptr %arrayidx425.us248, align 4
+  %neg428.us249 = fmul float %conv415.us242, 0xBFD5335D20000000
+  %53 = call float @llvm.fmuladd.f32(float %conv411.us240, float 0xBFC59945C0000000, float %neg428.us249)
+  %54 = call float @llvm.fmuladd.f32(float %conv419.us244, float 5.000000e-01, float %53)
+  %arrayidx431.us250 = getelementptr inbounds [64 x float], ptr %U368, i64 0, i64 %indvars.iv295
+  store float %54, ptr %arrayidx431.us250, align 4
+  %neg434.us251 = fmul float %conv415.us242, 0xBFDACBD120000000
+  %55 = call float @llvm.fmuladd.f32(float %conv411.us240, float 5.000000e-01, float %neg434.us251)
+  %56 = call float @llvm.fmuladd.f32(float %conv419.us244, float 0xBFB4D0BB60000000, float %55)
+  %arrayidx437.us252 = getelementptr inbounds [64 x float], ptr %V369, i64 0, i64 %indvars.iv295
+  store float %56, ptr %arrayidx437.us252, align 4
+  %inc439.us253 = add nuw nsw i32 %col.2205.us232, 1
+  %indvars.iv.next296 = add nsw i64 %indvars.iv295, 1
+  %lftr.wideiv = trunc i64 %indvars.iv.next296 to i32
+  %exitcond298.not = icmp eq i32 %47, %lftr.wideiv
+  br i1 %exitcond298.not, label %for.inc442.us227, label %for.body397.us231, !llvm.loop !63
 
 for.cond370.preheader.us:                         ; preds = %for.cond363.preheader.us, %for.end444.us
-  %DCY.3210.us = phi i32 [ %DCY.2217.us, %for.cond363.preheader.us ], [ %call449.us, %for.end444.us ]
-  %DCU.3209.us = phi i32 [ %DCU.2216.us, %for.cond363.preheader.us ], [ %call454.us, %for.end444.us ]
-  %DCV.3208.us = phi i32 [ %DCV.2215.us, %for.cond363.preheader.us ], [ %call459.us, %for.end444.us ]
-  %x.1207.us = phi i32 [ 0, %for.cond363.preheader.us ], [ %add461.us, %for.end444.us ]
+  %DCY.3212.us = phi i32 [ %DCY.2219.us, %for.cond363.preheader.us ], [ %call449.us, %for.end444.us ]
+  %DCU.3211.us = phi i32 [ %DCU.2218.us, %for.cond363.preheader.us ], [ %call454.us, %for.end444.us ]
+  %DCV.3210.us = phi i32 [ %DCV.2217.us, %for.cond363.preheader.us ], [ %call459.us, %for.end444.us ]
+  %x.1209.us = phi i32 [ 0, %for.cond363.preheader.us ], [ %add461.us, %for.end444.us ]
   %57 = load i32, ptr @stbi__flip_vertically_on_write, align 4
   %.fr = freeze i32 %57
   %tobool384.not.us = icmp eq i32 %.fr, 0
-  br i1 %tobool384.not.us, label %for.body374.us.us, label %for.body374.us219
+  br i1 %tobool384.not.us, label %for.body374.us.us, label %for.body374.us221
 
-for.end444.us:                                    ; preds = %for.inc442.us225, %for.inc442.us.us
-  %call449.us = call i32 @stbiw__jpg_processDU(ptr noundef nonnull %s, ptr noundef nonnull %bitBuf, ptr noundef nonnull %bitCnt, ptr noundef nonnull %Y367, i32 noundef 8, ptr noundef nonnull %fdtbl_Y, i32 noundef %DCY.3210.us, ptr noundef nonnull @__const.stbi_write_jpg_core.YDC_HT, ptr noundef nonnull @__const.stbi_write_jpg_core.YAC_HT)
-  %call454.us = call i32 @stbiw__jpg_processDU(ptr noundef nonnull %s, ptr noundef nonnull %bitBuf, ptr noundef nonnull %bitCnt, ptr noundef nonnull %U368, i32 noundef 8, ptr noundef nonnull %fdtbl_UV, i32 noundef %DCU.3209.us, ptr noundef nonnull @__const.stbi_write_jpg_core.UVDC_HT, ptr noundef nonnull @__const.stbi_write_jpg_core.UVAC_HT)
-  %call459.us = call i32 @stbiw__jpg_processDU(ptr noundef nonnull %s, ptr noundef nonnull %bitBuf, ptr noundef nonnull %bitCnt, ptr noundef nonnull %V369, i32 noundef 8, ptr noundef nonnull %fdtbl_UV, i32 noundef %DCV.3208.us, ptr noundef nonnull @__const.stbi_write_jpg_core.UVDC_HT, ptr noundef nonnull @__const.stbi_write_jpg_core.UVAC_HT)
-  %add461.us = add nuw nsw i32 %x.1207.us, 8
+for.end444.us:                                    ; preds = %for.inc442.us227, %for.inc442.us.us
+  %call449.us = call i32 @stbiw__jpg_processDU(ptr noundef nonnull %s, ptr noundef nonnull %bitBuf, ptr noundef nonnull %bitCnt, ptr noundef nonnull %Y367, i32 noundef 8, ptr noundef nonnull %fdtbl_Y, i32 noundef %DCY.3212.us, ptr noundef nonnull @__const.stbi_write_jpg_core.YDC_HT, ptr noundef nonnull @__const.stbi_write_jpg_core.YAC_HT)
+  %call454.us = call i32 @stbiw__jpg_processDU(ptr noundef nonnull %s, ptr noundef nonnull %bitBuf, ptr noundef nonnull %bitCnt, ptr noundef nonnull %U368, i32 noundef 8, ptr noundef nonnull %fdtbl_UV, i32 noundef %DCU.3211.us, ptr noundef nonnull @__const.stbi_write_jpg_core.UVDC_HT, ptr noundef nonnull @__const.stbi_write_jpg_core.UVAC_HT)
+  %call459.us = call i32 @stbiw__jpg_processDU(ptr noundef nonnull %s, ptr noundef nonnull %bitBuf, ptr noundef nonnull %bitCnt, ptr noundef nonnull %V369, i32 noundef 8, ptr noundef nonnull %fdtbl_UV, i32 noundef %DCV.3210.us, ptr noundef nonnull @__const.stbi_write_jpg_core.UVDC_HT, ptr noundef nonnull @__const.stbi_write_jpg_core.UVAC_HT)
+  %add461.us = add nuw nsw i32 %x.1209.us, 8
   %cmp364.us = icmp slt i32 %add461.us, %width
   br i1 %cmp364.us, label %for.cond370.preheader.us, label %for.cond363.for.inc463_crit_edge.us, !llvm.loop !64
 
 for.body374.us.us:                                ; preds = %for.cond370.preheader.us, %for.inc442.us.us
-  %row.2205.us.us = phi i32 [ %inc443.us.us, %for.inc442.us.us ], [ %y.1214.us, %for.cond370.preheader.us ]
-  %pos.4204.us.us = phi i32 [ %59, %for.inc442.us.us ], [ 0, %for.cond370.preheader.us ]
-  %cmp376.us.us = icmp slt i32 %row.2205.us.us, %height
-  %cond382.us.us = select i1 %cmp376.us.us, i32 %row.2205.us.us, i32 %sub380
+  %row.2207.us.us = phi i32 [ %inc443.us.us, %for.inc442.us.us ], [ %y.1216.us, %for.cond370.preheader.us ]
+  %pos.4206.us.us = phi i32 [ %59, %for.inc442.us.us ], [ 0, %for.cond370.preheader.us ]
+  %cmp376.us.us = icmp slt i32 %row.2207.us.us, %height
+  %cond382.us.us = select i1 %cmp376.us.us, i32 %row.2207.us.us, i32 %sub380
   %mul391.us.us = mul nsw i32 %cond382.us.us, %width
-  %58 = sext i32 %pos.4204.us.us to i64
-  %59 = add i32 %pos.4204.us.us, 8
+  %58 = sext i32 %pos.4206.us.us to i64
+  %59 = add i32 %pos.4206.us.us, 8
   br label %for.body397.us.us
 
 for.inc442.us.us:                                 ; preds = %for.body397.us.us
-  %inc443.us.us = add nuw nsw i32 %row.2205.us.us, 1
-  %exitcond305.not = icmp eq i32 %inc443.us.us, %indvars.iv297
-  br i1 %exitcond305.not, label %for.end444.us, label %for.body374.us.us, !llvm.loop !62
+  %inc443.us.us = add nuw nsw i32 %row.2207.us.us, 1
+  %exitcond307.not = icmp eq i32 %inc443.us.us, %indvars.iv299
+  br i1 %exitcond307.not, label %for.end444.us, label %for.body374.us.us, !llvm.loop !62
 
 for.body397.us.us:                                ; preds = %for.body397.us.us, %for.body374.us.us
-  %indvars.iv300 = phi i64 [ %indvars.iv.next301, %for.body397.us.us ], [ %58, %for.body374.us.us ]
-  %col.2203.us.us = phi i32 [ %inc439.us.us, %for.body397.us.us ], [ %x.1207.us, %for.body374.us.us ]
-  %cmp399.us.us = icmp slt i32 %col.2203.us.us, %width
-  %cond405.us.us = select i1 %cmp399.us.us, i32 %col.2203.us.us, i32 %sub403
-  %mul392183.us.us = add i32 %cond405.us.us, %mul391.us.us
-  %add407.us.us = mul i32 %mul392183.us.us, %comp
+  %indvars.iv302 = phi i64 [ %indvars.iv.next303, %for.body397.us.us ], [ %58, %for.body374.us.us ]
+  %col.2205.us.us = phi i32 [ %inc439.us.us, %for.body397.us.us ], [ %x.1209.us, %for.body374.us.us ]
+  %cmp399.us.us = icmp slt i32 %col.2205.us.us, %width
+  %cond405.us.us = select i1 %cmp399.us.us, i32 %col.2205.us.us, i32 %sub403
+  %mul392185.us.us = add i32 %cond405.us.us, %mul391.us.us
+  %add407.us.us = mul i32 %mul392185.us.us, %comp
   %idxprom409.us.us = sext i32 %add407.us.us to i64
   %arrayidx410.us.us = getelementptr inbounds i8, ptr %data, i64 %idxprom409.us.us
   %60 = load i8, ptr %arrayidx410.us.us, align 1
@@ -5660,73 +5660,73 @@ for.body397.us.us:                                ; preds = %for.body397.us.us, 
   %63 = call float @llvm.fmuladd.f32(float %conv411.us.us, float 0x3FD322D0E0000000, float %mul421.us.us)
   %64 = call float @llvm.fmuladd.f32(float %conv419.us.us, float 0x3FBD2F1AA0000000, float %63)
   %sub423.us.us = fadd float %64, -1.280000e+02
-  %arrayidx425.us.us = getelementptr inbounds [64 x float], ptr %Y367, i64 0, i64 %indvars.iv300
+  %arrayidx425.us.us = getelementptr inbounds [64 x float], ptr %Y367, i64 0, i64 %indvars.iv302
   store float %sub423.us.us, ptr %arrayidx425.us.us, align 4
   %neg428.us.us = fmul float %conv415.us.us, 0xBFD5335D20000000
   %65 = call float @llvm.fmuladd.f32(float %conv411.us.us, float 0xBFC59945C0000000, float %neg428.us.us)
   %66 = call float @llvm.fmuladd.f32(float %conv419.us.us, float 5.000000e-01, float %65)
-  %arrayidx431.us.us = getelementptr inbounds [64 x float], ptr %U368, i64 0, i64 %indvars.iv300
+  %arrayidx431.us.us = getelementptr inbounds [64 x float], ptr %U368, i64 0, i64 %indvars.iv302
   store float %66, ptr %arrayidx431.us.us, align 4
   %neg434.us.us = fmul float %conv415.us.us, 0xBFDACBD120000000
   %67 = call float @llvm.fmuladd.f32(float %conv411.us.us, float 5.000000e-01, float %neg434.us.us)
   %68 = call float @llvm.fmuladd.f32(float %conv419.us.us, float 0xBFB4D0BB60000000, float %67)
-  %arrayidx437.us.us = getelementptr inbounds [64 x float], ptr %V369, i64 0, i64 %indvars.iv300
+  %arrayidx437.us.us = getelementptr inbounds [64 x float], ptr %V369, i64 0, i64 %indvars.iv302
   store float %68, ptr %arrayidx437.us.us, align 4
-  %inc439.us.us = add nuw nsw i32 %col.2203.us.us, 1
-  %indvars.iv.next301 = add nsw i64 %indvars.iv300, 1
-  %lftr.wideiv303 = trunc i64 %indvars.iv.next301 to i32
-  %exitcond304.not = icmp eq i32 %59, %lftr.wideiv303
-  br i1 %exitcond304.not, label %for.inc442.us.us, label %for.body397.us.us, !llvm.loop !63
+  %inc439.us.us = add nuw nsw i32 %col.2205.us.us, 1
+  %indvars.iv.next303 = add nsw i64 %indvars.iv302, 1
+  %lftr.wideiv305 = trunc i64 %indvars.iv.next303 to i32
+  %exitcond306.not = icmp eq i32 %59, %lftr.wideiv305
+  br i1 %exitcond306.not, label %for.inc442.us.us, label %for.body397.us.us, !llvm.loop !63
 
 for.cond363.for.inc463_crit_edge.us:              ; preds = %for.end444.us
-  %add464.us = add nuw nsw i32 %y.1214.us, 8
+  %add464.us = add nuw nsw i32 %y.1216.us, 8
   %cmp360.us = icmp slt i32 %add464.us, %height
-  %indvars.iv.next298 = add i32 %indvars.iv297, 8
+  %indvars.iv.next300 = add i32 %indvars.iv299, 8
   br i1 %cmp360.us, label %for.cond363.preheader.us, label %if.end466, !llvm.loop !65
 
 for.cond190.preheader:                            ; preds = %for.end108
-  br i1 %cmp191270, label %for.cond194.preheader.lr.ph, label %if.end466
+  br i1 %cmp191272, label %for.cond194.preheader.lr.ph, label %if.end466
 
 for.cond194.preheader.lr.ph:                      ; preds = %for.cond190.preheader
-  %cmp195263 = icmp sgt i32 %width, 0
+  %cmp195265 = icmp sgt i32 %width, 0
   %sub207 = add nsw i32 %height, -1
   %sub228 = add nsw i32 %width, -1
   %add.ptr272 = getelementptr inbounds i8, ptr %Y, i64 32
   %add.ptr278 = getelementptr inbounds i8, ptr %Y, i64 512
   %add.ptr284 = getelementptr inbounds i8, ptr %Y, i64 544
-  br i1 %cmp195263, label %for.cond194.preheader.us, label %if.end466
+  br i1 %cmp195265, label %for.cond194.preheader.us, label %if.end466
 
 for.cond194.preheader.us:                         ; preds = %for.cond194.preheader.lr.ph, %for.cond194.for.inc356_crit_edge.us
-  %indvars.iv311 = phi i32 [ %indvars.iv.next312, %for.cond194.for.inc356_crit_edge.us ], [ 16, %for.cond194.preheader.lr.ph ]
-  %DCY.0274.us = phi i32 [ %call288.us, %for.cond194.for.inc356_crit_edge.us ], [ 0, %for.cond194.preheader.lr.ph ]
-  %DCU.0273.us = phi i32 [ %call347.us, %for.cond194.for.inc356_crit_edge.us ], [ 0, %for.cond194.preheader.lr.ph ]
-  %DCV.0272.us = phi i32 [ %call352.us, %for.cond194.for.inc356_crit_edge.us ], [ 0, %for.cond194.preheader.lr.ph ]
-  %y.0271.us = phi i32 [ %add357.us, %for.cond194.for.inc356_crit_edge.us ], [ 0, %for.cond194.preheader.lr.ph ]
+  %indvars.iv313 = phi i32 [ %indvars.iv.next314, %for.cond194.for.inc356_crit_edge.us ], [ 16, %for.cond194.preheader.lr.ph ]
+  %DCY.0276.us = phi i32 [ %call288.us, %for.cond194.for.inc356_crit_edge.us ], [ 0, %for.cond194.preheader.lr.ph ]
+  %DCU.0275.us = phi i32 [ %call347.us, %for.cond194.for.inc356_crit_edge.us ], [ 0, %for.cond194.preheader.lr.ph ]
+  %DCV.0274.us = phi i32 [ %call352.us, %for.cond194.for.inc356_crit_edge.us ], [ 0, %for.cond194.preheader.lr.ph ]
+  %y.0273.us = phi i32 [ %add357.us, %for.cond194.for.inc356_crit_edge.us ], [ 0, %for.cond194.preheader.lr.ph ]
   br label %for.cond198.preheader.us
 
 for.end265.us:                                    ; preds = %for.inc263.us
-  %call.us = call i32 @stbiw__jpg_processDU(ptr noundef nonnull %s, ptr noundef nonnull %bitBuf, ptr noundef nonnull %bitCnt, ptr noundef nonnull %Y, i32 noundef 16, ptr noundef nonnull %fdtbl_Y, i32 noundef %DCY.1267.us, ptr noundef nonnull @__const.stbi_write_jpg_core.YDC_HT, ptr noundef nonnull @__const.stbi_write_jpg_core.YAC_HT)
+  %call.us = call i32 @stbiw__jpg_processDU(ptr noundef nonnull %s, ptr noundef nonnull %bitBuf, ptr noundef nonnull %bitCnt, ptr noundef nonnull %Y, i32 noundef 16, ptr noundef nonnull %fdtbl_Y, i32 noundef %DCY.1269.us, ptr noundef nonnull @__const.stbi_write_jpg_core.YDC_HT, ptr noundef nonnull @__const.stbi_write_jpg_core.YAC_HT)
   %call276.us = call i32 @stbiw__jpg_processDU(ptr noundef nonnull %s, ptr noundef nonnull %bitBuf, ptr noundef nonnull %bitCnt, ptr noundef nonnull %add.ptr272, i32 noundef 16, ptr noundef nonnull %fdtbl_Y, i32 noundef %call.us, ptr noundef nonnull @__const.stbi_write_jpg_core.YDC_HT, ptr noundef nonnull @__const.stbi_write_jpg_core.YAC_HT)
   %call282.us = call i32 @stbiw__jpg_processDU(ptr noundef nonnull %s, ptr noundef nonnull %bitBuf, ptr noundef nonnull %bitCnt, ptr noundef nonnull %add.ptr278, i32 noundef 16, ptr noundef nonnull %fdtbl_Y, i32 noundef %call276.us, ptr noundef nonnull @__const.stbi_write_jpg_core.YDC_HT, ptr noundef nonnull @__const.stbi_write_jpg_core.YAC_HT)
   %call288.us = call i32 @stbiw__jpg_processDU(ptr noundef nonnull %s, ptr noundef nonnull %bitBuf, ptr noundef nonnull %bitCnt, ptr noundef nonnull %add.ptr284, i32 noundef 16, ptr noundef nonnull %fdtbl_Y, i32 noundef %call282.us, ptr noundef nonnull @__const.stbi_write_jpg_core.YDC_HT, ptr noundef nonnull @__const.stbi_write_jpg_core.YAC_HT)
   br label %for.cond293.preheader.us
 
 for.end342.us:                                    ; preds = %for.inc340.us
-  %call347.us = call i32 @stbiw__jpg_processDU(ptr noundef nonnull %s, ptr noundef nonnull %bitBuf, ptr noundef nonnull %bitCnt, ptr noundef nonnull %subU, i32 noundef 8, ptr noundef nonnull %fdtbl_UV, i32 noundef %DCU.1266.us, ptr noundef nonnull @__const.stbi_write_jpg_core.UVDC_HT, ptr noundef nonnull @__const.stbi_write_jpg_core.UVAC_HT)
-  %call352.us = call i32 @stbiw__jpg_processDU(ptr noundef nonnull %s, ptr noundef nonnull %bitBuf, ptr noundef nonnull %bitCnt, ptr noundef nonnull %subV, i32 noundef 8, ptr noundef nonnull %fdtbl_UV, i32 noundef %DCV.1265.us, ptr noundef nonnull @__const.stbi_write_jpg_core.UVDC_HT, ptr noundef nonnull @__const.stbi_write_jpg_core.UVAC_HT)
-  %add354.us = add nuw nsw i32 %x.0264.us, 16
+  %call347.us = call i32 @stbiw__jpg_processDU(ptr noundef nonnull %s, ptr noundef nonnull %bitBuf, ptr noundef nonnull %bitCnt, ptr noundef nonnull %subU, i32 noundef 8, ptr noundef nonnull %fdtbl_UV, i32 noundef %DCU.1268.us, ptr noundef nonnull @__const.stbi_write_jpg_core.UVDC_HT, ptr noundef nonnull @__const.stbi_write_jpg_core.UVAC_HT)
+  %call352.us = call i32 @stbiw__jpg_processDU(ptr noundef nonnull %s, ptr noundef nonnull %bitBuf, ptr noundef nonnull %bitCnt, ptr noundef nonnull %subV, i32 noundef 8, ptr noundef nonnull %fdtbl_UV, i32 noundef %DCV.1267.us, ptr noundef nonnull @__const.stbi_write_jpg_core.UVDC_HT, ptr noundef nonnull @__const.stbi_write_jpg_core.UVAC_HT)
+  %add354.us = add nuw nsw i32 %x.0266.us, 16
   %cmp195.us = icmp slt i32 %add354.us, %width
   br i1 %cmp195.us, label %for.cond198.preheader.us, label %for.cond194.for.inc356_crit_edge.us, !llvm.loop !66
 
 for.inc340.us:                                    ; preds = %for.body296.us
-  %indvars.iv.next328 = add nuw nsw i64 %indvars.iv327, 1
-  %exitcond331.not = icmp eq i64 %indvars.iv.next328, 8
-  br i1 %exitcond331.not, label %for.end342.us, label %for.cond293.preheader.us, !llvm.loop !67
+  %indvars.iv.next330 = add nuw nsw i64 %indvars.iv329, 1
+  %exitcond333.not = icmp eq i64 %indvars.iv.next330, 8
+  br i1 %exitcond333.not, label %for.end342.us, label %for.cond293.preheader.us, !llvm.loop !67
 
 for.body296.us:                                   ; preds = %for.cond293.preheader.us, %for.body296.us
-  %indvars.iv321 = phi i64 [ %94, %for.cond293.preheader.us ], [ %indvars.iv.next322, %for.body296.us ]
-  %indvars.iv314 = phi i64 [ 0, %for.cond293.preheader.us ], [ %indvars.iv.next315, %for.body296.us ]
-  %69 = shl nuw nsw i64 %indvars.iv314, 1
+  %indvars.iv323 = phi i64 [ %94, %for.cond293.preheader.us ], [ %indvars.iv.next324, %for.body296.us ]
+  %indvars.iv316 = phi i64 [ 0, %for.cond293.preheader.us ], [ %indvars.iv.next317, %for.body296.us ]
+  %69 = shl nuw nsw i64 %indvars.iv316, 1
   %70 = add nuw nsw i64 %69, %93
   %arrayidx302.us = getelementptr inbounds [256 x float], ptr %U, i64 0, i64 %70
   %71 = load float, ptr %arrayidx302.us, align 8
@@ -5743,7 +5743,7 @@ for.body296.us:                                   ; preds = %for.cond293.prehead
   %77 = load float, ptr %arrayidx313.us, align 4
   %add314.us = fadd float %add310.us, %77
   %mul315.us = fmul float %add314.us, 2.500000e-01
-  %arrayidx317.us = getelementptr inbounds [64 x float], ptr %subU, i64 0, i64 %indvars.iv321
+  %arrayidx317.us = getelementptr inbounds [64 x float], ptr %subU, i64 0, i64 %indvars.iv323
   store float %mul315.us, ptr %arrayidx317.us, align 4
   %arrayidx320.us = getelementptr inbounds [256 x float], ptr %V, i64 0, i64 %70
   %78 = load float, ptr %arrayidx320.us, align 8
@@ -5757,37 +5757,37 @@ for.body296.us:                                   ; preds = %for.cond293.prehead
   %81 = load float, ptr %arrayidx331.us, align 4
   %add332.us = fadd float %add328.us, %81
   %mul333.us = fmul float %add332.us, 2.500000e-01
-  %arrayidx335.us = getelementptr inbounds [64 x float], ptr %subV, i64 0, i64 %indvars.iv321
+  %arrayidx335.us = getelementptr inbounds [64 x float], ptr %subV, i64 0, i64 %indvars.iv323
   store float %mul333.us, ptr %arrayidx335.us, align 4
-  %indvars.iv.next315 = add nuw nsw i64 %indvars.iv314, 1
-  %indvars.iv.next322 = add nsw i64 %indvars.iv321, 1
-  %exitcond326.not = icmp eq i64 %indvars.iv.next315, 8
-  br i1 %exitcond326.not, label %for.inc340.us, label %for.body296.us, !llvm.loop !68
+  %indvars.iv.next317 = add nuw nsw i64 %indvars.iv316, 1
+  %indvars.iv.next324 = add nsw i64 %indvars.iv323, 1
+  %exitcond328.not = icmp eq i64 %indvars.iv.next317, 8
+  br i1 %exitcond328.not, label %for.inc340.us, label %for.body296.us, !llvm.loop !68
 
 for.body202.us:                                   ; preds = %for.cond198.preheader.us, %for.inc263.us
-  %row.1258.us = phi i32 [ %y.0271.us, %for.cond198.preheader.us ], [ %inc264.us, %for.inc263.us ]
-  %pos.0257.us = phi i32 [ 0, %for.cond198.preheader.us ], [ %83, %for.inc263.us ]
-  %cmp203.us = icmp slt i32 %row.1258.us, %height
-  %cond209.us = select i1 %cmp203.us, i32 %row.1258.us, i32 %sub207
+  %row.1260.us = phi i32 [ %y.0273.us, %for.cond198.preheader.us ], [ %inc264.us, %for.inc263.us ]
+  %pos.0259.us = phi i32 [ 0, %for.cond198.preheader.us ], [ %83, %for.inc263.us ]
+  %cmp203.us = icmp slt i32 %row.1260.us, %height
+  %cond209.us = select i1 %cmp203.us, i32 %row.1260.us, i32 %sub207
   %sub213.us = sub nsw i32 %sub207, %cond209.us
   %cond216.us = select i1 %tobool210.not.us, i32 %cond209.us, i32 %sub213.us
   %mul217.us = mul nsw i32 %cond216.us, %width
-  %82 = sext i32 %pos.0257.us to i64
-  %83 = add i32 %pos.0257.us, 16
+  %82 = sext i32 %pos.0259.us to i64
+  %83 = add i32 %pos.0259.us, 16
   br label %for.body223.us
 
 for.inc263.us:                                    ; preds = %for.body223.us
-  %inc264.us = add nuw nsw i32 %row.1258.us, 1
-  %exitcond313.not = icmp eq i32 %inc264.us, %indvars.iv311
-  br i1 %exitcond313.not, label %for.end265.us, label %for.body202.us, !llvm.loop !69
+  %inc264.us = add nuw nsw i32 %row.1260.us, 1
+  %exitcond315.not = icmp eq i32 %inc264.us, %indvars.iv313
+  br i1 %exitcond315.not, label %for.end265.us, label %for.body202.us, !llvm.loop !69
 
 for.body223.us:                                   ; preds = %for.body223.us, %for.body202.us
-  %indvars.iv306 = phi i64 [ %indvars.iv.next307, %for.body223.us ], [ %82, %for.body202.us ]
-  %col.1256.us = phi i32 [ %inc260.us, %for.body223.us ], [ %x.0264.us, %for.body202.us ]
-  %cmp224.us = icmp slt i32 %col.1256.us, %width
-  %cond230.us = select i1 %cmp224.us, i32 %col.1256.us, i32 %sub228
-  %mul218184.us = add i32 %cond230.us, %mul217.us
-  %add232.us = mul i32 %mul218184.us, %comp
+  %indvars.iv308 = phi i64 [ %indvars.iv.next309, %for.body223.us ], [ %82, %for.body202.us ]
+  %col.1258.us = phi i32 [ %inc260.us, %for.body223.us ], [ %x.0266.us, %for.body202.us ]
+  %cmp224.us = icmp slt i32 %col.1258.us, %width
+  %cond230.us = select i1 %cmp224.us, i32 %col.1258.us, i32 %sub228
+  %mul218186.us = add i32 %cond230.us, %mul217.us
+  %add232.us = mul i32 %mul218186.us, %comp
   %idxprom233.us = sext i32 %add232.us to i64
   %arrayidx234.us = getelementptr inbounds i8, ptr %data, i64 %idxprom233.us
   %84 = load i8, ptr %arrayidx234.us, align 1
@@ -5802,45 +5802,45 @@ for.body223.us:                                   ; preds = %for.body223.us, %fo
   %87 = call float @llvm.fmuladd.f32(float %conv235.us, float 0x3FD322D0E0000000, float %mul243.us)
   %88 = call float @llvm.fmuladd.f32(float %conv241.us, float 0x3FBD2F1AA0000000, float %87)
   %sub245.us = fadd float %88, -1.280000e+02
-  %arrayidx247.us = getelementptr inbounds [256 x float], ptr %Y, i64 0, i64 %indvars.iv306
+  %arrayidx247.us = getelementptr inbounds [256 x float], ptr %Y, i64 0, i64 %indvars.iv308
   store float %sub245.us, ptr %arrayidx247.us, align 4
   %neg.us = fmul float %conv238.us, 0xBFD5335D20000000
   %89 = call float @llvm.fmuladd.f32(float %conv235.us, float 0xBFC59945C0000000, float %neg.us)
   %90 = call float @llvm.fmuladd.f32(float %conv241.us, float 5.000000e-01, float %89)
-  %arrayidx252.us = getelementptr inbounds [256 x float], ptr %U, i64 0, i64 %indvars.iv306
+  %arrayidx252.us = getelementptr inbounds [256 x float], ptr %U, i64 0, i64 %indvars.iv308
   store float %90, ptr %arrayidx252.us, align 4
   %neg255.us = fmul float %conv238.us, 0xBFDACBD120000000
   %91 = call float @llvm.fmuladd.f32(float %conv235.us, float 5.000000e-01, float %neg255.us)
   %92 = call float @llvm.fmuladd.f32(float %conv241.us, float 0xBFB4D0BB60000000, float %91)
-  %arrayidx258.us = getelementptr inbounds [256 x float], ptr %V, i64 0, i64 %indvars.iv306
+  %arrayidx258.us = getelementptr inbounds [256 x float], ptr %V, i64 0, i64 %indvars.iv308
   store float %92, ptr %arrayidx258.us, align 4
-  %inc260.us = add nuw nsw i32 %col.1256.us, 1
-  %indvars.iv.next307 = add nsw i64 %indvars.iv306, 1
-  %lftr.wideiv309 = trunc i64 %indvars.iv.next307 to i32
-  %exitcond310.not = icmp eq i32 %83, %lftr.wideiv309
-  br i1 %exitcond310.not, label %for.inc263.us, label %for.body223.us, !llvm.loop !70
+  %inc260.us = add nuw nsw i32 %col.1258.us, 1
+  %indvars.iv.next309 = add nsw i64 %indvars.iv308, 1
+  %lftr.wideiv311 = trunc i64 %indvars.iv.next309 to i32
+  %exitcond312.not = icmp eq i32 %83, %lftr.wideiv311
+  br i1 %exitcond312.not, label %for.inc263.us, label %for.body223.us, !llvm.loop !70
 
 for.cond293.preheader.us:                         ; preds = %for.inc340.us, %for.end265.us
-  %indvars.iv327 = phi i64 [ %indvars.iv.next328, %for.inc340.us ], [ 0, %for.end265.us ]
-  %pos.2261.us = phi i64 [ %indvars.iv.next322, %for.inc340.us ], [ 0, %for.end265.us ]
-  %93 = shl nuw nsw i64 %indvars.iv327, 5
-  %sext332 = shl i64 %pos.2261.us, 32
-  %94 = ashr exact i64 %sext332, 32
+  %indvars.iv329 = phi i64 [ %indvars.iv.next330, %for.inc340.us ], [ 0, %for.end265.us ]
+  %pos.2263.us = phi i64 [ %indvars.iv.next324, %for.inc340.us ], [ 0, %for.end265.us ]
+  %93 = shl nuw nsw i64 %indvars.iv329, 5
+  %sext334 = shl i64 %pos.2263.us, 32
+  %94 = ashr exact i64 %sext334, 32
   br label %for.body296.us
 
 for.cond198.preheader.us:                         ; preds = %for.cond194.preheader.us, %for.end342.us
-  %DCY.1267.us = phi i32 [ %DCY.0274.us, %for.cond194.preheader.us ], [ %call288.us, %for.end342.us ]
-  %DCU.1266.us = phi i32 [ %DCU.0273.us, %for.cond194.preheader.us ], [ %call347.us, %for.end342.us ]
-  %DCV.1265.us = phi i32 [ %DCV.0272.us, %for.cond194.preheader.us ], [ %call352.us, %for.end342.us ]
-  %x.0264.us = phi i32 [ 0, %for.cond194.preheader.us ], [ %add354.us, %for.end342.us ]
+  %DCY.1269.us = phi i32 [ %DCY.0276.us, %for.cond194.preheader.us ], [ %call288.us, %for.end342.us ]
+  %DCU.1268.us = phi i32 [ %DCU.0275.us, %for.cond194.preheader.us ], [ %call347.us, %for.end342.us ]
+  %DCV.1267.us = phi i32 [ %DCV.0274.us, %for.cond194.preheader.us ], [ %call352.us, %for.end342.us ]
+  %x.0266.us = phi i32 [ 0, %for.cond194.preheader.us ], [ %add354.us, %for.end342.us ]
   %95 = load i32, ptr @stbi__flip_vertically_on_write, align 4
   %tobool210.not.us = icmp eq i32 %95, 0
   br label %for.body202.us
 
 for.cond194.for.inc356_crit_edge.us:              ; preds = %for.end342.us
-  %add357.us = add nuw nsw i32 %y.0271.us, 16
+  %add357.us = add nuw nsw i32 %y.0273.us, 16
   %cmp191.us = icmp slt i32 %add357.us, %height
-  %indvars.iv.next312 = add i32 %indvars.iv311, 16
+  %indvars.iv.next314 = add i32 %indvars.iv313, 16
   br i1 %cmp191.us, label %for.cond194.preheader.us, label %if.end466, !llvm.loop !71
 
 if.end466:                                        ; preds = %for.cond363.for.inc463_crit_edge.us, %for.cond194.for.inc356_crit_edge.us, %for.cond194.preheader.lr.ph, %for.cond363.preheader.lr.ph, %for.cond359.preheader, %for.cond190.preheader
@@ -5887,18 +5887,18 @@ if.end.i:                                         ; preds = %if.then.i, %while.b
   br i1 %cmp.i, label %while.body.i, label %stbiw__jpg_writeBits.exit, !llvm.loop !49
 
 stbiw__jpg_writeBits.exit:                        ; preds = %if.end.i, %if.end466
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %c.addr.i191)
-  store i8 -1, ptr %c.addr.i191, align 1
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %c.addr.i193)
+  store i8 -1, ptr %c.addr.i193, align 1
   %103 = load ptr, ptr %s, align 8
   %104 = load ptr, ptr %context, align 8
-  call void %103(ptr noundef %104, ptr noundef nonnull %c.addr.i191, i32 noundef 1) #26
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %c.addr.i191)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %c.addr.i193)
-  store i8 -39, ptr %c.addr.i193, align 1
+  call void %103(ptr noundef %104, ptr noundef nonnull %c.addr.i193, i32 noundef 1) #26
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %c.addr.i193)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %c.addr.i195)
+  store i8 -39, ptr %c.addr.i195, align 1
   %105 = load ptr, ptr %s, align 8
   %106 = load ptr, ptr %context, align 8
-  call void %105(ptr noundef %106, ptr noundef nonnull %c.addr.i193, i32 noundef 1) #26
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %c.addr.i193)
+  call void %105(ptr noundef %106, ptr noundef nonnull %c.addr.i195, i32 noundef 1) #26
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %c.addr.i195)
   br label %return
 
 return:                                           ; preds = %entry, %stbiw__jpg_writeBits.exit

@@ -685,8 +685,8 @@ _ZL13shouldUseMmapimmlbib.exit.i:                 ; preds = %if.end14.i
   %cmp.i18.i = icmp ugt i64 %MapSize.addr.0.i, 16383
   %conv.i.i = zext i32 %9 to i64
   %cmp2.i.i = icmp uge i64 %MapSize.addr.0.i, %conv.i.i
-  %or.cond.i.not.i = and i1 %cmp.i18.i, %cmp2.i.i
-  br i1 %or.cond.i.not.i, label %if.then18.i, label %if.end25.i
+  %or.cond.not6.i.i = and i1 %cmp.i18.i, %cmp2.i.i
+  br i1 %or.cond.not6.i.i, label %if.then18.i, label %if.end25.i
 
 if.then18.i:                                      ; preds = %_ZL13shouldUseMmapimmlbib.exit.i
   store i32 0, ptr %EC19.i, align 8, !noalias !29
@@ -1354,13 +1354,12 @@ if.end14:                                         ; preds = %if.then, %if.end11,
   br i1 %IsVolatile, label %_ZL13shouldUseMmapimmlbib.exit.thread, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end14
-  %cmp.i20 = icmp ult i64 %MapSize.addr.0, 16384
+  %cmp.i20 = icmp ugt i64 %MapSize.addr.0, 16383
   %conv.i = zext i32 %9 to i64
-  %cmp2.i = icmp ult i64 %MapSize.addr.0, %conv.i
-  %or.cond.i = or i1 %cmp.i20, %cmp2.i
-  %RequiresNullTerminator.not.i = xor i1 %RequiresNullTerminator, true
-  %brmerge.i = or i1 %or.cond.i, %RequiresNullTerminator.not.i
-  br i1 %brmerge.i, label %_ZL13shouldUseMmapimmlbib.exit, label %if.end7.i
+  %cmp2.i = icmp uge i64 %MapSize.addr.0, %conv.i
+  %or.cond.not6.i = and i1 %cmp.i20, %cmp2.i
+  %brmerge.not.i = and i1 %or.cond.not6.i, %RequiresNullTerminator
+  br i1 %brmerge.not.i, label %if.end7.i, label %_ZL13shouldUseMmapimmlbib.exit
 
 if.end7.i:                                        ; preds = %if.end.i
   %cmp8.i = icmp eq i64 %FileSize.addr.1, -1
@@ -1402,7 +1401,7 @@ _ZL13shouldUseMmapimmlbib.exit.thread:            ; preds = %if.end14, %if.then9
 
 _ZL13shouldUseMmapimmlbib.exit:                   ; preds = %if.end.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %Status.i)
-  br i1 %or.cond.i, label %if.end26, label %if.then18
+  br i1 %or.cond.not6.i, label %if.then18, label %if.end26
 
 if.then18:                                        ; preds = %if.end17.i, %_ZL13shouldUseMmapimmlbib.exit
   store i32 0, ptr %EC19, align 8

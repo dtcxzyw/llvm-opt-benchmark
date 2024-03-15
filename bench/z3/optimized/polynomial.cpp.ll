@@ -75224,11 +75224,10 @@ if.then.i.i.i.i520:                               ; preds = %if.then.i.i.i516
 
 invoke.cont206:                                   ; preds = %if.then.i.i.i516, %if.end.i514, %if.then.i.i.i.i520
   store ptr %call205, ptr %S_e_1, align 8
-  %146 = xor i32 %d, -1
-  %147 = add i32 %146, %e
-  %rem = and i32 %147, 1
-  %cmp210.not = icmp eq i32 %rem, 0
-  br i1 %cmp210.not, label %if.end, label %if.then
+  %146 = sub i32 %d, %e
+  %147 = and i32 %146, 1
+  %cmp210.not.not = icmp eq i32 %147, 0
+  br i1 %cmp210.not.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %invoke.cont206
   %call214 = invoke noundef ptr @_ZN10polynomial7manager3imp3negEPKNS_10polynomialE(ptr noundef nonnull align 8 dereferenceable(824) %this, ptr noundef %call205)

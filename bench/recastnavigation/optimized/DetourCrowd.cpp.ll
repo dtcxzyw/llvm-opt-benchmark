@@ -638,13 +638,13 @@ define noundef zeroext i1 @_ZN7dtCrowd23requestMoveTargetReplanEijPKf(ptr nocapt
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @_ZN7dtCrowd17requestMoveTargetEijPKf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(5072) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #11 align 2 {
-  %5 = icmp slt i32 %1, 0
+  %5 = icmp sgt i32 %1, -1
   %6 = load i32, ptr %0, align 8
-  %.not = icmp sle i32 %6, %1
-  %or.cond.not20 = select i1 %5, i1 true, i1 %.not
-  %.not16 = icmp eq i32 %2, 0
-  %or.cond18 = or i1 %.not16, %or.cond.not20
-  br i1 %or.cond18, label %24, label %7
+  %.not = icmp sgt i32 %6, %1
+  %or.cond.not20.not22 = select i1 %5, i1 %.not, i1 false
+  %.not16 = icmp ne i32 %2, 0
+  %or.cond18.not = and i1 %.not16, %or.cond.not20.not22
+  br i1 %or.cond18.not, label %7, label %24
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds i8, ptr %0, i64 8
@@ -673,8 +673,7 @@ define noundef zeroext i1 @_ZN7dtCrowd17requestMoveTargetEijPKf(ptr nocapture no
   br label %24
 
 24:                                               ; preds = %7, %4
-  %.0 = xor i1 %or.cond18, true
-  ret i1 %.0
+  ret i1 %or.cond18.not
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable

@@ -803,39 +803,39 @@ if.then27:                                        ; preds = %if.end25
   %9 = load i32, ptr %arrayidx31, align 4
   %idx.ext32 = sext i32 %9 to i64
   %add.ptr33 = getelementptr inbounds i8, ptr %cx, i64 %idx.ext32
-  %tobool.i = icmp ne i8 %useFallback, 0
-  %sub.i = add nsw i32 %firstCP, -57344
-  %cmp2.i = icmp ult i32 %sub.i, 6400
-  %sub4.i = add nsw i32 %firstCP, -983040
-  %cmp5.i = icmp ult i32 %sub4.i, 131072
+  %tobool.i = icmp eq i8 %useFallback, 0
+  %10 = add i32 %firstCP, -63744
+  %cmp2.i = icmp ult i32 %10, -6400
+  %11 = add i32 %firstCP, -1114112
+  %cmp5.i = icmp ult i32 %11, -131072
   br label %for.cond
 
 for.cond:                                         ; preds = %if.else66, %if.then27
   %matchValue.0 = phi i32 [ 0, %if.then27 ], [ %matchValue.1, %if.else66 ]
   %i.0 = phi i32 [ 0, %if.then27 ], [ %i.1, %if.else66 ]
   %j.0 = phi i32 [ 0, %if.then27 ], [ %j.1, %if.else66 ]
-  %idx.0 = phi i32 [ %7, %if.then27 ], [ %17, %if.else66 ]
+  %idx.0 = phi i32 [ %7, %if.then27 ], [ %19, %if.else66 ]
   %matchLength.0 = phi i32 [ 0, %if.then27 ], [ %matchLength.1, %if.else66 ]
   %idx.ext34 = zext nneg i32 %idx.0 to i64
   %add.ptr35 = getelementptr inbounds i16, ptr %add.ptr30, i64 %idx.ext34
   %add.ptr37 = getelementptr inbounds i32, ptr %add.ptr33, i64 %idx.ext34
   %incdec.ptr = getelementptr inbounds i8, ptr %add.ptr35, i64 2
-  %10 = load i16, ptr %add.ptr35, align 2
-  %conv38 = zext i16 %10 to i32
+  %12 = load i16, ptr %add.ptr35, align 2
+  %conv38 = zext i16 %12 to i32
   %incdec.ptr39 = getelementptr inbounds i8, ptr %add.ptr37, i64 4
-  %11 = load i32, ptr %add.ptr37, align 4
-  %cmp40.not = icmp eq i32 %11, 0
+  %13 = load i32, ptr %add.ptr37, align 4
+  %cmp40.not = icmp eq i32 %13, 0
   br i1 %cmp40.not, label %if.end44, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.cond
-  %cmp.i = icmp ugt i32 %11, 1073741823
-  %or.cond.i = or i1 %tobool.i, %cmp.i
-  %or.cond3.i = select i1 %or.cond.i, i1 true, i1 %cmp2.i
-  %or.cond4.i = select i1 %or.cond3.i, i1 true, i1 %cmp5.i
-  %and6.i = and i32 %11, 536870912
-  %cmp7.i = icmp eq i32 %and6.i, 0
-  %narrow.i = and i1 %cmp7.i, %or.cond4.i
-  br i1 %narrow.i, label %if.then41, label %if.end44
+  %cmp.i = icmp ult i32 %13, 1073741824
+  %or.cond.i.not87 = and i1 %tobool.i, %cmp.i
+  %or.cond3.i.not86 = and i1 %cmp2.i, %or.cond.i.not87
+  %or.cond4.i.not85 = and i1 %cmp5.i, %or.cond3.i.not86
+  %and6.i = and i32 %13, 536870912
+  %cmp7.i = icmp ne i32 %and6.i, 0
+  %narrow.i.not = or i1 %cmp7.i, %or.cond4.i.not85
+  br i1 %narrow.i.not, label %if.end44, label %if.then41
 
 if.then41:                                        ; preds = %land.lhs.true
   %add42 = add i32 %j.0, %i.0
@@ -843,7 +843,7 @@ if.then41:                                        ; preds = %land.lhs.true
   br label %if.end44
 
 if.end44:                                         ; preds = %if.then41, %land.lhs.true, %for.cond
-  %matchValue.1 = phi i32 [ %11, %if.then41 ], [ %matchValue.0, %land.lhs.true ], [ %matchValue.0, %for.cond ]
+  %matchValue.1 = phi i32 [ %13, %if.then41 ], [ %matchValue.0, %land.lhs.true ], [ %matchValue.0, %for.cond ]
   %matchLength.1 = phi i32 [ %add43, %if.then41 ], [ %matchLength.0, %land.lhs.true ], [ %matchLength.0, %for.cond ]
   %cmp45 = icmp slt i32 %i.0, %preLength
   br i1 %cmp45, label %if.then46, label %if.else
@@ -881,7 +881,7 @@ if.end62:                                         ; preds = %if.then50, %if.then
   %idxprom52 = sext i32 %j.0.sink to i64
   %arrayidx53 = getelementptr inbounds i16, ptr %src.sink, i64 %idxprom52
   %c.0 = load i16, ptr %arrayidx53, align 2
-  %cmp30.i = icmp ult i16 %10, 2
+  %cmp30.i = icmp ult i16 %12, 2
   br i1 %cmp30.i, label %for.end.i, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end62, %if.end26.i
@@ -894,8 +894,8 @@ if.end.i:                                         ; preds = %if.end62, %if.end26
 if.then2.i:                                       ; preds = %if.end.i
   %idxprom.i = sext i32 %start.031.i to i64
   %arrayidx.i = getelementptr inbounds i16, ptr %incdec.ptr, i64 %idxprom.i
-  %12 = load i16, ptr %arrayidx.i, align 2
-  %cmp4.not.i = icmp ult i16 %12, %c.0
+  %14 = load i16, ptr %arrayidx.i, align 2
+  %cmp4.not.i = icmp ult i16 %14, %c.0
   br i1 %cmp4.not.i, label %if.end6.i, label %for.end.i
 
 if.end6.i:                                        ; preds = %if.then2.i
@@ -906,8 +906,8 @@ if.end6.i:                                        ; preds = %if.then2.i
 land.lhs.true.i:                                  ; preds = %if.end6.i
   %idxprom9.i = sext i32 %inc.i to i64
   %arrayidx10.i = getelementptr inbounds i16, ptr %incdec.ptr, i64 %idxprom9.i
-  %13 = load i16, ptr %arrayidx10.i, align 2
-  %cmp12.not.i = icmp ult i16 %13, %c.0
+  %15 = load i16, ptr %arrayidx10.i, align 2
+  %cmp12.not.i = icmp ult i16 %15, %c.0
   br i1 %cmp12.not.i, label %if.end14.i, label %for.end.i
 
 if.end14.i:                                       ; preds = %land.lhs.true.i, %if.end6.i
@@ -918,8 +918,8 @@ if.end14.i:                                       ; preds = %land.lhs.true.i, %i
 land.lhs.true17.i:                                ; preds = %if.end14.i
   %idxprom19.i = sext i32 %inc15.i to i64
   %arrayidx20.i = getelementptr inbounds i16, ptr %incdec.ptr, i64 %idxprom19.i
-  %14 = load i16, ptr %arrayidx20.i, align 2
-  %cmp22.not.i = icmp ult i16 %14, %c.0
+  %16 = load i16, ptr %arrayidx20.i, align 2
+  %cmp22.not.i = icmp ult i16 %16, %c.0
   br i1 %cmp22.not.i, label %if.end24.i, label %for.end.i
 
 if.end24.i:                                       ; preds = %land.lhs.true17.i, %if.end14.i
@@ -931,8 +931,8 @@ if.end26.i:                                       ; preds = %if.end.i
   %div.i = sdiv i32 %add.i, 2
   %idxprom28.i = sext i32 %div.i to i64
   %arrayidx29.i = getelementptr inbounds i16, ptr %incdec.ptr, i64 %idxprom28.i
-  %15 = load i16, ptr %arrayidx29.i, align 2
-  %cmp31.i = icmp ugt i16 %15, %c.0
+  %17 = load i16, ptr %arrayidx29.i, align 2
+  %cmp31.i = icmp ugt i16 %17, %c.0
   %start.0.div.i = select i1 %cmp31.i, i32 %start.031.i, i32 %div.i
   %div.limit.0.i = select i1 %cmp31.i, i32 %div.i, i32 %limit.032.i
   %sub.i51 = sub nsw i32 %div.limit.0.i, %start.0.div.i
@@ -948,8 +948,8 @@ for.end.i:                                        ; preds = %if.end26.i, %if.end
 land.lhs.true35.i:                                ; preds = %for.end.i
   %idxprom37.i = sext i32 %start.2.i to i64
   %arrayidx38.i = getelementptr inbounds i16, ptr %incdec.ptr, i64 %idxprom37.i
-  %16 = load i16, ptr %arrayidx38.i, align 2
-  %cmp40.i = icmp ne i16 %16, %c.0
+  %18 = load i16, ptr %arrayidx38.i, align 2
+  %cmp40.i = icmp ne i16 %18, %c.0
   %cmp64 = icmp slt i32 %start.2.i, 0
   %or.cond = or i1 %cmp64, %cmp40.i
   br i1 %or.cond, label %for.end, label %if.else66
@@ -957,19 +957,19 @@ land.lhs.true35.i:                                ; preds = %for.end.i
 if.else66:                                        ; preds = %land.lhs.true35.i
   %idxprom67 = zext nneg i32 %start.2.i to i64
   %arrayidx68 = getelementptr inbounds i32, ptr %incdec.ptr39, i64 %idxprom67
-  %17 = load i32, ptr %arrayidx68, align 4
-  %cmp70 = icmp ult i32 %17, 16777216
+  %19 = load i32, ptr %arrayidx68, align 4
+  %cmp70 = icmp ult i32 %19, 16777216
   br i1 %cmp70, label %for.cond, label %if.else72, !llvm.loop !12
 
 if.else72:                                        ; preds = %if.else66
-  %cmp.i54 = icmp ugt i32 %17, 1073741823
-  %or.cond.i56 = or i1 %tobool.i, %cmp.i54
-  %or.cond3.i59 = select i1 %or.cond.i56, i1 true, i1 %cmp2.i
-  %or.cond4.i62 = select i1 %or.cond3.i59, i1 true, i1 %cmp5.i
-  %and6.i63 = and i32 %17, 536870912
-  %cmp7.i64 = icmp eq i32 %and6.i63, 0
-  %narrow.i65 = and i1 %cmp7.i64, %or.cond4.i62
-  br i1 %narrow.i65, label %if.then75, label %for.end
+  %cmp.i54 = icmp ult i32 %19, 1073741824
+  %or.cond.i56.not90 = and i1 %tobool.i, %cmp.i54
+  %or.cond3.i59.not89 = and i1 %cmp2.i, %or.cond.i56.not90
+  %or.cond4.i62.not88 = and i1 %cmp5.i, %or.cond3.i59.not89
+  %and6.i63 = and i32 %19, 536870912
+  %cmp7.i64 = icmp ne i32 %and6.i63, 0
+  %narrow.i65.not = or i1 %cmp7.i64, %or.cond4.i62.not88
+  br i1 %narrow.i65.not, label %for.end, label %if.then75
 
 if.then75:                                        ; preds = %if.else72
   %add76 = add nsw i32 %i.1, 2
@@ -977,25 +977,25 @@ if.then75:                                        ; preds = %if.else72
   br label %for.end
 
 for.end:                                          ; preds = %land.lhs.true35.i, %for.end.i, %if.then75, %if.else72, %if.else54, %lor.lhs.false
-  %matchValue.2 = phi i32 [ %17, %if.then75 ], [ %matchValue.1, %if.else72 ], [ %matchValue.1, %if.else54 ], [ %matchValue.1, %lor.lhs.false ], [ %matchValue.1, %for.end.i ], [ %matchValue.1, %land.lhs.true35.i ]
+  %matchValue.2 = phi i32 [ %19, %if.then75 ], [ %matchValue.1, %if.else72 ], [ %matchValue.1, %if.else54 ], [ %matchValue.1, %lor.lhs.false ], [ %matchValue.1, %for.end.i ], [ %matchValue.1, %land.lhs.true35.i ]
   %matchLength.2 = phi i32 [ %add77, %if.then75 ], [ %matchLength.1, %if.else72 ], [ %matchLength.1, %if.else54 ], [ %matchLength.1, %lor.lhs.false ], [ %matchLength.1, %for.end.i ], [ %matchLength.1, %land.lhs.true35.i ]
   %cmp82 = icmp eq i32 %matchLength.2, 0
   br i1 %cmp82, label %return, label %if.end91
 
 if.else85:                                        ; preds = %if.end25
-  %cmp.i67 = icmp ugt i32 %7, 1073741823
-  %tobool.i68 = icmp ne i8 %useFallback, 0
-  %or.cond.i69 = or i1 %tobool.i68, %cmp.i67
-  %sub.i70 = add nsw i32 %firstCP, -57344
-  %cmp2.i71 = icmp ult i32 %sub.i70, 6400
-  %or.cond3.i72 = select i1 %or.cond.i69, i1 true, i1 %cmp2.i71
-  %sub4.i73 = add nsw i32 %firstCP, -983040
-  %cmp5.i74 = icmp ult i32 %sub4.i73, 131072
-  %or.cond4.i75 = select i1 %or.cond3.i72, i1 true, i1 %cmp5.i74
+  %cmp.i67 = icmp ult i32 %7, 1073741824
+  %tobool.i68 = icmp eq i8 %useFallback, 0
+  %or.cond.i69.not84 = and i1 %tobool.i68, %cmp.i67
+  %20 = add i32 %firstCP, -63744
+  %cmp2.i71 = icmp ult i32 %20, -6400
+  %or.cond3.i72.not83 = and i1 %cmp2.i71, %or.cond.i69.not84
+  %21 = add i32 %firstCP, -1114112
+  %cmp5.i74 = icmp ult i32 %21, -131072
+  %or.cond4.i75.not82 = and i1 %cmp5.i74, %or.cond3.i72.not83
   %and6.i76 = and i32 %7, 536870912
-  %cmp7.i77 = icmp eq i32 %and6.i76, 0
-  %narrow.i78 = and i1 %cmp7.i77, %or.cond4.i75
-  br i1 %narrow.i78, label %if.end91, label %return
+  %cmp7.i77 = icmp ne i32 %and6.i76, 0
+  %narrow.i78.not = or i1 %cmp7.i77, %or.cond4.i75.not82
+  br i1 %narrow.i78.not, label %return, label %if.end91
 
 if.end91:                                         ; preds = %if.else85, %for.end
   %matchValue.3 = phi i32 [ %matchValue.2, %for.end ], [ %7, %if.else85 ]

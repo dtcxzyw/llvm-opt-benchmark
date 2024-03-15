@@ -786,7 +786,7 @@ define dso_local void @_ZN5vcpkg25get_zsh_autocomplete_dataENS_10StringViewE(ptr
   br label %13
 
 13:                                               ; preds = %.lr.ph, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJPKcmEEERS5_DpOT_.exit
-  %.074 = phi ptr [ %1, %.lr.ph ], [ %203, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJPKcmEEERS5_DpOT_.exit ]
+  %.074 = phi ptr [ %1, %.lr.ph ], [ %189, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJPKcmEEERS5_DpOT_.exit ]
   %14 = ptrtoint ptr %.074 to i64
   %15 = sub i64 %10, %14
   %16 = ashr i64 %15, 2
@@ -942,7 +942,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
   invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJPKcmEEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %68, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
           to label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJPKcmEEERS5_DpOT_.exit unwind label %76
 
-76:                                               ; preds = %75, %197, %190, %188, %80, %64, %61, %57, %_ZSt4findIPKccET_S2_S2_RKT0_.exit
+76:                                               ; preds = %75, %183, %176, %174, %80, %64, %61, %57, %_ZSt4findIPKccET_S2_S2_RKT0_.exit
   %77 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -964,7 +964,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
 82:                                               ; preds = %80
   %83 = ptrtoint ptr %60 to i64
   %84 = sub i64 %83, %14
-  br i1 %81, label %85, label %188
+  br i1 %81, label %85, label %174
 
 85:                                               ; preds = %82
   %86 = ashr i64 %84, 2
@@ -976,214 +976,214 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
   %scevgep.i.i.i.i = getelementptr i8, ptr %.074, i64 %88
   br label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %139, %.lr.ph.preheader.i.i.i.i
-  %.056.i.i.i.i = phi i64 [ %141, %139 ], [ %86, %.lr.ph.preheader.i.i.i.i ]
-  %.02955.i.i.i.i = phi ptr [ %140, %139 ], [ %.074, %.lr.ph.preheader.i.i.i.i ]
-  %.029.val.i.i.i.i = load i8, ptr %.02955.i.i.i.i, align 1
+.lr.ph.i.i.i.i:                                   ; preds = %131, %.lr.ph.preheader.i.i.i.i
+  %.068.i.i.i.i = phi i64 [ %133, %131 ], [ %86, %.lr.ph.preheader.i.i.i.i ]
+  %.02967.i.i.i.i = phi ptr [ %132, %131 ], [ %.074, %.lr.ph.preheader.i.i.i.i ]
+  %.029.val.i.i.i.i = load i8, ptr %.02967.i.i.i.i, align 1
   %89 = sext i8 %.029.val.i.i.i.i to i32
   %90 = and i32 %89, -33
-  %91 = add nsw i32 %90, -65
-  %92 = icmp ult i32 %91, 26
-  %93 = add nsw i32 %89, -48
-  %94 = icmp ult i32 %93, 10
-  %95 = or i1 %94, %92
-  %96 = icmp eq i8 %.029.val.i.i.i.i, 95
-  %97 = or i1 %96, %95
-  %98 = icmp eq i8 %.029.val.i.i.i.i, 32
-  %or.cond.i.i.i.i.i.i = or i1 %98, %97
-  %99 = icmp eq i8 %.029.val.i.i.i.i, 45
-  %spec.select.i.i.i.i.i.i = or i1 %99, %or.cond.i.i.i.i.i.i
-  br i1 %spec.select.i.i.i.i.i.i, label %100, label %.loopexit
+  %91 = add nsw i32 %90, -91
+  %92 = icmp ult i32 %91, -26
+  %93 = add nsw i32 %89, -58
+  %94 = icmp ult i32 %93, -10
+  %.not6.i.i.i.i.i = and i1 %94, %92
+  %95 = icmp ne i8 %.029.val.i.i.i.i, 95
+  %.not4.i.i.i.i.i = and i1 %95, %.not6.i.i.i.i.i
+  %96 = icmp ne i8 %.029.val.i.i.i.i, 32
+  %or.cond.i.not2.i.i.i.i.i = and i1 %96, %.not4.i.i.i.i.i
+  %97 = icmp ne i8 %.029.val.i.i.i.i, 45
+  %spec.select.i.not.i.i.i.i.i = and i1 %97, %or.cond.i.not2.i.i.i.i.i
+  br i1 %spec.select.i.not.i.i.i.i.i, label %.loopexit, label %98
 
-100:                                              ; preds = %.lr.ph.i.i.i.i
-  %101 = getelementptr inbounds i8, ptr %.02955.i.i.i.i, i64 1
-  %.val.i.i.i.i = load i8, ptr %101, align 1
-  %102 = sext i8 %.val.i.i.i.i to i32
-  %103 = and i32 %102, -33
-  %104 = add nsw i32 %103, -65
-  %105 = icmp ult i32 %104, 26
-  %106 = add nsw i32 %102, -48
-  %107 = icmp ult i32 %106, 10
-  %108 = or i1 %107, %105
-  %109 = icmp eq i8 %.val.i.i.i.i, 95
-  %110 = or i1 %109, %108
-  %111 = icmp eq i8 %.val.i.i.i.i, 32
-  %or.cond.i.i33.i.i.i.i = or i1 %111, %110
-  %112 = icmp eq i8 %.val.i.i.i.i, 45
-  %spec.select.i.i34.i.i.i.i = or i1 %112, %or.cond.i.i33.i.i.i.i
-  br i1 %spec.select.i.i34.i.i.i.i, label %113, label %.loopexit.loopexit.split.loop.exit93
+98:                                               ; preds = %.lr.ph.i.i.i.i
+  %99 = getelementptr inbounds i8, ptr %.02967.i.i.i.i, i64 1
+  %.val.i.i.i.i = load i8, ptr %99, align 1
+  %100 = sext i8 %.val.i.i.i.i to i32
+  %101 = and i32 %100, -33
+  %102 = add nsw i32 %101, -91
+  %103 = icmp ult i32 %102, -26
+  %104 = add nsw i32 %100, -58
+  %105 = icmp ult i32 %104, -10
+  %.not6.i33.i.i.i.i = and i1 %105, %103
+  %106 = icmp ne i8 %.val.i.i.i.i, 95
+  %.not4.i34.i.i.i.i = and i1 %106, %.not6.i33.i.i.i.i
+  %107 = icmp ne i8 %.val.i.i.i.i, 32
+  %or.cond.i.not2.i35.i.i.i.i = and i1 %107, %.not4.i34.i.i.i.i
+  %108 = icmp ne i8 %.val.i.i.i.i, 45
+  %spec.select.i.not.i36.i.i.i.i = and i1 %108, %or.cond.i.not2.i35.i.i.i.i
+  br i1 %spec.select.i.not.i36.i.i.i.i, label %.loopexit.loopexit.split.loop.exit93, label %109
 
-113:                                              ; preds = %100
-  %114 = getelementptr inbounds i8, ptr %.02955.i.i.i.i, i64 2
-  %.val30.i.i.i.i = load i8, ptr %114, align 1
-  %115 = sext i8 %.val30.i.i.i.i to i32
-  %116 = and i32 %115, -33
-  %117 = add nsw i32 %116, -65
-  %118 = icmp ult i32 %117, 26
-  %119 = add nsw i32 %115, -48
-  %120 = icmp ult i32 %119, 10
-  %121 = or i1 %120, %118
-  %122 = icmp eq i8 %.val30.i.i.i.i, 95
-  %123 = or i1 %122, %121
-  %124 = icmp eq i8 %.val30.i.i.i.i, 32
-  %or.cond.i.i35.i.i.i.i = or i1 %124, %123
-  %125 = icmp eq i8 %.val30.i.i.i.i, 45
-  %spec.select.i.i36.i.i.i.i = or i1 %125, %or.cond.i.i35.i.i.i.i
-  br i1 %spec.select.i.i36.i.i.i.i, label %126, label %.loopexit.loopexit.split.loop.exit91
+109:                                              ; preds = %98
+  %110 = getelementptr inbounds i8, ptr %.02967.i.i.i.i, i64 2
+  %.val30.i.i.i.i = load i8, ptr %110, align 1
+  %111 = sext i8 %.val30.i.i.i.i to i32
+  %112 = and i32 %111, -33
+  %113 = add nsw i32 %112, -91
+  %114 = icmp ult i32 %113, -26
+  %115 = add nsw i32 %111, -58
+  %116 = icmp ult i32 %115, -10
+  %.not6.i37.i.i.i.i = and i1 %116, %114
+  %117 = icmp ne i8 %.val30.i.i.i.i, 95
+  %.not4.i38.i.i.i.i = and i1 %117, %.not6.i37.i.i.i.i
+  %118 = icmp ne i8 %.val30.i.i.i.i, 32
+  %or.cond.i.not2.i39.i.i.i.i = and i1 %118, %.not4.i38.i.i.i.i
+  %119 = icmp ne i8 %.val30.i.i.i.i, 45
+  %spec.select.i.not.i40.i.i.i.i = and i1 %119, %or.cond.i.not2.i39.i.i.i.i
+  br i1 %spec.select.i.not.i40.i.i.i.i, label %.loopexit.loopexit.split.loop.exit91, label %120
 
-126:                                              ; preds = %113
-  %127 = getelementptr inbounds i8, ptr %.02955.i.i.i.i, i64 3
-  %.val31.i.i.i.i = load i8, ptr %127, align 1
-  %128 = sext i8 %.val31.i.i.i.i to i32
-  %129 = and i32 %128, -33
-  %130 = add nsw i32 %129, -65
-  %131 = icmp ult i32 %130, 26
-  %132 = add nsw i32 %128, -48
-  %133 = icmp ult i32 %132, 10
-  %134 = or i1 %133, %131
-  %135 = icmp eq i8 %.val31.i.i.i.i, 95
-  %136 = or i1 %135, %134
-  %137 = icmp eq i8 %.val31.i.i.i.i, 32
-  %or.cond.i.i37.i.i.i.i = or i1 %137, %136
-  %138 = icmp eq i8 %.val31.i.i.i.i, 45
-  %spec.select.i.i38.i.i.i.i = or i1 %138, %or.cond.i.i37.i.i.i.i
-  br i1 %spec.select.i.i38.i.i.i.i, label %139, label %.loopexit.loopexit.split.loop.exit
+120:                                              ; preds = %109
+  %121 = getelementptr inbounds i8, ptr %.02967.i.i.i.i, i64 3
+  %.val31.i.i.i.i = load i8, ptr %121, align 1
+  %122 = sext i8 %.val31.i.i.i.i to i32
+  %123 = and i32 %122, -33
+  %124 = add nsw i32 %123, -91
+  %125 = icmp ult i32 %124, -26
+  %126 = add nsw i32 %122, -58
+  %127 = icmp ult i32 %126, -10
+  %.not6.i41.i.i.i.i = and i1 %127, %125
+  %128 = icmp ne i8 %.val31.i.i.i.i, 95
+  %.not4.i42.i.i.i.i = and i1 %128, %.not6.i41.i.i.i.i
+  %129 = icmp ne i8 %.val31.i.i.i.i, 32
+  %or.cond.i.not2.i43.i.i.i.i = and i1 %129, %.not4.i42.i.i.i.i
+  %130 = icmp ne i8 %.val31.i.i.i.i, 45
+  %spec.select.i.not.i44.i.i.i.i = and i1 %130, %or.cond.i.not2.i43.i.i.i.i
+  br i1 %spec.select.i.not.i44.i.i.i.i, label %.loopexit.loopexit.split.loop.exit, label %131
 
-139:                                              ; preds = %126
-  %140 = getelementptr inbounds i8, ptr %.02955.i.i.i.i, i64 4
-  %141 = add nsw i64 %.056.i.i.i.i, -1
-  %142 = icmp sgt i64 %.056.i.i.i.i, 1
-  br i1 %142, label %.lr.ph.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i, !llvm.loop !12
+131:                                              ; preds = %120
+  %132 = getelementptr inbounds i8, ptr %.02967.i.i.i.i, i64 4
+  %133 = add nsw i64 %.068.i.i.i.i, -1
+  %134 = icmp sgt i64 %.068.i.i.i.i, 1
+  br i1 %134, label %.lr.ph.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i, !llvm.loop !12
 
-._crit_edge.loopexit.i.i.i.i:                     ; preds = %139
+._crit_edge.loopexit.i.i.i.i:                     ; preds = %131
   %.pre.i.i.i.i = ptrtoint ptr %scevgep.i.i.i.i to i64
   br label %._crit_edge.i.i.i.i
 
 ._crit_edge.i.i.i.i:                              ; preds = %._crit_edge.loopexit.i.i.i.i, %85
   %.pre-phi.i.i.i.i = phi i64 [ %.pre.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %14, %85 ]
   %.029.lcssa.i.i.i.i = phi ptr [ %scevgep.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %.074, %85 ]
-  %143 = sub i64 %83, %.pre-phi.i.i.i.i
-  switch i64 %143, label %.thread [
-    i64 3, label %144
-    i64 2, label %158
-    i64 1, label %172
+  %135 = sub i64 %83, %.pre-phi.i.i.i.i
+  switch i64 %135, label %.thread [
+    i64 3, label %136
+    i64 2, label %148
+    i64 1, label %160
   ]
 
-144:                                              ; preds = %._crit_edge.i.i.i.i
+136:                                              ; preds = %._crit_edge.i.i.i.i
   %.029.val32.i.i.i.i = load i8, ptr %.029.lcssa.i.i.i.i, align 1
-  %145 = sext i8 %.029.val32.i.i.i.i to i32
-  %146 = and i32 %145, -33
-  %147 = add nsw i32 %146, -65
-  %148 = icmp ult i32 %147, 26
-  %149 = add nsw i32 %145, -48
-  %150 = icmp ult i32 %149, 10
-  %151 = or i1 %150, %148
-  %152 = icmp eq i8 %.029.val32.i.i.i.i, 95
-  %153 = or i1 %152, %151
-  %154 = icmp eq i8 %.029.val32.i.i.i.i, 32
-  %or.cond.i.i39.i.i.i.i = or i1 %154, %153
-  %155 = icmp eq i8 %.029.val32.i.i.i.i, 45
-  %spec.select.i.i40.i.i.i.i = or i1 %155, %or.cond.i.i39.i.i.i.i
-  br i1 %spec.select.i.i40.i.i.i.i, label %156, label %.loopexit
+  %137 = sext i8 %.029.val32.i.i.i.i to i32
+  %138 = and i32 %137, -33
+  %139 = add nsw i32 %138, -91
+  %140 = icmp ult i32 %139, -26
+  %141 = add nsw i32 %137, -58
+  %142 = icmp ult i32 %141, -10
+  %.not6.i45.i.i.i.i = and i1 %142, %140
+  %143 = icmp ne i8 %.029.val32.i.i.i.i, 95
+  %.not4.i46.i.i.i.i = and i1 %143, %.not6.i45.i.i.i.i
+  %144 = icmp ne i8 %.029.val32.i.i.i.i, 32
+  %or.cond.i.not2.i47.i.i.i.i = and i1 %144, %.not4.i46.i.i.i.i
+  %145 = icmp ne i8 %.029.val32.i.i.i.i, 45
+  %spec.select.i.not.i48.i.i.i.i = and i1 %145, %or.cond.i.not2.i47.i.i.i.i
+  br i1 %spec.select.i.not.i48.i.i.i.i, label %.loopexit, label %146
 
-156:                                              ; preds = %144
-  %157 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i, i64 1
-  br label %158
+146:                                              ; preds = %136
+  %147 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i, i64 1
+  br label %148
 
-158:                                              ; preds = %156, %._crit_edge.i.i.i.i
-  %.1.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %157, %156 ]
+148:                                              ; preds = %146, %._crit_edge.i.i.i.i
+  %.1.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %147, %146 ]
   %.1.val.i.i.i.i = load i8, ptr %.1.i.i.i.i, align 1
-  %159 = sext i8 %.1.val.i.i.i.i to i32
-  %160 = and i32 %159, -33
-  %161 = add nsw i32 %160, -65
-  %162 = icmp ult i32 %161, 26
-  %163 = add nsw i32 %159, -48
-  %164 = icmp ult i32 %163, 10
-  %165 = or i1 %164, %162
-  %166 = icmp eq i8 %.1.val.i.i.i.i, 95
-  %167 = or i1 %166, %165
-  %168 = icmp eq i8 %.1.val.i.i.i.i, 32
-  %or.cond.i.i41.i.i.i.i = or i1 %168, %167
-  %169 = icmp eq i8 %.1.val.i.i.i.i, 45
-  %spec.select.i.i42.i.i.i.i = or i1 %169, %or.cond.i.i41.i.i.i.i
-  br i1 %spec.select.i.i42.i.i.i.i, label %170, label %.loopexit
+  %149 = sext i8 %.1.val.i.i.i.i to i32
+  %150 = and i32 %149, -33
+  %151 = add nsw i32 %150, -91
+  %152 = icmp ult i32 %151, -26
+  %153 = add nsw i32 %149, -58
+  %154 = icmp ult i32 %153, -10
+  %.not6.i49.i.i.i.i = and i1 %154, %152
+  %155 = icmp ne i8 %.1.val.i.i.i.i, 95
+  %.not4.i50.i.i.i.i = and i1 %155, %.not6.i49.i.i.i.i
+  %156 = icmp ne i8 %.1.val.i.i.i.i, 32
+  %or.cond.i.not2.i51.i.i.i.i = and i1 %156, %.not4.i50.i.i.i.i
+  %157 = icmp ne i8 %.1.val.i.i.i.i, 45
+  %spec.select.i.not.i52.i.i.i.i = and i1 %157, %or.cond.i.not2.i51.i.i.i.i
+  br i1 %spec.select.i.not.i52.i.i.i.i, label %.loopexit, label %158
 
-170:                                              ; preds = %158
-  %171 = getelementptr inbounds i8, ptr %.1.i.i.i.i, i64 1
-  br label %172
+158:                                              ; preds = %148
+  %159 = getelementptr inbounds i8, ptr %.1.i.i.i.i, i64 1
+  br label %160
 
-172:                                              ; preds = %170, %._crit_edge.i.i.i.i
-  %.2.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %171, %170 ]
+160:                                              ; preds = %158, %._crit_edge.i.i.i.i
+  %.2.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %159, %158 ]
   %.2.val.i.i.i.i = load i8, ptr %.2.i.i.i.i, align 1
-  %173 = sext i8 %.2.val.i.i.i.i to i32
-  %174 = and i32 %173, -33
-  %175 = add nsw i32 %174, -65
-  %176 = icmp ult i32 %175, 26
-  %177 = add nsw i32 %173, -48
-  %178 = icmp ult i32 %177, 10
-  %179 = or i1 %178, %176
-  %180 = icmp eq i8 %.2.val.i.i.i.i, 95
-  %181 = or i1 %180, %179
-  %182 = icmp eq i8 %.2.val.i.i.i.i, 32
-  %or.cond.i.i43.i.i.i.i = or i1 %182, %181
-  %183 = icmp eq i8 %.2.val.i.i.i.i, 45
-  %spec.select.i.i44.i.i.i.i = or i1 %183, %or.cond.i.i43.i.i.i.i
-  br i1 %spec.select.i.i44.i.i.i.i, label %.thread, label %.loopexit
+  %161 = sext i8 %.2.val.i.i.i.i to i32
+  %162 = and i32 %161, -33
+  %163 = add nsw i32 %162, -91
+  %164 = icmp ult i32 %163, -26
+  %165 = add nsw i32 %161, -58
+  %166 = icmp ult i32 %165, -10
+  %.not6.i53.i.i.i.i = and i1 %166, %164
+  %167 = icmp ne i8 %.2.val.i.i.i.i, 95
+  %.not4.i54.i.i.i.i = and i1 %167, %.not6.i53.i.i.i.i
+  %168 = icmp ne i8 %.2.val.i.i.i.i, 32
+  %or.cond.i.not2.i55.i.i.i.i = and i1 %168, %.not4.i54.i.i.i.i
+  %169 = icmp ne i8 %.2.val.i.i.i.i, 45
+  %spec.select.i.not.i56.i.i.i.i = and i1 %169, %or.cond.i.not2.i55.i.i.i.i
+  br i1 %spec.select.i.not.i56.i.i.i.i, label %.loopexit, label %.thread
 
-.loopexit.loopexit.split.loop.exit:               ; preds = %126
-  %184 = getelementptr inbounds i8, ptr %.02955.i.i.i.i, i64 3
+.loopexit.loopexit.split.loop.exit:               ; preds = %120
+  %170 = getelementptr inbounds i8, ptr %.02967.i.i.i.i, i64 3
   br label %.loopexit
 
-.loopexit.loopexit.split.loop.exit91:             ; preds = %113
-  %185 = getelementptr inbounds i8, ptr %.02955.i.i.i.i, i64 2
+.loopexit.loopexit.split.loop.exit91:             ; preds = %109
+  %171 = getelementptr inbounds i8, ptr %.02967.i.i.i.i, i64 2
   br label %.loopexit
 
-.loopexit.loopexit.split.loop.exit93:             ; preds = %100
-  %186 = getelementptr inbounds i8, ptr %.02955.i.i.i.i, i64 1
+.loopexit.loopexit.split.loop.exit93:             ; preds = %98
+  %172 = getelementptr inbounds i8, ptr %.02967.i.i.i.i, i64 1
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %.loopexit.loopexit.split.loop.exit, %.loopexit.loopexit.split.loop.exit91, %.loopexit.loopexit.split.loop.exit93, %172, %158, %144
-  %.028.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %144 ], [ %.1.i.i.i.i, %158 ], [ %.2.i.i.i.i, %172 ], [ %184, %.loopexit.loopexit.split.loop.exit ], [ %185, %.loopexit.loopexit.split.loop.exit91 ], [ %186, %.loopexit.loopexit.split.loop.exit93 ], [ %.02955.i.i.i.i, %.lr.ph.i.i.i.i ]
-  %187 = icmp eq ptr %.028.i.i.i.i, %60
-  br i1 %187, label %.thread, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJPKcmEEERS5_DpOT_.exit
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %.loopexit.loopexit.split.loop.exit, %.loopexit.loopexit.split.loop.exit91, %.loopexit.loopexit.split.loop.exit93, %160, %148, %136
+  %.028.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %136 ], [ %.1.i.i.i.i, %148 ], [ %.2.i.i.i.i, %160 ], [ %170, %.loopexit.loopexit.split.loop.exit ], [ %171, %.loopexit.loopexit.split.loop.exit91 ], [ %172, %.loopexit.loopexit.split.loop.exit93 ], [ %.02967.i.i.i.i, %.lr.ph.i.i.i.i ]
+  %173 = icmp eq ptr %.028.i.i.i.i, %60
+  br i1 %173, label %.thread, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJPKcmEEERS5_DpOT_.exit
 
-.thread:                                          ; preds = %172, %._crit_edge.i.i.i.i, %.loopexit
+.thread:                                          ; preds = %160, %._crit_edge.i.i.i.i, %.loopexit
   store i8 1, ptr %8, align 1
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJPKcmEEERS5_DpOT_.exit
 
-188:                                              ; preds = %82
-  %189 = invoke { ptr, i64 } @_ZN5vcpkg7Strings4trimENS_10StringViewE(ptr %.074, i64 %84)
-          to label %190 unwind label %76
+174:                                              ; preds = %82
+  %175 = invoke { ptr, i64 } @_ZN5vcpkg7Strings4trimENS_10StringViewE(ptr %.074, i64 %84)
+          to label %176 unwind label %76
 
-190:                                              ; preds = %188
-  %191 = extractvalue { ptr, i64 } %189, 0
-  %192 = extractvalue { ptr, i64 } %189, 1
-  %193 = invoke noundef zeroext i1 @_ZN5vcpkg7Strings8containsENS_10StringViewEc(ptr %191, i64 %192, i8 noundef signext 35)
-          to label %194 unwind label %76
+176:                                              ; preds = %174
+  %177 = extractvalue { ptr, i64 } %175, 0
+  %178 = extractvalue { ptr, i64 } %175, 1
+  %179 = invoke noundef zeroext i1 @_ZN5vcpkg7Strings8containsENS_10StringViewEc(ptr %177, i64 %178, i8 noundef signext 35)
+          to label %180 unwind label %76
 
-194:                                              ; preds = %190
-  br i1 %193, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJPKcmEEERS5_DpOT_.exit, label %195
+180:                                              ; preds = %176
+  br i1 %179, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJPKcmEEERS5_DpOT_.exit, label %181
 
-195:                                              ; preds = %194
-  %196 = icmp eq i64 %192, 0
-  br i1 %196, label %200, label %197
+181:                                              ; preds = %180
+  %182 = icmp eq i64 %178, 0
+  br i1 %182, label %186, label %183
 
-197:                                              ; preds = %195
-  %198 = invoke noundef zeroext i1 @_ZN5vcpkg7Strings9ends_withENS_10StringViewES1_(ptr %191, i64 %192, ptr nonnull @.str.7, i64 2)
-          to label %199 unwind label %76
+183:                                              ; preds = %181
+  %184 = invoke noundef zeroext i1 @_ZN5vcpkg7Strings9ends_withENS_10StringViewES1_(ptr %177, i64 %178, ptr nonnull @.str.7, i64 2)
+          to label %185 unwind label %76
 
-199:                                              ; preds = %197
-  br i1 %198, label %200, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJPKcmEEERS5_DpOT_.exit
+185:                                              ; preds = %183
+  br i1 %184, label %186, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJPKcmEEERS5_DpOT_.exit
 
-200:                                              ; preds = %199, %195
+186:                                              ; preds = %185, %181
   store i8 1, ptr %7, align 8
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJPKcmEEERS5_DpOT_.exit
 
-_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJPKcmEEERS5_DpOT_.exit: ; preds = %75, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JPKcmEEEvRS6_PT_DpOT0_.exit.i, %78, %194, %199, %200, %.loopexit, %.thread
-  %201 = icmp eq ptr %.028.i.i.i, %9
-  %202 = getelementptr inbounds i8, ptr %.028.i.i.i, i64 1
-  %203 = select i1 %201, ptr %9, ptr %202
-  %.not = icmp eq ptr %203, %9
+_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJPKcmEEERS5_DpOT_.exit: ; preds = %75, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JPKcmEEEvRS6_PT_DpOT0_.exit.i, %78, %180, %185, %186, %.loopexit, %.thread
+  %187 = icmp eq ptr %.028.i.i.i, %9
+  %188 = getelementptr inbounds i8, ptr %.028.i.i.i, i64 1
+  %189 = select i1 %187, ptr %9, ptr %188
+  %.not = icmp eq ptr %189, %9
   br i1 %.not, label %._crit_edge, label %13, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJPKcmEEERS5_DpOT_.exit, %3

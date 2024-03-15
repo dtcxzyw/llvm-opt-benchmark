@@ -14927,23 +14927,22 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3fmt2v96detail12is_printabl
   %86 = shufflevector <4 x i32> %85, <4 x i32> poison, <4 x i32> zeroinitializer
   %87 = add <4 x i32> %86, <i32 -177973, i32 -173790, i32 -183970, i32 -191457>
   %88 = and i32 %0, -2
-  %or.cond5 = icmp eq i32 %88, 178206
+  %or.cond5 = icmp ne i32 %88, 178206
   %89 = icmp ult <4 x i32> %87, <i32 11, i32 34, i32 14, i32 3103>
-  %90 = add i32 %0, -195102
-  %or.cond11 = icmp ult i32 %90, 1506
-  %91 = add i32 %0, -201547
-  %or.cond13 = icmp ult i32 %91, 716213
-  %92 = add i32 %0, -918000
-  %or.cond15 = icmp ult i32 %92, 196112
+  %90 = add i32 %0, -196608
+  %or.cond11 = icmp ult i32 %90, -1506
+  %91 = add i32 %0, -917760
+  %or.cond13 = icmp ult i32 %91, -716213
+  %92 = add i32 %0, -1114112
+  %or.cond15 = icmp ult i32 %92, -196112
   %93 = bitcast <4 x i1> %89 to i4
-  %94 = icmp ne i4 %93, 0
-  %op.rdx = or i1 %94, %or.cond11
-  %op.rdx82 = or i1 %or.cond13, %or.cond15
-  %op.rdx83 = or i1 %op.rdx, %op.rdx82
-  %op.rdx84 = or i1 %op.rdx83, %or.cond5
+  %94 = icmp eq i4 %93, 0
+  %op.rdx.not86 = and i1 %94, %or.cond11
+  %op.rdx82.not87 = and i1 %or.cond13, %or.cond15
+  %op.rdx83.not85 = and i1 %op.rdx.not86, %op.rdx82.not87
+  %op.rdx84.not = and i1 %op.rdx83.not85, %or.cond5
   %95 = icmp ult i32 %0, 1114112
-  %not.or.cond44 = xor i1 %op.rdx84, true
-  %spec.select = and i1 %95, %not.or.cond44
+  %spec.select = and i1 %95, %op.rdx84.not
   br label %_ZN3fmt2v96detail12is_printableEtPKNS1_9singletonEmPKhS6_m.exit
 
 _ZN3fmt2v96detail12is_printableEtPKNS1_9singletonEmPKhS6_m.exit: ; preds = %.lr.ph.i62, %80, %76, %.lr.ph.i, %38, %34, %84
@@ -15761,12 +15760,11 @@ define linkonce_odr dso_local i64 @_ZN3fmt2v96detail9dragonbox10to_decimalIfEENS
 
 94:                                               ; preds = %61
   %95 = and i64 %87, 4294967295
-  %96 = icmp ne i64 %95, 0
-  %97 = icmp ne i32 %92, 0
-  %or.cond142 = or i1 %96, %97
-  %.not143 = xor i1 %63, true
-  %brmerge = select i1 %or.cond142, i1 true, i1 %.not143
-  br i1 %brmerge, label %.preheader169, label %98
+  %96 = icmp eq i64 %95, 0
+  %97 = icmp eq i32 %92, 0
+  %or.cond142.not170 = and i1 %96, %97
+  %brmerge.not = select i1 %or.cond142.not170, i1 %63, i1 false
+  br i1 %brmerge.not, label %98, label %.preheader172
 
 98:                                               ; preds = %94
   %99 = add nsw i32 %91, -1
@@ -15791,7 +15789,7 @@ define linkonce_odr dso_local i64 @_ZN3fmt2v96detail9dragonbox10to_decimalIfEENS
   br i1 %or.cond5, label %112, label %113
 
 112:                                              ; preds = %102
-  br i1 %.not, label %130, label %.preheader169
+  br i1 %.not, label %130, label %.preheader172
 
 113:                                              ; preds = %102
   %114 = sub nsw i32 32, %73
@@ -15800,14 +15798,14 @@ define linkonce_odr dso_local i64 @_ZN3fmt2v96detail9dragonbox10to_decimalIfEENS
   %117 = and i64 %116, %107
   %118 = icmp ne i64 %117, 0
   %or.cond144 = and i1 %.not, %118
-  br i1 %or.cond144, label %130, label %.preheader169
+  br i1 %or.cond144, label %130, label %.preheader172
 
-.preheader169:                                    ; preds = %94, %113, %112
+.preheader172:                                    ; preds = %94, %113, %112
   br label %119
 
-119:                                              ; preds = %.preheader169, %119
-  %.sroa.0.0 = phi i32 [ %121, %119 ], [ %91, %.preheader169 ]
-  %.0 = phi i32 [ %123, %119 ], [ 0, %.preheader169 ]
+119:                                              ; preds = %.preheader172, %119
+  %.sroa.0.0 = phi i32 [ %121, %119 ], [ %91, %.preheader172 ]
+  %.0 = phi i32 [ %123, %119 ], [ 0, %.preheader172 ]
   %120 = mul i32 %.sroa.0.0, -1030792151
   %121 = tail call i32 @llvm.fshl.i32(i32 %120, i32 %120, i32 30)
   %122 = icmp ugt i32 %121, 42949672
@@ -19348,7 +19346,7 @@ _ZN3fmt2v96detail9dragonbox14cache_accessorIdE16get_cached_powerEi.exit: ; preds
   %74 = icmp eq i128 %73, 0
   %75 = icmp ult i64 %72, -6067343680855748867
   %or.cond252 = and i1 %75, %74
-  br i1 %or.cond252, label %76, label %.preheader262
+  br i1 %or.cond252, label %76, label %.preheader265
 
 76:                                               ; preds = %68
   %77 = lshr i128 %71, 90
@@ -19374,16 +19372,16 @@ _ZN3fmt2v96detail9dragonbox14cache_accessorIdE16get_cached_powerEi.exit: ; preds
   %88 = zext i32 %spec.select191 to i64
   br label %97
 
-.preheader262:                                    ; preds = %68, %.preheader262
-  %.sroa.0150.0 = phi i64 [ %90, %.preheader262 ], [ %66, %68 ]
-  %.0132 = phi i32 [ %92, %.preheader262 ], [ 0, %68 ]
+.preheader265:                                    ; preds = %68, %.preheader265
+  %.sroa.0150.0 = phi i64 [ %90, %.preheader265 ], [ %66, %68 ]
+  %.0132 = phi i32 [ %92, %.preheader265 ], [ 0, %68 ]
   %89 = mul i64 %.sroa.0150.0, -8116567392432202711
   %90 = tail call i64 @llvm.fshl.i64(i64 %.sroa.0150.0, i64 %89, i64 62)
   %91 = icmp ugt i64 %90, 184467440737095516
   %92 = add nuw nsw i32 %.0132, 2
-  br i1 %91, label %93, label %.preheader262, !llvm.loop !381
+  br i1 %91, label %93, label %.preheader265, !llvm.loop !381
 
-93:                                               ; preds = %.preheader262
+93:                                               ; preds = %.preheader265
   %94 = mul i64 %.sroa.0150.0, -3689348814741910323
   %95 = tail call i64 @llvm.fshl.i64(i64 %.sroa.0150.0, i64 %94, i64 63)
   %.not188 = icmp ult i64 %95, 1844674407370955162
@@ -19449,7 +19447,7 @@ _ZN3fmt2v96detail9dragonbox14cache_accessorIdE16get_cached_powerEi.exit: ; preds
 
 ._ZN3fmt2v96detail9dragonbox14cache_accessorIdE16get_cached_powerEi.exit213_crit_edge: ; preds = %114
   %.pre = mul nsw i32 %119, 1741647
-  %.pre263 = ashr i32 %.pre, 19
+  %.pre266 = ashr i32 %.pre, 19
   br label %_ZN3fmt2v96detail9dragonbox14cache_accessorIdE16get_cached_powerEi.exit213
 
 127:                                              ; preds = %114
@@ -19492,10 +19490,10 @@ _ZN3fmt2v96detail9dragonbox14cache_accessorIdE16get_cached_powerEi.exit: ; preds
   br label %_ZN3fmt2v96detail9dragonbox14cache_accessorIdE16get_cached_powerEi.exit213
 
 _ZN3fmt2v96detail9dragonbox14cache_accessorIdE16get_cached_powerEi.exit213: ; preds = %._ZN3fmt2v96detail9dragonbox14cache_accessorIdE16get_cached_powerEi.exit213_crit_edge, %127
-  %.pre-phi264 = phi i32 [ %.pre263, %._ZN3fmt2v96detail9dragonbox14cache_accessorIdE16get_cached_powerEi.exit213_crit_edge ], [ %130, %127 ]
+  %.pre-phi267 = phi i32 [ %.pre266, %._ZN3fmt2v96detail9dragonbox14cache_accessorIdE16get_cached_powerEi.exit213_crit_edge ], [ %130, %127 ]
   %.sroa.038.0.i209 = phi i64 [ %.sroa.034.0.copyload.i206, %._ZN3fmt2v96detail9dragonbox14cache_accessorIdE16get_cached_powerEi.exit213_crit_edge ], [ %163, %127 ]
   %.sroa.339.0.i210 = phi i64 [ %.sroa.3.0.copyload.i208, %._ZN3fmt2v96detail9dragonbox14cache_accessorIdE16get_cached_powerEi.exit213_crit_edge ], [ %160, %127 ]
-  %164 = add nsw i32 %.pre-phi264, %.0137
+  %164 = add nsw i32 %.pre-phi267, %.0137
   %165 = sub nsw i32 63, %164
   %166 = zext nneg i32 %165 to i64
   %167 = lshr i64 %.sroa.339.0.i210, %166
@@ -19530,12 +19528,11 @@ _ZN3fmt2v96detail9dragonbox14cache_accessorIdE16get_cached_powerEi.exit213: ; pr
 
 193:                                              ; preds = %_ZN3fmt2v96detail9dragonbox14cache_accessorIdE16get_cached_powerEi.exit213
   %194 = extractvalue { i64, i1 } %183, 0
-  %195 = icmp ne i64 %194, 0
-  %196 = icmp ne i32 %191, 0
-  %or.cond195 = select i1 %196, i1 true, i1 %195
-  %.not196 = xor i1 %116, true
-  %brmerge = select i1 %or.cond195, i1 true, i1 %.not196
-  br i1 %brmerge, label %227, label %197
+  %195 = icmp eq i64 %194, 0
+  %196 = icmp eq i32 %191, 0
+  %or.cond195.not257 = select i1 %196, i1 %195, i1 false
+  %brmerge.not = select i1 %or.cond195.not257, i1 %116, i1 false
+  br i1 %brmerge.not, label %197, label %227
 
 197:                                              ; preds = %193
   %198 = add nsw i64 %189, -1

@@ -210,15 +210,15 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_ccm_set_lengths(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #2 {
   %5 = alloca i64, align 8
-  %6 = icmp ne i64 %3, 2
-  %7 = icmp ult i64 %3, 17
-  %or.cond.not20 = and i1 %6, %7
+  %6 = icmp eq i64 %3, 2
+  %7 = icmp ugt i64 %3, 16
+  %or.cond.not20.not24 = or i1 %6, %7
   %8 = and i64 %3, 1
-  %.not = icmp eq i64 %8, 0
-  %or.cond16 = and i1 %or.cond.not20, %.not
-  %9 = icmp ult i64 %1, 65280
-  %or.cond17.not = and i1 %9, %or.cond16
-  br i1 %or.cond17.not, label %10, label %49
+  %.not = icmp ne i64 %8, 0
+  %or.cond16.not21 = or i1 %or.cond.not20.not24, %.not
+  %9 = icmp ugt i64 %1, 65279
+  %or.cond17 = or i1 %9, %or.cond16.not21
+  br i1 %or.cond17, label %49, label %10
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds i8, ptr %0, i64 128

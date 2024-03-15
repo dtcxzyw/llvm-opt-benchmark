@@ -4530,10 +4530,10 @@ ir_vregs_overlap.exit.thread.i:                   ; preds = %348, %351, %ir_vreg
   br i1 %.not26.i.i, label %ir_try_swap_operands.exit, label %.lr.ph11.i.i
 
 ir_hint_conflict.exit.i:                          ; preds = %376
-  %381 = icmp ne i8 %378, %.021.lcssa.i.i
-  %382 = icmp ne i8 %.021.lcssa.i.i, -1
-  %or.cond.i.i = and i1 %382, %381
-  br i1 %or.cond.i.i, label %383, label %ir_try_swap_operands.exit
+  %381 = icmp eq i8 %378, %.021.lcssa.i.i
+  %382 = icmp eq i8 %.021.lcssa.i.i, -1
+  %or.cond.i.not117.i = or i1 %382, %381
+  br i1 %or.cond.i.not117.i, label %ir_try_swap_operands.exit, label %383
 
 383:                                              ; preds = %ir_hint_conflict.exit.i, %ir_vregs_overlap.exit.i, %328
   %384 = zext nneg i32 %322 to i64
@@ -4569,17 +4569,17 @@ ir_hint_conflict.exit.i:                          ; preds = %376
   br label %404
 
 404:                                              ; preds = %481, %401
-  %.0123.i = phi ptr [ %392, %401 ], [ %483, %481 ]
-  %405 = getelementptr inbounds i8, ptr %.0123.i, i64 4
+  %.0131.i = phi ptr [ %392, %401 ], [ %483, %481 ]
+  %405 = getelementptr inbounds i8, ptr %.0131.i, i64 4
   %406 = load i32, ptr %405, align 4
   %407 = icmp eq i32 %406, %403
   br i1 %407, label %408, label %481
 
 408:                                              ; preds = %404
-  %409 = getelementptr inbounds i8, ptr %.0123.i, i64 4
+  %409 = getelementptr inbounds i8, ptr %.0131.i, i64 4
   %410 = trunc i64 %388 to i32
   store i32 %410, ptr %409, align 4
-  %411 = getelementptr inbounds i8, ptr %.0123.i, i64 8
+  %411 = getelementptr inbounds i8, ptr %.0131.i, i64 8
   %412 = load ptr, ptr %411, align 8
   %.not72.i = icmp eq ptr %412, null
   br i1 %.not72.i, label %413, label %415
@@ -4706,10 +4706,10 @@ ir_vregs_overlap.exit87.thread.i:                 ; preds = %441, %444, %ir_vreg
   br i1 %.not26.i104.i, label %ir_hint_conflict.exit109.thread.i, label %.lr.ph11.i101.i
 
 ir_hint_conflict.exit109.i:                       ; preds = %469
-  %474 = icmp ne i8 %471, %.021.lcssa.i98.i
-  %475 = icmp ne i8 %.021.lcssa.i98.i, -1
-  %or.cond.i106.i = and i1 %475, %474
-  br i1 %or.cond.i106.i, label %477, label %ir_hint_conflict.exit109.thread.i
+  %474 = icmp eq i8 %471, %.021.lcssa.i98.i
+  %475 = icmp eq i8 %.021.lcssa.i98.i, -1
+  %or.cond.i106.not121.i = or i1 %475, %474
+  br i1 %or.cond.i106.not121.i, label %ir_hint_conflict.exit109.thread.i, label %477
 
 ir_hint_conflict.exit109.thread.i:                ; preds = %472, %ir_hint_conflict.exit109.i, %._crit_edge.i97.i
   %476 = trunc i64 %indvars.iv497 to i32
@@ -4728,7 +4728,7 @@ ir_hint_conflict.exit109.thread.i:                ; preds = %472, %ir_hint_confl
   br label %ir_try_swap_operands.exit
 
 481:                                              ; preds = %404
-  %482 = getelementptr inbounds i8, ptr %.0123.i, i64 8
+  %482 = getelementptr inbounds i8, ptr %.0131.i, i64 8
   %483 = load ptr, ptr %482, align 8
   %.not71.i = icmp eq ptr %483, null
   br i1 %.not71.i, label %ir_try_swap_operands.exit, label %404

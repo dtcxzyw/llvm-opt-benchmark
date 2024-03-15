@@ -12972,13 +12972,13 @@ define void @Gia_ManMappingVerify(ptr noundef %0) local_unnamed_addr #3 {
   %14 = lshr i64 %.val58, 32
   %15 = trunc i64 %14 to i32
   %16 = and i32 %15, 536870911
-  %17 = icmp eq i32 %13, %16
-  %.not.i = icmp ne i32 %13, 536870911
-  %or.cond.not.i = and i1 %.not.i, %17
+  %17 = icmp ne i32 %13, %16
+  %.not.i = icmp eq i32 %13, 536870911
+  %or.cond.not.i.not65 = or i1 %.not.i, %17
   %18 = and i64 %.val58, 2147483648
-  %.not4.i = icmp eq i64 %18, 0
-  %narrow.i = and i1 %.not4.i, %or.cond.not.i
-  br i1 %narrow.i, label %19, label %Gia_ObjIsAndNotBuf.exit.thread
+  %.not4.i = icmp ne i64 %18, 0
+  %narrow.i.not = or i1 %.not4.i, %or.cond.not.i.not65
+  br i1 %narrow.i.not, label %Gia_ObjIsAndNotBuf.exit.thread, label %19
 
 19:                                               ; preds = %11
   %20 = and i64 %.val58, 536870911
@@ -12996,8 +12996,8 @@ Gia_ObjIsAndNotBuf.exit:                          ; preds = %19
   %26 = lshr i64 %.val56, 32
   %27 = xor i64 %26, %.val56
   %28 = and i64 %27, 536870911
-  %.not64 = icmp eq i64 %28, 0
-  br i1 %.not64, label %Gia_ObjIsAndNotBuf.exit.thread, label %29
+  %.not66 = icmp eq i64 %28, 0
+  br i1 %.not66, label %Gia_ObjIsAndNotBuf.exit.thread, label %29
 
 29:                                               ; preds = %Gia_ObjIsAndNotBuf.exit
   %30 = ptrtoint ptr %22 to i64
@@ -13011,8 +13011,8 @@ Gia_ObjIsAndNotBuf.exit:                          ; preds = %19
   %35 = ashr exact i64 %sext, 32
   %36 = getelementptr inbounds i32, ptr %.val46.val, i64 %35
   %37 = load i32, ptr %36, align 4
-  %.not65 = icmp eq i32 %37, 0
-  br i1 %.not65, label %38, label %40
+  %.not67 = icmp eq i32 %37, 0
+  br i1 %.not67, label %38, label %40
 
 38:                                               ; preds = %29
   %39 = trunc i64 %33 to i32
@@ -13035,17 +13035,17 @@ Gia_ObjIsAndNotBuf.exit.thread:                   ; preds = %19, %40, %11, %Gia_
   %46 = getelementptr inbounds i8, ptr %0, i64 72
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr i8, ptr %47, i64 4
-  %.val4773 = load i32, ptr %48, align 4
-  %49 = icmp sgt i32 %.val4773, 0
-  br i1 %49, label %.lr.ph76, label %.critedge2
+  %.val4775 = load i32, ptr %48, align 4
+  %49 = icmp sgt i32 %.val4775, 0
+  br i1 %49, label %.lr.ph78, label %.critedge2
 
-.lr.ph76:                                         ; preds = %.critedge
+.lr.ph78:                                         ; preds = %.critedge
   %50 = getelementptr i8, ptr %0, i64 264
   br label %51
 
-51:                                               ; preds = %.lr.ph76, %Gia_ObjIsAndNotBuf.exit61.thread
-  %indvars.iv79 = phi i64 [ 0, %.lr.ph76 ], [ %indvars.iv.next80, %Gia_ObjIsAndNotBuf.exit61.thread ]
-  %52 = phi ptr [ %47, %.lr.ph76 ], [ %82, %Gia_ObjIsAndNotBuf.exit61.thread ]
+51:                                               ; preds = %.lr.ph78, %Gia_ObjIsAndNotBuf.exit61.thread
+  %indvars.iv81 = phi i64 [ 0, %.lr.ph78 ], [ %indvars.iv.next82, %Gia_ObjIsAndNotBuf.exit61.thread ]
+  %52 = phi ptr [ %47, %.lr.ph78 ], [ %82, %Gia_ObjIsAndNotBuf.exit61.thread ]
   %.val49 = load ptr, ptr %45, align 8
   %.not40 = icmp eq ptr %.val49, null
   br i1 %.not40, label %.critedge2, label %53
@@ -13053,7 +13053,7 @@ Gia_ObjIsAndNotBuf.exit.thread:                   ; preds = %19, %40, %11, %Gia_
 53:                                               ; preds = %51
   %54 = getelementptr i8, ptr %52, i64 8
   %.val50.val = load ptr, ptr %54, align 8
-  %55 = getelementptr inbounds i32, ptr %.val50.val, i64 %indvars.iv79
+  %55 = getelementptr inbounds i32, ptr %.val50.val, i64 %indvars.iv81
   %56 = load i32, ptr %55, align 4
   %57 = sext i32 %56 to i64
   %58 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val49, i64 %57
@@ -13073,8 +13073,8 @@ Gia_ObjIsAndNotBuf.exit61:                        ; preds = %53
   %66 = lshr i64 %.val55, 32
   %67 = xor i64 %66, %.val55
   %68 = and i64 %67, 536870911
-  %.not66 = icmp eq i64 %68, 0
-  br i1 %.not66, label %Gia_ObjIsAndNotBuf.exit61.thread, label %69
+  %.not68 = icmp eq i64 %68, 0
+  br i1 %.not68, label %Gia_ObjIsAndNotBuf.exit61.thread, label %69
 
 69:                                               ; preds = %Gia_ObjIsAndNotBuf.exit61
   %70 = ptrtoint ptr %62 to i64
@@ -13084,12 +13084,12 @@ Gia_ObjIsAndNotBuf.exit61:                        ; preds = %53
   %.val = load ptr, ptr %50, align 8
   %74 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load ptr, ptr %74, align 8
-  %sext67 = shl i64 %73, 32
-  %75 = ashr exact i64 %sext67, 32
+  %sext69 = shl i64 %73, 32
+  %75 = ashr exact i64 %sext69, 32
   %76 = getelementptr inbounds i32, ptr %.val.val, i64 %75
   %77 = load i32, ptr %76, align 4
-  %.not68 = icmp eq i32 %77, 0
-  br i1 %.not68, label %78, label %80
+  %.not70 = icmp eq i32 %77, 0
+  br i1 %.not70, label %78, label %80
 
 78:                                               ; preds = %69
   %79 = trunc i64 %73 to i32
@@ -13101,12 +13101,12 @@ Gia_ObjIsAndNotBuf.exit61:                        ; preds = %53
   br label %Gia_ObjIsAndNotBuf.exit61.thread
 
 Gia_ObjIsAndNotBuf.exit61.thread:                 ; preds = %53, %Gia_ObjIsAndNotBuf.exit61, %80, %78
-  %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
+  %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
   %82 = load ptr, ptr %46, align 8
   %83 = getelementptr i8, ptr %82, i64 4
   %.val47 = load i32, ptr %83, align 4
   %84 = sext i32 %.val47 to i64
-  %85 = icmp slt i64 %indvars.iv.next80, %84
+  %85 = icmp slt i64 %indvars.iv.next82, %84
   br i1 %85, label %51, label %.critedge2, !llvm.loop !130
 
 .critedge2:                                       ; preds = %51, %Gia_ObjIsAndNotBuf.exit61.thread, %.critedge

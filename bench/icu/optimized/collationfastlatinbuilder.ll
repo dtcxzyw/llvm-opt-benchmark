@@ -614,7 +614,7 @@ if.then44:                                        ; preds = %land.lhs.true
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end38, %land.lhs.true, %if.then44
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %inc54 = add i16 %c.1102127, 1
   br label %for.cond, !llvm.loop !8
 
@@ -1385,7 +1385,7 @@ if.else45:                                        ; preds = %if.else
   br label %if.end56
 
 if.end56:                                         ; preds = %if.then37, %if.else45, %if.then32
-  %indvars.iv.next = add nuw i64 %indvars.iv, 3
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 3
   br label %for.cond17, !llvm.loop !13
 
 for.end:                                          ; preds = %_ZNK6icu_759UVector6410elementAtiEi.exit
@@ -1476,7 +1476,7 @@ for.cond.preheader:                               ; preds = %if.end7
   br i1 %cmp19.not18, label %if.else23, label %if.then20
 
 for.cond:                                         ; preds = %if.else23
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %arrayidx18 = getelementptr inbounds [4 x i32], ptr %lastSpecialPrimaries, i64 0, i64 %indvars.iv.next
   %3 = load i32, ptr %arrayidx18, align 4
   %cmp19.not = icmp ult i32 %3, %p
@@ -1713,15 +1713,16 @@ if.end87:                                         ; preds = %cond.false, %cond.t
   br i1 %cmp91, label %return, label %if.end93
 
 if.end93:                                         ; preds = %if.end87
-  %cmp96 = icmp ule i32 %15, %conv80
+  %cmp94.not = icmp ne i32 %conv80, 0
+  %cmp96 = icmp ugt i32 %15, %conv80
+  %or.cond32.not60.not62 = and i1 %cmp94.not, %cmp96
   %and98 = and i32 %conv89, -16384
-  %cmp99.not = icmp eq i32 %and98, 83886080
-  %17 = or i1 %cmp96, %cmp99.not
-  %or.cond33 = or i1 %17, %cmp81
+  %cmp99.not = icmp ne i32 %and98, 83886080
+  %or.cond33.not61 = and i1 %cmp99.not, %or.cond32.not60.not62
   %and103 = and i32 %conv89, 16128
-  %cmp104 = icmp ugt i32 %and103, 1279
-  %or.cond36.not = and i1 %cmp104, %or.cond33
-  br i1 %or.cond36.not, label %if.end107, label %return
+  %cmp104 = icmp ult i32 %and103, 1280
+  %or.cond36 = or i1 %cmp104, %or.cond33.not61
+  br i1 %or.cond36, label %return, label %if.end107
 
 if.end107:                                        ; preds = %if.end93, %if.end74
   %or = or i64 %16, %11

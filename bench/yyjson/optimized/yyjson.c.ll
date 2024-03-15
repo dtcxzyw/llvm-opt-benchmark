@@ -5271,8 +5271,8 @@ yyjson_is_arr.exit.i:                             ; preds = %if.end51
 
 yyjson_arr_iter_init.exit:                        ; preds = %yyjson_is_arr.exit.i
   %shr.i.i = lshr i64 %5, 8
-  %cmp.i1284.not1289 = icmp ult i64 %5, 256
-  br i1 %cmp.i1284.not1289, label %return, label %yyjson_arr_iter_next.exit.lr.ph
+  %cmp.i1285.not = icmp ult i64 %5, 256
+  br i1 %cmp.i1285.not, label %return, label %yyjson_arr_iter_next.exit.lr.ph
 
 yyjson_arr_iter_next.exit.lr.ph:                  ; preds = %yyjson_arr_iter_init.exit
   %add.ptr.i.i = getelementptr inbounds i8, ptr %patch, i64 16
@@ -5281,17 +5281,17 @@ yyjson_arr_iter_next.exit.lr.ph:                  ; preds = %yyjson_arr_iter_ini
   br label %yyjson_arr_iter_next.exit
 
 yyjson_arr_iter_next.exit:                        ; preds = %yyjson_arr_iter_next.exit.lr.ph, %sw.epilog848
-  %root.01287 = phi ptr [ %call52, %yyjson_arr_iter_next.exit.lr.ph ], [ %root.1, %sw.epilog848 ]
-  %iter.sroa.31.11286 = phi ptr [ %add.ptr.i.i, %yyjson_arr_iter_next.exit.lr.ph ], [ %add.ptr.i.i866, %sw.epilog848 ]
-  %iter.sroa.0.11285 = phi i64 [ 0, %yyjson_arr_iter_next.exit.lr.ph ], [ %inc.i, %sw.epilog848 ]
-  %6 = load i64, ptr %iter.sroa.31.11286, align 8
+  %root.01288 = phi ptr [ %call52, %yyjson_arr_iter_next.exit.lr.ph ], [ %root.1, %sw.epilog848 ]
+  %iter.sroa.31.11287 = phi ptr [ %add.ptr.i.i, %yyjson_arr_iter_next.exit.lr.ph ], [ %add.ptr.i.i866, %sw.epilog848 ]
+  %iter.sroa.0.11286 = phi i64 [ 0, %yyjson_arr_iter_next.exit.lr.ph ], [ %inc.i, %sw.epilog848 ]
+  %6 = load i64, ptr %iter.sroa.31.11287, align 8
   %and.i15081001 = and i64 %6, 6
   %cmp.i1510 = icmp eq i64 %and.i15081001, 6
-  %uni.i.i = getelementptr inbounds i8, ptr %iter.sroa.31.11286, i64 8
+  %uni.i.i = getelementptr inbounds i8, ptr %iter.sroa.31.11287, i64 8
   %7 = load i64, ptr %uni.i.i, align 8
   %cond.i.i865 = select i1 %cmp.i1510, i64 %7, i64 16
-  %add.ptr.i.i866 = getelementptr inbounds i8, ptr %iter.sroa.31.11286, i64 %cond.i.i865
-  %inc.i = add nuw nsw i64 %iter.sroa.0.11285, 1
+  %add.ptr.i.i866 = getelementptr inbounds i8, ptr %iter.sroa.31.11287, i64 %cond.i.i865
+  %inc.i = add nuw nsw i64 %iter.sroa.0.11286, 1
   %and.i.i1002 = and i64 %6, 7
   %cmp.i872.not = icmp eq i64 %and.i.i1002, 7
   br i1 %cmp.i872.not, label %if.then.i1282, label %do.body100
@@ -5310,41 +5310,41 @@ if.then105:                                       ; preds = %do.body100
 if.else109:                                       ; preds = %do.body100
   store i32 3, ptr %err.addr.0, align 8
   store ptr @.str.6, ptr %err.addr.0.sroa.phi993, align 8
-  store i64 %iter.sroa.0.11285, ptr %err.addr.0.sroa.phi996, align 8
+  store i64 %iter.sroa.0.11286, ptr %err.addr.0.sroa.phi996, align 8
   br label %return
 
 if.then.i1282:                                    ; preds = %yyjson_arr_iter_next.exit
   %shr.i.i1283 = lshr i64 %6, 8
-  %add.ptr.i12.i = getelementptr inbounds i8, ptr %iter.sroa.31.11286, i64 16
-  %cmp.i1284.not1252 = icmp ult i64 %6, 256
-  br i1 %cmp.i1284.not1252, label %do.body135, label %while.body.i
+  %add.ptr.i12.i = getelementptr inbounds i8, ptr %iter.sroa.31.11287, i64 16
+  %cmp.i1284.not1253 = icmp ult i64 %6, 256
+  br i1 %cmp.i1284.not1253, label %do.body135, label %while.body.i
 
 while.body.i:                                     ; preds = %if.then.i1282, %if.end.i1285
-  %dec.i1254.in = phi i64 [ %dec.i1254, %if.end.i1285 ], [ %shr.i.i1283, %if.then.i1282 ]
-  %key.i.01253 = phi ptr [ %add.ptr.i.i1293, %if.end.i1285 ], [ %add.ptr.i12.i, %if.then.i1282 ]
-  %dec.i1254 = add nsw i64 %dec.i1254.in, -1
-  %9 = load i64, ptr %key.i.01253, align 8
+  %dec.i1255.in = phi i64 [ %dec.i1255, %if.end.i1285 ], [ %shr.i.i1283, %if.then.i1282 ]
+  %key.i.01254 = phi ptr [ %add.ptr.i.i1293, %if.end.i1285 ], [ %add.ptr.i12.i, %if.then.i1282 ]
+  %dec.i1255 = add nsw i64 %dec.i1255.in, -1
+  %9 = load i64, ptr %key.i.01254, align 8
   %shr.i.i1546.mask = and i64 %9, -256
   %cmp.i1547 = icmp eq i64 %shr.i.i1546.mask, 512
   br i1 %cmp.i1547, label %land.rhs.i1549, label %if.end.i1285
 
 land.rhs.i1549:                                   ; preds = %while.body.i
-  %uni.i1550 = getelementptr inbounds i8, ptr %key.i.01253, i64 8
+  %uni.i1550 = getelementptr inbounds i8, ptr %key.i.01254, i64 8
   %10 = load ptr, ptr %uni.i1550, align 8
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %10, ptr noundef nonnull dereferenceable(2) @.str.7, i64 2)
   %cmp2.i1552 = icmp eq i32 %bcmp, 0
   br i1 %cmp2.i1552, label %cond.true.i927, label %if.end.i1285
 
 if.end.i1285:                                     ; preds = %while.body.i, %land.rhs.i1549
-  %add.ptr8.i = getelementptr inbounds i8, ptr %key.i.01253, i64 16
+  %add.ptr8.i = getelementptr inbounds i8, ptr %key.i.01254, i64 16
   %11 = load i64, ptr %add.ptr8.i, align 8
   %and.i15001004 = and i64 %11, 6
   %cmp.i1502 = icmp eq i64 %and.i15001004, 6
-  %uni.i.i1288 = getelementptr inbounds i8, ptr %key.i.01253, i64 24
+  %uni.i.i1288 = getelementptr inbounds i8, ptr %key.i.01254, i64 24
   %12 = load i64, ptr %uni.i.i1288, align 8
   %cond.i.i1292 = select i1 %cmp.i1502, i64 %12, i64 16
   %add.ptr.i.i1293 = getelementptr inbounds i8, ptr %add.ptr8.i, i64 %cond.i.i1292
-  %cmp.i1284.not = icmp eq i64 %dec.i1254, 0
+  %cmp.i1284.not = icmp eq i64 %dec.i1255, 0
   br i1 %cmp.i1284.not, label %do.body135, label %while.body.i, !llvm.loop !38
 
 do.body135:                                       ; preds = %if.then.i1282, %if.end.i1285
@@ -5361,11 +5361,11 @@ if.then140:                                       ; preds = %do.body135
 if.else144:                                       ; preds = %do.body135
   store i32 4, ptr %err.addr.0, align 8
   store ptr @.str.8, ptr %err.addr.0.sroa.phi993, align 8
-  store i64 %iter.sroa.0.11285, ptr %err.addr.0.sroa.phi996, align 8
+  store i64 %iter.sroa.0.11286, ptr %err.addr.0.sroa.phi996, align 8
   br label %return
 
 cond.true.i927:                                   ; preds = %land.rhs.i1549
-  %add.ptr.i = getelementptr inbounds i8, ptr %key.i.01253, i64 16
+  %add.ptr.i = getelementptr inbounds i8, ptr %key.i.01254, i64 16
   %14 = load i64, ptr %add.ptr.i, align 8
   %and.i.i15771005 = and i64 %14, 7
   %cmp.i1580.not = icmp eq i64 %and.i.i15771005, 5
@@ -5385,41 +5385,41 @@ if.then174:                                       ; preds = %do.body169
 if.else178:                                       ; preds = %do.body169
   store i32 5, ptr %err.addr.0, align 8
   store ptr @.str.9, ptr %err.addr.0.sroa.phi993, align 8
-  store i64 %iter.sroa.0.11285, ptr %err.addr.0.sroa.phi996, align 8
+  store i64 %iter.sroa.0.11286, ptr %err.addr.0.sroa.phi996, align 8
   br label %return
 
 while.body.i1331.preheader:                       ; preds = %cond.true.i927
-  %16 = getelementptr i8, ptr %key.i.01253, i64 24
-  %retval.i1275.0.val1018 = load ptr, ptr %16, align 8
-  %call193 = call fastcc i32 @patch_op_get(i64 %14, ptr %retval.i1275.0.val1018)
+  %16 = getelementptr i8, ptr %key.i.01254, i64 24
+  %retval.i1275.0.val1019 = load ptr, ptr %16, align 8
+  %call193 = call fastcc i32 @patch_op_get(i64 %14, ptr %retval.i1275.0.val1019)
   br label %while.body.i1331
 
 while.body.i1331:                                 ; preds = %while.body.i1331.preheader, %if.end.i1333
-  %dec.i13281259.in = phi i64 [ %dec.i13281259, %if.end.i1333 ], [ %shr.i.i1283, %while.body.i1331.preheader ]
-  %key.i1313.01258 = phi ptr [ %add.ptr.i.i1342, %if.end.i1333 ], [ %add.ptr.i12.i, %while.body.i1331.preheader ]
-  %dec.i13281259 = add nsw i64 %dec.i13281259.in, -1
-  %17 = load i64, ptr %key.i1313.01258, align 8
+  %dec.i13281260.in = phi i64 [ %dec.i13281260, %if.end.i1333 ], [ %shr.i.i1283, %while.body.i1331.preheader ]
+  %key.i1313.01259 = phi ptr [ %add.ptr.i.i1342, %if.end.i1333 ], [ %add.ptr.i12.i, %while.body.i1331.preheader ]
+  %dec.i13281260 = add nsw i64 %dec.i13281260.in, -1
+  %17 = load i64, ptr %key.i1313.01259, align 8
   %shr.i.i1534.mask = and i64 %17, -256
   %cmp.i1535 = icmp eq i64 %shr.i.i1534.mask, 1024
   br i1 %cmp.i1535, label %land.rhs.i1537, label %if.end.i1333
 
 land.rhs.i1537:                                   ; preds = %while.body.i1331
-  %uni.i1538 = getelementptr inbounds i8, ptr %key.i1313.01258, i64 8
+  %uni.i1538 = getelementptr inbounds i8, ptr %key.i1313.01259, i64 8
   %18 = load ptr, ptr %uni.i1538, align 8
   %bcmp1007 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %18, ptr noundef nonnull dereferenceable(4) @.str.10, i64 4)
   %cmp2.i1540 = icmp eq i32 %bcmp1007, 0
   br i1 %cmp2.i1540, label %cond.true.i918, label %if.end.i1333
 
 if.end.i1333:                                     ; preds = %while.body.i1331, %land.rhs.i1537
-  %add.ptr8.i1334 = getelementptr inbounds i8, ptr %key.i1313.01258, i64 16
+  %add.ptr8.i1334 = getelementptr inbounds i8, ptr %key.i1313.01259, i64 16
   %19 = load i64, ptr %add.ptr8.i1334, align 8
   %and.i14921008 = and i64 %19, 6
   %cmp.i1494 = icmp eq i64 %and.i14921008, 6
-  %uni.i.i1337 = getelementptr inbounds i8, ptr %key.i1313.01258, i64 24
+  %uni.i.i1337 = getelementptr inbounds i8, ptr %key.i1313.01259, i64 24
   %20 = load i64, ptr %uni.i.i1337, align 8
   %cond.i.i1341 = select i1 %cmp.i1494, i64 %20, i64 16
   %add.ptr.i.i1342 = getelementptr inbounds i8, ptr %add.ptr8.i1334, i64 %cond.i.i1341
-  %cmp.i1329.not = icmp eq i64 %dec.i13281259, 0
+  %cmp.i1329.not = icmp eq i64 %dec.i13281260, 0
   br i1 %cmp.i1329.not, label %do.body205, label %while.body.i1331, !llvm.loop !38
 
 do.body205:                                       ; preds = %if.end.i1333
@@ -5436,11 +5436,11 @@ if.then210:                                       ; preds = %do.body205
 if.else214:                                       ; preds = %do.body205
   store i32 4, ptr %err.addr.0, align 8
   store ptr @.str.11, ptr %err.addr.0.sroa.phi993, align 8
-  store i64 %iter.sroa.0.11285, ptr %err.addr.0.sroa.phi996, align 8
+  store i64 %iter.sroa.0.11286, ptr %err.addr.0.sroa.phi996, align 8
   br label %return
 
 cond.true.i918:                                   ; preds = %land.rhs.i1537
-  %add.ptr.i1345 = getelementptr inbounds i8, ptr %key.i1313.01258, i64 16
+  %add.ptr.i1345 = getelementptr inbounds i8, ptr %key.i1313.01259, i64 16
   %22 = load i64, ptr %add.ptr.i1345, align 8
   %and.i.i15861009 = and i64 %22, 7
   %cmp.i1589.not = icmp eq i64 %and.i.i15861009, 5
@@ -5460,7 +5460,7 @@ if.then244:                                       ; preds = %do.body239
 if.else248:                                       ; preds = %do.body239
   store i32 5, ptr %err.addr.0, align 8
   store ptr @.str.12, ptr %err.addr.0.sroa.phi993, align 8
-  store i64 %iter.sroa.0.11285, ptr %err.addr.0.sroa.phi996, align 8
+  store i64 %iter.sroa.0.11286, ptr %err.addr.0.sroa.phi996, align 8
   br label %return
 
 if.end262:                                        ; preds = %cond.true.i918
@@ -5480,31 +5480,31 @@ while.body.i1390.preheader:                       ; preds = %if.end262, %if.end2
   br label %while.body.i1390
 
 while.body.i1390:                                 ; preds = %while.body.i1390.preheader, %if.end.i1392
-  %dec.i13871271.in = phi i64 [ %dec.i13871271, %if.end.i1392 ], [ %shr.i.i1283, %while.body.i1390.preheader ]
-  %key.i1372.01270 = phi ptr [ %add.ptr.i.i1401, %if.end.i1392 ], [ %add.ptr.i12.i, %while.body.i1390.preheader ]
-  %dec.i13871271 = add i64 %dec.i13871271.in, -1
-  %24 = load i64, ptr %key.i1372.01270, align 8
+  %dec.i13871272.in = phi i64 [ %dec.i13871272, %if.end.i1392 ], [ %shr.i.i1283, %while.body.i1390.preheader ]
+  %key.i1372.01271 = phi ptr [ %add.ptr.i.i1401, %if.end.i1392 ], [ %add.ptr.i12.i, %while.body.i1390.preheader ]
+  %dec.i13871272 = add i64 %dec.i13871272.in, -1
+  %24 = load i64, ptr %key.i1372.01271, align 8
   %shr.i.i1522.mask = and i64 %24, -256
   %cmp.i1523 = icmp eq i64 %shr.i.i1522.mask, 1280
   br i1 %cmp.i1523, label %land.rhs.i1525, label %if.end.i1392
 
 land.rhs.i1525:                                   ; preds = %while.body.i1390
-  %uni.i1526 = getelementptr inbounds i8, ptr %key.i1372.01270, i64 8
+  %uni.i1526 = getelementptr inbounds i8, ptr %key.i1372.01271, i64 8
   %25 = load ptr, ptr %uni.i1526, align 8
   %bcmp1015 = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %25, ptr noundef nonnull dereferenceable(5) @.str.13, i64 5)
   %cmp2.i1528 = icmp eq i32 %bcmp1015, 0
   br i1 %cmp2.i1528, label %if.end298, label %if.end.i1392
 
 if.end.i1392:                                     ; preds = %while.body.i1390, %land.rhs.i1525
-  %add.ptr8.i1393 = getelementptr inbounds i8, ptr %key.i1372.01270, i64 16
+  %add.ptr8.i1393 = getelementptr inbounds i8, ptr %key.i1372.01271, i64 16
   %26 = load i64, ptr %add.ptr8.i1393, align 8
   %and.i14841016 = and i64 %26, 6
   %cmp.i1486 = icmp eq i64 %and.i14841016, 6
-  %uni.i.i1396 = getelementptr inbounds i8, ptr %key.i1372.01270, i64 24
+  %uni.i.i1396 = getelementptr inbounds i8, ptr %key.i1372.01271, i64 24
   %27 = load i64, ptr %uni.i.i1396, align 8
   %cond.i.i1400 = select i1 %cmp.i1486, i64 %27, i64 16
   %add.ptr.i.i1401 = getelementptr inbounds i8, ptr %add.ptr8.i1393, i64 %cond.i.i1400
-  %cmp.i1388.not = icmp eq i64 %dec.i13871271, 0
+  %cmp.i1388.not = icmp eq i64 %dec.i13871272, 0
   br i1 %cmp.i1388.not, label %do.body275, label %while.body.i1390, !llvm.loop !38
 
 do.body275:                                       ; preds = %if.end.i1392
@@ -5521,11 +5521,11 @@ if.then280:                                       ; preds = %do.body275
 if.else284:                                       ; preds = %do.body275
   store i32 4, ptr %err.addr.0, align 8
   store ptr @.str.14, ptr %err.addr.0.sroa.phi993, align 8
-  store i64 %iter.sroa.0.11285, ptr %err.addr.0.sroa.phi996, align 8
+  store i64 %iter.sroa.0.11286, ptr %err.addr.0.sroa.phi996, align 8
   br label %return
 
 if.end298:                                        ; preds = %land.rhs.i1525
-  %add.ptr.i1404 = getelementptr inbounds i8, ptr %key.i1372.01270, i64 16
+  %add.ptr.i1404 = getelementptr inbounds i8, ptr %key.i1372.01271, i64 16
   %call299 = call ptr @yyjson_val_mut_copy(ptr noundef %doc, ptr noundef nonnull %add.ptr.i1404)
   %tobool300.not = icmp eq ptr %call299, null
   br i1 %tobool300.not, label %do.body310, label %sw.epilog
@@ -5542,35 +5542,35 @@ if.then315:                                       ; preds = %do.body310
   br label %return
 
 if.else319:                                       ; preds = %do.body310
-  store i64 %iter.sroa.0.11285, ptr %err.addr.0.sroa.phi996, align 8
+  store i64 %iter.sroa.0.11286, ptr %err.addr.0.sroa.phi996, align 8
   br label %return
 
 while.body.i1449:                                 ; preds = %while.body.i1449.preheader, %if.end.i1451
-  %dec.i14461265.in = phi i64 [ %dec.i14461265, %if.end.i1451 ], [ %shr.i.i1283, %while.body.i1449.preheader ]
-  %key.i1431.01264 = phi ptr [ %add.ptr.i.i1460, %if.end.i1451 ], [ %add.ptr.i12.i, %while.body.i1449.preheader ]
-  %dec.i14461265 = add i64 %dec.i14461265.in, -1
-  %30 = load i64, ptr %key.i1431.01264, align 8
+  %dec.i14461266.in = phi i64 [ %dec.i14461266, %if.end.i1451 ], [ %shr.i.i1283, %while.body.i1449.preheader ]
+  %key.i1431.01265 = phi ptr [ %add.ptr.i.i1460, %if.end.i1451 ], [ %add.ptr.i12.i, %while.body.i1449.preheader ]
+  %dec.i14461266 = add i64 %dec.i14461266.in, -1
+  %30 = load i64, ptr %key.i1431.01265, align 8
   %shr.i.i1514.mask = and i64 %30, -256
   %cmp.i1515 = icmp eq i64 %shr.i.i1514.mask, 1024
   br i1 %cmp.i1515, label %land.rhs.i1517, label %if.end.i1451
 
 land.rhs.i1517:                                   ; preds = %while.body.i1449
-  %uni.i = getelementptr inbounds i8, ptr %key.i1431.01264, i64 8
+  %uni.i = getelementptr inbounds i8, ptr %key.i1431.01265, i64 8
   %31 = load ptr, ptr %uni.i, align 8
   %bcmp1011 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %31, ptr noundef nonnull dereferenceable(4) @.str.15, i64 4)
   %cmp2.i = icmp eq i32 %bcmp1011, 0
   br i1 %cmp2.i, label %cond.true.i910, label %if.end.i1451
 
 if.end.i1451:                                     ; preds = %while.body.i1449, %land.rhs.i1517
-  %add.ptr8.i1452 = getelementptr inbounds i8, ptr %key.i1431.01264, i64 16
+  %add.ptr8.i1452 = getelementptr inbounds i8, ptr %key.i1431.01265, i64 16
   %32 = load i64, ptr %add.ptr8.i1452, align 8
   %and.i1012 = and i64 %32, 6
   %cmp.i1478 = icmp eq i64 %and.i1012, 6
-  %uni.i.i1455 = getelementptr inbounds i8, ptr %key.i1431.01264, i64 24
+  %uni.i.i1455 = getelementptr inbounds i8, ptr %key.i1431.01265, i64 24
   %33 = load i64, ptr %uni.i.i1455, align 8
   %cond.i.i1459 = select i1 %cmp.i1478, i64 %33, i64 16
   %add.ptr.i.i1460 = getelementptr inbounds i8, ptr %add.ptr8.i1452, i64 %cond.i.i1459
-  %cmp.i1447.not = icmp eq i64 %dec.i14461265, 0
+  %cmp.i1447.not = icmp eq i64 %dec.i14461266, 0
   br i1 %cmp.i1447.not, label %do.body346, label %while.body.i1449, !llvm.loop !38
 
 do.body346:                                       ; preds = %if.end.i1451
@@ -5587,11 +5587,11 @@ if.then351:                                       ; preds = %do.body346
 if.else355:                                       ; preds = %do.body346
   store i32 4, ptr %err.addr.0, align 8
   store ptr @.str.16, ptr %err.addr.0.sroa.phi993, align 8
-  store i64 %iter.sroa.0.11285, ptr %err.addr.0.sroa.phi996, align 8
+  store i64 %iter.sroa.0.11286, ptr %err.addr.0.sroa.phi996, align 8
   br label %return
 
 cond.true.i910:                                   ; preds = %land.rhs.i1517
-  %add.ptr.i1463 = getelementptr inbounds i8, ptr %key.i1431.01264, i64 16
+  %add.ptr.i1463 = getelementptr inbounds i8, ptr %key.i1431.01265, i64 16
   %35 = load i64, ptr %add.ptr.i1463, align 8
   %and.i.i15951013 = and i64 %35, 7
   %cmp.i1598.not = icmp eq i64 %and.i.i15951013, 5
@@ -5611,7 +5611,7 @@ if.then385:                                       ; preds = %do.body380
 if.else389:                                       ; preds = %do.body380
   store i32 5, ptr %err.addr.0, align 8
   store ptr @.str.17, ptr %err.addr.0.sroa.phi993, align 8
-  store i64 %iter.sroa.0.11285, ptr %err.addr.0.sroa.phi996, align 8
+  store i64 %iter.sroa.0.11286, ptr %err.addr.0.sroa.phi996, align 8
   br label %return
 
 if.end403:                                        ; preds = %cond.true.i910
@@ -5636,16 +5636,16 @@ sw.bb405:                                         ; preds = %sw.epilog
   br i1 %cmp406, label %sw.epilog848, label %if.end415
 
 if.end415:                                        ; preds = %sw.bb405
-  %uni = getelementptr inbounds i8, ptr %key.i1313.01258, i64 24
+  %uni = getelementptr inbounds i8, ptr %key.i1313.01259, i64 24
   %37 = load ptr, ptr %uni, align 8
   store i32 0, ptr %err.addr.0.sroa.phi987, align 8
-  %tobool4.i1018 = icmp ne ptr %root.01287, null
-  %tobool5.i1056 = icmp ne ptr %37, null
-  %or.cond1 = select i1 %tobool4.i1018, i1 %tobool5.i1056, i1 false
-  %tobool7.i1058 = icmp ne ptr %val.0, null
-  %or.cond2 = and i1 %tobool7.i1058, %or.cond1
+  %tobool4.i1018 = icmp eq ptr %root.01288, null
+  %tobool5.i1056 = icmp eq ptr %37, null
+  %or.cond1.not1018 = select i1 %tobool4.i1018, i1 true, i1 %tobool5.i1056
+  %tobool7.i1058 = icmp eq ptr %val.0, null
+  %or.cond2.not = or i1 %tobool7.i1058, %or.cond1.not1018
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %msg.i1208, i8 0, i64 16, i1 false)
-  br i1 %or.cond2, label %if.end38.i1028, label %if.else436.sink.split
+  br i1 %or.cond2.not, label %if.else436.sink.split, label %if.end38.i1028
 
 if.end38.i1028:                                   ; preds = %if.end415
   %38 = load i8, ptr %37, align 1
@@ -5653,7 +5653,7 @@ if.end38.i1028:                                   ; preds = %if.end415
   br i1 %cmp40.i1030.not, label %if.end57.i1034, label %if.else436.sink.split
 
 if.end57.i1034:                                   ; preds = %if.end38.i1028
-  %call.i1036 = call zeroext i1 @unsafe_yyjson_mut_ptr_putx(ptr noundef nonnull %root.01287, ptr noundef nonnull %37, i64 noundef %shr.i850, ptr noundef nonnull %val.0, ptr noundef %doc, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef null, ptr noundef nonnull %err.addr.0.sroa.phi987)
+  %call.i1036 = call zeroext i1 @unsafe_yyjson_mut_ptr_putx(ptr noundef nonnull %root.01288, ptr noundef nonnull %37, i64 noundef %shr.i850, ptr noundef nonnull %val.0, ptr noundef %doc, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef null, ptr noundef nonnull %err.addr.0.sroa.phi987)
   br i1 %call.i1036, label %sw.epilog848, label %do.body427
 
 do.body427:                                       ; preds = %if.end57.i1034
@@ -5678,14 +5678,14 @@ if.else436.sink.split:                            ; preds = %if.end38.i1028, %if
 if.else436:                                       ; preds = %if.else436.sink.split, %do.body427
   store i32 7, ptr %err.addr.0, align 8
   store ptr @.str.18, ptr %err.addr.0.sroa.phi993, align 8
-  store i64 %iter.sroa.0.11285, ptr %err.addr.0.sroa.phi996, align 8
+  store i64 %iter.sroa.0.11286, ptr %err.addr.0.sroa.phi996, align 8
   br label %return
 
 sw.bb451:                                         ; preds = %sw.epilog
-  %uni452 = getelementptr inbounds i8, ptr %key.i1313.01258, i64 24
+  %uni452 = getelementptr inbounds i8, ptr %key.i1313.01259, i64 24
   %39 = load ptr, ptr %uni452, align 8
   store i32 0, ptr %err.addr.0.sroa.phi987, align 8
-  %tobool4.i1103.not = icmp eq ptr %root.01287, null
+  %tobool4.i1103.not = icmp eq ptr %root.01288, null
   %tobool5.i1140.not = icmp eq ptr %39, null
   %40 = select i1 %tobool4.i1103.not, i1 true, i1 %tobool5.i1140.not
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %msg.i1208, i8 0, i64 16, i1 false)
@@ -5701,13 +5701,13 @@ if.end35.i1113:                                   ; preds = %if.end18.i1108
   br i1 %cmp37.i1115.not, label %yyjson_mut_ptr_removex.exit1146, label %if.else474.sink.split
 
 yyjson_mut_ptr_removex.exit1146:                  ; preds = %if.end35.i1113
-  %call.i1120 = call ptr @unsafe_yyjson_mut_ptr_removex(ptr noundef nonnull %root.01287, ptr noundef nonnull %39, i64 noundef %shr.i850, ptr noundef null, ptr noundef nonnull %err.addr.0.sroa.phi987)
+  %call.i1120 = call ptr @unsafe_yyjson_mut_ptr_removex(ptr noundef nonnull %root.01288, ptr noundef nonnull %39, i64 noundef %shr.i850, ptr noundef null, ptr noundef nonnull %err.addr.0.sroa.phi987)
   %tobool455.not = icmp eq ptr %call.i1120, null
   br i1 %tobool455.not, label %do.body465, label %sw.epilog848
 
 do.body465:                                       ; preds = %yyjson_mut_ptr_removex.exit1146
-  %.pr1108 = load i32, ptr %err.addr.0.sroa.phi987, align 8
-  %cmp468 = icmp eq i32 %.pr1108, 6
+  %.pr1109 = load i32, ptr %err.addr.0.sroa.phi987, align 8
+  %cmp468 = icmp eq i32 %.pr1109, 6
   br i1 %cmp468, label %if.then470, label %if.else474
 
 if.then470:                                       ; preds = %do.body465
@@ -5727,7 +5727,7 @@ if.else474.sink.split:                            ; preds = %if.end35.i1113, %if
 if.else474:                                       ; preds = %if.else474.sink.split, %do.body465
   store i32 7, ptr %err.addr.0, align 8
   store ptr @.str.19, ptr %err.addr.0.sroa.phi993, align 8
-  store i64 %iter.sroa.0.11285, ptr %err.addr.0.sroa.phi996, align 8
+  store i64 %iter.sroa.0.11286, ptr %err.addr.0.sroa.phi996, align 8
   br label %return
 
 sw.bb489:                                         ; preds = %sw.epilog
@@ -5735,10 +5735,10 @@ sw.bb489:                                         ; preds = %sw.epilog
   br i1 %cmp490, label %sw.epilog848, label %if.end499
 
 if.end499:                                        ; preds = %sw.bb489
-  %uni500 = getelementptr inbounds i8, ptr %key.i1313.01258, i64 24
+  %uni500 = getelementptr inbounds i8, ptr %key.i1313.01259, i64 24
   %42 = load ptr, ptr %uni500, align 8
   store i32 0, ptr %err.addr.0.sroa.phi987, align 8
-  %tobool4.i1158 = icmp eq ptr %root.01287, null
+  %tobool4.i1158 = icmp eq ptr %root.01288, null
   %tobool5.i1168 = icmp eq ptr %42, null
   %or.cond3.not = select i1 %tobool4.i1158, i1 true, i1 %tobool5.i1168
   %tobool6.i.not = icmp eq ptr %val.0, null
@@ -5752,13 +5752,13 @@ if.end36.i1164:                                   ; preds = %if.end499
   br i1 %cmp38.i.not, label %yyjson_mut_ptr_replacex.exit, label %if.else522.sink.split
 
 yyjson_mut_ptr_replacex.exit:                     ; preds = %if.end36.i1164
-  %call.i1166 = call ptr @unsafe_yyjson_mut_ptr_replacex(ptr noundef nonnull %root.01287, ptr noundef nonnull %42, i64 noundef %shr.i850, ptr noundef nonnull %val.0, ptr noundef null, ptr noundef nonnull %err.addr.0.sroa.phi987)
+  %call.i1166 = call ptr @unsafe_yyjson_mut_ptr_replacex(ptr noundef nonnull %root.01288, ptr noundef nonnull %42, i64 noundef %shr.i850, ptr noundef nonnull %val.0, ptr noundef null, ptr noundef nonnull %err.addr.0.sroa.phi987)
   %tobool503.not = icmp eq ptr %call.i1166, null
   br i1 %tobool503.not, label %do.body513, label %sw.epilog848
 
 do.body513:                                       ; preds = %yyjson_mut_ptr_replacex.exit
-  %.pr1110 = load i32, ptr %err.addr.0.sroa.phi987, align 8
-  %cmp516 = icmp eq i32 %.pr1110, 6
+  %.pr1111 = load i32, ptr %err.addr.0.sroa.phi987, align 8
+  %cmp516 = icmp eq i32 %.pr1111, 6
   br i1 %cmp516, label %if.then518, label %if.else522
 
 if.then518:                                       ; preds = %do.body513
@@ -5778,7 +5778,7 @@ if.else522.sink.split:                            ; preds = %if.end36.i1164, %if
 if.else522:                                       ; preds = %if.else522.sink.split, %do.body513
   store i32 7, ptr %err.addr.0, align 8
   store ptr @.str.20, ptr %err.addr.0.sroa.phi993, align 8
-  store i64 %iter.sroa.0.11285, ptr %err.addr.0.sroa.phi996, align 8
+  store i64 %iter.sroa.0.11286, ptr %err.addr.0.sroa.phi996, align 8
   br label %return
 
 sw.bb537:                                         ; preds = %sw.epilog
@@ -5791,7 +5791,7 @@ if.end549:                                        ; preds = %sw.bb537
   %uni550 = getelementptr inbounds i8, ptr %from.0, i64 8
   %46 = load ptr, ptr %uni550, align 8
   store i32 0, ptr %err.addr.0.sroa.phi987, align 8
-  %tobool4.i1077 = icmp eq ptr %root.01287, null
+  %tobool4.i1077 = icmp eq ptr %root.01288, null
   %tobool5.i1087.not = icmp eq ptr %46, null
   %.not1017.not1421 = select i1 %tobool4.i1077, i1 true, i1 %tobool5.i1087.not
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %msg.i1208, i8 0, i64 16, i1 false)
@@ -5804,13 +5804,13 @@ if.end35.i:                                       ; preds = %if.end549
   br i1 %cmp37.i.not, label %yyjson_mut_ptr_removex.exit, label %if.else572.sink.split
 
 yyjson_mut_ptr_removex.exit:                      ; preds = %if.end35.i
-  %call.i1082 = call ptr @unsafe_yyjson_mut_ptr_removex(ptr noundef nonnull %root.01287, ptr noundef nonnull %46, i64 noundef %from_len.0, ptr noundef null, ptr noundef nonnull %err.addr.0.sroa.phi987)
+  %call.i1082 = call ptr @unsafe_yyjson_mut_ptr_removex(ptr noundef nonnull %root.01288, ptr noundef nonnull %46, i64 noundef %from_len.0, ptr noundef null, ptr noundef nonnull %err.addr.0.sroa.phi987)
   %tobool553.not = icmp eq ptr %call.i1082, null
   br i1 %tobool553.not, label %do.body563, label %if.end586
 
 do.body563:                                       ; preds = %yyjson_mut_ptr_removex.exit
-  %.pr1112 = load i32, ptr %err.addr.0.sroa.phi987, align 8
-  %cmp566 = icmp eq i32 %.pr1112, 6
+  %.pr1113 = load i32, ptr %err.addr.0.sroa.phi987, align 8
+  %cmp566 = icmp eq i32 %.pr1113, 6
   br i1 %cmp566, label %if.then568, label %if.else572
 
 if.then568:                                       ; preds = %do.body563
@@ -5835,14 +5835,14 @@ if.else572.sink.split:                            ; preds = %if.end35.i, %if.els
 if.else572:                                       ; preds = %if.else572.sink.split, %do.body563
   store i32 7, ptr %err.addr.0, align 8
   store ptr @.str.21, ptr %err.addr.0.sroa.phi993, align 8
-  store i64 %iter.sroa.0.11285, ptr %err.addr.0.sroa.phi996, align 8
+  store i64 %iter.sroa.0.11286, ptr %err.addr.0.sroa.phi996, align 8
   br label %return
 
 if.end586:                                        ; preds = %yyjson_mut_ptr_removex.exit
   br i1 %cmp540, label %sw.epilog848, label %if.end596
 
 if.end596:                                        ; preds = %if.end586
-  %uni597 = getelementptr inbounds i8, ptr %key.i1313.01258, i64 24
+  %uni597 = getelementptr inbounds i8, ptr %key.i1313.01259, i64 24
   %48 = load ptr, ptr %uni597, align 8
   store i32 0, ptr %err.addr.0.sroa.phi987, align 8
   %tobool5.i994.not = icmp eq ptr %48, null
@@ -5855,12 +5855,12 @@ if.end38.i966:                                    ; preds = %if.end596
   br i1 %cmp40.i968.not, label %if.end57.i972, label %if.else618.sink.split
 
 if.end57.i972:                                    ; preds = %if.end38.i966
-  %call.i974 = call zeroext i1 @unsafe_yyjson_mut_ptr_putx(ptr noundef nonnull %root.01287, ptr noundef nonnull %48, i64 noundef %shr.i850, ptr noundef nonnull %call.i1082, ptr noundef %doc, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef null, ptr noundef nonnull %err.addr.0.sroa.phi987)
+  %call.i974 = call zeroext i1 @unsafe_yyjson_mut_ptr_putx(ptr noundef nonnull %root.01288, ptr noundef nonnull %48, i64 noundef %shr.i850, ptr noundef nonnull %call.i1082, ptr noundef %doc, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef null, ptr noundef nonnull %err.addr.0.sroa.phi987)
   br i1 %call.i974, label %sw.epilog848, label %do.body609
 
 do.body609:                                       ; preds = %if.end57.i972
-  %.pr1090 = load i32, ptr %err.addr.0.sroa.phi987, align 8
-  %cmp612 = icmp eq i32 %.pr1090, 6
+  %.pr1091 = load i32, ptr %err.addr.0.sroa.phi987, align 8
+  %cmp612 = icmp eq i32 %.pr1091, 6
   br i1 %cmp612, label %if.then614, label %if.else618
 
 if.then614:                                       ; preds = %do.body609
@@ -5880,14 +5880,14 @@ if.else618.sink.split:                            ; preds = %if.end38.i966, %if.
 if.else618:                                       ; preds = %if.else618.sink.split, %do.body609
   store i32 7, ptr %err.addr.0, align 8
   store ptr @.str.18, ptr %err.addr.0.sroa.phi993, align 8
-  store i64 %iter.sroa.0.11285, ptr %err.addr.0.sroa.phi996, align 8
+  store i64 %iter.sroa.0.11286, ptr %err.addr.0.sroa.phi996, align 8
   br label %return
 
 sw.bb633:                                         ; preds = %sw.epilog
   %uni634 = getelementptr inbounds i8, ptr %from.0, i64 8
   %50 = load ptr, ptr %uni634, align 8
   store i32 0, ptr %err.addr.0.sroa.phi987, align 8
-  %tobool4.i1220 = icmp ne ptr %root.01287, null
+  %tobool4.i1220 = icmp ne ptr %root.01288, null
   %tobool5.i1252.not = icmp ne ptr %50, null
   %.not = select i1 %tobool4.i1220, i1 %tobool5.i1252.not, i1 false
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %msg.i1208, i8 0, i64 16, i1 false)
@@ -5903,13 +5903,13 @@ if.end27.i1230:                                   ; preds = %if.end18.i1225
   br i1 %cmp29.i1232.not, label %yyjson_mut_ptr_getx.exit1258, label %if.else656.sink.split
 
 yyjson_mut_ptr_getx.exit1258:                     ; preds = %if.end27.i1230
-  %call.i1237 = call ptr @unsafe_yyjson_mut_ptr_getx(ptr noundef nonnull %root.01287, ptr noundef nonnull %50, i64 noundef %from_len.0, ptr noundef null, ptr noundef nonnull %err.addr.0.sroa.phi987)
+  %call.i1237 = call ptr @unsafe_yyjson_mut_ptr_getx(ptr noundef nonnull %root.01288, ptr noundef nonnull %50, i64 noundef %from_len.0, ptr noundef null, ptr noundef nonnull %err.addr.0.sroa.phi987)
   %tobool637.not = icmp eq ptr %call.i1237, null
   br i1 %tobool637.not, label %do.body647, label %if.end670
 
 do.body647:                                       ; preds = %yyjson_mut_ptr_getx.exit1258
-  %.pr1114 = load i32, ptr %err.addr.0.sroa.phi987, align 8
-  %cmp650 = icmp eq i32 %.pr1114, 6
+  %.pr1115 = load i32, ptr %err.addr.0.sroa.phi987, align 8
+  %cmp650 = icmp eq i32 %.pr1115, 6
   br i1 %cmp650, label %if.then652, label %if.else656
 
 if.then652:                                       ; preds = %do.body647
@@ -5929,16 +5929,16 @@ if.else656.sink.split:                            ; preds = %if.end27.i1230, %sw
 if.else656:                                       ; preds = %if.else656.sink.split, %do.body647
   store i32 7, ptr %err.addr.0, align 8
   store ptr @.str.22, ptr %err.addr.0.sroa.phi993, align 8
-  store i64 %iter.sroa.0.11285, ptr %err.addr.0.sroa.phi996, align 8
+  store i64 %iter.sroa.0.11286, ptr %err.addr.0.sroa.phi996, align 8
   br label %return
 
 if.end670:                                        ; preds = %if.end18.i1225, %yyjson_mut_ptr_getx.exit1258
-  %retval.i1210.01097 = phi ptr [ %call.i1237, %yyjson_mut_ptr_getx.exit1258 ], [ %root.01287, %if.end18.i1225 ]
+  %retval.i1210.01098 = phi ptr [ %call.i1237, %yyjson_mut_ptr_getx.exit1258 ], [ %root.01288, %if.end18.i1225 ]
   %cmp671 = icmp ult i64 %22, 256
   br i1 %cmp671, label %sw.epilog848, label %yyjson_mut_val_mut_copy.exit
 
 yyjson_mut_val_mut_copy.exit:                     ; preds = %if.end670
-  %call.i = call fastcc ptr @unsafe_yyjson_mut_val_mut_copy(ptr noundef nonnull %doc, ptr noundef nonnull %retval.i1210.01097)
+  %call.i = call fastcc ptr @unsafe_yyjson_mut_val_mut_copy(ptr noundef nonnull %doc, ptr noundef nonnull %retval.i1210.01098)
   %tobool682.not = icmp eq ptr %call.i, null
   br i1 %tobool682.not, label %do.body692, label %if.end715
 
@@ -5954,11 +5954,11 @@ if.then697:                                       ; preds = %do.body692
   br label %return
 
 if.else701:                                       ; preds = %do.body692
-  store i64 %iter.sroa.0.11285, ptr %err.addr.0.sroa.phi996, align 8
+  store i64 %iter.sroa.0.11286, ptr %err.addr.0.sroa.phi996, align 8
   br label %return
 
 if.end715:                                        ; preds = %yyjson_mut_val_mut_copy.exit
-  %uni716 = getelementptr inbounds i8, ptr %key.i1313.01258, i64 24
+  %uni716 = getelementptr inbounds i8, ptr %key.i1313.01259, i64 24
   %53 = load ptr, ptr %uni716, align 8
   store i32 0, ptr %err.addr.0.sroa.phi987, align 8
   %tobool5.i940.not = icmp eq ptr %53, null
@@ -5971,12 +5971,12 @@ if.end38.i:                                       ; preds = %if.end715
   br i1 %cmp40.i.not, label %if.end57.i, label %if.else737.sink.split
 
 if.end57.i:                                       ; preds = %if.end38.i
-  %call.i939 = call zeroext i1 @unsafe_yyjson_mut_ptr_putx(ptr noundef nonnull %root.01287, ptr noundef nonnull %53, i64 noundef %shr.i850, ptr noundef nonnull %call.i, ptr noundef nonnull %doc, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef null, ptr noundef nonnull %err.addr.0.sroa.phi987)
+  %call.i939 = call zeroext i1 @unsafe_yyjson_mut_ptr_putx(ptr noundef nonnull %root.01288, ptr noundef nonnull %53, i64 noundef %shr.i850, ptr noundef nonnull %call.i, ptr noundef nonnull %doc, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef null, ptr noundef nonnull %err.addr.0.sroa.phi987)
   br i1 %call.i939, label %sw.epilog848, label %do.body728
 
 do.body728:                                       ; preds = %if.end57.i
-  %.pr1100 = load i32, ptr %err.addr.0.sroa.phi987, align 8
-  %cmp731 = icmp eq i32 %.pr1100, 6
+  %.pr1101 = load i32, ptr %err.addr.0.sroa.phi987, align 8
+  %cmp731 = icmp eq i32 %.pr1101, 6
   br i1 %cmp731, label %if.then733, label %if.else737
 
 if.then733:                                       ; preds = %do.body728
@@ -5996,14 +5996,14 @@ if.else737.sink.split:                            ; preds = %if.end38.i, %if.end
 if.else737:                                       ; preds = %if.else737.sink.split, %do.body728
   store i32 7, ptr %err.addr.0, align 8
   store ptr @.str.18, ptr %err.addr.0.sroa.phi993, align 8
-  store i64 %iter.sroa.0.11285, ptr %err.addr.0.sroa.phi996, align 8
+  store i64 %iter.sroa.0.11286, ptr %err.addr.0.sroa.phi996, align 8
   br label %return
 
 sw.bb752:                                         ; preds = %sw.epilog
-  %uni753 = getelementptr inbounds i8, ptr %key.i1313.01258, i64 24
+  %uni753 = getelementptr inbounds i8, ptr %key.i1313.01259, i64 24
   %55 = load ptr, ptr %uni753, align 8
   store i32 0, ptr %err.addr.0.sroa.phi987, align 8
-  %tobool4.i1185.not = icmp eq ptr %root.01287, null
+  %tobool4.i1185.not = icmp eq ptr %root.01288, null
   %tobool5.i1204.not = icmp eq ptr %55, null
   %56 = select i1 %tobool4.i1185.not, i1 true, i1 %tobool5.i1204.not
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %msg.i1208, i8 0, i64 16, i1 false)
@@ -6019,13 +6019,13 @@ if.end27.i:                                       ; preds = %if.end18.i1190
   br i1 %cmp29.i.not, label %yyjson_mut_ptr_getx.exit, label %if.else775.sink.split
 
 yyjson_mut_ptr_getx.exit:                         ; preds = %if.end27.i
-  %call.i1195 = call ptr @unsafe_yyjson_mut_ptr_getx(ptr noundef nonnull %root.01287, ptr noundef nonnull %55, i64 noundef %shr.i850, ptr noundef null, ptr noundef nonnull %err.addr.0.sroa.phi987)
+  %call.i1195 = call ptr @unsafe_yyjson_mut_ptr_getx(ptr noundef nonnull %root.01288, ptr noundef nonnull %55, i64 noundef %shr.i850, ptr noundef null, ptr noundef nonnull %err.addr.0.sroa.phi987)
   %tobool756.not = icmp eq ptr %call.i1195, null
   br i1 %tobool756.not, label %do.body766, label %if.end789
 
 do.body766:                                       ; preds = %yyjson_mut_ptr_getx.exit
-  %.pr1116 = load i32, ptr %err.addr.0.sroa.phi987, align 8
-  %cmp769 = icmp eq i32 %.pr1116, 6
+  %.pr1117 = load i32, ptr %err.addr.0.sroa.phi987, align 8
+  %cmp769 = icmp eq i32 %.pr1117, 6
   br i1 %cmp769, label %if.then771, label %if.else775
 
 if.then771:                                       ; preds = %do.body766
@@ -6045,16 +6045,16 @@ if.else775.sink.split:                            ; preds = %if.end27.i, %sw.bb7
 if.else775:                                       ; preds = %if.else775.sink.split, %do.body766
   store i32 7, ptr %err.addr.0, align 8
   store ptr @.str.23, ptr %err.addr.0.sroa.phi993, align 8
-  store i64 %iter.sroa.0.11285, ptr %err.addr.0.sroa.phi996, align 8
+  store i64 %iter.sroa.0.11286, ptr %err.addr.0.sroa.phi996, align 8
   br label %return
 
 if.end789:                                        ; preds = %if.end18.i1190, %yyjson_mut_ptr_getx.exit
-  %retval.i1175.01107 = phi ptr [ %call.i1195, %yyjson_mut_ptr_getx.exit ], [ %root.01287, %if.end18.i1190 ]
+  %retval.i1175.01108 = phi ptr [ %call.i1195, %yyjson_mut_ptr_getx.exit ], [ %root.01288, %if.end18.i1190 ]
   %tobool.i1260.not = icmp eq ptr %val.0, null
   br i1 %tobool.i1260.not, label %do.body800, label %if.end.i1264
 
 if.end.i1264:                                     ; preds = %if.end789
-  %call.i1265 = call zeroext i1 @unsafe_yyjson_mut_equals(ptr noundef nonnull %val.0, ptr noundef nonnull %retval.i1175.01107)
+  %call.i1265 = call zeroext i1 @unsafe_yyjson_mut_equals(ptr noundef nonnull %val.0, ptr noundef nonnull %retval.i1175.01108)
   br i1 %call.i1265, label %sw.epilog848, label %do.body800
 
 do.body800:                                       ; preds = %if.end789, %if.end.i1264
@@ -6071,7 +6071,7 @@ if.then805:                                       ; preds = %do.body800
 if.else809:                                       ; preds = %do.body800
   store i32 6, ptr %err.addr.0, align 8
   store ptr @.str.24, ptr %err.addr.0.sroa.phi993, align 8
-  store i64 %iter.sroa.0.11285, ptr %err.addr.0.sroa.phi996, align 8
+  store i64 %iter.sroa.0.11286, ptr %err.addr.0.sroa.phi996, align 8
   br label %return
 
 do.body825:                                       ; preds = %sw.epilog
@@ -6088,11 +6088,11 @@ if.then830:                                       ; preds = %do.body825
 if.else834:                                       ; preds = %do.body825
   store i32 5, ptr %err.addr.0, align 8
   store ptr @.str.25, ptr %err.addr.0.sroa.phi993, align 8
-  store i64 %iter.sroa.0.11285, ptr %err.addr.0.sroa.phi996, align 8
+  store i64 %iter.sroa.0.11286, ptr %err.addr.0.sroa.phi996, align 8
   br label %return
 
 sw.epilog848:                                     ; preds = %if.end670, %if.end586, %sw.bb489, %sw.bb405, %if.end.i1264, %if.end57.i, %if.end57.i972, %sw.bb537, %yyjson_mut_ptr_replacex.exit, %yyjson_mut_ptr_removex.exit1146, %if.end57.i1034
-  %root.1 = phi ptr [ %root.01287, %if.end.i1264 ], [ %root.01287, %if.end57.i ], [ %root.01287, %sw.bb537 ], [ %root.01287, %if.end57.i972 ], [ %root.01287, %yyjson_mut_ptr_replacex.exit ], [ %root.01287, %yyjson_mut_ptr_removex.exit1146 ], [ %root.01287, %if.end57.i1034 ], [ %val.0, %sw.bb405 ], [ %val.0, %sw.bb489 ], [ %call.i1082, %if.end586 ], [ %retval.i1210.01097, %if.end670 ]
+  %root.1 = phi ptr [ %root.01288, %if.end.i1264 ], [ %root.01288, %if.end57.i ], [ %root.01288, %sw.bb537 ], [ %root.01288, %if.end57.i972 ], [ %root.01288, %yyjson_mut_ptr_replacex.exit ], [ %root.01288, %yyjson_mut_ptr_removex.exit1146 ], [ %root.01288, %if.end57.i1034 ], [ %val.0, %sw.bb405 ], [ %val.0, %sw.bb489 ], [ %call.i1082, %if.end586 ], [ %retval.i1210.01098, %if.end670 ]
   %exitcond.not = icmp eq i64 %inc.i, %shr.i.i
   br i1 %exitcond.not, label %return, label %yyjson_arr_iter_next.exit, !llvm.loop !39
 
@@ -6221,8 +6221,8 @@ if.else37:                                        ; preds = %do.body28
   br label %return
 
 yyjson_mut_val_mut_copy.exit:                     ; preds = %cond.true.i
-  %call.i1016 = tail call fastcc ptr @unsafe_yyjson_mut_val_mut_copy(ptr noundef nonnull %doc, ptr noundef nonnull %orig)
-  %tobool53.not = icmp eq ptr %call.i1016, null
+  %call.i1017 = tail call fastcc ptr @unsafe_yyjson_mut_val_mut_copy(ptr noundef nonnull %doc, ptr noundef nonnull %orig)
+  %tobool53.not = icmp eq ptr %call.i1017, null
   br i1 %tobool53.not, label %do.body63, label %yyjson_mut_is_arr.exit.i
 
 do.body63:                                        ; preds = %yyjson_mut_val_mut_copy.exit
@@ -6258,8 +6258,8 @@ cond.true.i1190:                                  ; preds = %if.then.i1186
 
 yyjson_mut_arr_iter_init.exit:                    ; preds = %cond.true.i1190, %if.then.i1186
   %iter.sroa.31.0 = phi ptr [ null, %if.then.i1186 ], [ %6, %cond.true.i1190 ]
-  %cmp.i11981333.not = icmp ult i64 %5, 256
-  br i1 %cmp.i11981333.not, label %return, label %yyjson_mut_arr_iter_next.exit.lr.ph
+  %cmp.i11981334.not = icmp ult i64 %5, 256
+  br i1 %cmp.i11981334.not, label %return, label %yyjson_mut_arr_iter_next.exit.lr.ph
 
 yyjson_mut_arr_iter_next.exit.lr.ph:              ; preds = %yyjson_mut_arr_iter_init.exit
   %msg.i1112 = getelementptr inbounds i8, ptr %err.addr.0.sroa.phi982, i64 8
@@ -6267,12 +6267,12 @@ yyjson_mut_arr_iter_next.exit.lr.ph:              ; preds = %yyjson_mut_arr_iter
   br label %yyjson_mut_arr_iter_next.exit
 
 yyjson_mut_arr_iter_next.exit:                    ; preds = %yyjson_mut_arr_iter_next.exit.lr.ph, %sw.epilog840
-  %root.01336 = phi ptr [ %call.i1016, %yyjson_mut_arr_iter_next.exit.lr.ph ], [ %root.1, %sw.epilog840 ]
-  %iter.sroa.31.11335 = phi ptr [ %iter.sroa.31.0, %yyjson_mut_arr_iter_next.exit.lr.ph ], [ %7, %sw.epilog840 ]
-  %iter.sroa.0.11334 = phi i64 [ 0, %yyjson_mut_arr_iter_next.exit.lr.ph ], [ %inc.i, %sw.epilog840 ]
-  %next.i = getelementptr inbounds i8, ptr %iter.sroa.31.11335, i64 16
+  %root.01337 = phi ptr [ %call.i1017, %yyjson_mut_arr_iter_next.exit.lr.ph ], [ %root.1, %sw.epilog840 ]
+  %iter.sroa.31.11336 = phi ptr [ %iter.sroa.31.0, %yyjson_mut_arr_iter_next.exit.lr.ph ], [ %7, %sw.epilog840 ]
+  %iter.sroa.0.11335 = phi i64 [ 0, %yyjson_mut_arr_iter_next.exit.lr.ph ], [ %inc.i, %sw.epilog840 ]
+  %next.i = getelementptr inbounds i8, ptr %iter.sroa.31.11336, i64 16
   %7 = load ptr, ptr %next.i, align 8
-  %inc.i = add nuw nsw i64 %iter.sroa.0.11334, 1
+  %inc.i = add nuw nsw i64 %iter.sroa.0.11335, 1
   %tobool89.not = icmp eq ptr %7, null
   br i1 %tobool89.not, label %return, label %while.body
 
@@ -6296,7 +6296,7 @@ if.then97:                                        ; preds = %do.body92
 if.else101:                                       ; preds = %do.body92
   store i32 3, ptr %err.addr.0, align 8
   store ptr @.str.6, ptr %err.addr.0.sroa.phi988, align 8
-  store i64 %iter.sroa.0.11334, ptr %err.addr.0.sroa.phi991, align 8
+  store i64 %iter.sroa.0.11335, ptr %err.addr.0.sroa.phi991, align 8
   br label %return
 
 yyjson_mut_obj_size.exit.i:                       ; preds = %while.body
@@ -6310,31 +6310,31 @@ while.body.i.preheader:                           ; preds = %yyjson_mut_obj_size
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i.preheader, %if.end.i1280
-  %dec.i1291.in = phi i64 [ %dec.i1291, %if.end.i1280 ], [ %shr.i.i.i, %while.body.i.preheader ]
-  %key.i.01290.pn = phi ptr [ %key.i.01290, %if.end.i1280 ], [ %10, %while.body.i.preheader ]
-  %.pn.pn.in = getelementptr inbounds i8, ptr %key.i.01290.pn, i64 16
+  %dec.i1292.in = phi i64 [ %dec.i1292, %if.end.i1280 ], [ %shr.i.i.i, %while.body.i.preheader ]
+  %key.i.01291.pn = phi ptr [ %key.i.01291, %if.end.i1280 ], [ %10, %while.body.i.preheader ]
+  %.pn.pn.in = getelementptr inbounds i8, ptr %key.i.01291.pn, i64 16
   %.pn.pn = load ptr, ptr %.pn.pn.in, align 8
-  %key.i.01290.in = getelementptr inbounds i8, ptr %.pn.pn, i64 16
-  %key.i.01290 = load ptr, ptr %key.i.01290.in, align 8
-  %dec.i1291 = add nsw i64 %dec.i1291.in, -1
-  %11 = load i64, ptr %key.i.01290, align 8
+  %key.i.01291.in = getelementptr inbounds i8, ptr %.pn.pn, i64 16
+  %key.i.01291 = load ptr, ptr %key.i.01291.in, align 8
+  %dec.i1292 = add nsw i64 %dec.i1292.in, -1
+  %11 = load i64, ptr %key.i.01291, align 8
   %shr.i.i1482.mask = and i64 %11, -256
   %cmp.i1483 = icmp eq i64 %shr.i.i1482.mask, 512
   br i1 %cmp.i1483, label %land.rhs.i1485, label %if.end.i1280
 
 land.rhs.i1485:                                   ; preds = %while.body.i
-  %uni.i1486 = getelementptr inbounds i8, ptr %key.i.01290, i64 8
+  %uni.i1486 = getelementptr inbounds i8, ptr %key.i.01291, i64 8
   %12 = load ptr, ptr %uni.i1486, align 8
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %12, ptr noundef nonnull dereferenceable(2) @.str.7, i64 2)
   %cmp2.i1488 = icmp eq i32 %bcmp, 0
   br i1 %cmp2.i1488, label %yyjson_mut_obj_getn.exit, label %if.end.i1280
 
 if.end.i1280:                                     ; preds = %while.body.i, %land.rhs.i1485
-  %cmp.i1279.not = icmp eq i64 %dec.i1291, 0
+  %cmp.i1279.not = icmp eq i64 %dec.i1292, 0
   br i1 %cmp.i1279.not, label %do.body127, label %while.body.i, !llvm.loop !40
 
 yyjson_mut_obj_getn.exit:                         ; preds = %land.rhs.i1485
-  %next8.i = getelementptr inbounds i8, ptr %key.i.01290, i64 16
+  %next8.i = getelementptr inbounds i8, ptr %key.i.01291, i64 16
   %13 = load ptr, ptr %next8.i, align 8
   %tobool117.not = icmp eq ptr %13, null
   br i1 %tobool117.not, label %do.body127, label %cond.true.i1263
@@ -6353,7 +6353,7 @@ if.then132:                                       ; preds = %do.body127
 if.else136:                                       ; preds = %do.body127
   store i32 4, ptr %err.addr.0, align 8
   store ptr @.str.8, ptr %err.addr.0.sroa.phi988, align 8
-  store i64 %iter.sroa.0.11334, ptr %err.addr.0.sroa.phi991, align 8
+  store i64 %iter.sroa.0.11335, ptr %err.addr.0.sroa.phi991, align 8
   br label %return
 
 cond.true.i1263:                                  ; preds = %yyjson_mut_obj_getn.exit
@@ -6376,41 +6376,41 @@ if.then166:                                       ; preds = %do.body161
 if.else170:                                       ; preds = %do.body161
   store i32 5, ptr %err.addr.0, align 8
   store ptr @.str.9, ptr %err.addr.0.sroa.phi988, align 8
-  store i64 %iter.sroa.0.11334, ptr %err.addr.0.sroa.phi991, align 8
+  store i64 %iter.sroa.0.11335, ptr %err.addr.0.sroa.phi991, align 8
   br label %return
 
 while.body.i1318.preheader:                       ; preds = %cond.true.i1263
   %17 = getelementptr i8, ptr %13, i64 8
-  %retval.i1267.0.val1015 = load ptr, ptr %17, align 8
-  %call185 = call fastcc i32 @patch_op_get(i64 %15, ptr %retval.i1267.0.val1015)
+  %retval.i1267.0.val1016 = load ptr, ptr %17, align 8
+  %call185 = call fastcc i32 @patch_op_get(i64 %15, ptr %retval.i1267.0.val1016)
   br label %while.body.i1318
 
 while.body.i1318:                                 ; preds = %while.body.i1318.preheader, %if.end.i1320
-  %dec.i13151300.in = phi i64 [ %dec.i13151300, %if.end.i1320 ], [ %shr.i.i.i, %while.body.i1318.preheader ]
-  %key.i1295.01299.pn = phi ptr [ %key.i1295.01299, %if.end.i1320 ], [ %10, %while.body.i1318.preheader ]
-  %.pn1002.pn.in = getelementptr inbounds i8, ptr %key.i1295.01299.pn, i64 16
+  %dec.i13151301.in = phi i64 [ %dec.i13151301, %if.end.i1320 ], [ %shr.i.i.i, %while.body.i1318.preheader ]
+  %key.i1295.01300.pn = phi ptr [ %key.i1295.01300, %if.end.i1320 ], [ %10, %while.body.i1318.preheader ]
+  %.pn1002.pn.in = getelementptr inbounds i8, ptr %key.i1295.01300.pn, i64 16
   %.pn1002.pn = load ptr, ptr %.pn1002.pn.in, align 8
-  %key.i1295.01299.in = getelementptr inbounds i8, ptr %.pn1002.pn, i64 16
-  %key.i1295.01299 = load ptr, ptr %key.i1295.01299.in, align 8
-  %dec.i13151300 = add nsw i64 %dec.i13151300.in, -1
-  %18 = load i64, ptr %key.i1295.01299, align 8
+  %key.i1295.01300.in = getelementptr inbounds i8, ptr %.pn1002.pn, i64 16
+  %key.i1295.01300 = load ptr, ptr %key.i1295.01300.in, align 8
+  %dec.i13151301 = add nsw i64 %dec.i13151301.in, -1
+  %18 = load i64, ptr %key.i1295.01300, align 8
   %shr.i.i1470.mask = and i64 %18, -256
   %cmp.i1471 = icmp eq i64 %shr.i.i1470.mask, 1024
   br i1 %cmp.i1471, label %land.rhs.i1473, label %if.end.i1320
 
 land.rhs.i1473:                                   ; preds = %while.body.i1318
-  %uni.i1474 = getelementptr inbounds i8, ptr %key.i1295.01299, i64 8
+  %uni.i1474 = getelementptr inbounds i8, ptr %key.i1295.01300, i64 8
   %19 = load ptr, ptr %uni.i1474, align 8
   %bcmp1001 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %19, ptr noundef nonnull dereferenceable(4) @.str.10, i64 4)
   %cmp2.i1476 = icmp eq i32 %bcmp1001, 0
   br i1 %cmp2.i1476, label %yyjson_mut_obj_getn.exit1337, label %if.end.i1320
 
 if.end.i1320:                                     ; preds = %while.body.i1318, %land.rhs.i1473
-  %cmp.i1316.not = icmp eq i64 %dec.i13151300, 0
+  %cmp.i1316.not = icmp eq i64 %dec.i13151301, 0
   br i1 %cmp.i1316.not, label %do.body197, label %while.body.i1318, !llvm.loop !40
 
 yyjson_mut_obj_getn.exit1337:                     ; preds = %land.rhs.i1473
-  %next8.i1324 = getelementptr inbounds i8, ptr %key.i1295.01299, i64 16
+  %next8.i1324 = getelementptr inbounds i8, ptr %key.i1295.01300, i64 16
   %20 = load ptr, ptr %next8.i1324, align 8
   %tobool187.not = icmp eq ptr %20, null
   br i1 %tobool187.not, label %do.body197, label %cond.true.i1253
@@ -6429,7 +6429,7 @@ if.then202:                                       ; preds = %do.body197
 if.else206:                                       ; preds = %do.body197
   store i32 4, ptr %err.addr.0, align 8
   store ptr @.str.11, ptr %err.addr.0.sroa.phi988, align 8
-  store i64 %iter.sroa.0.11334, ptr %err.addr.0.sroa.phi991, align 8
+  store i64 %iter.sroa.0.11335, ptr %err.addr.0.sroa.phi991, align 8
   br label %return
 
 cond.true.i1253:                                  ; preds = %yyjson_mut_obj_getn.exit1337
@@ -6452,7 +6452,7 @@ if.then236:                                       ; preds = %do.body231
 if.else240:                                       ; preds = %do.body231
   store i32 5, ptr %err.addr.0, align 8
   store ptr @.str.12, ptr %err.addr.0.sroa.phi988, align 8
-  store i64 %iter.sroa.0.11334, ptr %err.addr.0.sroa.phi991, align 8
+  store i64 %iter.sroa.0.11335, ptr %err.addr.0.sroa.phi991, align 8
   br label %return
 
 if.end254:                                        ; preds = %cond.true.i1253
@@ -6472,34 +6472,34 @@ while.body.i1372.preheader:                       ; preds = %if.end254, %if.end2
   br label %while.body.i1372
 
 while.body.i1372:                                 ; preds = %while.body.i1372.preheader, %if.end.i1374
-  %dec.i13691320.in = phi i64 [ %dec.i13691320, %if.end.i1374 ], [ %shr.i.i.i, %while.body.i1372.preheader ]
-  %key.i1349.01319.pn = phi ptr [ %key.i1349.01319, %if.end.i1374 ], [ %10, %while.body.i1372.preheader ]
-  %.pn1012.pn.in = getelementptr inbounds i8, ptr %key.i1349.01319.pn, i64 16
+  %dec.i13691321.in = phi i64 [ %dec.i13691321, %if.end.i1374 ], [ %shr.i.i.i, %while.body.i1372.preheader ]
+  %key.i1349.01320.pn = phi ptr [ %key.i1349.01320, %if.end.i1374 ], [ %10, %while.body.i1372.preheader ]
+  %.pn1012.pn.in = getelementptr inbounds i8, ptr %key.i1349.01320.pn, i64 16
   %.pn1012.pn = load ptr, ptr %.pn1012.pn.in, align 8
-  %key.i1349.01319.in = getelementptr inbounds i8, ptr %.pn1012.pn, i64 16
-  %key.i1349.01319 = load ptr, ptr %key.i1349.01319.in, align 8
-  %dec.i13691320 = add i64 %dec.i13691320.in, -1
-  %24 = load i64, ptr %key.i1349.01319, align 8
+  %key.i1349.01320.in = getelementptr inbounds i8, ptr %.pn1012.pn, i64 16
+  %key.i1349.01320 = load ptr, ptr %key.i1349.01320.in, align 8
+  %dec.i13691321 = add i64 %dec.i13691321.in, -1
+  %24 = load i64, ptr %key.i1349.01320, align 8
   %shr.i.i1458.mask = and i64 %24, -256
   %cmp.i1459 = icmp eq i64 %shr.i.i1458.mask, 1280
   br i1 %cmp.i1459, label %land.rhs.i1461, label %if.end.i1374
 
 land.rhs.i1461:                                   ; preds = %while.body.i1372
-  %uni.i1462 = getelementptr inbounds i8, ptr %key.i1349.01319, i64 8
+  %uni.i1462 = getelementptr inbounds i8, ptr %key.i1349.01320, i64 8
   %25 = load ptr, ptr %uni.i1462, align 8
   %bcmp1011 = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %25, ptr noundef nonnull dereferenceable(5) @.str.13, i64 5)
   %cmp2.i1464 = icmp eq i32 %bcmp1011, 0
   br i1 %cmp2.i1464, label %yyjson_mut_obj_getn.exit1391, label %if.end.i1374
 
 if.end.i1374:                                     ; preds = %while.body.i1372, %land.rhs.i1461
-  %cmp.i1370.not = icmp eq i64 %dec.i13691320, 0
+  %cmp.i1370.not = icmp eq i64 %dec.i13691321, 0
   br i1 %cmp.i1370.not, label %do.body267, label %while.body.i1372, !llvm.loop !40
 
 yyjson_mut_obj_getn.exit1391:                     ; preds = %land.rhs.i1461
-  %next8.i1378 = getelementptr inbounds i8, ptr %key.i1349.01319, i64 16
+  %next8.i1378 = getelementptr inbounds i8, ptr %key.i1349.01320, i64 16
   %26 = load ptr, ptr %next8.i1378, align 8
   %tobool257.not = icmp eq ptr %26, null
-  br i1 %tobool257.not, label %do.body267, label %yyjson_mut_val_mut_copy.exit1023
+  br i1 %tobool257.not, label %do.body267, label %yyjson_mut_val_mut_copy.exit1024
 
 do.body267:                                       ; preds = %yyjson_mut_obj_getn.exit1391, %if.end.i1374
   %27 = load i32, ptr %err.addr.0.sroa.phi982, align 8
@@ -6515,15 +6515,15 @@ if.then272:                                       ; preds = %do.body267
 if.else276:                                       ; preds = %do.body267
   store i32 4, ptr %err.addr.0, align 8
   store ptr @.str.14, ptr %err.addr.0.sroa.phi988, align 8
-  store i64 %iter.sroa.0.11334, ptr %err.addr.0.sroa.phi991, align 8
+  store i64 %iter.sroa.0.11335, ptr %err.addr.0.sroa.phi991, align 8
   br label %return
 
-yyjson_mut_val_mut_copy.exit1023:                 ; preds = %yyjson_mut_obj_getn.exit1391
-  %call.i1022 = call fastcc ptr @unsafe_yyjson_mut_val_mut_copy(ptr noundef nonnull %doc, ptr noundef nonnull %26)
-  %tobool292.not = icmp eq ptr %call.i1022, null
+yyjson_mut_val_mut_copy.exit1024:                 ; preds = %yyjson_mut_obj_getn.exit1391
+  %call.i1023 = call fastcc ptr @unsafe_yyjson_mut_val_mut_copy(ptr noundef nonnull %doc, ptr noundef nonnull %26)
+  %tobool292.not = icmp eq ptr %call.i1023, null
   br i1 %tobool292.not, label %do.body302, label %sw.epilog
 
-do.body302:                                       ; preds = %yyjson_mut_val_mut_copy.exit1023
+do.body302:                                       ; preds = %yyjson_mut_val_mut_copy.exit1024
   %28 = load i32, ptr %err.addr.0.sroa.phi982, align 8
   %cmp305 = icmp eq i32 %28, 6
   store i32 2, ptr %err.addr.0, align 8
@@ -6535,35 +6535,35 @@ if.then307:                                       ; preds = %do.body302
   br label %return
 
 if.else311:                                       ; preds = %do.body302
-  store i64 %iter.sroa.0.11334, ptr %err.addr.0.sroa.phi991, align 8
+  store i64 %iter.sroa.0.11335, ptr %err.addr.0.sroa.phi991, align 8
   br label %return
 
 while.body.i1426:                                 ; preds = %while.body.i1426.preheader, %if.end.i1428
-  %dec.i14231310.in = phi i64 [ %dec.i14231310, %if.end.i1428 ], [ %shr.i.i.i, %while.body.i1426.preheader ]
-  %key.i1403.01309.pn = phi ptr [ %key.i1403.01309, %if.end.i1428 ], [ %10, %while.body.i1426.preheader ]
-  %.pn1007.pn.in = getelementptr inbounds i8, ptr %key.i1403.01309.pn, i64 16
+  %dec.i14231311.in = phi i64 [ %dec.i14231311, %if.end.i1428 ], [ %shr.i.i.i, %while.body.i1426.preheader ]
+  %key.i1403.01310.pn = phi ptr [ %key.i1403.01310, %if.end.i1428 ], [ %10, %while.body.i1426.preheader ]
+  %.pn1007.pn.in = getelementptr inbounds i8, ptr %key.i1403.01310.pn, i64 16
   %.pn1007.pn = load ptr, ptr %.pn1007.pn.in, align 8
-  %key.i1403.01309.in = getelementptr inbounds i8, ptr %.pn1007.pn, i64 16
-  %key.i1403.01309 = load ptr, ptr %key.i1403.01309.in, align 8
-  %dec.i14231310 = add i64 %dec.i14231310.in, -1
-  %29 = load i64, ptr %key.i1403.01309, align 8
+  %key.i1403.01310.in = getelementptr inbounds i8, ptr %.pn1007.pn, i64 16
+  %key.i1403.01310 = load ptr, ptr %key.i1403.01310.in, align 8
+  %dec.i14231311 = add i64 %dec.i14231311.in, -1
+  %29 = load i64, ptr %key.i1403.01310, align 8
   %shr.i.i1449.mask = and i64 %29, -256
   %cmp.i1450 = icmp eq i64 %shr.i.i1449.mask, 1024
   br i1 %cmp.i1450, label %land.rhs.i1452, label %if.end.i1428
 
 land.rhs.i1452:                                   ; preds = %while.body.i1426
-  %uni.i1453 = getelementptr inbounds i8, ptr %key.i1403.01309, i64 8
+  %uni.i1453 = getelementptr inbounds i8, ptr %key.i1403.01310, i64 8
   %30 = load ptr, ptr %uni.i1453, align 8
   %bcmp1006 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %30, ptr noundef nonnull dereferenceable(4) @.str.15, i64 4)
   %cmp2.i = icmp eq i32 %bcmp1006, 0
   br i1 %cmp2.i, label %yyjson_mut_obj_getn.exit1445, label %if.end.i1428
 
 if.end.i1428:                                     ; preds = %while.body.i1426, %land.rhs.i1452
-  %cmp.i1424.not = icmp eq i64 %dec.i14231310, 0
+  %cmp.i1424.not = icmp eq i64 %dec.i14231311, 0
   br i1 %cmp.i1424.not, label %do.body338, label %while.body.i1426, !llvm.loop !40
 
 yyjson_mut_obj_getn.exit1445:                     ; preds = %land.rhs.i1452
-  %next8.i1432 = getelementptr inbounds i8, ptr %key.i1403.01309, i64 16
+  %next8.i1432 = getelementptr inbounds i8, ptr %key.i1403.01310, i64 16
   %31 = load ptr, ptr %next8.i1432, align 8
   %tobool328.not = icmp eq ptr %31, null
   br i1 %tobool328.not, label %do.body338, label %cond.true.i1244
@@ -6582,7 +6582,7 @@ if.then343:                                       ; preds = %do.body338
 if.else347:                                       ; preds = %do.body338
   store i32 4, ptr %err.addr.0, align 8
   store ptr @.str.16, ptr %err.addr.0.sroa.phi988, align 8
-  store i64 %iter.sroa.0.11334, ptr %err.addr.0.sroa.phi991, align 8
+  store i64 %iter.sroa.0.11335, ptr %err.addr.0.sroa.phi991, align 8
   br label %return
 
 cond.true.i1244:                                  ; preds = %yyjson_mut_obj_getn.exit1445
@@ -6605,17 +6605,17 @@ if.then377:                                       ; preds = %do.body372
 if.else381:                                       ; preds = %do.body372
   store i32 5, ptr %err.addr.0, align 8
   store ptr @.str.17, ptr %err.addr.0.sroa.phi988, align 8
-  store i64 %iter.sroa.0.11334, ptr %err.addr.0.sroa.phi991, align 8
+  store i64 %iter.sroa.0.11335, ptr %err.addr.0.sroa.phi991, align 8
   br label %return
 
 if.end395:                                        ; preds = %cond.true.i1244
   %shr.i = lshr i64 %33, 8
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %if.end254, %yyjson_mut_val_mut_copy.exit1023, %if.end395
-  %from.0 = phi ptr [ null, %if.end254 ], [ %31, %if.end395 ], [ null, %yyjson_mut_val_mut_copy.exit1023 ]
-  %val.0 = phi ptr [ null, %if.end254 ], [ null, %if.end395 ], [ %call.i1022, %yyjson_mut_val_mut_copy.exit1023 ]
-  %from_len.0 = phi i64 [ 0, %if.end254 ], [ %shr.i, %if.end395 ], [ 0, %yyjson_mut_val_mut_copy.exit1023 ]
+sw.epilog:                                        ; preds = %if.end254, %yyjson_mut_val_mut_copy.exit1024, %if.end395
+  %from.0 = phi ptr [ null, %if.end254 ], [ %31, %if.end395 ], [ null, %yyjson_mut_val_mut_copy.exit1024 ]
+  %val.0 = phi ptr [ null, %if.end254 ], [ null, %if.end395 ], [ %call.i1023, %yyjson_mut_val_mut_copy.exit1024 ]
+  %from_len.0 = phi i64 [ 0, %if.end254 ], [ %shr.i, %if.end395 ], [ 0, %yyjson_mut_val_mut_copy.exit1024 ]
   switch i32 %call185, label %do.body817 [
     i32 0, label %sw.bb397
     i32 1, label %sw.bb443
@@ -6633,13 +6633,13 @@ if.end407:                                        ; preds = %sw.bb397
   %uni = getelementptr inbounds i8, ptr %20, i64 8
   %35 = load ptr, ptr %uni, align 8
   store i32 0, ptr %err.addr.0.sroa.phi982, align 8
-  %tobool4.i922 = icmp ne ptr %root.01336, null
-  %tobool5.i960 = icmp ne ptr %35, null
-  %or.cond1 = select i1 %tobool4.i922, i1 %tobool5.i960, i1 false
-  %tobool7.i962 = icmp ne ptr %val.0, null
-  %or.cond2 = and i1 %tobool7.i962, %or.cond1
+  %tobool4.i922 = icmp eq ptr %root.01337, null
+  %tobool5.i960 = icmp eq ptr %35, null
+  %or.cond1.not1015 = select i1 %tobool4.i922, i1 true, i1 %tobool5.i960
+  %tobool7.i962 = icmp eq ptr %val.0, null
+  %or.cond2.not = or i1 %tobool7.i962, %or.cond1.not1015
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %msg.i1112, i8 0, i64 16, i1 false)
-  br i1 %or.cond2, label %if.end38.i932, label %if.else428.sink.split
+  br i1 %or.cond2.not, label %if.else428.sink.split, label %if.end38.i932
 
 if.end38.i932:                                    ; preds = %if.end407
   %36 = load i8, ptr %35, align 1
@@ -6647,7 +6647,7 @@ if.end38.i932:                                    ; preds = %if.end407
   br i1 %cmp40.i934.not, label %if.end57.i938, label %if.else428.sink.split
 
 if.end57.i938:                                    ; preds = %if.end38.i932
-  %call.i940 = call zeroext i1 @unsafe_yyjson_mut_ptr_putx(ptr noundef nonnull %root.01336, ptr noundef nonnull %35, i64 noundef %shr.i842, ptr noundef nonnull %val.0, ptr noundef %doc, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef null, ptr noundef nonnull %err.addr.0.sroa.phi982)
+  %call.i940 = call zeroext i1 @unsafe_yyjson_mut_ptr_putx(ptr noundef nonnull %root.01337, ptr noundef nonnull %35, i64 noundef %shr.i842, ptr noundef nonnull %val.0, ptr noundef %doc, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef null, ptr noundef nonnull %err.addr.0.sroa.phi982)
   br i1 %call.i940, label %sw.epilog840, label %do.body419
 
 do.body419:                                       ; preds = %if.end57.i938
@@ -6672,14 +6672,14 @@ if.else428.sink.split:                            ; preds = %if.end38.i932, %if.
 if.else428:                                       ; preds = %if.else428.sink.split, %do.body419
   store i32 7, ptr %err.addr.0, align 8
   store ptr @.str.18, ptr %err.addr.0.sroa.phi988, align 8
-  store i64 %iter.sroa.0.11334, ptr %err.addr.0.sroa.phi991, align 8
+  store i64 %iter.sroa.0.11335, ptr %err.addr.0.sroa.phi991, align 8
   br label %return
 
 sw.bb443:                                         ; preds = %sw.epilog
   %uni444 = getelementptr inbounds i8, ptr %20, i64 8
   %37 = load ptr, ptr %uni444, align 8
   store i32 0, ptr %err.addr.0.sroa.phi982, align 8
-  %tobool4.i1007.not = icmp eq ptr %root.01336, null
+  %tobool4.i1007.not = icmp eq ptr %root.01337, null
   %tobool5.i1044.not = icmp eq ptr %37, null
   %38 = select i1 %tobool4.i1007.not, i1 true, i1 %tobool5.i1044.not
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %msg.i1112, i8 0, i64 16, i1 false)
@@ -6695,13 +6695,13 @@ if.end35.i1017:                                   ; preds = %if.end18.i1012
   br i1 %cmp37.i1019.not, label %yyjson_mut_ptr_removex.exit1050, label %if.else466.sink.split
 
 yyjson_mut_ptr_removex.exit1050:                  ; preds = %if.end35.i1017
-  %call.i1024 = call ptr @unsafe_yyjson_mut_ptr_removex(ptr noundef nonnull %root.01336, ptr noundef nonnull %37, i64 noundef %shr.i842, ptr noundef null, ptr noundef nonnull %err.addr.0.sroa.phi982)
+  %call.i1024 = call ptr @unsafe_yyjson_mut_ptr_removex(ptr noundef nonnull %root.01337, ptr noundef nonnull %37, i64 noundef %shr.i842, ptr noundef null, ptr noundef nonnull %err.addr.0.sroa.phi982)
   %tobool447.not = icmp eq ptr %call.i1024, null
   br i1 %tobool447.not, label %do.body457, label %sw.epilog840
 
 do.body457:                                       ; preds = %yyjson_mut_ptr_removex.exit1050
-  %.pr1125 = load i32, ptr %err.addr.0.sroa.phi982, align 8
-  %cmp460 = icmp eq i32 %.pr1125, 6
+  %.pr1126 = load i32, ptr %err.addr.0.sroa.phi982, align 8
+  %cmp460 = icmp eq i32 %.pr1126, 6
   br i1 %cmp460, label %if.then462, label %if.else466
 
 if.then462:                                       ; preds = %do.body457
@@ -6711,9 +6711,9 @@ if.then462:                                       ; preds = %do.body457
   br label %return
 
 if.else466.sink.split:                            ; preds = %if.end35.i1017, %if.end18.i1012, %sw.bb443
-  %.sink1466 = phi i32 [ 1, %sw.bb443 ], [ 5, %if.end18.i1012 ], [ 2, %if.end35.i1017 ]
+  %.sink1467 = phi i32 [ 1, %sw.bb443 ], [ 5, %if.end18.i1012 ], [ 2, %if.end35.i1017 ]
   %.str.3.sink = phi ptr [ @.str.3, %sw.bb443 ], [ @.str.49, %if.end18.i1012 ], [ @.str.50, %if.end35.i1017 ]
-  store i32 %.sink1466, ptr %err.addr.0.sroa.phi982, align 8
+  store i32 %.sink1467, ptr %err.addr.0.sroa.phi982, align 8
   store ptr %.str.3.sink, ptr %msg.i1112, align 8
   store i64 0, ptr %pos.i1113, align 8
   br label %if.else466
@@ -6721,7 +6721,7 @@ if.else466.sink.split:                            ; preds = %if.end35.i1017, %if
 if.else466:                                       ; preds = %if.else466.sink.split, %do.body457
   store i32 7, ptr %err.addr.0, align 8
   store ptr @.str.19, ptr %err.addr.0.sroa.phi988, align 8
-  store i64 %iter.sroa.0.11334, ptr %err.addr.0.sroa.phi991, align 8
+  store i64 %iter.sroa.0.11335, ptr %err.addr.0.sroa.phi991, align 8
   br label %return
 
 sw.bb481:                                         ; preds = %sw.epilog
@@ -6732,7 +6732,7 @@ if.end491:                                        ; preds = %sw.bb481
   %uni492 = getelementptr inbounds i8, ptr %20, i64 8
   %40 = load ptr, ptr %uni492, align 8
   store i32 0, ptr %err.addr.0.sroa.phi982, align 8
-  %tobool4.i1062 = icmp eq ptr %root.01336, null
+  %tobool4.i1062 = icmp eq ptr %root.01337, null
   %tobool5.i1072 = icmp eq ptr %40, null
   %or.cond3.not = select i1 %tobool4.i1062, i1 true, i1 %tobool5.i1072
   %tobool6.i.not = icmp eq ptr %val.0, null
@@ -6746,13 +6746,13 @@ if.end36.i1068:                                   ; preds = %if.end491
   br i1 %cmp38.i.not, label %yyjson_mut_ptr_replacex.exit, label %if.else514.sink.split
 
 yyjson_mut_ptr_replacex.exit:                     ; preds = %if.end36.i1068
-  %call.i1070 = call ptr @unsafe_yyjson_mut_ptr_replacex(ptr noundef nonnull %root.01336, ptr noundef nonnull %40, i64 noundef %shr.i842, ptr noundef nonnull %val.0, ptr noundef null, ptr noundef nonnull %err.addr.0.sroa.phi982)
+  %call.i1070 = call ptr @unsafe_yyjson_mut_ptr_replacex(ptr noundef nonnull %root.01337, ptr noundef nonnull %40, i64 noundef %shr.i842, ptr noundef nonnull %val.0, ptr noundef null, ptr noundef nonnull %err.addr.0.sroa.phi982)
   %tobool495.not = icmp eq ptr %call.i1070, null
   br i1 %tobool495.not, label %do.body505, label %sw.epilog840
 
 do.body505:                                       ; preds = %yyjson_mut_ptr_replacex.exit
-  %.pr1127 = load i32, ptr %err.addr.0.sroa.phi982, align 8
-  %cmp508 = icmp eq i32 %.pr1127, 6
+  %.pr1128 = load i32, ptr %err.addr.0.sroa.phi982, align 8
+  %cmp508 = icmp eq i32 %.pr1128, 6
   br i1 %cmp508, label %if.then510, label %if.else514
 
 if.then510:                                       ; preds = %do.body505
@@ -6762,17 +6762,17 @@ if.then510:                                       ; preds = %do.body505
   br label %return
 
 if.else514.sink.split:                            ; preds = %if.end36.i1068, %if.end491
-  %.sink1468 = phi i32 [ 1, %if.end491 ], [ 2, %if.end36.i1068 ]
-  %.str.3.sink1467 = phi ptr [ @.str.3, %if.end491 ], [ @.str.50, %if.end36.i1068 ]
-  store i32 %.sink1468, ptr %err.addr.0.sroa.phi982, align 8
-  store ptr %.str.3.sink1467, ptr %msg.i1112, align 8
+  %.sink1469 = phi i32 [ 1, %if.end491 ], [ 2, %if.end36.i1068 ]
+  %.str.3.sink1468 = phi ptr [ @.str.3, %if.end491 ], [ @.str.50, %if.end36.i1068 ]
+  store i32 %.sink1469, ptr %err.addr.0.sroa.phi982, align 8
+  store ptr %.str.3.sink1468, ptr %msg.i1112, align 8
   store i64 0, ptr %pos.i1113, align 8
   br label %if.else514
 
 if.else514:                                       ; preds = %if.else514.sink.split, %do.body505
   store i32 7, ptr %err.addr.0, align 8
   store ptr @.str.20, ptr %err.addr.0.sroa.phi988, align 8
-  store i64 %iter.sroa.0.11334, ptr %err.addr.0.sroa.phi991, align 8
+  store i64 %iter.sroa.0.11335, ptr %err.addr.0.sroa.phi991, align 8
   br label %return
 
 sw.bb529:                                         ; preds = %sw.epilog
@@ -6785,11 +6785,11 @@ if.end541:                                        ; preds = %sw.bb529
   %uni542 = getelementptr inbounds i8, ptr %from.0, i64 8
   %44 = load ptr, ptr %uni542, align 8
   store i32 0, ptr %err.addr.0.sroa.phi982, align 8
-  %tobool4.i981 = icmp eq ptr %root.01336, null
+  %tobool4.i981 = icmp eq ptr %root.01337, null
   %tobool5.i991.not = icmp eq ptr %44, null
-  %.not1014.not1479 = select i1 %tobool4.i981, i1 true, i1 %tobool5.i991.not
+  %.not1014.not1480 = select i1 %tobool4.i981, i1 true, i1 %tobool5.i991.not
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %msg.i1112, i8 0, i64 16, i1 false)
-  %brmerge = or i1 %.not1014.not1479, %cmp530
+  %brmerge = or i1 %.not1014.not1480, %cmp530
   br i1 %brmerge, label %if.else564.sink.split.split.loop.exit, label %if.end35.i
 
 if.end35.i:                                       ; preds = %if.end541
@@ -6798,13 +6798,13 @@ if.end35.i:                                       ; preds = %if.end541
   br i1 %cmp37.i.not, label %yyjson_mut_ptr_removex.exit, label %if.else564.sink.split
 
 yyjson_mut_ptr_removex.exit:                      ; preds = %if.end35.i
-  %call.i986 = call ptr @unsafe_yyjson_mut_ptr_removex(ptr noundef nonnull %root.01336, ptr noundef nonnull %44, i64 noundef %from_len.0, ptr noundef null, ptr noundef nonnull %err.addr.0.sroa.phi982)
+  %call.i986 = call ptr @unsafe_yyjson_mut_ptr_removex(ptr noundef nonnull %root.01337, ptr noundef nonnull %44, i64 noundef %from_len.0, ptr noundef null, ptr noundef nonnull %err.addr.0.sroa.phi982)
   %tobool545.not = icmp eq ptr %call.i986, null
   br i1 %tobool545.not, label %do.body555, label %if.end578
 
 do.body555:                                       ; preds = %yyjson_mut_ptr_removex.exit
-  %.pr1129 = load i32, ptr %err.addr.0.sroa.phi982, align 8
-  %cmp558 = icmp eq i32 %.pr1129, 6
+  %.pr1130 = load i32, ptr %err.addr.0.sroa.phi982, align 8
+  %cmp558 = icmp eq i32 %.pr1130, 6
   br i1 %cmp558, label %if.then560, label %if.else564
 
 if.then560:                                       ; preds = %do.body555
@@ -6814,22 +6814,22 @@ if.then560:                                       ; preds = %do.body555
   br label %return
 
 if.else564.sink.split.split.loop.exit:            ; preds = %if.end541
-  %.mux.le = select i1 %.not1014.not1479, i32 1, i32 5
-  %.str.3.mux.le = select i1 %.not1014.not1479, ptr @.str.3, ptr @.str.49
+  %.mux.le = select i1 %.not1014.not1480, i32 1, i32 5
+  %.str.3.mux.le = select i1 %.not1014.not1480, ptr @.str.3, ptr @.str.49
   br label %if.else564.sink.split
 
 if.else564.sink.split:                            ; preds = %if.end35.i, %if.else564.sink.split.split.loop.exit
-  %.sink1470 = phi i32 [ %.mux.le, %if.else564.sink.split.split.loop.exit ], [ 2, %if.end35.i ]
-  %.str.3.sink1469 = phi ptr [ %.str.3.mux.le, %if.else564.sink.split.split.loop.exit ], [ @.str.50, %if.end35.i ]
-  store i32 %.sink1470, ptr %err.addr.0.sroa.phi982, align 8
-  store ptr %.str.3.sink1469, ptr %msg.i1112, align 8
+  %.sink1471 = phi i32 [ %.mux.le, %if.else564.sink.split.split.loop.exit ], [ 2, %if.end35.i ]
+  %.str.3.sink1470 = phi ptr [ %.str.3.mux.le, %if.else564.sink.split.split.loop.exit ], [ @.str.50, %if.end35.i ]
+  store i32 %.sink1471, ptr %err.addr.0.sroa.phi982, align 8
+  store ptr %.str.3.sink1470, ptr %msg.i1112, align 8
   store i64 0, ptr %pos.i1113, align 8
   br label %if.else564
 
 if.else564:                                       ; preds = %if.else564.sink.split, %do.body555
   store i32 7, ptr %err.addr.0, align 8
   store ptr @.str.21, ptr %err.addr.0.sroa.phi988, align 8
-  store i64 %iter.sroa.0.11334, ptr %err.addr.0.sroa.phi991, align 8
+  store i64 %iter.sroa.0.11335, ptr %err.addr.0.sroa.phi991, align 8
   br label %return
 
 if.end578:                                        ; preds = %yyjson_mut_ptr_removex.exit
@@ -6849,12 +6849,12 @@ if.end38.i870:                                    ; preds = %if.end588
   br i1 %cmp40.i872.not, label %if.end57.i876, label %if.else610.sink.split
 
 if.end57.i876:                                    ; preds = %if.end38.i870
-  %call.i878 = call zeroext i1 @unsafe_yyjson_mut_ptr_putx(ptr noundef nonnull %root.01336, ptr noundef nonnull %46, i64 noundef %shr.i842, ptr noundef nonnull %call.i986, ptr noundef %doc, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef null, ptr noundef nonnull %err.addr.0.sroa.phi982)
+  %call.i878 = call zeroext i1 @unsafe_yyjson_mut_ptr_putx(ptr noundef nonnull %root.01337, ptr noundef nonnull %46, i64 noundef %shr.i842, ptr noundef nonnull %call.i986, ptr noundef %doc, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef null, ptr noundef nonnull %err.addr.0.sroa.phi982)
   br i1 %call.i878, label %sw.epilog840, label %do.body601
 
 do.body601:                                       ; preds = %if.end57.i876
-  %.pr1107 = load i32, ptr %err.addr.0.sroa.phi982, align 8
-  %cmp604 = icmp eq i32 %.pr1107, 6
+  %.pr1108 = load i32, ptr %err.addr.0.sroa.phi982, align 8
+  %cmp604 = icmp eq i32 %.pr1108, 6
   br i1 %cmp604, label %if.then606, label %if.else610
 
 if.then606:                                       ; preds = %do.body601
@@ -6864,24 +6864,24 @@ if.then606:                                       ; preds = %do.body601
   br label %return
 
 if.else610.sink.split:                            ; preds = %if.end38.i870, %if.end588
-  %.sink1472 = phi i32 [ 1, %if.end588 ], [ 2, %if.end38.i870 ]
-  %.str.50.sink1471 = phi ptr [ @.str.3, %if.end588 ], [ @.str.50, %if.end38.i870 ]
-  store i32 %.sink1472, ptr %err.addr.0.sroa.phi982, align 8
-  store ptr %.str.50.sink1471, ptr %msg.i1112, align 8
+  %.sink1473 = phi i32 [ 1, %if.end588 ], [ 2, %if.end38.i870 ]
+  %.str.50.sink1472 = phi ptr [ @.str.3, %if.end588 ], [ @.str.50, %if.end38.i870 ]
+  store i32 %.sink1473, ptr %err.addr.0.sroa.phi982, align 8
+  store ptr %.str.50.sink1472, ptr %msg.i1112, align 8
   store i64 0, ptr %pos.i1113, align 8
   br label %if.else610
 
 if.else610:                                       ; preds = %if.else610.sink.split, %do.body601
   store i32 7, ptr %err.addr.0, align 8
   store ptr @.str.18, ptr %err.addr.0.sroa.phi988, align 8
-  store i64 %iter.sroa.0.11334, ptr %err.addr.0.sroa.phi991, align 8
+  store i64 %iter.sroa.0.11335, ptr %err.addr.0.sroa.phi991, align 8
   br label %return
 
 sw.bb625:                                         ; preds = %sw.epilog
   %uni626 = getelementptr inbounds i8, ptr %from.0, i64 8
   %48 = load ptr, ptr %uni626, align 8
   store i32 0, ptr %err.addr.0.sroa.phi982, align 8
-  %tobool4.i1124 = icmp ne ptr %root.01336, null
+  %tobool4.i1124 = icmp ne ptr %root.01337, null
   %tobool5.i1156.not = icmp ne ptr %48, null
   %.not = select i1 %tobool4.i1124, i1 %tobool5.i1156.not, i1 false
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %msg.i1112, i8 0, i64 16, i1 false)
@@ -6897,13 +6897,13 @@ if.end27.i1134:                                   ; preds = %if.end18.i1129
   br i1 %cmp29.i1136.not, label %yyjson_mut_ptr_getx.exit1162, label %if.else648.sink.split
 
 yyjson_mut_ptr_getx.exit1162:                     ; preds = %if.end27.i1134
-  %call.i1141 = call ptr @unsafe_yyjson_mut_ptr_getx(ptr noundef nonnull %root.01336, ptr noundef nonnull %48, i64 noundef %from_len.0, ptr noundef null, ptr noundef nonnull %err.addr.0.sroa.phi982)
+  %call.i1141 = call ptr @unsafe_yyjson_mut_ptr_getx(ptr noundef nonnull %root.01337, ptr noundef nonnull %48, i64 noundef %from_len.0, ptr noundef null, ptr noundef nonnull %err.addr.0.sroa.phi982)
   %tobool629.not = icmp eq ptr %call.i1141, null
   br i1 %tobool629.not, label %do.body639, label %if.end662
 
 do.body639:                                       ; preds = %yyjson_mut_ptr_getx.exit1162
-  %.pr1131 = load i32, ptr %err.addr.0.sroa.phi982, align 8
-  %cmp642 = icmp eq i32 %.pr1131, 6
+  %.pr1132 = load i32, ptr %err.addr.0.sroa.phi982, align 8
+  %cmp642 = icmp eq i32 %.pr1132, 6
   br i1 %cmp642, label %if.then644, label %if.else648
 
 if.then644:                                       ; preds = %do.body639
@@ -6913,30 +6913,30 @@ if.then644:                                       ; preds = %do.body639
   br label %return
 
 if.else648.sink.split:                            ; preds = %if.end27.i1134, %sw.bb625
-  %.sink1474 = phi i32 [ 1, %sw.bb625 ], [ 2, %if.end27.i1134 ]
-  %.str.3.sink1473 = phi ptr [ @.str.3, %sw.bb625 ], [ @.str.50, %if.end27.i1134 ]
-  store i32 %.sink1474, ptr %err.addr.0.sroa.phi982, align 8
-  store ptr %.str.3.sink1473, ptr %msg.i1112, align 8
+  %.sink1475 = phi i32 [ 1, %sw.bb625 ], [ 2, %if.end27.i1134 ]
+  %.str.3.sink1474 = phi ptr [ @.str.3, %sw.bb625 ], [ @.str.50, %if.end27.i1134 ]
+  store i32 %.sink1475, ptr %err.addr.0.sroa.phi982, align 8
+  store ptr %.str.3.sink1474, ptr %msg.i1112, align 8
   store i64 0, ptr %pos.i1113, align 8
   br label %if.else648
 
 if.else648:                                       ; preds = %if.else648.sink.split, %do.body639
   store i32 7, ptr %err.addr.0, align 8
   store ptr @.str.22, ptr %err.addr.0.sroa.phi988, align 8
-  store i64 %iter.sroa.0.11334, ptr %err.addr.0.sroa.phi991, align 8
+  store i64 %iter.sroa.0.11335, ptr %err.addr.0.sroa.phi991, align 8
   br label %return
 
 if.end662:                                        ; preds = %if.end18.i1129, %yyjson_mut_ptr_getx.exit1162
-  %retval.i1114.01114 = phi ptr [ %call.i1141, %yyjson_mut_ptr_getx.exit1162 ], [ %root.01336, %if.end18.i1129 ]
+  %retval.i1114.01115 = phi ptr [ %call.i1141, %yyjson_mut_ptr_getx.exit1162 ], [ %root.01337, %if.end18.i1129 ]
   %cmp663 = icmp ult i64 %22, 256
-  br i1 %cmp663, label %sw.epilog840, label %yyjson_mut_val_mut_copy.exit1030
+  br i1 %cmp663, label %sw.epilog840, label %yyjson_mut_val_mut_copy.exit1031
 
-yyjson_mut_val_mut_copy.exit1030:                 ; preds = %if.end662
-  %call.i1029 = call fastcc ptr @unsafe_yyjson_mut_val_mut_copy(ptr noundef nonnull %doc, ptr noundef nonnull %retval.i1114.01114)
-  %tobool674.not = icmp eq ptr %call.i1029, null
+yyjson_mut_val_mut_copy.exit1031:                 ; preds = %if.end662
+  %call.i1030 = call fastcc ptr @unsafe_yyjson_mut_val_mut_copy(ptr noundef nonnull %doc, ptr noundef nonnull %retval.i1114.01115)
+  %tobool674.not = icmp eq ptr %call.i1030, null
   br i1 %tobool674.not, label %do.body684, label %if.end707
 
-do.body684:                                       ; preds = %yyjson_mut_val_mut_copy.exit1030
+do.body684:                                       ; preds = %yyjson_mut_val_mut_copy.exit1031
   %50 = load i32, ptr %err.addr.0.sroa.phi982, align 8
   %cmp687 = icmp eq i32 %50, 6
   store i32 2, ptr %err.addr.0, align 8
@@ -6948,10 +6948,10 @@ if.then689:                                       ; preds = %do.body684
   br label %return
 
 if.else693:                                       ; preds = %do.body684
-  store i64 %iter.sroa.0.11334, ptr %err.addr.0.sroa.phi991, align 8
+  store i64 %iter.sroa.0.11335, ptr %err.addr.0.sroa.phi991, align 8
   br label %return
 
-if.end707:                                        ; preds = %yyjson_mut_val_mut_copy.exit1030
+if.end707:                                        ; preds = %yyjson_mut_val_mut_copy.exit1031
   %uni708 = getelementptr inbounds i8, ptr %20, i64 8
   %51 = load ptr, ptr %uni708, align 8
   store i32 0, ptr %err.addr.0.sroa.phi982, align 8
@@ -6965,12 +6965,12 @@ if.end38.i:                                       ; preds = %if.end707
   br i1 %cmp40.i.not, label %if.end57.i, label %if.else729.sink.split
 
 if.end57.i:                                       ; preds = %if.end38.i
-  %call.i = call zeroext i1 @unsafe_yyjson_mut_ptr_putx(ptr noundef nonnull %root.01336, ptr noundef nonnull %51, i64 noundef %shr.i842, ptr noundef nonnull %call.i1029, ptr noundef %doc, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef null, ptr noundef nonnull %err.addr.0.sroa.phi982)
+  %call.i = call zeroext i1 @unsafe_yyjson_mut_ptr_putx(ptr noundef nonnull %root.01337, ptr noundef nonnull %51, i64 noundef %shr.i842, ptr noundef nonnull %call.i1030, ptr noundef %doc, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef null, ptr noundef nonnull %err.addr.0.sroa.phi982)
   br i1 %call.i, label %sw.epilog840, label %do.body720
 
 do.body720:                                       ; preds = %if.end57.i
-  %.pr1117 = load i32, ptr %err.addr.0.sroa.phi982, align 8
-  %cmp723 = icmp eq i32 %.pr1117, 6
+  %.pr1118 = load i32, ptr %err.addr.0.sroa.phi982, align 8
+  %cmp723 = icmp eq i32 %.pr1118, 6
   br i1 %cmp723, label %if.then725, label %if.else729
 
 if.then725:                                       ; preds = %do.body720
@@ -6980,24 +6980,24 @@ if.then725:                                       ; preds = %do.body720
   br label %return
 
 if.else729.sink.split:                            ; preds = %if.end38.i, %if.end707
-  %.sink1476 = phi i32 [ 1, %if.end707 ], [ 2, %if.end38.i ]
-  %.str.50.sink1475 = phi ptr [ @.str.3, %if.end707 ], [ @.str.50, %if.end38.i ]
-  store i32 %.sink1476, ptr %err.addr.0.sroa.phi982, align 8
-  store ptr %.str.50.sink1475, ptr %msg.i1112, align 8
+  %.sink1477 = phi i32 [ 1, %if.end707 ], [ 2, %if.end38.i ]
+  %.str.50.sink1476 = phi ptr [ @.str.3, %if.end707 ], [ @.str.50, %if.end38.i ]
+  store i32 %.sink1477, ptr %err.addr.0.sroa.phi982, align 8
+  store ptr %.str.50.sink1476, ptr %msg.i1112, align 8
   store i64 0, ptr %pos.i1113, align 8
   br label %if.else729
 
 if.else729:                                       ; preds = %if.else729.sink.split, %do.body720
   store i32 7, ptr %err.addr.0, align 8
   store ptr @.str.18, ptr %err.addr.0.sroa.phi988, align 8
-  store i64 %iter.sroa.0.11334, ptr %err.addr.0.sroa.phi991, align 8
+  store i64 %iter.sroa.0.11335, ptr %err.addr.0.sroa.phi991, align 8
   br label %return
 
 sw.bb744:                                         ; preds = %sw.epilog
   %uni745 = getelementptr inbounds i8, ptr %20, i64 8
   %53 = load ptr, ptr %uni745, align 8
   store i32 0, ptr %err.addr.0.sroa.phi982, align 8
-  %tobool4.i1089.not = icmp eq ptr %root.01336, null
+  %tobool4.i1089.not = icmp eq ptr %root.01337, null
   %tobool5.i1108.not = icmp eq ptr %53, null
   %54 = select i1 %tobool4.i1089.not, i1 true, i1 %tobool5.i1108.not
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %msg.i1112, i8 0, i64 16, i1 false)
@@ -7013,13 +7013,13 @@ if.end27.i:                                       ; preds = %if.end18.i1094
   br i1 %cmp29.i.not, label %yyjson_mut_ptr_getx.exit, label %if.else767.sink.split
 
 yyjson_mut_ptr_getx.exit:                         ; preds = %if.end27.i
-  %call.i1099 = call ptr @unsafe_yyjson_mut_ptr_getx(ptr noundef nonnull %root.01336, ptr noundef nonnull %53, i64 noundef %shr.i842, ptr noundef null, ptr noundef nonnull %err.addr.0.sroa.phi982)
+  %call.i1099 = call ptr @unsafe_yyjson_mut_ptr_getx(ptr noundef nonnull %root.01337, ptr noundef nonnull %53, i64 noundef %shr.i842, ptr noundef null, ptr noundef nonnull %err.addr.0.sroa.phi982)
   %tobool748.not = icmp eq ptr %call.i1099, null
   br i1 %tobool748.not, label %do.body758, label %if.end781
 
 do.body758:                                       ; preds = %yyjson_mut_ptr_getx.exit
-  %.pr1133 = load i32, ptr %err.addr.0.sroa.phi982, align 8
-  %cmp761 = icmp eq i32 %.pr1133, 6
+  %.pr1134 = load i32, ptr %err.addr.0.sroa.phi982, align 8
+  %cmp761 = icmp eq i32 %.pr1134, 6
   br i1 %cmp761, label %if.then763, label %if.else767
 
 if.then763:                                       ; preds = %do.body758
@@ -7029,26 +7029,26 @@ if.then763:                                       ; preds = %do.body758
   br label %return
 
 if.else767.sink.split:                            ; preds = %if.end27.i, %sw.bb744
-  %.sink1478 = phi i32 [ 1, %sw.bb744 ], [ 2, %if.end27.i ]
-  %.str.3.sink1477 = phi ptr [ @.str.3, %sw.bb744 ], [ @.str.50, %if.end27.i ]
-  store i32 %.sink1478, ptr %err.addr.0.sroa.phi982, align 8
-  store ptr %.str.3.sink1477, ptr %msg.i1112, align 8
+  %.sink1479 = phi i32 [ 1, %sw.bb744 ], [ 2, %if.end27.i ]
+  %.str.3.sink1478 = phi ptr [ @.str.3, %sw.bb744 ], [ @.str.50, %if.end27.i ]
+  store i32 %.sink1479, ptr %err.addr.0.sroa.phi982, align 8
+  store ptr %.str.3.sink1478, ptr %msg.i1112, align 8
   store i64 0, ptr %pos.i1113, align 8
   br label %if.else767
 
 if.else767:                                       ; preds = %if.else767.sink.split, %do.body758
   store i32 7, ptr %err.addr.0, align 8
   store ptr @.str.23, ptr %err.addr.0.sroa.phi988, align 8
-  store i64 %iter.sroa.0.11334, ptr %err.addr.0.sroa.phi991, align 8
+  store i64 %iter.sroa.0.11335, ptr %err.addr.0.sroa.phi991, align 8
   br label %return
 
 if.end781:                                        ; preds = %if.end18.i1094, %yyjson_mut_ptr_getx.exit
-  %retval.i1079.01124 = phi ptr [ %call.i1099, %yyjson_mut_ptr_getx.exit ], [ %root.01336, %if.end18.i1094 ]
+  %retval.i1079.01125 = phi ptr [ %call.i1099, %yyjson_mut_ptr_getx.exit ], [ %root.01337, %if.end18.i1094 ]
   %tobool.i1164.not = icmp eq ptr %val.0, null
   br i1 %tobool.i1164.not, label %do.body792, label %if.end.i1168
 
 if.end.i1168:                                     ; preds = %if.end781
-  %call.i1169 = call zeroext i1 @unsafe_yyjson_mut_equals(ptr noundef nonnull %val.0, ptr noundef nonnull %retval.i1079.01124)
+  %call.i1169 = call zeroext i1 @unsafe_yyjson_mut_equals(ptr noundef nonnull %val.0, ptr noundef nonnull %retval.i1079.01125)
   br i1 %call.i1169, label %sw.epilog840, label %do.body792
 
 do.body792:                                       ; preds = %if.end781, %if.end.i1168
@@ -7065,7 +7065,7 @@ if.then797:                                       ; preds = %do.body792
 if.else801:                                       ; preds = %do.body792
   store i32 6, ptr %err.addr.0, align 8
   store ptr @.str.24, ptr %err.addr.0.sroa.phi988, align 8
-  store i64 %iter.sroa.0.11334, ptr %err.addr.0.sroa.phi991, align 8
+  store i64 %iter.sroa.0.11335, ptr %err.addr.0.sroa.phi991, align 8
   br label %return
 
 do.body817:                                       ; preds = %sw.epilog
@@ -7082,16 +7082,16 @@ if.then822:                                       ; preds = %do.body817
 if.else826:                                       ; preds = %do.body817
   store i32 5, ptr %err.addr.0, align 8
   store ptr @.str.25, ptr %err.addr.0.sroa.phi988, align 8
-  store i64 %iter.sroa.0.11334, ptr %err.addr.0.sroa.phi991, align 8
+  store i64 %iter.sroa.0.11335, ptr %err.addr.0.sroa.phi991, align 8
   br label %return
 
 sw.epilog840:                                     ; preds = %if.end662, %if.end578, %sw.bb481, %sw.bb397, %if.end.i1168, %if.end57.i, %if.end57.i876, %sw.bb529, %yyjson_mut_ptr_replacex.exit, %yyjson_mut_ptr_removex.exit1050, %if.end57.i938
-  %root.1 = phi ptr [ %root.01336, %if.end.i1168 ], [ %root.01336, %if.end57.i ], [ %root.01336, %sw.bb529 ], [ %root.01336, %if.end57.i876 ], [ %root.01336, %yyjson_mut_ptr_replacex.exit ], [ %root.01336, %yyjson_mut_ptr_removex.exit1050 ], [ %root.01336, %if.end57.i938 ], [ %val.0, %sw.bb397 ], [ %val.0, %sw.bb481 ], [ %call.i986, %if.end578 ], [ %retval.i1114.01114, %if.end662 ]
+  %root.1 = phi ptr [ %root.01337, %if.end.i1168 ], [ %root.01337, %if.end57.i ], [ %root.01337, %sw.bb529 ], [ %root.01337, %if.end57.i876 ], [ %root.01337, %yyjson_mut_ptr_replacex.exit ], [ %root.01337, %yyjson_mut_ptr_removex.exit1050 ], [ %root.01337, %if.end57.i938 ], [ %val.0, %sw.bb397 ], [ %val.0, %sw.bb481 ], [ %call.i986, %if.end578 ], [ %retval.i1114.01115, %if.end662 ]
   %exitcond.not = icmp eq i64 %inc.i, %shr.i.i
   br i1 %exitcond.not, label %return, label %yyjson_mut_arr_iter_next.exit, !llvm.loop !41
 
 return:                                           ; preds = %yyjson_mut_arr_iter_next.exit, %sw.epilog840, %yyjson_mut_is_arr.exit.i, %yyjson_mut_arr_iter_init.exit, %if.then822, %if.else826, %if.then797, %if.else801, %if.then763, %if.else767, %if.then725, %if.else729, %if.then689, %if.else693, %if.then644, %if.else648, %if.then606, %if.else610, %if.then560, %if.else564, %if.then510, %if.else514, %if.then462, %if.else466, %if.then424, %if.else428, %if.then377, %if.else381, %if.then343, %if.else347, %if.then307, %if.else311, %if.then272, %if.else276, %if.then236, %if.else240, %if.then202, %if.else206, %if.then166, %if.else170, %if.then132, %if.else136, %if.then97, %if.else101, %if.then68, %if.else72, %if.then33, %if.else37, %if.then9, %if.else
-  %retval.0 = phi ptr [ null, %if.else ], [ null, %if.then9 ], [ null, %if.else37 ], [ null, %if.then33 ], [ null, %if.else72 ], [ null, %if.then68 ], [ null, %if.else101 ], [ null, %if.then97 ], [ null, %if.else136 ], [ null, %if.then132 ], [ null, %if.else170 ], [ null, %if.then166 ], [ null, %if.else206 ], [ null, %if.then202 ], [ null, %if.else240 ], [ null, %if.then236 ], [ null, %if.else276 ], [ null, %if.then272 ], [ null, %if.else311 ], [ null, %if.then307 ], [ null, %if.else347 ], [ null, %if.then343 ], [ null, %if.else381 ], [ null, %if.then377 ], [ null, %if.else428 ], [ null, %if.then424 ], [ null, %if.else466 ], [ null, %if.then462 ], [ null, %if.else514 ], [ null, %if.then510 ], [ null, %if.else564 ], [ null, %if.then560 ], [ null, %if.else610 ], [ null, %if.then606 ], [ null, %if.else648 ], [ null, %if.then644 ], [ null, %if.else693 ], [ null, %if.then689 ], [ null, %if.else729 ], [ null, %if.then725 ], [ null, %if.else767 ], [ null, %if.then763 ], [ null, %if.else801 ], [ null, %if.then797 ], [ null, %if.else826 ], [ null, %if.then822 ], [ %call.i1016, %yyjson_mut_arr_iter_init.exit ], [ %call.i1016, %yyjson_mut_is_arr.exit.i ], [ %root.01336, %yyjson_mut_arr_iter_next.exit ], [ %root.1, %sw.epilog840 ]
+  %retval.0 = phi ptr [ null, %if.else ], [ null, %if.then9 ], [ null, %if.else37 ], [ null, %if.then33 ], [ null, %if.else72 ], [ null, %if.then68 ], [ null, %if.else101 ], [ null, %if.then97 ], [ null, %if.else136 ], [ null, %if.then132 ], [ null, %if.else170 ], [ null, %if.then166 ], [ null, %if.else206 ], [ null, %if.then202 ], [ null, %if.else240 ], [ null, %if.then236 ], [ null, %if.else276 ], [ null, %if.then272 ], [ null, %if.else311 ], [ null, %if.then307 ], [ null, %if.else347 ], [ null, %if.then343 ], [ null, %if.else381 ], [ null, %if.then377 ], [ null, %if.else428 ], [ null, %if.then424 ], [ null, %if.else466 ], [ null, %if.then462 ], [ null, %if.else514 ], [ null, %if.then510 ], [ null, %if.else564 ], [ null, %if.then560 ], [ null, %if.else610 ], [ null, %if.then606 ], [ null, %if.else648 ], [ null, %if.then644 ], [ null, %if.else693 ], [ null, %if.then689 ], [ null, %if.else729 ], [ null, %if.then725 ], [ null, %if.else767 ], [ null, %if.then763 ], [ null, %if.else801 ], [ null, %if.then797 ], [ null, %if.else826 ], [ null, %if.then822 ], [ %call.i1017, %yyjson_mut_arr_iter_init.exit ], [ %call.i1017, %yyjson_mut_is_arr.exit.i ], [ %root.01337, %yyjson_mut_arr_iter_next.exit ], [ %root.1, %sw.epilog840 ]
   ret ptr %retval.0
 }
 

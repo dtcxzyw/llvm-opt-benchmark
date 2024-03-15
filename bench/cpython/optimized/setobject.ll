@@ -1987,28 +1987,27 @@ for.body:                                         ; preds = %if.end, %for.body
 
 for.end:                                          ; preds = %for.body, %if.end
   %hash.0.lcssa = phi i64 [ 0, %if.end ], [ %xor, %for.body ]
-  %5 = xor i64 %2, -1
   %fill = getelementptr inbounds i8, ptr %self, i64 16
-  %6 = load i64, ptr %fill, align 8
-  %sub = sub i64 %5, %6
-  %and = and i64 %sub, 1
-  %tobool.not = icmp eq i64 %and, 0
+  %5 = load i64, ptr %fill, align 8
+  %6 = add i64 %5, %2
+  %7 = and i64 %6, 1
+  %tobool.not.not = icmp eq i64 %7, 0
   %xor10 = xor i64 %hash.0.lcssa, 327557089134353749
-  %spec.select = select i1 %tobool.not, i64 %hash.0.lcssa, i64 %xor10
+  %spec.select = select i1 %tobool.not.not, i64 %xor10, i64 %hash.0.lcssa
   %used = getelementptr inbounds i8, ptr %self, i64 24
-  %7 = load i64, ptr %used, align 8
-  %sub13 = sub i64 %6, %7
+  %8 = load i64, ptr %used, align 8
+  %sub13 = sub i64 %5, %8
   %and14 = and i64 %sub13, 1
   %tobool15.not = icmp eq i64 %and14, 0
   %xor18 = xor i64 %spec.select, 327650953621548500
   %hash.2 = select i1 %tobool15.not, i64 %spec.select, i64 %xor18
-  %8 = mul i64 %7, 1927868237
-  %mul = add i64 %8, 1927868237
+  %9 = mul i64 %8, 1927868237
+  %mul = add i64 %9, 1927868237
   %xor22 = xor i64 %hash.2, %mul
   %shr = lshr i64 %xor22, 11
   %shr23 = lshr i64 %xor22, 25
-  %9 = xor i64 %shr23, %shr
-  %xor25 = xor i64 %9, %xor22
+  %10 = xor i64 %shr23, %shr
+  %xor25 = xor i64 %10, %xor22
   %mul26 = mul i64 %xor25, 69069
   %add27 = add i64 %mul26, 907133923
   %cmp28 = icmp eq i64 %add27, -1
@@ -8106,7 +8105,7 @@ if.then1.i.i.i40:                                 ; preds = %if.end.i.i.i37
 
 set_discard_key.exit44:                           ; preds = %if.then.i22, %if.end5.i25, %if.end.i.i29, %if.end5.i.i31, %if.end.i.i.i37, %if.then1.i.i.i40
   %cmp14 = phi i1 [ true, %if.then.i22 ], [ true, %if.end5.i25 ], [ false, %if.end.i.i29 ], [ false, %if.end5.i.i31 ], [ false, %if.then1.i.i.i40 ], [ false, %if.end.i.i.i37 ]
-  %cmp18 = phi i1 [ true, %if.then.i22 ], [ true, %if.end5.i25 ], [ false, %if.end.i.i29 ], [ true, %if.end5.i.i31 ], [ true, %if.then1.i.i.i40 ], [ true, %if.end.i.i.i37 ]
+  %cmp18.not = phi i1 [ true, %if.then.i22 ], [ true, %if.end5.i25 ], [ false, %if.end.i.i29 ], [ true, %if.end5.i.i31 ], [ true, %if.then1.i.i.i40 ], [ true, %if.end.i.i.i37 ]
   %16 = load i64, ptr %call.i, align 8
   %17 = and i64 %16, 2147483648
   %cmp.i22.not = icmp eq i64 %17, 0
@@ -8123,7 +8122,7 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %set_discard_key.exit44, %if.then1.i, %if.end.i
-  %brmerge = or i1 %cmp14, %cmp18
+  %brmerge = or i1 %cmp14, %cmp18.not
   %.mux = select i1 %cmp14, ptr null, ptr @_Py_NoneStruct
   br i1 %brmerge, label %return, label %if.then19
 

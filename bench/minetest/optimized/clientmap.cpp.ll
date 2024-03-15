@@ -10876,7 +10876,7 @@ define dso_local noundef i32 @_ZN9ClientMap23getBackgroundBrightnessEfjiPb(ptr n
 31:                                               ; preds = %30, %27, %24
   %32 = load float, ptr @_ZZN9ClientMap23getBackgroundBrightnessEfjiPbE12z_directions, align 16, !tbaa !346
   %33 = fcmp nsz olt float %32, -9.900000e+01
-  br i1 %33, label %.preheader, label %.loopexit37
+  br i1 %33, label %.preheader, label %.loopexit42
 
 34:                                               ; preds = %5
   %35 = landingpad { ptr, i32 }
@@ -10903,7 +10903,7 @@ define dso_local noundef i32 @_ZN9ClientMap23getBackgroundBrightnessEfjiPb(ptr n
 44:                                               ; preds = %43, %40, %34
   %45 = phi { ptr, i32 } [ %35, %34 ], [ %37, %40 ], [ %37, %43 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #29
-  br label %636
+  br label %634
 
 .preheader:                                       ; preds = %31, %77
   %46 = phi i64 [ %82, %77 ], [ 0, %31 ]
@@ -10938,11 +10938,11 @@ define dso_local noundef i32 @_ZN9ClientMap23getBackgroundBrightnessEfjiPb(ptr n
   %69 = fmul nsz <2 x double> %68, %65
   %70 = fptrunc <2 x double> %69 to <2 x float>
   %.pre = extractelement <2 x float> %70, i64 0
-  %.pre62 = extractelement <2 x float> %70, i64 1
+  %.pre67 = extractelement <2 x float> %70, i64 1
   br label %71
 
 71:                                               ; preds = %61, %50
-  %.pre-phi63 = phi float [ %.pre62, %61 ], [ %58, %50 ]
+  %.pre-phi68 = phi float [ %.pre67, %61 ], [ %58, %50 ]
   %.pre-phi = phi float [ %.pre, %61 ], [ %56, %50 ]
   %72 = phi float [ %66, %61 ], [ 1.000000e+00, %50 ]
   %73 = getelementptr inbounds [50 x %"class.irr::core::vector3d"], ptr @_ZZN9ClientMap23getBackgroundBrightnessEfjiPbE12z_directions, i64 0, i64 %46
@@ -10950,7 +10950,7 @@ define dso_local noundef i32 @_ZN9ClientMap23getBackgroundBrightnessEfjiPb(ptr n
   %74 = getelementptr inbounds i8, ptr %73, i64 4
   store float %72, ptr %74, align 4, !tbaa !22
   %75 = getelementptr inbounds i8, ptr %73, i64 8
-  store float %.pre-phi63, ptr %75, align 4, !tbaa !22
+  store float %.pre-phi68, ptr %75, align 4, !tbaa !22
   %76 = invoke noundef i32 @_Z12myrand_rangeii(i32 noundef 0, i32 noundef 100)
           to label %77 unwind label %86
 
@@ -10962,19 +10962,19 @@ define dso_local noundef i32 @_ZN9ClientMap23getBackgroundBrightnessEfjiPb(ptr n
   store float %80, ptr %81, align 4, !tbaa !22
   %82 = add nuw nsw i64 %46, 1
   %83 = icmp eq i64 %82, 50
-  br i1 %83, label %.loopexit37, label %.preheader, !llvm.loop !509
+  br i1 %83, label %.loopexit42, label %.preheader, !llvm.loop !509
 
 84:                                               ; preds = %48, %.preheader
   %85 = landingpad { ptr, i32 }
           cleanup
-  br label %634
+  br label %632
 
 86:                                               ; preds = %71
   %87 = landingpad { ptr, i32 }
           cleanup
-  br label %634
+  br label %632
 
-.loopexit37:                                      ; preds = %77, %31
+.loopexit42:                                      ; preds = %77, %31
   %88 = fpext float %1 to double
   %89 = fmul nsz double %88, 8.000000e-01
   %90 = fptrunc double %89 to float
@@ -10983,7 +10983,7 @@ define dso_local noundef i32 @_ZN9ClientMap23getBackgroundBrightnessEfjiPb(ptr n
   %93 = invoke noalias noundef nonnull dereferenceable(200) ptr @_Znwm(i64 noundef 200) #31
           to label %94 unwind label %106
 
-94:                                               ; preds = %.loopexit37
+94:                                               ; preds = %.loopexit42
   %95 = getelementptr inbounds i8, ptr %93, i64 200
   %96 = getelementptr inbounds i8, ptr %0, i64 428
   %97 = getelementptr inbounds i8, ptr %0, i64 436
@@ -10997,25 +10997,25 @@ define dso_local noundef i32 @_ZN9ClientMap23getBackgroundBrightnessEfjiPb(ptr n
   %105 = sub i32 1000, %2
   br label %108
 
-106:                                              ; preds = %.loopexit37
+106:                                              ; preds = %.loopexit42
   %107 = landingpad { ptr, i32 }
           cleanup
-  br label %634
+  br label %632
 
-108:                                              ; preds = %480, %94
-  %109 = phi i64 [ 0, %94 ], [ %485, %480 ]
-  %110 = phi i32 [ 0, %94 ], [ %481, %480 ]
-  %111 = phi ptr [ %95, %94 ], [ %484, %480 ]
-  %112 = phi ptr [ %93, %94 ], [ %483, %480 ]
-  %113 = phi ptr [ %93, %94 ], [ %482, %480 ]
+108:                                              ; preds = %478, %94
+  %109 = phi i64 [ 0, %94 ], [ %483, %478 ]
+  %110 = phi i32 [ 0, %94 ], [ %479, %478 ]
+  %111 = phi ptr [ %95, %94 ], [ %482, %478 ]
+  %112 = phi ptr [ %93, %94 ], [ %481, %478 ]
+  %113 = phi ptr [ %93, %94 ], [ %480, %478 ]
   %114 = getelementptr inbounds [50 x %"class.irr::core::vector3d"], ptr @_ZZN9ClientMap23getBackgroundBrightnessEfjiPbE12z_directions, i64 0, i64 %109
-  %.sroa.034.0.copyload = load float, ptr %114, align 4, !tbaa !22
-  %.sroa.635.0..sroa_idx = getelementptr inbounds i8, ptr %114, i64 4
-  %.sroa.635.0.copyload = load <2 x float>, ptr %.sroa.635.0..sroa_idx, align 4, !tbaa.struct !510
-  %115 = fmul nsz <2 x float> %.sroa.635.0.copyload, %.sroa.635.0.copyload
+  %.sroa.039.0.copyload = load float, ptr %114, align 4, !tbaa !22
+  %.sroa.640.0..sroa_idx = getelementptr inbounds i8, ptr %114, i64 4
+  %.sroa.640.0.copyload = load <2 x float>, ptr %.sroa.640.0..sroa_idx, align 4, !tbaa.struct !510
+  %115 = fmul nsz <2 x float> %.sroa.640.0.copyload, %.sroa.640.0.copyload
   %116 = extractelement <2 x float> %115, i64 0
-  %117 = call nsz float @llvm.fmuladd.f32(float %.sroa.034.0.copyload, float %.sroa.034.0.copyload, float %116)
-  %118 = extractelement <2 x float> %.sroa.635.0.copyload, i64 1
+  %117 = call nsz float @llvm.fmuladd.f32(float %.sroa.039.0.copyload, float %.sroa.039.0.copyload, float %116)
+  %118 = extractelement <2 x float> %.sroa.640.0.copyload, i64 1
   %119 = call nsz float @llvm.fmuladd.f32(float %118, float %118, float %117)
   %120 = fcmp nsz oeq float %119, 0.000000e+00
   br i1 %120, label %133, label %121
@@ -11024,10 +11024,10 @@ define dso_local noundef i32 @_ZN9ClientMap23getBackgroundBrightnessEfjiPb(ptr n
   %122 = fpext float %119 to double
   %123 = call nsz double @llvm.sqrt.f64(double %122)
   %124 = fdiv nsz double 1.000000e+00, %123
-  %125 = fpext float %.sroa.034.0.copyload to double
+  %125 = fpext float %.sroa.039.0.copyload to double
   %126 = fmul nsz double %124, %125
   %127 = fptrunc double %126 to float
-  %128 = fpext <2 x float> %.sroa.635.0.copyload to <2 x double>
+  %128 = fpext <2 x float> %.sroa.640.0.copyload to <2 x double>
   %129 = insertelement <2 x double> poison, double %124, i64 0
   %130 = shufflevector <2 x double> %129, <2 x double> poison, <2 x i32> zeroinitializer
   %131 = fmul nsz <2 x double> %130, %128
@@ -11035,8 +11035,8 @@ define dso_local noundef i32 @_ZN9ClientMap23getBackgroundBrightnessEfjiPb(ptr n
   br label %133
 
 133:                                              ; preds = %121, %108
-  %134 = phi float [ %.sroa.034.0.copyload, %108 ], [ %127, %121 ]
-  %135 = phi <2 x float> [ %.sroa.635.0.copyload, %108 ], [ %132, %121 ]
+  %134 = phi float [ %.sroa.039.0.copyload, %108 ], [ %127, %121 ]
+  %135 = phi <2 x float> [ %.sroa.640.0.copyload, %108 ], [ %132, %121 ]
   %136 = shufflevector <2 x float> %135, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
   %137 = insertelement <2 x float> %136, float %134, i64 1
   %138 = fmul nsz <2 x float> %137, <float -1.000000e+00, float -0.000000e+00>
@@ -11080,14 +11080,14 @@ define dso_local noundef i32 @_ZN9ClientMap23getBackgroundBrightnessEfjiPb(ptr n
   %168 = fmul nsz float %166, %.pre-phi4.i
   %169 = fmul nsz float %166, %162
   %170 = call nsz float @llvm.fmuladd.f32(float %167, float %.pre-phi.i, float %165)
-  %.sroa.025.0.vec.insert28 = insertelement <2 x float> poison, float %170, i64 0
+  %.sroa.030.0.vec.insert33 = insertelement <2 x float> poison, float %170, i64 0
   %171 = call nsz float @llvm.fmuladd.f32(float %168, float %.pre-phi4.i, float %165)
   %172 = call nsz float @llvm.fmuladd.f32(float %169, float %162, float %165)
   %173 = fmul nsz float %.pre-phi4.i, %167
   %174 = fmul nsz float %.pre-phi.i, %169
   %175 = fmul nsz float %168, %162
   %176 = fsub nsz float %173, %142
-  %.sroa.025.4.vec.insert = insertelement <2 x float> %.sroa.025.0.vec.insert28, float %176, i64 1
+  %.sroa.030.4.vec.insert = insertelement <2 x float> %.sroa.030.0.vec.insert33, float %176, i64 1
   %177 = fadd nsz float %143, %174
   %178 = fadd nsz float %142, %173
   %179 = insertelement <2 x float> poison, float %178, i64 0
@@ -11104,7 +11104,7 @@ define dso_local noundef i32 @_ZN9ClientMap23getBackgroundBrightnessEfjiPb(ptr n
   %187 = shufflevector <2 x float> %183, <2 x float> poison, <2 x i32> <i32 1, i32 1>
   %188 = fmul nsz <2 x float> %187, %.sroa.12.16.vec.insert
   %189 = shufflevector <2 x float> %183, <2 x float> poison, <2 x i32> zeroinitializer
-  %190 = call nsz <2 x float> @llvm.fmuladd.v2f32(<2 x float> %189, <2 x float> %.sroa.025.4.vec.insert, <2 x float> %188)
+  %190 = call nsz <2 x float> @llvm.fmuladd.v2f32(<2 x float> %189, <2 x float> %.sroa.030.4.vec.insert, <2 x float> %188)
   %191 = insertelement <2 x float> poison, float %184, i64 0
   %192 = shufflevector <2 x float> %191, <2 x float> poison, <2 x i32> zeroinitializer
   %193 = call nsz <2 x float> @llvm.fmuladd.v2f32(<2 x float> %192, <2 x float> %.sroa.19.36.vec.insert, <2 x float> %190)
@@ -11138,16 +11138,16 @@ define dso_local noundef i32 @_ZN9ClientMap23getBackgroundBrightnessEfjiPb(ptr n
   %219 = fpext float %196 to double
   %220 = fmul nsz double %213, %219
   %221 = fptrunc double %220 to float
-  %.pre64 = extractelement <2 x float> %218, i64 0
+  %.pre69 = extractelement <2 x float> %218, i64 0
   br label %222
 
 222:                                              ; preds = %210, %161
-  %.pre-phi65 = phi float [ %.pre64, %210 ], [ %206, %161 ]
+  %.pre-phi70 = phi float [ %.pre69, %210 ], [ %206, %161 ]
   %223 = phi float [ %221, %210 ], [ %196, %161 ]
   %224 = phi <2 x float> [ %218, %210 ], [ %193, %161 ]
   %225 = load <2 x float>, ptr %102, align 8
   %226 = load float, ptr %104, align 8, !tbaa !22
-  %227 = fmul nsz float %.pre-phi65, %202
+  %227 = fmul nsz float %.pre-phi70, %202
   %228 = extractelement <2 x float> %224, i64 1
   %229 = fmul nsz float %228, %202
   %230 = fmul nsz float %223, %202
@@ -11181,7 +11181,7 @@ define dso_local noundef i32 @_ZN9ClientMap23getBackgroundBrightnessEfjiPb(ptr n
   %258 = zext i16 %249 to i48
   %259 = or disjoint i48 %257, %258
   %260 = invoke i32 @_ZN3Map7getNodeEN3irr4core8vector3dIsEEPb(ptr noundef nonnull align 8 dereferenceable(144) %0, i48 %259, ptr noundef null)
-          to label %261 unwind label %440
+          to label %261 unwind label %438
 
 261:                                              ; preds = %222
   %262 = getelementptr inbounds i8, ptr %203, i64 312
@@ -11190,7 +11190,7 @@ define dso_local noundef i32 @_ZN9ClientMap23getBackgroundBrightnessEfjiPb(ptr n
   %265 = getelementptr inbounds [65536 x %struct.ContentLightingFlags], ptr %262, i64 0, i64 %264
   %266 = load i8, ptr %265, align 1, !tbaa !98
   %267 = and i8 %266, 80
-  %268 = icmp ne i8 %267, 16
+  %268 = icmp eq i8 %267, 16
   %269 = fcmp nsz ogt float %232, 0.000000e+00
   %270 = select nsz i1 %269, float 5.000000e+00, float -5.000000e+00
   %271 = fcmp nsz ogt float %235, 0.000000e+00
@@ -11214,7 +11214,7 @@ define dso_local noundef i32 @_ZN9ClientMap23getBackgroundBrightnessEfjiPb(ptr n
   %289 = zext i16 %280 to i48
   %290 = or disjoint i48 %288, %289
   %291 = invoke i32 @_ZN3Map7getNodeEN3irr4core8vector3dIsEEPb(ptr noundef nonnull align 8 dereferenceable(144) %0, i48 %290, ptr noundef null)
-          to label %292 unwind label %440
+          to label %292 unwind label %438
 
 292:                                              ; preds = %261
   %293 = and i32 %291, 65535
@@ -11238,25 +11238,25 @@ define dso_local noundef i32 @_ZN9ClientMap23getBackgroundBrightnessEfjiPb(ptr n
   %307 = phi float [ 2.000000e+01, %295 ], [ %202, %292 ]
   %308 = phi float [ 0.000000e+00, %295 ], [ %92, %292 ]
   %309 = fcmp nsz olt float %307, %1
-  br i1 %309, label %310, label %480
+  br i1 %309, label %310, label %478
 
 310:                                              ; preds = %304
-  %311 = fmul nsz float %101, %.pre-phi65
+  %311 = fmul nsz float %101, %.pre-phi70
   %312 = fmul nsz float %101, %228
   %313 = fmul nsz float %101, %223
   br label %314
 
-314:                                              ; preds = %414, %310
-  %315 = phi i8 [ 0, %310 ], [ %415, %414 ]
-  %316 = phi i32 [ 0, %310 ], [ %419, %414 ]
-  %317 = phi i32 [ 0, %310 ], [ %418, %414 ]
-  %318 = phi float [ %307, %310 ], [ %332, %414 ]
-  %319 = phi i32 [ 0, %310 ], [ %417, %414 ]
-  %320 = phi i8 [ 0, %310 ], [ %416, %414 ]
-  %321 = phi i8 [ 0, %310 ], [ %372, %414 ]
-  %322 = phi i32 [ 0, %310 ], [ %420, %414 ]
-  %323 = phi float [ %306, %310 ], [ %331, %414 ]
-  %324 = phi <2 x float> [ %305, %310 ], [ %330, %414 ]
+314:                                              ; preds = %412, %310
+  %315 = phi i8 [ 0, %310 ], [ %413, %412 ]
+  %316 = phi i32 [ 0, %310 ], [ %417, %412 ]
+  %317 = phi i32 [ 0, %310 ], [ %416, %412 ]
+  %318 = phi float [ %307, %310 ], [ %332, %412 ]
+  %319 = phi i32 [ 0, %310 ], [ %415, %412 ]
+  %320 = phi i8 [ 0, %310 ], [ %414, %412 ]
+  %321 = phi i8 [ 0, %310 ], [ %368, %412 ]
+  %322 = phi i32 [ 0, %310 ], [ %418, %412 ]
+  %323 = phi float [ %306, %310 ], [ %331, %412 ]
+  %324 = phi <2 x float> [ %305, %310 ], [ %330, %412 ]
   %325 = extractelement <2 x float> %324, i64 0
   %326 = fadd nsz float %311, %325
   %327 = insertelement <2 x float> poison, float %326, i64 0
@@ -11288,7 +11288,7 @@ define dso_local noundef i32 @_ZN9ClientMap23getBackgroundBrightnessEfjiPb(ptr n
   %353 = zext i16 %344 to i48
   %354 = or disjoint i48 %352, %353
   %355 = invoke i32 @_ZN3Map7getNodeEN3irr4core8vector3dIsEEPb(ptr noundef nonnull align 8 dereferenceable(144) %0, i48 %354, ptr noundef null)
-          to label %356 unwind label %438
+          to label %356 unwind label %436
 
 356:                                              ; preds = %314
   %357 = lshr i32 %355, 16
@@ -11297,417 +11297,417 @@ define dso_local noundef i32 @_ZN9ClientMap23getBackgroundBrightnessEfjiPb(ptr n
   %360 = zext nneg i32 %359 to i64
   %361 = getelementptr inbounds [65536 x %struct.ContentLightingFlags], ptr %262, i64 0, i64 %360
   %362 = load i8, ptr %361, align 1, !tbaa !98
-  %363 = icmp ne i32 %322, 0
-  %364 = select i1 %268, i1 true, i1 %363
-  %365 = and i8 %362, 16
-  %366 = icmp eq i8 %365, 0
-  %367 = or i1 %364, %366
-  %368 = xor i1 %367, true
-  %369 = and i8 %362, 64
-  %370 = icmp eq i8 %369, 0
-  %371 = and i1 %370, %368
-  %372 = select i1 %371, i8 1, i8 %321
-  br i1 %366, label %377, label %373
+  %363 = icmp eq i32 %322, 0
+  %.not29 = select i1 %268, i1 %363, i1 false
+  %364 = and i8 %362, 16
+  %.not = icmp eq i8 %364, 0
+  %365 = and i8 %362, 80
+  %366 = icmp eq i8 %365, 16
+  %367 = and i1 %.not29, %366
+  %368 = select i1 %367, i8 1, i8 %321
+  br i1 %.not, label %375, label %369
 
-373:                                              ; preds = %356
-  %374 = and i8 %372, 1
-  %375 = icmp eq i8 %374, 0
-  %376 = select i1 %370, i1 %375, i1 false
-  br i1 %376, label %377, label %380
+369:                                              ; preds = %356
+  %370 = and i8 %362, 64
+  %371 = icmp eq i8 %370, 0
+  %372 = and i8 %368, 1
+  %373 = icmp eq i8 %372, 0
+  %374 = select i1 %371, i1 %373, i1 false
+  br i1 %374, label %375, label %378
 
-377:                                              ; preds = %373, %356
-  %378 = add nsw i32 %319, 1
-  %379 = icmp sgt i32 %319, 2
-  br i1 %379, label %422, label %414
+375:                                              ; preds = %369, %356
+  %376 = add nsw i32 %319, 1
+  %377 = icmp sgt i32 %319, 2
+  br i1 %377, label %420, label %412
 
-380:                                              ; preds = %373
-  %381 = fcmp nsz ult float %332, %308
-  br i1 %381, label %393, label %382
+378:                                              ; preds = %369
+  %379 = fcmp nsz ult float %332, %308
+  br i1 %379, label %391, label %380
 
-382:                                              ; preds = %380
-  %383 = icmp eq i8 %315, 0
-  %384 = and i8 %320, 1
-  %385 = icmp eq i8 %384, 0
-  %386 = select i1 %383, i1 %385, i1 false
-  br i1 %386, label %387, label %393
+380:                                              ; preds = %378
+  %381 = icmp eq i8 %315, 0
+  %382 = and i8 %320, 1
+  %383 = icmp eq i8 %382, 0
+  %384 = select i1 %381, i1 %383, i1 false
+  br i1 %384, label %385, label %391
 
-387:                                              ; preds = %382
-  %388 = and i8 %358, 15
-  %389 = and i8 %362, 15
-  %390 = call noundef i8 @llvm.umax.i8(i8 %389, i8 %388)
-  %391 = icmp eq i8 %390, 15
-  %392 = zext i1 %391 to i8
-  br label %393
+385:                                              ; preds = %380
+  %386 = and i8 %358, 15
+  %387 = and i8 %362, 15
+  %388 = call noundef i8 @llvm.umax.i8(i8 %387, i8 %386)
+  %389 = icmp eq i8 %388, 15
+  %390 = zext i1 %389 to i8
+  br label %391
 
-393:                                              ; preds = %387, %382, %380
-  %394 = phi i8 [ %315, %380 ], [ %315, %382 ], [ %392, %387 ]
-  %395 = and i8 %358, 15
-  %396 = and i8 %362, 15
-  %397 = call noundef i8 @llvm.umax.i8(i8 %396, i8 %395)
-  %398 = lshr i8 %358, 4
-  %399 = call noundef i8 @llvm.umax.i8(i8 %396, i8 %398)
+391:                                              ; preds = %385, %380, %378
+  %392 = phi i8 [ %315, %378 ], [ %315, %380 ], [ %390, %385 ]
+  %393 = and i8 %358, 15
+  %394 = and i8 %362, 15
+  %395 = call noundef i8 @llvm.umax.i8(i8 %394, i8 %393)
+  %396 = lshr i8 %358, 4
+  %397 = call noundef i8 @llvm.umax.i8(i8 %394, i8 %396)
+  %398 = zext nneg i8 %395 to i32
+  %399 = mul i32 %398, %2
   %400 = zext nneg i8 %397 to i32
-  %401 = mul i32 %400, %2
-  %402 = zext nneg i8 %399 to i32
-  %403 = mul i32 %105, %402
-  %404 = add i32 %403, %401
-  %405 = udiv i32 %404, 1000
-  %406 = call i32 @llvm.umin.i32(i32 %405, i32 15)
-  %407 = zext nneg i32 %406 to i64
-  %408 = load ptr, ptr @light_decode_table, align 8, !tbaa !84
-  %409 = getelementptr inbounds i8, ptr %408, i64 %407
-  %410 = load i8, ptr %409, align 1, !tbaa !98
-  %411 = zext i8 %410 to i32
-  %412 = add nsw i32 %316, %411
-  %413 = add nsw i32 %317, 1
-  br label %414
+  %401 = mul i32 %105, %400
+  %402 = add i32 %401, %399
+  %403 = udiv i32 %402, 1000
+  %404 = call i32 @llvm.umin.i32(i32 %403, i32 15)
+  %405 = zext nneg i32 %404 to i64
+  %406 = load ptr, ptr @light_decode_table, align 8, !tbaa !84
+  %407 = getelementptr inbounds i8, ptr %406, i64 %405
+  %408 = load i8, ptr %407, align 1, !tbaa !98
+  %409 = zext i8 %408 to i32
+  %410 = add nsw i32 %316, %409
+  %411 = add nsw i32 %317, 1
+  br label %412
 
-414:                                              ; preds = %393, %377
-  %415 = phi i8 [ %315, %377 ], [ %394, %393 ]
-  %416 = phi i8 [ 1, %377 ], [ %320, %393 ]
-  %417 = phi i32 [ %378, %377 ], [ 0, %393 ]
-  %418 = phi i32 [ %317, %377 ], [ %413, %393 ]
-  %419 = phi i32 [ %316, %377 ], [ %412, %393 ]
-  %420 = add nuw nsw i32 %322, 1
-  %421 = fcmp nsz olt float %332, %1
-  br i1 %421, label %314, label %422, !llvm.loop !511
+412:                                              ; preds = %391, %375
+  %413 = phi i8 [ %315, %375 ], [ %392, %391 ]
+  %414 = phi i8 [ 1, %375 ], [ %320, %391 ]
+  %415 = phi i32 [ %376, %375 ], [ 0, %391 ]
+  %416 = phi i32 [ %317, %375 ], [ %411, %391 ]
+  %417 = phi i32 [ %316, %375 ], [ %410, %391 ]
+  %418 = add nuw nsw i32 %322, 1
+  %419 = fcmp nsz olt float %332, %1
+  br i1 %419, label %314, label %420, !llvm.loop !511
 
-422:                                              ; preds = %414, %377
-  %423 = phi i8 [ %315, %377 ], [ %415, %414 ]
-  %424 = phi i32 [ %317, %377 ], [ %418, %414 ]
-  %425 = phi i32 [ %316, %377 ], [ %419, %414 ]
-  %426 = freeze i8 %423
-  %427 = icmp eq i32 %424, 0
-  br i1 %427, label %434, label %428
+420:                                              ; preds = %412, %375
+  %421 = phi i8 [ %315, %375 ], [ %413, %412 ]
+  %422 = phi i32 [ %317, %375 ], [ %416, %412 ]
+  %423 = phi i32 [ %316, %375 ], [ %417, %412 ]
+  %424 = freeze i8 %421
+  %425 = icmp eq i32 %422, 0
+  br i1 %425, label %432, label %426
 
-428:                                              ; preds = %422
-  %429 = sdiv i32 %425, %424
-  %430 = icmp ne i8 %426, 0
-  %431 = zext i1 %430 to i32
-  %432 = add nsw i32 %110, %431
-  %433 = icmp eq ptr %112, %111
-  br i1 %433, label %445, label %444
+426:                                              ; preds = %420
+  %427 = sdiv i32 %423, %422
+  %428 = icmp ne i8 %424, 0
+  %429 = zext i1 %428 to i32
+  %430 = add nsw i32 %110, %429
+  %431 = icmp eq ptr %112, %111
+  br i1 %431, label %443, label %442
 
-434:                                              ; preds = %422
-  %435 = icmp ne i8 %426, 0
-  %436 = zext i1 %435 to i32
-  %437 = add nsw i32 %110, %436
-  br label %480
+432:                                              ; preds = %420
+  %433 = icmp ne i8 %424, 0
+  %434 = zext i1 %433 to i32
+  %435 = add nsw i32 %110, %434
+  br label %478
 
-438:                                              ; preds = %314
-  %439 = landingpad { ptr, i32 }
+436:                                              ; preds = %314
+  %437 = landingpad { ptr, i32 }
           cleanup
-  br label %629
-
-440:                                              ; preds = %460, %261, %222
-  %441 = landingpad { ptr, i32 }
-          cleanup
-  br label %629
-
-442:                                              ; preds = %450
-  %443 = landingpad { ptr, i32 }
-          cleanup
-  br label %629
-
-444:                                              ; preds = %428
-  store i32 %429, ptr %112, align 4, !tbaa !128
-  br label %474
-
-445:                                              ; preds = %428
-  %446 = ptrtoint ptr %111 to i64
-  %447 = ptrtoint ptr %113 to i64
-  %448 = sub i64 %446, %447
-  %449 = icmp eq i64 %448, 9223372036854775804
-  br i1 %449, label %450, label %452
-
-450:                                              ; preds = %445
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.58) #33
-          to label %451 unwind label %442
-
-451:                                              ; preds = %450
-  unreachable
-
-452:                                              ; preds = %445
-  %453 = ashr exact i64 %448, 2
-  %454 = call i64 @llvm.umax.i64(i64 %453, i64 1)
-  %455 = add nsw i64 %454, %453
-  %456 = icmp ult i64 %455, %453
-  %457 = call i64 @llvm.umin.i64(i64 %455, i64 2305843009213693951)
-  %458 = select i1 %456, i64 2305843009213693951, i64 %457
-  %459 = icmp eq i64 %458, 0
-  br i1 %459, label %463, label %460
-
-460:                                              ; preds = %452
-  %461 = shl nuw nsw i64 %458, 2
-  %462 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %461) #31
-          to label %463 unwind label %440
-
-463:                                              ; preds = %460, %452
-  %464 = phi ptr [ null, %452 ], [ %462, %460 ]
-  %465 = getelementptr inbounds i32, ptr %464, i64 %453
-  store i32 %429, ptr %465, align 4, !tbaa !128
-  %466 = icmp sgt i64 %448, 0
-  br i1 %466, label %467, label %468
-
-467:                                              ; preds = %463
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %464, ptr align 4 %113, i64 %448, i1 false)
-  br label %468
-
-468:                                              ; preds = %467, %463
-  %469 = getelementptr inbounds i8, ptr %464, i64 %448
-  %470 = icmp eq ptr %113, null
-  br i1 %470, label %472, label %471
-
-471:                                              ; preds = %468
-  call void @_ZdlPv(ptr noundef nonnull %113) #28
-  br label %472
-
-472:                                              ; preds = %471, %468
-  %473 = getelementptr inbounds i32, ptr %464, i64 %458
-  br label %474
-
-474:                                              ; preds = %472, %444
-  %475 = phi ptr [ %464, %472 ], [ %113, %444 ]
-  %476 = phi ptr [ %469, %472 ], [ %112, %444 ]
-  %477 = phi ptr [ %473, %472 ], [ %111, %444 ]
-  %478 = getelementptr inbounds i8, ptr %476, i64 4
-  %479 = icmp sgt i32 %432, 19
-  br i1 %479, label %.loopexit36, label %480
-
-480:                                              ; preds = %474, %434, %304
-  %481 = phi i32 [ %432, %474 ], [ %110, %304 ], [ %437, %434 ]
-  %482 = phi ptr [ %475, %474 ], [ %113, %304 ], [ %113, %434 ]
-  %483 = phi ptr [ %478, %474 ], [ %112, %304 ], [ %112, %434 ]
-  %484 = phi ptr [ %477, %474 ], [ %111, %304 ], [ %111, %434 ]
-  %485 = add nuw nsw i64 %109, 1
-  %486 = icmp eq i64 %485, 50
-  br i1 %486, label %487, label %108, !llvm.loop !512
-
-487:                                              ; preds = %480
-  %488 = icmp sgt i32 %481, 0
-  %489 = zext i1 %488 to i8
-  br label %.loopexit36
-
-.loopexit36:                                      ; preds = %474, %487
-  %490 = phi ptr [ %482, %487 ], [ %475, %474 ]
-  %491 = phi ptr [ %483, %487 ], [ %478, %474 ]
-  %492 = phi i8 [ %489, %487 ], [ 1, %474 ]
-  %493 = icmp eq ptr %490, %491
-  %494 = ptrtoint ptr %491 to i64
-  %495 = ptrtoint ptr %490 to i64
-  %496 = sub i64 %494, %495
-  %497 = ashr exact i64 %496, 2
-  br i1 %493, label %503, label %498
-
-498:                                              ; preds = %.loopexit36
-  %499 = call i64 @llvm.ctlz.i64(i64 %497, i1 true), !range !513
-  %500 = shl nuw nsw i64 %499, 1
-  %501 = xor i64 %500, 126
-  invoke void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElNS0_5__ops15_Iter_less_iterEEvT_S9_T0_T1_(ptr %490, ptr %491, i64 noundef %501)
-          to label %502 unwind label %509
-
-502:                                              ; preds = %498
-  invoke void @_ZSt22__final_insertion_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_less_iterEEvT_S9_T0_(ptr %490, ptr %491)
-          to label %503 unwind label %509
-
-503:                                              ; preds = %502, %.loopexit36
-  %504 = trunc i64 %497 to i32
-  %505 = icmp ugt i32 %504, 9
-  br i1 %505, label %506, label %511
-
-506:                                              ; preds = %503
-  %507 = lshr i32 %504, 1
-  %508 = sub i32 %504, %507
-  br label %518
-
-509:                                              ; preds = %502, %498
-  %510 = landingpad { ptr, i32 }
-          cleanup
-  br label %629
-
-511:                                              ; preds = %503
-  %512 = icmp ugt i32 %504, 6
-  br i1 %512, label %513, label %518
-
-513:                                              ; preds = %511
-  %514 = trunc i64 %497 to i8
-  %515 = udiv i8 %514, 3
-  %516 = zext nneg i8 %515 to i32
-  %517 = sub nuw nsw i32 %504, %516
-  br label %518
-
-518:                                              ; preds = %513, %511, %506
-  %519 = phi i32 [ %508, %506 ], [ %517, %513 ], [ %504, %511 ]
-  %520 = zext i32 %519 to i64
-  %521 = sub nsw i64 %497, %520
-  %522 = lshr i64 %521, 1
-  %523 = trunc i64 %522 to i32
-  %524 = add i32 %519, %523
-  %525 = icmp ugt i32 %524, %523
-  br i1 %525, label %526, label %561
-
-526:                                              ; preds = %518
-  %527 = and i64 %522, 4294967295
-  %528 = zext i32 %524 to i64
-  %529 = sub nsw i64 %528, %527
-  %530 = icmp ult i64 %529, 8
-  br i1 %530, label %.preheader90, label %531
-
-.preheader90:                                     ; preds = %546, %526
-  %.ph = phi i64 [ %547, %546 ], [ %527, %526 ]
-  %.ph91 = phi i32 [ %549, %546 ], [ 0, %526 ]
-  br label %553
-
-531:                                              ; preds = %526
-  %532 = and i64 %529, -8
-  br label %533
-
-533:                                              ; preds = %533, %531
-  %534 = phi i64 [ 0, %531 ], [ %544, %533 ]
-  %535 = phi <4 x i32> [ zeroinitializer, %531 ], [ %542, %533 ]
-  %536 = phi <4 x i32> [ zeroinitializer, %531 ], [ %543, %533 ]
-  %537 = add i64 %534, %527
-  %538 = getelementptr inbounds i32, ptr %490, i64 %537
-  %539 = getelementptr inbounds i8, ptr %538, i64 16
-  %540 = load <4 x i32>, ptr %538, align 4, !tbaa !128
-  %541 = load <4 x i32>, ptr %539, align 4, !tbaa !128
-  %542 = add <4 x i32> %540, %535
-  %543 = add <4 x i32> %541, %536
-  %544 = add nuw i64 %534, 8
-  %545 = icmp eq i64 %544, %532
-  br i1 %545, label %546, label %533, !llvm.loop !514
-
-546:                                              ; preds = %533
-  %547 = add nsw i64 %532, %527
-  %548 = add <4 x i32> %543, %542
-  %549 = call i32 @llvm.vector.reduce.add.v4i32(<4 x i32> %548)
-  %550 = icmp eq i64 %529, %532
-  br i1 %550, label %.loopexit, label %.preheader90
-
-.loopexit:                                        ; preds = %553, %546
-  %551 = phi i32 [ %549, %546 ], [ %558, %553 ]
-  %552 = icmp eq i32 %519, 0
-  br i1 %552, label %561, label %620
-
-553:                                              ; preds = %.preheader90, %553
-  %554 = phi i64 [ %559, %553 ], [ %.ph, %.preheader90 ]
-  %555 = phi i32 [ %558, %553 ], [ %.ph91, %.preheader90 ]
-  %556 = getelementptr inbounds i32, ptr %490, i64 %554
-  %557 = load i32, ptr %556, align 4, !tbaa !128
-  %558 = add nsw i32 %557, %555
-  %559 = add nuw nsw i64 %554, 1
-  %560 = icmp eq i64 %559, %528
-  br i1 %560, label %.loopexit, label %553, !llvm.loop !517
-
-561:                                              ; preds = %.loopexit, %518
-  %562 = load <2 x float>, ptr %102, align 8, !tbaa.struct !107
-  %563 = load float, ptr %104, align 8, !tbaa !22
-  %564 = extractelement <2 x float> %562, i64 0
-  %565 = fcmp nsz ogt float %564, 0.000000e+00
-  %566 = select nsz i1 %565, float 5.000000e+00, float -5.000000e+00
-  %567 = extractelement <2 x float> %562, i64 1
-  %568 = fcmp nsz ogt float %567, 0.000000e+00
-  %569 = select nsz i1 %568, float 5.000000e+00, float -5.000000e+00
-  %570 = fcmp nsz ogt float %563, 0.000000e+00
-  %571 = select nsz i1 %570, float 5.000000e+00, float -5.000000e+00
-  %572 = fadd nsz float %567, %569
-  %573 = fdiv nsz float %572, 1.000000e+01
-  %574 = fptosi float %573 to i16
-  %575 = fadd nsz float %564, %566
-  %576 = fdiv nsz float %575, 1.000000e+01
-  %577 = fptosi float %576 to i16
-  %578 = fadd nsz float %563, %571
-  %579 = fdiv nsz float %578, 1.000000e+01
-  %580 = fptosi float %579 to i16
-  %581 = zext i16 %580 to i48
-  %582 = shl nuw i48 %581, 32
-  %583 = zext i16 %574 to i48
-  %584 = shl nuw nsw i48 %583, 16
-  %585 = or disjoint i48 %582, %584
-  %586 = zext i16 %577 to i48
-  %587 = or disjoint i48 %585, %586
-  %588 = invoke i32 @_ZN3Map7getNodeEN3irr4core8vector3dIsEEPb(ptr noundef nonnull align 8 dereferenceable(144) %0, i48 %587, ptr noundef null)
-          to label %589 unwind label %618
-
-589:                                              ; preds = %561
-  %590 = load ptr, ptr %103, align 8, !tbaa !178
-  %591 = getelementptr inbounds i8, ptr %590, i64 312
-  %592 = and i32 %588, 65535
-  %593 = zext nneg i32 %592 to i64
-  %594 = getelementptr inbounds [65536 x %struct.ContentLightingFlags], ptr %591, i64 0, i64 %593
-  %595 = load i8, ptr %594, align 1, !tbaa !98
-  %596 = and i8 %595, 16
-  %597 = icmp eq i8 %596, 0
-  br i1 %597, label %622, label %598
-
-598:                                              ; preds = %589
-  %599 = lshr i32 %588, 16
-  %600 = trunc i32 %599 to i8
-  %601 = and i8 %600, 15
-  %602 = and i8 %595, 15
-  %603 = call noundef i8 @llvm.umax.i8(i8 %602, i8 %601)
-  %604 = lshr i8 %600, 4
-  %605 = call noundef i8 @llvm.umax.i8(i8 %602, i8 %604)
-  %606 = zext nneg i8 %603 to i32
-  %607 = mul i32 %606, %2
-  %608 = zext nneg i8 %605 to i32
-  %609 = mul i32 %105, %608
-  %610 = add i32 %609, %607
-  %611 = udiv i32 %610, 1000
-  %612 = call i32 @llvm.umin.i32(i32 %611, i32 15)
-  %613 = zext nneg i32 %612 to i64
-  %614 = load ptr, ptr @light_decode_table, align 8, !tbaa !84
-  %615 = getelementptr inbounds i8, ptr %614, i64 %613
-  %616 = load i8, ptr %615, align 1, !tbaa !98
-  %617 = zext i8 %616 to i32
-  br label %622
-
-618:                                              ; preds = %561
-  %619 = landingpad { ptr, i32 }
-          cleanup
-  br label %629
-
-620:                                              ; preds = %.loopexit
-  %621 = sdiv i32 %551, %519
-  store i8 %492, ptr %4, align 1, !tbaa !518
-  br label %625
-
-622:                                              ; preds = %598, %589
-  %623 = phi i32 [ %617, %598 ], [ %3, %589 ]
-  store i8 %492, ptr %4, align 1, !tbaa !518
-  %624 = icmp eq ptr %490, null
-  br i1 %624, label %627, label %625
-
-625:                                              ; preds = %622, %620
-  %626 = phi i32 [ %621, %620 ], [ %623, %622 ]
-  call void @_ZdlPv(ptr noundef nonnull %490) #28
   br label %627
 
-627:                                              ; preds = %625, %622
-  %628 = phi i32 [ %623, %622 ], [ %626, %625 ]
+438:                                              ; preds = %458, %261, %222
+  %439 = landingpad { ptr, i32 }
+          cleanup
+  br label %627
+
+440:                                              ; preds = %448
+  %441 = landingpad { ptr, i32 }
+          cleanup
+  br label %627
+
+442:                                              ; preds = %426
+  store i32 %427, ptr %112, align 4, !tbaa !128
+  br label %472
+
+443:                                              ; preds = %426
+  %444 = ptrtoint ptr %111 to i64
+  %445 = ptrtoint ptr %113 to i64
+  %446 = sub i64 %444, %445
+  %447 = icmp eq i64 %446, 9223372036854775804
+  br i1 %447, label %448, label %450
+
+448:                                              ; preds = %443
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.58) #33
+          to label %449 unwind label %440
+
+449:                                              ; preds = %448
+  unreachable
+
+450:                                              ; preds = %443
+  %451 = ashr exact i64 %446, 2
+  %452 = call i64 @llvm.umax.i64(i64 %451, i64 1)
+  %453 = add nsw i64 %452, %451
+  %454 = icmp ult i64 %453, %451
+  %455 = call i64 @llvm.umin.i64(i64 %453, i64 2305843009213693951)
+  %456 = select i1 %454, i64 2305843009213693951, i64 %455
+  %457 = icmp eq i64 %456, 0
+  br i1 %457, label %461, label %458
+
+458:                                              ; preds = %450
+  %459 = shl nuw nsw i64 %456, 2
+  %460 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %459) #31
+          to label %461 unwind label %438
+
+461:                                              ; preds = %458, %450
+  %462 = phi ptr [ null, %450 ], [ %460, %458 ]
+  %463 = getelementptr inbounds i32, ptr %462, i64 %451
+  store i32 %427, ptr %463, align 4, !tbaa !128
+  %464 = icmp sgt i64 %446, 0
+  br i1 %464, label %465, label %466
+
+465:                                              ; preds = %461
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %462, ptr align 4 %113, i64 %446, i1 false)
+  br label %466
+
+466:                                              ; preds = %465, %461
+  %467 = getelementptr inbounds i8, ptr %462, i64 %446
+  %468 = icmp eq ptr %113, null
+  br i1 %468, label %470, label %469
+
+469:                                              ; preds = %466
+  call void @_ZdlPv(ptr noundef nonnull %113) #28
+  br label %470
+
+470:                                              ; preds = %469, %466
+  %471 = getelementptr inbounds i32, ptr %462, i64 %456
+  br label %472
+
+472:                                              ; preds = %470, %442
+  %473 = phi ptr [ %462, %470 ], [ %113, %442 ]
+  %474 = phi ptr [ %467, %470 ], [ %112, %442 ]
+  %475 = phi ptr [ %471, %470 ], [ %111, %442 ]
+  %476 = getelementptr inbounds i8, ptr %474, i64 4
+  %477 = icmp sgt i32 %430, 19
+  br i1 %477, label %.loopexit41, label %478
+
+478:                                              ; preds = %472, %432, %304
+  %479 = phi i32 [ %430, %472 ], [ %110, %304 ], [ %435, %432 ]
+  %480 = phi ptr [ %473, %472 ], [ %113, %304 ], [ %113, %432 ]
+  %481 = phi ptr [ %476, %472 ], [ %112, %304 ], [ %112, %432 ]
+  %482 = phi ptr [ %475, %472 ], [ %111, %304 ], [ %111, %432 ]
+  %483 = add nuw nsw i64 %109, 1
+  %484 = icmp eq i64 %483, 50
+  br i1 %484, label %485, label %108, !llvm.loop !512
+
+485:                                              ; preds = %478
+  %486 = icmp sgt i32 %479, 0
+  %487 = zext i1 %486 to i8
+  br label %.loopexit41
+
+.loopexit41:                                      ; preds = %472, %485
+  %488 = phi ptr [ %480, %485 ], [ %473, %472 ]
+  %489 = phi ptr [ %481, %485 ], [ %476, %472 ]
+  %490 = phi i8 [ %487, %485 ], [ 1, %472 ]
+  %491 = icmp eq ptr %488, %489
+  %492 = ptrtoint ptr %489 to i64
+  %493 = ptrtoint ptr %488 to i64
+  %494 = sub i64 %492, %493
+  %495 = ashr exact i64 %494, 2
+  br i1 %491, label %501, label %496
+
+496:                                              ; preds = %.loopexit41
+  %497 = call i64 @llvm.ctlz.i64(i64 %495, i1 true), !range !513
+  %498 = shl nuw nsw i64 %497, 1
+  %499 = xor i64 %498, 126
+  invoke void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElNS0_5__ops15_Iter_less_iterEEvT_S9_T0_T1_(ptr %488, ptr %489, i64 noundef %499)
+          to label %500 unwind label %507
+
+500:                                              ; preds = %496
+  invoke void @_ZSt22__final_insertion_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_less_iterEEvT_S9_T0_(ptr %488, ptr %489)
+          to label %501 unwind label %507
+
+501:                                              ; preds = %500, %.loopexit41
+  %502 = trunc i64 %495 to i32
+  %503 = icmp ugt i32 %502, 9
+  br i1 %503, label %504, label %509
+
+504:                                              ; preds = %501
+  %505 = lshr i32 %502, 1
+  %506 = sub i32 %502, %505
+  br label %516
+
+507:                                              ; preds = %500, %496
+  %508 = landingpad { ptr, i32 }
+          cleanup
+  br label %627
+
+509:                                              ; preds = %501
+  %510 = icmp ugt i32 %502, 6
+  br i1 %510, label %511, label %516
+
+511:                                              ; preds = %509
+  %512 = trunc i64 %495 to i8
+  %513 = udiv i8 %512, 3
+  %514 = zext nneg i8 %513 to i32
+  %515 = sub nuw nsw i32 %502, %514
+  br label %516
+
+516:                                              ; preds = %511, %509, %504
+  %517 = phi i32 [ %506, %504 ], [ %515, %511 ], [ %502, %509 ]
+  %518 = zext i32 %517 to i64
+  %519 = sub nsw i64 %495, %518
+  %520 = lshr i64 %519, 1
+  %521 = trunc i64 %520 to i32
+  %522 = add i32 %517, %521
+  %523 = icmp ugt i32 %522, %521
+  br i1 %523, label %524, label %559
+
+524:                                              ; preds = %516
+  %525 = and i64 %520, 4294967295
+  %526 = zext i32 %522 to i64
+  %527 = sub nsw i64 %526, %525
+  %528 = icmp ult i64 %527, 8
+  br i1 %528, label %.preheader95, label %529
+
+.preheader95:                                     ; preds = %544, %524
+  %.ph = phi i64 [ %545, %544 ], [ %525, %524 ]
+  %.ph96 = phi i32 [ %547, %544 ], [ 0, %524 ]
+  br label %551
+
+529:                                              ; preds = %524
+  %530 = and i64 %527, -8
+  br label %531
+
+531:                                              ; preds = %531, %529
+  %532 = phi i64 [ 0, %529 ], [ %542, %531 ]
+  %533 = phi <4 x i32> [ zeroinitializer, %529 ], [ %540, %531 ]
+  %534 = phi <4 x i32> [ zeroinitializer, %529 ], [ %541, %531 ]
+  %535 = add i64 %532, %525
+  %536 = getelementptr inbounds i32, ptr %488, i64 %535
+  %537 = getelementptr inbounds i8, ptr %536, i64 16
+  %538 = load <4 x i32>, ptr %536, align 4, !tbaa !128
+  %539 = load <4 x i32>, ptr %537, align 4, !tbaa !128
+  %540 = add <4 x i32> %538, %533
+  %541 = add <4 x i32> %539, %534
+  %542 = add nuw i64 %532, 8
+  %543 = icmp eq i64 %542, %530
+  br i1 %543, label %544, label %531, !llvm.loop !514
+
+544:                                              ; preds = %531
+  %545 = add nsw i64 %530, %525
+  %546 = add <4 x i32> %541, %540
+  %547 = call i32 @llvm.vector.reduce.add.v4i32(<4 x i32> %546)
+  %548 = icmp eq i64 %527, %530
+  br i1 %548, label %.loopexit, label %.preheader95
+
+.loopexit:                                        ; preds = %551, %544
+  %549 = phi i32 [ %547, %544 ], [ %556, %551 ]
+  %550 = icmp eq i32 %517, 0
+  br i1 %550, label %559, label %618
+
+551:                                              ; preds = %.preheader95, %551
+  %552 = phi i64 [ %557, %551 ], [ %.ph, %.preheader95 ]
+  %553 = phi i32 [ %556, %551 ], [ %.ph96, %.preheader95 ]
+  %554 = getelementptr inbounds i32, ptr %488, i64 %552
+  %555 = load i32, ptr %554, align 4, !tbaa !128
+  %556 = add nsw i32 %555, %553
+  %557 = add nuw nsw i64 %552, 1
+  %558 = icmp eq i64 %557, %526
+  br i1 %558, label %.loopexit, label %551, !llvm.loop !517
+
+559:                                              ; preds = %.loopexit, %516
+  %560 = load <2 x float>, ptr %102, align 8, !tbaa.struct !107
+  %561 = load float, ptr %104, align 8, !tbaa !22
+  %562 = extractelement <2 x float> %560, i64 0
+  %563 = fcmp nsz ogt float %562, 0.000000e+00
+  %564 = select nsz i1 %563, float 5.000000e+00, float -5.000000e+00
+  %565 = extractelement <2 x float> %560, i64 1
+  %566 = fcmp nsz ogt float %565, 0.000000e+00
+  %567 = select nsz i1 %566, float 5.000000e+00, float -5.000000e+00
+  %568 = fcmp nsz ogt float %561, 0.000000e+00
+  %569 = select nsz i1 %568, float 5.000000e+00, float -5.000000e+00
+  %570 = fadd nsz float %565, %567
+  %571 = fdiv nsz float %570, 1.000000e+01
+  %572 = fptosi float %571 to i16
+  %573 = fadd nsz float %562, %564
+  %574 = fdiv nsz float %573, 1.000000e+01
+  %575 = fptosi float %574 to i16
+  %576 = fadd nsz float %561, %569
+  %577 = fdiv nsz float %576, 1.000000e+01
+  %578 = fptosi float %577 to i16
+  %579 = zext i16 %578 to i48
+  %580 = shl nuw i48 %579, 32
+  %581 = zext i16 %572 to i48
+  %582 = shl nuw nsw i48 %581, 16
+  %583 = or disjoint i48 %580, %582
+  %584 = zext i16 %575 to i48
+  %585 = or disjoint i48 %583, %584
+  %586 = invoke i32 @_ZN3Map7getNodeEN3irr4core8vector3dIsEEPb(ptr noundef nonnull align 8 dereferenceable(144) %0, i48 %585, ptr noundef null)
+          to label %587 unwind label %616
+
+587:                                              ; preds = %559
+  %588 = load ptr, ptr %103, align 8, !tbaa !178
+  %589 = getelementptr inbounds i8, ptr %588, i64 312
+  %590 = and i32 %586, 65535
+  %591 = zext nneg i32 %590 to i64
+  %592 = getelementptr inbounds [65536 x %struct.ContentLightingFlags], ptr %589, i64 0, i64 %591
+  %593 = load i8, ptr %592, align 1, !tbaa !98
+  %594 = and i8 %593, 16
+  %595 = icmp eq i8 %594, 0
+  br i1 %595, label %620, label %596
+
+596:                                              ; preds = %587
+  %597 = lshr i32 %586, 16
+  %598 = trunc i32 %597 to i8
+  %599 = and i8 %598, 15
+  %600 = and i8 %593, 15
+  %601 = call noundef i8 @llvm.umax.i8(i8 %600, i8 %599)
+  %602 = lshr i8 %598, 4
+  %603 = call noundef i8 @llvm.umax.i8(i8 %600, i8 %602)
+  %604 = zext nneg i8 %601 to i32
+  %605 = mul i32 %604, %2
+  %606 = zext nneg i8 %603 to i32
+  %607 = mul i32 %105, %606
+  %608 = add i32 %607, %605
+  %609 = udiv i32 %608, 1000
+  %610 = call i32 @llvm.umin.i32(i32 %609, i32 15)
+  %611 = zext nneg i32 %610 to i64
+  %612 = load ptr, ptr @light_decode_table, align 8, !tbaa !84
+  %613 = getelementptr inbounds i8, ptr %612, i64 %611
+  %614 = load i8, ptr %613, align 1, !tbaa !98
+  %615 = zext i8 %614 to i32
+  br label %620
+
+616:                                              ; preds = %559
+  %617 = landingpad { ptr, i32 }
+          cleanup
+  br label %627
+
+618:                                              ; preds = %.loopexit
+  %619 = sdiv i32 %549, %517
+  store i8 %490, ptr %4, align 1, !tbaa !518
+  br label %623
+
+620:                                              ; preds = %596, %587
+  %621 = phi i32 [ %615, %596 ], [ %3, %587 ]
+  store i8 %490, ptr %4, align 1, !tbaa !518
+  %622 = icmp eq ptr %488, null
+  br i1 %622, label %625, label %623
+
+623:                                              ; preds = %620, %618
+  %624 = phi i32 [ %619, %618 ], [ %621, %620 ]
+  call void @_ZdlPv(ptr noundef nonnull %488) #28
+  br label %625
+
+625:                                              ; preds = %623, %620
+  %626 = phi i32 [ %621, %620 ], [ %624, %623 ]
   call void @_ZN13ScopeProfilerD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %7) #29
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7) #29
-  ret i32 %628
+  ret i32 %626
 
-629:                                              ; preds = %438, %440, %442, %618, %509
-  %630 = phi ptr [ %490, %509 ], [ %490, %618 ], [ %113, %442 ], [ %113, %440 ], [ %113, %438 ]
-  %631 = phi { ptr, i32 } [ %510, %509 ], [ %619, %618 ], [ %443, %442 ], [ %441, %440 ], [ %439, %438 ]
-  %632 = icmp eq ptr %630, null
-  br i1 %632, label %634, label %633
+627:                                              ; preds = %436, %438, %440, %616, %507
+  %628 = phi ptr [ %488, %507 ], [ %488, %616 ], [ %113, %440 ], [ %113, %438 ], [ %113, %436 ]
+  %629 = phi { ptr, i32 } [ %508, %507 ], [ %617, %616 ], [ %441, %440 ], [ %439, %438 ], [ %437, %436 ]
+  %630 = icmp eq ptr %628, null
+  br i1 %630, label %632, label %631
 
-633:                                              ; preds = %629
-  call void @_ZdlPv(ptr noundef nonnull %630) #28
+631:                                              ; preds = %627
+  call void @_ZdlPv(ptr noundef nonnull %628) #28
+  br label %632
+
+632:                                              ; preds = %631, %627, %106, %86, %84
+  %633 = phi { ptr, i32 } [ %87, %86 ], [ %85, %84 ], [ %107, %106 ], [ %629, %627 ], [ %629, %631 ]
+  call void @_ZN13ScopeProfilerD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %7) #29
   br label %634
 
-634:                                              ; preds = %633, %629, %106, %86, %84
-  %635 = phi { ptr, i32 } [ %87, %86 ], [ %85, %84 ], [ %107, %106 ], [ %631, %629 ], [ %631, %633 ]
-  call void @_ZN13ScopeProfilerD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %7) #29
-  br label %636
-
-636:                                              ; preds = %634, %44
-  %637 = phi { ptr, i32 } [ %635, %634 ], [ %45, %44 ]
+634:                                              ; preds = %632, %44
+  %635 = phi { ptr, i32 } [ %633, %632 ], [ %45, %44 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7) #29
-  resume { ptr, i32 } %637
+  resume { ptr, i32 } %635
 }
 
 ; Function Attrs: nofree nounwind

@@ -813,101 +813,90 @@ if.end47.thread.i:                                ; preds = %Hmac_HashUpdate.exi
 
 if.end47.i:                                       ; preds = %if.end.i46
   call void @llvm.memset.p0.i64(ptr align 1 %digest, i8 0, i64 %conv31.i, i1 false)
-  %cmp50182.not.i = icmp eq i32 %add10.i, 0
-  br i1 %cmp50182.not.i, label %for.end143.i, label %for.body.lr.ph.i
+  %cmp50180.not.i = icmp eq i32 %add10.i, 0
+  br i1 %cmp50180.not.i, label %for.end143.i, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end47.i, %if.end47.thread.i
-  %safeBlocks.0194.i = phi i32 [ %sub11.i, %if.end47.thread.i ], [ 0, %if.end47.i ]
-  %mul49.i = mul nsw i32 %safeBlocks.0194.i, %switch.load56
+  %safeBlocks.0192.i = phi i32 [ %sub11.i, %if.end47.thread.i ], [ 0, %if.end47.i ]
+  %mul49.i = mul nsw i32 %safeBlocks.0192.i, %switch.load56
   %24 = xor i32 %shr22.i, -1
   %25 = xor i32 %shr21.i, -1
   %26 = xor i32 %and15.i, -1
   %sub97.i = add nsw i32 %switch.load56, -8
-  %cmp123180.i.not = icmp eq i8 %0, 0
+  %cmp123178.i.not = icmp eq i8 %0, 0
   %27 = zext nneg i32 %sub97.i to i64
   %wide.trip.count.i = zext nneg i32 %switch.load56 to i64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc141.i, %for.body.lr.ph.i
-  %i.0184.i = phi i32 [ %safeBlocks.0194.i, %for.body.lr.ph.i ], [ %inc142.i, %for.inc141.i ]
-  %k.0183.i = phi i32 [ %mul49.i, %for.body.lr.ph.i ], [ %inc.i, %for.inc141.i ]
-  %sub1.i.i.i = add i32 %i.0184.i, %24
-  %shr.i.i.i = lshr i32 %sub1.i.i.i, 31
-  %28 = trunc i32 %shr.i.i.i to i8
-  %conv.i.i.i = add nsw i8 %28, -1
-  %29 = xor i32 %i.0184.i, -1
-  %sub1.i4.i.i = add i32 %shr22.i, %29
-  %shr.i5.i.i = lshr i32 %sub1.i4.i.i, 31
-  %30 = trunc i32 %shr.i5.i.i to i8
-  %conv.i6.i.i = add nsw i8 %30, -1
-  %and3.demorgan.i.i = or i8 %conv.i.i.i, %conv.i6.i.i
-  %and3.i.i = xor i8 %and3.demorgan.i.i, -1
-  %sub1.i.i125.i = add i32 %i.0184.i, %25
-  %shr.i.i126.i = lshr i32 %sub1.i.i125.i, 31
-  %31 = trunc i32 %shr.i.i126.i to i8
-  %conv.i.i127.i = add nsw i8 %31, -1
-  %sub1.i4.i128.i = add i32 %shr21.i, %29
-  %shr.i5.i129.i = lshr i32 %sub1.i4.i128.i, 31
-  %32 = trunc i32 %shr.i5.i129.i to i8
-  %conv.i6.i130.i = add nsw i8 %32, -1
-  %and3.demorgan.i131.i = or i8 %conv.i.i127.i, %conv.i6.i130.i
-  %or89.i = or i8 %and3.demorgan.i131.i, %and3.i.i
-  %33 = and i8 %and3.demorgan.i131.i, 1
-  %.not177.i = icmp eq i8 %33, 0
+  %i.0182.i = phi i32 [ %safeBlocks.0192.i, %for.body.lr.ph.i ], [ %inc142.i, %for.inc141.i ]
+  %k.0181.i = phi i32 [ %mul49.i, %for.body.lr.ph.i ], [ %inc.i, %for.inc141.i ]
+  %sub1.i.i.i = add i32 %i.0182.i, %24
+  %28 = xor i32 %i.0182.i, -1
+  %sub1.i4.i.i = add i32 %shr22.i, %28
+  %shr.i.neg9.i.i = and i32 %sub1.i.i.i, %sub1.i4.i.i
+  %and38.i.i = ashr i32 %shr.i.neg9.i.i, 31
+  %and3.i.i = trunc i32 %and38.i.i to i8
+  %sub1.i.i125.i = add i32 %i.0182.i, %25
+  %sub1.i4.i126.i = add i32 %shr21.i, %28
+  %shr.i.neg9.i127.i = and i32 %sub1.i.i125.i, %sub1.i4.i126.i
+  %and38.i128.i = ashr i32 %shr.i.neg9.i127.i, 31
+  %and3.i129.i = trunc i32 %and38.i128.i to i8
+  %29 = xor i8 %and3.i.i, -1
+  %not90.i = xor i8 %and3.i129.i, -1
+  %or89.i = or i8 %and3.i.i, %not90.i
+  %.not174175.i = icmp slt i32 %shr.i.neg9.i127.i, 0
   br label %for.body57.i
 
 for.body57.i:                                     ; preds = %if.end106.i, %for.body.i
   %indvars.iv.i = phi i64 [ 0, %for.body.i ], [ %indvars.iv.next.i, %if.end106.i ]
-  %k.1178.i = phi i32 [ %k.0183.i, %for.body.i ], [ %inc.i, %if.end106.i ]
-  %indvars186.i = trunc i64 %indvars.iv.i to i32
-  %sub1.i.i133.i = add i32 %indvars186.i, %26
-  %34 = xor i32 %indvars186.i, -1
-  %sub1.i4.i136.i = add i32 %and15.i, %34
-  %shr.i5.i137.i = lshr i32 %sub1.i4.i136.i, 31
-  %isneg.i = icmp slt i32 %sub1.i.i133.i, 0
-  %35 = trunc i32 %shr.i5.i137.i to i8
-  %and3.i140.i = select i1 %isneg.i, i8 %35, i8 0
-  %and6186.i = and i8 %and3.i140.i, %and3.i.i
-  %36 = icmp sgt i32 %sub1.i.i133.i, -1
-  %cmp68.i = icmp ult i32 %k.1178.i, 13
+  %k.1176.i = phi i32 [ %k.0181.i, %for.body.i ], [ %inc.i, %if.end106.i ]
+  %30 = trunc i64 %indvars.iv.i to i32
+  %sub1.i.i130.i = add i32 %30, %26
+  %31 = xor i32 %30, -1
+  %sub1.i4.i131.i = add i32 %and15.i, %31
+  %shr.i.neg9.i132.i = and i32 %sub1.i4.i131.i, %shr.i.neg9.i.i
+  %and38.i133172.i = and i32 %shr.i.neg9.i132.i, %sub1.i.i130.i
+  %32 = icmp sgt i32 %sub1.i.i130.i, -1
+  %cmp68.i = icmp ult i32 %k.1176.i, 13
   br i1 %cmp68.i, label %if.end81.sink.split.i, label %if.else73.i
 
 if.else73.i:                                      ; preds = %for.body57.i
-  %cmp74.i = icmp ult i32 %k.1178.i, %sub5.i
+  %cmp74.i = icmp ult i32 %k.1176.i, %sub5.i
   br i1 %cmp74.i, label %if.then76.i, label %if.end81.i
 
 if.then76.i:                                      ; preds = %if.else73.i
-  %sub77.i = add i32 %k.1178.i, -13
+  %sub77.i = add i32 %k.1176.i, -13
   br label %if.end81.sink.split.i
 
 if.end81.sink.split.i:                            ; preds = %if.then76.i, %for.body57.i
-  %sub77.sink.i = phi i32 [ %sub77.i, %if.then76.i ], [ %k.1178.i, %for.body57.i ]
+  %sub77.sink.i = phi i32 [ %sub77.i, %if.then76.i ], [ %k.1176.i, %for.body57.i ]
   %in.sink.i = phi ptr [ %in, %if.then76.i ], [ %myInner, %for.body57.i ]
   %idxprom78.i = zext i32 %sub77.sink.i to i64
   %arrayidx79.i = getelementptr inbounds i8, ptr %in.sink.i, i64 %idxprom78.i
-  %37 = load i8, ptr %arrayidx79.i, align 1
+  %33 = load i8, ptr %arrayidx79.i, align 1
   br label %if.end81.i
 
 if.end81.i:                                       ; preds = %if.end81.sink.split.i, %if.else73.i
-  %b.0.i = phi i8 [ 0, %if.else73.i ], [ %37, %if.end81.sink.split.i ]
-  %inc.i = add i32 %k.1178.i, 1
-  %.not.i = icmp eq i8 %and6186.i, 0
+  %b.0.i = phi i8 [ 0, %if.else73.i ], [ %33, %if.end81.sink.split.i ]
+  %inc.i = add i32 %k.1176.i, 1
+  %.not.i = icmp sgt i32 %and38.i133172.i, -1
   %or4.i.i = select i1 %.not.i, i8 %b.0.i, i8 -128
-  %not.i = select i1 %36, i8 %and3.demorgan.i.i, i8 -1
+  %not.i = select i1 %32, i8 %29, i8 -1
   %and8788.i = and i8 %or4.i.i, %not.i
   %and9590.i = and i8 %and8788.i, %or89.i
   %cmp98.not.i = icmp ult i64 %indvars.iv.i, %27
   br i1 %cmp98.not.i, label %if.end106.i, label %if.then100.i
 
 if.then100.i:                                     ; preds = %if.end81.i
-  %38 = sub nsw i64 %indvars.iv.i, %27
-  %arrayidx104.i = getelementptr inbounds [8 x i8], ptr %lenBytes.i, i64 0, i64 %38
-  %39 = load i8, ptr %arrayidx104.i, align 1
-  %or4.i146.i = select i1 %.not177.i, i8 %39, i8 %and8788.i
+  %34 = sub nsw i64 %indvars.iv.i, %27
+  %arrayidx104.i = getelementptr inbounds [8 x i8], ptr %lenBytes.i, i64 0, i64 %34
+  %35 = load i8, ptr %arrayidx104.i, align 1
+  %or4.i141.i = select i1 %.not174175.i, i8 %35, i8 %and8788.i
   br label %if.end106.i
 
 if.end106.i:                                      ; preds = %if.then100.i, %if.end81.i
-  %b.1.i = phi i8 [ %or4.i146.i, %if.then100.i ], [ %and9590.i, %if.end81.i ]
+  %b.1.i = phi i8 [ %or4.i141.i, %if.then100.i ], [ %and9590.i, %if.end81.i ]
   %arrayidx108.i = getelementptr inbounds [144 x i8], ptr %hashBlock.i, i64 0, i64 %indvars.iv.i
   store i8 %b.1.i, ptr %arrayidx108.i, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -915,47 +904,46 @@ if.end106.i:                                      ; preds = %if.then100.i, %if.e
   br i1 %exitcond.not.i, label %for.end.i, label %for.body57.i, !llvm.loop !7
 
 for.end.i:                                        ; preds = %if.end106.i
-  %and3.i132.i = xor i8 %and3.demorgan.i131.i, -1
-  %40 = load i8, ptr %macType.i, align 8
-  switch i8 %40, label %Hmac_UpdateFinal_CT.exit [
-    i8 4, label %sw.bb.i155.i
-    i8 6, label %sw.bb1.i153.i
-    i8 7, label %sw.bb4.i151.i
-    i8 8, label %sw.bb7.i148.i
+  %36 = load i8, ptr %macType.i, align 8
+  switch i8 %36, label %Hmac_UpdateFinal_CT.exit [
+    i8 4, label %sw.bb.i150.i
+    i8 6, label %sw.bb1.i148.i
+    i8 7, label %sw.bb4.i146.i
+    i8 8, label %sw.bb7.i143.i
   ]
 
-sw.bb.i155.i:                                     ; preds = %for.end.i
-  %call.i156.i = call i32 @wc_ShaUpdate(ptr noundef nonnull %hmac, ptr noundef nonnull %hashBlock.i, i32 noundef %switch.load56) #16
-  br label %Hmac_HashUpdate.exit157.i
+sw.bb.i150.i:                                     ; preds = %for.end.i
+  %call.i151.i = call i32 @wc_ShaUpdate(ptr noundef nonnull %hmac, ptr noundef nonnull %hashBlock.i, i32 noundef %switch.load56) #16
+  br label %Hmac_HashUpdate.exit152.i
 
-sw.bb1.i153.i:                                    ; preds = %for.end.i
-  %call3.i154.i = call i32 @wc_Sha256Update(ptr noundef nonnull %hmac, ptr noundef nonnull %hashBlock.i, i32 noundef %switch.load56) #16
-  br label %Hmac_HashUpdate.exit157.i
+sw.bb1.i148.i:                                    ; preds = %for.end.i
+  %call3.i149.i = call i32 @wc_Sha256Update(ptr noundef nonnull %hmac, ptr noundef nonnull %hashBlock.i, i32 noundef %switch.load56) #16
+  br label %Hmac_HashUpdate.exit152.i
 
-sw.bb4.i151.i:                                    ; preds = %for.end.i
-  %call6.i152.i = call i32 @wc_Sha384Update(ptr noundef nonnull %hmac, ptr noundef nonnull %hashBlock.i, i32 noundef %switch.load56) #16
-  br label %Hmac_HashUpdate.exit157.i
+sw.bb4.i146.i:                                    ; preds = %for.end.i
+  %call6.i147.i = call i32 @wc_Sha384Update(ptr noundef nonnull %hmac, ptr noundef nonnull %hashBlock.i, i32 noundef %switch.load56) #16
+  br label %Hmac_HashUpdate.exit152.i
 
-sw.bb7.i148.i:                                    ; preds = %for.end.i
-  %call9.i149.i = call i32 @wc_Sha512Update(ptr noundef nonnull %hmac, ptr noundef nonnull %hashBlock.i, i32 noundef %switch.load56) #16
-  br label %Hmac_HashUpdate.exit157.i
+sw.bb7.i143.i:                                    ; preds = %for.end.i
+  %call9.i144.i = call i32 @wc_Sha512Update(ptr noundef nonnull %hmac, ptr noundef nonnull %hashBlock.i, i32 noundef %switch.load56) #16
+  br label %Hmac_HashUpdate.exit152.i
 
-Hmac_HashUpdate.exit157.i:                        ; preds = %sw.bb7.i148.i, %sw.bb4.i151.i, %sw.bb1.i153.i, %sw.bb.i155.i
-  %ret.0.i150.i = phi i32 [ %call9.i149.i, %sw.bb7.i148.i ], [ %call6.i152.i, %sw.bb4.i151.i ], [ %call3.i154.i, %sw.bb1.i153.i ], [ %call.i156.i, %sw.bb.i155.i ]
-  %cmp112.not.i = icmp eq i32 %ret.0.i150.i, 0
+Hmac_HashUpdate.exit152.i:                        ; preds = %sw.bb7.i143.i, %sw.bb4.i146.i, %sw.bb1.i148.i, %sw.bb.i150.i
+  %ret.0.i145.i = phi i32 [ %call9.i144.i, %sw.bb7.i143.i ], [ %call6.i147.i, %sw.bb4.i146.i ], [ %call3.i149.i, %sw.bb1.i148.i ], [ %call.i151.i, %sw.bb.i150.i ]
+  %cmp112.not.i = icmp eq i32 %ret.0.i145.i, 0
   br i1 %cmp112.not.i, label %if.end115.i, label %Hmac_UpdateFinal_CT.exit
 
-if.end115.i:                                      ; preds = %Hmac_HashUpdate.exit157.i
-  %41 = load i8, ptr %macType.i, align 8
-  switch i8 %41, label %Hmac_UpdateFinal_CT.exit [
-    i8 4, label %sw.bb.i160.i
+if.end115.i:                                      ; preds = %Hmac_HashUpdate.exit152.i
+  %37 = load i8, ptr %macType.i, align 8
+  switch i8 %37, label %Hmac_UpdateFinal_CT.exit [
+    i8 4, label %sw.bb.i155.i
     i8 6, label %sw.bb2.i.i47
     i8 7, label %sw.bb5.i.i
     i8 8, label %sw.bb8.i.i
   ]
 
-sw.bb.i160.i:                                     ; preds = %if.end115.i
-  %call.i161.i = call i32 @wc_ShaFinalRaw(ptr noundef nonnull %hmac, ptr noundef nonnull %hashBlock.i) #16
+sw.bb.i155.i:                                     ; preds = %if.end115.i
+  %call.i156.i = call i32 @wc_ShaFinalRaw(ptr noundef nonnull %hmac, ptr noundef nonnull %hashBlock.i) #16
   br label %Hmac_HashFinalRaw.exit.i
 
 sw.bb2.i.i47:                                     ; preds = %if.end115.i
@@ -970,66 +958,66 @@ sw.bb8.i.i:                                       ; preds = %if.end115.i
   %call10.i.i = call i32 @wc_Sha512FinalRaw(ptr noundef nonnull %hmac, ptr noundef nonnull %hashBlock.i) #16
   br label %Hmac_HashFinalRaw.exit.i
 
-Hmac_HashFinalRaw.exit.i:                         ; preds = %sw.bb8.i.i, %sw.bb5.i.i, %sw.bb2.i.i47, %sw.bb.i160.i
-  %ret.0.i159.i = phi i32 [ %call10.i.i, %sw.bb8.i.i ], [ %call7.i.i, %sw.bb5.i.i ], [ %call4.i.i, %sw.bb2.i.i47 ], [ %call.i161.i, %sw.bb.i160.i ]
-  %cmp118.not.i = icmp eq i32 %ret.0.i159.i, 0
+Hmac_HashFinalRaw.exit.i:                         ; preds = %sw.bb8.i.i, %sw.bb5.i.i, %sw.bb2.i.i47, %sw.bb.i155.i
+  %ret.0.i154.i = phi i32 [ %call10.i.i, %sw.bb8.i.i ], [ %call7.i.i, %sw.bb5.i.i ], [ %call4.i.i, %sw.bb2.i.i47 ], [ %call.i156.i, %sw.bb.i155.i ]
+  %cmp118.not.i = icmp eq i32 %ret.0.i154.i, 0
   br i1 %cmp118.not.i, label %for.cond122.preheader.i, label %Hmac_UpdateFinal_CT.exit
 
 for.cond122.preheader.i:                          ; preds = %Hmac_HashFinalRaw.exit.i
-  br i1 %cmp123180.i.not, label %for.inc141.i, label %for.body125.i
+  br i1 %cmp123178.i.not, label %for.inc141.i, label %for.body125.i
 
 for.body125.i:                                    ; preds = %for.cond122.preheader.i, %for.body125.i
-  %indvars.iv187.i = phi i64 [ %indvars.iv.next188.i, %for.body125.i ], [ 0, %for.cond122.preheader.i ]
-  %arrayidx127.i = getelementptr inbounds [144 x i8], ptr %hashBlock.i, i64 0, i64 %indvars.iv187.i
-  %42 = load i8, ptr %arrayidx127.i, align 1
-  %and13084.i = and i8 %42, %and3.i132.i
-  %arrayidx134.i = getelementptr inbounds i8, ptr %innerHash.i, i64 %indvars.iv187.i
-  %43 = load i8, ptr %arrayidx134.i, align 1
-  %or13685.i = or i8 %43, %and13084.i
+  %indvars.iv185.i = phi i64 [ %indvars.iv.next186.i, %for.body125.i ], [ 0, %for.cond122.preheader.i ]
+  %arrayidx127.i = getelementptr inbounds [144 x i8], ptr %hashBlock.i, i64 0, i64 %indvars.iv185.i
+  %38 = load i8, ptr %arrayidx127.i, align 1
+  %and13084.i = and i8 %38, %and3.i129.i
+  %arrayidx134.i = getelementptr inbounds i8, ptr %innerHash.i, i64 %indvars.iv185.i
+  %39 = load i8, ptr %arrayidx134.i, align 1
+  %or13685.i = or i8 %39, %and13084.i
   store i8 %or13685.i, ptr %arrayidx134.i, align 1
-  %indvars.iv.next188.i = add nuw nsw i64 %indvars.iv187.i, 1
-  %exitcond191.not.i = icmp eq i64 %indvars.iv.next188.i, %conv31.i
-  br i1 %exitcond191.not.i, label %for.inc141.i, label %for.body125.i, !llvm.loop !8
+  %indvars.iv.next186.i = add nuw nsw i64 %indvars.iv185.i, 1
+  %exitcond189.not.i = icmp eq i64 %indvars.iv.next186.i, %conv31.i
+  br i1 %exitcond189.not.i, label %for.inc141.i, label %for.body125.i, !llvm.loop !8
 
 for.inc141.i:                                     ; preds = %for.body125.i, %for.cond122.preheader.i
-  %inc142.i = add nuw nsw i32 %i.0184.i, 1
+  %inc142.i = add nuw nsw i32 %i.0182.i, 1
   %cmp50.i = icmp ult i32 %inc142.i, %add10.i
   br i1 %cmp50.i, label %for.body.i, label %for.end143.i, !llvm.loop !9
 
 for.end143.i:                                     ; preds = %for.inc141.i, %if.end47.i
   call void @llvm.lifetime.start.p0(i64 416, ptr nonnull %hash.i.i)
-  %44 = load i8, ptr %macType.i, align 8
-  %conv.i163.i = zext i8 %44 to i32
-  %call.i164.i = call i32 @wc_HashGetDigestSize(i32 noundef %conv.i163.i) #16
-  %call1.i.i = call i32 @wc_HashGetBlockSize(i32 noundef %conv.i163.i) #16
-  %cmp.i.i = icmp sgt i32 %call.i164.i, -1
+  %40 = load i8, ptr %macType.i, align 8
+  %conv.i158.i = zext i8 %40 to i32
+  %call.i159.i = call i32 @wc_HashGetDigestSize(i32 noundef %conv.i158.i) #16
+  %call1.i.i = call i32 @wc_HashGetBlockSize(i32 noundef %conv.i158.i) #16
+  %cmp.i.i = icmp sgt i32 %call.i159.i, -1
   %cmp3.i.i = icmp sgt i32 %call1.i.i, -1
   %or.cond.i.i = select i1 %cmp.i.i, i1 %cmp3.i.i, i1 false
   br i1 %or.cond.i.i, label %if.end.i.i, label %Hmac_OuterHash.exit.i
 
 if.end.i.i:                                       ; preds = %for.end143.i
-  %call5.i.i = call i32 @wc_HashInit(ptr noundef nonnull %hash.i.i, i32 noundef %conv.i163.i) #16
+  %call5.i.i = call i32 @wc_HashInit(ptr noundef nonnull %hash.i.i, i32 noundef %conv.i158.i) #16
   %cmp6.i.i = icmp eq i32 %call5.i.i, 0
   br i1 %cmp6.i.i, label %if.then8.i.i, label %Hmac_OuterHash.exit.i
 
 if.then8.i.i:                                     ; preds = %if.end.i.i
   %opad.i.i = getelementptr inbounds i8, ptr %hmac, i64 560
-  %call9.i165.i = call i32 @wc_HashUpdate(ptr noundef nonnull %hash.i.i, i32 noundef %conv.i163.i, ptr noundef nonnull %opad.i.i, i32 noundef %call1.i.i) #16
-  %cmp10.i.i = icmp eq i32 %call9.i165.i, 0
+  %call9.i160.i = call i32 @wc_HashUpdate(ptr noundef nonnull %hash.i.i, i32 noundef %conv.i158.i, ptr noundef nonnull %opad.i.i, i32 noundef %call1.i.i) #16
+  %cmp10.i.i = icmp eq i32 %call9.i160.i, 0
   br i1 %cmp10.i.i, label %if.end15.i.i, label %if.end20.i.i
 
 if.end15.i.i:                                     ; preds = %if.then8.i.i
-  %call14.i.i = call i32 @wc_HashUpdate(ptr noundef nonnull %hash.i.i, i32 noundef %conv.i163.i, ptr noundef nonnull %innerHash.i, i32 noundef %call.i164.i) #16
+  %call14.i.i = call i32 @wc_HashUpdate(ptr noundef nonnull %hash.i.i, i32 noundef %conv.i158.i, ptr noundef nonnull %innerHash.i, i32 noundef %call.i159.i) #16
   %cmp16.i.i = icmp eq i32 %call14.i.i, 0
   br i1 %cmp16.i.i, label %if.then18.i.i, label %if.end20.i.i
 
 if.then18.i.i:                                    ; preds = %if.end15.i.i
-  %call19.i.i = call i32 @wc_HashFinal(ptr noundef nonnull %hash.i.i, i32 noundef %conv.i163.i, ptr noundef %digest) #16
+  %call19.i.i = call i32 @wc_HashFinal(ptr noundef nonnull %hash.i.i, i32 noundef %conv.i158.i, ptr noundef %digest) #16
   br label %if.end20.i.i
 
 if.end20.i.i:                                     ; preds = %if.then18.i.i, %if.end15.i.i, %if.then8.i.i
-  %ret.2.i.i = phi i32 [ %call19.i.i, %if.then18.i.i ], [ %call14.i.i, %if.end15.i.i ], [ %call9.i165.i, %if.then8.i.i ]
-  %call21.i.i = call i32 @wc_HashFree(ptr noundef nonnull %hash.i.i, i32 noundef %conv.i163.i) #16
+  %ret.2.i.i = phi i32 [ %call19.i.i, %if.then18.i.i ], [ %call14.i.i, %if.end15.i.i ], [ %call9.i160.i, %if.then8.i.i ]
+  %call21.i.i = call i32 @wc_HashFree(ptr noundef nonnull %hash.i.i, i32 noundef %conv.i158.i) #16
   br label %Hmac_OuterHash.exit.i
 
 Hmac_OuterHash.exit.i:                            ; preds = %if.end20.i.i, %if.end.i.i, %for.end143.i
@@ -1037,8 +1025,8 @@ Hmac_OuterHash.exit.i:                            ; preds = %if.end20.i.i, %if.e
   call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %hash.i.i)
   br label %Hmac_UpdateFinal_CT.exit
 
-Hmac_UpdateFinal_CT.exit:                         ; preds = %for.end.i, %Hmac_HashUpdate.exit157.i, %if.end115.i, %Hmac_HashFinalRaw.exit.i, %switch.hole_check, %if.then22, %switch.lookup54, %Hmac_HashUpdate.exit.i, %if.then34.i, %Hmac_HashUpdate.exit113.i, %if.end39.i, %Hmac_HashUpdate.exit124.i, %Hmac_OuterHash.exit.i
-  %retval.0.i45 = phi i32 [ %ret.3.i.i, %Hmac_OuterHash.exit.i ], [ -173, %if.then22 ], [ %ret.0.i.i, %Hmac_HashUpdate.exit.i ], [ %ret.0.i106.i, %Hmac_HashUpdate.exit113.i ], [ %ret.0.i117.i, %Hmac_HashUpdate.exit124.i ], [ -173, %switch.lookup54 ], [ -173, %if.then34.i ], [ -173, %if.end39.i ], [ -173, %switch.hole_check ], [ %ret.0.i150.i, %Hmac_HashUpdate.exit157.i ], [ %ret.0.i159.i, %Hmac_HashFinalRaw.exit.i ], [ -173, %for.end.i ], [ -173, %if.end115.i ]
+Hmac_UpdateFinal_CT.exit:                         ; preds = %for.end.i, %Hmac_HashUpdate.exit152.i, %if.end115.i, %Hmac_HashFinalRaw.exit.i, %switch.hole_check, %if.then22, %switch.lookup54, %Hmac_HashUpdate.exit.i, %if.then34.i, %Hmac_HashUpdate.exit113.i, %if.end39.i, %Hmac_HashUpdate.exit124.i, %Hmac_OuterHash.exit.i
+  %retval.0.i45 = phi i32 [ %ret.3.i.i, %Hmac_OuterHash.exit.i ], [ -173, %if.then22 ], [ %ret.0.i.i, %Hmac_HashUpdate.exit.i ], [ %ret.0.i106.i, %Hmac_HashUpdate.exit113.i ], [ %ret.0.i117.i, %Hmac_HashUpdate.exit124.i ], [ -173, %switch.lookup54 ], [ -173, %if.then34.i ], [ -173, %if.end39.i ], [ -173, %switch.hole_check ], [ %ret.0.i145.i, %Hmac_HashUpdate.exit152.i ], [ %ret.0.i154.i, %Hmac_HashFinalRaw.exit.i ], [ -173, %for.end.i ], [ -173, %if.end115.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %lenBytes.i)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %hashBlock.i)
   br label %if.end41

@@ -439,7 +439,7 @@ return:                                           ; preds = %invoke.cont2, %if.t
   ret ptr %retval.0
 }
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
@@ -791,15 +791,15 @@ if.else.i:                                        ; preds = %land.lhs.true.i, %i
   %cmp.i9.i = icmp slt i32 %12, 1
   %.pr = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %.pr, 1
-  %or.cond69 = select i1 %cmp.i9.i, i1 %cmp.i, i1 false
-  br i1 %or.cond69, label %if.end11, label %return
+  %or.cond = select i1 %cmp.i9.i, i1 %cmp.i, i1 false
+  br i1 %or.cond, label %if.end11, label %return
 
 if.end11:                                         ; preds = %if.else.i, %_ZN6icu_75L22countryInfoVectorsInitER10UErrorCode.exit
   call void @umtx_lock_75(ptr noundef nonnull @_ZL13gZoneMetaLock)
   %13 = load ptr, ptr @_ZL20gSingleZoneCountries, align 8
   %call.i = call noundef i32 @_ZNK6icu_757UVector7indexOfEPvi(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull %call, i32 noundef 0)
-  %cmp.i32 = icmp sgt i32 %call.i, -1
-  br i1 %cmp.i32, label %if.then44, label %if.end16
+  %cmp.i32 = icmp slt i32 %call.i, 0
+  br i1 %cmp.i32, label %if.end16, label %if.then44
 
 if.end16:                                         ; preds = %if.end11
   %14 = load ptr, ptr @_ZL20gMultiZonesCountries, align 8
@@ -816,16 +816,16 @@ if.then18:                                        ; preds = %if.end16
   %15 = load ptr, ptr %vfn, align 8
   %call21 = call noundef i32 %15(ptr noundef nonnull align 8 dereferenceable(116) %call20, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %16 = load i32, ptr %status, align 4
-  %cmp.i37 = icmp slt i32 %16, 1
-  %cmp25 = icmp eq i32 %call21, 1
-  %or.cond = and i1 %cmp25, %cmp.i37
+  %cmp.i37 = icmp sgt i32 %16, 0
+  %cmp25 = icmp ne i32 %call21, 1
+  %or.cond.not68 = or i1 %cmp25, %cmp.i37
   %vtable28 = load ptr, ptr %call20, align 8
   %vfn29 = getelementptr inbounds i8, ptr %vtable28, i64 8
   %17 = load ptr, ptr %vfn29, align 8
   call void %17(ptr noundef nonnull align 8 dereferenceable(116) %call20) #12
   call void @umtx_lock_75(ptr noundef nonnull @_ZL13gZoneMetaLock)
   store i32 0, ptr %ec, align 4
-  br i1 %or.cond, label %if.then31, label %if.else36
+  br i1 %or.cond.not68, label %if.else36, label %if.then31
 
 if.then31:                                        ; preds = %if.then18
   %18 = load ptr, ptr @_ZL20gSingleZoneCountries, align 8
@@ -2596,7 +2596,7 @@ declare i32 @llvm.abs.i32(i32, i1 immarg) #11
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nofree nounwind memory(read) }
+attributes #2 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #5 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

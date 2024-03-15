@@ -4940,14 +4940,14 @@ define noundef i32 @_ZN14dtNavMeshQuery29finalizeSlicedFindPathPartialEPKjiPjPii
 
 9:                                                ; preds = %6
   store i32 0, ptr %4, align 4
-  %10 = icmp ne ptr %1, null
-  %11 = icmp sgt i32 %2, 0
-  %or.cond.not63 = and i1 %10, %11
-  %12 = icmp ne ptr %3, null
-  %or.cond3 = and i1 %or.cond.not63, %12
-  %13 = icmp sgt i32 %5, 0
-  %or.cond7.not = and i1 %or.cond3, %13
-  br i1 %or.cond7.not, label %14, label %114
+  %10 = icmp eq ptr %1, null
+  %11 = icmp slt i32 %2, 1
+  %or.cond.not63.not67 = or i1 %10, %11
+  %12 = icmp eq ptr %3, null
+  %or.cond3.not = or i1 %or.cond.not63.not67, %12
+  %13 = icmp slt i32 %5, 1
+  %or.cond7 = or i1 %or.cond3.not, %13
+  br i1 %or.cond7, label %114, label %14
 
 14:                                               ; preds = %9
   %15 = getelementptr inbounds i8, ptr %0, i64 8
@@ -4989,8 +4989,8 @@ define noundef i32 @_ZN14dtNavMeshQuery29finalizeSlicedFindPathPartialEPKjiPjPii
   %34 = load i32, ptr %33, align 4
   %35 = call noundef i32 @_ZN10dtNodePool9findNodesEjPP6dtNodei(ptr noundef nonnull align 8 dereferenceable(36) %32, i32 noundef %34, ptr noundef nonnull %8, i32 noundef 1)
   %36 = load ptr, ptr %8, align 8
-  %.not65 = icmp eq ptr %36, null
-  br i1 %.not65, label %29, label %.thread.preheader, !llvm.loop !40
+  %.not68 = icmp eq ptr %36, null
+  br i1 %.not68, label %29, label %.thread.preheader, !llvm.loop !40
 
 37:                                               ; preds = %29
   %38 = load i32, ptr %15, align 8
@@ -5000,8 +5000,8 @@ define noundef i32 @_ZN14dtNavMeshQuery29finalizeSlicedFindPathPartialEPKjiPjPii
   %41 = icmp ne ptr %40, null
   %42 = getelementptr inbounds i8, ptr %0, i64 16
   %43 = load ptr, ptr %42, align 8
-  %.not67 = icmp eq ptr %43, null
-  %or.cond = select i1 %41, i1 %.not67, i1 false
+  %.not70 = icmp eq ptr %43, null
+  %or.cond = select i1 %41, i1 %.not70, i1 false
   br i1 %or.cond, label %44, label %45
 
 44:                                               ; preds = %37
@@ -5015,15 +5015,15 @@ define noundef i32 @_ZN14dtNavMeshQuery29finalizeSlicedFindPathPartialEPKjiPjPii
   br label %.thread.preheader
 
 .thread.preheader:                                ; preds = %31, %45
-  %.0.i84.ph = phi ptr [ %46, %45 ], [ %36, %31 ]
+  %.0.i87.ph = phi ptr [ %46, %45 ], [ %36, %31 ]
   br label %.thread
 
 .thread:                                          ; preds = %.thread.preheader, %_ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit
-  %.0.i84 = phi ptr [ %54, %_ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit ], [ %.0.i84.ph, %.thread.preheader ]
+  %.0.i87 = phi ptr [ %54, %_ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit ], [ %.0.i87.ph, %.thread.preheader ]
   %.053 = phi i32 [ %66, %_ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit ], [ 0, %.thread.preheader ]
-  %.051 = phi ptr [ %.0.i84, %_ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit ], [ null, %.thread.preheader ]
+  %.051 = phi ptr [ %.0.i87, %_ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit ], [ null, %.thread.preheader ]
   %47 = load ptr, ptr %27, align 8
-  %48 = getelementptr inbounds i8, ptr %.0.i84, i64 20
+  %48 = getelementptr inbounds i8, ptr %.0.i87, i64 20
   %49 = load i32, ptr %48, align 4
   %50 = and i32 %49, 16777215
   %.not.i = icmp eq i32 %50, 0
@@ -5032,8 +5032,8 @@ define noundef i32 @_ZN14dtNavMeshQuery29finalizeSlicedFindPathPartialEPKjiPjPii
   %53 = zext i32 %52 to i64
   %54 = getelementptr inbounds %struct.dtNode, ptr %51, i64 %53
   %.0.i = select i1 %.not.i, ptr null, ptr %54
-  %.not.i75 = icmp eq ptr %.051, null
-  br i1 %.not.i75, label %_ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit, label %55
+  %.not.i78 = icmp eq ptr %.051, null
+  br i1 %.not.i78, label %_ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit, label %55
 
 55:                                               ; preds = %.thread
   %56 = ptrtoint ptr %.051 to i64
@@ -5045,8 +5045,8 @@ define noundef i32 @_ZN14dtNavMeshQuery29finalizeSlicedFindPathPartialEPKjiPjPii
   br label %_ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit
 
 _ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit:      ; preds = %.thread, %55
-  %.0.i76 = phi i32 [ %61, %55 ], [ 0, %.thread ]
-  %62 = and i32 %.0.i76, 16777215
+  %.0.i79 = phi i32 [ %61, %55 ], [ 0, %.thread ]
+  %62 = and i32 %.0.i79, 16777215
   %63 = and i32 %49, -486539264
   %64 = or disjoint i32 %63, %62
   %65 = lshr i32 %49, 26
@@ -5057,11 +5057,11 @@ _ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit:      ; preds = %.thread, %55
   %70 = or disjoint i32 %64, %69
   store i32 %70, ptr %48, align 4
   store ptr %.0.i, ptr %8, align 8
-  %.not68 = icmp eq ptr %.0.i, null
-  br i1 %.not68, label %71, label %.thread, !llvm.loop !41
+  %.not71 = icmp eq ptr %.0.i, null
+  br i1 %.not71, label %71, label %.thread, !llvm.loop !41
 
 71:                                               ; preds = %_ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit
-  store ptr %.0.i84, ptr %8, align 8
+  store ptr %.0.i87, ptr %8, align 8
   %invariant.gep = getelementptr i8, ptr %3, i64 -4
   %72 = getelementptr inbounds i8, ptr %0, i64 64
   %73 = getelementptr inbounds i8, ptr %7, i64 24
@@ -5070,25 +5070,25 @@ _ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit:      ; preds = %.thread, %55
   br label %76
 
 76:                                               ; preds = %110, %71
-  %77 = phi ptr [ %.0.i84, %71 ], [ %85, %110 ]
+  %77 = phi ptr [ %.0.i87, %71 ], [ %85, %110 ]
   %.050 = phi i32 [ 0, %71 ], [ %.1, %110 ]
   %78 = load ptr, ptr %27, align 8
   %79 = getelementptr inbounds i8, ptr %77, i64 20
   %80 = load i32, ptr %79, align 4
   %81 = and i32 %80, 16777215
-  %.not.i77 = icmp eq i32 %81, 0
+  %.not.i80 = icmp eq i32 %81, 0
   %82 = load ptr, ptr %78, align 8
   %83 = add nsw i32 %81, -1
   %84 = zext i32 %83 to i64
   %85 = getelementptr inbounds %struct.dtNode, ptr %82, i64 %84
-  %.0.i78 = select i1 %.not.i77, ptr null, ptr %85
+  %.0.i81 = select i1 %.not.i80, ptr null, ptr %85
   %86 = and i32 %80, 268435456
-  %.not69 = icmp eq i32 %86, 0
+  %.not72 = icmp eq i32 %86, 0
   %87 = getelementptr inbounds i8, ptr %77, i64 24
   %88 = load i32, ptr %87, align 4
   %89 = sext i32 %.050 to i64
   %90 = getelementptr inbounds i32, ptr %3, i64 %89
-  br i1 %.not69, label %103, label %91
+  br i1 %.not72, label %103, label %91
 
 91:                                               ; preds = %76
   %92 = load ptr, ptr %72, align 8
@@ -5096,14 +5096,14 @@ _ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit:      ; preds = %.thread, %55
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
   store ptr %90, ptr %73, align 8
   store i32 %93, ptr %74, align 4
-  %94 = call noundef i32 @_ZNK14dtNavMeshQuery7raycastEjPKfS1_PK13dtQueryFilterjP12dtRaycastHitj(ptr noundef nonnull align 8 dereferenceable(104) %0, i32 noundef %88, ptr noundef nonnull %77, ptr noundef %.0.i78, ptr noundef %92, i32 noundef 0, ptr noundef nonnull %7, i32 noundef 0), !range !12
+  %94 = call noundef i32 @_ZNK14dtNavMeshQuery7raycastEjPKfS1_PK13dtQueryFilterjP12dtRaycastHitj(ptr noundef nonnull align 8 dereferenceable(104) %0, i32 noundef %88, ptr noundef nonnull %77, ptr noundef %.0.i81, ptr noundef %92, i32 noundef 0, ptr noundef nonnull %7, i32 noundef 0), !range !12
   %95 = load i32, ptr %75, align 8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
   %96 = add nsw i32 %95, %.050
   %97 = sext i32 %96 to i64
   %gep = getelementptr i32, ptr %invariant.gep, i64 %97
   %98 = load i32, ptr %gep, align 4
-  %99 = getelementptr inbounds i8, ptr %.0.i78, i64 24
+  %99 = getelementptr inbounds i8, ptr %.0.i81, i64 24
   %100 = load i32, ptr %99, align 4
   %101 = icmp eq i32 %98, %100
   %102 = sext i1 %101 to i32
@@ -5113,16 +5113,16 @@ _ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit:      ; preds = %.thread, %55
 103:                                              ; preds = %76
   %104 = add nsw i32 %.050, 1
   store i32 %88, ptr %90, align 4
-  %.not70 = icmp slt i32 %104, %5
-  %spec.select74 = select i1 %.not70, i32 0, i32 16
+  %.not73 = icmp slt i32 %104, %5
+  %spec.select77 = select i1 %.not73, i32 0, i32 16
   br label %105
 
 105:                                              ; preds = %103, %91
   %.1 = phi i32 [ %spec.select, %91 ], [ %104, %103 ]
-  %.049 = phi i32 [ %94, %91 ], [ %spec.select74, %103 ]
+  %.049 = phi i32 [ %94, %91 ], [ %spec.select77, %103 ]
   %106 = and i32 %.049, 16777215
-  %.not71 = icmp eq i32 %106, 0
-  br i1 %.not71, label %110, label %107
+  %.not74 = icmp eq i32 %106, 0
+  br i1 %.not74, label %110, label %107
 
 107:                                              ; preds = %105
   %108 = load i32, ptr %15, align 8
@@ -5131,9 +5131,9 @@ _ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit:      ; preds = %.thread, %55
   br label %.loopexit
 
 110:                                              ; preds = %105
-  store ptr %.0.i78, ptr %8, align 8
-  %.not72 = icmp eq ptr %.0.i78, null
-  br i1 %.not72, label %.loopexit, label %76, !llvm.loop !42
+  store ptr %.0.i81, ptr %8, align 8
+  %.not75 = icmp eq ptr %.0.i81, null
+  br i1 %.not75, label %.loopexit, label %76, !llvm.loop !42
 
 .loopexit:                                        ; preds = %110, %107, %25
   %.2 = phi i32 [ 1, %25 ], [ %.1, %107 ], [ %.1, %110 ]

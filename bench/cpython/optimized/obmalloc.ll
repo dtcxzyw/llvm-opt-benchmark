@@ -6390,16 +6390,16 @@ mi_is_valid_pointer.exit:                         ; preds = %land.lhs.true4.i.i,
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @mi_posix_memalign(ptr noundef writeonly %p, i64 noundef %alignment, i64 noundef %size) local_unnamed_addr #0 {
 entry:
-  %cmp = icmp eq ptr %p, null
+  %cmp = icmp ne ptr %p, null
   %rem = and i64 %alignment, 7
-  %cmp1.not = icmp ne i64 %rem, 0
-  %or.cond7.not15 = or i1 %cmp, %cmp1.not
-  %cmp4 = icmp eq i64 %alignment, 0
-  %or.cond8 = or i1 %cmp4, %or.cond7.not15
+  %cmp1.not = icmp eq i64 %rem, 0
+  %or.cond7.not15.not17 = and i1 %cmp, %cmp1.not
+  %cmp4 = icmp ne i64 %alignment, 0
+  %or.cond8.not16 = and i1 %cmp4, %or.cond7.not15.not17
   %0 = tail call i64 @llvm.ctpop.i64(i64 %alignment), !range !11
-  %cmp.i = icmp ugt i64 %0, 1
-  %or.cond14.not = select i1 %or.cond8, i1 true, i1 %cmp.i
-  br i1 %or.cond14.not, label %return, label %if.end.i.i
+  %cmp.i = icmp ult i64 %0, 2
+  %or.cond14 = select i1 %or.cond8.not16, i1 %cmp.i, i1 false
+  br i1 %or.cond14, label %if.end.i.i, label %return
 
 if.end.i.i:                                       ; preds = %entry
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_mi_heap_default)

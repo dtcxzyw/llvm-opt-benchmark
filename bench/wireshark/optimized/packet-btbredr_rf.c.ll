@@ -457,13 +457,13 @@ define hidden ptr @btbredr_rf_add_esco_link(ptr noundef %0, ptr noundef %1, i8 n
   %14 = alloca i32, align 4
   %15 = alloca [6 x %struct._wmem_tree_key_t], align 16
   store i32 %3, ptr %13, align 4
-  %16 = icmp eq ptr %0, null
-  %17 = icmp eq ptr %1, null
-  %or.cond.not53 = or i1 %16, %17
-  %18 = add i32 %3, -8
-  %19 = icmp ult i32 %18, -7
-  %or.cond5.not = or i1 %or.cond.not53, %19
-  br i1 %or.cond5.not, label %133, label %20
+  %16 = icmp ne ptr %0, null
+  %17 = icmp ne ptr %1, null
+  %or.cond.not53.not57 = and i1 %16, %17
+  %18 = add i32 %3, -1
+  %19 = icmp ult i32 %18, 7
+  %or.cond5 = and i1 %or.cond.not53.not57, %19
+  br i1 %or.cond5, label %20, label %133
 
 20:                                               ; preds = %6
   %21 = getelementptr inbounds i8, ptr %0, i64 56
@@ -584,40 +584,40 @@ lookup_connection_info.exit.thread:               ; preds = %20, %62, %58, %54, 
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %12)
   %83 = getelementptr inbounds i8, ptr %53, i64 56
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %21, ptr noundef nonnull dereferenceable(6) %83, i64 6)
-  %.not54 = icmp eq i32 %bcmp, 0
-  br i1 %.not54, label %84, label %100
+  %.not58 = icmp eq i32 %bcmp, 0
+  br i1 %.not58, label %84, label %100
 
 84:                                               ; preds = %82
   %85 = getelementptr i8, ptr %0, i64 62
   %86 = getelementptr i8, ptr %53, i64 62
-  %bcmp55 = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %85, ptr noundef nonnull dereferenceable(6) %86, i64 6)
-  %.not56 = icmp eq i32 %bcmp55, 0
-  br i1 %.not56, label %87, label %100
+  %bcmp59 = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %85, ptr noundef nonnull dereferenceable(6) %86, i64 6)
+  %.not60 = icmp eq i32 %bcmp59, 0
+  br i1 %.not60, label %87, label %100
 
 87:                                               ; preds = %84
   %88 = getelementptr inbounds i8, ptr %53, i64 70
   %89 = load i8, ptr %88, align 2
   %90 = and i8 %89, 1
-  %.not57 = icmp eq i8 %90, 0
-  br i1 %.not57, label %100, label %91
+  %.not61 = icmp eq i8 %90, 0
+  br i1 %.not61, label %100, label %91
 
 91:                                               ; preds = %87
   %92 = getelementptr inbounds i8, ptr %53, i64 69
   %93 = load i8, ptr %92, align 1
-  %.not58 = icmp eq i8 %93, %2
-  br i1 %.not58, label %94, label %100
+  %.not62 = icmp eq i8 %93, %2
+  br i1 %.not62, label %94, label %100
 
 94:                                               ; preds = %91
   %95 = getelementptr inbounds i8, ptr %53, i64 52
   %96 = load i16, ptr %95, align 4
-  %.not59 = icmp eq i16 %96, %4
-  br i1 %.not59, label %97, label %100
+  %.not63 = icmp eq i16 %96, %4
+  br i1 %.not63, label %97, label %100
 
 97:                                               ; preds = %94
   %98 = getelementptr i8, ptr %53, i64 54
   %99 = load i16, ptr %98, align 2
-  %.not60 = icmp eq i16 %99, %5
-  br i1 %.not60, label %133, label %100
+  %.not64 = icmp eq i16 %99, %5
+  br i1 %.not64, label %133, label %100
 
 100:                                              ; preds = %82, %84, %87, %91, %94, %97, %lookup_connection_info.exit.thread
   %101 = call ptr @wmem_file_scope() #7

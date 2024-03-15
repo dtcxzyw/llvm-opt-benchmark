@@ -79,13 +79,12 @@ define i32 @mca_common_ompio_file_read(ptr noundef %0, ptr noundef %1, i32 nound
   %41 = getelementptr inbounds i8, ptr %0, i64 16
   %42 = load i32, ptr %41, align 8
   %43 = and i32 %42, 1024
-  %44 = icmp ne i32 %43, 0
-  %45 = icmp eq ptr %3, @ompi_mpi_byte
-  %or.cond3 = or i1 %45, %44
-  %46 = icmp eq ptr %3, @ompi_mpi_char
-  %or.cond5 = or i1 %46, %or.cond3
-  %or.cond5.not = xor i1 %or.cond5, true
-  %brmerge = select i1 %or.cond5.not, i1 true, i1 %or.cond.not
+  %44 = icmp eq i32 %43, 0
+  %45 = icmp ne ptr %3, @ompi_mpi_byte
+  %or.cond3.not39 = and i1 %45, %44
+  %46 = icmp ne ptr %3, @ompi_mpi_char
+  %or.cond5.not36 = and i1 %46, %or.cond3.not39
+  %brmerge = select i1 %or.cond5.not36, i1 true, i1 %or.cond.not
   br i1 %brmerge, label %.critedge, label %172
 
 .critedge:                                        ; preds = %36
@@ -731,13 +730,12 @@ ompi_request_complete.exit:                       ; preds = %33, %.critedge.i
   %48 = getelementptr inbounds i8, ptr %0, i64 16
   %49 = load i32, ptr %48, align 8
   %50 = and i32 %49, 1024
-  %51 = icmp ne i32 %50, 0
-  %52 = icmp eq ptr %3, @ompi_mpi_byte
-  %or.cond3 = or i1 %52, %51
-  %53 = icmp eq ptr %3, @ompi_mpi_char
-  %or.cond5 = or i1 %53, %or.cond3
-  %or.cond5.not = xor i1 %or.cond5, true
-  %brmerge = select i1 %or.cond5.not, i1 true, i1 %or.cond.not
+  %51 = icmp eq i32 %50, 0
+  %52 = icmp ne ptr %3, @ompi_mpi_byte
+  %or.cond3.not73 = and i1 %52, %51
+  %53 = icmp ne ptr %3, @ompi_mpi_char
+  %or.cond5.not70 = and i1 %53, %or.cond3.not73
+  %brmerge = select i1 %or.cond5.not70, i1 true, i1 %or.cond.not
   br i1 %brmerge, label %.critedge, label %134
 
 .critedge:                                        ; preds = %43

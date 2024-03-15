@@ -28,50 +28,49 @@ define dso_local i32 @byd_detect(ptr noundef %0, i1 noundef zeroext %1) local_un
   store i8 0, ptr %7, align 1
   %8 = call i32 @ps2_command(ptr noundef %4, ptr noundef nonnull %3, i32 noundef 4328) #5
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %10, label %34
+  br i1 %9, label %10, label %31
 
 10:                                               ; preds = %2
   %11 = call i32 @ps2_command(ptr noundef %4, ptr noundef nonnull %3, i32 noundef 4328) #5
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %13, label %34
+  br i1 %12, label %13, label %31
 
 13:                                               ; preds = %10
   %14 = call i32 @ps2_command(ptr noundef %4, ptr noundef nonnull %3, i32 noundef 4328) #5
   %15 = icmp eq i32 %14, 0
-  br i1 %15, label %16, label %34
+  br i1 %15, label %16, label %31
 
 16:                                               ; preds = %13
   %17 = call i32 @ps2_command(ptr noundef %4, ptr noundef nonnull %3, i32 noundef 4328) #5
   %18 = icmp eq i32 %17, 0
-  br i1 %18, label %19, label %34
+  br i1 %18, label %19, label %31
 
 19:                                               ; preds = %16
   %20 = call i32 @ps2_command(ptr noundef %4, ptr noundef nonnull %3, i32 noundef 1001) #5
   %21 = icmp eq i32 %20, 0
-  br i1 %21, label %22, label %34
+  br i1 %21, label %22, label %31
 
 22:                                               ; preds = %19
   %23 = load i8, ptr %5, align 1
-  %24 = icmp ne i8 %23, 3
+  %24 = icmp eq i8 %23, 3
   %25 = load i8, ptr %6, align 1
-  %26 = icmp ne i8 %25, 100
-  %27 = select i1 %24, i1 true, i1 %26
-  %28 = xor i1 %1, true
-  %29 = or i1 %27, %28
-  %30 = select i1 %27, i32 -19, i32 0
-  br i1 %29, label %34, label %31
+  %26 = icmp eq i8 %25, 100
+  %.not4 = select i1 %24, i1 %26, i1 false
+  %.not1 = and i1 %.not4, %1
+  %27 = select i1 %.not4, i32 0, i32 -19
+  br i1 %.not1, label %28, label %31
 
-31:                                               ; preds = %22
-  %32 = getelementptr inbounds i8, ptr %0, i64 208
-  store ptr @.str, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 216
-  store ptr @.str.1, ptr %33, align 8
-  br label %34
+28:                                               ; preds = %22
+  %29 = getelementptr inbounds i8, ptr %0, i64 208
+  store ptr @.str, ptr %29, align 8
+  %30 = getelementptr inbounds i8, ptr %0, i64 216
+  store ptr @.str.1, ptr %30, align 8
+  br label %31
 
-34:                                               ; preds = %31, %22, %19, %16, %13, %10, %2
-  %35 = phi i32 [ -1, %2 ], [ -1, %10 ], [ -1, %13 ], [ -1, %16 ], [ -1, %19 ], [ %30, %22 ], [ 0, %31 ]
+31:                                               ; preds = %28, %22, %19, %16, %13, %10, %2
+  %32 = phi i32 [ -1, %2 ], [ -1, %10 ], [ -1, %13 ], [ -1, %16 ], [ -1, %19 ], [ %27, %22 ], [ 0, %28 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #5
-  ret i32 %35
+  ret i32 %32
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

@@ -123,17 +123,17 @@ if.then10.i:                                      ; preds = %lor.lhs.false8.i, %
 
 if.end12.i:                                       ; preds = %lor.lhs.false8.i
   %call13.i5 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(5) @.str.1) #7
-  %cmp14.i = icmp ne i32 %call13.i5, 0
+  %cmp14.i = icmp eq i32 %call13.i5, 0
   %13 = load i32, ptr %line.i, align 4
-  %cmp16.i = icmp ne i32 %13, 4
-  %or.cond.i = select i1 %cmp14.i, i1 true, i1 %cmp16.i
+  %cmp16.i = icmp eq i32 %13, 4
+  %or.cond.not9.i = select i1 %cmp14.i, i1 %cmp16.i, i1 false
   %and.i6 = and i32 %9, 1
-  %cmp18.i = icmp eq i32 %and.i6, 0
-  %or.cond5.i = or i1 %cmp18.i, %or.cond.i
+  %cmp18.i = icmp ne i32 %and.i6, 0
+  %or.cond5.not8.i = and i1 %cmp18.i, %or.cond.not9.i
   %14 = and i32 %call2.i, -16773121
-  %15 = icmp ne i32 %14, 16777218
-  %or.cond7.not.i = or i1 %15, %or.cond5.i
-  br i1 %or.cond7.not.i, label %if.then28.i, label %lor.lhs.false25.i
+  %15 = icmp eq i32 %14, 16777218
+  %or.cond7.i = and i1 %15, %or.cond5.not8.i
+  br i1 %or.cond7.i, label %lor.lhs.false25.i, label %if.then28.i
 
 lor.lhs.false25.i:                                ; preds = %if.end12.i
   %call26.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(8) @.str.5) #7
@@ -224,10 +224,10 @@ _ZL9HasSuffixPKcS0_.exit.i:                       ; preds = %if.end.i.i, %_ZL9Te
   %retval.0.i.i = phi i1 [ %cmp4.i.i, %if.end.i.i ], [ false, %_ZL9TestPrintv.exit ]
   %23 = load i32, ptr %line.i16, align 4
   %cmp.not.i19 = icmp eq i32 %23, 131
-  %or.cond.i20 = select i1 %retval.0.i.i, i1 %cmp.not.i19, i1 false
+  %or.cond.i = select i1 %retval.0.i.i, i1 %cmp.not.i19, i1 false
   %shr.mask.i = and i32 %call.i18, -16777216
-  %cmp3.not.i21 = icmp eq i32 %shr.mask.i, 536870912
-  %or.cond2.i = select i1 %or.cond.i20, i1 %cmp3.not.i21, i1 false
+  %cmp3.not.i20 = icmp eq i32 %shr.mask.i, 536870912
+  %or.cond2.i = select i1 %or.cond.i, i1 %cmp3.not.i20, i1 false
   %and5.i = and i32 %call.i18, 4095
   %cmp6.not.i = icmp eq i32 %and5.i, 68
   %or.cond3.i = select i1 %or.cond2.i, i1 %cmp6.not.i, i1 false

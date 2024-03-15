@@ -105,22 +105,21 @@ for.body.i:                                       ; preds = %for.body.i, %for.en
 
 for.cond59.preheader:                             ; preds = %for.body.i
   %4 = load <4 x i32>, ptr %intArray, align 16
-  %.fr116 = freeze <4 x i32> %4
+  %.fr124 = freeze <4 x i32> %4
+  %5 = icmp ne <4 x i32> %.fr124, <i32 3, i32 2, i32 6, i32 5>
   %arrayidx74 = getelementptr inbounds i8, ptr %intArray, i64 16
-  %5 = load i32, ptr %arrayidx74, align 16
-  %.fr117 = freeze i32 %5
-  %cmp75 = icmp eq i32 %.fr117, 4
+  %6 = load i32, ptr %arrayidx74, align 16
+  %.fr125 = freeze i32 %6
+  %cmp75 = icmp ne i32 %.fr125, 4
   %arrayidx76 = getelementptr inbounds i8, ptr %intArray, i64 20
-  %6 = load i32, ptr %arrayidx76, align 4
-  %.fr = freeze i32 %6
-  %cmp77.not = icmp eq i32 %.fr, 1
-  %7 = icmp ne <4 x i32> %.fr116, <i32 3, i32 2, i32 6, i32 5>
-  %8 = bitcast <4 x i1> %7 to i4
-  %9 = icmp eq i4 %8, 0
-  %op.rdx = and i1 %9, %cmp75
-  %op.rdx115 = and i1 %op.rdx, %cmp77.not
-  %not.or.cond113 = xor i1 %op.rdx115, true
-  %call81 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %not.or.cond113, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 133, ptr noundef nonnull @.str.5)
+  %7 = load i32, ptr %arrayidx76, align 4
+  %.fr = freeze i32 %7
+  %cmp77.not = icmp ne i32 %.fr, 1
+  %8 = bitcast <4 x i1> %5 to i4
+  %9 = icmp ne i4 %8, 0
+  %op.rdx = or i1 %9, %cmp75
+  %op.rdx123 = or i1 %op.rdx, %cmp77.not
+  %call81 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %op.rdx123, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 133, ptr noundef nonnull @.str.5)
   br label %for.body85
 
 for.body85:                                       ; preds = %for.cond59.preheader, %for.inc86
@@ -381,7 +380,7 @@ if.then.us:                                       ; preds = %lor.lhs.false.us, %
 for.inc.us:                                       ; preds = %if.then.us, %lor.lhs.false.us
   %bReturnValue.1.us = phi i8 [ %bReturnValue.025.us, %lor.lhs.false.us ], [ 0, %if.then.us ]
   %incdec.ptr.us = getelementptr inbounds i8, ptr %first.addr.022.us, i64 4
-  %inc6.us = add nuw i32 %seqIndex.024.us, 1
+  %inc6.us = add nuw nsw i32 %seqIndex.024.us, 1
   %cmp.not.us = icmp eq ptr %incdec.ptr.us, %last
   br i1 %cmp.not.us, label %for.end13, label %for.body.us, !llvm.loop !13
 
@@ -425,7 +424,7 @@ if.then:                                          ; preds = %lor.lhs.false, %vaa
 for.inc:                                          ; preds = %if.then, %lor.lhs.false
   %bReturnValue.1 = phi i8 [ %bReturnValue.025, %lor.lhs.false ], [ 0, %if.then ]
   %incdec.ptr = getelementptr inbounds i8, ptr %first.addr.022, i64 4
-  %inc6 = add nuw i32 %seqIndex.024, 1
+  %inc6 = add nuw nsw i32 %seqIndex.024, 1
   %cmp.not = icmp eq ptr %incdec.ptr, %last
   br i1 %cmp.not, label %for.end13, label %for.body, !llvm.loop !13
 

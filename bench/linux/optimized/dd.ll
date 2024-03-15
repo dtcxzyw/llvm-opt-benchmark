@@ -726,50 +726,49 @@ define internal fastcc i32 @__device_attach(ptr noundef %0, i1 noundef zeroext %
   %36 = getelementptr inbounds i8, ptr %0, i64 96
   %37 = load ptr, ptr %36, align 8
   %38 = call i32 @bus_for_each_drv(ptr noundef %37, ptr noundef null, ptr noundef nonnull %3, ptr noundef nonnull @__device_attach_driver) #9
-  %39 = icmp ne i32 %38, 0
-  %40 = xor i1 %1, true
-  %41 = or i1 %39, %40
-  %42 = load i8, ptr %29, align 2, !range !7
-  %43 = icmp eq i8 %42, 0
-  %44 = select i1 %41, i1 true, i1 %43
-  br i1 %44, label %47, label %45
+  %39 = icmp eq i32 %38, 0
+  %.not = and i1 %39, %1
+  %40 = load i8, ptr %29, align 2, !range !7
+  %41 = icmp ne i8 %40, 0
+  %.not4 = select i1 %.not, i1 %41, i1 false
+  br i1 %.not4, label %42, label %44
 
-45:                                               ; preds = %35
-  %46 = call ptr @get_device(ptr noundef %0) #9
-  br label %49
+42:                                               ; preds = %35
+  %43 = call ptr @get_device(ptr noundef %0) #9
+  br label %46
 
-47:                                               ; preds = %35
-  %48 = call i32 @__pm_runtime_idle(ptr noundef %0, i32 noundef 1) #9
-  br label %49
+44:                                               ; preds = %35
+  %45 = call i32 @__pm_runtime_idle(ptr noundef %0, i32 noundef 1) #9
+  br label %46
 
-49:                                               ; preds = %47, %45
-  %50 = load ptr, ptr %30, align 8
-  %51 = icmp eq ptr %50, null
-  br i1 %51, label %54, label %52
+46:                                               ; preds = %44, %42
+  %47 = load ptr, ptr %30, align 8
+  %48 = icmp eq ptr %47, null
+  br i1 %48, label %51, label %49
 
-52:                                               ; preds = %49
-  %53 = call i32 @__pm_runtime_idle(ptr noundef nonnull %50, i32 noundef 5) #9
-  br label %54
+49:                                               ; preds = %46
+  %50 = call i32 @__pm_runtime_idle(ptr noundef nonnull %47, i32 noundef 5) #9
+  br label %51
 
 .thread:                                          ; preds = %2, %25, %18, %22
   %.ph = phi i32 [ 1, %22 ], [ 1, %18 ], [ 0, %25 ], [ 0, %2 ]
   tail call void @mutex_unlock(ptr noundef %5) #9
-  br label %59
+  br label %56
 
-54:                                               ; preds = %49, %52
+51:                                               ; preds = %46, %49
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #9
   call void @mutex_unlock(ptr noundef %5) #9
-  br i1 %44, label %59, label %55
+  br i1 %.not4, label %52, label %56
 
-55:                                               ; preds = %54
-  %56 = getelementptr inbounds i8, ptr %0, i64 640
-  %57 = load i32, ptr %56, align 8
-  %58 = call i64 @async_schedule_node(ptr noundef nonnull @__device_attach_async_helper, ptr noundef %0, i32 noundef %57) #9
-  br label %59
+52:                                               ; preds = %51
+  %53 = getelementptr inbounds i8, ptr %0, i64 640
+  %54 = load i32, ptr %53, align 8
+  %55 = call i64 @async_schedule_node(ptr noundef nonnull @__device_attach_async_helper, ptr noundef %0, i32 noundef %54) #9
+  br label %56
 
-59:                                               ; preds = %.thread, %55, %54
-  %60 = phi i32 [ %.ph, %.thread ], [ 0, %55 ], [ %38, %54 ]
-  ret i32 %60
+56:                                               ; preds = %.thread, %52, %51
+  %57 = phi i32 [ %.ph, %.thread ], [ 0, %52 ], [ %38, %51 ]
+  ret i32 %57
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

@@ -16,11 +16,11 @@ define dso_local noundef i32 @_ZN4i18n12phonenumbers6UniLib20SpanInterchangeVali
   br label %8
 
 8:                                                ; preds = %.lr.ph, %24
-  %.016 = phi ptr [ %0, %.lr.ph ], [ %26, %24 ]
-  %9 = ptrtoint ptr %.016 to i64
+  %.021 = phi ptr [ %0, %.lr.ph ], [ %26, %24 ]
+  %9 = ptrtoint ptr %.021 to i64
   %10 = sub i64 %7, %9
   %11 = trunc i64 %10 to i32
-  %12 = call i32 @charntorune(ptr noundef nonnull %3, ptr noundef %.016, i32 noundef %11)
+  %12 = call i32 @charntorune(ptr noundef nonnull %3, ptr noundef %.021, i32 noundef %11)
   %13 = load i32, ptr %3, align 4
   %14 = icmp eq i32 %13, 65533
   %15 = icmp slt i32 %12, 2
@@ -28,34 +28,34 @@ define dso_local noundef i32 @_ZN4i18n12phonenumbers6UniLib20SpanInterchangeVali
   br i1 %or.cond, label %_ZN4i18n12phonenumbers6UniLib12_GLOBAL__N_127IsInterchangeValidCodepointEi.exit.thread, label %16
 
 16:                                               ; preds = %8
-  %or.cond.i = icmp ult i32 %13, 9
-  %17 = icmp eq i32 %13, 11
-  %or.cond3.i = or i1 %or.cond.i, %17
-  %18 = add i32 %13, -14
-  %or.cond5.i = icmp ult i32 %18, 18
-  %or.cond23.i = or i1 %or.cond3.i, %or.cond5.i
-  %19 = add i32 %13, -127
-  %or.cond7.i = icmp ult i32 %19, 33
-  %or.cond24.i = or i1 %or.cond7.i, %or.cond23.i
+  %or.cond.i = icmp ugt i32 %13, 8
+  %17 = icmp ne i32 %13, 11
+  %or.cond3.i.not20 = and i1 %or.cond.i, %17
+  %18 = add i32 %13, -32
+  %or.cond5.i = icmp ult i32 %18, -18
+  %or.cond23.i.not19 = and i1 %or.cond3.i.not20, %or.cond5.i
+  %19 = add i32 %13, -160
+  %or.cond7.i = icmp ult i32 %19, -33
+  %or.cond24.i.not18 = and i1 %or.cond7.i, %or.cond23.i.not19
   %20 = and i32 %13, -2048
-  %or.cond9.i = icmp eq i32 %20, 55296
-  %or.cond25.i = or i1 %or.cond9.i, %or.cond24.i
-  %21 = add i32 %13, -64976
-  %or.cond11.i = icmp ult i32 %21, 32
-  %or.cond26.i = or i1 %or.cond11.i, %or.cond25.i
+  %or.cond9.i = icmp ne i32 %20, 55296
+  %or.cond25.i.not17 = and i1 %or.cond9.i, %or.cond24.i.not18
+  %21 = add i32 %13, -65008
+  %or.cond11.i = icmp ult i32 %21, -32
+  %or.cond26.i.not16 = and i1 %or.cond11.i, %or.cond25.i.not17
   %22 = and i32 %13, 65534
-  %23 = icmp eq i32 %22, 65534
-  %or.cond15.not = or i1 %23, %or.cond26.i
-  br i1 %or.cond15.not, label %_ZN4i18n12phonenumbers6UniLib12_GLOBAL__N_127IsInterchangeValidCodepointEi.exit.thread, label %24
+  %23 = icmp ne i32 %22, 65534
+  %or.cond15 = and i1 %23, %or.cond26.i.not16
+  br i1 %or.cond15, label %24, label %_ZN4i18n12phonenumbers6UniLib12_GLOBAL__N_127IsInterchangeValidCodepointEi.exit.thread
 
 24:                                               ; preds = %16
   %25 = sext i32 %12 to i64
-  %26 = getelementptr inbounds i8, ptr %.016, i64 %25
+  %26 = getelementptr inbounds i8, ptr %.021, i64 %25
   %27 = icmp ult ptr %26, %5
   br i1 %27, label %8, label %_ZN4i18n12phonenumbers6UniLib12_GLOBAL__N_127IsInterchangeValidCodepointEi.exit.thread, !llvm.loop !5
 
 _ZN4i18n12phonenumbers6UniLib12_GLOBAL__N_127IsInterchangeValidCodepointEi.exit.thread: ; preds = %24, %8, %16, %2
-  %.0.lcssa = phi ptr [ %0, %2 ], [ %.016, %16 ], [ %.016, %8 ], [ %26, %24 ]
+  %.0.lcssa = phi ptr [ %0, %2 ], [ %.021, %16 ], [ %.021, %8 ], [ %26, %24 ]
   %28 = ptrtoint ptr %.0.lcssa to i64
   %29 = ptrtoint ptr %0 to i64
   %30 = sub i64 %28, %29

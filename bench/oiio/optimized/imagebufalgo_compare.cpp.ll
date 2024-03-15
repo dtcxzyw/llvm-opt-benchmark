@@ -30775,16 +30775,16 @@ entry:
   %call = tail call noundef nonnull align 8 dereferenceable(160) ptr @_ZNK18OpenImageIO_v2_6_08ImageBuf4specEv(ptr noundef nonnull align 8 dereferenceable(16) %src)
   %format = getelementptr inbounds i8, ptr %call, i64 64
   %0 = load i8, ptr %format, align 8
-  %cmp.not.i = icmp ne i8 %0, 11
+  %cmp.not.i = icmp eq i8 %0, 11
   %aggregate.i = getelementptr inbounds i8, ptr %call, i64 65
   %1 = load i8, ptr %aggregate.i, align 1
-  %cmp2.not.i = icmp ne i8 %1, 1
-  %or.cond.i.not11 = select i1 %cmp.not.i, i1 true, i1 %cmp2.not.i
+  %cmp2.not.i = icmp eq i8 %1, 1
+  %or.cond.i.not11.not12 = select i1 %cmp.not.i, i1 %cmp2.not.i, i1 false
   %arraylen.i.i = getelementptr inbounds i8, ptr %call, i64 68
   %2 = load i32, ptr %arraylen.i.i, align 4
-  %cmp.i.i = icmp ne i32 %2, 0
-  %or.cond = select i1 %or.cond.i.not11, i1 true, i1 %cmp.i.i
-  br i1 %or.cond, label %if.then, label %if.end
+  %cmp.i.i = icmp eq i32 %2, 0
+  %or.cond.not = select i1 %or.cond.i.not11.not12, i1 %cmp.i.i, i1 false
+  br i1 %or.cond.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %call2 = tail call noundef nonnull align 8 dereferenceable(160) ptr @_ZNK18OpenImageIO_v2_6_08ImageBuf4specEv(ptr noundef nonnull align 8 dereferenceable(16) %src)
@@ -30869,8 +30869,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit10: ; preds = %lpad, %if.t
   resume { ptr, i32 } %7
 
 return:                                           ; preds = %if.then.i.i, %invoke.cont, %if.then
-  %retval.0 = xor i1 %or.cond, true
-  ret i1 %retval.0
+  ret i1 %or.cond.not
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -30893,16 +30892,16 @@ entry:
   %call = tail call noundef nonnull align 8 dereferenceable(160) ptr @_ZNK18OpenImageIO_v2_6_08ImageBuf4specEv(ptr noundef nonnull align 8 dereferenceable(16) %src)
   %format = getelementptr inbounds i8, ptr %call, i64 64
   %0 = load i8, ptr %format, align 8
-  %cmp.not.i = icmp ne i8 %0, 2
+  %cmp.not.i = icmp eq i8 %0, 2
   %aggregate.i = getelementptr inbounds i8, ptr %call, i64 65
   %1 = load i8, ptr %aggregate.i, align 1
-  %cmp2.not.i = icmp ne i8 %1, 1
-  %or.cond.i.not11 = select i1 %cmp.not.i, i1 true, i1 %cmp2.not.i
+  %cmp2.not.i = icmp eq i8 %1, 1
+  %or.cond.i.not11.not12 = select i1 %cmp.not.i, i1 %cmp2.not.i, i1 false
   %arraylen.i.i = getelementptr inbounds i8, ptr %call, i64 68
   %2 = load i32, ptr %arraylen.i.i, align 4
-  %cmp.i.i = icmp ne i32 %2, 0
-  %or.cond = select i1 %or.cond.i.not11, i1 true, i1 %cmp.i.i
-  br i1 %or.cond, label %if.then, label %if.end
+  %cmp.i.i = icmp eq i32 %2, 0
+  %or.cond.not = select i1 %or.cond.i.not11.not12, i1 %cmp.i.i, i1 false
+  br i1 %or.cond.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %call2 = tail call noundef nonnull align 8 dereferenceable(160) ptr @_ZNK18OpenImageIO_v2_6_08ImageBuf4specEv(ptr noundef nonnull align 8 dereferenceable(16) %src)
@@ -30987,8 +30986,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit10: ; preds = %lpad, %if.t
   resume { ptr, i32 } %7
 
 return:                                           ; preds = %if.then.i.i, %invoke.cont, %if.then
-  %retval.0 = xor i1 %or.cond, true
-  ret i1 %retval.0
+  ret i1 %or.cond.not
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -31011,16 +31009,16 @@ entry:
   %call = tail call noundef nonnull align 8 dereferenceable(160) ptr @_ZNK18OpenImageIO_v2_6_08ImageBuf4specEv(ptr noundef nonnull align 8 dereferenceable(16) %src)
   %format = getelementptr inbounds i8, ptr %call, i64 64
   %0 = load i8, ptr %format, align 8
-  %cmp.not.i = icmp ne i8 %0, 10
+  %cmp.not.i = icmp eq i8 %0, 10
   %aggregate.i = getelementptr inbounds i8, ptr %call, i64 65
   %1 = load i8, ptr %aggregate.i, align 1
-  %cmp2.not.i = icmp ne i8 %1, 1
-  %or.cond.i.not11 = select i1 %cmp.not.i, i1 true, i1 %cmp2.not.i
+  %cmp2.not.i = icmp eq i8 %1, 1
+  %or.cond.i.not11.not12 = select i1 %cmp.not.i, i1 %cmp2.not.i, i1 false
   %arraylen.i.i = getelementptr inbounds i8, ptr %call, i64 68
   %2 = load i32, ptr %arraylen.i.i, align 4
-  %cmp.i.i = icmp ne i32 %2, 0
-  %or.cond = select i1 %or.cond.i.not11, i1 true, i1 %cmp.i.i
-  br i1 %or.cond, label %if.then, label %if.end
+  %cmp.i.i = icmp eq i32 %2, 0
+  %or.cond.not = select i1 %or.cond.i.not11.not12, i1 %cmp.i.i, i1 false
+  br i1 %or.cond.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %call2 = tail call noundef nonnull align 8 dereferenceable(160) ptr @_ZNK18OpenImageIO_v2_6_08ImageBuf4specEv(ptr noundef nonnull align 8 dereferenceable(16) %src)
@@ -31105,8 +31103,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit10: ; preds = %lpad, %if.t
   resume { ptr, i32 } %7
 
 return:                                           ; preds = %if.then.i.i, %invoke.cont, %if.then
-  %retval.0 = xor i1 %or.cond, true
-  ret i1 %retval.0
+  ret i1 %or.cond.not
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -31129,16 +31126,16 @@ entry:
   %call = tail call noundef nonnull align 8 dereferenceable(160) ptr @_ZNK18OpenImageIO_v2_6_08ImageBuf4specEv(ptr noundef nonnull align 8 dereferenceable(16) %src)
   %format = getelementptr inbounds i8, ptr %call, i64 64
   %0 = load i8, ptr %format, align 8
-  %cmp.not.i = icmp ne i8 %0, 4
+  %cmp.not.i = icmp eq i8 %0, 4
   %aggregate.i = getelementptr inbounds i8, ptr %call, i64 65
   %1 = load i8, ptr %aggregate.i, align 1
-  %cmp2.not.i = icmp ne i8 %1, 1
-  %or.cond.i.not11 = select i1 %cmp.not.i, i1 true, i1 %cmp2.not.i
+  %cmp2.not.i = icmp eq i8 %1, 1
+  %or.cond.i.not11.not12 = select i1 %cmp.not.i, i1 %cmp2.not.i, i1 false
   %arraylen.i.i = getelementptr inbounds i8, ptr %call, i64 68
   %2 = load i32, ptr %arraylen.i.i, align 4
-  %cmp.i.i = icmp ne i32 %2, 0
-  %or.cond = select i1 %or.cond.i.not11, i1 true, i1 %cmp.i.i
-  br i1 %or.cond, label %if.then, label %if.end
+  %cmp.i.i = icmp eq i32 %2, 0
+  %or.cond.not = select i1 %or.cond.i.not11.not12, i1 %cmp.i.i, i1 false
+  br i1 %or.cond.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %call2 = tail call noundef nonnull align 8 dereferenceable(160) ptr @_ZNK18OpenImageIO_v2_6_08ImageBuf4specEv(ptr noundef nonnull align 8 dereferenceable(16) %src)
@@ -31223,8 +31220,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit10: ; preds = %lpad, %if.t
   resume { ptr, i32 } %7
 
 return:                                           ; preds = %if.then.i.i, %invoke.cont, %if.then
-  %retval.0 = xor i1 %or.cond, true
-  ret i1 %retval.0
+  ret i1 %or.cond.not
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -31247,16 +31243,16 @@ entry:
   %call = tail call noundef nonnull align 8 dereferenceable(160) ptr @_ZNK18OpenImageIO_v2_6_08ImageBuf4specEv(ptr noundef nonnull align 8 dereferenceable(16) %src)
   %format = getelementptr inbounds i8, ptr %call, i64 64
   %0 = load i8, ptr %format, align 8
-  %cmp.not.i = icmp ne i8 %0, 3
+  %cmp.not.i = icmp eq i8 %0, 3
   %aggregate.i = getelementptr inbounds i8, ptr %call, i64 65
   %1 = load i8, ptr %aggregate.i, align 1
-  %cmp2.not.i = icmp ne i8 %1, 1
-  %or.cond.i.not11 = select i1 %cmp.not.i, i1 true, i1 %cmp2.not.i
+  %cmp2.not.i = icmp eq i8 %1, 1
+  %or.cond.i.not11.not12 = select i1 %cmp.not.i, i1 %cmp2.not.i, i1 false
   %arraylen.i.i = getelementptr inbounds i8, ptr %call, i64 68
   %2 = load i32, ptr %arraylen.i.i, align 4
-  %cmp.i.i = icmp ne i32 %2, 0
-  %or.cond = select i1 %or.cond.i.not11, i1 true, i1 %cmp.i.i
-  br i1 %or.cond, label %if.then, label %if.end
+  %cmp.i.i = icmp eq i32 %2, 0
+  %or.cond.not = select i1 %or.cond.i.not11.not12, i1 %cmp.i.i, i1 false
+  br i1 %or.cond.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %call2 = tail call noundef nonnull align 8 dereferenceable(160) ptr @_ZNK18OpenImageIO_v2_6_08ImageBuf4specEv(ptr noundef nonnull align 8 dereferenceable(16) %src)
@@ -31341,8 +31337,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit10: ; preds = %lpad, %if.t
   resume { ptr, i32 } %7
 
 return:                                           ; preds = %if.then.i.i, %invoke.cont, %if.then
-  %retval.0 = xor i1 %or.cond, true
-  ret i1 %retval.0
+  ret i1 %or.cond.not
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -31365,16 +31360,16 @@ entry:
   %call = tail call noundef nonnull align 8 dereferenceable(160) ptr @_ZNK18OpenImageIO_v2_6_08ImageBuf4specEv(ptr noundef nonnull align 8 dereferenceable(16) %src)
   %format = getelementptr inbounds i8, ptr %call, i64 64
   %0 = load i8, ptr %format, align 8
-  %cmp.not.i = icmp ne i8 %0, 5
+  %cmp.not.i = icmp eq i8 %0, 5
   %aggregate.i = getelementptr inbounds i8, ptr %call, i64 65
   %1 = load i8, ptr %aggregate.i, align 1
-  %cmp2.not.i = icmp ne i8 %1, 1
-  %or.cond.i.not11 = select i1 %cmp.not.i, i1 true, i1 %cmp2.not.i
+  %cmp2.not.i = icmp eq i8 %1, 1
+  %or.cond.i.not11.not12 = select i1 %cmp.not.i, i1 %cmp2.not.i, i1 false
   %arraylen.i.i = getelementptr inbounds i8, ptr %call, i64 68
   %2 = load i32, ptr %arraylen.i.i, align 4
-  %cmp.i.i = icmp ne i32 %2, 0
-  %or.cond = select i1 %or.cond.i.not11, i1 true, i1 %cmp.i.i
-  br i1 %or.cond, label %if.then, label %if.end
+  %cmp.i.i = icmp eq i32 %2, 0
+  %or.cond.not = select i1 %or.cond.i.not11.not12, i1 %cmp.i.i, i1 false
+  br i1 %or.cond.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %call2 = tail call noundef nonnull align 8 dereferenceable(160) ptr @_ZNK18OpenImageIO_v2_6_08ImageBuf4specEv(ptr noundef nonnull align 8 dereferenceable(16) %src)
@@ -31459,8 +31454,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit10: ; preds = %lpad, %if.t
   resume { ptr, i32 } %7
 
 return:                                           ; preds = %if.then.i.i, %invoke.cont, %if.then
-  %retval.0 = xor i1 %or.cond, true
-  ret i1 %retval.0
+  ret i1 %or.cond.not
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -31483,16 +31477,16 @@ entry:
   %call = tail call noundef nonnull align 8 dereferenceable(160) ptr @_ZNK18OpenImageIO_v2_6_08ImageBuf4specEv(ptr noundef nonnull align 8 dereferenceable(16) %src)
   %format = getelementptr inbounds i8, ptr %call, i64 64
   %0 = load i8, ptr %format, align 8
-  %cmp.not.i = icmp ne i8 %0, 6
+  %cmp.not.i = icmp eq i8 %0, 6
   %aggregate.i = getelementptr inbounds i8, ptr %call, i64 65
   %1 = load i8, ptr %aggregate.i, align 1
-  %cmp2.not.i = icmp ne i8 %1, 1
-  %or.cond.i.not11 = select i1 %cmp.not.i, i1 true, i1 %cmp2.not.i
+  %cmp2.not.i = icmp eq i8 %1, 1
+  %or.cond.i.not11.not12 = select i1 %cmp.not.i, i1 %cmp2.not.i, i1 false
   %arraylen.i.i = getelementptr inbounds i8, ptr %call, i64 68
   %2 = load i32, ptr %arraylen.i.i, align 4
-  %cmp.i.i = icmp ne i32 %2, 0
-  %or.cond = select i1 %or.cond.i.not11, i1 true, i1 %cmp.i.i
-  br i1 %or.cond, label %if.then, label %if.end
+  %cmp.i.i = icmp eq i32 %2, 0
+  %or.cond.not = select i1 %or.cond.i.not11.not12, i1 %cmp.i.i, i1 false
+  br i1 %or.cond.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %call2 = tail call noundef nonnull align 8 dereferenceable(160) ptr @_ZNK18OpenImageIO_v2_6_08ImageBuf4specEv(ptr noundef nonnull align 8 dereferenceable(16) %src)
@@ -31577,8 +31571,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit10: ; preds = %lpad, %if.t
   resume { ptr, i32 } %7
 
 return:                                           ; preds = %if.then.i.i, %invoke.cont, %if.then
-  %retval.0 = xor i1 %or.cond, true
-  ret i1 %retval.0
+  ret i1 %or.cond.not
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -31601,16 +31594,16 @@ entry:
   %call = tail call noundef nonnull align 8 dereferenceable(160) ptr @_ZNK18OpenImageIO_v2_6_08ImageBuf4specEv(ptr noundef nonnull align 8 dereferenceable(16) %src)
   %format = getelementptr inbounds i8, ptr %call, i64 64
   %0 = load i8, ptr %format, align 8
-  %cmp.not.i = icmp ne i8 %0, 7
+  %cmp.not.i = icmp eq i8 %0, 7
   %aggregate.i = getelementptr inbounds i8, ptr %call, i64 65
   %1 = load i8, ptr %aggregate.i, align 1
-  %cmp2.not.i = icmp ne i8 %1, 1
-  %or.cond.i.not11 = select i1 %cmp.not.i, i1 true, i1 %cmp2.not.i
+  %cmp2.not.i = icmp eq i8 %1, 1
+  %or.cond.i.not11.not12 = select i1 %cmp.not.i, i1 %cmp2.not.i, i1 false
   %arraylen.i.i = getelementptr inbounds i8, ptr %call, i64 68
   %2 = load i32, ptr %arraylen.i.i, align 4
-  %cmp.i.i = icmp ne i32 %2, 0
-  %or.cond = select i1 %or.cond.i.not11, i1 true, i1 %cmp.i.i
-  br i1 %or.cond, label %if.then, label %if.end
+  %cmp.i.i = icmp eq i32 %2, 0
+  %or.cond.not = select i1 %or.cond.i.not11.not12, i1 %cmp.i.i, i1 false
+  br i1 %or.cond.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %call2 = tail call noundef nonnull align 8 dereferenceable(160) ptr @_ZNK18OpenImageIO_v2_6_08ImageBuf4specEv(ptr noundef nonnull align 8 dereferenceable(16) %src)
@@ -31695,8 +31688,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit10: ; preds = %lpad, %if.t
   resume { ptr, i32 } %7
 
 return:                                           ; preds = %if.then.i.i, %invoke.cont, %if.then
-  %retval.0 = xor i1 %or.cond, true
-  ret i1 %retval.0
+  ret i1 %or.cond.not
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -31719,16 +31711,16 @@ entry:
   %call = tail call noundef nonnull align 8 dereferenceable(160) ptr @_ZNK18OpenImageIO_v2_6_08ImageBuf4specEv(ptr noundef nonnull align 8 dereferenceable(16) %src)
   %format = getelementptr inbounds i8, ptr %call, i64 64
   %0 = load i8, ptr %format, align 8
-  %cmp.not.i = icmp ne i8 %0, 12
+  %cmp.not.i = icmp eq i8 %0, 12
   %aggregate.i = getelementptr inbounds i8, ptr %call, i64 65
   %1 = load i8, ptr %aggregate.i, align 1
-  %cmp2.not.i = icmp ne i8 %1, 1
-  %or.cond.i.not11 = select i1 %cmp.not.i, i1 true, i1 %cmp2.not.i
+  %cmp2.not.i = icmp eq i8 %1, 1
+  %or.cond.i.not11.not12 = select i1 %cmp.not.i, i1 %cmp2.not.i, i1 false
   %arraylen.i.i = getelementptr inbounds i8, ptr %call, i64 68
   %2 = load i32, ptr %arraylen.i.i, align 4
-  %cmp.i.i = icmp ne i32 %2, 0
-  %or.cond = select i1 %or.cond.i.not11, i1 true, i1 %cmp.i.i
-  br i1 %or.cond, label %if.then, label %if.end
+  %cmp.i.i = icmp eq i32 %2, 0
+  %or.cond.not = select i1 %or.cond.i.not11.not12, i1 %cmp.i.i, i1 false
+  br i1 %or.cond.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %call2 = tail call noundef nonnull align 8 dereferenceable(160) ptr @_ZNK18OpenImageIO_v2_6_08ImageBuf4specEv(ptr noundef nonnull align 8 dereferenceable(16) %src)
@@ -31813,8 +31805,7 @@ _ZNSt8functionIFvN18OpenImageIO_v2_6_03ROIEEED2Ev.exit10: ; preds = %lpad, %if.t
   resume { ptr, i32 } %7
 
 return:                                           ; preds = %if.then.i.i, %invoke.cont, %if.then
-  %retval.0 = xor i1 %or.cond, true
-  ret i1 %retval.0
+  ret i1 %or.cond.not
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -31924,15 +31915,15 @@ invoke.cont:                                      ; preds = %_ZN18OpenImageIO_v2
   %aggregate.i.i = getelementptr inbounds i8, ptr %call, i64 65
   %6 = load i8, ptr %aggregate.i.i, align 1
   %cmp7.i.i = icmp ne i8 %6, 1
-  %or.cond.not = select i1 %cmp.i.i, i1 true, i1 %cmp7.i.i
+  %or.cond.not29 = select i1 %cmp.i.i, i1 true, i1 %cmp7.i.i
   %vecsemantics.i.i = getelementptr inbounds i8, ptr %call, i64 66
   %7 = load i8, ptr %vecsemantics.i.i, align 2
   %cmp12.i.i = icmp ne i8 %7, 0
-  %or.cond26 = select i1 %or.cond.not, i1 true, i1 %cmp12.i.i
+  %or.cond26.not28 = select i1 %or.cond.not29, i1 true, i1 %cmp12.i.i
   %arraylen.i.i = getelementptr inbounds i8, ptr %call, i64 68
   %8 = load i32, ptr %arraylen.i.i, align 4
   %cmp14.i.i = icmp ne i32 %8, 0
-  %or.cond27 = select i1 %or.cond26, i1 true, i1 %cmp14.i.i
+  %or.cond27 = select i1 %or.cond26.not28, i1 true, i1 %cmp14.i.i
   br i1 %or.cond27, label %if.then, label %if.end
 
 if.then:                                          ; preds = %invoke.cont
@@ -31944,13 +31935,13 @@ invoke.cont2:                                     ; preds = %if.then
   invoke void @_ZNK18OpenImageIO_v2_6_08ImageBuf8errorfmtIJNS_8TypeDescEEEEvPKcDpRKT_(ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull @.str.28, ptr noundef nonnull align 4 dereferenceable(8) %format4)
           to label %cleanup unwind label %lpad
 
-lpad:                                             ; preds = %if.then25.invoke, %if.end.i, %call2.i.noexc, %if.then.i21, %if.end34, %invoke.cont36, %invoke.cont31, %if.then29, %invoke.cont16, %if.then15, %lor.lhs.false, %if.end, %invoke.cont2, %if.then, %_ZN18OpenImageIO_v2_6_03pvt11LoggedTimerC2ENS_17basic_string_viewIcSt11char_traitsIcEEE.exit
+lpad:                                             ; preds = %if.then25.invoke, %if.end.i, %call2.i.noexc, %if.then.i18, %if.end34, %invoke.cont36, %invoke.cont31, %if.then29, %invoke.cont16, %if.then15, %lor.lhs.false, %if.end, %invoke.cont2, %if.then, %_ZN18OpenImageIO_v2_6_03pvt11LoggedTimerC2ENS_17basic_string_viewIcSt11char_traitsIcEEE.exit
   %9 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
-lpad.body:                                        ; preds = %lpad.i18, %lpad
-  %eh.lpad-body = phi { ptr, i32 } [ %9, %lpad ], [ %lpad.phi.i, %lpad.i18 ]
+lpad.body:                                        ; preds = %lpad.i19, %lpad
+  %eh.lpad-body = phi { ptr, i32 } [ %9, %lpad ], [ %lpad.phi.i, %lpad.i19 ]
   call void @_ZN18OpenImageIO_v2_6_03pvt11LoggedTimerD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %logtimer) #22
   br label %common.resume
 
@@ -32025,22 +32016,22 @@ if.end34:                                         ; preds = %invoke.cont33, %if.
 call.i.noexc:                                     ; preds = %if.end34
   %format.i = getelementptr inbounds i8, ptr %call.i22, i64 64
   %12 = load i8, ptr %format.i, align 8
-  %cmp.not.i.i = icmp ne i8 %12, 11
+  %cmp.not.i.i = icmp eq i8 %12, 11
   %aggregate.i.i17 = getelementptr inbounds i8, ptr %call.i22, i64 65
   %13 = load i8, ptr %aggregate.i.i17, align 1
-  %cmp2.not.i.i = icmp ne i8 %13, 1
-  %or.cond.i.not32.i = select i1 %cmp.not.i.i, i1 true, i1 %cmp2.not.i.i
+  %cmp2.not.i.i = icmp eq i8 %13, 1
+  %or.cond.i.not32.not33.i = select i1 %cmp.not.i.i, i1 %cmp2.not.i.i, i1 false
   %arraylen.i.i.i = getelementptr inbounds i8, ptr %call.i22, i64 68
   %14 = load i32, ptr %arraylen.i.i.i, align 4
-  %cmp.i.i.i = icmp ne i32 %14, 0
-  %or.cond31.i = select i1 %or.cond.i.not32.i, i1 true, i1 %cmp.i.i.i
-  br i1 %or.cond31.i, label %if.then.i21, label %if.end.i
+  %cmp.i.i.i = icmp eq i32 %14, 0
+  %or.cond31.not.i = select i1 %or.cond.i.not32.not33.i, i1 %cmp.i.i.i, i1 false
+  br i1 %or.cond31.not.i, label %if.end.i, label %if.then.i18
 
-if.then.i21:                                      ; preds = %call.i.noexc
+if.then.i18:                                      ; preds = %call.i.noexc
   %call2.i23 = invoke noundef nonnull align 8 dereferenceable(160) ptr @_ZNK18OpenImageIO_v2_6_08ImageBuf4specEv(ptr noundef nonnull align 8 dereferenceable(16) %A)
           to label %call2.i.noexc unwind label %lpad
 
-call2.i.noexc:                                    ; preds = %if.then.i21
+call2.i.noexc:                                    ; preds = %if.then.i18
   %format3.i = getelementptr inbounds i8, ptr %call2.i23, i64 64
   invoke void @_ZNK18OpenImageIO_v2_6_08ImageBuf8errorfmtIJNS_8TypeDescEEEEvPKcDpRKT_(ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull @.str.28, ptr noundef nonnull align 4 dereferenceable(8) %format3.i)
           to label %invoke.cont36 unwind label %lpad
@@ -32092,16 +32083,16 @@ for.cond.preheader.i:                             ; preds = %if.end11.i
 for.cond.i:                                       ; preds = %for.cond.i.backedge, %for.cond.preheader.i
   %15 = load i8, ptr %m_valid.i.i, align 8
   %16 = and i8 %15, 1
-  %cmp.i.i19 = icmp eq i8 %16, 0
-  br i1 %cmp.i.i19, label %land.lhs.true.i.i20, label %invoke.cont14.i
+  %cmp.i.i20 = icmp eq i8 %16, 0
+  br i1 %cmp.i.i20, label %land.lhs.true.i.i21, label %invoke.cont14.i
 
-land.lhs.true.i.i20:                              ; preds = %for.cond.i
+land.lhs.true.i.i21:                              ; preds = %for.cond.i
   %17 = load i32, ptr %m_x.i.i, align 4
   %18 = load i32, ptr %m_rng_xbegin.i.i, align 4
   %cmp2.i.i = icmp eq i32 %17, %18
   br i1 %cmp2.i.i, label %land.lhs.true3.i.i, label %invoke.cont14.i
 
-land.lhs.true3.i.i:                               ; preds = %land.lhs.true.i.i20
+land.lhs.true3.i.i:                               ; preds = %land.lhs.true.i.i21
   %19 = load i32, ptr %m_y.i.i, align 8
   %20 = load i32, ptr %m_rng_ybegin.i.i, align 4
   %cmp4.i.i = icmp eq i32 %19, %20
@@ -32113,7 +32104,7 @@ _ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit.i: ; preds = %land.l
   %cmp5.i.i = icmp eq i32 %21, %22
   br i1 %cmp5.i.i, label %for.end.i, label %invoke.cont14.i
 
-invoke.cont14.i:                                  ; preds = %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit.i, %land.lhs.true3.i.i, %land.lhs.true.i.i20, %for.cond.i
+invoke.cont14.i:                                  ; preds = %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit.i, %land.lhs.true3.i.i, %land.lhs.true.i.i21, %for.cond.i
   %23 = load ptr, ptr %m_proxydata.i.i, align 8
   %arrayidx.i.i.i = getelementptr inbounds float, ptr %23, i64 %idxprom.i.i.i
   %24 = load float, ptr %arrayidx.i.i.i, align 4
@@ -32134,14 +32125,14 @@ if.then18.i:                                      ; preds = %invoke.cont14.i
 lpad.loopexit.i:                                  ; preds = %if.end13.i.i.i, %if.then2.i.i.i
   %lpad.loopexit29.i = landingpad { ptr, i32 }
           cleanup
-  br label %lpad.i18
+  br label %lpad.i19
 
 lpad.loopexit.split-lp.i:                         ; preds = %if.end11.i
   %lpad.loopexit.split-lp30.i = landingpad { ptr, i32 }
           cleanup
-  br label %lpad.i18
+  br label %lpad.i19
 
-lpad.i18:                                         ; preds = %lpad.loopexit.split-lp.i, %lpad.loopexit.i
+lpad.i19:                                         ; preds = %lpad.loopexit.split-lp.i, %lpad.loopexit.i
   %lpad.phi.i = phi { ptr, i32 } [ %lpad.loopexit29.i, %lpad.loopexit.i ], [ %lpad.loopexit.split-lp30.i, %lpad.loopexit.split-lp.i ]
   call void @_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIffED2Ev(ptr noundef nonnull align 8 dereferenceable(125) %a.i) #22
   br label %lpad.body
@@ -32164,10 +32155,10 @@ if.else28.i:                                      ; preds = %if.else.i
   br i1 %brmerge.i, label %for.inc.sink.split.i, label %for.inc.i
 
 for.inc.sink.split.i:                             ; preds = %if.else28.i, %if.then24.i, %if.then18.i
-  %add.ptr.i.sink34.i = phi ptr [ %add.ptr.i.i, %if.then18.i ], [ %add.ptr.i24.i, %if.then24.i ], [ %submin.mux.i, %if.else28.i ]
-  %28 = load i64, ptr %add.ptr.i.sink34.i, align 8
+  %add.ptr.i.sink35.i = phi ptr [ %add.ptr.i.i, %if.then18.i ], [ %add.ptr.i24.i, %if.then24.i ], [ %submin.mux.i, %if.else28.i ]
+  %28 = load i64, ptr %add.ptr.i.sink35.i, align 8
   %inc.i = add i64 %28, 1
-  store i64 %inc.i, ptr %add.ptr.i.sink34.i, align 8
+  store i64 %inc.i, ptr %add.ptr.i.sink35.i, align 8
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.inc.sink.split.i, %if.else28.i
@@ -32201,13 +32192,13 @@ if.else.i.i.i:                                    ; preds = %for.inc.i
   store i32 %inc4.i.i.i, ptr %m_y.i.i, align 8
   %35 = load i32, ptr %m_rng_yend.i.i.i, align 8
   %cmp5.not.i.i.i = icmp slt i32 %inc4.i.i.i, %35
-  %.pre33.i = load i32, ptr %m_z.i.i, align 4
+  %.pre34.i = load i32, ptr %m_z.i.i, align 4
   br i1 %cmp5.not.i.i.i, label %if.end13.i.i.i, label %if.then6.i.i.i
 
 if.then6.i.i.i:                                   ; preds = %if.else.i.i.i
   %36 = load i32, ptr %m_rng_ybegin.i.i, align 4
   store i32 %36, ptr %m_y.i.i, align 8
-  %inc8.i.i.i = add nsw i32 %.pre33.i, 1
+  %inc8.i.i.i = add nsw i32 %.pre34.i, 1
   store i32 %inc8.i.i.i, ptr %m_z.i.i, align 4
   %37 = load i32, ptr %m_rng_zend.i.i, align 8
   %cmp9.not.i.i.i = icmp slt i32 %inc8.i.i.i, %37
@@ -32218,7 +32209,7 @@ if.then10.i.i.i:                                  ; preds = %if.then6.i.i.i
   br label %for.cond.i.backedge
 
 if.end13.i.i.i:                                   ; preds = %if.then6.i.i.i, %if.else.i.i.i, %if.then.if.end13_crit_edge.i.i.i
-  %38 = phi i32 [ %.pre33.i, %if.else.i.i.i ], [ %inc8.i.i.i, %if.then6.i.i.i ], [ %.pre.i, %if.then.if.end13_crit_edge.i.i.i ]
+  %38 = phi i32 [ %.pre34.i, %if.else.i.i.i ], [ %inc8.i.i.i, %if.then6.i.i.i ], [ %.pre.i, %if.then.if.end13_crit_edge.i.i.i ]
   %39 = phi i32 [ %inc4.i.i.i, %if.else.i.i.i ], [ %36, %if.then6.i.i.i ], [ %.pre.i.i.i, %if.then.if.end13_crit_edge.i.i.i ]
   %40 = phi i32 [ %33, %if.else.i.i.i ], [ %33, %if.then6.i.i.i ], [ %inc.i.i.i, %if.then.if.end13_crit_edge.i.i.i ]
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %a.i, i32 noundef %40, i32 noundef %39, i32 noundef %38)
@@ -32387,15 +32378,15 @@ invoke.cont4:                                     ; preds = %invoke.cont1
   %aggregate.i.i = getelementptr inbounds i8, ptr %call5, i64 65
   %10 = load i8, ptr %aggregate.i.i, align 1
   %cmp7.i.i = icmp ne i8 %10, 1
-  %or.cond.not = select i1 %cmp.i.i, i1 true, i1 %cmp7.i.i
+  %or.cond.not41 = select i1 %cmp.i.i, i1 true, i1 %cmp7.i.i
   %vecsemantics.i.i = getelementptr inbounds i8, ptr %call5, i64 66
   %11 = load i8, ptr %vecsemantics.i.i, align 2
   %cmp12.i.i = icmp ne i8 %11, 0
-  %or.cond38 = select i1 %or.cond.not, i1 true, i1 %cmp12.i.i
+  %or.cond38.not40 = select i1 %or.cond.not41, i1 true, i1 %cmp12.i.i
   %arraylen.i.i = getelementptr inbounds i8, ptr %call5, i64 68
   %12 = load i32, ptr %arraylen.i.i, align 4
   %cmp14.i.i = icmp ne i32 %12, 0
-  %or.cond39 = select i1 %or.cond38, i1 true, i1 %cmp14.i.i
+  %or.cond39 = select i1 %or.cond38.not40, i1 true, i1 %cmp14.i.i
   br i1 %or.cond39, label %if.then14, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %invoke.cont4
@@ -32574,13 +32565,13 @@ if.else.i:                                        ; preds = %invoke.cont24
   store i32 %inc4.i, ptr %m_y.i, align 8
   %37 = load i32, ptr %m_rng_yend.i, align 8
   %cmp5.not.i = icmp slt i32 %inc4.i, %37
-  %.pre47 = load i32, ptr %m_z.i, align 4
+  %.pre49 = load i32, ptr %m_z.i, align 4
   br i1 %cmp5.not.i, label %if.end13.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.else.i
   %38 = load i32, ptr %m_rng_ybegin.i, align 4
   store i32 %38, ptr %m_y.i, align 8
-  %inc8.i = add nsw i32 %.pre47, 1
+  %inc8.i = add nsw i32 %.pre49, 1
   store i32 %inc8.i, ptr %m_z.i, align 4
   %39 = load i32, ptr %m_rng_zend.i, align 8
   %cmp9.not.i = icmp slt i32 %inc8.i, %39
@@ -32591,7 +32582,7 @@ if.then10.i:                                      ; preds = %if.then6.i
   br label %for.cond.backedge
 
 if.end13.i:                                       ; preds = %if.then6.i, %if.else.i, %if.then.if.end13_crit_edge.i
-  %40 = phi i32 [ %.pre47, %if.else.i ], [ %inc8.i, %if.then6.i ], [ %.pre, %if.then.if.end13_crit_edge.i ]
+  %40 = phi i32 [ %.pre49, %if.else.i ], [ %inc8.i, %if.then6.i ], [ %.pre, %if.then.if.end13_crit_edge.i ]
   %41 = phi i32 [ %inc4.i, %if.else.i ], [ %38, %if.then6.i ], [ %.pre.i, %if.then.if.end13_crit_edge.i ]
   %42 = phi i32 [ %35, %if.else.i ], [ %35, %if.then6.i ], [ %inc.i, %if.then.if.end13_crit_edge.i ]
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %r, i32 noundef %42, i32 noundef %41, i32 noundef %40)
@@ -32642,8 +32633,8 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %wh
 
 invoke.cont38:                                    ; preds = %while.body.i.i, %for.end
   %retval.sroa.0.2.i.i = phi ptr [ %43, %for.end ], [ %spec.select.i.i, %while.body.i.i ]
-  %cmp4342 = icmp sgt i32 %conv, 0
-  br i1 %cmp4342, label %for.body44.lr.ph, label %for.end68
+  %cmp4344 = icmp sgt i32 %conv, 0
+  br i1 %cmp4344, label %for.body44.lr.ph, label %for.end68
 
 for.body44.lr.ph:                                 ; preds = %invoke.cont38
   %48 = load i64, ptr %retval.sroa.0.2.i.i, align 8
@@ -32661,30 +32652,30 @@ for.body44:                                       ; preds = %for.body44.lr.ph, %
   %div = fdiv float %conv47, %conv48
   %51 = call float @llvm.fmuladd.f32(float %div, float %conv49, float 5.000000e-01)
   %conv50 = fptosi float %51 to i32
-  %cmp54.not40 = icmp slt i32 %conv50, 1
-  br i1 %cmp54.not40, label %for.inc66, label %for.body55.preheader
+  %cmp54.not42 = icmp slt i32 %conv50, 1
+  br i1 %cmp54.not42, label %for.inc66, label %for.body55.preheader
 
 for.body55.preheader:                             ; preds = %for.body44
   %52 = trunc i64 %indvars.iv to i32
   br label %for.body55
 
 for.body55:                                       ; preds = %for.body55.preheader, %invoke.cont58
-  %j.041 = phi i32 [ %inc, %invoke.cont58 ], [ 1, %for.body55.preheader ]
-  %sub = sub nsw i32 %8, %j.041
+  %j.043 = phi i32 [ %inc, %invoke.cont58 ], [ 1, %for.body55.preheader ]
+  %sub = sub nsw i32 %8, %j.043
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %r, i32 noundef %52, i32 noundef %sub, i32 noundef 0)
           to label %invoke.cont58 unwind label %lpad21.loopexit
 
 invoke.cont58:                                    ; preds = %for.body55
   %53 = load ptr, ptr %m_proxydata.i, align 8
   store float 0.000000e+00, ptr %53, align 4
-  %inc = add nuw i32 %j.041, 1
-  %exitcond.not = icmp eq i32 %j.041, %conv50
+  %inc = add nuw i32 %j.043, 1
+  %exitcond.not = icmp eq i32 %j.043, %conv50
   br i1 %exitcond.not, label %for.inc66, label %for.body55, !llvm.loop !194
 
 for.inc66:                                        ; preds = %invoke.cont58, %for.body44
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond46.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond46.not, label %for.end68, label %for.body44, !llvm.loop !195
+  %exitcond48.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond48.not, label %for.end68, label %for.body44, !llvm.loop !195
 
 for.end68:                                        ; preds = %for.inc66, %invoke.cont38
   %m_tile.i.i = getelementptr inbounds i8, ptr %r, i64 72

@@ -1282,14 +1282,14 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
 22:                                               ; preds = %20
   %.val23 = load i64, ptr %21, align 4
   %23 = and i64 %.val23, 2147483648
-  %.not.i.i25 = icmp eq i64 %23, 0
+  %.not.i.i25 = icmp ne i64 %23, 0
   %24 = and i64 %.val23, 536870911
-  %25 = icmp ne i64 %24, 536870911
-  %narrow.i.not.not.i = and i1 %.not.i.i25, %25
+  %25 = icmp eq i64 %24, 536870911
+  %narrow.i.not.not.i.not27 = or i1 %.not.i.i25, %25
   %26 = and i64 %.val23, 2684354559
-  %narrow.i3.i = icmp eq i64 %26, 2684354559
-  %narrow.i = or i1 %narrow.i3.i, %narrow.i.not.not.i
-  br i1 %narrow.i, label %27, label %39
+  %narrow.i3.i = icmp ne i64 %26, 2684354559
+  %narrow.i.not = and i1 %narrow.i3.i, %narrow.i.not.not.i.not27
+  br i1 %narrow.i.not, label %39, label %27
 
 27:                                               ; preds = %22
   %28 = getelementptr inbounds i8, ptr %21, i64 8

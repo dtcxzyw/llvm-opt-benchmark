@@ -15485,15 +15485,15 @@ define noundef i32 @mz_zip_writer_add_file(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %or.cond, label %22, label %_ZL35mz_zip_writer_validate_archive_namePKc.exit.thread
 
 22:                                               ; preds = %17
-  %23 = icmp ne i16 %4, 0
-  %24 = icmp eq ptr %3, null
-  %or.cond3.not183 = and i1 %24, %23
-  %25 = icmp ugt i32 %14, 10
-  %or.cond5 = or i1 %or.cond3.not183, %25
+  %23 = icmp eq i16 %4, 0
+  %24 = icmp ne ptr %3, null
+  %or.cond3.not183.not215 = or i1 %24, %23
+  %25 = icmp ult i32 %14, 11
+  %or.cond5.not212 = and i1 %or.cond3.not183.not215, %25
   %26 = and i32 %spec.store.select, 1024
-  %.not184 = icmp ne i32 %26, 0
-  %or.cond203.not = or i1 %.not184, %or.cond5
-  br i1 %or.cond203.not, label %_ZL35mz_zip_writer_validate_archive_namePKc.exit.thread, label %27
+  %.not184 = icmp eq i32 %26, 0
+  %or.cond203 = and i1 %.not184, %or.cond5.not212
+  br i1 %or.cond203, label %27, label %_ZL35mz_zip_writer_validate_archive_namePKc.exit.thread
 
 27:                                               ; preds = %22
   %28 = load i8, ptr %1, align 1
@@ -15615,10 +15615,10 @@ _ZL55mz_zip_writer_compute_padding_needed_for_file_alignmentP18mz_zip_archive_ta
   br i1 %.not192, label %.preheader, label %106
 
 .preheader:                                       ; preds = %90, %102
-  %.0159215 = phi i64 [ %103, %102 ], [ 0, %90 ]
-  %.0164214 = phi i64 [ %104, %102 ], [ %59, %90 ]
-  %.0168213 = phi i64 [ %105, %102 ], [ %81, %90 ]
-  %91 = tail call i64 @llvm.umin.i64(i64 %.0164214, i64 65536)
+  %.0159220 = phi i64 [ %103, %102 ], [ 0, %90 ]
+  %.0164219 = phi i64 [ %104, %102 ], [ %59, %90 ]
+  %.0168218 = phi i64 [ %105, %102 ], [ %81, %90 ]
+  %91 = tail call i64 @llvm.umin.i64(i64 %.0164219, i64 65536)
   %92 = tail call i64 @fread(ptr noundef nonnull %87, i64 noundef 1, i64 noundef %91, ptr noundef nonnull %56)
   %.not194 = icmp eq i64 %92, %91
   br i1 %.not194, label %93, label %97
@@ -15626,7 +15626,7 @@ _ZL55mz_zip_writer_compute_padding_needed_for_file_alignmentP18mz_zip_archive_ta
 93:                                               ; preds = %.preheader
   %94 = load ptr, ptr %73, align 8
   %95 = load ptr, ptr %75, align 8
-  %96 = tail call noundef i64 %94(ptr noundef %95, i64 noundef %.0168213, ptr noundef nonnull %87, i64 noundef %91)
+  %96 = tail call noundef i64 %94(ptr noundef %95, i64 noundef %.0168218, ptr noundef nonnull %87, i64 noundef %91)
   %.not195 = icmp eq i64 %96, %91
   br i1 %.not195, label %102, label %97
 
@@ -15639,9 +15639,9 @@ _ZL55mz_zip_writer_compute_padding_needed_for_file_alignmentP18mz_zip_archive_ta
   br label %_ZL35mz_zip_writer_validate_archive_namePKc.exit.thread
 
 102:                                              ; preds = %93
-  %103 = tail call i64 @mz_crc32(i64 noundef %.0159215, ptr noundef nonnull %87, i64 noundef %91), !range !17
-  %104 = sub i64 %.0164214, %91
-  %105 = add i64 %91, %.0168213
+  %103 = tail call i64 @mz_crc32(i64 noundef %.0159220, ptr noundef nonnull %87, i64 noundef %91), !range !17
+  %104 = sub i64 %.0164219, %91
+  %105 = add i64 %91, %.0168218
   %.not193 = icmp eq i64 %104, 0
   br i1 %.not193, label %.loopexit, label %.preheader, !llvm.loop !205
 

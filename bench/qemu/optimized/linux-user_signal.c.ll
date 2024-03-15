@@ -1165,9 +1165,9 @@ sw.bb:                                            ; preds = %if.then
   %6 = load i64, ptr @guest_base, align 8
   %sub.i = sub i64 %5, %6
   %7 = load i64, ptr @reserved_va, align 8
-  %tobool.not.i = icmp ne i64 %7, 0
-  %cmp.not16.i = icmp ult i64 %7, %sub.i
-  %cmp.not.i = select i1 %tobool.not.i, i1 %cmp.not16.i, i1 false
+  %tobool.not.i = icmp eq i64 %7, 0
+  %cmp.not16.i = icmp uge i64 %7, %sub.i
+  %cmp.not.not22.i = select i1 %tobool.not.i, i1 true, i1 %cmp.not16.i
   %8 = getelementptr i8, ptr %puc, i64 168
   %uc.val.i = load i64, ptr %8, align 8
   store i64 %uc.val.i, ptr %pc.i, align 8
@@ -1186,9 +1186,8 @@ host_signal_write.exit.i:                         ; preds = %sw.bb
   %and.i.i = and i64 %10, 2
   %tobool.i.i = icmp ne i64 %and.i.i, 0
   %call5.i = call i32 @adjust_signal_pc(ptr noundef nonnull %pc.i, i1 noundef zeroext %tobool.i.i) #16
-  %call2.not.i = xor i1 %tobool.i.i, true
-  %brmerge.i = select i1 %call2.not.i, i1 true, i1 %cmp.not.i
-  br i1 %brmerge.i, label %if.end.i, label %land.lhs.true8.i
+  %brmerge.not.i = select i1 %tobool.i.i, i1 %cmp.not.not22.i, i1 false
+  br i1 %brmerge.not.i, label %land.lhs.true8.i, label %if.end.i
 
 land.lhs.true8.i:                                 ; preds = %host_signal_write.exit.i
   %11 = load i32, ptr %si_code, align 8
@@ -1219,7 +1218,7 @@ if.then17.i:                                      ; preds = %land.lhs.true14.i
   unreachable
 
 if.end18.i:                                       ; preds = %land.lhs.true14.i, %if.end.i
-  br i1 %cmp.not.i, label %if.end29.i, label %land.lhs.true20.i
+  br i1 %cmp.not.not22.i, label %land.lhs.true20.i, label %if.end29.i
 
 land.lhs.true20.i:                                ; preds = %if.end18.i
   %16 = load i32, ptr %si_code, align 8

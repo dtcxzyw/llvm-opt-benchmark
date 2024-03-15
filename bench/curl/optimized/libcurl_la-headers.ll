@@ -9,17 +9,17 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define noundef i32 @curl_easy_header(ptr noundef %easy, ptr noundef %name, i64 noundef %nameindex, i32 noundef %type, i32 noundef %request, ptr noundef writeonly %hout) local_unnamed_addr #0 {
 entry:
-  %tobool = icmp ne ptr %name, null
-  %tobool1 = icmp ne ptr %hout, null
-  %or.cond = and i1 %tobool, %tobool1
-  %tobool3 = icmp ne ptr %easy, null
-  %or.cond1 = and i1 %tobool3, %or.cond
-  %0 = add i32 %type, -1
-  %1 = icmp ult i32 %0, 31
-  %or.cond3 = and i1 %1, %or.cond1
-  %cmp8 = icmp sgt i32 %request, -2
-  %or.cond4.not = and i1 %cmp8, %or.cond3
-  br i1 %or.cond4.not, label %if.end, label %return
+  %tobool = icmp eq ptr %name, null
+  %tobool1 = icmp eq ptr %hout, null
+  %or.cond.not45.not48.not51 = or i1 %tobool, %tobool1
+  %tobool3 = icmp eq ptr %easy, null
+  %or.cond1.not44.not47.not50 = or i1 %tobool3, %or.cond.not45.not48.not51
+  %0 = add i32 %type, -32
+  %1 = icmp ult i32 %0, -31
+  %or.cond3.not49 = or i1 %1, %or.cond1.not44.not47.not50
+  %cmp8 = icmp slt i32 %request, -1
+  %or.cond4 = or i1 %cmp8, %or.cond3.not49
+  br i1 %or.cond4, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %httphdrs = getelementptr inbounds i8, ptr %easy, i64 4776
@@ -36,19 +36,19 @@ if.end11:                                         ; preds = %if.end
 if.end15:                                         ; preds = %if.end11
   %cmp16 = icmp eq i32 %request, -1
   %spec.select = select i1 %cmp16, i32 %2, i32 %request
-  %e.048 = load ptr, ptr %httphdrs, align 8
-  %tobool23.not49 = icmp eq ptr %e.048, null
-  br i1 %tobool23.not49, label %return, label %for.body
+  %e.055 = load ptr, ptr %httphdrs, align 8
+  %tobool23.not56 = icmp eq ptr %e.055, null
+  br i1 %tobool23.not56, label %return, label %for.body
 
 for.body:                                         ; preds = %if.end15, %for.inc
-  %e.053 = phi ptr [ %e.0, %for.inc ], [ %e.048, %if.end15 ]
-  %pick.052 = phi ptr [ %pick.1, %for.inc ], [ null, %if.end15 ]
-  %amount.051 = phi i64 [ %amount.1, %for.inc ], [ 0, %if.end15 ]
-  %e_pick.050 = phi ptr [ %e_pick.1, %for.inc ], [ null, %if.end15 ]
-  %3 = load ptr, ptr %e.053, align 8
+  %e.060 = phi ptr [ %e.0, %for.inc ], [ %e.055, %if.end15 ]
+  %pick.059 = phi ptr [ %pick.1, %for.inc ], [ null, %if.end15 ]
+  %amount.058 = phi i64 [ %amount.1, %for.inc ], [ 0, %if.end15 ]
+  %e_pick.057 = phi ptr [ %e_pick.1, %for.inc ], [ null, %if.end15 ]
+  %3 = load ptr, ptr %e.060, align 8
   %name24 = getelementptr inbounds i8, ptr %3, i64 24
   %4 = load ptr, ptr %name24, align 8
-  %call25 = tail call i32 @curl_strequal(ptr noundef %4, ptr noundef nonnull %name) #4
+  %call25 = tail call i32 @curl_strequal(ptr noundef %4, ptr noundef %name) #4
   %tobool26.not = icmp eq i32 %call25, 0
   br i1 %tobool26.not, label %for.inc, label %land.lhs.true
 
@@ -67,14 +67,14 @@ land.lhs.true29:                                  ; preds = %land.lhs.true
   br i1 %cmp31, label %if.then33, label %for.inc
 
 if.then33:                                        ; preds = %land.lhs.true29
-  %inc = add i64 %amount.051, 1
+  %inc = add i64 %amount.058, 1
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %land.lhs.true, %land.lhs.true29, %if.then33
-  %e_pick.1 = phi ptr [ %e.053, %if.then33 ], [ %e_pick.050, %land.lhs.true29 ], [ %e_pick.050, %land.lhs.true ], [ %e_pick.050, %for.body ]
-  %amount.1 = phi i64 [ %inc, %if.then33 ], [ %amount.051, %land.lhs.true29 ], [ %amount.051, %land.lhs.true ], [ %amount.051, %for.body ]
-  %pick.1 = phi ptr [ %3, %if.then33 ], [ %pick.052, %land.lhs.true29 ], [ %pick.052, %land.lhs.true ], [ %pick.052, %for.body ]
-  %next = getelementptr inbounds i8, ptr %e.053, i64 16
+  %e_pick.1 = phi ptr [ %e.060, %if.then33 ], [ %e_pick.057, %land.lhs.true29 ], [ %e_pick.057, %land.lhs.true ], [ %e_pick.057, %for.body ]
+  %amount.1 = phi i64 [ %inc, %if.then33 ], [ %amount.058, %land.lhs.true29 ], [ %amount.058, %land.lhs.true ], [ %amount.058, %for.body ]
+  %pick.1 = phi ptr [ %3, %if.then33 ], [ %pick.059, %land.lhs.true29 ], [ %pick.059, %land.lhs.true ], [ %pick.059, %for.body ]
+  %next = getelementptr inbounds i8, ptr %e.060, i64 16
   %e.0 = load ptr, ptr %next, align 8
   %tobool23.not = icmp eq ptr %e.0, null
   br i1 %tobool23.not, label %for.end, label %for.body, !llvm.loop !4
@@ -93,17 +93,17 @@ if.end41:                                         ; preds = %if.else
   br i1 %cmp42, label %if.end77, label %for.cond49.preheader
 
 for.cond49.preheader:                             ; preds = %if.end41
-  %e.156 = load ptr, ptr %httphdrs, align 8
-  %tobool50.not57 = icmp eq ptr %e.156, null
-  br i1 %tobool50.not57, label %return, label %for.body51
+  %e.163 = load ptr, ptr %httphdrs, align 8
+  %tobool50.not64 = icmp eq ptr %e.163, null
+  br i1 %tobool50.not64, label %return, label %for.body51
 
 for.body51:                                       ; preds = %for.cond49.preheader, %for.inc71
-  %e.159 = phi ptr [ %e.1, %for.inc71 ], [ %e.156, %for.cond49.preheader ]
-  %match.058 = phi i64 [ %match.1, %for.inc71 ], [ 0, %for.cond49.preheader ]
-  %7 = load ptr, ptr %e.159, align 8
+  %e.166 = phi ptr [ %e.1, %for.inc71 ], [ %e.163, %for.cond49.preheader ]
+  %match.065 = phi i64 [ %match.1, %for.inc71 ], [ 0, %for.cond49.preheader ]
+  %7 = load ptr, ptr %e.166, align 8
   %name53 = getelementptr inbounds i8, ptr %7, i64 24
   %8 = load ptr, ptr %name53, align 8
-  %call54 = tail call i32 @curl_strequal(ptr noundef %8, ptr noundef nonnull %name) #4
+  %call54 = tail call i32 @curl_strequal(ptr noundef %8, ptr noundef %name) #4
   %tobool55.not = icmp eq i32 %call54, 0
   br i1 %tobool55.not, label %for.inc71, label %land.lhs.true56
 
@@ -122,19 +122,19 @@ land.lhs.true61:                                  ; preds = %land.lhs.true56
   br i1 %cmp63, label %land.lhs.true65, label %for.inc71
 
 land.lhs.true65:                                  ; preds = %land.lhs.true61
-  %inc66 = add i64 %match.058, 1
-  %cmp67 = icmp eq i64 %match.058, %nameindex
+  %inc66 = add i64 %match.065, 1
+  %cmp67 = icmp eq i64 %match.065, %nameindex
   br i1 %cmp67, label %if.end77, label %for.inc71
 
 for.inc71:                                        ; preds = %for.body51, %land.lhs.true56, %land.lhs.true61, %land.lhs.true65
-  %match.1 = phi i64 [ %inc66, %land.lhs.true65 ], [ %match.058, %land.lhs.true61 ], [ %match.058, %land.lhs.true56 ], [ %match.058, %for.body51 ]
-  %next72 = getelementptr inbounds i8, ptr %e.159, i64 16
+  %match.1 = phi i64 [ %inc66, %land.lhs.true65 ], [ %match.065, %land.lhs.true61 ], [ %match.065, %land.lhs.true56 ], [ %match.065, %for.body51 ]
+  %next72 = getelementptr inbounds i8, ptr %e.166, i64 16
   %e.1 = load ptr, ptr %next72, align 8
   %tobool50.not = icmp eq ptr %e.1, null
   br i1 %tobool50.not, label %return, label %for.body51, !llvm.loop !6
 
 if.end77:                                         ; preds = %land.lhs.true65, %if.end41
-  %e_pick.3 = phi ptr [ %e_pick.1, %if.end41 ], [ %e.159, %land.lhs.true65 ]
+  %e_pick.3 = phi ptr [ %e_pick.1, %if.end41 ], [ %e.166, %land.lhs.true65 ]
   %hs.3 = phi ptr [ %pick.1, %if.end41 ], [ %7, %land.lhs.true65 ]
   %headerout = getelementptr inbounds i8, ptr %easy, i64 4808
   %name.i = getelementptr inbounds i8, ptr %hs.3, i64 24

@@ -7323,13 +7323,13 @@ if.end45.i:                                       ; preds = %lor.lhs.false.i, %l
 land.lhs.true47.i:                                ; preds = %if.end45.i
   %23 = load i8, ptr %writetranslate.i, align 4
   %tobool50.not.i = icmp eq i8 %23, 0
-  br i1 %tobool50.not.i, label %if.end62.thread154.i, label %land.lhs.true51.i
+  br i1 %tobool50.not.i, label %if.end62.thread155.i, label %land.lhs.true51.i
 
 land.lhs.true51.i:                                ; preds = %land.lhs.true47.i
   %writenl52.i = getelementptr inbounds i8, ptr %self, i64 80
   %24 = load ptr, ptr %writenl52.i, align 8
   %cmp53.not.i = icmp eq ptr %24, null
-  br i1 %cmp53.not.i, label %if.end62.thread154.i, label %if.then55.i
+  br i1 %cmp53.not.i, label %if.end62.thread155.i, label %if.then55.i
 
 if.then55.i:                                      ; preds = %land.lhs.true51.i
   %call57.i = tail call ptr (ptr, ptr, ptr, ...) @_PyObject_CallMethod(ptr noundef nonnull %arg, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 582), ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.30, ptr noundef nonnull %24) #10
@@ -7350,15 +7350,15 @@ if.then1.i270.i:                                  ; preds = %if.end.i267.i
 
 Py_DECREF.exit272.i:                              ; preds = %if.then1.i270.i, %if.end.i267.i, %if.then55.i
   %cmp58.i = icmp eq ptr %call57.i, null
-  br i1 %cmp58.i, label %exit, label %if.end62.thread154.i
+  br i1 %cmp58.i, label %exit, label %if.end62.thread155.i
 
-if.end62.thread154.i:                             ; preds = %Py_DECREF.exit272.i, %land.lhs.true51.i, %land.lhs.true47.i
+if.end62.thread155.i:                             ; preds = %Py_DECREF.exit272.i, %land.lhs.true51.i, %land.lhs.true47.i
   %text.addr.0.ph.i = phi ptr [ %call57.i, %Py_DECREF.exit272.i ], [ %arg, %land.lhs.true47.i ], [ %arg, %land.lhs.true51.i ]
-  %write_through156.i = getelementptr inbounds i8, ptr %self, i64 89
-  %27 = load i8, ptr %write_through156.i, align 1
-  %line_buffering66157.i = getelementptr inbounds i8, ptr %self, i64 88
-  %28 = load i8, ptr %line_buffering66157.i, align 8
-  %tobool68.not158.i = icmp ne i8 %28, 0
+  %write_through157.i = getelementptr inbounds i8, ptr %self, i64 89
+  %27 = load i8, ptr %write_through157.i, align 1
+  %line_buffering66158.i = getelementptr inbounds i8, ptr %self, i64 88
+  %28 = load i8, ptr %line_buffering66158.i, align 8
+  %tobool68.not159.i = icmp ne i8 %28, 0
   br label %if.end77.i
 
 if.end62.i:                                       ; preds = %if.end45.i
@@ -7380,10 +7380,10 @@ lor.lhs.false71.i:                                ; preds = %if.end62.i
   %cmp74.not.i = icmp ne i64 %call73.i, -1
   br label %if.end77.i
 
-if.end77.i:                                       ; preds = %lor.lhs.false71.i, %if.end62.thread.i, %if.end62.i, %if.end62.thread154.i
-  %tobool63.not146.in.i = phi i8 [ %29, %if.end62.i ], [ %31, %if.end62.thread.i ], [ %29, %lor.lhs.false71.i ], [ %27, %if.end62.thread154.i ]
-  %text.addr.0144.i = phi ptr [ %arg, %if.end62.i ], [ %arg, %if.end62.thread.i ], [ %arg, %lor.lhs.false71.i ], [ %text.addr.0.ph.i, %if.end62.thread154.i ]
-  %tobool167.i = phi i1 [ false, %if.end62.i ], [ false, %if.end62.thread.i ], [ %cmp74.not.i, %lor.lhs.false71.i ], [ %tobool68.not158.i, %if.end62.thread154.i ]
+if.end77.i:                                       ; preds = %lor.lhs.false71.i, %if.end62.thread.i, %if.end62.i, %if.end62.thread155.i
+  %tobool63.not146.in.i = phi i8 [ %29, %if.end62.i ], [ %31, %if.end62.thread.i ], [ %29, %lor.lhs.false71.i ], [ %27, %if.end62.thread155.i ]
+  %text.addr.0144.i = phi ptr [ %arg, %if.end62.i ], [ %arg, %if.end62.thread.i ], [ %arg, %lor.lhs.false71.i ], [ %text.addr.0.ph.i, %if.end62.thread155.i ]
+  %tobool167.i = phi i1 [ false, %if.end62.i ], [ false, %if.end62.thread.i ], [ %cmp74.not.i, %lor.lhs.false71.i ], [ %tobool68.not159.i, %if.end62.thread155.i ]
   %tobool63.not146.i = icmp ne i8 %tobool63.not146.in.i, 0
   %encodefunc.i = getelementptr inbounds i8, ptr %self, i64 104
   %32 = load ptr, ptr %encodefunc.i, align 8
@@ -7406,12 +7406,12 @@ land.lhs.true83.i:                                ; preds = %if.then80.i
   br i1 %cmp85.not.i, label %if.else93.i, label %land.lhs.true87.i
 
 land.lhs.true87.i:                                ; preds = %land.lhs.true83.i
-  %cmp.i127.i = icmp eq ptr %32, @ascii_encode
-  %cmp1.i.i = icmp eq ptr %32, @latin1_encode
-  %or.cond.i.i = or i1 %cmp.i127.i, %cmp1.i.i
-  %cmp2.i.i = icmp eq ptr %32, @utf8_encode
-  %narrow.i.i = or i1 %cmp2.i.i, %or.cond.i.i
-  br i1 %narrow.i.i, label %if.then91.i, label %if.else93.i
+  %cmp.i127.i = icmp ne ptr %32, @ascii_encode
+  %cmp1.i.i = icmp ne ptr %32, @latin1_encode
+  %or.cond.i.not154.i = and i1 %cmp.i127.i, %cmp1.i.i
+  %cmp2.i.i = icmp ne ptr %32, @utf8_encode
+  %narrow.i.not.i = and i1 %cmp2.i.i, %or.cond.i.not154.i
+  br i1 %narrow.i.not.i, label %if.else93.i, label %if.then91.i
 
 if.then91.i:                                      ; preds = %land.lhs.true87.i
   %37 = load i32, ptr %text.addr.0144.i, align 8

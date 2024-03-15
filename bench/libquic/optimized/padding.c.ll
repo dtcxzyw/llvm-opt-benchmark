@@ -251,18 +251,18 @@ if.end3:                                          ; preds = %if.end
 
 for.body:                                         ; preds = %if.end3, %for.body
   %indvars.iv = phi i64 [ 2, %if.end3 ], [ %indvars.iv.next, %for.body ]
-  %zero_index.039 = phi i32 [ 0, %if.end3 ], [ %or.i, %for.body ]
-  %looking_for_index.038 = phi i32 [ -1, %if.end3 ], [ %and1.i30, %for.body ]
+  %zero_index.037 = phi i32 [ 0, %if.end3 ], [ %or.i, %for.body ]
+  %looking_for_index.036 = phi i32 [ -1, %if.end3 ], [ %and1.i30, %for.body ]
   %arrayidx9 = getelementptr inbounds i8, ptr %from, i64 %indvars.iv
   %3 = load i8, ptr %arrayidx9, align 1
-  %isneg37 = icmp eq i8 %3, 0
-  %and = select i1 %isneg37, i32 %looking_for_index.038, i32 0
+  %isneg35 = icmp eq i8 %3, 0
+  %and = select i1 %isneg35, i32 %looking_for_index.036, i32 0
   %4 = trunc i64 %indvars.iv to i32
   %and.i27 = and i32 %and, %4
   %not.i28 = xor i32 %and, -1
-  %and1.i = and i32 %zero_index.039, %not.i28
+  %and1.i = and i32 %zero_index.037, %not.i28
   %or.i = or disjoint i32 %and1.i, %and.i27
-  %and1.i30 = select i1 %isneg37, i32 0, i32 %looking_for_index.038
+  %and1.i30 = select i1 %isneg35, i32 0, i32 %looking_for_index.036
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !11
@@ -270,16 +270,15 @@ for.body:                                         ; preds = %if.end3, %for.body
 for.end:                                          ; preds = %for.body
   %sub.i.i = add nsw i32 %conv, -1
   %sub.i.i24 = add nsw i32 %xor.i, -1
-  %shr.i.i.i33 = and i32 %sub.i.i24, %sub.i.i
-  %isneg = icmp sgt i32 %shr.i.i.i33, -1
-  %sub.i.i31 = add i32 %or.i, -10
-  %5 = xor i32 %or.i, -1
-  %xor2.i.i = and i32 %sub.i.i31, %5
-  %isnotneg.i.inv = icmp slt i32 %xor2.i.i, 0
+  %shr.i.i.i31 = and i32 %sub.i.i24, %sub.i.i
+  %isneg = icmp sgt i32 %shr.i.i.i31, -1
+  %5 = sub i32 9, %or.i
+  %6 = or i32 %5, %or.i
+  %isneg32 = icmp sgt i32 %6, -1
+  %.not = select i1 %isneg32, i1 true, i1 %isneg
   %inc18 = add i32 %or.i, 1
-  %tobool.not3435 = icmp eq i32 %and1.i30, -1
-  %6 = select i1 %isnotneg.i.inv, i1 true, i1 %isneg
-  %tobool.not = select i1 %6, i1 true, i1 %tobool.not3435
+  %tobool.not33 = icmp eq i32 %and1.i30, -1
+  %tobool.not = select i1 %.not, i1 true, i1 %tobool.not33
   br i1 %tobool.not, label %if.then19, label %if.end20
 
 if.then19:                                        ; preds = %for.end
@@ -633,8 +632,8 @@ if.end16:                                         ; preds = %if.end9
   br i1 %tobool.not, label %for.cond.preheader, label %return
 
 for.cond.preheader:                               ; preds = %if.end16
-  %cmp2271.not = icmp eq i32 %conv, 0
-  br i1 %cmp2271.not, label %for.end, label %for.body.preheader
+  %cmp2270.not = icmp eq i32 %conv, 0
+  br i1 %cmp2270.not, label %for.end, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %for.cond.preheader
   %wide.trip.count = and i64 %call4, 4294967295
@@ -658,20 +657,20 @@ for.end:                                          ; preds = %for.body, %for.cond
   br i1 %tobool31.not, label %for.cond34.preheader, label %return
 
 for.cond34.preheader:                             ; preds = %for.end
-  %cmp3573.not = icmp eq i32 %sub10, 0
-  br i1 %cmp3573.not, label %for.end48, label %for.body37
+  %cmp3572.not = icmp eq i32 %sub10, 0
+  br i1 %cmp3572.not, label %for.end48, label %for.body37
 
 for.body37:                                       ; preds = %for.cond34.preheader, %for.body37
-  %indvars.iv83 = phi i64 [ %indvars.iv.next84, %for.body37 ], [ 0, %for.cond34.preheader ]
-  %arrayidx39 = getelementptr inbounds i8, ptr %add.ptr18, i64 %indvars.iv83
+  %indvars.iv82 = phi i64 [ %indvars.iv.next83, %for.body37 ], [ 0, %for.cond34.preheader ]
+  %arrayidx39 = getelementptr inbounds i8, ptr %add.ptr18, i64 %indvars.iv82
   %3 = load i8, ptr %arrayidx39, align 1
-  %arrayidx42 = getelementptr inbounds i8, ptr %call12, i64 %indvars.iv83
+  %arrayidx42 = getelementptr inbounds i8, ptr %call12, i64 %indvars.iv82
   %4 = load i8, ptr %arrayidx42, align 1
   %xor4454 = xor i8 %4, %3
   store i8 %xor4454, ptr %arrayidx42, align 1
-  %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
-  %exitcond87.not = icmp eq i64 %indvars.iv.next84, %conv11
-  br i1 %exitcond87.not, label %for.end48, label %for.body37, !llvm.loop !17
+  %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
+  %exitcond86.not = icmp eq i64 %indvars.iv.next83, %conv11
+  br i1 %exitcond86.not, label %for.end48, label %for.body37, !llvm.loop !17
 
 for.end48:                                        ; preds = %for.body37, %for.cond34.preheader
   %conv49 = zext i32 %param_len to i64
@@ -681,48 +680,46 @@ for.end48:                                        ; preds = %for.body37, %for.co
 
 if.end54:                                         ; preds = %for.end48
   %call57 = call i32 @CRYPTO_memcmp(ptr noundef nonnull %call12, ptr noundef nonnull %phash, i64 noundef %idx.ext) #8
-  %not.i = xor i32 %call57, -1
-  %sub.i = add i32 %call57, -1
-  %and.i = and i32 %sub.i, %not.i
   %5 = load i8, ptr %from, align 1
   %conv60 = zext i8 %5 to i32
-  %sub.i57 = add nsw i32 %conv60, -1
-  %shr.i.i68 = and i32 %and.i, %sub.i57
-  %isnotneg = icmp sgt i32 %shr.i.i68, -1
-  %or = sext i1 %isnotneg to i32
-  %cmp6475 = icmp ugt i32 %sub10, %conv
-  br i1 %cmp6475, label %for.body66, label %for.end82
+  %6 = sub i32 0, %call57
+  %7 = sub nsw i32 0, %conv60
+  %8 = or i32 %6, %7
+  %9 = or i32 %8, %call57
+  %.lobit = ashr i32 %9, 31
+  %cmp6474 = icmp ugt i32 %sub10, %conv
+  br i1 %cmp6474, label %for.body66, label %for.end82
 
 for.body66:                                       ; preds = %if.end54, %for.body66
-  %indvars.iv88 = phi i64 [ %indvars.iv.next89, %for.body66 ], [ %idx.ext, %if.end54 ]
-  %one_index.078 = phi i32 [ %or.i, %for.body66 ], [ 0, %if.end54 ]
-  %looking_for_one_byte.077 = phi i32 [ %and1.i67, %for.body66 ], [ -1, %if.end54 ]
-  %bad.076 = phi i32 [ %or79, %for.body66 ], [ %or, %if.end54 ]
-  %arrayidx68 = getelementptr inbounds i8, ptr %call12, i64 %indvars.iv88
-  %6 = load i8, ptr %arrayidx68, align 1
-  %isneg69 = icmp eq i8 %6, 1
-  %and = select i1 %isneg69, i32 %looking_for_one_byte.077, i32 0
-  %7 = trunc i64 %indvars.iv88 to i32
-  %and.i64 = and i32 %and, %7
+  %indvars.iv87 = phi i64 [ %indvars.iv.next88, %for.body66 ], [ %idx.ext, %if.end54 ]
+  %one_index.077 = phi i32 [ %or.i, %for.body66 ], [ 0, %if.end54 ]
+  %looking_for_one_byte.076 = phi i32 [ %and1.i67, %for.body66 ], [ -1, %if.end54 ]
+  %bad.075 = phi i32 [ %or79, %for.body66 ], [ %.lobit, %if.end54 ]
+  %arrayidx68 = getelementptr inbounds i8, ptr %call12, i64 %indvars.iv87
+  %10 = load i8, ptr %arrayidx68, align 1
+  %isneg69 = icmp eq i8 %10, 1
+  %and = select i1 %isneg69, i32 %looking_for_one_byte.076, i32 0
+  %11 = trunc i64 %indvars.iv87 to i32
+  %and.i64 = and i32 %and, %11
   %not.i65 = xor i32 %and, -1
-  %and1.i = and i32 %one_index.078, %not.i65
+  %and1.i = and i32 %one_index.077, %not.i65
   %or.i = or disjoint i32 %and1.i, %and.i64
-  %and1.i67 = select i1 %isneg69, i32 0, i32 %looking_for_one_byte.077
-  %isnotneg70.not = icmp eq i8 %6, 0
-  %and78 = select i1 %isnotneg70.not, i32 0, i32 %and1.i67
-  %or79 = or i32 %and78, %bad.076
-  %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
-  %exitcond92.not = icmp eq i64 %indvars.iv.next89, %conv11
-  br i1 %exitcond92.not, label %for.end82.loopexit, label %for.body66, !llvm.loop !18
+  %and1.i67 = select i1 %isneg69, i32 0, i32 %looking_for_one_byte.076
+  %isnotneg.not = icmp eq i8 %10, 0
+  %and78 = select i1 %isnotneg.not, i32 0, i32 %and1.i67
+  %or79 = or i32 %and78, %bad.075
+  %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
+  %exitcond91.not = icmp eq i64 %indvars.iv.next88, %conv11
+  br i1 %exitcond91.not, label %for.end82.loopexit, label %for.body66, !llvm.loop !18
 
 for.end82.loopexit:                               ; preds = %for.body66
-  %8 = add i32 %or.i, 1
+  %12 = add i32 %or.i, 1
   br label %for.end82
 
 for.end82:                                        ; preds = %for.end82.loopexit, %if.end54
-  %bad.0.lcssa = phi i32 [ %or, %if.end54 ], [ %or79, %for.end82.loopexit ]
+  %bad.0.lcssa = phi i32 [ %.lobit, %if.end54 ], [ %or79, %for.end82.loopexit ]
   %looking_for_one_byte.0.lcssa = phi i32 [ -1, %if.end54 ], [ %and1.i67, %for.end82.loopexit ]
-  %one_index.0.lcssa = phi i32 [ 1, %if.end54 ], [ %8, %for.end82.loopexit ]
+  %one_index.0.lcssa = phi i32 [ 1, %if.end54 ], [ %12, %for.end82.loopexit ]
   %or83 = or i32 %looking_for_one_byte.0.lcssa, %bad.0.lcssa
   %tobool84.not = icmp eq i32 %or83, 0
   br i1 %tobool84.not, label %if.end86, label %decoding_err

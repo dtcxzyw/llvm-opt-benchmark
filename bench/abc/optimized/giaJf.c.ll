@@ -1049,13 +1049,13 @@ define noalias noundef ptr @Jf_ManInitRefs(ptr nocapture noundef %0) local_unnam
   %29 = lshr i64 %.val83, 32
   %30 = trunc i64 %29 to i32
   %31 = and i32 %30, 536870911
-  %32 = icmp eq i32 %28, %31
-  %.not.i94 = icmp ne i32 %28, 536870911
-  %or.cond.not.i = and i1 %.not.i94, %32
+  %32 = icmp ne i32 %28, %31
+  %.not.i94 = icmp eq i32 %28, 536870911
+  %or.cond.not.i.not105 = or i1 %.not.i94, %32
   %33 = and i64 %.val83, 2147483648
-  %.not4.i = icmp eq i64 %33, 0
-  %narrow.i95 = and i1 %.not4.i, %or.cond.not.i
-  br i1 %narrow.i95, label %75, label %34
+  %.not4.i = icmp ne i64 %33, 0
+  %narrow.i95.not = or i1 %.not4.i, %or.cond.not.i.not105
+  br i1 %narrow.i95.not, label %34, label %75
 
 34:                                               ; preds = %16
   %.val84 = load ptr, ptr %9, align 8
@@ -1128,21 +1128,21 @@ define noalias noundef ptr @Jf_ManInitRefs(ptr nocapture noundef %0) local_unnam
   %79 = getelementptr inbounds i8, ptr %4, i64 72
   %80 = load ptr, ptr %79, align 8
   %81 = getelementptr i8, ptr %80, i64 4
-  %.val107 = load i32, ptr %81, align 4
-  %82 = icmp sgt i32 %.val107, 0
-  br i1 %82, label %.lr.ph109, label %.critedge2
+  %.val109 = load i32, ptr %81, align 4
+  %82 = icmp sgt i32 %.val109, 0
+  br i1 %82, label %.lr.ph111, label %.critedge2
 
-.lr.ph109:                                        ; preds = %.critedge, %84
-  %indvars.iv117 = phi i64 [ %indvars.iv.next118, %84 ], [ 0, %.critedge ]
+.lr.ph111:                                        ; preds = %.critedge, %84
+  %indvars.iv119 = phi i64 [ %indvars.iv.next120, %84 ], [ 0, %.critedge ]
   %83 = phi ptr [ %102, %84 ], [ %80, %.critedge ]
   %.val72 = load ptr, ptr %9, align 8
   %.not62 = icmp eq ptr %.val72, null
   br i1 %.not62, label %.critedge2, label %84
 
-84:                                               ; preds = %.lr.ph109
+84:                                               ; preds = %.lr.ph111
   %85 = getelementptr i8, ptr %83, i64 8
   %.val73.val = load ptr, ptr %85, align 8
-  %86 = getelementptr inbounds i32, ptr %.val73.val, i64 %indvars.iv117
+  %86 = getelementptr inbounds i32, ptr %.val73.val, i64 %indvars.iv119
   %87 = load i32, ptr %86, align 4
   %88 = sext i32 %87 to i64
   %89 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val72, i64 %88
@@ -1161,15 +1161,15 @@ define noalias noundef ptr @Jf_ManInitRefs(ptr nocapture noundef %0) local_unnam
   %100 = load i32, ptr %99, align 4
   %101 = add nsw i32 %100, 1
   store i32 %101, ptr %99, align 4
-  %indvars.iv.next118 = add nuw nsw i64 %indvars.iv117, 1
+  %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
   %102 = load ptr, ptr %79, align 8
   %103 = getelementptr i8, ptr %102, i64 4
   %.val = load i32, ptr %103, align 4
   %104 = sext i32 %.val to i64
-  %105 = icmp slt i64 %indvars.iv.next118, %104
-  br i1 %105, label %.lr.ph109, label %.critedge2, !llvm.loop !16
+  %105 = icmp slt i64 %indvars.iv.next120, %104
+  br i1 %105, label %.lr.ph111, label %.critedge2, !llvm.loop !16
 
-.critedge2:                                       ; preds = %.lr.ph109, %84, %.critedge
+.critedge2:                                       ; preds = %.lr.ph111, %84, %.critedge
   %106 = getelementptr inbounds i8, ptr %0, i64 8
   %107 = load ptr, ptr %106, align 8
   %108 = getelementptr inbounds i8, ptr %107, i64 84
@@ -1186,22 +1186,22 @@ define noalias noundef ptr @Jf_ManInitRefs(ptr nocapture noundef %0) local_unnam
   store i32 0, ptr %111, align 8
   %112 = load i32, ptr %5, align 8
   %113 = icmp sgt i32 %112, 0
-  br i1 %113, label %.lr.ph112.preheader, label %.critedge4
+  br i1 %113, label %.lr.ph114.preheader, label %.critedge4
 
-.lr.ph112.preheader:                              ; preds = %110
-  %.val70132 = load ptr, ptr %9, align 8
-  %.not64133 = icmp eq ptr %.val70132, null
-  br i1 %.not64133, label %.critedge4, label %.lr.ph135
+.lr.ph114.preheader:                              ; preds = %110
+  %.val70134 = load ptr, ptr %9, align 8
+  %.not64135 = icmp eq ptr %.val70134, null
+  br i1 %.not64135, label %.critedge4, label %.lr.ph137
 
-.lr.ph112:                                        ; preds = %205
+.lr.ph114:                                        ; preds = %205
   %.val70 = load ptr, ptr %9, align 8
-  %114 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val70, i64 %indvars.iv.next121
+  %114 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val70, i64 %indvars.iv.next123
   %.not64 = icmp eq ptr %.val70, null
-  br i1 %.not64, label %.critedge4, label %.lr.ph135, !llvm.loop !17
+  br i1 %.not64, label %.critedge4, label %.lr.ph137, !llvm.loop !17
 
-.lr.ph135:                                        ; preds = %.lr.ph112.preheader, %.lr.ph112
-  %115 = phi ptr [ %114, %.lr.ph112 ], [ %.val70132, %.lr.ph112.preheader ]
-  %indvars.iv120134 = phi i64 [ %indvars.iv.next121, %.lr.ph112 ], [ 0, %.lr.ph112.preheader ]
+.lr.ph137:                                        ; preds = %.lr.ph114.preheader, %.lr.ph114
+  %115 = phi ptr [ %114, %.lr.ph114 ], [ %.val70134, %.lr.ph114.preheader ]
+  %indvars.iv122136 = phi i64 [ %indvars.iv.next123, %.lr.ph114 ], [ 0, %.lr.ph114.preheader ]
   %.val78 = load i64, ptr %115, align 4
   %116 = and i64 %.val78, 2147483648
   %.not.i99 = icmp ne i64 %116, 0
@@ -1210,7 +1210,7 @@ define noalias noundef ptr @Jf_ManInitRefs(ptr nocapture noundef %0) local_unnam
   %narrow.i100.not = or i1 %.not.i99, %118
   br i1 %narrow.i100.not, label %205, label %119
 
-119:                                              ; preds = %.lr.ph135
+119:                                              ; preds = %.lr.ph137
   %120 = call i32 @Gia_ObjIsMuxType(ptr noundef nonnull %115) #29
   %.not66 = icmp eq i32 %120, 0
   br i1 %.not66, label %205, label %121
@@ -1266,11 +1266,11 @@ define noalias noundef ptr @Jf_ManInitRefs(ptr nocapture noundef %0) local_unnam
   %.pre = load i64, ptr %115, align 4
   %.val92.pre = load ptr, ptr %9, align 8
   %.val93.pre = load ptr, ptr %8, align 8
-  %.pre131 = ptrtoint ptr %.val92.pre to i64
+  %.pre133 = ptrtoint ptr %.val92.pre to i64
   br label %160
 
 160:                                              ; preds = %134, %121
-  %.pre-phi = phi i64 [ %.pre131, %134 ], [ %127, %121 ]
+  %.pre-phi = phi i64 [ %.pre133, %134 ], [ %127, %121 ]
   %.val93 = phi ptr [ %.val93.pre, %134 ], [ %.val91, %121 ]
   %161 = phi i64 [ %.pre, %134 ], [ %122, %121 ]
   %162 = lshr i64 %161, 32
@@ -1325,36 +1325,36 @@ define noalias noundef ptr @Jf_ManInitRefs(ptr nocapture noundef %0) local_unnam
   store i32 %204, ptr %111, align 8
   br label %205
 
-205:                                              ; preds = %.lr.ph135, %173, %160, %119
-  %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120134, 1
+205:                                              ; preds = %.lr.ph137, %173, %160, %119
+  %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122136, 1
   %206 = load i32, ptr %5, align 8
   %207 = sext i32 %206 to i64
-  %208 = icmp slt i64 %indvars.iv.next121, %207
-  br i1 %208, label %.lr.ph112, label %.critedge4, !llvm.loop !17
+  %208 = icmp slt i64 %indvars.iv.next123, %207
+  br i1 %208, label %.lr.ph114, label %.critedge4, !llvm.loop !17
 
-.critedge4:                                       ; preds = %.lr.ph112, %205, %.lr.ph112.preheader, %.critedge2..critedge4_crit_edge, %110
-  %.val75 = phi i32 [ %.val75.pre, %.critedge2..critedge4_crit_edge ], [ %112, %110 ], [ %112, %.lr.ph112.preheader ], [ %206, %205 ], [ %206, %.lr.ph112 ]
+.critedge4:                                       ; preds = %.lr.ph114, %205, %.lr.ph114.preheader, %.critedge2..critedge4_crit_edge, %110
+  %.val75 = phi i32 [ %.val75.pre, %.critedge2..critedge4_crit_edge ], [ %112, %110 ], [ %112, %.lr.ph114.preheader ], [ %206, %205 ], [ %206, %.lr.ph114 ]
   %209 = sext i32 %.val75 to i64
   %210 = shl nsw i64 %209, 2
   %211 = call noalias ptr @malloc(i64 noundef %210) #28
   %212 = icmp sgt i32 %.val75, 0
-  br i1 %212, label %.lr.ph115, label %._crit_edge
+  br i1 %212, label %.lr.ph117, label %._crit_edge
 
-.lr.ph115:                                        ; preds = %.critedge4
+.lr.ph117:                                        ; preds = %.critedge4
   %213 = load ptr, ptr %8, align 8
   %wide.trip.count = zext nneg i32 %.val75 to i64
   br label %214
 
-214:                                              ; preds = %.lr.ph115, %214
-  %indvars.iv123 = phi i64 [ 0, %.lr.ph115 ], [ %indvars.iv.next124, %214 ]
-  %215 = getelementptr inbounds i32, ptr %213, i64 %indvars.iv123
+214:                                              ; preds = %.lr.ph117, %214
+  %indvars.iv125 = phi i64 [ 0, %.lr.ph117 ], [ %indvars.iv.next126, %214 ]
+  %215 = getelementptr inbounds i32, ptr %213, i64 %indvars.iv125
   %216 = load i32, ptr %215, align 4
   %217 = call noundef i32 @llvm.smax.i32(i32 %216, i32 1)
   %218 = uitofp i32 %217 to float
-  %219 = getelementptr inbounds float, ptr %211, i64 %indvars.iv123
+  %219 = getelementptr inbounds float, ptr %211, i64 %indvars.iv125
   store float %218, ptr %219, align 4
-  %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next124, %wide.trip.count
+  %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next126, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %214, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %214, %.critedge4
@@ -6722,13 +6722,13 @@ define void @Jf_ManComputeCuts(ptr nocapture noundef %0, i32 noundef %1) local_u
   %51 = lshr i64 %.val51, 32
   %52 = trunc i64 %51 to i32
   %53 = and i32 %52, 536870911
-  %54 = icmp eq i32 %50, %53
-  %.not.i = icmp ne i32 %50, 536870911
-  %or.cond.not.i = and i1 %.not.i, %54
+  %54 = icmp ne i32 %50, %53
+  %.not.i = icmp eq i32 %50, 536870911
+  %or.cond.not.i.not62 = or i1 %.not.i, %54
   %55 = and i64 %.val51, 2147483648
-  %.not4.i = icmp eq i64 %55, 0
-  %narrow.i52 = and i1 %.not4.i, %or.cond.not.i
-  br i1 %narrow.i52, label %56, label %62
+  %.not4.i = icmp ne i64 %55, 0
+  %narrow.i52.not = or i1 %.not4.i, %or.cond.not.i.not62
+  br i1 %narrow.i52.not, label %62, label %56
 
 56:                                               ; preds = %48, %46
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4)
@@ -6746,18 +6746,18 @@ define void @Jf_ManComputeCuts(ptr nocapture noundef %0, i32 noundef %1) local_u
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4)
   %.val47.pre = load i64, ptr %45, align 4
   %.pre = trunc i64 %.val47.pre to i32
-  %.pre65 = and i32 %.pre, 536870911
-  %.pre67 = lshr i64 %.val47.pre, 32
-  %.pre69 = trunc i64 %.pre67 to i32
-  %.pre71 = and i32 %.pre69, 536870911
+  %.pre67 = and i32 %.pre, 536870911
+  %.pre69 = lshr i64 %.val47.pre, 32
+  %.pre71 = trunc i64 %.pre69 to i32
+  %.pre73 = and i32 %.pre71, 536870911
   br label %62
 
 62:                                               ; preds = %56, %48
-  %.pre-phi72 = phi i32 [ %.pre71, %56 ], [ %53, %48 ]
-  %.pre-phi66 = phi i32 [ %.pre65, %56 ], [ %50, %48 ]
+  %.pre-phi74 = phi i32 [ %.pre73, %56 ], [ %53, %48 ]
+  %.pre-phi68 = phi i32 [ %.pre67, %56 ], [ %50, %48 ]
   %.val47 = phi i64 [ %.val47.pre, %56 ], [ %.val51, %48 ]
-  %63 = icmp eq i32 %.pre-phi66, %.pre-phi72
-  %.not.i54 = icmp ne i32 %.pre-phi66, 536870911
+  %63 = icmp eq i32 %.pre-phi68, %.pre-phi74
+  %.not.i54 = icmp ne i32 %.pre-phi68, 536870911
   %or.cond.not.i55 = and i1 %.not.i54, %63
   %64 = and i64 %.val47, 2147483648
   %.not4.i56 = icmp eq i64 %64, 0
@@ -6773,7 +6773,7 @@ define void @Jf_ManComputeCuts(ptr nocapture noundef %0, i32 noundef %1) local_u
   %70 = sub i64 %68, %69
   %71 = sdiv exact i64 %70, 12
   %72 = trunc i64 %71 to i32
-  %73 = sub nsw i32 %72, %.pre-phi66
+  %73 = sub nsw i32 %72, %.pre-phi68
   %.val19.i = load ptr, ptr %40, align 8
   %74 = sext i32 %73 to i64
   %75 = getelementptr inbounds i32, ptr %.val19.i, i64 %74

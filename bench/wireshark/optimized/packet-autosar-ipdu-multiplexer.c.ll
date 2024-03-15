@@ -775,12 +775,12 @@ define internal void @post_update_ipdum_message_list_cb() #0 {
   store ptr %4, ptr @data_ipdum_messages, align 8
   %5 = load ptr, ptr @ipdum_message_list, align 8
   %6 = load i32, ptr @ipdum_message_list_num, align 4
-  %7 = icmp eq ptr %4, null
-  %8 = icmp eq ptr %5, null
-  %or.cond.i = or i1 %7, %8
-  %9 = icmp eq i32 %6, 0
-  %or.cond3.i = or i1 %9, %or.cond.i
-  br i1 %or.cond3.i, label %post_update_ipdum_message_list_read_in_data.exit, label %.preheader.preheader.i
+  %7 = icmp ne ptr %4, null
+  %8 = icmp ne ptr %5, null
+  %or.cond.not71.i = and i1 %7, %8
+  %9 = icmp ne i32 %6, 0
+  %or.cond3.not68.i = and i1 %9, %or.cond.not71.i
+  br i1 %or.cond3.not68.i, label %.preheader.preheader.i, label %post_update_ipdum_message_list_read_in_data.exit
 
 .preheader.preheader.i:                           ; preds = %3
   %wide.trip.count.i = zext i32 %6 to i64
@@ -794,7 +794,7 @@ define internal void @post_update_ipdum_message_list_cb() #0 {
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
   store i64 %14, ptr %11, align 8
-  %15 = tail call ptr @g_hash_table_lookup(ptr noundef %4, ptr noundef nonnull %11) #7
+  %15 = tail call ptr @g_hash_table_lookup(ptr noundef nonnull %4, ptr noundef nonnull %11) #7
   %16 = icmp eq ptr %15, null
   %17 = tail call ptr @wmem_epan_scope() #7
   br i1 %16, label %18, label %31
@@ -814,7 +814,7 @@ define internal void @post_update_ipdum_message_list_cb() #0 {
   %28 = tail call noalias ptr @wmem_alloc0(ptr noundef %24, i64 noundef %27) #7
   %29 = getelementptr inbounds i8, ptr %19, i64 8
   store ptr %28, ptr %29, align 8
-  %30 = tail call i32 @g_hash_table_insert(ptr noundef %4, ptr noundef nonnull %11, ptr noundef nonnull %19) #7
+  %30 = tail call i32 @g_hash_table_insert(ptr noundef nonnull %4, ptr noundef nonnull %11, ptr noundef nonnull %19) #7
   br label %32
 
 31:                                               ; preds = %.preheader.i

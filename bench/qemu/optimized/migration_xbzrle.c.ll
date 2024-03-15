@@ -431,17 +431,16 @@ while.body99:                                     ; preds = %while.cond96.prehea
   %add.ptr103 = getelementptr i8, ptr %new_buf, i64 %idx.ext100
   %20 = load i64, ptr %add.ptr103, align 8
   %xor104 = xor i64 %20, %19
-  %sub105 = add i64 %xor104, -72340172838076673
-  %not = and i64 %xor104, -9187201950435737472
-  %and = xor i64 %not, -9187201950435737472
-  %and106 = and i64 %and, %sub105
-  %tobool107.not = icmp eq i64 %and106, 0
+  %21 = sub i64 72340172838076672, %xor104
+  %22 = or i64 %21, %xor104
+  %23 = and i64 %22, -9187201950435737472
+  %tobool107.not = icmp eq i64 %23, -9187201950435737472
   br i1 %tobool107.not, label %if.else122, label %while.cond109.preheader
 
 while.cond109.preheader:                          ; preds = %while.body99
-  %21 = trunc i64 %20 to i8
-  %22 = trunc i64 %19 to i8
-  %cmp116.not120 = icmp eq i8 %22, %21
+  %24 = trunc i64 %20 to i8
+  %25 = trunc i64 %19 to i8
+  %cmp116.not120 = icmp eq i8 %25, %24
   br i1 %cmp116.not120, label %if.end131, label %while.body118
 
 while.body118:                                    ; preds = %while.cond109.preheader, %while.body118
@@ -451,10 +450,10 @@ while.body118:                                    ; preds = %while.cond109.prehe
   %inc120 = add i32 %i.7122, 1
   %idxprom110 = sext i32 %inc120 to i64
   %arrayidx111 = getelementptr i8, ptr %old_buf, i64 %idxprom110
-  %23 = load i8, ptr %arrayidx111, align 1
+  %26 = load i8, ptr %arrayidx111, align 1
   %arrayidx114 = getelementptr i8, ptr %new_buf, i64 %idxprom110
-  %24 = load i8, ptr %arrayidx114, align 1
-  %cmp116.not = icmp eq i8 %23, %24
+  %27 = load i8, ptr %arrayidx114, align 1
+  %cmp116.not = icmp eq i8 %26, %27
   br i1 %cmp116.not, label %if.end131, label %while.body118, !llvm.loop !13
 
 if.else122:                                       ; preds = %while.body99

@@ -64934,10 +64934,10 @@ if.end274.sink.split:                             ; preds = %if.then.i.i955, %if
   br label %if.end274
 
 if.end274:                                        ; preds = %if.end274.sink.split, %lor.lhs.false.i.i947, %lor.lhs.false.i.i894
-  %.sink2339 = phi i32 [ %239, %lor.lhs.false.i.i894 ], [ %254, %lor.lhs.false.i.i947 ], [ %.pre1.i.i958, %if.end274.sink.split ]
+  %.sink2338 = phi i32 [ %239, %lor.lhs.false.i.i894 ], [ %254, %lor.lhs.false.i.i947 ], [ %.pre1.i.i958, %if.end274.sink.split ]
   %.sink = phi ptr [ %238, %lor.lhs.false.i.i894 ], [ %253, %lor.lhs.false.i.i947 ], [ %.pre.i.i903, %if.end274.sink.split ]
   %call271.sink = phi ptr [ %call259, %lor.lhs.false.i.i894 ], [ %call271, %lor.lhs.false.i.i947 ], [ %call271.sink.ph, %if.end274.sink.split ]
-  %idx.ext.i.i951 = zext i32 %.sink2339 to i64
+  %idx.ext.i.i951 = zext i32 %.sink2338 to i64
   %add.ptr.i.i952 = getelementptr inbounds ptr, ptr %.sink, i64 %idx.ext.i.i951
   store ptr %call271.sink, ptr %add.ptr.i.i952, align 8
   %256 = load ptr, ptr %m_nodes.i.i, align 8
@@ -66219,11 +66219,11 @@ if.end501.sink.split:                             ; preds = %if.then.i.i1400, %i
   br label %if.end501
 
 if.end501:                                        ; preds = %if.end501.sink.split, %lor.lhs.false.i.i1392, %lor.lhs.false.i.i1308
-  %.sink2342 = phi i32 [ %410, %lor.lhs.false.i.i1308 ], [ %436, %lor.lhs.false.i.i1392 ], [ %.pre1.i.i1403, %if.end501.sink.split ]
-  %.sink2341 = phi ptr [ %409, %lor.lhs.false.i.i1308 ], [ %435, %lor.lhs.false.i.i1392 ], [ %.pre.i.i1317, %if.end501.sink.split ]
+  %.sink2341 = phi i32 [ %410, %lor.lhs.false.i.i1308 ], [ %436, %lor.lhs.false.i.i1392 ], [ %.pre1.i.i1403, %if.end501.sink.split ]
+  %.sink2340 = phi ptr [ %409, %lor.lhs.false.i.i1308 ], [ %435, %lor.lhs.false.i.i1392 ], [ %.pre.i.i1317, %if.end501.sink.split ]
   %call498.sink = phi ptr [ %call485, %lor.lhs.false.i.i1308 ], [ %call498, %lor.lhs.false.i.i1392 ], [ %call498.sink.ph, %if.end501.sink.split ]
-  %idx.ext.i.i1396 = zext i32 %.sink2342 to i64
-  %add.ptr.i.i1397 = getelementptr inbounds ptr, ptr %.sink2341, i64 %idx.ext.i.i1396
+  %idx.ext.i.i1396 = zext i32 %.sink2341 to i64
+  %add.ptr.i.i1397 = getelementptr inbounds ptr, ptr %.sink2340, i64 %idx.ext.i.i1396
   store ptr %call498.sink, ptr %add.ptr.i.i1397, align 8
   %438 = load ptr, ptr %m_nodes.i.i1171, align 8
   %arrayidx10.i.i1398 = getelementptr inbounds i8, ptr %438, i64 -4
@@ -66700,7 +66700,7 @@ if.then.i.i.i.i.i1572:                            ; preds = %invoke.cont8.i.i156
           to label %if.then.i.i.i.i.i1572.if.end629_crit_edge unwind label %terminate.lpad.i.i.i.i1574
 
 if.then.i.i.i.i.i1572.if.end629_crit_edge:        ; preds = %if.then.i.i.i.i.i1572
-  %.pre2319 = load ptr, ptr %temp1_y, align 8
+  %.pre2318 = load ptr, ptr %temp1_y, align 8
   br label %if.end629
 
 terminate.lpad.i.i.i.i1574:                       ; preds = %if.then.i.i.i.i.i1572
@@ -66775,7 +66775,7 @@ lpad615:                                          ; preds = %invoke.cont620, %in
   br label %ehcleanup630
 
 if.end629:                                        ; preds = %if.then.i.i.i.i.i1572.if.end629_crit_edge, %invoke.cont8.i.i1569, %_ZN7obj_refI4expr11ast_managerED2Ev.exit1552, %invoke.cont625, %invoke.cont525
-  %522 = phi ptr [ %.pre2319, %if.then.i.i.i.i.i1572.if.end629_crit_edge ], [ %call520, %invoke.cont8.i.i1569 ], [ %call520, %_ZN7obj_refI4expr11ast_managerED2Ev.exit1552 ], [ %call520, %invoke.cont625 ], [ %call520, %invoke.cont525 ]
+  %522 = phi ptr [ %.pre2318, %if.then.i.i.i.i.i1572.if.end629_crit_edge ], [ %call520, %invoke.cont8.i.i1569 ], [ %call520, %_ZN7obj_refI4expr11ast_managerED2Ev.exit1552 ], [ %call520, %invoke.cont625 ], [ %call520, %invoke.cont525 ]
   %tobool.not.i.i1586 = icmp eq ptr %522, null
   br i1 %tobool.not.i.i1586, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit1594, label %if.then.i.i.i1587
 
@@ -67480,7 +67480,7 @@ if.then.i.i.i.i.i1836:                            ; preds = %invoke.cont8.i.i183
           to label %if.then.i.i.i.i.i1836.if.end732_crit_edge unwind label %terminate.lpad.i.i.i.i1838
 
 if.then.i.i.i.i.i1836.if.end732_crit_edge:        ; preds = %if.then.i.i.i.i.i1836
-  %.pre2318 = load ptr, ptr %y_concat, align 8
+  %.pre2319 = load ptr, ptr %y_concat, align 8
   br label %if.end732
 
 terminate.lpad.i.i.i.i1838:                       ; preds = %if.then.i.i.i.i.i1836
@@ -67508,7 +67508,7 @@ ehcleanup731:                                     ; preds = %ehcleanup730, %lpad
   br label %ehcleanup733
 
 if.end732:                                        ; preds = %if.then.i.i.i.i.i1836.if.end732_crit_edge, %invoke.cont8.i.i1833, %_ZN7obj_refI4expr11ast_managerED2Ev.exit1816, %invoke.cont669, %invoke.cont664
-  %639 = phi ptr [ %call659, %invoke.cont669 ], [ %call659, %invoke.cont664 ], [ %call659, %_ZN7obj_refI4expr11ast_managerED2Ev.exit1816 ], [ %call659, %invoke.cont8.i.i1833 ], [ %.pre2318, %if.then.i.i.i.i.i1836.if.end732_crit_edge ]
+  %639 = phi ptr [ %call659, %invoke.cont669 ], [ %call659, %invoke.cont664 ], [ %call659, %_ZN7obj_refI4expr11ast_managerED2Ev.exit1816 ], [ %call659, %invoke.cont8.i.i1833 ], [ %.pre2319, %if.then.i.i.i.i.i1836.if.end732_crit_edge ]
   %tobool.not.i.i1842 = icmp eq ptr %639, null
   br i1 %tobool.not.i.i1842, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit1850, label %if.then.i.i.i1843
 
@@ -102170,19 +102170,18 @@ land.rhs.i.i:                                     ; preds = %if.then5
 
 invoke.cont8:                                     ; preds = %land.rhs.i.i
   %14 = load i32, ptr %13, align 8
-  %cmp.i.i.i.i.i = icmp ne i32 %14, %11
+  %cmp.i.i.i.i.i = icmp eq i32 %14, %11
   %m_kind.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 4
   %15 = load i32, ptr %m_kind.i.i.i.i.i, align 4
-  %cmp2.i.i.i.i.i = icmp ne i32 %15, 42
-  %.not = select i1 %cmp.i.i.i.i.i, i1 true, i1 %cmp2.i.i.i.i.i
-  %is_true.not = xor i1 %is_true, true
-  %brmerge = or i1 %.not, %is_true.not
-  br i1 %brmerge, label %cleanup, label %for.cond.preheader
+  %cmp2.i.i.i.i.i = icmp eq i32 %15, 42
+  %.not.not59 = select i1 %cmp.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
+  %brmerge.not = and i1 %.not.not59, %is_true
+  br i1 %brmerge.not, label %for.cond.preheader, label %cleanup
 
 for.cond.preheader:                               ; preds = %invoke.cont8
   %16 = load i32, ptr %m_pos.i.i, align 8
-  %cmp59.not = icmp eq i32 %16, 0
-  br i1 %cmp59.not, label %cleanup, label %invoke.cont13.lr.ph
+  %cmp60.not = icmp eq i32 %16, 0
+  br i1 %cmp60.not, label %cleanup, label %invoke.cont13.lr.ph
 
 invoke.cont13.lr.ph:                              ; preds = %for.cond.preheader
   %17 = load ptr, ptr %needleStringConstant, align 8
@@ -102475,19 +102474,18 @@ land.rhs.i.i:                                     ; preds = %if.then5
 
 invoke.cont8:                                     ; preds = %land.rhs.i.i
   %14 = load i32, ptr %13, align 8
-  %cmp.i.i.i.i.i = icmp ne i32 %14, %11
+  %cmp.i.i.i.i.i = icmp eq i32 %14, %11
   %m_kind.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 4
   %15 = load i32, ptr %m_kind.i.i.i.i.i, align 4
-  %cmp2.i.i.i.i.i = icmp ne i32 %15, 42
-  %.not = select i1 %cmp.i.i.i.i.i, i1 true, i1 %cmp2.i.i.i.i.i
-  %is_true.not = xor i1 %is_true, true
-  %brmerge = or i1 %.not, %is_true.not
-  br i1 %brmerge, label %cleanup, label %for.cond.preheader
+  %cmp2.i.i.i.i.i = icmp eq i32 %15, 42
+  %.not.not59 = select i1 %cmp.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
+  %brmerge.not = and i1 %.not.not59, %is_true
+  br i1 %brmerge.not, label %for.cond.preheader, label %cleanup
 
 for.cond.preheader:                               ; preds = %invoke.cont8
   %16 = load i32, ptr %m_pos.i.i, align 8
-  %cmp59.not = icmp eq i32 %16, 0
-  br i1 %cmp59.not, label %cleanup, label %invoke.cont13.lr.ph
+  %cmp60.not = icmp eq i32 %16, 0
+  br i1 %cmp60.not, label %cleanup, label %invoke.cont13.lr.ph
 
 invoke.cont13.lr.ph:                              ; preds = %for.cond.preheader
   %17 = load ptr, ptr %needleStringConstant, align 8
@@ -102780,19 +102778,18 @@ land.rhs.i.i:                                     ; preds = %if.then5
 
 invoke.cont8:                                     ; preds = %land.rhs.i.i
   %14 = load i32, ptr %13, align 8
-  %cmp.i.i.i.i.i = icmp ne i32 %14, %11
+  %cmp.i.i.i.i.i = icmp eq i32 %14, %11
   %m_kind.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 4
   %15 = load i32, ptr %m_kind.i.i.i.i.i, align 4
-  %cmp2.i.i.i.i.i = icmp ne i32 %15, 42
-  %.not = select i1 %cmp.i.i.i.i.i, i1 true, i1 %cmp2.i.i.i.i.i
-  %is_true.not = xor i1 %is_true, true
-  %brmerge = or i1 %.not, %is_true.not
-  br i1 %brmerge, label %cleanup, label %for.cond.preheader
+  %cmp2.i.i.i.i.i = icmp eq i32 %15, 42
+  %.not.not59 = select i1 %cmp.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
+  %brmerge.not = and i1 %.not.not59, %is_true
+  br i1 %brmerge.not, label %for.cond.preheader, label %cleanup
 
 for.cond.preheader:                               ; preds = %invoke.cont8
   %16 = load i32, ptr %m_pos.i.i, align 8
-  %cmp59.not = icmp eq i32 %16, 0
-  br i1 %cmp59.not, label %cleanup, label %invoke.cont13.lr.ph
+  %cmp60.not = icmp eq i32 %16, 0
+  br i1 %cmp60.not, label %cleanup, label %invoke.cont13.lr.ph
 
 invoke.cont13.lr.ph:                              ; preds = %for.cond.preheader
   %17 = load ptr, ptr %needleStringConstant, align 8

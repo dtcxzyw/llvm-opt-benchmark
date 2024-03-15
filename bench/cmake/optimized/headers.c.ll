@@ -8,17 +8,17 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @curl_easy_header(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly %5) local_unnamed_addr #0 {
-  %7 = icmp ne ptr %1, null
-  %8 = icmp ne ptr %5, null
-  %or.cond = and i1 %7, %8
-  %9 = icmp ne ptr %0, null
-  %or.cond3 = and i1 %9, %or.cond
-  %10 = add i32 %3, -1
-  %11 = icmp ult i32 %10, 31
-  %or.cond7 = and i1 %11, %or.cond3
-  %12 = icmp sgt i32 %4, -2
-  %or.cond9.not = and i1 %12, %or.cond7
-  br i1 %or.cond9.not, label %13, label %.thread
+  %7 = icmp eq ptr %1, null
+  %8 = icmp eq ptr %5, null
+  %or.cond.not81.not87.not93 = or i1 %7, %8
+  %9 = icmp eq ptr %0, null
+  %or.cond3.not78.not84.not90 = or i1 %9, %or.cond.not81.not87.not93
+  %10 = add i32 %3, -32
+  %11 = icmp ult i32 %10, -31
+  %or.cond7.not88 = or i1 %11, %or.cond3.not78.not84.not90
+  %12 = icmp slt i32 %4, -1
+  %or.cond9 = or i1 %12, %or.cond7.not88
+  br i1 %or.cond9, label %.thread, label %13
 
 13:                                               ; preds = %6
   %14 = getelementptr inbounds i8, ptr %0, i64 4672
@@ -35,29 +35,29 @@ define dso_local noundef i32 @curl_easy_header(ptr noundef %0, ptr noundef %1, i
 20:                                               ; preds = %16
   %21 = icmp eq i32 %4, -1
   %spec.select = select i1 %21, i32 %18, i32 %4
-  %.07290 = load ptr, ptr %14, align 8
-  %.not7991 = icmp eq ptr %.07290, null
-  br i1 %.not7991, label %.thread, label %.lr.ph
+  %.072105 = load ptr, ptr %14, align 8
+  %.not94106 = icmp eq ptr %.072105, null
+  br i1 %.not94106, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %20, %37
-  %.07295 = phi ptr [ %.072, %37 ], [ %.07290, %20 ]
-  %.094 = phi ptr [ %.1, %37 ], [ null, %20 ]
-  %.06393 = phi i64 [ %.164, %37 ], [ 0, %20 ]
-  %.06892 = phi ptr [ %.169, %37 ], [ null, %20 ]
-  %22 = load ptr, ptr %.07295, align 8
+  %.072110 = phi ptr [ %.072, %37 ], [ %.072105, %20 ]
+  %.0109 = phi ptr [ %.1, %37 ], [ null, %20 ]
+  %.063108 = phi i64 [ %.164, %37 ], [ 0, %20 ]
+  %.068107 = phi ptr [ %.169, %37 ], [ null, %20 ]
+  %22 = load ptr, ptr %.072110, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 24
   %24 = load ptr, ptr %23, align 8
-  %25 = tail call i32 @curl_strequal(ptr noundef %24, ptr noundef nonnull %1) #4
-  %.not85 = icmp eq i32 %25, 0
-  br i1 %.not85, label %37, label %26
+  %25 = tail call i32 @curl_strequal(ptr noundef %24, ptr noundef %1) #4
+  %.not100 = icmp eq i32 %25, 0
+  br i1 %.not100, label %37, label %26
 
 26:                                               ; preds = %.lr.ph
   %27 = getelementptr inbounds i8, ptr %22, i64 44
   %28 = load i8, ptr %27, align 4
   %29 = zext i8 %28 to i32
   %30 = and i32 %29, %3
-  %.not86 = icmp eq i32 %30, 0
-  br i1 %.not86, label %37, label %31
+  %.not101 = icmp eq i32 %30, 0
+  br i1 %.not101, label %37, label %31
 
 31:                                               ; preds = %26
   %32 = getelementptr inbounds i8, ptr %22, i64 40
@@ -66,25 +66,25 @@ define dso_local noundef i32 @curl_easy_header(ptr noundef %0, ptr noundef %1, i
   br i1 %34, label %35, label %37
 
 35:                                               ; preds = %31
-  %36 = add i64 %.06393, 1
+  %36 = add i64 %.063108, 1
   br label %37
 
 37:                                               ; preds = %.lr.ph, %26, %31, %35
-  %.169 = phi ptr [ %.07295, %35 ], [ %.06892, %31 ], [ %.06892, %26 ], [ %.06892, %.lr.ph ]
-  %.164 = phi i64 [ %36, %35 ], [ %.06393, %31 ], [ %.06393, %26 ], [ %.06393, %.lr.ph ]
-  %.1 = phi ptr [ %22, %35 ], [ %.094, %31 ], [ %.094, %26 ], [ %.094, %.lr.ph ]
-  %38 = getelementptr inbounds i8, ptr %.07295, i64 16
+  %.169 = phi ptr [ %.072110, %35 ], [ %.068107, %31 ], [ %.068107, %26 ], [ %.068107, %.lr.ph ]
+  %.164 = phi i64 [ %36, %35 ], [ %.063108, %31 ], [ %.063108, %26 ], [ %.063108, %.lr.ph ]
+  %.1 = phi ptr [ %22, %35 ], [ %.0109, %31 ], [ %.0109, %26 ], [ %.0109, %.lr.ph ]
+  %38 = getelementptr inbounds i8, ptr %.072110, i64 16
   %.072 = load ptr, ptr %38, align 8
-  %.not79 = icmp eq ptr %.072, null
-  br i1 %.not79, label %._crit_edge, label %.lr.ph, !llvm.loop !5
+  %.not94 = icmp eq ptr %.072, null
+  br i1 %.not94, label %._crit_edge, label %.lr.ph, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %37
-  %.not80 = icmp eq i64 %.164, 0
-  br i1 %.not80, label %.thread, label %39
+  %.not95 = icmp eq i64 %.164, 0
+  br i1 %.not95, label %.thread, label %39
 
 39:                                               ; preds = %._crit_edge
-  %.not81 = icmp ugt i64 %.164, %2
-  br i1 %.not81, label %40, label %.thread
+  %.not96 = icmp ugt i64 %.164, %2
+  br i1 %.not96, label %40, label %.thread
 
 40:                                               ; preds = %39
   %41 = add i64 %.164, -1
@@ -92,27 +92,27 @@ define dso_local noundef i32 @curl_easy_header(ptr noundef %0, ptr noundef %1, i
   br i1 %42, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %40
-  %.17398 = load ptr, ptr %14, align 8
-  %.not8299 = icmp eq ptr %.17398, null
-  br i1 %.not8299, label %.thread, label %.lr.ph102
+  %.173113 = load ptr, ptr %14, align 8
+  %.not97114 = icmp eq ptr %.173113, null
+  br i1 %.not97114, label %.thread, label %.lr.ph117
 
-.lr.ph102:                                        ; preds = %.preheader, %59
-  %.173101 = phi ptr [ %.173, %59 ], [ %.17398, %.preheader ]
-  %.065100 = phi i64 [ %.166, %59 ], [ 0, %.preheader ]
-  %43 = load ptr, ptr %.173101, align 8
+.lr.ph117:                                        ; preds = %.preheader, %59
+  %.173116 = phi ptr [ %.173, %59 ], [ %.173113, %.preheader ]
+  %.065115 = phi i64 [ %.166, %59 ], [ 0, %.preheader ]
+  %43 = load ptr, ptr %.173116, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 24
   %45 = load ptr, ptr %44, align 8
-  %46 = tail call i32 @curl_strequal(ptr noundef %45, ptr noundef nonnull %1) #4
-  %.not83 = icmp eq i32 %46, 0
-  br i1 %.not83, label %59, label %47
+  %46 = tail call i32 @curl_strequal(ptr noundef %45, ptr noundef %1) #4
+  %.not98 = icmp eq i32 %46, 0
+  br i1 %.not98, label %59, label %47
 
-47:                                               ; preds = %.lr.ph102
+47:                                               ; preds = %.lr.ph117
   %48 = getelementptr inbounds i8, ptr %43, i64 44
   %49 = load i8, ptr %48, align 4
   %50 = zext i8 %49 to i32
   %51 = and i32 %50, %3
-  %.not84 = icmp eq i32 %51, 0
-  br i1 %.not84, label %59, label %52
+  %.not99 = icmp eq i32 %51, 0
+  br i1 %.not99, label %59, label %52
 
 52:                                               ; preds = %47
   %53 = getelementptr inbounds i8, ptr %43, i64 40
@@ -121,19 +121,19 @@ define dso_local noundef i32 @curl_easy_header(ptr noundef %0, ptr noundef %1, i
   br i1 %55, label %56, label %59
 
 56:                                               ; preds = %52
-  %57 = add i64 %.065100, 1
-  %58 = icmp eq i64 %.065100, %2
+  %57 = add i64 %.065115, 1
+  %58 = icmp eq i64 %.065115, %2
   br i1 %58, label %.loopexit, label %59
 
-59:                                               ; preds = %.lr.ph102, %47, %52, %56
-  %.166 = phi i64 [ %57, %56 ], [ %.065100, %52 ], [ %.065100, %47 ], [ %.065100, %.lr.ph102 ]
-  %60 = getelementptr inbounds i8, ptr %.173101, i64 16
+59:                                               ; preds = %.lr.ph117, %47, %52, %56
+  %.166 = phi i64 [ %57, %56 ], [ %.065115, %52 ], [ %.065115, %47 ], [ %.065115, %.lr.ph117 ]
+  %60 = getelementptr inbounds i8, ptr %.173116, i64 16
   %.173 = load ptr, ptr %60, align 8
-  %.not82 = icmp eq ptr %.173, null
-  br i1 %.not82, label %.thread, label %.lr.ph102, !llvm.loop !7
+  %.not97 = icmp eq ptr %.173, null
+  br i1 %.not97, label %.thread, label %.lr.ph117, !llvm.loop !7
 
 .loopexit:                                        ; preds = %56, %40
-  %.371 = phi ptr [ %.169, %40 ], [ %.173101, %56 ]
+  %.371 = phi ptr [ %.169, %40 ], [ %.173116, %56 ]
   %.3 = phi ptr [ %.1, %40 ], [ %43, %56 ]
   %61 = getelementptr inbounds i8, ptr %0, i64 4704
   %62 = getelementptr inbounds i8, ptr %.3, i64 24

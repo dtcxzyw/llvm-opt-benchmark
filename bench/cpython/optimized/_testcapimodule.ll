@@ -3572,7 +3572,6 @@ if.then1.i.i.i:                                   ; preds = %if.end.i.i.i
   br label %_make_call.exit
 
 _make_call.exit:                                  ; preds = %if.end10, %if.then.i.i, %if.end.i.i.i, %if.then1.i.i.i
-  %cmp.i = icmp ne ptr %call1.i, null
   call void @PyGILState_Release(i32 noundef %call.i) #15
   %call14 = call ptr @PyEval_SaveThread() #15
   %9 = load ptr, ptr %fn, align 8
@@ -3598,9 +3597,8 @@ if.then1.i.i.i14:                                 ; preds = %if.end.i.i.i11
   br label %_make_call.exit15
 
 _make_call.exit15:                                ; preds = %_make_call.exit, %if.then.i.i7, %if.end.i.i.i11, %if.then1.i.i.i14
-  %cmp.i9 = icmp ne ptr %call1.i5, null
   call void @PyGILState_Release(i32 noundef %call.i4) #15
-  %and1628 = and i1 %cmp.i, %cmp.i9
+  %and1628.not30 = or i1 %cmp.not.i.i, %cmp.not.i.i6
   %12 = load ptr, ptr @thread_done, align 8
   %call17 = call i32 @PyThread_acquire_lock(ptr noundef %12, i32 noundef 1) #15
   call void @PyEval_RestoreThread(ptr noundef %call14) #15
@@ -3630,9 +3628,8 @@ if.then1.i.i.i26:                                 ; preds = %if.end.i.i.i23
   br label %_make_call.exit27
 
 _make_call.exit27:                                ; preds = %_make_call.exit15, %if.then.i.i19, %if.end.i.i.i23, %if.then1.i.i.i26
-  %cmp.i21 = icmp ne ptr %call1.i17, null
   call void @PyGILState_Release(i32 noundef %call.i16) #15
-  %and2229 = and i1 %and1628, %cmp.i21
+  %and2229.not = or i1 %and1628.not30, %cmp.not.i.i18
   %17 = load ptr, ptr @thread_done, align 8
   %call23 = call i32 @PyThread_acquire_lock(ptr noundef %17, i32 noundef 1) #15
   call void @PyEval_RestoreThread(ptr noundef %call19) #15
@@ -3640,7 +3637,7 @@ _make_call.exit27:                                ; preds = %_make_call.exit15, 
   call void @PyThread_release_lock(ptr noundef %18) #15
   %19 = load ptr, ptr @thread_done, align 8
   call void @PyThread_free_lock(ptr noundef %19) #15
-  %._Py_NoneStruct = select i1 %and2229, ptr @_Py_NoneStruct, ptr null
+  %._Py_NoneStruct = select i1 %and2229.not, ptr null, ptr @_Py_NoneStruct
   br label %return
 
 return:                                           ; preds = %_make_call.exit27, %entry, %if.then8, %if.then3

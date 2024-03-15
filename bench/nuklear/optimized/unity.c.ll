@@ -38402,13 +38402,13 @@ if.then148:                                       ; preds = %if.end145
 if.end165:                                        ; preds = %if.then148, %if.end145
   %63 = load i32, ptr %flags, align 8
   %64 = and i32 %63, 88
-  %.not.i362 = icmp ne i32 %64, 0
+  %.not.i362 = icmp eq i32 %64, 0
   %and4.i363 = and i32 %63, 8192
-  %tobool5.not.i364 = icmp eq i32 %and4.i363, 0
-  %or.cond.i365 = and i1 %.not.i362, %tobool5.not.i364
-  %tobool6.i366 = icmp ne ptr %title, null
-  %narrow.i367 = and i1 %tobool6.i366, %or.cond.i365
-  br i1 %narrow.i367, label %if.then169, label %if.end503
+  %tobool5.not.i364 = icmp ne i32 %and4.i363, 0
+  %or.cond.i365.not416 = or i1 %.not.i362, %tobool5.not.i364
+  %tobool6.i366 = icmp eq ptr %title, null
+  %narrow.i367.not = or i1 %tobool6.i366, %or.cond.i365.not416
+  br i1 %narrow.i367.not, label %if.end503, label %if.then169
 
 if.then169:                                       ; preds = %if.end165
   %65 = load <2 x float>, ptr %bounds105, align 4
@@ -38462,16 +38462,16 @@ land.rhs.i375:                                    ; preds = %if.end.i370
   %cmp10.i = fcmp ugt float %79, %78
   %add16.i = fadd float %79, %71
   %cmp17.i = fcmp uge float %78, %add16.i
-  %or.cond416 = select i1 %cmp10.i, i1 true, i1 %cmp17.i
+  %or.cond417 = select i1 %cmp10.i, i1 true, i1 %cmp17.i
   %hover = getelementptr inbounds i8, ptr %ctx, i64 8680
-  %spec.select = select i1 %or.cond416, i64 9204, i64 9208
-  %spec.select426 = select i1 %or.cond416, ptr %window, ptr %hover
+  %spec.select = select i1 %or.cond417, i64 9204, i64 9208
+  %spec.select427 = select i1 %or.cond417, ptr %window, ptr %hover
   br label %if.end228
 
 if.end228:                                        ; preds = %land.rhs.i375, %if.end.i370, %if.then204
-  %.sink424 = phi i64 [ 9212, %if.then204 ], [ 9204, %if.end.i370 ], [ %spec.select, %land.rhs.i375 ]
-  %background.0 = phi ptr [ %active207, %if.then204 ], [ %window, %if.end.i370 ], [ %spec.select426, %land.rhs.i375 ]
-  %label_hover = getelementptr inbounds i8, ptr %ctx, i64 %.sink424
+  %.sink425 = phi i64 [ 9212, %if.then204 ], [ 9204, %if.end.i370 ], [ %spec.select, %land.rhs.i375 ]
+  %background.0 = phi ptr [ %active207, %if.then204 ], [ %window, %if.end.i370 ], [ %spec.select427, %land.rhs.i375 ]
+  %label_hover = getelementptr inbounds i8, ptr %ctx, i64 %.sink425
   %text.sroa.7.0 = load i32, ptr %label_hover, align 4
   %add230 = fadd float %71, 1.000000e+00
   %header170.sroa.21.12.vec.insert133 = insertelement <2 x float> %header170.sroa.21.8.vec.insert, float %add230, i64 1
@@ -38557,28 +38557,28 @@ if.end313:                                        ; preds = %if.else292, %if.the
   %95 = load ptr, ptr %style21, align 8
   %call320 = call fastcc i32 @nk_do_button_symbol(ptr noundef nonnull %ws, ptr noundef nonnull %buffer, <2 x float> %button.sroa.0.0, <2 x float> %button.sroa.9.8.vec.insert, i32 noundef %94, i32 noundef 0, ptr noundef nonnull %close_button, ptr noundef %cond, ptr noundef %95)
   %tobool321.not = icmp ne i32 %call320, 0
-  %.pre422 = load i32, ptr %flags, align 8
-  %and324 = and i32 %.pre422, 4096
+  %.pre423 = load i32, ptr %flags, align 8
+  %and324 = and i32 %.pre423, 4096
   %tobool325.not = icmp eq i32 %and324, 0
-  %or.cond425 = select i1 %tobool321.not, i1 %tobool325.not, i1 false
-  br i1 %or.cond425, label %if.then326, label %if.end331
+  %or.cond426 = select i1 %tobool321.not, i1 %tobool325.not, i1 false
+  br i1 %or.cond426, label %if.then326, label %if.end331
 
 if.then326:                                       ; preds = %if.end313
   %96 = load i32, ptr %flags103, align 4
   %or = and i32 %96, -40961
   %and329 = or disjoint i32 %or, 8192
   store i32 %and329, ptr %flags103, align 4
-  %.pre421 = load i32, ptr %flags, align 8
+  %.pre422 = load i32, ptr %flags, align 8
   br label %if.end331
 
 if.end331:                                        ; preds = %if.end313, %if.then326, %sw.epilog
-  %97 = phi i32 [ %.pre421, %if.then326 ], [ %.pre422, %if.end313 ], [ %86, %sw.epilog ]
+  %97 = phi i32 [ %.pre422, %if.then326 ], [ %.pre423, %if.end313 ], [ %86, %sw.epilog ]
   %header170.sroa.0.1 = phi <2 x float> [ %header170.sroa.0.0, %if.then326 ], [ %header170.sroa.0.0, %if.end313 ], [ %65, %sw.epilog ]
   %header170.sroa.21.1 = phi <2 x float> [ %header170.sroa.21.0, %if.then326 ], [ %header170.sroa.21.0, %if.end313 ], [ %header170.sroa.21.12.vec.insert133, %sw.epilog ]
   %button.sroa.0.1 = phi <2 x float> [ %button.sroa.0.0, %if.then326 ], [ %button.sroa.0.0, %if.end313 ], [ %button.sroa.0.4.vec.insert, %sw.epilog ]
   %and333 = and i32 %97, 16
   %tobool334.not = icmp eq i32 %and333, 0
-  br i1 %tobool334.not, label %if.end425, label %if.then335
+  br i1 %tobool334.not, label %land.rhs.i376.preheader, label %if.then335
 
 if.then335:                                       ; preds = %if.end331
   store i32 0, ptr %ws336, align 4
@@ -38642,38 +38642,38 @@ if.end389:                                        ; preds = %if.else373, %if.end
   %105 = load ptr, ptr %style21, align 8
   %call405 = call fastcc i32 @nk_do_button_symbol(ptr noundef nonnull %ws336, ptr noundef nonnull %buffer, <2 x float> %button.sroa.0.3, <2 x float> %button.sroa.9.8.vec.insert, i32 noundef %cond401, i32 noundef 0, ptr noundef nonnull %minimize_button, ptr noundef %cond, ptr noundef %105)
   %tobool406.not = icmp eq i32 %call405, 0
-  br i1 %tobool406.not, label %if.end425, label %land.lhs.true407
+  br i1 %tobool406.not, label %land.rhs.i376.preheader, label %land.lhs.true407
 
 land.lhs.true407:                                 ; preds = %if.end389
   %106 = load i32, ptr %flags, align 8
   %and409 = and i32 %106, 4096
   %tobool410.not = icmp eq i32 %and409, 0
-  br i1 %tobool410.not, label %if.then411, label %if.end425
+  br i1 %tobool410.not, label %if.then411, label %land.rhs.i376.preheader
 
 if.then411:                                       ; preds = %land.lhs.true407
   %107 = load i32, ptr %flags103, align 4
   %cond422 = xor i32 %107, 32768
   store i32 %cond422, ptr %flags103, align 4
-  br label %if.end425
+  br label %land.rhs.i376.preheader
 
-if.end425:                                        ; preds = %if.end389, %land.lhs.true407, %if.then411, %if.end331
+land.rhs.i376.preheader:                          ; preds = %if.end331, %if.then411, %land.lhs.true407, %if.end389
   %header170.sroa.0.3 = phi <2 x float> [ %header170.sroa.0.2, %land.lhs.true407 ], [ %header170.sroa.0.2, %if.then411 ], [ %header170.sroa.0.2, %if.end389 ], [ %header170.sroa.0.1, %if.end331 ]
   %header170.sroa.21.4 = phi <2 x float> [ %header170.sroa.21.3, %land.lhs.true407 ], [ %header170.sroa.21.3, %if.then411 ], [ %header170.sroa.21.3, %if.end389 ], [ %header170.sroa.21.1, %if.end331 ]
   %108 = load i8, ptr %title, align 1
-  %cmp.not.i417 = icmp eq i8 %108, 0
-  br i1 %cmp.not.i417, label %nk_strlen.exit, label %while.body.i
+  %cmp.not.i418 = icmp eq i8 %108, 0
+  br i1 %cmp.not.i418, label %nk_strlen.exit, label %while.body.i
 
-while.body.i:                                     ; preds = %if.end425, %while.body.i
-  %str.addr.04.i419 = phi ptr [ %incdec.ptr.i, %while.body.i ], [ %title, %if.end425 ]
-  %siz.05.i418 = phi i32 [ %inc.i, %while.body.i ], [ 0, %if.end425 ]
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %str.addr.04.i419, i64 1
-  %inc.i = add nuw nsw i32 %siz.05.i418, 1
+while.body.i:                                     ; preds = %land.rhs.i376.preheader, %while.body.i
+  %str.addr.04.i420 = phi ptr [ %incdec.ptr.i, %while.body.i ], [ %title, %land.rhs.i376.preheader ]
+  %siz.05.i419 = phi i32 [ %inc.i, %while.body.i ], [ 0, %land.rhs.i376.preheader ]
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %str.addr.04.i420, i64 1
+  %inc.i = add nuw nsw i32 %siz.05.i419, 1
   %109 = load i8, ptr %incdec.ptr.i, align 1
   %cmp.not.i = icmp eq i8 %109, 0
   br i1 %cmp.not.i, label %nk_strlen.exit, label %while.body.i
 
-nk_strlen.exit:                                   ; preds = %while.body.i, %if.end425
-  %siz.05.i.lcssa = phi i32 [ 0, %if.end425 ], [ %inc.i, %while.body.i ]
+nk_strlen.exit:                                   ; preds = %while.body.i, %land.rhs.i376.preheader
+  %siz.05.i.lcssa = phi i32 [ 0, %land.rhs.i376.preheader ], [ %inc.i, %while.body.i ]
   %width = getelementptr inbounds i8, ptr %10, i64 16
   %110 = load ptr, ptr %width, align 8
   %111 = load float, ptr %height180, align 8
@@ -60260,12 +60260,12 @@ if.end.i595:                                      ; preds = %if.end126
   %cmp.i597 = fcmp ole float %43, %42
   %48 = extractelement <2 x float> %18, i64 0
   %cmp6.i600 = fcmp olt float %42, %48
-  %or.cond.i601.not1463.not = select i1 %cmp.i597, i1 %cmp6.i600, i1 false
+  %or.cond.i601.not1463.not1464 = select i1 %cmp.i597, i1 %cmp6.i600, i1 false
   %cmp10.i605 = fcmp ole float %46, %45
-  %or.cond1459 = select i1 %or.cond.i601.not1463.not, i1 %cmp10.i605, i1 false
+  %or.cond1459.not = select i1 %or.cond.i601.not1463.not1464, i1 %cmp10.i605, i1 false
   %49 = extractelement <2 x float> %18, i64 1
   %cmp17.i609 = fcmp olt float %45, %49
-  %narrow = select i1 %or.cond1459, i1 %cmp17.i609, i1 false
+  %narrow = select i1 %or.cond1459.not, i1 %cmp17.i609, i1 false
   %retval.0.i602 = zext i1 %narrow to i32
   %tobool168.not = icmp eq i8 %select_all.1, 0
   br i1 %tobool168.not, label %if.else170, label %if.then169
@@ -60363,7 +60363,7 @@ if.end226:                                        ; preds = %if.else170, %if.the
 
 for.body:                                         ; preds = %if.end226, %for.inc
   %indvars.iv = phi i64 [ 0, %if.end226 ], [ %indvars.iv.next, %for.inc ]
-  %cursor_follow.11525 = phi i8 [ %cursor_follow.0, %if.end226 ], [ %cursor_follow.2, %for.inc ]
+  %cursor_follow.11526 = phi i8 [ %cursor_follow.0, %if.end226 ], [ %cursor_follow.2, %for.inc ]
   %61 = trunc i64 %indvars.iv to i32
   %62 = and i32 %61, 30
   %or.cond3 = icmp eq i32 %62, 4
@@ -60390,7 +60390,7 @@ if.then240:                                       ; preds = %land.lhs.true5.i, %
   br label %for.inc
 
 for.inc:                                          ; preds = %land.lhs.true.i, %land.lhs.true5.i, %if.then240, %for.body
-  %cursor_follow.2 = phi i8 [ %cursor_follow.11525, %for.body ], [ 1, %if.then240 ], [ %cursor_follow.11525, %land.lhs.true5.i ], [ %cursor_follow.11525, %land.lhs.true.i ]
+  %cursor_follow.2 = phi i8 [ %cursor_follow.11526, %for.body ], [ 1, %if.then240 ], [ %cursor_follow.11526, %land.lhs.true5.i ], [ %cursor_follow.11526, %land.lhs.true.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 30
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !225
@@ -60502,11 +60502,11 @@ if.end8.i659:                                     ; preds = %land.lhs.true5.i660
   br label %nk_input_is_key_pressed.exit662
 
 nk_input_is_key_pressed.exit662:                  ; preds = %land.lhs.true.i656, %land.lhs.true5.i660, %if.end8.i659
-  %tobool281.not1464 = phi i1 [ true, %if.end8.i659 ], [ false, %land.lhs.true5.i660 ], [ false, %land.lhs.true.i656 ]
-  %or.cond5.not1465 = and i1 %tobool279.not, %tobool281.not1464
+  %tobool281.not1465 = phi i1 [ true, %if.end8.i659 ], [ false, %land.lhs.true5.i660 ], [ false, %land.lhs.true.i656 ]
+  %or.cond5.not1466 = and i1 %tobool279.not, %tobool281.not1465
   %and283 = and i32 %flags, 64
   %tobool284.not = icmp eq i32 %and283, 0
-  %or.cond585 = or i1 %tobool284.not, %or.cond5.not1465
+  %or.cond585 = or i1 %tobool284.not, %or.cond5.not1466
   br i1 %or.cond585, label %if.end.i677, label %if.then285
 
 if.then285:                                       ; preds = %nk_input_is_key_pressed.exit662
@@ -60668,7 +60668,7 @@ for.cond.preheader.i1290:                         ; preds = %nk_utf_decode_byte.
 
 for.body.preheader.i1309:                         ; preds = %for.cond.preheader.i1290
   %96 = zext nneg i32 %sub.i667 to i64
-  %zext1642 = and i64 %indvars.iv.i.i1279, 4294967295
+  %zext1643 = and i64 %indvars.iv.i.i1279, 4294967295
   br label %for.body.i1310
 
 for.body.i1310:                                   ; preds = %for.inc.i1329, %for.body.preheader.i1309
@@ -60700,7 +60700,7 @@ nk_utf_decode_byte.exit30.i1325:                  ; preds = %for.body.i15.i1314
 for.inc.i1329:                                    ; preds = %nk_utf_decode_byte.exit30.i1325
   %indvars.iv.next.i1335 = add nuw nsw i64 %indvars.iv.i1311, 1
   %cmp8.i1337 = icmp ult i64 %indvars.iv.next.i1335, %96
-  %101 = icmp ult i64 %indvars.iv.next.i1335, %zext1642
+  %101 = icmp ult i64 %indvars.iv.next.i1335, %zext1643
   %102 = and i1 %cmp8.i1337, %101
   br i1 %102, label %for.body.i1310, label %for.end.i1296, !llvm.loop !21
 
@@ -60748,7 +60748,7 @@ if.then304:                                       ; preds = %nk_str_at_const.exi
   br label %if.end309
 
 if.end309:                                        ; preds = %if.then304, %nk_str_at_const.exit
-  %brmerge = or i1 %tobool117.not, %tobool281.not1464
+  %brmerge = or i1 %tobool117.not, %tobool281.not1465
   br i1 %brmerge, label %if.end.i677, label %if.then314
 
 if.then314:                                       ; preds = %if.end309
@@ -60904,15 +60904,15 @@ if.end341:                                        ; preds = %land.lhs.true5.i697
 if.else345:                                       ; preds = %if.end341
   %122 = load i32, ptr %state, align 4
   %and346 = and i32 %122, 2
-  %.1745 = or disjoint i32 %and346, 4
+  %.1746 = or disjoint i32 %and346, 4
   br label %if.end351
 
 if.end351:                                        ; preds = %if.else345, %if.end341
-  %.sink1743 = phi i32 [ 34, %if.end341 ], [ %.1745, %if.else345 ]
+  %.sink1744 = phi i32 [ 34, %if.end341 ], [ %.1746, %if.else345 ]
   %tobool352.not = icmp eq i32 %is_hovered.0.in, 0
-  %or354 = or i32 %.sink1743, 18
-  %spec.select1807 = select i1 %tobool352.not, i32 %.sink1743, i32 %or354
-  store i32 %spec.select1807, ptr %state, align 4
+  %or354 = or i32 %.sink1744, 18
+  %spec.select1808 = select i1 %tobool352.not, i32 %.sink1744, i32 %or354
+  store i32 %spec.select1808, ptr %state, align 4
   %len.i700 = getelementptr inbounds i8, ptr %edit, i64 144
   %123 = load i32, ptr %len.i700, align 8
   %tobool1.not.i701 = icmp eq i32 %123, 0
@@ -60937,10 +60937,10 @@ lor.lhs.false2.i708:                              ; preds = %lor.lhs.false2.i, %
 nk_str_len_char.exit:                             ; preds = %if.end351, %lor.lhs.false2.i708
   %retval.0.i7051443 = phi ptr [ %retval.0.i705.ph, %lor.lhs.false2.i708 ], [ null, %if.end351 ]
   %retval.0.i711 = phi i32 [ %conv.i710, %lor.lhs.false2.i708 ], [ 0, %if.end351 ]
-  %and362 = and i32 %spec.select1807, 32
+  %and362 = and i32 %spec.select1808, 32
   %tobool363.not = icmp eq i32 %and362, 0
   %active365 = getelementptr inbounds i8, ptr %style, i64 80
-  %and367 = and i32 %spec.select1807, 16
+  %and367 = and i32 %spec.select1808, 16
   %tobool368.not = icmp eq i32 %and367, 0
   %hover = getelementptr inbounds i8, ptr %style, i64 40
   %spec.select590 = select i1 %tobool368.not, ptr %style, ptr %hover
@@ -61127,7 +61127,7 @@ for.cond.preheader.i:                             ; preds = %nk_utf_decode_byte.
 
 for.body.preheader.i:                             ; preds = %for.cond.preheader.i
   %149 = zext nneg i32 %retval.0.i711 to i64
-  %zext1643 = and i64 %indvars.iv.i.i, 4294967295
+  %zext1644 = and i64 %indvars.iv.i.i, 4294967295
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.preheader.i
@@ -61165,7 +61165,7 @@ for.inc.i:                                        ; preds = %nk_utf_decode_byte.
   %or.i = or i32 %shl.i, %conv14.i29.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %cmp8.i790 = icmp ult i64 %indvars.iv.next.i, %149
-  %154 = icmp ult i64 %indvars.iv.next.i, %zext1643
+  %154 = icmp ult i64 %indvars.iv.next.i, %zext1644
   %155 = and i1 %cmp8.i790, %154
   br i1 %155, label %for.body.i, label %for.end.i, !llvm.loop !21
 
@@ -61210,13 +61210,13 @@ nk_utf_decode.exit:                               ; preds = %for.inc.i.i, %nk_ut
   %160 = load float, ptr %height438, align 8
   %161 = load ptr, ptr %font, align 8
   %call440 = tail call float %159(ptr %161, float noundef %160, ptr noundef nonnull %retval.0.i7051443, i32 noundef %retval.0.i786) #51
-  %cmp44115261557 = icmp sgt i32 %retval.0.i711, 0
-  %tobool44415271558 = icmp ne i32 %retval.0.i786, 0
-  %162 = and i1 %cmp44115261557, %tobool44415271558
+  %cmp44115271558 = icmp sgt i32 %retval.0.i711, 0
+  %tobool44415281559 = icmp ne i32 %retval.0.i786, 0
+  %162 = and i1 %cmp44115271558, %tobool44415281559
   br i1 %162, label %while.body.lr.ph.lr.ph, label %while.end.thread
 
 while.end.thread:                                 ; preds = %nk_utf_decode.exit
-  %text_size.sroa.0.4.vec.insert1671 = insertelement <2 x float> <float 0.000000e+00, float poison>, float %cond42, i64 1
+  %text_size.sroa.0.4.vec.insert1672 = insertelement <2 x float> <float 0.000000e+00, float poison>, float %cond42, i64 1
   br label %land.lhs.true571
 
 while.body.lr.ph.lr.ph:                           ; preds = %nk_utf_decode.exit
@@ -61224,113 +61224,113 @@ while.body.lr.ph.lr.ph:                           ; preds = %nk_utf_decode.exit
   br label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.body.lr.ph.lr.ph, %nk_utf_decode.exit856
-  %total_lines.0.ph1572 = phi i32 [ 1, %while.body.lr.ph.lr.ph ], [ %inc538, %nk_utf_decode.exit856 ]
-  %text_size.sroa.0.0.ph1571 = phi <2 x float> [ zeroinitializer, %while.body.lr.ph.lr.ph ], [ %text_size.sroa.0.0.vec.insert, %nk_utf_decode.exit856 ]
-  %cursor_ptr.0.ph1570 = phi ptr [ null, %while.body.lr.ph.lr.ph ], [ %cursor_ptr.1, %nk_utf_decode.exit856 ]
-  %select_begin_ptr.0.ph1569 = phi ptr [ null, %while.body.lr.ph.lr.ph ], [ %select_begin_ptr.1, %nk_utf_decode.exit856 ]
-  %select_end_ptr.0.ph1568 = phi ptr [ null, %while.body.lr.ph.lr.ph ], [ %select_end_ptr.1, %nk_utf_decode.exit856 ]
-  %cursor_pos.sroa.0.0.ph1567 = phi <2 x float> [ zeroinitializer, %while.body.lr.ph.lr.ph ], [ %cursor_pos.sroa.0.1, %nk_utf_decode.exit856 ]
-  %selection_offset_start.sroa.0.0.ph1566 = phi <2 x float> [ zeroinitializer, %while.body.lr.ph.lr.ph ], [ %selection_offset_start.sroa.0.1, %nk_utf_decode.exit856 ]
-  %selection_offset_end.sroa.0.0.ph1565 = phi <2 x float> [ zeroinitializer, %while.body.lr.ph.lr.ph ], [ %selection_offset_end.sroa.0.1, %nk_utf_decode.exit856 ]
-  %glyph_width.0.ph1564 = phi float [ %call440, %while.body.lr.ph.lr.ph ], [ %call551, %nk_utf_decode.exit856 ]
-  %glyph_len433.0.ph1563 = phi i32 [ %retval.0.i786, %while.body.lr.ph.lr.ph ], [ %retval.0.i804, %nk_utf_decode.exit856 ]
-  %text_len435.0.ph1562 = phi i32 [ 0, %while.body.lr.ph.lr.ph ], [ %inc539, %nk_utf_decode.exit856 ]
-  %glyphs.0.ph1561 = phi i32 [ 0, %while.body.lr.ph.lr.ph ], [ %inc540, %nk_utf_decode.exit856 ]
-  %unicode434.1.ph1559 = phi i32 [ %unicode434.0, %while.body.lr.ph.lr.ph ], [ %unicode434.2, %nk_utf_decode.exit856 ]
-  %sub453 = add nsw i32 %total_lines.0.ph1572, -1
+  %total_lines.0.ph1573 = phi i32 [ 1, %while.body.lr.ph.lr.ph ], [ %inc538, %nk_utf_decode.exit856 ]
+  %text_size.sroa.0.0.ph1572 = phi <2 x float> [ zeroinitializer, %while.body.lr.ph.lr.ph ], [ %text_size.sroa.0.0.vec.insert, %nk_utf_decode.exit856 ]
+  %cursor_ptr.0.ph1571 = phi ptr [ null, %while.body.lr.ph.lr.ph ], [ %cursor_ptr.1, %nk_utf_decode.exit856 ]
+  %select_begin_ptr.0.ph1570 = phi ptr [ null, %while.body.lr.ph.lr.ph ], [ %select_begin_ptr.1, %nk_utf_decode.exit856 ]
+  %select_end_ptr.0.ph1569 = phi ptr [ null, %while.body.lr.ph.lr.ph ], [ %select_end_ptr.1, %nk_utf_decode.exit856 ]
+  %cursor_pos.sroa.0.0.ph1568 = phi <2 x float> [ zeroinitializer, %while.body.lr.ph.lr.ph ], [ %cursor_pos.sroa.0.1, %nk_utf_decode.exit856 ]
+  %selection_offset_start.sroa.0.0.ph1567 = phi <2 x float> [ zeroinitializer, %while.body.lr.ph.lr.ph ], [ %selection_offset_start.sroa.0.1, %nk_utf_decode.exit856 ]
+  %selection_offset_end.sroa.0.0.ph1566 = phi <2 x float> [ zeroinitializer, %while.body.lr.ph.lr.ph ], [ %selection_offset_end.sroa.0.1, %nk_utf_decode.exit856 ]
+  %glyph_width.0.ph1565 = phi float [ %call440, %while.body.lr.ph.lr.ph ], [ %call551, %nk_utf_decode.exit856 ]
+  %glyph_len433.0.ph1564 = phi i32 [ %retval.0.i786, %while.body.lr.ph.lr.ph ], [ %retval.0.i804, %nk_utf_decode.exit856 ]
+  %text_len435.0.ph1563 = phi i32 [ 0, %while.body.lr.ph.lr.ph ], [ %inc539, %nk_utf_decode.exit856 ]
+  %glyphs.0.ph1562 = phi i32 [ 0, %while.body.lr.ph.lr.ph ], [ %inc540, %nk_utf_decode.exit856 ]
+  %unicode434.1.ph1560 = phi i32 [ %unicode434.0, %while.body.lr.ph.lr.ph ], [ %unicode434.2, %nk_utf_decode.exit856 ]
+  %sub453 = add nsw i32 %total_lines.0.ph1573, -1
   %conv454 = sitofp i32 %sub453 to float
   %mul = fmul float %cond42, %conv454
-  %idx.ext = sext i32 %text_len435.0.ph1562 to i64
+  %idx.ext = sext i32 %text_len435.0.ph1563 to i64
   %add.ptr = getelementptr inbounds i8, ptr %retval.0.i7051443, i64 %idx.ext
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %nk_utf_decode.exit922
-  %cursor_ptr.01539 = phi ptr [ %cursor_ptr.0.ph1570, %while.body.lr.ph ], [ %cursor_ptr.1, %nk_utf_decode.exit922 ]
-  %select_begin_ptr.01538 = phi ptr [ %select_begin_ptr.0.ph1569, %while.body.lr.ph ], [ %select_begin_ptr.1, %nk_utf_decode.exit922 ]
-  %select_end_ptr.01537 = phi ptr [ %select_end_ptr.0.ph1568, %while.body.lr.ph ], [ %select_end_ptr.1, %nk_utf_decode.exit922 ]
-  %cursor_pos.sroa.0.01536 = phi <2 x float> [ %cursor_pos.sroa.0.0.ph1567, %while.body.lr.ph ], [ %cursor_pos.sroa.0.1, %nk_utf_decode.exit922 ]
-  %selection_offset_start.sroa.0.01535 = phi <2 x float> [ %selection_offset_start.sroa.0.0.ph1566, %while.body.lr.ph ], [ %selection_offset_start.sroa.0.1, %nk_utf_decode.exit922 ]
-  %selection_offset_end.sroa.0.01534 = phi <2 x float> [ %selection_offset_end.sroa.0.0.ph1565, %while.body.lr.ph ], [ %selection_offset_end.sroa.0.1, %nk_utf_decode.exit922 ]
-  %line_width.01533 = phi float [ 0.000000e+00, %while.body.lr.ph ], [ %add555, %nk_utf_decode.exit922 ]
-  %glyph_width.01532 = phi float [ %glyph_width.0.ph1564, %while.body.lr.ph ], [ %call566, %nk_utf_decode.exit922 ]
-  %glyph_len433.01531 = phi i32 [ %glyph_len433.0.ph1563, %while.body.lr.ph ], [ %retval.0.i870, %nk_utf_decode.exit922 ]
-  %text_len435.01530 = phi i32 [ %text_len435.0.ph1562, %while.body.lr.ph ], [ %add554, %nk_utf_decode.exit922 ]
-  %glyphs.01529 = phi i32 [ %glyphs.0.ph1561, %while.body.lr.ph ], [ %inc553, %nk_utf_decode.exit922 ]
-  %unicode434.11528 = phi i32 [ %unicode434.1.ph1559, %while.body.lr.ph ], [ %unicode434.3, %nk_utf_decode.exit922 ]
-  %tobool447.not = icmp eq ptr %cursor_ptr.01539, null
+  %cursor_ptr.01540 = phi ptr [ %cursor_ptr.0.ph1571, %while.body.lr.ph ], [ %cursor_ptr.1, %nk_utf_decode.exit922 ]
+  %select_begin_ptr.01539 = phi ptr [ %select_begin_ptr.0.ph1570, %while.body.lr.ph ], [ %select_begin_ptr.1, %nk_utf_decode.exit922 ]
+  %select_end_ptr.01538 = phi ptr [ %select_end_ptr.0.ph1569, %while.body.lr.ph ], [ %select_end_ptr.1, %nk_utf_decode.exit922 ]
+  %cursor_pos.sroa.0.01537 = phi <2 x float> [ %cursor_pos.sroa.0.0.ph1568, %while.body.lr.ph ], [ %cursor_pos.sroa.0.1, %nk_utf_decode.exit922 ]
+  %selection_offset_start.sroa.0.01536 = phi <2 x float> [ %selection_offset_start.sroa.0.0.ph1567, %while.body.lr.ph ], [ %selection_offset_start.sroa.0.1, %nk_utf_decode.exit922 ]
+  %selection_offset_end.sroa.0.01535 = phi <2 x float> [ %selection_offset_end.sroa.0.0.ph1566, %while.body.lr.ph ], [ %selection_offset_end.sroa.0.1, %nk_utf_decode.exit922 ]
+  %line_width.01534 = phi float [ 0.000000e+00, %while.body.lr.ph ], [ %add555, %nk_utf_decode.exit922 ]
+  %glyph_width.01533 = phi float [ %glyph_width.0.ph1565, %while.body.lr.ph ], [ %call566, %nk_utf_decode.exit922 ]
+  %glyph_len433.01532 = phi i32 [ %glyph_len433.0.ph1564, %while.body.lr.ph ], [ %retval.0.i870, %nk_utf_decode.exit922 ]
+  %text_len435.01531 = phi i32 [ %text_len435.0.ph1563, %while.body.lr.ph ], [ %add554, %nk_utf_decode.exit922 ]
+  %glyphs.01530 = phi i32 [ %glyphs.0.ph1562, %while.body.lr.ph ], [ %inc553, %nk_utf_decode.exit922 ]
+  %unicode434.11529 = phi i32 [ %unicode434.1.ph1560, %while.body.lr.ph ], [ %unicode434.3, %nk_utf_decode.exit922 ]
+  %tobool447.not = icmp eq ptr %cursor_ptr.01540, null
   br i1 %tobool447.not, label %land.lhs.true448, label %if.end462
 
 land.lhs.true448:                                 ; preds = %while.body
   %163 = load i32, ptr %cursor449, align 8
-  %cmp450 = icmp eq i32 %glyphs.01529, %163
+  %cmp450 = icmp eq i32 %glyphs.01530, %163
   br i1 %cmp450, label %if.then452, label %if.end462
 
 if.then452:                                       ; preds = %land.lhs.true448
-  %sub456 = sub nsw i32 %text_len435.01530, %text_len435.0.ph1562
+  %sub456 = sub nsw i32 %text_len435.01531, %text_len435.0.ph1563
   %call457 = call fastcc <2 x float> @nk_text_calculate_text_bounds(ptr noundef nonnull %font, ptr noundef nonnull %add.ptr, i32 noundef %sub456, float noundef %cond42, ptr noundef nonnull %remaining, ptr noundef nonnull %out_offset, ptr noundef nonnull %glyph_offset)
   %cursor_pos.sroa.0.0.vec.insert = insertelement <2 x float> %call457, float %mul, i64 1
-  %idx.ext460 = sext i32 %text_len435.01530 to i64
+  %idx.ext460 = sext i32 %text_len435.01531 to i64
   %add.ptr461 = getelementptr inbounds i8, ptr %retval.0.i7051443, i64 %idx.ext460
   br label %if.end462
 
 if.end462:                                        ; preds = %if.then452, %land.lhs.true448, %while.body
-  %cursor_pos.sroa.0.1 = phi <2 x float> [ %cursor_pos.sroa.0.01536, %while.body ], [ %cursor_pos.sroa.0.0.vec.insert, %if.then452 ], [ %cursor_pos.sroa.0.01536, %land.lhs.true448 ]
-  %cursor_ptr.1 = phi ptr [ %cursor_ptr.01539, %while.body ], [ %add.ptr461, %if.then452 ], [ null, %land.lhs.true448 ]
-  %tobool463.not = icmp eq ptr %select_begin_ptr.01538, null
+  %cursor_pos.sroa.0.1 = phi <2 x float> [ %cursor_pos.sroa.0.01537, %while.body ], [ %cursor_pos.sroa.0.0.vec.insert, %if.then452 ], [ %cursor_pos.sroa.0.01537, %land.lhs.true448 ]
+  %cursor_ptr.1 = phi ptr [ %cursor_ptr.01540, %while.body ], [ %add.ptr461, %if.then452 ], [ null, %land.lhs.true448 ]
+  %tobool463.not = icmp eq ptr %select_begin_ptr.01539, null
   br i1 %tobool463.not, label %land.lhs.true464, label %if.end497
 
 land.lhs.true464:                                 ; preds = %if.end462
   %164 = load i32, ptr %select_start409, align 4
   %165 = load i32, ptr %select_end410, align 8
   %cmp467.not = icmp ne i32 %164, %165
-  %cmp470 = icmp eq i32 %glyphs.01529, %.
+  %cmp470 = icmp eq i32 %glyphs.01530, %.
   %or.cond588 = select i1 %cmp467.not, i1 %cmp470, i1 false
   br i1 %or.cond588, label %if.then472, label %if.end497
 
 if.then472:                                       ; preds = %land.lhs.true464
-  %sub491 = sub nsw i32 %text_len435.01530, %text_len435.0.ph1562
+  %sub491 = sub nsw i32 %text_len435.01531, %text_len435.0.ph1563
   %call492 = call fastcc <2 x float> @nk_text_calculate_text_bounds(ptr noundef nonnull %font, ptr noundef nonnull %add.ptr, i32 noundef %sub491, float noundef %cond42, ptr noundef nonnull %remaining476, ptr noundef nonnull %out_offset474, ptr noundef nonnull %glyph_offset473)
   %selection_offset_start.sroa.0.0.vec.insert = insertelement <2 x float> %call492, float %mul, i64 1
-  %idx.ext495 = sext i32 %text_len435.01530 to i64
+  %idx.ext495 = sext i32 %text_len435.01531 to i64
   %add.ptr496 = getelementptr inbounds i8, ptr %retval.0.i7051443, i64 %idx.ext495
   br label %if.end497
 
 if.end497:                                        ; preds = %if.then472, %land.lhs.true464, %if.end462
-  %selection_offset_start.sroa.0.1 = phi <2 x float> [ %selection_offset_start.sroa.0.01535, %if.end462 ], [ %selection_offset_start.sroa.0.0.vec.insert, %if.then472 ], [ %selection_offset_start.sroa.0.01535, %land.lhs.true464 ]
-  %select_begin_ptr.1 = phi ptr [ %select_begin_ptr.01538, %if.end462 ], [ %add.ptr496, %if.then472 ], [ null, %land.lhs.true464 ]
-  %tobool498.not = icmp eq ptr %select_end_ptr.01537, null
+  %selection_offset_start.sroa.0.1 = phi <2 x float> [ %selection_offset_start.sroa.0.01536, %if.end462 ], [ %selection_offset_start.sroa.0.0.vec.insert, %if.then472 ], [ %selection_offset_start.sroa.0.01536, %land.lhs.true464 ]
+  %select_begin_ptr.1 = phi ptr [ %select_begin_ptr.01539, %if.end462 ], [ %add.ptr496, %if.then472 ], [ null, %land.lhs.true464 ]
+  %tobool498.not = icmp eq ptr %select_end_ptr.01538, null
   br i1 %tobool498.not, label %land.lhs.true499, label %if.end525
 
 land.lhs.true499:                                 ; preds = %if.end497
   %166 = load i32, ptr %select_start409, align 4
   %167 = load i32, ptr %select_end410, align 8
   %cmp502.not = icmp ne i32 %166, %167
-  %cmp505 = icmp eq i32 %glyphs.01529, %cond428
+  %cmp505 = icmp eq i32 %glyphs.01530, %cond428
   %or.cond589 = select i1 %cmp502.not, i1 %cmp505, i1 false
   br i1 %or.cond589, label %if.then507, label %if.end525
 
 if.then507:                                       ; preds = %land.lhs.true499
-  %sub519 = sub nsw i32 %text_len435.01530, %text_len435.0.ph1562
+  %sub519 = sub nsw i32 %text_len435.01531, %text_len435.0.ph1563
   %call520 = call fastcc <2 x float> @nk_text_calculate_text_bounds(ptr noundef nonnull %font, ptr noundef nonnull %add.ptr, i32 noundef %sub519, float noundef %cond42, ptr noundef nonnull %remaining511, ptr noundef nonnull %out_offset509, ptr noundef nonnull %glyph_offset508)
   %selection_offset_end.sroa.0.0.vec.insert = insertelement <2 x float> %call520, float %mul, i64 1
-  %idx.ext523 = sext i32 %text_len435.01530 to i64
+  %idx.ext523 = sext i32 %text_len435.01531 to i64
   %add.ptr524 = getelementptr inbounds i8, ptr %retval.0.i7051443, i64 %idx.ext523
   br label %if.end525
 
 if.end525:                                        ; preds = %if.then507, %land.lhs.true499, %if.end497
-  %selection_offset_end.sroa.0.1 = phi <2 x float> [ %selection_offset_end.sroa.0.01534, %if.end497 ], [ %selection_offset_end.sroa.0.0.vec.insert, %if.then507 ], [ %selection_offset_end.sroa.0.01534, %land.lhs.true499 ]
-  %select_end_ptr.1 = phi ptr [ %select_end_ptr.01537, %if.end497 ], [ %add.ptr524, %if.then507 ], [ null, %land.lhs.true499 ]
-  %cmp526 = icmp eq i32 %unicode434.11528, 10
+  %selection_offset_end.sroa.0.1 = phi <2 x float> [ %selection_offset_end.sroa.0.01535, %if.end497 ], [ %selection_offset_end.sroa.0.0.vec.insert, %if.then507 ], [ %selection_offset_end.sroa.0.01535, %land.lhs.true499 ]
+  %select_end_ptr.1 = phi ptr [ %select_end_ptr.01538, %if.end497 ], [ %add.ptr524, %if.then507 ], [ null, %land.lhs.true499 ]
+  %cmp526 = icmp eq i32 %unicode434.11529, 10
   br i1 %cmp526, label %if.then528, label %if.end552
 
 if.then528:                                       ; preds = %if.end525
-  %text_size.sroa.0.0.vec.extract = extractelement <2 x float> %text_size.sroa.0.0.ph1571, i64 0
-  %cmp530 = fcmp olt float %text_size.sroa.0.0.vec.extract, %line_width.01533
-  %cond536 = select i1 %cmp530, float %line_width.01533, float %text_size.sroa.0.0.vec.extract
-  %text_size.sroa.0.0.vec.insert = insertelement <2 x float> %text_size.sroa.0.0.ph1571, float %cond536, i64 0
-  %inc538 = add nuw nsw i32 %total_lines.0.ph1572, 1
-  %inc539 = add nsw i32 %text_len435.01530, 1
-  %inc540 = add nsw i32 %glyphs.01529, 1
+  %text_size.sroa.0.0.vec.extract = extractelement <2 x float> %text_size.sroa.0.0.ph1572, i64 0
+  %cmp530 = fcmp olt float %text_size.sroa.0.0.vec.extract, %line_width.01534
+  %cond536 = select i1 %cmp530, float %line_width.01534, float %text_size.sroa.0.0.vec.extract
+  %text_size.sroa.0.0.vec.insert = insertelement <2 x float> %text_size.sroa.0.0.ph1572, float %cond536, i64 0
+  %inc538 = add nuw nsw i32 %total_lines.0.ph1573, 1
+  %inc539 = add nsw i32 %text_len435.01531, 1
+  %inc540 = add nsw i32 %glyphs.01530, 1
   %idx.ext541 = sext i32 %inc539 to i64
   %add.ptr542 = getelementptr inbounds i8, ptr %retval.0.i7051443, i64 %idx.ext541
   %sub543 = sub nsw i32 %retval.0.i711, %inc539
@@ -61373,7 +61373,7 @@ for.cond.preheader.i807:                          ; preds = %nk_utf_decode_byte.
 
 for.body.preheader.i826:                          ; preds = %for.cond.preheader.i807
   %174 = zext nneg i32 %sub543 to i64
-  %zext1645 = and i64 %indvars.iv.i.i796, 4294967295
+  %zext1646 = and i64 %indvars.iv.i.i796, 4294967295
   br label %for.body.i827
 
 for.body.i827:                                    ; preds = %for.inc.i846, %for.body.preheader.i826
@@ -61411,7 +61411,7 @@ for.inc.i846:                                     ; preds = %nk_utf_decode_byte.
   %or.i851 = or i32 %shl.i850, %conv14.i29.i849
   %indvars.iv.next.i852 = add nuw nsw i64 %indvars.iv.i828, 1
   %cmp8.i854 = icmp ult i64 %indvars.iv.next.i852, %174
-  %179 = icmp ult i64 %indvars.iv.next.i852, %zext1645
+  %179 = icmp ult i64 %indvars.iv.next.i852, %zext1646
   %180 = and i1 %cmp8.i854, %179
   br i1 %180, label %for.body.i827, label %for.end.i813, !llvm.loop !21
 
@@ -61454,15 +61454,15 @@ nk_utf_decode.exit856:                            ; preds = %for.inc.i.i801, %if
   %185 = load float, ptr %height438, align 8
   %186 = load ptr, ptr %font, align 8
   %call551 = call float %184(ptr %186, float noundef %185, ptr noundef nonnull %add.ptr542, i32 noundef %retval.0.i804) #51
-  %cmp4411526 = icmp slt i32 %inc539, %retval.0.i711
-  %tobool4441527 = icmp ne i32 %retval.0.i804, 0
-  %187 = and i1 %cmp4411526, %tobool4441527
+  %cmp4411527 = icmp slt i32 %inc539, %retval.0.i711
+  %tobool4441528 = icmp ne i32 %retval.0.i804, 0
+  %187 = and i1 %cmp4411527, %tobool4441528
   br i1 %187, label %while.body.lr.ph, label %while.end, !llvm.loop !226
 
 if.end552:                                        ; preds = %if.end525
-  %inc553 = add nsw i32 %glyphs.01529, 1
-  %add554 = add nsw i32 %glyph_len433.01531, %text_len435.01530
-  %add555 = fadd float %glyph_width.01532, %line_width.01533
+  %inc553 = add nsw i32 %glyphs.01530, 1
+  %add554 = add nsw i32 %glyph_len433.01532, %text_len435.01531
+  %add555 = fadd float %glyph_width.01533, %line_width.01534
   %idx.ext556 = sext i32 %add554 to i64
   %add.ptr557 = getelementptr inbounds i8, ptr %retval.0.i7051443, i64 %idx.ext556
   %sub558 = sub nsw i32 %retval.0.i711, %add554
@@ -61505,7 +61505,7 @@ for.cond.preheader.i873:                          ; preds = %nk_utf_decode_byte.
 
 for.body.preheader.i892:                          ; preds = %for.cond.preheader.i873
   %194 = zext nneg i32 %sub558 to i64
-  %zext1644 = and i64 %indvars.iv.i.i862, 4294967295
+  %zext1645 = and i64 %indvars.iv.i.i862, 4294967295
   br label %for.body.i893
 
 for.body.i893:                                    ; preds = %for.inc.i912, %for.body.preheader.i892
@@ -61543,7 +61543,7 @@ for.inc.i912:                                     ; preds = %nk_utf_decode_byte.
   %or.i917 = or i32 %shl.i916, %conv14.i29.i915
   %indvars.iv.next.i918 = add nuw nsw i64 %indvars.iv.i894, 1
   %cmp8.i920 = icmp ult i64 %indvars.iv.next.i918, %194
-  %199 = icmp ult i64 %indvars.iv.next.i918, %zext1644
+  %199 = icmp ult i64 %indvars.iv.next.i918, %zext1645
   %200 = and i1 %cmp8.i920, %199
   br i1 %200, label %for.body.i893, label %for.end.i879, !llvm.loop !21
 
@@ -61580,7 +61580,7 @@ return.loopexit81.i910:                           ; preds = %nk_utf_decode_byte.
   br label %nk_utf_decode.exit922
 
 nk_utf_decode.exit922:                            ; preds = %for.inc.i.i867, %if.end552, %nk_utf_decode_byte.exit.i871, %for.end.i879, %land.lhs.true.i.i886, %if.then7.i36.i891, %return.loopexit.i906, %return.loopexit81.i910
-  %unicode434.3 = phi i32 [ %unicode434.11528, %if.end552 ], [ 65533, %for.end.i879 ], [ 65533, %if.then7.i36.i891 ], [ %udecoded.0.lcssa.i880, %land.lhs.true.i.i886 ], [ 65533, %return.loopexit81.i910 ], [ 65533, %return.loopexit.i906 ], [ 65533, %nk_utf_decode_byte.exit.i871 ], [ 65533, %for.inc.i.i867 ]
+  %unicode434.3 = phi i32 [ %unicode434.11529, %if.end552 ], [ 65533, %for.end.i879 ], [ 65533, %if.then7.i36.i891 ], [ %udecoded.0.lcssa.i880, %land.lhs.true.i.i886 ], [ 65533, %return.loopexit81.i910 ], [ 65533, %return.loopexit.i906 ], [ 65533, %nk_utf_decode_byte.exit.i871 ], [ 65533, %for.inc.i.i867 ]
   %retval.0.i870 = phi i32 [ 0, %if.end552 ], [ 0, %for.end.i879 ], [ %191, %if.then7.i36.i891 ], [ %191, %land.lhs.true.i.i886 ], [ %indvars78.le.i911, %return.loopexit81.i910 ], [ %indvars78.le91.i907, %return.loopexit.i906 ], [ 1, %nk_utf_decode_byte.exit.i871 ], [ 1, %for.inc.i.i867 ]
   %204 = load ptr, ptr %width, align 8
   %205 = load float, ptr %height438, align 8
@@ -61592,8 +61592,8 @@ nk_utf_decode.exit922:                            ; preds = %for.inc.i.i867, %if
   br i1 %207, label %while.body, label %while.end, !llvm.loop !226
 
 while.end:                                        ; preds = %nk_utf_decode.exit856, %nk_utf_decode.exit922
-  %text_size.sroa.0.0.ph.lcssa = phi <2 x float> [ %text_size.sroa.0.0.ph1571, %nk_utf_decode.exit922 ], [ %text_size.sroa.0.0.vec.insert, %nk_utf_decode.exit856 ]
-  %total_lines.0.ph.lcssa = phi i32 [ %total_lines.0.ph1572, %nk_utf_decode.exit922 ], [ %inc538, %nk_utf_decode.exit856 ]
+  %text_size.sroa.0.0.ph.lcssa = phi <2 x float> [ %text_size.sroa.0.0.ph1572, %nk_utf_decode.exit922 ], [ %text_size.sroa.0.0.vec.insert, %nk_utf_decode.exit856 ]
+  %total_lines.0.ph.lcssa = phi i32 [ %total_lines.0.ph1573, %nk_utf_decode.exit922 ], [ %inc538, %nk_utf_decode.exit856 ]
   %line_width.0.lcssa = phi float [ %add555, %nk_utf_decode.exit922 ], [ 0.000000e+00, %nk_utf_decode.exit856 ]
   %conv567 = sitofp i32 %total_lines.0.ph.lcssa to float
   %mul568 = fmul float %cond42, %conv567
@@ -61602,14 +61602,14 @@ while.end:                                        ; preds = %nk_utf_decode.exit8
   br i1 %tobool570.not, label %land.lhs.true571, label %if.end583
 
 land.lhs.true571:                                 ; preds = %while.end.thread, %while.end
-  %text_size.sroa.0.4.vec.insert1680 = phi <2 x float> [ %text_size.sroa.0.4.vec.insert1671, %while.end.thread ], [ %text_size.sroa.0.4.vec.insert, %while.end ]
-  %mul5681679 = phi float [ %cond42, %while.end.thread ], [ %mul568, %while.end ]
-  %select_begin_ptr.0.lcssa1678 = phi ptr [ null, %while.end.thread ], [ %select_begin_ptr.1, %while.end ]
-  %select_end_ptr.0.lcssa1677 = phi ptr [ null, %while.end.thread ], [ %select_end_ptr.1, %while.end ]
-  %cursor_pos.sroa.0.0.lcssa1676 = phi <2 x float> [ zeroinitializer, %while.end.thread ], [ %cursor_pos.sroa.0.1, %while.end ]
-  %selection_offset_start.sroa.0.0.lcssa1675 = phi <2 x float> [ zeroinitializer, %while.end.thread ], [ %selection_offset_start.sroa.0.1, %while.end ]
-  %selection_offset_end.sroa.0.0.lcssa1674 = phi <2 x float> [ zeroinitializer, %while.end.thread ], [ %selection_offset_end.sroa.0.1, %while.end ]
-  %line_width.0.lcssa1673 = phi float [ 0.000000e+00, %while.end.thread ], [ %line_width.0.lcssa, %while.end ]
+  %text_size.sroa.0.4.vec.insert1681 = phi <2 x float> [ %text_size.sroa.0.4.vec.insert1672, %while.end.thread ], [ %text_size.sroa.0.4.vec.insert, %while.end ]
+  %mul5681680 = phi float [ %cond42, %while.end.thread ], [ %mul568, %while.end ]
+  %select_begin_ptr.0.lcssa1679 = phi ptr [ null, %while.end.thread ], [ %select_begin_ptr.1, %while.end ]
+  %select_end_ptr.0.lcssa1678 = phi ptr [ null, %while.end.thread ], [ %select_end_ptr.1, %while.end ]
+  %cursor_pos.sroa.0.0.lcssa1677 = phi <2 x float> [ zeroinitializer, %while.end.thread ], [ %cursor_pos.sroa.0.1, %while.end ]
+  %selection_offset_start.sroa.0.0.lcssa1676 = phi <2 x float> [ zeroinitializer, %while.end.thread ], [ %selection_offset_start.sroa.0.1, %while.end ]
+  %selection_offset_end.sroa.0.0.lcssa1675 = phi <2 x float> [ zeroinitializer, %while.end.thread ], [ %selection_offset_end.sroa.0.1, %while.end ]
+  %line_width.0.lcssa1674 = phi float [ 0.000000e+00, %while.end.thread ], [ %line_width.0.lcssa, %while.end ]
   %cursor572 = getelementptr inbounds i8, ptr %edit, i64 168
   %208 = load i32, ptr %cursor572, align 8
   %209 = load i32, ptr %len.i700, align 8
@@ -61617,19 +61617,19 @@ land.lhs.true571:                                 ; preds = %while.end.thread, %
   br i1 %cmp575, label %if.then577, label %if.end583
 
 if.then577:                                       ; preds = %land.lhs.true571
-  %cursor_pos.sroa.0.0.vec.insert90 = insertelement <2 x float> poison, float %line_width.0.lcssa1673, i64 0
-  %sub580 = fsub float %mul5681679, %cond42
+  %cursor_pos.sroa.0.0.vec.insert90 = insertelement <2 x float> poison, float %line_width.0.lcssa1674, i64 0
+  %sub580 = fsub float %mul5681680, %cond42
   %cursor_pos.sroa.0.4.vec.insert107 = insertelement <2 x float> %cursor_pos.sroa.0.0.vec.insert90, float %sub580, i64 1
   br label %if.end583
 
 if.end583:                                        ; preds = %while.end, %land.lhs.true571, %if.then577, %if.then404
-  %selection_offset_end.sroa.0.2 = phi <2 x float> [ %selection_offset_end.sroa.0.1, %while.end ], [ %selection_offset_end.sroa.0.0.lcssa1674, %if.then577 ], [ %selection_offset_end.sroa.0.0.lcssa1674, %land.lhs.true571 ], [ zeroinitializer, %if.then404 ]
-  %selection_offset_start.sroa.0.2 = phi <2 x float> [ %selection_offset_start.sroa.0.1, %while.end ], [ %selection_offset_start.sroa.0.0.lcssa1675, %if.then577 ], [ %selection_offset_start.sroa.0.0.lcssa1675, %land.lhs.true571 ], [ zeroinitializer, %if.then404 ]
-  %cursor_pos.sroa.0.2 = phi <2 x float> [ %cursor_pos.sroa.0.1, %while.end ], [ %cursor_pos.sroa.0.4.vec.insert107, %if.then577 ], [ %cursor_pos.sroa.0.0.lcssa1676, %land.lhs.true571 ], [ zeroinitializer, %if.then404 ]
-  %select_end_ptr.2 = phi ptr [ %select_end_ptr.1, %while.end ], [ %select_end_ptr.0.lcssa1677, %if.then577 ], [ %select_end_ptr.0.lcssa1677, %land.lhs.true571 ], [ null, %if.then404 ]
-  %select_begin_ptr.2 = phi ptr [ %select_begin_ptr.1, %while.end ], [ %select_begin_ptr.0.lcssa1678, %if.then577 ], [ %select_begin_ptr.0.lcssa1678, %land.lhs.true571 ], [ null, %if.then404 ]
+  %selection_offset_end.sroa.0.2 = phi <2 x float> [ %selection_offset_end.sroa.0.1, %while.end ], [ %selection_offset_end.sroa.0.0.lcssa1675, %if.then577 ], [ %selection_offset_end.sroa.0.0.lcssa1675, %land.lhs.true571 ], [ zeroinitializer, %if.then404 ]
+  %selection_offset_start.sroa.0.2 = phi <2 x float> [ %selection_offset_start.sroa.0.1, %while.end ], [ %selection_offset_start.sroa.0.0.lcssa1676, %if.then577 ], [ %selection_offset_start.sroa.0.0.lcssa1676, %land.lhs.true571 ], [ zeroinitializer, %if.then404 ]
+  %cursor_pos.sroa.0.2 = phi <2 x float> [ %cursor_pos.sroa.0.1, %while.end ], [ %cursor_pos.sroa.0.4.vec.insert107, %if.then577 ], [ %cursor_pos.sroa.0.0.lcssa1677, %land.lhs.true571 ], [ zeroinitializer, %if.then404 ]
+  %select_end_ptr.2 = phi ptr [ %select_end_ptr.1, %while.end ], [ %select_end_ptr.0.lcssa1678, %if.then577 ], [ %select_end_ptr.0.lcssa1678, %land.lhs.true571 ], [ null, %if.then404 ]
+  %select_begin_ptr.2 = phi ptr [ %select_begin_ptr.1, %while.end ], [ %select_begin_ptr.0.lcssa1679, %if.then577 ], [ %select_begin_ptr.0.lcssa1679, %land.lhs.true571 ], [ null, %if.then404 ]
   %cursor_ptr.2 = phi ptr [ %cursor_ptr.1, %while.end ], [ null, %if.then577 ], [ null, %land.lhs.true571 ], [ null, %if.then404 ]
-  %text_size.sroa.0.1 = phi <2 x float> [ %text_size.sroa.0.4.vec.insert, %while.end ], [ %text_size.sroa.0.4.vec.insert1680, %if.then577 ], [ %text_size.sroa.0.4.vec.insert1680, %land.lhs.true571 ], [ zeroinitializer, %if.then404 ]
+  %text_size.sroa.0.1 = phi <2 x float> [ %text_size.sroa.0.4.vec.insert, %while.end ], [ %text_size.sroa.0.4.vec.insert1681, %if.then577 ], [ %text_size.sroa.0.4.vec.insert1681, %land.lhs.true571 ], [ zeroinitializer, %if.then404 ]
   %tobool584.not = icmp eq i8 %cursor_follow.7, 0
   br i1 %tobool584.not, label %if.end682, label %if.then585
 
@@ -61976,13 +61976,13 @@ nk_str_get_const.exit1009:                        ; preds = %if.then769, %lor.lh
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %conv781 = trunc i64 %sub.ptr.sub to i32
   call fastcc void @nk_edit_draw_text(ptr noundef nonnull %out, ptr noundef nonnull %style, float noundef %sub776, float noundef %sub780, float noundef 0.000000e+00, ptr noundef %retval.0.i1008, i32 noundef %conv781, float noundef %cond42, ptr noundef %font, i32 %background_color.sroa.0.0, i32 %text_color.sroa.0.0, i32 noundef 0)
-  %.pre1652 = load i32, ptr %select_start409, align 4
-  %.pre1653 = load i32, ptr %select_end410, align 8
+  %.pre1653 = load i32, ptr %select_start409, align 4
+  %.pre1654 = load i32, ptr %select_end410, align 8
   br label %if.end782
 
 if.end782:                                        ; preds = %nk_str_get_const.exit1009, %if.else761
-  %249 = phi i32 [ %.pre1653, %nk_str_get_const.exit1009 ], [ %234, %if.else761 ]
-  %250 = phi i32 [ %.pre1652, %nk_str_get_const.exit1009 ], [ %233, %if.else761 ]
+  %249 = phi i32 [ %.pre1654, %nk_str_get_const.exit1009 ], [ %234, %if.else761 ]
+  %250 = phi i32 [ %.pre1653, %nk_str_get_const.exit1009 ], [ %233, %if.else761 ]
   %cmp785.not = icmp eq i32 %250, %249
   br i1 %cmp785.not, label %if.end848, label %if.then787
 
@@ -62035,9 +62035,9 @@ if.end813:                                        ; preds = %if.then787, %nk_str
   %sub.ptr.sub811 = sub i64 %sub.ptr.lhs.cast809, %sub.ptr.rhs.cast810
   %conv812 = trunc i64 %sub.ptr.sub811 to i32
   call fastcc void @nk_edit_draw_text(ptr noundef nonnull %out, ptr noundef nonnull %style, float noundef %sub801, float noundef %sub807, float noundef %selection_offset_start.sroa.0.0.vec.extract, ptr noundef %select_begin_ptr.2, i32 noundef %conv812, float noundef %cond42, ptr noundef %font, i32 %sel_background_color.sroa.0.0, i32 %sel_text_color.sroa.0.0, i32 noundef 1)
-  %.pre1654 = load i32, ptr %select_start409, align 4
-  %.pre1655 = load i32, ptr %select_end410, align 8
-  %cmp816.not = icmp eq i32 %.pre1654, %.pre1655
+  %.pre1655 = load i32, ptr %select_start409, align 4
+  %.pre1656 = load i32, ptr %select_end410, align 8
+  %cmp816.not = icmp eq i32 %.pre1655, %.pre1656
   br i1 %cmp816.not, label %if.end848, label %land.lhs.true818
 
 land.lhs.true818:                                 ; preds = %if.end813
@@ -62062,8 +62062,8 @@ if.end.i1031:                                     ; preds = %lor.lhs.false2.i102
 
 lor.lhs.false2.i1037:                             ; preds = %lor.lhs.false2.i1028, %if.end.i1031
   %retval.0.i1033.ph = phi ptr [ null, %lor.lhs.false2.i1028 ], [ %262, %if.end.i1031 ]
-  %sext1466 = shl i64 %261, 32
-  %263 = ashr exact i64 %sext1466, 32
+  %sext1467 = shl i64 %261, 32
+  %263 = ashr exact i64 %sext1467, 32
   br label %nk_str_len_char.exit1041
 
 nk_str_len_char.exit1041:                         ; preds = %if.then823, %lor.lhs.false2.i1037
@@ -62121,7 +62121,7 @@ land.lhs.true861:                                 ; preds = %lor.lhs.false859
   br i1 %cmp863, label %if.then865, label %for.body.i.i1051
 
 for.body.i.i1051:                                 ; preds = %land.lhs.true861, %for.inc.i.i1057
-  %indvars.iv1647 = phi i32 [ %indvars.iv.next1648, %for.inc.i.i1057 ], [ -2, %land.lhs.true861 ]
+  %indvars.iv1648 = phi i32 [ %indvars.iv.next1649, %for.inc.i.i1057 ], [ -2, %land.lhs.true861 ]
   %indvars.iv.i.i1052 = phi i64 [ %indvars.iv.next.i.i1058, %for.inc.i.i1057 ], [ 0, %land.lhs.true861 ]
   %arrayidx.i.i1053 = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %indvars.iv.i.i1052
   %273 = load i8, ptr %arrayidx.i.i1053, align 1
@@ -62134,7 +62134,7 @@ for.body.i.i1051:                                 ; preds = %land.lhs.true861, %
 for.inc.i.i1057:                                  ; preds = %for.body.i.i1051
   %indvars.iv.next.i.i1058 = add nuw nsw i64 %indvars.iv.i.i1052, 1
   %exitcond.not.i.i1059 = icmp eq i64 %indvars.iv.next.i.i1058, 5
-  %indvars.iv.next1648 = add nsw i32 %indvars.iv1647, 1
+  %indvars.iv.next1649 = add nsw i32 %indvars.iv1648, 1
   br i1 %exitcond.not.i.i1059, label %nk_widget_text.exit, label %for.body.i.i1051, !llvm.loop !20
 
 nk_utf_decode_byte.exit.i1061:                    ; preds = %for.body.i.i1051
@@ -62148,10 +62148,10 @@ for.cond.preheader.i1063:                         ; preds = %nk_utf_decode_byte.
   br i1 %cmp962.i1067, label %for.body.i1082.preheader, label %if.end.i.i1071
 
 for.body.i1082.preheader:                         ; preds = %for.cond.preheader.i1063
-  %zext1646 = and i64 %indvars.iv.i.i1052, 4294967295
-  %277 = call i32 @llvm.umin.i32(i32 %indvars.iv1647, i32 2)
-  %narrow1656 = add nuw nsw i32 %277, 2
-  %278 = zext nneg i32 %narrow1656 to i64
+  %zext1647 = and i64 %indvars.iv.i.i1052, 4294967295
+  %277 = call i32 @llvm.umin.i32(i32 %indvars.iv1648, i32 2)
+  %narrow1657 = add nuw nsw i32 %277, 2
+  %278 = zext nneg i32 %narrow1657 to i64
   br label %for.body.i1082
 
 for.body.i1082:                                   ; preds = %for.body.i1082.preheader, %for.inc.i1101
@@ -62182,11 +62182,11 @@ nk_utf_decode_byte.exit30.i1097:                  ; preds = %for.body.i15.i1086
 
 for.inc.i1101:                                    ; preds = %nk_utf_decode_byte.exit30.i1097
   %indvars.iv.next.i1107 = add nuw nsw i64 %indvars.iv.i1083, 1
-  %exitcond1650.not = icmp eq i64 %indvars.iv.next.i1107, %278
-  br i1 %exitcond1650.not, label %for.end.i1068, label %for.body.i1082, !llvm.loop !21
+  %exitcond1651.not = icmp eq i64 %indvars.iv.next.i1107, %278
+  br i1 %exitcond1651.not, label %for.end.i1068, label %for.body.i1082, !llvm.loop !21
 
 for.end.i1068:                                    ; preds = %for.inc.i1101
-  %283 = icmp ult i64 %indvars.iv.next.i1107, %zext1646
+  %283 = icmp ult i64 %indvars.iv.next.i1107, %zext1647
   br i1 %283, label %nk_widget_text.exit, label %if.end.i.i1071
 
 if.end.i.i1071:                                   ; preds = %for.cond.preheader.i1063, %for.end.i1068
@@ -62331,11 +62331,11 @@ nk_push_scissor.exit1175:                         ; preds = %if.end.i1137, %if.e
   %tobool933.not = icmp eq i32 %and932, 0
   %and938 = and i32 %322, 16
   %tobool939.not = icmp eq i32 %and938, 0
-  %.1746 = select i1 %tobool939.not, i64 896, i64 900
+  %.1747 = select i1 %tobool939.not, i64 896, i64 900
   %style.hover = select i1 %tobool939.not, ptr %style, ptr %hover
-  %.sink1744 = select i1 %tobool933.not, i64 %.1746, i64 904
+  %.sink1745 = select i1 %tobool933.not, i64 %.1747, i64 904
   %background929.0 = select i1 %tobool933.not, ptr %style.hover, ptr %active365
-  %text_hover942 = getelementptr inbounds i8, ptr %style, i64 %.sink1744
+  %text_hover942 = getelementptr inbounds i8, ptr %style, i64 %.sink1745
   %text_color931.sroa.0.0 = load i32, ptr %text_hover942, align 4
   %323 = load i32, ptr %background929.0, align 8
   %cmp949 = icmp eq i32 %323, 1
@@ -64736,13 +64736,13 @@ if.end.i.i:                                       ; preds = %land.lhs.true73.i
   %cmp.i.i = fcmp ole float %18, %16
   %add.i.i = fadd float %18, 4.000000e+00
   %cmp6.i.i = fcmp olt float %16, %add.i.i
-  %or.cond.i.not123.not.i = and i1 %cmp.i.i, %cmp6.i.i
+  %or.cond.i.not123.not124.i = and i1 %cmp.i.i, %cmp6.i.i
   %19 = extractelement <2 x float> %14, i64 1
   %cmp10.i.i = fcmp ole float %19, %17
-  %or.cond122.i = select i1 %or.cond.i.not123.not.i, i1 %cmp10.i.i, i1 false
+  %or.cond122.not.i = select i1 %or.cond.i.not123.not124.i, i1 %cmp10.i.i, i1 false
   %add16.i.i = fadd float %19, 4.000000e+00
   %cmp17.i.i = fcmp olt float %17, %add16.i.i
-  %narrow.i = select i1 %or.cond122.i, i1 %cmp17.i.i, i1 false
+  %narrow.i = select i1 %or.cond122.not.i, i1 %cmp17.i.i, i1 false
   %retval.0.i.i = zext i1 %narrow.i to i32
   %20 = load i32, ptr %mouse.i, align 4
   %tobool103.not.i = icmp eq i32 %20, 0
@@ -64866,8 +64866,8 @@ land.rhs.i113.i:                                  ; preds = %if.end.i106.i
   %cmp10.i115.i = fcmp ugt float %sub151.i, %50
   %add16.i117.i = fadd float %sub151.i, 6.000000e+00
   %cmp17.i118.i = fcmp uge float %50, %add16.i117.i
-  %or.cond124.i = or i1 %cmp10.i115.i, %cmp17.i118.i
-  br i1 %or.cond124.i, label %if.end181.i, label %if.then161.i
+  %or.cond125.i = or i1 %cmp10.i115.i, %cmp17.i118.i
+  br i1 %or.cond125.i, label %if.end181.i, label %if.then161.i
 
 if.then161.i:                                     ; preds = %land.rhs.i113.i
   %mouse162.i = getelementptr inbounds i8, ptr %cond.i, i64 260
