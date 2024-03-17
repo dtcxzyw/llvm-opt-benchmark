@@ -19118,14 +19118,14 @@ define hidden void @_ZN15rustfmt_nightly7comment22left_trim_comment_line17hb3f46
 
 50:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17haf78834e44047fc9E.exit91", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17haf78834e44047fc9E.exit86", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17haf78834e44047fc9E.exit81", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17haf78834e44047fc9E.exit76", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17haf78834e44047fc9E.exit67", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17haf78834e44047fc9E.exit58"
   %.not.i.i68.not = icmp eq i64 %2, 3
-  br i1 %.not.i.i68.not, label %.thread198, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17haf67bc638b31970fE.llvm.17476841346288807550.exit.i70"
+  br i1 %.not.i.i68.not, label %.thread200, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17haf67bc638b31970fE.llvm.17476841346288807550.exit.i70"
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17haf67bc638b31970fE.llvm.17476841346288807550.exit.i70": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17haf78834e44047fc9E.exit106", %50
   %51 = getelementptr inbounds i8, ptr %1, i64 3
   %52 = load i8, ptr %51, align 1, !alias.scope !3377, !noundef !10
   %53 = icmp sgt i8 %52, -65
   %54 = add i64 %2, -3
-  br i1 %53, label %.thread198, label %96
+  br i1 %53, label %.thread200, label %96
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17haf78834e44047fc9E.exit76": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17haf78834e44047fc9E.exit67"
   %bcmp.i.i74 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) @anon.ac9b56db96481140084a14b3a62254c9.151, ptr noundef nonnull dereferenceable(3) %1, i64 3), !alias.scope !3382
@@ -19164,7 +19164,7 @@ define hidden void @_ZN15rustfmt_nightly7comment22left_trim_comment_line17hb3f46
   br i1 %61, label %65, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17haf78834e44047fc9E.exit111"
 
 62:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17haf78834e44047fc9E.exit96"
-  br i1 %.not.i, label %.thread198, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17haf78834e44047fc9E.exit106"
+  br i1 %.not.i, label %.thread200, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17haf78834e44047fc9E.exit106"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17haf78834e44047fc9E.exit106": ; preds = %62
   %bcmp.i.i104 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) @anon.ac9b56db96481140084a14b3a62254c9.147, ptr noundef nonnull dereferenceable(4) %1, i64 4), !alias.scope !3424
@@ -19262,16 +19262,16 @@ define hidden void @_ZN15rustfmt_nightly7comment22left_trim_comment_line17hb3f46
   tail call void @_ZN4core3str16slice_error_fail17hb5c4f833c44f34d2E(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef 3, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ac9b56db96481140084a14b3a62254c9.212) #48
   unreachable
 
-.thread198:                                       ; preds = %50, %62, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17haf67bc638b31970fE.llvm.17476841346288807550.exit.i70"
+.thread200:                                       ; preds = %50, %62, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17haf67bc638b31970fE.llvm.17476841346288807550.exit.i70"
   %97 = phi i64 [ %54, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17haf67bc638b31970fE.llvm.17476841346288807550.exit.i70" ], [ 0, %62 ], [ 0, %50 ]
   %98 = getelementptr inbounds i8, ptr %1, i64 3
   %99 = getelementptr inbounds i8, ptr %1, i64 %2
   %100 = ptrtoint ptr %99 to i64
   br label %101
 
-101:                                              ; preds = %103, %.thread198
-  %.227.i.i = phi i64 [ 2, %.thread198 ], [ %106, %103 ]
-  %102 = phi ptr [ %1, %.thread198 ], [ %112, %103 ]
+101:                                              ; preds = %103, %.thread200
+  %.227.i.i = phi i64 [ 2, %.thread200 ], [ %106, %103 ]
+  %102 = phi ptr [ %1, %.thread200 ], [ %112, %103 ]
   %.not24.i.i = icmp eq ptr %99, %102
   br i1 %.not24.i.i, label %_ZN4core4iter6traits8iterator8Iterator3nth17h27cc55303669604aE.exit.thread196, label %103
 

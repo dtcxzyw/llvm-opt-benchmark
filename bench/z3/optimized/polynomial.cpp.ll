@@ -59669,11 +59669,7 @@ define linkonce_odr hidden void @_ZN22_scoped_numeral_vectorI13mpzzp_managerE6re
 entry:
   %0 = load ptr, ptr %this, align 8
   %cmp.i = icmp eq ptr %0, null
-  br i1 %cmp.i, label %_ZNK6vectorI3mpzLb0EjE4sizeEv.exit, label %_ZNK6vectorI3mpzLb0EjE4sizeEv.exit.thread
-
-_ZNK6vectorI3mpzLb0EjE4sizeEv.exit:               ; preds = %entry
-  %cond = icmp eq i32 %sz, 0
-  br i1 %cond, label %_ZN6vectorI3mpzLb0EjE6resizeIiEEvjT_z.exit, label %while.cond.i.preheader
+  br i1 %cmp.i, label %_ZNK6vectorI3mpzLb0EjE4sizeEv.exit.i10, label %_ZNK6vectorI3mpzLb0EjE4sizeEv.exit.thread
 
 _ZNK6vectorI3mpzLb0EjE4sizeEv.exit.thread:        ; preds = %entry
   %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 -4
@@ -59710,20 +59706,20 @@ if.end:                                           ; preds = %for.end.i
   %cmp.i.i4 = icmp eq ptr %.pr.pr.pre, null
   br i1 %cmp.i.i4, label %_ZNK6vectorI3mpzLb0EjE4sizeEv.exit.i10, label %_ZNK6vectorI3mpzLb0EjE4sizeEv.exit.thread.i
 
-_ZNK6vectorI3mpzLb0EjE4sizeEv.exit.i10:           ; preds = %for.end.i, %if.end
+_ZNK6vectorI3mpzLb0EjE4sizeEv.exit.i10:           ; preds = %entry, %for.end.i, %if.end
   %cmp.not.not.i = icmp eq i32 %sz, 0
   br i1 %cmp.not.not.i, label %_ZN6vectorI3mpzLb0EjE6resizeIiEEvjT_z.exit, label %while.cond.i.preheader
 
 _ZNK6vectorI3mpzLb0EjE4sizeEv.exit.thread.i:      ; preds = %_ZNK6vectorI3mpzLb0EjE4sizeEv.exit.thread, %if.end
-  %.pr.pr29 = phi ptr [ %.pr.pr.pre, %if.end ], [ %0, %_ZNK6vectorI3mpzLb0EjE4sizeEv.exit.thread ]
-  %arrayidx.i.i5 = getelementptr inbounds i8, ptr %.pr.pr29, i64 -4
+  %.pr.pr27 = phi ptr [ %.pr.pr.pre, %if.end ], [ %0, %_ZNK6vectorI3mpzLb0EjE4sizeEv.exit.thread ]
+  %arrayidx.i.i5 = getelementptr inbounds i8, ptr %.pr.pr27, i64 -4
   %6 = load i32, ptr %arrayidx.i.i5, align 4
   %cmp.not15.i = icmp ult i32 %6, %sz
   br i1 %cmp.not15.i, label %while.cond.i.preheader, label %if.then.i.i6
 
-while.cond.i.preheader:                           ; preds = %_ZNK6vectorI3mpzLb0EjE4sizeEv.exit.i10, %_ZNK6vectorI3mpzLb0EjE4sizeEv.exit, %_ZNK6vectorI3mpzLb0EjE4sizeEv.exit.thread.i
-  %.ph = phi ptr [ %.pr.pr29, %_ZNK6vectorI3mpzLb0EjE4sizeEv.exit.thread.i ], [ null, %_ZNK6vectorI3mpzLb0EjE4sizeEv.exit ], [ null, %_ZNK6vectorI3mpzLb0EjE4sizeEv.exit.i10 ]
-  %retval.0.i16.i.ph = phi i32 [ %6, %_ZNK6vectorI3mpzLb0EjE4sizeEv.exit.thread.i ], [ 0, %_ZNK6vectorI3mpzLb0EjE4sizeEv.exit ], [ 0, %_ZNK6vectorI3mpzLb0EjE4sizeEv.exit.i10 ]
+while.cond.i.preheader:                           ; preds = %_ZNK6vectorI3mpzLb0EjE4sizeEv.exit.i10, %_ZNK6vectorI3mpzLb0EjE4sizeEv.exit.thread.i
+  %.ph = phi ptr [ %.pr.pr27, %_ZNK6vectorI3mpzLb0EjE4sizeEv.exit.thread.i ], [ null, %_ZNK6vectorI3mpzLb0EjE4sizeEv.exit.i10 ]
+  %retval.0.i16.i.ph = phi i32 [ %6, %_ZNK6vectorI3mpzLb0EjE4sizeEv.exit.thread.i ], [ 0, %_ZNK6vectorI3mpzLb0EjE4sizeEv.exit.i10 ]
   br label %while.cond.i
 
 if.then.i.i6:                                     ; preds = %_ZNK6vectorI3mpzLb0EjE4sizeEv.exit.thread.i
@@ -59777,7 +59773,7 @@ for.body.i9:                                      ; preds = %for.body.i9, %for.b
   %cmp8.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr7.i
   br i1 %cmp8.not.i, label %_ZN6vectorI3mpzLb0EjE6resizeIiEEvjT_z.exit, label %for.body.i9, !llvm.loop !276
 
-_ZN6vectorI3mpzLb0EjE6resizeIiEEvjT_z.exit:       ; preds = %for.body.i9, %_ZNK6vectorI3mpzLb0EjE4sizeEv.exit, %_ZNK6vectorI3mpzLb0EjE4sizeEv.exit.i10, %if.then.i.i6, %while.end.i
+_ZN6vectorI3mpzLb0EjE6resizeIiEEvjT_z.exit:       ; preds = %for.body.i9, %_ZNK6vectorI3mpzLb0EjE4sizeEv.exit.i10, %if.then.i.i6, %while.end.i
   ret void
 }
 

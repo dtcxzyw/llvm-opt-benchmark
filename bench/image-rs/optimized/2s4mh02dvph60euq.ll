@@ -32858,10 +32858,10 @@ switch.lookup226:                                 ; preds = %60
   %.sroa.4942.01512.i = phi ptr [ %1525, %.lr.ph.i ], [ %396, %.lr.ph.preheader.i ]
   %1525 = getelementptr inbounds i8, ptr %.sroa.4942.01512.i, i64 4
   %1526 = add i64 %.sroa.7943.01513.i, -4
-  %1527 = getelementptr inbounds i8, ptr %.sroa.4942.01512.i, i64 1
-  %1528 = load i8, ptr %.sroa.4942.01512.i, align 1, !noalias !4740, !noundef !4
-  %1529 = load i8, ptr %1527, align 1, !noalias !4740, !noundef !4
-  %1530 = sub i8 %1528, %1529
+  %1527 = load i8, ptr %.sroa.4942.01512.i, align 1, !noalias !4740, !noundef !4
+  %1528 = getelementptr inbounds i8, ptr %.sroa.4942.01512.i, i64 1
+  %1529 = load i8, ptr %1528, align 1, !noalias !4740, !noundef !4
+  %1530 = sub i8 %1527, %1529
   store i8 %1530, ptr %.sroa.4942.01512.i, align 1, !noalias !4740
   %1531 = getelementptr inbounds i8, ptr %.sroa.4942.01512.i, i64 2
   %1532 = load i8, ptr %1531, align 1, !noalias !4740, !noundef !4

@@ -25321,9 +25321,9 @@ define hidden noundef ptr @par_shapes_create_klein_bottle(i32 noundef %0, i32 no
   %3 = icmp slt i32 %0, 3
   %4 = icmp slt i32 %1, 3
   %or.cond = or i1 %3, %4
-  br i1 %or.cond, label %24, label %.preheader.us.preheader
+  br i1 %or.cond, label %24, label %.split.us
 
-.preheader.us.preheader:                          ; preds = %2
+.split.us:                                        ; preds = %2
   %5 = tail call ptr @par_shapes_create_parametric(ptr noundef nonnull @par_shapes__klein, i32 noundef %0, i32 noundef %1, ptr noundef null)
   %6 = mul nsw i32 %1, 27
   %7 = lshr i32 %6, 5
@@ -25331,9 +25331,9 @@ define hidden noundef ptr @par_shapes_create_klein_bottle(i32 noundef %0, i32 no
   %9 = shl nuw i32 %0, 1
   br label %.preheader.us
 
-.preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
-  %.01826.us = phi i32 [ %14, %._crit_edge.us ], [ 0, %.preheader.us.preheader ]
-  %.01925.us = phi i32 [ %.us-phi.us, %._crit_edge.us ], [ 0, %.preheader.us.preheader ]
+.preheader.us:                                    ; preds = %._crit_edge.us, %.split.us
+  %.01826.us = phi i32 [ 0, %.split.us ], [ %14, %._crit_edge.us ]
+  %.01925.us = phi i32 [ 0, %.split.us ], [ %.us-phi.us, %._crit_edge.us ]
   %10 = icmp ult i32 %.01826.us, %7
   br i1 %10, label %.lr.ph.split.us.us.preheader, label %par_shapes_invert.exit.us.preheader
 
@@ -25352,8 +25352,8 @@ par_shapes_invert.exit.us.preheader:              ; preds = %.preheader.us
 ._crit_edge.us:                                   ; preds = %par_shapes_invert.exit.us.preheader, %._crit_edge.us.loopexit
   %.us-phi.us = phi i32 [ %13, %._crit_edge.us.loopexit ], [ %11, %par_shapes_invert.exit.us.preheader ]
   %14 = add nuw nsw i32 %.01826.us, 1
-  %exitcond38.not = icmp eq i32 %14, %1
-  br i1 %exitcond38.not, label %.split33.us, label %.preheader.us
+  %exitcond37.not = icmp eq i32 %14, %1
+  br i1 %exitcond37.not, label %.split33.us, label %.preheader.us
 
 .lr.ph.split.us.us:                               ; preds = %.lr.ph.split.us.us.preheader, %par_shapes_invert.exit.loopexit.us.us
   %indvars.iv = phi i64 [ %12, %.lr.ph.split.us.us.preheader ], [ %indvars.iv.next, %par_shapes_invert.exit.loopexit.us.us ]

@@ -90,7 +90,6 @@ $_ZN4absl16strings_internal13JoinAlgorithmIN9__gnu_cxx17__normal_iteratorIPKNSt7
 @.str.20 = private unnamed_addr constant [8 x i8] c"WARNING\00", align 1
 @.str.21 = private unnamed_addr constant [6 x i8] c"ERROR\00", align 1
 @.str.22 = private unnamed_addr constant [6 x i8] c"FATAL\00", align 1
-@.str.23 = private unnamed_addr constant [8 x i8] c"UNKNOWN\00", align 1
 @.str.24 = private unnamed_addr constant [24 x i8] c"vector::_M_range_insert\00", align 1
 @.str.25 = private unnamed_addr constant [49 x i8] c"cannot create std::vector larger than max_size()\00", align 1
 @.str.27 = private unnamed_addr constant [5 x i8] c"%.*g\00", align 1
@@ -1531,40 +1530,29 @@ entry:
   %ref.tmp.i.i.i = alloca %"class.std::allocator", align 1
   %ref.tmp.i.i = alloca %"class.absl::AlphaNum", align 8
   %ref.tmp = alloca %"class.std::allocator", align 1
-  %spec.store.select.i = tail call i32 @llvm.smax.i32(i32 %v, i32 0)
-  %cmp1.i = icmp sgt i32 %v, 3
-  %spec.store.select1.i = select i1 %cmp1.i, i32 2, i32 %spec.store.select.i
-  %cmp = icmp eq i32 %spec.store.select1.i, %v
-  br i1 %cmp, label %if.then, label %if.end
+  %cmp = icmp ult i32 %v, 4
+  br i1 %cmp, label %switch.lookup, label %if.end
 
-if.then:                                          ; preds = %entry
-  %0 = icmp ult i32 %v, 4
-  br i1 %0, label %switch.lookup, label %_ZN4absl15LogSeverityNameENS_11LogSeverityE.exit
-
-switch.lookup:                                    ; preds = %if.then
-  %1 = zext nneg i32 %v to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN4absl15AbslUnparseFlagB5cxx11ENS_11LogSeverityE, i64 0, i64 %1
+switch.lookup:                                    ; preds = %entry
+  %0 = zext nneg i32 %v to i64
+  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN4absl15AbslUnparseFlagB5cxx11ENS_11LogSeverityE, i64 0, i64 %0
   %switch.load = load ptr, ptr %switch.gep, align 8
-  br label %_ZN4absl15LogSeverityNameENS_11LogSeverityE.exit
-
-_ZN4absl15LogSeverityNameENS_11LogSeverityE.exit: ; preds = %if.then, %switch.lookup
-  %retval.0.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.23, %if.then ]
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #14
   %call.i4 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result)
           to label %call.i.noexc unwind label %lpad
 
-call.i.noexc:                                     ; preds = %_ZN4absl15LogSeverityNameENS_11LogSeverityE.exit
+call.i.noexc:                                     ; preds = %switch.lookup
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call.i4, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %retval.0.i) #14
-  %add.ptr.i = getelementptr inbounds i8, ptr %retval.0.i, i64 %call.i.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull %retval.0.i, ptr noundef nonnull %add.ptr.i)
+  %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load) #14
+  %add.ptr.i = getelementptr inbounds i8, ptr %switch.load, i64 %call.i.i
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull %switch.load, ptr noundef nonnull %add.ptr.i)
           to label %invoke.cont unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
-  %2 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.result) #14
   br label %common.resume
@@ -1573,14 +1561,14 @@ invoke.cont:                                      ; preds = %.noexc
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #14
   br label %return
 
-lpad:                                             ; preds = %call.i.noexc, %_ZN4absl15LogSeverityNameENS_11LogSeverityE.exit
-  %3 = landingpad { ptr, i32 }
+lpad:                                             ; preds = %call.i.noexc, %switch.lookup
+  %2 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad, %lpad.i, %lpad.i.i.i
   %ref.tmp.i.i.i.sink = phi ptr [ %ref.tmp.i.i.i, %lpad.i.i.i ], [ %ref.tmp, %lpad.i ], [ %ref.tmp, %lpad ]
-  %common.resume.op = phi { ptr, i32 } [ %4, %lpad.i.i.i ], [ %2, %lpad.i ], [ %3, %lpad ]
+  %common.resume.op = phi { ptr, i32 } [ %3, %lpad.i.i.i ], [ %1, %lpad.i ], [ %2, %lpad ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.sink) #14
   resume { ptr, i32 } %common.resume.op
 
@@ -1600,7 +1588,7 @@ if.end:                                           ; preds = %entry
           to label %_ZN4absl11UnparseFlagIiEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.exit unwind label %lpad.i.i.i
 
 lpad.i.i.i:                                       ; preds = %if.end
-  %4 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
@@ -2743,9 +2731,6 @@ declare ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr n
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #3
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fabs.f32(float) #10

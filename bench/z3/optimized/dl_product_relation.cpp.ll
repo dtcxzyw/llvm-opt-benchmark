@@ -5013,7 +5013,6 @@ if.end.i.i:                                       ; preds = %if.end
 
 _ZNK7datalog16product_relation4sizeEv.exit:       ; preds = %if.end, %if.end.i.i
   %retval.0.i.i = phi i32 [ %5, %if.end.i.i ], [ 0, %if.end ]
-  %retval.0.i.i.fr = freeze i32 %retval.0.i.i
   %6 = load ptr, ptr %spec, align 8
   %cmp.i = icmp eq ptr %6, null
   br i1 %cmp.i, label %_ZNK6vectorIiLb0EjE4sizeEv.exit.thread, label %_ZNK6vectorIiLb0EjE4sizeEv.exit
@@ -5030,19 +5029,19 @@ _ZNK6vectorIiLb0EjE4sizeEv.exit:                  ; preds = %_ZNK7datalog16produ
   br i1 %cmp757.not, label %for.end48, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit
-  %cmp1055.not = icmp eq i32 %retval.0.i.i.fr, 0
+  %cmp1055.not = icmp eq i32 %retval.0.i.i, 0
   %m_default_empty = getelementptr inbounds i8, ptr %this, i64 28
-  %wide.trip.count126 = zext i32 %7 to i64
+  %wide.trip.count107 = zext i32 %7 to i64
   br i1 %cmp1055.not, label %for.body.us60, label %for.body.us.preheader
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %wide.trip.count = zext i32 %retval.0.i.i.fr to i64
+  %wide.trip.count = zext i32 %retval.0.i.i to i64
   br label %for.body.us
 
 for.body.us:                                      ; preds = %for.body.us.preheader, %for.inc46.us
-  %indvars.iv103 = phi i64 [ 0, %for.body.us.preheader ], [ %indvars.iv.next104, %for.inc46.us ]
+  %indvars.iv99 = phi i64 [ 0, %for.body.us.preheader ], [ %indvars.iv.next100, %for.inc46.us ]
   %8 = load ptr, ptr %spec, align 8
-  %arrayidx.i18.us = getelementptr inbounds i32, ptr %8, i64 %indvars.iv103
+  %arrayidx.i18.us = getelementptr inbounds i32, ptr %8, i64 %indvars.iv99
   %9 = load i32, ptr %arrayidx.i18.us, align 4
   %10 = load ptr, ptr %m_relations.i, align 8
   br label %for.body11.us
@@ -5100,9 +5099,9 @@ for.inc46.us:                                     ; preds = %.noexc.us, %lor.lhs
   %19 = load i32, ptr %arrayidx10.i.us, align 4
   %inc.i.us = add i32 %19, 1
   store i32 %inc.i.us, ptr %arrayidx10.i.us, align 4
-  %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
-  %exitcond107.not = icmp eq i64 %indvars.iv.next104, %wide.trip.count126
-  br i1 %exitcond107.not, label %for.end48, label %for.body.us, !llvm.loop !32
+  %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
+  %exitcond103.not = icmp eq i64 %indvars.iv.next100, %wide.trip.count107
+  br i1 %exitcond103.not, label %for.end48, label %for.body.us, !llvm.loop !32
 
 for.inc.us:                                       ; preds = %land.lhs.true.us, %for.body11.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -5122,9 +5121,9 @@ lpad.loopexit.split.us.split:                     ; preds = %if.then.i.us, %for.
   br label %lpad
 
 for.body.us60:                                    ; preds = %for.body.lr.ph, %for.inc46.us84
-  %indvars.iv123 = phi i64 [ %indvars.iv.next124, %for.inc46.us84 ], [ 0, %for.body.lr.ph ]
+  %indvars.iv104 = phi i64 [ %indvars.iv.next105, %for.inc46.us84 ], [ 0, %for.body.lr.ph ]
   %22 = load ptr, ptr %spec, align 8
-  %arrayidx.i18.us63 = getelementptr inbounds i32, ptr %22, i64 %indvars.iv123
+  %arrayidx.i18.us63 = getelementptr inbounds i32, ptr %22, i64 %indvars.iv104
   %23 = load i32, ptr %arrayidx.i18.us63, align 4
   %24 = load i8, ptr %m_default_empty, align 4
   %25 = and i8 %24, 1
@@ -5177,9 +5176,9 @@ for.inc46.us84:                                   ; preds = %.noexc.us80, %lor.l
   %34 = load i32, ptr %arrayidx10.i.us87, align 4
   %inc.i.us88 = add i32 %34, 1
   store i32 %inc.i.us88, ptr %arrayidx10.i.us87, align 4
-  %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
-  %exitcond127.not = icmp eq i64 %indvars.iv.next124, %wide.trip.count126
-  br i1 %exitcond127.not, label %for.end48, label %for.body.us60, !llvm.loop !32
+  %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
+  %exitcond108.not = icmp eq i64 %indvars.iv.next105, %wide.trip.count107
+  br i1 %exitcond108.not, label %for.end48, label %for.body.us60, !llvm.loop !32
 
 lpad.loopexit.split.split.us:                     ; preds = %if.then.i.us79, %if.else.us69, %if.then33.us66
   %lpad.loopexit52.us91 = landingpad { ptr, i32 }

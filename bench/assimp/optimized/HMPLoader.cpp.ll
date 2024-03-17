@@ -669,9 +669,9 @@ if.then:                                          ; preds = %for.end50
   %cmp5.i = icmp eq i32 %conv23, 0
   %or.cond.i = or i1 %cmp5.i, %cmp39.not
   %or.cond = select i1 %cmp.i, i1 true, i1 %or.cond.i
-  br i1 %or.cond, label %if.end, label %for.cond21.preheader.us.preheader.i
+  br i1 %or.cond, label %if.end, label %if.end7.i
 
-for.cond21.preheader.us.preheader.i:              ; preds = %if.then
+if.end7.i:                                        ; preds = %if.then
   %conv.i = uitofp i32 %conv21 to float
   %div.i = fdiv float 1.000000e+00, %conv.i
   %div12.i = fdiv float %div.i, %conv.i
@@ -682,9 +682,9 @@ for.cond21.preheader.us.preheader.i:              ; preds = %if.then
   %add19.i = fadd float %div14.i, %div18.i
   br label %for.cond21.preheader.us.i
 
-for.cond21.preheader.us.i:                        ; preds = %for.cond21.for.inc29_crit_edge.us.i, %for.cond21.preheader.us.preheader.i
-  %y.021.us.i = phi i32 [ %inc30.us.i, %for.cond21.for.inc29_crit_edge.us.i ], [ 0, %for.cond21.preheader.us.preheader.i ]
-  %uv.020.us.i = phi ptr [ %incdec.ptr.us.i, %for.cond21.for.inc29_crit_edge.us.i ], [ %31, %for.cond21.preheader.us.preheader.i ]
+for.cond21.preheader.us.i:                        ; preds = %for.cond21.for.inc29_crit_edge.us.i, %if.end7.i
+  %y.021.us.i = phi i32 [ 0, %if.end7.i ], [ %inc30.us.i, %for.cond21.for.inc29_crit_edge.us.i ]
+  %uv.020.us.i = phi ptr [ %31, %if.end7.i ], [ %incdec.ptr.us.i, %for.cond21.for.inc29_crit_edge.us.i ]
   %conv24.us.i = uitofp i32 %y.021.us.i to float
   %mul.us.i = fmul float %add.i, %conv24.us.i
   br label %for.body23.us.i
@@ -706,8 +706,8 @@ for.body23.us.i:                                  ; preds = %for.body23.us.i, %f
 
 for.cond21.for.inc29_crit_edge.us.i:              ; preds = %for.body23.us.i
   %inc30.us.i = add nuw i32 %y.021.us.i, 1
-  %exitcond23.not.i = icmp eq i32 %inc30.us.i, %conv21
-  br i1 %exitcond23.not.i, label %if.end, label %for.cond21.preheader.us.i, !llvm.loop !8
+  %exitcond22.not.i = icmp eq i32 %inc30.us.i, %conv21
+  br i1 %exitcond22.not.i, label %if.end, label %for.cond21.preheader.us.i, !llvm.loop !8
 
 if.end:                                           ; preds = %for.cond21.for.inc29_crit_edge.us.i, %if.then, %for.end50
   tail call void @_ZN6Assimp11HMPImporter20CreateOutputFaceListEjj(ptr noundef nonnull align 8 dereferenceable(158) %this, i32 noundef %conv23, i32 noundef %conv21)
@@ -947,9 +947,9 @@ if.then:                                          ; preds = %for.end58
   %cmp5.i = icmp eq i32 %conv23, 0
   %or.cond.i = or i1 %cmp5.i, %cmp44.not
   %or.cond = select i1 %cmp.i35, i1 true, i1 %or.cond.i
-  br i1 %or.cond, label %if.end, label %for.cond21.preheader.us.preheader.i
+  br i1 %or.cond, label %if.end, label %if.end7.i
 
-for.cond21.preheader.us.preheader.i:              ; preds = %if.then
+if.end7.i:                                        ; preds = %if.then
   %conv.i = uitofp i32 %conv21 to float
   %div.i = fdiv float 1.000000e+00, %conv.i
   %div12.i = fdiv float %div.i, %conv.i
@@ -960,9 +960,9 @@ for.cond21.preheader.us.preheader.i:              ; preds = %if.then
   %add19.i = fadd float %div14.i, %div18.i
   br label %for.cond21.preheader.us.i
 
-for.cond21.preheader.us.i:                        ; preds = %for.cond21.for.inc29_crit_edge.us.i, %for.cond21.preheader.us.preheader.i
-  %y.021.us.i = phi i32 [ %inc30.us.i, %for.cond21.for.inc29_crit_edge.us.i ], [ 0, %for.cond21.preheader.us.preheader.i ]
-  %uv.020.us.i = phi ptr [ %incdec.ptr.us.i, %for.cond21.for.inc29_crit_edge.us.i ], [ %39, %for.cond21.preheader.us.preheader.i ]
+for.cond21.preheader.us.i:                        ; preds = %for.cond21.for.inc29_crit_edge.us.i, %if.end7.i
+  %y.021.us.i = phi i32 [ 0, %if.end7.i ], [ %inc30.us.i, %for.cond21.for.inc29_crit_edge.us.i ]
+  %uv.020.us.i = phi ptr [ %39, %if.end7.i ], [ %incdec.ptr.us.i, %for.cond21.for.inc29_crit_edge.us.i ]
   %conv24.us.i = uitofp i32 %y.021.us.i to float
   %mul.us.i = fmul float %add.i, %conv24.us.i
   br label %for.body23.us.i
@@ -984,8 +984,8 @@ for.body23.us.i:                                  ; preds = %for.body23.us.i, %f
 
 for.cond21.for.inc29_crit_edge.us.i:              ; preds = %for.body23.us.i
   %inc30.us.i = add nuw i32 %y.021.us.i, 1
-  %exitcond23.not.i = icmp eq i32 %inc30.us.i, %conv21
-  br i1 %exitcond23.not.i, label %if.end, label %for.cond21.preheader.us.i, !llvm.loop !8
+  %exitcond22.not.i = icmp eq i32 %inc30.us.i, %conv21
+  br i1 %exitcond22.not.i, label %if.end, label %for.cond21.preheader.us.i, !llvm.loop !8
 
 if.end:                                           ; preds = %for.cond21.for.inc29_crit_edge.us.i, %if.then, %for.end58
   tail call void @_ZN6Assimp11HMPImporter20CreateOutputFaceListEjj(ptr noundef nonnull align 8 dereferenceable(158) %this, i32 noundef %conv23, i32 noundef %conv21)
@@ -1354,9 +1354,9 @@ if.end:                                           ; preds = %entry
   %cmp3 = icmp eq i32 %height, 0
   %cmp5 = icmp eq i32 %width, 0
   %or.cond = or i1 %cmp5, %cmp3
-  br i1 %or.cond, label %for.end31, label %for.cond21.preheader.us.preheader
+  br i1 %or.cond, label %for.end31, label %if.end7
 
-for.cond21.preheader.us.preheader:                ; preds = %if.end
+if.end7:                                          ; preds = %if.end
   %conv = uitofp i32 %height to float
   %div = fdiv float 1.000000e+00, %conv
   %div12 = fdiv float %div, %conv
@@ -1367,9 +1367,9 @@ for.cond21.preheader.us.preheader:                ; preds = %if.end
   %add19 = fadd float %div14, %div18
   br label %for.cond21.preheader.us
 
-for.cond21.preheader.us:                          ; preds = %for.cond21.preheader.us.preheader, %for.cond21.for.inc29_crit_edge.us
-  %y.021.us = phi i32 [ %inc30.us, %for.cond21.for.inc29_crit_edge.us ], [ 0, %for.cond21.preheader.us.preheader ]
-  %uv.020.us = phi ptr [ %incdec.ptr.us, %for.cond21.for.inc29_crit_edge.us ], [ %3, %for.cond21.preheader.us.preheader ]
+for.cond21.preheader.us:                          ; preds = %for.cond21.for.inc29_crit_edge.us, %if.end7
+  %y.021.us = phi i32 [ 0, %if.end7 ], [ %inc30.us, %for.cond21.for.inc29_crit_edge.us ]
+  %uv.020.us = phi ptr [ %3, %if.end7 ], [ %incdec.ptr.us, %for.cond21.for.inc29_crit_edge.us ]
   %conv24.us = uitofp i32 %y.021.us to float
   %mul.us = fmul float %add, %conv24.us
   br label %for.body23.us
@@ -1391,8 +1391,8 @@ for.body23.us:                                    ; preds = %for.cond21.preheade
 
 for.cond21.for.inc29_crit_edge.us:                ; preds = %for.body23.us
   %inc30.us = add nuw i32 %y.021.us, 1
-  %exitcond23.not = icmp eq i32 %inc30.us, %height
-  br i1 %exitcond23.not, label %for.end31, label %for.cond21.preheader.us, !llvm.loop !8
+  %exitcond22.not = icmp eq i32 %inc30.us, %height
+  br i1 %exitcond22.not, label %for.end31, label %for.cond21.preheader.us, !llvm.loop !8
 
 for.end31:                                        ; preds = %for.cond21.for.inc29_crit_edge.us, %if.end, %entry
   ret void
