@@ -1143,7 +1143,7 @@ define hidden void @"_ZN167_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
   %.fca.0.extract = extractvalue { i64, i64 } %7, 0
   %switch = icmp eq i64 %.fca.0.extract, 0
   %.fca.1.extract = extractvalue { i64, i64 } %7, 1
-  %8 = tail call noundef i64 @llvm.umin.i64(i64 %.fca.1.extract, i64 4096)
+  %8 = tail call i64 @llvm.umin.i64(i64 %.fca.1.extract, i64 4096)
   %.0.sroa.speculated.i = select i1 %switch, i64 0, i64 %8
   %9 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17ha36b1b7e24ed30fdE"(i64 noundef %.0.sroa.speculated.i, i1 noundef zeroext false)
   %10 = extractvalue { i64, ptr } %9, 0
