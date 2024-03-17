@@ -399,19 +399,19 @@ for.end:                                          ; preds = %if.end, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZN3smt20backward_subsumptionEjPKN3sat7literalEjS3_(i32 noundef %num_lits1, ptr nocapture noundef readonly %lits1, i32 noundef %num_lits2, ptr nocapture noundef readonly %lits2) local_unnamed_addr #4 {
 entry:
-  %cmp13.not = icmp eq i32 %num_lits1, 0
-  %cmp29.not = icmp eq i32 %num_lits2, 0
-  %or.cond = or i1 %cmp13.not, %cmp29.not
-  br i1 %or.cond, label %for.end11, label %for.body.us.preheader
+  %cmp13 = icmp ne i32 %num_lits1, 0
+  %cmp29 = icmp ne i32 %num_lits2, 0
+  %or.cond = and i1 %cmp13, %cmp29
+  br i1 %or.cond, label %for.body.us.preheader, label %for.end11
 
 for.body.us.preheader:                            ; preds = %entry
-  %wide.trip.count27 = zext i32 %num_lits1 to i64
+  %wide.trip.count26 = zext i32 %num_lits1 to i64
   %wide.trip.count = zext i32 %num_lits2 to i64
   br label %for.body.us
 
 for.body.us:                                      ; preds = %for.body.us.preheader, %for.inc9.us
-  %indvars.iv24 = phi i64 [ 0, %for.body.us.preheader ], [ %indvars.iv.next25, %for.inc9.us ]
-  %arrayidx.us = getelementptr inbounds %"class.sat::literal", ptr %lits1, i64 %indvars.iv24
+  %indvars.iv23 = phi i64 [ 0, %for.body.us.preheader ], [ %indvars.iv.next24, %for.inc9.us ]
+  %arrayidx.us = getelementptr inbounds %"class.sat::literal", ptr %lits1, i64 %indvars.iv23
   %0 = load i32, ptr %arrayidx.us, align 4
   br label %for.body3.us
 
@@ -428,7 +428,7 @@ for.inc.us:                                       ; preds = %for.body3.us
   br i1 %exitcond.not, label %for.end.us.thread, label %for.body3.us, !llvm.loop !8
 
 for.end.us.thread:                                ; preds = %for.inc.us
-  %2 = trunc i64 %indvars.iv24 to i32
+  %2 = trunc i64 %indvars.iv23 to i32
   br label %for.end11
 
 for.end.us:                                       ; preds = %for.body3.us
@@ -437,12 +437,12 @@ for.end.us:                                       ; preds = %for.body3.us
   br i1 %cmp6.us, label %for.end11.loopexit.split.loop.exit, label %for.inc9.us
 
 for.inc9.us:                                      ; preds = %for.end.us
-  %indvars.iv.next25 = add nuw nsw i64 %indvars.iv24, 1
-  %exitcond28.not = icmp eq i64 %indvars.iv.next25, %wide.trip.count27
-  br i1 %exitcond28.not, label %for.end11, label %for.body.us, !llvm.loop !9
+  %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
+  %exitcond27.not = icmp eq i64 %indvars.iv.next24, %wide.trip.count26
+  br i1 %exitcond27.not, label %for.end11, label %for.body.us, !llvm.loop !9
 
 for.end11.loopexit.split.loop.exit:               ; preds = %for.end.us
-  %4 = trunc i64 %indvars.iv24 to i32
+  %4 = trunc i64 %indvars.iv23 to i32
   br label %for.end11
 
 for.end11:                                        ; preds = %for.inc9.us, %for.end11.loopexit.split.loop.exit, %for.end.us.thread, %entry

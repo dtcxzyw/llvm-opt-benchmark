@@ -36704,13 +36704,13 @@ define hidden noundef i32 @ma_channel_converter_init_preallocated(ptr noundef %0
   %4 = alloca %struct.ma_channel_converter_heap_layout, align 8
   %5 = alloca i32, align 4
   %6 = icmp eq ptr %2, null
-  br i1 %6, label %ma_channel_map_contains_channel_position.exit340, label %7
+  br i1 %6, label %ma_channel_map_contains_channel_position.exit341, label %7
 
 7:                                                ; preds = %3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(72) %2, i8 0, i64 72, i1 false)
   %8 = call fastcc i32 @ma_channel_converter_get_heap_layout(ptr noundef %0, ptr noundef nonnull %4), !range !11
   %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %9, label %ma_channel_map_contains_channel_position.exit340
+  br i1 %.not, label %9, label %ma_channel_map_contains_channel_position.exit341
 
 9:                                                ; preds = %7
   %10 = getelementptr inbounds i8, ptr %2, i64 56
@@ -36862,32 +36862,32 @@ ma_channel_map_copy_or_default.exit272:           ; preds = %.preheader.i.i267, 
   %or.cond.i273 = or i1 %89, %90
   %91 = icmp eq i32 %88, 0
   %or.cond3.i = or i1 %or.cond.i273, %91
-  br i1 %or.cond3.i, label %ma_channel_map_build_shuffle_table.exitthread-pre-split, label %.preheader.split.us.i
+  br i1 %or.cond3.i, label %ma_channel_map_build_shuffle_table.exitthread-pre-split, label %.preheader.i
 
-.preheader.split.us.i:                            ; preds = %78
+.preheader.i:                                     ; preds = %78
   %92 = icmp eq ptr %87, null
-  %93 = icmp ugt i32 %85, 8
-  %94 = icmp eq ptr %84, null
-  %wide.trip.count103.i = zext i32 %88 to i64
-  br i1 %94, label %.preheader.split.us.split.us.i, label %.preheader.split.us.split.preheader.i
+  %93 = icmp eq ptr %84, null
+  %94 = icmp ugt i32 %85, 8
+  %wide.trip.count101.i = zext i32 %88 to i64
+  br i1 %93, label %.preheader.split.us.split.us.i, label %.preheader.split.us.split.preheader.i
 
-.preheader.split.us.split.preheader.i:            ; preds = %.preheader.split.us.i
+.preheader.split.us.split.preheader.i:            ; preds = %.preheader.i
   %wide.trip.count.i = zext i32 %85 to i64
   br label %.preheader.split.us.split.i
 
-.preheader.split.us.split.us.i:                   ; preds = %.preheader.split.us.i, %..loopexit_crit_edge.split.us.us.us.i
-  %indvars.iv100.i = phi i64 [ %indvars.iv.next101.i, %..loopexit_crit_edge.split.us.us.us.i ], [ 0, %.preheader.split.us.i ]
-  %95 = getelementptr inbounds i8, ptr %81, i64 %indvars.iv100.i
+.preheader.split.us.split.us.i:                   ; preds = %.preheader.i, %..loopexit_crit_edge.split.us.us.us.i
+  %indvars.iv98.i = phi i64 [ %indvars.iv.next99.i, %..loopexit_crit_edge.split.us.us.us.i ], [ 0, %.preheader.i ]
+  %95 = getelementptr inbounds i8, ptr %81, i64 %indvars.iv98.i
   store i8 -1, ptr %95, align 1
   br i1 %92, label %99, label %96
 
 96:                                               ; preds = %.preheader.split.us.split.us.i
-  %97 = getelementptr inbounds i8, ptr %87, i64 %indvars.iv100.i
+  %97 = getelementptr inbounds i8, ptr %87, i64 %indvars.iv98.i
   %98 = load i8, ptr %97, align 1
   br label %ma_channel_map_get_channel.exit.us.us.i
 
 99:                                               ; preds = %.preheader.split.us.split.us.i
-  %100 = trunc i64 %indvars.iv100.i to i32
+  %100 = trunc i64 %indvars.iv98.i to i32
   %101 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %88, i32 noundef %100), !range !6
   br label %ma_channel_map_get_channel.exit.us.us.i
 
@@ -36896,9 +36896,9 @@ ma_channel_map_get_channel.exit.us.us.i:          ; preds = %99, %96
   br label %102
 
 ..loopexit_crit_edge.split.us.us.us.i:            ; preds = %130, %.split.us.us.us.i
-  %indvars.iv.next101.i = add nuw nsw i64 %indvars.iv100.i, 1
-  %exitcond104.not.i = icmp eq i64 %indvars.iv.next101.i, %wide.trip.count103.i
-  br i1 %exitcond104.not.i, label %ma_channel_map_build_shuffle_table.exitthread-pre-split, label %.preheader.split.us.split.us.i
+  %indvars.iv.next99.i = add nuw nsw i64 %indvars.iv98.i, 1
+  %exitcond102.not.i = icmp eq i64 %indvars.iv.next99.i, %wide.trip.count101.i
+  br i1 %exitcond102.not.i, label %ma_channel_map_build_shuffle_table.exitthread-pre-split, label %.preheader.split.us.split.us.i
 
 102:                                              ; preds = %130, %ma_channel_map_get_channel.exit.us.us.i
   %.03448.us.us.us.i = phi i32 [ 0, %ma_channel_map_get_channel.exit.us.us.i ], [ %131, %130 ]
@@ -36918,15 +36918,15 @@ ma_channel_map_get_channel.exit.us.us.i:          ; preds = %99, %96
 
 105:                                              ; preds = %102
   %106 = icmp ult i32 %.03448.us.us.us.i, 5
-  br i1 %106, label %switch.lookup573, label %ma_channel_map_get_channel.exit43.us.us.us.i
+  br i1 %106, label %switch.lookup574, label %ma_channel_map_get_channel.exit43.us.us.us.i
 
 107:                                              ; preds = %102
   %108 = icmp ult i32 %.03448.us.us.us.i, 4
-  br i1 %108, label %switch.lookup578, label %ma_channel_map_get_channel.exit43.us.us.us.i
+  br i1 %108, label %switch.lookup579, label %ma_channel_map_get_channel.exit43.us.us.us.i
 
 109:                                              ; preds = %102
   %110 = icmp ult i32 %.03448.us.us.us.i, 3
-  br i1 %110, label %switch.lookup582, label %ma_channel_map_get_channel.exit43.us.us.us.i
+  br i1 %110, label %switch.lookup583, label %ma_channel_map_get_channel.exit43.us.us.us.i
 
 111:                                              ; preds = %102
   %switch.selectcmp.i56.i.us.us.us.i = icmp eq i32 %.03448.us.us.us.i, 1
@@ -36937,15 +36937,15 @@ ma_channel_map_get_channel.exit.us.us.i:          ; preds = %99, %96
 
 112:                                              ; preds = %102
   %113 = icmp ult i32 %.03448.us.us.us.i, 7
-  br i1 %113, label %switch.lookup583, label %ma_channel_map_get_channel.exit43.us.us.us.i
+  br i1 %113, label %switch.lookup584, label %ma_channel_map_get_channel.exit43.us.us.us.i
 
 114:                                              ; preds = %102
   %115 = icmp ult i32 %.03448.us.us.us.i, 8
-  br i1 %115, label %switch.lookup588, label %116
+  br i1 %115, label %switch.lookup589, label %116
 
 116:                                              ; preds = %114
   %117 = icmp ult i32 %.03448.us.us.us.i, 32
-  %or.cond.i58.i.us.us.us.i = and i1 %93, %117
+  %or.cond.i58.i.us.us.us.i = and i1 %94, %117
   br i1 %or.cond.i58.i.us.us.us.i, label %118, label %ma_channel_map_get_channel.exit43.us.us.us.i
 
 118:                                              ; preds = %116
@@ -36960,40 +36960,40 @@ switch.lookup:                                    ; preds = %103
   %switch.masked = trunc i48 %switch.downshift to i8
   br label %ma_channel_map_get_channel.exit43.us.us.us.i
 
-switch.lookup573:                                 ; preds = %105
+switch.lookup574:                                 ; preds = %105
   %122 = shl nuw nsw i32 %.03448.us.us.us.i, 3
-  %switch.shiftamt575 = zext nneg i32 %122 to i40
-  %switch.downshift576 = lshr i40 30165697282, %switch.shiftamt575
-  %switch.masked577 = trunc i40 %switch.downshift576 to i8
+  %switch.shiftamt576 = zext nneg i32 %122 to i40
+  %switch.downshift577 = lshr i40 30165697282, %switch.shiftamt576
+  %switch.masked578 = trunc i40 %switch.downshift577 to i8
   br label %ma_channel_map_get_channel.exit43.us.us.us.i
 
-switch.lookup578:                                 ; preds = %107
-  %switch.shiftamt579 = shl nuw nsw i32 %.03448.us.us.us.i, 3
-  %switch.downshift580 = lshr i32 168035074, %switch.shiftamt579
-  %switch.masked581 = trunc i32 %switch.downshift580 to i8
+switch.lookup579:                                 ; preds = %107
+  %switch.shiftamt580 = shl nuw nsw i32 %.03448.us.us.us.i, 3
+  %switch.downshift581 = lshr i32 168035074, %switch.shiftamt580
+  %switch.masked582 = trunc i32 %switch.downshift581 to i8
   br label %ma_channel_map_get_channel.exit43.us.us.us.i
 
-switch.lookup582:                                 ; preds = %109
+switch.lookup583:                                 ; preds = %109
   %switch.idx.cast = trunc i32 %.03448.us.us.us.i to i8
   %switch.offset = add nuw nsw i8 %switch.idx.cast, 2
   br label %ma_channel_map_get_channel.exit43.us.us.us.i
 
-switch.lookup583:                                 ; preds = %112
+switch.lookup584:                                 ; preds = %112
   %123 = shl nuw nsw i32 %.03448.us.us.us.i, 3
-  %switch.shiftamt585 = zext nneg i32 %123 to i56
-  %switch.downshift586 = lshr i56 3389837382255362, %switch.shiftamt585
-  %switch.masked587 = trunc i56 %switch.downshift586 to i8
+  %switch.shiftamt586 = zext nneg i32 %123 to i56
+  %switch.downshift587 = lshr i56 3389837382255362, %switch.shiftamt586
+  %switch.masked588 = trunc i56 %switch.downshift587 to i8
   br label %ma_channel_map_get_channel.exit43.us.us.us.i
 
-switch.lookup588:                                 ; preds = %114
+switch.lookup589:                                 ; preds = %114
   %124 = shl nuw nsw i32 %.03448.us.us.us.i, 3
-  %switch.shiftamt590 = zext nneg i32 %124 to i64
-  %switch.downshift591 = lshr i64 867795075634299650, %switch.shiftamt590
-  %switch.masked592 = trunc i64 %switch.downshift591 to i8
+  %switch.shiftamt591 = zext nneg i32 %124 to i64
+  %switch.downshift592 = lshr i64 867795075634299650, %switch.shiftamt591
+  %switch.masked593 = trunc i64 %switch.downshift592 to i8
   br label %ma_channel_map_get_channel.exit43.us.us.us.i
 
-ma_channel_map_get_channel.exit43.us.us.us.i:     ; preds = %switch.lookup588, %103, %105, %107, %109, %112, %switch.lookup583, %switch.lookup582, %switch.lookup578, %switch.lookup573, %switch.lookup, %118, %116, %111, %102
-  %.0.i42.us.us.us.i = phi i8 [ %120, %118 ], [ 1, %102 ], [ 0, %116 ], [ %switch.select20.i.i.us.us.us.i, %111 ], [ %switch.masked, %switch.lookup ], [ %switch.masked577, %switch.lookup573 ], [ %switch.masked581, %switch.lookup578 ], [ %switch.offset, %switch.lookup582 ], [ %switch.masked587, %switch.lookup583 ], [ 0, %112 ], [ 0, %109 ], [ 0, %107 ], [ 0, %105 ], [ 0, %103 ], [ %switch.masked592, %switch.lookup588 ]
+ma_channel_map_get_channel.exit43.us.us.us.i:     ; preds = %switch.lookup589, %103, %105, %107, %109, %112, %switch.lookup584, %switch.lookup583, %switch.lookup579, %switch.lookup574, %switch.lookup, %118, %116, %111, %102
+  %.0.i42.us.us.us.i = phi i8 [ %120, %118 ], [ 1, %102 ], [ 0, %116 ], [ %switch.select20.i.i.us.us.us.i, %111 ], [ %switch.masked, %switch.lookup ], [ %switch.masked578, %switch.lookup574 ], [ %switch.masked582, %switch.lookup579 ], [ %switch.offset, %switch.lookup583 ], [ %switch.masked588, %switch.lookup584 ], [ 0, %112 ], [ 0, %109 ], [ 0, %107 ], [ 0, %105 ], [ 0, %103 ], [ %switch.masked593, %switch.lookup589 ]
   %125 = icmp eq i8 %.0.i.us.us.i, %.0.i42.us.us.us.i
   br i1 %125, label %.split.us.us.us.i, label %126
 
@@ -37024,8 +37024,8 @@ ma_channel_map_get_channel.exit43.us.us.us.i:     ; preds = %switch.lookup588, %
 
 130:                                              ; preds = %.sink.split.i, %128, %127, %126
   %131 = add nuw i32 %.03448.us.us.us.i, 1
-  %exitcond99.not.i = icmp eq i32 %131, %85
-  br i1 %exitcond99.not.i, label %..loopexit_crit_edge.split.us.us.us.i, label %102
+  %exitcond97.not.i = icmp eq i32 %131, %85
+  br i1 %exitcond97.not.i, label %..loopexit_crit_edge.split.us.us.us.i, label %102
 
 .split.us.us.us.i:                                ; preds = %ma_channel_map_get_channel.exit43.us.us.us.i
   %132 = trunc i32 %.03448.us.us.us.i to i8
@@ -37033,18 +37033,18 @@ ma_channel_map_get_channel.exit43.us.us.us.i:     ; preds = %switch.lookup588, %
   br label %..loopexit_crit_edge.split.us.us.us.i
 
 .preheader.split.us.split.i:                      ; preds = %..loopexit_crit_edge.split.us67.i, %.preheader.split.us.split.preheader.i
-  %indvars.iv94.i = phi i64 [ 0, %.preheader.split.us.split.preheader.i ], [ %indvars.iv.next95.i, %..loopexit_crit_edge.split.us67.i ]
-  %133 = getelementptr inbounds i8, ptr %81, i64 %indvars.iv94.i
+  %indvars.iv92.i = phi i64 [ 0, %.preheader.split.us.split.preheader.i ], [ %indvars.iv.next93.i, %..loopexit_crit_edge.split.us67.i ]
+  %133 = getelementptr inbounds i8, ptr %81, i64 %indvars.iv92.i
   store i8 -1, ptr %133, align 1
   br i1 %92, label %137, label %134
 
 134:                                              ; preds = %.preheader.split.us.split.i
-  %135 = getelementptr inbounds i8, ptr %87, i64 %indvars.iv94.i
+  %135 = getelementptr inbounds i8, ptr %87, i64 %indvars.iv92.i
   %136 = load i8, ptr %135, align 1
   br label %ma_channel_map_get_channel.exit.us.i
 
 137:                                              ; preds = %.preheader.split.us.split.i
-  %138 = trunc i64 %indvars.iv94.i to i32
+  %138 = trunc i64 %indvars.iv92.i to i32
   %139 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %88, i32 noundef %138), !range !6
   br label %ma_channel_map_get_channel.exit.us.i
 
@@ -37065,31 +37065,31 @@ ma_channel_map_get_channel.exit43.us49.us.i.preheader: ; preds = %ma_channel_map
   br label %ma_channel_map_get_channel.exit43.us49.us.i
 
 ma_channel_map_get_channel.exit43.us59.i:         ; preds = %ma_channel_map_get_channel.exit.us.i, %143
-  %indvars.iv89.i = phi i64 [ %indvars.iv.next90.i, %143 ], [ 0, %ma_channel_map_get_channel.exit.us.i ]
-  %140 = getelementptr inbounds i8, ptr %84, i64 %indvars.iv89.i
+  %indvars.iv87.i = phi i64 [ %indvars.iv.next88.i, %143 ], [ 0, %ma_channel_map_get_channel.exit.us.i ]
+  %140 = getelementptr inbounds i8, ptr %84, i64 %indvars.iv87.i
   %141 = load i8, ptr %140, align 1
   %142 = icmp eq i8 %.0.i.fr.us.i, %141
   br i1 %142, label %.split.us66.i, label %143
 
 143:                                              ; preds = %ma_channel_map_get_channel.exit43.us59.i
-  %indvars.iv.next90.i = add nuw nsw i64 %indvars.iv89.i, 1
-  %exitcond93.not.i = icmp eq i64 %indvars.iv.next90.i, %wide.trip.count.i
-  br i1 %exitcond93.not.i, label %..loopexit_crit_edge.split.us67.i, label %ma_channel_map_get_channel.exit43.us59.i
+  %indvars.iv.next88.i = add nuw nsw i64 %indvars.iv87.i, 1
+  %exitcond91.not.i = icmp eq i64 %indvars.iv.next88.i, %wide.trip.count.i
+  br i1 %exitcond91.not.i, label %..loopexit_crit_edge.split.us67.i, label %ma_channel_map_get_channel.exit43.us59.i
 
 ..loopexit_crit_edge.split.us67.i:                ; preds = %158, %151, %143, %.split.us66.i
-  %indvars.iv.next95.i = add nuw nsw i64 %indvars.iv94.i, 1
-  %exitcond98.not.i = icmp eq i64 %indvars.iv.next95.i, %wide.trip.count103.i
-  br i1 %exitcond98.not.i, label %ma_channel_map_build_shuffle_table.exitthread-pre-split, label %.preheader.split.us.split.i
+  %indvars.iv.next93.i = add nuw nsw i64 %indvars.iv92.i, 1
+  %exitcond96.not.i = icmp eq i64 %indvars.iv.next93.i, %wide.trip.count101.i
+  br i1 %exitcond96.not.i, label %ma_channel_map_build_shuffle_table.exitthread-pre-split, label %.preheader.split.us.split.i
 
 .split.us66.i:                                    ; preds = %ma_channel_map_get_channel.exit43.us54.us.i, %ma_channel_map_get_channel.exit43.us49.us.i, %ma_channel_map_get_channel.exit43.us59.i
-  %.us-phi52.us.in.i = phi i64 [ %indvars.iv89.i, %ma_channel_map_get_channel.exit43.us59.i ], [ %indvars.iv84.i, %ma_channel_map_get_channel.exit43.us49.us.i ], [ %indvars.iv.i, %ma_channel_map_get_channel.exit43.us54.us.i ]
+  %.us-phi52.us.in.i = phi i64 [ %indvars.iv87.i, %ma_channel_map_get_channel.exit43.us59.i ], [ %indvars.iv82.i, %ma_channel_map_get_channel.exit43.us49.us.i ], [ %indvars.iv.i, %ma_channel_map_get_channel.exit43.us54.us.i ]
   %144 = trunc i64 %.us-phi52.us.in.i to i8
   store i8 %144, ptr %133, align 1
   br label %..loopexit_crit_edge.split.us67.i
 
 ma_channel_map_get_channel.exit43.us49.us.i:      ; preds = %ma_channel_map_get_channel.exit43.us49.us.i.preheader, %151
-  %indvars.iv84.i = phi i64 [ %indvars.iv.next85.i, %151 ], [ 0, %ma_channel_map_get_channel.exit43.us49.us.i.preheader ]
-  %145 = getelementptr inbounds i8, ptr %84, i64 %indvars.iv84.i
+  %indvars.iv82.i = phi i64 [ %indvars.iv.next83.i, %151 ], [ 0, %ma_channel_map_get_channel.exit43.us49.us.i.preheader ]
+  %145 = getelementptr inbounds i8, ptr %84, i64 %indvars.iv82.i
   %146 = load i8, ptr %145, align 1
   %147 = icmp eq i8 %.0.i.fr.us.i, %146
   br i1 %147, label %.split.us66.i, label %148
@@ -37101,14 +37101,14 @@ ma_channel_map_get_channel.exit43.us49.us.i:      ; preds = %ma_channel_map_get_
   ]
 
 149:                                              ; preds = %148, %148
-  %150 = trunc i64 %indvars.iv84.i to i8
+  %150 = trunc i64 %indvars.iv82.i to i8
   store i8 %150, ptr %133, align 1
   br label %151
 
 151:                                              ; preds = %149, %148
-  %indvars.iv.next85.i = add nuw nsw i64 %indvars.iv84.i, 1
-  %exitcond88.not.i = icmp eq i64 %indvars.iv.next85.i, %wide.trip.count.i
-  br i1 %exitcond88.not.i, label %..loopexit_crit_edge.split.us67.i, label %ma_channel_map_get_channel.exit43.us49.us.i
+  %indvars.iv.next83.i = add nuw nsw i64 %indvars.iv82.i, 1
+  %exitcond86.not.i = icmp eq i64 %indvars.iv.next83.i, %wide.trip.count.i
+  br i1 %exitcond86.not.i, label %..loopexit_crit_edge.split.us67.i, label %ma_channel_map_get_channel.exit43.us49.us.i
 
 ma_channel_map_get_channel.exit43.us54.us.i:      ; preds = %ma_channel_map_get_channel.exit43.us54.us.i.preheader, %158
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %158 ], [ 0, %ma_channel_map_get_channel.exit43.us54.us.i.preheader ]
@@ -37140,7 +37140,7 @@ ma_channel_map_build_shuffle_table.exitthread-pre-split: ; preds = %..loopexit_c
 ma_channel_map_build_shuffle_table.exit:          ; preds = %ma_channel_map_build_shuffle_table.exitthread-pre-split, %ma_channel_map_copy_or_default.exit272
   %159 = phi i32 [ %.pr, %ma_channel_map_build_shuffle_table.exitthread-pre-split ], [ %75, %ma_channel_map_copy_or_default.exit272 ]
   %160 = icmp eq i32 %159, 5
-  br i1 %160, label %161, label %ma_channel_map_contains_channel_position.exit340
+  br i1 %160, label %161, label %ma_channel_map_contains_channel_position.exit341
 
 161:                                              ; preds = %ma_channel_map_build_shuffle_table.exit
   %162 = load i32, ptr %2, align 8
@@ -37151,34 +37151,34 @@ ma_channel_map_build_shuffle_table.exit:          ; preds = %ma_channel_map_buil
   %167 = getelementptr inbounds i8, ptr %2, i64 48
   store ptr %166, ptr %167, align 8
   %168 = load i32, ptr %19, align 4
-  %.not426 = icmp eq i32 %168, 0
+  %.not427 = icmp eq i32 %168, 0
   br i1 %163, label %169, label %184
 
 169:                                              ; preds = %161
-  br i1 %.not426, label %._crit_edge406, label %.lr.ph397
+  br i1 %.not427, label %._crit_edge407, label %.lr.ph398
 
-.lr.ph397:                                        ; preds = %169, %.lr.ph397
-  %indvars.iv466 = phi i64 [ %indvars.iv.next467, %.lr.ph397 ], [ 0, %169 ]
-  %170 = phi i32 [ %181, %.lr.ph397 ], [ %168, %169 ]
+.lr.ph398:                                        ; preds = %169, %.lr.ph398
+  %indvars.iv467 = phi i64 [ %indvars.iv.next468, %.lr.ph398 ], [ 0, %169 ]
+  %170 = phi i32 [ %181, %.lr.ph398 ], [ %168, %169 ]
   %171 = zext i32 %170 to i64
   %172 = shl nuw nsw i64 %171, 3
   %173 = load i32, ptr %22, align 8
   %174 = zext i32 %173 to i64
-  %175 = shl nuw nsw i64 %indvars.iv466, 2
+  %175 = shl nuw nsw i64 %indvars.iv467, 2
   %176 = mul i64 %175, %174
   %177 = getelementptr i8, ptr %166, i64 %172
   %178 = getelementptr i8, ptr %177, i64 %176
   %179 = load ptr, ptr %167, align 8
-  %180 = getelementptr inbounds ptr, ptr %179, i64 %indvars.iv466
+  %180 = getelementptr inbounds ptr, ptr %179, i64 %indvars.iv467
   store ptr %178, ptr %180, align 8
-  %indvars.iv.next467 = add nuw nsw i64 %indvars.iv466, 1
+  %indvars.iv.next468 = add nuw nsw i64 %indvars.iv467, 1
   %181 = load i32, ptr %19, align 4
   %182 = zext i32 %181 to i64
-  %183 = icmp ult i64 %indvars.iv.next467, %182
-  br i1 %183, label %.lr.ph397, label %.loopexit384
+  %183 = icmp ult i64 %indvars.iv.next468, %182
+  br i1 %183, label %.lr.ph398, label %.loopexit385
 
 184:                                              ; preds = %161
-  br i1 %.not426, label %._crit_edge406, label %.lr.ph
+  br i1 %.not427, label %._crit_edge407, label %.lr.ph
 
 .lr.ph:                                           ; preds = %184, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %184 ]
@@ -37198,112 +37198,112 @@ ma_channel_map_build_shuffle_table.exit:          ; preds = %ma_channel_map_buil
   %196 = load i32, ptr %19, align 4
   %197 = zext i32 %196 to i64
   %198 = icmp ult i64 %indvars.iv.next, %197
-  br i1 %198, label %.lr.ph, label %.loopexit384
+  br i1 %198, label %.lr.ph, label %.loopexit385
 
-.loopexit384:                                     ; preds = %.lr.ph, %.lr.ph397
-  %199 = phi i32 [ %181, %.lr.ph397 ], [ %196, %.lr.ph ]
-  %.not427 = icmp eq i32 %199, 0
-  br i1 %.not427, label %._crit_edge406, label %.preheader383.lr.ph
+.loopexit385:                                     ; preds = %.lr.ph, %.lr.ph398
+  %199 = phi i32 [ %181, %.lr.ph398 ], [ %196, %.lr.ph ]
+  %.not428 = icmp eq i32 %199, 0
+  br i1 %.not428, label %._crit_edge407, label %.preheader384.lr.ph
 
-.preheader383.lr.ph:                              ; preds = %.loopexit384
+.preheader384.lr.ph:                              ; preds = %.loopexit385
   %200 = getelementptr inbounds i8, ptr %2, i64 48
   %201 = load i32, ptr %22, align 8
-  %.not428 = icmp eq i32 %201, 0
-  br i1 %.not428, label %.lr.ph405, label %.preheader383
+  %.not429 = icmp eq i32 %201, 0
+  br i1 %.not429, label %.lr.ph406, label %.preheader384
 
-.preheader383:                                    ; preds = %.preheader383.lr.ph, %._crit_edge
-  %202 = phi i32 [ %221, %._crit_edge ], [ %199, %.preheader383.lr.ph ]
-  %203 = phi i32 [ %222, %._crit_edge ], [ 1, %.preheader383.lr.ph ]
-  %indvars.iv472 = phi i64 [ %indvars.iv.next473, %._crit_edge ], [ 0, %.preheader383.lr.ph ]
-  %.not429 = icmp eq i32 %203, 0
-  br i1 %.not429, label %._crit_edge, label %.lr.ph399
+.preheader384:                                    ; preds = %.preheader384.lr.ph, %._crit_edge
+  %202 = phi i32 [ %221, %._crit_edge ], [ %199, %.preheader384.lr.ph ]
+  %203 = phi i32 [ %222, %._crit_edge ], [ 1, %.preheader384.lr.ph ]
+  %indvars.iv473 = phi i64 [ %indvars.iv.next474, %._crit_edge ], [ 0, %.preheader384.lr.ph ]
+  %.not430 = icmp eq i32 %203, 0
+  br i1 %.not430, label %._crit_edge, label %.lr.ph400
 
-.preheader382:                                    ; preds = %._crit_edge
-  %.not430 = icmp eq i32 %221, 0
-  br i1 %.not430, label %._crit_edge406, label %.lr.ph405
+.preheader383:                                    ; preds = %._crit_edge
+  %.not431 = icmp eq i32 %221, 0
+  br i1 %.not431, label %._crit_edge407, label %.lr.ph406
 
-.lr.ph405:                                        ; preds = %.preheader383.lr.ph, %.preheader382
-  %204 = phi i32 [ %221, %.preheader382 ], [ %199, %.preheader383.lr.ph ]
+.lr.ph406:                                        ; preds = %.preheader384.lr.ph, %.preheader383
+  %204 = phi i32 [ %221, %.preheader383 ], [ %199, %.preheader384.lr.ph ]
   %205 = getelementptr inbounds i8, ptr %2, i64 24
   %206 = getelementptr inbounds i8, ptr %2, i64 32
   %207 = getelementptr inbounds i8, ptr %2, i64 48
   br label %225
 
-.lr.ph399:                                        ; preds = %.preheader383, %217
-  %indvars.iv469 = phi i64 [ %indvars.iv.next470, %217 ], [ 0, %.preheader383 ]
+.lr.ph400:                                        ; preds = %.preheader384, %217
+  %indvars.iv470 = phi i64 [ %indvars.iv.next471, %217 ], [ 0, %.preheader384 ]
   %208 = load i32, ptr %2, align 8
   %209 = icmp eq i32 %208, 5
   %210 = load ptr, ptr %200, align 8
-  %211 = getelementptr inbounds ptr, ptr %210, i64 %indvars.iv472
+  %211 = getelementptr inbounds ptr, ptr %210, i64 %indvars.iv473
   %212 = load ptr, ptr %211, align 8
   br i1 %209, label %213, label %215
 
-213:                                              ; preds = %.lr.ph399
-  %214 = getelementptr inbounds float, ptr %212, i64 %indvars.iv469
+213:                                              ; preds = %.lr.ph400
+  %214 = getelementptr inbounds float, ptr %212, i64 %indvars.iv470
   store float 0.000000e+00, ptr %214, align 4
   br label %217
 
-215:                                              ; preds = %.lr.ph399
-  %216 = getelementptr inbounds i32, ptr %212, i64 %indvars.iv469
+215:                                              ; preds = %.lr.ph400
+  %216 = getelementptr inbounds i32, ptr %212, i64 %indvars.iv470
   store i32 0, ptr %216, align 4
   br label %217
 
 217:                                              ; preds = %213, %215
-  %indvars.iv.next470 = add nuw nsw i64 %indvars.iv469, 1
+  %indvars.iv.next471 = add nuw nsw i64 %indvars.iv470, 1
   %218 = load i32, ptr %22, align 8
   %219 = zext i32 %218 to i64
-  %220 = icmp ult i64 %indvars.iv.next470, %219
-  br i1 %220, label %.lr.ph399, label %._crit_edge.loopexit
+  %220 = icmp ult i64 %indvars.iv.next471, %219
+  br i1 %220, label %.lr.ph400, label %._crit_edge.loopexit
 
 ._crit_edge.loopexit:                             ; preds = %217
   %.pre = load i32, ptr %19, align 4
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader383
-  %221 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %202, %.preheader383 ]
-  %222 = phi i32 [ %218, %._crit_edge.loopexit ], [ 0, %.preheader383 ]
-  %indvars.iv.next473 = add nuw nsw i64 %indvars.iv472, 1
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader384
+  %221 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %202, %.preheader384 ]
+  %222 = phi i32 [ %218, %._crit_edge.loopexit ], [ 0, %.preheader384 ]
+  %indvars.iv.next474 = add nuw nsw i64 %indvars.iv473, 1
   %223 = zext i32 %221 to i64
-  %224 = icmp ult i64 %indvars.iv.next473, %223
-  br i1 %224, label %.preheader383, label %.preheader382, !llvm.loop !182
+  %224 = icmp ult i64 %indvars.iv.next474, %223
+  br i1 %224, label %.preheader384, label %.preheader383, !llvm.loop !182
 
-225:                                              ; preds = %.lr.ph405, %._crit_edge403
-  %226 = phi i32 [ %204, %.lr.ph405 ], [ %260, %._crit_edge403 ]
-  %indvars.iv478 = phi i64 [ 0, %.lr.ph405 ], [ %indvars.iv.next479, %._crit_edge403 ]
+225:                                              ; preds = %.lr.ph406, %._crit_edge404
+  %226 = phi i32 [ %204, %.lr.ph406 ], [ %260, %._crit_edge404 ]
+  %indvars.iv479 = phi i64 [ 0, %.lr.ph406 ], [ %indvars.iv.next480, %._crit_edge404 ]
   %227 = load ptr, ptr %205, align 8
   %228 = icmp eq ptr %227, null
   br i1 %228, label %229, label %232
 
 229:                                              ; preds = %225
-  %230 = trunc i64 %indvars.iv478 to i32
+  %230 = trunc i64 %indvars.iv479 to i32
   %231 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %226, i32 noundef %230), !range !6
   br label %ma_channel_map_get_channel.exit
 
 232:                                              ; preds = %225
-  %233 = getelementptr inbounds i8, ptr %227, i64 %indvars.iv478
+  %233 = getelementptr inbounds i8, ptr %227, i64 %indvars.iv479
   %234 = load i8, ptr %233, align 1
   br label %ma_channel_map_get_channel.exit
 
 ma_channel_map_get_channel.exit:                  ; preds = %229, %232
   %.0.i275 = phi i8 [ %231, %229 ], [ %234, %232 ]
   %235 = load i32, ptr %22, align 8
-  %.not431 = icmp eq i32 %235, 0
-  br i1 %.not431, label %._crit_edge403, label %.lr.ph402
+  %.not432 = icmp eq i32 %235, 0
+  br i1 %.not432, label %._crit_edge404, label %.lr.ph403
 
-.lr.ph402:                                        ; preds = %ma_channel_map_get_channel.exit, %256
-  %indvars.iv475 = phi i64 [ %indvars.iv.next476, %256 ], [ 0, %ma_channel_map_get_channel.exit ]
+.lr.ph403:                                        ; preds = %ma_channel_map_get_channel.exit, %256
+  %indvars.iv476 = phi i64 [ %indvars.iv.next477, %256 ], [ 0, %ma_channel_map_get_channel.exit ]
   %236 = phi i32 [ %257, %256 ], [ %235, %ma_channel_map_get_channel.exit ]
   %237 = load ptr, ptr %206, align 8
   %238 = icmp eq ptr %237, null
   br i1 %238, label %239, label %242
 
-239:                                              ; preds = %.lr.ph402
-  %240 = trunc i64 %indvars.iv475 to i32
+239:                                              ; preds = %.lr.ph403
+  %240 = trunc i64 %indvars.iv476 to i32
   %241 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %236, i32 noundef %240), !range !6
   br label %ma_channel_map_get_channel.exit278
 
-242:                                              ; preds = %.lr.ph402
-  %243 = getelementptr inbounds i8, ptr %237, i64 %indvars.iv475
+242:                                              ; preds = %.lr.ph403
+  %243 = getelementptr inbounds i8, ptr %237, i64 %indvars.iv476
   %244 = load i8, ptr %243, align 1
   br label %ma_channel_map_get_channel.exit278
 
@@ -37316,153 +37316,153 @@ ma_channel_map_get_channel.exit278:               ; preds = %239, %242
   %247 = load i32, ptr %2, align 8
   %248 = icmp eq i32 %247, 5
   %249 = load ptr, ptr %207, align 8
-  %250 = getelementptr inbounds ptr, ptr %249, i64 %indvars.iv478
+  %250 = getelementptr inbounds ptr, ptr %249, i64 %indvars.iv479
   %251 = load ptr, ptr %250, align 8
   br i1 %248, label %252, label %254
 
 252:                                              ; preds = %246
-  %253 = getelementptr inbounds float, ptr %251, i64 %indvars.iv475
+  %253 = getelementptr inbounds float, ptr %251, i64 %indvars.iv476
   store float 1.000000e+00, ptr %253, align 4
   br label %256
 
 254:                                              ; preds = %246
-  %255 = getelementptr inbounds i32, ptr %251, i64 %indvars.iv475
+  %255 = getelementptr inbounds i32, ptr %251, i64 %indvars.iv476
   store i32 4096, ptr %255, align 4
   br label %256
 
 256:                                              ; preds = %ma_channel_map_get_channel.exit278, %254, %252
-  %indvars.iv.next476 = add nuw nsw i64 %indvars.iv475, 1
+  %indvars.iv.next477 = add nuw nsw i64 %indvars.iv476, 1
   %257 = load i32, ptr %22, align 8
   %258 = zext i32 %257 to i64
-  %259 = icmp ult i64 %indvars.iv.next476, %258
-  br i1 %259, label %.lr.ph402, label %._crit_edge403.loopexit
+  %259 = icmp ult i64 %indvars.iv.next477, %258
+  br i1 %259, label %.lr.ph403, label %._crit_edge404.loopexit
 
-._crit_edge403.loopexit:                          ; preds = %256
-  %.pre502 = load i32, ptr %19, align 4
-  br label %._crit_edge403
+._crit_edge404.loopexit:                          ; preds = %256
+  %.pre503 = load i32, ptr %19, align 4
+  br label %._crit_edge404
 
-._crit_edge403:                                   ; preds = %._crit_edge403.loopexit, %ma_channel_map_get_channel.exit
-  %260 = phi i32 [ %.pre502, %._crit_edge403.loopexit ], [ %226, %ma_channel_map_get_channel.exit ]
-  %indvars.iv.next479 = add nuw nsw i64 %indvars.iv478, 1
+._crit_edge404:                                   ; preds = %._crit_edge404.loopexit, %ma_channel_map_get_channel.exit
+  %260 = phi i32 [ %.pre503, %._crit_edge404.loopexit ], [ %226, %ma_channel_map_get_channel.exit ]
+  %indvars.iv.next480 = add nuw nsw i64 %indvars.iv479, 1
   %261 = zext i32 %260 to i64
-  %262 = icmp ult i64 %indvars.iv.next479, %261
-  br i1 %262, label %225, label %._crit_edge406
+  %262 = icmp ult i64 %indvars.iv.next480, %261
+  br i1 %262, label %225, label %._crit_edge407
 
-._crit_edge406:                                   ; preds = %._crit_edge403, %169, %184, %.loopexit384, %.preheader382
-  %263 = phi i32 [ 0, %.preheader382 ], [ 0, %.loopexit384 ], [ 0, %184 ], [ 0, %169 ], [ %260, %._crit_edge403 ]
+._crit_edge407:                                   ; preds = %._crit_edge404, %169, %184, %.loopexit385, %.preheader383
+  %263 = phi i32 [ 0, %.preheader383 ], [ 0, %.loopexit385 ], [ 0, %184 ], [ 0, %169 ], [ %260, %._crit_edge404 ]
   %264 = load i32, ptr %25, align 4
-  switch i32 %264, label %.preheader378 [
+  switch i32 %264, label %.preheader379 [
     i32 2, label %268
-    i32 1, label %ma_channel_map_contains_channel_position.exit340
+    i32 1, label %ma_channel_map_contains_channel_position.exit341
   ]
 
-.preheader378:                                    ; preds = %._crit_edge406
-  %.not435 = icmp eq i32 %263, 0
-  br i1 %.not435, label %.preheader, label %.lr.ph415
+.preheader379:                                    ; preds = %._crit_edge407
+  %.not436 = icmp eq i32 %263, 0
+  br i1 %.not436, label %.preheader, label %.lr.ph416
 
-.lr.ph415:                                        ; preds = %.preheader378
+.lr.ph416:                                        ; preds = %.preheader379
   %265 = getelementptr inbounds i8, ptr %2, i64 24
   %266 = getelementptr inbounds i8, ptr %2, i64 32
   %267 = getelementptr inbounds i8, ptr %2, i64 48
   br label %308
 
-268:                                              ; preds = %._crit_edge406
+268:                                              ; preds = %._crit_edge407
   %269 = getelementptr inbounds i8, ptr %0, i64 40
   %270 = load ptr, ptr %269, align 8
   %271 = icmp eq ptr %270, null
-  br i1 %271, label %ma_channel_map_contains_channel_position.exit340, label %.preheader380
+  br i1 %271, label %ma_channel_map_contains_channel_position.exit341, label %.preheader381
 
-.preheader380:                                    ; preds = %268
-  %.not432 = icmp eq i32 %263, 0
-  br i1 %.not432, label %ma_channel_map_contains_channel_position.exit340, label %.preheader379.lr.ph
+.preheader381:                                    ; preds = %268
+  %.not433 = icmp eq i32 %263, 0
+  br i1 %.not433, label %ma_channel_map_contains_channel_position.exit341, label %.preheader380.lr.ph
 
-.preheader379.lr.ph:                              ; preds = %.preheader380
+.preheader380.lr.ph:                              ; preds = %.preheader381
   %272 = getelementptr inbounds i8, ptr %2, i64 48
   %273 = load i32, ptr %22, align 8
-  %.not433 = icmp eq i32 %273, 0
-  br i1 %.not433, label %ma_channel_map_contains_channel_position.exit340, label %.preheader379
+  %.not434 = icmp eq i32 %273, 0
+  br i1 %.not434, label %ma_channel_map_contains_channel_position.exit341, label %.preheader380
 
-.preheader379:                                    ; preds = %.preheader379.lr.ph, %._crit_edge409
-  %274 = phi i32 [ %299, %._crit_edge409 ], [ %263, %.preheader379.lr.ph ]
-  %275 = phi i32 [ %300, %._crit_edge409 ], [ 1, %.preheader379.lr.ph ]
-  %indvars.iv484 = phi i64 [ %indvars.iv.next485, %._crit_edge409 ], [ 0, %.preheader379.lr.ph ]
-  %.not434 = icmp eq i32 %275, 0
-  br i1 %.not434, label %._crit_edge409, label %.lr.ph408
+.preheader380:                                    ; preds = %.preheader380.lr.ph, %._crit_edge410
+  %274 = phi i32 [ %299, %._crit_edge410 ], [ %263, %.preheader380.lr.ph ]
+  %275 = phi i32 [ %300, %._crit_edge410 ], [ 1, %.preheader380.lr.ph ]
+  %indvars.iv485 = phi i64 [ %indvars.iv.next486, %._crit_edge410 ], [ 0, %.preheader380.lr.ph ]
+  %.not435 = icmp eq i32 %275, 0
+  br i1 %.not435, label %._crit_edge410, label %.lr.ph409
 
-.lr.ph408:                                        ; preds = %.preheader379, %295
-  %indvars.iv481 = phi i64 [ %indvars.iv.next482, %295 ], [ 0, %.preheader379 ]
+.lr.ph409:                                        ; preds = %.preheader380, %295
+  %indvars.iv482 = phi i64 [ %indvars.iv.next483, %295 ], [ 0, %.preheader380 ]
   %276 = load ptr, ptr %269, align 8
-  %277 = getelementptr inbounds ptr, ptr %276, i64 %indvars.iv484
+  %277 = getelementptr inbounds ptr, ptr %276, i64 %indvars.iv485
   %278 = load ptr, ptr %277, align 8
-  %279 = getelementptr inbounds float, ptr %278, i64 %indvars.iv481
+  %279 = getelementptr inbounds float, ptr %278, i64 %indvars.iv482
   %280 = load float, ptr %279, align 4
   %281 = load i32, ptr %2, align 8
   %282 = icmp eq i32 %281, 5
   br i1 %282, label %283, label %288
 
-283:                                              ; preds = %.lr.ph408
+283:                                              ; preds = %.lr.ph409
   %284 = load ptr, ptr %272, align 8
-  %285 = getelementptr inbounds ptr, ptr %284, i64 %indvars.iv484
+  %285 = getelementptr inbounds ptr, ptr %284, i64 %indvars.iv485
   %286 = load ptr, ptr %285, align 8
-  %287 = getelementptr inbounds float, ptr %286, i64 %indvars.iv481
+  %287 = getelementptr inbounds float, ptr %286, i64 %indvars.iv482
   store float %280, ptr %287, align 4
   br label %295
 
-288:                                              ; preds = %.lr.ph408
+288:                                              ; preds = %.lr.ph409
   %289 = fmul float %280, 4.096000e+03
   %290 = fptosi float %289 to i32
   %291 = load ptr, ptr %272, align 8
-  %292 = getelementptr inbounds ptr, ptr %291, i64 %indvars.iv484
+  %292 = getelementptr inbounds ptr, ptr %291, i64 %indvars.iv485
   %293 = load ptr, ptr %292, align 8
-  %294 = getelementptr inbounds i32, ptr %293, i64 %indvars.iv481
+  %294 = getelementptr inbounds i32, ptr %293, i64 %indvars.iv482
   store i32 %290, ptr %294, align 4
   br label %295
 
 295:                                              ; preds = %283, %288
-  %indvars.iv.next482 = add nuw nsw i64 %indvars.iv481, 1
+  %indvars.iv.next483 = add nuw nsw i64 %indvars.iv482, 1
   %296 = load i32, ptr %22, align 8
   %297 = zext i32 %296 to i64
-  %298 = icmp ult i64 %indvars.iv.next482, %297
-  br i1 %298, label %.lr.ph408, label %._crit_edge409.loopexit
+  %298 = icmp ult i64 %indvars.iv.next483, %297
+  br i1 %298, label %.lr.ph409, label %._crit_edge410.loopexit
 
-._crit_edge409.loopexit:                          ; preds = %295
-  %.pre503 = load i32, ptr %19, align 4
-  br label %._crit_edge409
+._crit_edge410.loopexit:                          ; preds = %295
+  %.pre504 = load i32, ptr %19, align 4
+  br label %._crit_edge410
 
-._crit_edge409:                                   ; preds = %._crit_edge409.loopexit, %.preheader379
-  %299 = phi i32 [ %.pre503, %._crit_edge409.loopexit ], [ %274, %.preheader379 ]
-  %300 = phi i32 [ %296, %._crit_edge409.loopexit ], [ 0, %.preheader379 ]
-  %indvars.iv.next485 = add nuw nsw i64 %indvars.iv484, 1
+._crit_edge410:                                   ; preds = %._crit_edge410.loopexit, %.preheader380
+  %299 = phi i32 [ %.pre504, %._crit_edge410.loopexit ], [ %274, %.preheader380 ]
+  %300 = phi i32 [ %296, %._crit_edge410.loopexit ], [ 0, %.preheader380 ]
+  %indvars.iv.next486 = add nuw nsw i64 %indvars.iv485, 1
   %301 = zext i32 %299 to i64
-  %302 = icmp ult i64 %indvars.iv.next485, %301
-  br i1 %302, label %.preheader379, label %ma_channel_map_contains_channel_position.exit340, !llvm.loop !183
+  %302 = icmp ult i64 %indvars.iv.next486, %301
+  br i1 %302, label %.preheader380, label %ma_channel_map_contains_channel_position.exit341, !llvm.loop !183
 
-.preheader:                                       ; preds = %ma_is_spatial_channel_position.exit.thread, %.preheader378
-  %303 = phi i32 [ 0, %.preheader378 ], [ %405, %ma_is_spatial_channel_position.exit.thread ]
+.preheader:                                       ; preds = %ma_is_spatial_channel_position.exit.thread, %.preheader379
+  %303 = phi i32 [ 0, %.preheader379 ], [ %405, %ma_is_spatial_channel_position.exit.thread ]
   %304 = load i32, ptr %22, align 8
-  %.not437 = icmp eq i32 %304, 0
-  br i1 %.not437, label %._crit_edge421, label %.lr.ph420
+  %.not438 = icmp eq i32 %304, 0
+  br i1 %.not438, label %._crit_edge422, label %.lr.ph421
 
-.lr.ph420:                                        ; preds = %.preheader
+.lr.ph421:                                        ; preds = %.preheader
   %305 = getelementptr inbounds i8, ptr %2, i64 32
   %306 = getelementptr inbounds i8, ptr %2, i64 24
   %307 = getelementptr inbounds i8, ptr %2, i64 48
   br label %408
 
-308:                                              ; preds = %.lr.ph415, %ma_is_spatial_channel_position.exit.thread
-  %309 = phi i32 [ %263, %.lr.ph415 ], [ %405, %ma_is_spatial_channel_position.exit.thread ]
-  %indvars.iv490 = phi i64 [ 0, %.lr.ph415 ], [ %indvars.iv.next491, %ma_is_spatial_channel_position.exit.thread ]
+308:                                              ; preds = %.lr.ph416, %ma_is_spatial_channel_position.exit.thread
+  %309 = phi i32 [ %263, %.lr.ph416 ], [ %405, %ma_is_spatial_channel_position.exit.thread ]
+  %indvars.iv491 = phi i64 [ 0, %.lr.ph416 ], [ %indvars.iv.next492, %ma_is_spatial_channel_position.exit.thread ]
   %310 = load ptr, ptr %265, align 8
   %311 = icmp eq ptr %310, null
   br i1 %311, label %312, label %315
 
 312:                                              ; preds = %308
-  %313 = trunc i64 %indvars.iv490 to i32
+  %313 = trunc i64 %indvars.iv491 to i32
   %314 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %309, i32 noundef %313), !range !6
   br label %ma_channel_map_get_channel.exit281
 
 315:                                              ; preds = %308
-  %316 = getelementptr inbounds i8, ptr %310, i64 %indvars.iv490
+  %316 = getelementptr inbounds i8, ptr %310, i64 %indvars.iv491
   %317 = load i8, ptr %316, align 1
   br label %ma_channel_map_get_channel.exit281
 
@@ -37477,20 +37477,20 @@ ma_channel_map_get_channel.exit281:               ; preds = %312, %315
 318:                                              ; preds = %ma_channel_map_get_channel.exit281
   %319 = add i8 %.0.i280, -20
   %or.cond8.i = icmp ult i8 %319, 32
-  br i1 %or.cond8.i, label %ma_is_spatial_channel_position.exit.thread, label %.preheader.i
+  br i1 %or.cond8.i, label %ma_is_spatial_channel_position.exit.thread, label %.preheader.i282
 
-.preheader.i:                                     ; preds = %318
+.preheader.i282:                                  ; preds = %318
   %320 = zext i8 %.0.i280 to i64
   br label %322
 
 321:                                              ; preds = %322
-  %indvars.iv.next.i283 = add nuw nsw i64 %indvars.iv.i282, 1
-  %exitcond.not.i284 = icmp eq i64 %indvars.iv.next.i283, 6
-  br i1 %exitcond.not.i284, label %ma_is_spatial_channel_position.exit.thread, label %322
+  %indvars.iv.next.i284 = add nuw nsw i64 %indvars.iv.i283, 1
+  %exitcond.not.i285 = icmp eq i64 %indvars.iv.next.i284, 6
+  br i1 %exitcond.not.i285, label %ma_is_spatial_channel_position.exit.thread, label %322
 
-322:                                              ; preds = %321, %.preheader.i
-  %indvars.iv.i282 = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i283, %321 ]
-  %323 = getelementptr inbounds [52 x [6 x float]], ptr @g_maChannelPlaneRatios, i64 0, i64 %320, i64 %indvars.iv.i282
+322:                                              ; preds = %321, %.preheader.i282
+  %indvars.iv.i283 = phi i64 [ 0, %.preheader.i282 ], [ %indvars.iv.next.i284, %321 ]
+  %323 = getelementptr inbounds [52 x [6 x float]], ptr @g_maChannelPlaneRatios, i64 0, i64 %320, i64 %indvars.iv.i283
   %324 = load float, ptr %323, align 4
   %325 = fcmp une float %324, 0.000000e+00
   br i1 %325, label %ma_is_spatial_channel_position.exit, label %321
@@ -37518,7 +37518,7 @@ ma_channel_map_get_channel.exit.us.i.i:           ; preds = %.lr.ph.i.i, %331
 331:                                              ; preds = %ma_channel_map_get_channel.exit.us.i.i
   %332 = add nuw i32 %.016.us.i.i, 1
   %exitcond23.not.i.i = icmp eq i32 %332, %326
-  br i1 %exitcond23.not.i.i, label %.lr.ph412, label %ma_channel_map_get_channel.exit.us.i.i
+  br i1 %exitcond23.not.i.i, label %.lr.ph413, label %ma_channel_map_get_channel.exit.us.i.i
 
 ma_channel_map_get_channel.exit.i.i:              ; preds = %336, %ma_channel_map_get_channel.exit.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %ma_channel_map_get_channel.exit.preheader.i.i ], [ %indvars.iv.next.i.i, %336 ]
@@ -37533,9 +37533,9 @@ ma_channel_map_get_channel.exit.i.i:              ; preds = %336, %ma_channel_ma
   br i1 %exitcond.not.i.i, label %ma_channel_map_contains_channel_position.exit, label %ma_channel_map_get_channel.exit.i.i
 
 ma_channel_map_contains_channel_position.exit:    ; preds = %336
-  br i1 %.not17.i.i, label %ma_is_spatial_channel_position.exit.thread, label %.lr.ph412
+  br i1 %.not17.i.i, label %ma_is_spatial_channel_position.exit.thread, label %.lr.ph413
 
-.lr.ph412:                                        ; preds = %331, %ma_channel_map_contains_channel_position.exit
+.lr.ph413:                                        ; preds = %331, %ma_channel_map_contains_channel_position.exit
   %337 = getelementptr inbounds [52 x [6 x float]], ptr @g_maChannelPlaneRatios, i64 0, i64 %320
   %338 = getelementptr inbounds i8, ptr %337, i64 4
   %339 = getelementptr inbounds i8, ptr %337, i64 8
@@ -37543,58 +37543,58 @@ ma_channel_map_contains_channel_position.exit:    ; preds = %336
   %341 = getelementptr inbounds i8, ptr %337, i64 20
   br label %342
 
-342:                                              ; preds = %.lr.ph412, %ma_is_spatial_channel_position.exit294.thread
-  %indvars.iv487 = phi i64 [ 0, %.lr.ph412 ], [ %indvars.iv.next488, %ma_is_spatial_channel_position.exit294.thread ]
-  %343 = phi i32 [ %326, %.lr.ph412 ], [ %402, %ma_is_spatial_channel_position.exit294.thread ]
+342:                                              ; preds = %.lr.ph413, %ma_is_spatial_channel_position.exit295.thread
+  %indvars.iv488 = phi i64 [ 0, %.lr.ph413 ], [ %indvars.iv.next489, %ma_is_spatial_channel_position.exit295.thread ]
+  %343 = phi i32 [ %326, %.lr.ph413 ], [ %402, %ma_is_spatial_channel_position.exit295.thread ]
   %344 = load ptr, ptr %266, align 8
   %345 = icmp eq ptr %344, null
   br i1 %345, label %346, label %349
 
 346:                                              ; preds = %342
-  %347 = trunc i64 %indvars.iv487 to i32
+  %347 = trunc i64 %indvars.iv488 to i32
   %348 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %343, i32 noundef %347), !range !6
-  br label %ma_channel_map_get_channel.exit287
+  br label %ma_channel_map_get_channel.exit288
 
 349:                                              ; preds = %342
-  %350 = getelementptr inbounds i8, ptr %344, i64 %indvars.iv487
+  %350 = getelementptr inbounds i8, ptr %344, i64 %indvars.iv488
   %351 = load i8, ptr %350, align 1
-  br label %ma_channel_map_get_channel.exit287
+  br label %ma_channel_map_get_channel.exit288
 
-ma_channel_map_get_channel.exit287:               ; preds = %346, %349
-  %.0.i286 = phi i8 [ %348, %346 ], [ %351, %349 ]
-  switch i8 %.0.i286, label %352 [
-    i8 5, label %ma_is_spatial_channel_position.exit294.thread
-    i8 1, label %ma_is_spatial_channel_position.exit294.thread
-    i8 0, label %ma_is_spatial_channel_position.exit294.thread
+ma_channel_map_get_channel.exit288:               ; preds = %346, %349
+  %.0.i287 = phi i8 [ %348, %346 ], [ %351, %349 ]
+  switch i8 %.0.i287, label %352 [
+    i8 5, label %ma_is_spatial_channel_position.exit295.thread
+    i8 1, label %ma_is_spatial_channel_position.exit295.thread
+    i8 0, label %ma_is_spatial_channel_position.exit295.thread
   ]
 
-352:                                              ; preds = %ma_channel_map_get_channel.exit287
-  %353 = add i8 %.0.i286, -20
-  %or.cond8.i289 = icmp ult i8 %353, 32
-  br i1 %or.cond8.i289, label %ma_is_spatial_channel_position.exit294.thread, label %.preheader.i290
+352:                                              ; preds = %ma_channel_map_get_channel.exit288
+  %353 = add i8 %.0.i287, -20
+  %or.cond8.i290 = icmp ult i8 %353, 32
+  br i1 %or.cond8.i290, label %ma_is_spatial_channel_position.exit295.thread, label %.preheader.i291
 
-.preheader.i290:                                  ; preds = %352
-  %354 = zext i8 %.0.i286 to i64
+.preheader.i291:                                  ; preds = %352
+  %354 = zext i8 %.0.i287 to i64
   br label %356
 
 355:                                              ; preds = %356
-  %indvars.iv.next.i292 = add nuw nsw i64 %indvars.iv.i291, 1
-  %exitcond.not.i293 = icmp eq i64 %indvars.iv.next.i292, 6
-  br i1 %exitcond.not.i293, label %ma_is_spatial_channel_position.exit294.thread, label %356
+  %indvars.iv.next.i293 = add nuw nsw i64 %indvars.iv.i292, 1
+  %exitcond.not.i294 = icmp eq i64 %indvars.iv.next.i293, 6
+  br i1 %exitcond.not.i294, label %ma_is_spatial_channel_position.exit295.thread, label %356
 
-356:                                              ; preds = %355, %.preheader.i290
-  %indvars.iv.i291 = phi i64 [ 0, %.preheader.i290 ], [ %indvars.iv.next.i292, %355 ]
-  %357 = getelementptr inbounds [52 x [6 x float]], ptr @g_maChannelPlaneRatios, i64 0, i64 %354, i64 %indvars.iv.i291
+356:                                              ; preds = %355, %.preheader.i291
+  %indvars.iv.i292 = phi i64 [ 0, %.preheader.i291 ], [ %indvars.iv.next.i293, %355 ]
+  %357 = getelementptr inbounds [52 x [6 x float]], ptr @g_maChannelPlaneRatios, i64 0, i64 %354, i64 %indvars.iv.i292
   %358 = load float, ptr %357, align 4
   %359 = fcmp une float %358, 0.000000e+00
-  br i1 %359, label %ma_is_spatial_channel_position.exit294, label %355
+  br i1 %359, label %ma_is_spatial_channel_position.exit295, label %355
 
-ma_is_spatial_channel_position.exit294:           ; preds = %356
+ma_is_spatial_channel_position.exit295:           ; preds = %356
   %360 = load i32, ptr %25, align 4
   %361 = icmp eq i32 %360, 0
   br i1 %361, label %362, label %384
 
-362:                                              ; preds = %ma_is_spatial_channel_position.exit294
+362:                                              ; preds = %ma_is_spatial_channel_position.exit295
   %363 = load float, ptr %337, align 8
   %364 = getelementptr inbounds [52 x [6 x float]], ptr @g_maChannelPlaneRatios, i64 0, i64 %354
   %365 = load float, ptr %364, align 8
@@ -37618,145 +37618,145 @@ ma_is_spatial_channel_position.exit294:           ; preds = %356
   %383 = tail call float @llvm.fmuladd.f32(float %380, float %382, float %379)
   br label %384
 
-384:                                              ; preds = %362, %ma_is_spatial_channel_position.exit294
-  %.0237 = phi float [ %383, %362 ], [ 0.000000e+00, %ma_is_spatial_channel_position.exit294 ]
+384:                                              ; preds = %362, %ma_is_spatial_channel_position.exit295
+  %.0237 = phi float [ %383, %362 ], [ 0.000000e+00, %ma_is_spatial_channel_position.exit295 ]
   %385 = load i32, ptr %2, align 8
   %386 = icmp eq i32 %385, 5
   %387 = load ptr, ptr %267, align 8
-  %388 = getelementptr inbounds ptr, ptr %387, i64 %indvars.iv490
+  %388 = getelementptr inbounds ptr, ptr %387, i64 %indvars.iv491
   %389 = load ptr, ptr %388, align 8
   br i1 %386, label %390, label %395
 
 390:                                              ; preds = %384
-  %391 = getelementptr inbounds float, ptr %389, i64 %indvars.iv487
+  %391 = getelementptr inbounds float, ptr %389, i64 %indvars.iv488
   %392 = load float, ptr %391, align 4
   %393 = fcmp oeq float %392, 0.000000e+00
-  br i1 %393, label %394, label %ma_is_spatial_channel_position.exit294.thread
+  br i1 %393, label %394, label %ma_is_spatial_channel_position.exit295.thread
 
 394:                                              ; preds = %390
   store float %.0237, ptr %391, align 4
-  br label %ma_is_spatial_channel_position.exit294.thread
+  br label %ma_is_spatial_channel_position.exit295.thread
 
 395:                                              ; preds = %384
-  %396 = getelementptr inbounds i32, ptr %389, i64 %indvars.iv487
+  %396 = getelementptr inbounds i32, ptr %389, i64 %indvars.iv488
   %397 = load i32, ptr %396, align 4
   %398 = icmp eq i32 %397, 0
-  br i1 %398, label %399, label %ma_is_spatial_channel_position.exit294.thread
+  br i1 %398, label %399, label %ma_is_spatial_channel_position.exit295.thread
 
 399:                                              ; preds = %395
   %400 = fmul float %.0237, 4.096000e+03
   %401 = fptosi float %400 to i32
   store i32 %401, ptr %396, align 4
-  br label %ma_is_spatial_channel_position.exit294.thread
+  br label %ma_is_spatial_channel_position.exit295.thread
 
-ma_is_spatial_channel_position.exit294.thread:    ; preds = %355, %352, %ma_channel_map_get_channel.exit287, %ma_channel_map_get_channel.exit287, %ma_channel_map_get_channel.exit287, %395, %399, %390, %394
-  %indvars.iv.next488 = add nuw nsw i64 %indvars.iv487, 1
+ma_is_spatial_channel_position.exit295.thread:    ; preds = %355, %352, %ma_channel_map_get_channel.exit288, %ma_channel_map_get_channel.exit288, %ma_channel_map_get_channel.exit288, %395, %399, %390, %394
+  %indvars.iv.next489 = add nuw nsw i64 %indvars.iv488, 1
   %402 = load i32, ptr %22, align 8
   %403 = zext i32 %402 to i64
-  %404 = icmp ult i64 %indvars.iv.next488, %403
+  %404 = icmp ult i64 %indvars.iv.next489, %403
   br i1 %404, label %342, label %ma_is_spatial_channel_position.exit.thread.loopexit
 
-ma_is_spatial_channel_position.exit.thread.loopexit: ; preds = %ma_is_spatial_channel_position.exit294.thread
-  %.pre504 = load i32, ptr %19, align 4
+ma_is_spatial_channel_position.exit.thread.loopexit: ; preds = %ma_is_spatial_channel_position.exit295.thread
+  %.pre505 = load i32, ptr %19, align 4
   br label %ma_is_spatial_channel_position.exit.thread
 
 ma_is_spatial_channel_position.exit.thread:       ; preds = %321, %ma_channel_map_get_channel.exit.i.i, %ma_channel_map_get_channel.exit.us.i.i, %ma_is_spatial_channel_position.exit, %ma_is_spatial_channel_position.exit.thread.loopexit, %ma_channel_map_contains_channel_position.exit, %318, %ma_channel_map_get_channel.exit281, %ma_channel_map_get_channel.exit281, %ma_channel_map_get_channel.exit281
-  %405 = phi i32 [ %.pre504, %ma_is_spatial_channel_position.exit.thread.loopexit ], [ %309, %ma_channel_map_contains_channel_position.exit ], [ %309, %318 ], [ %309, %ma_channel_map_get_channel.exit281 ], [ %309, %ma_channel_map_get_channel.exit281 ], [ %309, %ma_channel_map_get_channel.exit281 ], [ %309, %ma_is_spatial_channel_position.exit ], [ %309, %ma_channel_map_get_channel.exit.us.i.i ], [ %309, %ma_channel_map_get_channel.exit.i.i ], [ %309, %321 ]
-  %indvars.iv.next491 = add nuw nsw i64 %indvars.iv490, 1
+  %405 = phi i32 [ %.pre505, %ma_is_spatial_channel_position.exit.thread.loopexit ], [ %309, %ma_channel_map_contains_channel_position.exit ], [ %309, %318 ], [ %309, %ma_channel_map_get_channel.exit281 ], [ %309, %ma_channel_map_get_channel.exit281 ], [ %309, %ma_channel_map_get_channel.exit281 ], [ %309, %ma_is_spatial_channel_position.exit ], [ %309, %ma_channel_map_get_channel.exit.us.i.i ], [ %309, %ma_channel_map_get_channel.exit.i.i ], [ %309, %321 ]
+  %indvars.iv.next492 = add nuw nsw i64 %indvars.iv491, 1
   %406 = zext i32 %405 to i64
-  %407 = icmp ult i64 %indvars.iv.next491, %406
+  %407 = icmp ult i64 %indvars.iv.next492, %406
   br i1 %407, label %308, label %.preheader
 
-408:                                              ; preds = %.lr.ph420, %ma_is_spatial_channel_position.exit304.thread
-  %409 = phi i32 [ %303, %.lr.ph420 ], [ %507, %ma_is_spatial_channel_position.exit304.thread ]
-  %410 = phi i32 [ %304, %.lr.ph420 ], [ %508, %ma_is_spatial_channel_position.exit304.thread ]
-  %411 = phi i32 [ %303, %.lr.ph420 ], [ %509, %ma_is_spatial_channel_position.exit304.thread ]
-  %412 = phi i32 [ %303, %.lr.ph420 ], [ %510, %ma_is_spatial_channel_position.exit304.thread ]
-  %indvars.iv496 = phi i64 [ 0, %.lr.ph420 ], [ %indvars.iv.next497, %ma_is_spatial_channel_position.exit304.thread ]
+408:                                              ; preds = %.lr.ph421, %ma_is_spatial_channel_position.exit305.thread
+  %409 = phi i32 [ %303, %.lr.ph421 ], [ %507, %ma_is_spatial_channel_position.exit305.thread ]
+  %410 = phi i32 [ %304, %.lr.ph421 ], [ %508, %ma_is_spatial_channel_position.exit305.thread ]
+  %411 = phi i32 [ %303, %.lr.ph421 ], [ %509, %ma_is_spatial_channel_position.exit305.thread ]
+  %412 = phi i32 [ %303, %.lr.ph421 ], [ %510, %ma_is_spatial_channel_position.exit305.thread ]
+  %indvars.iv497 = phi i64 [ 0, %.lr.ph421 ], [ %indvars.iv.next498, %ma_is_spatial_channel_position.exit305.thread ]
   %413 = load ptr, ptr %305, align 8
   %414 = icmp eq ptr %413, null
   br i1 %414, label %415, label %418
 
 415:                                              ; preds = %408
-  %416 = trunc i64 %indvars.iv496 to i32
+  %416 = trunc i64 %indvars.iv497 to i32
   %417 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %410, i32 noundef %416), !range !6
-  br label %ma_channel_map_get_channel.exit297
+  br label %ma_channel_map_get_channel.exit298
 
 418:                                              ; preds = %408
-  %419 = getelementptr inbounds i8, ptr %413, i64 %indvars.iv496
+  %419 = getelementptr inbounds i8, ptr %413, i64 %indvars.iv497
   %420 = load i8, ptr %419, align 1
-  br label %ma_channel_map_get_channel.exit297
+  br label %ma_channel_map_get_channel.exit298
 
-ma_channel_map_get_channel.exit297:               ; preds = %415, %418
-  %.0.i296 = phi i8 [ %417, %415 ], [ %420, %418 ]
-  switch i8 %.0.i296, label %421 [
-    i8 5, label %ma_is_spatial_channel_position.exit304.thread
-    i8 1, label %ma_is_spatial_channel_position.exit304.thread
-    i8 0, label %ma_is_spatial_channel_position.exit304.thread
+ma_channel_map_get_channel.exit298:               ; preds = %415, %418
+  %.0.i297 = phi i8 [ %417, %415 ], [ %420, %418 ]
+  switch i8 %.0.i297, label %421 [
+    i8 5, label %ma_is_spatial_channel_position.exit305.thread
+    i8 1, label %ma_is_spatial_channel_position.exit305.thread
+    i8 0, label %ma_is_spatial_channel_position.exit305.thread
   ]
 
-421:                                              ; preds = %ma_channel_map_get_channel.exit297
-  %422 = add i8 %.0.i296, -20
-  %or.cond8.i299 = icmp ult i8 %422, 32
-  br i1 %or.cond8.i299, label %ma_is_spatial_channel_position.exit304.thread, label %.preheader.i300
+421:                                              ; preds = %ma_channel_map_get_channel.exit298
+  %422 = add i8 %.0.i297, -20
+  %or.cond8.i300 = icmp ult i8 %422, 32
+  br i1 %or.cond8.i300, label %ma_is_spatial_channel_position.exit305.thread, label %.preheader.i301
 
-.preheader.i300:                                  ; preds = %421
-  %423 = zext i8 %.0.i296 to i64
+.preheader.i301:                                  ; preds = %421
+  %423 = zext i8 %.0.i297 to i64
   br label %425
 
 424:                                              ; preds = %425
-  %indvars.iv.next.i302 = add nuw nsw i64 %indvars.iv.i301, 1
-  %exitcond.not.i303 = icmp eq i64 %indvars.iv.next.i302, 6
-  br i1 %exitcond.not.i303, label %ma_is_spatial_channel_position.exit304.thread, label %425
+  %indvars.iv.next.i303 = add nuw nsw i64 %indvars.iv.i302, 1
+  %exitcond.not.i304 = icmp eq i64 %indvars.iv.next.i303, 6
+  br i1 %exitcond.not.i304, label %ma_is_spatial_channel_position.exit305.thread, label %425
 
-425:                                              ; preds = %424, %.preheader.i300
-  %indvars.iv.i301 = phi i64 [ 0, %.preheader.i300 ], [ %indvars.iv.next.i302, %424 ]
-  %426 = getelementptr inbounds [52 x [6 x float]], ptr @g_maChannelPlaneRatios, i64 0, i64 %423, i64 %indvars.iv.i301
+425:                                              ; preds = %424, %.preheader.i301
+  %indvars.iv.i302 = phi i64 [ 0, %.preheader.i301 ], [ %indvars.iv.next.i303, %424 ]
+  %426 = getelementptr inbounds [52 x [6 x float]], ptr @g_maChannelPlaneRatios, i64 0, i64 %423, i64 %indvars.iv.i302
   %427 = load float, ptr %426, align 4
   %428 = fcmp une float %427, 0.000000e+00
-  br i1 %428, label %ma_is_spatial_channel_position.exit304, label %424
+  br i1 %428, label %ma_is_spatial_channel_position.exit305, label %424
 
-ma_is_spatial_channel_position.exit304:           ; preds = %425
+ma_is_spatial_channel_position.exit305:           ; preds = %425
   %429 = load ptr, ptr %306, align 8
-  %.not17.i.i305 = icmp eq i32 %412, 0
-  br i1 %.not17.i.i305, label %ma_channel_map_contains_channel_position.exit317, label %.lr.ph.i.i306
+  %.not17.i.i306 = icmp eq i32 %412, 0
+  br i1 %.not17.i.i306, label %ma_channel_map_contains_channel_position.exit318, label %.lr.ph.i.i307
 
-.lr.ph.i.i306:                                    ; preds = %ma_is_spatial_channel_position.exit304
+.lr.ph.i.i307:                                    ; preds = %ma_is_spatial_channel_position.exit305
   %430 = icmp eq ptr %429, null
-  br i1 %430, label %ma_channel_map_get_channel.exit.us.i.i314, label %ma_channel_map_get_channel.exit.preheader.i.i307
+  br i1 %430, label %ma_channel_map_get_channel.exit.us.i.i315, label %ma_channel_map_get_channel.exit.preheader.i.i308
 
-ma_channel_map_get_channel.exit.preheader.i.i307: ; preds = %.lr.ph.i.i306
-  %wide.trip.count.i.i308 = zext i32 %412 to i64
-  br label %ma_channel_map_get_channel.exit.i.i309
+ma_channel_map_get_channel.exit.preheader.i.i308: ; preds = %.lr.ph.i.i307
+  %wide.trip.count.i.i309 = zext i32 %412 to i64
+  br label %ma_channel_map_get_channel.exit.i.i310
 
-ma_channel_map_get_channel.exit.us.i.i314:        ; preds = %.lr.ph.i.i306, %433
-  %.016.us.i.i315 = phi i32 [ %434, %433 ], [ 0, %.lr.ph.i.i306 ]
-  %431 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %412, i32 noundef %.016.us.i.i315), !range !6
-  %432 = icmp eq i8 %431, %.0.i296
-  br i1 %432, label %ma_is_spatial_channel_position.exit304.thread, label %433
+ma_channel_map_get_channel.exit.us.i.i315:        ; preds = %.lr.ph.i.i307, %433
+  %.016.us.i.i316 = phi i32 [ %434, %433 ], [ 0, %.lr.ph.i.i307 ]
+  %431 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %412, i32 noundef %.016.us.i.i316), !range !6
+  %432 = icmp eq i8 %431, %.0.i297
+  br i1 %432, label %ma_is_spatial_channel_position.exit305.thread, label %433
 
-433:                                              ; preds = %ma_channel_map_get_channel.exit.us.i.i314
-  %434 = add nuw i32 %.016.us.i.i315, 1
-  %exitcond23.not.i.i316 = icmp eq i32 %434, %412
-  br i1 %exitcond23.not.i.i316, label %ma_channel_map_contains_channel_position.exit317, label %ma_channel_map_get_channel.exit.us.i.i314
+433:                                              ; preds = %ma_channel_map_get_channel.exit.us.i.i315
+  %434 = add nuw i32 %.016.us.i.i316, 1
+  %exitcond23.not.i.i317 = icmp eq i32 %434, %412
+  br i1 %exitcond23.not.i.i317, label %ma_channel_map_contains_channel_position.exit318, label %ma_channel_map_get_channel.exit.us.i.i315
 
-ma_channel_map_get_channel.exit.i.i309:           ; preds = %438, %ma_channel_map_get_channel.exit.preheader.i.i307
-  %indvars.iv.i.i310 = phi i64 [ 0, %ma_channel_map_get_channel.exit.preheader.i.i307 ], [ %indvars.iv.next.i.i311, %438 ]
-  %435 = getelementptr inbounds i8, ptr %429, i64 %indvars.iv.i.i310
+ma_channel_map_get_channel.exit.i.i310:           ; preds = %438, %ma_channel_map_get_channel.exit.preheader.i.i308
+  %indvars.iv.i.i311 = phi i64 [ 0, %ma_channel_map_get_channel.exit.preheader.i.i308 ], [ %indvars.iv.next.i.i312, %438 ]
+  %435 = getelementptr inbounds i8, ptr %429, i64 %indvars.iv.i.i311
   %436 = load i8, ptr %435, align 1
-  %437 = icmp eq i8 %436, %.0.i296
-  br i1 %437, label %ma_is_spatial_channel_position.exit304.thread, label %438
+  %437 = icmp eq i8 %436, %.0.i297
+  br i1 %437, label %ma_is_spatial_channel_position.exit305.thread, label %438
 
-438:                                              ; preds = %ma_channel_map_get_channel.exit.i.i309
-  %indvars.iv.next.i.i311 = add nuw nsw i64 %indvars.iv.i.i310, 1
-  %exitcond.not.i.i312 = icmp eq i64 %indvars.iv.next.i.i311, %wide.trip.count.i.i308
-  br i1 %exitcond.not.i.i312, label %ma_channel_map_contains_channel_position.exit317, label %ma_channel_map_get_channel.exit.i.i309
+438:                                              ; preds = %ma_channel_map_get_channel.exit.i.i310
+  %indvars.iv.next.i.i312 = add nuw nsw i64 %indvars.iv.i.i311, 1
+  %exitcond.not.i.i313 = icmp eq i64 %indvars.iv.next.i.i312, %wide.trip.count.i.i309
+  br i1 %exitcond.not.i.i313, label %ma_channel_map_contains_channel_position.exit318, label %ma_channel_map_get_channel.exit.i.i310
 
-ma_channel_map_contains_channel_position.exit317: ; preds = %438, %433, %ma_is_spatial_channel_position.exit304
-  %.not438 = icmp eq i32 %411, 0
-  br i1 %.not438, label %ma_is_spatial_channel_position.exit304.thread, label %.lr.ph417
+ma_channel_map_contains_channel_position.exit318: ; preds = %438, %433, %ma_is_spatial_channel_position.exit305
+  %.not439 = icmp eq i32 %411, 0
+  br i1 %.not439, label %ma_is_spatial_channel_position.exit305.thread, label %.lr.ph418
 
-.lr.ph417:                                        ; preds = %ma_channel_map_contains_channel_position.exit317
+.lr.ph418:                                        ; preds = %ma_channel_map_contains_channel_position.exit318
   %439 = getelementptr inbounds [52 x [6 x float]], ptr @g_maChannelPlaneRatios, i64 0, i64 %423
   %440 = getelementptr inbounds i8, ptr %439, i64 4
   %441 = getelementptr inbounds i8, ptr %439, i64 8
@@ -37764,58 +37764,58 @@ ma_channel_map_contains_channel_position.exit317: ; preds = %438, %433, %ma_is_s
   %443 = getelementptr inbounds i8, ptr %439, i64 20
   br label %444
 
-444:                                              ; preds = %.lr.ph417, %ma_is_spatial_channel_position.exit327.thread
-  %indvars.iv493 = phi i64 [ 0, %.lr.ph417 ], [ %indvars.iv.next494, %ma_is_spatial_channel_position.exit327.thread ]
-  %445 = phi i32 [ %411, %.lr.ph417 ], [ %504, %ma_is_spatial_channel_position.exit327.thread ]
+444:                                              ; preds = %.lr.ph418, %ma_is_spatial_channel_position.exit328.thread
+  %indvars.iv494 = phi i64 [ 0, %.lr.ph418 ], [ %indvars.iv.next495, %ma_is_spatial_channel_position.exit328.thread ]
+  %445 = phi i32 [ %411, %.lr.ph418 ], [ %504, %ma_is_spatial_channel_position.exit328.thread ]
   %446 = load ptr, ptr %306, align 8
   %447 = icmp eq ptr %446, null
   br i1 %447, label %448, label %451
 
 448:                                              ; preds = %444
-  %449 = trunc i64 %indvars.iv493 to i32
+  %449 = trunc i64 %indvars.iv494 to i32
   %450 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %445, i32 noundef %449), !range !6
-  br label %ma_channel_map_get_channel.exit320
+  br label %ma_channel_map_get_channel.exit321
 
 451:                                              ; preds = %444
-  %452 = getelementptr inbounds i8, ptr %446, i64 %indvars.iv493
+  %452 = getelementptr inbounds i8, ptr %446, i64 %indvars.iv494
   %453 = load i8, ptr %452, align 1
-  br label %ma_channel_map_get_channel.exit320
+  br label %ma_channel_map_get_channel.exit321
 
-ma_channel_map_get_channel.exit320:               ; preds = %448, %451
-  %.0.i319 = phi i8 [ %450, %448 ], [ %453, %451 ]
-  switch i8 %.0.i319, label %454 [
-    i8 5, label %ma_is_spatial_channel_position.exit327.thread
-    i8 1, label %ma_is_spatial_channel_position.exit327.thread
-    i8 0, label %ma_is_spatial_channel_position.exit327.thread
+ma_channel_map_get_channel.exit321:               ; preds = %448, %451
+  %.0.i320 = phi i8 [ %450, %448 ], [ %453, %451 ]
+  switch i8 %.0.i320, label %454 [
+    i8 5, label %ma_is_spatial_channel_position.exit328.thread
+    i8 1, label %ma_is_spatial_channel_position.exit328.thread
+    i8 0, label %ma_is_spatial_channel_position.exit328.thread
   ]
 
-454:                                              ; preds = %ma_channel_map_get_channel.exit320
-  %455 = add i8 %.0.i319, -20
-  %or.cond8.i322 = icmp ult i8 %455, 32
-  br i1 %or.cond8.i322, label %ma_is_spatial_channel_position.exit327.thread, label %.preheader.i323
+454:                                              ; preds = %ma_channel_map_get_channel.exit321
+  %455 = add i8 %.0.i320, -20
+  %or.cond8.i323 = icmp ult i8 %455, 32
+  br i1 %or.cond8.i323, label %ma_is_spatial_channel_position.exit328.thread, label %.preheader.i324
 
-.preheader.i323:                                  ; preds = %454
-  %456 = zext i8 %.0.i319 to i64
+.preheader.i324:                                  ; preds = %454
+  %456 = zext i8 %.0.i320 to i64
   br label %458
 
 457:                                              ; preds = %458
-  %indvars.iv.next.i325 = add nuw nsw i64 %indvars.iv.i324, 1
-  %exitcond.not.i326 = icmp eq i64 %indvars.iv.next.i325, 6
-  br i1 %exitcond.not.i326, label %ma_is_spatial_channel_position.exit327.thread, label %458
+  %indvars.iv.next.i326 = add nuw nsw i64 %indvars.iv.i325, 1
+  %exitcond.not.i327 = icmp eq i64 %indvars.iv.next.i326, 6
+  br i1 %exitcond.not.i327, label %ma_is_spatial_channel_position.exit328.thread, label %458
 
-458:                                              ; preds = %457, %.preheader.i323
-  %indvars.iv.i324 = phi i64 [ 0, %.preheader.i323 ], [ %indvars.iv.next.i325, %457 ]
-  %459 = getelementptr inbounds [52 x [6 x float]], ptr @g_maChannelPlaneRatios, i64 0, i64 %456, i64 %indvars.iv.i324
+458:                                              ; preds = %457, %.preheader.i324
+  %indvars.iv.i325 = phi i64 [ 0, %.preheader.i324 ], [ %indvars.iv.next.i326, %457 ]
+  %459 = getelementptr inbounds [52 x [6 x float]], ptr @g_maChannelPlaneRatios, i64 0, i64 %456, i64 %indvars.iv.i325
   %460 = load float, ptr %459, align 4
   %461 = fcmp une float %460, 0.000000e+00
-  br i1 %461, label %ma_is_spatial_channel_position.exit327, label %457
+  br i1 %461, label %ma_is_spatial_channel_position.exit328, label %457
 
-ma_is_spatial_channel_position.exit327:           ; preds = %458
+ma_is_spatial_channel_position.exit328:           ; preds = %458
   %462 = load i32, ptr %25, align 4
   %463 = icmp eq i32 %462, 0
   br i1 %463, label %464, label %486
 
-464:                                              ; preds = %ma_is_spatial_channel_position.exit327
+464:                                              ; preds = %ma_is_spatial_channel_position.exit328
   %465 = getelementptr inbounds [52 x [6 x float]], ptr @g_maChannelPlaneRatios, i64 0, i64 %456
   %466 = load float, ptr %465, align 8
   %467 = load float, ptr %439, align 8
@@ -37839,211 +37839,211 @@ ma_is_spatial_channel_position.exit327:           ; preds = %458
   %485 = tail call float @llvm.fmuladd.f32(float %483, float %484, float %481)
   br label %486
 
-486:                                              ; preds = %464, %ma_is_spatial_channel_position.exit327
-  %.0236 = phi float [ %485, %464 ], [ 0.000000e+00, %ma_is_spatial_channel_position.exit327 ]
+486:                                              ; preds = %464, %ma_is_spatial_channel_position.exit328
+  %.0236 = phi float [ %485, %464 ], [ 0.000000e+00, %ma_is_spatial_channel_position.exit328 ]
   %487 = load i32, ptr %2, align 8
   %488 = icmp eq i32 %487, 5
   %489 = load ptr, ptr %307, align 8
-  %490 = getelementptr inbounds ptr, ptr %489, i64 %indvars.iv493
+  %490 = getelementptr inbounds ptr, ptr %489, i64 %indvars.iv494
   %491 = load ptr, ptr %490, align 8
   br i1 %488, label %492, label %497
 
 492:                                              ; preds = %486
-  %493 = getelementptr inbounds float, ptr %491, i64 %indvars.iv496
+  %493 = getelementptr inbounds float, ptr %491, i64 %indvars.iv497
   %494 = load float, ptr %493, align 4
   %495 = fcmp oeq float %494, 0.000000e+00
-  br i1 %495, label %496, label %ma_is_spatial_channel_position.exit327.thread
+  br i1 %495, label %496, label %ma_is_spatial_channel_position.exit328.thread
 
 496:                                              ; preds = %492
   store float %.0236, ptr %493, align 4
-  br label %ma_is_spatial_channel_position.exit327.thread
+  br label %ma_is_spatial_channel_position.exit328.thread
 
 497:                                              ; preds = %486
-  %498 = getelementptr inbounds i32, ptr %491, i64 %indvars.iv496
+  %498 = getelementptr inbounds i32, ptr %491, i64 %indvars.iv497
   %499 = load i32, ptr %498, align 4
   %500 = icmp eq i32 %499, 0
-  br i1 %500, label %501, label %ma_is_spatial_channel_position.exit327.thread
+  br i1 %500, label %501, label %ma_is_spatial_channel_position.exit328.thread
 
 501:                                              ; preds = %497
   %502 = fmul float %.0236, 4.096000e+03
   %503 = fptosi float %502 to i32
   store i32 %503, ptr %498, align 4
-  br label %ma_is_spatial_channel_position.exit327.thread
+  br label %ma_is_spatial_channel_position.exit328.thread
 
-ma_is_spatial_channel_position.exit327.thread:    ; preds = %457, %454, %ma_channel_map_get_channel.exit320, %ma_channel_map_get_channel.exit320, %ma_channel_map_get_channel.exit320, %497, %501, %492, %496
-  %indvars.iv.next494 = add nuw nsw i64 %indvars.iv493, 1
+ma_is_spatial_channel_position.exit328.thread:    ; preds = %457, %454, %ma_channel_map_get_channel.exit321, %ma_channel_map_get_channel.exit321, %ma_channel_map_get_channel.exit321, %497, %501, %492, %496
+  %indvars.iv.next495 = add nuw nsw i64 %indvars.iv494, 1
   %504 = load i32, ptr %19, align 4
   %505 = zext i32 %504 to i64
-  %506 = icmp ult i64 %indvars.iv.next494, %505
-  br i1 %506, label %444, label %ma_is_spatial_channel_position.exit304.thread.loopexit
+  %506 = icmp ult i64 %indvars.iv.next495, %505
+  br i1 %506, label %444, label %ma_is_spatial_channel_position.exit305.thread.loopexit
 
-ma_is_spatial_channel_position.exit304.thread.loopexit: ; preds = %ma_is_spatial_channel_position.exit327.thread
-  %.pre505 = load i32, ptr %22, align 8
-  br label %ma_is_spatial_channel_position.exit304.thread
+ma_is_spatial_channel_position.exit305.thread.loopexit: ; preds = %ma_is_spatial_channel_position.exit328.thread
+  %.pre506 = load i32, ptr %22, align 8
+  br label %ma_is_spatial_channel_position.exit305.thread
 
-ma_is_spatial_channel_position.exit304.thread:    ; preds = %424, %ma_channel_map_get_channel.exit.i.i309, %ma_channel_map_get_channel.exit.us.i.i314, %ma_is_spatial_channel_position.exit304.thread.loopexit, %ma_channel_map_contains_channel_position.exit317, %421, %ma_channel_map_get_channel.exit297, %ma_channel_map_get_channel.exit297, %ma_channel_map_get_channel.exit297
-  %507 = phi i32 [ %504, %ma_is_spatial_channel_position.exit304.thread.loopexit ], [ %409, %ma_channel_map_contains_channel_position.exit317 ], [ %409, %421 ], [ %409, %ma_channel_map_get_channel.exit297 ], [ %409, %ma_channel_map_get_channel.exit297 ], [ %409, %ma_channel_map_get_channel.exit297 ], [ %409, %ma_channel_map_get_channel.exit.us.i.i314 ], [ %409, %ma_channel_map_get_channel.exit.i.i309 ], [ %409, %424 ]
-  %508 = phi i32 [ %.pre505, %ma_is_spatial_channel_position.exit304.thread.loopexit ], [ %410, %ma_channel_map_contains_channel_position.exit317 ], [ %410, %421 ], [ %410, %ma_channel_map_get_channel.exit297 ], [ %410, %ma_channel_map_get_channel.exit297 ], [ %410, %ma_channel_map_get_channel.exit297 ], [ %410, %ma_channel_map_get_channel.exit.us.i.i314 ], [ %410, %ma_channel_map_get_channel.exit.i.i309 ], [ %410, %424 ]
-  %509 = phi i32 [ %504, %ma_is_spatial_channel_position.exit304.thread.loopexit ], [ 0, %ma_channel_map_contains_channel_position.exit317 ], [ %411, %421 ], [ %411, %ma_channel_map_get_channel.exit297 ], [ %411, %ma_channel_map_get_channel.exit297 ], [ %411, %ma_channel_map_get_channel.exit297 ], [ %411, %ma_channel_map_get_channel.exit.us.i.i314 ], [ %411, %ma_channel_map_get_channel.exit.i.i309 ], [ %411, %424 ]
-  %510 = phi i32 [ %504, %ma_is_spatial_channel_position.exit304.thread.loopexit ], [ 0, %ma_channel_map_contains_channel_position.exit317 ], [ %412, %421 ], [ %412, %ma_channel_map_get_channel.exit297 ], [ %412, %ma_channel_map_get_channel.exit297 ], [ %412, %ma_channel_map_get_channel.exit297 ], [ %412, %ma_channel_map_get_channel.exit.us.i.i314 ], [ %412, %ma_channel_map_get_channel.exit.i.i309 ], [ %412, %424 ]
-  %indvars.iv.next497 = add nuw nsw i64 %indvars.iv496, 1
+ma_is_spatial_channel_position.exit305.thread:    ; preds = %424, %ma_channel_map_get_channel.exit.i.i310, %ma_channel_map_get_channel.exit.us.i.i315, %ma_is_spatial_channel_position.exit305.thread.loopexit, %ma_channel_map_contains_channel_position.exit318, %421, %ma_channel_map_get_channel.exit298, %ma_channel_map_get_channel.exit298, %ma_channel_map_get_channel.exit298
+  %507 = phi i32 [ %504, %ma_is_spatial_channel_position.exit305.thread.loopexit ], [ %409, %ma_channel_map_contains_channel_position.exit318 ], [ %409, %421 ], [ %409, %ma_channel_map_get_channel.exit298 ], [ %409, %ma_channel_map_get_channel.exit298 ], [ %409, %ma_channel_map_get_channel.exit298 ], [ %409, %ma_channel_map_get_channel.exit.us.i.i315 ], [ %409, %ma_channel_map_get_channel.exit.i.i310 ], [ %409, %424 ]
+  %508 = phi i32 [ %.pre506, %ma_is_spatial_channel_position.exit305.thread.loopexit ], [ %410, %ma_channel_map_contains_channel_position.exit318 ], [ %410, %421 ], [ %410, %ma_channel_map_get_channel.exit298 ], [ %410, %ma_channel_map_get_channel.exit298 ], [ %410, %ma_channel_map_get_channel.exit298 ], [ %410, %ma_channel_map_get_channel.exit.us.i.i315 ], [ %410, %ma_channel_map_get_channel.exit.i.i310 ], [ %410, %424 ]
+  %509 = phi i32 [ %504, %ma_is_spatial_channel_position.exit305.thread.loopexit ], [ 0, %ma_channel_map_contains_channel_position.exit318 ], [ %411, %421 ], [ %411, %ma_channel_map_get_channel.exit298 ], [ %411, %ma_channel_map_get_channel.exit298 ], [ %411, %ma_channel_map_get_channel.exit298 ], [ %411, %ma_channel_map_get_channel.exit.us.i.i315 ], [ %411, %ma_channel_map_get_channel.exit.i.i310 ], [ %411, %424 ]
+  %510 = phi i32 [ %504, %ma_is_spatial_channel_position.exit305.thread.loopexit ], [ 0, %ma_channel_map_contains_channel_position.exit318 ], [ %412, %421 ], [ %412, %ma_channel_map_get_channel.exit298 ], [ %412, %ma_channel_map_get_channel.exit298 ], [ %412, %ma_channel_map_get_channel.exit298 ], [ %412, %ma_channel_map_get_channel.exit.us.i.i315 ], [ %412, %ma_channel_map_get_channel.exit.i.i310 ], [ %412, %424 ]
+  %indvars.iv.next498 = add nuw nsw i64 %indvars.iv497, 1
   %511 = zext i32 %508 to i64
-  %512 = icmp ult i64 %indvars.iv.next497, %511
-  br i1 %512, label %408, label %._crit_edge421
+  %512 = icmp ult i64 %indvars.iv.next498, %511
+  br i1 %512, label %408, label %._crit_edge422
 
-._crit_edge421:                                   ; preds = %ma_is_spatial_channel_position.exit304.thread, %.preheader
-  %513 = phi i32 [ %303, %.preheader ], [ %507, %ma_is_spatial_channel_position.exit304.thread ]
-  %.lcssa = phi i32 [ 0, %.preheader ], [ %508, %ma_is_spatial_channel_position.exit304.thread ]
+._crit_edge422:                                   ; preds = %ma_is_spatial_channel_position.exit305.thread, %.preheader
+  %513 = phi i32 [ %303, %.preheader ], [ %507, %ma_is_spatial_channel_position.exit305.thread ]
+  %.lcssa = phi i32 [ 0, %.preheader ], [ %508, %ma_is_spatial_channel_position.exit305.thread ]
   %514 = getelementptr inbounds i8, ptr %0, i64 36
   %515 = load i32, ptr %514, align 4
   %.not254 = icmp eq i32 %515, 0
-  br i1 %.not254, label %ma_channel_map_contains_channel_position.exit340, label %516
+  br i1 %.not254, label %ma_channel_map_contains_channel_position.exit341, label %516
 
-516:                                              ; preds = %._crit_edge421
+516:                                              ; preds = %._crit_edge422
   %517 = getelementptr inbounds i8, ptr %2, i64 24
   %518 = load ptr, ptr %517, align 8
-  %.not17.i.i328 = icmp eq i32 %513, 0
-  br i1 %.not17.i.i328, label %.loopexit, label %.lr.ph.i.i329
+  %.not17.i.i329 = icmp eq i32 %513, 0
+  br i1 %.not17.i.i329, label %.loopexit, label %.lr.ph.i.i330
 
-.lr.ph.i.i329:                                    ; preds = %516
+.lr.ph.i.i330:                                    ; preds = %516
   %519 = icmp eq ptr %518, null
-  br i1 %519, label %ma_channel_map_get_channel.exit.us.i.i337, label %ma_channel_map_get_channel.exit.preheader.i.i330
+  br i1 %519, label %ma_channel_map_get_channel.exit.us.i.i338, label %ma_channel_map_get_channel.exit.preheader.i.i331
 
-ma_channel_map_get_channel.exit.preheader.i.i330: ; preds = %.lr.ph.i.i329
-  %wide.trip.count.i.i331 = zext i32 %513 to i64
-  br label %ma_channel_map_get_channel.exit.i.i332
+ma_channel_map_get_channel.exit.preheader.i.i331: ; preds = %.lr.ph.i.i330
+  %wide.trip.count.i.i332 = zext i32 %513 to i64
+  br label %ma_channel_map_get_channel.exit.i.i333
 
-ma_channel_map_get_channel.exit.us.i.i337:        ; preds = %.lr.ph.i.i329, %522
-  %.016.us.i.i338 = phi i32 [ %523, %522 ], [ 0, %.lr.ph.i.i329 ]
-  %520 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %513, i32 noundef %.016.us.i.i338), !range !6
+ma_channel_map_get_channel.exit.us.i.i338:        ; preds = %.lr.ph.i.i330, %522
+  %.016.us.i.i339 = phi i32 [ %523, %522 ], [ 0, %.lr.ph.i.i330 ]
+  %520 = tail call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %513, i32 noundef %.016.us.i.i339), !range !6
   %521 = icmp eq i8 %520, 5
-  br i1 %521, label %ma_channel_map_contains_channel_position.exit340, label %522
+  br i1 %521, label %ma_channel_map_contains_channel_position.exit341, label %522
 
-522:                                              ; preds = %ma_channel_map_get_channel.exit.us.i.i337
-  %523 = add nuw i32 %.016.us.i.i338, 1
-  %exitcond23.not.i.i339 = icmp eq i32 %523, %513
-  br i1 %exitcond23.not.i.i339, label %.loopexit, label %ma_channel_map_get_channel.exit.us.i.i337
+522:                                              ; preds = %ma_channel_map_get_channel.exit.us.i.i338
+  %523 = add nuw i32 %.016.us.i.i339, 1
+  %exitcond23.not.i.i340 = icmp eq i32 %523, %513
+  br i1 %exitcond23.not.i.i340, label %.loopexit, label %ma_channel_map_get_channel.exit.us.i.i338
 
-ma_channel_map_get_channel.exit.i.i332:           ; preds = %527, %ma_channel_map_get_channel.exit.preheader.i.i330
-  %indvars.iv.i.i333 = phi i64 [ 0, %ma_channel_map_get_channel.exit.preheader.i.i330 ], [ %indvars.iv.next.i.i334, %527 ]
-  %524 = getelementptr inbounds i8, ptr %518, i64 %indvars.iv.i.i333
+ma_channel_map_get_channel.exit.i.i333:           ; preds = %527, %ma_channel_map_get_channel.exit.preheader.i.i331
+  %indvars.iv.i.i334 = phi i64 [ 0, %ma_channel_map_get_channel.exit.preheader.i.i331 ], [ %indvars.iv.next.i.i335, %527 ]
+  %524 = getelementptr inbounds i8, ptr %518, i64 %indvars.iv.i.i334
   %525 = load i8, ptr %524, align 1
   %526 = icmp eq i8 %525, 5
-  br i1 %526, label %ma_channel_map_contains_channel_position.exit340, label %527
+  br i1 %526, label %ma_channel_map_contains_channel_position.exit341, label %527
 
-527:                                              ; preds = %ma_channel_map_get_channel.exit.i.i332
-  %indvars.iv.next.i.i334 = add nuw nsw i64 %indvars.iv.i.i333, 1
-  %exitcond.not.i.i335 = icmp eq i64 %indvars.iv.next.i.i334, %wide.trip.count.i.i331
-  br i1 %exitcond.not.i.i335, label %.loopexit, label %ma_channel_map_get_channel.exit.i.i332
+527:                                              ; preds = %ma_channel_map_get_channel.exit.i.i333
+  %indvars.iv.next.i.i335 = add nuw nsw i64 %indvars.iv.i.i334, 1
+  %exitcond.not.i.i336 = icmp eq i64 %indvars.iv.next.i.i335, %wide.trip.count.i.i332
+  br i1 %exitcond.not.i.i336, label %.loopexit, label %ma_channel_map_get_channel.exit.i.i333
 
 .loopexit:                                        ; preds = %527, %522, %516
   %528 = tail call fastcc i32 @ma_channel_map_get_spatial_channel_count(ptr noundef %518, i32 noundef %513)
   %.not256 = icmp eq i32 %528, 0
-  br i1 %.not256, label %ma_channel_map_contains_channel_position.exit340, label %529
+  br i1 %.not256, label %ma_channel_map_contains_channel_position.exit341, label %529
 
 529:                                              ; preds = %.loopexit
   %530 = getelementptr inbounds i8, ptr %2, i64 32
   %531 = load ptr, ptr %530, align 8
   %532 = call i32 @ma_channel_map_find_channel_position(i32 noundef %.lcssa, ptr noundef %531, i8 noundef zeroext 5, ptr noundef nonnull %5), !range !184
   %.not257 = icmp eq i32 %532, 0
-  br i1 %.not257, label %ma_channel_map_contains_channel_position.exit340, label %533
+  br i1 %.not257, label %ma_channel_map_contains_channel_position.exit341, label %533
 
 533:                                              ; preds = %529
   %534 = uitofp i32 %528 to float
   %535 = fdiv float 1.000000e+00, %534
-  br i1 %.not17.i.i328, label %ma_channel_map_contains_channel_position.exit340, label %.lr.ph424
+  br i1 %.not17.i.i329, label %ma_channel_map_contains_channel_position.exit341, label %.lr.ph425
 
-.lr.ph424:                                        ; preds = %533
+.lr.ph425:                                        ; preds = %533
   %536 = getelementptr inbounds i8, ptr %2, i64 48
   %537 = fmul float %535, 4.096000e+03
   %538 = fptosi float %537 to i32
   br label %539
 
-539:                                              ; preds = %.lr.ph424, %ma_is_spatial_channel_position.exit350.thread
-  %indvars.iv499 = phi i64 [ 0, %.lr.ph424 ], [ %indvars.iv.next500, %ma_is_spatial_channel_position.exit350.thread ]
-  %540 = phi i32 [ %513, %.lr.ph424 ], [ %574, %ma_is_spatial_channel_position.exit350.thread ]
+539:                                              ; preds = %.lr.ph425, %ma_is_spatial_channel_position.exit351.thread
+  %indvars.iv500 = phi i64 [ 0, %.lr.ph425 ], [ %indvars.iv.next501, %ma_is_spatial_channel_position.exit351.thread ]
+  %540 = phi i32 [ %513, %.lr.ph425 ], [ %574, %ma_is_spatial_channel_position.exit351.thread ]
   %541 = load ptr, ptr %517, align 8
   %542 = icmp eq ptr %541, null
   br i1 %542, label %543, label %546
 
 543:                                              ; preds = %539
-  %544 = trunc i64 %indvars.iv499 to i32
+  %544 = trunc i64 %indvars.iv500 to i32
   %545 = call fastcc zeroext i8 @ma_channel_map_init_standard_channel(i32 noundef 0, i32 noundef %540, i32 noundef %544), !range !6
-  br label %ma_channel_map_get_channel.exit343
+  br label %ma_channel_map_get_channel.exit344
 
 546:                                              ; preds = %539
-  %547 = getelementptr inbounds i8, ptr %541, i64 %indvars.iv499
+  %547 = getelementptr inbounds i8, ptr %541, i64 %indvars.iv500
   %548 = load i8, ptr %547, align 1
-  br label %ma_channel_map_get_channel.exit343
+  br label %ma_channel_map_get_channel.exit344
 
-ma_channel_map_get_channel.exit343:               ; preds = %543, %546
-  %.0.i342 = phi i8 [ %545, %543 ], [ %548, %546 ]
-  switch i8 %.0.i342, label %549 [
-    i8 5, label %ma_is_spatial_channel_position.exit350.thread
-    i8 1, label %ma_is_spatial_channel_position.exit350.thread
-    i8 0, label %ma_is_spatial_channel_position.exit350.thread
+ma_channel_map_get_channel.exit344:               ; preds = %543, %546
+  %.0.i343 = phi i8 [ %545, %543 ], [ %548, %546 ]
+  switch i8 %.0.i343, label %549 [
+    i8 5, label %ma_is_spatial_channel_position.exit351.thread
+    i8 1, label %ma_is_spatial_channel_position.exit351.thread
+    i8 0, label %ma_is_spatial_channel_position.exit351.thread
   ]
 
-549:                                              ; preds = %ma_channel_map_get_channel.exit343
-  %550 = add i8 %.0.i342, -20
-  %or.cond8.i345 = icmp ult i8 %550, 32
-  br i1 %or.cond8.i345, label %ma_is_spatial_channel_position.exit350.thread, label %.preheader.i346
+549:                                              ; preds = %ma_channel_map_get_channel.exit344
+  %550 = add i8 %.0.i343, -20
+  %or.cond8.i346 = icmp ult i8 %550, 32
+  br i1 %or.cond8.i346, label %ma_is_spatial_channel_position.exit351.thread, label %.preheader.i347
 
-.preheader.i346:                                  ; preds = %549
-  %551 = zext i8 %.0.i342 to i64
+.preheader.i347:                                  ; preds = %549
+  %551 = zext i8 %.0.i343 to i64
   br label %553
 
 552:                                              ; preds = %553
-  %indvars.iv.next.i348 = add nuw nsw i64 %indvars.iv.i347, 1
-  %exitcond.not.i349 = icmp eq i64 %indvars.iv.next.i348, 6
-  br i1 %exitcond.not.i349, label %ma_is_spatial_channel_position.exit350.thread, label %553
+  %indvars.iv.next.i349 = add nuw nsw i64 %indvars.iv.i348, 1
+  %exitcond.not.i350 = icmp eq i64 %indvars.iv.next.i349, 6
+  br i1 %exitcond.not.i350, label %ma_is_spatial_channel_position.exit351.thread, label %553
 
-553:                                              ; preds = %552, %.preheader.i346
-  %indvars.iv.i347 = phi i64 [ 0, %.preheader.i346 ], [ %indvars.iv.next.i348, %552 ]
-  %554 = getelementptr inbounds [52 x [6 x float]], ptr @g_maChannelPlaneRatios, i64 0, i64 %551, i64 %indvars.iv.i347
+553:                                              ; preds = %552, %.preheader.i347
+  %indvars.iv.i348 = phi i64 [ 0, %.preheader.i347 ], [ %indvars.iv.next.i349, %552 ]
+  %554 = getelementptr inbounds [52 x [6 x float]], ptr @g_maChannelPlaneRatios, i64 0, i64 %551, i64 %indvars.iv.i348
   %555 = load float, ptr %554, align 4
   %556 = fcmp une float %555, 0.000000e+00
-  br i1 %556, label %ma_is_spatial_channel_position.exit350, label %552
+  br i1 %556, label %ma_is_spatial_channel_position.exit351, label %552
 
-ma_is_spatial_channel_position.exit350:           ; preds = %553
+ma_is_spatial_channel_position.exit351:           ; preds = %553
   %557 = load i32, ptr %2, align 8
   %558 = icmp eq i32 %557, 5
   %559 = load ptr, ptr %536, align 8
-  %560 = getelementptr inbounds ptr, ptr %559, i64 %indvars.iv499
+  %560 = getelementptr inbounds ptr, ptr %559, i64 %indvars.iv500
   %561 = load ptr, ptr %560, align 8
   %562 = load i32, ptr %5, align 4
   %563 = zext i32 %562 to i64
   br i1 %558, label %564, label %569
 
-564:                                              ; preds = %ma_is_spatial_channel_position.exit350
+564:                                              ; preds = %ma_is_spatial_channel_position.exit351
   %565 = getelementptr inbounds float, ptr %561, i64 %563
   %566 = load float, ptr %565, align 4
   %567 = fcmp oeq float %566, 0.000000e+00
-  br i1 %567, label %568, label %ma_is_spatial_channel_position.exit350.thread
+  br i1 %567, label %568, label %ma_is_spatial_channel_position.exit351.thread
 
 568:                                              ; preds = %564
   store float %535, ptr %565, align 4
-  br label %ma_is_spatial_channel_position.exit350.thread
+  br label %ma_is_spatial_channel_position.exit351.thread
 
-569:                                              ; preds = %ma_is_spatial_channel_position.exit350
+569:                                              ; preds = %ma_is_spatial_channel_position.exit351
   %570 = getelementptr inbounds i32, ptr %561, i64 %563
   %571 = load i32, ptr %570, align 4
   %572 = icmp eq i32 %571, 0
-  br i1 %572, label %573, label %ma_is_spatial_channel_position.exit350.thread
+  br i1 %572, label %573, label %ma_is_spatial_channel_position.exit351.thread
 
 573:                                              ; preds = %569
   store i32 %538, ptr %570, align 4
-  br label %ma_is_spatial_channel_position.exit350.thread
+  br label %ma_is_spatial_channel_position.exit351.thread
 
-ma_is_spatial_channel_position.exit350.thread:    ; preds = %552, %549, %ma_channel_map_get_channel.exit343, %ma_channel_map_get_channel.exit343, %ma_channel_map_get_channel.exit343, %569, %573, %564, %568
-  %indvars.iv.next500 = add nuw nsw i64 %indvars.iv499, 1
+ma_is_spatial_channel_position.exit351.thread:    ; preds = %552, %549, %ma_channel_map_get_channel.exit344, %ma_channel_map_get_channel.exit344, %ma_channel_map_get_channel.exit344, %569, %573, %564, %568
+  %indvars.iv.next501 = add nuw nsw i64 %indvars.iv500, 1
   %574 = load i32, ptr %19, align 4
   %575 = zext i32 %574 to i64
-  %576 = icmp ult i64 %indvars.iv.next500, %575
-  br i1 %576, label %539, label %ma_channel_map_contains_channel_position.exit340
+  %576 = icmp ult i64 %indvars.iv.next501, %575
+  br i1 %576, label %539, label %ma_channel_map_contains_channel_position.exit341
 
-ma_channel_map_contains_channel_position.exit340: ; preds = %._crit_edge409, %ma_channel_map_get_channel.exit.i.i332, %ma_channel_map_get_channel.exit.us.i.i337, %ma_is_spatial_channel_position.exit350.thread, %.preheader379.lr.ph, %.preheader380, %533, %ma_channel_map_build_shuffle_table.exit, %._crit_edge421, %.loopexit, %529, %._crit_edge406, %268, %7, %3
-  %.0 = phi i32 [ -2, %3 ], [ %8, %7 ], [ -2, %268 ], [ 0, %._crit_edge406 ], [ 0, %529 ], [ 0, %.loopexit ], [ 0, %._crit_edge421 ], [ 0, %ma_channel_map_build_shuffle_table.exit ], [ 0, %533 ], [ 0, %.preheader380 ], [ 0, %.preheader379.lr.ph ], [ 0, %ma_is_spatial_channel_position.exit350.thread ], [ 0, %ma_channel_map_get_channel.exit.us.i.i337 ], [ 0, %ma_channel_map_get_channel.exit.i.i332 ], [ 0, %._crit_edge409 ]
+ma_channel_map_contains_channel_position.exit341: ; preds = %._crit_edge410, %ma_channel_map_get_channel.exit.i.i333, %ma_channel_map_get_channel.exit.us.i.i338, %ma_is_spatial_channel_position.exit351.thread, %.preheader380.lr.ph, %.preheader381, %533, %ma_channel_map_build_shuffle_table.exit, %._crit_edge422, %.loopexit, %529, %._crit_edge407, %268, %7, %3
+  %.0 = phi i32 [ -2, %3 ], [ %8, %7 ], [ -2, %268 ], [ 0, %._crit_edge407 ], [ 0, %529 ], [ 0, %.loopexit ], [ 0, %._crit_edge422 ], [ 0, %ma_channel_map_build_shuffle_table.exit ], [ 0, %533 ], [ 0, %.preheader381 ], [ 0, %.preheader380.lr.ph ], [ 0, %ma_is_spatial_channel_position.exit351.thread ], [ 0, %ma_channel_map_get_channel.exit.us.i.i338 ], [ 0, %ma_channel_map_get_channel.exit.i.i333 ], [ 0, %._crit_edge410 ]
   ret i32 %.0
 }
 

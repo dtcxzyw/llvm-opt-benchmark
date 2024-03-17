@@ -20638,9 +20638,10 @@ do.body24.i:                                      ; preds = %do.cond.i, %do.body
   %sub.ptr.rhs.cast.i = ptrtoint ptr %next.0.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %conv29.i = trunc i64 %sub.ptr.sub.i to i32
-  %spec.select.i = call i32 @llvm.umin.i32(i32 %conv29.i, i32 48)
-  %5 = zext nneg i32 %spec.select.i to i64
-  %conv35.i = select i1 %cmp26.not.i, i64 48, i64 %5
+  %cmp30.i = icmp ult i32 %conv29.i, 48
+  %5 = and i64 %sub.ptr.sub.i, 63
+  %6 = select i1 %cmp30.i, i64 %5, i64 48
+  %conv35.i = select i1 %cmp26.not.i, i64 48, i64 %6
   %call36.i = call ptr @strncpy(ptr noundef nonnull %name.i, ptr noundef nonnull %next.0.i, i64 noundef %conv35.i) #27
   %arrayidx40.i = getelementptr inbounds [49 x i8], ptr %name.i, i64 0, i64 %conv35.i
   store i8 0, ptr %arrayidx40.i, align 1
@@ -20654,15 +20655,15 @@ for.cond.i:                                       ; preds = %lor.lhs.false50.i
 for.body.i:                                       ; preds = %for.cond.i, %do.body24.i
   %indvars.iv.i = phi i64 [ 0, %do.body24.i ], [ %indvars.iv.next.i, %for.cond.i ]
   %arrayidx45.i = getelementptr inbounds [27 x %struct.CipherSuiteInfo], ptr @cipher_names, i64 0, i64 %indvars.iv.i
-  %6 = load ptr, ptr %arrayidx45.i, align 8
-  %call47.i = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %name.i, ptr noundef nonnull dereferenceable(1) %6, i64 noundef 49) #28
+  %7 = load ptr, ptr %arrayidx45.i, align 8
+  %call47.i = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %name.i, ptr noundef nonnull dereferenceable(1) %7, i64 noundef 49) #28
   %cmp48.i = icmp eq i32 %call47.i, 0
   br i1 %cmp48.i, label %if.then57.i, label %lor.lhs.false50.i
 
 lor.lhs.false50.i:                                ; preds = %for.body.i
   %name_iana.i = getelementptr inbounds i8, ptr %arrayidx45.i, i64 8
-  %7 = load ptr, ptr %name_iana.i, align 8
-  %call54.i = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %name.i, ptr noundef nonnull dereferenceable(1) %7, i64 noundef 49) #28
+  %8 = load ptr, ptr %name_iana.i, align 8
+  %call54.i = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %name.i, ptr noundef nonnull dereferenceable(1) %8, i64 noundef 49) #28
   %cmp55.i = icmp eq i32 %call54.i, 0
   br i1 %cmp55.i, label %if.then57.i, label %for.cond.i
 
@@ -20672,23 +20673,23 @@ if.then57.i:                                      ; preds = %lor.lhs.false50.i, 
 
 for.body61.lr.ph.i:                               ; preds = %if.then57.i
   %cipherSuite0.i = getelementptr inbounds i8, ptr %arrayidx45.i, i64 16
-  %8 = load i8, ptr %cipherSuite0.i, align 8
+  %9 = load i8, ptr %cipherSuite0.i, align 8
   %cipherSuite.i = getelementptr inbounds i8, ptr %arrayidx45.i, i64 17
   br label %for.body61.i
 
 for.body61.i:                                     ; preds = %for.inc.i, %for.body61.lr.ph.i
   %indvars.iv60.i = phi i64 [ 0, %for.body61.lr.ph.i ], [ %indvars.iv.next61.i, %for.inc.i ]
   %arrayidx64.i = getelementptr inbounds [300 x i8], ptr %suites62.i, i64 0, i64 %indvars.iv60.i
-  %9 = load i8, ptr %arrayidx64.i, align 1
-  %cmp69.i = icmp eq i8 %9, %8
+  %10 = load i8, ptr %arrayidx64.i, align 1
+  %cmp69.i = icmp eq i8 %10, %9
   br i1 %cmp69.i, label %land.lhs.true.i, label %for.inc.i
 
 land.lhs.true.i:                                  ; preds = %for.body61.i
-  %10 = or disjoint i64 %indvars.iv60.i, 1
-  %arrayidx74.i = getelementptr inbounds [300 x i8], ptr %suites62.i, i64 0, i64 %10
-  %11 = load i8, ptr %arrayidx74.i, align 1
-  %12 = load i8, ptr %cipherSuite.i, align 1
-  %cmp79.i = icmp eq i8 %11, %12
+  %11 = or disjoint i64 %indvars.iv60.i, 1
+  %arrayidx74.i = getelementptr inbounds [300 x i8], ptr %suites62.i, i64 0, i64 %11
+  %12 = load i8, ptr %arrayidx74.i, align 1
+  %13 = load i8, ptr %cipherSuite.i, align 1
+  %cmp79.i = icmp eq i8 %12, %13
   br i1 %cmp79.i, label %for.end.loopexit.split.loop.exit.i, label %for.inc.i
 
 for.inc.i:                                        ; preds = %land.lhs.true.i, %for.body61.i
@@ -20698,11 +20699,11 @@ for.inc.i:                                        ; preds = %land.lhs.true.i, %f
   br i1 %cmp59.i, label %for.body61.i, label %for.end.i, !llvm.loop !52
 
 for.end.loopexit.split.loop.exit.i:               ; preds = %land.lhs.true.i
-  %13 = trunc i64 %indvars.iv60.i to i32
+  %14 = trunc i64 %indvars.iv60.i to i32
   br label %for.end.i
 
 for.end.i:                                        ; preds = %for.inc.i, %for.end.loopexit.split.loop.exit.i, %if.then57.i
-  %j.0.lcssa.i = phi i32 [ 0, %if.then57.i ], [ %13, %for.end.loopexit.split.loop.exit.i ], [ %indvars.i, %for.inc.i ]
+  %j.0.lcssa.i = phi i32 [ 0, %if.then57.i ], [ %14, %for.end.loopexit.split.loop.exit.i ], [ %indvars.i, %for.inc.i ]
   %cmp84.not.i = icmp eq i32 %j.0.lcssa.i, %idx.0.i
   br i1 %cmp84.not.i, label %if.end87.i, label %do.cond.i
 
@@ -20713,24 +20714,24 @@ if.end87.i:                                       ; preds = %for.end.i
 if.end94.i:                                       ; preds = %if.end87.i
   %add88.i = add nsw i32 %idx.0.i, 1
   %cipherSuite097.i = getelementptr inbounds i8, ptr %arrayidx45.i, i64 16
-  %14 = load i8, ptr %cipherSuite097.i, align 8
+  %15 = load i8, ptr %cipherSuite097.i, align 8
   %idxprom99.i = sext i32 %idx.0.i to i64
   %arrayidx100.i = getelementptr inbounds [300 x i8], ptr %suites62.i, i64 0, i64 %idxprom99.i
-  store i8 %14, ptr %arrayidx100.i, align 1
+  store i8 %15, ptr %arrayidx100.i, align 1
   %cipherSuite103.i = getelementptr inbounds i8, ptr %arrayidx45.i, i64 17
-  %15 = load i8, ptr %cipherSuite103.i, align 1
+  %16 = load i8, ptr %cipherSuite103.i, align 1
   %inc105.i = add nsw i32 %idx.0.i, 2
   %idxprom106.i = sext i32 %add88.i to i64
   %arrayidx107.i = getelementptr inbounds [300 x i8], ptr %suites62.i, i64 0, i64 %idxprom106.i
-  store i8 %15, ptr %arrayidx107.i, align 1
-  switch i8 %14, label %if.else.i [
+  store i8 %16, ptr %arrayidx107.i, align 1
+  switch i8 %15, label %if.else.i [
     i8 19, label %do.cond.i
     i8 -64, label %land.lhs.true121.i
   ]
 
 land.lhs.true121.i:                               ; preds = %if.end94.i
-  %16 = and i8 %15, -2
-  %switch.i = icmp eq i8 %16, -76
+  %17 = and i8 %16, -2
+  %switch.i = icmp eq i8 %17, -76
   br i1 %switch.i, label %do.cond.i, label %if.else.i
 
 if.else.i:                                        ; preds = %land.lhs.true121.i, %if.end94.i
