@@ -210,18 +210,16 @@ for.body61:                                       ; preds = %for.body61.lr.ph, %
 if.end81:                                         ; preds = %for.body61
   %cmp82 = icmp ne i64 %n1.0, 0
   %or.cond1 = and i1 %cmp85, %cmp82
-  br i1 %or.cond1, label %if.then87, label %if.end113
+  br i1 %or.cond1, label %for.body97.preheader, label %if.end113
 
 if.end81.thread147:                               ; preds = %if.then50
   %cmp82148 = icmp ne i64 %n1.0, 0
   %or.cond1149 = and i1 %cmp85, %cmp82148
   br i1 %or.cond1149, label %for.end111, label %if.end113
 
-if.then87:                                        ; preds = %if.end81
-  br i1 %cmp59130.not, label %for.end111, label %for.body97.preheader
-
-for.body97.preheader:                             ; preds = %if.then87
+for.body97.preheader:                             ; preds = %if.end81
   %cond93 = call i64 @llvm.umin.i64(i64 %n1.0, i64 %cond56)
+  %umax = call i64 @llvm.umax.i64(i64 %cond93, i64 1)
   br label %for.body97
 
 for.body97:                                       ; preds = %for.body97.preheader, %for.body97
@@ -237,12 +235,12 @@ for.body97:                                       ; preds = %for.body97.preheade
   %14 = getelementptr inbounds [81 x i8], ptr %bdiff, i64 0, i64 %i.2133
   store i8 %spec.select150, ptr %14, align 1
   %inc110 = add nuw i64 %i.2133, 1
-  %exitcond146.not = icmp eq i64 %inc110, %cond93
+  %exitcond146.not = icmp eq i64 %inc110, %umax
   br i1 %exitcond146.not, label %for.end111, label %for.body97, !llvm.loop !7
 
-for.end111:                                       ; preds = %for.body97, %if.end81.thread147, %if.then87
-  %i.2.lcssa = phi i64 [ 0, %if.then87 ], [ 0, %if.end81.thread147 ], [ %cond93, %for.body97 ]
-  %diff.0.lcssa = phi i32 [ 0, %if.then87 ], [ 0, %if.end81.thread147 ], [ %spec.select151, %for.body97 ]
+for.end111:                                       ; preds = %for.body97, %if.end81.thread147
+  %i.2.lcssa = phi i64 [ 0, %if.end81.thread147 ], [ %umax, %for.body97 ]
+  %diff.0.lcssa = phi i32 [ 0, %if.end81.thread147 ], [ %spec.select151, %for.body97 ]
   %arrayidx112 = getelementptr inbounds [81 x i8], ptr %bdiff, i64 0, i64 %i.2.lcssa
   store i8 0, ptr %arrayidx112, align 1
   br label %if.end113
@@ -1306,6 +1304,9 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #5
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #5

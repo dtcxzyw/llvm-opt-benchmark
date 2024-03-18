@@ -255,7 +255,7 @@ define i32 @mca_vprotocol_pessimist_test_any(i64 noundef %0, ptr noundef %1, ptr
   %17 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_v_t, ptr @mca_pml_v, i64 0, i32 5, i32 1), align 8
   %18 = tail call i32 %17(i64 noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5
   %.not38 = icmp eq ptr %3, null
-  br i1 %.not38, label %40, label %.preheader
+  br i1 %.not38, label %40, label %.lr.ph42
 
 ._crit_edge.thread:                               ; preds = %9
   %19 = load ptr, ptr getelementptr inbounds (%struct.mca_pml_v_t, ptr @mca_pml_v, i64 0, i32 5, i32 1), align 8
@@ -263,12 +263,9 @@ define i32 @mca_vprotocol_pessimist_test_any(i64 noundef %0, ptr noundef %1, ptr
   %.not3846 = icmp eq ptr %3, null
   br i1 %.not3846, label %40, label %vprotocol_pessimist_delivery_log.exit
 
-.preheader:                                       ; preds = %._crit_edge
-  br i1 %.not43, label %vprotocol_pessimist_delivery_log.exit, label %.lr.ph42
-
-.lr.ph42:                                         ; preds = %.preheader, %38
-  %.041 = phi i32 [ %.1, %38 ], [ %18, %.preheader ]
-  %.03240 = phi i64 [ %39, %38 ], [ 0, %.preheader ]
+.lr.ph42:                                         ; preds = %._crit_edge, %38
+  %.041 = phi i32 [ %.1, %38 ], [ %18, %._crit_edge ]
+  %.03240 = phi i64 [ %39, %38 ], [ 0, %._crit_edge ]
   %21 = getelementptr inbounds ptr, ptr %1, i64 %.03240
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, @ompi_request_null
@@ -349,8 +346,8 @@ define i32 @mca_vprotocol_pessimist_test_any(i64 noundef %0, ptr noundef %1, ptr
   store volatile i64 %67, ptr getelementptr inbounds (%struct.mca_vprotocol_pessimist_module_t, ptr @mca_vprotocol_pessimist, i64 0, i32 2, i32 2), align 16
   br label %vprotocol_pessimist_delivery_log.exit
 
-vprotocol_pessimist_delivery_log.exit:            ; preds = %38, %._crit_edge.thread, %.preheader, %54, %50
-  %.2 = phi i32 [ %41, %50 ], [ %41, %54 ], [ %18, %.preheader ], [ %20, %._crit_edge.thread ], [ %.1, %38 ]
+vprotocol_pessimist_delivery_log.exit:            ; preds = %38, %._crit_edge.thread, %54, %50
+  %.2 = phi i32 [ %41, %50 ], [ %41, %54 ], [ %20, %._crit_edge.thread ], [ %.1, %38 ]
   ret i32 %.2
 }
 

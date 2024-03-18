@@ -1719,7 +1719,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
 ._crit_edge327.thread:                            ; preds = %.preheader275.lr.ph
   %251 = mul nsw i64 %85, %85
   %252 = icmp ugt i64 %251, 2305843009213693951
-  br i1 %252, label %253, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i165.thread
+  br i1 %252, label %253, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i165
 
 253:                                              ; preds = %._crit_edge327.thread, %._crit_edge327
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.16) #27
@@ -1728,16 +1728,13 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
 .noexc170:                                        ; preds = %253
   unreachable
 
-_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i165: ; preds = %._crit_edge327
-  br i1 %.not356, label %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit172, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i165.thread
-
-_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i165.thread: ; preds = %._crit_edge327.thread, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i165
-  %254 = phi i64 [ %249, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i165 ], [ %251, %._crit_edge327.thread ]
+_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i165: ; preds = %._crit_edge327.thread, %._crit_edge327
+  %254 = phi i64 [ %249, %._crit_edge327 ], [ %251, %._crit_edge327.thread ]
   %255 = shl nuw nsw i64 %254, 2
   %256 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %255) #30
           to label %.noexc171 unwind label %278
 
-.noexc171:                                        ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i165.thread
+.noexc171:                                        ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i165
   store float 0.000000e+00, ptr %256, align 4
   %257 = icmp eq i64 %254, 1
   br i1 %257, label %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit172, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i167
@@ -1748,8 +1745,8 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i167: ; preds = %.noexc171
   call void @llvm.memset.p0.i64(ptr align 4 %258, i8 0, i64 %259, i1 false)
   br label %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit172
 
-_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit172:            ; preds = %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i167, %.noexc171, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i165
-  %.sroa.0227.0 = phi ptr [ %256, %.noexc171 ], [ %256, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i167 ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i165 ], [ null, %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit ]
+_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit172:            ; preds = %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i167, %.noexc171
+  %.sroa.0227.0 = phi ptr [ %256, %.noexc171 ], [ %256, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i167 ], [ null, %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit ]
   store i32 %86, ptr %9, align 4
   %260 = trunc i64 %85 to i32
   store i32 %260, ptr %10, align 4
@@ -1792,7 +1789,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit172:            ; preds = %_ZNSt6vectorIfSaIfE
   %277 = icmp sgt i64 %276, %indvars.iv.next393
   br i1 %277, label %.lr.ph330, label %._crit_edge331, !llvm.loop !27
 
-278:                                              ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i165.thread, %253
+278:                                              ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i165, %253
   %279 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit207
@@ -6772,11 +6769,11 @@ define internal fastcc void @_ZN12_GLOBAL__N_13eigEmPdS0_i(i64 noundef %0, ptr n
 ._crit_edge:                                      ; preds = %.lr.ph
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str.9)
   %puts54 = call i32 @puts(ptr nonnull dereferenceable(1) @str.8)
-  br i1 %.not68, label %._crit_edge67, label %.preheader
+  br label %.preheader
 
 .preheader:                                       ; preds = %._crit_edge, %37
-  %indvars.iv76 = phi i64 [ %indvars.iv.next77, %37 ], [ 0, %._crit_edge ]
-  %.04559 = phi ptr [ %34, %37 ], [ %1, %._crit_edge ]
+  %indvars.iv76 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next77, %37 ]
+  %.04559 = phi ptr [ %1, %._crit_edge ], [ %34, %37 ]
   br label %33
 
 33:                                               ; preds = %.preheader, %33
@@ -6838,7 +6835,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_13eigEmPdS0_i(i64 noundef %0, ptr n
   %puts54.c = call i32 @puts(ptr nonnull dereferenceable(1) @str.8)
   br label %._crit_edge67
 
-._crit_edge67:                                    ; preds = %._crit_edge63.us, %._crit_edge67.critedge, %._crit_edge, %.loopexit
+._crit_edge67:                                    ; preds = %._crit_edge63.us, %._crit_edge67.critedge, %.loopexit
   ret void
 }
 

@@ -21240,20 +21240,20 @@ _ZN5eastl22uninitialized_fill_ptrIbEEvPT_S2_RKS1_.exit.i: ; preds = %entry
   %add.i.i.i.i.i.i = add i64 %add.i.i.i.i.i, %mul.i.i.i.i.i.i
   %call.i.i.i.i.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef %add.i.i.i.i.i.i, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   %1 = ptrtoint ptr %call.i.i.i.i.i.i.i.i to i64
-  %add.i4.i.i.i = add i64 %and.i.i.i.i.i, %1
-  %2 = inttoptr i64 %add.i4.i.i.i to ptr
   %add.i6.i.i.i.i = add i64 %add.i.i.i.i.i, %1
-  %3 = inttoptr i64 %add.i6.i.i.i.i to ptr
+  %2 = inttoptr i64 %add.i6.i.i.i.i to ptr
+  %add.i4.i.i.i = add i64 %and.i.i.i.i.i, %1
+  %3 = inttoptr i64 %add.i4.i.i.i to ptr
   %4 = load i8, ptr %args, align 1
   %5 = and i8 %4, 1
   tail call void @llvm.memset.p0.i64(ptr align 1 %call.i.i.i.i.i.i.i.i, i8 %5, i64 %n, i1 false)
-  %add.ptr11.i = getelementptr inbounds %struct.TestObject, ptr %2, i64 %n
+  %add.ptr11.i = getelementptr inbounds %struct.TestObject, ptr %3, i64 %n
   %mbThrowOnCopy3.i.i.i.i = getelementptr inbounds i8, ptr %args1, i64 4
   %mMagicValue4.i.i.i.i = getelementptr inbounds i8, ptr %args1, i64 16
   br label %for.body.i.i.i111
 
 for.body.i.i.i111:                                ; preds = %for.body.i.i.i111, %_ZN5eastl22uninitialized_fill_ptrIbEEvPT_S2_RKS1_.exit.i
-  %currentDest.sroa.0.04.i.i.i = phi ptr [ %2, %_ZN5eastl22uninitialized_fill_ptrIbEEvPT_S2_RKS1_.exit.i ], [ %incdec.ptr.i.i.i.i, %for.body.i.i.i111 ]
+  %currentDest.sroa.0.04.i.i.i = phi ptr [ %3, %_ZN5eastl22uninitialized_fill_ptrIbEEvPT_S2_RKS1_.exit.i ], [ %incdec.ptr.i.i.i.i, %for.body.i.i.i111 ]
   %6 = load i32, ptr %args1, align 8
   store i32 %6, ptr %currentDest.sroa.0.04.i.i.i, align 8
   %mbThrowOnCopy.i.i.i.i = getelementptr inbounds i8, ptr %currentDest.sroa.0.04.i.i.i, i64 4
@@ -21279,12 +21279,12 @@ for.body.i.i.i111:                                ; preds = %for.body.i.i.i111, 
   br i1 %cmp.i.not.i.i.i, label %_ZN5eastl22uninitialized_fill_ptrI10TestObjectEEvPT_S3_RKS2_.exit.i, label %for.body.i.i.i111, !llvm.loop !447
 
 _ZN5eastl22uninitialized_fill_ptrI10TestObjectEEvPT_S3_RKS2_.exit.i: ; preds = %for.body.i.i.i111
-  %add.ptr17.i = getelementptr inbounds float, ptr %3, i64 %n
+  %add.ptr17.i = getelementptr inbounds float, ptr %2, i64 %n
   %13 = load float, ptr %args3, align 4
   br label %for.body.i.i.i.i.i114
 
 for.body.i.i.i.i.i114:                            ; preds = %for.body.i.i.i.i.i114, %_ZN5eastl22uninitialized_fill_ptrI10TestObjectEEvPT_S3_RKS2_.exit.i
-  %first.sroa.0.04.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i114 ], [ %3, %_ZN5eastl22uninitialized_fill_ptrI10TestObjectEEvPT_S3_RKS2_.exit.i ]
+  %first.sroa.0.04.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i114 ], [ %2, %_ZN5eastl22uninitialized_fill_ptrI10TestObjectEEvPT_S3_RKS2_.exit.i ]
   store float %13, ptr %first.sroa.0.04.i.i.i.i.i, align 4
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.04.i.i.i.i.i, i64 4
   %cmp.i.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %add.ptr17.i
@@ -21294,9 +21294,9 @@ invoke.cont:                                      ; preds = %for.body.i.i.i.i.i1
   store ptr %call.i.i.i.i.i.i.i.i, ptr %this, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
   %14 = load ptr, ptr %add.ptr.i, align 8
-  store ptr %2, ptr %add.ptr.i, align 8
+  store ptr %3, ptr %add.ptr.i, align 8
   %add.ptr7.i = getelementptr inbounds i8, ptr %this, i64 16
-  store ptr %3, ptr %add.ptr7.i, align 8
+  store ptr %2, ptr %add.ptr7.i, align 8
   %mpData12.i = getelementptr inbounds i8, ptr %this, i64 24
   %15 = load ptr, ptr %mpData12.i, align 8
   store ptr %call.i.i.i.i.i.i.i.i, ptr %mpData12.i, align 8

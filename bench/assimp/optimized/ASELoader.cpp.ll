@@ -1614,8 +1614,6 @@ if.then.i70:                                      ; preds = %if.then11
   %sub.ptr.lhs.cast.i9.i73 = ptrtoint ptr %10 to i64
   %sub.ptr.sub.i10.i74 = sub i64 %sub.ptr.lhs.cast.i9.i73, %sub.ptr.lhs.cast.i.i59
   %sub.ptr.div.i11.i75 = ashr exact i64 %sub.ptr.sub.i10.i74, 4
-  %cmp4.i.i76 = icmp ult i64 %sub.ptr.div.i.i62, 576460752303423488
-  call void @llvm.assume(i1 %cmp4.i.i76)
   %sub.i.i77 = xor i64 %sub.ptr.div.i.i62, 576460752303423487
   %cmp6.i.i78 = icmp ule i64 %sub.ptr.div.i11.i75, %sub.i.i77
   call void @llvm.assume(i1 %cmp6.i.i78)
@@ -1719,8 +1717,6 @@ if.then.i116:                                     ; preds = %if.then17
   %sub.ptr.lhs.cast.i9.i119 = ptrtoint ptr %18 to i64
   %sub.ptr.sub.i10.i120 = sub i64 %sub.ptr.lhs.cast.i9.i119, %sub.ptr.lhs.cast.i.i105
   %sub.ptr.div.i11.i121 = sdiv exact i64 %sub.ptr.sub.i10.i120, 12
-  %cmp4.i.i122 = icmp ult i64 %sub.ptr.div.i.i108, 768614336404564651
-  call void @llvm.assume(i1 %cmp4.i.i122)
   %sub.i.i123 = sub nuw nsw i64 768614336404564650, %sub.ptr.div.i.i108
   %cmp6.i.i124 = icmp ule i64 %sub.ptr.div.i11.i121, %sub.i.i123
   call void @llvm.assume(i1 %cmp6.i.i124)

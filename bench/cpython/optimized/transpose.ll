@@ -223,15 +223,12 @@ for.body7.i:                                      ; preds = %for.body7.i, %for.b
 
 squaretrans.exit:                                 ; preds = %for.cond.loopexit.i
   %cmp13 = icmp eq i64 %r.0125, %c.0123
-  br i1 %cmp13, label %for.cond18.preheader, label %if.else
+  br i1 %cmp13, label %for.body20, label %for.body33.preheader
 
-for.cond18.preheader:                             ; preds = %squaretrans.exit
-  br i1 %cmp7103.not, label %for.inc67, label %for.body20
-
-for.body20:                                       ; preds = %for.cond18.preheader, %for.body20
-  %i.1122 = phi i64 [ %inc25, %for.body20 ], [ 0, %for.cond18.preheader ]
-  %from.1121 = phi ptr [ %add.ptr22, %for.body20 ], [ %buf1, %for.cond18.preheader ]
-  %to.1120 = phi ptr [ %add.ptr23, %for.body20 ], [ %add.ptr5, %for.cond18.preheader ]
+for.body20:                                       ; preds = %squaretrans.exit, %for.body20
+  %i.1122 = phi i64 [ %inc25, %for.body20 ], [ 0, %squaretrans.exit ]
+  %from.1121 = phi ptr [ %add.ptr22, %for.body20 ], [ %buf1, %squaretrans.exit ]
+  %to.1120 = phi ptr [ %add.ptr23, %for.body20 ], [ %add.ptr5, %squaretrans.exit ]
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %to.1120, ptr align 8 %from.1121, i64 %mul9, i1 false)
   %add.ptr22 = getelementptr i64, ptr %from.1121, i64 %b.0
   %add.ptr23 = getelementptr i64, ptr %to.1120, i64 %size
@@ -239,15 +236,15 @@ for.body20:                                       ; preds = %for.cond18.preheade
   %exitcond130.not = icmp eq i64 %inc25, %b.0
   br i1 %exitcond130.not, label %for.inc67, label %for.body20, !llvm.loop !12
 
-if.else:                                          ; preds = %squaretrans.exit
+for.body33.preheader:                             ; preds = %squaretrans.exit
   %mul27 = mul i64 %c.0123, %size
   %gep = getelementptr i64, ptr %invariant.gep, i64 %mul27
-  br i1 %cmp7103.not, label %for.inc67, label %for.body33
+  br label %for.body33
 
-for.body33:                                       ; preds = %if.else, %for.body33
-  %i.2110 = phi i64 [ %inc38, %for.body33 ], [ 0, %if.else ]
-  %from.2109 = phi ptr [ %add.ptr35, %for.body33 ], [ %gep, %if.else ]
-  %to.2108 = phi ptr [ %add.ptr36, %for.body33 ], [ %buf2, %if.else ]
+for.body33:                                       ; preds = %for.body33.preheader, %for.body33
+  %i.2110 = phi i64 [ %inc38, %for.body33 ], [ 0, %for.body33.preheader ]
+  %from.2109 = phi ptr [ %add.ptr35, %for.body33 ], [ %gep, %for.body33.preheader ]
+  %to.2108 = phi ptr [ %add.ptr36, %for.body33 ], [ %buf2, %for.body33.preheader ]
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %to.2108, ptr align 8 %from.2109, i64 %mul9, i1 false)
   %add.ptr35 = getelementptr i64, ptr %from.2109, i64 %size
   %add.ptr36 = getelementptr i64, ptr %to.2108, i64 %b.0
@@ -257,7 +254,7 @@ for.body33:                                       ; preds = %if.else, %for.body3
 
 for.cond.loopexit.i84:                            ; preds = %for.body7.i91, %for.body.i80
   %exitcond.not.i85 = icmp eq i64 %add.i82, %b.0
-  br i1 %exitcond.not.i85, label %squaretrans.exit101, label %for.body.i80, !llvm.loop !10
+  br i1 %exitcond.not.i85, label %for.body47, label %for.body.i80, !llvm.loop !10
 
 for.body.i80:                                     ; preds = %for.body33, %for.cond.loopexit.i84
   %r.025.i81 = phi i64 [ %add.i82, %for.cond.loopexit.i84 ], [ 0, %for.body33 ]
@@ -288,13 +285,10 @@ for.body7.i91:                                    ; preds = %for.body7.i91, %for
   %cmp6.i100 = icmp ult i64 %inc.i99, %b.0
   br i1 %cmp6.i100, label %for.body7.i91, label %for.cond.loopexit.i84, !llvm.loop !11
 
-squaretrans.exit101:                              ; preds = %for.cond.loopexit.i84
-  br i1 %cmp7103.not, label %for.inc67, label %for.body47
-
-for.body47:                                       ; preds = %squaretrans.exit101, %for.body47
-  %i.3114 = phi i64 [ %inc52, %for.body47 ], [ 0, %squaretrans.exit101 ]
-  %from.3113 = phi ptr [ %add.ptr49, %for.body47 ], [ %buf1, %squaretrans.exit101 ]
-  %to.3112 = phi ptr [ %add.ptr50, %for.body47 ], [ %gep, %squaretrans.exit101 ]
+for.body47:                                       ; preds = %for.cond.loopexit.i84, %for.body47
+  %i.3114 = phi i64 [ %inc52, %for.body47 ], [ 0, %for.cond.loopexit.i84 ]
+  %from.3113 = phi ptr [ %add.ptr49, %for.body47 ], [ %buf1, %for.cond.loopexit.i84 ]
+  %to.3112 = phi ptr [ %add.ptr50, %for.body47 ], [ %gep, %for.cond.loopexit.i84 ]
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %to.3112, ptr align 8 %from.3113, i64 %mul9, i1 false)
   %add.ptr49 = getelementptr i64, ptr %from.3113, i64 %b.0
   %add.ptr50 = getelementptr i64, ptr %to.3112, i64 %size
@@ -313,7 +307,7 @@ for.body60:                                       ; preds = %for.body47, %for.bo
   %exitcond129.not = icmp eq i64 %inc65, %b.0
   br i1 %exitcond129.not, label %for.inc67, label %for.body60, !llvm.loop !15
 
-for.inc67:                                        ; preds = %for.body60, %for.body20, %for.body4, %if.else, %squaretrans.exit101, %for.cond18.preheader
+for.inc67:                                        ; preds = %for.body60, %for.body20, %for.body4
   %add = add i64 %c.0123, %b.0
   %cmp3 = icmp ult i64 %add, %size
   br i1 %cmp3, label %for.body4, label %for.inc69, !llvm.loop !16

@@ -24382,7 +24382,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %m_size.i.i33 = getelementptr inbounds i8, ptr %25, i64 12
   %26 = load i32, ptr %m_size.i.i33, align 4
   %cmp.i.i34 = icmp eq i32 %26, 0
-  br i1 %cmp.i.i34, label %invoke.cont13.thread, label %if.end.i.i35
+  br i1 %cmp.i.i34, label %_ZN10polynomial12tmp_monomial7reserveEj.exit.i.i.thread, label %if.end.i.i35
 
 if.end.i.i35:                                     ; preds = %for.body
   %sub.i.i = add i32 %26, -1
@@ -24468,7 +24468,7 @@ invoke.cont13:                                    ; preds = %if.end25.i.i, %for.
   %cmp.i.i.i42 = icmp ult i32 %32, %26
   br i1 %cmp.i.i.i42, label %_ZN10polynomial12tmp_monomial7reserveEj.exit.thread.i.i, label %for.body.lr.ph.i.i
 
-invoke.cont13.thread:                             ; preds = %for.body
+_ZN10polynomial12tmp_monomial7reserveEj.exit.i.i.thread: ; preds = %for.body
   %33 = load ptr, ptr %m_monomial_manager.i.i, align 8
   %m_tmp1.i.i142 = getelementptr inbounds i8, ptr %33, i64 136
   br label %_ZN10polynomial16monomial_manager5div_xEPKNS_8monomialEj.exit.i
@@ -24495,14 +24495,13 @@ call2.i.i.i.i.i.noexc:                            ; preds = %.noexc
   br label %for.body.lr.ph.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %invoke.cont13, %call2.i.i.i.i.i.noexc
-  %m_powers.i.i.i43 = getelementptr inbounds i8, ptr %25, i64 20
   %wide.trip.count.i.i = zext i32 %26 to i64
   br label %for.body.i.i44
 
 for.body.i.i44:                                   ; preds = %for.inc.i.i, %for.body.lr.ph.i.i
   %indvars.iv.i.i45 = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %indvars.iv.next.i.i47, %for.inc.i.i ]
   %j.017.i.i = phi i32 [ 0, %for.body.lr.ph.i.i ], [ %j.1.i.i, %for.inc.i.i ]
-  %arrayidx.i.i.i46 = getelementptr inbounds [0 x %"class.polynomial::power"], ptr %m_powers.i.i.i43, i64 0, i64 %indvars.iv.i.i45
+  %arrayidx.i.i.i46 = getelementptr inbounds [0 x %"class.polynomial::power"], ptr %m_powers.i.i.i.i, i64 0, i64 %indvars.iv.i.i45
   %35 = load i32, ptr %arrayidx.i.i.i46, align 4
   %cmp4.not.i.i = icmp eq i32 %35, %x
   br i1 %cmp4.not.i.i, label %for.inc.i.i, label %if.then.i.i
@@ -24526,11 +24525,11 @@ for.inc.i.i:                                      ; preds = %if.then.i.i, %for.b
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i47, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %_ZN10polynomial16monomial_manager5div_xEPKNS_8monomialEj.exit.i, label %for.body.i.i44, !llvm.loop !24
 
-_ZN10polynomial16monomial_manager5div_xEPKNS_8monomialEj.exit.i: ; preds = %for.inc.i.i, %invoke.cont13.thread
-  %m_tmp1.i.i156 = phi ptr [ %m_tmp1.i.i142, %invoke.cont13.thread ], [ %m_tmp1.i.i, %for.inc.i.i ]
-  %38 = phi ptr [ %33, %invoke.cont13.thread ], [ %31, %for.inc.i.i ]
-  %retval.0.i40146 = phi i32 [ 0, %invoke.cont13.thread ], [ %retval.0.i40, %for.inc.i.i ]
-  %j.0.lcssa.i.i = phi i32 [ 0, %invoke.cont13.thread ], [ %j.1.i.i, %for.inc.i.i ]
+_ZN10polynomial16monomial_manager5div_xEPKNS_8monomialEj.exit.i: ; preds = %for.inc.i.i, %_ZN10polynomial12tmp_monomial7reserveEj.exit.i.i.thread
+  %m_tmp1.i.i156 = phi ptr [ %m_tmp1.i.i142, %_ZN10polynomial12tmp_monomial7reserveEj.exit.i.i.thread ], [ %m_tmp1.i.i, %for.inc.i.i ]
+  %38 = phi ptr [ %33, %_ZN10polynomial12tmp_monomial7reserveEj.exit.i.i.thread ], [ %31, %for.inc.i.i ]
+  %retval.0.i40146 = phi i32 [ 0, %_ZN10polynomial12tmp_monomial7reserveEj.exit.i.i.thread ], [ %retval.0.i40, %for.inc.i.i ]
+  %j.0.lcssa.i.i = phi i32 [ 0, %_ZN10polynomial12tmp_monomial7reserveEj.exit.i.i.thread ], [ %j.1.i.i, %for.inc.i.i ]
   %39 = load ptr, ptr %m_tmp1.i.i156, align 8
   %m_size.i14.i.i = getelementptr inbounds i8, ptr %39, i64 12
   store i32 %j.0.lcssa.i.i, ptr %m_size.i14.i.i, align 4

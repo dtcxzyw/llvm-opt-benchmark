@@ -677,10 +677,8 @@ if.then19:                                        ; preds = %if.end15
 
 if.end20:                                         ; preds = %if.end15
   %4 = load i64, ptr %check_after, align 8
-  %cmp21 = icmp slt i64 %4, 0
   %cmp23 = icmp ugt i64 %4, %cond
-  %or.cond = or i1 %cmp21, %cmp23
-  br i1 %or.cond, label %if.then24, label %if.end30
+  br i1 %cmp23, label %if.then24, label %if.end30
 
 if.then24:                                        ; preds = %if.end20
   call void @ERR_new() #4

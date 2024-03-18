@@ -16452,7 +16452,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
   br i1 %255, label %middle.block, label %vector.body, !llvm.loop !279
 
 middle.block:                                     ; preds = %vector.body
-  %cmp.n = icmp eq i64 %umax, %n.vec
+  %cmp.n = icmp eq i64 %div542, %n.vec
   br i1 %cmp.n, label %for.cond.cleanup145, label %for.body146.preheader153
 
 for.cond.cleanup145:                              ; preds = %for.body146, %middle.block

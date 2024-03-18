@@ -5555,6 +5555,7 @@ declare noundef zeroext i1 @_ZNK5arrow8DataType6EqualsERKSt10shared_ptrIS0_Eb(pt
 define linkonce_odr void @_ZN5arrow23QuadraticSpaceMyersDiff4DiffEv(ptr noalias sret(%"class.arrow::Result") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(144) %this) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::Result.118", align 8
+  %ref.tmp16 = alloca [1 x i64], align 8
   %ref.tmp27 = alloca [1 x i8], align 1
   %base_begin_ = getelementptr inbounds i8, ptr %this, i64 24
   store i64 0, ptr %base_begin_, align 8
@@ -5638,6 +5639,7 @@ _ZNSt10unique_ptrIN5arrow15ValueComparatorESt14default_deleteIS1_EED2Ev.exit: ; 
 
 invoke.cont21:                                    ; preds = %_ZNSt10unique_ptrIN5arrow15ValueComparatorESt14default_deleteIS1_EED2Ev.exit
   %add.i = add nsw i64 %call2.i6, %14
+  store i64 %add.i, ptr %ref.tmp16, align 8
   %endpoint_base_ = getelementptr inbounds i8, ptr %this, i64 80
   %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %19 = load ptr, ptr %_M_end_of_storage.i.i, align 8
@@ -5672,11 +5674,13 @@ _ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit.i: ; preds = %if.then.i13.i,
 if.else.i:                                        ; preds = %invoke.cont21
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %21 = load ptr, ptr %_M_finish.i.i, align 8
+  %sub.ptr.lhs.cast.i14.i = ptrtoint ptr %21 to i64
+  %sub.ptr.sub.i16.i = sub i64 %sub.ptr.lhs.cast.i14.i, %sub.ptr.rhs.cast.i.i
   %cmp24.not.i = icmp eq ptr %21, %20
-  store i64 %add.i, ptr %20, align 8
-  br i1 %cmp24.not.i, label %_ZSt22__uninitialized_copy_aIPKlPllET0_T_S4_S3_RSaIT1_E.exit.i, label %if.then25.i
+  br i1 %cmp24.not.i, label %_ZSt4copyIPKlPlET0_T_S4_S3_.exit31.i, label %if.then25.i
 
 if.then25.i:                                      ; preds = %if.else.i
+  store i64 %add.i, ptr %20, align 8
   %.pre.i = load ptr, ptr %_M_finish.i.i, align 8
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %20, i64 8
   %tobool.not.i19.i = icmp eq ptr %.pre.i, %add.ptr.i.i.i.i.i.i
@@ -5686,8 +5690,18 @@ invoke.cont.i.i:                                  ; preds = %if.then25.i
   store ptr %add.ptr.i.i.i.i.i.i, ptr %_M_finish.i.i, align 8
   br label %invoke.cont24
 
-_ZSt22__uninitialized_copy_aIPKlPllET0_T_S4_S3_RSaIT1_E.exit.i: ; preds = %if.else.i
-  %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %20, i64 8
+_ZSt4copyIPKlPlET0_T_S4_S3_.exit31.i:             ; preds = %if.else.i
+  %gepdiff = sub nsw i64 8, %sub.ptr.sub.i16.i
+  %tobool.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %sub.ptr.sub.i16.i, 8
+  br i1 %tobool.not.i.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPKlPllET0_T_S4_S3_RSaIT1_E.exit.i, label %if.then.i.i.i.i.i.i.i.i.i
+
+if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZSt4copyIPKlPlET0_T_S4_S3_.exit31.i
+  %incdec.ptr4.sink.i.i45.i.ptr = getelementptr inbounds i8, ptr %ref.tmp16, i64 %sub.ptr.sub.i16.i
+  call void @llvm.memmove.p0.p0.i64(ptr align 8 %20, ptr nonnull align 8 %incdec.ptr4.sink.i.i45.i.ptr, i64 %gepdiff, i1 false)
+  br label %_ZSt22__uninitialized_copy_aIPKlPllET0_T_S4_S3_RSaIT1_E.exit.i
+
+_ZSt22__uninitialized_copy_aIPKlPllET0_T_S4_S3_RSaIT1_E.exit.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i, %_ZSt4copyIPKlPlET0_T_S4_S3_.exit31.i
+  %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %20, i64 %gepdiff
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i, ptr %_M_finish.i.i, align 8
   br label %invoke.cont24
 

@@ -13854,8 +13854,7 @@ for.cond.cleanup238:                              ; preds = %_ZN7rocksdb12MemTab
   %117 = load i8, ptr %flush_options, align 1
   %118 = and i8 %117, 1
   %tobool255.not = icmp eq i8 %118, 0
-  %brmerge = or i1 %tobool255.not, %cmp.i.i246.not537
-  br i1 %brmerge, label %if.end281, label %for.body268
+  br i1 %tobool255.not, label %if.end281, label %for.body268
 
 for.body239:                                      ; preds = %for.body239.preheader, %_ZN7rocksdb12MemTableList14FlushRequestedEv.exit
   %__begin3229.sroa.2.0538 = phi i64 [ %inc.i257, %_ZN7rocksdb12MemTableList14FlushRequestedEv.exit ], [ 0, %for.body239.preheader ]
@@ -13896,7 +13895,7 @@ for.body268:                                      ; preds = %for.cond.cleanup238
   %cmp.i.i269.not = icmp eq i64 %inc.i279, %add.i.i242
   br i1 %cmp.i.i269.not, label %if.end281, label %for.body268
 
-if.end281:                                        ; preds = %for.body268, %for.cond.cleanup238, %invoke.cont230
+if.end281:                                        ; preds = %for.body268, %invoke.cont230, %for.cond.cleanup238
   invoke void @_ZN7rocksdb6DBImpl20GenerateFlushRequestERKNS_10autovectorIPNS_16ColumnFamilyDataELm8EEENS_11FlushReasonEPNS0_12FlushRequestE(ptr noundef nonnull align 64 dereferenceable(6660) %this, ptr noundef nonnull align 8 dereferenceable(104) %cfds, i32 noundef %flush_reason, ptr noundef nonnull %flush_req)
           to label %invoke.cont282 unwind label %lpad144
 
@@ -15223,7 +15222,7 @@ for.cond.cleanup:                                 ; preds = %_ZN7rocksdb12MemTab
   %85 = load i8, ptr %flush_options, align 1
   %86 = and i8 %85, 1
   %tobool211.not = icmp eq i8 %86, 0
-  br i1 %tobool211.not, label %invoke.cont243, label %invoke.cont213
+  br i1 %tobool211.not, label %invoke.cont243, label %invoke.cont223
 
 invoke.cont192:                                   ; preds = %invoke.cont192.preheader, %_ZN7rocksdb12MemTableList14FlushRequestedEv.exit
   %__begin3.sroa.2.0460 = phi i64 [ %inc.i138, %_ZN7rocksdb12MemTableList14FlushRequestedEv.exit ], [ 0, %invoke.cont192.preheader ]
@@ -15250,11 +15249,8 @@ _ZN7rocksdb12MemTableList14FlushRequestedEv.exit: ; preds = %invoke.cont192, %if
   %cmp.i.i128.not = icmp eq i64 %inc.i138, %add.i.i125
   br i1 %cmp.i.i128.not, label %for.cond.cleanup, label %invoke.cont192
 
-invoke.cont213:                                   ; preds = %for.cond.cleanup
-  br i1 %cmp.i.i128.not459, label %for.cond.cleanup251, label %invoke.cont223
-
-invoke.cont223:                                   ; preds = %invoke.cont213, %invoke.cont223
-  %__begin4.sroa.2.0462 = phi i64 [ %inc.i161, %invoke.cont223 ], [ 0, %invoke.cont213 ]
+invoke.cont223:                                   ; preds = %for.cond.cleanup, %invoke.cont223
+  %__begin4.sroa.2.0462 = phi i64 [ %inc.i161, %invoke.cont223 ], [ 0, %for.cond.cleanup ]
   %cmp.i.i152 = icmp ult i64 %__begin4.sroa.2.0462, 8
   %90 = load ptr, ptr %values_.i, align 8
   %arrayidx.i.i154 = getelementptr inbounds %"struct.rocksdb::DBImpl::FlushRequest", ptr %90, i64 %__begin4.sroa.2.0462
@@ -15288,7 +15284,7 @@ invoke.cont243:                                   ; preds = %invoke.cont243.loop
   %cmp.i.i173.not463 = icmp eq i64 %add.i.i169.pre-phi, 0
   br i1 %cmp.i.i173.not463, label %for.cond.cleanup251, label %invoke.cont254
 
-for.cond.cleanup251:                              ; preds = %for.inc257, %invoke.cont183, %invoke.cont213, %invoke.cont243
+for.cond.cleanup251:                              ; preds = %for.inc257, %invoke.cont183, %invoke.cont243
   invoke void @_ZN7rocksdb6DBImpl30MaybeScheduleFlushOrCompactionEv(ptr noundef nonnull align 64 dereferenceable(6660) %this)
           to label %if.end264 unwind label %lpad38
 

@@ -25045,7 +25045,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
   br i1 %15, label %middle.block, label %vector.body, !llvm.loop !673
 
 middle.block:                                     ; preds = %vector.body
-  %cmp.n = icmp eq i64 %umax.i.i.i.i.i.i.i.i.i, %n.vec
+  %cmp.n = icmp eq i64 %div1.i.i.i.i.i.i.i.i.i.i, %n.vec
   br i1 %cmp.n, label %_ZN6duckdb11make_bufferINS_21TemplatedValidityDataImEEJRKPmRmEEESt10shared_ptrIT_EDpOT0_.exit, label %for.body.i.i.i.i.i.i.i.i.i.preheader
 
 for.body.i.i.i.i.i.i.i.i.i.preheader:             ; preds = %middle.block, %for.body.lr.ph.i.i.i.i.i.i.i.i.i
@@ -41382,7 +41382,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
 middle.block:                                     ; preds = %vector.body
   %bin.rdx = add <2 x i64> %13, %12
   %15 = call i64 @llvm.vector.reduce.add.v2i64(<2 x i64> %bin.rdx)
-  %cmp.n = icmp eq i64 %umax54, %n.vec
+  %cmp.n = icmp eq i64 %sub.ptr.div.i, %n.vec
   br i1 %cmp.n, label %for.cond.cleanup9, label %_ZNK6duckdb6vectorImLb1EEixEm.exit.us.preheader12
 
 _ZNK6duckdb6vectorImLb1EEixEm.exit.us.preheader12: ; preds = %middle.block, %_ZNK6duckdb6vectorImLb1EEixEm.exit.us.preheader
@@ -47016,7 +47016,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
   br i1 %17, label %middle.block, label %vector.body, !llvm.loop !1455
 
 middle.block:                                     ; preds = %vector.body
-  %cmp.n = icmp eq i64 %umax, %n.vec
+  %cmp.n = icmp eq i64 %sub4, %n.vec
   br i1 %cmp.n, label %for.cond.cleanup, label %for.body.preheader
 
 common.resume:                                    ; preds = %lpad.i98, %lpad33, %lpad.i, %ehcleanup19

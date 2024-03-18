@@ -1823,7 +1823,7 @@ vector.body.i:                                    ; preds = %vector.body.i, %vec
   br i1 %165, label %middle.block.i, label %vector.body.i, !llvm.loop !78
 
 middle.block.i:                                   ; preds = %vector.body.i
-  %cmp.n.i = icmp eq i64 %umax.i374, %n.vec.i
+  %cmp.n.i = icmp eq i64 %sub.ptr.div.i.i.i7.i, %n.vec.i
   br i1 %cmp.n.i, label %cond.true.i.i.i.i.i14.i, label %for.body.i.preheader81.i
 
 for.body.i.preheader81.i:                         ; preds = %middle.block.i, %vector.memcheck.i, %call5.i.i.i.i4.i20.i.i.i.noexc
@@ -2004,7 +2004,7 @@ vector.body.i403:                                 ; preds = %vector.body.i403, %
   br i1 %190, label %middle.block.i410, label %vector.body.i403, !llvm.loop !78
 
 middle.block.i410:                                ; preds = %vector.body.i403
-  %cmp.n.i411 = icmp eq i64 %umax.i393, %n.vec.i402
+  %cmp.n.i411 = icmp eq i64 %sub.ptr.div.i.i.i7.i392, %n.vec.i402
   br i1 %cmp.n.i411, label %cond.true.i.i.i.i.i14.i446, label %for.body.i.preheader81.i412
 
 for.body.i.preheader81.i412:                      ; preds = %middle.block.i410, %vector.memcheck.i395, %call5.i.i.i.i4.i20.i.i.i.noexc462

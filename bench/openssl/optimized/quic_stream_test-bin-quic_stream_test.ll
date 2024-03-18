@@ -1560,7 +1560,7 @@ declare i32 @test_size_t_gt(ptr noundef, i32 noundef, ptr noundef, ptr noundef, 
 declare i32 @test_uint64_t_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i32 @compare_iov(ptr nocapture noundef readonly %ref, i64 noundef %ref_len, ptr nocapture noundef readonly %iov, i64 noundef %iov_len) unnamed_addr #2 {
+define internal fastcc noundef i32 @compare_iov(ptr nocapture noundef readonly %ref, i64 noundef %ref_len, ptr nocapture noundef readonly %iov, i64 noundef %iov_len) unnamed_addr #2 {
 entry:
   %cmp14.not = icmp eq i64 %iov_len, 0
   br i1 %cmp14.not, label %for.end.thread, label %for.body
@@ -1576,33 +1576,33 @@ for.body:                                         ; preds = %entry, %for.body
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !19
 
 for.end:                                          ; preds = %for.body
-  %cmp1.not = icmp ne i64 %add, %ref_len
-  %brmerge = or i1 %cmp1.not, %cmp14.not
-  %not.cmp1.not = xor i1 %cmp1.not, true
-  br i1 %brmerge, label %return, label %for.body4
+  %cmp1.not = icmp eq i64 %add, %ref_len
+  br i1 %cmp1.not, label %for.body4, label %return
 
 for.end.thread:                                   ; preds = %entry
   %cmp1.not24 = icmp eq i64 %ref_len, 0
+  %spec.select = zext i1 %cmp1.not24 to i32
   br label %return
 
-for.body4:                                        ; preds = %for.end, %for.body4
-  %cur.019 = phi ptr [ %add.ptr, %for.body4 ], [ %ref, %for.end ]
-  %i.118 = phi i64 [ %inc13, %for.body4 ], [ 0, %for.end ]
+for.body4:                                        ; preds = %for.end, %if.end9
+  %cur.019 = phi ptr [ %add.ptr, %if.end9 ], [ %ref, %for.end ]
+  %i.118 = phi i64 [ %inc13, %if.end9 ], [ 0, %for.end ]
   %arrayidx5 = getelementptr inbounds %struct.ossl_qtx_iovec_st, ptr %iov, i64 %i.118
   %1 = load ptr, ptr %arrayidx5, align 8
   %buf_len7 = getelementptr inbounds i8, ptr %arrayidx5, i64 8
   %2 = load i64, ptr %buf_len7, align 8
   %bcmp = tail call i32 @bcmp(ptr %cur.019, ptr %1, i64 %2)
   %tobool.not = icmp eq i32 %bcmp, 0
+  br i1 %tobool.not, label %if.end9, label %return
+
+if.end9:                                          ; preds = %for.body4
   %add.ptr = getelementptr inbounds i8, ptr %cur.019, i64 %2
   %inc13 = add nuw i64 %i.118, 1
-  %exitcond22.not = icmp ne i64 %inc13, %iov_len
-  %or.cond.not = select i1 %tobool.not, i1 %exitcond22.not, i1 false
-  br i1 %or.cond.not, label %for.body4, label %return, !llvm.loop !20
+  %exitcond22.not = icmp eq i64 %inc13, %iov_len
+  br i1 %exitcond22.not, label %return, label %for.body4, !llvm.loop !20
 
-return:                                           ; preds = %for.body4, %for.end.thread, %for.end
-  %retval.0.shrunk = phi i1 [ %not.cmp1.not, %for.end ], [ %cmp1.not24, %for.end.thread ], [ %tobool.not, %for.body4 ]
-  %retval.0 = zext i1 %retval.0.shrunk to i32
+return:                                           ; preds = %for.body4, %if.end9, %for.end.thread, %for.end
+  %retval.0 = phi i32 [ 0, %for.end ], [ %spec.select, %for.end.thread ], [ 0, %for.body4 ], [ 1, %if.end9 ]
   ret i32 %retval.0
 }
 

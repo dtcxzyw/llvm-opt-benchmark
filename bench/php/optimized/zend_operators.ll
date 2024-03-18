@@ -11837,8 +11837,8 @@ define ptr @zend_memnstr_ex(ptr noundef %0, ptr nocapture noundef readonly %1, i
   br label %12
 
 .preheader57:                                     ; preds = %12
-  %.not79 = icmp eq i64 %2, 0
-  br i1 %.not79, label %._crit_edge.thread, label %.lr.ph
+  %.not = icmp eq i64 %2, 0
+  br i1 %.not, label %._crit_edge.thread, label %.lr.ph
 
 12:                                               ; preds = %.preheader58, %12
   %indvars.iv = phi i64 [ 0, %.preheader58 ], [ %indvars.iv.next, %12 ]
@@ -11858,20 +11858,18 @@ define ptr @zend_memnstr_ex(ptr noundef %0, ptr nocapture noundef readonly %1, i
   %19 = getelementptr inbounds i32, ptr %5, i64 %18
   store i32 %15, ptr %19, align 4
   %20 = add nuw i64 %.04960, 1
-  %exitcond83.not = icmp eq i64 %20, %2
-  br i1 %exitcond83.not, label %._crit_edge, label %.lr.ph
+  %exitcond81.not = icmp eq i64 %20, %2
+  br i1 %exitcond81.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %21 = sub i64 0, %2
   %22 = getelementptr inbounds i8, ptr %3, i64 %21
   %.not66 = icmp ult ptr %22, %0
-  %brmerge = or i1 %.not66, %.not79
-  %.mux = select i1 %.not66, ptr null, ptr %0
-  br i1 %brmerge, label %.loopexit, label %.preheader.us
+  br i1 %.not66, label %.loopexit, label %.preheader.us
 
 ._crit_edge.thread:                               ; preds = %.preheader57
-  %.not6685 = icmp ult ptr %3, %0
-  %spec.select = select i1 %.not6685, ptr null, ptr %0
+  %.not6683 = icmp ult ptr %3, %0
+  %spec.select = select i1 %.not6683, ptr null, ptr %0
   br label %.loopexit
 
 .preheader.us:                                    ; preds = %._crit_edge, %31
@@ -11908,11 +11906,11 @@ define ptr @zend_memnstr_ex(ptr noundef %0, ptr nocapture noundef readonly %1, i
 
 39:                                               ; preds = %23
   %40 = add nuw i64 %.04761.us, 1
-  %exitcond84.not = icmp eq i64 %40, %2
-  br i1 %exitcond84.not, label %.loopexit, label %23
+  %exitcond82.not = icmp eq i64 %40, %2
+  br i1 %exitcond82.not, label %.loopexit, label %23
 
 .loopexit:                                        ; preds = %._crit_edge63.us, %29, %31, %39, %._crit_edge.thread, %._crit_edge, %4
-  %.050 = phi ptr [ null, %4 ], [ %.mux, %._crit_edge ], [ %spec.select, %._crit_edge.thread ], [ %.067.us, %39 ], [ %.067.us, %._crit_edge63.us ], [ null, %29 ], [ null, %31 ]
+  %.050 = phi ptr [ null, %4 ], [ null, %._crit_edge ], [ %spec.select, %._crit_edge.thread ], [ %.067.us, %39 ], [ %.067.us, %._crit_edge63.us ], [ null, %29 ], [ null, %31 ]
   ret ptr %.050
 }
 
@@ -11949,17 +11947,17 @@ define ptr @zend_memnrstr_ex(ptr noundef %0, ptr nocapture noundef readonly %1, 
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv82 = phi i64 [ %16, %.lr.ph.preheader ], [ %indvars.iv.next83, %.lr.ph ]
+  %indvars.iv80 = phi i64 [ %16, %.lr.ph.preheader ], [ %indvars.iv.next81, %.lr.ph ]
   %.1.in59 = phi i32 [ %10, %.lr.ph.preheader ], [ %21, %.lr.ph ]
-  %17 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv82
+  %17 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv80
   %18 = load i8, ptr %17, align 1
   %19 = zext i8 %18 to i64
   %20 = getelementptr inbounds i32, ptr %5, i64 %19
   store i32 %.1.in59, ptr %20, align 4
-  %indvars.iv.next83 = add nsw i64 %indvars.iv82, -1
-  %.not = icmp eq i64 %indvars.iv82, 0
-  %21 = trunc i64 %indvars.iv82 to i32
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  %indvars.iv.next81 = add nsw i64 %indvars.iv80, -1
+  %.not88 = icmp eq i64 %indvars.iv80, 0
+  %21 = trunc i64 %indvars.iv80 to i32
+  br i1 %.not88, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %14
   %22 = sub i64 0, %2
@@ -11968,8 +11966,8 @@ define ptr @zend_memnrstr_ex(ptr noundef %0, ptr nocapture noundef readonly %1, 
   br i1 %.not66, label %.loopexit, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %._crit_edge
-  %.not79 = icmp eq i64 %2, 0
-  br i1 %.not79, label %.loopexit, label %.preheader.us
+  %.not = icmp eq i64 %2, 0
+  br i1 %.not, label %.loopexit, label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %32
   %.067.us = phi ptr [ %40, %32 ], [ %23, %.preheader.lr.ph ]
@@ -12006,10 +12004,10 @@ define ptr @zend_memnrstr_ex(ptr noundef %0, ptr nocapture noundef readonly %1, 
 
 41:                                               ; preds = %24
   %42 = add nuw i64 %.04661.us, 1
-  %exitcond85.not = icmp eq i64 %42, %2
-  br i1 %exitcond85.not, label %.loopexit, label %24
+  %exitcond83.not = icmp eq i64 %42, %2
+  br i1 %exitcond83.not, label %.loopexit, label %24
 
-.loopexit:                                        ; preds = %._crit_edge63.us, %30, %32, %41, %.preheader.lr.ph, %._crit_edge, %4
+.loopexit:                                        ; preds = %._crit_edge63.us, %30, %32, %41, %._crit_edge, %.preheader.lr.ph, %4
   %.049 = phi ptr [ null, %4 ], [ null, %._crit_edge ], [ %23, %.preheader.lr.ph ], [ %.067.us, %41 ], [ %.067.us, %._crit_edge63.us ], [ null, %30 ], [ null, %32 ]
   ret ptr %.049
 }

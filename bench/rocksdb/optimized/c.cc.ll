@@ -12189,7 +12189,7 @@ for.end:                                          ; preds = %for.body
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 360
   %17 = load ptr, ptr %vfn, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(154) %options, ptr noundef %16, i64 noundef %num_keys, ptr noundef nonnull %call, ptr noundef nonnull %.ptr.ptr, ptr noundef nonnull %.ptr, i1 noundef zeroext %sorted_input)
-  br i1 %isempty, label %delete.notnull, label %for.body37
+  br label %for.body37
 
 for.body37:                                       ; preds = %for.end, %for.inc61
   %i34.043 = phi i64 [ %inc62, %for.inc61 ], [ 0, %for.end ]
@@ -12262,7 +12262,7 @@ delete.notnull.critedge:                          ; preds = %arrayctor.cont29, %
   tail call void %23(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(154) %options, ptr noundef %22, i64 noundef %num_keys, ptr noundef nonnull %call, ptr noundef nonnull %.ptr.ptr, ptr noundef nonnull %.ptr, i1 noundef zeroext %sorted_input)
   br label %delete.notnull
 
-delete.notnull:                                   ; preds = %for.inc61, %delete.notnull.critedge, %for.end
+delete.notnull:                                   ; preds = %for.inc61, %delete.notnull.critedge
   call void @_ZdaPv(ptr noundef nonnull %call) #37
   %24 = load i64, ptr %call1, align 8
   %arraydestroy.isempty67 = icmp eq i64 %24, 0

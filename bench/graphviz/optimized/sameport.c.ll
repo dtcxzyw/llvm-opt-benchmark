@@ -294,13 +294,10 @@ sameedge.exit:                                    ; preds = %same_list_append.ex
 106:                                              ; preds = %.lr.ph203, %104
   %107 = add nuw i64 %.046202, 1
   %exitcond.not = icmp eq i64 %107, %.sroa.11137.3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph203
+  br i1 %exitcond.not, label %.lr.ph.i89, label %.lr.ph203
 
-._crit_edge:                                      ; preds = %106
-  br i1 %.not217, label %same_list_clear.exit, label %.lr.ph.i89
-
-.lr.ph.i89:                                       ; preds = %._crit_edge, %.lr.ph.i89
-  %.07.i = phi i64 [ %108, %.lr.ph.i89 ], [ 0, %._crit_edge ]
+.lr.ph.i89:                                       ; preds = %106, %.lr.ph.i89
+  %.07.i = phi i64 [ %108, %.lr.ph.i89 ], [ 0, %106 ]
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds %struct.same_t, ptr %.sroa.0133.4, i64 %.07.i, i32 1
   %.sroa.3.0.copyload.i = load ptr, ptr %.sroa.3.0..sroa_idx.i, align 1
   tail call void @free(ptr noundef %.sroa.3.0.copyload.i) #12
@@ -308,7 +305,7 @@ sameedge.exit:                                    ; preds = %same_list_append.ex
   %exitcond222.not = icmp eq i64 %108, %.sroa.11137.3
   br i1 %exitcond222.not, label %same_list_clear.exit, label %.lr.ph.i89
 
-same_list_clear.exit:                             ; preds = %.lr.ph.i89, %.preheader, %._crit_edge
+same_list_clear.exit:                             ; preds = %.lr.ph.i89, %.preheader
   %.not218 = icmp eq i64 %.sroa.11.3, 0
   br i1 %.not218, label %same_list_clear.exit97, label %.lr.ph205
 

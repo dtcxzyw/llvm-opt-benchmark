@@ -292,24 +292,21 @@ if.end8:                                          ; preds = %for.end
   %add9 = add nuw i64 %add, 1
   %call10 = tail call ptr @event_mm_malloc_(i64 noundef %add9) #19
   %cmp11 = icmp eq ptr %call10, null
-  br i1 %cmp11, label %if.then12, label %for.cond15.preheader
+  br i1 %cmp11, label %if.then12, label %for.body17
 
 if.end8.thread:                                   ; preds = %if.end
   %call1044 = tail call ptr @event_mm_malloc_(i64 noundef 1) #19
   %cmp1145 = icmp eq ptr %call1044, null
   br i1 %cmp1145, label %if.then12, label %for.end24
 
-for.cond15.preheader:                             ; preds = %if.end8
-  br i1 %cmp131.not, label %for.end24, label %for.body17
-
 if.then12:                                        ; preds = %if.end8.thread, %if.end8
   %add946 = phi i64 [ 1, %if.end8.thread ], [ %add9, %if.end8 ]
   tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.evhttp_htmlescape, i64 noundef %add946) #19
   br label %return
 
-for.body17:                                       ; preds = %for.cond15.preheader, %html_replace.exit29
-  %i.136 = phi i64 [ %inc23, %html_replace.exit29 ], [ 0, %for.cond15.preheader ]
-  %p.035 = phi ptr [ %add.ptr, %html_replace.exit29 ], [ %call10, %for.cond15.preheader ]
+for.body17:                                       ; preds = %if.end8, %html_replace.exit29
+  %i.136 = phi i64 [ %inc23, %html_replace.exit29 ], [ 0, %if.end8 ]
+  %p.035 = phi ptr [ %add.ptr, %html_replace.exit29 ], [ %call10, %if.end8 ]
   %arrayidx19 = getelementptr inbounds i8, ptr %html, i64 %i.136
   %1 = load i8, ptr %arrayidx19, align 1
   switch i8 %1, label %html_replace.exit29 [
@@ -344,9 +341,9 @@ html_replace.exit29:                              ; preds = %sw.bb1.i28, %sw.bb2
   %exitcond38.not = icmp eq i64 %inc23, %call
   br i1 %exitcond38.not, label %for.end24, label %for.body17, !llvm.loop !6
 
-for.end24:                                        ; preds = %html_replace.exit29, %if.end8.thread, %for.cond15.preheader
-  %call104749 = phi ptr [ %call10, %for.cond15.preheader ], [ %call1044, %if.end8.thread ], [ %call10, %html_replace.exit29 ]
-  %p.0.lcssa = phi ptr [ %call10, %for.cond15.preheader ], [ %call1044, %if.end8.thread ], [ %add.ptr, %html_replace.exit29 ]
+for.end24:                                        ; preds = %html_replace.exit29, %if.end8.thread
+  %call104749 = phi ptr [ %call1044, %if.end8.thread ], [ %call10, %html_replace.exit29 ]
+  %p.0.lcssa = phi ptr [ %call1044, %if.end8.thread ], [ %add.ptr, %html_replace.exit29 ]
   store i8 0, ptr %p.0.lcssa, align 1
   br label %return
 
@@ -2509,7 +2506,7 @@ if.end:                                           ; preds = %entry
   %flags3 = getelementptr inbounds i8, ptr %evcon, i64 200
   %0 = load i32, ptr %flags3, align 8
   %and4 = and i32 %0, -25
-  %or6 = or i32 %and4, %flags
+  %or6 = or disjoint i32 %and4, %flags
   store i32 %or6, ptr %flags3, align 8
   br label %return
 
@@ -5563,7 +5560,7 @@ if.end47.us:                                      ; preds = %for.body.us, %if.th
   %c.0.us = phi i8 [ %conv43.us, %if.then32.us ], [ 37, %land.lhs.true26.us ], [ 37, %land.lhs.true21.us ], [ %0, %if.else13.us ], [ 32, %if.else.us ], [ 63, %for.body.us ]
   %decode_plus.1.us = phi i32 [ %decode_plus.024.us, %if.then32.us ], [ %decode_plus.024.us, %land.lhs.true26.us ], [ %decode_plus.024.us, %land.lhs.true21.us ], [ %decode_plus.024.us, %if.else13.us ], [ 1, %if.else.us ], [ 1, %for.body.us ]
   %i.1.us = phi i32 [ %add.us, %if.then32.us ], [ %i.025.us, %land.lhs.true26.us ], [ %i.025.us, %land.lhs.true21.us ], [ %i.025.us, %if.else13.us ], [ %i.025.us, %if.else.us ], [ %i.025.us, %for.body.us ]
-  %indvars.iv.next30 = add nuw i64 %indvars.iv29, 1
+  %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
   %arrayidx49.us = getelementptr inbounds i8, ptr %ret, i64 %indvars.iv29
   store i8 %c.0.us, ptr %arrayidx49.us, align 1
   %inc50.us = add i32 %i.1.us, 1
@@ -5625,7 +5622,7 @@ if.end47:                                         ; preds = %for.body, %if.else,
   %c.0 = phi i8 [ %conv43, %if.then32 ], [ 37, %land.lhs.true26 ], [ 37, %land.lhs.true21 ], [ %5, %if.else13 ], [ 32, %if.else ], [ 63, %for.body ]
   %decode_plus.1 = phi i32 [ %decode_plus.024, %if.then32 ], [ %decode_plus.024, %land.lhs.true26 ], [ %decode_plus.024, %land.lhs.true21 ], [ %decode_plus.024, %if.else13 ], [ 1, %if.else ], [ %decode_plus.024, %for.body ]
   %i.1 = phi i32 [ %add, %if.then32 ], [ %i.025, %land.lhs.true26 ], [ %i.025, %land.lhs.true21 ], [ %i.025, %if.else13 ], [ %i.025, %if.else ], [ %i.025, %for.body ]
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %arrayidx49 = getelementptr inbounds i8, ptr %ret, i64 %indvars.iv
   store i8 %c.0, ptr %arrayidx49, align 1
   %inc50 = add i32 %i.1, 1
@@ -5734,7 +5731,7 @@ if.end47.us.i:                                    ; preds = %if.then32.us.i, %la
   %c.0.us.i = phi i8 [ %conv43.us.i, %if.then32.us.i ], [ 37, %land.lhs.true26.us.i ], [ 37, %land.lhs.true21.us.i ], [ %0, %if.else13.us.i ], [ 32, %if.else.us.i ], [ 63, %for.body.us.i ]
   %decode_plus.1.us.i = phi i32 [ %decode_plus.024.us.i, %if.then32.us.i ], [ %decode_plus.024.us.i, %land.lhs.true26.us.i ], [ %decode_plus.024.us.i, %land.lhs.true21.us.i ], [ %decode_plus.024.us.i, %if.else13.us.i ], [ 1, %if.else.us.i ], [ 1, %for.body.us.i ]
   %i.1.us.i = phi i32 [ %add.us.i, %if.then32.us.i ], [ %i.025.us.i, %land.lhs.true26.us.i ], [ %i.025.us.i, %land.lhs.true21.us.i ], [ %i.025.us.i, %if.else13.us.i ], [ %i.025.us.i, %if.else.us.i ], [ %i.025.us.i, %for.body.us.i ]
-  %indvars.iv.next30.i = add nuw i64 %indvars.iv29.i, 1
+  %indvars.iv.next30.i = add nuw nsw i64 %indvars.iv29.i, 1
   %arrayidx49.us.i = getelementptr inbounds i8, ptr %call1, i64 %indvars.iv29.i
   store i8 %c.0.us.i, ptr %arrayidx49.us.i, align 1
   %inc50.us.i = add i32 %i.1.us.i, 1
@@ -5957,7 +5954,7 @@ if.end47.i.fold.split:                            ; preds = %for.body.i
 if.end47.i:                                       ; preds = %for.body.i, %if.end47.i.fold.split, %if.then32.i, %land.lhs.true26.i, %land.lhs.true21.i, %if.else13.i
   %c.0.i = phi i8 [ %conv43.i, %if.then32.i ], [ 37, %land.lhs.true26.i ], [ 37, %land.lhs.true21.i ], [ %9, %if.else13.i ], [ %9, %for.body.i ], [ 32, %if.end47.i.fold.split ]
   %i.1.i = phi i32 [ %add.i, %if.then32.i ], [ %i.025.i, %land.lhs.true26.i ], [ %i.025.i, %land.lhs.true21.i ], [ %i.025.i, %if.else13.i ], [ %i.025.i, %for.body.i ], [ %i.025.i, %if.end47.i.fold.split ]
-  %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %arrayidx49.i = getelementptr inbounds i8, ptr %call41, i64 %indvars.iv.i
   store i8 %c.0.i, ptr %arrayidx49.i, align 1
   %inc50.i = add i32 %i.1.i, 1
@@ -11121,7 +11118,7 @@ if.then32.i.i:                                    ; preds = %land.lhs.true26.i.i
 if.end47.i.i:                                     ; preds = %if.then32.i.i, %land.lhs.true26.i.i, %land.lhs.true21.i.i, %if.else13.i.i, %for.body.i.i
   %c.0.i.i = phi i8 [ %conv43.i.i, %if.then32.i.i ], [ 37, %land.lhs.true26.i.i ], [ 37, %land.lhs.true21.i.i ], [ %11, %if.else13.i.i ], [ 63, %for.body.i.i ]
   %i.1.i.i = phi i32 [ %add.i.i, %if.then32.i.i ], [ %i.025.i.i, %land.lhs.true26.i.i ], [ %i.025.i.i, %land.lhs.true21.i.i ], [ %i.025.i.i, %if.else13.i.i ], [ %i.025.i.i, %for.body.i.i ]
-  %indvars.iv.next.i.i = add nuw i64 %indvars.iv.i.i, 1
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %arrayidx49.i.i = getelementptr inbounds i8, ptr %call2.i, i64 %indvars.iv.i.i
   store i8 %c.0.i.i, ptr %arrayidx49.i.i, align 1
   %inc50.i.i = add i32 %i.1.i.i, 1

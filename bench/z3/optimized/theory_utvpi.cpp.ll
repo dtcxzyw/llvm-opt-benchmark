@@ -3370,19 +3370,15 @@ while.cond.i.i.preheader:                         ; preds = %_ZNK4heapI9dl_var_l
 while.cond.i.i:                                   ; preds = %while.cond.i.i.preheader, %while.body.i.i
   %70 = phi ptr [ %.pr.pre.i.i, %while.body.i.i ], [ %.ph, %while.cond.i.i.preheader ]
   %cmp.i10.i.i = icmp eq ptr %70, null
-  br i1 %cmp.i10.i.i, label %_ZNK6vectorIiLb0EjE8capacityEv.exit.i.i, label %if.end.i11.i.i
+  br i1 %cmp.i10.i.i, label %while.body.i.i, label %_ZNK6vectorIiLb0EjE8capacityEv.exit.i.i
 
-if.end.i11.i.i:                                   ; preds = %while.cond.i.i
+_ZNK6vectorIiLb0EjE8capacityEv.exit.i.i:          ; preds = %while.cond.i.i
   %arrayidx.i12.i.i = getelementptr inbounds i8, ptr %70, i64 -8
   %71 = load i32, ptr %arrayidx.i12.i.i, align 4
-  br label %_ZNK6vectorIiLb0EjE8capacityEv.exit.i.i
-
-_ZNK6vectorIiLb0EjE8capacityEv.exit.i.i:          ; preds = %if.end.i11.i.i, %while.cond.i.i
-  %retval.0.i13.i.i = phi i32 [ %71, %if.end.i11.i.i ], [ 0, %while.cond.i.i ]
-  %cmp3.i.i.not = icmp ugt i32 %retval.0.i13.i.i, %v
+  %cmp3.i.i.not = icmp ugt i32 %71, %v
   br i1 %cmp3.i.i.not, label %while.end.i.i, label %while.body.i.i
 
-while.body.i.i:                                   ; preds = %_ZNK6vectorIiLb0EjE8capacityEv.exit.i.i
+while.body.i.i:                                   ; preds = %while.cond.i.i, %_ZNK6vectorIiLb0EjE8capacityEv.exit.i.i
   call void @_ZN6vectorIiLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_value2indices.i)
   %.pr.pre.i.i = load ptr, ptr %m_value2indices.i, align 8
   br label %while.cond.i.i, !llvm.loop !18
@@ -21300,19 +21296,15 @@ while.cond.i.i.preheader:                         ; preds = %_ZNK4heapI9dl_var_l
 while.cond.i.i:                                   ; preds = %while.cond.i.i.preheader, %while.body.i.i
   %72 = phi ptr [ %.pr.pre.i.i, %while.body.i.i ], [ %.ph, %while.cond.i.i.preheader ]
   %cmp.i10.i.i = icmp eq ptr %72, null
-  br i1 %cmp.i10.i.i, label %_ZNK6vectorIiLb0EjE8capacityEv.exit.i.i, label %if.end.i11.i.i
+  br i1 %cmp.i10.i.i, label %while.body.i.i, label %_ZNK6vectorIiLb0EjE8capacityEv.exit.i.i
 
-if.end.i11.i.i:                                   ; preds = %while.cond.i.i
+_ZNK6vectorIiLb0EjE8capacityEv.exit.i.i:          ; preds = %while.cond.i.i
   %arrayidx.i12.i.i = getelementptr inbounds i8, ptr %72, i64 -8
   %73 = load i32, ptr %arrayidx.i12.i.i, align 4
-  br label %_ZNK6vectorIiLb0EjE8capacityEv.exit.i.i
-
-_ZNK6vectorIiLb0EjE8capacityEv.exit.i.i:          ; preds = %if.end.i11.i.i, %while.cond.i.i
-  %retval.0.i13.i.i = phi i32 [ %73, %if.end.i11.i.i ], [ 0, %while.cond.i.i ]
-  %cmp3.i.i.not = icmp ugt i32 %retval.0.i13.i.i, %v
+  %cmp3.i.i.not = icmp ugt i32 %73, %v
   br i1 %cmp3.i.i.not, label %while.end.i.i, label %while.body.i.i
 
-while.body.i.i:                                   ; preds = %_ZNK6vectorIiLb0EjE8capacityEv.exit.i.i
+while.body.i.i:                                   ; preds = %while.cond.i.i, %_ZNK6vectorIiLb0EjE8capacityEv.exit.i.i
   call void @_ZN6vectorIiLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_value2indices.i)
   %.pr.pre.i.i = load ptr, ptr %m_value2indices.i, align 8
   br label %while.cond.i.i, !llvm.loop !18
@@ -37005,7 +36997,7 @@ lpad122:                                          ; preds = %invoke.cont123, %in
   br label %ehcleanup134
 
 cleanup:                                          ; preds = %_ZNSt4pairIP4expr8rationalED2Ev.exit, %for.cond.preheader, %if.else114, %land.lhs.true.i508, %.noexc.i526, %.noexc.i504, %.noexc.i496, %.noexc.i406, %.noexc.i237, %.noexc.i, %invoke.cont115
-  %cleanup.dest.slot.0 = phi i1 [ false, %invoke.cont115 ], [ true, %.noexc.i ], [ true, %.noexc.i237 ], [ true, %.noexc.i406 ], [ true, %.noexc.i496 ], [ true, %.noexc.i504 ], [ true, %.noexc.i526 ], [ false, %land.lhs.true.i508 ], [ false, %if.else114 ], [ true, %for.cond.preheader ], [ true, %_ZNSt4pairIP4expr8rationalED2Ev.exit ]
+  %switch = phi i1 [ false, %invoke.cont115 ], [ true, %.noexc.i ], [ true, %.noexc.i237 ], [ true, %.noexc.i406 ], [ true, %.noexc.i496 ], [ true, %.noexc.i504 ], [ true, %.noexc.i526 ], [ false, %land.lhs.true.i508 ], [ false, %if.else114 ], [ true, %for.cond.preheader ], [ true, %_ZNSt4pairIP4expr8rationalED2Ev.exit ]
   %210 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %210, ptr noundef nonnull align 8 dereferenceable(16) %mul)
           to label %.noexc.i530 unwind label %terminate.lpad.i529
@@ -37038,7 +37030,7 @@ terminate.lpad.i533:                              ; preds = %.noexc.i534, %_ZN8r
   unreachable
 
 _ZN8rationalD2Ev.exit536:                         ; preds = %.noexc.i534
-  br i1 %cleanup.dest.slot.0, label %while.cond, label %return
+  br i1 %switch, label %while.cond, label %return
 
 ehcleanup134:                                     ; preds = %lpad6.loopexit, %lpad6.loopexit.split-lp, %lpad122, %lpad110, %lpad97, %lpad81, %lpad71, %lpad58, %lpad40, %lpad24
   %.pn24 = phi { ptr, i32 } [ %47, %lpad24 ], [ %78, %lpad40 ], [ %111, %lpad58 ], [ %163, %lpad81 ], [ %162, %lpad71 ], [ %193, %lpad97 ], [ %198, %lpad110 ], [ %209, %lpad122 ], [ %lpad.loopexit, %lpad6.loopexit ], [ %lpad.loopexit.split-lp, %lpad6.loopexit.split-lp ]

@@ -3218,19 +3218,15 @@ while.cond.i.i.i.preheader:                       ; preds = %_ZNK6vectorIPN3smt9
 while.cond.i.i.i:                                 ; preds = %while.cond.i.i.i.preheader, %while.body.i.i.i
   %37 = phi ptr [ %.pr.pre.i.i.i, %while.body.i.i.i ], [ %.ph, %while.cond.i.i.i.preheader ]
   %cmp.i10.i.i.i = icmp eq ptr %37, null
-  br i1 %cmp.i10.i.i.i, label %_ZNK6vectorIPN3smt9theory_bv4atomELb0EjE8capacityEv.exit.i.i.i, label %if.end.i11.i.i.i
+  br i1 %cmp.i10.i.i.i, label %while.body.i.i.i, label %_ZNK6vectorIPN3smt9theory_bv4atomELb0EjE8capacityEv.exit.i.i.i
 
-if.end.i11.i.i.i:                                 ; preds = %while.cond.i.i.i
+_ZNK6vectorIPN3smt9theory_bv4atomELb0EjE8capacityEv.exit.i.i.i: ; preds = %while.cond.i.i.i
   %arrayidx.i12.i.i.i = getelementptr inbounds i8, ptr %37, i64 -8
   %38 = load i32, ptr %arrayidx.i12.i.i.i, align 4
-  br label %_ZNK6vectorIPN3smt9theory_bv4atomELb0EjE8capacityEv.exit.i.i.i
-
-_ZNK6vectorIPN3smt9theory_bv4atomELb0EjE8capacityEv.exit.i.i.i: ; preds = %if.end.i11.i.i.i, %while.cond.i.i.i
-  %retval.0.i13.i.i.i = phi i32 [ %38, %if.end.i11.i.i.i ], [ 0, %while.cond.i.i.i ]
-  %cmp3.i.i.i.not = icmp ugt i32 %retval.0.i13.i.i.i, %shr.i
+  %cmp3.i.i.i.not = icmp ugt i32 %38, %shr.i
   br i1 %cmp3.i.i.i.not, label %while.end.i.i.i, label %while.body.i.i.i
 
-while.body.i.i.i:                                 ; preds = %_ZNK6vectorIPN3smt9theory_bv4atomELb0EjE8capacityEv.exit.i.i.i
+while.body.i.i.i:                                 ; preds = %while.cond.i.i.i, %_ZNK6vectorIPN3smt9theory_bv4atomELb0EjE8capacityEv.exit.i.i.i
   tail call void @_ZN6vectorIPN3smt9theory_bv4atomELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_bool_var2atom.i43)
   %.pr.pre.i.i.i = load ptr, ptr %m_bool_var2atom.i43, align 8
   br label %while.cond.i.i.i, !llvm.loop !7
@@ -3239,13 +3235,13 @@ while.end.i.i.i:                                  ; preds = %_ZNK6vectorIPN3smt9
   %arrayidx.i3.i.i = getelementptr inbounds i8, ptr %37, i64 -4
   store i32 %add8.i.i.ph, ptr %arrayidx.i3.i.i, align 4
   %cmp8.not17.i.i.i = icmp eq i32 %retval.0.i16.i.i.i.ph, %add8.i.i.ph
-  %.pre81 = load ptr, ptr %m_bool_var2atom.i43, align 8
+  %.pre83 = load ptr, ptr %m_bool_var2atom.i43, align 8
   br i1 %cmp8.not17.i.i.i, label %_ZN3smt9theory_bv11insert_bv2aEjPNS0_4atomE.exit, label %for.body.preheader.i.i.i
 
 for.body.preheader.i.i.i:                         ; preds = %while.end.i.i.i
   %idx.ext6.i.i.i = zext i32 %add8.i.i.ph to i64
   %idx.ext.i.i.i = zext i32 %retval.0.i16.i.i.i.ph to i64
-  %add.ptr.i.i.i = getelementptr ptr, ptr %.pre81, i64 %idx.ext.i.i.i
+  %add.ptr.i.i.i = getelementptr ptr, ptr %.pre83, i64 %idx.ext.i.i.i
   %39 = sub nsw i64 %idx.ext6.i.i.i, %idx.ext.i.i.i
   %40 = shl nsw i64 %39, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %add.ptr.i.i.i, i8 0, i64 %40, i1 false)
@@ -3253,7 +3249,7 @@ for.body.preheader.i.i.i:                         ; preds = %while.end.i.i.i
   br label %_ZN3smt9theory_bv11insert_bv2aEjPNS0_4atomE.exit
 
 _ZN3smt9theory_bv11insert_bv2aEjPNS0_4atomE.exit: ; preds = %_ZNK6vectorIPN3smt9theory_bv4atomELb0EjE4sizeEv.exit.i.i, %while.end.i.i.i, %for.body.preheader.i.i.i
-  %41 = phi ptr [ %35, %_ZNK6vectorIPN3smt9theory_bv4atomELb0EjE4sizeEv.exit.i.i ], [ %.pre81, %while.end.i.i.i ], [ %.pre, %for.body.preheader.i.i.i ]
+  %41 = phi ptr [ %35, %_ZNK6vectorIPN3smt9theory_bv4atomELb0EjE4sizeEv.exit.i.i ], [ %.pre83, %while.end.i.i.i ], [ %.pre, %for.body.preheader.i.i.i ]
   %arrayidx.i.i48 = getelementptr inbounds ptr, ptr %41, i64 %idxprom.i.i.i
   store ptr %call.i41, ptr %arrayidx.i.i48, align 8
   %m_trail_stack30 = getelementptr inbounds i8, ptr %this, i64 248

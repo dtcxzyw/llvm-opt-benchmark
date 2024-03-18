@@ -1287,12 +1287,12 @@ _ZN6vectorIP4exprLb0EjE6resizeEj.exit:            ; preds = %if.then.i.i, %while
 
 for.body.lr.ph:                                   ; preds = %_ZN6vectorIP4exprLb0EjE6resizeEj.exit
   %m_args.i = getelementptr inbounds i8, ptr %6, i64 32
+  %31 = icmp eq i32 %30, 1
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %31 = phi i32 [ %30, %for.body.lr.ph ], [ %46, %for.inc ]
-  %cmp26 = icmp eq i32 %31, 1
+  %cmp26 = phi i1 [ %31, %for.body.lr.ph ], [ false, %for.inc ]
   br i1 %cmp26, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %for.body

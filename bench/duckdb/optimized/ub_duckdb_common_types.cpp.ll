@@ -47023,7 +47023,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
   br i1 %8, label %middle.block, label %vector.body, !llvm.loop !934
 
 middle.block:                                     ; preds = %vector.body
-  %cmp.n = icmp eq i64 %umax.i, %n.vec
+  %cmp.n = icmp eq i64 %div1.i.i, %n.vec
   br i1 %cmp.n, label %_ZN6duckdb21TemplatedValidityDataImEC2EPKmm.exit, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %middle.block, %for.body.lr.ph.i
@@ -47932,7 +47932,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
   br i1 %10, label %middle.block, label %vector.body, !llvm.loop !966
 
 middle.block:                                     ; preds = %vector.body
-  %cmp.n = icmp eq i64 %umax, %n.vec
+  %cmp.n = icmp eq i64 %div1.i.i30, %n.vec
   br i1 %cmp.n, label %for.cond8.preheader, label %for.body.preheader41
 
 for.body.preheader41:                             ; preds = %middle.block, %for.body.preheader

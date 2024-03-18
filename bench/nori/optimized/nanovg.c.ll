@@ -32402,12 +32402,11 @@ stbi__skip.exit451.i:                             ; preds = %2721, %2717
 
 .loopexit.i:                                      ; preds = %._crit_edge71.us.i, %.lr.ph73.i, %.preheader.i, %.loopexit15..loopexit_crit_edge.i
   %.pre103.i = phi i32 [ %.pre103.pre.i, %.loopexit15..loopexit_crit_edge.i ], [ %.pre103.pre107.i, %.preheader.i ], [ %.pre103.pre107.i, %.lr.ph73.i ], [ %.pre103.pre107.i, %._crit_edge71.us.i ]
-  %.not320.i = icmp eq i32 %..i, %4
-  %or.cond.i = or i1 %.not313.i, %.not320.i
+  %or.cond.i = or i1 %.not313.i, %1882
   br i1 %or.cond.i, label %2759, label %2756
 
 2756:                                             ; preds = %.loopexit.i
-  %2757 = tail call fastcc ptr @stbi__convert_format(ptr noundef nonnull %1896, i32 noundef %..i, i32 noundef %4, i32 noundef %.pre103.i, i32 noundef %2727)
+  %2757 = tail call fastcc ptr @stbi__convert_format(ptr noundef nonnull %1896, i32 noundef %1880, i32 noundef %4, i32 noundef %.pre103.i, i32 noundef %2727)
   %2758 = icmp eq ptr %2757, null
   br i1 %2758, label %stbi__bmp_load.exit, label %._crit_edge101.i
 
