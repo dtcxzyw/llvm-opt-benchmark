@@ -240,7 +240,7 @@ define internal fastcc void @tgl_get_bw_info(ptr noundef %0, ptr nocapture nound
 15:                                               ; preds = %12, %10
   %16 = phi ptr [ %14, %12 ], [ null, %10 ]
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %16, i32 noundef 2, ptr noundef nonnull @.str.3) #10
-  br label %234
+  br label %235
 
 17:                                               ; preds = %2
   %18 = getelementptr inbounds i8, ptr %0, i64 2632
@@ -381,7 +381,7 @@ define internal fastcc void @tgl_get_bw_info(ptr noundef %0, ptr nocapture nound
   br label %116
 
 116:                                              ; preds = %.loopexit, %._crit_edge
-  %117 = phi i64 [ 0, %._crit_edge ], [ %227, %.loopexit ]
+  %117 = phi i64 [ 0, %._crit_edge ], [ %228, %.loopexit ]
   %118 = getelementptr [6 x %struct.intel_bw_info], ptr %102, i64 0, i64 %117
   %119 = load i8, ptr %103, align 2
   %120 = zext i8 %119 to i32
@@ -425,7 +425,7 @@ define internal fastcc void @tgl_get_bw_info(ptr noundef %0, ptr nocapture nound
   %145 = mul nsw i32 %142, %113
   br label %165
 
-thread-pre-split:                                 ; preds = %204, %137
+thread-pre-split:                                 ; preds = %205, %137
   br i1 %115, label %.loopexit, label %146
 
 146:                                              ; preds = %thread-pre-split
@@ -459,8 +459,8 @@ thread-pre-split:                                 ; preds = %204, %137
   %exitcond12.not = icmp eq i64 %164, %umax9
   br i1 %exitcond12.not, label %.loopexit, label %.split.us, !llvm.loop !10
 
-165:                                              ; preds = %204, %141
-  %166 = phi i64 [ 0, %141 ], [ %209, %204 ]
+165:                                              ; preds = %205, %141
+  %166 = phi i64 [ 0, %141 ], [ %210, %205 ]
   %167 = getelementptr [8 x %struct.intel_qgv_point], ptr %3, i64 0, i64 %166
   %168 = getelementptr inbounds i8, ptr %167, i64 6
   %169 = load i16, ptr %168, align 2
@@ -492,75 +492,75 @@ thread-pre-split:                                 ; preds = %204, %137
   %195 = tail call i32 @llvm.smin.i32(i32 %92, i32 %194)
   %196 = getelementptr [8 x i32], ptr %118, i64 0, i64 %166
   store i32 %195, ptr %196, align 4
-  %197 = mul nuw nsw i32 %factor.op.mul, %185
-  %.not = icmp eq i32 %197, 0
-  %198 = select i1 %.not, i32 -4, i32 4
-  %199 = add i32 %198, %197
-  %200 = sdiv i32 %199, 8
-  %201 = getelementptr [8 x i32], ptr %143, i64 0, i64 %166
-  store i32 %200, ptr %201, align 4
-  br i1 %108, label %204, label %202
+  %197 = mul i32 %factor.op.mul, %185
+  %198 = icmp sgt i32 %197, 0
+  %199 = select i1 %198, i32 4, i32 -4
+  %200 = add i32 %199, %197
+  %201 = sdiv i32 %200, 8
+  %202 = getelementptr [8 x i32], ptr %143, i64 0, i64 %166
+  store i32 %201, ptr %202, align 4
+  br i1 %108, label %205, label %203
 
-202:                                              ; preds = %165
-  %203 = load ptr, ptr %109, align 8
-  br label %204
+203:                                              ; preds = %165
+  %204 = load ptr, ptr %109, align 8
+  br label %205
 
-204:                                              ; preds = %202, %165
-  %205 = phi ptr [ %203, %202 ], [ null, %165 ]
-  %206 = load i8, ptr %144, align 2
-  %207 = zext i8 %206 to i32
-  %208 = trunc i64 %166 to i32
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %205, i32 noundef 2, ptr noundef nonnull @.str.5, i32 noundef %123, i32 noundef %208, i32 noundef %207, i32 noundef %195, i32 noundef %200) #10
-  %209 = add nuw nsw i64 %166, 1
-  %exitcond.not = icmp eq i64 %209, %umax
+205:                                              ; preds = %203, %165
+  %206 = phi ptr [ %204, %203 ], [ null, %165 ]
+  %207 = load i8, ptr %144, align 2
+  %208 = zext i8 %207 to i32
+  %209 = trunc i64 %166 to i32
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %206, i32 noundef 2, ptr noundef nonnull @.str.5, i32 noundef %123, i32 noundef %209, i32 noundef %208, i32 noundef %195, i32 noundef %201) #10
+  %210 = add nuw nsw i64 %166, 1
+  %exitcond.not = icmp eq i64 %210, %umax
   br i1 %exitcond.not, label %thread-pre-split, label %165, !llvm.loop !11
 
-.split:                                           ; preds = %146, %219
-  %210 = phi i64 [ %226, %219 ], [ 0, %146 ]
-  %211 = getelementptr [3 x %struct.intel_psf_gv_point], ptr %110, i64 0, i64 %210
-  %212 = load i8, ptr %211, align 1
-  %213 = icmp eq i8 %212, 0
-  br i1 %213, label %219, label %214
+.split:                                           ; preds = %146, %220
+  %211 = phi i64 [ %227, %220 ], [ 0, %146 ]
+  %212 = getelementptr [3 x %struct.intel_psf_gv_point], ptr %110, i64 0, i64 %211
+  %213 = load i8, ptr %212, align 1
+  %214 = icmp eq i8 %213, 0
+  br i1 %214, label %220, label %215
 
-214:                                              ; preds = %.split
-  %215 = zext i8 %212 to i32
-  %216 = mul nuw nsw i32 %215, 6400
-  %217 = or disjoint i32 %216, 2
-  %218 = udiv i32 %217, 6
-  br label %219
+215:                                              ; preds = %.split
+  %216 = zext i8 %213 to i32
+  %217 = mul nuw nsw i32 %216, 6400
+  %218 = or disjoint i32 %217, 2
+  %219 = udiv i32 %218, 6
+  br label %220
 
-219:                                              ; preds = %214, %.split
-  %220 = phi i32 [ %218, %214 ], [ 0, %.split ]
-  %221 = getelementptr [3 x i32], ptr %147, i64 0, i64 %210
-  store i32 %220, ptr %221, align 4
-  %222 = load ptr, ptr %109, align 8
-  %223 = load i8, ptr %148, align 2
-  %224 = zext i8 %223 to i32
-  %225 = trunc i64 %210 to i32
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %222, i32 noundef 2, ptr noundef nonnull @.str.6, i32 noundef %123, i32 noundef %225, i32 noundef %224, i32 noundef %220) #10
-  %226 = add nuw nsw i64 %210, 1
-  %exitcond10.not = icmp eq i64 %226, %umax9
+220:                                              ; preds = %215, %.split
+  %221 = phi i32 [ %219, %215 ], [ 0, %.split ]
+  %222 = getelementptr [3 x i32], ptr %147, i64 0, i64 %211
+  store i32 %221, ptr %222, align 4
+  %223 = load ptr, ptr %109, align 8
+  %224 = load i8, ptr %148, align 2
+  %225 = zext i8 %224 to i32
+  %226 = trunc i64 %211 to i32
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %223, i32 noundef 2, ptr noundef nonnull @.str.6, i32 noundef %123, i32 noundef %226, i32 noundef %225, i32 noundef %221) #10
+  %227 = add nuw nsw i64 %211, 1
+  %exitcond10.not = icmp eq i64 %227, %umax9
   br i1 %exitcond10.not, label %.loopexit, label %.split, !llvm.loop !10
 
-.loopexit:                                        ; preds = %219, %158, %thread-pre-split
-  %227 = add nuw nsw i64 %117, 1
-  %228 = icmp eq i64 %227, 6
-  br i1 %228, label %229, label %116, !llvm.loop !12
+.loopexit:                                        ; preds = %220, %158, %thread-pre-split
+  %228 = add nuw nsw i64 %117, 1
+  %229 = icmp eq i64 %228, 6
+  br i1 %229, label %230, label %116, !llvm.loop !12
 
-229:                                              ; preds = %.loopexit
-  %230 = icmp eq i8 %64, 1
-  %231 = getelementptr inbounds i8, ptr %0, i64 3416
-  br i1 %230, label %232, label %233
+230:                                              ; preds = %.loopexit
+  %231 = icmp eq i8 %64, 1
+  %232 = getelementptr inbounds i8, ptr %0, i64 3416
+  br i1 %231, label %233, label %234
 
-232:                                              ; preds = %229
-  store i32 3, ptr %231, align 8
-  br label %234
+233:                                              ; preds = %230
+  store i32 3, ptr %232, align 8
+  br label %235
 
-233:                                              ; preds = %229
-  store i32 2, ptr %231, align 8
-  br label %234
+234:                                              ; preds = %230
+  store i32 2, ptr %232, align 8
+  br label %235
 
-234:                                              ; preds = %233, %232, %15
+235:                                              ; preds = %234, %233, %15
   call void @llvm.lifetime.end.p0(i64 106, ptr nonnull %3) #10
   ret void
 }
