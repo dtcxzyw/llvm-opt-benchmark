@@ -257,7 +257,7 @@ define internal i32 @dissect_trmac(ptr noundef %0, ptr noundef %1, ptr noundef %
   %8 = alloca i32, align 4
   %9 = tail call i32 @tvb_captured_length(ptr noundef %0) #4
   %10 = icmp ult i32 %9, 3
-  br i1 %10, label %378, label %11
+  br i1 %10, label %380, label %11
 
 11:                                               ; preds = %4
   %12 = getelementptr inbounds i8, ptr %1, i64 8
@@ -295,8 +295,8 @@ define internal i32 @dissect_trmac(ptr noundef %0, ptr noundef %1, ptr noundef %
   %37 = getelementptr inbounds i8, ptr %1, i64 408
   br label %38
 
-38:                                               ; preds = %.lr.ph, %373
-  %.033 = phi i32 [ 4, %.lr.ph ], [ %374, %373 ]
+38:                                               ; preds = %.lr.ph, %375
+  %.033 = phi i32 [ 4, %.lr.ph ], [ %376, %375 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %6)
   %39 = load i32, ptr @ett_tr_sv, align 4
@@ -323,7 +323,7 @@ sv_text.exit.thread30:                            ; preds = %38
   %53 = load ptr, ptr %5, align 8
   %54 = call ptr @val_to_str_ext(i32 noundef %50, ptr noundef nonnull @subvector_vs_ext, ptr noundef nonnull @.str.132) #4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %53, ptr noundef nonnull @.str.131, ptr noundef %54) #4
-  switch i8 %49, label %368 [
+  switch i8 %49, label %370 [
     i8 1, label %55
     i8 2, label %66
     i8 3, label %76
@@ -346,8 +346,8 @@ sv_text.exit.thread30:                            ; preds = %38
     i8 43, label %254
     i8 44, label %271
     i8 45, label %280
-    i8 46, label %319
-    i8 48, label %358
+    i8 46, label %320
+    i8 48, label %360
   ]
 
 55:                                               ; preds = %47
@@ -736,136 +736,138 @@ sv_text.exit.thread30:                            ; preds = %38
   %285 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %6, i32 noundef %284, i64 noundef 6) #4
   %286 = load i32, ptr @hf_trmac_errors_iso, align 4
   %287 = load <4 x i8>, ptr %6, align 4
-  %288 = zext <4 x i8> %287 to <4 x i32>
-  %289 = load i8, ptr %36, align 4
-  %290 = zext i8 %289 to i32
-  %291 = call i32 @llvm.vector.reduce.add.v4i32(<4 x i32> %288)
-  %op.rdx = add i32 %291, %290
-  %292 = call ptr @proto_tree_add_uint(ptr noundef %40, i32 noundef %286, ptr noundef %0, i32 noundef %284, i32 noundef 6, i32 noundef %op.rdx) #4
-  %293 = load i32, ptr @ett_tr_ierr_cnt, align 4
-  %294 = call ptr @proto_item_add_subtree(ptr noundef %292, i32 noundef %293) #4
-  %295 = load i32, ptr @hf_trmac_errors_line, align 4
-  %296 = load i8, ptr %6, align 4
-  %297 = zext i8 %296 to i32
-  %298 = call ptr @proto_tree_add_uint(ptr noundef %294, i32 noundef %295, ptr noundef %0, i32 noundef %284, i32 noundef 1, i32 noundef %297) #4
-  %299 = load i32, ptr @hf_trmac_errors_internal, align 4
-  %300 = add i32 %.033, 3
-  %301 = load i8, ptr %33, align 1
-  %302 = zext i8 %301 to i32
-  %303 = call ptr @proto_tree_add_uint(ptr noundef %294, i32 noundef %299, ptr noundef %0, i32 noundef %300, i32 noundef 1, i32 noundef %302) #4
-  %304 = load i32, ptr @hf_trmac_errors_burst, align 4
-  %305 = add i32 %.033, 4
-  %306 = load i8, ptr %34, align 2
-  %307 = zext i8 %306 to i32
-  %308 = call ptr @proto_tree_add_uint(ptr noundef %294, i32 noundef %304, ptr noundef %0, i32 noundef %305, i32 noundef 1, i32 noundef %307) #4
-  %309 = load i32, ptr @hf_trmac_errors_ac, align 4
-  %310 = add i32 %.033, 5
-  %311 = load i8, ptr %35, align 1
-  %312 = zext i8 %311 to i32
-  %313 = call ptr @proto_tree_add_uint(ptr noundef %294, i32 noundef %309, ptr noundef %0, i32 noundef %310, i32 noundef 1, i32 noundef %312) #4
-  %314 = load i32, ptr @hf_trmac_errors_abort, align 4
-  %315 = add i32 %.033, 6
-  %316 = load i8, ptr %36, align 4
-  %317 = zext i8 %316 to i32
-  %318 = call ptr @proto_tree_add_uint(ptr noundef %294, i32 noundef %314, ptr noundef %0, i32 noundef %315, i32 noundef 1, i32 noundef %317) #4
+  %288 = load i8, ptr %36, align 4
+  %289 = zext i8 %288 to i32
+  %290 = zext <4 x i8> %287 to <4 x i16>
+  %291 = call i16 @llvm.vector.reduce.add.v4i16(<4 x i16> %290)
+  %292 = zext i16 %291 to i32
+  %op.rdx = add nuw nsw i32 %292, %289
+  %293 = call ptr @proto_tree_add_uint(ptr noundef %40, i32 noundef %286, ptr noundef %0, i32 noundef %284, i32 noundef 6, i32 noundef %op.rdx) #4
+  %294 = load i32, ptr @ett_tr_ierr_cnt, align 4
+  %295 = call ptr @proto_item_add_subtree(ptr noundef %293, i32 noundef %294) #4
+  %296 = load i32, ptr @hf_trmac_errors_line, align 4
+  %297 = load i8, ptr %6, align 4
+  %298 = zext i8 %297 to i32
+  %299 = call ptr @proto_tree_add_uint(ptr noundef %295, i32 noundef %296, ptr noundef %0, i32 noundef %284, i32 noundef 1, i32 noundef %298) #4
+  %300 = load i32, ptr @hf_trmac_errors_internal, align 4
+  %301 = add i32 %.033, 3
+  %302 = load i8, ptr %33, align 1
+  %303 = zext i8 %302 to i32
+  %304 = call ptr @proto_tree_add_uint(ptr noundef %295, i32 noundef %300, ptr noundef %0, i32 noundef %301, i32 noundef 1, i32 noundef %303) #4
+  %305 = load i32, ptr @hf_trmac_errors_burst, align 4
+  %306 = add i32 %.033, 4
+  %307 = load i8, ptr %34, align 2
+  %308 = zext i8 %307 to i32
+  %309 = call ptr @proto_tree_add_uint(ptr noundef %295, i32 noundef %305, ptr noundef %0, i32 noundef %306, i32 noundef 1, i32 noundef %308) #4
+  %310 = load i32, ptr @hf_trmac_errors_ac, align 4
+  %311 = add i32 %.033, 5
+  %312 = load i8, ptr %35, align 1
+  %313 = zext i8 %312 to i32
+  %314 = call ptr @proto_tree_add_uint(ptr noundef %295, i32 noundef %310, ptr noundef %0, i32 noundef %311, i32 noundef 1, i32 noundef %313) #4
+  %315 = load i32, ptr @hf_trmac_errors_abort, align 4
+  %316 = add i32 %.033, 6
+  %317 = load i8, ptr %36, align 4
+  %318 = zext i8 %317 to i32
+  %319 = call ptr @proto_tree_add_uint(ptr noundef %295, i32 noundef %315, ptr noundef %0, i32 noundef %316, i32 noundef 1, i32 noundef %318) #4
   br label %sv_text.exit.thread
 
-319:                                              ; preds = %47
+320:                                              ; preds = %47
   %.not299.i = icmp eq i8 %41, 8
-  br i1 %.not299.i, label %322, label %320
+  br i1 %.not299.i, label %323, label %321
 
-320:                                              ; preds = %319
-  %321 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %44, ptr noundef nonnull @ei_trmac_sv_len, ptr noundef nonnull @.str.136) #4
+321:                                              ; preds = %320
+  %322 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %44, ptr noundef nonnull @ei_trmac_sv_len, ptr noundef nonnull @.str.136) #4
   br label %sv_text.exit
 
-322:                                              ; preds = %319
-  %323 = add i32 %.033, 2
-  %324 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %6, i32 noundef %323, i64 noundef 6) #4
-  %325 = load i32, ptr @hf_trmac_errors_noniso, align 4
-  %326 = load <4 x i8>, ptr %6, align 4
-  %327 = zext <4 x i8> %326 to <4 x i32>
+323:                                              ; preds = %320
+  %324 = add i32 %.033, 2
+  %325 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %6, i32 noundef %324, i64 noundef 6) #4
+  %326 = load i32, ptr @hf_trmac_errors_noniso, align 4
+  %327 = load <4 x i8>, ptr %6, align 4
   %328 = load i8, ptr %36, align 4
   %329 = zext i8 %328 to i32
-  %330 = call i32 @llvm.vector.reduce.add.v4i32(<4 x i32> %327)
-  %op.rdx38 = add i32 %330, %329
-  %331 = call ptr @proto_tree_add_uint(ptr noundef %40, i32 noundef %325, ptr noundef %0, i32 noundef %323, i32 noundef 6, i32 noundef %op.rdx38) #4
-  %332 = load i32, ptr @ett_tr_nerr_cnt, align 4
-  %333 = call ptr @proto_item_add_subtree(ptr noundef %331, i32 noundef %332) #4
-  %334 = load i32, ptr @hf_trmac_errors_lost, align 4
-  %335 = load i8, ptr %6, align 4
-  %336 = zext i8 %335 to i32
-  %337 = call ptr @proto_tree_add_uint(ptr noundef %333, i32 noundef %334, ptr noundef %0, i32 noundef %323, i32 noundef 1, i32 noundef %336) #4
-  %338 = load i32, ptr @hf_trmac_errors_congestion, align 4
-  %339 = add i32 %.033, 3
-  %340 = load i8, ptr %33, align 1
-  %341 = zext i8 %340 to i32
-  %342 = call ptr @proto_tree_add_uint(ptr noundef %333, i32 noundef %338, ptr noundef %0, i32 noundef %339, i32 noundef 1, i32 noundef %341) #4
-  %343 = load i32, ptr @hf_trmac_errors_fc, align 4
-  %344 = add i32 %.033, 4
-  %345 = load i8, ptr %34, align 2
-  %346 = zext i8 %345 to i32
-  %347 = call ptr @proto_tree_add_uint(ptr noundef %333, i32 noundef %343, ptr noundef %0, i32 noundef %344, i32 noundef 1, i32 noundef %346) #4
-  %348 = load i32, ptr @hf_trmac_errors_freq, align 4
-  %349 = add i32 %.033, 5
-  %350 = load i8, ptr %35, align 1
-  %351 = zext i8 %350 to i32
-  %352 = call ptr @proto_tree_add_uint(ptr noundef %333, i32 noundef %348, ptr noundef %0, i32 noundef %349, i32 noundef 1, i32 noundef %351) #4
-  %353 = load i32, ptr @hf_trmac_errors_token, align 4
-  %354 = add i32 %.033, 6
-  %355 = load i8, ptr %36, align 4
-  %356 = zext i8 %355 to i32
-  %357 = call ptr @proto_tree_add_uint(ptr noundef %333, i32 noundef %353, ptr noundef %0, i32 noundef %354, i32 noundef 1, i32 noundef %356) #4
+  %330 = zext <4 x i8> %327 to <4 x i16>
+  %331 = call i16 @llvm.vector.reduce.add.v4i16(<4 x i16> %330)
+  %332 = zext i16 %331 to i32
+  %op.rdx38 = add nuw nsw i32 %332, %329
+  %333 = call ptr @proto_tree_add_uint(ptr noundef %40, i32 noundef %326, ptr noundef %0, i32 noundef %324, i32 noundef 6, i32 noundef %op.rdx38) #4
+  %334 = load i32, ptr @ett_tr_nerr_cnt, align 4
+  %335 = call ptr @proto_item_add_subtree(ptr noundef %333, i32 noundef %334) #4
+  %336 = load i32, ptr @hf_trmac_errors_lost, align 4
+  %337 = load i8, ptr %6, align 4
+  %338 = zext i8 %337 to i32
+  %339 = call ptr @proto_tree_add_uint(ptr noundef %335, i32 noundef %336, ptr noundef %0, i32 noundef %324, i32 noundef 1, i32 noundef %338) #4
+  %340 = load i32, ptr @hf_trmac_errors_congestion, align 4
+  %341 = add i32 %.033, 3
+  %342 = load i8, ptr %33, align 1
+  %343 = zext i8 %342 to i32
+  %344 = call ptr @proto_tree_add_uint(ptr noundef %335, i32 noundef %340, ptr noundef %0, i32 noundef %341, i32 noundef 1, i32 noundef %343) #4
+  %345 = load i32, ptr @hf_trmac_errors_fc, align 4
+  %346 = add i32 %.033, 4
+  %347 = load i8, ptr %34, align 2
+  %348 = zext i8 %347 to i32
+  %349 = call ptr @proto_tree_add_uint(ptr noundef %335, i32 noundef %345, ptr noundef %0, i32 noundef %346, i32 noundef 1, i32 noundef %348) #4
+  %350 = load i32, ptr @hf_trmac_errors_freq, align 4
+  %351 = add i32 %.033, 5
+  %352 = load i8, ptr %35, align 1
+  %353 = zext i8 %352 to i32
+  %354 = call ptr @proto_tree_add_uint(ptr noundef %335, i32 noundef %350, ptr noundef %0, i32 noundef %351, i32 noundef 1, i32 noundef %353) #4
+  %355 = load i32, ptr @hf_trmac_errors_token, align 4
+  %356 = add i32 %.033, 6
+  %357 = load i8, ptr %36, align 4
+  %358 = zext i8 %357 to i32
+  %359 = call ptr @proto_tree_add_uint(ptr noundef %335, i32 noundef %355, ptr noundef %0, i32 noundef %356, i32 noundef 1, i32 noundef %358) #4
   br label %sv_text.exit.thread
 
-358:                                              ; preds = %47
+360:                                              ; preds = %47
   %.not.i = icmp eq i8 %41, 4
-  br i1 %.not.i, label %361, label %359
+  br i1 %.not.i, label %363, label %361
 
-359:                                              ; preds = %358
-  %360 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %44, ptr noundef nonnull @ei_trmac_sv_len, ptr noundef nonnull @.str.133) #4
+361:                                              ; preds = %360
+  %362 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %44, ptr noundef nonnull @ei_trmac_sv_len, ptr noundef nonnull @.str.133) #4
   br label %sv_text.exit
 
-361:                                              ; preds = %358
-  %362 = load i32, ptr @hf_trmac_error_code, align 4
-  %363 = add i32 %.033, 2
-  %364 = call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %362, ptr noundef %0, i32 noundef %363, i32 noundef 2, i32 noundef 0) #4
-  %365 = load ptr, ptr %5, align 8
-  %366 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %363) #4
-  %367 = zext i16 %366 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %365, ptr noundef nonnull @.str.141, i32 noundef %367) #4
+363:                                              ; preds = %360
+  %364 = load i32, ptr @hf_trmac_error_code, align 4
+  %365 = add i32 %.033, 2
+  %366 = call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %364, ptr noundef %0, i32 noundef %365, i32 noundef 2, i32 noundef 0) #4
+  %367 = load ptr, ptr %5, align 8
+  %368 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %365) #4
+  %369 = zext i16 %368 to i32
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %367, ptr noundef nonnull @.str.141, i32 noundef %369) #4
   br label %sv_text.exit.thread
 
-368:                                              ; preds = %47
-  %369 = load i32, ptr @hf_trmac_unknown_subvector, align 4
-  %370 = add i32 %.033, 2
-  %371 = add nsw i32 %42, -2
-  %372 = call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %369, ptr noundef %0, i32 noundef %370, i32 noundef %371, i32 noundef 0) #4
+370:                                              ; preds = %47
+  %371 = load i32, ptr @hf_trmac_unknown_subvector, align 4
+  %372 = add i32 %.033, 2
+  %373 = add nsw i32 %42, -2
+  %374 = call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %371, ptr noundef %0, i32 noundef %372, i32 noundef %373, i32 noundef 0) #4
   br label %sv_text.exit
 
-sv_text.exit.thread:                              ; preds = %257, %263, %162, %361, %322, %283, %274, %247, %232, %202, %149, %139, %129, %119, %109, %98, %89, %79, %69, %58
-  %.0.i.ph = phi i32 [ 4, %58 ], [ 8, %69 ], [ 4, %79 ], [ 6, %89 ], [ 4, %98 ], [ 4, %109 ], [ 4, %119 ], [ 4, %129 ], [ 8, %139 ], [ 6, %149 ], [ 4, %202 ], [ 8, %232 ], [ 4, %247 ], [ 6, %274 ], [ 8, %283 ], [ 8, %322 ], [ 4, %361 ], [ 4, %162 ], [ 8, %263 ], [ 6, %257 ]
+sv_text.exit.thread:                              ; preds = %257, %263, %162, %363, %323, %283, %274, %247, %232, %202, %149, %139, %129, %119, %109, %98, %89, %79, %69, %58
+  %.0.i.ph = phi i32 [ 4, %58 ], [ 8, %69 ], [ 4, %79 ], [ 6, %89 ], [ 4, %98 ], [ 4, %109 ], [ 4, %119 ], [ 4, %129 ], [ 8, %139 ], [ 6, %149 ], [ 4, %202 ], [ 8, %232 ], [ 4, %247 ], [ 6, %274 ], [ 8, %283 ], [ 8, %323 ], [ 4, %363 ], [ 4, %162 ], [ 8, %263 ], [ 6, %257 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %6)
-  br label %373
+  br label %375
 
-sv_text.exit:                                     ; preds = %56, %67, %77, %87, %96, %107, %117, %127, %137, %147, %157, %181, %200, %209, %214, %219, %224, %230, %239, %245, %255, %272, %281, %320, %359, %368
+sv_text.exit:                                     ; preds = %56, %67, %77, %87, %96, %107, %117, %127, %137, %147, %157, %181, %200, %209, %214, %219, %224, %230, %239, %245, %255, %272, %281, %321, %361, %370
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %6)
-  br label %373
+  br label %375
 
-373:                                              ; preds = %sv_text.exit, %sv_text.exit.thread
+375:                                              ; preds = %sv_text.exit, %sv_text.exit.thread
   %.0.i29 = phi i32 [ %.0.i.ph, %sv_text.exit.thread ], [ %42, %sv_text.exit ]
-  %374 = add i32 %.0.i29, %.033
-  %375 = load i32, ptr %8, align 4
-  %376 = icmp ult i32 %374, %375
-  br i1 %376, label %38, label %.loopexit, !llvm.loop !4
+  %376 = add i32 %.0.i29, %.033
+  %377 = load i32, ptr %8, align 4
+  %378 = icmp ult i32 %376, %377
+  br i1 %378, label %38, label %.loopexit, !llvm.loop !4
 
-.loopexit:                                        ; preds = %373, %11, %sv_text.exit.thread30
-  %377 = call i32 @tvb_captured_length(ptr noundef %0) #4
-  br label %378
+.loopexit:                                        ; preds = %375, %11, %sv_text.exit.thread30
+  %379 = call i32 @tvb_captured_length(ptr noundef %0) #4
+  br label %380
 
-378:                                              ; preds = %4, %.loopexit
-  %.025 = phi i32 [ %377, %.loopexit ], [ 0, %4 ]
+380:                                              ; preds = %4, %.loopexit
+  %.025 = phi i32 [ %379, %.loopexit ], [ 0, %4 ]
   ret i32 %.025
 }
 
@@ -924,7 +926,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.vector.reduce.add.v4i32(<4 x i32>) #3
+declare i16 @llvm.vector.reduce.add.v4i16(<4 x i16>) #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -10237,7 +10237,7 @@ fons__allocFont.exit:                             ; preds = %21
   store ptr %0, ptr %39, align 8
   %49 = tail call noundef i32 @stbtt_InitFont(ptr noundef nonnull %39, ptr noundef %2, i32 noundef 0), !range !17
   %.not = icmp eq i32 %49, 0
-  br i1 %.not, label %89, label %50
+  br i1 %.not, label %91, label %50
 
 50:                                               ; preds = %35
   %51 = getelementptr inbounds i8, ptr %39, i64 8
@@ -10272,52 +10272,53 @@ fons__allocFont.exit:                             ; preds = %21
   %74 = insertelement <2 x i8> %73, i8 %.val18.i.i, i64 1
   %75 = zext <2 x i8> %74 to <2 x i16>
   %76 = or disjoint <2 x i16> %72, %75
-  %77 = sext <2 x i16> %76 to <2 x i32>
-  %shift = shufflevector <2 x i32> %77, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
-  %78 = sub nsw <2 x i32> %77, %shift
-  %79 = extractelement <2 x i32> %78, i64 0
-  %80 = sitofp i32 %79 to float
-  %81 = sitofp <2 x i16> %76 to <2 x float>
-  %82 = insertelement <2 x float> poison, float %80, i64 0
-  %83 = shufflevector <2 x float> %82, <2 x float> poison, <2 x i32> zeroinitializer
-  %84 = fdiv <2 x float> %81, %83
-  store <2 x float> %84, ptr %68, align 8
-  %85 = add nsw i32 %79, %67
-  %86 = sitofp i32 %85 to float
-  %87 = fdiv float %86, %80
-  %88 = getelementptr inbounds i8, ptr %39, i64 144
-  store float %87, ptr %88, align 8
+  %77 = extractelement <2 x i16> %76, i64 0
+  %78 = sext i16 %77 to i32
+  %79 = extractelement <2 x i16> %76, i64 1
+  %80 = sext i16 %79 to i32
+  %81 = sub nsw i32 %78, %80
+  %82 = sitofp i32 %81 to float
+  %83 = sitofp <2 x i16> %76 to <2 x float>
+  %84 = insertelement <2 x float> poison, float %82, i64 0
+  %85 = shufflevector <2 x float> %84, <2 x float> poison, <2 x i32> zeroinitializer
+  %86 = fdiv <2 x float> %83, %85
+  store <2 x float> %86, ptr %68, align 8
+  %87 = add nsw i32 %81, %67
+  %88 = sitofp i32 %87 to float
+  %89 = fdiv float %88, %82
+  %90 = getelementptr inbounds i8, ptr %39, i64 144
+  store float %89, ptr %90, align 8
   br label %fons__allocFont.exit.thread
 
-89:                                               ; preds = %35
-  %90 = getelementptr inbounds i8, ptr %39, i64 152
-  %91 = load ptr, ptr %90, align 8
-  %.not.i35 = icmp eq ptr %91, null
-  br i1 %.not.i35, label %93, label %92
+91:                                               ; preds = %35
+  %92 = getelementptr inbounds i8, ptr %39, i64 152
+  %93 = load ptr, ptr %92, align 8
+  %.not.i35 = icmp eq ptr %93, null
+  br i1 %.not.i35, label %95, label %94
 
-92:                                               ; preds = %89
-  tail call void @free(ptr noundef nonnull %91) #54
-  br label %93
+94:                                               ; preds = %91
+  tail call void @free(ptr noundef nonnull %93) #54
+  br label %95
 
-93:                                               ; preds = %92, %89
-  %94 = load i8, ptr %47, align 4
-  %.not9.i = icmp eq i8 %94, 0
-  br i1 %.not9.i, label %fons__freeFont.exit, label %95
-
-95:                                               ; preds = %93
-  %96 = load ptr, ptr %45, align 8
-  %.not10.i = icmp eq ptr %96, null
-  br i1 %.not10.i, label %fons__freeFont.exit, label %97
+95:                                               ; preds = %94, %91
+  %96 = load i8, ptr %47, align 4
+  %.not9.i = icmp eq i8 %96, 0
+  br i1 %.not9.i, label %fons__freeFont.exit, label %97
 
 97:                                               ; preds = %95
-  tail call void @free(ptr noundef nonnull %96) #54
+  %98 = load ptr, ptr %45, align 8
+  %.not10.i = icmp eq ptr %98, null
+  br i1 %.not10.i, label %fons__freeFont.exit, label %99
+
+99:                                               ; preds = %97
+  tail call void @free(ptr noundef nonnull %98) #54
   br label %fons__freeFont.exit
 
-fons__freeFont.exit:                              ; preds = %93, %95, %97
+fons__freeFont.exit:                              ; preds = %95, %97, %99
   tail call void @free(ptr noundef nonnull %39) #54
-  %98 = load i32, ptr %6, align 4
-  %99 = add nsw i32 %98, -1
-  store i32 %99, ptr %6, align 4
+  %100 = load i32, ptr %6, align 4
+  %101 = add nsw i32 %100, -1
+  store i32 %101, ptr %6, align 4
   br label %fons__allocFont.exit.thread
 
 fons__allocFont.exit.thread:                      ; preds = %19, %fons__freeFont.exit.i, %10, %fons__allocFont.exit, %fons__freeFont.exit, %50

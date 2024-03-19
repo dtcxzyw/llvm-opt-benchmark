@@ -55181,7 +55181,7 @@ define internal fastcc i32 @unixLockSharedMemory(ptr nocapture noundef readonly 
 
 13:                                               ; preds = %2
   %14 = load i16, ptr %5, align 8
-  switch i16 %14, label %45 [
+  switch i16 %14, label %.thread22 [
     i16 2, label %15
     i16 1, label %.thread
   ]
@@ -55244,7 +55244,7 @@ unixShmSystemLock.exit:                           ; preds = %25
 
 robust_ftruncate.exit:                            ; preds = %34
   %.not13 = icmp eq i32 %36, 0
-  br i1 %.not13, label %45, label %robust_ftruncate.exit.thread
+  br i1 %.not13, label %.thread22, label %robust_ftruncate.exit.thread
 
 robust_ftruncate.exit.thread:                     ; preds = %38, %robust_ftruncate.exit
   %42 = getelementptr inbounds i8, ptr %1, i64 16
@@ -55252,38 +55252,38 @@ robust_ftruncate.exit.thread:                     ; preds = %38, %robust_ftrunca
   %44 = call fastcc i32 @unixLogErrorAtLine(i32 noundef 4618, ptr noundef nonnull @.str.50, ptr noundef %43, i32 noundef 42818), !range !244
   br label %.thread
 
-45:                                               ; preds = %robust_ftruncate.exit, %13
-  %46 = getelementptr i8, ptr %0, i64 16
-  %.val14 = load ptr, ptr %46, align 8
-  %47 = getelementptr i8, ptr %.val14, i64 56
-  %.val14.val = load ptr, ptr %47, align 8
-  %48 = getelementptr i8, ptr %.val14.val, i64 24
-  %.val14.val.val = load i32, ptr %48, align 8
+.thread22:                                        ; preds = %13, %robust_ftruncate.exit
+  %45 = getelementptr i8, ptr %0, i64 16
+  %.val14 = load ptr, ptr %45, align 8
+  %46 = getelementptr i8, ptr %.val14, i64 56
+  %.val14.val = load ptr, ptr %46, align 8
+  %47 = getelementptr i8, ptr %.val14.val, i64 24
+  %.val14.val.val = load i32, ptr %47, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  %49 = icmp sgt i32 %.val14.val.val, -1
-  br i1 %49, label %50, label %unixShmSystemLock.exit17
+  %48 = icmp sgt i32 %.val14.val.val, -1
+  br i1 %48, label %49, label %unixShmSystemLock.exit17
 
-50:                                               ; preds = %45
+49:                                               ; preds = %.thread22
   store i16 0, ptr %3, align 8
-  %51 = getelementptr inbounds i8, ptr %3, i64 2
-  store i16 0, ptr %51, align 2
-  %52 = getelementptr inbounds i8, ptr %3, i64 8
-  store i64 128, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %3, i64 16
-  store i64 1, ptr %53, align 8
-  %54 = load ptr, ptr getelementptr inbounds ([29 x %struct.unix_syscall], ptr @aSyscall, i64 0, i64 7, i32 1), align 16
-  %55 = call i32 (i32, i32, ...) %54(i32 noundef %.val14.val.val, i32 noundef 6, ptr noundef nonnull %3) #57
-  %56 = icmp eq i32 %55, -1
-  %spec.select.i16 = select i1 %56, i32 5, i32 0
+  %50 = getelementptr inbounds i8, ptr %3, i64 2
+  store i16 0, ptr %50, align 2
+  %51 = getelementptr inbounds i8, ptr %3, i64 8
+  store i64 128, ptr %51, align 8
+  %52 = getelementptr inbounds i8, ptr %3, i64 16
+  store i64 1, ptr %52, align 8
+  %53 = load ptr, ptr getelementptr inbounds ([29 x %struct.unix_syscall], ptr @aSyscall, i64 0, i64 7, i32 1), align 16
+  %54 = call i32 (i32, i32, ...) %53(i32 noundef %.val14.val.val, i32 noundef 6, ptr noundef nonnull %3) #57
+  %55 = icmp eq i32 %54, -1
+  %spec.select.i16 = select i1 %55, i32 5, i32 0
   br label %unixShmSystemLock.exit17
 
-unixShmSystemLock.exit17:                         ; preds = %45, %50
-  %.0.i15 = phi i32 [ 0, %45 ], [ %spec.select.i16, %50 ]
+unixShmSystemLock.exit17:                         ; preds = %.thread22, %49
+  %.0.i15 = phi i32 [ 0, %.thread22 ], [ %spec.select.i16, %49 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   br label %.thread
 
-.thread:                                          ; preds = %13, %2, %unixShmSystemLock.exit, %robust_ftruncate.exit.thread, %18, %unixShmSystemLock.exit17
-  %.1 = phi i32 [ %.0.i15, %unixShmSystemLock.exit17 ], [ 3850, %2 ], [ 5, %unixShmSystemLock.exit ], [ 4618, %robust_ftruncate.exit.thread ], [ 1288, %18 ], [ 5, %13 ]
+.thread:                                          ; preds = %robust_ftruncate.exit.thread, %13, %2, %unixShmSystemLock.exit, %18, %unixShmSystemLock.exit17
+  %.1 = phi i32 [ %.0.i15, %unixShmSystemLock.exit17 ], [ 4618, %robust_ftruncate.exit.thread ], [ 3850, %2 ], [ 5, %unixShmSystemLock.exit ], [ 1288, %18 ], [ 5, %13 ]
   ret i32 %.1
 }
 
