@@ -654,8 +654,8 @@ define void @dtrrfs_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %454 = fneg double %452
   %455 = select i1 %453, double %452, double %454
   %456 = call double @llvm.fmuladd.f64(double %106, double %449, double %455)
-  %457 = select i1 %450, double -0.000000e+00, double %99
-  %458 = fadd double %456, %457
+  %457 = fadd double %99, %456
+  %458 = select i1 %450, double %456, double %457
   store double %458, ptr %448, align 8, !tbaa !7
   %459 = add nuw nsw i64 %447, 1
   %460 = icmp eq i64 %459, %423

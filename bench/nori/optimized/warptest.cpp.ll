@@ -11949,28 +11949,28 @@ _ZN5Eigen10MatrixBaseINS_6MatrixIfLi3ELi1ELi0ELi3ELi1EEEE9normalizeEv.exit: ; pr
 _ZNK5Eigen10MatrixBaseINS_6MatrixIfLi3ELi1ELi0ELi3ELi1EEEE10normalizedEv.exit: ; preds = %108, %_ZN5Eigen10MatrixBaseINS_6MatrixIfLi3ELi1ELi0ELi3ELi1EEEE9normalizeEv.exit
   %.0 = phi float [ %111, %108 ], [ %105, %_ZN5Eigen10MatrixBaseINS_6MatrixIfLi3ELi1ELi0ELi3ELi1EEEE9normalizeEv.exit ]
   %112 = fcmp ogt float %98, 0.000000e+00
-  %113 = select i1 %112, float %sqrt, float 1.000000e+00
-  %.sroa.5.0 = fdiv float %92, %113
-  %114 = getelementptr inbounds i8, ptr %0, i64 36
-  %115 = fmul float %.0, 5.000000e-01
-  %116 = tail call noundef float @cosf(float noundef %115) #29
-  %117 = getelementptr inbounds i8, ptr %0, i64 48
-  store float %116, ptr %117, align 4
-  %118 = tail call noundef float @sinf(float noundef %115) #29
-  %119 = insertelement <2 x i1> poison, i1 %112, i64 0
-  %120 = shufflevector <2 x i1> %119, <2 x i1> poison, <2 x i32> zeroinitializer
-  %121 = insertelement <2 x float> poison, float %sqrt, i64 0
-  %122 = shufflevector <2 x float> %121, <2 x float> poison, <2 x i32> zeroinitializer
-  %123 = select <2 x i1> %120, <2 x float> %122, <2 x float> <float 1.000000e+00, float 1.000000e+00>
-  %124 = fdiv <2 x float> %89, %123
-  %125 = insertelement <2 x float> poison, float %118, i64 0
+  %113 = insertelement <2 x float> poison, float %sqrt, i64 0
+  %114 = shufflevector <2 x float> %113, <2 x float> poison, <2 x i32> zeroinitializer
+  %115 = fdiv <2 x float> %89, %114
+  %116 = fdiv float %92, %sqrt
+  %.sroa.5.0 = select i1 %112, float %116, float %92
+  %117 = getelementptr inbounds i8, ptr %0, i64 36
+  %118 = fmul float %.0, 5.000000e-01
+  %119 = tail call noundef float @cosf(float noundef %118) #29
+  %120 = getelementptr inbounds i8, ptr %0, i64 48
+  store float %119, ptr %120, align 4
+  %121 = tail call noundef float @sinf(float noundef %118) #29
+  %122 = insertelement <2 x i1> poison, i1 %112, i64 0
+  %123 = shufflevector <2 x i1> %122, <2 x i1> poison, <2 x i32> zeroinitializer
+  %124 = select <2 x i1> %123, <2 x float> %115, <2 x float> %89
+  %125 = insertelement <2 x float> poison, float %121, i64 0
   %126 = shufflevector <2 x float> %125, <2 x float> poison, <2 x i32> zeroinitializer
   %127 = fmul <2 x float> %124, %126
-  store <2 x float> %127, ptr %114, align 4
+  store <2 x float> %127, ptr %117, align 4
   %128 = getelementptr inbounds i8, ptr %0, i64 44
-  %129 = fmul float %.sroa.5.0, %118
+  %129 = fmul float %.sroa.5.0, %121
   store float %129, ptr %128, align 4
-  %130 = load <4 x float>, ptr %114, align 4
+  %130 = load <4 x float>, ptr %117, align 4
   %131 = fmul <4 x float> %130, %130
   %132 = shufflevector <4 x float> %131, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %133 = fadd <4 x float> %131, %132
@@ -11983,7 +11983,7 @@ _ZNK5Eigen10MatrixBaseINS_6MatrixIfLi3ELi1ELi0ELi3ELi1EEEE10normalizedEv.exit: ;
   br i1 %138, label %139, label %140
 
 139:                                              ; preds = %_ZNK5Eigen10MatrixBaseINS_6MatrixIfLi3ELi1ELi0ELi3ELi1EEEE10normalizedEv.exit
-  store <4 x float> <float 0.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00>, ptr %114, align 4
+  store <4 x float> <float 0.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00>, ptr %117, align 4
   br label %140
 
 140:                                              ; preds = %5, %62, %139, %_ZNK5Eigen10MatrixBaseINS_6MatrixIfLi3ELi1ELi0ELi3ELi1EEEE10normalizedEv.exit, %2

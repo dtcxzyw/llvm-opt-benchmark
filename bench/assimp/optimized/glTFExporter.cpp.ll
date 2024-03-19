@@ -66122,68 +66122,71 @@ invoke.cont101:                                   ; preds = %if.else18.i, %if.th
   %sqrt.i84 = tail call noundef double @llvm.sqrt.f64(double %35)
   %conv121 = fptrunc double %sqrt.i84 to float
   %cmp123 = fcmp une float %conv121, 0.000000e+00
-  %div127 = select i1 %cmp123, float %conv121, float 1.000000e+00
-  %n1.sroa.0.0 = fdiv float %30, %div127
-  %36 = insertelement <2 x float> poison, float %div127, i64 0
+  %div127 = fdiv float %30, %conv121
+  %36 = insertelement <2 x float> poison, float %conv121, i64 0
   %37 = shufflevector <2 x float> %36, <2 x float> poison, <2 x i32> zeroinitializer
   %38 = fdiv <2 x float> %31, %37
+  %n1.sroa.0.0 = select i1 %cmp123, float %div127, float %30
+  %39 = insertelement <2 x i1> poison, i1 %cmp123, i64 0
+  %40 = shufflevector <2 x i1> %39, <2 x i1> poison, <2 x i32> zeroinitializer
+  %41 = select <2 x i1> %40, <2 x float> %38, <2 x float> %31
   %cmp.i.i = fcmp olt float %n1.sroa.0.0, 0.000000e+00
   %fneg.i.i = fneg float %n1.sroa.0.0
   %cond.i.i89 = select i1 %cmp.i.i, float %fneg.i.i, float %n1.sroa.0.0
-  %39 = fcmp olt <2 x float> %38, zeroinitializer
-  %40 = fneg <2 x float> %38
-  %41 = select <2 x i1> %39, <2 x float> %40, <2 x float> %38
-  %42 = extractelement <2 x float> %41, i64 1
-  %cmp.i90 = fcmp ult float %42, %cond.i.i89
-  %43 = extractelement <2 x float> %41, i64 0
-  %cmp3.i = fcmp ult float %42, %43
+  %42 = fcmp olt <2 x float> %41, zeroinitializer
+  %43 = fneg <2 x float> %41
+  %44 = select <2 x i1> %42, <2 x float> %43, <2 x float> %41
+  %45 = extractelement <2 x float> %44, i64 1
+  %cmp.i90 = fcmp ult float %45, %cond.i.i89
+  %46 = extractelement <2 x float> %44, i64 0
+  %cmp3.i = fcmp ult float %45, %46
   %or.cond.i91 = or i1 %cmp.i90, %cmp3.i
   br i1 %or.cond.i91, label %if.else7.i95, label %if.then.i92
 
 if.then.i92:                                      ; preds = %invoke.cont101
-  %44 = extractelement <2 x float> %38, i64 1
-  %cmp4.i93 = fcmp ult float %44, 0.000000e+00
+  %47 = extractelement <2 x float> %41, i64 1
+  %cmp4.i93 = fcmp ult float %47, 0.000000e+00
   %..i = zext i1 %cmp4.i93 to i8
   %fneg.i.x.i = select i1 %cmp4.i93, float %fneg.i.i, float %n1.sroa.0.0
-  %45 = extractelement <2 x float> %38, i64 0
-  %46 = extractelement <2 x float> %40, i64 0
-  %fneg.i28.y.i = select i1 %cmp4.i93, float %46, float %45
+  %48 = extractelement <2 x float> %41, i64 0
+  %49 = extractelement <2 x float> %43, i64 0
+  %fneg.i28.y.i = select i1 %cmp4.i93, float %49, float %48
   br label %invoke.cont141
 
 if.else7.i95:                                     ; preds = %invoke.cont101
-  %cmp8.i = fcmp ult float %43, %cond.i.i89
-  %cmp10.i = fcmp ult float %43, %42
+  %cmp8.i = fcmp ult float %46, %cond.i.i89
+  %cmp10.i = fcmp ult float %46, %45
   %or.cond25.i96 = or i1 %cmp8.i, %cmp10.i
   br i1 %or.cond25.i96, label %if.else18.i99, label %if.then11.i97
 
 if.then11.i97:                                    ; preds = %if.else7.i95
-  %47 = extractelement <2 x float> %38, i64 0
-  %cmp12.i98 = fcmp ult float %47, 0.000000e+00
+  %50 = extractelement <2 x float> %41, i64 0
+  %cmp12.i98 = fcmp ult float %50, 0.000000e+00
   %.48.i = select i1 %cmp12.i98, i8 3, i8 2
-  %48 = extractelement <2 x float> %38, i64 1
-  %49 = extractelement <2 x float> %40, i64 1
-  %fneg.i31.z.i = select i1 %cmp12.i98, float %49, float %48
+  %51 = extractelement <2 x float> %41, i64 1
+  %52 = extractelement <2 x float> %43, i64 1
+  %fneg.i31.z.i = select i1 %cmp12.i98, float %52, float %51
   %fneg.i.x49.i = select i1 %cmp12.i98, float %fneg.i.i, float %n1.sroa.0.0
   br label %invoke.cont141
 
 if.else18.i99:                                    ; preds = %if.else7.i95
-  %50 = insertelement <2 x float> poison, float %cond.i.i89, i64 0
-  %51 = shufflevector <2 x float> %50, <2 x float> poison, <2 x i32> zeroinitializer
-  %52 = fcmp ult <2 x float> %51, %41
-  %shift = shufflevector <2 x i1> %52, <2 x i1> poison, <2 x i32> <i32 1, i32 poison>
-  %53 = or <2 x i1> %52, %shift
-  %or.cond26.i100 = extractelement <2 x i1> %53, i64 0
+  %53 = insertelement <2 x float> poison, float %cond.i.i89, i64 0
+  %54 = shufflevector <2 x float> %53, <2 x float> poison, <2 x i32> zeroinitializer
+  %55 = fcmp ult <2 x float> %54, %44
+  %shift = shufflevector <2 x i1> %55, <2 x i1> poison, <2 x i32> <i32 1, i32 poison>
+  %56 = or <2 x i1> %55, %shift
+  %or.cond26.i100 = extractelement <2 x i1> %56, i64 0
   br i1 %or.cond26.i100, label %invoke.cont141, label %if.then22.i101
 
 if.then22.i101:                                   ; preds = %if.else18.i99
   %cmp23.i102 = fcmp ult float %n1.sroa.0.0, 0.000000e+00
   %.50.i = select i1 %cmp23.i102, i8 5, i8 4
-  %54 = extractelement <2 x float> %38, i64 0
-  %55 = extractelement <2 x float> %40, i64 0
-  %fneg.i28.y51.i = select i1 %cmp23.i102, float %55, float %54
-  %56 = extractelement <2 x float> %38, i64 1
-  %57 = extractelement <2 x float> %40, i64 1
-  %fneg.i31.z52.i = select i1 %cmp23.i102, float %57, float %56
+  %57 = extractelement <2 x float> %41, i64 0
+  %58 = extractelement <2 x float> %43, i64 0
+  %fneg.i28.y51.i = select i1 %cmp23.i102, float %58, float %57
+  %59 = extractelement <2 x float> %41, i64 1
+  %60 = extractelement <2 x float> %43, i64 1
+  %fneg.i31.z52.i = select i1 %cmp23.i102, float %60, float %59
   br label %invoke.cont141
 
 invoke.cont141:                                   ; preds = %if.else18.i99, %if.then22.i101, %if.then11.i97, %if.then.i92
@@ -66193,9 +66196,9 @@ invoke.cont141:                                   ; preds = %if.else18.i99, %if.
   %conv144 = zext nneg i8 %ni1.1 to i64
   %conv145 = sext i8 %ni0.2 to i64
   %sub = sub nsw i64 %conv144, %conv145
-  %58 = load i64, ptr %m_size.i, align 8
-  %59 = load i64, ptr %m_allocated.i, align 8
-  %cmp.i104 = icmp eq i64 %58, %59
+  %61 = load i64, ptr %m_size.i, align 8
+  %62 = load i64, ptr %m_allocated.i, align 8
+  %cmp.i104 = icmp eq i64 %61, %62
   br i1 %cmp.i104, label %if.then.i106, label %entry.if.end16_crit_edge.i
 
 entry.if.end16_crit_edge.i:                       ; preds = %invoke.cont141
@@ -66203,53 +66206,53 @@ entry.if.end16_crit_edge.i:                       ; preds = %invoke.cont141
   br label %invoke.cont147
 
 if.then.i106:                                     ; preds = %invoke.cont141
-  %mul.i107 = shl i64 %58, 1
+  %mul.i107 = shl i64 %61, 1
   %spec.select.i = tail call i64 @llvm.umax.i64(i64 %mul.i107, i64 32)
   store i64 %spec.select.i, ptr %m_allocated.i, align 8
-  %60 = icmp ugt i64 %mul.i107, 2305843009213693951
-  %61 = shl i64 %spec.select.i, 3
-  %62 = select i1 %60, i64 -1, i64 %61
-  %call.i108 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %62) #28
-  %cmp9.not.i = icmp eq i64 %58, 0
+  %63 = icmp ugt i64 %mul.i107, 2305843009213693951
+  %64 = shl i64 %spec.select.i, 3
+  %65 = select i1 %63, i64 -1, i64 %64
+  %call.i108 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %65) #28
+  %cmp9.not.i = icmp eq i64 %61, 0
   br i1 %cmp9.not.i, label %if.end14.i, label %if.then10.i
 
 if.then10.i:                                      ; preds = %if.then.i106
-  %63 = load ptr, ptr %m_predictors, align 8
-  %mul12.i = shl i64 %58, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i108, ptr align 8 %63, i64 %mul12.i, i1 false)
-  %isnull.i = icmp eq ptr %63, null
+  %66 = load ptr, ptr %m_predictors, align 8
+  %mul12.i = shl i64 %61, 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i108, ptr align 8 %66, i64 %mul12.i, i1 false)
+  %isnull.i = icmp eq ptr %66, null
   br i1 %isnull.i, label %if.end14.i, label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %if.then10.i
-  tail call void @_ZdaPv(ptr noundef nonnull %63) #26
+  tail call void @_ZdaPv(ptr noundef nonnull %66) #26
   %.pre4.pre.i = load i64, ptr %m_size.i, align 8
   br label %if.end14.i
 
 if.end14.i:                                       ; preds = %delete.notnull.i, %if.then10.i, %if.then.i106
-  %.pre4.i = phi i64 [ %58, %if.then10.i ], [ %.pre4.pre.i, %delete.notnull.i ], [ 0, %if.then.i106 ]
+  %.pre4.i = phi i64 [ %61, %if.then10.i ], [ %.pre4.pre.i, %delete.notnull.i ], [ 0, %if.then.i106 ]
   store ptr %call.i108, ptr %m_predictors, align 8
   br label %invoke.cont147
 
 invoke.cont147:                                   ; preds = %if.end14.i, %entry.if.end16_crit_edge.i
-  %64 = phi i64 [ %58, %entry.if.end16_crit_edge.i ], [ %.pre4.i, %if.end14.i ]
-  %65 = phi ptr [ %.pre.i, %entry.if.end16_crit_edge.i ], [ %call.i108, %if.end14.i ]
-  %inc.i = add i64 %64, 1
+  %67 = phi i64 [ %61, %entry.if.end16_crit_edge.i ], [ %.pre4.i, %if.end14.i ]
+  %68 = phi ptr [ %.pre.i, %entry.if.end16_crit_edge.i ], [ %call.i108, %if.end14.i ]
+  %inc.i = add i64 %67, 1
   store i64 %inc.i, ptr %m_size.i, align 8
-  %arrayidx.i105 = getelementptr inbounds i64, ptr %65, i64 %64
+  %arrayidx.i105 = getelementptr inbounds i64, ptr %68, i64 %67
   store i64 %sub, ptr %arrayidx.i105, align 8
   %cmp151.not.unshifted = xor i8 %ni1.1, %ni0.2
   %cmp151.not = icmp ult i8 %cmp151.not.unshifted, 2
   %rnb0.0 = select i1 %cmp151.not, float %div104, float 0.000000e+00
   %rna0.0 = select i1 %cmp151.not, float %div, float 0.000000e+00
   %sub154 = fsub float %na1.1, %rna0.0
-  %66 = load ptr, ptr %m_normals155, align 8
+  %69 = load ptr, ptr %m_normals155, align 8
   %mul156 = shl nsw i64 %9, 1
-  %arrayidx157 = getelementptr inbounds float, ptr %66, i64 %mul156
+  %arrayidx157 = getelementptr inbounds float, ptr %69, i64 %mul156
   store float %sub154, ptr %arrayidx157, align 4
   %sub158 = fsub float %nb1.1, %rnb0.0
-  %67 = load ptr, ptr %m_normals155, align 8
+  %70 = load ptr, ptr %m_normals155, align 8
   %add161 = or disjoint i64 %mul156, 1
-  %arrayidx162 = getelementptr inbounds float, ptr %67, i64 %add161
+  %arrayidx162 = getelementptr inbounds float, ptr %70, i64 %add161
   store float %sub158, ptr %arrayidx162, align 4
   %inc164 = add nuw nsw i64 %i.0140, 1
   %exitcond141.not = icmp eq i64 %inc164, %0

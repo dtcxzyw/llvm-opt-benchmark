@@ -2849,6 +2849,13 @@ for.body:                                         ; preds = %entry, %for.inc133
   %cond72.pre = load double, ptr %cond72.in, align 8
   %conv = fptrunc double %cond67.pre to float
   %conv73 = fptrunc double %cond72.pre to float
+  %sub = fsub float %conv, %conv73
+  %cond85 = select i1 %tobool.not.not, float %conv, float %sub
+  %add = fadd float %cond85, %conv73
+  %cond90 = select i1 %tobool.not.not, float %add, float %conv
+  %sub124 = fsub float %conv, %sub
+  %sub109 = fsub float %conv, %sub
+  %sub103 = fsub float %add, %conv
   br label %for.body17
 
 for.body17:                                       ; preds = %for.body, %for.inc
@@ -2922,12 +2929,8 @@ if.then11.i75:                                    ; preds = %cond.false77
   br label %cond.end79
 
 cond.end79:                                       ; preds = %if.then11.i75, %if.then6.i79, %if.then2.i82, %if.then.i85, %cond.false77, %if.then11.i, %if.then6.i, %if.then2.i, %if.then.i, %cond.true75
-  %sub = phi float [ %conv73, %cond.true75 ], [ %conv73, %if.then.i ], [ %conv73, %if.then2.i ], [ %conv73, %if.then6.i ], [ %conv73, %if.then11.i ], [ 0.000000e+00, %cond.false77 ], [ 0.000000e+00, %if.then.i85 ], [ 0.000000e+00, %if.then2.i82 ], [ 0.000000e+00, %if.then6.i79 ], [ 0.000000e+00, %if.then11.i75 ]
-  %cond80 = phi float [ 0.000000e+00, %cond.true75 ], [ %conv.i, %if.then.i ], [ %conv3.i, %if.then2.i ], [ %conv7.i, %if.then6.i ], [ %conv12.i, %if.then11.i ], [ 0.000000e+00, %cond.false77 ], [ %conv.i86, %if.then.i85 ], [ %conv3.i84, %if.then2.i82 ], [ %conv7.i81, %if.then6.i79 ], [ %conv12.i77, %if.then11.i75 ]
-  %cond85 = fsub float %conv, %sub
+  %cond80 = phi float [ %conv.i, %if.then.i ], [ %conv3.i, %if.then2.i ], [ %conv7.i, %if.then6.i ], [ %conv12.i, %if.then11.i ], [ 0.000000e+00, %cond.true75 ], [ %conv.i86, %if.then.i85 ], [ %conv3.i84, %if.then2.i82 ], [ %conv7.i81, %if.then6.i79 ], [ %conv12.i77, %if.then11.i75 ], [ 0.000000e+00, %cond.false77 ]
   store float %cond85, ptr %arrayidx20, align 8
-  %add = fadd float %cond85, %conv73
-  %cond90 = select i1 %tobool.not.not, float %add, float %conv
   store float %cond90, ptr %arrayidx29, align 4
   %sub94 = fsub float 2.000000e+00, %cond80
   %cond96 = select i1 %tobool.not.not, float %cond80, float %sub94
@@ -2942,11 +2945,10 @@ if.then99:                                        ; preds = %if.then
   %cmp.i = fcmp ogt float %cond80, 0x3F847AE140000000
   %.sroa.speculated99 = select i1 %cmp.i, float %cond80, float 0x3F847AE140000000
   store float %.sroa.speculated99, ptr %arrayidx59, align 4
-  store float %cond85, ptr %arrayidx35, align 8
+  store float %conv, ptr %arrayidx35, align 8
   %add102 = fadd float %.sroa.speculated99, 1.000000e+00
-  %sub103 = fsub float %add, %cond85
   %mul = fmul float %sub103, %add102
-  %11 = tail call float @llvm.fmuladd.f32(float %mul, float 5.000000e-01, float %cond85)
+  %11 = tail call float @llvm.fmuladd.f32(float %mul, float 5.000000e-01, float %conv)
   store float %11, ptr %arrayidx44, align 4
   br label %for.inc
 
@@ -2957,7 +2959,6 @@ if.else:                                          ; preds = %if.then
   store float 1.000000e+00, ptr %arrayidx59, align 4
   store float %conv, ptr %arrayidx44, align 4
   %add108 = fadd float %.sroa.speculated97, 1.000000e+00
-  %sub109 = fsub float %conv, %cond85
   %12 = fneg float %add108
   %neg = fmul float %sub109, %12
   %13 = tail call float @llvm.fmuladd.f32(float %neg, float 5.000000e-01, float %conv)
@@ -2981,7 +2982,6 @@ if.else120:                                       ; preds = %if.then114
   %.sroa.speculated = select i1 %cmp.i92, float %cond80, float 0x3F847AE140000000
   store float %conv, ptr %arrayidx44, align 4
   %add123 = fadd float %.sroa.speculated, 1.000000e+00
-  %sub124 = fsub float %conv, %cond85
   %14 = fneg float %add123
   %neg127 = fmul float %sub124, %14
   %15 = tail call float @llvm.fmuladd.f32(float %neg127, float 5.000000e-01, float %conv)
@@ -2990,7 +2990,7 @@ if.else120:                                       ; preds = %if.then114
 if.end128:                                        ; preds = %if.else120, %if.then116
   %.sroa.speculated.sink = phi float [ 1.000000e+00, %if.then116 ], [ %.sroa.speculated, %if.else120 ]
   %.sink = phi float [ %.sroa.speculated95, %if.then116 ], [ 1.000000e+00, %if.else120 ]
-  %storemerge = phi float [ %cond85, %if.then116 ], [ %15, %if.else120 ]
+  %storemerge = phi float [ %conv, %if.then116 ], [ %15, %if.else120 ]
   store float %.sroa.speculated.sink, ptr %arrayidx50, align 8
   store float %.sink, ptr %arrayidx59, align 4
   store float %storemerge, ptr %arrayidx35, align 8

@@ -100,8 +100,8 @@ define hidden noundef i32 @timelib_astro_rise_set_altitude(ptr noundef %0, doubl
   %92 = fsub double 1.200000e+01, %91
   %.not = icmp eq i32 %4, 0
   %93 = fdiv double 2.666000e-01, %sqrt.i.i
-  %94 = select i1 %.not, double 0.000000e+00, double %93
-  %.0 = fsub double %3, %94
+  %94 = fsub double %3, %93
+  %.0 = select i1 %.not, double %3, double %94
   %95 = fmul double %.0, 0x3F91DF46A2529D39
   %96 = tail call double @sin(double noundef %95) #7
   %97 = fmul double %2, 0x3F91DF46A2529D39

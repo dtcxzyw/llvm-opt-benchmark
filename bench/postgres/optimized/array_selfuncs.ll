@@ -957,8 +957,8 @@ calc_distr.exit163:                               ; preds = %._crit_edge87.i, %c
   %.0.i = fadd float %209, %206
   %210 = fcmp ogt float %.04156.i, 0.000000e+00
   %211 = fdiv float 5.000000e-01, %.04156.i
-  %212 = select i1 %210, float %211, float -0.000000e+00
-  %.1.i172 = fadd float %212, %.0.i
+  %212 = fadd float %211, %.0.i
+  %.1.i172 = select i1 %210, float %212, float %.0.i
   %213 = fmul float %181, %.1.i172
   br label %217
 

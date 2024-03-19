@@ -391,8 +391,8 @@ define weak_odr { <2 x float>, float } @_ZNK7GaelMls5RIMLSI6CMeshOE7projectERKN3
   %14 = getelementptr inbounds i8, ptr %0, i64 56
   br label %15
 
-15:                                               ; preds = %42, %4
-  %.0 = phi i32 [ 0, %4 ], [ %43, %42 ]
+15:                                               ; preds = %45, %4
+  %.0 = phi i32 [ 0, %4 ], [ %46, %45 ]
   %16 = call noundef zeroext i1 @_ZNK7GaelMls5RIMLSI6CMeshOE27computePotentialAndGradientERKN3vcg6Point3IfEE(ptr noundef nonnull align 8 dereferenceable(348) %0, ptr noundef nonnull align 4 dereferenceable(12) %5)
   br i1 %16, label %_ZN3vcg6Point3IfE9NormalizeEv.exit, label %17
 
@@ -408,7 +408,7 @@ define weak_odr { <2 x float>, float } @_ZNK7GaelMls5RIMLSI6CMeshOE7projectERKN3
   %.sroa.3.0..0.20.sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.3.0.copyload = load float, ptr %.sroa.3.0..0.20.sroa_idx, align 4
   %.sroa.022.0.pre = load <2 x float>, ptr %1, align 4
-  br label %50
+  br label %53
 
 _ZN3vcg6Point3IfE9NormalizeEv.exit:               ; preds = %15
   %.sroa.8.0.copyload = load float, ptr %.sroa.8.0..sroa_idx, align 4
@@ -420,56 +420,59 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit:               ; preds = %15
   %25 = call float @llvm.fmuladd.f32(float %.sroa.8.0.copyload, float %.sroa.8.0.copyload, float %24)
   %sqrt.i = call float @llvm.sqrt.f32(float %25)
   %26 = fcmp ogt float %sqrt.i, 0.000000e+00
-  %27 = select i1 %26, float %sqrt.i, float 1.000000e+00
-  %28 = insertelement <2 x float> poison, float %27, i64 0
-  %29 = shufflevector <2 x float> %28, <2 x float> poison, <2 x i32> zeroinitializer
-  %30 = fdiv <2 x float> %20, %29
-  %.sroa.8.0 = fdiv float %.sroa.8.0.copyload, %27
-  %31 = load float, ptr %12, align 8
-  %32 = fmul float %31, %.sroa.8.0
-  %33 = insertelement <2 x float> poison, float %31, i64 0
-  %34 = shufflevector <2 x float> %33, <2 x float> poison, <2 x i32> zeroinitializer
-  %35 = fmul <2 x float> %34, %30
-  %36 = load <2 x float>, ptr %5, align 8
-  %37 = fsub <2 x float> %36, %35
-  %38 = load float, ptr %13, align 8
-  %39 = fsub float %38, %32
-  store <2 x float> %37, ptr %5, align 8
-  store float %39, ptr %13, align 8
-  %40 = call noundef float @llvm.fabs.f32(float %31)
-  %41 = fcmp ogt float %40, %10
+  %27 = insertelement <2 x float> poison, float %sqrt.i, i64 0
+  %28 = shufflevector <2 x float> %27, <2 x float> poison, <2 x i32> zeroinitializer
+  %29 = fdiv <2 x float> %20, %28
+  %30 = fdiv float %.sroa.8.0.copyload, %sqrt.i
+  %31 = insertelement <2 x i1> poison, i1 %26, i64 0
+  %32 = shufflevector <2 x i1> %31, <2 x i1> poison, <2 x i32> zeroinitializer
+  %33 = select <2 x i1> %32, <2 x float> %29, <2 x float> %20
+  %.sroa.8.0 = select i1 %26, float %30, float %.sroa.8.0.copyload
+  %34 = load float, ptr %12, align 8
+  %35 = fmul float %34, %.sroa.8.0
+  %36 = insertelement <2 x float> poison, float %34, i64 0
+  %37 = shufflevector <2 x float> %36, <2 x float> poison, <2 x i32> zeroinitializer
+  %38 = fmul <2 x float> %37, %33
+  %39 = load <2 x float>, ptr %5, align 8
+  %40 = fsub <2 x float> %39, %38
+  %41 = load float, ptr %13, align 8
+  %42 = fsub float %41, %35
+  store <2 x float> %40, ptr %5, align 8
+  store float %42, ptr %13, align 8
+  %43 = call noundef float @llvm.fabs.f32(float %34)
+  %44 = fcmp ogt float %43, %10
   %.pre = load i32, ptr %14, align 8
-  br i1 %41, label %42, label %.critedge
+  br i1 %44, label %45, label %.critedge
 
-42:                                               ; preds = %_ZN3vcg6Point3IfE9NormalizeEv.exit
-  %43 = add nuw nsw i32 %.0, 1
-  %44 = icmp slt i32 %43, %.pre
-  br i1 %44, label %15, label %.critedge, !llvm.loop !5
+45:                                               ; preds = %_ZN3vcg6Point3IfE9NormalizeEv.exit
+  %46 = add nuw nsw i32 %.0, 1
+  %47 = icmp slt i32 %46, %.pre
+  br i1 %47, label %15, label %.critedge, !llvm.loop !5
 
-.critedge:                                        ; preds = %_ZN3vcg6Point3IfE9NormalizeEv.exit, %42
-  %.1 = phi i32 [ %43, %42 ], [ %.0, %_ZN3vcg6Point3IfE9NormalizeEv.exit ]
-  %45 = icmp sge i32 %.1, %.pre
-  %46 = icmp ne ptr %3, null
-  %or.cond = and i1 %46, %45
-  br i1 %or.cond, label %47, label %48
+.critedge:                                        ; preds = %_ZN3vcg6Point3IfE9NormalizeEv.exit, %45
+  %.1 = phi i32 [ %46, %45 ], [ %.0, %_ZN3vcg6Point3IfE9NormalizeEv.exit ]
+  %48 = icmp sge i32 %.1, %.pre
+  %49 = icmp ne ptr %3, null
+  %or.cond = and i1 %49, %48
+  br i1 %or.cond, label %50, label %51
 
-47:                                               ; preds = %.critedge
+50:                                               ; preds = %.critedge
   store i32 2, ptr %3, align 4
-  br label %48
+  br label %51
 
-48:                                               ; preds = %47, %.critedge
+51:                                               ; preds = %50, %.critedge
   %.not30 = icmp eq ptr %2, null
-  br i1 %.not30, label %50, label %49
+  br i1 %.not30, label %53, label %52
 
-49:                                               ; preds = %48
-  store <2 x float> %30, ptr %2, align 4
+52:                                               ; preds = %51
+  store <2 x float> %33, ptr %2, align 4
   %.sroa.8.0..sroa_idx41 = getelementptr inbounds i8, ptr %2, i64 8
   store float %.sroa.8.0, ptr %.sroa.8.0..sroa_idx41, align 4
-  br label %50
+  br label %53
 
-50:                                               ; preds = %48, %49, %19
-  %.sroa.022.0 = phi <2 x float> [ %.sroa.022.0.pre, %19 ], [ %37, %49 ], [ %37, %48 ]
-  %.sroa.3.0 = phi float [ %.sroa.3.0.copyload, %19 ], [ %39, %49 ], [ %39, %48 ]
+53:                                               ; preds = %51, %52, %19
+  %.sroa.022.0 = phi <2 x float> [ %.sroa.022.0.pre, %19 ], [ %40, %52 ], [ %40, %51 ]
+  %.sroa.3.0 = phi float [ %.sroa.3.0.copyload, %19 ], [ %42, %52 ], [ %42, %51 ]
   %.fca.0.insert = insertvalue { <2 x float>, float } poison, <2 x float> %.sroa.022.0, 0
   %.fca.1.insert = insertvalue { <2 x float>, float } %.fca.0.insert, float %.sroa.3.0, 1
   ret { <2 x float>, float } %.fca.1.insert

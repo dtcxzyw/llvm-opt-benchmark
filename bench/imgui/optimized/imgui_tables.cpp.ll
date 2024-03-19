@@ -5701,10 +5701,10 @@ _ZN5ImGui23TableGetColumnWidthAutoEP10ImGuiTableP16ImGuiTableColumn.exit: ; pred
 cond.end:                                         ; preds = %_ZN5ImGui23TableGetColumnWidthAutoEP10ImGuiTableP16ImGuiTableColumn.exit, %cond.true
   %cond107 = phi float [ %62, %cond.true ], [ %cond.i15.i, %_ZN5ImGui23TableGetColumnWidthAutoEP10ImGuiTableP16ImGuiTableColumn.exit ]
   %tobool110.not = icmp eq i32 %and100, 0
-  %add114 = select i1 %tobool110.not, float %cond107, float -0.000000e+00
-  %auto_fit_width_for_stretched.1 = fadd float %auto_fit_width_for_stretched.0259, %add114
-  %add112 = select i1 %tobool110.not, float -0.000000e+00, float %cond107
-  %auto_fit_width_for_fixed.1 = fadd float %auto_fit_width_for_fixed.0260, %add112
+  %add112 = fadd float %auto_fit_width_for_fixed.0260, %cond107
+  %add114 = fadd float %auto_fit_width_for_stretched.0259, %cond107
+  %auto_fit_width_for_stretched.1 = select i1 %tobool110.not, float %add114, float %auto_fit_width_for_stretched.0259
+  %auto_fit_width_for_fixed.1 = select i1 %tobool110.not, float %auto_fit_width_for_fixed.0260, float %add112
   %70 = and i32 %60, 40
   %or.cond193.not = icmp eq i32 %70, 40
   br i1 %or.cond193.not, label %if.then123, label %for.inc

@@ -1902,12 +1902,12 @@ if.end:                                           ; preds = %lor.lhs.false
   %3 = load i32, ptr %fTimeRuleType.i, align 8
   %cmp.not.i = icmp eq i32 %3, 2
   %conv.i = sitofp i32 %prevRawOffset to double
-  %sub.i = select i1 %cmp.not.i, double 0.000000e+00, double %conv.i
-  %time.addr.0.i = fsub double %2, %sub.i
+  %sub.i = fsub double %2, %conv.i
+  %time.addr.0.i = select i1 %cmp.not.i, double %2, double %sub.i
   %cmp3.i = icmp eq i32 %3, 0
   %conv5.i = sitofp i32 %prevDSTSavings to double
-  %sub6.i = select i1 %cmp3.i, double %conv5.i, double 0.000000e+00
-  %time.addr.1.i = fsub double %time.addr.0.i, %sub6.i
+  %sub6.i = fsub double %time.addr.0.i, %conv5.i
+  %time.addr.1.i = select i1 %cmp3.i, double %sub6.i, double %time.addr.0.i
   store double %time.addr.1.i, ptr %result, align 8
   br label %return
 
@@ -1923,12 +1923,12 @@ entry:
   %0 = load i32, ptr %fTimeRuleType, align 8
   %cmp.not = icmp eq i32 %0, 2
   %conv = sitofp i32 %raw to double
-  %sub = select i1 %cmp.not, double 0.000000e+00, double %conv
-  %time.addr.0 = fsub double %time, %sub
+  %sub = fsub double %time, %conv
+  %time.addr.0 = select i1 %cmp.not, double %time, double %sub
   %cmp3 = icmp eq i32 %0, 0
   %conv5 = sitofp i32 %dst to double
-  %sub6 = select i1 %cmp3, double %conv5, double 0.000000e+00
-  %time.addr.1 = fsub double %time.addr.0, %sub6
+  %sub6 = fsub double %time.addr.0, %conv5
+  %time.addr.1 = select i1 %cmp3, double %sub6, double %time.addr.0
   ret double %time.addr.1
 }
 
@@ -1955,12 +1955,12 @@ if.end:                                           ; preds = %lor.lhs.false
   %5 = load i32, ptr %fTimeRuleType.i, align 8
   %cmp.not.i = icmp eq i32 %5, 2
   %conv.i = sitofp i32 %prevRawOffset to double
-  %sub.i = select i1 %cmp.not.i, double 0.000000e+00, double %conv.i
-  %time.addr.0.i = fsub double %4, %sub.i
+  %sub.i = fsub double %4, %conv.i
+  %time.addr.0.i = select i1 %cmp.not.i, double %4, double %sub.i
   %cmp3.i = icmp eq i32 %5, 0
   %conv5.i = sitofp i32 %prevDSTSavings to double
-  %sub6.i = select i1 %cmp3.i, double %conv5.i, double 0.000000e+00
-  %time.addr.1.i = fsub double %time.addr.0.i, %sub6.i
+  %sub6.i = fsub double %time.addr.0.i, %conv5.i
+  %time.addr.1.i = select i1 %cmp3.i, double %sub6.i, double %time.addr.0.i
   store double %time.addr.1.i, ptr %result, align 8
   br label %return
 
@@ -1986,9 +1986,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %tobool.not = icmp eq i8 %inclusive, 0
   %1 = load i32, ptr %fTimeRuleType.i, align 8
   %cmp.not.i38 = icmp eq i32 %1, 2
-  %sub.i39 = select i1 %cmp.not.i38, double 0.000000e+00, double %conv.i
   %cmp3.i41 = icmp eq i32 %1, 0
-  %sub6.i42 = select i1 %cmp3.i41, double %conv5.i, double 0.000000e+00
   br i1 %tobool.not, label %for.body.preheader, label %for.body.lr.ph.split.us
 
 for.body.preheader:                               ; preds = %for.body.lr.ph
@@ -1996,8 +1994,10 @@ for.body.preheader:                               ; preds = %for.body.lr.ph
   %3 = load ptr, ptr %fStartTimes, align 8
   %arrayidx37 = getelementptr inbounds double, ptr %3, i64 %2
   %4 = load double, ptr %arrayidx37, align 8
-  %time.addr.0.i40 = fsub double %4, %sub.i39
-  %time.addr.1.i43 = fsub double %time.addr.0.i40, %sub6.i42
+  %sub.i39 = fsub double %4, %conv.i
+  %time.addr.0.i40 = select i1 %cmp.not.i38, double %4, double %sub.i39
+  %sub6.i42 = fsub double %time.addr.0.i40, %conv5.i
+  %time.addr.1.i43 = select i1 %cmp3.i41, double %sub6.i42, double %time.addr.0.i40
   %or.cond44 = fcmp ugt double %time.addr.1.i43, %base
   br i1 %or.cond44, label %if.end, label %for.end
 
@@ -2006,8 +2006,10 @@ for.body.lr.ph.split.us:                          ; preds = %for.body.lr.ph
   %idxprom.us14 = zext nneg i32 %i.07 to i64
   %arrayidx.us15 = getelementptr inbounds double, ptr %5, i64 %idxprom.us14
   %6 = load double, ptr %arrayidx.us15, align 8
-  %time.addr.0.i.us18 = fsub double %6, %sub.i39
-  %time.addr.1.i.us21 = fsub double %time.addr.0.i.us18, %sub6.i42
+  %sub.i.us17 = fsub double %6, %conv.i
+  %time.addr.0.i.us18 = select i1 %cmp.not.i38, double %6, double %sub.i.us17
+  %sub6.i.us20 = fsub double %time.addr.0.i.us18, %conv5.i
+  %time.addr.1.i.us21 = select i1 %cmp3.i41, double %sub6.i.us20, double %time.addr.0.i.us18
   %cmp2.us22 = fcmp olt double %time.addr.1.i.us21, %base
   br i1 %cmp2.us22, label %for.end, label %lor.lhs.false.us
 
@@ -2018,11 +2020,11 @@ for.body.us:                                      ; preds = %lor.lhs.false.us
   %8 = load double, ptr %arrayidx.us, align 8
   %9 = load i32, ptr %fTimeRuleType.i, align 8
   %cmp.not.i.us = icmp eq i32 %9, 2
-  %sub.i.us = select i1 %cmp.not.i.us, double 0.000000e+00, double %conv.i
-  %time.addr.0.i.us = fsub double %8, %sub.i.us
+  %sub.i.us = fsub double %8, %conv.i
+  %time.addr.0.i.us = select i1 %cmp.not.i.us, double %8, double %sub.i.us
   %cmp3.i.us = icmp eq i32 %9, 0
-  %sub6.i.us = select i1 %cmp3.i.us, double %conv5.i, double 0.000000e+00
-  %time.addr.1.i.us = fsub double %time.addr.0.i.us, %sub6.i.us
+  %sub6.i.us = fsub double %time.addr.0.i.us, %conv5.i
+  %time.addr.1.i.us = select i1 %cmp3.i.us, double %sub6.i.us, double %time.addr.0.i.us
   %cmp2.us = fcmp olt double %time.addr.1.i.us, %base
   br i1 %cmp2.us, label %for.end.loopexit31.split.loop.exit, label %lor.lhs.false.us, !llvm.loop !8
 
@@ -2040,11 +2042,11 @@ for.body:                                         ; preds = %if.end
   %11 = load double, ptr %arrayidx, align 8
   %12 = load i32, ptr %fTimeRuleType.i, align 8
   %cmp.not.i = icmp eq i32 %12, 2
-  %sub.i = select i1 %cmp.not.i, double 0.000000e+00, double %conv.i
-  %time.addr.0.i = fsub double %11, %sub.i
+  %sub.i = fsub double %11, %conv.i
+  %time.addr.0.i = select i1 %cmp.not.i, double %11, double %sub.i
   %cmp3.i = icmp eq i32 %12, 0
-  %sub6.i = select i1 %cmp3.i, double %conv5.i, double 0.000000e+00
-  %time.addr.1.i = fsub double %time.addr.0.i, %sub6.i
+  %sub6.i = fsub double %time.addr.0.i, %conv5.i
+  %time.addr.1.i = select i1 %cmp3.i, double %sub6.i, double %time.addr.0.i
   %or.cond = fcmp ugt double %time.addr.1.i, %base
   br i1 %or.cond, label %if.end, label %for.body.for.end.loopexit_crit_edge, !llvm.loop !8
 
@@ -2080,63 +2082,149 @@ entry:
   %1 = load ptr, ptr %fStartTimes, align 8
   %fTimeRuleType.i = getelementptr inbounds i8, ptr %this, i64 80
   %2 = load i32, ptr %fTimeRuleType.i, align 8
-  %cmp.not.i = icmp eq i32 %2, 2
+  %.fr = freeze i32 %2
   %conv.i = sitofp i32 %prevRawOffset to double
-  %sub.i = select i1 %cmp.not.i, double 0.000000e+00, double %conv.i
-  %cmp3.i = icmp eq i32 %2, 0
   %conv5.i = sitofp i32 %prevDSTSavings to double
-  %sub6.i = select i1 %cmp3.i, double %conv5.i, double 0.000000e+00
   %tobool.not.not = icmp eq i8 %inclusive, 0
-  br i1 %tobool.not.not, label %entry.split.us, label %for.cond.preheader
-
-for.cond.preheader:                               ; preds = %entry
-  %3 = zext i32 %0 to i64
-  br label %for.cond
+  switch i32 %.fr, label %entry.split.split [
+    i32 2, label %entry.split.us
+    i32 0, label %entry.split.split.us
+  ]
 
 entry.split.us:                                   ; preds = %entry
-  %cmp.us7 = icmp sgt i32 %0, 0
-  br i1 %cmp.us7, label %for.body.us.preheader, label %return
+  br i1 %tobool.not.not, label %entry.split.us.split.us, label %for.cond.us.preheader
 
-for.body.us.preheader:                            ; preds = %entry.split.us
-  %4 = zext nneg i32 %0 to i64
-  br label %for.body.us
+entry.split.us.split.us:                          ; preds = %entry.split.us
+  %cmp.us.us58 = icmp sgt i32 %0, 0
+  br i1 %cmp.us.us58, label %for.body.us.us.preheader, label %return
 
-for.cond.us:                                      ; preds = %for.body.us
-  %cmp.us = icmp ugt i64 %indvars.iv14, 1
+for.body.us.us.preheader:                         ; preds = %entry.split.us.split.us
+  %i.0.us.us57 = add nsw i32 %0, -1
+  %3 = zext nneg i32 %i.0.us.us57 to i64
+  br label %for.body.us.us
+
+for.cond.us.us:                                   ; preds = %for.body.us.us
+  %indvars.iv.next105 = add nsw i64 %indvars.iv104, -1
+  %cmp.us.us = icmp sgt i64 %indvars.iv104, 0
+  br i1 %cmp.us.us, label %for.body.us.us, label %return
+
+for.body.us.us:                                   ; preds = %for.body.us.us.preheader, %for.cond.us.us
+  %indvars.iv104 = phi i64 [ %3, %for.body.us.us.preheader ], [ %indvars.iv.next105, %for.cond.us.us ]
+  %arrayidx.us.us = getelementptr inbounds double, ptr %1, i64 %indvars.iv104
+  %4 = load double, ptr %arrayidx.us.us, align 8
+  %cmp2.us.us = fcmp olt double %4, %base
+  br i1 %cmp2.us.us, label %if.then, label %for.cond.us.us
+
+for.cond.us.preheader:                            ; preds = %entry.split.us
+  %5 = zext i32 %0 to i64
+  br label %for.cond.us
+
+for.cond.us:                                      ; preds = %for.cond.us.preheader, %for.body.us
+  %indvars.iv96 = phi i64 [ %5, %for.cond.us.preheader ], [ %7, %for.body.us ]
+  %6 = trunc i64 %indvars.iv96 to i32
+  %cmp.us = icmp sgt i32 %6, 0
   br i1 %cmp.us, label %for.body.us, label %return
 
-for.body.us:                                      ; preds = %for.body.us.preheader, %for.cond.us
-  %indvars.iv14 = phi i64 [ %4, %for.body.us.preheader ], [ %indvars.iv.next15, %for.cond.us ]
-  %indvars.iv.next15 = add nsw i64 %indvars.iv14, -1
-  %arrayidx.us = getelementptr inbounds double, ptr %1, i64 %indvars.iv.next15
-  %5 = load double, ptr %arrayidx.us, align 8
-  %time.addr.0.i.us = fsub double %5, %sub.i
-  %time.addr.1.i.us = fsub double %time.addr.0.i.us, %sub6.i
-  %cmp2.us = fcmp olt double %time.addr.1.i.us, %base
-  br i1 %cmp2.us, label %if.then, label %for.cond.us
+for.body.us:                                      ; preds = %for.cond.us
+  %7 = add nsw i64 %indvars.iv96, -1
+  %arrayidx.us = getelementptr inbounds double, ptr %1, i64 %7
+  %8 = load double, ptr %arrayidx.us, align 8
+  %or.cond62 = fcmp ugt double %8, %base
+  br i1 %or.cond62, label %for.cond.us, label %if.then, !llvm.loop !9
+
+entry.split.split.us:                             ; preds = %entry
+  br i1 %tobool.not.not, label %entry.split.split.us.split.us, label %for.cond.us6.preheader
+
+for.cond.us6.preheader:                           ; preds = %entry.split.split.us
+  %9 = zext i32 %0 to i64
+  br label %for.cond.us6
+
+entry.split.split.us.split.us:                    ; preds = %entry.split.split.us
+  %cmp.us9.us41 = icmp sgt i32 %0, 0
+  br i1 %cmp.us9.us41, label %for.body.us10.us.preheader, label %return
+
+for.body.us10.us.preheader:                       ; preds = %entry.split.split.us.split.us
+  %10 = zext nneg i32 %0 to i64
+  br label %for.body.us10.us
+
+for.cond.us6.us:                                  ; preds = %for.body.us10.us
+  %cmp.us9.us = icmp ugt i64 %indvars.iv93, 1
+  br i1 %cmp.us9.us, label %for.body.us10.us, label %return
+
+for.body.us10.us:                                 ; preds = %for.body.us10.us.preheader, %for.cond.us6.us
+  %indvars.iv93 = phi i64 [ %10, %for.body.us10.us.preheader ], [ %indvars.iv.next94, %for.cond.us6.us ]
+  %indvars.iv.next94 = add nsw i64 %indvars.iv93, -1
+  %arrayidx.us12.us = getelementptr inbounds double, ptr %1, i64 %indvars.iv.next94
+  %11 = load double, ptr %arrayidx.us12.us, align 8
+  %sub.i.us13.us = fsub double %11, %conv.i
+  %sub6.i.us14.us = fsub double %sub.i.us13.us, %conv5.i
+  %cmp2.us19.us = fcmp olt double %sub6.i.us14.us, %base
+  br i1 %cmp2.us19.us, label %if.then, label %for.cond.us6.us
+
+for.cond.us6:                                     ; preds = %for.cond.us6.preheader, %for.body.us10
+  %indvars.iv89 = phi i64 [ %9, %for.cond.us6.preheader ], [ %13, %for.body.us10 ]
+  %12 = trunc i64 %indvars.iv89 to i32
+  %cmp.us9 = icmp sgt i32 %12, 0
+  br i1 %cmp.us9, label %for.body.us10, label %return
+
+for.body.us10:                                    ; preds = %for.cond.us6
+  %13 = add nsw i64 %indvars.iv89, -1
+  %arrayidx.us12 = getelementptr inbounds double, ptr %1, i64 %13
+  %14 = load double, ptr %arrayidx.us12, align 8
+  %sub.i.us13 = fsub double %14, %conv.i
+  %sub6.i.us14 = fsub double %sub.i.us13, %conv5.i
+  %or.cond63 = fcmp ugt double %sub6.i.us14, %base
+  br i1 %or.cond63, label %for.cond.us6, label %if.then, !llvm.loop !9
+
+entry.split.split:                                ; preds = %entry
+  br i1 %tobool.not.not, label %entry.split.split.split.us, label %for.cond.preheader
+
+for.cond.preheader:                               ; preds = %entry.split.split
+  %15 = zext i32 %0 to i64
+  br label %for.cond
+
+entry.split.split.split.us:                       ; preds = %entry.split.split
+  %cmp.us2537 = icmp sgt i32 %0, 0
+  br i1 %cmp.us2537, label %for.body.us26.preheader, label %return
+
+for.body.us26.preheader:                          ; preds = %entry.split.split.split.us
+  %16 = zext nneg i32 %0 to i64
+  br label %for.body.us26
+
+for.cond.us22:                                    ; preds = %for.body.us26
+  %cmp.us25 = icmp ugt i64 %indvars.iv86, 1
+  br i1 %cmp.us25, label %for.body.us26, label %return
+
+for.body.us26:                                    ; preds = %for.body.us26.preheader, %for.cond.us22
+  %indvars.iv86 = phi i64 [ %16, %for.body.us26.preheader ], [ %indvars.iv.next87, %for.cond.us22 ]
+  %indvars.iv.next87 = add nsw i64 %indvars.iv86, -1
+  %arrayidx.us28 = getelementptr inbounds double, ptr %1, i64 %indvars.iv.next87
+  %17 = load double, ptr %arrayidx.us28, align 8
+  %sub.i.us29 = fsub double %17, %conv.i
+  %cmp2.us30 = fcmp olt double %sub.i.us29, %base
+  br i1 %cmp2.us30, label %if.then, label %for.cond.us22
 
 for.cond:                                         ; preds = %for.cond.preheader, %for.body
-  %indvars.iv = phi i64 [ %3, %for.cond.preheader ], [ %7, %for.body ]
-  %6 = trunc i64 %indvars.iv to i32
-  %cmp = icmp sgt i32 %6, 0
+  %indvars.iv = phi i64 [ %15, %for.cond.preheader ], [ %19, %for.body ]
+  %18 = trunc i64 %indvars.iv to i32
+  %cmp = icmp sgt i32 %18, 0
   br i1 %cmp, label %for.body, label %return
 
 for.body:                                         ; preds = %for.cond
-  %7 = add nsw i64 %indvars.iv, -1
-  %arrayidx = getelementptr inbounds double, ptr %1, i64 %7
-  %8 = load double, ptr %arrayidx, align 8
-  %time.addr.0.i = fsub double %8, %sub.i
-  %time.addr.1.i = fsub double %time.addr.0.i, %sub6.i
-  %or.cond = fcmp ugt double %time.addr.1.i, %base
-  br i1 %or.cond, label %for.cond, label %if.then, !llvm.loop !9
+  %19 = add nsw i64 %indvars.iv, -1
+  %arrayidx = getelementptr inbounds double, ptr %1, i64 %19
+  %20 = load double, ptr %arrayidx, align 8
+  %sub.i = fsub double %20, %conv.i
+  %or.cond64 = fcmp ugt double %sub.i, %base
+  br i1 %or.cond64, label %for.cond, label %if.then, !llvm.loop !9
 
-if.then:                                          ; preds = %for.body, %for.body.us
-  %.us-phi = phi double [ %time.addr.1.i.us, %for.body.us ], [ %time.addr.1.i, %for.body ]
+if.then:                                          ; preds = %for.body.us10, %for.body.us10.us, %for.body.us, %for.body.us.us, %for.body, %for.body.us26
+  %.us-phi = phi double [ %sub.i.us29, %for.body.us26 ], [ %sub.i, %for.body ], [ %4, %for.body.us.us ], [ %8, %for.body.us ], [ %sub6.i.us14.us, %for.body.us10.us ], [ %sub6.i.us14, %for.body.us10 ]
   store double %.us-phi, ptr %result, align 8
   br label %return
 
-return:                                           ; preds = %for.cond, %for.cond.us, %entry.split.us, %if.then
-  %retval.0 = phi i8 [ 1, %if.then ], [ 0, %entry.split.us ], [ 0, %for.cond.us ], [ 0, %for.cond ]
+return:                                           ; preds = %for.cond.us6, %for.cond.us6.us, %for.cond.us, %for.cond.us.us, %for.cond, %for.cond.us22, %entry.split.us.split.us, %entry.split.split.split.us, %entry.split.split.us.split.us, %if.then
+  %retval.0 = phi i8 [ 1, %if.then ], [ 0, %entry.split.split.us.split.us ], [ 0, %entry.split.split.split.us ], [ 0, %entry.split.us.split.us ], [ 0, %for.cond.us22 ], [ 0, %for.cond ], [ 0, %for.cond.us.us ], [ 0, %for.cond.us ], [ 0, %for.cond.us6.us ], [ 0, %for.cond.us6 ]
   ret i8 %retval.0
 }
 

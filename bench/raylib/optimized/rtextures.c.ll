@@ -24167,8 +24167,8 @@ define void @DrawTexturePro(ptr nocapture noundef readonly byval(%struct.Texture
   %.sroa.19.0 = shufflevector <2 x float> %sel, <2 x float> %2, <2 x i32> <i32 0, i32 3>
   %.sroa.19.12.vec.extract = extractelement <2 x float> %2, i64 1
   %19 = fcmp olt float %.sroa.19.12.vec.extract, 0.000000e+00
-  %20 = select i1 %19, <2 x float> %.sroa.19.0, <2 x float> <float poison, float 0.000000e+00>
-  %sel172 = fsub <2 x float> %1, %20
+  %20 = fsub <2 x float> %1, %.sroa.19.0
+  %sel172 = select i1 %19, <2 x float> %20, <2 x float> %1
   %.sroa.0116.0 = shufflevector <2 x float> %1, <2 x float> %sel172, <2 x i32> <i32 0, i32 3>
   %21 = fcmp oeq float %6, 0.000000e+00
   br i1 %21, label %22, label %31

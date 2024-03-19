@@ -6476,8 +6476,8 @@ sw.bb230:                                         ; preds = %if.end7
   %sub246 = fsub double %add245, %sub238
   %call247 = tail call double @uprv_fmod_75(double noundef %sub246, double noundef %mul243)
   %cmp248 = fcmp olt double %call247, 0.000000e+00
-  %add250 = select i1 %cmp248, double %mul243, double -0.000000e+00
-  %newtime.0 = fadd double %call247, %add250
+  %add250 = fadd double %call247, %mul243
+  %newtime.0 = select i1 %cmp248, double %add250, double %call247
   %add252 = fadd double %sub238, %newtime.0
   tail call void @_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, double noundef %add252, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %sw.epilog
@@ -6539,8 +6539,8 @@ sw.bb279:                                         ; preds = %if.end7
   %sub303 = fsub double %add302, %63
   %call304 = tail call double @uprv_fmod_75(double noundef %sub303, double noundef %mul299)
   %cmp305 = fcmp olt double %call304, 0.000000e+00
-  %add307 = select i1 %cmp305, double %mul299, double -0.000000e+00
-  %newtime300.0 = fadd double %call304, %add307
+  %add307 = fadd double %call304, %mul299
+  %newtime300.0 = select i1 %cmp305, double %add307, double %call304
   %add309 = fadd double %63, %newtime300.0
   tail call void @_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, double noundef %add309, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %sw.epilog

@@ -19426,9 +19426,9 @@ _ZN6casadi14casadi_projectIdEEvPKT_PKxPS1_S5_S6_.exit: ; preds = %.loopexit.i240
   %156 = getelementptr inbounds double, ptr %2, i64 %.02835.i
   %157 = load double, ptr %156, align 8
   %158 = tail call double @llvm.fabs.f64(double %157)
+  %159 = fadd double %.02934.i, %158
   %.132.i = select i1 %155, double %157, double %.03133.i
-  %159 = select i1 %155, double -0.000000e+00, double %158
-  %.130.i = fadd double %.02934.i, %159
+  %.130.i = select i1 %155, double %.02934.i, double %159
   %160 = add nsw i64 %.02835.i, 1
   %exitcond.not.i266 = icmp eq i64 %160, %151
   br i1 %exitcond.not.i266, label %._crit_edge.i264.loopexit, label %.lr.ph.i265, !llvm.loop !79

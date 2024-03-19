@@ -696,8 +696,8 @@ define void @dtprfs_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %487 = fneg double %485
   %488 = select i1 %486, double %485, double %487
   %489 = call double @llvm.fmuladd.f64(double %100, double %482, double %488)
-  %490 = select i1 %483, double -0.000000e+00, double %92
-  %491 = fadd double %489, %490
+  %490 = fadd double %92, %489
+  %491 = select i1 %483, double %489, double %490
   store double %491, ptr %481, align 8, !tbaa !7
   %492 = add nuw nsw i64 %480, 1
   %493 = icmp eq i64 %492, %456

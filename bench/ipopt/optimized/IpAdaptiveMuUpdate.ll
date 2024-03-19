@@ -5732,8 +5732,8 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit67:      ; preds = %152, %_ZN5Ipopt8Sma
 _ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit69: ; preds = %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit67, %160
   %164 = icmp sgt i32 %135, 0
   %165 = sitofp i32 %135 to double
-  %166 = select i1 %164, double %165, double 1.000000e+00
-  %.023 = fdiv double %16, %166
+  %166 = fdiv double %16, %165
+  %.023 = select i1 %164, double %166, double %16
   %167 = getelementptr inbounds i8, ptr %0, i64 208
   %168 = load double, ptr %167, align 8
   %169 = fcmp olt double %168, 0.000000e+00
@@ -6346,11 +6346,11 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit178:     ; preds = %284, %_ZN5Ipopt8Sma
 _ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit180: ; preds = %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit178, %292
   %296 = getelementptr inbounds i8, ptr %0, i64 144
   %297 = load i32, ptr %296, align 8
-  switch i32 %297, label %412 [
+  switch i32 %297, label %401 [
     i32 0, label %298
-    i32 1, label %328
-    i32 2, label %360
-    i32 3, label %379
+    i32 1, label %324
+    i32 2, label %353
+    i32 3, label %370
   ]
 
 298:                                              ; preds = %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit180
@@ -6371,191 +6371,179 @@ _ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit180: ; preds = %_ZN5Ipopt8Smar
   %313 = load ptr, ptr %312, align 8
   %314 = tail call noundef double %313(ptr noundef nonnull align 8 dereferenceable(2185) %310, double noundef 0.000000e+00, i32 noundef 0)
   %315 = sitofp i32 %45 to double
-  %316 = icmp sgt i32 %118, 0
-  %317 = sitofp i32 %118 to double
-  %318 = select i1 %316, double %317, double 1.000000e+00
-  %319 = insertelement <2 x double> poison, double %309, i64 0
-  %320 = insertelement <2 x double> %319, double %304, i64 1
-  %321 = insertelement <2 x double> poison, double %318, i64 0
-  %322 = insertelement <2 x double> %321, double %315, i64 1
-  %323 = fdiv <2 x double> %320, %322
-  %324 = icmp sgt i32 %237, 0
-  br i1 %324, label %325, label %412
+  %316 = fdiv double %304, %315
+  %317 = icmp sgt i32 %118, 0
+  %318 = sitofp i32 %118 to double
+  %319 = fdiv double %309, %318
+  %.069 = select i1 %317, double %319, double %309
+  %320 = icmp sgt i32 %237, 0
+  br i1 %320, label %321, label %401
 
-325:                                              ; preds = %298
-  %326 = sitofp i32 %237 to double
-  %327 = fdiv double %314, %326
-  br label %412
+321:                                              ; preds = %298
+  %322 = sitofp i32 %237 to double
+  %323 = fdiv double %314, %322
+  br label %401
 
-328:                                              ; preds = %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit180
-  %329 = getelementptr inbounds i8, ptr %0, i64 40
-  %330 = load ptr, ptr %329, align 8
-  %331 = load ptr, ptr %330, align 8
-  %332 = getelementptr inbounds i8, ptr %331, i64 136
+324:                                              ; preds = %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit180
+  %325 = getelementptr inbounds i8, ptr %0, i64 40
+  %326 = load ptr, ptr %325, align 8
+  %327 = load ptr, ptr %326, align 8
+  %328 = getelementptr inbounds i8, ptr %327, i64 136
+  %329 = load ptr, ptr %328, align 8
+  %330 = tail call noundef double %329(ptr noundef nonnull align 8 dereferenceable(2185) %326, i32 noundef 1)
+  %331 = fmul double %330, %330
+  %332 = load ptr, ptr %325, align 8
   %333 = load ptr, ptr %332, align 8
-  %334 = tail call noundef double %333(ptr noundef nonnull align 8 dereferenceable(2185) %330, i32 noundef 1)
-  %335 = load ptr, ptr %329, align 8
-  %336 = load ptr, ptr %335, align 8
-  %337 = getelementptr inbounds i8, ptr %336, i64 120
-  %338 = load ptr, ptr %337, align 8
-  %339 = tail call noundef double %338(ptr noundef nonnull align 8 dereferenceable(2185) %335, i32 noundef 1)
-  %340 = insertelement <2 x double> poison, double %339, i64 0
-  %341 = insertelement <2 x double> %340, double %334, i64 1
-  %342 = fmul <2 x double> %341, %341
-  %343 = load ptr, ptr %329, align 8
-  %344 = load ptr, ptr %343, align 8
-  %345 = getelementptr inbounds i8, ptr %344, i64 160
-  %346 = load ptr, ptr %345, align 8
-  %347 = tail call noundef double %346(ptr noundef nonnull align 8 dereferenceable(2185) %343, double noundef 0.000000e+00, i32 noundef 1)
-  %348 = fmul double %347, %347
-  %349 = sitofp i32 %45 to double
-  %350 = icmp sgt i32 %118, 0
-  %351 = sitofp i32 %118 to double
-  %352 = select i1 %350, double %351, double 1.000000e+00
-  %353 = insertelement <2 x double> poison, double %352, i64 0
-  %354 = insertelement <2 x double> %353, double %349, i64 1
-  %355 = fdiv <2 x double> %342, %354
-  %356 = icmp sgt i32 %237, 0
-  br i1 %356, label %357, label %412
+  %334 = getelementptr inbounds i8, ptr %333, i64 120
+  %335 = load ptr, ptr %334, align 8
+  %336 = tail call noundef double %335(ptr noundef nonnull align 8 dereferenceable(2185) %332, i32 noundef 1)
+  %337 = fmul double %336, %336
+  %338 = load ptr, ptr %325, align 8
+  %339 = load ptr, ptr %338, align 8
+  %340 = getelementptr inbounds i8, ptr %339, i64 160
+  %341 = load ptr, ptr %340, align 8
+  %342 = tail call noundef double %341(ptr noundef nonnull align 8 dereferenceable(2185) %338, double noundef 0.000000e+00, i32 noundef 1)
+  %343 = fmul double %342, %342
+  %344 = sitofp i32 %45 to double
+  %345 = fdiv double %331, %344
+  %346 = icmp sgt i32 %118, 0
+  %347 = sitofp i32 %118 to double
+  %348 = fdiv double %337, %347
+  %.170 = select i1 %346, double %348, double %337
+  %349 = icmp sgt i32 %237, 0
+  br i1 %349, label %350, label %401
 
-357:                                              ; preds = %328
-  %358 = sitofp i32 %237 to double
-  %359 = fdiv double %348, %358
-  br label %412
+350:                                              ; preds = %324
+  %351 = sitofp i32 %237 to double
+  %352 = fdiv double %343, %351
+  br label %401
 
-360:                                              ; preds = %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit180
-  %361 = getelementptr inbounds i8, ptr %0, i64 40
-  %362 = load ptr, ptr %361, align 8
+353:                                              ; preds = %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit180
+  %354 = getelementptr inbounds i8, ptr %0, i64 40
+  %355 = load ptr, ptr %354, align 8
+  %356 = load ptr, ptr %355, align 8
+  %357 = getelementptr inbounds i8, ptr %356, i64 136
+  %358 = load ptr, ptr %357, align 8
+  %359 = tail call noundef double %358(ptr noundef nonnull align 8 dereferenceable(2185) %355, i32 noundef 2)
+  %360 = load ptr, ptr %354, align 8
+  %361 = load ptr, ptr %360, align 8
+  %362 = getelementptr inbounds i8, ptr %361, i64 120
   %363 = load ptr, ptr %362, align 8
-  %364 = getelementptr inbounds i8, ptr %363, i64 136
-  %365 = load ptr, ptr %364, align 8
-  %366 = tail call noundef double %365(ptr noundef nonnull align 8 dereferenceable(2185) %362, i32 noundef 2)
-  %367 = load ptr, ptr %361, align 8
+  %364 = tail call noundef double %363(ptr noundef nonnull align 8 dereferenceable(2185) %360, i32 noundef 2)
+  %365 = load ptr, ptr %354, align 8
+  %366 = load ptr, ptr %365, align 8
+  %367 = getelementptr inbounds i8, ptr %366, i64 160
   %368 = load ptr, ptr %367, align 8
-  %369 = getelementptr inbounds i8, ptr %368, i64 120
-  %370 = load ptr, ptr %369, align 8
-  %371 = tail call noundef double %370(ptr noundef nonnull align 8 dereferenceable(2185) %367, i32 noundef 2)
-  %372 = load ptr, ptr %361, align 8
+  %369 = tail call noundef double %368(ptr noundef nonnull align 8 dereferenceable(2185) %365, double noundef 0.000000e+00, i32 noundef 2)
+  br label %401
+
+370:                                              ; preds = %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit180
+  %371 = getelementptr inbounds i8, ptr %0, i64 40
+  %372 = load ptr, ptr %371, align 8
   %373 = load ptr, ptr %372, align 8
-  %374 = getelementptr inbounds i8, ptr %373, i64 160
+  %374 = getelementptr inbounds i8, ptr %373, i64 136
   %375 = load ptr, ptr %374, align 8
-  %376 = tail call noundef double %375(ptr noundef nonnull align 8 dereferenceable(2185) %372, double noundef 0.000000e+00, i32 noundef 2)
-  %377 = insertelement <2 x double> poison, double %371, i64 0
-  %378 = insertelement <2 x double> %377, double %366, i64 1
-  br label %412
+  %376 = tail call noundef double %375(ptr noundef nonnull align 8 dereferenceable(2185) %372, i32 noundef 1)
+  %377 = load ptr, ptr %371, align 8
+  %378 = load ptr, ptr %377, align 8
+  %379 = getelementptr inbounds i8, ptr %378, i64 120
+  %380 = load ptr, ptr %379, align 8
+  %381 = tail call noundef double %380(ptr noundef nonnull align 8 dereferenceable(2185) %377, i32 noundef 1)
+  %382 = load ptr, ptr %371, align 8
+  %383 = load ptr, ptr %382, align 8
+  %384 = getelementptr inbounds i8, ptr %383, i64 160
+  %385 = load ptr, ptr %384, align 8
+  %386 = tail call noundef double %385(ptr noundef nonnull align 8 dereferenceable(2185) %382, double noundef 0.000000e+00, i32 noundef 1)
+  %387 = sitofp i32 %45 to double
+  %388 = tail call double @sqrt(double noundef %387) #19
+  %389 = fdiv double %376, %388
+  %390 = icmp sgt i32 %118, 0
+  br i1 %390, label %391, label %395
 
-379:                                              ; preds = %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit180
-  %380 = getelementptr inbounds i8, ptr %0, i64 40
-  %381 = load ptr, ptr %380, align 8
-  %382 = load ptr, ptr %381, align 8
-  %383 = getelementptr inbounds i8, ptr %382, i64 136
-  %384 = load ptr, ptr %383, align 8
-  %385 = tail call noundef double %384(ptr noundef nonnull align 8 dereferenceable(2185) %381, i32 noundef 1)
-  %386 = load ptr, ptr %380, align 8
-  %387 = load ptr, ptr %386, align 8
-  %388 = getelementptr inbounds i8, ptr %387, i64 120
-  %389 = load ptr, ptr %388, align 8
-  %390 = tail call noundef double %389(ptr noundef nonnull align 8 dereferenceable(2185) %386, i32 noundef 1)
-  %391 = load ptr, ptr %380, align 8
-  %392 = load ptr, ptr %391, align 8
-  %393 = getelementptr inbounds i8, ptr %392, i64 160
-  %394 = load ptr, ptr %393, align 8
-  %395 = tail call noundef double %394(ptr noundef nonnull align 8 dereferenceable(2185) %391, double noundef 0.000000e+00, i32 noundef 1)
-  %396 = sitofp i32 %45 to double
-  %397 = tail call double @sqrt(double noundef %396) #19
-  %398 = fdiv double %385, %397
-  %399 = icmp sgt i32 %118, 0
-  br i1 %399, label %400, label %404
+391:                                              ; preds = %370
+  %392 = sitofp i32 %118 to double
+  %393 = tail call double @sqrt(double noundef %392) #19
+  %394 = fdiv double %381, %393
+  br label %395
 
-400:                                              ; preds = %379
-  %401 = sitofp i32 %118 to double
-  %402 = tail call double @sqrt(double noundef %401) #19
-  %403 = fdiv double %390, %402
-  br label %404
+395:                                              ; preds = %391, %370
+  %.271 = phi double [ %394, %391 ], [ %381, %370 ]
+  %396 = icmp sgt i32 %237, 0
+  br i1 %396, label %397, label %401
 
-404:                                              ; preds = %400, %379
-  %.271 = phi double [ %403, %400 ], [ %390, %379 ]
-  %405 = icmp sgt i32 %237, 0
-  %406 = insertelement <2 x double> poison, double %.271, i64 0
-  %407 = insertelement <2 x double> %406, double %398, i64 1
-  br i1 %405, label %408, label %412
+397:                                              ; preds = %395
+  %398 = sitofp i32 %237 to double
+  %399 = tail call double @sqrt(double noundef %398) #19
+  %400 = fdiv double %386, %399
+  br label %401
 
-408:                                              ; preds = %404
-  %409 = sitofp i32 %237 to double
-  %410 = tail call double @sqrt(double noundef %409) #19
-  %411 = fdiv double %395, %410
-  br label %412
+401:                                              ; preds = %395, %397, %324, %350, %298, %321, %353, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit180
+  %.073 = phi double [ 0.000000e+00, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit180 ], [ %389, %397 ], [ %389, %395 ], [ %359, %353 ], [ %345, %350 ], [ %345, %324 ], [ %316, %321 ], [ %316, %298 ]
+  %.372 = phi double [ 0.000000e+00, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit180 ], [ %.271, %397 ], [ %.271, %395 ], [ %364, %353 ], [ %.170, %350 ], [ %.170, %324 ], [ %.069, %321 ], [ %.069, %298 ]
+  %.068 = phi double [ 0.000000e+00, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit180 ], [ %400, %397 ], [ %386, %395 ], [ %369, %353 ], [ %352, %350 ], [ %343, %324 ], [ %323, %321 ], [ %314, %298 ]
+  %402 = getelementptr inbounds i8, ptr %0, i64 148
+  %403 = load i32, ptr %402, align 4
+  %.not = icmp eq i32 %403, 0
+  br i1 %.not, label %421, label %404
 
-412:                                              ; preds = %404, %408, %328, %357, %298, %325, %360, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit180
-  %.068 = phi double [ 0.000000e+00, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit180 ], [ %411, %408 ], [ %395, %404 ], [ %376, %360 ], [ %359, %357 ], [ %348, %328 ], [ %327, %325 ], [ %314, %298 ]
-  %413 = phi <2 x double> [ zeroinitializer, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit180 ], [ %407, %408 ], [ %407, %404 ], [ %378, %360 ], [ %355, %357 ], [ %355, %328 ], [ %323, %325 ], [ %323, %298 ]
-  %414 = getelementptr inbounds i8, ptr %0, i64 148
-  %415 = load i32, ptr %414, align 4
-  %.not = icmp eq i32 %415, 0
-  br i1 %.not, label %433, label %416
-
-416:                                              ; preds = %412
-  %417 = getelementptr inbounds i8, ptr %0, i64 40
-  %418 = load ptr, ptr %417, align 8
-  %419 = load ptr, ptr %418, align 8
-  %420 = getelementptr inbounds i8, ptr %419, i64 184
-  %421 = load ptr, ptr %420, align 8
-  %422 = tail call noundef double %421(ptr noundef nonnull align 8 dereferenceable(2185) %418)
-  %423 = load i32, ptr %414, align 4
-  switch i32 %423, label %433 [
-    i32 1, label %424
-    i32 2, label %428
-    i32 3, label %430
+404:                                              ; preds = %401
+  %405 = getelementptr inbounds i8, ptr %0, i64 40
+  %406 = load ptr, ptr %405, align 8
+  %407 = load ptr, ptr %406, align 8
+  %408 = getelementptr inbounds i8, ptr %407, i64 184
+  %409 = load ptr, ptr %408, align 8
+  %410 = tail call noundef double %409(ptr noundef nonnull align 8 dereferenceable(2185) %406)
+  %411 = load i32, ptr %402, align 4
+  switch i32 %411, label %421 [
+    i32 1, label %412
+    i32 2, label %416
+    i32 3, label %418
   ]
 
-424:                                              ; preds = %416
-  %425 = fneg double %.068
-  %426 = tail call double @log(double noundef %422) #19
-  %427 = fmul double %426, %425
-  br label %433
+412:                                              ; preds = %404
+  %413 = fneg double %.068
+  %414 = tail call double @log(double noundef %410) #19
+  %415 = fmul double %414, %413
+  br label %421
 
-428:                                              ; preds = %416
-  %429 = fdiv double %.068, %422
-  br label %433
+416:                                              ; preds = %404
+  %417 = fdiv double %.068, %410
+  br label %421
 
-430:                                              ; preds = %416
-  %431 = tail call noundef double @pow(double noundef %422, double noundef 3.000000e+00) #19
-  %432 = fdiv double %.068, %431
-  br label %433
+418:                                              ; preds = %404
+  %419 = tail call noundef double @pow(double noundef %410, double noundef 3.000000e+00) #19
+  %420 = fdiv double %.068, %419
+  br label %421
 
-433:                                              ; preds = %424, %428, %430, %416, %412
-  %.067 = phi double [ 0.000000e+00, %416 ], [ %432, %430 ], [ %429, %428 ], [ %427, %424 ], [ 0.000000e+00, %412 ]
-  %434 = getelementptr inbounds i8, ptr %0, i64 152
-  %435 = load i32, ptr %434, align 8
-  %cond = icmp eq i32 %435, 1
-  br i1 %cond, label %436, label %443
+421:                                              ; preds = %412, %416, %418, %404, %401
+  %.067 = phi double [ 0.000000e+00, %404 ], [ %420, %418 ], [ %417, %416 ], [ %415, %412 ], [ 0.000000e+00, %401 ]
+  %422 = getelementptr inbounds i8, ptr %0, i64 152
+  %423 = load i32, ptr %422, align 8
+  %cond = icmp eq i32 %423, 1
+  br i1 %cond, label %424, label %429
 
-436:                                              ; preds = %433
-  %437 = extractelement <2 x double> %413, i64 0
-  %438 = extractelement <2 x double> %413, i64 1
-  %439 = fcmp olt double %438, %437
-  %.sroa.speculated.i = select i1 %439, double %437, double %438
-  %440 = fsub double %.sroa.speculated.i, %.068
-  %441 = fcmp ogt double %440, 0.000000e+00
-  %.sroa.speculated.i213 = select i1 %441, double %440, double 0.000000e+00
-  %442 = tail call noundef double @pow(double noundef %.sroa.speculated.i213, double noundef 3.000000e+00) #19
-  br label %443
+424:                                              ; preds = %421
+  %425 = fcmp olt double %.073, %.372
+  %.sroa.speculated.i = select i1 %425, double %.372, double %.073
+  %426 = fsub double %.sroa.speculated.i, %.068
+  %427 = fcmp ogt double %426, 0.000000e+00
+  %.sroa.speculated.i213 = select i1 %427, double %426, double 0.000000e+00
+  %428 = tail call noundef double @pow(double noundef %.sroa.speculated.i213, double noundef 3.000000e+00) #19
+  br label %429
 
-443:                                              ; preds = %433, %436
-  %.052 = phi double [ %442, %436 ], [ 0.000000e+00, %433 ]
-  %444 = extractelement <2 x double> %413, i64 0
-  %445 = extractelement <2 x double> %413, i64 1
-  %446 = fadd double %445, %444
-  %447 = fadd double %446, %.068
-  %448 = fadd double %447, %.067
-  %449 = fadd double %448, %.052
-  %450 = getelementptr inbounds i8, ptr %0, i64 16
-  %451 = load ptr, ptr %450, align 8
-  %452 = load ptr, ptr %451, align 8
-  %453 = getelementptr inbounds i8, ptr %452, i64 16
-  %454 = load ptr, ptr %453, align 8
-  tail call void (ptr, i32, i32, ptr, ...) %454(ptr noundef nonnull align 8 dereferenceable(40) %451, i32 noundef 7, i32 noundef 4, ptr noundef nonnull @.str.76, double noundef %444, double noundef %445, double noundef %.068, double noundef %.067, double noundef %449)
-  ret double %449
+429:                                              ; preds = %421, %424
+  %.052 = phi double [ %428, %424 ], [ 0.000000e+00, %421 ]
+  %430 = fadd double %.073, %.372
+  %431 = fadd double %430, %.068
+  %432 = fadd double %431, %.067
+  %433 = fadd double %432, %.052
+  %434 = getelementptr inbounds i8, ptr %0, i64 16
+  %435 = load ptr, ptr %434, align 8
+  %436 = load ptr, ptr %435, align 8
+  %437 = getelementptr inbounds i8, ptr %436, i64 16
+  %438 = load ptr, ptr %437, align 8
+  tail call void (ptr, i32, i32, ptr, ...) %438(ptr noundef nonnull align 8 dereferenceable(40) %435, i32 noundef 7, i32 noundef 4, ptr noundef nonnull @.str.76, double noundef %.372, double noundef %.073, double noundef %.068, double noundef %.067, double noundef %433)
+  ret double %433
 }
 
 ; Function Attrs: mustprogress uwtable

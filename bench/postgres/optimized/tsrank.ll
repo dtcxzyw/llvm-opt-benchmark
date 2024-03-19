@@ -527,8 +527,8 @@ cnt_length.exit61.thread:                         ; preds = %173, %cnt_length.ex
   %217 = and i32 %3, 32
   %.not45 = icmp eq i32 %217, 0
   %218 = fadd float %.4, 1.000000e+00
-  %219 = select i1 %.not45, float 1.000000e+00, float %218
-  %.5 = fdiv float %.4, %219
+  %219 = fdiv float %.4, %218
+  %.5 = select i1 %.not45, float %.4, float %219
   br label %220
 
 220:                                              ; preds = %4, %11, %216
@@ -1516,8 +1516,8 @@ fillQueryRepresentationData.exit72.i:             ; preds = %311, %.lr.ph89.i
   %or.cond = select i1 %360, i1 %361, i1 false
   %362 = fsub double %359, %.089
   %363 = fdiv double 1.000000e+00, %362
-  %364 = select i1 %or.cond, double %363, double -0.000000e+00
-  %.188 = fadd double %.087, %364
+  %364 = fadd double %.087, %363
+  %.188 = select i1 %or.cond, double %364, double %.087
   %365 = add i32 %.090, 1
   br label %164, !llvm.loop !24
 
@@ -1640,8 +1640,8 @@ cnt_length.exit125.thread:                        ; preds = %393, %cnt_length.ex
   %or.cond7 = select i1 %or.cond5, i1 %418, i1 false
   %419 = sitofp i32 %.090 to double
   %420 = fdiv double %419, %.087
-  %421 = select i1 %or.cond7, double %420, double 1.000000e+00
-  %.3 = fdiv double %.2, %421
+  %421 = fdiv double %.2, %420
+  %.3 = select i1 %or.cond7, double %421, double %.2
   %422 = and i32 %3, 8
   %.not103 = icmp eq i32 %422, 0
   br i1 %.not103, label %429, label %423
@@ -1680,8 +1680,8 @@ cnt_length.exit125.thread:                        ; preds = %393, %cnt_length.ex
   %441 = and i32 %3, 32
   %.not105 = icmp eq i32 %441, 0
   %442 = fadd double %.5, 1.000000e+00
-  %443 = select i1 %.not105, double 1.000000e+00, double %442
-  %.6 = fdiv double %.5, %443
+  %443 = fdiv double %.5, %442
+  %.6 = select i1 %.not105, double %.5, double %443
   call void @pfree(ptr noundef nonnull %.3.i) #11
   %444 = load ptr, ptr %32, align 8
   call void @pfree(ptr noundef %444) #11
@@ -1942,8 +1942,8 @@ define internal fastcc float @calc_rank_or(ptr nocapture noundef readonly %0, pt
 ._crit_edge76:                                    ; preds = %.loopexit, %3
   %.051.lcssa = phi float [ 0.000000e+00, %3 ], [ %.2, %.loopexit ]
   %69 = sitofp i32 %11 to float
-  %70 = select i1 %12, float %69, float 1.000000e+00
-  %.3 = fdiv float %.051.lcssa, %70
+  %70 = fdiv float %.051.lcssa, %69
+  %.3 = select i1 %12, float %70, float %.051.lcssa
   tail call void @pfree(ptr noundef %10) #11
   ret float %.3
 }

@@ -332,8 +332,8 @@ define void @dgerfs_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   %235 = fneg double %233
   %236 = select i1 %234, double %233, double %235
   %237 = call double @llvm.fmuladd.f64(double %98, double %230, double %236)
-  %238 = select i1 %231, double -0.000000e+00, double %91
-  %239 = fadd double %237, %238
+  %238 = fadd double %91, %237
+  %239 = select i1 %231, double %237, double %238
   store double %239, ptr %229, align 8, !tbaa !7
   %240 = add nuw nsw i64 %228, 1
   %241 = icmp eq i64 %240, %226

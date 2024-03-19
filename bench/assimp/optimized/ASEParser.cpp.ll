@@ -8424,8 +8424,8 @@ _ZN6Assimp3ASE6Parser17ParseLV4MeshFloatERf.exit: ; preds = %if.then.i29, %if.en
   %sqrt.i.i.i = call noundef float @llvm.sqrt.f32(float %21)
   %cmp.i.i = fcmp oeq float %sqrt.i.i.i, 0.000000e+00
   %div.i.i.i = fdiv float 1.000000e+00, %sqrt.i.i.i
-  %mul2.i.i.i = select i1 %cmp.i.i, float 1.000000e+00, float %div.i.i.i
-  %axis.sroa.7.0.i = fmul float %agg.tmp.sroa.2.0.copyload, %mul2.i.i.i
+  %mul3.i.i.i = fmul float %agg.tmp.sroa.2.0.copyload, %div.i.i.i
+  %axis.sroa.7.0.i = select i1 %cmp.i.i, float %agg.tmp.sroa.2.0.copyload, float %mul3.i.i.i
   %div.i = fmul float %16, 5.000000e-01
   %call.i.i30 = call noundef float @sinf(float noundef %div.i) #24
   %call.i4.i = call noundef float @cosf(float noundef %div.i) #24
@@ -8433,13 +8433,16 @@ _ZN6Assimp3ASE6Parser17ParseLV4MeshFloatERf.exit: ; preds = %if.then.i29, %if.en
   %mValue = getelementptr inbounds i8, ptr %10, i64 -16
   store float %call.i4.i, ptr %mValue, align 8
   %ref.tmp.sroa.2.0.mValue.sroa_idx = getelementptr inbounds i8, ptr %10, i64 -12
-  %22 = insertelement <2 x float> poison, float %mul2.i.i.i, i64 0
+  %22 = insertelement <2 x float> poison, float %div.i.i.i, i64 0
   %23 = shufflevector <2 x float> %22, <2 x float> poison, <2 x i32> zeroinitializer
   %24 = fmul <2 x float> %agg.tmp.sroa.0.0.copyload, %23
-  %25 = insertelement <2 x float> poison, float %call.i.i30, i64 0
-  %26 = shufflevector <2 x float> %25, <2 x float> poison, <2 x i32> zeroinitializer
-  %27 = fmul <2 x float> %26, %24
-  store <2 x float> %27, ptr %ref.tmp.sroa.2.0.mValue.sroa_idx, align 4
+  %25 = insertelement <2 x i1> poison, i1 %cmp.i.i, i64 0
+  %26 = shufflevector <2 x i1> %25, <2 x i1> poison, <2 x i32> zeroinitializer
+  %27 = select <2 x i1> %26, <2 x float> %agg.tmp.sroa.0.0.copyload, <2 x float> %24
+  %28 = insertelement <2 x float> poison, float %call.i.i30, i64 0
+  %29 = shufflevector <2 x float> %28, <2 x float> poison, <2 x i32> zeroinitializer
+  %30 = fmul <2 x float> %29, %27
+  store <2 x float> %30, ptr %ref.tmp.sroa.2.0.mValue.sroa_idx, align 4
   %ref.tmp.sroa.4.0.mValue.sroa_idx = getelementptr inbounds i8, ptr %10, i64 -4
   store float %mul8.i, ptr %ref.tmp.sroa.4.0.mValue.sroa_idx, align 4
   %.pre54 = load ptr, ptr %this, align 8
@@ -8451,9 +8454,9 @@ if.end21thread-pre-split:                         ; preds = %_ZN6Assimp3ASE6Pars
   br label %if.end21
 
 if.end21:                                         ; preds = %if.end21thread-pre-split, %while.body
-  %28 = phi i8 [ %.pr, %if.end21thread-pre-split ], [ %1, %while.body ]
-  %29 = phi ptr [ %.ph, %if.end21thread-pre-split ], [ %0, %while.body ]
-  switch i8 %28, label %if.end52 [
+  %31 = phi i8 [ %.pr, %if.end21thread-pre-split ], [ %1, %while.body ]
+  %32 = phi ptr [ %.ph, %if.end21thread-pre-split ], [ %0, %while.body ]
+  switch i8 %31, label %if.end52 [
     i8 123, label %if.then25
     i8 125, label %if.then29
     i8 0, label %if.then40
@@ -8472,18 +8475,18 @@ if.then29:                                        ; preds = %if.end21
   br i1 %cmp30, label %if.then31, label %if.end52
 
 if.then31:                                        ; preds = %if.then29
-  %incdec.ptr33 = getelementptr inbounds i8, ptr %29, i64 1
+  %incdec.ptr33 = getelementptr inbounds i8, ptr %32, i64 1
   store ptr %incdec.ptr33, ptr %this, align 8
   %bLastWasEndLine.promoted.i = load i8, ptr %bLastWasEndLine, align 4
   %iLineNumber.promoted.i = load i32, ptr %iLineNumber.i.i, align 8
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end14.i, %if.then31
-  %30 = phi i32 [ %34, %if.end14.i ], [ %iLineNumber.promoted.i, %if.then31 ]
-  %31 = phi i8 [ %storemerge.i34, %if.end14.i ], [ %bLastWasEndLine.promoted.i, %if.then31 ]
+  %33 = phi i32 [ %37, %if.end14.i ], [ %iLineNumber.promoted.i, %if.then31 ]
+  %34 = phi i8 [ %storemerge.i34, %if.end14.i ], [ %bLastWasEndLine.promoted.i, %if.then31 ]
   %incdec.ptr6.i = phi ptr [ %incdec.ptr.i35, %if.end14.i ], [ %incdec.ptr33, %if.then31 ]
-  %32 = load i8, ptr %incdec.ptr6.i, align 1
-  switch i8 %32, label %if.end.i33 [
+  %35 = load i8, ptr %incdec.ptr6.i, align 1
+  switch i8 %35, label %if.end.i33 [
     i8 13, label %land.lhs.true.i31
     i8 10, label %land.lhs.true.i31
     i8 0, label %land.lhs.true.i31
@@ -8491,20 +8494,20 @@ while.body.i:                                     ; preds = %if.end14.i, %if.the
   ]
 
 land.lhs.true.i31:                                ; preds = %while.body.i, %while.body.i, %while.body.i, %while.body.i
-  %33 = and i8 %31, 1
-  %tobool.not.i32 = icmp eq i8 %33, 0
+  %36 = and i8 %34, 1
+  %tobool.not.i32 = icmp eq i8 %36, 0
   br i1 %tobool.not.i32, label %if.then.i36, label %if.end.i33
 
 if.then.i36:                                      ; preds = %land.lhs.true.i31
-  %inc.i37 = add i32 %30, 1
+  %inc.i37 = add i32 %33, 1
   store i32 %inc.i37, ptr %iLineNumber.i.i, align 8
   br label %if.end.i33
 
 if.end.i33:                                       ; preds = %if.then.i36, %land.lhs.true.i31, %while.body.i
   %storemerge.i34 = phi i8 [ 1, %if.then.i36 ], [ 0, %while.body.i ], [ 0, %land.lhs.true.i31 ]
-  %34 = phi i32 [ %inc.i37, %if.then.i36 ], [ %30, %while.body.i ], [ %30, %land.lhs.true.i31 ]
+  %37 = phi i32 [ %inc.i37, %if.then.i36 ], [ %33, %while.body.i ], [ %33, %land.lhs.true.i31 ]
   store i8 %storemerge.i34, ptr %bLastWasEndLine, align 4
-  switch i8 %32, label %if.end14.i [
+  switch i8 %35, label %if.end14.i [
     i8 125, label %_ZN6Assimp3ASE6Parser15SkipToNextTokenEv.exit
     i8 123, label %_ZN6Assimp3ASE6Parser15SkipToNextTokenEv.exit
     i8 42, label %_ZN6Assimp3ASE6Parser15SkipToNextTokenEv.exit
@@ -8524,14 +8527,14 @@ if.then40:                                        ; preds = %if.end21
   unreachable
 
 land.lhs.true:                                    ; preds = %if.end21, %if.end21, %if.end21
-  %35 = load i8, ptr %bLastWasEndLine, align 4
-  %36 = and i8 %35, 1
-  %tobool46.not = icmp eq i8 %36, 0
+  %38 = load i8, ptr %bLastWasEndLine, align 4
+  %39 = and i8 %38, 1
+  %tobool46.not = icmp eq i8 %39, 0
   br i1 %tobool46.not, label %if.then47, label %if.end52
 
 if.then47:                                        ; preds = %land.lhs.true
-  %37 = load i32, ptr %iLineNumber.i.i, align 8
-  %inc48 = add i32 %37, 1
+  %40 = load i32, ptr %iLineNumber.i.i, align 8
+  %inc48 = add i32 %40, 1
   store i32 %inc48, ptr %iLineNumber.i.i, align 8
   br label %if.end52
 
@@ -8539,7 +8542,7 @@ if.end52:                                         ; preds = %land.lhs.true, %if.
   %storemerge = phi i8 [ 1, %if.then47 ], [ 0, %if.end21 ], [ 0, %if.then25 ], [ 0, %if.then29 ], [ 0, %land.lhs.true ]
   %iDepth.14346 = phi i32 [ %iDepth.0, %if.then47 ], [ %iDepth.0, %if.end21 ], [ %inc, %if.then25 ], [ %dec, %if.then29 ], [ %iDepth.0, %land.lhs.true ]
   store i8 %storemerge, ptr %bLastWasEndLine, align 4
-  %incdec.ptr54 = getelementptr inbounds i8, ptr %29, i64 1
+  %incdec.ptr54 = getelementptr inbounds i8, ptr %32, i64 1
   store ptr %incdec.ptr54, ptr %this, align 8
   br label %while.body, !llvm.loop !64
 }

@@ -1049,39 +1049,43 @@ for.end386:                                       ; preds = %for.body371, %for.c
   %240 = call <2 x float> @llvm.sqrt.v2f32(<2 x float> %239)
   %241 = extractelement <2 x float> %240, i64 1
   %div.i.i430 = fdiv float 1.000000e+00, %241
-  %242 = fcmp oeq <2 x float> %240, zeroinitializer
-  %243 = extractelement <2 x i1> %242, i64 1
-  %mul3.i.i433 = select i1 %243, float 1.000000e+00, float %div.i.i430
-  %244 = extractelement <2 x float> %234, i64 1
-  %smoothTangent.sroa.11.1 = fmul float %244, %mul3.i.i433
-  %245 = insertelement <2 x float> poison, float %mul3.i.i433, i64 0
-  %246 = shufflevector <2 x float> %245, <2 x float> poison, <2 x i32> zeroinitializer
-  %247 = fmul <2 x float> %232, %246
-  %248 = extractelement <2 x float> %240, i64 0
-  %div.i.i440 = fdiv float 1.000000e+00, %248
-  %249 = extractelement <2 x i1> %242, i64 0
-  %mul3.i.i443 = select i1 %249, float 1.000000e+00, float %div.i.i440
-  %250 = extractelement <2 x float> %234, i64 0
-  %smoothBitangent.sroa.11.1 = fmul float %250, %mul3.i.i443
-  %251 = insertelement <2 x float> poison, float %mul3.i.i443, i64 0
+  %242 = insertelement <2 x float> poison, float %div.i.i430, i64 0
+  %243 = shufflevector <2 x float> %242, <2 x float> poison, <2 x i32> zeroinitializer
+  %244 = fmul <2 x float> %232, %243
+  %245 = extractelement <2 x float> %234, i64 1
+  %mul3.i.i433 = fmul float %245, %div.i.i430
+  %246 = fcmp oeq <2 x float> %240, zeroinitializer
+  %247 = extractelement <2 x i1> %246, i64 1
+  %smoothTangent.sroa.11.1 = select i1 %247, float %245, float %mul3.i.i433
+  %248 = shufflevector <2 x i1> %246, <2 x i1> poison, <2 x i32> <i32 1, i32 1>
+  %249 = select <2 x i1> %248, <2 x float> %232, <2 x float> %244
+  %250 = extractelement <2 x float> %240, i64 0
+  %div.i.i440 = fdiv float 1.000000e+00, %250
+  %251 = insertelement <2 x float> poison, float %div.i.i440, i64 0
   %252 = shufflevector <2 x float> %251, <2 x float> poison, <2 x i32> zeroinitializer
   %253 = fmul <2 x float> %233, %252
+  %254 = extractelement <2 x float> %234, i64 0
+  %mul3.i.i443 = fmul float %254, %div.i.i440
+  %255 = extractelement <2 x i1> %246, i64 0
+  %smoothBitangent.sroa.11.1 = select i1 %255, float %254, float %mul3.i.i443
+  %256 = shufflevector <2 x i1> %246, <2 x i1> poison, <2 x i32> zeroinitializer
+  %257 = select <2 x i1> %256, <2 x float> %233, <2 x float> %253
   br i1 %cmp370635.not692, label %for.inc408, label %for.body396
 
 for.body396:                                      ; preds = %for.end386, %for.body396
   %conv393653 = phi i64 [ %conv393, %for.body396 ], [ 0, %for.end386 ]
   %b391.0652 = phi i32 [ %inc406, %for.body396 ], [ 0, %for.end386 ]
   %add.ptr.i450 = getelementptr inbounds i32, ptr %closeVertices.sroa.0.4.lcssa686, i64 %conv393653
-  %254 = load i32, ptr %add.ptr.i450, align 4
-  %idxprom399 = zext i32 %254 to i64
+  %258 = load i32, ptr %add.ptr.i450, align 4
+  %idxprom399 = zext i32 %258 to i64
   %arrayidx400 = getelementptr inbounds %class.aiVector3t, ptr %call22, i64 %idxprom399
-  store <2 x float> %247, ptr %arrayidx400, align 4
+  store <2 x float> %249, ptr %arrayidx400, align 4
   %smoothTangent.sroa.11.0.arrayidx400.sroa_idx = getelementptr inbounds i8, ptr %arrayidx400, i64 8
   store float %smoothTangent.sroa.11.1, ptr %smoothTangent.sroa.11.0.arrayidx400.sroa_idx, align 4
-  %255 = load i32, ptr %add.ptr.i450, align 4
-  %idxprom403 = zext i32 %255 to i64
+  %259 = load i32, ptr %add.ptr.i450, align 4
+  %idxprom403 = zext i32 %259 to i64
   %arrayidx404 = getelementptr inbounds %class.aiVector3t, ptr %call27, i64 %idxprom403
-  store <2 x float> %253, ptr %arrayidx404, align 4
+  store <2 x float> %257, ptr %arrayidx404, align 4
   %smoothBitangent.sroa.11.0.arrayidx404.sroa_idx = getelementptr inbounds i8, ptr %arrayidx404, i64 8
   store float %smoothBitangent.sroa.11.1, ptr %smoothBitangent.sroa.11.0.arrayidx404.sroa_idx, align 4
   %inc406 = add i32 %b391.0652, 1
@@ -1093,9 +1097,9 @@ for.inc408:                                       ; preds = %for.body396, %for.e
   %closeVertices.sroa.0.7 = phi ptr [ %closeVertices.sroa.0.0655, %invoke.cont296 ], [ %closeVertices.sroa.0.4.lcssa686, %for.end386 ], [ %closeVertices.sroa.0.4.lcssa686, %for.body396 ]
   %closeVertices.sroa.30.6 = phi ptr [ %closeVertices.sroa.30.0656, %invoke.cont296 ], [ %closeVertices.sroa.30.3.lcssa688, %for.end386 ], [ %closeVertices.sroa.30.3.lcssa688, %for.body396 ]
   %indvars.iv.next674 = add nuw nsw i64 %indvars.iv673, 1
-  %256 = load i32, ptr %mNumVertices, align 4
-  %257 = zext i32 %256 to i64
-  %cmp291 = icmp ult i64 %indvars.iv.next674, %257
+  %260 = load i32, ptr %mNumVertices, align 4
+  %261 = zext i32 %260 to i64
+  %cmp291 = icmp ult i64 %indvars.iv.next674, %261
   br i1 %cmp291, label %invoke.cont296, label %for.end410, !llvm.loop !13
 
 for.end410:                                       ; preds = %for.inc408
@@ -1107,12 +1111,12 @@ if.then.i.i.i453:                                 ; preds = %for.end410
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit454
 
 _ZNSt6vectorIjSaIjEED2Ev.exit454:                 ; preds = %if.end284, %for.end410, %if.then.i.i.i453
-  %258 = load ptr, ptr %verticesFound, align 8
-  %tobool.not.i.i.i455 = icmp eq ptr %258, null
+  %262 = load ptr, ptr %verticesFound, align 8
+  %tobool.not.i.i.i455 = icmp eq ptr %262, null
   br i1 %tobool.not.i.i.i455, label %_ZNSt6vectorIjSaIjEED2Ev.exit457, label %if.then.i.i.i456
 
 if.then.i.i.i456:                                 ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit454
-  call void @_ZdlPv(ptr noundef nonnull %258) #18
+  call void @_ZdlPv(ptr noundef nonnull %262) #18
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit457
 
 _ZNSt6vectorIjSaIjEED2Ev.exit457:                 ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit454, %if.then.i.i.i456

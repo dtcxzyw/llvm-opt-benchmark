@@ -1419,8 +1419,8 @@ _ZN7QWidget16setMouseTrackingEb.exit:             ; preds = %_ZN5QListIP7QAction
 .noexc157:                                        ; preds = %326
   %331 = load double, ptr %103, align 8
   %332 = load double, ptr %101, align 8
-  %333 = select i1 %330, double %332, double -0.000000e+00
-  %.0.i.i = fadd double %331, %333
+  %333 = fadd double %331, %332
+  %.0.i.i = select i1 %330, double %333, double %331
   %334 = load ptr, ptr %302, align 8
   %335 = getelementptr inbounds i8, ptr %334, i64 136
   %336 = load ptr, ptr %335, align 8
@@ -8992,8 +8992,8 @@ _ZN15RtpPlayerDialog18setStartPlayMarkerEd.exit:  ; preds = %31, %40
   %53 = load double, ptr %48, align 8
   %54 = getelementptr inbounds i8, ptr %0, i64 168
   %55 = load double, ptr %54, align 8
-  %56 = select i1 %52, double %55, double -0.000000e+00
-  %.0.i.i = fadd double %53, %56
+  %56 = fadd double %53, %55
+  %.0.i.i = select i1 %52, double %56, double %53
   %57 = getelementptr inbounds i8, ptr %0, i64 216
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds i8, ptr %58, i64 136
@@ -9138,8 +9138,8 @@ define void @_ZN15RtpPlayerDialog19drawStartPlayMarkerEv(ptr noundef nonnull ali
   %8 = load double, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 168
   %10 = load double, ptr %9, align 8
-  %11 = select i1 %6, double %10, double -0.000000e+00
-  %.0.i = fadd double %8, %11
+  %11 = fadd double %8, %10
+  %.0.i = select i1 %6, double %11, double %8
   %12 = getelementptr inbounds i8, ptr %0, i64 216
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 136
@@ -9297,8 +9297,8 @@ _ZN5QListIP14RtpAudioStreamEixEx.exit45:          ; preds = %_ZNK17QArrayDataPoi
   %75 = load double, ptr %74, align 8
   %76 = fadd double %12, %75
   %77 = load double, ptr %67, align 8
-  %78 = select i1 %73, double %77, double -0.000000e+00
-  %.029 = fadd double %76, %78
+  %78 = fadd double %76, %77
+  %.029 = select i1 %73, double %78, double %76
   %79 = fsub double %69, %.029
   %80 = load ptr, ptr %13, align 8
   %81 = getelementptr inbounds i8, ptr %80, i64 408
@@ -9401,8 +9401,8 @@ _ZN5QListIP14RtpAudioStreamEixEx.exit61:          ; preds = %_ZNK17QArrayDataPoi
   %123 = fadd double %12, %122
   %124 = getelementptr inbounds i8, ptr %0, i64 160
   %125 = load double, ptr %124, align 8
-  %126 = select i1 %120, double 0.000000e+00, double %125
-  %.sink = fsub double %123, %126
+  %126 = fsub double %123, %125
+  %.sink = select i1 %120, double %123, double %126
   %127 = getelementptr inbounds i8, ptr %0, i64 440
   %128 = load double, ptr %127, align 8
   %129 = fadd double %.sink, %128
@@ -15650,78 +15650,78 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i477:   ; preds = %.body
   %892 = icmp ne i8 %891, 0
   %893 = and i8 %.184, 1
   %894 = icmp ne i8 %893, 0
-  %.not1127 = select i1 %892, i1 true, i1 %894
+  %.not1130 = select i1 %892, i1 true, i1 %894
   %895 = and i8 %.186, 1
   %896 = icmp ne i8 %895, 0
-  %897 = select i1 %.not1127, i1 true, i1 %896
-  %898 = and i8 %.189, 1
-  %899 = icmp ne i8 %898, 0
-  %spec.select1125 = select i1 %897, i1 true, i1 %899
+  %.not1127 = select i1 %.not1130, i1 true, i1 %896
+  %897 = and i8 %.189, 1
+  %898 = icmp ne i8 %897, 0
+  %spec.select1125 = select i1 %.not1127, i1 true, i1 %898
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %_ZN14QSharedPointerI13QCPAxisTickerED2Ev.exit, %.preheader, %._crit_edge
-  %900 = phi i1 [ %spec.select1125, %._crit_edge ], [ false, %.preheader ], [ false, %_ZN14QSharedPointerI13QCPAxisTickerED2Ev.exit ]
-  %.pn1129 = load ptr, ptr %84, align 8
-  %.pn1128.in = getelementptr inbounds i8, ptr %.pn1129, i64 312
-  %.pn1128 = load ptr, ptr %.pn1128.in, align 8
-  %.in = getelementptr inbounds i8, ptr %.pn1128, i64 72
-  %901 = load ptr, ptr %.in, align 8
-  call void @_ZN12QCPLayerable10setVisibleEb(ptr noundef nonnull align 8 dereferenceable(57) %901, i1 noundef zeroext %900)
-  %902 = load ptr, ptr %84, align 8
-  %903 = getelementptr inbounds i8, ptr %902, i64 312
-  %904 = load ptr, ptr %903, align 8
-  call void @_ZN11QCustomPlot6replotENS_15RefreshPriorityE(ptr noundef nonnull align 8 dereferenceable(513) %904, i32 noundef 2)
-  br i1 %1, label %905, label %941
+  %899 = phi i1 [ %spec.select1125, %._crit_edge ], [ false, %.preheader ], [ false, %_ZN14QSharedPointerI13QCPAxisTickerED2Ev.exit ]
+  %.pn1132 = load ptr, ptr %84, align 8
+  %.pn1131.in = getelementptr inbounds i8, ptr %.pn1132, i64 312
+  %.pn1131 = load ptr, ptr %.pn1131.in, align 8
+  %.in = getelementptr inbounds i8, ptr %.pn1131, i64 72
+  %900 = load ptr, ptr %.in, align 8
+  call void @_ZN12QCPLayerable10setVisibleEb(ptr noundef nonnull align 8 dereferenceable(57) %900, i1 noundef zeroext %899)
+  %901 = load ptr, ptr %84, align 8
+  %902 = getelementptr inbounds i8, ptr %901, i64 312
+  %903 = load ptr, ptr %902, align 8
+  call void @_ZN11QCustomPlot6replotENS_15RefreshPriorityE(ptr noundef nonnull align 8 dereferenceable(513) %903, i32 noundef 2)
+  br i1 %1, label %904, label %940
 
-905:                                              ; preds = %._crit_edge.thread
-  %906 = load ptr, ptr %84, align 8
-  %907 = getelementptr inbounds i8, ptr %906, i64 312
-  %908 = load ptr, ptr %907, align 8
-  call void @_ZN11QCustomPlot11rescaleAxesEb(ptr noundef nonnull align 8 dereferenceable(513) %908, i1 noundef zeroext true)
-  %909 = getelementptr inbounds i8, ptr %908, i64 40
-  %910 = load ptr, ptr %909, align 8
-  %911 = getelementptr inbounds i8, ptr %910, i64 64
-  %912 = load ptr, ptr %911, align 8
-  %913 = getelementptr inbounds i8, ptr %912, i64 92
-  %914 = getelementptr inbounds i8, ptr %912, i64 100
-  %915 = load i32, ptr %914, align 4
-  %916 = load i32, ptr %913, align 4
-  %917 = add i32 %915, 1
-  %918 = sub i32 %917, %916
-  %919 = sitofp i32 %918 to double
-  %920 = fadd double %919, 2.000000e+01
-  %921 = fdiv double %920, %919
-  %922 = getelementptr inbounds i8, ptr %910, i64 304
-  %.sroa.0.0.copyload.i.i = load double, ptr %922, align 8
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %910, i64 312
+904:                                              ; preds = %._crit_edge.thread
+  %905 = load ptr, ptr %84, align 8
+  %906 = getelementptr inbounds i8, ptr %905, i64 312
+  %907 = load ptr, ptr %906, align 8
+  call void @_ZN11QCustomPlot11rescaleAxesEb(ptr noundef nonnull align 8 dereferenceable(513) %907, i1 noundef zeroext true)
+  %908 = getelementptr inbounds i8, ptr %907, i64 40
+  %909 = load ptr, ptr %908, align 8
+  %910 = getelementptr inbounds i8, ptr %909, i64 64
+  %911 = load ptr, ptr %910, align 8
+  %912 = getelementptr inbounds i8, ptr %911, i64 92
+  %913 = getelementptr inbounds i8, ptr %911, i64 100
+  %914 = load i32, ptr %913, align 4
+  %915 = load i32, ptr %912, align 4
+  %916 = add i32 %914, 1
+  %917 = sub i32 %916, %915
+  %918 = sitofp i32 %917 to double
+  %919 = fadd double %918, 2.000000e+01
+  %920 = fdiv double %919, %918
+  %921 = getelementptr inbounds i8, ptr %909, i64 304
+  %.sroa.0.0.copyload.i.i = load double, ptr %921, align 8
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %909, i64 312
   %.sroa.2.0.copyload.i.i = load double, ptr %.sroa.2.0..sroa_idx.i.i, align 8
-  %923 = fadd double %.sroa.0.0.copyload.i.i, %.sroa.2.0.copyload.i.i
-  %924 = fmul double %923, 5.000000e-01
-  call void @_ZN7QCPAxis10scaleRangeEdd(ptr noundef nonnull align 8 dereferenceable(472) %910, double noundef %921, double noundef %924)
-  %925 = getelementptr inbounds i8, ptr %908, i64 48
-  %926 = load ptr, ptr %925, align 8
-  %927 = getelementptr inbounds i8, ptr %926, i64 64
-  %928 = load ptr, ptr %927, align 8
-  %929 = getelementptr inbounds i8, ptr %928, i64 104
-  %930 = load i32, ptr %929, align 4
-  %931 = getelementptr inbounds i8, ptr %928, i64 96
-  %932 = load i32, ptr %931, align 4
-  %933 = add i32 %930, 1
-  %934 = sub i32 %933, %932
-  %935 = sitofp i32 %934 to double
-  %936 = fadd double %935, 2.000000e+01
-  %937 = fdiv double %936, %935
-  %938 = getelementptr inbounds i8, ptr %926, i64 304
-  %.sroa.0.0.copyload.i15.i = load double, ptr %938, align 8
-  %.sroa.2.0..sroa_idx.i16.i = getelementptr inbounds i8, ptr %926, i64 312
+  %922 = fadd double %.sroa.0.0.copyload.i.i, %.sroa.2.0.copyload.i.i
+  %923 = fmul double %922, 5.000000e-01
+  call void @_ZN7QCPAxis10scaleRangeEdd(ptr noundef nonnull align 8 dereferenceable(472) %909, double noundef %920, double noundef %923)
+  %924 = getelementptr inbounds i8, ptr %907, i64 48
+  %925 = load ptr, ptr %924, align 8
+  %926 = getelementptr inbounds i8, ptr %925, i64 64
+  %927 = load ptr, ptr %926, align 8
+  %928 = getelementptr inbounds i8, ptr %927, i64 104
+  %929 = load i32, ptr %928, align 4
+  %930 = getelementptr inbounds i8, ptr %927, i64 96
+  %931 = load i32, ptr %930, align 4
+  %932 = add i32 %929, 1
+  %933 = sub i32 %932, %931
+  %934 = sitofp i32 %933 to double
+  %935 = fadd double %934, 2.000000e+01
+  %936 = fdiv double %935, %934
+  %937 = getelementptr inbounds i8, ptr %925, i64 304
+  %.sroa.0.0.copyload.i15.i = load double, ptr %937, align 8
+  %.sroa.2.0..sroa_idx.i16.i = getelementptr inbounds i8, ptr %925, i64 312
   %.sroa.2.0.copyload.i17.i = load double, ptr %.sroa.2.0..sroa_idx.i16.i, align 8
-  %939 = fadd double %.sroa.0.0.copyload.i15.i, %.sroa.2.0.copyload.i17.i
-  %940 = fmul double %939, 5.000000e-01
-  call void @_ZN7QCPAxis10scaleRangeEdd(ptr noundef nonnull align 8 dereferenceable(472) %926, double noundef %937, double noundef %940)
-  call void @_ZN11QCustomPlot6replotENS_15RefreshPriorityE(ptr noundef nonnull align 8 dereferenceable(513) %908, i32 noundef 2)
-  br label %941
+  %938 = fadd double %.sroa.0.0.copyload.i15.i, %.sroa.2.0.copyload.i17.i
+  %939 = fmul double %938, 5.000000e-01
+  call void @_ZN7QCPAxis10scaleRangeEdd(ptr noundef nonnull align 8 dereferenceable(472) %925, double noundef %936, double noundef %939)
+  call void @_ZN11QCustomPlot6replotENS_15RefreshPriorityE(ptr noundef nonnull align 8 dereferenceable(513) %907, i32 noundef 2)
+  br label %940
 
-941:                                              ; preds = %905, %._crit_edge.thread
+940:                                              ; preds = %904, %._crit_edge.thread
   ret void
 
 _ZN5QListIdED2Ev.exit225:                         ; preds = %889, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i477, %.body, %370, %_ZN17QArrayDataPointerIdE5derefEv.exit.i.i223, %_ZN5QListIdED2Ev.exit221, %372, %358, %356, %354, %352, %350, %348, %346, %205, %151, %126
@@ -15961,8 +15961,8 @@ _ZN15RtpPlayerDialog18setStartPlayMarkerEd.exit:  ; preds = %9, %18
   %31 = load double, ptr %26, align 8
   %32 = getelementptr inbounds i8, ptr %0, i64 168
   %33 = load double, ptr %32, align 8
-  %34 = select i1 %30, double %33, double -0.000000e+00
-  %.0.i.i = fadd double %31, %34
+  %34 = fadd double %31, %33
+  %.0.i.i = select i1 %30, double %34, double %31
   %35 = getelementptr inbounds i8, ptr %0, i64 216
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 136
@@ -20408,8 +20408,8 @@ define void @_ZN15RtpPlayerDialog15updateHintLabelEv(ptr noundef nonnull align 8
   %33 = load double, ptr %32, align 8
   %34 = getelementptr inbounds i8, ptr %0, i64 168
   %35 = load double, ptr %34, align 8
-  %36 = select i1 %30, double %35, double -0.000000e+00
-  %.0.i = fadd double %33, %36
+  %36 = fadd double %33, %35
+  %.0.i = select i1 %30, double %36, double %33
   %37 = load ptr, ptr %26, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 320
   %39 = load ptr, ptr %38, align 8
@@ -21418,8 +21418,8 @@ define noundef double @_ZN15RtpPlayerDialog18getStartPlayMarkerEv(ptr nocapture 
   %8 = load double, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 168
   %10 = load double, ptr %9, align 8
-  %11 = select i1 %6, double %10, double -0.000000e+00
-  %.0 = fadd double %8, %11
+  %11 = fadd double %8, %10
+  %.0 = select i1 %6, double %11, double %8
   ret double %.0
 }
 
@@ -22046,8 +22046,8 @@ _ZN7QString5clearEv.exit:                         ; preds = %63, %_ZN17QArrayDat
   %69 = load double, ptr %43, align 8
   %70 = getelementptr inbounds i8, ptr %0, i64 160
   %71 = load double, ptr %70, align 8
-  %72 = select i1 %67, double 0.000000e+00, double %71
-  %.014 = fsub double %69, %72
+  %72 = fsub double %69, %71
+  %.014 = select i1 %67, double %69, double %72
   invoke void @_ZN15RtpPlayerDialog20getCurrentDeviceInfoEv(ptr dead_on_unwind nonnull writable sret(%class.QAudioDevice) align 8 %8, ptr noundef nonnull align 8 dereferenceable(448) %0)
           to label %93 unwind label %73
 
@@ -24096,8 +24096,8 @@ _ZN15RtpPlayerDialog18setStartPlayMarkerEd.exit4: ; preds = %56, %65
   %81 = load double, ptr %80, align 8
   %82 = getelementptr inbounds i8, ptr %0, i64 168
   %83 = load double, ptr %82, align 8
-  %84 = select i1 %79, double %83, double -0.000000e+00
-  %.0.i.i = fadd double %81, %84
+  %84 = fadd double %81, %83
+  %.0.i.i = select i1 %79, double %84, double %81
   %85 = getelementptr inbounds i8, ptr %0, i64 216
   %86 = load ptr, ptr %85, align 8
   %87 = getelementptr inbounds i8, ptr %86, i64 136
@@ -26212,8 +26212,8 @@ _ZN14RtpAudioStream15getTotalSamplesEv.exit166:   ; preds = %183, %_ZN14RtpAudio
   %195 = load double, ptr %194, align 8
   %196 = getelementptr inbounds i8, ptr %0, i64 160
   %197 = load double, ptr %196, align 8
-  %198 = select i1 %192, double 0.000000e+00, double %197
-  %.sink = fsub double %195, %198
+  %198 = fsub double %195, %197
+  %.sink = select i1 %192, double %195, double %198
   %199 = uitofp i32 %88 to double
   %200 = fmul double %.sink, %199
   %.031 = fptosi double %200 to i64

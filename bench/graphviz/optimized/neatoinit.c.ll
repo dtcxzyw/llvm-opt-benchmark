@@ -313,8 +313,8 @@ define noundef zeroext i1 @user_pos(ptr noundef %0, ptr noundef %1, ptr noundef 
   %77 = load double, ptr @PSinputscale, align 8
   %78 = fcmp ogt double %77, 0.000000e+00
   %79 = load double, ptr %6, align 8
-  %80 = select i1 %78, double %77, double 1.000000e+00
-  %.sink = fdiv double %79, %80
+  %80 = fdiv double %79, %77
+  %.sink = select i1 %78, double %80, double %79
   %81 = getelementptr inbounds i8, ptr %12, i64 16
   store double %.sink, ptr %81, align 8
   call void @jitter_d(ptr noundef %2, i32 noundef %3, i32 noundef 3) #19

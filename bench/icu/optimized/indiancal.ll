@@ -253,8 +253,8 @@ if.else5.i:                                       ; preds = %if.end.i
   %4 = mul i32 %imonth.0, 30
   %mul17.i = add i32 %4, -210
   %conv18.i = sitofp i32 %mul17.i to double
-  %add19.i = select i1 %cmp14.i, double %conv18.i, double -0.000000e+00
-  %jd.0.i = fadd double %add19.i, %add13.i
+  %add19.i = fadd double %add13.i, %conv18.i
+  %jd.0.i = select i1 %cmp14.i, double %add19.i, double %add13.i
   br label %_ZN6icu_75L10IndianToJDEiii.exit
 
 _ZN6icu_75L10IndianToJDEiii.exit:                 ; preds = %if.end.i, %if.else5.i

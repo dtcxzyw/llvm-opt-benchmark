@@ -6287,8 +6287,8 @@ stbtt__handle_clipped_edge.exit449.i.i.i.i.i.i.i: ; preds = %2004, %2001, %1995,
   %2074 = fsub float %2070, %1005
   %2075 = fmul float %1353, %2074
   %2076 = fdiv float %2075, %1078
-  %2077 = select i1 %2073, float %2076, float -0.000000e+00
-  %.055.i457.i.i.i.i.i.i.i = fadd float %1084, %2077
+  %2077 = fadd float %1084, %2076
+  %.055.i457.i.i.i.i.i.i.i = select i1 %2073, float %2077, float %1084
   %.054.i458.i.i.i.i.i.i.i = select i1 %2073, float %2070, float %1005
   %2078 = fcmp olt float %2067, %1006
   br i1 %2078, label %2079, label %2086

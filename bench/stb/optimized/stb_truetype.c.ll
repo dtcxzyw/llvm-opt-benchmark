@@ -11516,8 +11516,8 @@ if.end6.i1191:                                    ; preds = %if.end3.i1188
   %sub11.i1235 = fsub float %161, %y_top
   %mul.i1236 = fmul float %sub.i1234, %sub11.i1235
   %div.i1238 = fdiv float %mul.i1236, %sub12.i1237
-  %add.i1239 = select i1 %cmp8.i1192, float %div.i1238, float -0.000000e+00
-  %x0.addr.0.i1194 = fadd float %1, %add.i1239
+  %add.i1239 = fadd float %1, %div.i1238
+  %x0.addr.0.i1194 = select i1 %cmp8.i1192, float %add.i1239, float %1
   %y0.addr.0.i1195 = select i1 %cmp8.i1192, float %161, float %y_top
   %cmp16.i1196 = fcmp olt float %160, %add
   br i1 %cmp16.i1196, label %if.then17.i1226, label %if.end26.i1197

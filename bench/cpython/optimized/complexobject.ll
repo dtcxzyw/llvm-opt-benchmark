@@ -2178,8 +2178,8 @@ if.end103.i:                                      ; preds = %PyObject_TypeCheck.
 
 if.then.i.i.i:                                    ; preds = %42
   %or.cond2.i = and i1 %cmp17.i, %tobool71.not105.i
-  %add.i = select i1 %or.cond2.i, double %cr.sroa.5.0.i, double -0.000000e+00
-  %ci.sroa.0.1.i = fadd double %add.i, %ci.sroa.0.0113.i
+  %add.i = fadd double %cr.sroa.5.0.i, %ci.sroa.0.0113.i
+  %ci.sroa.0.1.i = select i1 %or.cond2.i, double %add.i, double %ci.sroa.0.0113.i
   %cval1.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 16
   store double %43, ptr %cval1.i.i.i, align 8
   %cval.sroa.2.0.cval1.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 24

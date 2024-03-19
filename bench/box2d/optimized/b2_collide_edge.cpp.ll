@@ -172,9 +172,10 @@ if.end96:                                         ; preds = %if.end79
   %sqrt.i.i = tail call noundef float @llvm.sqrt.f32(float %40)
   %cmp.i = fcmp olt float %sqrt.i.i, 0x3E80000000000000
   %div.i = fdiv float 1.000000e+00, %sqrt.i.i
-  %mul.i166 = select i1 %cmp.i, float 1.000000e+00, float %div.i
-  %n.sroa.0.1 = fmul float %n.sroa.0.0, %mul.i166
-  %n.sroa.7.1 = fmul float %n.sroa.7.0, %mul.i166
+  %mul.i166 = fmul float %n.sroa.0.0, %div.i
+  %mul2.i = fmul float %n.sroa.7.0, %div.i
+  %n.sroa.0.1 = select i1 %cmp.i, float %n.sroa.0.0, float %mul.i166
+  %n.sroa.7.1 = select i1 %cmp.i, float %n.sroa.7.0, float %mul2.i
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %if.end51, %if.then54, %if.end20, %if.then23, %if.end96

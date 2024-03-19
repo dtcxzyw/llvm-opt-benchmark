@@ -381,8 +381,8 @@ statistic_proc_security_check.exit:               ; preds = %45, %39
   %123 = sitofp i32 %122 to double
   %124 = fsub double %121, %123
   %125 = fcmp ogt double %124, 1.000000e+00
-  %126 = select i1 %125, double %124, double 1.000000e+00
-  %.1 = fdiv double %.063, %126
+  %126 = fdiv double %.063, %124
+  %.1 = select i1 %125, double %126, double %.063
   %127 = icmp sgt i32 %122, 0
   br i1 %127, label %128, label %138
 
@@ -650,8 +650,8 @@ define dso_local double @var_eq_non_const(ptr nocapture noundef readonly %0, i32
   %36 = fsub double 1.000000e+00, %.022
   %37 = call double @get_variable_numdistinct(ptr noundef nonnull %0, ptr noundef nonnull %7)
   %38 = fcmp ogt double %37, 1.000000e+00
-  %39 = select i1 %38, double %37, double 1.000000e+00
-  %.0 = fdiv double %36, %39
+  %39 = fdiv double %36, %37
+  %.0 = select i1 %38, double %39, double %36
   %40 = load ptr, ptr %9, align 8
   %41 = call zeroext i1 @get_attstatsslot(ptr noundef nonnull %8, ptr noundef %40, i32 noundef 1, i32 noundef 0, i32 noundef 2) #13
   br i1 %41, label %42, label %57
@@ -803,75 +803,75 @@ statistic_proc_security_check.exit:               ; preds = %.statistic_proc_sec
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %indvars.iv50 = phi i64 [ %indvars.iv.next51, %.lr.ph.split.us ], [ 0, %.lr.ph ]
-  %48 = phi <2 x double> [ %64, %.lr.ph.split.us ], [ zeroinitializer, %.lr.ph ]
-  %49 = load ptr, ptr %44, align 8
-  %50 = getelementptr i64, ptr %49, i64 %indvars.iv50
-  %51 = load i64, ptr %50, align 8
-  store i64 %51, ptr %32, align 8
+  %.044.us = phi double [ %.1.us, %.lr.ph.split.us ], [ 0.000000e+00, %.lr.ph ]
+  %.03743.us = phi double [ %61, %.lr.ph.split.us ], [ 0.000000e+00, %.lr.ph ]
+  %48 = load ptr, ptr %44, align 8
+  %49 = getelementptr i64, ptr %48, i64 %indvars.iv50
+  %50 = load i64, ptr %49, align 8
+  store i64 %50, ptr %32, align 8
   store i8 0, ptr %30, align 4
-  %52 = load ptr, ptr %8, align 8
-  %53 = load ptr, ptr %52, align 8
-  %54 = call i64 %53(ptr noundef nonnull %8) #13
-  %55 = load i8, ptr %30, align 4
-  %56 = and i8 %55, 1
-  %.not40.us = icmp eq i8 %56, 0
-  %57 = icmp ne i64 %54, 0
-  %or.cond.us = select i1 %.not40.us, i1 %57, i1 false
+  %51 = load ptr, ptr %8, align 8
+  %52 = load ptr, ptr %51, align 8
+  %53 = call i64 %52(ptr noundef nonnull %8) #13
+  %54 = load i8, ptr %30, align 4
+  %55 = and i8 %54, 1
+  %.not40.us = icmp eq i8 %55, 0
+  %56 = icmp ne i64 %53, 0
+  %or.cond.us = select i1 %.not40.us, i1 %56, i1 false
   %.pre55 = load ptr, ptr %45, align 8
-  %58 = getelementptr float, ptr %.pre55, i64 %indvars.iv50
-  %59 = load float, ptr %58, align 4
-  %60 = fpext float %59 to double
-  %61 = select i1 %or.cond.us, double %60, double -0.000000e+00
-  %62 = insertelement <2 x double> poison, double %60, i64 0
-  %63 = insertelement <2 x double> %62, double %61, i64 1
-  %64 = fadd <2 x double> %48, %63
+  %57 = getelementptr float, ptr %.pre55, i64 %indvars.iv50
+  %58 = load float, ptr %57, align 4
+  %59 = fpext float %58 to double
+  %60 = fadd double %.044.us, %59
+  %.1.us = select i1 %or.cond.us, double %60, double %.044.us
+  %61 = fadd double %.03743.us, %59
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
-  %65 = load i32, ptr %36, align 8
-  %66 = sext i32 %65 to i64
-  %67 = icmp slt i64 %indvars.iv.next51, %66
-  br i1 %67, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !8
+  %62 = load i32, ptr %36, align 8
+  %63 = sext i32 %62 to i64
+  %64 = icmp slt i64 %indvars.iv.next51, %63
+  br i1 %64, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !8
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %.lr.ph.split
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %.lr.ph.split ]
-  %68 = phi <2 x double> [ zeroinitializer, %.lr.ph.split.preheader ], [ %84, %.lr.ph.split ]
-  %69 = load ptr, ptr %47, align 8
-  %70 = getelementptr i64, ptr %69, i64 %indvars.iv
-  %71 = load i64, ptr %70, align 8
-  store i64 %71, ptr %34, align 8
+  %.044 = phi double [ 0.000000e+00, %.lr.ph.split.preheader ], [ %.1, %.lr.ph.split ]
+  %.03743 = phi double [ 0.000000e+00, %.lr.ph.split.preheader ], [ %78, %.lr.ph.split ]
+  %65 = load ptr, ptr %47, align 8
+  %66 = getelementptr i64, ptr %65, i64 %indvars.iv
+  %67 = load i64, ptr %66, align 8
+  store i64 %67, ptr %34, align 8
   store i8 0, ptr %30, align 4
-  %72 = load ptr, ptr %8, align 8
-  %73 = load ptr, ptr %72, align 8
-  %74 = call i64 %73(ptr noundef nonnull %8) #13
-  %75 = load i8, ptr %30, align 4
-  %76 = and i8 %75, 1
-  %.not40 = icmp eq i8 %76, 0
-  %77 = icmp ne i64 %74, 0
-  %or.cond = select i1 %.not40, i1 %77, i1 false
+  %68 = load ptr, ptr %8, align 8
+  %69 = load ptr, ptr %68, align 8
+  %70 = call i64 %69(ptr noundef nonnull %8) #13
+  %71 = load i8, ptr %30, align 4
+  %72 = and i8 %71, 1
+  %.not40 = icmp eq i8 %72, 0
+  %73 = icmp ne i64 %70, 0
+  %or.cond = select i1 %.not40, i1 %73, i1 false
   %.pre53 = load ptr, ptr %46, align 8
-  %78 = getelementptr float, ptr %.pre53, i64 %indvars.iv
-  %79 = load float, ptr %78, align 4
-  %80 = fpext float %79 to double
-  %81 = select i1 %or.cond, double %80, double -0.000000e+00
-  %82 = insertelement <2 x double> poison, double %80, i64 0
-  %83 = insertelement <2 x double> %82, double %81, i64 1
-  %84 = fadd <2 x double> %68, %83
+  %74 = getelementptr float, ptr %.pre53, i64 %indvars.iv
+  %75 = load float, ptr %74, align 4
+  %76 = fpext float %75 to double
+  %77 = fadd double %.044, %76
+  %.1 = select i1 %or.cond, double %77, double %.044
+  %78 = fadd double %.03743, %76
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %85 = load i32, ptr %36, align 8
-  %86 = sext i32 %85 to i64
-  %87 = icmp slt i64 %indvars.iv.next, %86
-  br i1 %87, label %.lr.ph.split, label %._crit_edge, !llvm.loop !8
+  %79 = load i32, ptr %36, align 8
+  %80 = sext i32 %79 to i64
+  %81 = icmp slt i64 %indvars.iv.next, %80
+  br i1 %81, label %.lr.ph.split, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %.thread, %37
-  %88 = phi <2 x double> [ zeroinitializer, %37 ], [ zeroinitializer, %.thread ], [ %64, %.lr.ph.split.us ], [ %84, %.lr.ph.split ]
+  %.037.lcssa = phi double [ 0.000000e+00, %37 ], [ 0.000000e+00, %.thread ], [ %61, %.lr.ph.split.us ], [ %78, %.lr.ph.split ]
+  %.0.lcssa = phi double [ 0.000000e+00, %37 ], [ 0.000000e+00, %.thread ], [ %.1.us, %.lr.ph.split.us ], [ %.1, %.lr.ph.split ]
   call void @free_attstatsslot(ptr noundef nonnull %7) #13
   br label %statistic_proc_security_check.exit.thread
 
 statistic_proc_security_check.exit.thread:        ; preds = %22, %20, %17, %._crit_edge, %statistic_proc_security_check.exit, %6
-  %89 = phi <2 x double> [ %88, %._crit_edge ], [ zeroinitializer, %statistic_proc_security_check.exit ], [ zeroinitializer, %6 ], [ zeroinitializer, %17 ], [ zeroinitializer, %20 ], [ zeroinitializer, %22 ]
-  %90 = extractelement <2 x double> %89, i64 0
-  store double %90, ptr %5, align 8
-  %91 = extractelement <2 x double> %89, i64 1
-  ret double %91
+  %.138 = phi double [ %.037.lcssa, %._crit_edge ], [ 0.000000e+00, %statistic_proc_security_check.exit ], [ 0.000000e+00, %6 ], [ 0.000000e+00, %17 ], [ 0.000000e+00, %20 ], [ 0.000000e+00, %22 ]
+  %.2 = phi double [ %.0.lcssa, %._crit_edge ], [ 0.000000e+00, %statistic_proc_security_check.exit ], [ 0.000000e+00, %6 ], [ 0.000000e+00, %17 ], [ 0.000000e+00, %20 ], [ 0.000000e+00, %22 ]
+  store double %.138, ptr %5, align 8
+  ret double %.2
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5130,10 +5130,10 @@ statistic_proc_security_check.exit.thread:        ; preds = %59, %57, %54, %stat
   %185 = getelementptr float, ptr %180, i64 %indvars.iv39.i
   %186 = load float, ptr %185, align 4
   %187 = fpext float %186 to double
-  %188 = select i1 %.not178.i, double %187, double -0.000000e+00
-  %.1157.i = fadd double %.015613.i, %188
-  %189 = select i1 %.not178.i, double -0.000000e+00, double %187
-  %.1139.i = fadd double %.013815.i, %189
+  %188 = fadd double %.013815.i, %187
+  %189 = fadd double %.015613.i, %187
+  %.1157.i = select i1 %.not178.i, double %189, double %.015613.i
+  %.1139.i = select i1 %.not178.i, double %.013815.i, double %188
   %indvars.iv.next40.i = add nuw nsw i64 %indvars.iv39.i, 1
   %exitcond43.not.i = icmp eq i64 %indvars.iv.next40.i, %wide.trip.count42.i
   br i1 %exitcond43.not.i, label %._crit_edge18.i, label %181, !llvm.loop !28
@@ -5187,10 +5187,10 @@ statistic_proc_security_check.exit.thread:        ; preds = %59, %57, %54, %stat
   %207 = getelementptr float, ptr %202, i64 %indvars.iv44.i
   %208 = load float, ptr %207, align 4
   %209 = fpext float %208 to double
-  %210 = select i1 %.not177.i, double -0.000000e+00, double %209
-  %.1160.i = fadd double %.015921.i, %210
-  %211 = select i1 %.not177.i, double %209, double -0.000000e+00
-  %.1154.i = fadd double %.015322.i, %211
+  %210 = fadd double %.015921.i, %209
+  %211 = fadd double %.015322.i, %209
+  %.1160.i = select i1 %.not177.i, double %.015921.i, double %210
+  %.1154.i = select i1 %.not177.i, double %211, double %.015322.i
   %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next45.i, %wide.trip.count47.i
   br i1 %exitcond48.not.i, label %._crit_edge26.i, label %203, !llvm.loop !29
@@ -5259,8 +5259,8 @@ statistic_proc_security_check.exit.thread:        ; preds = %59, %57, %54, %stat
   %240 = fmul double %.2158.i, %.0151.i
   %241 = fsub double %27, %238
   %242 = fdiv double %240, %241
-  %243 = select i1 %239, double %242, double -0.000000e+00
-  %.0149.i = fadd double %.2100.i, %243
+  %243 = fadd double %.2100.i, %242
+  %.0149.i = select i1 %239, double %243, double %.2100.i
   %244 = sitofp i32 %.0142.lcssa5498.i to double
   %245 = fcmp ogt double %27, %244
   br i1 %245, label %246, label %252
@@ -5281,8 +5281,8 @@ statistic_proc_security_check.exit.thread:        ; preds = %59, %57, %54, %stat
   %256 = fmul double %.2155.i, %.0152.i
   %257 = fsub double %26, %254
   %258 = fdiv double %256, %257
-  %259 = select i1 %255, double %258, double -0.000000e+00
-  %.0147.i = fadd double %.2100.i, %259
+  %259 = fadd double %.2100.i, %258
+  %.0147.i = select i1 %255, double %259, double %.2100.i
   %260 = fcmp ogt double %26, %244
   br i1 %260, label %261, label %267
 
@@ -6544,23 +6544,23 @@ define internal fastcc double @scalarineqsel(ptr nocapture noundef readonly %0, 
   %11 = getelementptr inbounds i8, ptr %5, i64 16
   %12 = load ptr, ptr %11, align 8
   %.not = icmp eq ptr %12, null
-  br i1 %.not, label %13, label %64
+  br i1 %.not, label %13, label %68
 
 13:                                               ; preds = %8
   %14 = load ptr, ptr %5, align 8
   %.not63 = icmp eq ptr %14, null
-  br i1 %.not63, label %86, label %15
+  br i1 %.not63, label %90, label %15
 
 15:                                               ; preds = %13
   %16 = load i32, ptr %14, align 4
   %17 = icmp eq i32 %16, 6
-  br i1 %17, label %18, label %86
+  br i1 %17, label %18, label %90
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds i8, ptr %14, i64 8
   %20 = load i16, ptr %19, align 8
   %21 = icmp eq i16 %20, -1
-  br i1 %21, label %22, label %86
+  br i1 %21, label %22, label %90
 
 22:                                               ; preds = %18
   %23 = getelementptr inbounds i8, ptr %5, i64 8
@@ -6568,7 +6568,7 @@ define internal fastcc double @scalarineqsel(ptr nocapture noundef readonly %0, 
   %25 = getelementptr inbounds i8, ptr %24, i64 192
   %26 = load i32, ptr %25, align 8
   %27 = icmp eq i32 %26, 0
-  br i1 %27, label %86, label %28
+  br i1 %27, label %90, label %28
 
 28:                                               ; preds = %22
   %29 = inttoptr i64 %6 to ptr
@@ -6605,58 +6605,63 @@ define internal fastcc double @scalarineqsel(ptr nocapture noundef readonly %0, 
 
 53:                                               ; preds = %46, %28
   %.056 = phi double [ %52, %46 ], [ %35, %28 ]
-  %54 = fdiv double %.056, %39
-  %55 = xor i1 %2, %3
-  %56 = fcmp ult double %37, 1.000000e+00
-  %or.cond = or i1 %55, %56
-  %57 = fdiv double 1.000000e+00, %37
-  %58 = select i1 %or.cond, double 0.000000e+00, double %57
-  %.057 = fsub double %54, %58
-  %59 = fsub double 1.000000e+00, %.057
-  %.1 = select i1 %2, double %59, double %.057
-  %60 = fcmp olt double %.1, 0.000000e+00
-  br i1 %60, label %86, label %61
+  %54 = insertelement <2 x double> <double poison, double 1.000000e+00>, double %.056, i64 0
+  %55 = insertelement <2 x double> poison, double %39, i64 0
+  %56 = insertelement <2 x double> %55, double %37, i64 1
+  %57 = fdiv <2 x double> %54, %56
+  %58 = xor i1 %2, %3
+  %59 = fcmp ult double %37, 1.000000e+00
+  %or.cond = or i1 %58, %59
+  %60 = extractelement <2 x double> %57, i64 0
+  %shift = shufflevector <2 x double> %57, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %61 = fsub <2 x double> %57, %shift
+  %62 = extractelement <2 x double> %61, i64 0
+  %.057 = select i1 %or.cond, double %60, double %62
+  %63 = fsub double 1.000000e+00, %.057
+  %.1 = select i1 %2, double %63, double %.057
+  %64 = fcmp olt double %.1, 0.000000e+00
+  br i1 %64, label %90, label %65
 
-61:                                               ; preds = %53
-  %62 = fcmp ogt double %.1, 1.000000e+00
-  br i1 %62, label %63, label %86
+65:                                               ; preds = %53
+  %66 = fcmp ogt double %.1, 1.000000e+00
+  br i1 %66, label %67, label %90
 
-63:                                               ; preds = %61
-  br label %86
+67:                                               ; preds = %65
+  br label %90
 
-64:                                               ; preds = %8
-  %65 = getelementptr inbounds i8, ptr %12, i64 16
-  %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 22
-  %68 = load i8, ptr %67, align 2
-  %69 = zext i8 %68 to i64
-  %70 = getelementptr i8, ptr %66, i64 %69
-  %71 = tail call i32 @get_opcode(i32 noundef %1) #13
-  call void @fmgr_info(i32 noundef %71, ptr noundef nonnull %9) #13
-  %72 = call double @mcv_selectivity(ptr noundef nonnull %5, ptr noundef nonnull %9, i32 noundef %4, i64 noundef %6, i1 noundef zeroext true, ptr noundef nonnull %10)
-  %73 = call double @ineq_histogram_selectivity(ptr noundef %0, ptr noundef nonnull %5, i32 noundef %1, ptr noundef nonnull %9, i1 noundef zeroext %2, i1 noundef zeroext %3, i32 noundef %4, i64 noundef %6, i32 noundef %7)
-  %74 = getelementptr inbounds i8, ptr %70, i64 8
-  %75 = load float, ptr %74, align 4
-  %76 = fpext float %75 to double
-  %77 = fsub double 1.000000e+00, %76
-  %78 = load double, ptr %10, align 8
-  %79 = fsub double %77, %78
-  %80 = fcmp ult double %73, 0.000000e+00
-  %. = select i1 %80, double 5.000000e-01, double %73
-  %.3 = fmul double %., %79
-  %81 = fadd double %72, %.3
-  %82 = fcmp olt double %81, 0.000000e+00
-  br i1 %82, label %86, label %83
+68:                                               ; preds = %8
+  %69 = getelementptr inbounds i8, ptr %12, i64 16
+  %70 = load ptr, ptr %69, align 8
+  %71 = getelementptr inbounds i8, ptr %70, i64 22
+  %72 = load i8, ptr %71, align 2
+  %73 = zext i8 %72 to i64
+  %74 = getelementptr i8, ptr %70, i64 %73
+  %75 = tail call i32 @get_opcode(i32 noundef %1) #13
+  call void @fmgr_info(i32 noundef %75, ptr noundef nonnull %9) #13
+  %76 = call double @mcv_selectivity(ptr noundef nonnull %5, ptr noundef nonnull %9, i32 noundef %4, i64 noundef %6, i1 noundef zeroext true, ptr noundef nonnull %10)
+  %77 = call double @ineq_histogram_selectivity(ptr noundef %0, ptr noundef nonnull %5, i32 noundef %1, ptr noundef nonnull %9, i1 noundef zeroext %2, i1 noundef zeroext %3, i32 noundef %4, i64 noundef %6, i32 noundef %7)
+  %78 = getelementptr inbounds i8, ptr %74, i64 8
+  %79 = load float, ptr %78, align 4
+  %80 = fpext float %79 to double
+  %81 = fsub double 1.000000e+00, %80
+  %82 = load double, ptr %10, align 8
+  %83 = fsub double %81, %82
+  %84 = fcmp ult double %77, 0.000000e+00
+  %. = select i1 %84, double 5.000000e-01, double %77
+  %.3 = fmul double %., %83
+  %85 = fadd double %76, %.3
+  %86 = fcmp olt double %85, 0.000000e+00
+  br i1 %86, label %90, label %87
 
-83:                                               ; preds = %64
-  %84 = fcmp ogt double %81, 1.000000e+00
-  br i1 %84, label %85, label %86
+87:                                               ; preds = %68
+  %88 = fcmp ogt double %85, 1.000000e+00
+  br i1 %88, label %89, label %90
 
-85:                                               ; preds = %83
-  br label %86
+89:                                               ; preds = %87
+  br label %90
 
-86:                                               ; preds = %83, %85, %64, %13, %15, %18, %61, %63, %53, %22
-  %.0 = phi double [ 1.000000e+00, %22 ], [ 1.000000e+00, %63 ], [ %.1, %61 ], [ 0.000000e+00, %53 ], [ 0x3FD5555555555555, %18 ], [ 0x3FD5555555555555, %15 ], [ 0x3FD5555555555555, %13 ], [ 1.000000e+00, %85 ], [ %81, %83 ], [ 0.000000e+00, %64 ]
+90:                                               ; preds = %87, %89, %68, %13, %15, %18, %65, %67, %53, %22
+  %.0 = phi double [ 1.000000e+00, %22 ], [ 1.000000e+00, %67 ], [ %.1, %65 ], [ 0.000000e+00, %53 ], [ 0x3FD5555555555555, %18 ], [ 0x3FD5555555555555, %15 ], [ 0x3FD5555555555555, %13 ], [ 1.000000e+00, %89 ], [ %85, %87 ], [ 0.000000e+00, %68 ]
   ret double %.0
 }
 

@@ -747,8 +747,8 @@ define void @dtbrfs_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %538 = fneg double %536
   %539 = select i1 %537, double %536, double %538
   %540 = call double @llvm.fmuladd.f64(double %110, double %533, double %539)
-  %541 = select i1 %534, double -0.000000e+00, double %103
-  %542 = fadd double %540, %541
+  %541 = fadd double %103, %540
+  %542 = select i1 %534, double %540, double %541
   store double %542, ptr %532, align 8, !tbaa !7
   %543 = add nuw nsw i64 %531, 1
   %544 = icmp eq i64 %543, %507

@@ -856,8 +856,8 @@ _ZNK5ceres8internal13WeightedGraphIiE10EdgeWeightERKiS4_.exit: ; preds = %58, %6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   %65 = fcmp ogt double %.0.i19, %.0.in.i.sroa.speculated
   %66 = fsub double %.0.i19, %.0.in.i.sroa.speculated
-  %67 = select i1 %65, double %66, double -0.000000e+00
-  %.1 = fadd double %.049, %67
+  %67 = fadd double %.049, %66
+  %.1 = select i1 %65, double %67, double %.049
   %.sroa.039.0 = load ptr, ptr %.sroa.039.050, align 8
   %.not = icmp eq ptr %.sroa.039.0, null
   br i1 %.not, label %._crit_edge, label %25

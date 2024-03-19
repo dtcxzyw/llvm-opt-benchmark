@@ -3230,8 +3230,8 @@ if.end236:                                        ; preds = %if.else231, %if.the
   %velocityError.0 = phi float [ %sub230, %if.then228 ], [ %sub, %if.else231 ]
   %mul237 = fmul float %scaledDenom.0, %positionalError.0
   %mul238 = fmul float %scaledDenom.0, %velocityError.0
-  %add245 = select i1 %or.cond, float %mul237, float -0.000000e+00
-  %mul238.sink = fadd float %mul238, %add245
+  %add245 = fadd float %mul237, %mul238
+  %mul238.sink = select i1 %or.cond, float %add245, float %mul238
   %mul237.sink = select i1 %or.cond, float 0.000000e+00, float %mul237
   %293 = getelementptr inbounds i8, ptr %solverConstraint, i64 104
   store float %mul238.sink, ptr %293, align 8

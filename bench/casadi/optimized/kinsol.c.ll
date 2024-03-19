@@ -2167,9 +2167,9 @@ KINLinSolDrv.exit174:                             ; preds = %575
 
 814:                                              ; preds = %812
   %815 = fcmp olt double %805, %808
+  %816 = fsub double %.0328.i, %787
   %.1331.ph.i = select i1 %815, double %788, double %.0330.ph.i
-  %816 = select i1 %815, double %787, double 0.000000e+00
-  %.1329.ph.i = fsub double %.0328.i, %816
+  %.1329.ph.i = select i1 %815, double %816, double %.0328.i
   %817 = fcmp oge double %.1329.ph.i, %656
   %818 = select i1 %815, i1 %817, i1 false
   br i1 %818, label %.critedge2.outer.i, label %819, !llvm.loop !8

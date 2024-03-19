@@ -16449,8 +16449,8 @@ define float @Gia_ManPatGetQuo(ptr nocapture noundef readnone %0, ptr nocapture 
   %30 = add nsw i32 %20, 1
   %31 = sitofp i32 %30 to float
   %32 = fdiv float 1.000000e+00, %31
-  %33 = select i1 %29, float %32, float -0.000000e+00
-  %.1 = fadd float %.024, %33
+  %33 = fadd float %.024, %32
+  %.1 = select i1 %29, float %33, float %.024
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %34 = or disjoint i64 %indvars.iv.next, 1
   %35 = icmp ult i64 %34, %14
@@ -16519,8 +16519,8 @@ define float @Gia_ManPatGetTotalQuo(ptr nocapture noundef %0, i32 noundef %1, pt
   %35 = add nsw i32 %25, 1
   %36 = sitofp i32 %35 to float
   %37 = fdiv float 1.000000e+00, %36
-  %38 = select i1 %34, float %37, float -0.000000e+00
-  %.1.i.us = fadd float %.024.i.us, %38
+  %38 = fadd float %.024.i.us, %37
+  %.1.i.us = select i1 %34, float %38, float %.024.i.us
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 2
   %39 = or disjoint i64 %indvars.iv.next.i.us, 1
   %40 = icmp ult i64 %39, %13
@@ -16606,8 +16606,8 @@ define float @Gia_ManPatGetOneQuo(ptr nocapture noundef %0, i32 noundef %1, ptr 
   %34 = add nsw i32 %24, 1
   %35 = sitofp i32 %34 to float
   %36 = fdiv float 1.000000e+00, %35
-  %37 = select i1 %33, float %36, float -0.000000e+00
-  %.1.i = fadd float %.024.i, %37
+  %37 = fadd float %.024.i, %36
+  %.1.i = select i1 %33, float %37, float %.024.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %38 = or disjoint i64 %indvars.iv.next.i, 1
   %39 = icmp ult i64 %38, %18

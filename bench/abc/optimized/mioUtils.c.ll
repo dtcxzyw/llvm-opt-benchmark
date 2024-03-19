@@ -2095,8 +2095,8 @@ Mio_GateDelayAve.exit.i:                          ; preds = %.lr.ph.i.i, %65
   %77 = load i32, ptr %76, align 4
   %.not12.i.i = icmp eq i32 %77, 0
   %78 = sitofp i32 %77 to float
-  %79 = select i1 %.not12.i.i, float 1.000000e+00, float %78
-  %.1.i.i = fdiv float %.010.lcssa.i.i, %79
+  %79 = fdiv float %.010.lcssa.i.i, %78
+  %.1.i.i = select i1 %.not12.i.i, float %.010.lcssa.i.i, float %79
   %80 = tail call ptr @Mio_GateReadPins(ptr noundef nonnull %.078) #30
   %.not13.i21.i = icmp eq ptr %80, null
   br i1 %.not13.i21.i, label %Mio_GateDelayAve.exit29.i, label %.lr.ph.i22.i
@@ -2121,8 +2121,8 @@ Mio_GateDelayAve.exit29.i:                        ; preds = %.lr.ph.i22.i, %Mio_
   %90 = load i32, ptr %21, align 4
   %.not12.i27.i = icmp eq i32 %90, 0
   %91 = sitofp i32 %90 to float
-  %92 = select i1 %.not12.i27.i, float 1.000000e+00, float %91
-  %.1.i28.i = fdiv float %.010.lcssa.i26.i, %92
+  %92 = fdiv float %.010.lcssa.i26.i, %91
+  %.1.i28.i = select i1 %.not12.i27.i, float %.010.lcssa.i26.i, float %92
   %93 = fadd float %.1.i28.i, 0x3F8361A6E0000000
   %94 = fcmp ogt float %.1.i.i, %93
   br i1 %94, label %Mio_CompareTwoGates.exit.thread68, label %95
@@ -2312,8 +2312,8 @@ define noundef ptr @Mio_CollectRootsNew(ptr noundef %0, i32 noundef %1, ptr noun
 Mio_CellDelayAve.exit.i:                          ; preds = %43, %38
   %.09.lcssa.i.i = phi float [ 0.000000e+00, %38 ], [ %46, %43 ]
   %47 = uitofp i32 %41 to float
-  %48 = select i1 %.not16.i.i, float 1.000000e+00, float %47
-  %.1.i.i = fdiv float %.09.lcssa.i.i, %48
+  %48 = fdiv float %.09.lcssa.i.i, %47
+  %.1.i.i = select i1 %.not16.i.i, float %.09.lcssa.i.i, float %48
   %49 = tail call ptr @Mio_GateReadPins(ptr noundef nonnull %.091165) #30
   %.not13.i.i = icmp eq ptr %49, null
   br i1 %.not13.i.i, label %Mio_GateDelayAve.exit.i, label %.lr.ph.i21.i
@@ -2338,8 +2338,8 @@ Mio_GateDelayAve.exit.i:                          ; preds = %.lr.ph.i21.i, %Mio_
   %59 = load i32, ptr %10, align 4
   %.not12.i.i = icmp eq i32 %59, 0
   %60 = sitofp i32 %59 to float
-  %61 = select i1 %.not12.i.i, float 1.000000e+00, float %60
-  %.1.i22.i = fdiv float %.010.lcssa.i.i, %61
+  %61 = fdiv float %.010.lcssa.i.i, %60
+  %.1.i22.i = select i1 %.not12.i.i, float %.010.lcssa.i.i, float %61
   %62 = fadd float %.1.i22.i, 0x3F8361A6E0000000
   %63 = fcmp ogt float %.1.i.i, %62
   br i1 %63, label %Mio_CompareTwo.exit.thread147, label %64
@@ -2761,8 +2761,8 @@ Mio_CollectCopy.exit:                             ; preds = %83, %144, %115, %17
 Mio_CellDelayAve.exit:                            ; preds = %258, %248
   %.09.lcssa.i = phi float [ 0.000000e+00, %248 ], [ %261, %258 ]
   %262 = uitofp i32 %251 to float
-  %263 = select i1 %.not16.i, float 1.000000e+00, float %262
-  %.1.i = fdiv float %.09.lcssa.i, %263
+  %263 = fdiv float %.09.lcssa.i, %262
+  %.1.i = select i1 %.not16.i, float %.09.lcssa.i, float %263
   %264 = fpext float %.1.i to double
   %265 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.42, ptr noundef nonnull %245, i32 noundef %251, i32 noundef %253, double noundef %256, double noundef %264)
   br label %266

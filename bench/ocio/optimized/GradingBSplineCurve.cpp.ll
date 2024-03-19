@@ -1805,7 +1805,7 @@ return:                                           ; preds = %for.body.i, %entry,
   ret i1 %retval.0
 }
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
@@ -5600,8 +5600,8 @@ if.then50:                                        ; preds = %if.end
   %cmp63 = fcmp olt float %18, 0x3EE4F8B580000000
   %sub64 = fsub float %y, %11
   %div65 = fdiv float %sub64, %17
-  %add66 = select i1 %cmp63, float -0.000000e+00, float %div65
-  %cond = fadd float %16, %add66
+  %add66 = fadd float %16, %div65
+  %cond = select i1 %cmp63, float %16, float %add66
   br label %return
 
 if.else:                                          ; preds = %if.end
@@ -5813,8 +5813,8 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   br i1 %or.cond, label %_ZN19OpenColorIO_v2_4deveqERKNS_19GradingBSplineCurveES2_.exit, label %for.body.i, !llvm.loop !32
 
 _ZN19OpenColorIO_v2_4deveqERKNS_19GradingBSplineCurveES2_.exit: ; preds = %for.body.i, %entry, %for.cond.preheader.i
-  %retval.0.i = phi i1 [ true, %entry ], [ false, %for.cond.preheader.i ], [ %.not.i.not.i.not, %for.body.i ]
-  ret i1 %retval.0.i
+  %lnot = phi i1 [ true, %entry ], [ false, %for.cond.preheader.i ], [ %.not.i.not.i.not, %for.body.i ]
+  ret i1 %lnot
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -6593,7 +6593,7 @@ attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree nounwind memory(read) }
+attributes #7 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

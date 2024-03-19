@@ -2128,15 +2128,15 @@ entry:
   %arrayidx53 = getelementptr inbounds i8, ptr %this, i64 56
   %17 = load double, ptr %arrayidx53, align 8
   %cmp.i105 = fcmp une double %17, 0.000000e+00
-  %or.cond.not = select i1 %cmp.i, i1 true, i1 %cmp.i105
+  %or.cond.not304 = select i1 %cmp.i, i1 true, i1 %cmp.i105
   %arrayidx58 = getelementptr inbounds i8, ptr %this, i64 88
   %18 = load double, ptr %arrayidx58, align 8
   %cmp.i107 = fcmp une double %18, 0.000000e+00
-  %or.cond301 = select i1 %or.cond.not, i1 true, i1 %cmp.i107
+  %or.cond301.not303 = select i1 %or.cond.not304, i1 true, i1 %cmp.i107
   %arrayidx62 = getelementptr inbounds i8, ptr %this, i64 120
   %19 = load double, ptr %arrayidx62, align 8
   %cmp.i109 = fcmp une double %19, 1.000000e+00
-  %or.cond302 = select i1 %or.cond301, i1 true, i1 %cmp.i109
+  %or.cond302 = select i1 %or.cond301.not303, i1 true, i1 %cmp.i109
   br i1 %or.cond302, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -6174,15 +6174,18 @@ entry:
   %25 = tail call noundef double @llvm.fabs.f64(double %sqrt.i.i)
   %cmp.i.i.i = fcmp ogt double %25, 0x3E7AD7F29ABCAF48
   %div.i = fdiv double 1.000000e+00, %sqrt.i.i
-  %mul.i.i = select i1 %cmp.i.i.i, double %div.i, double 1.000000e+00
-  %26 = insertelement <2 x double> poison, double %mul.i.i, i64 0
+  %26 = insertelement <2 x double> poison, double %div.i, i64 0
   %27 = shufflevector <2 x double> %26, <2 x double> poison, <2 x i32> zeroinitializer
   %28 = fmul <2 x double> %20, %27
-  %v.sroa.12.0 = fmul double %8, %mul.i.i
-  %29 = fptrunc <2 x double> %28 to <2 x float>
+  %mul7.i.i = fmul double %8, %div.i
+  %29 = insertelement <2 x i1> poison, i1 %cmp.i.i.i, i64 0
+  %30 = shufflevector <2 x i1> %29, <2 x i1> poison, <2 x i32> zeroinitializer
+  %31 = select <2 x i1> %30, <2 x double> %28, <2 x double> %20
+  %v.sroa.12.0 = select i1 %cmp.i.i.i, double %mul7.i.i, double %8
+  %32 = fptrunc <2 x double> %31 to <2 x float>
   %conv7.i9 = fptrunc double %v.sroa.12.0 to float
-  %30 = load i32, ptr %mLevel.i.i, align 8
-  switch i32 %30, label %_ZNK7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE8setValueERKS9_.exit [
+  %33 = load i32, ptr %mLevel.i.i, align 8
+  switch i32 %33, label %_ZNK7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE8setValueERKS9_.exit [
     i32 0, label %if.then.i.i
     i32 1, label %if.then.i.i.i
     i32 2, label %if.then.i.i.i.i
@@ -6192,10 +6195,10 @@ entry:
 if.then.i.i:                                      ; preds = %entry
   %call.i.i.i = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util17DenseMaskIteratorINS3_8NodeMaskILj3EEEEENS1_8LeafNodeINS0_4math4Vec3IfEELj3EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList.i.i)
   %mMaskIter.i.i.i.i = getelementptr inbounds i8, ptr %it, i64 128
-  %31 = load i32, ptr %mMaskIter.i.i.i.i, align 8
+  %34 = load i32, ptr %mMaskIter.i.i.i.i, align 8
   %mOutOfCore.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
-  %32 = load atomic i32, ptr %mOutOfCore.i.i.i.i.i.i.i seq_cst, align 8
-  %tobool.i.not.i.i.i.i.i.i = icmp eq i32 %32, 0
+  %35 = load atomic i32, ptr %mOutOfCore.i.i.i.i.i.i.i seq_cst, align 8
+  %tobool.i.not.i.i.i.i.i.i = icmp eq i32 %35, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %_ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IfEELj3EE10loadValuesEv.exit.i.i.i.i.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i
@@ -6203,14 +6206,14 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i
   br label %_ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IfEELj3EE10loadValuesEv.exit.i.i.i.i.i
 
 _ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IfEELj3EE10loadValuesEv.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %if.then.i.i
-  %33 = load ptr, ptr %call.i.i.i, align 8
-  %tobool.not.i.i.i.i.i = icmp eq ptr %33, null
+  %36 = load ptr, ptr %call.i.i.i, align 8
+  %tobool.not.i.i.i.i.i = icmp eq ptr %36, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZNK7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE8setValueERKS9_.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IfEELj3EE10loadValuesEv.exit.i.i.i.i.i
-  %idxprom.i.i.i.i.i = zext i32 %31 to i64
-  %arrayidx.i.i.i.i.i = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.62", ptr %33, i64 %idxprom.i.i.i.i.i
-  store <2 x float> %29, ptr %arrayidx.i.i.i.i.i, align 4
+  %idxprom.i.i.i.i.i = zext i32 %34 to i64
+  %arrayidx.i.i.i.i.i = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.62", ptr %36, i64 %idxprom.i.i.i.i.i
+  store <2 x float> %32, ptr %arrayidx.i.i.i.i.i, align 4
   %ref.tmp3.sroa.6.0.arrayidx.i.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i.i, i64 8
   store float %conv7.i9, ptr %ref.tmp3.sroa.6.0.arrayidx.i.i.i.i.i.sroa_idx, align 4
   br label %_ZNK7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE8setValueERKS9_.exit
@@ -6218,11 +6221,11 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNK7openvdb5v11_04
 if.then.i.i.i:                                    ; preds = %entry
   %mNext.i.i = getelementptr inbounds i8, ptr %it, i64 144
   %mMaskIter.i.i.i.i.i = getelementptr inbounds i8, ptr %it, i64 152
-  %34 = load i32, ptr %mMaskIter.i.i.i.i.i, align 8
+  %37 = load i32, ptr %mMaskIter.i.i.i.i.i, align 8
   %call.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(66576) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i)
-  %idxprom.i.i.i4.i.i = zext i32 %34 to i64
+  %idxprom.i.i.i4.i.i = zext i32 %37 to i64
   %arrayidx.i.i.i5.i.i = getelementptr inbounds [4096 x %"class.openvdb::v11_0::tree::NodeUnion"], ptr %call.i.i.i.i.i, i64 0, i64 %idxprom.i.i.i4.i.i
-  store <2 x float> %29, ptr %arrayidx.i.i.i5.i.i, align 8
+  store <2 x float> %32, ptr %arrayidx.i.i.i5.i.i, align 8
   %ref.tmp3.sroa.6.0.arrayidx.i.i.i5.i.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i.i.i5.i.i, i64 8
   store float %conv7.i9, ptr %ref.tmp3.sroa.6.0.arrayidx.i.i.i5.i.i.sroa_idx, align 8
   br label %_ZNK7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE8setValueERKS9_.exit
@@ -6230,21 +6233,21 @@ if.then.i.i.i:                                    ; preds = %entry
 if.then.i.i.i.i:                                  ; preds = %entry
   %mNext.i.i.i = getelementptr inbounds i8, ptr %it, i64 168
   %mMaskIter.i.i.i.i.i.i = getelementptr inbounds i8, ptr %it, i64 176
-  %35 = load i32, ptr %mMaskIter.i.i.i.i.i.i, align 8
+  %38 = load i32, ptr %mMaskIter.i.i.i.i.i.i, align 8
   %call.i.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(532496) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i)
-  %idxprom.i.i.i.i.i.i = zext i32 %35 to i64
+  %idxprom.i.i.i.i.i.i = zext i32 %38 to i64
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.71"], ptr %call.i.i.i.i.i.i, i64 0, i64 %idxprom.i.i.i.i.i.i
-  store <2 x float> %29, ptr %arrayidx.i.i.i.i.i.i, align 8
+  store <2 x float> %32, ptr %arrayidx.i.i.i.i.i.i, align 8
   %ref.tmp3.sroa.6.0.arrayidx.i.i.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i.i.i, i64 8
   store float %conv7.i9, ptr %ref.tmp3.sroa.6.0.arrayidx.i.i.i.i.i.i.sroa_idx, align 8
   br label %_ZNK7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE8setValueERKS9_.exit
 
 if.then.i.i.i3.i.i:                               ; preds = %entry
   %mIter.i.i.i.i.i.i = getelementptr inbounds i8, ptr %it, i64 200
-  %36 = load ptr, ptr %mIter.i.i.i.i.i.i, align 8
-  %tile.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %36, i64 56
-  store <2 x float> %29, ptr %tile.i.i.i.i.i.i.i, align 4
-  %ref.tmp3.sroa.6.0.tile.i.i.i.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %36, i64 64
+  %39 = load ptr, ptr %mIter.i.i.i.i.i.i, align 8
+  %tile.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %39, i64 56
+  store <2 x float> %32, ptr %tile.i.i.i.i.i.i.i, align 4
+  %ref.tmp3.sroa.6.0.tile.i.i.i.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %39, i64 64
   store float %conv7.i9, ptr %ref.tmp3.sroa.6.0.tile.i.i.i.i.i.i.i.sroa_idx, align 4
   br label %_ZNK7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE8setValueERKS9_.exit
 
@@ -14437,43 +14440,46 @@ entry:
   %v.sroa.10.0.copyload = load double, ptr %v.sroa.10.0.call.i.i.sroa_idx, align 8
   %arrayidx4.i = getelementptr inbounds i8, ptr %this, i64 32
   %arrayidx8.i = getelementptr inbounds i8, ptr %this, i64 64
-  %1 = load <2 x double>, ptr %this, align 8, !noalias !152
-  %2 = load <2 x double>, ptr %arrayidx4.i, align 8, !noalias !152
-  %3 = insertelement <2 x double> poison, double %v.sroa.6.0.copyload, i64 0
-  %4 = shufflevector <2 x double> %3, <2 x double> poison, <2 x i32> zeroinitializer
-  %5 = fmul <2 x double> %4, %2
-  %6 = insertelement <2 x double> poison, double %v.sroa.0.0.copyload, i64 0
-  %7 = shufflevector <2 x double> %6, <2 x double> poison, <2 x i32> zeroinitializer
-  %8 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %7, <2 x double> %1, <2 x double> %5)
-  %9 = load <2 x double>, ptr %arrayidx8.i, align 8, !noalias !152
-  %10 = insertelement <2 x double> poison, double %v.sroa.10.0.copyload, i64 0
-  %11 = shufflevector <2 x double> %10, <2 x double> poison, <2 x i32> zeroinitializer
-  %12 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %11, <2 x double> %9, <2 x double> %8)
   %arrayidx21.i = getelementptr inbounds i8, ptr %this, i64 16
-  %13 = load double, ptr %arrayidx21.i, align 8, !noalias !152
+  %1 = load double, ptr %arrayidx21.i, align 8, !noalias !152
   %arrayidx24.i = getelementptr inbounds i8, ptr %this, i64 48
-  %14 = load double, ptr %arrayidx24.i, align 8, !noalias !152
-  %mul25.i = fmul double %v.sroa.6.0.copyload, %14
-  %15 = tail call double @llvm.fmuladd.f64(double %v.sroa.0.0.copyload, double %13, double %mul25.i)
+  %2 = load double, ptr %arrayidx24.i, align 8, !noalias !152
+  %mul25.i = fmul double %v.sroa.6.0.copyload, %2
+  %3 = tail call double @llvm.fmuladd.f64(double %v.sroa.0.0.copyload, double %1, double %mul25.i)
   %arrayidx28.i = getelementptr inbounds i8, ptr %this, i64 80
-  %16 = load double, ptr %arrayidx28.i, align 8, !noalias !152
-  %17 = tail call double @llvm.fmuladd.f64(double %v.sroa.10.0.copyload, double %16, double %15)
-  %18 = fmul <2 x double> %12, %12
+  %4 = load double, ptr %arrayidx28.i, align 8, !noalias !152
+  %5 = tail call double @llvm.fmuladd.f64(double %v.sroa.10.0.copyload, double %4, double %3)
+  %6 = load <2 x double>, ptr %this, align 8, !noalias !152
+  %7 = load <2 x double>, ptr %arrayidx4.i, align 8, !noalias !152
+  %8 = insertelement <2 x double> poison, double %v.sroa.6.0.copyload, i64 0
+  %9 = shufflevector <2 x double> %8, <2 x double> poison, <2 x i32> zeroinitializer
+  %10 = fmul <2 x double> %9, %7
+  %11 = insertelement <2 x double> poison, double %v.sroa.0.0.copyload, i64 0
+  %12 = shufflevector <2 x double> %11, <2 x double> poison, <2 x i32> zeroinitializer
+  %13 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %12, <2 x double> %6, <2 x double> %10)
+  %14 = load <2 x double>, ptr %arrayidx8.i, align 8, !noalias !152
+  %15 = insertelement <2 x double> poison, double %v.sroa.10.0.copyload, i64 0
+  %16 = shufflevector <2 x double> %15, <2 x double> poison, <2 x i32> zeroinitializer
+  %17 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %16, <2 x double> %14, <2 x double> %13)
+  %18 = fmul <2 x double> %17, %17
   %mul8.i.i = extractelement <2 x double> %18, i64 1
-  %19 = extractelement <2 x double> %12, i64 0
+  %19 = extractelement <2 x double> %17, i64 0
   %20 = tail call double @llvm.fmuladd.f64(double %19, double %19, double %mul8.i.i)
-  %21 = tail call double @llvm.fmuladd.f64(double %17, double %17, double %20)
+  %21 = tail call double @llvm.fmuladd.f64(double %5, double %5, double %20)
   %sqrt.i.i = tail call noundef double @llvm.sqrt.f64(double %21)
   %22 = tail call noundef double @llvm.fabs.f64(double %sqrt.i.i)
   %cmp.i.i.i = fcmp ogt double %22, 0x3E7AD7F29ABCAF48
   %div.i = fdiv double 1.000000e+00, %sqrt.i.i
-  %mul.i.i = select i1 %cmp.i.i.i, double %div.i, double 1.000000e+00
-  %23 = insertelement <2 x double> poison, double %mul.i.i, i64 0
+  %23 = insertelement <2 x double> poison, double %div.i, i64 0
   %24 = shufflevector <2 x double> %23, <2 x double> poison, <2 x i32> zeroinitializer
-  %25 = fmul <2 x double> %12, %24
-  %v.sroa.10.0 = fmul double %17, %mul.i.i
-  %26 = load i32, ptr %mLevel.i.i, align 8
-  switch i32 %26, label %_ZNK7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE8setValueERKS9_.exit [
+  %25 = fmul <2 x double> %17, %24
+  %mul7.i.i = fmul double %5, %div.i
+  %26 = insertelement <2 x i1> poison, i1 %cmp.i.i.i, i64 0
+  %27 = shufflevector <2 x i1> %26, <2 x i1> poison, <2 x i32> zeroinitializer
+  %28 = select <2 x i1> %27, <2 x double> %25, <2 x double> %17
+  %v.sroa.10.0 = select i1 %cmp.i.i.i, double %mul7.i.i, double %5
+  %29 = load i32, ptr %mLevel.i.i, align 8
+  switch i32 %29, label %_ZNK7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE8setValueERKS9_.exit [
     i32 0, label %if.then.i.i
     i32 1, label %if.then.i.i.i
     i32 2, label %if.then.i.i.i.i
@@ -14483,10 +14489,10 @@ entry:
 if.then.i.i:                                      ; preds = %entry
   %call.i.i.i = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util17DenseMaskIteratorINS3_8NodeMaskILj3EEEEENS1_8LeafNodeINS0_4math4Vec3IdEELj3EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList.i.i)
   %mMaskIter.i.i.i.i = getelementptr inbounds i8, ptr %it, i64 128
-  %27 = load i32, ptr %mMaskIter.i.i.i.i, align 8
+  %30 = load i32, ptr %mMaskIter.i.i.i.i, align 8
   %mOutOfCore.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
-  %28 = load atomic i32, ptr %mOutOfCore.i.i.i.i.i.i.i seq_cst, align 8
-  %tobool.i.not.i.i.i.i.i.i = icmp eq i32 %28, 0
+  %31 = load atomic i32, ptr %mOutOfCore.i.i.i.i.i.i.i seq_cst, align 8
+  %tobool.i.not.i.i.i.i.i.i = icmp eq i32 %31, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %_ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IdEELj3EE10loadValuesEv.exit.i.i.i.i.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i
@@ -14494,42 +14500,42 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i
   br label %_ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IdEELj3EE10loadValuesEv.exit.i.i.i.i.i
 
 _ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IdEELj3EE10loadValuesEv.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %if.then.i.i
-  %29 = load ptr, ptr %call.i.i.i, align 8
-  %tobool.not.i.i.i.i.i = icmp eq ptr %29, null
+  %32 = load ptr, ptr %call.i.i.i, align 8
+  %tobool.not.i.i.i.i.i = icmp eq ptr %32, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZNK7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE8setValueERKS9_.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IdEELj3EE10loadValuesEv.exit.i.i.i.i.i
-  %idxprom.i.i.i.i.i = zext i32 %27 to i64
-  %arrayidx.i.i.i.i.i = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3", ptr %29, i64 %idxprom.i.i.i.i.i
+  %idxprom.i.i.i.i.i = zext i32 %30 to i64
+  %arrayidx.i.i.i.i.i = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3", ptr %32, i64 %idxprom.i.i.i.i.i
   br label %if.end.sink.split.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
   %mNext.i.i = getelementptr inbounds i8, ptr %it, i64 144
   %mMaskIter.i.i.i.i.i = getelementptr inbounds i8, ptr %it, i64 152
-  %30 = load i32, ptr %mMaskIter.i.i.i.i.i, align 8
+  %33 = load i32, ptr %mMaskIter.i.i.i.i.i, align 8
   %call.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(99344) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i)
-  %idxprom.i.i.i4.i.i = zext i32 %30 to i64
+  %idxprom.i.i.i4.i.i = zext i32 %33 to i64
   %arrayidx.i.i.i5.i.i = getelementptr inbounds [4096 x %"class.openvdb::v11_0::tree::NodeUnion.212"], ptr %call.i.i.i.i.i, i64 0, i64 %idxprom.i.i.i4.i.i
   br label %if.end.sink.split.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
   %mNext.i.i.i = getelementptr inbounds i8, ptr %it, i64 168
   %mMaskIter.i.i.i.i.i.i = getelementptr inbounds i8, ptr %it, i64 176
-  %31 = load i32, ptr %mMaskIter.i.i.i.i.i.i, align 8
+  %34 = load i32, ptr %mMaskIter.i.i.i.i.i.i, align 8
   %call.i.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(794640) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i)
-  %idxprom.i.i.i.i.i.i = zext i32 %31 to i64
+  %idxprom.i.i.i.i.i.i = zext i32 %34 to i64
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.215"], ptr %call.i.i.i.i.i.i, i64 0, i64 %idxprom.i.i.i.i.i.i
   br label %if.end.sink.split.i.i
 
 if.then.i.i.i3.i.i:                               ; preds = %entry
   %mIter.i.i.i.i.i.i = getelementptr inbounds i8, ptr %it, i64 200
-  %32 = load ptr, ptr %mIter.i.i.i.i.i.i, align 8
-  %tile.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %32, i64 56
+  %35 = load ptr, ptr %mIter.i.i.i.i.i.i, align 8
+  %tile.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %35, i64 56
   br label %if.end.sink.split.i.i
 
 if.end.sink.split.i.i:                            ; preds = %if.then.i.i.i3.i.i, %if.then.i.i.i.i, %if.then.i.i.i, %if.then.i.i.i.i.i
   %tile.i.i.i.sink.i.sink.i.sink.i.i = phi ptr [ %arrayidx.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %arrayidx.i.i.i5.i.i, %if.then.i.i.i ], [ %tile.i.i.i.i.i.i.i, %if.then.i.i.i3.i.i ], [ %arrayidx.i.i.i.i.i.i, %if.then.i.i.i.i ]
-  store <2 x double> %25, ptr %tile.i.i.i.sink.i.sink.i.sink.i.i, align 8
+  store <2 x double> %28, ptr %tile.i.i.i.sink.i.sink.i.sink.i.i, align 8
   %v.sroa.10.0.tile.i.i.i.sink.i.sink.i.sink.i.i.sroa_idx = getelementptr inbounds i8, ptr %tile.i.i.i.sink.i.sink.i.sink.i.i, i64 16
   store double %v.sroa.10.0, ptr %v.sroa.10.0.tile.i.i.i.sink.i.sink.i.sink.i.i.sroa_idx, align 8
   br label %_ZNK7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE8setValueERKS9_.exit
@@ -22270,15 +22276,18 @@ entry:
   %25 = tail call noundef double @llvm.fabs.f64(double %sqrt.i.i)
   %cmp.i.i.i = fcmp ogt double %25, 0x3E7AD7F29ABCAF48
   %div.i = fdiv double 1.000000e+00, %sqrt.i.i
-  %mul.i.i = select i1 %cmp.i.i.i, double %div.i, double 1.000000e+00
-  %26 = insertelement <2 x double> poison, double %mul.i.i, i64 0
+  %26 = insertelement <2 x double> poison, double %div.i, i64 0
   %27 = shufflevector <2 x double> %26, <2 x double> poison, <2 x i32> zeroinitializer
   %28 = fmul <2 x double> %20, %27
-  %v.sroa.12.0 = fmul double %8, %mul.i.i
-  %29 = fptosi <2 x double> %28 to <2 x i32>
+  %mul7.i.i = fmul double %8, %div.i
+  %29 = insertelement <2 x i1> poison, i1 %cmp.i.i.i, i64 0
+  %30 = shufflevector <2 x i1> %29, <2 x i1> poison, <2 x i32> zeroinitializer
+  %31 = select <2 x i1> %30, <2 x double> %28, <2 x double> %20
+  %v.sroa.12.0 = select i1 %cmp.i.i.i, double %mul7.i.i, double %8
+  %32 = fptosi <2 x double> %31 to <2 x i32>
   %conv7.i9 = fptosi double %v.sroa.12.0 to i32
-  %30 = load i32, ptr %mLevel.i.i, align 8
-  switch i32 %30, label %_ZNK7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE8setValueERKS9_.exit [
+  %33 = load i32, ptr %mLevel.i.i, align 8
+  switch i32 %33, label %_ZNK7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE8setValueERKS9_.exit [
     i32 0, label %if.then.i.i
     i32 1, label %if.then.i.i.i
     i32 2, label %if.then.i.i.i.i
@@ -22288,10 +22297,10 @@ entry:
 if.then.i.i:                                      ; preds = %entry
   %call.i.i.i = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util17DenseMaskIteratorINS3_8NodeMaskILj3EEEEENS1_8LeafNodeINS0_4math4Vec3IiEELj3EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %mValueIterList.i.i)
   %mMaskIter.i.i.i.i = getelementptr inbounds i8, ptr %it, i64 128
-  %31 = load i32, ptr %mMaskIter.i.i.i.i, align 8
+  %34 = load i32, ptr %mMaskIter.i.i.i.i, align 8
   %mOutOfCore.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
-  %32 = load atomic i32, ptr %mOutOfCore.i.i.i.i.i.i.i seq_cst, align 8
-  %tobool.i.not.i.i.i.i.i.i = icmp eq i32 %32, 0
+  %35 = load atomic i32, ptr %mOutOfCore.i.i.i.i.i.i.i seq_cst, align 8
+  %tobool.i.not.i.i.i.i.i.i = icmp eq i32 %35, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %_ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IiEELj3EE10loadValuesEv.exit.i.i.i.i.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i
@@ -22299,14 +22308,14 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i
   br label %_ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IiEELj3EE10loadValuesEv.exit.i.i.i.i.i
 
 _ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IiEELj3EE10loadValuesEv.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %if.then.i.i
-  %33 = load ptr, ptr %call.i.i.i, align 8
-  %tobool.not.i.i.i.i.i = icmp eq ptr %33, null
+  %36 = load ptr, ptr %call.i.i.i, align 8
+  %tobool.not.i.i.i.i.i = icmp eq ptr %36, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZNK7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE8setValueERKS9_.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferINS0_4math4Vec3IiEELj3EE10loadValuesEv.exit.i.i.i.i.i
-  %idxprom.i.i.i.i.i = zext i32 %31 to i64
-  %arrayidx.i.i.i.i.i = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.304", ptr %33, i64 %idxprom.i.i.i.i.i
-  store <2 x i32> %29, ptr %arrayidx.i.i.i.i.i, align 4
+  %idxprom.i.i.i.i.i = zext i32 %34 to i64
+  %arrayidx.i.i.i.i.i = getelementptr inbounds %"class.openvdb::v11_0::math::Vec3.304", ptr %36, i64 %idxprom.i.i.i.i.i
+  store <2 x i32> %32, ptr %arrayidx.i.i.i.i.i, align 4
   %ref.tmp3.sroa.6.0.arrayidx.i.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i.i, i64 8
   store i32 %conv7.i9, ptr %ref.tmp3.sroa.6.0.arrayidx.i.i.i.i.i.sroa_idx, align 4
   br label %_ZNK7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE8setValueERKS9_.exit
@@ -22314,11 +22323,11 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNK7openvdb5v11_04
 if.then.i.i.i:                                    ; preds = %entry
   %mNext.i.i = getelementptr inbounds i8, ptr %it, i64 144
   %mMaskIter.i.i.i.i.i = getelementptr inbounds i8, ptr %it, i64 152
-  %34 = load i32, ptr %mMaskIter.i.i.i.i.i, align 8
+  %37 = load i32, ptr %mMaskIter.i.i.i.i.i, align 8
   %call.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(66576) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i)
-  %idxprom.i.i.i4.i.i = zext i32 %34 to i64
+  %idxprom.i.i.i4.i.i = zext i32 %37 to i64
   %arrayidx.i.i.i5.i.i = getelementptr inbounds [4096 x %"class.openvdb::v11_0::tree::NodeUnion.316"], ptr %call.i.i.i.i.i, i64 0, i64 %idxprom.i.i.i4.i.i
-  store <2 x i32> %29, ptr %arrayidx.i.i.i5.i.i, align 8
+  store <2 x i32> %32, ptr %arrayidx.i.i.i5.i.i, align 8
   %ref.tmp3.sroa.6.0.arrayidx.i.i.i5.i.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i.i.i5.i.i, i64 8
   store i32 %conv7.i9, ptr %ref.tmp3.sroa.6.0.arrayidx.i.i.i5.i.i.sroa_idx, align 8
   br label %_ZNK7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE8setValueERKS9_.exit
@@ -22326,21 +22335,21 @@ if.then.i.i.i:                                    ; preds = %entry
 if.then.i.i.i.i:                                  ; preds = %entry
   %mNext.i.i.i = getelementptr inbounds i8, ptr %it, i64 168
   %mMaskIter.i.i.i.i.i.i = getelementptr inbounds i8, ptr %it, i64 176
-  %35 = load i32, ptr %mMaskIter.i.i.i.i.i.i, align 8
+  %38 = load i32, ptr %mMaskIter.i.i.i.i.i.i, align 8
   %call.i.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(532496) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util15OffMaskIteratorINS3_8NodeMaskILj5EEEEENS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i.i.i)
-  %idxprom.i.i.i.i.i.i = zext i32 %35 to i64
+  %idxprom.i.i.i.i.i.i = zext i32 %38 to i64
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.320"], ptr %call.i.i.i.i.i.i, i64 0, i64 %idxprom.i.i.i.i.i.i
-  store <2 x i32> %29, ptr %arrayidx.i.i.i.i.i.i, align 8
+  store <2 x i32> %32, ptr %arrayidx.i.i.i.i.i.i, align 8
   %ref.tmp3.sroa.6.0.arrayidx.i.i.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i.i.i, i64 8
   store i32 %conv7.i9, ptr %ref.tmp3.sroa.6.0.arrayidx.i.i.i.i.i.i.sroa_idx, align 8
   br label %_ZNK7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE8setValueERKS9_.exit
 
 if.then.i.i.i3.i.i:                               ; preds = %entry
   %mIter.i.i.i.i.i.i = getelementptr inbounds i8, ptr %it, i64 200
-  %36 = load ptr, ptr %mIter.i.i.i.i.i.i, align 8
-  %tile.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %36, i64 56
-  store <2 x i32> %29, ptr %tile.i.i.i.i.i.i.i, align 4
-  %ref.tmp3.sroa.6.0.tile.i.i.i.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %36, i64 64
+  %39 = load ptr, ptr %mIter.i.i.i.i.i.i, align 8
+  %tile.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %39, i64 56
+  store <2 x i32> %32, ptr %tile.i.i.i.i.i.i.i, align 4
+  %ref.tmp3.sroa.6.0.tile.i.i.i.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %39, i64 64
   store i32 %conv7.i9, ptr %ref.tmp3.sroa.6.0.tile.i.i.i.i.i.i.i.sroa_idx, align 4
   br label %_ZNK7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE8setValueERKS9_.exit
 

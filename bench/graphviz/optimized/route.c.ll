@@ -26,20 +26,20 @@ define noundef i32 @Proutespline(ptr noundef %0, i32 noundef %1, ptr %2, i32 %3,
   %15 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %14, <2 x double> %14, <2 x double> %13)
   %16 = extractelement <2 x double> %15, i64 1
   %sqrt.i = tail call double @llvm.sqrt.f64(double %16)
-  %17 = fcmp ogt <2 x double> %15, <double 0x3EB0C6F7A0B5ED8D, double 0x3EB0C6F7A0B5ED8D>
-  %18 = extractelement <2 x i1> %17, i64 1
-  %19 = select i1 %18, double %sqrt.i, double 1.000000e+00
-  %20 = insertelement <2 x double> poison, double %19, i64 0
-  %21 = shufflevector <2 x double> %20, <2 x double> poison, <2 x i32> zeroinitializer
-  %22 = fdiv <2 x double> %8, %21
+  %17 = insertelement <2 x double> poison, double %sqrt.i, i64 0
+  %18 = shufflevector <2 x double> %17, <2 x double> poison, <2 x i32> zeroinitializer
+  %19 = fdiv <2 x double> %8, %18
+  %20 = fcmp ogt <2 x double> %15, <double 0x3EB0C6F7A0B5ED8D, double 0x3EB0C6F7A0B5ED8D>
+  %21 = shufflevector <2 x i1> %20, <2 x i1> poison, <2 x i32> <i32 1, i32 1>
+  %22 = select <2 x i1> %21, <2 x double> %19, <2 x double> %8
   store <2 x double> %22, ptr %4, align 8
   %23 = extractelement <2 x double> %15, i64 0
   %sqrt.i17 = tail call double @llvm.sqrt.f64(double %23)
-  %24 = extractelement <2 x i1> %17, i64 0
-  %25 = select i1 %24, double %sqrt.i17, double 1.000000e+00
-  %26 = insertelement <2 x double> poison, double %25, i64 0
-  %27 = shufflevector <2 x double> %26, <2 x double> poison, <2 x i32> zeroinitializer
-  %28 = fdiv <2 x double> %11, %27
+  %24 = insertelement <2 x double> poison, double %sqrt.i17, i64 0
+  %25 = shufflevector <2 x double> %24, <2 x double> poison, <2 x i32> zeroinitializer
+  %26 = fdiv <2 x double> %11, %25
+  %27 = shufflevector <2 x i1> %20, <2 x i1> poison, <2 x i32> zeroinitializer
+  %28 = select <2 x i1> %27, <2 x double> %26, <2 x double> %11
   store <2 x double> %28, ptr %9, align 8
   store i32 0, ptr @opl, align 4
   %29 = load i32, ptr @opn, align 4
@@ -102,7 +102,7 @@ define internal fastcc i32 @reallyroutespline(ptr noundef %0, i32 noundef %1, pt
   %18 = mul nuw nsw i64 %17, 40
   %19 = tail call ptr @realloc(ptr noundef %.pre, i64 noundef %18) #8
   %20 = icmp eq ptr %19, null
-  br i1 %20, label %528, label %21
+  br i1 %20, label %530, label %21
 
 21:                                               ; preds = %16
   store ptr %19, ptr @reallyroutespline.tnas, align 8
@@ -901,11 +901,11 @@ splinefits.exit:                                  ; preds = %430, %412
   %437 = trunc i64 %indvars.iv.next80.lcssa.sink.i to i32
   store i32 %437, ptr @opl, align 4
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13)
-  br label %528
+  br label %530
 
 .thread:                                          ; preds = %423, %405
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13)
-  br label %528
+  br label %530
 
 .loopexit:                                        ; preds = %dist_n.exit41.i, %418
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13)
@@ -998,36 +998,38 @@ splinefits.exit:                                  ; preds = %430, %412
   %506 = fsub <2 x double> %503, %505
   %507 = fmul <2 x double> %506, %506
   %508 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %501, <2 x double> %501, <2 x double> %507)
-  %509 = fcmp ogt <2 x double> %508, <double 0x3EB0C6F7A0B5ED8D, double 0x3EB0C6F7A0B5ED8D>
-  %510 = call <2 x double> @llvm.sqrt.v2f64(<2 x double> %508)
-  %511 = select <2 x i1> %509, <2 x double> %510, <2 x double> <double 1.000000e+00, double 1.000000e+00>
-  %512 = fdiv <2 x double> %506, %511
-  %513 = fdiv <2 x double> %501, %511
-  %shift257 = shufflevector <2 x double> %513, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %514 = fadd <2 x double> %513, %shift257
-  %515 = extractelement <2 x double> %514, i64 0
-  %shift258 = shufflevector <2 x double> %512, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %516 = fadd <2 x double> %512, %shift258
-  %517 = extractelement <2 x double> %516, i64 0
-  %518 = fmul <2 x double> %516, %516
-  %519 = extractelement <2 x double> %518, i64 0
-  %520 = call double @llvm.fmuladd.f64(double %515, double %515, double %519)
-  %521 = fcmp ogt double %520, 0x3EB0C6F7A0B5ED8D
-  %sqrt.i153 = call double @llvm.sqrt.f64(double %520)
-  %522 = select i1 %521, double %sqrt.i153, double 1.000000e+00
-  %.sroa.6.0.i154 = fdiv double %517, %522
-  %.sroa.0.0.i155 = fdiv double %515, %522
-  %523 = call fastcc i32 @reallyroutespline(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, i32 noundef %491, double %4, double %5, double %.sroa.0.0.i155, double %.sroa.6.0.i154), !range !4
-  %524 = icmp slt i32 %523, 0
-  br i1 %524, label %528, label %525
+  %509 = call <2 x double> @llvm.sqrt.v2f64(<2 x double> %508)
+  %510 = fcmp ogt <2 x double> %508, <double 0x3EB0C6F7A0B5ED8D, double 0x3EB0C6F7A0B5ED8D>
+  %511 = fdiv <2 x double> %501, %509
+  %512 = fdiv <2 x double> %506, %509
+  %513 = select <2 x i1> %510, <2 x double> %512, <2 x double> %506
+  %514 = select <2 x i1> %510, <2 x double> %511, <2 x double> %501
+  %shift257 = shufflevector <2 x double> %514, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %515 = fadd <2 x double> %514, %shift257
+  %516 = extractelement <2 x double> %515, i64 0
+  %shift258 = shufflevector <2 x double> %513, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %517 = fadd <2 x double> %513, %shift258
+  %518 = extractelement <2 x double> %517, i64 0
+  %519 = fmul <2 x double> %517, %517
+  %520 = extractelement <2 x double> %519, i64 0
+  %521 = call double @llvm.fmuladd.f64(double %516, double %516, double %520)
+  %522 = fcmp ogt double %521, 0x3EB0C6F7A0B5ED8D
+  %sqrt.i153 = call double @llvm.sqrt.f64(double %521)
+  %523 = fdiv double %516, %sqrt.i153
+  %524 = fdiv double %518, %sqrt.i153
+  %.sroa.6.0.i154 = select i1 %522, double %524, double %518
+  %.sroa.0.0.i155 = select i1 %522, double %523, double %516
+  %525 = call fastcc i32 @reallyroutespline(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, i32 noundef %491, double %4, double %5, double %.sroa.0.0.i155, double %.sroa.6.0.i154), !range !4
+  %526 = icmp slt i32 %525, 0
+  br i1 %526, label %530, label %527
 
-525:                                              ; preds = %._crit_edge201
-  %526 = sub nsw i32 %3, %.0117.lcssa
-  %527 = call fastcc i32 @reallyroutespline(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %483, i32 noundef %526, double %.sroa.0.0.i155, double %.sroa.6.0.i154, double %6, double %7), !range !4
-  br label %528
+527:                                              ; preds = %._crit_edge201
+  %528 = sub nsw i32 %3, %.0117.lcssa
+  %529 = call fastcc i32 @reallyroutespline(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %483, i32 noundef %528, double %.sroa.0.0.i155, double %.sroa.6.0.i154, double %6, double %7), !range !4
+  br label %530
 
-528:                                              ; preds = %.thread, %splinefits.exit, %525, %._crit_edge201, %16
-  %.0 = phi i32 [ -1, %16 ], [ 0, %splinefits.exit ], [ -1, %._crit_edge201 ], [ %527, %525 ], [ -1, %.thread ]
+530:                                              ; preds = %.thread, %splinefits.exit, %527, %._crit_edge201, %16
+  %.0 = phi i32 [ -1, %16 ], [ 0, %splinefits.exit ], [ -1, %._crit_edge201 ], [ %529, %527 ], [ -1, %.thread ]
   ret i32 %.0
 }
 

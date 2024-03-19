@@ -4171,8 +4171,8 @@ _ZL7bigden_IdEiiiPT_S1_S1_S1_PiS2_S2_S2_S1_S1_S1_S1_S1_S1_S1_.exit.i.i: ; preds 
   %1477 = fdiv double %.01056.lcssa.i.i, %1458
   %1478 = fmul double %1477, %1477
   %1479 = fmul double %1477, %1478
-  %1480 = select i1 %1476, double %1479, double 1.000000e+00
-  %.21108.i.i = fmul double %1469, %1480
+  %1480 = fmul double %1469, %1479
+  %.21108.i.i = select i1 %1476, double %1480, double %1469
   %1481 = fcmp ule double %.21108.i.i, %.110601841.i.i
   %.not12661627.i.i = icmp eq i64 %indvars.iv2343.i.i, %1460
   %.not1266.i.i = select i1 %1459, i1 %.not12661627.i.i, i1 false

@@ -3556,102 +3556,102 @@ return:                                           ; preds = %sw.default, %sw.bb4
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local { <2 x float>, float } @_ZNK4pbrt9TransformclIfEENS_6Point3IT_EES4_(ptr noundef nonnull align 4 dereferenceable(128) %this, <2 x float> %p.coerce0, float %p.coerce1) local_unnamed_addr #9 comdat align 2 {
 entry:
-  %0 = extractelement <2 x float> %p.coerce0, i64 1
-  %1 = extractelement <2 x float> %p.coerce0, i64 0
   %call = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 0)
-  %2 = extractvalue { ptr, i64 } %call, 0
-  %3 = load float, ptr %2, align 4
+  %0 = extractvalue { ptr, i64 } %call, 0
+  %1 = load float, ptr %0, align 4
+  %p.sroa.0.0.vec.extract = extractelement <2 x float> %p.coerce0, i64 0
+  %mul = fmul float %p.sroa.0.0.vec.extract, %1
   %call5 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 0)
-  %4 = extractvalue { ptr, i64 } %call5, 0
-  %arrayidx.i = getelementptr inbounds i8, ptr %4, i64 4
-  %5 = load float, ptr %arrayidx.i, align 4
+  %2 = extractvalue { ptr, i64 } %call5, 0
+  %arrayidx.i = getelementptr inbounds i8, ptr %2, i64 4
+  %3 = load float, ptr %arrayidx.i, align 4
+  %p.sroa.0.4.vec.extract = extractelement <2 x float> %p.coerce0, i64 1
+  %mul7 = fmul float %p.sroa.0.4.vec.extract, %3
+  %add = fadd float %mul, %mul7
   %call10 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 0)
-  %6 = extractvalue { ptr, i64 } %call10, 0
-  %arrayidx.i20 = getelementptr inbounds i8, ptr %6, i64 8
-  %7 = load float, ptr %arrayidx.i20, align 4
+  %4 = extractvalue { ptr, i64 } %call10, 0
+  %arrayidx.i20 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = load float, ptr %arrayidx.i20, align 4
+  %mul12 = fmul float %5, %p.coerce1
+  %add13 = fadd float %add, %mul12
   %call16 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 0)
-  %8 = extractvalue { ptr, i64 } %call16, 0
-  %arrayidx.i21 = getelementptr inbounds i8, ptr %8, i64 12
-  %9 = load float, ptr %arrayidx.i21, align 4
+  %6 = extractvalue { ptr, i64 } %call16, 0
+  %arrayidx.i21 = getelementptr inbounds i8, ptr %6, i64 12
+  %7 = load float, ptr %arrayidx.i21, align 4
+  %add18 = fadd float %add13, %7
   %call21 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 1)
-  %10 = extractvalue { ptr, i64 } %call21, 0
-  %11 = load float, ptr %10, align 4
+  %8 = extractvalue { ptr, i64 } %call21, 0
+  %9 = load float, ptr %8, align 4
+  %mul24 = fmul float %p.sroa.0.0.vec.extract, %9
   %call27 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 1)
-  %12 = extractvalue { ptr, i64 } %call27, 0
-  %arrayidx.i22 = getelementptr inbounds i8, ptr %12, i64 4
-  %13 = load float, ptr %arrayidx.i22, align 4
+  %10 = extractvalue { ptr, i64 } %call27, 0
+  %arrayidx.i22 = getelementptr inbounds i8, ptr %10, i64 4
+  %11 = load float, ptr %arrayidx.i22, align 4
+  %mul30 = fmul float %p.sroa.0.4.vec.extract, %11
+  %add31 = fadd float %mul24, %mul30
   %call34 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 1)
-  %14 = extractvalue { ptr, i64 } %call34, 0
-  %arrayidx.i23 = getelementptr inbounds i8, ptr %14, i64 8
-  %15 = load float, ptr %arrayidx.i23, align 4
+  %12 = extractvalue { ptr, i64 } %call34, 0
+  %arrayidx.i23 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = load float, ptr %arrayidx.i23, align 4
+  %mul37 = fmul float %13, %p.coerce1
+  %add38 = fadd float %add31, %mul37
   %call41 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 1)
-  %16 = extractvalue { ptr, i64 } %call41, 0
-  %arrayidx.i24 = getelementptr inbounds i8, ptr %16, i64 12
-  %17 = load float, ptr %arrayidx.i24, align 4
+  %14 = extractvalue { ptr, i64 } %call41, 0
+  %arrayidx.i24 = getelementptr inbounds i8, ptr %14, i64 12
+  %15 = load float, ptr %arrayidx.i24, align 4
+  %add43 = fadd float %add38, %15
   %call46 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 2)
-  %18 = extractvalue { ptr, i64 } %call46, 0
-  %19 = load float, ptr %18, align 4
-  %mul49 = fmul float %1, %19
+  %16 = extractvalue { ptr, i64 } %call46, 0
+  %17 = load float, ptr %16, align 4
+  %mul49 = fmul float %p.sroa.0.0.vec.extract, %17
   %call52 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 2)
-  %20 = extractvalue { ptr, i64 } %call52, 0
-  %arrayidx.i25 = getelementptr inbounds i8, ptr %20, i64 4
-  %21 = load float, ptr %arrayidx.i25, align 4
-  %mul55 = fmul float %0, %21
+  %18 = extractvalue { ptr, i64 } %call52, 0
+  %arrayidx.i25 = getelementptr inbounds i8, ptr %18, i64 4
+  %19 = load float, ptr %arrayidx.i25, align 4
+  %mul55 = fmul float %p.sroa.0.4.vec.extract, %19
   %add56 = fadd float %mul49, %mul55
   %call59 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 2)
-  %22 = extractvalue { ptr, i64 } %call59, 0
-  %arrayidx.i26 = getelementptr inbounds i8, ptr %22, i64 8
-  %23 = load float, ptr %arrayidx.i26, align 4
-  %mul62 = fmul float %23, %p.coerce1
+  %20 = extractvalue { ptr, i64 } %call59, 0
+  %arrayidx.i26 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = load float, ptr %arrayidx.i26, align 4
+  %mul62 = fmul float %21, %p.coerce1
   %add63 = fadd float %add56, %mul62
   %call66 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 2)
-  %24 = extractvalue { ptr, i64 } %call66, 0
-  %arrayidx.i27 = getelementptr inbounds i8, ptr %24, i64 12
-  %25 = load float, ptr %arrayidx.i27, align 4
-  %add68 = fadd float %add63, %25
+  %22 = extractvalue { ptr, i64 } %call66, 0
+  %arrayidx.i27 = getelementptr inbounds i8, ptr %22, i64 12
+  %23 = load float, ptr %arrayidx.i27, align 4
+  %add68 = fadd float %add63, %23
   %call71 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 3)
-  %26 = extractvalue { ptr, i64 } %call71, 0
-  %27 = load float, ptr %26, align 4
-  %mul74 = fmul float %1, %27
+  %24 = extractvalue { ptr, i64 } %call71, 0
+  %25 = load float, ptr %24, align 4
+  %mul74 = fmul float %p.sroa.0.0.vec.extract, %25
   %call77 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 3)
-  %28 = extractvalue { ptr, i64 } %call77, 0
-  %arrayidx.i28 = getelementptr inbounds i8, ptr %28, i64 4
-  %29 = load float, ptr %arrayidx.i28, align 4
-  %mul80 = fmul float %0, %29
+  %26 = extractvalue { ptr, i64 } %call77, 0
+  %arrayidx.i28 = getelementptr inbounds i8, ptr %26, i64 4
+  %27 = load float, ptr %arrayidx.i28, align 4
+  %mul80 = fmul float %p.sroa.0.4.vec.extract, %27
   %add81 = fadd float %mul74, %mul80
   %call84 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 3)
-  %30 = extractvalue { ptr, i64 } %call84, 0
-  %arrayidx.i29 = getelementptr inbounds i8, ptr %30, i64 8
-  %31 = load float, ptr %arrayidx.i29, align 4
-  %mul87 = fmul float %31, %p.coerce1
+  %28 = extractvalue { ptr, i64 } %call84, 0
+  %arrayidx.i29 = getelementptr inbounds i8, ptr %28, i64 8
+  %29 = load float, ptr %arrayidx.i29, align 4
+  %mul87 = fmul float %29, %p.coerce1
   %add88 = fadd float %add81, %mul87
   %call91 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 3)
-  %32 = extractvalue { ptr, i64 } %call91, 0
-  %arrayidx.i30 = getelementptr inbounds i8, ptr %32, i64 12
-  %33 = load float, ptr %arrayidx.i30, align 4
-  %add93 = fadd float %add88, %33
-  %34 = insertelement <2 x float> poison, float %11, i64 0
-  %35 = insertelement <2 x float> %34, float %5, i64 1
-  %36 = fmul <2 x float> %35, %p.coerce0
-  %37 = shufflevector <2 x float> %36, <2 x float> poison, <2 x i32> <i32 1, i32 0>
-  %38 = insertelement <2 x float> poison, float %3, i64 0
-  %39 = insertelement <2 x float> %38, float %13, i64 1
-  %40 = fmul <2 x float> %39, %p.coerce0
-  %41 = fadd <2 x float> %37, %40
-  %42 = insertelement <2 x float> poison, float %7, i64 0
-  %43 = insertelement <2 x float> %42, float %15, i64 1
-  %44 = insertelement <2 x float> poison, float %p.coerce1, i64 0
-  %45 = shufflevector <2 x float> %44, <2 x float> poison, <2 x i32> zeroinitializer
-  %46 = fmul <2 x float> %43, %45
-  %47 = fadd <2 x float> %41, %46
-  %48 = insertelement <2 x float> poison, float %9, i64 0
-  %49 = insertelement <2 x float> %48, float %17, i64 1
-  %50 = fadd <2 x float> %47, %49
-  %51 = insertelement <2 x float> poison, float %add93, i64 0
-  %52 = shufflevector <2 x float> %51, <2 x float> poison, <2 x i32> zeroinitializer
-  %53 = fdiv <2 x float> %50, %52
-  %retval.sroa.4.0 = fdiv float %add68, %add93
-  %.fca.0.insert = insertvalue { <2 x float>, float } poison, <2 x float> %53, 0
+  %30 = extractvalue { ptr, i64 } %call91, 0
+  %arrayidx.i30 = getelementptr inbounds i8, ptr %30, i64 12
+  %31 = load float, ptr %arrayidx.i30, align 4
+  %add93 = fadd float %add88, %31
+  %cmp = fcmp oeq float %add93, 1.000000e+00
+  %div.i = fdiv float %add18, %add93
+  %div2.i = fdiv float %add43, %add93
+  %div3.i = fdiv float %add68, %add93
+  %div.i.sink = select i1 %cmp, float %add18, float %div.i
+  %div2.i.sink = select i1 %cmp, float %add43, float %div2.i
+  %retval.sroa.4.0 = select i1 %cmp, float %add68, float %div3.i
+  %retval.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %div.i.sink, i64 0
+  %retval.sroa.0.4.vec.insert.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i, float %div2.i.sink, i64 1
+  %.fca.0.insert = insertvalue { <2 x float>, float } poison, <2 x float> %retval.sroa.0.4.vec.insert.i, 0
   %.fca.1.insert = insertvalue { <2 x float>, float } %.fca.0.insert, float %retval.sroa.4.0, 1
   ret { <2 x float>, float } %.fca.1.insert
 }
@@ -12479,8 +12479,8 @@ invoke.cont75.i.i422.i.i.i.i.i.i.i:               ; preds = %for.body.i111.i.i41
   %281 = load float, ptr %z.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !117
   %cmp25.i.i.i.i.i.i.i.i.i.i = fcmp ogt float %281, %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i.i.i.i.i
   %sub31.i.i.i.i.i.i.i.i.i.i = fsub float %281, %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i.i.i.i.i
-  %div33.i.i.i.i.i.i.i.i.i.i = select i1 %cmp25.i.i.i.i.i.i.i.i.i.i, float %sub31.i.i.i.i.i.i.i.i.i.i, float 1.000000e+00
-  %retval.sroa.6.0.i.i.i.i.i.i.i.i.i.i = fdiv float %sub6.i.i.i.i.i.i.i.i.i.i.i, %div33.i.i.i.i.i.i.i.i.i.i
+  %div33.i.i.i.i.i.i.i.i.i.i = fdiv float %sub6.i.i.i.i.i.i.i.i.i.i.i, %sub31.i.i.i.i.i.i.i.i.i.i
+  %retval.sroa.6.0.i.i.i.i.i.i.i.i.i.i = select i1 %cmp25.i.i.i.i.i.i.i.i.i.i, float %div33.i.i.i.i.i.i.i.i.i.i, float %sub6.i.i.i.i.i.i.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %convert.sroa.0.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %lambda.i.i.i.i, i64 32, i1 false), !noalias !117
   %282 = load float, ptr %sigmaScale.i.i.i.i.i.i.i.i.i, align 8, !noalias !117
   %283 = load i8, ptr %set.i.i6.i.i.i.i.i.i.i.i, align 8, !noalias !117
@@ -15382,8 +15382,8 @@ _ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit37: ; pr
   %20 = load float, ptr %z.i, align 4
   %cmp25.i = fcmp ogt float %20, %agg.tmp.sroa.2.0.copyload.i
   %sub31.i = fsub float %20, %agg.tmp.sroa.2.0.copyload.i
-  %div33.i = select i1 %cmp25.i, float %sub31.i, float 1.000000e+00
-  %retval.sroa.6.0.i = fdiv float %sub6.i.i, %div33.i
+  %div33.i = fdiv float %sub6.i.i, %sub31.i
+  %retval.sroa.6.0.i = select i1 %cmp25.i, float %div33.i, float %sub6.i.i
   %densityGrid = getelementptr inbounds i8, ptr %this, i64 232
   %call15 = tail call noundef float @_ZNK4pbrt11SampledGridIfE6LookupENS_6Point3IfEE(ptr noundef nonnull align 8 dereferenceable(44) %densityGrid, <2 x float> %retval.sroa.0.1.i, float %retval.sroa.6.0.i)
   br label %for.body.i40
@@ -15629,16 +15629,17 @@ entry:
   %1 = fsub <2 x float> %agg.tmp8.sroa.0.0.copyload, %agg.tmp.sroa.0.0.copyload.i
   %sub6.i.i45 = fsub float %agg.tmp8.sroa.2.0.copyload, %agg.tmp.sroa.2.0.copyload.i
   %cmp25.i = fcmp ogt float %0, %agg.tmp.sroa.2.0.copyload.i
-  %div33.i = select i1 %cmp25.i, float %sub6.i.i, float 1.000000e+00
-  %retval.sroa.6.0.i = fdiv float %sub6.i.i45, %div33.i
+  %div33.i = fdiv float %sub6.i.i45, %sub6.i.i
+  %retval.sroa.6.0.i = select i1 %cmp25.i, float %div33.i, float %sub6.i.i45
   %d = getelementptr inbounds i8, ptr %ray, i64 12
   %2 = load <2 x float>, ptr %pMax.i, align 4
   %3 = fsub <2 x float> %2, %agg.tmp.sroa.0.0.copyload.i
-  %4 = fcmp ogt <2 x float> %2, %agg.tmp.sroa.0.0.copyload.i
-  %5 = select <2 x i1> %4, <2 x float> %3, <2 x float> <float 1.000000e+00, float poison>
-  %sel = fdiv <2 x float> %1, %5
-  %6 = select <2 x i1> %4, <2 x float> %3, <2 x float> <float poison, float 1.000000e+00>
-  %sel327 = fdiv <2 x float> %1, %6
+  %4 = fdiv <2 x float> %1, %3
+  %5 = fcmp ogt <2 x float> %2, %agg.tmp.sroa.0.0.copyload.i
+  %sel = select <2 x i1> %5, <2 x float> %4, <2 x float> %1
+  %retval.sroa.0.0.i = shufflevector <2 x float> %sel, <2 x float> %1, <2 x i32> <i32 0, i32 3>
+  %6 = fdiv <2 x float> %retval.sroa.0.0.i, %3
+  %sel327 = select <2 x i1> %5, <2 x float> %6, <2 x float> %retval.sroa.0.0.i
   %v.sroa.0.0.vec.extract.i = extractelement <2 x float> %sel, i64 0
   %v.sroa.0.4.vec.extract.i = extractelement <2 x float> %sel327, i64 1
   %7 = load <2 x float>, ptr %d, align 4
@@ -16082,76 +16083,76 @@ _ZN4pbrt8IntervalpLEf.exit54:                     ; preds = %_ZN4pbrt12AddRoundD
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local { <2 x float>, float } @_ZNK4pbrt9Transform12ApplyInverseIfEENS_6Point3IT_EES4_(ptr noundef nonnull align 4 dereferenceable(128) %this, <2 x float> %p.coerce0, float %p.coerce1) local_unnamed_addr #9 comdat align 2 {
 entry:
-  %0 = extractelement <2 x float> %p.coerce0, i64 1
-  %1 = extractelement <2 x float> %p.coerce0, i64 0
   %va = alloca float, align 4
   %vb = alloca i32, align 4
+  %p.sroa.0.0.vec.extract = extractelement <2 x float> %p.coerce0, i64 0
+  %p.sroa.0.4.vec.extract = extractelement <2 x float> %p.coerce0, i64 1
   %mInv = getelementptr inbounds i8, ptr %this, i64 64
   %call = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %mInv, i32 noundef 0)
-  %2 = extractvalue { ptr, i64 } %call, 0
-  %3 = load float, ptr %2, align 4
+  %0 = extractvalue { ptr, i64 } %call, 0
+  %1 = load float, ptr %0, align 4
   %call8 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %mInv, i32 noundef 0)
-  %4 = extractvalue { ptr, i64 } %call8, 0
-  %arrayidx.i = getelementptr inbounds i8, ptr %4, i64 4
-  %5 = load float, ptr %arrayidx.i, align 4
+  %2 = extractvalue { ptr, i64 } %call8, 0
+  %arrayidx.i = getelementptr inbounds i8, ptr %2, i64 4
+  %3 = load float, ptr %arrayidx.i, align 4
   %call13 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %mInv, i32 noundef 0)
-  %6 = extractvalue { ptr, i64 } %call13, 0
-  %arrayidx.i15 = getelementptr inbounds i8, ptr %6, i64 8
-  %7 = load float, ptr %arrayidx.i15, align 4
+  %4 = extractvalue { ptr, i64 } %call13, 0
+  %arrayidx.i15 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = load float, ptr %arrayidx.i15, align 4
   %call18 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %mInv, i32 noundef 0)
-  %8 = extractvalue { ptr, i64 } %call18, 0
-  %arrayidx.i16 = getelementptr inbounds i8, ptr %8, i64 12
-  %9 = load float, ptr %arrayidx.i16, align 4
+  %6 = extractvalue { ptr, i64 } %call18, 0
+  %arrayidx.i16 = getelementptr inbounds i8, ptr %6, i64 12
+  %7 = load float, ptr %arrayidx.i16, align 4
   %call24 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %mInv, i32 noundef 1)
-  %10 = extractvalue { ptr, i64 } %call24, 0
-  %11 = load float, ptr %10, align 4
+  %8 = extractvalue { ptr, i64 } %call24, 0
+  %9 = load float, ptr %8, align 4
   %call29 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %mInv, i32 noundef 1)
-  %12 = extractvalue { ptr, i64 } %call29, 0
-  %arrayidx.i17 = getelementptr inbounds i8, ptr %12, i64 4
-  %13 = load float, ptr %arrayidx.i17, align 4
+  %10 = extractvalue { ptr, i64 } %call29, 0
+  %arrayidx.i17 = getelementptr inbounds i8, ptr %10, i64 4
+  %11 = load float, ptr %arrayidx.i17, align 4
   %call35 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %mInv, i32 noundef 1)
-  %14 = extractvalue { ptr, i64 } %call35, 0
-  %arrayidx.i18 = getelementptr inbounds i8, ptr %14, i64 8
-  %15 = load float, ptr %arrayidx.i18, align 4
+  %12 = extractvalue { ptr, i64 } %call35, 0
+  %arrayidx.i18 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = load float, ptr %arrayidx.i18, align 4
   %call40 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %mInv, i32 noundef 1)
-  %16 = extractvalue { ptr, i64 } %call40, 0
-  %arrayidx.i19 = getelementptr inbounds i8, ptr %16, i64 12
-  %17 = load float, ptr %arrayidx.i19, align 4
+  %14 = extractvalue { ptr, i64 } %call40, 0
+  %arrayidx.i19 = getelementptr inbounds i8, ptr %14, i64 12
+  %15 = load float, ptr %arrayidx.i19, align 4
   %call46 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %mInv, i32 noundef 2)
-  %18 = extractvalue { ptr, i64 } %call46, 0
-  %19 = load float, ptr %18, align 4
+  %16 = extractvalue { ptr, i64 } %call46, 0
+  %17 = load float, ptr %16, align 4
   %call51 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %mInv, i32 noundef 2)
-  %20 = extractvalue { ptr, i64 } %call51, 0
-  %arrayidx.i20 = getelementptr inbounds i8, ptr %20, i64 4
-  %21 = load float, ptr %arrayidx.i20, align 4
+  %18 = extractvalue { ptr, i64 } %call51, 0
+  %arrayidx.i20 = getelementptr inbounds i8, ptr %18, i64 4
+  %19 = load float, ptr %arrayidx.i20, align 4
   %call57 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %mInv, i32 noundef 2)
-  %22 = extractvalue { ptr, i64 } %call57, 0
-  %arrayidx.i21 = getelementptr inbounds i8, ptr %22, i64 8
-  %23 = load float, ptr %arrayidx.i21, align 4
+  %20 = extractvalue { ptr, i64 } %call57, 0
+  %arrayidx.i21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = load float, ptr %arrayidx.i21, align 4
   %call62 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %mInv, i32 noundef 2)
-  %24 = extractvalue { ptr, i64 } %call62, 0
-  %arrayidx.i22 = getelementptr inbounds i8, ptr %24, i64 12
-  %25 = load float, ptr %arrayidx.i22, align 4
+  %22 = extractvalue { ptr, i64 } %call62, 0
+  %arrayidx.i22 = getelementptr inbounds i8, ptr %22, i64 12
+  %23 = load float, ptr %arrayidx.i22, align 4
   %call68 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %mInv, i32 noundef 3)
-  %26 = extractvalue { ptr, i64 } %call68, 0
-  %27 = load float, ptr %26, align 4
-  %mul70 = fmul float %1, %27
+  %24 = extractvalue { ptr, i64 } %call68, 0
+  %25 = load float, ptr %24, align 4
+  %mul70 = fmul float %p.sroa.0.0.vec.extract, %25
   %call73 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %mInv, i32 noundef 3)
-  %28 = extractvalue { ptr, i64 } %call73, 0
-  %arrayidx.i23 = getelementptr inbounds i8, ptr %28, i64 4
-  %29 = load float, ptr %arrayidx.i23, align 4
-  %mul75 = fmul float %0, %29
+  %26 = extractvalue { ptr, i64 } %call73, 0
+  %arrayidx.i23 = getelementptr inbounds i8, ptr %26, i64 4
+  %27 = load float, ptr %arrayidx.i23, align 4
+  %mul75 = fmul float %p.sroa.0.4.vec.extract, %27
   %add76 = fadd float %mul70, %mul75
   %call79 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %mInv, i32 noundef 3)
-  %30 = extractvalue { ptr, i64 } %call79, 0
-  %arrayidx.i24 = getelementptr inbounds i8, ptr %30, i64 8
-  %31 = load float, ptr %arrayidx.i24, align 4
-  %mul81 = fmul float %31, %p.coerce1
+  %28 = extractvalue { ptr, i64 } %call79, 0
+  %arrayidx.i24 = getelementptr inbounds i8, ptr %28, i64 8
+  %29 = load float, ptr %arrayidx.i24, align 4
+  %mul81 = fmul float %29, %p.coerce1
   %call84 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %mInv, i32 noundef 3)
-  %32 = extractvalue { ptr, i64 } %call84, 0
-  %arrayidx.i25 = getelementptr inbounds i8, ptr %32, i64 12
-  %33 = load float, ptr %arrayidx.i25, align 4
-  %add86 = fadd float %mul81, %33
+  %30 = extractvalue { ptr, i64 } %call84, 0
+  %arrayidx.i25 = getelementptr inbounds i8, ptr %30, i64 12
+  %31 = load float, ptr %arrayidx.i25, align 4
+  %add86 = fadd float %mul81, %31
   %add87 = fadd float %add76, %add86
   store float %add87, ptr %va, align 4
   store i32 0, ptr %vb, align 4
@@ -16163,34 +16164,34 @@ if.then:                                          ; preds = %entry
   unreachable
 
 do.end:                                           ; preds = %entry
-  %mul48 = fmul float %1, %19
-  %mul53 = fmul float %0, %21
+  %mul48 = fmul float %p.sroa.0.0.vec.extract, %17
+  %mul53 = fmul float %p.sroa.0.4.vec.extract, %19
   %add54 = fadd float %mul48, %mul53
-  %mul59 = fmul float %23, %p.coerce1
-  %add64 = fadd float %mul59, %25
+  %mul59 = fmul float %21, %p.coerce1
+  %add64 = fadd float %mul59, %23
   %add65 = fadd float %add54, %add64
-  %34 = insertelement <2 x float> poison, float %11, i64 0
-  %35 = insertelement <2 x float> %34, float %5, i64 1
-  %36 = fmul <2 x float> %35, %p.coerce0
-  %37 = shufflevector <2 x float> %36, <2 x float> poison, <2 x i32> <i32 1, i32 0>
-  %38 = insertelement <2 x float> poison, float %3, i64 0
-  %39 = insertelement <2 x float> %38, float %13, i64 1
-  %40 = fmul <2 x float> %39, %p.coerce0
-  %41 = insertelement <2 x float> poison, float %7, i64 0
-  %42 = insertelement <2 x float> %41, float %15, i64 1
-  %43 = insertelement <2 x float> poison, float %p.coerce1, i64 0
-  %44 = shufflevector <2 x float> %43, <2 x float> poison, <2 x i32> zeroinitializer
-  %45 = fmul <2 x float> %42, %44
-  %46 = fadd <2 x float> %37, %40
-  %47 = insertelement <2 x float> poison, float %9, i64 0
-  %48 = insertelement <2 x float> %47, float %17, i64 1
-  %49 = fadd <2 x float> %45, %48
-  %50 = fadd <2 x float> %46, %49
-  %51 = insertelement <2 x float> poison, float %add87, i64 0
-  %52 = shufflevector <2 x float> %51, <2 x float> poison, <2 x i32> zeroinitializer
-  %53 = fdiv <2 x float> %50, %52
-  %retval.sroa.4.0 = fdiv float %add65, %add87
-  %.fca.0.insert = insertvalue { <2 x float>, float } poison, <2 x float> %53, 0
+  %mul26 = fmul float %p.sroa.0.0.vec.extract, %9
+  %mul31 = fmul float %p.sroa.0.4.vec.extract, %11
+  %add32 = fadd float %mul26, %mul31
+  %mul37 = fmul float %13, %p.coerce1
+  %add42 = fadd float %mul37, %15
+  %add43 = fadd float %add32, %add42
+  %mul = fmul float %p.sroa.0.0.vec.extract, %1
+  %mul10 = fmul float %p.sroa.0.4.vec.extract, %3
+  %add = fadd float %mul, %mul10
+  %mul15 = fmul float %5, %p.coerce1
+  %add20 = fadd float %mul15, %7
+  %add21 = fadd float %add, %add20
+  %cmp88 = fcmp oeq float %add87, 1.000000e+00
+  %div.i = fdiv float %add21, %add87
+  %div2.i = fdiv float %add43, %add87
+  %div3.i = fdiv float %add65, %add87
+  %div.i.sink = select i1 %cmp88, float %add21, float %div.i
+  %div2.i.sink = select i1 %cmp88, float %add43, float %div2.i
+  %retval.sroa.4.0 = select i1 %cmp88, float %add65, float %div3.i
+  %retval.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %div.i.sink, i64 0
+  %retval.sroa.0.4.vec.insert.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i, float %div2.i.sink, i64 1
+  %.fca.0.insert = insertvalue { <2 x float>, float } poison, <2 x float> %retval.sroa.0.4.vec.insert.i, 0
   %.fca.1.insert = insertvalue { <2 x float>, float } %.fca.0.insert, float %retval.sroa.4.0, 1
   ret { <2 x float>, float } %.fca.1.insert
 }
@@ -16229,15 +16230,15 @@ entry:
   %.sroa.speculated.i13.i.i = tail call i32 @llvm.smax.i32(i32 %2, i32 0)
   %cmp.not.i.i = icmp sle i32 %.sroa.speculated10.i.i.i, %conv.i
   %cmp4.i.i = icmp sgt i32 %.sroa.speculated10.i11.i.i, %conv.i
-  %or.cond.not12.not.not.i.not.i = and i1 %cmp.not.i.i, %cmp4.i.i
+  %or.cond.not12.not14.not17.i.not10.i = and i1 %cmp.not.i.i, %cmp4.i.i
   %cmp8.not.i.i = icmp sle i32 %.sroa.speculated7.i.i.i, %conv2.i
-  %or.cond9.i.i = select i1 %or.cond.not12.not.not.i.not.i, i1 %cmp8.not.i.i, i1 false
+  %or.cond9.not13.not16.i.not9.i = select i1 %or.cond.not12.not14.not17.i.not10.i, i1 %cmp8.not.i.i, i1 false
   %cmp13.i.i = icmp sgt i32 %.sroa.speculated7.i12.i.i, %conv2.i
-  %or.cond10.i.i = select i1 %or.cond9.i.i, i1 %cmp13.i.i, i1 false
+  %or.cond10.not15.i.not8.i = select i1 %or.cond9.not13.not16.i.not9.i, i1 %cmp13.i.i, i1 false
   %cmp17.not.i.i = icmp sle i32 %.sroa.speculated.i.i.i, %conv3.i
-  %or.cond11.i.i = select i1 %or.cond10.i.i, i1 %cmp17.not.i.i, i1 false
+  %or.cond11.i.not7.i = select i1 %or.cond10.not15.i.not8.i, i1 %cmp17.not.i.i, i1 false
   %cmp21.i.i = icmp sgt i32 %.sroa.speculated.i13.i.i, %conv3.i
-  %or.cond.i = select i1 %or.cond11.i.i, i1 %cmp21.i.i, i1 false
+  %or.cond.i = select i1 %or.cond11.i.not7.i, i1 %cmp21.i.i, i1 false
   br i1 %or.cond.i, label %if.end.i, label %_ZNK4pbrt11SampledGridIfE6LookupERKNS_6Point3IiEE.exit
 
 if.end.i:                                         ; preds = %entry
@@ -16257,11 +16258,11 @@ _ZNK4pbrt11SampledGridIfE6LookupERKNS_6Point3IiEE.exit: ; preds = %entry, %if.en
   %add.i25 = add nsw i32 %conv.i, 1
   %cmp.not.i.i45 = icmp sle i32 %.sroa.speculated10.i.i.i, %add.i25
   %cmp4.i.i46 = icmp sgt i32 %.sroa.speculated10.i11.i.i, %add.i25
-  %or.cond.not12.not.not.i.not.i47 = and i1 %cmp.not.i.i45, %cmp4.i.i46
-  %or.cond9.i.i49 = select i1 %or.cond.not12.not.not.i.not.i47, i1 %cmp8.not.i.i, i1 false
-  %or.cond10.i.i51 = select i1 %or.cond9.i.i49, i1 %cmp13.i.i, i1 false
-  %or.cond11.i.i53 = select i1 %or.cond10.i.i51, i1 %cmp17.not.i.i, i1 false
-  %or.cond.i55 = select i1 %or.cond11.i.i53, i1 %cmp21.i.i, i1 false
+  %or.cond.not12.not14.not17.i.not10.i47 = and i1 %cmp.not.i.i45, %cmp4.i.i46
+  %or.cond9.not13.not16.i.not9.i49 = select i1 %or.cond.not12.not14.not17.i.not10.i47, i1 %cmp8.not.i.i, i1 false
+  %or.cond10.not15.i.not8.i51 = select i1 %or.cond9.not13.not16.i.not9.i49, i1 %cmp13.i.i, i1 false
+  %or.cond11.i.not7.i53 = select i1 %or.cond10.not15.i.not8.i51, i1 %cmp17.not.i.i, i1 false
+  %or.cond.i55 = select i1 %or.cond11.i.not7.i53, i1 %cmp21.i.i, i1 false
   br i1 %or.cond.i55, label %if.end.i57, label %_ZNK4pbrt11SampledGridIfE6LookupERKNS_6Point3IiEE.exit65
 
 if.end.i57:                                       ; preds = %_ZNK4pbrt11SampledGridIfE6LookupERKNS_6Point3IiEE.exit
@@ -16280,11 +16281,11 @@ _ZNK4pbrt11SampledGridIfE6LookupERKNS_6Point3IiEE.exit65: ; preds = %_ZNK4pbrt11
   %retval.0.i56 = phi float [ %9, %if.end.i57 ], [ 0.000000e+00, %_ZNK4pbrt11SampledGridIfE6LookupERKNS_6Point3IiEE.exit ]
   %add4.i76 = add nsw i32 %conv2.i, 1
   %cmp8.not.i.i103 = icmp sle i32 %.sroa.speculated7.i.i.i, %add4.i76
-  %or.cond9.i.i104 = select i1 %or.cond.not12.not.not.i.not.i, i1 %cmp8.not.i.i103, i1 false
+  %or.cond9.not13.not16.i.not9.i104 = select i1 %or.cond.not12.not14.not17.i.not10.i, i1 %cmp8.not.i.i103, i1 false
   %cmp13.i.i105 = icmp sgt i32 %.sroa.speculated7.i12.i.i, %add4.i76
-  %or.cond10.i.i106 = select i1 %or.cond9.i.i104, i1 %cmp13.i.i105, i1 false
-  %or.cond11.i.i108 = select i1 %or.cond10.i.i106, i1 %cmp17.not.i.i, i1 false
-  %or.cond.i110 = select i1 %or.cond11.i.i108, i1 %cmp21.i.i, i1 false
+  %or.cond10.not15.i.not8.i106 = select i1 %or.cond9.not13.not16.i.not9.i104, i1 %cmp13.i.i105, i1 false
+  %or.cond11.i.not7.i108 = select i1 %or.cond10.not15.i.not8.i106, i1 %cmp17.not.i.i, i1 false
+  %or.cond.i110 = select i1 %or.cond11.i.not7.i108, i1 %cmp21.i.i, i1 false
   br i1 %or.cond.i110, label %if.end.i112, label %_ZNK4pbrt11SampledGridIfE6LookupERKNS_6Point3IiEE.exit120
 
 if.end.i112:                                      ; preds = %_ZNK4pbrt11SampledGridIfE6LookupERKNS_6Point3IiEE.exit65
@@ -16301,10 +16302,10 @@ if.end.i112:                                      ; preds = %_ZNK4pbrt11SampledG
 
 _ZNK4pbrt11SampledGridIfE6LookupERKNS_6Point3IiEE.exit120: ; preds = %_ZNK4pbrt11SampledGridIfE6LookupERKNS_6Point3IiEE.exit65, %if.end.i112
   %retval.0.i111 = phi float [ %11, %if.end.i112 ], [ 0.000000e+00, %_ZNK4pbrt11SampledGridIfE6LookupERKNS_6Point3IiEE.exit65 ]
-  %or.cond9.i.i156 = select i1 %or.cond.not12.not.not.i.not.i47, i1 %cmp8.not.i.i103, i1 false
-  %or.cond10.i.i158 = select i1 %or.cond9.i.i156, i1 %cmp13.i.i105, i1 false
-  %or.cond11.i.i160 = select i1 %or.cond10.i.i158, i1 %cmp17.not.i.i, i1 false
-  %or.cond.i162 = select i1 %or.cond11.i.i160, i1 %cmp21.i.i, i1 false
+  %or.cond9.not13.not16.i.not9.i156 = select i1 %or.cond.not12.not14.not17.i.not10.i47, i1 %cmp8.not.i.i103, i1 false
+  %or.cond10.not15.i.not8.i158 = select i1 %or.cond9.not13.not16.i.not9.i156, i1 %cmp13.i.i105, i1 false
+  %or.cond11.i.not7.i160 = select i1 %or.cond10.not15.i.not8.i158, i1 %cmp17.not.i.i, i1 false
+  %or.cond.i162 = select i1 %or.cond11.i.not7.i160, i1 %cmp21.i.i, i1 false
   br i1 %or.cond.i162, label %if.end.i164, label %_ZNK4pbrt11SampledGridIfE6LookupERKNS_6Point3IiEE.exit172
 
 if.end.i164:                                      ; preds = %_ZNK4pbrt11SampledGridIfE6LookupERKNS_6Point3IiEE.exit120
@@ -16323,9 +16324,9 @@ _ZNK4pbrt11SampledGridIfE6LookupERKNS_6Point3IiEE.exit172: ; preds = %_ZNK4pbrt1
   %retval.0.i163 = phi float [ %13, %if.end.i164 ], [ 0.000000e+00, %_ZNK4pbrt11SampledGridIfE6LookupERKNS_6Point3IiEE.exit120 ]
   %add6.i186 = add nsw i32 %conv3.i, 1
   %cmp17.not.i.i215 = icmp sle i32 %.sroa.speculated.i.i.i, %add6.i186
-  %or.cond11.i.i216 = select i1 %or.cond10.i.i, i1 %cmp17.not.i.i215, i1 false
+  %or.cond11.i.not7.i216 = select i1 %or.cond10.not15.i.not8.i, i1 %cmp17.not.i.i215, i1 false
   %cmp21.i.i217 = icmp sgt i32 %.sroa.speculated.i13.i.i, %add6.i186
-  %or.cond.i218 = select i1 %or.cond11.i.i216, i1 %cmp21.i.i217, i1 false
+  %or.cond.i218 = select i1 %or.cond11.i.not7.i216, i1 %cmp21.i.i217, i1 false
   br i1 %or.cond.i218, label %if.end.i220, label %_ZNK4pbrt11SampledGridIfE6LookupERKNS_6Point3IiEE.exit228
 
 if.end.i220:                                      ; preds = %_ZNK4pbrt11SampledGridIfE6LookupERKNS_6Point3IiEE.exit172
@@ -16342,8 +16343,8 @@ if.end.i220:                                      ; preds = %_ZNK4pbrt11SampledG
 
 _ZNK4pbrt11SampledGridIfE6LookupERKNS_6Point3IiEE.exit228: ; preds = %_ZNK4pbrt11SampledGridIfE6LookupERKNS_6Point3IiEE.exit172, %if.end.i220
   %retval.0.i219 = phi float [ %15, %if.end.i220 ], [ 0.000000e+00, %_ZNK4pbrt11SampledGridIfE6LookupERKNS_6Point3IiEE.exit172 ]
-  %or.cond11.i.i268 = select i1 %or.cond10.i.i51, i1 %cmp17.not.i.i215, i1 false
-  %or.cond.i270 = select i1 %or.cond11.i.i268, i1 %cmp21.i.i217, i1 false
+  %or.cond11.i.not7.i268 = select i1 %or.cond10.not15.i.not8.i51, i1 %cmp17.not.i.i215, i1 false
+  %or.cond.i270 = select i1 %or.cond11.i.not7.i268, i1 %cmp21.i.i217, i1 false
   br i1 %or.cond.i270, label %if.end.i272, label %_ZNK4pbrt11SampledGridIfE6LookupERKNS_6Point3IiEE.exit280
 
 if.end.i272:                                      ; preds = %_ZNK4pbrt11SampledGridIfE6LookupERKNS_6Point3IiEE.exit228
@@ -16360,8 +16361,8 @@ if.end.i272:                                      ; preds = %_ZNK4pbrt11SampledG
 
 _ZNK4pbrt11SampledGridIfE6LookupERKNS_6Point3IiEE.exit280: ; preds = %_ZNK4pbrt11SampledGridIfE6LookupERKNS_6Point3IiEE.exit228, %if.end.i272
   %retval.0.i271 = phi float [ %17, %if.end.i272 ], [ 0.000000e+00, %_ZNK4pbrt11SampledGridIfE6LookupERKNS_6Point3IiEE.exit228 ]
-  %or.cond11.i.i324 = select i1 %or.cond10.i.i106, i1 %cmp17.not.i.i215, i1 false
-  %or.cond.i326 = select i1 %or.cond11.i.i324, i1 %cmp21.i.i217, i1 false
+  %or.cond11.i.not7.i324 = select i1 %or.cond10.not15.i.not8.i106, i1 %cmp17.not.i.i215, i1 false
+  %or.cond.i326 = select i1 %or.cond11.i.not7.i324, i1 %cmp21.i.i217, i1 false
   br i1 %or.cond.i326, label %if.end.i328, label %_ZNK4pbrt11SampledGridIfE6LookupERKNS_6Point3IiEE.exit336
 
 if.end.i328:                                      ; preds = %_ZNK4pbrt11SampledGridIfE6LookupERKNS_6Point3IiEE.exit280
@@ -16378,8 +16379,8 @@ if.end.i328:                                      ; preds = %_ZNK4pbrt11SampledG
 
 _ZNK4pbrt11SampledGridIfE6LookupERKNS_6Point3IiEE.exit336: ; preds = %_ZNK4pbrt11SampledGridIfE6LookupERKNS_6Point3IiEE.exit280, %if.end.i328
   %retval.0.i327 = phi float [ %19, %if.end.i328 ], [ 0.000000e+00, %_ZNK4pbrt11SampledGridIfE6LookupERKNS_6Point3IiEE.exit280 ]
-  %or.cond11.i.i376 = select i1 %or.cond10.i.i158, i1 %cmp17.not.i.i215, i1 false
-  %or.cond.i378 = select i1 %or.cond11.i.i376, i1 %cmp21.i.i217, i1 false
+  %or.cond11.i.not7.i376 = select i1 %or.cond10.not15.i.not8.i158, i1 %cmp17.not.i.i215, i1 false
+  %or.cond.i378 = select i1 %or.cond11.i.not7.i376, i1 %cmp21.i.i217, i1 false
   br i1 %or.cond.i378, label %if.end.i380, label %_ZNK4pbrt11SampledGridIfE6LookupERKNS_6Point3IiEE.exit388
 
 if.end.i380:                                      ; preds = %_ZNK4pbrt11SampledGridIfE6LookupERKNS_6Point3IiEE.exit336
@@ -18023,15 +18024,15 @@ entry:
   %.sroa.speculated.i13.i.i = tail call i32 @llvm.smax.i32(i32 %2, i32 0)
   %cmp.not.i.i = icmp sle i32 %.sroa.speculated10.i.i.i, %conv.i
   %cmp4.i.i = icmp sgt i32 %.sroa.speculated10.i11.i.i, %conv.i
-  %or.cond.not12.not.not.i.not.i = and i1 %cmp.not.i.i, %cmp4.i.i
+  %or.cond.not12.not14.not17.i.not41.i = and i1 %cmp.not.i.i, %cmp4.i.i
   %cmp8.not.i.i = icmp sle i32 %.sroa.speculated7.i.i.i, %conv2.i
-  %or.cond9.i.i = select i1 %or.cond.not12.not.not.i.not.i, i1 %cmp8.not.i.i, i1 false
+  %or.cond9.not13.not16.i.not40.i = select i1 %or.cond.not12.not14.not17.i.not41.i, i1 %cmp8.not.i.i, i1 false
   %cmp13.i.i = icmp sgt i32 %.sroa.speculated7.i12.i.i, %conv2.i
-  %or.cond10.i.i = select i1 %or.cond9.i.i, i1 %cmp13.i.i, i1 false
+  %or.cond10.not15.i.not39.i = select i1 %or.cond9.not13.not16.i.not40.i, i1 %cmp13.i.i, i1 false
   %cmp17.not.i.i = icmp sle i32 %.sroa.speculated.i.i.i, %conv3.i
-  %or.cond11.i.i = select i1 %or.cond10.i.i, i1 %cmp17.not.i.i, i1 false
+  %or.cond11.i.not38.i = select i1 %or.cond10.not15.i.not39.i, i1 %cmp17.not.i.i, i1 false
   %cmp21.i.i = icmp sgt i32 %.sroa.speculated.i13.i.i, %conv3.i
-  %or.cond.i = select i1 %or.cond11.i.i, i1 %cmp21.i.i, i1 false
+  %or.cond.i = select i1 %or.cond11.i.not38.i, i1 %cmp21.i.i, i1 false
   br i1 %or.cond.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
@@ -18148,11 +18149,11 @@ _ZNK4pbrt11SampledGridINS_20RGBUnboundedSpectrumEE6LookupIZNKS_13RGBGridMedium11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2531, ptr noundef nonnull align 8 dereferenceable(32) %convert, i64 32, i1 false)
   %cmp.not.i.i49 = icmp sle i32 %.sroa.speculated10.i.i.i, %add.i26
   %cmp4.i.i50 = icmp sgt i32 %.sroa.speculated10.i11.i.i, %add.i26
-  %or.cond.not12.not.not.i.not.i51 = and i1 %cmp.not.i.i49, %cmp4.i.i50
-  %or.cond9.i.i53 = select i1 %or.cond.not12.not.not.i.not.i51, i1 %cmp8.not.i.i, i1 false
-  %or.cond10.i.i55 = select i1 %or.cond9.i.i53, i1 %cmp13.i.i, i1 false
-  %or.cond11.i.i57 = select i1 %or.cond10.i.i55, i1 %cmp17.not.i.i, i1 false
-  %or.cond.i59 = select i1 %or.cond11.i.i57, i1 %cmp21.i.i, i1 false
+  %or.cond.not12.not14.not17.i.not41.i51 = and i1 %cmp.not.i.i49, %cmp4.i.i50
+  %or.cond9.not13.not16.i.not40.i53 = select i1 %or.cond.not12.not14.not17.i.not41.i51, i1 %cmp8.not.i.i, i1 false
+  %or.cond10.not15.i.not39.i55 = select i1 %or.cond9.not13.not16.i.not40.i53, i1 %cmp13.i.i, i1 false
+  %or.cond11.i.not38.i57 = select i1 %or.cond10.not15.i.not39.i55, i1 %cmp17.not.i.i, i1 false
+  %or.cond.i59 = select i1 %or.cond11.i.not38.i57, i1 %cmp21.i.i, i1 false
   br i1 %or.cond.i59, label %if.end.i88, label %if.then.i60
 
 if.then.i60:                                      ; preds = %_ZNK4pbrt11SampledGridINS_20RGBUnboundedSpectrumEE6LookupIZNKS_13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEEUlS1_E_EEDaRKNS5_IiEET_.exit
@@ -18336,11 +18337,11 @@ _ZN4pbrt4LerpEfRKNS_15SampledSpectrumES2_.exit:   ; preds = %for.body.i.i15.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp39153)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp39153, ptr noundef nonnull align 8 dereferenceable(32) %convert, i64 32, i1 false)
   %cmp8.not.i.i174 = icmp sle i32 %.sroa.speculated7.i.i.i, %add4.i144
-  %or.cond9.i.i175 = select i1 %or.cond.not12.not.not.i.not.i, i1 %cmp8.not.i.i174, i1 false
+  %or.cond9.not13.not16.i.not40.i175 = select i1 %or.cond.not12.not14.not17.i.not41.i, i1 %cmp8.not.i.i174, i1 false
   %cmp13.i.i176 = icmp sgt i32 %.sroa.speculated7.i12.i.i, %add4.i144
-  %or.cond10.i.i177 = select i1 %or.cond9.i.i175, i1 %cmp13.i.i176, i1 false
-  %or.cond11.i.i179 = select i1 %or.cond10.i.i177, i1 %cmp17.not.i.i, i1 false
-  %or.cond.i181 = select i1 %or.cond11.i.i179, i1 %cmp21.i.i, i1 false
+  %or.cond10.not15.i.not39.i177 = select i1 %or.cond9.not13.not16.i.not40.i175, i1 %cmp13.i.i176, i1 false
+  %or.cond11.i.not38.i179 = select i1 %or.cond10.not15.i.not39.i177, i1 %cmp17.not.i.i, i1 false
+  %or.cond.i181 = select i1 %or.cond11.i.not38.i179, i1 %cmp21.i.i, i1 false
   br i1 %or.cond.i181, label %if.end.i210, label %if.then.i182
 
 if.then.i182:                                     ; preds = %_ZN4pbrt4LerpEfRKNS_15SampledSpectrumES2_.exit
@@ -18454,10 +18455,10 @@ _ZNK4pbrt11SampledGridINS_20RGBUnboundedSpectrumEE6LookupIZNKS_13RGBGridMedium11
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp39153)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp49265)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp49265, ptr noundef nonnull align 8 dereferenceable(32) %convert, i64 32, i1 false)
-  %or.cond9.i.i287 = select i1 %or.cond.not12.not.not.i.not.i51, i1 %cmp8.not.i.i174, i1 false
-  %or.cond10.i.i289 = select i1 %or.cond9.i.i287, i1 %cmp13.i.i176, i1 false
-  %or.cond11.i.i291 = select i1 %or.cond10.i.i289, i1 %cmp17.not.i.i, i1 false
-  %or.cond.i293 = select i1 %or.cond11.i.i291, i1 %cmp21.i.i, i1 false
+  %or.cond9.not13.not16.i.not40.i287 = select i1 %or.cond.not12.not14.not17.i.not41.i51, i1 %cmp8.not.i.i174, i1 false
+  %or.cond10.not15.i.not39.i289 = select i1 %or.cond9.not13.not16.i.not40.i287, i1 %cmp13.i.i176, i1 false
+  %or.cond11.i.not38.i291 = select i1 %or.cond10.not15.i.not39.i289, i1 %cmp17.not.i.i, i1 false
+  %or.cond.i293 = select i1 %or.cond11.i.not38.i291, i1 %cmp21.i.i, i1 false
   br i1 %or.cond.i293, label %if.end.i322, label %if.then.i294
 
 if.then.i294:                                     ; preds = %_ZNK4pbrt11SampledGridINS_20RGBUnboundedSpectrumEE6LookupIZNKS_13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEEUlS1_E_EEDaRKNS5_IiEET_.exit248
@@ -18640,9 +18641,9 @@ _ZN4pbrt4LerpEfRKNS_15SampledSpectrumES2_.exit398: ; preds = %for.body.i.i15.i38
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp63415)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp63415, ptr noundef nonnull align 8 dereferenceable(32) %convert, i64 32, i1 false)
   %cmp17.not.i.i440 = icmp sle i32 %.sroa.speculated.i.i.i, %add6.i408
-  %or.cond11.i.i441 = select i1 %or.cond10.i.i, i1 %cmp17.not.i.i440, i1 false
+  %or.cond11.i.not38.i441 = select i1 %or.cond10.not15.i.not39.i, i1 %cmp17.not.i.i440, i1 false
   %cmp21.i.i442 = icmp sgt i32 %.sroa.speculated.i13.i.i, %add6.i408
-  %or.cond.i443 = select i1 %or.cond11.i.i441, i1 %cmp21.i.i442, i1 false
+  %or.cond.i443 = select i1 %or.cond11.i.not38.i441, i1 %cmp21.i.i442, i1 false
   br i1 %or.cond.i443, label %if.end.i472, label %if.then.i444
 
 if.then.i444:                                     ; preds = %_ZN4pbrt4LerpEfRKNS_15SampledSpectrumES2_.exit398
@@ -18756,8 +18757,8 @@ _ZNK4pbrt11SampledGridINS_20RGBUnboundedSpectrumEE6LookupIZNKS_13RGBGridMedium11
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp63415)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp73527)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp73527, ptr noundef nonnull align 8 dereferenceable(32) %convert, i64 32, i1 false)
-  %or.cond11.i.i553 = select i1 %or.cond10.i.i55, i1 %cmp17.not.i.i440, i1 false
-  %or.cond.i555 = select i1 %or.cond11.i.i553, i1 %cmp21.i.i442, i1 false
+  %or.cond11.i.not38.i553 = select i1 %or.cond10.not15.i.not39.i55, i1 %cmp17.not.i.i440, i1 false
+  %or.cond.i555 = select i1 %or.cond11.i.not38.i553, i1 %cmp21.i.i442, i1 false
   br i1 %or.cond.i555, label %if.end.i584, label %if.then.i556
 
 if.then.i556:                                     ; preds = %_ZNK4pbrt11SampledGridINS_20RGBUnboundedSpectrumEE6LookupIZNKS_13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEEUlS1_E_EEDaRKNS5_IiEET_.exit510
@@ -18938,8 +18939,8 @@ _ZN4pbrt4LerpEfRKNS_15SampledSpectrumES2_.exit660: ; preds = %for.body.i.i15.i64
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i626)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp87677)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp87677, ptr noundef nonnull align 8 dereferenceable(32) %convert, i64 32, i1 false)
-  %or.cond11.i.i703 = select i1 %or.cond10.i.i177, i1 %cmp17.not.i.i440, i1 false
-  %or.cond.i705 = select i1 %or.cond11.i.i703, i1 %cmp21.i.i442, i1 false
+  %or.cond11.i.not38.i703 = select i1 %or.cond10.not15.i.not39.i177, i1 %cmp17.not.i.i440, i1 false
+  %or.cond.i705 = select i1 %or.cond11.i.not38.i703, i1 %cmp21.i.i442, i1 false
   br i1 %or.cond.i705, label %if.end.i734, label %if.then.i706
 
 if.then.i706:                                     ; preds = %_ZN4pbrt4LerpEfRKNS_15SampledSpectrumES2_.exit660
@@ -19053,8 +19054,8 @@ _ZNK4pbrt11SampledGridINS_20RGBUnboundedSpectrumEE6LookupIZNKS_13RGBGridMedium11
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp87677)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp97789)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp97789, ptr noundef nonnull align 8 dereferenceable(32) %convert, i64 32, i1 false)
-  %or.cond11.i.i815 = select i1 %or.cond10.i.i289, i1 %cmp17.not.i.i440, i1 false
-  %or.cond.i817 = select i1 %or.cond11.i.i815, i1 %cmp21.i.i442, i1 false
+  %or.cond11.i.not38.i815 = select i1 %or.cond10.not15.i.not39.i289, i1 %cmp17.not.i.i440, i1 false
+  %or.cond.i817 = select i1 %or.cond11.i.not38.i815, i1 %cmp21.i.i442, i1 false
   br i1 %or.cond.i817, label %if.end.i846, label %if.then.i818
 
 if.then.i818:                                     ; preds = %_ZNK4pbrt11SampledGridINS_20RGBUnboundedSpectrumEE6LookupIZNKS_13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEEUlS1_E_EEDaRKNS5_IiEET_.exit772
@@ -19542,15 +19543,15 @@ entry:
   %.sroa.speculated.i13.i.i = tail call i32 @llvm.smax.i32(i32 %0, i32 0)
   %cmp.not.i.i = icmp sle i32 %.sroa.speculated10.i.i.i, %8
   %cmp4.i.i = icmp sgt i32 %.sroa.speculated10.i11.i.i, %8
-  %or.cond.not12.not.not.i.not.i = and i1 %cmp.not.i.i, %cmp4.i.i
+  %or.cond.not12.not14.not17.i.not14.i = and i1 %cmp.not.i.i, %cmp4.i.i
   %cmp8.not.i.i = icmp sle i32 %.sroa.speculated7.i.i.i, %9
-  %or.cond9.i.i = select i1 %or.cond.not12.not.not.i.not.i, i1 %cmp8.not.i.i, i1 false
+  %or.cond9.not13.not16.i.not13.i = select i1 %or.cond.not12.not14.not17.i.not14.i, i1 %cmp8.not.i.i, i1 false
   %cmp13.i.i = icmp sgt i32 %.sroa.speculated7.i12.i.i, %9
-  %or.cond10.i.i = select i1 %or.cond9.i.i, i1 %cmp13.i.i, i1 false
+  %or.cond10.not15.i.not12.i = select i1 %or.cond9.not13.not16.i.not13.i, i1 %cmp13.i.i, i1 false
   %cmp17.not.i.i = icmp sle i32 %.sroa.speculated.i.i.i, %conv3.i
-  %or.cond11.i.i = select i1 %or.cond10.i.i, i1 %cmp17.not.i.i, i1 false
+  %or.cond11.i.not11.i = select i1 %or.cond10.not15.i.not12.i, i1 %cmp17.not.i.i, i1 false
   %cmp21.i.i = icmp sgt i32 %.sroa.speculated.i13.i.i, %conv3.i
-  %or.cond.i = select i1 %or.cond11.i.i, i1 %cmp21.i.i, i1 false
+  %or.cond.i = select i1 %or.cond11.i.not11.i, i1 %cmp21.i.i, i1 false
   br i1 %or.cond.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
@@ -19597,15 +19598,15 @@ _ZNK4pbrt11SampledGridINS_21RGBIlluminantSpectrumEE6LookupIZNKS_13RGBGridMedium1
   %.sroa.speculated.i13.i.i43 = call i32 @llvm.smax.i32(i32 %19, i32 0)
   %cmp.not.i.i50 = icmp sle i32 %.sroa.speculated10.i.i.i38, %add.i26
   %cmp4.i.i51 = icmp sgt i32 %.sroa.speculated10.i11.i.i41, %add.i26
-  %or.cond.not12.not.not.i.not.i52 = and i1 %cmp.not.i.i50, %cmp4.i.i51
+  %or.cond.not12.not14.not17.i.not14.i52 = and i1 %cmp.not.i.i50, %cmp4.i.i51
   %cmp8.not.i.i53 = icmp sle i32 %.sroa.speculated7.i.i.i39, %9
-  %or.cond9.i.i54 = select i1 %or.cond.not12.not.not.i.not.i52, i1 %cmp8.not.i.i53, i1 false
+  %or.cond9.not13.not16.i.not13.i54 = select i1 %or.cond.not12.not14.not17.i.not14.i52, i1 %cmp8.not.i.i53, i1 false
   %cmp13.i.i55 = icmp sgt i32 %.sroa.speculated7.i12.i.i42, %9
-  %or.cond10.i.i56 = select i1 %or.cond9.i.i54, i1 %cmp13.i.i55, i1 false
+  %or.cond10.not15.i.not12.i56 = select i1 %or.cond9.not13.not16.i.not13.i54, i1 %cmp13.i.i55, i1 false
   %cmp17.not.i.i57 = icmp sle i32 %.sroa.speculated.i.i.i40, %conv3.i
-  %or.cond11.i.i58 = select i1 %or.cond10.i.i56, i1 %cmp17.not.i.i57, i1 false
+  %or.cond11.i.not11.i58 = select i1 %or.cond10.not15.i.not12.i56, i1 %cmp17.not.i.i57, i1 false
   %cmp21.i.i59 = icmp sgt i32 %.sroa.speculated.i13.i.i43, %conv3.i
-  %or.cond.i60 = select i1 %or.cond11.i.i58, i1 %cmp21.i.i59, i1 false
+  %or.cond.i60 = select i1 %or.cond11.i.not11.i58, i1 %cmp21.i.i59, i1 false
   br i1 %or.cond.i60, label %if.end.i64, label %if.then.i61
 
 if.then.i61:                                      ; preds = %_ZNK4pbrt11SampledGridINS_21RGBIlluminantSpectrumEE6LookupIZNKS_13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEEUlS1_E_EEDaRKNS5_IiEET_.exit
@@ -19720,15 +19721,15 @@ _ZN4pbrt4LerpEfRKNS_15SampledSpectrumES2_.exit:   ; preds = %for.body.i.i15.i
   %.sroa.speculated.i13.i.i103 = call i32 @llvm.smax.i32(i32 %30, i32 0)
   %cmp.not.i.i110 = icmp sle i32 %.sroa.speculated10.i.i.i98, %8
   %cmp4.i.i111 = icmp sgt i32 %.sroa.speculated10.i11.i.i101, %8
-  %or.cond.not12.not.not.i.not.i112 = and i1 %cmp.not.i.i110, %cmp4.i.i111
+  %or.cond.not12.not14.not17.i.not14.i112 = and i1 %cmp.not.i.i110, %cmp4.i.i111
   %cmp8.not.i.i113 = icmp sle i32 %.sroa.speculated7.i.i.i99, %add4.i82
-  %or.cond9.i.i114 = select i1 %or.cond.not12.not.not.i.not.i112, i1 %cmp8.not.i.i113, i1 false
+  %or.cond9.not13.not16.i.not13.i114 = select i1 %or.cond.not12.not14.not17.i.not14.i112, i1 %cmp8.not.i.i113, i1 false
   %cmp13.i.i115 = icmp sgt i32 %.sroa.speculated7.i12.i.i102, %add4.i82
-  %or.cond10.i.i116 = select i1 %or.cond9.i.i114, i1 %cmp13.i.i115, i1 false
+  %or.cond10.not15.i.not12.i116 = select i1 %or.cond9.not13.not16.i.not13.i114, i1 %cmp13.i.i115, i1 false
   %cmp17.not.i.i117 = icmp sle i32 %.sroa.speculated.i.i.i100, %conv3.i
-  %or.cond11.i.i118 = select i1 %or.cond10.i.i116, i1 %cmp17.not.i.i117, i1 false
+  %or.cond11.i.not11.i118 = select i1 %or.cond10.not15.i.not12.i116, i1 %cmp17.not.i.i117, i1 false
   %cmp21.i.i119 = icmp sgt i32 %.sroa.speculated.i13.i.i103, %conv3.i
-  %or.cond.i120 = select i1 %or.cond11.i.i118, i1 %cmp21.i.i119, i1 false
+  %or.cond.i120 = select i1 %or.cond11.i.not11.i118, i1 %cmp21.i.i119, i1 false
   br i1 %or.cond.i120, label %if.end.i124, label %if.then.i121
 
 if.then.i121:                                     ; preds = %_ZN4pbrt4LerpEfRKNS_15SampledSpectrumES2_.exit
@@ -19774,15 +19775,15 @@ _ZNK4pbrt11SampledGridINS_21RGBIlluminantSpectrumEE6LookupIZNKS_13RGBGridMedium1
   %.sroa.speculated.i13.i.i162 = call i32 @llvm.smax.i32(i32 %36, i32 0)
   %cmp.not.i.i169 = icmp sle i32 %.sroa.speculated10.i.i.i157, %add.i26
   %cmp4.i.i170 = icmp sgt i32 %.sroa.speculated10.i11.i.i160, %add.i26
-  %or.cond.not12.not.not.i.not.i171 = and i1 %cmp.not.i.i169, %cmp4.i.i170
+  %or.cond.not12.not14.not17.i.not14.i171 = and i1 %cmp.not.i.i169, %cmp4.i.i170
   %cmp8.not.i.i172 = icmp sle i32 %.sroa.speculated7.i.i.i158, %add4.i82
-  %or.cond9.i.i173 = select i1 %or.cond.not12.not.not.i.not.i171, i1 %cmp8.not.i.i172, i1 false
+  %or.cond9.not13.not16.i.not13.i173 = select i1 %or.cond.not12.not14.not17.i.not14.i171, i1 %cmp8.not.i.i172, i1 false
   %cmp13.i.i174 = icmp sgt i32 %.sroa.speculated7.i12.i.i161, %add4.i82
-  %or.cond10.i.i175 = select i1 %or.cond9.i.i173, i1 %cmp13.i.i174, i1 false
+  %or.cond10.not15.i.not12.i175 = select i1 %or.cond9.not13.not16.i.not13.i173, i1 %cmp13.i.i174, i1 false
   %cmp17.not.i.i176 = icmp sle i32 %.sroa.speculated.i.i.i159, %conv3.i
-  %or.cond11.i.i177 = select i1 %or.cond10.i.i175, i1 %cmp17.not.i.i176, i1 false
+  %or.cond11.i.not11.i177 = select i1 %or.cond10.not15.i.not12.i175, i1 %cmp17.not.i.i176, i1 false
   %cmp21.i.i178 = icmp sgt i32 %.sroa.speculated.i13.i.i162, %conv3.i
-  %or.cond.i179 = select i1 %or.cond11.i.i177, i1 %cmp21.i.i178, i1 false
+  %or.cond.i179 = select i1 %or.cond11.i.not11.i177, i1 %cmp21.i.i178, i1 false
   br i1 %or.cond.i179, label %if.end.i183, label %if.then.i180
 
 if.then.i180:                                     ; preds = %_ZNK4pbrt11SampledGridINS_21RGBIlluminantSpectrumEE6LookupIZNKS_13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEEUlS1_E_EEDaRKNS5_IiEET_.exit133
@@ -19897,15 +19898,15 @@ _ZN4pbrt4LerpEfRKNS_15SampledSpectrumES2_.exit230: ; preds = %for.body.i.i15.i21
   %cmp4.i.i267 = icmp sgt i32 %.sroa.speculated10.i11.i.i257, %8
   %50 = icmp sle <2 x i32> %47, %7
   %51 = extractelement <2 x i1> %50, i64 0
-  %or.cond.not12.not.not.i.not.i268 = and i1 %51, %cmp4.i.i267
+  %or.cond.not12.not14.not17.i.not14.i268 = and i1 %51, %cmp4.i.i267
   %52 = extractelement <2 x i1> %50, i64 1
-  %or.cond9.i.i270 = select i1 %or.cond.not12.not.not.i.not.i268, i1 %52, i1 false
+  %or.cond9.not13.not16.i.not13.i270 = select i1 %or.cond.not12.not14.not17.i.not14.i268, i1 %52, i1 false
   %cmp13.i.i271 = icmp sgt i32 %.sroa.speculated7.i12.i.i258, %9
-  %or.cond10.i.i272 = select i1 %or.cond9.i.i270, i1 %cmp13.i.i271, i1 false
+  %or.cond10.not15.i.not12.i272 = select i1 %or.cond9.not13.not16.i.not13.i270, i1 %cmp13.i.i271, i1 false
   %cmp17.not.i.i273 = icmp sle i32 %.sroa.speculated.i.i.i256, %add6.i240
-  %or.cond11.i.i274 = select i1 %or.cond10.i.i272, i1 %cmp17.not.i.i273, i1 false
+  %or.cond11.i.not11.i274 = select i1 %or.cond10.not15.i.not12.i272, i1 %cmp17.not.i.i273, i1 false
   %cmp21.i.i275 = icmp sgt i32 %.sroa.speculated.i13.i.i259, %add6.i240
-  %or.cond.i276 = select i1 %or.cond11.i.i274, i1 %cmp21.i.i275, i1 false
+  %or.cond.i276 = select i1 %or.cond11.i.not11.i274, i1 %cmp21.i.i275, i1 false
   br i1 %or.cond.i276, label %if.end.i280, label %if.then.i277
 
 if.then.i277:                                     ; preds = %_ZN4pbrt4LerpEfRKNS_15SampledSpectrumES2_.exit230
@@ -19951,15 +19952,15 @@ _ZNK4pbrt11SampledGridINS_21RGBIlluminantSpectrumEE6LookupIZNKS_13RGBGridMedium1
   %.sroa.speculated.i13.i.i318 = call i32 @llvm.smax.i32(i32 %58, i32 0)
   %cmp.not.i.i325 = icmp sle i32 %.sroa.speculated10.i.i.i313, %add.i26
   %cmp4.i.i326 = icmp sgt i32 %.sroa.speculated10.i11.i.i316, %add.i26
-  %or.cond.not12.not.not.i.not.i327 = and i1 %cmp.not.i.i325, %cmp4.i.i326
+  %or.cond.not12.not14.not17.i.not14.i327 = and i1 %cmp.not.i.i325, %cmp4.i.i326
   %cmp8.not.i.i328 = icmp sle i32 %.sroa.speculated7.i.i.i314, %9
-  %or.cond9.i.i329 = select i1 %or.cond.not12.not.not.i.not.i327, i1 %cmp8.not.i.i328, i1 false
+  %or.cond9.not13.not16.i.not13.i329 = select i1 %or.cond.not12.not14.not17.i.not14.i327, i1 %cmp8.not.i.i328, i1 false
   %cmp13.i.i330 = icmp sgt i32 %.sroa.speculated7.i12.i.i317, %9
-  %or.cond10.i.i331 = select i1 %or.cond9.i.i329, i1 %cmp13.i.i330, i1 false
+  %or.cond10.not15.i.not12.i331 = select i1 %or.cond9.not13.not16.i.not13.i329, i1 %cmp13.i.i330, i1 false
   %cmp17.not.i.i332 = icmp sle i32 %.sroa.speculated.i.i.i315, %add6.i240
-  %or.cond11.i.i333 = select i1 %or.cond10.i.i331, i1 %cmp17.not.i.i332, i1 false
+  %or.cond11.i.not11.i333 = select i1 %or.cond10.not15.i.not12.i331, i1 %cmp17.not.i.i332, i1 false
   %cmp21.i.i334 = icmp sgt i32 %.sroa.speculated.i13.i.i318, %add6.i240
-  %or.cond.i335 = select i1 %or.cond11.i.i333, i1 %cmp21.i.i334, i1 false
+  %or.cond.i335 = select i1 %or.cond11.i.not11.i333, i1 %cmp21.i.i334, i1 false
   br i1 %or.cond.i335, label %if.end.i339, label %if.then.i336
 
 if.then.i336:                                     ; preds = %_ZNK4pbrt11SampledGridINS_21RGBIlluminantSpectrumEE6LookupIZNKS_13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEEUlS1_E_EEDaRKNS5_IiEET_.exit289
@@ -20072,15 +20073,15 @@ _ZN4pbrt4LerpEfRKNS_15SampledSpectrumES2_.exit386: ; preds = %for.body.i.i15.i37
   %.sroa.speculated.i13.i.i415 = call i32 @llvm.smax.i32(i32 %69, i32 0)
   %cmp.not.i.i422 = icmp sle i32 %.sroa.speculated10.i.i.i410, %8
   %cmp4.i.i423 = icmp sgt i32 %.sroa.speculated10.i11.i.i413, %8
-  %or.cond.not12.not.not.i.not.i424 = and i1 %cmp.not.i.i422, %cmp4.i.i423
+  %or.cond.not12.not14.not17.i.not14.i424 = and i1 %cmp.not.i.i422, %cmp4.i.i423
   %cmp8.not.i.i425 = icmp sle i32 %.sroa.speculated7.i.i.i411, %add4.i82
-  %or.cond9.i.i426 = select i1 %or.cond.not12.not.not.i.not.i424, i1 %cmp8.not.i.i425, i1 false
+  %or.cond9.not13.not16.i.not13.i426 = select i1 %or.cond.not12.not14.not17.i.not14.i424, i1 %cmp8.not.i.i425, i1 false
   %cmp13.i.i427 = icmp sgt i32 %.sroa.speculated7.i12.i.i414, %add4.i82
-  %or.cond10.i.i428 = select i1 %or.cond9.i.i426, i1 %cmp13.i.i427, i1 false
+  %or.cond10.not15.i.not12.i428 = select i1 %or.cond9.not13.not16.i.not13.i426, i1 %cmp13.i.i427, i1 false
   %cmp17.not.i.i429 = icmp sle i32 %.sroa.speculated.i.i.i412, %add6.i240
-  %or.cond11.i.i430 = select i1 %or.cond10.i.i428, i1 %cmp17.not.i.i429, i1 false
+  %or.cond11.i.not11.i430 = select i1 %or.cond10.not15.i.not12.i428, i1 %cmp17.not.i.i429, i1 false
   %cmp21.i.i431 = icmp sgt i32 %.sroa.speculated.i13.i.i415, %add6.i240
-  %or.cond.i432 = select i1 %or.cond11.i.i430, i1 %cmp21.i.i431, i1 false
+  %or.cond.i432 = select i1 %or.cond11.i.not11.i430, i1 %cmp21.i.i431, i1 false
   br i1 %or.cond.i432, label %if.end.i436, label %if.then.i433
 
 if.then.i433:                                     ; preds = %_ZN4pbrt4LerpEfRKNS_15SampledSpectrumES2_.exit386
@@ -20126,15 +20127,15 @@ _ZNK4pbrt11SampledGridINS_21RGBIlluminantSpectrumEE6LookupIZNKS_13RGBGridMedium1
   %.sroa.speculated.i13.i.i474 = call i32 @llvm.smax.i32(i32 %75, i32 0)
   %cmp.not.i.i481 = icmp sle i32 %.sroa.speculated10.i.i.i469, %add.i26
   %cmp4.i.i482 = icmp sgt i32 %.sroa.speculated10.i11.i.i472, %add.i26
-  %or.cond.not12.not.not.i.not.i483 = and i1 %cmp.not.i.i481, %cmp4.i.i482
+  %or.cond.not12.not14.not17.i.not14.i483 = and i1 %cmp.not.i.i481, %cmp4.i.i482
   %cmp8.not.i.i484 = icmp sle i32 %.sroa.speculated7.i.i.i470, %add4.i82
-  %or.cond9.i.i485 = select i1 %or.cond.not12.not.not.i.not.i483, i1 %cmp8.not.i.i484, i1 false
+  %or.cond9.not13.not16.i.not13.i485 = select i1 %or.cond.not12.not14.not17.i.not14.i483, i1 %cmp8.not.i.i484, i1 false
   %cmp13.i.i486 = icmp sgt i32 %.sroa.speculated7.i12.i.i473, %add4.i82
-  %or.cond10.i.i487 = select i1 %or.cond9.i.i485, i1 %cmp13.i.i486, i1 false
+  %or.cond10.not15.i.not12.i487 = select i1 %or.cond9.not13.not16.i.not13.i485, i1 %cmp13.i.i486, i1 false
   %cmp17.not.i.i488 = icmp sle i32 %.sroa.speculated.i.i.i471, %add6.i240
-  %or.cond11.i.i489 = select i1 %or.cond10.i.i487, i1 %cmp17.not.i.i488, i1 false
+  %or.cond11.i.not11.i489 = select i1 %or.cond10.not15.i.not12.i487, i1 %cmp17.not.i.i488, i1 false
   %cmp21.i.i490 = icmp sgt i32 %.sroa.speculated.i13.i.i474, %add6.i240
-  %or.cond.i491 = select i1 %or.cond11.i.i489, i1 %cmp21.i.i490, i1 false
+  %or.cond.i491 = select i1 %or.cond11.i.not11.i489, i1 %cmp21.i.i490, i1 false
   br i1 %or.cond.i491, label %if.end.i495, label %if.then.i492
 
 if.then.i492:                                     ; preds = %_ZNK4pbrt11SampledGridINS_21RGBIlluminantSpectrumEE6LookupIZNKS_13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEEUlS1_E_EEDaRKNS5_IiEET_.exit445

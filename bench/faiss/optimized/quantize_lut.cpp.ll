@@ -1540,16 +1540,16 @@ _ZN5faiss12quantize_lut12_GLOBAL__N_17tab_maxEPKfm.exit: ; preds = %.lr.ph.i66, 
   %.not.i73 = icmp eq i64 %2, 0
   %26 = sub i64 %1, %5
   %27 = sitofp i32 %6 to float
-  br i1 %.not.i73, label %_ZN5faiss12quantize_lut12_GLOBAL__N_17tab_minEPKfm.exit81.thread.us.preheader, label %.lr.ph.i74.preheader
+  br i1 %.not.i73, label %.lr.ph.split.us, label %.lr.ph.i74.preheader
 
-_ZN5faiss12quantize_lut12_GLOBAL__N_17tab_minEPKfm.exit81.thread.us.preheader: ; preds = %.lr.ph
+.lr.ph.split.us:                                  ; preds = %.lr.ph
   %28 = fmul float %27, 0xFFF0000000000000
   br label %_ZN5faiss12quantize_lut12_GLOBAL__N_17tab_minEPKfm.exit81.thread.us
 
-_ZN5faiss12quantize_lut12_GLOBAL__N_17tab_minEPKfm.exit81.thread.us: ; preds = %_ZN5faiss12quantize_lut12_GLOBAL__N_17tab_minEPKfm.exit81.thread.us.preheader, %_ZN5faiss12quantize_lut12_GLOBAL__N_17tab_minEPKfm.exit81.thread.us
-  %indvars.iv142 = phi i64 [ 0, %_ZN5faiss12quantize_lut12_GLOBAL__N_17tab_minEPKfm.exit81.thread.us.preheader ], [ %indvars.iv.next143, %_ZN5faiss12quantize_lut12_GLOBAL__N_17tab_minEPKfm.exit81.thread.us ]
-  %.059124.us = phi float [ 0.000000e+00, %_ZN5faiss12quantize_lut12_GLOBAL__N_17tab_minEPKfm.exit81.thread.us.preheader ], [ %32, %_ZN5faiss12quantize_lut12_GLOBAL__N_17tab_minEPKfm.exit81.thread.us ]
-  %.060123.us = phi float [ %25, %_ZN5faiss12quantize_lut12_GLOBAL__N_17tab_minEPKfm.exit81.thread.us.preheader ], [ %31, %_ZN5faiss12quantize_lut12_GLOBAL__N_17tab_minEPKfm.exit81.thread.us ]
+_ZN5faiss12quantize_lut12_GLOBAL__N_17tab_minEPKfm.exit81.thread.us: ; preds = %_ZN5faiss12quantize_lut12_GLOBAL__N_17tab_minEPKfm.exit81.thread.us, %.lr.ph.split.us
+  %indvars.iv142 = phi i64 [ %indvars.iv.next143, %_ZN5faiss12quantize_lut12_GLOBAL__N_17tab_minEPKfm.exit81.thread.us ], [ 0, %.lr.ph.split.us ]
+  %.059124.us = phi float [ %32, %_ZN5faiss12quantize_lut12_GLOBAL__N_17tab_minEPKfm.exit81.thread.us ], [ 0.000000e+00, %.lr.ph.split.us ]
+  %.060123.us = phi float [ %31, %_ZN5faiss12quantize_lut12_GLOBAL__N_17tab_minEPKfm.exit81.thread.us ], [ %25, %.lr.ph.split.us ]
   %29 = getelementptr inbounds float, ptr %.sroa.0.0, i64 %indvars.iv142
   store float 0x7FF0000000000000, ptr %29, align 4
   %.not.us = icmp ugt i64 %26, %indvars.iv142
@@ -1601,8 +1601,8 @@ _ZN5faiss12quantize_lut12_GLOBAL__N_17tab_maxEPKfm.exit90.loopexit: ; preds = %.
   %43 = fcmp olt float %.0117122, %42
   %.sroa.speculated105 = select i1 %43, float %42, float %.0117122
   %.not = icmp ugt i64 %26, %indvars.iv
-  %44 = select i1 %.not, float 1.000000e+00, float %27
-  %45 = fmul float %44, %42
+  %44 = fmul float %42, %27
+  %45 = select i1 %.not, float %42, float %44
   %46 = fadd float %.060123, %45
   %47 = fadd float %.059124, %.1.i77
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

@@ -1189,8 +1189,8 @@ entry:
   %m_timeStep = getelementptr inbounds i8, ptr %infoGlobal, i64 12
   %25 = load float, ptr %m_timeStep, align 4
   %div = fdiv float %24, %25
-  %add = select i1 %cmp, float %div, float -0.000000e+00
-  %dn.0 = fadd float %23, %add
+  %add = fadd float %23, %div
+  %dn.0 = select i1 %cmp, float %add, float %23
   %m_splitImpulse = getelementptr inbounds i8, ptr %infoGlobal, i64 64
   %26 = load i32, ptr %m_splitImpulse, align 4
   %tobool.not = icmp eq i32 %26, 0
@@ -1198,8 +1198,8 @@ entry:
   %27 = load float, ptr %m_deformable_erp, align 4
   %mul = fmul float %24, %27
   %div15 = fdiv float %mul, %25
-  %add16 = select i1 %tobool.not, float %div15, float -0.000000e+00
-  %dn.1 = fadd float %dn.0, %add16
+  %add16 = fadd float %dn.0, %div15
+  %dn.1 = select i1 %tobool.not, float %add16, float %dn.0
   %28 = load ptr, ptr %m_contact, align 8
   %m_c0 = getelementptr inbounds i8, ptr %28, i64 64
   %mul.i = fmul float %18, %22

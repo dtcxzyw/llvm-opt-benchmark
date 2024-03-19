@@ -4685,8 +4685,8 @@ m_virtual_sg.exit:                                ; preds = %21, %23
   %38 = fadd double %37, %31
   %39 = fadd double %38, -1.524000e+03
   %40 = fcmp uge double %39, %.0.i
-  %41 = select i1 %40, double 0.000000e+00, double %31
-  %.0.i8 = fsub double %39, %41
+  %41 = fsub double %39, %31
+  %.0.i8 = select i1 %40, double %39, double %41
   %42 = fptosi double %.0.i8 to i32
   %43 = add nsw i32 %42, -1
   %44 = load i32, ptr %2, align 8
@@ -15252,9 +15252,9 @@ c_jd_to_civil.exit:                               ; preds = %22, %28
   %78 = fadd double %66, %77
   %79 = fadd double %78, -1.524000e+03
   %80 = fcmp uge double %79, %3
+  %81 = fsub double %79, %66
   %storemerge.i = zext i1 %80 to i32
-  %81 = select i1 %80, double 0.000000e+00, double %66
-  %.0.i47 = fsub double %79, %81
+  %.0.i47 = select i1 %80, double %79, double %81
   store i32 %storemerge.i, ptr %7, align 4
   %82 = fptosi double %.0.i47 to i32
   store i32 %82, ptr %6, align 4
@@ -15568,9 +15568,9 @@ c_valid_gregorian_p.exit:                         ; preds = %98, %c_gregorian_la
   %134 = fadd double %133, %122
   %135 = fadd double %134, -1.524000e+03
   %136 = fcmp uge double %135, %.0.i
+  %137 = fsub double %135, %122
   %storemerge.i = zext i1 %136 to i32
-  %137 = select i1 %136, double 0.000000e+00, double %122
-  %.0.i57 = fsub double %135, %137
+  %.0.i57 = select i1 %136, double %135, double %137
   store i32 %storemerge.i, ptr %9, align 4
   %138 = fptosi double %.0.i57 to i32
   store i32 %138, ptr %8, align 4
@@ -16189,8 +16189,8 @@ define internal fastcc void @set_sg(ptr nocapture noundef %0, double noundef %1)
   %38 = fadd double %37, %26
   %39 = fadd double %38, -1.524000e+03
   %40 = fcmp uge double %39, %16
-  %41 = select i1 %40, double 0.000000e+00, double %26
-  %.0.i.i = fsub double %39, %41
+  %41 = fsub double %39, %26
+  %.0.i.i = select i1 %40, double %39, double %41
   %42 = fptosi double %.0.i.i to i32
   %43 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %42, ptr %43, align 4
@@ -16304,8 +16304,8 @@ define internal fastcc void @get_c_jd(ptr nocapture noundef %0) unnamed_addr #0 
   %35 = fadd double %34, %23
   %36 = fadd double %35, -1.524000e+03
   %37 = fcmp uge double %36, %13
-  %38 = select i1 %37, double 0.000000e+00, double %23
-  %.0.i = fsub double %36, %38
+  %38 = fsub double %36, %23
+  %.0.i = select i1 %37, double %36, double %38
   %39 = fptosi double %.0.i to i32
   %40 = load i32, ptr %0, align 8
   %41 = and i32 %40, 8
@@ -20408,8 +20408,8 @@ define internal fastcc i32 @m_jd(ptr nocapture noundef %0) unnamed_addr #0 {
   %37 = fadd double %36, %25
   %38 = fadd double %37, -1.524000e+03
   %39 = fcmp uge double %38, %15
-  %40 = select i1 %39, double 0.000000e+00, double %25
-  %.0.i.i = fsub double %38, %40
+  %40 = fsub double %38, %25
+  %.0.i.i = select i1 %39, double %38, double %40
   %41 = fptosi double %.0.i.i to i32
   %42 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %41, ptr %42, align 4
@@ -20596,8 +20596,8 @@ define internal fastcc i32 @m_local_jd(ptr nocapture noundef %0) unnamed_addr #0
   %37 = fadd double %36, %25
   %38 = fadd double %37, -1.524000e+03
   %39 = fcmp uge double %38, %15
-  %40 = select i1 %39, double 0.000000e+00, double %25
-  %.0.i.i = fsub double %38, %40
+  %40 = fsub double %38, %25
+  %.0.i.i = select i1 %39, double %38, double %40
   %41 = fptosi double %.0.i.i to i32
   %42 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %41, ptr %42, align 4
@@ -20946,8 +20946,8 @@ define internal fastcc i32 @m_julian_p(ptr nocapture noundef %0) unnamed_addr #0
   %37 = fadd double %36, %25
   %38 = fadd double %37, -1.524000e+03
   %39 = fcmp uge double %38, %15
-  %40 = select i1 %39, double 0.000000e+00, double %25
-  %.0.i.i = fsub double %38, %40
+  %40 = fsub double %38, %25
+  %.0.i.i = select i1 %39, double %38, double %40
   %41 = fptosi double %.0.i.i to i32
   %42 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %41, ptr %42, align 4
@@ -21801,8 +21801,8 @@ define internal fastcc void @m_canonicalize_jd(i64 noundef %0, ptr nocapture nou
   %38 = fadd double %37, %26
   %39 = fadd double %38, -1.524000e+03
   %40 = fcmp uge double %39, %16
-  %41 = select i1 %40, double 0.000000e+00, double %26
-  %.0.i.i = fsub double %39, %41
+  %41 = fsub double %39, %26
+  %.0.i.i = select i1 %40, double %39, double %41
   %42 = fptosi double %.0.i.i to i32
   %43 = getelementptr inbounds i8, ptr %1, i64 4
   store i32 %42, ptr %43, align 4

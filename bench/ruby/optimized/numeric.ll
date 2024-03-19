@@ -2043,8 +2043,8 @@ define hidden double @ruby_float_mod(double noundef %0, double noundef %1) local
   %.0.i = phi double [ %0, %9 ], [ %15, %14 ], [ %0, %7 ]
   %16 = fmul double %.0.i, %1
   %17 = fcmp olt double %16, 0.000000e+00
-  %18 = select i1 %17, double %1, double -0.000000e+00
-  %.1.i = fadd double %.0.i, %18
+  %18 = fadd double %.0.i, %1
+  %.1.i = select i1 %17, double %18, double %.0.i
   br label %flodivmod.exit
 
 flodivmod.exit:                                   ; preds = %2, %._crit_edge.i
@@ -7365,8 +7365,8 @@ rb_float_value_inline.exit:                       ; preds = %41, %47
   %.0.i.i33 = phi double [ %59, %58 ], [ %50, %54 ]
   %60 = fmul double %.0.i32, %.0.i.i33
   %61 = fcmp olt double %60, 0.000000e+00
-  %62 = select i1 %61, double %.0.i32, double -0.000000e+00
-  %.1.i.i = fadd double %.0.i.i33, %62
+  %62 = fadd double %.0.i32, %.0.i.i33
+  %.1.i.i = select i1 %61, double %62, double %.0.i.i33
   br label %ruby_float_mod.exit
 
 ruby_float_mod.exit:                              ; preds = %rb_float_value_inline.exit, %._crit_edge.i.i
@@ -7590,8 +7590,8 @@ rb_float_value_inline.exit.i:                     ; preds = %58, %52
   %75 = fcmp olt double %74, 0.000000e+00
   %76 = fadd double %73, -1.000000e+00
   %.13653.i.i = select i1 %75, double %76, double %73
-  %77 = select i1 %75, double %.0.i35.i, double -0.000000e+00
-  %.1.i.i = fadd double %.0.i36.i, %77
+  %77 = fadd double %.0.i35.i, %.0.i36.i
+  %.1.i.i = select i1 %75, double %77, double %.0.i36.i
   br label %flodivmod.exit.i
 
 flodivmod.exit.i:                                 ; preds = %._crit_edge.i.i, %rb_float_value_inline.exit.i
@@ -12379,8 +12379,8 @@ rb_float_value_inline.exit34:                     ; preds = %36, %37, %43
   %.0.i.i = phi double [ %.0.i31, %53 ], [ %59, %58 ], [ %.0.i31, %51 ]
   %60 = fmul double %.0, %.0.i.i
   %61 = fcmp olt double %60, 0.000000e+00
-  %62 = select i1 %61, double %.0, double -0.000000e+00
-  %.1.i.i = fadd double %.0.i.i, %62
+  %62 = fadd double %.0, %.0.i.i
+  %.1.i.i = select i1 %61, double %62, double %.0.i.i
   br label %ruby_float_mod.exit
 
 ruby_float_mod.exit:                              ; preds = %rb_float_value_inline.exit34, %._crit_edge.i.i
@@ -12578,8 +12578,8 @@ rb_float_value_inline.exit36:                     ; preds = %38, %39, %45
   %.0.i3751 = phi double [ %.0.i3752, %.thread ], [ %.0.i37, %69 ]
   %.13655.i = phi double [ %.13653.i, %.thread ], [ %.136.i, %69 ]
   %74 = phi i1 [ %67, %.thread ], [ %71, %69 ]
-  %75 = select i1 %74, double %.0, double -0.000000e+00
-  %.1.i = fadd double %.0.i3751, %75
+  %75 = fadd double %.0, %.0.i3751
+  %.1.i = select i1 %74, double %75, double %.0.i3751
   br label %flodivmod.exit
 
 flodivmod.exit:                                   ; preds = %rb_float_value_inline.exit36, %73
@@ -13402,8 +13402,8 @@ round_half_down.exit:                             ; preds = %88
   %130 = fcmp ult double %129, %.0.i44
   %.sink19.i = select i1 %126, double -1.000000e+00, double 1.000000e+00
   %.sink.i = select i1 %126, i1 %130, i1 %128
-  %131 = select i1 %.sink.i, double -0.000000e+00, double %.sink19.i
-  %.1.i51 = fadd double %125, %131
+  %131 = fadd double %125, %.sink19.i
+  %.1.i51 = select i1 %.sink.i, double %125, double %131
   br label %132
 
 132:                                              ; preds = %123, %round_half_down.exit, %round_half_even.exit
@@ -13528,8 +13528,8 @@ float_round_underflow.exit:                       ; preds = %153, %.thread
 round_half_down.exit62:                           ; preds = %184, %188
   %.sink19.i59 = phi double [ 1.000000e+00, %188 ], [ -1.000000e+00, %184 ]
   %.sink.i60 = phi i1 [ %191, %188 ], [ %187, %184 ]
-  %192 = select i1 %.sink.i60, double -0.000000e+00, double %.sink19.i59
-  %.1.i61 = fadd double %182, %192
+  %192 = fadd double %182, %.sink19.i59
+  %.1.i61 = select i1 %.sink.i60, double %182, double %192
   br label %round_half_up.exit
 
 round_half_up.exit:                               ; preds = %175, %170, %164, %round_half_down.exit62, %162

@@ -9130,8 +9130,8 @@ define void @_ZN18DecorateBasePlugin14drawQuotedLineERKN3vcg6Point3IdEES4_fffP8Q
   %36 = fadd float %35, %5
   %37 = fsub float %36, %3
   %38 = fcmp olt float %37, %25
-  %39 = select i1 %38, float %5, float -0.000000e+00
-  %.1 = fadd float %36, %39
+  %39 = fadd float %36, %5
+  %.1 = select i1 %38, float %39, float %36
   %40 = fdiv float %5, 1.000000e+01
   %41 = tail call noundef float @fmodf(float noundef %3, float noundef %40) #27
   %42 = fsub float %3, %41
@@ -9142,8 +9142,8 @@ define void @_ZN18DecorateBasePlugin14drawQuotedLineERKN3vcg6Point3IdEES4_fffP8Q
   %.0.ph = phi float [ %5, %27 ], [ %32, %29 ]
   %45 = fsub float %.0.ph, %3
   %46 = fcmp olt float %45, %25
-  %47 = select i1 %46, float %5, float -0.000000e+00
-  %.1192 = fadd float %.0.ph, %47
+  %47 = fadd float %.0.ph, %5
+  %.1192 = select i1 %46, float %47, float %.0.ph
   %48 = fdiv float %5, 1.000000e+01
   %49 = tail call noundef float @fmodf(float noundef %3, float noundef %48) #27
   %50 = fsub float %3, %49

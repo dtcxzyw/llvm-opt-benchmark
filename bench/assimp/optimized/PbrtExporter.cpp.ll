@@ -2111,8 +2111,8 @@ if.end44:                                         ; preds = %if.then40, %if.end3
   %5 = load float, ptr %mHorizontalFOV, align 4
   %mul = fmul float %5, 0x404CA5DC20000000
   %cmp51 = fcmp oge float %aspect.0, 1.000000e+00
-  %div52 = select i1 %cmp51, float 1.000000e+00, float %aspect.0
-  %cond = fdiv float %mul, %div52
+  %div52 = fdiv float %mul, %aspect.0
+  %cond = select i1 %cmp51, float %mul, float %div52
   %cmp53 = fcmp olt float %cond, 5.000000e+00
   br i1 %cmp53, label %if.then54, label %if.end57
 
@@ -2707,10 +2707,12 @@ invoke.cont42:                                    ; preds = %invoke.cont
   %12 = load float, ptr %mAttenuationConstant, align 4
   %cmp44 = fcmp une float %12, 0.000000e+00
   %conv48 = fdiv float 1.000000e+00, %12
-  %mul.i = select i1 %cmp44, float %conv48, float 1.000000e+00
-  %color.sroa.0.0 = fmul float %add.i, %mul.i
-  %color.sroa.7.0 = fmul float %add4.i, %mul.i
-  %color.sroa.14.0 = fmul float %add6.i, %mul.i
+  %mul.i = fmul float %add.i, %conv48
+  %mul2.i = fmul float %add4.i, %conv48
+  %mul3.i = fmul float %add6.i, %conv48
+  %color.sroa.0.0 = select i1 %cmp44, float %mul.i, float %add.i
+  %color.sroa.7.0 = select i1 %cmp44, float %mul2.i, float %add4.i
+  %color.sroa.14.0 = select i1 %cmp44, float %mul3.i, float %add6.i
   %mType = getelementptr inbounds i8, ptr %5, i64 1028
   %13 = load i32, ptr %mType, align 4
   switch i32 %13, label %sw.default [
@@ -4513,13 +4515,13 @@ entry:
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
-  %i.0146 = phi i32 [ 1, %entry ], [ %inc, %for.inc ]
-  %call.i = call noundef i32 @aiGetMaterialTextureCount(ptr noundef nonnull %2, i32 noundef %i.0146)
+  %i.0147 = phi i32 [ 1, %entry ], [ %inc, %for.inc ]
+  %call.i = call noundef i32 @aiGetMaterialTextureCount(ptr noundef nonnull %2, i32 noundef %i.0147)
   %cmp17 = icmp sgt i32 %call.i, 0
   br i1 %cmp17, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %for.body
-  %call20 = call ptr @aiTextureTypeToString(i32 noundef %i.0146)
+  %call20 = call ptr @aiTextureTypeToString(i32 noundef %i.0147)
   %call21 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, ptr noundef %call20)
   %call22 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call21, ptr noundef nonnull @.str.28)
   %call23 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call22, i32 noundef %call.i)
@@ -4527,7 +4529,7 @@ if.then:                                          ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then
-  %inc = add nuw nsw i32 %i.0146, 1
+  %inc = add nuw nsw i32 %i.0147, 1
   %exitcond.not = icmp eq i32 %inc, 19
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !43
 
@@ -4552,16 +4554,16 @@ land.rhs:                                         ; preds = %for.end
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %c.i)
   %cmp.i40 = fcmp une float %4, 1.000000e+00
   %cmp2.i = fcmp une float %5, 1.000000e+00
-  %or.cond.i.not = select i1 %cmp.i40, i1 true, i1 %cmp2.i
+  %or.cond.i.not146 = select i1 %cmp.i40, i1 true, i1 %cmp2.i
   %cmp3.i = fcmp une float %6, 1.000000e+00
-  %spec.select = select i1 %or.cond.i.not, i1 true, i1 %cmp3.i
+  %spec.select.not = select i1 %or.cond.i.not146, i1 true, i1 %cmp3.i
   br label %land.end
 
 land.end:                                         ; preds = %_ZNK10aiMaterial3GetEPKcjjR9aiColor3D.exit, %land.rhs
   %diffuse.sroa.8.0133 = phi float [ 0.000000e+00, %_ZNK10aiMaterial3GetEPKcjjR9aiColor3D.exit ], [ %6, %land.rhs ]
   %diffuse.sroa.4.0131 = phi float [ 0.000000e+00, %_ZNK10aiMaterial3GetEPKcjjR9aiColor3D.exit ], [ %5, %land.rhs ]
   %diffuse.sroa.0.0129 = phi float [ 0.000000e+00, %_ZNK10aiMaterial3GetEPKcjjR9aiColor3D.exit ], [ %4, %land.rhs ]
-  %7 = phi i1 [ false, %_ZNK10aiMaterial3GetEPKcjjR9aiColor3D.exit ], [ %spec.select, %land.rhs ]
+  %7 = phi i1 [ false, %_ZNK10aiMaterial3GetEPKcjjR9aiColor3D.exit ], [ %spec.select.not, %land.rhs ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %c.i43)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %c.i43, i8 0, i64 16, i1 false)
   %call.i44 = call i32 @aiGetMaterialColor(ptr noundef nonnull %2, ptr noundef nonnull @.str.78, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %c.i43)

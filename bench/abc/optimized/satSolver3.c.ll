@@ -2428,13 +2428,13 @@ define double @sat_solver3_memory(ptr nocapture noundef readonly %0) local_unnam
   %30 = getelementptr inbounds i8, ptr %0, i64 152
   %31 = load ptr, ptr %30, align 8
   %.not = icmp eq ptr %31, null
-  %32 = select i1 %.not, double -0.000000e+00, double %28
-  %.1 = fadd double %29, %32
+  %32 = fadd double %29, %28
+  %.1 = select i1 %.not, double %29, double %32
   %33 = getelementptr inbounds i8, ptr %0, i64 528
   %34 = load ptr, ptr %33, align 8
   %.not55 = icmp eq ptr %34, null
-  %35 = select i1 %.not55, double -0.000000e+00, double %28
-  %.2 = fadd double %.1, %35
+  %35 = fadd double %.1, %28
+  %.2 = select i1 %.not55, double %.1, double %35
   %36 = fadd double %.2, %20
   %37 = fadd double %36, %20
   %38 = fadd double %37, %20

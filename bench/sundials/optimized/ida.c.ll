@@ -2678,8 +2678,8 @@ IDAHandleNFlag.exit.i:                            ; preds = %688, %676, %654, %6
   %722 = load double, ptr %268, align 8
   %723 = fmul double %721, %722
   %724 = fcmp ogt double %723, 1.000000e+00
-  %725 = select i1 %724, double %723, double 1.000000e+00
-  %.0.i82.i = fdiv double %720, %725
+  %725 = fdiv double %720, %723
+  %.0.i82.i = select i1 %724, double %725, double %720
   store double %.0.i82.i, ptr %226, align 8
   br label %804
 

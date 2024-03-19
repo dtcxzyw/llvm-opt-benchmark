@@ -1725,8 +1725,8 @@ list_length.exit:                                 ; preds = %6, %9
   %59 = getelementptr inbounds i8, ptr %0, i64 568
   %60 = load double, ptr %59, align 8
   %61 = fcmp ult double %60, 1.000000e+00
-  %62 = select i1 %61, double 1.000000e+00, double %4
-  %.0 = fdiv double %60, %62
+  %62 = fdiv double %60, %4
+  %.0 = select i1 %61, double %60, double %62
   %63 = call i32 @compare_fractional_path_costs(ptr noundef nonnull %7, ptr noundef nonnull %8, double noundef %.0) #7
   %64 = icmp slt i32 %63, 0
   br label %65

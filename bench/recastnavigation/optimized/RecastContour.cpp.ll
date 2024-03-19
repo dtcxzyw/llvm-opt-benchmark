@@ -2093,70 +2093,70 @@ _ZN10rcIntArrayixEi.exit391.i.us:                 ; preds = %980, %976, %.noexc4
   %990 = fmul float %989, %989
   %991 = call float @llvm.fmuladd.f32(float %987, float %987, float %990)
   %992 = fcmp ogt float %991, 0.000000e+00
-  %993 = select i1 %992, float %991, float 1.000000e+00
-  %994 = sitofp i32 %.0495.i.us to float
-  %995 = sitofp i32 %.0494.i.us to float
-  br label %996
+  %993 = sitofp i32 %.0495.i.us to float
+  %994 = sitofp i32 %.0494.i.us to float
+  br label %995
 
-996:                                              ; preds = %_ZL13distancePtSegiiiiii.exit.i.us, %.lr.ph574.i.us
+995:                                              ; preds = %_ZL13distancePtSegiiiiii.exit.i.us, %.lr.ph574.i.us
   %.0306572.i.us = phi float [ 0.000000e+00, %.lr.ph574.i.us ], [ %.1307.i.us, %_ZL13distancePtSegiiiiii.exit.i.us ]
   %.0311571.i.us = phi i32 [ -1, %.lr.ph574.i.us ], [ %.1312.i.us, %_ZL13distancePtSegiiiiii.exit.i.us ]
   %.1315570.i.us = phi i32 [ %.0314.i.us, %.lr.ph574.i.us ], [ %1041, %_ZL13distancePtSegiiiiii.exit.i.us ]
-  %997 = shl nsw i32 %.1315570.i.us, 2
-  %998 = sext i32 %997 to i64
-  %999 = invoke noundef ptr @_Z21rcAssertFailGetCustomv()
+  %996 = shl nsw i32 %.1315570.i.us, 2
+  %997 = sext i32 %996 to i64
+  %998 = invoke noundef ptr @_Z21rcAssertFailGetCustomv()
           to label %.noexc432.us unwind label %.loopexit.split-lp767.loopexit.split-lp.loopexit.split-lp.loopexit.split.us
 
-.noexc432.us:                                     ; preds = %996
-  %1000 = icmp eq ptr %999, null
-  br i1 %1000, label %_ZN10rcIntArrayixEi.exit393.i.us, label %1001
+.noexc432.us:                                     ; preds = %995
+  %999 = icmp eq ptr %998, null
+  br i1 %999, label %_ZN10rcIntArrayixEi.exit393.i.us, label %1000
 
-1001:                                             ; preds = %.noexc432.us
-  %1002 = icmp sgt i32 %.1315570.i.us, -1
-  %1003 = load i64, ptr %22, align 8
-  %1004 = icmp sgt i64 %1003, %998
-  %or.cond.i.i392.i.us = select i1 %1002, i1 %1004, i1 false
-  br i1 %or.cond.i.i392.i.us, label %_ZN10rcIntArrayixEi.exit393.i.us, label %1005
+1000:                                             ; preds = %.noexc432.us
+  %1001 = icmp sgt i32 %.1315570.i.us, -1
+  %1002 = load i64, ptr %22, align 8
+  %1003 = icmp sgt i64 %1002, %997
+  %or.cond.i.i392.i.us = select i1 %1001, i1 %1003, i1 false
+  br i1 %or.cond.i.i392.i.us, label %_ZN10rcIntArrayixEi.exit393.i.us, label %1004
 
-1005:                                             ; preds = %1001
-  invoke void %999(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.12, i32 noundef 150)
+1004:                                             ; preds = %1000
+  invoke void %998(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.12, i32 noundef 150)
           to label %_ZN10rcIntArrayixEi.exit393.i.us unwind label %.loopexit.split-lp767.loopexit.split-lp.loopexit.split-lp.loopexit.split.us
 
-_ZN10rcIntArrayixEi.exit393.i.us:                 ; preds = %1005, %1001, %.noexc432.us
-  %1006 = load ptr, ptr %194, align 8
-  %1007 = getelementptr inbounds i32, ptr %1006, i64 %998
-  %1008 = load i32, ptr %1007, align 4
-  %1009 = or disjoint i32 %997, 2
-  %1010 = sext i32 %1009 to i64
-  %1011 = invoke noundef ptr @_Z21rcAssertFailGetCustomv()
+_ZN10rcIntArrayixEi.exit393.i.us:                 ; preds = %1004, %1000, %.noexc432.us
+  %1005 = load ptr, ptr %194, align 8
+  %1006 = getelementptr inbounds i32, ptr %1005, i64 %997
+  %1007 = load i32, ptr %1006, align 4
+  %1008 = or disjoint i32 %996, 2
+  %1009 = sext i32 %1008 to i64
+  %1010 = invoke noundef ptr @_Z21rcAssertFailGetCustomv()
           to label %.noexc434.us unwind label %.loopexit.split-lp767.loopexit.split-lp.loopexit.split-lp.loopexit.split.us
 
 .noexc434.us:                                     ; preds = %_ZN10rcIntArrayixEi.exit393.i.us
-  %1012 = icmp eq ptr %1011, null
-  br i1 %1012, label %_ZN10rcIntArrayixEi.exit395.i.us, label %1013
+  %1011 = icmp eq ptr %1010, null
+  br i1 %1011, label %_ZN10rcIntArrayixEi.exit395.i.us, label %1012
 
-1013:                                             ; preds = %.noexc434.us
-  %1014 = icmp sgt i32 %1009, -1
-  %1015 = load i64, ptr %22, align 8
-  %1016 = icmp sgt i64 %1015, %1010
-  %or.cond.i.i394.i.us = select i1 %1014, i1 %1016, i1 false
-  br i1 %or.cond.i.i394.i.us, label %_ZN10rcIntArrayixEi.exit395.i.us, label %1017
+1012:                                             ; preds = %.noexc434.us
+  %1013 = icmp sgt i32 %1008, -1
+  %1014 = load i64, ptr %22, align 8
+  %1015 = icmp sgt i64 %1014, %1009
+  %or.cond.i.i394.i.us = select i1 %1013, i1 %1015, i1 false
+  br i1 %or.cond.i.i394.i.us, label %_ZN10rcIntArrayixEi.exit395.i.us, label %1016
 
-1017:                                             ; preds = %1013
-  invoke void %1011(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.12, i32 noundef 150)
+1016:                                             ; preds = %1012
+  invoke void %1010(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.12, i32 noundef 150)
           to label %_ZN10rcIntArrayixEi.exit395.i.us unwind label %.loopexit.split-lp767.loopexit.split-lp.loopexit.split-lp.loopexit.split.us
 
-_ZN10rcIntArrayixEi.exit395.i.us:                 ; preds = %1017, %1013, %.noexc434.us
-  %1018 = load ptr, ptr %194, align 8
-  %1019 = getelementptr inbounds i32, ptr %1018, i64 %1010
-  %1020 = load i32, ptr %1019, align 4
-  %1021 = sub nsw i32 %1008, %.0495.i.us
-  %1022 = sitofp i32 %1021 to float
-  %1023 = sub nsw i32 %1020, %.0494.i.us
-  %1024 = sitofp i32 %1023 to float
-  %1025 = fmul float %989, %1024
-  %1026 = call float @llvm.fmuladd.f32(float %987, float %1022, float %1025)
-  %.0.i.i.us = fdiv float %1026, %993
+_ZN10rcIntArrayixEi.exit395.i.us:                 ; preds = %1016, %1012, %.noexc434.us
+  %1017 = load ptr, ptr %194, align 8
+  %1018 = getelementptr inbounds i32, ptr %1017, i64 %1009
+  %1019 = load i32, ptr %1018, align 4
+  %1020 = sub nsw i32 %1007, %.0495.i.us
+  %1021 = sitofp i32 %1020 to float
+  %1022 = sub nsw i32 %1019, %.0494.i.us
+  %1023 = sitofp i32 %1022 to float
+  %1024 = fmul float %989, %1023
+  %1025 = call float @llvm.fmuladd.f32(float %987, float %1021, float %1024)
+  %1026 = fdiv float %1025, %991
+  %.0.i.i.us = select i1 %992, float %1026, float %1025
   %1027 = fcmp olt float %.0.i.i.us, 0.000000e+00
   br i1 %1027, label %_ZL13distancePtSegiiiiii.exit.i.us, label %1028
 
@@ -2169,11 +2169,11 @@ _ZN10rcIntArrayixEi.exit395.i.us:                 ; preds = %1017, %1013, %.noex
 
 _ZL13distancePtSegiiiiii.exit.i.us:               ; preds = %1030, %1028, %_ZN10rcIntArrayixEi.exit395.i.us
   %.1.i.i364.us = phi float [ 1.000000e+00, %1030 ], [ %.0.i.i.us, %1028 ], [ 0.000000e+00, %_ZN10rcIntArrayixEi.exit395.i.us ]
-  %1031 = call float @llvm.fmuladd.f32(float %.1.i.i364.us, float %987, float %994)
-  %1032 = sitofp i32 %1008 to float
+  %1031 = call float @llvm.fmuladd.f32(float %.1.i.i364.us, float %987, float %993)
+  %1032 = sitofp i32 %1007 to float
   %1033 = fsub float %1031, %1032
-  %1034 = call float @llvm.fmuladd.f32(float %.1.i.i364.us, float %989, float %995)
-  %1035 = sitofp i32 %1020 to float
+  %1034 = call float @llvm.fmuladd.f32(float %.1.i.i364.us, float %989, float %994)
+  %1035 = sitofp i32 %1019 to float
   %1036 = fsub float %1034, %1035
   %1037 = fmul float %1036, %1036
   %1038 = call noundef float @llvm.fmuladd.f32(float %1033, float %1033, float %1037)
@@ -2183,7 +2183,7 @@ _ZL13distancePtSegiiiiii.exit.i.us:               ; preds = %1030, %1028, %_ZN10
   %1040 = add nsw i32 %.1315570.i.us, %.0317.i.us
   %1041 = srem i32 %1040, %868
   %.not340.i.us = icmp eq i32 %1041, %.0316.i.us
-  br i1 %.not340.i.us, label %._crit_edge575.i.us, label %996, !llvm.loop !17
+  br i1 %.not340.i.us, label %._crit_edge575.i.us, label %995, !llvm.loop !17
 
 ._crit_edge575.i.us:                              ; preds = %_ZL13distancePtSegiiiiii.exit.i.us
   %.not341.i.us = icmp ne i32 %.1312.i.us, -1
@@ -4133,7 +4133,7 @@ _ZL24removeDegenerateSegmentsR10rcIntArray.exit.us: ; preds = %_ZL6vequalPKiS0_.
           cleanup
   br label %_ZN14rcScopedDeleteIaED2Ev.exit574
 
-.loopexit.split-lp767.loopexit.split-lp.loopexit.split-lp.loopexit.split.us: ; preds = %1017, %_ZN10rcIntArrayixEi.exit393.i.us, %1005, %996
+.loopexit.split-lp767.loopexit.split-lp.loopexit.split-lp.loopexit.split.us: ; preds = %1016, %_ZN10rcIntArrayixEi.exit393.i.us, %1004, %995
   %lpad.loopexit775.us = landingpad { ptr, i32 }
           cleanup
   br label %_ZN14rcScopedDeleteIaED2Ev.exit574

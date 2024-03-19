@@ -7830,23 +7830,26 @@ _ZN3vcg9NormalizeIfEERNS_6Point3IT_EES4_.exit:    ; preds = %_ZN3vcg9NormalizeIf
   %100 = tail call float @llvm.fmuladd.f32(float %90, float %90, float %99)
   %sqrt.i.i = tail call float @llvm.sqrt.f32(float %100)
   %101 = fcmp ogt float %sqrt.i.i, 0.000000e+00
-  %102 = select i1 %101, float %sqrt.i.i, float 1.000000e+00
-  %.sroa.7.0 = fdiv float %90, %102
-  %103 = insertelement <2 x float> poison, float %102, i64 0
-  %104 = shufflevector <2 x float> %103, <2 x float> poison, <2 x i32> zeroinitializer
-  %105 = fdiv <2 x float> %95, %104
-  store <2 x float> %105, ptr %94, align 4
+  %102 = insertelement <2 x float> poison, float %sqrt.i.i, i64 0
+  %103 = shufflevector <2 x float> %102, <2 x float> poison, <2 x i32> zeroinitializer
+  %104 = fdiv <2 x float> %95, %103
+  %105 = fdiv float %90, %sqrt.i.i
+  %.sroa.7.0 = select i1 %101, float %105, float %90
+  %106 = insertelement <2 x i1> poison, i1 %101, i64 0
+  %107 = shufflevector <2 x i1> %106, <2 x i1> poison, <2 x i32> zeroinitializer
+  %108 = select <2 x i1> %107, <2 x float> %104, <2 x float> %95
+  store <2 x float> %108, ptr %94, align 4
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %94, i64 8
   store float %.sroa.7.0, ptr %.sroa.7.0..sroa_idx, align 4
   %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
-  %106 = load i32, ptr %16, align 8
-  %107 = sext i32 %106 to i64
-  %108 = icmp slt i64 %indvars.iv.next31, %107
-  br i1 %108, label %_ZN3vcg9NormalizeIfEERNS_6Point3IT_EES4_.exit, label %._crit_edge26, !llvm.loop !69
+  %109 = load i32, ptr %16, align 8
+  %110 = sext i32 %109 to i64
+  %111 = icmp slt i64 %indvars.iv.next31, %110
+  br i1 %111, label %_ZN3vcg9NormalizeIfEERNS_6Point3IT_EES4_.exit, label %._crit_edge26, !llvm.loop !69
 
 ._crit_edge26:                                    ; preds = %_ZN3vcg9NormalizeIfEERNS_6Point3IT_EES4_.exit, %_ZN3vcg3tri11UpdateColorI6CMeshOE20PerVertexQualityGrayERS2_ff.exit
-  %109 = load ptr, ptr @__glewBindFramebufferEXT, align 8
-  tail call void %109(i32 noundef 36160, i32 noundef 0)
+  %112 = load ptr, ptr @__glewBindFramebufferEXT, align 8
+  tail call void %112(i32 noundef 36160, i32 noundef 0)
   tail call void @_ZdaPv(ptr noundef nonnull %10) #25
   ret void
 }
@@ -8086,23 +8089,26 @@ _ZN3vcg9NormalizeIfEERNS_6Point3IT_EES4_.exit:    ; preds = %_ZN3vcg9NormalizeIf
   %136 = tail call float @llvm.fmuladd.f32(float %126, float %126, float %135)
   %sqrt.i.i = tail call float @llvm.sqrt.f32(float %136)
   %137 = fcmp ogt float %sqrt.i.i, 0.000000e+00
-  %138 = select i1 %137, float %sqrt.i.i, float 1.000000e+00
-  %.sroa.7.0 = fdiv float %126, %138
-  %139 = insertelement <2 x float> poison, float %138, i64 0
-  %140 = shufflevector <2 x float> %139, <2 x float> poison, <2 x i32> zeroinitializer
-  %141 = fdiv <2 x float> %131, %140
-  store <2 x float> %141, ptr %130, align 4
+  %138 = insertelement <2 x float> poison, float %sqrt.i.i, i64 0
+  %139 = shufflevector <2 x float> %138, <2 x float> poison, <2 x i32> zeroinitializer
+  %140 = fdiv <2 x float> %131, %139
+  %141 = fdiv float %126, %sqrt.i.i
+  %.sroa.7.0 = select i1 %137, float %141, float %126
+  %142 = insertelement <2 x i1> poison, i1 %137, i64 0
+  %143 = shufflevector <2 x i1> %142, <2 x i1> poison, <2 x i32> zeroinitializer
+  %144 = select <2 x i1> %143, <2 x float> %140, <2 x float> %131
+  store <2 x float> %144, ptr %130, align 4
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %130, i64 8
   store float %.sroa.7.0, ptr %.sroa.7.0..sroa_idx, align 4
   %indvars.iv.next29 = add nuw nsw i64 %indvars.iv28, 1
-  %142 = load i32, ptr %16, align 8
-  %143 = sext i32 %142 to i64
-  %144 = icmp slt i64 %indvars.iv.next29, %143
-  br i1 %144, label %_ZN3vcg9NormalizeIfEERNS_6Point3IT_EES4_.exit, label %._crit_edge25, !llvm.loop !74
+  %145 = load i32, ptr %16, align 8
+  %146 = sext i32 %145 to i64
+  %147 = icmp slt i64 %indvars.iv.next29, %146
+  br i1 %147, label %_ZN3vcg9NormalizeIfEERNS_6Point3IT_EES4_.exit, label %._crit_edge25, !llvm.loop !74
 
 ._crit_edge25:                                    ; preds = %_ZN3vcg9NormalizeIfEERNS_6Point3IT_EES4_.exit, %_ZN3vcg3tri11UpdateColorI6CMeshOE18PerFaceQualityGrayERS2_ff.exit
-  %145 = load ptr, ptr @__glewBindFramebufferEXT, align 8
-  tail call void %145(i32 noundef 36160, i32 noundef 0)
+  %148 = load ptr, ptr @__glewBindFramebufferEXT, align 8
+  tail call void %148(i32 noundef 36160, i32 noundef 0)
   tail call void @_ZdaPv(ptr noundef nonnull %10) #25
   ret void
 }
@@ -8196,23 +8202,26 @@ _ZN3vcg9NormalizeIfEERNS_6Point3IT_EES4_.exit:    ; preds = %_ZN3vcg9NormalizeIf
   %60 = tail call float @llvm.fmuladd.f32(float %50, float %50, float %59)
   %sqrt.i.i = tail call float @llvm.sqrt.f32(float %60)
   %61 = fcmp ogt float %sqrt.i.i, 0.000000e+00
-  %62 = select i1 %61, float %sqrt.i.i, float 1.000000e+00
-  %.sroa.7.0 = fdiv float %50, %62
-  %63 = insertelement <2 x float> poison, float %62, i64 0
-  %64 = shufflevector <2 x float> %63, <2 x float> poison, <2 x i32> zeroinitializer
-  %65 = fdiv <2 x float> %55, %64
-  store <2 x float> %65, ptr %54, align 4
+  %62 = insertelement <2 x float> poison, float %sqrt.i.i, i64 0
+  %63 = shufflevector <2 x float> %62, <2 x float> poison, <2 x i32> zeroinitializer
+  %64 = fdiv <2 x float> %55, %63
+  %65 = fdiv float %50, %sqrt.i.i
+  %.sroa.7.0 = select i1 %61, float %65, float %50
+  %66 = insertelement <2 x i1> poison, i1 %61, i64 0
+  %67 = shufflevector <2 x i1> %66, <2 x i1> poison, <2 x i32> zeroinitializer
+  %68 = select <2 x i1> %67, <2 x float> %64, <2 x float> %55
+  store <2 x float> %68, ptr %54, align 4
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %54, i64 8
   store float %.sroa.7.0, ptr %.sroa.7.0..sroa_idx, align 4
   %indvars.iv.next26 = add nuw nsw i64 %indvars.iv25, 1
-  %66 = load i32, ptr %15, align 8
-  %67 = sext i32 %66 to i64
-  %68 = icmp slt i64 %indvars.iv.next26, %67
-  br i1 %68, label %_ZN3vcg9NormalizeIfEERNS_6Point3IT_EES4_.exit, label %._crit_edge23, !llvm.loop !76
+  %69 = load i32, ptr %15, align 8
+  %70 = sext i32 %69 to i64
+  %71 = icmp slt i64 %indvars.iv.next26, %70
+  br i1 %71, label %_ZN3vcg9NormalizeIfEERNS_6Point3IT_EES4_.exit, label %._crit_edge23, !llvm.loop !76
 
 ._crit_edge23:                                    ; preds = %_ZN3vcg9NormalizeIfEERNS_6Point3IT_EES4_.exit, %._crit_edge
-  %69 = load ptr, ptr @__glewBindFramebufferEXT, align 8
-  tail call void %69(i32 noundef 36160, i32 noundef 0)
+  %72 = load ptr, ptr @__glewBindFramebufferEXT, align 8
+  tail call void %72(i32 noundef 36160, i32 noundef 0)
   tail call void @_ZdaPv(ptr noundef nonnull %9) #25
   ret void
 }
@@ -8315,23 +8324,26 @@ _ZN3vcg9NormalizeIfEERNS_6Point3IT_EES4_.exit:    ; preds = %_ZN3vcg9NormalizeIf
   %69 = tail call float @llvm.fmuladd.f32(float %59, float %59, float %68)
   %sqrt.i.i = tail call float @llvm.sqrt.f32(float %69)
   %70 = fcmp ogt float %sqrt.i.i, 0.000000e+00
-  %71 = select i1 %70, float %sqrt.i.i, float 1.000000e+00
-  %.sroa.7.0 = fdiv float %59, %71
-  %72 = insertelement <2 x float> poison, float %71, i64 0
-  %73 = shufflevector <2 x float> %72, <2 x float> poison, <2 x i32> zeroinitializer
-  %74 = fdiv <2 x float> %64, %73
-  store <2 x float> %74, ptr %63, align 4
+  %71 = insertelement <2 x float> poison, float %sqrt.i.i, i64 0
+  %72 = shufflevector <2 x float> %71, <2 x float> poison, <2 x i32> zeroinitializer
+  %73 = fdiv <2 x float> %64, %72
+  %74 = fdiv float %59, %sqrt.i.i
+  %.sroa.7.0 = select i1 %70, float %74, float %59
+  %75 = insertelement <2 x i1> poison, i1 %70, i64 0
+  %76 = shufflevector <2 x i1> %75, <2 x i1> poison, <2 x i32> zeroinitializer
+  %77 = select <2 x i1> %76, <2 x float> %73, <2 x float> %64
+  store <2 x float> %77, ptr %63, align 4
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %63, i64 8
   store float %.sroa.7.0, ptr %.sroa.7.0..sroa_idx, align 4
   %indvars.iv.next26 = add nuw nsw i64 %indvars.iv25, 1
-  %75 = load i32, ptr %15, align 8
-  %76 = sext i32 %75 to i64
-  %77 = icmp slt i64 %indvars.iv.next26, %76
-  br i1 %77, label %_ZN3vcg9NormalizeIfEERNS_6Point3IT_EES4_.exit, label %._crit_edge23, !llvm.loop !78
+  %78 = load i32, ptr %15, align 8
+  %79 = sext i32 %78 to i64
+  %80 = icmp slt i64 %indvars.iv.next26, %79
+  br i1 %80, label %_ZN3vcg9NormalizeIfEERNS_6Point3IT_EES4_.exit, label %._crit_edge23, !llvm.loop !78
 
 ._crit_edge23:                                    ; preds = %_ZN3vcg9NormalizeIfEERNS_6Point3IT_EES4_.exit, %._crit_edge
-  %78 = load ptr, ptr @__glewBindFramebufferEXT, align 8
-  tail call void %78(i32 noundef 36160, i32 noundef 0)
+  %81 = load ptr, ptr @__glewBindFramebufferEXT, align 8
+  tail call void %81(i32 noundef 36160, i32 noundef 0)
   tail call void @_ZdaPv(ptr noundef nonnull %9) #25
   ret void
 }

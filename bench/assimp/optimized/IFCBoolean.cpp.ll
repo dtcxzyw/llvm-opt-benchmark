@@ -4766,10 +4766,12 @@ invoke.cont494:                                   ; preds = %if.then457, %cond.e
   %sqrt.i.i904 = call noundef double @llvm.sqrt.f64(double %471)
   %cmp.i905 = fcmp oeq double %sqrt.i.i904, 0.000000e+00
   %div.i.i907 = fdiv double 1.000000e+00, %sqrt.i.i904
-  %mul.i.i908 = select i1 %cmp.i905, double 1.000000e+00, double %div.i.i907
-  %ref.tmp491.sroa.0.0 = fmul double %464, %mul.i.i908
-  %ref.tmp491.sroa.4.0 = fmul double %467, %mul.i.i908
-  %ref.tmp491.sroa.7.0 = fmul double %469, %mul.i.i908
+  %mul.i.i908 = fmul double %464, %div.i.i907
+  %mul2.i.i909 = fmul double %467, %div.i.i907
+  %mul3.i.i910 = fmul double %469, %div.i.i907
+  %ref.tmp491.sroa.0.0 = select i1 %cmp.i905, double %464, double %mul.i.i908
+  %ref.tmp491.sroa.4.0 = select i1 %cmp.i905, double %467, double %mul2.i.i909
+  %ref.tmp491.sroa.7.0 = select i1 %cmp.i905, double %469, double %mul3.i.i910
   %472 = fneg double %ref.tmp491.sroa.7.0
   %neg.i916 = fmul double %367, %472
   %473 = call double @llvm.fmuladd.f64(double %ref.tmp491.sroa.4.0, double %369, double %neg.i916)
@@ -4785,10 +4787,12 @@ invoke.cont494:                                   ; preds = %if.then457, %cond.e
   %sqrt.i.i924 = call noundef double @llvm.sqrt.f64(double %479)
   %cmp.i925 = fcmp oeq double %sqrt.i.i924, 0.000000e+00
   %div.i.i927 = fdiv double 1.000000e+00, %sqrt.i.i924
-  %mul.i.i928 = select i1 %cmp.i925, double 1.000000e+00, double %div.i.i927
-  %ref.tmp497.sroa.0.0 = fmul double %473, %mul.i.i928
-  %ref.tmp497.sroa.4.0 = fmul double %475, %mul.i.i928
-  %ref.tmp497.sroa.8.0 = fmul double %477, %mul.i.i928
+  %mul.i.i928 = fmul double %473, %div.i.i927
+  %mul2.i.i929 = fmul double %475, %div.i.i927
+  %mul3.i.i930 = fmul double %477, %div.i.i927
+  %ref.tmp497.sroa.0.0 = select i1 %cmp.i925, double %473, double %mul.i.i928
+  %ref.tmp497.sroa.4.0 = select i1 %cmp.i925, double %475, double %mul2.i.i929
+  %ref.tmp497.sroa.8.0 = select i1 %cmp.i925, double %477, double %mul3.i.i930
   %mul.i932 = fmul double %cond502, %ref.tmp497.sroa.0.0
   %mul1.i934 = fmul double %cond502, %ref.tmp497.sroa.4.0
   %mul2.i936 = fmul double %cond502, %ref.tmp497.sroa.8.0
@@ -7444,7 +7448,7 @@ if.end109:                                        ; preds = %if.then.i.i.i.i.i46
 ; Function Attrs: noreturn
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #10
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #13
 
 declare void @__cxa_bad_cast() local_unnamed_addr
@@ -9491,7 +9495,7 @@ attributes #9 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-m
 attributes #10 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nofree nounwind memory(read) }
+attributes #13 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #15 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }

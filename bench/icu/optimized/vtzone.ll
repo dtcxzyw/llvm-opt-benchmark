@@ -4581,8 +4581,8 @@ if.end53:                                         ; preds = %do.end
   %conv59 = sitofp i32 %add58 to double
   %add60 = fadd double %mul, %conv59
   %conv63 = sitofp i32 %offset to double
-  %sub64 = select i1 %cmp9.not, double 0.000000e+00, double %conv63
-  %time.0 = fsub double %add60, %sub64
+  %sub64 = fsub double %add60, %conv63
+  %time.0 = select i1 %cmp9.not, double %add60, double %sub64
   br label %return
 
 return:                                           ; preds = %entry, %if.end53, %if.then52
@@ -5522,7 +5522,7 @@ declare void @_ZN6icu_7519InitialTimeZoneRuleC1ERKNS_13UnicodeStringEii(ptr noun
 
 declare void @_ZN6icu_7517RuleBasedTimeZoneC1ERKNS_13UnicodeStringEPNS_19InitialTimeZoneRuleE(ptr noundef nonnull align 8 dereferenceable(105), ptr noundef nonnull align 8 dereferenceable(64), ptr noundef) unnamed_addr #4
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #9
 
 declare noundef i32 @_ZNK6icu_7518AnnualTimeZoneRule10getEndYearEv(ptr noundef nonnull align 8 dereferenceable(96)) local_unnamed_addr #4
@@ -6452,7 +6452,7 @@ do.body:                                          ; preds = %do.body, %if.end4
   %number.2 = phi i64 [ %div, %do.body ], [ %spec.select, %if.end4 ]
   %rem = urem i64 %number.2, 10
   %conv8 = trunc i64 %rem to i32
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %arrayidx = getelementptr inbounds [20 x i32], ptr %digits, i64 0, i64 %indvars.iv
   store i32 %conv8, ptr %arrayidx, align 4
   %div = udiv i64 %number.2, 10
@@ -6924,7 +6924,7 @@ do.body.i:                                        ; preds = %do.body.i, %_ZN6icu
   %indvars.iv27.i = phi i64 [ %indvars.iv.next28.i, %do.body.i ], [ 0, %_ZN6icu_759VTZWriter5writeEPKDs.exit ]
   %number.addr.1.i = phi i32 [ %div.i, %do.body.i ], [ %spec.select.i, %_ZN6icu_759VTZWriter5writeEPKDs.exit ]
   %rem.i = urem i32 %number.addr.1.i, 10
-  %indvars.iv.next28.i = add nuw i64 %indvars.iv27.i, 1
+  %indvars.iv.next28.i = add nuw nsw i64 %indvars.iv27.i, 1
   %arrayidx.i = getelementptr inbounds [10 x i32], ptr %digits.i, i64 0, i64 %indvars.iv27.i
   store i32 %rem.i, ptr %arrayidx.i, align 4
   %div.i = udiv i32 %number.addr.1.i, 10
@@ -8302,7 +8302,7 @@ do.body.i:                                        ; preds = %do.body.i, %_ZN6icu
   %indvars.iv27.i = phi i64 [ %indvars.iv.next28.i, %do.body.i ], [ 0, %_ZN6icu_759VTZWriter5writeEPKDs.exit ]
   %number.addr.1.i = phi i32 [ %div.i, %do.body.i ], [ %spec.select.i, %_ZN6icu_759VTZWriter5writeEPKDs.exit ]
   %rem.i = urem i32 %number.addr.1.i, 10
-  %indvars.iv.next28.i = add nuw i64 %indvars.iv27.i, 1
+  %indvars.iv.next28.i = add nuw nsw i64 %indvars.iv27.i, 1
   %arrayidx.i = getelementptr inbounds [10 x i32], ptr %digits.i, i64 0, i64 %indvars.iv27.i
   store i32 %rem.i, ptr %arrayidx.i, align 4
   %div.i = udiv i32 %number.addr.1.i, 10
@@ -8525,7 +8525,7 @@ do.body.i:                                        ; preds = %do.body.i, %invoke.
   %indvars.iv27.i = phi i64 [ %indvars.iv.next28.i, %do.body.i ], [ 0, %invoke.cont8 ]
   %number.addr.1.i = phi i32 [ %div.i, %do.body.i ], [ %spec.select.i, %invoke.cont8 ]
   %rem.i = urem i32 %number.addr.1.i, 10
-  %indvars.iv.next28.i = add nuw i64 %indvars.iv27.i, 1
+  %indvars.iv.next28.i = add nuw nsw i64 %indvars.iv27.i, 1
   %arrayidx.i = getelementptr inbounds [10 x i32], ptr %digits.i, i64 0, i64 %indvars.iv27.i
   store i32 %rem.i, ptr %arrayidx.i, align 4
   %div.i = udiv i32 %number.addr.1.i, 10
@@ -8876,7 +8876,7 @@ do.body.i:                                        ; preds = %do.body.i, %_ZN6icu
   %indvars.iv27.i = phi i64 [ %indvars.iv.next28.i, %do.body.i ], [ 0, %_ZN6icu_759VTZWriter5writeEPKDs.exit33 ]
   %number.addr.1.i = phi i32 [ %div.i, %do.body.i ], [ %spec.select.i, %_ZN6icu_759VTZWriter5writeEPKDs.exit33 ]
   %rem.i = urem i32 %number.addr.1.i, 10
-  %indvars.iv.next28.i = add nuw i64 %indvars.iv27.i, 1
+  %indvars.iv.next28.i = add nuw nsw i64 %indvars.iv27.i, 1
   %arrayidx.i = getelementptr inbounds [10 x i32], ptr %digits.i, i64 0, i64 %indvars.iv27.i
   store i32 %rem.i, ptr %arrayidx.i, align 4
   %div.i = udiv i32 %number.addr.1.i, 10
@@ -8961,7 +8961,7 @@ do.body.i50:                                      ; preds = %do.body.i50, %invok
   %indvars.iv27.i51 = phi i64 [ %indvars.iv.next28.i54, %do.body.i50 ], [ 0, %invoke.cont17 ]
   %number.addr.1.i52 = phi i32 [ %div.i56, %do.body.i50 ], [ %spec.select.i49, %invoke.cont17 ]
   %rem.i53 = urem i32 %number.addr.1.i52, 10
-  %indvars.iv.next28.i54 = add nuw i64 %indvars.iv27.i51, 1
+  %indvars.iv.next28.i54 = add nuw nsw i64 %indvars.iv27.i51, 1
   %arrayidx.i55 = getelementptr inbounds [10 x i32], ptr %digits.i47, i64 0, i64 %indvars.iv27.i51
   store i32 %rem.i53, ptr %arrayidx.i55, align 4
   %div.i56 = udiv i32 %number.addr.1.i52, 10
@@ -9156,10 +9156,10 @@ declare noundef i32 @_ZNK6icu_7512DateTimeRule16getRuleDayOfWeekEv(ptr noundef n
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZN6icu_75L14millisToOffsetEiRNS_13UnicodeStringE(i32 noundef %millis, ptr noundef nonnull align 8 dereferenceable(64) %str) unnamed_addr #2 {
 entry:
-  %srcChar.addr.i20.i39 = alloca i16, align 2
-  %digits.i41 = alloca [10 x i32], align 16
+  %srcChar.addr.i20.i34 = alloca i16, align 2
+  %digits.i35 = alloca [10 x i32], align 16
   %srcChar.addr.i20.i14 = alloca i16, align 2
-  %digits.i16 = alloca [10 x i32], align 16
+  %digits.i15 = alloca [10 x i32], align 16
   %srcChar.addr.i20.i = alloca i16, align 2
   %digits.i = alloca [10 x i32], align 16
   %srcChar.addr.i12 = alloca i16, align 2
@@ -9191,17 +9191,17 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.else, %if.then
   %millis.addr.0 = phi i32 [ %millis, %if.then ], [ %sub, %if.else ]
-  %div64 = udiv i32 %millis.addr.0, 1000
-  %div466 = udiv i32 %millis.addr.0, 60000
-  %rem567.lhs.trunc = trunc i32 %div466 to i16
-  %rem56768 = urem i16 %rem567.lhs.trunc, 60
-  %div669 = udiv i32 %millis.addr.0, 3600000
+  %div = udiv i32 %millis.addr.0, 1000
+  %div4 = udiv i32 %millis.addr.0, 60000
+  %rem5.lhs.trunc = trunc i32 %div4 to i16
+  %rem554 = urem i16 %rem5.lhs.trunc, 60
+  %div6 = udiv i32 %millis.addr.0, 3600000
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %digits.i)
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %if.end
   %indvars.iv.i = phi i64 [ 0, %if.end ], [ %indvars.iv.next.i, %for.body.i ]
-  %number.addr.222.i = phi i32 [ %div669, %if.end ], [ %div14.i, %for.body.i ]
+  %number.addr.222.i = phi i32 [ %div6, %if.end ], [ %div14.i, %for.body.i ]
   %rem11.i = urem i32 %number.addr.222.i, 10
   %arrayidx13.i = getelementptr inbounds [10 x i32], ptr %digits.i, i64 0, i64 %indvars.iv.i
   store i32 %rem11.i, ptr %arrayidx13.i, align 4
@@ -9211,7 +9211,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.end
   br i1 %exitcond.not.i, label %for.body22.i.preheader, label %for.body.i, !llvm.loop !32
 
 for.body22.i.preheader:                           ; preds = %for.body.i
-  %rem65 = urem i32 %div64, 60
+  %rem = urem i32 %div, 60
   br label %for.body22.i
 
 for.body22.i:                                     ; preds = %for.body22.i.preheader, %for.body22.i
@@ -9229,68 +9229,68 @@ for.body22.i:                                     ; preds = %for.body22.i.prehea
   br i1 %cmp21.i, label %for.body22.i, label %_ZN6icu_75L17appendAsciiDigitsEihRNS_13UnicodeStringE.exit, !llvm.loop !31
 
 _ZN6icu_75L17appendAsciiDigitsEihRNS_13UnicodeStringE.exit: ; preds = %for.body22.i
-  %rem567.zext = zext nneg i16 %rem56768 to i32
+  %rem5.zext = zext nneg i16 %rem554 to i32
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %digits.i)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %digits.i16)
-  br label %for.body.i19
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %digits.i15)
+  br label %for.body.i17
 
-for.body.i19:                                     ; preds = %for.body.i19, %_ZN6icu_75L17appendAsciiDigitsEihRNS_13UnicodeStringE.exit
-  %indvars.iv.i20 = phi i64 [ 0, %_ZN6icu_75L17appendAsciiDigitsEihRNS_13UnicodeStringE.exit ], [ %indvars.iv.next.i25, %for.body.i19 ]
-  %number.addr.222.i21 = phi i32 [ %rem567.zext, %_ZN6icu_75L17appendAsciiDigitsEihRNS_13UnicodeStringE.exit ], [ %div14.i24, %for.body.i19 ]
-  %rem11.i22 = urem i32 %number.addr.222.i21, 10
-  %arrayidx13.i23 = getelementptr inbounds [10 x i32], ptr %digits.i16, i64 0, i64 %indvars.iv.i20
-  store i32 %rem11.i22, ptr %arrayidx13.i23, align 4
-  %div14.i24 = udiv i32 %number.addr.222.i21, 10
-  %indvars.iv.next.i25 = add nuw nsw i64 %indvars.iv.i20, 1
-  %exitcond.not.i26 = icmp eq i64 %indvars.iv.next.i25, 2
-  br i1 %exitcond.not.i26, label %for.body22.i31, label %for.body.i19, !llvm.loop !32
+for.body.i17:                                     ; preds = %for.body.i17, %_ZN6icu_75L17appendAsciiDigitsEihRNS_13UnicodeStringE.exit
+  %indvars.iv.i18 = phi i64 [ 0, %_ZN6icu_75L17appendAsciiDigitsEihRNS_13UnicodeStringE.exit ], [ %indvars.iv.next.i23, %for.body.i17 ]
+  %number.addr.222.i19 = phi i32 [ %rem5.zext, %_ZN6icu_75L17appendAsciiDigitsEihRNS_13UnicodeStringE.exit ], [ %div14.i22, %for.body.i17 ]
+  %rem11.i20 = urem i32 %number.addr.222.i19, 10
+  %arrayidx13.i21 = getelementptr inbounds [10 x i32], ptr %digits.i15, i64 0, i64 %indvars.iv.i18
+  store i32 %rem11.i20, ptr %arrayidx13.i21, align 4
+  %div14.i22 = udiv i32 %number.addr.222.i19, 10
+  %indvars.iv.next.i23 = add nuw nsw i64 %indvars.iv.i18, 1
+  %exitcond.not.i24 = icmp eq i64 %indvars.iv.next.i23, 2
+  br i1 %exitcond.not.i24, label %for.body22.i26, label %for.body.i17, !llvm.loop !32
 
-for.body22.i31:                                   ; preds = %for.body.i19, %for.body22.i31
-  %indvars.iv30.i32 = phi i64 [ %indvars.iv.next31.i33, %for.body22.i31 ], [ 2, %for.body.i19 ]
-  %indvars.iv.next31.i33 = add nsw i64 %indvars.iv30.i32, -1
-  %arrayidx24.i34 = getelementptr inbounds [10 x i32], ptr %digits.i16, i64 0, i64 %indvars.iv.next31.i33
-  %4 = load i32, ptr %arrayidx24.i34, align 4
+for.body22.i26:                                   ; preds = %for.body.i17, %for.body22.i26
+  %indvars.iv30.i27 = phi i64 [ %indvars.iv.next31.i28, %for.body22.i26 ], [ 2, %for.body.i17 ]
+  %indvars.iv.next31.i28 = add nsw i64 %indvars.iv30.i27, -1
+  %arrayidx24.i29 = getelementptr inbounds [10 x i32], ptr %digits.i15, i64 0, i64 %indvars.iv.next31.i28
+  %4 = load i32, ptr %arrayidx24.i29, align 4
   %5 = trunc i32 %4 to i16
-  %conv25.i35 = add i16 %5, 48
+  %conv25.i30 = add i16 %5, 48
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %srcChar.addr.i20.i14)
-  store i16 %conv25.i35, ptr %srcChar.addr.i20.i14, align 2
-  %call.i21.i36 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %str, ptr noundef nonnull %srcChar.addr.i20.i14, i32 noundef 0, i32 noundef 1)
+  store i16 %conv25.i30, ptr %srcChar.addr.i20.i14, align 2
+  %call.i21.i31 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %str, ptr noundef nonnull %srcChar.addr.i20.i14, i32 noundef 0, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %srcChar.addr.i20.i14)
-  %cmp21.i37 = icmp ugt i64 %indvars.iv30.i32, 1
-  br i1 %cmp21.i37, label %for.body22.i31, label %_ZN6icu_75L17appendAsciiDigitsEihRNS_13UnicodeStringE.exit38, !llvm.loop !31
+  %cmp21.i32 = icmp ugt i64 %indvars.iv30.i27, 1
+  br i1 %cmp21.i32, label %for.body22.i26, label %_ZN6icu_75L17appendAsciiDigitsEihRNS_13UnicodeStringE.exit33, !llvm.loop !31
 
-_ZN6icu_75L17appendAsciiDigitsEihRNS_13UnicodeStringE.exit38: ; preds = %for.body22.i31
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %digits.i16)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %digits.i41)
-  br label %for.body.i44
+_ZN6icu_75L17appendAsciiDigitsEihRNS_13UnicodeStringE.exit33: ; preds = %for.body22.i26
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %digits.i15)
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %digits.i35)
+  br label %for.body.i37
 
-for.body.i44:                                     ; preds = %for.body.i44, %_ZN6icu_75L17appendAsciiDigitsEihRNS_13UnicodeStringE.exit38
-  %indvars.iv.i45 = phi i64 [ 0, %_ZN6icu_75L17appendAsciiDigitsEihRNS_13UnicodeStringE.exit38 ], [ %indvars.iv.next.i50, %for.body.i44 ]
-  %number.addr.222.i46 = phi i32 [ %rem65, %_ZN6icu_75L17appendAsciiDigitsEihRNS_13UnicodeStringE.exit38 ], [ %div14.i49, %for.body.i44 ]
-  %rem11.i47 = urem i32 %number.addr.222.i46, 10
-  %arrayidx13.i48 = getelementptr inbounds [10 x i32], ptr %digits.i41, i64 0, i64 %indvars.iv.i45
-  store i32 %rem11.i47, ptr %arrayidx13.i48, align 4
-  %div14.i49 = udiv i32 %number.addr.222.i46, 10
-  %indvars.iv.next.i50 = add nuw nsw i64 %indvars.iv.i45, 1
-  %exitcond.not.i51 = icmp eq i64 %indvars.iv.next.i50, 2
-  br i1 %exitcond.not.i51, label %for.body22.i56, label %for.body.i44, !llvm.loop !32
+for.body.i37:                                     ; preds = %for.body.i37, %_ZN6icu_75L17appendAsciiDigitsEihRNS_13UnicodeStringE.exit33
+  %indvars.iv.i38 = phi i64 [ 0, %_ZN6icu_75L17appendAsciiDigitsEihRNS_13UnicodeStringE.exit33 ], [ %indvars.iv.next.i43, %for.body.i37 ]
+  %number.addr.222.i39 = phi i32 [ %rem, %_ZN6icu_75L17appendAsciiDigitsEihRNS_13UnicodeStringE.exit33 ], [ %div14.i42, %for.body.i37 ]
+  %rem11.i40 = urem i32 %number.addr.222.i39, 10
+  %arrayidx13.i41 = getelementptr inbounds [10 x i32], ptr %digits.i35, i64 0, i64 %indvars.iv.i38
+  store i32 %rem11.i40, ptr %arrayidx13.i41, align 4
+  %div14.i42 = udiv i32 %number.addr.222.i39, 10
+  %indvars.iv.next.i43 = add nuw nsw i64 %indvars.iv.i38, 1
+  %exitcond.not.i44 = icmp eq i64 %indvars.iv.next.i43, 2
+  br i1 %exitcond.not.i44, label %for.body22.i46, label %for.body.i37, !llvm.loop !32
 
-for.body22.i56:                                   ; preds = %for.body.i44, %for.body22.i56
-  %indvars.iv30.i57 = phi i64 [ %indvars.iv.next31.i58, %for.body22.i56 ], [ 2, %for.body.i44 ]
-  %indvars.iv.next31.i58 = add nsw i64 %indvars.iv30.i57, -1
-  %arrayidx24.i59 = getelementptr inbounds [10 x i32], ptr %digits.i41, i64 0, i64 %indvars.iv.next31.i58
-  %6 = load i32, ptr %arrayidx24.i59, align 4
+for.body22.i46:                                   ; preds = %for.body.i37, %for.body22.i46
+  %indvars.iv30.i47 = phi i64 [ %indvars.iv.next31.i48, %for.body22.i46 ], [ 2, %for.body.i37 ]
+  %indvars.iv.next31.i48 = add nsw i64 %indvars.iv30.i47, -1
+  %arrayidx24.i49 = getelementptr inbounds [10 x i32], ptr %digits.i35, i64 0, i64 %indvars.iv.next31.i48
+  %6 = load i32, ptr %arrayidx24.i49, align 4
   %7 = trunc i32 %6 to i16
-  %conv25.i60 = add i16 %7, 48
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %srcChar.addr.i20.i39)
-  store i16 %conv25.i60, ptr %srcChar.addr.i20.i39, align 2
-  %call.i21.i61 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %str, ptr noundef nonnull %srcChar.addr.i20.i39, i32 noundef 0, i32 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %srcChar.addr.i20.i39)
-  %cmp21.i62 = icmp ugt i64 %indvars.iv30.i57, 1
-  br i1 %cmp21.i62, label %for.body22.i56, label %_ZN6icu_75L17appendAsciiDigitsEihRNS_13UnicodeStringE.exit63, !llvm.loop !31
+  %conv25.i50 = add i16 %7, 48
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %srcChar.addr.i20.i34)
+  store i16 %conv25.i50, ptr %srcChar.addr.i20.i34, align 2
+  %call.i21.i51 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %str, ptr noundef nonnull %srcChar.addr.i20.i34, i32 noundef 0, i32 noundef 1)
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %srcChar.addr.i20.i34)
+  %cmp21.i52 = icmp ugt i64 %indvars.iv30.i47, 1
+  br i1 %cmp21.i52, label %for.body22.i46, label %_ZN6icu_75L17appendAsciiDigitsEihRNS_13UnicodeStringE.exit53, !llvm.loop !31
 
-_ZN6icu_75L17appendAsciiDigitsEihRNS_13UnicodeStringE.exit63: ; preds = %for.body22.i56
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %digits.i41)
+_ZN6icu_75L17appendAsciiDigitsEihRNS_13UnicodeStringE.exit53: ; preds = %for.body22.i46
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %digits.i35)
   ret void
 }
 
@@ -10146,7 +10146,7 @@ attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stac
 attributes #6 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree nounwind memory(read) }
+attributes #9 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #10 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }

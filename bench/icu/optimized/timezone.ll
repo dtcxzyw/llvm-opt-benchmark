@@ -1021,8 +1021,8 @@ if.end:                                           ; preds = %entry
   store i32 %call2, ptr %rawOffset, align 4
   %tobool3 = icmp eq i8 %local, 0
   %conv = sitofp i32 %call2 to double
-  %add = select i1 %tobool3, double %conv, double -0.000000e+00
-  %date.addr.0 = fadd double %add, %date
+  %add = fadd double %conv, %date
+  %date.addr.0 = select i1 %tobool3, double %add, double %date
   br label %for.cond
 
 for.cond:                                         ; preds = %if.end19, %if.end
@@ -2957,11 +2957,11 @@ delete.end174:                                    ; preds = %if.end162, %sw.bb16
   %cmp175 = icmp slt i32 %52, 24
   %53 = load i32, ptr %min, align 4
   %cmp177 = icmp slt i32 %53, 60
-  %or.cond44.not = select i1 %cmp175, i1 %cmp177, i1 false
+  %or.cond44.not146 = select i1 %cmp175, i1 %cmp177, i1 false
   %54 = load i32, ptr %sec, align 4
   %cmp179 = icmp slt i32 %54, 60
-  %or.cond45 = select i1 %or.cond44.not, i1 %cmp179, i1 false
-  %spec.select = zext i1 %or.cond45 to i8
+  %or.cond45.not = select i1 %or.cond44.not146, i1 %cmp179, i1 false
+  %spec.select = zext i1 %or.cond45.not to i8
   br label %cleanup
 
 cleanup:                                          ; preds = %delete.end174, %delete.notnull158, %delete.notnull72, %delete.notnull, %delete.notnull141, %delete.notnull114, %delete.notnull93

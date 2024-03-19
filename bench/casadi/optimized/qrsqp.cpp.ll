@@ -4379,9 +4379,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit252: ;
   %264 = getelementptr inbounds double, ptr %249, i64 %.02835.i
   %265 = load double, ptr %264, align 8
   %266 = call double @llvm.fabs.f64(double %265)
+  %267 = fadd double %.02934.i, %266
   %.132.i = select i1 %263, double %265, double %.03133.i
-  %267 = select i1 %263, double -0.000000e+00, double %266
-  %.130.i = fadd double %.02934.i, %267
+  %.130.i = select i1 %263, double %.02934.i, double %267
   %268 = add nsw i64 %.02835.i, 1
   %exitcond.not.i257 = icmp eq i64 %268, %259
   br i1 %exitcond.not.i257, label %._crit_edge.i.loopexit, label %.lr.ph.i256, !llvm.loop !17

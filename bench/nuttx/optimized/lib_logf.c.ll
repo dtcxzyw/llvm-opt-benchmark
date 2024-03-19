@@ -29,8 +29,8 @@ define float @logf(float noundef %0) local_unnamed_addr #0 {
   %.125 = select i1 %13, float %14, float %.02436
   %.1 = select i1 %13, i32 0, i32 %12
   %15 = fcmp ogt float %.125, 1.000000e+00
-  %16 = select i1 %15, float %.125, float 1.000000e+00
-  %.127 = fmul float %16, %11
+  %16 = fmul float %.125, %11
+  %.127 = select i1 %15, float %16, float %11
   %17 = fadd float %.03035, %.127
   %18 = fcmp ogt float %.2, %17
   %19 = fsub float %.03035, %.127

@@ -1198,31 +1198,31 @@ _ZL11isectRaySegPKfS0_S0_S0_Rf.exit.thread:       ; preds = %175, %163, %188, %1
   %.2.lcssa = phi float [ %.064.lcssa, %.preheader ], [ %.3, %_ZL11isectRaySegPKfS0_S0_S0_Rf.exit.thread ]
   %.not = icmp eq i32 %.067.lcssa, 0
   %193 = uitofp i32 %.067.lcssa to float
-  %194 = select i1 %.not, float 1.000000e+00, float %193
+  %194 = fdiv float %.065.lcssa, %193
+  %.166 = select i1 %.not, float %.065.lcssa, float %194
   %195 = getelementptr inbounds i8, ptr %0, i64 12
   %196 = getelementptr inbounds i8, ptr %0, i64 28
   %197 = load float, ptr %196, align 4
   %198 = tail call float @llvm.fmuladd.f32(float %.2.lcssa, float %197, float 0x3FB99999A0000000)
-  %199 = load <2 x float>, ptr %195, align 4
-  %200 = insertelement <2 x float> <float poison, float 1.000000e+00>, float %.065.lcssa, i64 0
-  %201 = insertelement <2 x float> poison, float %194, i64 0
-  %202 = insertelement <2 x float> %201, float %198, i64 1
-  %203 = fdiv <2 x float> %200, %202
-  %204 = fmul <2 x float> %203, %199
-  %205 = fadd float %39, %41
-  %206 = extractelement <2 x float> %204, i64 0
-  %207 = fadd float %205, %206
-  %208 = extractelement <2 x float> %204, i64 1
-  %209 = fadd float %207, %208
+  %199 = fdiv float 1.000000e+00, %198
+  %200 = load <2 x float>, ptr %195, align 4
+  %201 = insertelement <2 x float> poison, float %.166, i64 0
+  %202 = insertelement <2 x float> %201, float %199, i64 1
+  %203 = fmul <2 x float> %202, %200
+  %204 = fadd float %39, %41
+  %205 = extractelement <2 x float> %203, i64 0
+  %206 = fadd float %204, %205
+  %207 = extractelement <2 x float> %203, i64 1
+  %208 = fadd float %206, %207
   %.not74 = icmp eq ptr %8, null
-  br i1 %.not74, label %.loopexit, label %210
+  br i1 %.not74, label %.loopexit, label %209
 
-210:                                              ; preds = %._crit_edge
-  tail call void @_ZN28dtObstacleAvoidanceDebugData9addSampleEPKfffffff(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull %1, float noundef %2, float noundef %209, float noundef %39, float noundef %41, float noundef %206, float noundef %208)
+209:                                              ; preds = %._crit_edge
+  tail call void @_ZN28dtObstacleAvoidanceDebugData9addSampleEPKfffffff(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull %1, float noundef %2, float noundef %208, float noundef %39, float noundef %41, float noundef %205, float noundef %207)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %137, %191, %._crit_edge, %210, %9
-  %.0 = phi float [ %7, %9 ], [ %209, %210 ], [ %209, %._crit_edge ], [ %7, %191 ], [ %7, %137 ]
+.loopexit:                                        ; preds = %137, %191, %._crit_edge, %209, %9
+  %.0 = phi float [ %7, %9 ], [ %208, %209 ], [ %208, %._crit_edge ], [ %7, %191 ], [ %7, %137 ]
   ret float %.0
 }
 

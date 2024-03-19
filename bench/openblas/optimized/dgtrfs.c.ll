@@ -428,8 +428,8 @@ define void @dgtrfs_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   %319 = fneg double %317
   %320 = select i1 %318, double %317, double %319
   %321 = call double @llvm.fmuladd.f64(double %93, double %314, double %320)
-  %322 = select i1 %315, double -0.000000e+00, double %87
-  %323 = fadd double %321, %322
+  %322 = fadd double %87, %321
+  %323 = select i1 %315, double %321, double %322
   store double %323, ptr %313, align 8, !tbaa !7
   %324 = add nuw nsw i64 %312, 1
   %325 = icmp eq i64 %324, %310

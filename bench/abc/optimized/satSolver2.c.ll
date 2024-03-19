@@ -5046,8 +5046,8 @@ define double @sat_solver2_memory(ptr nocapture noundef readonly %0, i32 noundef
   %37 = getelementptr inbounds i8, ptr %0, i64 64
   %38 = load ptr, ptr %37, align 8
   %.not57 = icmp eq ptr %38, null
-  %39 = select i1 %.not57, double -0.000000e+00, double %31
-  %.2 = fadd double %39, %36
+  %39 = fadd double %36, %31
+  %.2 = select i1 %.not57, double %36, double %39
   %40 = fadd double %.2, %31
   %41 = fadd double %40, %31
   %42 = fadd double %41, %31

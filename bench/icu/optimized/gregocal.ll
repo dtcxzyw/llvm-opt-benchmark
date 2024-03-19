@@ -1667,8 +1667,8 @@ if.else80:                                        ; preds = %sw.bb77
   %20 = tail call double @llvm.fmuladd.f64(double %conv84, double 8.640000e+07, double %sub83)
   %call86 = tail call double @uprv_fmod_75(double noundef %20, double noundef %mul)
   %cmp87 = fcmp olt double %call86, 0.000000e+00
-  %add89 = select i1 %cmp87, double %mul, double -0.000000e+00
-  %msIntoMonth.0 = fadd double %call86, %add89
+  %add89 = fadd double %mul, %call86
+  %msIntoMonth.0 = select i1 %cmp87, double %add89, double %call86
   %add91 = fadd double %cMonthStart.0, %msIntoMonth.0
   tail call void @_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, double noundef %add91, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %return

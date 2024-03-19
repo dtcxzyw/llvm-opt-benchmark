@@ -9999,13 +9999,13 @@ define void @_ZN23MLDefaultMeshDecorators14drawQuotedLineERKN3vcg6Point3IdEES4_f
   %.2 = phi float [ %36, %33 ], [ %.1, %30 ]
   %38 = fsub float %.2, %2
   %39 = fcmp olt float %38, %24
-  %40 = select i1 %39, float %4, float -0.000000e+00
-  %.3 = fadd float %.2, %40
+  %40 = fadd float %.2, %4
+  %.3 = select i1 %39, float %40, float %.2
   %41 = fdiv float %4, 1.000000e+01
   %42 = tail call noundef float @fmodf(float noundef %2, float noundef %41) #23
   %43 = fsub float %2, %42
-  %44 = select i1 %25, float %41, float -0.000000e+00
-  %.087 = fadd float %43, %44
+  %44 = fadd float %41, %43
+  %.087 = select i1 %25, float %44, float %43
   %45 = load <2 x double>, ptr %1, align 8, !noalias !146
   %46 = load <2 x double>, ptr %0, align 8, !noalias !146
   %47 = fsub <2 x double> %45, %46

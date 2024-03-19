@@ -398,8 +398,8 @@ define void @dsyrfs_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   %284 = fneg double %282
   %285 = select i1 %283, double %282, double %284
   %286 = call double @llvm.fmuladd.f64(double %94, double %279, double %285)
-  %287 = select i1 %280, double -0.000000e+00, double %86
-  %288 = fadd double %286, %287
+  %287 = fadd double %86, %286
+  %288 = select i1 %280, double %286, double %287
   store double %288, ptr %278, align 8, !tbaa !7
   %289 = add nuw nsw i64 %277, 1
   %290 = icmp eq i64 %289, %275

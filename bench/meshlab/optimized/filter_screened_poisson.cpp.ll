@@ -17821,11 +17821,11 @@ _ZN6OctreeIfE9_InBoundsE7Point3DIfE.exit.us.us.us: ; preds = %28
   %.sroa.0.4.vec.extract.i.us.us.us = extractelement <2 x float> %.sroa.064.sroa.0.0.copyload.us.us.us, i64 1
   %31 = fcmp oge float %.sroa.0.4.vec.extract.i.us.us.us, 0.000000e+00
   %32 = fcmp ole float %.sroa.0.4.vec.extract.i.us.us.us, 1.000000e+00
-  %or.cond6.not.i.us.us.us = and i1 %31, %32
+  %or.cond6.not10.i.us.us.us = and i1 %31, %32
   %33 = fcmp oge float %.sroa.064.sroa.2.0.copyload.us.us.us, 0.000000e+00
-  %or.cond7.i.us.us.us = select i1 %or.cond6.not.i.us.us.us, i1 %33, i1 false
+  %or.cond7.not.i.us.us.us = select i1 %or.cond6.not10.i.us.us.us, i1 %33, i1 false
   %34 = fcmp ole float %.sroa.064.sroa.2.0.copyload.us.us.us, 1.000000e+00
-  %spec.select.i.us.us.us = select i1 %or.cond7.i.us.us.us, i1 %34, i1 false
+  %spec.select.i.us.us.us = select i1 %or.cond7.not.i.us.us.us, i1 %34, i1 false
   br i1 %spec.select.i.us.us.us, label %.split222.us.us.us, label %_ZN6OctreeIfE9_InBoundsE7Point3DIfE.exit.thread.us.us.us
 
 _ZN6OctreeIfE9_InBoundsE7Point3DIfE.exit.thread.us.us.us: ; preds = %_ZN6OctreeIfE9_InBoundsE7Point3DIfE.exit.us.us.us, %28
@@ -17888,11 +17888,11 @@ _ZN6OctreeIfE9_InBoundsE7Point3DIfE.exit:         ; preds = %51
   %.sroa.0.4.vec.extract.i = extractelement <2 x float> %.sroa.064.sroa.0.0.copyload, i64 1
   %54 = fcmp oge float %.sroa.0.4.vec.extract.i, 0.000000e+00
   %55 = fcmp ole float %.sroa.0.4.vec.extract.i, 1.000000e+00
-  %or.cond6.not.i = and i1 %54, %55
+  %or.cond6.not10.i = and i1 %54, %55
   %56 = fcmp oge float %.sroa.064.sroa.2.0.copyload, 0.000000e+00
-  %or.cond7.i = select i1 %or.cond6.not.i, i1 %56, i1 false
+  %or.cond7.not.i = select i1 %or.cond6.not10.i, i1 %56, i1 false
   %57 = fcmp ole float %.sroa.064.sroa.2.0.copyload, 1.000000e+00
-  %spec.select.i = select i1 %or.cond7.i, i1 %57, i1 false
+  %spec.select.i = select i1 %or.cond7.not.i, i1 %57, i1 false
   br i1 %spec.select.i, label %.split222, label %_ZN6OctreeIfE9_InBoundsE7Point3DIfE.exit.thread
 
 _ZN6OctreeIfE9_InBoundsE7Point3DIfE.exit.thread:  ; preds = %51, %_ZN6OctreeIfE9_InBoundsE7Point3DIfE.exit
@@ -18744,11 +18744,11 @@ _ZN6OctreeIfE9_InBoundsE7Point3DIfE.exit:         ; preds = %42
   %57 = extractelement <2 x float> %48, i64 1
   %58 = fcmp oge float %57, 0.000000e+00
   %59 = fcmp ole float %57, 1.000000e+00
-  %or.cond6.not.i = and i1 %58, %59
+  %or.cond6.not10.i = and i1 %58, %59
   %60 = fcmp oge float %51, 0.000000e+00
-  %or.cond7.i = select i1 %or.cond6.not.i, i1 %60, i1 false
+  %or.cond7.not.i = select i1 %or.cond6.not10.i, i1 %60, i1 false
   %61 = fcmp ole float %51, 1.000000e+00
-  %spec.select.i = select i1 %or.cond7.i, i1 %61, i1 false
+  %spec.select.i = select i1 %or.cond7.not.i, i1 %61, i1 false
   br i1 %spec.select.i, label %65, label %_ZN6OctreeIfE9_InBoundsE7Point3DIfE.exit.thread
 
 _ZN6OctreeIfE9_InBoundsE7Point3DIfE.exit.thread:  ; preds = %42, %_ZN6OctreeIfE9_InBoundsE7Point3DIfE.exit
@@ -20610,11 +20610,11 @@ _ZN6OctreeIfE9_InBoundsE7Point3DIfE.exit.i:       ; preds = %6
   %.sroa.0.4.vec.extract.i.i = extractelement <2 x float> %1, i64 1
   %10 = fcmp oge float %.sroa.0.4.vec.extract.i.i, 0.000000e+00
   %11 = fcmp ole float %.sroa.0.4.vec.extract.i.i, 1.000000e+00
-  %or.cond6.not.i.i = and i1 %10, %11
+  %or.cond6.not10.i.i = and i1 %10, %11
   %12 = fcmp oge float %2, 0.000000e+00
-  %or.cond7.i.i = select i1 %or.cond6.not.i.i, i1 %12, i1 false
+  %or.cond7.not.i.i = select i1 %or.cond6.not10.i.i, i1 %12, i1 false
   %13 = fcmp ole float %2, 1.000000e+00
-  %spec.select.i.i = select i1 %or.cond7.i.i, i1 %13, i1 false
+  %spec.select.i.i = select i1 %or.cond7.not.i.i, i1 %13, i1 false
   br i1 %spec.select.i.i, label %14, label %_ZNK6OctreeIfE4leafE7Point3DIfE.exit
 
 14:                                               ; preds = %_ZN6OctreeIfE9_InBoundsE7Point3DIfE.exit.i
@@ -20801,11 +20801,11 @@ _ZN7OctNodeI12TreeNodeDataE11NeighborKeyILj0ELj1EE3setEi.exit: ; preds = %_ZN7Oc
 _ZN6OctreeIfE9_InBoundsE7Point3DIfE.exit:         ; preds = %50
   %55 = fcmp oge float %.pre53, 0.000000e+00
   %56 = fcmp ole float %.pre53, 1.000000e+00
-  %or.cond6.not.i = and i1 %55, %56
+  %or.cond6.not10.i = and i1 %55, %56
   %57 = fcmp oge float %.sroa.6.0, 0.000000e+00
-  %or.cond7.i = select i1 %or.cond6.not.i, i1 %57, i1 false
+  %or.cond7.not.i = select i1 %or.cond6.not10.i, i1 %57, i1 false
   %58 = fcmp ole float %.sroa.6.0, 1.000000e+00
-  %spec.select.i = select i1 %or.cond7.i, i1 %58, i1 false
+  %spec.select.i = select i1 %or.cond7.not.i, i1 %58, i1 false
   br i1 %spec.select.i, label %70, label %_ZN6OctreeIfE9_InBoundsE7Point3DIfE.exit.thread
 
 _ZN6OctreeIfE9_InBoundsE7Point3DIfE.exit.thread:  ; preds = %50, %_ZN6OctreeIfE9_InBoundsE7Point3DIfE.exit
@@ -47456,9 +47456,9 @@ _ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit264.thread: ; p
   store float 0.000000e+00, ptr %244, align 8
   %245 = getelementptr inbounds i8, ptr %20, i64 24
   %246 = load i32, ptr %245, align 8
-  br i1 %.0.i, label %.thread448, label %292
+  br i1 %.0.i, label %.thread449, label %292
 
-.thread448:                                       ; preds = %.thread.thread
+.thread449:                                       ; preds = %.thread.thread
   %247 = load ptr, ptr %7, align 8
   br label %.preheader.preheader
 
@@ -47466,10 +47466,10 @@ _ZNK6OctreeIfE17_isValidSpaceNodeEPK7OctNodeI12TreeNodeDataE.exit264.thread: ; p
   %249 = load ptr, ptr %7, align 8
   br i1 %.not, label %.preheader.preheader, label %.preheader304
 
-.preheader.preheader:                             ; preds = %.thread448, %248
-  %250 = phi ptr [ %247, %.thread448 ], [ %249, %248 ]
-  %251 = phi ptr [ %244, %.thread448 ], [ %241, %248 ]
-  %252 = phi i32 [ %246, %.thread448 ], [ %243, %248 ]
+.preheader.preheader:                             ; preds = %.thread449, %248
+  %250 = phi ptr [ %247, %.thread449 ], [ %249, %248 ]
+  %251 = phi ptr [ %244, %.thread449 ], [ %241, %248 ]
+  %252 = phi i32 [ %246, %.thread449 ], [ %243, %248 ]
   br label %.preheader
 
 .preheader304:                                    ; preds = %248, %.preheader304
@@ -47560,15 +47560,16 @@ _ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit269.thread: ; pre
 
 292:                                              ; preds = %.thread.thread, %.thread
   %293 = phi i32 [ %246, %.thread.thread ], [ %243, %.thread ]
-  %294 = phi float [ -0.000000e+00, %.thread.thread ], [ %.3, %.thread ]
-  %295 = getelementptr inbounds i8, ptr %17, i64 4
-  %296 = getelementptr inbounds i8, ptr %17, i64 8
+  %.4296448 = phi float [ 0.000000e+00, %.thread.thread ], [ %.3, %.thread ]
+  %294 = getelementptr inbounds i8, ptr %17, i64 4
+  %295 = getelementptr inbounds i8, ptr %17, i64 8
   store i32 %39, ptr %17, align 4
-  store i32 %40, ptr %295, align 4
-  store i32 %41, ptr %296, align 4
-  %297 = call noundef double @_ZNK16FEMSystemFunctorILi2EL12BoundaryType2EE10_integrateIN22BSplineIntegrationDataILi2ELS0_2ELi2ELS0_2EE18FunctionIntegrator10IntegratorILj2ELj2EEEEEdRKT_PKiSC_(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(2528) %6, ptr noundef nonnull %17, ptr noundef nonnull %17)
-  %298 = fptrunc double %297 to float
-  %.0221 = fadd float %294, %298
+  store i32 %40, ptr %294, align 4
+  store i32 %41, ptr %295, align 4
+  %296 = call noundef double @_ZNK16FEMSystemFunctorILi2EL12BoundaryType2EE10_integrateIN22BSplineIntegrationDataILi2ELS0_2ELi2ELS0_2EE18FunctionIntegrator10IntegratorILj2ELj2EEEEEdRKT_PKiSC_(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(2528) %6, ptr noundef nonnull %17, ptr noundef nonnull %17)
+  %297 = fptrunc double %296 to float
+  %298 = fadd float %.4296448, %297
+  %.0221 = select i1 %.not, float %297, float %298
   %299 = sub nsw i32 %293, %5
   store i32 %299, ptr %4, align 4
   %.sroa_idx273 = getelementptr inbounds i8, ptr %4, i64 4
@@ -69124,10 +69125,10 @@ _ZNK10PolynomialILi2EE12getSolutionsEdPdd.exit:   ; preds = %160
   %164 = fcmp oge double %163, 0.000000e+00
   %165 = fcmp ole double %163, 1.000000e+00
   %or.cond102.not = and i1 %164, %165
-  %166 = zext i1 %or.cond102.not to i32
-  %.190 = add nuw nsw i32 %.089122, %166
-  %167 = select i1 %or.cond102.not, double %163, double -0.000000e+00
-  %.1 = fadd double %.0123, %167
+  %166 = fadd double %.0123, %163
+  %167 = zext i1 %or.cond102.not to i32
+  %.190 = add nuw nsw i32 %.089122, %167
+  %.1 = select i1 %or.cond102.not, double %166, double %.0123
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !951
@@ -72954,10 +72955,10 @@ _ZNK10PolynomialILi2EE12getSolutionsEdPdd.exit:   ; preds = %148
   %152 = fcmp oge double %151, 0.000000e+00
   %153 = fcmp ole double %151, 1.000000e+00
   %or.cond106.not = and i1 %152, %153
-  %154 = zext i1 %or.cond106.not to i32
-  %.194 = add nuw nsw i32 %.093131, %154
-  %155 = select i1 %or.cond106.not, double %151, double -0.000000e+00
-  %.1 = fadd double %.0132, %155
+  %154 = fadd double %.0132, %151
+  %155 = zext i1 %or.cond106.not to i32
+  %.194 = add nuw nsw i32 %.093131, %155
+  %.1 = select i1 %or.cond106.not, double %154, double %.0132
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !988

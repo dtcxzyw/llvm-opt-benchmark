@@ -569,6 +569,7 @@ sw.bb39:                                          ; preds = %_ZN20btAlignedObjec
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %_ZN20btAlignedObjectArrayI27btMultiBodySolverConstraintE21expandNonInitializingEv.exit, %sw.bb39, %sw.bb
+  %fneg = fneg float %call18
   %134 = load i32, ptr %m_splitImpulse, align 4
   %tobool65.not = icmp eq i32 %134, 0
   %135 = load float, ptr %m_splitImpulsePenetrationThreshold, align 4
@@ -584,9 +585,9 @@ sw.epilog:                                        ; preds = %_ZN20btAlignedObjec
   %m_jacDiagABInv = getelementptr inbounds i8, ptr %arrayidx.i, i64 124
   %137 = load float, ptr %m_jacDiagABInv, align 4
   %mul76 = fmul float %div74, %137
-  %add = select i1 %or.cond, float %mul76, float -0.000000e+00
-  %138 = fmul float %call18, %137
-  %add.sink = fsub float %add, %138
+  %mul78 = fmul float %137, %fneg
+  %add = fadd float %mul76, %mul78
+  %add.sink = select i1 %or.cond, float %add, float %mul78
   %.sink = select i1 %or.cond, float 0.000000e+00, float %mul76
   %m_rhs = getelementptr inbounds i8, ptr %arrayidx.i, i64 128
   store float %add.sink, ptr %m_rhs, align 8
@@ -596,8 +597,8 @@ sw.epilog:                                        ; preds = %_ZN20btAlignedObjec
 
 for.inc:                                          ; preds = %sw.epilog, %for.body
   %inc = add nuw nsw i32 %row.0137, 1
-  %139 = load i32, ptr %m_numRows.i, align 4
-  %cmp7 = icmp slt i32 %inc, %139
+  %138 = load i32, ptr %m_numRows.i, align 4
+  %cmp7 = icmp slt i32 %inc, %138
   br i1 %cmp7, label %for.body, label %for.end, !llvm.loop !7
 
 for.end:                                          ; preds = %for.inc, %if.end

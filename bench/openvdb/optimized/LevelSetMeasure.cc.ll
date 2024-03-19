@@ -1218,8 +1218,8 @@ _ZN7openvdb5v11_05tools14doLevelSetAreaINS0_4GridINS0_4tree4TreeINS4_8RootNodeIN
   %mDx.i.i = getelementptr inbounds i8, ptr %m.i, i64 40
   %5 = load double, ptr %mDx.i.i, align 8
   %mul.i.i.i = fmul double %5, %5
-  %mul.i.i = select i1 %useWorldUnits, double %mul.i.i.i, double 1.000000e+00
-  %area.0.i.i = fmul double %4, %mul.i.i
+  %mul.i.i = fmul double %4, %mul.i.i.i
+  %area.0.i.i = select i1 %useWorldUnits, double %mul.i.i, double %4
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %m.i.i)
   call void @_ZN7openvdb5v11_05tools15LevelSetMeasureINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEENS0_4util15NullInterrupterEED1Ev(ptr noundef nonnull align 8 dereferenceable(86) %m.i) #17
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %m.i)
@@ -1266,8 +1266,8 @@ _ZN7openvdb5v11_05tools14doLevelSetAreaINS0_4GridINS0_4tree4TreeINS4_8RootNodeIN
   %mDx.i.i = getelementptr inbounds i8, ptr %m.i, i64 40
   %5 = load double, ptr %mDx.i.i, align 8
   %mul.i.i.i = fmul double %5, %5
-  %mul.i.i = select i1 %useWorldUnits, double %mul.i.i.i, double 1.000000e+00
-  %area.0.i.i = fmul double %4, %mul.i.i
+  %mul.i.i = fmul double %4, %mul.i.i.i
+  %area.0.i.i = select i1 %useWorldUnits, double %mul.i.i, double %4
   call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %m.i.i)
   call void @_ZN7openvdb5v11_05tools15LevelSetMeasureINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEENS0_4util15NullInterrupterEED1Ev(ptr noundef nonnull align 8 dereferenceable(86) %m.i) #17
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %m.i)
@@ -1315,8 +1315,8 @@ _ZN7openvdb5v11_05tools16doLevelSetVolumeINS0_4GridINS0_4tree4TreeINS4_8RootNode
   %5 = load double, ptr %mDx.i.i, align 8
   %mul.i.i.i = fmul double %5, %5
   %mul1.i.i.i = fmul double %5, %mul.i.i.i
-  %mul.i.i = select i1 %useWorldUnits, double %mul1.i.i.i, double 1.000000e+00
-  %volume.0.i.i = fmul double %4, %mul.i.i
+  %mul.i.i = fmul double %4, %mul1.i.i.i
+  %volume.0.i.i = select i1 %useWorldUnits, double %mul.i.i, double %4
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %m.i.i)
   call void @_ZN7openvdb5v11_05tools15LevelSetMeasureINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEENS0_4util15NullInterrupterEED1Ev(ptr noundef nonnull align 8 dereferenceable(86) %m.i) #17
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %m.i)
@@ -1364,8 +1364,8 @@ _ZN7openvdb5v11_05tools16doLevelSetVolumeINS0_4GridINS0_4tree4TreeINS4_8RootNode
   %5 = load double, ptr %mDx.i.i, align 8
   %mul.i.i.i = fmul double %5, %5
   %mul1.i.i.i = fmul double %5, %mul.i.i.i
-  %mul.i.i = select i1 %useWorldUnits, double %mul1.i.i.i, double 1.000000e+00
-  %volume.0.i.i = fmul double %4, %mul.i.i
+  %mul.i.i = fmul double %4, %mul1.i.i.i
+  %volume.0.i.i = select i1 %useWorldUnits, double %mul.i.i, double %4
   call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %m.i.i)
   call void @_ZN7openvdb5v11_05tools15LevelSetMeasureINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEENS0_4util15NullInterrupterEED1Ev(ptr noundef nonnull align 8 dereferenceable(86) %m.i) #17
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %m.i)
@@ -2160,8 +2160,8 @@ if.end:                                           ; preds = %if.then.i.i.i.i.i.i
   %mDx = getelementptr inbounds i8, ptr %this, i64 40
   %4 = load double, ptr %mDx, align 8
   %mul.i = fmul double %4, %4
-  %mul = select i1 %useWorldUnits, double %mul.i, double 1.000000e+00
-  %area.0 = fmul double %3, %mul
+  %mul = fmul double %3, %mul.i
+  %area.0 = select i1 %useWorldUnits, double %mul, double %3
   ret double %area.0
 }
 
@@ -2193,8 +2193,8 @@ if.end:                                           ; preds = %if.then.i.i.i.i.i.i
   %4 = load double, ptr %mDx, align 8
   %mul.i = fmul double %4, %4
   %mul1.i = fmul double %4, %mul.i
-  %mul = select i1 %useWorldUnits, double %mul1.i, double 1.000000e+00
-  %volume.0 = fmul double %3, %mul
+  %mul = fmul double %3, %mul1.i
+  %volume.0 = select i1 %useWorldUnits, double %mul, double %3
   ret double %volume.0
 }
 
@@ -2310,8 +2310,8 @@ _ZN7openvdb5v11_05tools15LevelSetMeasureINS0_4GridINS0_4tree4TreeINS4_8RootNodeI
   %8 = load double, ptr %mArea.i, align 8
   %9 = load double, ptr %mDx.i, align 8
   %mul.i.i = fmul double %9, %9
-  %mul.i9 = select i1 %useWorldUnits, double %mul.i.i, double 1.000000e+00
-  %area.0.i = fmul double %8, %mul.i9
+  %mul.i9 = fmul double %8, %mul.i.i
+  %area.0.i = select i1 %useWorldUnits, double %mul.i9, double %8
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %m.i2)
   %div = fdiv double %mul.i, %area.0.i
   ret double %div
@@ -2368,8 +2368,8 @@ _ZN7openvdb5v11_05tools15LevelSetMeasureINS0_4GridINS0_4tree4TreeINS4_8RootNodeI
   %mDx.i = getelementptr inbounds i8, ptr %this, i64 40
   %8 = load double, ptr %mDx.i, align 8
   %mul.i.i = fmul double %8, %8
-  %mul.i = select i1 %useWorldUnits, double %mul.i.i, double 1.000000e+00
-  %area.0.i = fmul double %7, %mul.i
+  %mul.i = fmul double %7, %mul.i.i
+  %area.0.i = select i1 %useWorldUnits, double %mul.i, double %7
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %m.i2)
   %div = fdiv double %3, %area.0.i
   ret double %div
@@ -6035,8 +6035,8 @@ if.end:                                           ; preds = %if.then.i.i.i.i.i.i
   %mDx = getelementptr inbounds i8, ptr %this, i64 40
   %4 = load double, ptr %mDx, align 8
   %mul.i = fmul double %4, %4
-  %mul = select i1 %useWorldUnits, double %mul.i, double 1.000000e+00
-  %area.0 = fmul double %3, %mul
+  %mul = fmul double %3, %mul.i
+  %area.0 = select i1 %useWorldUnits, double %mul, double %3
   ret double %area.0
 }
 
@@ -6068,8 +6068,8 @@ if.end:                                           ; preds = %if.then.i.i.i.i.i.i
   %4 = load double, ptr %mDx, align 8
   %mul.i = fmul double %4, %4
   %mul1.i = fmul double %4, %mul.i
-  %mul = select i1 %useWorldUnits, double %mul1.i, double 1.000000e+00
-  %volume.0 = fmul double %3, %mul
+  %mul = fmul double %3, %mul1.i
+  %volume.0 = select i1 %useWorldUnits, double %mul, double %3
   ret double %volume.0
 }
 
@@ -6185,8 +6185,8 @@ _ZN7openvdb5v11_05tools15LevelSetMeasureINS0_4GridINS0_4tree4TreeINS4_8RootNodeI
   %8 = load double, ptr %mArea.i, align 8
   %9 = load double, ptr %mDx.i, align 8
   %mul.i.i = fmul double %9, %9
-  %mul.i9 = select i1 %useWorldUnits, double %mul.i.i, double 1.000000e+00
-  %area.0.i = fmul double %8, %mul.i9
+  %mul.i9 = fmul double %8, %mul.i.i
+  %area.0.i = select i1 %useWorldUnits, double %mul.i9, double %8
   call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %m.i2)
   %div = fdiv double %mul.i, %area.0.i
   ret double %div
@@ -6243,8 +6243,8 @@ _ZN7openvdb5v11_05tools15LevelSetMeasureINS0_4GridINS0_4tree4TreeINS4_8RootNodeI
   %mDx.i = getelementptr inbounds i8, ptr %this, i64 40
   %8 = load double, ptr %mDx.i, align 8
   %mul.i.i = fmul double %8, %8
-  %mul.i = select i1 %useWorldUnits, double %mul.i.i, double 1.000000e+00
-  %area.0.i = fmul double %7, %mul.i
+  %mul.i = fmul double %7, %mul.i.i
+  %area.0.i = select i1 %useWorldUnits, double %mul.i, double %7
   call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %m.i2)
   %div = fdiv double %3, %area.0.i
   ret double %div

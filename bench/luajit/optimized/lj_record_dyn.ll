@@ -6870,8 +6870,8 @@ if.end95:                                         ; preds = %if.then11, %if.else
   %47 = load double, ptr %arrayidx, align 8
   %arrayidx3.i = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %48 = load double, ptr %arrayidx3.i, align 8
-  %add.i101 = select i1 %tobool.not, double -0.000000e+00, double %48
-  %idxv.0.i = fadd double %47, %add.i101
+  %add.i101 = fadd double %47, %48
+  %idxv.0.i = select i1 %tobool.not, double %47, double %add.i101
   %49 = bitcast double %48 to i64
   %cmp.i.i102 = icmp slt i64 %49, 0
   br i1 %cmp.i.i102, label %if.else.i, label %if.then8.i

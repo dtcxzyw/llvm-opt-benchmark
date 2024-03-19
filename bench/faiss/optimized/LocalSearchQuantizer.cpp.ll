@@ -849,8 +849,8 @@ _ZNSt6vectorIfSaIfEED2Ev.exit62:                  ; preds = %_ZNSt6vectorIfSaIfE
 .noexc66:                                         ; preds = %.noexc65
   %.not.i.i.not.i.i = icmp eq ptr %266, null
   %268 = load double, ptr %267, align 8
-  %269 = select i1 %.not.i.i.not.i.i, double -0.000000e+00, double %268
-  %.sink.i.i = fadd double %262, %269
+  %269 = fadd double %262, %268
+  %.sink.i.i = select i1 %.not.i.i.not.i.i, double %262, double %269
   store double %.sink.i.i, ptr %267, align 8
   store i8 1, ptr %256, align 8
   br label %_ZN5faiss3lsq13LSQTimerScope6finishEv.exit
@@ -1238,8 +1238,8 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
 .noexc32:                                         ; preds = %.noexc31
   %.not.i.i.not.i.i = icmp eq ptr %108, null
   %110 = load double, ptr %109, align 8
-  %111 = select i1 %.not.i.i.not.i.i, double -0.000000e+00, double %110
-  %.sink.i.i = fadd double %104, %111
+  %111 = fadd double %104, %110
+  %.sink.i.i = select i1 %.not.i.i.not.i.i, double %104, double %111
   store double %.sink.i.i, ptr %109, align 8
   store i8 1, ptr %98, align 8
   br label %_ZN5faiss3lsq13LSQTimerScope6finishEv.exit
@@ -3514,8 +3514,8 @@ define void @_ZN5faiss3lsq13LSQTimerScope6finishEv(ptr noundef nonnull align 8 d
   %.not.i.i.not.i = icmp eq ptr %12, null
   %13 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_dESaIS9_ENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS8_(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 8 dereferenceable(32) %11)
   %14 = load double, ptr %13, align 8
-  %15 = select i1 %.not.i.i.not.i, double -0.000000e+00, double %14
-  %.sink.i = fadd double %8, %15
+  %15 = fadd double %8, %14
+  %.sink.i = select i1 %.not.i.i.not.i, double %8, double %15
   store double %.sink.i, ptr %13, align 8
   store i8 1, ptr %2, align 8
   br label %16
@@ -6485,8 +6485,8 @@ define void @_ZN5faiss3lsq8LSQTimer3addERKNSt7__cxx1112basic_stringIcSt11char_tr
   %.not.i.i.not = icmp eq ptr %4, null
   %5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_dESaIS9_ENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS8_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %6 = load double, ptr %5, align 8
-  %7 = select i1 %.not.i.i.not, double -0.000000e+00, double %6
-  %.sink = fadd double %7, %2
+  %7 = fadd double %6, %2
+  %.sink = select i1 %.not.i.i.not, double %2, double %7
   store double %.sink, ptr %5, align 8
   ret void
 }
@@ -6543,8 +6543,8 @@ define void @_ZN5faiss3lsq13LSQTimerScopeD2Ev(ptr noundef nonnull align 8 derefe
 .noexc2:                                          ; preds = %.noexc1
   %.not.i.i.not.i.i = icmp eq ptr %12, null
   %14 = load double, ptr %13, align 8
-  %15 = select i1 %.not.i.i.not.i.i, double -0.000000e+00, double %14
-  %.sink.i.i = fadd double %8, %15
+  %15 = fadd double %8, %14
+  %.sink.i.i = select i1 %.not.i.i.not.i.i, double %8, double %15
   store double %.sink.i.i, ptr %13, align 8
   store i8 1, ptr %2, align 8
   br label %_ZN5faiss3lsq13LSQTimerScope6finishEv.exit

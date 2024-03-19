@@ -219,8 +219,8 @@ define dso_local double @get_priority_from_factors(ptr nocapture noundef readonl
   %41 = getelementptr inbounds double, ptr %39, i64 %indvars.iv
   %42 = load double, ptr %41, align 8
   %43 = fcmp une double %42, 0.000000e+00
-  %44 = select i1 %43, double %42, double -0.000000e+00
-  %.1 = fadd double %.026, %44
+  %44 = fadd double %.026, %42
+  %.1 = select i1 %43, double %44, double %.026
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %40, !llvm.loop !9
@@ -891,8 +891,8 @@ define dso_local noundef i32 @_print_job_priority_normalized(ptr noundef %0, i32
   %50 = getelementptr inbounds double, ptr %48, i64 %indvars.iv.i
   %51 = load double, ptr %50, align 8
   %52 = fcmp une double %51, 0.000000e+00
-  %53 = select i1 %52, double %51, double -0.000000e+00
-  %.1.i = fadd double %.026.i, %53
+  %53 = fadd double %.026.i, %51
+  %.1.i = select i1 %52, double %53, double %.026.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %get_priority_from_factors.exit, label %49, !llvm.loop !9
@@ -992,8 +992,8 @@ define dso_local noundef i32 @_print_job_priority_weighted(ptr noundef %0, i32 n
   %48 = getelementptr inbounds double, ptr %46, i64 %indvars.iv.i
   %49 = load double, ptr %48, align 8
   %50 = fcmp une double %49, 0.000000e+00
-  %51 = select i1 %50, double %49, double -0.000000e+00
-  %.1.i = fadd double %.026.i, %51
+  %51 = fadd double %.026.i, %49
+  %.1.i = select i1 %50, double %51, double %.026.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %47, !llvm.loop !9

@@ -1159,10 +1159,10 @@ define void @dhgeqz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %789 = fcmp olt double %788, 1.000000e+00
   %790 = fcmp une double %788, 0.000000e+00
   %791 = and i1 %789, %790
-  %792 = select i1 %791, double %788, double 1.000000e+00
-  %793 = fdiv double %786, %792
-  %794 = select i1 %791, double %788, double 1.000000e+00
-  %795 = fdiv double %785, %794
+  %792 = fdiv double %785, %788
+  %793 = fdiv double %786, %788
+  %794 = select i1 %791, double %793, double %786
+  %795 = select i1 %791, double %792, double %785
   %796 = getelementptr double, ptr %326, i64 %760
   %797 = getelementptr double, ptr %796, i64 %769
   %798 = load double, ptr %797, align 8, !tbaa !7
@@ -1172,7 +1172,7 @@ define void @dhgeqz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %801 = fcmp oge double %800, 0.000000e+00
   %802 = fneg double %800
   %803 = select i1 %801, double %800, double %802
-  %804 = fmul double %308, %793
+  %804 = fmul double %308, %794
   %805 = fcmp ugt double %803, %804
   br i1 %805, label %759, label %split, !llvm.loop !19
 

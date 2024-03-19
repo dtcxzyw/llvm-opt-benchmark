@@ -3356,8 +3356,8 @@ if.end:                                           ; preds = %entry
   %5 = load i64, ptr %this, align 8
   %tobool6.not = icmp eq i64 %5, 0
   %conv9 = uitofp i64 %5 to float
-  %add = select i1 %tobool6.not, float -0.000000e+00, float %conv9
-  %fReturnValue.1 = fadd float %4, %add
+  %add = fadd float %4, %conv9
+  %fReturnValue.1 = select i1 %tobool6.not, float %4, float %add
   br label %return
 
 return:                                           ; preds = %if.end, %_ZN2EA4StdC8int128_t6NegateEv.exit
@@ -3396,8 +3396,8 @@ if.end:                                           ; preds = %entry
   %5 = load i64, ptr %this, align 8
   %tobool6.not = icmp eq i64 %5, 0
   %conv9 = uitofp i64 %5 to double
-  %add = select i1 %tobool6.not, double -0.000000e+00, double %conv9
-  %fReturnValue.1 = fadd double %4, %add
+  %add = fadd double %4, %conv9
+  %fReturnValue.1 = select i1 %tobool6.not, double %4, double %add
   br label %return
 
 return:                                           ; preds = %if.end, %_ZN2EA4StdC8int128_t6NegateEv.exit
@@ -6150,8 +6150,8 @@ entry:
   %2 = load i64, ptr %this, align 8
   %tobool3.not = icmp eq i64 %2, 0
   %conv6 = uitofp i64 %2 to float
-  %add = select i1 %tobool3.not, float -0.000000e+00, float %conv6
-  %fReturnValue.1 = fadd float %1, %add
+  %add = fadd float %1, %conv6
+  %fReturnValue.1 = select i1 %tobool3.not, float %1, float %add
   ret float %fReturnValue.1
 }
 
@@ -6165,8 +6165,8 @@ entry:
   %2 = load i64, ptr %this, align 8
   %tobool3.not = icmp eq i64 %2, 0
   %conv6 = uitofp i64 %2 to double
-  %add = select i1 %tobool3.not, double -0.000000e+00, double %conv6
-  %fReturnValue.1 = fadd double %1, %add
+  %add = fadd double %1, %conv6
+  %fReturnValue.1 = select i1 %tobool3.not, double %1, double %add
   ret double %fReturnValue.1
 }
 

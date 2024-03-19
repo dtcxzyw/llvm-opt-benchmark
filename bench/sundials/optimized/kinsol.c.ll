@@ -2803,9 +2803,9 @@ KINLinSolDrv.exit166:                             ; preds = %559
 
 783:                                              ; preds = %772
   %784 = fcmp olt double %778, %781
+  %785 = fsub double %.0327.i, %760
   %.1330.ph.i = select i1 %784, double %761, double %.0329.ph.i
-  %785 = select i1 %784, double %760, double 0.000000e+00
-  %.1328.ph.i = fsub double %.0327.i, %785
+  %.1328.ph.i = select i1 %784, double %785, double %.0327.i
   %786 = fcmp oge double %.1328.ph.i, %637
   %787 = and i1 %784, %786
   br i1 %787, label %.critedge2.outer.i, label %788

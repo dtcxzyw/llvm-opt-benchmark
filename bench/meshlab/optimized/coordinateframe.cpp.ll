@@ -1644,27 +1644,30 @@ define void @_ZN3vcg22MovableCoordinateFrame3RotEfNS_6Point3IfEE(ptr noundef non
   %69 = tail call float @llvm.fmuladd.f32(float %64, float %64, float %68)
   %sqrt.i.i.i = tail call float @llvm.sqrt.f32(float %69)
   %70 = fcmp ogt float %sqrt.i.i.i, 0.000000e+00
-  %71 = select i1 %70, float %sqrt.i.i.i, float 1.000000e+00
-  %.sroa.7.0.i.i = fdiv float %64, %71
-  %72 = insertelement <2 x float> poison, float %71, i64 0
-  %73 = shufflevector <2 x float> %72, <2 x float> poison, <2 x i32> zeroinitializer
-  %74 = fdiv <2 x float> %63, %73
-  %75 = tail call noundef float @sinf(float noundef %14) #25
-  %76 = tail call noundef float @cosf(float noundef %14) #25
-  %77 = insertelement <2 x float> poison, float %75, i64 0
-  %78 = shufflevector <2 x float> %77, <2 x float> poison, <2 x i32> zeroinitializer
-  %79 = fmul <2 x float> %78, %74
-  %80 = fmul float %75, %.sroa.7.0.i.i
-  store float %76, ptr %7, align 8
-  store <2 x float> %79, ptr %.sroa.310.0..sroa_idx, align 4
+  %71 = insertelement <2 x float> poison, float %sqrt.i.i.i, i64 0
+  %72 = shufflevector <2 x float> %71, <2 x float> poison, <2 x i32> zeroinitializer
+  %73 = fdiv <2 x float> %63, %72
+  %74 = fdiv float %64, %sqrt.i.i.i
+  %.sroa.7.0.i.i = select i1 %70, float %74, float %64
+  %75 = insertelement <2 x i1> poison, i1 %70, i64 0
+  %76 = shufflevector <2 x i1> %75, <2 x i1> poison, <2 x i32> zeroinitializer
+  %77 = select <2 x i1> %76, <2 x float> %73, <2 x float> %63
+  %78 = tail call noundef float @sinf(float noundef %14) #25
+  %79 = tail call noundef float @cosf(float noundef %14) #25
+  %80 = insertelement <2 x float> poison, float %78, i64 0
+  %81 = shufflevector <2 x float> %80, <2 x float> poison, <2 x i32> zeroinitializer
+  %82 = fmul <2 x float> %81, %77
+  %83 = fmul float %78, %.sroa.7.0.i.i
+  store float %79, ptr %7, align 8
+  store <2 x float> %82, ptr %.sroa.310.0..sroa_idx, align 4
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 12
-  store float %80, ptr %.sroa.6.0..sroa_idx, align 4
+  store float %83, ptr %.sroa.6.0..sroa_idx, align 4
   %.sroa.711.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 28
   store float 1.000000e+00, ptr %.sroa.711.0..sroa_idx, align 4
-  %81 = load ptr, ptr %0, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 88
-  %83 = load ptr, ptr %82, align 8
-  tail call void %83(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull byval(%"class.vcg::Similarityf") align 8 %7)
+  %84 = load ptr, ptr %0, align 8
+  %85 = getelementptr inbounds i8, ptr %84, i64 88
+  %86 = load ptr, ptr %85, align 8
+  tail call void %86(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull byval(%"class.vcg::Similarityf") align 8 %7)
   ret void
 }
 
@@ -3441,7 +3444,7 @@ define void @_ZN3vcg22MovableCoordinateFrame13RotateToAlignENS_6Point3IfEES2_(pt
   %23 = tail call noundef float @atan2f(float noundef %sqrt.i, float noundef %22) #25
   %24 = tail call noundef float @llvm.fabs.f32(float %23)
   %25 = fcmp olt float %24, 0x3EB0C6F7A0000000
-  br i1 %25, label %127, label %26
+  br i1 %25, label %130, label %26
 
 26:                                               ; preds = %5
   %.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %10, i64 0
@@ -3506,8 +3509,8 @@ define void @_ZN3vcg22MovableCoordinateFrame13RotateToAlignENS_6Point3IfEES2_(pt
   %74 = tail call float @llvm.fmuladd.f32(float %.sroa.9.0, float %.sroa.9.0, float %73)
   %sqrt.i.i.i29 = tail call float @llvm.sqrt.f32(float %74)
   %75 = fcmp ogt float %sqrt.i.i.i29, 0.000000e+00
-  %76 = select i1 %75, float %sqrt.i.i.i29, float 1.000000e+00
-  %.sroa.7.0.i.i = fdiv float %.sroa.9.0, %76
+  %76 = fdiv float %.sroa.9.0, %sqrt.i.i.i29
+  %.sroa.7.0.i.i = select i1 %75, float %76, float %.sroa.9.0
   %77 = fmul float %23, 5.000000e-01
   %78 = tail call noundef float @sinf(float noundef %77) #25
   %79 = tail call noundef float @cosf(float noundef %77) #25
@@ -3518,53 +3521,56 @@ define void @_ZN3vcg22MovableCoordinateFrame13RotateToAlignENS_6Point3IfEES2_(pt
   %84 = load float, ptr %83, align 4
   %85 = fneg float %84
   %86 = load float, ptr %69, align 8
-  %87 = insertelement <2 x float> poison, float %76, i64 0
+  %87 = insertelement <2 x float> poison, float %sqrt.i.i.i29, i64 0
   %88 = shufflevector <2 x float> %87, <2 x float> poison, <2 x i32> zeroinitializer
   %89 = fdiv <2 x float> %.sroa.045.0, %88
-  %90 = insertelement <2 x float> poison, float %78, i64 0
-  %91 = shufflevector <2 x float> %90, <2 x float> poison, <2 x i32> zeroinitializer
-  %92 = fmul <2 x float> %91, %89
-  %93 = load <2 x float>, ptr %81, align 4
-  %94 = extractelement <2 x float> %92, i64 1
-  %95 = extractelement <2 x float> %93, i64 1
-  %96 = fmul float %95, %94
-  %97 = extractelement <2 x float> %92, i64 0
-  %98 = extractelement <2 x float> %93, i64 0
-  %99 = tail call float @llvm.fmuladd.f32(float %97, float %98, float %96)
-  %100 = tail call noundef float @llvm.fmuladd.f32(float %80, float %84, float %99)
-  %101 = fmul float %94, %85
-  %102 = tail call float @llvm.fmuladd.f32(float %95, float %80, float %101)
-  %103 = fneg <2 x float> %93
-  %104 = shufflevector <2 x float> %92, <2 x float> poison, <2 x i32> <i32 poison, i32 0>
-  %105 = insertelement <2 x float> %104, float %80, i64 0
-  %106 = fmul <2 x float> %105, %103
-  %107 = insertelement <2 x float> poison, float %84, i64 0
-  %108 = shufflevector <2 x float> %107, <2 x float> %93, <2 x i32> <i32 0, i32 2>
-  %109 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %108, <2 x float> %92, <2 x float> %106)
-  %110 = fmul float %79, %98
-  %111 = insertelement <2 x float> poison, float %79, i64 0
-  %112 = shufflevector <2 x float> %111, <2 x float> poison, <2 x i32> zeroinitializer
-  %113 = shufflevector <2 x float> %93, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %114 = insertelement <2 x float> %113, float %84, i64 1
-  %115 = fmul <2 x float> %112, %114
-  %116 = fmul float %86, %97
-  %117 = insertelement <2 x float> poison, float %86, i64 0
-  %118 = shufflevector <2 x float> %117, <2 x float> poison, <2 x i32> zeroinitializer
-  %119 = shufflevector <2 x float> %92, <2 x float> %105, <2 x i32> <i32 1, i32 2>
-  %120 = fmul <2 x float> %118, %119
-  %121 = fadd float %110, %116
-  %122 = fadd <2 x float> %115, %120
-  %123 = fadd float %102, %121
-  %124 = fadd <2 x float> %109, %122
-  %125 = fneg float %100
-  %126 = tail call float @llvm.fmuladd.f32(float %86, float %79, float %125)
-  %.sroa.049.0.vec.insert.i = insertelement <2 x float> poison, float %126, i64 0
-  %.sroa.049.4.vec.insert.i = insertelement <2 x float> %.sroa.049.0.vec.insert.i, float %123, i64 1
+  %90 = insertelement <2 x i1> poison, i1 %75, i64 0
+  %91 = shufflevector <2 x i1> %90, <2 x i1> poison, <2 x i32> zeroinitializer
+  %92 = select <2 x i1> %91, <2 x float> %89, <2 x float> %.sroa.045.0
+  %93 = insertelement <2 x float> poison, float %78, i64 0
+  %94 = shufflevector <2 x float> %93, <2 x float> poison, <2 x i32> zeroinitializer
+  %95 = fmul <2 x float> %94, %92
+  %96 = load <2 x float>, ptr %81, align 4
+  %97 = extractelement <2 x float> %95, i64 1
+  %98 = extractelement <2 x float> %96, i64 1
+  %99 = fmul float %98, %97
+  %100 = extractelement <2 x float> %95, i64 0
+  %101 = extractelement <2 x float> %96, i64 0
+  %102 = tail call float @llvm.fmuladd.f32(float %100, float %101, float %99)
+  %103 = tail call noundef float @llvm.fmuladd.f32(float %80, float %84, float %102)
+  %104 = fmul float %97, %85
+  %105 = tail call float @llvm.fmuladd.f32(float %98, float %80, float %104)
+  %106 = fneg <2 x float> %96
+  %107 = shufflevector <2 x float> %95, <2 x float> poison, <2 x i32> <i32 poison, i32 0>
+  %108 = insertelement <2 x float> %107, float %80, i64 0
+  %109 = fmul <2 x float> %108, %106
+  %110 = insertelement <2 x float> poison, float %84, i64 0
+  %111 = shufflevector <2 x float> %110, <2 x float> %96, <2 x i32> <i32 0, i32 2>
+  %112 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %111, <2 x float> %95, <2 x float> %109)
+  %113 = fmul float %79, %101
+  %114 = insertelement <2 x float> poison, float %79, i64 0
+  %115 = shufflevector <2 x float> %114, <2 x float> poison, <2 x i32> zeroinitializer
+  %116 = shufflevector <2 x float> %96, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %117 = insertelement <2 x float> %116, float %84, i64 1
+  %118 = fmul <2 x float> %115, %117
+  %119 = fmul float %86, %100
+  %120 = insertelement <2 x float> poison, float %86, i64 0
+  %121 = shufflevector <2 x float> %120, <2 x float> poison, <2 x i32> zeroinitializer
+  %122 = shufflevector <2 x float> %95, <2 x float> %108, <2 x i32> <i32 1, i32 2>
+  %123 = fmul <2 x float> %121, %122
+  %124 = fadd float %113, %119
+  %125 = fadd <2 x float> %118, %123
+  %126 = fadd float %105, %124
+  %127 = fadd <2 x float> %112, %125
+  %128 = fneg float %103
+  %129 = tail call float @llvm.fmuladd.f32(float %86, float %79, float %128)
+  %.sroa.049.0.vec.insert.i = insertelement <2 x float> poison, float %129, i64 0
+  %.sroa.049.4.vec.insert.i = insertelement <2 x float> %.sroa.049.0.vec.insert.i, float %126, i64 1
   store <2 x float> %.sroa.049.4.vec.insert.i, ptr %69, align 8
-  store <2 x float> %124, ptr %82, align 8
-  br label %127
+  store <2 x float> %127, ptr %82, align 8
+  br label %130
 
-127:                                              ; preds = %5, %68
+130:                                              ; preds = %5, %68
   ret void
 }
 

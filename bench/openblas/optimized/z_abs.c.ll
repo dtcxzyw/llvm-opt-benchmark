@@ -16,8 +16,8 @@ define double @z_abs(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %10 = fdiv double %8, %7
   %11 = tail call double @llvm.fmuladd.f64(double %10, double %10, double 1.000000e+00)
   %sqrt = tail call double @llvm.sqrt.f64(double %11)
-  %12 = select i1 %9, double 1.000000e+00, double %sqrt
-  %13 = fmul double %7, %12
+  %12 = fmul double %7, %sqrt
+  %13 = select i1 %9, double %7, double %12
   ret double %13
 }
 

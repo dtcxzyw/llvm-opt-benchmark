@@ -29,8 +29,8 @@ define double @log(double noundef %0) local_unnamed_addr #0 {
   %.125 = select i1 %13, double %14, double %.02436
   %.1 = select i1 %13, i32 0, i32 %12
   %15 = fcmp ogt double %.125, 1.000000e+00
-  %16 = select i1 %15, double %.125, double 1.000000e+00
-  %.127 = fmul double %16, %11
+  %16 = fmul double %.125, %11
+  %.127 = select i1 %15, double %16, double %11
   %17 = fadd double %.03035, %.127
   %18 = fcmp ogt double %.2, %17
   %19 = fsub double %.03035, %.127

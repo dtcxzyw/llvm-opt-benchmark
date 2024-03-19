@@ -3513,9 +3513,6 @@ for.body117.lr.ph:                                ; preds = %arrayctor.loop
   %116 = fcmp ogt <2 x float> %centroidBounds.sroa.18.0.lcssa, %centroidBounds.sroa.0.0.lcssa
   %117 = fcmp ogt <2 x float> %centroidBounds.sroa.18.0.lcssa, %centroidBounds.sroa.0.0.lcssa
   %cmp25.i = fcmp ogt float %centroidBounds.sroa.30.0.lcssa, %centroidBounds.sroa.11.0.lcssa
-  %div33.i = select i1 %cmp25.i, float %sub6.i.i.i144, float 1.000000e+00
-  %118 = select <2 x i1> %116, <2 x float> %42, <2 x float> <float 1.000000e+00, float poison>
-  %119 = select <2 x i1> %117, <2 x float> %42, <2 x float> <float poison, float 1.000000e+00>
   br label %for.body117
 
 for.body117:                                      ; preds = %for.body117.lr.ph, %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit
@@ -3524,11 +3521,12 @@ for.body117:                                      ; preds = %for.body117.lr.ph, 
   %agg.tmp.sroa.0.0.copyload.i203 = load <2 x float>, ptr %bounds.i202, align 8
   %pMax.i211 = getelementptr inbounds i8, ptr %__begin6.0592, i64 20
   %agg.tmp3.sroa.0.0.copyload.i212 = load <2 x float>, ptr %pMax.i211, align 4
-  %120 = fmul <2 x float> %agg.tmp.sroa.0.0.copyload.i203, <float 5.000000e-01, float 5.000000e-01>
-  %121 = fmul <2 x float> %agg.tmp3.sroa.0.0.copyload.i212, <float 5.000000e-01, float 5.000000e-01>
-  %122 = fadd <2 x float> %120, %121
-  %123 = fsub <2 x float> %122, %centroidBounds.sroa.0.0.lcssa
-  %sel = fdiv <2 x float> %123, %118
+  %118 = fmul <2 x float> %agg.tmp.sroa.0.0.copyload.i203, <float 5.000000e-01, float 5.000000e-01>
+  %119 = fmul <2 x float> %agg.tmp3.sroa.0.0.copyload.i212, <float 5.000000e-01, float 5.000000e-01>
+  %120 = fadd <2 x float> %118, %119
+  %121 = fsub <2 x float> %120, %centroidBounds.sroa.0.0.lcssa
+  %122 = fdiv <2 x float> %121, %42
+  %sel = select <2 x i1> %116, <2 x float> %122, <2 x float> %121
   %ref.tmp119.sroa.0.0.vec.extract = extractelement <2 x float> %sel, i64 0
   switch i32 %retval.0.i, label %if.end4.i240 [
     i32 0, label %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit
@@ -3536,7 +3534,9 @@ for.body117:                                      ; preds = %for.body117.lr.ph, 
   ]
 
 if.then3.i237:                                    ; preds = %for.body117
-  %sel720 = fdiv <2 x float> %123, %119
+  %retval.sroa.0.0.i = shufflevector <2 x float> %sel, <2 x float> %121, <2 x i32> <i32 0, i32 3>
+  %123 = fdiv <2 x float> %retval.sroa.0.0.i, %42
+  %sel720 = select <2 x i1> %117, <2 x float> %123, <2 x float> %retval.sroa.0.0.i
   %ref.tmp119.sroa.0.4.vec.extract = extractelement <2 x float> %sel720, i64 1
   br label %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit
 
@@ -3549,7 +3549,8 @@ if.end4.i240:                                     ; preds = %for.body117
   %mul3.i.i5.i219 = fmul float %agg.tmp3.sroa.2.0.copyload.i214, 5.000000e-01
   %add6.i.i222 = fadd float %mul3.i.i.i210, %mul3.i.i5.i219
   %sub6.i.i = fsub float %add6.i.i222, %centroidBounds.sroa.11.0.lcssa
-  %retval.sroa.6.0.i = fdiv float %sub6.i.i, %div33.i
+  %div33.i = fdiv float %sub6.i.i, %sub6.i.i.i144
+  %retval.sroa.6.0.i = select i1 %cmp25.i, float %div33.i, float %sub6.i.i
   br label %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit
 
 _ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit:          ; preds = %for.body117, %if.then3.i237, %if.end4.i240
@@ -5391,7 +5392,6 @@ if.else.lr.ph.i.preheader:                        ; preds = %entry
   %sub18.i.i.i = fsub float %agg.tmp.sroa.4.0.copyload, %1
   %cmp25.i.i.i = fcmp ogt float %agg.tmp.sroa.5.0.copyload, %agg.tmp.sroa.2.0.copyload
   %sub31.i.i.i = fsub float %agg.tmp.sroa.5.0.copyload, %agg.tmp.sroa.2.0.copyload
-  %div33.i.i.i = select i1 %cmp25.i.i.i, float %sub31.i.i.i, float 1.000000e+00
   br label %if.else.lr.ph.i
 
 if.else.lr.ph.i:                                  ; preds = %if.else.lr.ph.i.preheader, %while.end18.i
@@ -5436,7 +5436,8 @@ if.end4.i.i.i:                                    ; preds = %if.else.i
   %mul3.i.i5.i.i.i = fmul float %agg.tmp3.sroa.2.0.copyload.i.i.i, 5.000000e-01
   %add6.i.i.i.i = fadd float %mul3.i.i.i.i.i, %mul3.i.i5.i.i.i
   %sub6.i.i.i.i = fsub float %add6.i.i.i.i, %agg.tmp.sroa.2.0.copyload
-  %retval.sroa.6.0.i.i.i = fdiv float %sub6.i.i.i.i, %div33.i.i.i
+  %div33.i.i.i = fdiv float %sub6.i.i.i.i, %sub31.i.i.i
+  %retval.sroa.6.0.i.i.i = select i1 %cmp25.i.i.i, float %div33.i.i.i, float %sub6.i.i.i.i
   br label %"_ZZN4pbrt12BVHAggregate14buildRecursiveERNS_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS2_4spanINS_12BVHPrimitiveEEEPSt6atomicIiESE_RSt6vectorINS_9PrimitiveESaISG_EEENK3$_4clERKSA_.exit.i"
 
 "_ZZN4pbrt12BVHAggregate14buildRecursiveERNS_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS2_4spanINS_12BVHPrimitiveEEEPSt6atomicIiESE_RSt6vectorINS_9PrimitiveESaISG_EEENK3$_4clERKSA_.exit.i": ; preds = %if.end4.i.i.i, %if.then3.i.i.i, %if.else.i
@@ -5487,15 +5488,16 @@ if.then3.i.i48.i:                                 ; preds = %if.else11.i
   br label %"_ZZN4pbrt12BVHAggregate14buildRecursiveERNS_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS2_4spanINS_12BVHPrimitiveEEEPSt6atomicIiESE_RSt6vectorINS_9PrimitiveESaISG_EEENK3$_4clERKSA_.exit72.i"
 
 if.end4.i.i56.i:                                  ; preds = %if.else11.i
-  %agg.tmp.sroa.2.0.pMin.sroa_idx.i.i57.i = getelementptr inbounds i8, ptr %__last.addr.0.pn.i, i64 -16
-  %agg.tmp.sroa.2.0.copyload.i.i58.i = load float, ptr %agg.tmp.sroa.2.0.pMin.sroa_idx.i.i57.i, align 8
-  %mul3.i.i.i.i59.i = fmul float %agg.tmp.sroa.2.0.copyload.i.i58.i, 5.000000e-01
-  %agg.tmp3.sroa.2.0.pMax.sroa_idx.i.i60.i = getelementptr inbounds i8, ptr %__last.addr.0.pn.i, i64 -4
-  %agg.tmp3.sroa.2.0.copyload.i.i61.i = load float, ptr %agg.tmp3.sroa.2.0.pMax.sroa_idx.i.i60.i, align 4
-  %mul3.i.i5.i.i62.i = fmul float %agg.tmp3.sroa.2.0.copyload.i.i61.i, 5.000000e-01
-  %add6.i.i.i63.i = fadd float %mul3.i.i.i.i59.i, %mul3.i.i5.i.i62.i
-  %sub6.i.i.i66.i = fsub float %add6.i.i.i63.i, %agg.tmp.sroa.2.0.copyload
-  %retval.sroa.6.0.i.i71.i = fdiv float %sub6.i.i.i66.i, %div33.i.i.i
+  %agg.tmp.sroa.2.0.pMin.sroa_idx.i.i61.i = getelementptr inbounds i8, ptr %__last.addr.0.pn.i, i64 -16
+  %agg.tmp.sroa.2.0.copyload.i.i62.i = load float, ptr %agg.tmp.sroa.2.0.pMin.sroa_idx.i.i61.i, align 8
+  %mul3.i.i.i.i63.i = fmul float %agg.tmp.sroa.2.0.copyload.i.i62.i, 5.000000e-01
+  %agg.tmp3.sroa.2.0.pMax.sroa_idx.i.i64.i = getelementptr inbounds i8, ptr %__last.addr.0.pn.i, i64 -4
+  %agg.tmp3.sroa.2.0.copyload.i.i65.i = load float, ptr %agg.tmp3.sroa.2.0.pMax.sroa_idx.i.i64.i, align 4
+  %mul3.i.i5.i.i66.i = fmul float %agg.tmp3.sroa.2.0.copyload.i.i65.i, 5.000000e-01
+  %add6.i.i.i67.i = fadd float %mul3.i.i.i.i63.i, %mul3.i.i5.i.i66.i
+  %sub6.i.i.i68.i = fsub float %add6.i.i.i67.i, %agg.tmp.sroa.2.0.copyload
+  %div33.i.i70.i = fdiv float %sub6.i.i.i68.i, %sub31.i.i.i
+  %retval.sroa.6.0.i.i71.i = select i1 %cmp25.i.i.i, float %div33.i.i70.i, float %sub6.i.i.i68.i
   br label %"_ZZN4pbrt12BVHAggregate14buildRecursiveERNS_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS2_4spanINS_12BVHPrimitiveEEEPSt6atomicIiESE_RSt6vectorINS_9PrimitiveESaISG_EEENK3$_4clERKSA_.exit72.i"
 
 "_ZZN4pbrt12BVHAggregate14buildRecursiveERNS_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS2_4spanINS_12BVHPrimitiveEEEPSt6atomicIiESE_RSt6vectorINS_9PrimitiveESaISG_EEENK3$_4clERKSA_.exit72.i": ; preds = %if.end4.i.i56.i, %if.then3.i.i48.i, %if.else11.i
@@ -15901,8 +15903,8 @@ entry:
   %19 = load float, ptr %z.i.i.i.i, align 4
   %cmp25.i.i.i.i = fcmp ogt float %19, %agg.tmp.sroa.2.0.copyload.i8.i.i.i
   %sub31.i.i.i.i = fsub float %19, %agg.tmp.sroa.2.0.copyload.i8.i.i.i
-  %div33.i.i.i.i = select i1 %cmp25.i.i.i.i, float %sub31.i.i.i.i, float 1.000000e+00
-  %retval.sroa.6.0.i.i.i.i = fdiv float %sub6.i.i.i.i.i, %div33.i.i.i.i
+  %div33.i.i.i.i = fdiv float %sub6.i.i.i.i.i, %sub31.i.i.i.i
+  %retval.sroa.6.0.i.i.i.i = select i1 %cmp25.i.i.i.i, float %div33.i.i.i.i, float %sub6.i.i.i.i.i
   %20 = fmul <2 x float> %retval.sroa.0.1.i.i.i.i, <float 1.024000e+03, float 1.024000e+03>
   %mul5.i.i.i.i = fmul float %retval.sroa.6.0.i.i.i.i, 1.024000e+03
   %conv.i.i.i.i = fptoui float %mul5.i.i.i.i to i32

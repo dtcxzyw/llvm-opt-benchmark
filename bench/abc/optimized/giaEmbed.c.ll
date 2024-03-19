@@ -4828,8 +4828,8 @@ define void @Emb_ManComputeCovariance(ptr nocapture noundef %0, i32 noundef %1) 
   %14 = load float, ptr %13, align 4
   %15 = fcmp olt float %14, 1.000000e+09
   %16 = fpext float %14 to double
-  %17 = select i1 %15, double %16, double -0.000000e+00
-  %.155 = fadd double %.05471, %17
+  %17 = fadd double %.05471, %16
+  %.155 = select i1 %15, double %17, double %.05471
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !50

@@ -22361,8 +22361,8 @@ _ZNK3app13get_family_idEv.exit:                   ; preds = %if.end390, %cond.fa
   %or.cond = select i1 %cmp396, i1 %cmp398, i1 false
   %m_scale_unsat = getelementptr inbounds i8, ptr %this, i64 288
   %230 = load double, ptr %m_scale_unsat, align 8
-  %mul = select i1 %or.cond, double %230, double 1.000000e+00
-  %res.2 = fmul double %res.1, %mul
+  %mul = fmul double %res.1, %230
+  %res.2 = select i1 %or.cond, double %mul, double %res.1
   ret double %res.2
 
 eh.resume:                                        ; preds = %lpad358, %lpad360, %lpad293, %lpad295, %lpad280, %lpad282, %lpad253, %lpad255, %lpad239, %lpad241, %lpad225, %lpad227, %lpad213, %lpad215, %lpad159, %lpad163, %lpad, %lpad130

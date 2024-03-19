@@ -7399,8 +7399,7 @@ if.end91.i.lr.ph:                                 ; preds = %do.end74.i, %_Py_DE
 if.then80.i:                                      ; preds = %_Py_DECREF_SPECIALIZED.exit.i, %while.cond75.backedge.i, %do.end74.i
   %c.0.ph.i.lcssa = phi double [ 0.000000e+00, %do.end74.i ], [ %c.0.ph.i61, %while.cond75.backedge.i ], [ %c.1.i, %_Py_DECREF_SPECIALIZED.exit.i ]
   %f_result.029.i.lcssa = phi double [ %result.3.val155.i, %do.end74.i ], [ %add116.i, %while.cond75.backedge.i ], [ %add96.i, %_Py_DECREF_SPECIALIZED.exit.i ]
-  %or.cond147.le.i = call i1 @llvm.is.fpclass.f64(double %c.0.ph.i.lcssa, i32 615)
-  %add122.le76.i = select i1 %or.cond147.le.i, double -0.000000e+00, double %c.0.ph.i.lcssa
+  %or.cond147.le80.i = call i1 @llvm.is.fpclass.f64(double %c.0.ph.i.lcssa, i32 615)
   %46 = load i64, ptr %call.i3034, align 8
   %47 = and i64 %46, 2147483648
   %cmp.i417.not.i = icmp eq i64 %47, 0
@@ -7422,7 +7421,8 @@ Py_DECREF.exit243.i:                              ; preds = %if.then1.i241.i, %i
   br i1 %tobool82.not.i, label %if.end84.i, label %builtin_sum_impl.exit
 
 if.end84.i:                                       ; preds = %Py_DECREF.exit243.i
-  %f_result.1.i = fadd double %add122.le76.i, %f_result.029.i.lcssa
+  %add88.i = fadd double %c.0.ph.i.lcssa, %f_result.029.i.lcssa
+  %f_result.1.i = select i1 %or.cond147.le80.i, double %f_result.029.i.lcssa, double %add88.i
   %call90.i = call ptr @PyFloat_FromDouble(double noundef %f_result.1.i) #7
   br label %builtin_sum_impl.exit
 
@@ -7504,9 +7504,9 @@ while.cond75.backedge.i:                          ; preds = %if.then1.i232.i, %i
   br i1 %cmp79.i, label %if.then80.i, label %if.end91.i, !llvm.loop !22
 
 if.end118.i:                                      ; preds = %if.then111.i, %if.end107.i
-  %or.cond147.le82.i = call i1 @llvm.is.fpclass.f64(double %c.0.ph.i61, i32 615)
-  %add122.le.i = select i1 %or.cond147.le82.i, double -0.000000e+00, double %c.0.ph.i61
-  %f_result.2.i = fadd double %add122.le.i, %f_result.029.i54
+  %or.cond147.le.i = call i1 @llvm.is.fpclass.f64(double %c.0.ph.i61, i32 615)
+  %add122.i = fadd double %c.0.ph.i61, %f_result.029.i54
+  %f_result.2.i = select i1 %or.cond147.le.i, double %f_result.029.i54, double %add122.i
   %call124.i = call ptr @PyFloat_FromDouble(double noundef %f_result.2.i) #7
   %cmp125.i = icmp eq ptr %call124.i, null
   br i1 %cmp125.i, label %if.then127.i, label %if.end128.i

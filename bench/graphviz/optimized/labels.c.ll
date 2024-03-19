@@ -1229,8 +1229,8 @@ define void @emit_label(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_un
   %48 = getelementptr inbounds i8, ptr %2, i64 32
   %49 = load double, ptr %48, align 8
   %50 = fsub double %.sink, %49
-  %51 = select i1 %.not46, double 0.000000e+00, double %24
-  %.sroa.4.1 = fsub double %50, %51
+  %51 = fsub double %50, %24
+  %.sroa.4.1 = select i1 %.not46, double %50, double %51
   %52 = getelementptr inbounds i8, ptr %2, i64 72
   %53 = getelementptr inbounds i8, ptr %2, i64 56
   %.pre = load ptr, ptr %11, align 8

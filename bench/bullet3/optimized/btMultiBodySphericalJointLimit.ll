@@ -607,11 +607,11 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 if.else:                                          ; preds = %for.body
   %cmp104 = fcmp ogt float %128, %127
-  %sub = select i1 %cmp104, float %127, float 0.000000e+00
-  %129 = fsub float %128, %sub
+  %sub = fsub float %128, %127
+  %129 = select i1 %cmp104, float %sub, float %128
   %cmp114 = fcmp olt float %129, %fneg
-  %add = select i1 %cmp114, float %127, float -0.000000e+00
-  %simplifycfg.merge = fadd float %129, %add
+  %add = fadd float %127, %129
+  %simplifycfg.merge = select i1 %cmp114, float %add, float %129
   %130 = or i1 %cmp104, %cmp114
   br i1 %130, label %if.end120.sink.split, label %if.end120
 

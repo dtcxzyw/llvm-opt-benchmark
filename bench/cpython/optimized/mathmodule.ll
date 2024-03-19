@@ -3114,8 +3114,8 @@ if.then45:                                        ; preds = %if.then44
 
 if.end46:                                         ; preds = %if.then44
   %isinf = fcmp oeq double %10, 0x7FF0000000000000
-  %add49 = select i1 %isinf, double %x.0, double -0.000000e+00
-  %inf_sum.1 = fadd double %inf_sum.0119, %add49
+  %add49 = fadd double %inf_sum.0119, %x.0
+  %inf_sum.1 = select i1 %isinf, double %add49, double %inf_sum.0119
   %add51 = fadd double %special_sum.0118, %x.0
   br label %if.end64
 
@@ -8091,8 +8091,8 @@ return:                                           ; preds = %if.else7.i, %if.els
   ret ptr %retval.0
 }
 
-; Function Attrs: nounwind
-declare double @erf(double noundef) local_unnamed_addr #10
+; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+declare double @erf(double noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
 declare double @erfc(double noundef) local_unnamed_addr #10

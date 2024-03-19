@@ -387,8 +387,8 @@ define void @dgbrfs_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %281 = fneg double %279
   %282 = select i1 %280, double %279, double %281
   %283 = call double @llvm.fmuladd.f64(double %112, double %276, double %282)
-  %284 = select i1 %277, double -0.000000e+00, double %105
-  %285 = fadd double %283, %284
+  %284 = fadd double %105, %283
+  %285 = select i1 %277, double %283, double %284
   store double %285, ptr %275, align 8, !tbaa !7
   %286 = add nuw nsw i64 %274, 1
   %287 = icmp eq i64 %286, %272

@@ -387,8 +387,8 @@ define void @dpprfs_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   %274 = fneg double %272
   %275 = select i1 %273, double %272, double %274
   %276 = call double @llvm.fmuladd.f64(double %82, double %269, double %275)
-  %277 = select i1 %270, double -0.000000e+00, double %74
-  %278 = fadd double %276, %277
+  %277 = fadd double %74, %276
+  %278 = select i1 %270, double %276, double %277
   store double %278, ptr %268, align 8, !tbaa !7
   %279 = add nuw nsw i64 %267, 1
   %280 = icmp eq i64 %279, %265

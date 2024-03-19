@@ -3888,8 +3888,8 @@ _ZNK4QMapIdjE4sizeEv.exit:                        ; preds = %3
 _ZN4QMapIdjE6detachEv.exit.i:                     ; preds = %_ZNK4QMapIdjE4sizeEv.exit
   %9 = getelementptr inbounds i8, ptr %0, i64 7448
   %10 = load double, ptr %9, align 8
-  %11 = select i1 %2, double 0.000000e+00, double %10
-  %.08 = fsub double %1, %11
+  %11 = fsub double %1, %10
+  %.08 = select i1 %2, double %1, double %11
   tail call void @_ZN9QtPrivate30QExplicitlySharedDataPointerV2I8QMapDataISt3mapIdjSt4lessIdESaISt4pairIKdjEEEEE6detachEv(ptr noundef nonnull align 8 dereferenceable(8) %4)
   %12 = load ptr, ptr %4, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 24

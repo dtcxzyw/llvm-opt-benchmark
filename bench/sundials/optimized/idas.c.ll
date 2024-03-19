@@ -6973,8 +6973,8 @@ IDAQuadSensTestError.exit.thread316.i:            ; preds = %1431, %IDASensTestE
   %1460 = load double, ptr %410, align 8
   %1461 = fmul double %1459, %1460
   %1462 = fcmp ogt double %1461, 1.000000e+00
-  %1463 = select i1 %1462, double %1461, double 1.000000e+00
-  %.0279.i.i = fdiv double %1458, %1463
+  %1463 = fdiv double %1458, %1461
+  %.0279.i.i = select i1 %1462, double %1463, double %1458
   store double %.0279.i.i, ptr %332, align 8
   br label %1611
 

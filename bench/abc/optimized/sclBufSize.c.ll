@@ -2692,8 +2692,8 @@ Abc_Clock.exit:                                   ; preds = %2, %15
   %24 = getelementptr inbounds i8, ptr %23, i64 16
   %25 = load i32, ptr %24, align 4
   %.not = icmp eq i32 %25, 0
-  %26 = select i1 %.not, float 1.000000e+00, float %1
-  %27 = fmul float %26, %1
+  %26 = fmul float %1, %1
+  %27 = select i1 %.not, float %1, float %26
   %28 = icmp sgt i32 %.val156.val, 0
   br i1 %28, label %.lr.ph263, label %.critedge.preheader
 

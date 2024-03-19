@@ -419,8 +419,8 @@ define void @dpbrfs_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
   %310 = fneg double %308
   %311 = select i1 %309, double %308, double %310
   %312 = call double @llvm.fmuladd.f64(double %100, double %305, double %311)
-  %313 = select i1 %306, double -0.000000e+00, double %92
-  %314 = fadd double %312, %313
+  %313 = fadd double %92, %312
+  %314 = select i1 %306, double %312, double %313
   store double %314, ptr %304, align 8, !tbaa !7
   %315 = add nuw nsw i64 %303, 1
   %316 = icmp eq i64 %315, %301

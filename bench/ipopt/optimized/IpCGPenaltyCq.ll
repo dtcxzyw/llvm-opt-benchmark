@@ -913,8 +913,8 @@ _ZN5Ipopt8SmartPtrIKNS_6MatrixEED2Ev.exit49:      ; preds = %._crit_edge77, %64,
 _ZN5Ipopt8SmartPtrIKNS_6MatrixEED2Ev.exit51:      ; preds = %_ZN5Ipopt8SmartPtrIKNS_6MatrixEED2Ev.exit49, %74, %79
   %83 = icmp eq i32 %1, 1
   %84 = sitofp i32 %.2.lcssa to double
-  %85 = select i1 %83, double %84, double 1.000000e+00
-  %.6 = fdiv double %.345.lcssa, %85
+  %85 = fdiv double %.345.lcssa, %84
+  %.6 = select i1 %83, double %85, double %.345.lcssa
   ret double %.6
 
 _ZN5Ipopt8SmartPtrIKNS_6MatrixEED2Ev.exit:        ; preds = %58, %53, %50, %26

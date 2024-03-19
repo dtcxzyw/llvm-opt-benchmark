@@ -240,8 +240,8 @@ while.body69:                                     ; preds = %while.body69.lr.ph,
   %14 = and i8 %13, 1
   %cmp75 = icmp eq i8 %14, 0
   %sub = fsub double %cond.i100, %x63.0168
-  %add = select i1 %cmp75, double %sub, double -0.000000e+00
-  %total.1 = fadd double %total.0169, %add
+  %add = fadd double %total.0169, %sub
+  %total.1 = select i1 %cmp75, double %add, double %total.0169
   %cmp78 = fcmp oeq double %ax.2165, %cond.i100
   %cmp83 = icmp slt i32 %ai.2163, %conv82
   %or.cond175 = select i1 %cmp78, i1 %cmp83, i1 false
@@ -356,8 +356,8 @@ while.end132:                                     ; preds = %if.end131, %while.c
   %21 = and i8 %20, 1
   %cmp137 = icmp eq i8 %21, 0
   %sub139 = fsub double %xTo, %x63.0.lcssa
-  %add140 = select i1 %cmp137, double %sub139, double -0.000000e+00
-  %total.2 = fadd double %total.0.lcssa, %add140
+  %add140 = fadd double %total.0.lcssa, %sub139
+  %total.2 = select i1 %cmp137, double %add140, double %total.0.lcssa
   ret double %total.2
 }
 

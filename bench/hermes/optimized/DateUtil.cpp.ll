@@ -178,8 +178,8 @@ define hidden noundef double @_ZN6hermes2vm13timeWithinDayEd(double noundef %t) 
 entry:
   %call.i = tail call double @fmod(double noundef %t, double noundef 8.640000e+07) #17
   %cmp.i = fcmp olt double %call.i, 0.000000e+00
-  %add.i = select i1 %cmp.i, double 8.640000e+07, double -0.000000e+00
-  %cond.i = fadd double %call.i, %add.i
+  %add.i = fadd double %call.i, 8.640000e+07
+  %cond.i = select i1 %cmp.i, double %add.i, double %call.i
   ret double %cond.i
 }
 
@@ -510,8 +510,8 @@ entry:
   %add = fadd double %0, 4.000000e+00
   %call.i = tail call double @fmod(double noundef %add, double noundef 7.000000e+00) #17
   %cmp.i = fcmp olt double %call.i, 0.000000e+00
-  %add.i = select i1 %cmp.i, double 7.000000e+00, double -0.000000e+00
-  %cond.i = fadd double %call.i, %add.i
+  %add.i = fadd double %call.i, 7.000000e+00
+  %cond.i = select i1 %cmp.i, double %add.i, double %call.i
   %conv = fptosi double %cond.i to i32
   ret i32 %conv
 }
@@ -820,8 +820,8 @@ entry:
   %0 = tail call double @llvm.floor.f64(double %div)
   %call.i = tail call double @fmod(double noundef %0, double noundef 2.400000e+01) #17
   %cmp.i = fcmp olt double %call.i, 0.000000e+00
-  %add.i = select i1 %cmp.i, double 2.400000e+01, double -0.000000e+00
-  %cond.i = fadd double %call.i, %add.i
+  %add.i = fadd double %call.i, 2.400000e+01
+  %cond.i = select i1 %cmp.i, double %add.i, double %call.i
   ret double %cond.i
 }
 
@@ -832,8 +832,8 @@ entry:
   %0 = tail call double @llvm.floor.f64(double %div)
   %call.i = tail call double @fmod(double noundef %0, double noundef 6.000000e+01) #17
   %cmp.i = fcmp olt double %call.i, 0.000000e+00
-  %add.i = select i1 %cmp.i, double 6.000000e+01, double -0.000000e+00
-  %cond.i = fadd double %call.i, %add.i
+  %add.i = fadd double %call.i, 6.000000e+01
+  %cond.i = select i1 %cmp.i, double %add.i, double %call.i
   ret double %cond.i
 }
 
@@ -844,8 +844,8 @@ entry:
   %0 = tail call double @llvm.floor.f64(double %div)
   %call.i = tail call double @fmod(double noundef %0, double noundef 6.000000e+01) #17
   %cmp.i = fcmp olt double %call.i, 0.000000e+00
-  %add.i = select i1 %cmp.i, double 6.000000e+01, double -0.000000e+00
-  %cond.i = fadd double %call.i, %add.i
+  %add.i = fadd double %call.i, 6.000000e+01
+  %cond.i = select i1 %cmp.i, double %add.i, double %call.i
   ret double %cond.i
 }
 
@@ -854,8 +854,8 @@ define hidden noundef double @_ZN6hermes2vm10msFromTimeEd(double noundef %t) loc
 entry:
   %call.i = tail call double @fmod(double noundef %t, double noundef 1.000000e+03) #17
   %cmp.i = fcmp olt double %call.i, 0.000000e+00
-  %add.i = select i1 %cmp.i, double 1.000000e+03, double -0.000000e+00
-  %cond.i = fadd double %call.i, %add.i
+  %add.i = fadd double %call.i, 1.000000e+03
+  %cond.i = select i1 %cmp.i, double %add.i, double %call.i
   ret double %cond.i
 }
 
@@ -916,8 +916,8 @@ if.end:                                           ; preds = %entry
   %add = fadd double %6, %9
   %call.i = tail call double @fmod(double noundef %7, double noundef 1.200000e+01) #17
   %cmp.i = fcmp olt double %call.i, 0.000000e+00
-  %add.i = select i1 %cmp.i, double 1.200000e+01, double -0.000000e+00
-  %cond.i = fadd double %call.i, %add.i
+  %add.i = fadd double %call.i, 1.200000e+01
+  %cond.i = select i1 %cmp.i, double %add.i, double %call.i
   %call.i.i = tail call noundef double @fmod(double noundef %add, double noundef 4.000000e+00) #17
   %cmp.i6 = fcmp une double %call.i.i, 0.000000e+00
   br i1 %cmp.i6, label %_ZN6hermes2vmL10isLeapYearEd.exit, label %if.end.i
@@ -1077,8 +1077,8 @@ entry:
   %1 = call double @llvm.floor.f64(double %div.i7)
   %call.i.i8 = call double @fmod(double noundef %1, double noundef 6.000000e+01) #17
   %cmp.i.i9 = fcmp olt double %call.i.i8, 0.000000e+00
-  %add.i.i10 = select i1 %cmp.i.i9, double 6.000000e+01, double -0.000000e+00
-  %cond.i.i11 = fadd double %call.i.i8, %add.i.i10
+  %add.i.i10 = fadd double %call.i.i8, 6.000000e+01
+  %cond.i.i11 = select i1 %cmp.i.i9, double %add.i.i10, double %call.i.i8
   %conv2 = fptosi double %cond.i.i11 to i32
   %div.i12 = fdiv double %t, 1.000000e+03
   %2 = call double @llvm.floor.f64(double %div.i12)
@@ -1087,8 +1087,8 @@ entry:
   %3 = insertelement <2 x double> poison, double %call.i.i17, i64 0
   %4 = insertelement <2 x double> %3, double %call.i.i13, i64 1
   %5 = fcmp olt <2 x double> %4, zeroinitializer
-  %6 = select <2 x i1> %5, <2 x double> <double 1.000000e+03, double 6.000000e+01>, <2 x double> <double -0.000000e+00, double -0.000000e+00>
-  %7 = fadd <2 x double> %4, %6
+  %6 = fadd <2 x double> %4, <double 1.000000e+03, double 6.000000e+01>
+  %7 = select <2 x i1> %5, <2 x double> %6, <2 x double> %4
   %8 = fptosi <2 x double> %7 to <2 x i32>
   %cmp = fcmp oeq double %tza, 0.000000e+00
   br i1 %cmp, label %if.then, label %if.else
@@ -1121,8 +1121,8 @@ if.else:                                          ; preds = %entry
   %14 = insertelement <2 x double> poison, double %call.i.i27, i64 0
   %15 = insertelement <2 x double> %14, double %call.i.i22, i64 1
   %16 = fcmp olt <2 x double> %15, zeroinitializer
-  %17 = select <2 x i1> %16, <2 x double> <double 6.000000e+01, double 2.400000e+01>, <2 x double> <double -0.000000e+00, double -0.000000e+00>
-  %18 = fadd <2 x double> %15, %17
+  %17 = fadd <2 x double> %15, <double 6.000000e+01, double 2.400000e+01>
+  %18 = select <2 x i1> %16, <2 x double> %17, <2 x double> %15
   %19 = fptosi <2 x double> %18 to <2 x i32>
   store <2 x i32> %19, ptr %Vals.i.i32, align 8, !alias.scope !17
   %20 = getelementptr inbounds i8, ptr %ref.tmp14, i64 24
@@ -1138,8 +1138,8 @@ if.end:                                           ; preds = %if.else, %if.then
   %.sink = phi ptr [ %23, %if.else ], [ %10, %if.then ]
   %ref.tmp14.sink = phi ptr [ %ref.tmp14, %if.else ], [ %ref.tmp, %if.then ]
   %cmp.i.i = fcmp olt double %call.i.i, 0.000000e+00
-  %add.i.i = select i1 %cmp.i.i, double 2.400000e+01, double -0.000000e+00
-  %cond.i.i = fadd double %call.i.i, %add.i.i
+  %add.i.i = fadd double %call.i.i, 2.400000e+01
+  %cond.i.i = select i1 %cmp.i.i, double %add.i.i, double %call.i.i
   %conv = fptosi double %cond.i.i to i32
   store i32 %conv, ptr %.sink, align 4
   %call15 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(36) %os, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp14.sink) #17
@@ -1221,8 +1221,8 @@ entry:
   %add.i = fadd double %1, 4.000000e+00
   %call.i.i = call double @fmod(double noundef %add.i, double noundef 7.000000e+00) #17
   %cmp.i.i = fcmp olt double %call.i.i, 0.000000e+00
-  %add.i.i = select i1 %cmp.i.i, double 7.000000e+00, double -0.000000e+00
-  %cond.i.i = fadd double %call.i.i, %add.i.i
+  %add.i.i = fadd double %call.i.i, 7.000000e+00
+  %cond.i.i = select i1 %cmp.i.i, double %add.i.i, double %call.i.i
   %conv.i = fptosi double %cond.i.i to i32
   %idxprom = sext i32 %conv.i to i64
   %arrayidx = getelementptr inbounds [7 x ptr], ptr @_ZN6hermes2vmL12weekdayNamesE, i64 0, i64 %idxprom
@@ -1265,8 +1265,8 @@ entry:
   %0 = call double @llvm.floor.f64(double %div.i)
   %call.i.i = call double @fmod(double noundef %0, double noundef 2.400000e+01) #17
   %cmp.i.i = fcmp olt double %call.i.i, 0.000000e+00
-  %add.i.i = select i1 %cmp.i.i, double 2.400000e+01, double -0.000000e+00
-  %cond.i.i = fadd double %call.i.i, %add.i.i
+  %add.i.i = fadd double %call.i.i, 2.400000e+01
+  %cond.i.i = select i1 %cmp.i.i, double %add.i.i, double %call.i.i
   %conv = fptosi double %cond.i.i to i32
   %div.i3 = fdiv double %t, 6.000000e+04
   %1 = call double @llvm.floor.f64(double %div.i3)
@@ -1281,8 +1281,8 @@ entry:
   %3 = insertelement <2 x double> poison, double %call.i.i9, i64 0
   %4 = insertelement <2 x double> %3, double %call.i.i4, i64 1
   %5 = fcmp olt <2 x double> %4, zeroinitializer
-  %6 = select <2 x i1> %5, <2 x double> <double 6.000000e+01, double 6.000000e+01>, <2 x double> <double -0.000000e+00, double -0.000000e+00>
-  %7 = fadd <2 x double> %4, %6
+  %6 = fadd <2 x double> %4, <double 6.000000e+01, double 6.000000e+01>
+  %7 = select <2 x i1> %5, <2 x double> %6, <2 x double> %4
   %8 = fptosi <2 x double> %7 to <2 x i32>
   store <2 x i32> %8, ptr %Vals.i.i, align 8, !alias.scope !23
   %9 = getelementptr inbounds i8, ptr %ref.tmp, i64 24
@@ -1321,8 +1321,8 @@ entry:
   %3 = insertelement <2 x double> poison, double %call.i.i, i64 0
   %4 = insertelement <2 x double> %3, double %call.i.i4, i64 1
   %5 = fcmp olt <2 x double> %4, zeroinitializer
-  %6 = select <2 x i1> %5, <2 x double> <double 6.000000e+01, double 2.400000e+01>, <2 x double> <double -0.000000e+00, double -0.000000e+00>
-  %7 = fadd <2 x double> %4, %6
+  %6 = fadd <2 x double> %4, <double 6.000000e+01, double 2.400000e+01>
+  %7 = select <2 x i1> %5, <2 x double> %6, <2 x double> %4
   %8 = fptosi <2 x double> %7 to <2 x i32>
   store <2 x i32> %8, ptr %Vals.i.i, align 8, !alias.scope !26
   %9 = getelementptr inbounds i8, ptr %ref.tmp, i64 24
@@ -1368,8 +1368,8 @@ entry:
   %add.i.i = fadd double %0, 4.000000e+00
   %call.i.i.i = call double @fmod(double noundef %add.i.i, double noundef 7.000000e+00) #17
   %cmp.i.i.i = fcmp olt double %call.i.i.i, 0.000000e+00
-  %add.i.i.i = select i1 %cmp.i.i.i, double 7.000000e+00, double -0.000000e+00
-  %cond.i.i.i = fadd double %call.i.i.i, %add.i.i.i
+  %add.i.i.i = fadd double %call.i.i.i, 7.000000e+00
+  %cond.i.i.i = select i1 %cmp.i.i.i, double %add.i.i.i, double %call.i.i.i
   %conv.i.i = fptosi double %cond.i.i.i to i32
   %idxprom.i = sext i32 %conv.i.i to i64
   %arrayidx.i = getelementptr inbounds [7 x ptr], ptr @_ZN6hermes2vmL12weekdayNamesE, i64 0, i64 %idxprom.i
@@ -1427,8 +1427,8 @@ _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i, %if.th
   %11 = call double @llvm.floor.f64(double %div.i.i)
   %call.i.i.i13 = call double @fmod(double noundef %11, double noundef 2.400000e+01) #17
   %cmp.i.i.i14 = fcmp olt double %call.i.i.i13, 0.000000e+00
-  %add.i.i.i15 = select i1 %cmp.i.i.i14, double 2.400000e+01, double -0.000000e+00
-  %cond.i.i.i16 = fadd double %call.i.i.i13, %add.i.i.i15
+  %add.i.i.i15 = fadd double %call.i.i.i13, 2.400000e+01
+  %cond.i.i.i16 = select i1 %cmp.i.i.i14, double %add.i.i.i15, double %call.i.i.i13
   %conv.i17 = fptosi double %cond.i.i.i16 to i32
   %div.i3.i = fdiv double %tv, 6.000000e+04
   %12 = call double @llvm.floor.f64(double %div.i3.i)
@@ -1443,8 +1443,8 @@ _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i, %if.th
   %14 = insertelement <2 x double> poison, double %call.i.i9.i, i64 0
   %15 = insertelement <2 x double> %14, double %call.i.i4.i, i64 1
   %16 = fcmp olt <2 x double> %15, zeroinitializer
-  %17 = select <2 x i1> %16, <2 x double> <double 6.000000e+01, double 6.000000e+01>, <2 x double> <double -0.000000e+00, double -0.000000e+00>
-  %18 = fadd <2 x double> %15, %17
+  %17 = fadd <2 x double> %15, <double 6.000000e+01, double 6.000000e+01>
+  %18 = select <2 x i1> %16, <2 x double> %17, <2 x double> %15
   %19 = fptosi <2 x double> %18 to <2 x i32>
   store <2 x i32> %19, ptr %Vals.i.i.i19, align 8, !alias.scope !32
   %20 = getelementptr inbounds i8, ptr %ref.tmp.i9, i64 24
@@ -1479,8 +1479,8 @@ _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i, %if.th
   %24 = insertelement <2 x double> poison, double %call.i.i.i26, i64 0
   %25 = insertelement <2 x double> %24, double %call.i.i4.i32, i64 1
   %26 = fcmp olt <2 x double> %25, zeroinitializer
-  %27 = select <2 x i1> %26, <2 x double> <double 6.000000e+01, double 2.400000e+01>, <2 x double> <double -0.000000e+00, double -0.000000e+00>
-  %28 = fadd <2 x double> %25, %27
+  %27 = fadd <2 x double> %25, <double 6.000000e+01, double 2.400000e+01>
+  %28 = select <2 x i1> %26, <2 x double> %27, <2 x double> %25
   %29 = fptosi <2 x double> %28 to <2 x i32>
   store <2 x i32> %29, ptr %Vals.i.i.i38, align 8, !alias.scope !35
   %30 = getelementptr inbounds i8, ptr %ref.tmp.i21, i64 24
@@ -1518,8 +1518,8 @@ entry:
   %add.i = fadd double %0, 4.000000e+00
   %call.i.i = call double @fmod(double noundef %add.i, double noundef 7.000000e+00) #17
   %cmp.i.i = fcmp olt double %call.i.i, 0.000000e+00
-  %add.i.i = select i1 %cmp.i.i, double 7.000000e+00, double -0.000000e+00
-  %cond.i.i = fadd double %call.i.i, %add.i.i
+  %add.i.i = fadd double %call.i.i, 7.000000e+00
+  %cond.i.i = select i1 %cmp.i.i, double %add.i.i, double %call.i.i
   %conv.i = fptosi double %cond.i.i to i32
   %idxprom = sext i32 %conv.i to i64
   %arrayidx = getelementptr inbounds [7 x ptr], ptr @_ZN6hermes2vmL12weekdayNamesE, i64 0, i64 %idxprom
@@ -1554,8 +1554,8 @@ entry:
   %6 = call double @llvm.floor.f64(double %div.i.i6)
   %call.i.i.i = call double @fmod(double noundef %6, double noundef 2.400000e+01) #17
   %cmp.i.i.i = fcmp olt double %call.i.i.i, 0.000000e+00
-  %add.i.i.i = select i1 %cmp.i.i.i, double 2.400000e+01, double -0.000000e+00
-  %cond.i.i.i = fadd double %call.i.i.i, %add.i.i.i
+  %add.i.i.i = fadd double %call.i.i.i, 2.400000e+01
+  %cond.i.i.i = select i1 %cmp.i.i.i, double %add.i.i.i, double %call.i.i.i
   %conv.i7 = fptosi double %cond.i.i.i to i32
   %div.i3.i = fdiv double %tv, 6.000000e+04
   %7 = call double @llvm.floor.f64(double %div.i3.i)
@@ -1570,8 +1570,8 @@ entry:
   %9 = insertelement <2 x double> poison, double %call.i.i9.i, i64 0
   %10 = insertelement <2 x double> %9, double %call.i.i4.i, i64 1
   %11 = fcmp olt <2 x double> %10, zeroinitializer
-  %12 = select <2 x i1> %11, <2 x double> <double 6.000000e+01, double 6.000000e+01>, <2 x double> <double -0.000000e+00, double -0.000000e+00>
-  %13 = fadd <2 x double> %10, %12
+  %12 = fadd <2 x double> %10, <double 6.000000e+01, double 6.000000e+01>
+  %13 = select <2 x i1> %11, <2 x double> %12, <2 x double> %10
   %14 = fptosi <2 x double> %13 to <2 x i32>
   store <2 x i32> %14, ptr %Vals.i.i.i, align 8, !alias.scope !41
   %15 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
@@ -1605,8 +1605,8 @@ entry:
   %0 = call double @llvm.floor.f64(double %div.i.i)
   %call.i.i.i = call double @fmod(double noundef %0, double noundef 2.400000e+01) #17
   %cmp.i.i.i = fcmp olt double %call.i.i.i, 0.000000e+00
-  %add.i.i.i = select i1 %cmp.i.i.i, double 2.400000e+01, double -0.000000e+00
-  %cond.i.i.i = fadd double %call.i.i.i, %add.i.i.i
+  %add.i.i.i = fadd double %call.i.i.i, 2.400000e+01
+  %cond.i.i.i = select i1 %cmp.i.i.i, double %add.i.i.i, double %call.i.i.i
   %conv.i = fptosi double %cond.i.i.i to i32
   %div.i3.i = fdiv double %tv, 6.000000e+04
   %1 = call double @llvm.floor.f64(double %div.i3.i)
@@ -1621,8 +1621,8 @@ entry:
   %3 = insertelement <2 x double> poison, double %call.i.i9.i, i64 0
   %4 = insertelement <2 x double> %3, double %call.i.i4.i, i64 1
   %5 = fcmp olt <2 x double> %4, zeroinitializer
-  %6 = select <2 x i1> %5, <2 x double> <double 6.000000e+01, double 6.000000e+01>, <2 x double> <double -0.000000e+00, double -0.000000e+00>
-  %7 = fadd <2 x double> %4, %6
+  %6 = fadd <2 x double> %4, <double 6.000000e+01, double 6.000000e+01>
+  %7 = select <2 x i1> %5, <2 x double> %6, <2 x double> %4
   %8 = fptosi <2 x double> %7 to <2 x i32>
   store <2 x i32> %8, ptr %Vals.i.i.i, align 8, !alias.scope !44
   %9 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
@@ -1657,8 +1657,8 @@ entry:
   %13 = insertelement <2 x double> poison, double %call.i.i.i10, i64 0
   %14 = insertelement <2 x double> %13, double %call.i.i4.i16, i64 1
   %15 = fcmp olt <2 x double> %14, zeroinitializer
-  %16 = select <2 x i1> %15, <2 x double> <double 6.000000e+01, double 2.400000e+01>, <2 x double> <double -0.000000e+00, double -0.000000e+00>
-  %17 = fadd <2 x double> %14, %16
+  %16 = fadd <2 x double> %14, <double 6.000000e+01, double 2.400000e+01>
+  %17 = select <2 x i1> %15, <2 x double> %16, <2 x double> %14
   %18 = fptosi <2 x double> %17 to <2 x i32>
   store <2 x i32> %18, ptr %Vals.i.i.i22, align 8, !alias.scope !47
   %19 = getelementptr inbounds i8, ptr %ref.tmp.i5, i64 24

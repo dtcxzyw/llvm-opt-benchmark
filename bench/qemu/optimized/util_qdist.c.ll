@@ -696,10 +696,10 @@ if.else:                                          ; preds = %qdist_xmin.exit41
   %mul26 = fmul double %div, 1.000000e+02
   %step.0 = select i1 %tobool24.not, double %div, double %mul26
   %cond34 = select i1 %is_left, ptr @.str.6, ptr @.str.7
-  %sub38 = select i1 %is_left, double 0.000000e+00, double %step.0
-  %x1.0.ph = fsub double %x.0, %sub38
-  %add = select i1 %is_left, double %step.0, double -0.000000e+00
-  %x2.0.ph = fadd double %x.0, %add
+  %sub38 = fsub double %x.0, %step.0
+  %add = fadd double %x.0, %step.0
+  %x1.0.ph = select i1 %is_left, double %x.0, double %sub38
+  %x2.0.ph = select i1 %is_left, double %add, double %x.0
   tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.5, i32 noundef %cond, double noundef %x1.0.ph) #12
   tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call, ptr noundef nonnull @.str.9, i32 noundef %cond, double noundef %x2.0.ph, ptr noundef nonnull %cond34) #12
   br label %if.end45

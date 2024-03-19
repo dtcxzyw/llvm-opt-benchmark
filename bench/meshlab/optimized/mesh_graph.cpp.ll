@@ -4639,12 +4639,15 @@ _ZN3vcg6Point3IdE9NormalizeEv.exit:               ; preds = %6, %2
   %22 = tail call double @llvm.fmuladd.f64(double %13, double %13, double %21)
   %sqrt.i = tail call double @llvm.sqrt.f64(double %22)
   %23 = fcmp ogt double %sqrt.i, 0.000000e+00
-  %24 = select i1 %23, double %sqrt.i, double 1.000000e+00
-  %.sroa.7.0 = fdiv double %13, %24
-  %25 = insertelement <2 x double> poison, double %24, i64 0
-  %26 = shufflevector <2 x double> %25, <2 x double> poison, <2 x i32> zeroinitializer
-  %27 = fdiv <2 x double> %17, %26
-  store <2 x double> %27, ptr %0, align 8
+  %24 = insertelement <2 x double> poison, double %sqrt.i, i64 0
+  %25 = shufflevector <2 x double> %24, <2 x double> poison, <2 x i32> zeroinitializer
+  %26 = fdiv <2 x double> %17, %25
+  %27 = fdiv double %13, %sqrt.i
+  %.sroa.7.0 = select i1 %23, double %27, double %13
+  %28 = insertelement <2 x i1> poison, i1 %23, i64 0
+  %29 = shufflevector <2 x i1> %28, <2 x i1> poison, <2 x i32> zeroinitializer
+  %30 = select <2 x i1> %29, <2 x double> %26, <2 x double> %17
+  store <2 x double> %30, ptr %0, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store double %.sroa.7.0, ptr %.sroa.7.0..sroa_idx, align 8
   ret void

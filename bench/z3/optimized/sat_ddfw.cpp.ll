@@ -5600,8 +5600,8 @@ for.body62:                                       ; preds = %for.body62.lr.ph, %
   %25 = load i32, ptr %m_num_trues, align 4
   %cmp64 = icmp eq i32 %25, 1
   %26 = load double, ptr %arrayidx.i53, align 8
-  %sub = select i1 %cmp64, double %26, double 0.000000e+00
-  %v_reward.1 = fsub double %v_reward.089, %sub
+  %sub = fsub double %v_reward.089, %26
+  %v_reward.1 = select i1 %cmp64, double %sub, double %v_reward.089
   %incdec.ptr68 = getelementptr inbounds i8, ptr %__begin256.088, i64 4
   %cmp61.not = icmp eq ptr %incdec.ptr68, %add.ptr.i51
   br i1 %cmp61.not, label %for.end69, label %for.body62
@@ -5637,8 +5637,8 @@ for.body82:                                       ; preds = %for.body82.lr.ph, %
   %32 = load i32, ptr %m_num_trues87, align 4
   %cmp88 = icmp eq i32 %32, 0
   %33 = load double, ptr %arrayidx.i63, align 8
-  %add = select i1 %cmp88, double %33, double -0.000000e+00
-  %v_reward.3 = fadd double %v_reward.291, %add
+  %add = fadd double %v_reward.291, %33
+  %v_reward.3 = select i1 %cmp88, double %add, double %v_reward.291
   %incdec.ptr93 = getelementptr inbounds i8, ptr %__begin276.092, i64 4
   %cmp81.not = icmp eq ptr %incdec.ptr93, %add.ptr.i60
   br i1 %cmp81.not, label %for.end94, label %for.body82

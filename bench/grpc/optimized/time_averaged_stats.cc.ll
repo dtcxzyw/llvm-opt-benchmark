@@ -43,8 +43,8 @@ entry:
   %cmp = fcmp ogt double %2, 0.000000e+00
   %3 = load double, ptr %this, align 8
   %4 = tail call double @llvm.fmuladd.f64(double %2, double %3, double %0)
-  %add = select i1 %cmp, double %2, double -0.000000e+00
-  %total_weight.0 = fadd double %1, %add
+  %add = fadd double %1, %2
+  %total_weight.0 = select i1 %cmp, double %add, double %1
   %weighted_sum.0 = select i1 %cmp, double %4, double %0
   %persistence_factor_ = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load double, ptr %persistence_factor_, align 8

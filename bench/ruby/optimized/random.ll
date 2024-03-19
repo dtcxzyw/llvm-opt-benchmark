@@ -4489,8 +4489,8 @@ float_value.exit.thread:                          ; preds = %47, %float_value.ex
   %.0.i.i3537 = phi double [ %.0.i.i, %float_value.exit ], [ 0.000000e+00, %47 ]
   %62 = tail call fastcc double @random_real(i64 noundef %2, ptr noundef %3, i32 noundef 1)
   %63 = fcmp ogt double %.0.i.i3537, 0.000000e+00
-  %64 = select i1 %63, double %.0.i.i3537, double 1.000000e+00
-  %.0 = fmul double %62, %64
+  %64 = fmul double %.0.i.i3537, %62
+  %.0 = select i1 %63, double %64, double %62
   %65 = bitcast double %.0 to i64
   %cond.i27 = icmp eq i64 %65, 3458764513820540928
   br i1 %cond.i27, label %77, label %66

@@ -3428,8 +3428,8 @@ cond.end208:                                      ; preds = %cond.end190, %cond.
   %287 = load float, ptr %m_splitImpulsePenetrationThreshold, align 4
   %cmp249 = fcmp ogt float %add112, %287
   %or.cond122 = select i1 %tobool247.not, i1 true, i1 %cmp249
-  %add251 = select i1 %or.cond122, float %mul244, float -0.000000e+00
-  %mul246.sink = fadd float %mul246, %add251
+  %add251 = fadd float %mul244, %mul246
+  %mul246.sink = select i1 %or.cond122, float %add251, float %mul246
   %mul244.sink = select i1 %or.cond122, float 0.000000e+00, float %mul244
   %288 = getelementptr inbounds i8, ptr %solverConstraint, i64 112
   store float %mul246.sink, ptr %288, align 8

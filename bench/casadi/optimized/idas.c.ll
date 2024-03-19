@@ -6416,8 +6416,8 @@ IDAQuadSensNls.exit.thread.i:                     ; preds = %IDAQuadSensTestErro
   %1679 = load double, ptr %389, align 8
   %1680 = fmul double %1678, %1679
   %1681 = fcmp ogt double %1680, 1.000000e+00
-  %1682 = select i1 %1681, double %1680, double 1.000000e+00
-  %.0232.i.i = fdiv double %1677, %1682
+  %1682 = fdiv double %1677, %1680
+  %.0232.i.i = select i1 %1681, double %1682, double %1677
   br label %.sink.split.i219.i
 
 .thread258.i.i:                                   ; preds = %.thread.i.i

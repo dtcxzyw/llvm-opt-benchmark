@@ -31110,7 +31110,7 @@ if.then.i416:                                     ; preds = %if.then265
   %.nonneg1471 = sub i32 0, %181
   %div.i.i41914721481 = lshr i32 %.nonneg1471, 1
   %add.i.i420 = sub i32 %181, %div.i.i41914721481
-  %182 = tail call noundef i32 @llvm.smax.i32(i32 %add.i.i420, i32 1)
+  %182 = tail call i32 @llvm.smax.i32(i32 %add.i.i420, i32 1)
   %cond7.i.i423 = select i1 %tobool.not.i.i417, i32 8, i32 %182
   tail call void @_ZN8ImVectorIjE7reserveEi(ptr noundef nonnull align 8 dereferenceable(16) %IDStack, i32 noundef %cond7.i.i423)
   br label %_ZN8ImVectorIjE6resizeEi.exit
@@ -32384,8 +32384,8 @@ if.then81.i:                                      ; preds = %land.lhs.true.i687
   %478 = bitcast <2 x float> %477 to i64
   %call5.i.i = call fastcc <2 x float> @_ZL29CalcWindowSizeAfterConstraintP11ImGuiWindowRK6ImVec2(ptr noundef nonnull %window.0, i64 %478)
   %479 = fsub <2 x float> %call5.i.i, %477
-  %480 = select <2 x i1> %454, <2 x float> %479, <2 x float> <float 0.000000e+00, float poison>
-  %sel = fsub <2 x float> %472, %480
+  %480 = fsub <2 x float> %472, %479
+  %sel = select <2 x i1> %454, <2 x float> %480, <2 x float> %472
   %pos_target.sroa.0.1.i = shufflevector <2 x float> %sel, <2 x float> %472, <2 x i32> <i32 0, i32 3>
   %481 = extractelement <2 x i1> %454, i64 1
   br i1 %481, label %if.then11.i.i, label %if.end138.i
@@ -32918,8 +32918,8 @@ if.then374.i:                                     ; preds = %if.end372.i
   %607 = extractelement <2 x float> %569, i64 0
   %cmp.i382.i = fcmp oeq float %607, 0.000000e+00
   %608 = fsub <2 x float> %call5.i381.i, %605
-  %609 = select i1 %cmp.i382.i, <2 x float> %608, <2 x float> <float 0.000000e+00, float poison>
-  %sel1543 = fsub <2 x float> %602, %609
+  %609 = fsub <2 x float> %602, %608
+  %sel1543 = select i1 %cmp.i382.i, <2 x float> %609, <2 x float> %602
   %pos_target.sroa.0.5.i = shufflevector <2 x float> %sel1543, <2 x float> %602, <2 x i32> <i32 0, i32 3>
   %610 = extractelement <2 x float> %569, i64 1
   %cmp10.i384.i = fcmp oeq float %610, 0.000000e+00

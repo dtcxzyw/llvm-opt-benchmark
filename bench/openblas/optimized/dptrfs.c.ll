@@ -329,8 +329,8 @@ define void @dptrfs_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noca
   %257 = fneg double %255
   %258 = select i1 %256, double %255, double %257
   %259 = tail call double @llvm.fmuladd.f64(double %72, double %252, double %258)
-  %260 = select i1 %253, double -0.000000e+00, double %64
-  %261 = fadd double %259, %260
+  %260 = fadd double %64, %259
+  %261 = select i1 %253, double %259, double %260
   store double %261, ptr %251, align 8, !tbaa !7
   %262 = add nuw nsw i64 %250, 1
   %263 = icmp eq i64 %262, %248

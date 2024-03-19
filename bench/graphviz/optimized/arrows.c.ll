@@ -1345,11 +1345,10 @@ define internal double @arrow_length_tee(double noundef %0, double noundef %1, d
   %7 = fmul double %2, 5.000000e-01
   %8 = tail call double @llvm.fmuladd.f64(double %6, double -4.000000e-01, double %7)
   %9 = fcmp ogt double %8, 0.000000e+00
-  %10 = select i1 %9, double %8, double -0.000000e+00
-  %.0 = fadd double %6, %10
+  %10 = fadd double %6, %8
   %11 = tail call double @llvm.fmuladd.f64(double %6, double -2.000000e-01, double %7)
-  %12 = select i1 %9, double %11, double -0.000000e+00
-  %.1 = fadd double %12, %.0
+  %12 = fadd double %11, %10
+  %.1 = select i1 %9, double %12, double %6
   ret double %.1
 }
 
