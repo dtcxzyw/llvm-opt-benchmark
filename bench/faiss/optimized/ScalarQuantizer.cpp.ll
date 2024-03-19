@@ -931,7 +931,7 @@ define internal fastcc void @_ZN5faiss12_GLOBAL__N_113train_UniformENS_15ScalarQ
 _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %17, %19, %20, %22
   %23 = phi ptr [ %.pre, %17 ], [ %11, %19 ], [ %11, %20 ], [ %11, %22 ]
   %24 = getelementptr inbounds i8, ptr %23, i64 4
-  switch i32 %0, label %201 [
+  switch i32 %0, label %202 [
     i32 0, label %25
     i32 1, label %.preheader
     i32 2, label %80
@@ -986,7 +986,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %17, %19, %20, %22
   store float %44, ptr %23, align 4
   %45 = fadd float %41, %43
   store float %45, ptr %24, align 4
-  br label %209
+  br label %210
 
 .lr.ph237:                                        ; preds = %.preheader, %.lr.ph237
   %.0173234 = phi i64 [ %54, %.lr.ph237 ], [ 0, %.preheader ]
@@ -1034,7 +1034,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %17, %19, %20, %22
   store <2 x float> %77, ptr %23, align 4
   %78 = extractelement <2 x float> %77, i64 0
   %79 = extractelement <2 x float> %77, i64 1
-  br label %209
+  br label %210
 
 80:                                               ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
   %81 = icmp ugt i64 %2, 2305843009213693951
@@ -1094,7 +1094,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %_ZNSt6vectorIfSaIfE
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0.0) #27
   %.pre267 = load float, ptr %23, align 4
   %.pre268 = load float, ptr %24, align 4
-  br label %209
+  br label %210
 
 104:                                              ; preds = %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit
   %105 = landingpad { ptr, i32 }
@@ -1233,92 +1233,93 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %_ZNSt6vectorIfSaIfE
   br i1 %179, label %140, label %143
 
 .split:                                           ; preds = %._crit_edge
-  %180 = fmul float %132, -0.000000e+00
-  %181 = tail call float @llvm.fmuladd.f32(float %.0175.lcssa, float 0.000000e+00, float %180)
-  %182 = tail call float @llvm.fmuladd.f32(float %132, float -0.000000e+00, float 0.000000e+00)
-  %183 = fmul float %.0175.lcssa, -0.000000e+00
-  %184 = fadd float %183, 0.000000e+00
-  %185 = insertelement <2 x float> poison, float %181, i64 0
-  %186 = insertelement <2 x float> %185, float %184, i64 1
-  %187 = insertelement <2 x float> poison, float %182, i64 0
-  %188 = shufflevector <2 x float> %187, <2 x float> poison, <2 x i32> zeroinitializer
-  %189 = fdiv <2 x float> %186, %188
+  %180 = fneg float %132
+  %181 = tail call float @llvm.copysign.f32(float 0.000000e+00, float %180)
+  %182 = tail call float @llvm.fmuladd.f32(float %.0175.lcssa, float 0.000000e+00, float %181)
+  %183 = tail call float @llvm.fmuladd.f32(float %132, float -0.000000e+00, float 0.000000e+00)
+  %184 = fmul float %.0175.lcssa, -0.000000e+00
+  %185 = fadd float %184, 0.000000e+00
+  %186 = insertelement <2 x float> poison, float %182, i64 0
+  %187 = insertelement <2 x float> %186, float %185, i64 1
+  %188 = insertelement <2 x float> poison, float %183, i64 0
+  %189 = shufflevector <2 x float> %188, <2 x float> poison, <2 x i32> zeroinitializer
+  %190 = fdiv <2 x float> %187, %189
   br label %.preheader211
 
-.preheader211:                                    ; preds = %.split, %195
-  %.0167230 = phi i32 [ 0, %.split ], [ %196, %195 ]
-  %.0168229 = phi i32 [ 0, %.split ], [ %.1169, %195 ]
-  %.0170228 = phi float [ -1.000000e+00, %.split ], [ %.1171, %195 ]
-  %190 = phi <2 x float> [ %134, %.split ], [ %189, %195 ]
-  %191 = fcmp oeq float %.0170228, 0.000000e+00
-  br i1 %191, label %192, label %195
+.preheader211:                                    ; preds = %.split, %196
+  %.0167230 = phi i32 [ 0, %.split ], [ %197, %196 ]
+  %.0168229 = phi i32 [ 0, %.split ], [ %.1169, %196 ]
+  %.0170228 = phi float [ -1.000000e+00, %.split ], [ %.1171, %196 ]
+  %191 = phi <2 x float> [ %134, %.split ], [ %190, %196 ]
+  %192 = fcmp oeq float %.0170228, 0.000000e+00
+  br i1 %192, label %193, label %196
 
-192:                                              ; preds = %.preheader211
-  %193 = add nsw i32 %.0168229, 1
-  %194 = icmp eq i32 %193, 16
-  br i1 %194, label %.split232.us, label %195
+193:                                              ; preds = %.preheader211
+  %194 = add nsw i32 %.0168229, 1
+  %195 = icmp eq i32 %194, 16
+  br i1 %195, label %.split232.us, label %196
 
-195:                                              ; preds = %.preheader211, %192
-  %.1171 = phi float [ %.0170228, %192 ], [ 0.000000e+00, %.preheader211 ]
-  %.1169 = phi i32 [ %193, %192 ], [ 0, %.preheader211 ]
-  %196 = add nuw nsw i32 %.0167230, 1
-  %exitcond259.not = icmp eq i32 %196, 2000
+196:                                              ; preds = %.preheader211, %193
+  %.1171 = phi float [ %.0170228, %193 ], [ 0.000000e+00, %.preheader211 ]
+  %.1169 = phi i32 [ %194, %193 ], [ 0, %.preheader211 ]
+  %197 = add nuw nsw i32 %.0167230, 1
+  %exitcond259.not = icmp eq i32 %197, 2000
   br i1 %exitcond259.not, label %.split232.us, label %.preheader211, !llvm.loop !14
 
-.split232.us:                                     ; preds = %192, %195, %140, %143
-  %197 = phi <2 x float> [ %155, %143 ], [ %137, %140 ], [ %189, %195 ], [ %190, %192 ]
-  %198 = extractelement <2 x float> %197, i64 1
-  store float %198, ptr %23, align 4
-  %199 = extractelement <2 x float> %197, i64 0
-  %200 = tail call float @llvm.fmuladd.f32(float %199, float %128, float %198)
-  store float %200, ptr %24, align 4
-  br label %209
+.split232.us:                                     ; preds = %193, %196, %140, %143
+  %198 = phi <2 x float> [ %155, %143 ], [ %137, %140 ], [ %190, %196 ], [ %191, %193 ]
+  %199 = extractelement <2 x float> %198, i64 1
+  store float %199, ptr %23, align 4
+  %200 = extractelement <2 x float> %198, i64 0
+  %201 = tail call float @llvm.fmuladd.f32(float %200, float %128, float %199)
+  store float %201, ptr %24, align 4
+  br label %210
 
-201:                                              ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-  %202 = tail call ptr @__cxa_allocate_exception(i64 40) #14
+202:                                              ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
+  %203 = tail call ptr @__cxa_allocate_exception(i64 40) #14
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #14
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %8)
-          to label %203 unwind label %.thread
+          to label %204 unwind label %.thread
 
-203:                                              ; preds = %201
-  invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %202, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5faiss12_GLOBAL__N_113train_UniformENS_15ScalarQuantizer9RangeStatEfliPKfRSt6vectorIfSaIfEE, ptr noundef nonnull @.str.3, i32 noundef 723)
-          to label %204 unwind label %206
+204:                                              ; preds = %202
+  invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %203, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5faiss12_GLOBAL__N_113train_UniformENS_15ScalarQuantizer9RangeStatEfliPKfRSt6vectorIfSaIfEE, ptr noundef nonnull @.str.3, i32 noundef 723)
+          to label %205 unwind label %207
 
-204:                                              ; preds = %203
-  invoke void @__cxa_throw(ptr nonnull %202, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #25
-          to label %213 unwind label %206
+205:                                              ; preds = %204
+  invoke void @__cxa_throw(ptr nonnull %203, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #25
+          to label %214 unwind label %207
 
-.thread:                                          ; preds = %201
-  %205 = landingpad { ptr, i32 }
+.thread:                                          ; preds = %202
+  %206 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #14
-  br label %208
+  br label %209
 
-206:                                              ; preds = %203, %204
-  %.0 = phi i1 [ false, %204 ], [ true, %203 ]
-  %207 = landingpad { ptr, i32 }
+207:                                              ; preds = %204, %205
+  %.0 = phi i1 [ false, %205 ], [ true, %204 ]
+  %208 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #14
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #14
-  br i1 %.0, label %208, label %_ZNSt6vectorIfSaIfEED2Ev.exit199
+  br i1 %.0, label %209, label %_ZNSt6vectorIfSaIfEED2Ev.exit199
 
-208:                                              ; preds = %.thread, %206
-  %.pn210 = phi { ptr, i32 } [ %205, %.thread ], [ %207, %206 ]
-  call void @__cxa_free_exception(ptr %202) #14
+209:                                              ; preds = %.thread, %207
+  %.pn210 = phi { ptr, i32 } [ %206, %.thread ], [ %208, %207 ]
+  call void @__cxa_free_exception(ptr %203) #14
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit199
 
-209:                                              ; preds = %68, %.split232.us, %_ZNSt6vectorIfSaIfEED2Ev.exit, %._crit_edge244
-  %210 = phi float [ %79, %68 ], [ %200, %.split232.us ], [ %.pre268, %_ZNSt6vectorIfSaIfEED2Ev.exit ], [ %45, %._crit_edge244 ]
-  %211 = phi float [ %78, %68 ], [ %198, %.split232.us ], [ %.pre267, %_ZNSt6vectorIfSaIfEED2Ev.exit ], [ %44, %._crit_edge244 ]
-  %212 = fsub float %210, %211
-  store float %212, ptr %24, align 4
+210:                                              ; preds = %68, %.split232.us, %_ZNSt6vectorIfSaIfEED2Ev.exit, %._crit_edge244
+  %211 = phi float [ %79, %68 ], [ %201, %.split232.us ], [ %.pre268, %_ZNSt6vectorIfSaIfEED2Ev.exit ], [ %45, %._crit_edge244 ]
+  %212 = phi float [ %78, %68 ], [ %199, %.split232.us ], [ %.pre267, %_ZNSt6vectorIfSaIfEED2Ev.exit ], [ %44, %._crit_edge244 ]
+  %213 = fsub float %211, %212
+  store float %213, ptr %24, align 4
   ret void
 
-_ZNSt6vectorIfSaIfEED2Ev.exit199:                 ; preds = %106, %104, %206, %208
-  %.pn194 = phi { ptr, i32 } [ %.pn210, %208 ], [ %207, %206 ], [ %105, %104 ], [ %105, %106 ]
+_ZNSt6vectorIfSaIfEED2Ev.exit199:                 ; preds = %106, %104, %207, %209
+  %.pn194 = phi { ptr, i32 } [ %.pn210, %209 ], [ %208, %207 ], [ %105, %104 ], [ %105, %106 ]
   resume { ptr, i32 } %.pn194
 
-213:                                              ; preds = %204
+214:                                              ; preds = %205
   unreachable
 }
 
@@ -29502,6 +29503,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #24
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.copysign.f32(float, float) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fabs.f32(float) #23

@@ -5150,7 +5150,7 @@ if.else.i:                                        ; preds = %if.end12.i
   br i1 %cmp16.i, label %if.then17.i, label %if.else20.i
 
 if.then17.i:                                      ; preds = %if.else.i
-  %mul18.i = fmul double %call.i, 0.000000e+00
+  %mul18.i = tail call double @llvm.copysign.f64(double 0.000000e+00, double %call.i)
   %26 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %27 = load ptr, ptr %26, align 8
   %interp.i.i.i37.i = getelementptr inbounds i8, ptr %27, i64 16
