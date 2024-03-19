@@ -257,7 +257,7 @@ define internal noundef i32 @unx_marshal(ptr nocapture noundef readonly %0, ptr 
 26:                                               ; preds = %15
   %27 = getelementptr inbounds i8, ptr %4, i64 144
   %28 = tail call ptr @xdr_encode_opaque(ptr noundef nonnull %24, ptr noundef %27, i32 noundef %19) #8
-  %29 = icmp slt i64 %22, -4
+  %29 = icmp slt i32 %19, -7
   br i1 %29, label %92, label %30
 
 30:                                               ; preds = %26
