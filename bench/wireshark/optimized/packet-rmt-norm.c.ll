@@ -954,13 +954,13 @@ UnquantizeRtt.exit:                               ; preds = %8, %12
   %narrow = add nuw nsw i8 %25, 1
   %26 = select i1 %.not.i.not.not, double 1.000000e+00, double 5.000000e+00
   %27 = uitofp i8 %narrow to double
-  %__exp10.i = tail call double @__exp10(double %27) #6
-  %28 = fmul double %__exp10.i, %26
-  %29 = load i32, ptr @hf_backoff, align 4
-  %30 = zext nneg i8 %22 to i32
-  %31 = tail call ptr @proto_tree_add_uint(ptr noundef %0, i32 noundef %29, ptr noundef %1, i32 noundef 11, i32 noundef 1, i32 noundef %30) #6
-  %32 = load i32, ptr @hf_gsize, align 4
-  %33 = tail call ptr @proto_tree_add_double(ptr noundef %0, i32 noundef %32, ptr noundef %1, i32 noundef 11, i32 noundef 1, double noundef %28) #6
+  %28 = tail call double @pow(double noundef 1.000000e+01, double noundef %27) #6
+  %29 = fmul double %28, %26
+  %30 = load i32, ptr @hf_backoff, align 4
+  %31 = zext nneg i8 %22 to i32
+  %32 = tail call ptr @proto_tree_add_uint(ptr noundef %0, i32 noundef %30, ptr noundef %1, i32 noundef 11, i32 noundef 1, i32 noundef %31) #6
+  %33 = load i32, ptr @hf_gsize, align 4
+  %34 = tail call ptr @proto_tree_add_double(ptr noundef %0, i32 noundef %33, ptr noundef %1, i32 noundef 11, i32 noundef 1, double noundef %29) #6
   ret void
 }
 
@@ -974,6 +974,9 @@ declare ptr @proto_tree_add_double(ptr noundef, i32 noundef, ptr noundef, i32 no
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
 declare double @exp(double noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+declare double @pow(double noundef, double noundef) local_unnamed_addr #2
 
 declare ptr @p_get_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -1079,8 +1082,6 @@ define internal fastcc i32 @dissect_nack_data(ptr noundef %0, ptr noundef %1, i3
 }
 
 declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
-
-declare double @__exp10(double) local_unnamed_addr
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4

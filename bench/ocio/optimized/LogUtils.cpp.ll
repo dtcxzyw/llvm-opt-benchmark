@@ -353,8 +353,8 @@ unreachable:                                      ; preds = %invoke.cont20
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev7LogUtil20ConvertFromCTFToOCIOERKSt6vectorIdSaIdEERS3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %ctfParams, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %ocioParams) local_unnamed_addr #0 {
+; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
+define hidden void @_ZN19OpenColorIO_v2_4dev7LogUtil20ConvertFromCTFToOCIOERKSt6vectorIdSaIdEERS3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %ctfParams, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %ocioParams) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr %ctfParams, align 8
   %1 = load double, ptr %0, align 8
@@ -377,8 +377,8 @@ entry:
   %cmp.i = fcmp ogt double %mul, -1.000000e-04
   %.sroa.speculated = select i1 %cmp.i, double -1.000000e-04, double %mul
   %sub8 = fsub double %4, %5
-  %__exp10 = tail call double @__exp10(double %.sroa.speculated)
-  %sub10 = fsub double 1.000000e+00, %__exp10
+  %call9 = tail call double @pow(double noundef 1.000000e+01, double noundef %.sroa.speculated) #15
+  %sub10 = fsub double 1.000000e+00, %call9
   %div11 = fdiv double %sub8, %sub10
   %sub13 = fsub double %div11, %sub8
   %div14 = fdiv double 1.000000e+00, %10
@@ -398,6 +398,9 @@ entry:
   store double %div, ptr %add.ptr.i20, align 8
   ret void
 }
+
+; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+declare double @pow(double noundef, double noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN19OpenColorIO_v2_4dev7LogUtil20ValidateLegacyParamsERKSt6vectorIdSaIdEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %ctfParams) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -845,8 +848,8 @@ sw.bb15:                                          ; preds = %_ZNSt6vectorIdSaIdE
   %cmp.i.i = fcmp ogt double %mul.i, -1.000000e-04
   %.sroa.speculated.i = select i1 %cmp.i.i, double -1.000000e-04, double %mul.i
   %sub8.i = fsub double %23, %24
-  %__exp10.i = tail call double @__exp10(double %.sroa.speculated.i)
-  %sub10.i = fsub double 1.000000e+00, %__exp10.i
+  %call9.i = tail call double @pow(double noundef 1.000000e+01, double noundef %.sroa.speculated.i) #15
+  %sub10.i = fsub double 1.000000e+00, %call9.i
   %div11.i = fdiv double %sub8.i, %sub10.i
   %sub13.i = fsub double %div11.i, %sub8.i
   %div14.i = fdiv double 1.000000e+00, %29
@@ -885,8 +888,8 @@ sw.bb15:                                          ; preds = %_ZNSt6vectorIdSaIdE
   %cmp.i.i81 = fcmp ogt double %mul.i80, -1.000000e-04
   %.sroa.speculated.i82 = select i1 %cmp.i.i81, double -1.000000e-04, double %mul.i80
   %sub8.i83 = fsub double %38, %39
-  %__exp10.i84 = tail call double @__exp10(double %.sroa.speculated.i82)
-  %sub10.i85 = fsub double 1.000000e+00, %__exp10.i84
+  %call9.i84 = tail call double @pow(double noundef 1.000000e+01, double noundef %.sroa.speculated.i82) #15
+  %sub10.i85 = fsub double 1.000000e+00, %call9.i84
   %div11.i86 = fdiv double %sub8.i83, %sub10.i85
   %sub13.i87 = fsub double %div11.i86, %sub8.i83
   %div14.i88 = fdiv double 1.000000e+00, %44
@@ -925,8 +928,8 @@ sw.bb15:                                          ; preds = %_ZNSt6vectorIdSaIdE
   %cmp.i.i106 = fcmp ogt double %mul.i105, -1.000000e-04
   %.sroa.speculated.i107 = select i1 %cmp.i.i106, double -1.000000e-04, double %mul.i105
   %sub8.i108 = fsub double %53, %54
-  %__exp10.i109 = tail call double @__exp10(double %.sroa.speculated.i107)
-  %sub10.i110 = fsub double 1.000000e+00, %__exp10.i109
+  %call9.i109 = tail call double @pow(double noundef 1.000000e+01, double noundef %.sroa.speculated.i107) #15
+  %sub10.i110 = fsub double 1.000000e+00, %call9.i109
   %div11.i111 = fdiv double %sub8.i108, %sub10.i110
   %sub13.i112 = fsub double %div11.i111, %sub8.i108
   %div14.i113 = fdiv double 1.000000e+00, %59
@@ -951,7 +954,7 @@ sw.epilog:                                        ; preds = %sw.bb15, %sw.bb14, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZN19OpenColorIO_v2_4dev7LogUtil15GetLogDirectionENS0_8LogStyleE(i32 noundef %style) local_unnamed_addr #3 {
+define hidden noundef i32 @_ZN19OpenColorIO_v2_4dev7LogUtil15GetLogDirectionENS0_8LogStyleE(i32 noundef %style) local_unnamed_addr #5 {
 entry:
   %switch.tableidx = add i32 %style, -2
   %0 = icmp ult i32 %switch.tableidx, 5
@@ -969,7 +972,7 @@ return:                                           ; preds = %switch.lookup, %ent
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
-define hidden noundef float @_ZN19OpenColorIO_v2_4dev7LogUtil14GetLinearSlopeERKSt6vectorIdSaIdEEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %params, double noundef %base) local_unnamed_addr #4 {
+define hidden noundef float @_ZN19OpenColorIO_v2_4dev7LogUtil14GetLinearSlopeERKSt6vectorIdSaIdEEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %params, double noundef %base) local_unnamed_addr #3 {
 entry:
   %_M_finish.i = getelementptr inbounds i8, ptr %params, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
@@ -1007,13 +1010,13 @@ return:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #5
+declare double @llvm.fmuladd.f64(double, double, double) #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @log(double noundef) local_unnamed_addr #6
+declare double @log(double noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
-define hidden noundef float @_ZN19OpenColorIO_v2_4dev7LogUtil15GetLogSideBreakERKSt6vectorIdSaIdEEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %params, double noundef %base) local_unnamed_addr #4 {
+define hidden noundef float @_ZN19OpenColorIO_v2_4dev7LogUtil15GetLogSideBreakERKSt6vectorIdSaIdEEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %params, double noundef %base) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr %params, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 16
@@ -1047,7 +1050,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @log2(double noundef) local_unnamed_addr #6
+declare double @log2(double noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef float @_ZN19OpenColorIO_v2_4dev7LogUtil15GetLinearOffsetERKSt6vectorIdSaIdEEff(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %params, float noundef %linearSlope, float noundef %logSideBreak) local_unnamed_addr #7 {
@@ -1062,7 +1065,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #5
+declare float @llvm.fmuladd.f32(float, float, float) #6
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %__n) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1179,8 +1182,6 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #12
 
-declare double @__exp10(double) local_unnamed_addr
-
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
 
@@ -1193,10 +1194,10 @@ declare i64 @llvm.umin.i64(i64, i64) #14
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

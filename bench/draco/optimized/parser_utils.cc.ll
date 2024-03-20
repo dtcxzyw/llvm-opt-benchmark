@@ -33,7 +33,7 @@ define void @_ZN5draco6parser14SkipCharactersEPNS_13DecoderBufferEPKc(ptr nocapt
   br i1 %3, label %.critedge, label %4
 
 4:                                                ; preds = %2
-  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #13
+  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #14
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
@@ -104,7 +104,7 @@ _ZN5draco6parser14PeekWhitespaceEPNS_13DecoderBufferEPb.exit: ; preds = %_ZN5dra
   %9 = getelementptr inbounds i8, ptr %6, i64 %8
   %10 = load i8, ptr %9, align 1
   %11 = zext i8 %10 to i32
-  %12 = tail call i32 @isspace(i32 noundef %11) #13
+  %12 = tail call i32 @isspace(i32 noundef %11) #14
   %.not.i.not = icmp eq i32 %12, 0
   br i1 %.not.i.not, label %_ZN5draco6parser14PeekWhitespaceEPNS_13DecoderBufferEPb.exit.thread, label %13
 
@@ -137,7 +137,7 @@ _ZN5draco13DecoderBuffer4PeekIhEEbPT_.exit:       ; preds = %2
   %10 = getelementptr inbounds i8, ptr %9, i64 %6
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i32
-  %13 = tail call i32 @isspace(i32 noundef %12) #13
+  %13 = tail call i32 @isspace(i32 noundef %12) #14
   %.not = icmp ne i32 %13, 0
   br label %14
 
@@ -231,7 +231,7 @@ define void @_ZN5draco6parser9ParseLineEPNS_13DecoderBufferEPNSt7__cxx1112basic_
   br i1 %.not4344, label %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit, label %.lr.ph.split.us
 
 .thread51:                                        ; preds = %2
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #14
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #15
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   %10 = getelementptr inbounds i8, ptr %0, i64 16
   %11 = load i64, ptr %9, align 8
@@ -475,8 +475,8 @@ _ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit54:     ; preds = %.lr.ph187
   br i1 %.not52, label %47, label %.critedge7.thread
 
 47:                                               ; preds = %.critedge7
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #14
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #15
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #15
   %48 = load i64, ptr %4, align 8
   %.promoted.i.i = load i64, ptr %6, align 8
   %49 = add i64 %.promoted.i.i, 1
@@ -493,7 +493,7 @@ _ZN5draco6parser14PeekWhitespaceEPNS_13DecoderBufferEPb.exit.i.i: ; preds = %57,
   %53 = getelementptr inbounds i8, ptr %50, i64 %52
   %54 = load i8, ptr %53, align 1
   %55 = zext i8 %54 to i32
-  %56 = call i32 @isspace(i32 noundef %55) #13
+  %56 = call i32 @isspace(i32 noundef %55) #14
   %.not.i.not.i.i = icmp eq i32 %56, 0
   br i1 %.not.i.not.i.i, label %_ZN5draco6parser14PeekWhitespaceEPNS_13DecoderBufferEPb.exit.i._ZN5draco6parser14SkipWhitespaceEPNS_13DecoderBufferE.exit.loopexit_crit_edge.i, label %57
 
@@ -520,7 +520,7 @@ _ZN5draco6parser14PeekWhitespaceEPNS_13DecoderBufferEPb.exit.i: ; preds = %_ZN5d
   %63 = getelementptr inbounds i8, ptr %62, i64 %61
   %64 = load i8, ptr %63, align 1
   %65 = zext i8 %64 to i32
-  %66 = call i32 @isspace(i32 noundef %65) #13
+  %66 = call i32 @isspace(i32 noundef %65) #14
   %.not.i.not.i = icmp eq i32 %66, 0
   br i1 %.not.i.not.i, label %67, label %_ZN5draco6parser11ParseStringEPNS_13DecoderBufferEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
@@ -539,40 +539,40 @@ _ZN5draco6parser14PeekWhitespaceEPNS_13DecoderBufferEPb.exit.i: ; preds = %_ZN5d
 72:                                               ; preds = %67
   %73 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #15
   resume { ptr, i32 } %73
 
 _ZN5draco6parser11ParseStringEPNS_13DecoderBufferEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %_ZN5draco6parser14PeekWhitespaceEPNS_13DecoderBufferEPb.exit.i, %.noexc, %_ZN5draco6parser14SkipWhitespaceEPNS_13DecoderBufferE.exit.i
-  %74 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str) #14
+  %74 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str) #15
   %75 = icmp eq i32 %74, 0
   br i1 %75, label %.thread, label %76
 
 76:                                               ; preds = %_ZN5draco6parser11ParseStringEPNS_13DecoderBufferEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %77 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.1) #14
+  %77 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.1) #15
   %78 = icmp eq i32 %77, 0
   br i1 %78, label %.thread, label %79
 
 79:                                               ; preds = %76
-  %80 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.2) #14
+  %80 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.2) #15
   %81 = icmp eq i32 %80, 0
   br i1 %81, label %85, label %82
 
 82:                                               ; preds = %79
-  %83 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.3) #14
+  %83 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.3) #15
   %84 = icmp eq i32 %83, 0
   br i1 %84, label %85, label %87
 
 85:                                               ; preds = %82, %79
-  %86 = call double @nan(ptr noundef nonnull @.str.4) #13
+  %86 = call double @nan(ptr noundef nonnull @.str.4) #14
   br label %.thread
 
 .thread:                                          ; preds = %85, %76, %_ZN5draco6parser11ParseStringEPNS_13DecoderBufferEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   %.4.ph = phi double [ 0x7FF0000000000000, %_ZN5draco6parser11ParseStringEPNS_13DecoderBufferEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ 0x7FF0000000000000, %76 ], [ %86, %85 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #14
-  br label %115
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #15
+  br label %116
 
 87:                                               ; preds = %82
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #15
   br label %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit
 
 .critedge7.thread:                                ; preds = %.lr.ph, %.lr.ph187, %.critedge7
@@ -581,7 +581,7 @@ _ZN5draco6parser11ParseStringEPNS_13DecoderBufferEPNSt7__cxx1112basic_stringIcSt
   %88 = phi i64 [ %46, %.critedge7 ], [ %39, %.lr.ph187 ], [ %22, %.lr.ph ]
   %89 = and i8 %.566130, -33
   %or.cond10 = icmp eq i8 %89, 69
-  br i1 %or.cond10, label %90, label %115
+  br i1 %or.cond10, label %90, label %116
 
 90:                                               ; preds = %.critedge7.thread
   %91 = add nsw i64 %88, 1
@@ -641,20 +641,20 @@ _ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit.i.i:   ; preds = %.lr.ph.i
   %111 = sub i32 0, %109
   %112 = select i1 %switch.selectcmp4.i.not.i, i32 %111, i32 %109
   %113 = sitofp i32 %112 to double
-  %__exp10 = tail call double @__exp10(double %113)
-  %114 = fmul double %.2131, %__exp10
-  br label %115
+  %114 = tail call double @pow(double noundef 1.000000e+01, double noundef %113) #15
+  %115 = fmul double %.2131, %114
+  br label %116
 
-115:                                              ; preds = %.thread, %.loopexit, %.critedge7.thread
-  %.5 = phi double [ %114, %.loopexit ], [ %.2131, %.critedge7.thread ], [ %.4.ph, %.thread ]
-  %116 = fptrunc double %.5 to float
-  %117 = fneg float %116
-  %118 = select i1 %.042, float %117, float %116
-  store float %118, ptr %1, align 4
+116:                                              ; preds = %.thread, %.loopexit, %.critedge7.thread
+  %.5 = phi double [ %115, %.loopexit ], [ %.2131, %.critedge7.thread ], [ %.4.ph, %.thread ]
+  %117 = fptrunc double %.5 to float
+  %118 = fneg float %117
+  %119 = select i1 %.042, float %118, float %117
+  store float %119, ptr %1, align 4
   br label %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit
 
-_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit:       ; preds = %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit.lr.ph.i.i, %97, %90, %87, %2, %115
-  %.1 = phi i1 [ true, %115 ], [ false, %87 ], [ false, %2 ], [ false, %90 ], [ false, %97 ], [ false, %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit.lr.ph.i.i ]
+_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit:       ; preds = %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit.lr.ph.i.i, %97, %90, %87, %2, %116
+  %.1 = phi i1 [ true, %116 ], [ false, %87 ], [ false, %2 ], [ false, %90 ], [ false, %97 ], [ false, %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit.lr.ph.i.i ]
   ret i1 %.1
 }
 
@@ -675,7 +675,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noun
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN5draco6parser11ParseStringEPNS_13DecoderBufferEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef %0, ptr noundef nonnull %1) local_unnamed_addr #9 {
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #14
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -694,7 +694,7 @@ _ZN5draco6parser14PeekWhitespaceEPNS_13DecoderBufferEPb.exit.i: ; preds = %14, %
   %10 = getelementptr inbounds i8, ptr %7, i64 %9
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i32
-  %13 = tail call i32 @isspace(i32 noundef %12) #13
+  %13 = tail call i32 @isspace(i32 noundef %12) #14
   %.not.i.not.i = icmp eq i32 %13, 0
   br i1 %.not.i.not.i, label %_ZN5draco6parser14PeekWhitespaceEPNS_13DecoderBufferEPb.exit.i._ZN5draco6parser14SkipWhitespaceEPNS_13DecoderBufferE.exit.loopexit_crit_edge, label %14
 
@@ -721,7 +721,7 @@ _ZN5draco6parser14PeekWhitespaceEPNS_13DecoderBufferEPb.exit: ; preds = %_ZN5dra
   %20 = getelementptr inbounds i8, ptr %19, i64 %18
   %21 = load i8, ptr %20, align 1
   %22 = zext i8 %21 to i32
-  %23 = tail call i32 @isspace(i32 noundef %22) #13
+  %23 = tail call i32 @isspace(i32 noundef %22) #14
   %.not.i.not = icmp eq i32 %23, 0
   br i1 %.not.i.not, label %24, label %_ZN5draco6parser14PeekWhitespaceEPNS_13DecoderBufferEPb.exit.thread
 
@@ -817,6 +817,9 @@ _ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit:       ; preds = %_ZN5draco13DecoderB
   %.0 = phi i1 [ true, %.critedge.thread.i ], [ false, %2 ], [ false, %13 ], [ false, %.critedge.i ], [ false, %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit.lr.ph.i ]
   ret i1 %.0
 }
+
+; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+declare double @pow(double noundef, double noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @_ZN5draco6parser16ParseUnsignedIntEPNS_13DecoderBufferEPj(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #8 {
@@ -915,7 +918,7 @@ _ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit:       ; preds = %9, %12
   %23 = landingpad { ptr, i32 }
           cleanup
   %24 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void @_ZN5draco13DecoderBuffer10BitDecoderD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #14
+  tail call void @_ZN5draco13DecoderBuffer10BitDecoderD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #15
   resume { ptr, i32 } %23
 
 25:                                               ; preds = %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit
@@ -928,9 +931,9 @@ declare void @_ZN5draco13DecoderBuffer4InitEPKcm(ptr noundef nonnull align 8 der
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5draco6parser7ToLowerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #14
-  %3 = tail call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #14
-  %4 = tail call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #14
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #15
+  %3 = tail call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #15
+  %4 = tail call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #15
   %.not5.i = icmp eq ptr %3, %4
   br i1 %.not5.i, label %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt20back_insert_iteratorIS9_EPDoFiiEET0_T_SG_SF_T1_.exit, label %.lr.ph.i
 
@@ -938,7 +941,7 @@ define void @_ZN5draco6parser7ToLowerERKNSt7__cxx1112basic_stringIcSt11char_trai
   %.sroa.02.06.i = phi ptr [ %9, %.noexc ], [ %3, %2 ]
   %5 = load i8, ptr %.sroa.02.06.i, align 1
   %6 = sext i8 %5 to i32
-  %7 = tail call noundef i32 @tolower(i32 noundef %6) #14
+  %7 = tail call noundef i32 @tolower(i32 noundef %6) #15
   %8 = trunc i32 %7 to i8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext %8)
           to label %.noexc unwind label %10
@@ -951,7 +954,7 @@ define void @_ZN5draco6parser7ToLowerERKNSt7__cxx1112basic_stringIcSt11char_trai
 10:                                               ; preds = %.lr.ph.i
   %11 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #14
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #15
   resume { ptr, i32 } %11
 
 _ZSt9transformIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt20back_insert_iteratorIS9_EPDoFiiEET0_T_SG_SF_T1_.exit: ; preds = %.noexc, %2
@@ -974,13 +977,11 @@ declare void @_ZN5draco13DecoderBuffer10BitDecoderD1Ev(ptr noundef nonnull align
 declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_parser_utils.cc() #12 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_parser_utils.cc() #13 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #14
+  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #15
   ret void
 }
-
-declare double @__exp10(double) local_unnamed_addr
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -994,9 +995,10 @@ attributes #8 = { mustprogress nofree norecurse nosync nounwind memory(read, arg
 attributes #9 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nounwind willreturn memory(read) }
-attributes #14 = { nounwind }
+attributes #12 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nounwind willreturn memory(read) }
+attributes #15 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

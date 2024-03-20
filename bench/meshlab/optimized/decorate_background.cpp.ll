@@ -2046,7 +2046,7 @@ define void @_ZN24DecorateBackgroundPlugin11decorateDocEPK7QActionR12MeshDocumen
   %37 = getelementptr inbounds i8, ptr %36, i64 144
   %38 = load ptr, ptr %37, align 8
   %39 = tail call noundef i32 %38(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef %1)
-  switch i32 %39, label %288 [
+  switch i32 %39, label %289 [
     i32 0, label %42
     i32 1, label %126
   ]
@@ -2055,7 +2055,7 @@ define void @_ZN24DecorateBackgroundPlugin11decorateDocEPK7QActionR12MeshDocumen
   %41 = landingpad { ptr, i32 }
           cleanup
   tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN24DecorateBackgroundPlugin11decorateDocEPK7QActionR12MeshDocumentPK17RichParameterListP6GLAreaP8QPainterR11GLLogStreamE8lastname) #22
-  br label %289
+  br label %290
 
 42:                                               ; preds = %34
   %43 = getelementptr inbounds i8, ptr %0, i64 48
@@ -2143,19 +2143,19 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i83:  ; preds = %_ZN9QtPrivate8RefCo
 
 _ZN10QByteArrayD2Ev.exit88:                       ; preds = %72, %_ZN9QtPrivate8RefCount5derefEv.exit.i84, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i83
   %77 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7QStringaSERKS_(ptr noundef nonnull align 8 dereferenceable(8) @_ZZN24DecorateBackgroundPlugin11decorateDocEPK7QActionR12MeshDocumentPK17RichParameterListP6GLAreaP8QPainterR11GLLogStreamE8lastname, ptr noundef nonnull align 8 dereferenceable(8) %56) #22
-  br i1 %71, label %82, label %288
+  br i1 %71, label %82, label %289
 
 78:                                               ; preds = %53
   %79 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN10QByteArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #22
-  br label %289
+  br label %290
 
 80:                                               ; preds = %66
   %81 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN10QByteArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #22
-  br label %289
+  br label %290
 
 82:                                               ; preds = %_ZN10QByteArrayD2Ev.exit88
   %83 = getelementptr inbounds i8, ptr %0, i64 76
@@ -2168,7 +2168,7 @@ _ZN10QByteArrayD2Ev.exit88:                       ; preds = %72, %_ZN9QtPrivate8
   %87 = load i32, ptr %46, align 4
   %88 = icmp ne i32 %87, 0
   %89 = select i1 %86, i1 true, i1 %88
-  br i1 %89, label %.noexc, label %288
+  br i1 %89, label %.noexc, label %289
 
 .noexc:                                           ; preds = %84
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8)
@@ -2277,7 +2277,7 @@ _ZNK3vcg8Matrix44IfEmlERKS1_.exit:                ; preds = %125
   call void @glMatrixMode(i32 noundef 5889)
   call void @glPopMatrix()
   call void @glMatrixMode(i32 noundef 5888)
-  br label %288
+  br label %289
 
 126:                                              ; preds = %34
   %127 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.39, i32 noundef 8)
@@ -2545,55 +2545,55 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i136: ; preds = %_ZN9QtPrivate8RefCo
   %192 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #22
-  br label %289
+  br label %290
 
 193:                                              ; preds = %_ZN7QStringD2Ev.exit
   %194 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #22
-  br label %289
+  br label %290
 
 195:                                              ; preds = %_ZN7QStringD2Ev.exit99
   %196 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #22
-  br label %289
+  br label %290
 
 197:                                              ; preds = %_ZN7QStringD2Ev.exit105
   %198 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #22
-  br label %289
+  br label %290
 
 199:                                              ; preds = %_ZN7QStringD2Ev.exit111
   %200 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %20) #22
-  br label %289
+  br label %290
 
 201:                                              ; preds = %_ZN7QStringD2Ev.exit117
   %202 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %21) #22
-  br label %289
+  br label %290
 
 203:                                              ; preds = %_ZN7QStringD2Ev.exit123
   %204 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #22
-  br label %289
+  br label %290
 
 205:                                              ; preds = %_ZN7QStringD2Ev.exit129
   %206 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %23) #22
-  br label %289
+  br label %290
 
 207:                                              ; preds = %_ZN7QStringD2Ev.exit135
   %208 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %24) #22
-  br label %289
+  br label %290
 
 209:                                              ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i136, %_ZN9QtPrivate8RefCount5derefEv.exit.i137, %186
   call void @_ZNK12MeshDocument4bboxEv(ptr dead_on_unwind nonnull writable sret(%"class.vcg::Box3") align 4 %25, ptr noundef nonnull align 8 dereferenceable(192) %2)
@@ -2637,12 +2637,12 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i136: ; preds = %_ZN9QtPrivate8RefCo
   %240 = insertelement <2 x float> poison, float %.073, i64 0
   %241 = insertelement <2 x float> %240, float %143, i64 1
   %242 = fdiv <2 x float> %239, %241
-  %shift189 = shufflevector <2 x float> %242, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %243 = fadd <2 x float> %242, %shift189
+  %shift188 = shufflevector <2 x float> %242, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %243 = fadd <2 x float> %242, %shift188
   %244 = extractelement <2 x float> %243, i64 0
   %245 = fptosi float %244 to i32
   %246 = icmp sgt i32 %245, 200000
-  br i1 %246, label %247, label %277
+  br i1 %246, label %247, label %278
 
 247:                                              ; preds = %209
   %248 = getelementptr inbounds i8, ptr %25, i64 4
@@ -2676,41 +2676,41 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i136: ; preds = %_ZN9QtPrivate8RefCo
   %273 = fadd float %272, %.
   %274 = call noundef float @llvm.floor.f32(float %273)
   %275 = fpext float %274 to double
-  %__exp10 = call double @__exp10(double %275)
-  %.071 = fptrunc double %__exp10 to float
-  %276 = fmul float %.071, 5.000000e-01
-  br label %277
+  %276 = call noundef double @pow(double noundef 1.000000e+01, double noundef %275) #22
+  %.071 = fptrunc double %276 to float
+  %277 = fmul float %.071, 5.000000e-01
+  br label %278
 
-277:                                              ; preds = %247, %209
-  %.174 = phi float [ %276, %247 ], [ %.073, %209 ]
+278:                                              ; preds = %247, %209
+  %.174 = phi float [ %277, %247 ], [ %.073, %209 ]
   %.172 = phi float [ %.071, %247 ], [ %143, %209 ]
   %.not78 = icmp eq ptr %4, null
-  br i1 %.not78, label %286, label %278
+  br i1 %.not78, label %287, label %279
 
-278:                                              ; preds = %277
-  %279 = getelementptr inbounds i8, ptr %4, i64 56
-  %280 = load ptr, ptr %279, align 8
-  %.not79 = icmp eq ptr %280, null
-  br i1 %.not79, label %286, label %281
+279:                                              ; preds = %278
+  %280 = getelementptr inbounds i8, ptr %4, i64 56
+  %281 = load ptr, ptr %280, align 8
+  %.not79 = icmp eq ptr %281, null
+  br i1 %.not79, label %287, label %282
 
-281:                                              ; preds = %278
-  %282 = call noundef ptr @_ZNK9QGLWidget7contextEv(ptr noundef nonnull align 8 dereferenceable(48) %4)
-  %283 = load ptr, ptr %279, align 8
-  %284 = getelementptr inbounds i8, ptr %283, i64 240
-  %285 = load ptr, ptr %284, align 8
-  br label %286
+282:                                              ; preds = %279
+  %283 = call noundef ptr @_ZNK9QGLWidget7contextEv(ptr noundef nonnull align 8 dereferenceable(48) %4)
+  %284 = load ptr, ptr %280, align 8
+  %285 = getelementptr inbounds i8, ptr %284, i64 240
+  %286 = load ptr, ptr %285, align 8
+  br label %287
 
-286:                                              ; preds = %281, %278, %277
-  %.070 = phi ptr [ %285, %281 ], [ null, %278 ], [ null, %277 ]
-  %.069 = phi ptr [ %282, %281 ], [ null, %278 ], [ null, %277 ]
-  %287 = call noundef ptr @_ZN12MeshDocument2mmEv(ptr noundef nonnull align 8 dereferenceable(192) %2)
-  call void @_ZN24DecorateBackgroundPlugin15DrawGriddedCubeEP26MLSceneGLSharedDataContextP10QGLContextR9MeshModelRKN3vcg4Box3IfEEffbbNS6_6Color4IhEESC_f(ptr noundef nonnull align 8 dereferenceable(220) %0, ptr noundef %.070, ptr noundef %.069, ptr noundef nonnull align 8 dereferenceable(1288) %287, ptr noundef nonnull align 4 dereferenceable(24) %25, float noundef %.172, float noundef %.174, i1 noundef zeroext %157, i1 noundef zeroext %164, i32 %171, i32 %178, float noundef %185)
-  br label %288
+287:                                              ; preds = %282, %279, %278
+  %.070 = phi ptr [ %286, %282 ], [ null, %279 ], [ null, %278 ]
+  %.069 = phi ptr [ %283, %282 ], [ null, %279 ], [ null, %278 ]
+  %288 = call noundef ptr @_ZN12MeshDocument2mmEv(ptr noundef nonnull align 8 dereferenceable(192) %2)
+  call void @_ZN24DecorateBackgroundPlugin15DrawGriddedCubeEP26MLSceneGLSharedDataContextP10QGLContextR9MeshModelRKN3vcg4Box3IfEEffbbNS6_6Color4IhEESC_f(ptr noundef nonnull align 8 dereferenceable(220) %0, ptr noundef %.070, ptr noundef %.069, ptr noundef nonnull align 8 dereferenceable(1288) %288, ptr noundef nonnull align 4 dereferenceable(24) %25, float noundef %.172, float noundef %.174, i1 noundef zeroext %157, i1 noundef zeroext %164, i32 %171, i32 %178, float noundef %185)
+  br label %289
 
-288:                                              ; preds = %_ZNK3vcg8Matrix44IfEmlERKS1_.exit, %286, %84, %_ZN10QByteArrayD2Ev.exit88, %34
+289:                                              ; preds = %_ZNK3vcg8Matrix44IfEmlERKS1_.exit, %287, %84, %_ZN10QByteArrayD2Ev.exit88, %34
   ret void
 
-289:                                              ; preds = %207, %205, %203, %201, %199, %197, %195, %193, %191, %80, %78, %40
+290:                                              ; preds = %207, %205, %203, %201, %199, %197, %195, %193, %191, %80, %78, %40
   %.pn81 = phi { ptr, i32 } [ %208, %207 ], [ %206, %205 ], [ %204, %203 ], [ %202, %201 ], [ %200, %199 ], [ %198, %197 ], [ %196, %195 ], [ %194, %193 ], [ %192, %191 ], [ %81, %80 ], [ %79, %78 ], [ %41, %40 ]
   resume { ptr, i32 } %.pn81
 }
@@ -3139,6 +3139,9 @@ declare float @llvm.fabs.f32(float) #14
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
 declare float @log10f(float noundef) local_unnamed_addr #13
+
+; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+declare double @pow(double noundef, double noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.floor.f32(float) #14
@@ -3895,8 +3898,6 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #20
-
-declare double @__exp10(double) local_unnamed_addr
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare <2 x double> @llvm.fmuladd.v2f64(<2 x double>, <2 x double>, <2 x double>) #19

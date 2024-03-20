@@ -832,12 +832,12 @@ entry:
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
 declare double @pow(double noundef, double noundef) local_unnamed_addr #13
 
-; Function Attrs: mustprogress nounwind uwtable
-define double @uprv_pow10_75(i32 noundef %x) local_unnamed_addr #0 {
+; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
+define double @uprv_pow10_75(i32 noundef %x) local_unnamed_addr #12 {
 entry:
   %conv = sitofp i32 %x to double
-  %__exp10 = tail call double @__exp10(double %conv) #29
-  ret double %__exp10
+  %call = tail call double @pow(double noundef 1.000000e+01, double noundef %conv) #29
+  ret double %call
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -2632,8 +2632,6 @@ declare void @_ZN6icu_7511StringPieceC1EPKc(ptr noundef nonnull align 8 derefere
 
 ; Function Attrs: nounwind
 declare ptr @setlocale(i32 noundef, ptr noundef) local_unnamed_addr #15
-
-declare double @__exp10(double) local_unnamed_addr
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare { i32, i1 } @llvm.sadd.with.overflow.i32(i32, i32) #26

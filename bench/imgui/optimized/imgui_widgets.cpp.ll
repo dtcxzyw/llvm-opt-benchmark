@@ -8086,11 +8086,11 @@ cond.true.i:                                      ; preds = %if.end.i
 cond.false.i:                                     ; preds = %if.end.i
   %sub.i = sub nsw i32 0, %cond39
   %conv.i = sitofp i32 %sub.i to float
-  %__exp10f.i = tail call float @__exp10f(float %conv.i)
+  %call.i.i = tail call noundef float @powf(float noundef 1.000000e+01, float noundef %conv.i) #38
   br label %_ZL32GetMinimumStepAtDecimalPrecisioni.exit
 
 _ZL32GetMinimumStepAtDecimalPrecisioni.exit:      ; preds = %cond.end, %cond.true.i, %cond.false.i
-  %retval.0.i109 = phi float [ 0x3810000000000000, %cond.end ], [ %30, %cond.true.i ], [ %__exp10f.i, %cond.false.i ]
+  %retval.0.i109 = phi float [ 0x3810000000000000, %cond.end ], [ %30, %cond.true.i ], [ %call.i.i, %cond.false.i ]
   %cmp.i111 = fcmp oge float %v_speed.addr.0, %retval.0.i109
   %cond.i = select i1 %cmp.i111, float %v_speed.addr.0, float %retval.0.i109
   br label %if.end61
@@ -8586,11 +8586,11 @@ cond.true.i:                                      ; preds = %if.end.i
 cond.false.i:                                     ; preds = %if.end.i
   %sub.i = sub nsw i32 0, %cond39
   %conv.i = sitofp i32 %sub.i to float
-  %__exp10f.i = tail call float @__exp10f(float %conv.i)
+  %call.i.i = tail call noundef float @powf(float noundef 1.000000e+01, float noundef %conv.i) #38
   br label %_ZL32GetMinimumStepAtDecimalPrecisioni.exit
 
 _ZL32GetMinimumStepAtDecimalPrecisioni.exit:      ; preds = %cond.end, %cond.true.i, %cond.false.i
-  %retval.0.i109 = phi float [ 0x3810000000000000, %cond.end ], [ %30, %cond.true.i ], [ %__exp10f.i, %cond.false.i ]
+  %retval.0.i109 = phi float [ 0x3810000000000000, %cond.end ], [ %30, %cond.true.i ], [ %call.i.i, %cond.false.i ]
   %cmp.i111 = fcmp oge float %v_speed.addr.0, %retval.0.i109
   %cond.i = select i1 %cmp.i111, float %v_speed.addr.0, float %retval.0.i109
   br label %if.end61
@@ -8602,11 +8602,11 @@ if.end61:                                         ; preds = %if.else, %_ZL32GetM
   %fneg = fneg float %mul62
   %adjust_delta.2 = select i1 %tobool.not.not, float %mul62, float %fneg
   %cmp74.not = icmp eq i32 %v_max, %v_min
-  %or.cond223 = or i1 %cmp74.not, %cmp2.not
+  %or.cond224 = or i1 %cmp74.not, %cmp2.not
   %sub68 = sub i32 %v_max, %v_min
   %conv69 = uitofp i32 %sub68 to float
   %div = fdiv float %adjust_delta.2, %conv69
-  %adjust_delta.3 = select i1 %or.cond223, float %adjust_delta.2, float %div
+  %adjust_delta.3 = select i1 %or.cond224, float %adjust_delta.2, float %div
   %ActiveIdIsJustActivated = getelementptr inbounds i8, ptr %0, i64 16504
   %31 = load i8, ptr %ActiveIdIsJustActivated, align 8
   %32 = and i8 %31, 1
@@ -8640,9 +8640,9 @@ if.end102.thread:                                 ; preds = %land.end90, %land.r
 
 if.else96:                                        ; preds = %land.end90
   %cmp97 = fcmp une float %adjust_delta.3, 0.000000e+00
-  br i1 %cmp97, label %if.end102.thread236, label %if.end102
+  br i1 %cmp97, label %if.end102.thread237, label %if.end102
 
-if.end102.thread236:                              ; preds = %if.else96
+if.end102.thread237:                              ; preds = %if.else96
   %DragCurrentAccum99 = getelementptr inbounds i8, ptr %0, i64 24132
   %36 = load float, ptr %DragCurrentAccum99, align 4
   %add = fadd float %adjust_delta.3, %36
@@ -8658,8 +8658,8 @@ if.end102:                                        ; preds = %if.else96
   %tobool104.not = icmp eq i8 %37, 0
   br i1 %tobool104.not, label %return, label %if.end106
 
-if.end106:                                        ; preds = %if.end102.thread236, %if.end102
-  %DragCurrentAccumDirty103239 = getelementptr inbounds i8, ptr %0, i64 24129
+if.end106:                                        ; preds = %if.end102.thread237, %if.end102
+  %DragCurrentAccumDirty103240 = getelementptr inbounds i8, ptr %0, i64 24129
   %38 = load i32, ptr %v, align 4
   br i1 %cmp2.not, label %if.else124, label %if.then108
 
@@ -8801,10 +8801,10 @@ if.else55.i:                                      ; preds = %if.end.i169
 
 if.else113.i:                                     ; preds = %if.else55.i
   %div115.i = fdiv float %conv52.i, %cond21.i
-  %call.i.i = tail call noundef float @logf(float noundef %div115.i) #38
+  %call.i.i173 = tail call noundef float @logf(float noundef %div115.i) #38
   %div117.i = fdiv float %cond36.i, %cond21.i
   %call.i38.i = tail call noundef float @logf(float noundef %div117.i) #38
-  %div119.i = fdiv float %call.i.i, %call.i38.i
+  %div119.i = fdiv float %call.i.i173, %call.i38.i
   br label %_ZN5ImGui20ScaleRatioFromValueTIjifEEfiT_S1_S1_bff.exit
 
 _ZN5ImGui20ScaleRatioFromValueTIjifEEfiT_S1_S1_bff.exit: ; preds = %if.end.i169, %if.else55.i, %if.else113.i
@@ -8814,27 +8814,27 @@ _ZN5ImGui20ScaleRatioFromValueTIjifEEfiT_S1_S1_bff.exit: ; preds = %if.end.i169,
   %DragCurrentAccum120 = getelementptr inbounds i8, ptr %0, i64 24132
   %55 = load float, ptr %DragCurrentAccum120, align 4
   %add121 = fadd float %55, %cond129.i
-  %cmp.i173 = fcmp ugt float %add121, 0.000000e+00
-  br i1 %cmp.i173, label %if.end.i176, label %if.end128
+  %cmp.i174 = fcmp ugt float %add121, 0.000000e+00
+  br i1 %cmp.i174, label %if.end.i177, label %if.end128
 
-if.end.i176:                                      ; preds = %_ZN5ImGui20ScaleRatioFromValueTIjifEEfiT_S1_S1_bff.exit
+if.end.i177:                                      ; preds = %_ZN5ImGui20ScaleRatioFromValueTIjifEEfiT_S1_S1_bff.exit
   %cmp2.i = fcmp ult float %add121, 1.000000e+00
   br i1 %cmp2.i, label %if.end4.i, label %if.end128
 
-if.end4.i:                                        ; preds = %if.end.i176
-  %conv.i178 = uitofp i32 %v_min to float
-  %cmp6.i = fcmp ogt float %call.i, %conv.i178
-  %logarithmic_zero_epsilon.conv.i = select i1 %cmp6.i, float %call.i, float %conv.i178
+if.end4.i:                                        ; preds = %if.end.i177
+  %conv.i179 = uitofp i32 %v_min to float
+  %cmp6.i = fcmp ogt float %call.i, %conv.i179
+  %logarithmic_zero_epsilon.conv.i = select i1 %cmp6.i, float %call.i, float %conv.i179
   %conv14.i = uitofp i32 %v_max to float
   %cmp16.i = fcmp ogt float %call.i, %conv14.i
   %cond28.i = select i1 %cmp16.i, float %call.i, float %conv14.i
   %v_min_fudged.0.i = select i1 %cmp4.i, float %cond28.i, float %logarithmic_zero_epsilon.conv.i
   %v_max_fudged.0.i = select i1 %cmp4.i, float %logarithmic_zero_epsilon.conv.i, float %cond28.i
-  %sub.i179 = fsub float 1.000000e+00, %add121
-  %cond45.i = select i1 %cmp4.i, float %sub.i179, float %add121
+  %sub.i180 = fsub float 1.000000e+00, %add121
+  %cond45.i = select i1 %cmp4.i, float %sub.i180, float %add121
   %div98.i = fdiv float %v_max_fudged.0.i, %v_min_fudged.0.i
-  %call.i.i180 = tail call noundef float @powf(float noundef %div98.i, float noundef %cond45.i) #38
-  %mul100.i = fmul float %v_min_fudged.0.i, %call.i.i180
+  %call.i.i181 = tail call noundef float @powf(float noundef %div98.i, float noundef %cond45.i) #38
+  %mul100.i = fmul float %v_min_fudged.0.i, %call.i.i181
   %conv101.i = fptoui float %mul100.i to i32
   br label %if.end128
 
@@ -8845,10 +8845,10 @@ if.else124:                                       ; preds = %if.end106
   %add127 = add i32 %38, %conv126
   br label %if.end128
 
-if.end128:                                        ; preds = %cond.end114, %if.end4.i, %if.end.i176, %_ZN5ImGui20ScaleRatioFromValueTIjifEEfiT_S1_S1_bff.exit, %if.else124
-  %logarithmic_zero_epsilon.0 = phi float [ 0.000000e+00, %if.else124 ], [ %call.i, %_ZN5ImGui20ScaleRatioFromValueTIjifEEfiT_S1_S1_bff.exit ], [ %call.i, %if.end.i176 ], [ %call.i, %if.end4.i ], [ %call.i, %cond.end114 ]
-  %v_old_ref_for_accum_remainder.0 = phi float [ 0.000000e+00, %if.else124 ], [ %cond129.i, %_ZN5ImGui20ScaleRatioFromValueTIjifEEfiT_S1_S1_bff.exit ], [ %cond129.i, %if.end.i176 ], [ %cond129.i, %if.end4.i ], [ 0.000000e+00, %cond.end114 ]
-  %v_cur.0 = phi i32 [ %add127, %if.else124 ], [ %v_min, %_ZN5ImGui20ScaleRatioFromValueTIjifEEfiT_S1_S1_bff.exit ], [ %v_max, %if.end.i176 ], [ %conv101.i, %if.end4.i ], [ %v_min, %cond.end114 ]
+if.end128:                                        ; preds = %cond.end114, %if.end4.i, %if.end.i177, %_ZN5ImGui20ScaleRatioFromValueTIjifEEfiT_S1_S1_bff.exit, %if.else124
+  %logarithmic_zero_epsilon.0 = phi float [ 0.000000e+00, %if.else124 ], [ %call.i, %_ZN5ImGui20ScaleRatioFromValueTIjifEEfiT_S1_S1_bff.exit ], [ %call.i, %if.end.i177 ], [ %call.i, %if.end4.i ], [ %call.i, %cond.end114 ]
+  %v_old_ref_for_accum_remainder.0 = phi float [ 0.000000e+00, %if.else124 ], [ %cond129.i, %_ZN5ImGui20ScaleRatioFromValueTIjifEEfiT_S1_S1_bff.exit ], [ %cond129.i, %if.end.i177 ], [ %cond129.i, %if.end4.i ], [ 0.000000e+00, %cond.end114 ]
+  %v_cur.0 = phi i32 [ %add127, %if.else124 ], [ %v_min, %_ZN5ImGui20ScaleRatioFromValueTIjifEEfiT_S1_S1_bff.exit ], [ %v_max, %if.end.i177 ], [ %conv101.i, %if.end4.i ], [ %v_min, %cond.end114 ]
   %and131 = and i32 %flags, 64
   %tobool132.not = icmp eq i32 %and131, 0
   %or.cond104 = and i1 %2, %tobool132.not
@@ -8860,50 +8860,50 @@ if.then133:                                       ; preds = %if.end128
 
 if.end135:                                        ; preds = %if.then133, %if.end128
   %v_cur.1 = phi i32 [ %call134, %if.then133 ], [ %v_cur.0, %if.end128 ]
-  store i8 0, ptr %DragCurrentAccumDirty103239, align 1
+  store i8 0, ptr %DragCurrentAccumDirty103240, align 1
   br i1 %cmp2.not, label %if.else145, label %if.then138
 
 if.then138:                                       ; preds = %if.end135
-  br i1 %cmp74.not, label %_ZN5ImGui20ScaleRatioFromValueTIjifEEfiT_S1_S1_bff.exit212, label %if.end.i182
+  br i1 %cmp74.not, label %_ZN5ImGui20ScaleRatioFromValueTIjifEEfiT_S1_S1_bff.exit213, label %if.end.i183
 
-if.end.i182:                                      ; preds = %if.then138
-  %v_min.v_max.i183 = tail call i32 @llvm.umin.i32(i32 %v_min, i32 %v_max)
-  %v_max.v_min.i184 = tail call i32 @llvm.umax.i32(i32 %v_min, i32 %v_max)
-  %cmp.i35.i185 = icmp ugt i32 %v_min.v_max.i183, %v_cur.1
-  %cond.i36.i186 = tail call i32 @llvm.umin.i32(i32 %v_cur.1, i32 %v_max.v_min.i184)
-  %cond5.i37.i187 = select i1 %cmp.i35.i185, i32 %v_min.v_max.i183, i32 %cond.i36.i186
-  %cmp4.i188 = icmp ult i32 %v_max, %v_min
-  %conv.i191 = uitofp i32 %v_min.v_max.i183 to float
-  %cmp10.i192 = fcmp ogt float %logarithmic_zero_epsilon.0, %conv.i191
-  %cond21.i193 = select i1 %cmp10.i192, float %logarithmic_zero_epsilon.0, float %conv.i191
-  %conv22.i194 = uitofp i32 %v_max.v_min.i184 to float
-  %cmp24.i195 = fcmp ogt float %logarithmic_zero_epsilon.0, %conv22.i194
-  %cond36.i196 = select i1 %cmp24.i195, float %logarithmic_zero_epsilon.0, float %conv22.i194
-  %conv52.i197 = uitofp i32 %cond5.i37.i187 to float
-  %cmp53.i198 = fcmp ult float %cond21.i193, %conv52.i197
-  br i1 %cmp53.i198, label %if.else55.i204, label %if.end123.i199
+if.end.i183:                                      ; preds = %if.then138
+  %v_min.v_max.i184 = tail call i32 @llvm.umin.i32(i32 %v_min, i32 %v_max)
+  %v_max.v_min.i185 = tail call i32 @llvm.umax.i32(i32 %v_min, i32 %v_max)
+  %cmp.i35.i186 = icmp ugt i32 %v_min.v_max.i184, %v_cur.1
+  %cond.i36.i187 = tail call i32 @llvm.umin.i32(i32 %v_cur.1, i32 %v_max.v_min.i185)
+  %cond5.i37.i188 = select i1 %cmp.i35.i186, i32 %v_min.v_max.i184, i32 %cond.i36.i187
+  %cmp4.i189 = icmp ult i32 %v_max, %v_min
+  %conv.i192 = uitofp i32 %v_min.v_max.i184 to float
+  %cmp10.i193 = fcmp ogt float %logarithmic_zero_epsilon.0, %conv.i192
+  %cond21.i194 = select i1 %cmp10.i193, float %logarithmic_zero_epsilon.0, float %conv.i192
+  %conv22.i195 = uitofp i32 %v_max.v_min.i185 to float
+  %cmp24.i196 = fcmp ogt float %logarithmic_zero_epsilon.0, %conv22.i195
+  %cond36.i197 = select i1 %cmp24.i196, float %logarithmic_zero_epsilon.0, float %conv22.i195
+  %conv52.i198 = uitofp i32 %cond5.i37.i188 to float
+  %cmp53.i199 = fcmp ult float %cond21.i194, %conv52.i198
+  br i1 %cmp53.i199, label %if.else55.i205, label %if.end123.i200
 
-if.else55.i204:                                   ; preds = %if.end.i182
-  %cmp57.i205 = fcmp ugt float %cond36.i196, %conv52.i197
-  br i1 %cmp57.i205, label %if.else113.i206, label %if.end123.i199
+if.else55.i205:                                   ; preds = %if.end.i183
+  %cmp57.i206 = fcmp ugt float %cond36.i197, %conv52.i198
+  br i1 %cmp57.i206, label %if.else113.i207, label %if.end123.i200
 
-if.else113.i206:                                  ; preds = %if.else55.i204
-  %div115.i207 = fdiv float %conv52.i197, %cond21.i193
-  %call.i.i208 = tail call noundef float @logf(float noundef %div115.i207) #38
-  %div117.i209 = fdiv float %cond36.i196, %cond21.i193
-  %call.i38.i210 = tail call noundef float @logf(float noundef %div117.i209) #38
-  %div119.i211 = fdiv float %call.i.i208, %call.i38.i210
-  br label %if.end123.i199
+if.else113.i207:                                  ; preds = %if.else55.i205
+  %div115.i208 = fdiv float %conv52.i198, %cond21.i194
+  %call.i.i209 = tail call noundef float @logf(float noundef %div115.i208) #38
+  %div117.i210 = fdiv float %cond36.i197, %cond21.i194
+  %call.i38.i211 = tail call noundef float @logf(float noundef %div117.i210) #38
+  %div119.i212 = fdiv float %call.i.i209, %call.i38.i211
+  br label %if.end123.i200
 
-if.end123.i199:                                   ; preds = %if.else113.i206, %if.else55.i204, %if.end.i182
-  %result.0.i200 = phi float [ %div119.i211, %if.else113.i206 ], [ 0.000000e+00, %if.end.i182 ], [ 1.000000e+00, %if.else55.i204 ]
-  %sub126.i201 = fsub float 1.000000e+00, %result.0.i200
-  %cond129.i202 = select i1 %cmp4.i188, float %sub126.i201, float %result.0.i200
-  br label %_ZN5ImGui20ScaleRatioFromValueTIjifEEfiT_S1_S1_bff.exit212
+if.end123.i200:                                   ; preds = %if.else113.i207, %if.else55.i205, %if.end.i183
+  %result.0.i201 = phi float [ %div119.i212, %if.else113.i207 ], [ 0.000000e+00, %if.end.i183 ], [ 1.000000e+00, %if.else55.i205 ]
+  %sub126.i202 = fsub float 1.000000e+00, %result.0.i201
+  %cond129.i203 = select i1 %cmp4.i189, float %sub126.i202, float %result.0.i201
+  br label %_ZN5ImGui20ScaleRatioFromValueTIjifEEfiT_S1_S1_bff.exit213
 
-_ZN5ImGui20ScaleRatioFromValueTIjifEEfiT_S1_S1_bff.exit212: ; preds = %if.then138, %if.end123.i199
-  %retval.0.i203 = phi float [ %cond129.i202, %if.end123.i199 ], [ 0.000000e+00, %if.then138 ]
-  %sub142 = fsub float %retval.0.i203, %v_old_ref_for_accum_remainder.0
+_ZN5ImGui20ScaleRatioFromValueTIjifEEfiT_S1_S1_bff.exit213: ; preds = %if.then138, %if.end123.i200
+  %retval.0.i204 = phi float [ %cond129.i203, %if.end123.i200 ], [ 0.000000e+00, %if.then138 ]
+  %sub142 = fsub float %retval.0.i204, %v_old_ref_for_accum_remainder.0
   br label %if.end150
 
 if.else145:                                       ; preds = %if.end135
@@ -8912,8 +8912,8 @@ if.else145:                                       ; preds = %if.end135
   %conv147 = sitofp i32 %sub146 to float
   br label %if.end150
 
-if.end150:                                        ; preds = %if.else145, %_ZN5ImGui20ScaleRatioFromValueTIjifEEfiT_S1_S1_bff.exit212
-  %conv147.sink = phi float [ %conv147, %if.else145 ], [ %sub142, %_ZN5ImGui20ScaleRatioFromValueTIjifEEfiT_S1_S1_bff.exit212 ]
+if.end150:                                        ; preds = %if.else145, %_ZN5ImGui20ScaleRatioFromValueTIjifEEfiT_S1_S1_bff.exit213
+  %conv147.sink = phi float [ %conv147, %if.else145 ], [ %sub142, %_ZN5ImGui20ScaleRatioFromValueTIjifEEfiT_S1_S1_bff.exit213 ]
   %DragCurrentAccum148 = getelementptr inbounds i8, ptr %0, i64 24132
   %58 = load float, ptr %DragCurrentAccum148, align 4
   %sub149 = fsub float %58, %conv147.sink
@@ -8930,8 +8930,8 @@ if.then157:                                       ; preds = %if.end150
 lor.lhs.false159:                                 ; preds = %if.then157
   %cmp160 = icmp ule i32 %v_cur.1, %59
   %cmp162 = fcmp uge float %adjust_delta.3, 0.000000e+00
-  %or.cond1.not221 = select i1 %cmp160, i1 true, i1 %cmp162
-  %brmerge107 = or i1 %2, %or.cond1.not221
+  %or.cond1.not222 = select i1 %cmp160, i1 true, i1 %cmp162
+  %brmerge107 = or i1 %2, %or.cond1.not222
   br i1 %brmerge107, label %if.end166, label %if.then165
 
 if.then165:                                       ; preds = %lor.lhs.false159, %if.then157
@@ -8945,8 +8945,8 @@ if.end166:                                        ; preds = %lor.lhs.false159, %
 lor.lhs.false168:                                 ; preds = %if.end166
   %cmp169 = icmp uge i32 %v_cur.2, %59
   %cmp171 = fcmp ule float %adjust_delta.3, 0.000000e+00
-  %or.cond2.not222 = select i1 %cmp169, i1 true, i1 %cmp171
-  %brmerge108 = or i1 %2, %or.cond2.not222
+  %or.cond2.not223 = select i1 %cmp169, i1 true, i1 %cmp171
+  %brmerge108 = or i1 %2, %or.cond2.not223
   br i1 %brmerge108, label %if.end176, label %if.then174
 
 if.then174:                                       ; preds = %lor.lhs.false168, %if.end166
@@ -9171,11 +9171,11 @@ cond.true.i:                                      ; preds = %if.end.i
 cond.false.i:                                     ; preds = %if.end.i
   %sub.i = sub nsw i32 0, %cond39
   %conv.i = sitofp i32 %sub.i to float
-  %__exp10f.i = tail call float @__exp10f(float %conv.i)
+  %call.i.i = tail call noundef float @powf(float noundef 1.000000e+01, float noundef %conv.i) #38
   br label %_ZL32GetMinimumStepAtDecimalPrecisioni.exit
 
 _ZL32GetMinimumStepAtDecimalPrecisioni.exit:      ; preds = %cond.end, %cond.true.i, %cond.false.i
-  %retval.0.i109 = phi float [ 0x3810000000000000, %cond.end ], [ %30, %cond.true.i ], [ %__exp10f.i, %cond.false.i ]
+  %retval.0.i109 = phi float [ 0x3810000000000000, %cond.end ], [ %30, %cond.true.i ], [ %call.i.i, %cond.false.i ]
   %cmp.i111 = fcmp oge float %v_speed.addr.0, %retval.0.i109
   %cond.i = select i1 %cmp.i111, float %v_speed.addr.0, float %retval.0.i109
   br label %if.end61
@@ -9674,11 +9674,11 @@ cond.true.i:                                      ; preds = %if.end.i
 cond.false.i:                                     ; preds = %if.end.i
   %sub.i = sub nsw i32 0, %cond39
   %conv.i = sitofp i32 %sub.i to float
-  %__exp10f.i = tail call float @__exp10f(float %conv.i)
+  %call.i.i = tail call noundef float @powf(float noundef 1.000000e+01, float noundef %conv.i) #38
   br label %_ZL32GetMinimumStepAtDecimalPrecisioni.exit
 
 _ZL32GetMinimumStepAtDecimalPrecisioni.exit:      ; preds = %cond.end, %cond.true.i, %cond.false.i
-  %retval.0.i109 = phi float [ 0x3810000000000000, %cond.end ], [ %30, %cond.true.i ], [ %__exp10f.i, %cond.false.i ]
+  %retval.0.i109 = phi float [ 0x3810000000000000, %cond.end ], [ %30, %cond.true.i ], [ %call.i.i, %cond.false.i ]
   %cmp.i111 = fcmp oge float %v_speed.addr.0, %retval.0.i109
   %cond.i = select i1 %cmp.i111, float %v_speed.addr.0, float %retval.0.i109
   br label %if.end61
@@ -9690,11 +9690,11 @@ if.end61:                                         ; preds = %if.else, %_ZL32GetM
   %fneg = fneg float %mul62
   %adjust_delta.2 = select i1 %tobool.not.not, float %mul62, float %fneg
   %cmp74.not = icmp eq i64 %v_max, %v_min
-  %or.cond227 = or i1 %cmp74.not, %cmp2.not
+  %or.cond228 = or i1 %cmp74.not, %cmp2.not
   %sub68 = sub i64 %v_max, %v_min
   %conv69 = uitofp i64 %sub68 to float
   %div = fdiv float %adjust_delta.2, %conv69
-  %adjust_delta.3 = select i1 %or.cond227, float %adjust_delta.2, float %div
+  %adjust_delta.3 = select i1 %or.cond228, float %adjust_delta.2, float %div
   %ActiveIdIsJustActivated = getelementptr inbounds i8, ptr %0, i64 16504
   %31 = load i8, ptr %ActiveIdIsJustActivated, align 8
   %32 = and i8 %31, 1
@@ -9728,9 +9728,9 @@ if.end102.thread:                                 ; preds = %land.end90, %land.r
 
 if.else96:                                        ; preds = %land.end90
   %cmp97 = fcmp une float %adjust_delta.3, 0.000000e+00
-  br i1 %cmp97, label %if.end102.thread241, label %if.end102
+  br i1 %cmp97, label %if.end102.thread242, label %if.end102
 
-if.end102.thread241:                              ; preds = %if.else96
+if.end102.thread242:                              ; preds = %if.else96
   %DragCurrentAccum99 = getelementptr inbounds i8, ptr %0, i64 24132
   %36 = load float, ptr %DragCurrentAccum99, align 4
   %add = fadd float %adjust_delta.3, %36
@@ -9746,8 +9746,8 @@ if.end102:                                        ; preds = %if.else96
   %tobool104.not = icmp eq i8 %37, 0
   br i1 %tobool104.not, label %return, label %if.end106
 
-if.end106:                                        ; preds = %if.end102.thread241, %if.end102
-  %DragCurrentAccumDirty103244 = getelementptr inbounds i8, ptr %0, i64 24129
+if.end106:                                        ; preds = %if.end102.thread242, %if.end102
+  %DragCurrentAccumDirty103245 = getelementptr inbounds i8, ptr %0, i64 24129
   %38 = load i64, ptr %v, align 8
   br i1 %cmp2.not, label %if.else125, label %if.then108
 
@@ -9867,7 +9867,7 @@ cond.end114:                                      ; preds = %if.then108, %_Z22Im
   br i1 %cmp74.not, label %cond.end114._ZN5ImGui20ScaleValueFromRatioTIyxdEET_ifS1_S1_bff.exit_crit_edge, label %if.end.i169
 
 cond.end114._ZN5ImGui20ScaleValueFromRatioTIyxdEET_ifS1_S1_bff.exit_crit_edge: ; preds = %cond.end114
-  %.pre238 = fpext float %call.i to double
+  %.pre239 = fpext float %call.i to double
   br label %_ZN5ImGui20ScaleValueFromRatioTIyxdEET_ifS1_S1_bff.exit
 
 if.end.i169:                                      ; preds = %cond.end114
@@ -9894,10 +9894,10 @@ if.else61.i:                                      ; preds = %if.end.i169
 
 if.else126.i:                                     ; preds = %if.else61.i
   %div128.i = fdiv double %conv58.i, %cond23.i
-  %call.i.i = tail call noundef double @log(double noundef %div128.i) #38
+  %call.i.i174 = tail call noundef double @log(double noundef %div128.i) #38
   %div130.i = fdiv double %cond40.i, %cond23.i
   %call.i38.i = tail call noundef double @log(double noundef %div130.i) #38
-  %div132.i = fdiv double %call.i.i, %call.i38.i
+  %div132.i = fdiv double %call.i.i174, %call.i38.i
   %conv133.i = fptrunc double %div132.i to float
   br label %_ZN5ImGui20ScaleRatioFromValueTIyxdEEfiT_S1_S1_bff.exit
 
@@ -9908,36 +9908,36 @@ _ZN5ImGui20ScaleRatioFromValueTIyxdEEfiT_S1_S1_bff.exit: ; preds = %if.end.i169,
   %DragCurrentAccum120 = getelementptr inbounds i8, ptr %0, i64 24132
   %55 = load float, ptr %DragCurrentAccum120, align 4
   %add121 = fadd float %55, %cond143.i
-  %cmp.i174 = fcmp ugt float %add121, 0.000000e+00
-  br i1 %cmp.i174, label %if.end.i177, label %_ZN5ImGui20ScaleValueFromRatioTIyxdEET_ifS1_S1_bff.exit
+  %cmp.i175 = fcmp ugt float %add121, 0.000000e+00
+  br i1 %cmp.i175, label %if.end.i178, label %_ZN5ImGui20ScaleValueFromRatioTIyxdEET_ifS1_S1_bff.exit
 
-if.end.i177:                                      ; preds = %_ZN5ImGui20ScaleRatioFromValueTIyxdEEfiT_S1_S1_bff.exit
+if.end.i178:                                      ; preds = %_ZN5ImGui20ScaleRatioFromValueTIyxdEEfiT_S1_S1_bff.exit
   %cmp2.i = fcmp ult float %add121, 1.000000e+00
   br i1 %cmp2.i, label %if.end4.i, label %_ZN5ImGui20ScaleValueFromRatioTIyxdEET_ifS1_S1_bff.exit
 
-if.end4.i:                                        ; preds = %if.end.i177
-  %conv.i179 = uitofp i64 %v_min to double
-  %cmp7.i180 = fcmp olt double %conv.i179, %conv10.i
-  %conv6.conv.i = select i1 %cmp7.i180, double %conv10.i, double %conv.i179
+if.end4.i:                                        ; preds = %if.end.i178
+  %conv.i180 = uitofp i64 %v_min to double
+  %cmp7.i181 = fcmp olt double %conv.i180, %conv10.i
+  %conv6.conv.i = select i1 %cmp7.i181, double %conv10.i, double %conv.i180
   %conv16.i = uitofp i64 %v_max to double
   %cmp19.i = fcmp olt double %conv16.i, %conv10.i
   %cond32.i = select i1 %cmp19.i, double %conv10.i, double %conv16.i
   %v_min_fudged.0.i = select i1 %cmp4.i, double %cond32.i, double %conv6.conv.i
   %v_max_fudged.0.i = select i1 %cmp4.i, double %conv6.conv.i, double %cond32.i
-  %sub.i181 = fsub float 1.000000e+00, %add121
-  %cond50.i = select i1 %cmp4.i, float %sub.i181, float %add121
+  %sub.i182 = fsub float 1.000000e+00, %add121
+  %cond50.i = select i1 %cmp4.i, float %sub.i182, float %add121
   %div110.i = fdiv double %v_max_fudged.0.i, %v_min_fudged.0.i
   %conv111.i = fpext float %cond50.i to double
-  %call.i.i182 = tail call noundef double @pow(double noundef %div110.i, double noundef %conv111.i) #38
-  %mul113.i = fmul double %v_min_fudged.0.i, %call.i.i182
+  %call.i.i183 = tail call noundef double @pow(double noundef %div110.i, double noundef %conv111.i) #38
+  %mul113.i = fmul double %v_min_fudged.0.i, %call.i.i183
   %conv114.i = fptoui double %mul113.i to i64
   br label %_ZN5ImGui20ScaleValueFromRatioTIyxdEET_ifS1_S1_bff.exit
 
-_ZN5ImGui20ScaleValueFromRatioTIyxdEET_ifS1_S1_bff.exit: ; preds = %cond.end114._ZN5ImGui20ScaleValueFromRatioTIyxdEET_ifS1_S1_bff.exit_crit_edge, %_ZN5ImGui20ScaleRatioFromValueTIyxdEEfiT_S1_S1_bff.exit, %if.end.i177, %if.end4.i
-  %.pre-phi = phi double [ %.pre238, %cond.end114._ZN5ImGui20ScaleValueFromRatioTIyxdEET_ifS1_S1_bff.exit_crit_edge ], [ %conv10.i, %_ZN5ImGui20ScaleRatioFromValueTIyxdEEfiT_S1_S1_bff.exit ], [ %conv10.i, %if.end.i177 ], [ %conv10.i, %if.end4.i ]
-  %retval.0.i173224 = phi float [ 0.000000e+00, %cond.end114._ZN5ImGui20ScaleValueFromRatioTIyxdEET_ifS1_S1_bff.exit_crit_edge ], [ %cond143.i, %_ZN5ImGui20ScaleRatioFromValueTIyxdEEfiT_S1_S1_bff.exit ], [ %cond143.i, %if.end.i177 ], [ %cond143.i, %if.end4.i ]
-  %retval.0.i178 = phi i64 [ %v_min, %cond.end114._ZN5ImGui20ScaleValueFromRatioTIyxdEET_ifS1_S1_bff.exit_crit_edge ], [ %v_min, %_ZN5ImGui20ScaleRatioFromValueTIyxdEEfiT_S1_S1_bff.exit ], [ %v_max, %if.end.i177 ], [ %conv114.i, %if.end4.i ]
-  %conv124 = fpext float %retval.0.i173224 to double
+_ZN5ImGui20ScaleValueFromRatioTIyxdEET_ifS1_S1_bff.exit: ; preds = %cond.end114._ZN5ImGui20ScaleValueFromRatioTIyxdEET_ifS1_S1_bff.exit_crit_edge, %_ZN5ImGui20ScaleRatioFromValueTIyxdEEfiT_S1_S1_bff.exit, %if.end.i178, %if.end4.i
+  %.pre-phi = phi double [ %.pre239, %cond.end114._ZN5ImGui20ScaleValueFromRatioTIyxdEET_ifS1_S1_bff.exit_crit_edge ], [ %conv10.i, %_ZN5ImGui20ScaleRatioFromValueTIyxdEEfiT_S1_S1_bff.exit ], [ %conv10.i, %if.end.i178 ], [ %conv10.i, %if.end4.i ]
+  %retval.0.i173225 = phi float [ 0.000000e+00, %cond.end114._ZN5ImGui20ScaleValueFromRatioTIyxdEET_ifS1_S1_bff.exit_crit_edge ], [ %cond143.i, %_ZN5ImGui20ScaleRatioFromValueTIyxdEEfiT_S1_S1_bff.exit ], [ %cond143.i, %if.end.i178 ], [ %cond143.i, %if.end4.i ]
+  %retval.0.i179 = phi i64 [ %v_min, %cond.end114._ZN5ImGui20ScaleValueFromRatioTIyxdEET_ifS1_S1_bff.exit_crit_edge ], [ %v_min, %_ZN5ImGui20ScaleRatioFromValueTIyxdEEfiT_S1_S1_bff.exit ], [ %v_max, %if.end.i178 ], [ %conv114.i, %if.end4.i ]
+  %conv124 = fpext float %retval.0.i173225 to double
   br label %if.end129
 
 if.else125:                                       ; preds = %if.end106
@@ -9950,7 +9950,7 @@ if.else125:                                       ; preds = %if.end106
 if.end129:                                        ; preds = %if.else125, %_ZN5ImGui20ScaleValueFromRatioTIyxdEET_ifS1_S1_bff.exit
   %logarithmic_zero_epsilon.0 = phi double [ %.pre-phi, %_ZN5ImGui20ScaleValueFromRatioTIyxdEET_ifS1_S1_bff.exit ], [ 0.000000e+00, %if.else125 ]
   %v_old_ref_for_accum_remainder.0 = phi double [ %conv124, %_ZN5ImGui20ScaleValueFromRatioTIyxdEET_ifS1_S1_bff.exit ], [ 0.000000e+00, %if.else125 ]
-  %v_cur.0 = phi i64 [ %retval.0.i178, %_ZN5ImGui20ScaleValueFromRatioTIyxdEET_ifS1_S1_bff.exit ], [ %add128, %if.else125 ]
+  %v_cur.0 = phi i64 [ %retval.0.i179, %_ZN5ImGui20ScaleValueFromRatioTIyxdEET_ifS1_S1_bff.exit ], [ %add128, %if.else125 ]
   %and132 = and i32 %flags, 64
   %tobool133.not = icmp eq i32 %and132, 0
   %or.cond104 = and i1 %2, %tobool133.not
@@ -9962,52 +9962,52 @@ if.then134:                                       ; preds = %if.end129
 
 if.end136:                                        ; preds = %if.then134, %if.end129
   %v_cur.1 = phi i64 [ %call135, %if.then134 ], [ %v_cur.0, %if.end129 ]
-  store i8 0, ptr %DragCurrentAccumDirty103244, align 1
+  store i8 0, ptr %DragCurrentAccumDirty103245, align 1
   br i1 %cmp2.not, label %if.else148, label %if.then139
 
 if.then139:                                       ; preds = %if.end136
-  br i1 %cmp74.not, label %_ZN5ImGui20ScaleRatioFromValueTIyxdEEfiT_S1_S1_bff.exit216, label %if.end.i184
+  br i1 %cmp74.not, label %_ZN5ImGui20ScaleRatioFromValueTIyxdEEfiT_S1_S1_bff.exit217, label %if.end.i185
 
-if.end.i184:                                      ; preds = %if.then139
-  %v_min.v_max.i185 = tail call i64 @llvm.umin.i64(i64 %v_min, i64 %v_max)
-  %v_max.v_min.i186 = tail call i64 @llvm.umax.i64(i64 %v_min, i64 %v_max)
-  %cmp.i35.i187 = icmp ugt i64 %v_min.v_max.i185, %v_cur.1
-  %cond.i36.i188 = tail call i64 @llvm.umin.i64(i64 %v_cur.1, i64 %v_max.v_min.i186)
-  %cond5.i37.i189 = select i1 %cmp.i35.i187, i64 %v_min.v_max.i185, i64 %cond.i36.i188
-  %cmp4.i190 = icmp ult i64 %v_max, %v_min
-  %conv.i193 = uitofp i64 %v_min.v_max.i185 to double
-  %cmp11.i195 = fcmp ogt double %logarithmic_zero_epsilon.0, %conv.i193
-  %cond23.i196 = select i1 %cmp11.i195, double %logarithmic_zero_epsilon.0, double %conv.i193
-  %conv24.i197 = uitofp i64 %v_max.v_min.i186 to double
-  %cmp27.i198 = fcmp ogt double %logarithmic_zero_epsilon.0, %conv24.i197
-  %cond40.i199 = select i1 %cmp27.i198, double %logarithmic_zero_epsilon.0, double %conv24.i197
-  %conv58.i200 = uitofp i64 %cond5.i37.i189 to double
-  %cmp59.i201 = fcmp ult double %cond23.i196, %conv58.i200
-  br i1 %cmp59.i201, label %if.else61.i207, label %if.end137.i202
+if.end.i185:                                      ; preds = %if.then139
+  %v_min.v_max.i186 = tail call i64 @llvm.umin.i64(i64 %v_min, i64 %v_max)
+  %v_max.v_min.i187 = tail call i64 @llvm.umax.i64(i64 %v_min, i64 %v_max)
+  %cmp.i35.i188 = icmp ugt i64 %v_min.v_max.i186, %v_cur.1
+  %cond.i36.i189 = tail call i64 @llvm.umin.i64(i64 %v_cur.1, i64 %v_max.v_min.i187)
+  %cond5.i37.i190 = select i1 %cmp.i35.i188, i64 %v_min.v_max.i186, i64 %cond.i36.i189
+  %cmp4.i191 = icmp ult i64 %v_max, %v_min
+  %conv.i194 = uitofp i64 %v_min.v_max.i186 to double
+  %cmp11.i196 = fcmp ogt double %logarithmic_zero_epsilon.0, %conv.i194
+  %cond23.i197 = select i1 %cmp11.i196, double %logarithmic_zero_epsilon.0, double %conv.i194
+  %conv24.i198 = uitofp i64 %v_max.v_min.i187 to double
+  %cmp27.i199 = fcmp ogt double %logarithmic_zero_epsilon.0, %conv24.i198
+  %cond40.i200 = select i1 %cmp27.i199, double %logarithmic_zero_epsilon.0, double %conv24.i198
+  %conv58.i201 = uitofp i64 %cond5.i37.i190 to double
+  %cmp59.i202 = fcmp ult double %cond23.i197, %conv58.i201
+  br i1 %cmp59.i202, label %if.else61.i208, label %if.end137.i203
 
-if.else61.i207:                                   ; preds = %if.end.i184
-  %cmp63.i208 = fcmp ugt double %cond40.i199, %conv58.i200
-  br i1 %cmp63.i208, label %if.else126.i209, label %if.end137.i202
+if.else61.i208:                                   ; preds = %if.end.i185
+  %cmp63.i209 = fcmp ugt double %cond40.i200, %conv58.i201
+  br i1 %cmp63.i209, label %if.else126.i210, label %if.end137.i203
 
-if.else126.i209:                                  ; preds = %if.else61.i207
-  %div128.i210 = fdiv double %conv58.i200, %cond23.i196
-  %call.i.i211 = tail call noundef double @log(double noundef %div128.i210) #38
-  %div130.i212 = fdiv double %cond40.i199, %cond23.i196
-  %call.i38.i213 = tail call noundef double @log(double noundef %div130.i212) #38
-  %div132.i214 = fdiv double %call.i.i211, %call.i38.i213
-  %conv133.i215 = fptrunc double %div132.i214 to float
-  br label %if.end137.i202
+if.else126.i210:                                  ; preds = %if.else61.i208
+  %div128.i211 = fdiv double %conv58.i201, %cond23.i197
+  %call.i.i212 = tail call noundef double @log(double noundef %div128.i211) #38
+  %div130.i213 = fdiv double %cond40.i200, %cond23.i197
+  %call.i38.i214 = tail call noundef double @log(double noundef %div130.i213) #38
+  %div132.i215 = fdiv double %call.i.i212, %call.i38.i214
+  %conv133.i216 = fptrunc double %div132.i215 to float
+  br label %if.end137.i203
 
-if.end137.i202:                                   ; preds = %if.else126.i209, %if.else61.i207, %if.end.i184
-  %result.0.i203 = phi float [ %conv133.i215, %if.else126.i209 ], [ 0.000000e+00, %if.end.i184 ], [ 1.000000e+00, %if.else61.i207 ]
-  %sub140.i204 = fsub float 1.000000e+00, %result.0.i203
-  %cond143.i205 = select i1 %cmp4.i190, float %sub140.i204, float %result.0.i203
-  %57 = fpext float %cond143.i205 to double
-  br label %_ZN5ImGui20ScaleRatioFromValueTIyxdEEfiT_S1_S1_bff.exit216
+if.end137.i203:                                   ; preds = %if.else126.i210, %if.else61.i208, %if.end.i185
+  %result.0.i204 = phi float [ %conv133.i216, %if.else126.i210 ], [ 0.000000e+00, %if.end.i185 ], [ 1.000000e+00, %if.else61.i208 ]
+  %sub140.i205 = fsub float 1.000000e+00, %result.0.i204
+  %cond143.i206 = select i1 %cmp4.i191, float %sub140.i205, float %result.0.i204
+  %57 = fpext float %cond143.i206 to double
+  br label %_ZN5ImGui20ScaleRatioFromValueTIyxdEEfiT_S1_S1_bff.exit217
 
-_ZN5ImGui20ScaleRatioFromValueTIyxdEEfiT_S1_S1_bff.exit216: ; preds = %if.then139, %if.end137.i202
-  %retval.0.i206 = phi double [ %57, %if.end137.i202 ], [ 0.000000e+00, %if.then139 ]
-  %sub144 = fsub double %retval.0.i206, %v_old_ref_for_accum_remainder.0
+_ZN5ImGui20ScaleRatioFromValueTIyxdEEfiT_S1_S1_bff.exit217: ; preds = %if.then139, %if.end137.i203
+  %retval.0.i207 = phi double [ %57, %if.end137.i203 ], [ 0.000000e+00, %if.then139 ]
+  %sub144 = fsub double %retval.0.i207, %v_old_ref_for_accum_remainder.0
   %conv145 = fptrunc double %sub144 to float
   br label %if.end153
 
@@ -10017,8 +10017,8 @@ if.else148:                                       ; preds = %if.end136
   %conv150 = sitofp i64 %sub149 to float
   br label %if.end153
 
-if.end153:                                        ; preds = %if.else148, %_ZN5ImGui20ScaleRatioFromValueTIyxdEEfiT_S1_S1_bff.exit216
-  %conv150.sink = phi float [ %conv150, %if.else148 ], [ %conv145, %_ZN5ImGui20ScaleRatioFromValueTIyxdEEfiT_S1_S1_bff.exit216 ]
+if.end153:                                        ; preds = %if.else148, %_ZN5ImGui20ScaleRatioFromValueTIyxdEEfiT_S1_S1_bff.exit217
+  %conv150.sink = phi float [ %conv150, %if.else148 ], [ %conv145, %_ZN5ImGui20ScaleRatioFromValueTIyxdEEfiT_S1_S1_bff.exit217 ]
   %DragCurrentAccum151 = getelementptr inbounds i8, ptr %0, i64 24132
   %59 = load float, ptr %DragCurrentAccum151, align 4
   %sub152 = fsub float %59, %conv150.sink
@@ -10035,8 +10035,8 @@ if.then160:                                       ; preds = %if.end153
 lor.lhs.false162:                                 ; preds = %if.then160
   %cmp163 = icmp ule i64 %v_cur.1, %60
   %cmp165 = fcmp uge float %adjust_delta.3, 0.000000e+00
-  %or.cond1.not225 = select i1 %cmp163, i1 true, i1 %cmp165
-  %brmerge107 = or i1 %2, %or.cond1.not225
+  %or.cond1.not226 = select i1 %cmp163, i1 true, i1 %cmp165
+  %brmerge107 = or i1 %2, %or.cond1.not226
   br i1 %brmerge107, label %if.end169, label %if.then168
 
 if.then168:                                       ; preds = %lor.lhs.false162, %if.then160
@@ -10050,8 +10050,8 @@ if.end169:                                        ; preds = %lor.lhs.false162, %
 lor.lhs.false171:                                 ; preds = %if.end169
   %cmp172 = icmp uge i64 %v_cur.2, %60
   %cmp174 = fcmp ule float %adjust_delta.3, 0.000000e+00
-  %or.cond2.not226 = select i1 %cmp172, i1 true, i1 %cmp174
-  %brmerge108 = or i1 %2, %or.cond2.not226
+  %or.cond2.not227 = select i1 %cmp172, i1 true, i1 %cmp174
+  %brmerge108 = or i1 %2, %or.cond2.not227
   br i1 %brmerge108, label %if.end179, label %if.then177
 
 if.then177:                                       ; preds = %lor.lhs.false171, %if.end169
@@ -10279,11 +10279,11 @@ cond.true.i:                                      ; preds = %if.end.i
 cond.false.i:                                     ; preds = %if.end.i
   %sub.i = sub nsw i32 0, %cond37
   %conv.i = sitofp i32 %sub.i to float
-  %__exp10f.i = tail call float @__exp10f(float %conv.i)
+  %call.i.i = tail call noundef float @powf(float noundef 1.000000e+01, float noundef %conv.i) #38
   br label %_ZL32GetMinimumStepAtDecimalPrecisioni.exit
 
 _ZL32GetMinimumStepAtDecimalPrecisioni.exit:      ; preds = %cond.end, %cond.true.i, %cond.false.i
-  %retval.0.i110 = phi float [ 0x3810000000000000, %cond.end ], [ %30, %cond.true.i ], [ %__exp10f.i, %cond.false.i ]
+  %retval.0.i110 = phi float [ 0x3810000000000000, %cond.end ], [ %30, %cond.true.i ], [ %call.i.i, %cond.false.i ]
   %cmp.i112 = fcmp oge float %v_speed.addr.0, %retval.0.i110
   %cond.i = select i1 %cmp.i112, float %v_speed.addr.0, float %retval.0.i110
   br label %if.end59
@@ -10785,11 +10785,11 @@ cond.true.i:                                      ; preds = %if.end.i
 cond.false.i:                                     ; preds = %if.end.i
   %sub.i = sub nsw i32 0, %cond39
   %conv.i = sitofp i32 %sub.i to float
-  %__exp10f.i = tail call float @__exp10f(float %conv.i)
+  %call.i.i = tail call noundef float @powf(float noundef 1.000000e+01, float noundef %conv.i) #38
   br label %_ZL32GetMinimumStepAtDecimalPrecisioni.exit
 
 _ZL32GetMinimumStepAtDecimalPrecisioni.exit:      ; preds = %cond.end, %cond.true.i, %cond.false.i
-  %retval.0.i110 = phi float [ 0x3810000000000000, %cond.end ], [ %30, %cond.true.i ], [ %__exp10f.i, %cond.false.i ]
+  %retval.0.i110 = phi float [ 0x3810000000000000, %cond.end ], [ %30, %cond.true.i ], [ %call.i.i, %cond.false.i ]
   %cmp.i112 = fcmp oge float %v_speed.addr.0, %retval.0.i110
   %cond.i = select i1 %cmp.i112, float %v_speed.addr.0, float %retval.0.i110
   br label %if.end61
@@ -40518,8 +40518,6 @@ declare i64 @llvm.uadd.sat.i64(i64, i64) #33
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #33
-
-declare float @__exp10f(float) local_unnamed_addr
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #33
