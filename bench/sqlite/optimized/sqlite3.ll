@@ -369662,43 +369662,37 @@ tailrecurse:                                      ; preds = %105
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal fastcc i32 @jsonHexToInt4(ptr nocapture noundef readonly %0) unnamed_addr #5 {
-  %2 = load i8, ptr %0, align 1
-  %3 = and i8 %2, 64
-  %.not.i = icmp eq i8 %3, 0
-  %4 = select i1 %.not.i, i8 0, i8 9
-  %5 = add i8 %4, %2
-  %6 = and i8 %5, 15
-  %7 = zext nneg i8 %6 to i32
-  %8 = shl nuw nsw i32 %7, 12
-  %9 = getelementptr inbounds i8, ptr %0, i64 1
-  %10 = load i8, ptr %9, align 1
-  %11 = and i8 %10, 64
-  %.not.i4 = icmp eq i8 %11, 0
-  %12 = select i1 %.not.i4, i8 0, i8 9
-  %13 = add i8 %12, %10
-  %14 = and i8 %13, 15
-  %15 = zext nneg i8 %14 to i32
-  %16 = shl nuw nsw i32 %15, 8
-  %17 = or disjoint i32 %16, %8
-  %18 = getelementptr inbounds i8, ptr %0, i64 2
-  %19 = load i8, ptr %18, align 1
-  %20 = and i8 %19, 64
-  %.not.i5 = icmp eq i8 %20, 0
-  %21 = select i1 %.not.i5, i8 0, i8 9
-  %22 = add i8 %21, %19
-  %23 = shl i8 %22, 4
-  %24 = zext i8 %23 to i32
-  %25 = or disjoint i32 %17, %24
-  %26 = getelementptr inbounds i8, ptr %0, i64 3
-  %27 = load i8, ptr %26, align 1
-  %28 = and i8 %27, 64
-  %.not.i6 = icmp eq i8 %28, 0
-  %29 = select i1 %.not.i6, i8 0, i8 9
-  %30 = add i8 %29, %27
-  %31 = and i8 %30, 15
-  %32 = zext nneg i8 %31 to i32
-  %33 = or disjoint i32 %25, %32
-  ret i32 %33
+  %2 = load <2 x i8>, ptr %0, align 1
+  %3 = and <2 x i8> %2, <i8 64, i8 64>
+  %4 = icmp eq <2 x i8> %3, zeroinitializer
+  %5 = select <2 x i1> %4, <2 x i8> zeroinitializer, <2 x i8> <i8 9, i8 9>
+  %6 = add <2 x i8> %5, %2
+  %7 = and <2 x i8> %6, <i8 15, i8 15>
+  %8 = zext nneg <2 x i8> %7 to <2 x i16>
+  %9 = shl nuw <2 x i16> %8, <i16 12, i16 8>
+  %10 = extractelement <2 x i16> %9, i64 0
+  %11 = extractelement <2 x i16> %9, i64 1
+  %12 = or disjoint i16 %11, %10
+  %13 = getelementptr inbounds i8, ptr %0, i64 2
+  %14 = load i8, ptr %13, align 1
+  %15 = and i8 %14, 64
+  %.not.i5 = icmp eq i8 %15, 0
+  %16 = select i1 %.not.i5, i8 0, i8 9
+  %17 = add i8 %16, %14
+  %18 = shl i8 %17, 4
+  %19 = zext i8 %18 to i16
+  %20 = or disjoint i16 %12, %19
+  %21 = getelementptr inbounds i8, ptr %0, i64 3
+  %22 = load i8, ptr %21, align 1
+  %23 = and i8 %22, 64
+  %.not.i6 = icmp eq i8 %23, 0
+  %24 = select i1 %.not.i6, i8 0, i8 9
+  %25 = add i8 %24, %22
+  %26 = and i8 %25, 15
+  %27 = zext nneg i8 %26 to i16
+  %28 = or disjoint i16 %20, %27
+  %29 = zext i16 %28 to i32
+  ret i32 %29
 }
 
 ; Function Attrs: nounwind uwtable

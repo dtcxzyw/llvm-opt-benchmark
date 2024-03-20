@@ -2688,68 +2688,62 @@ define internal noundef zeroext i16 @de_time_zone_time(ptr noundef %0, ptr nound
   %12 = getelementptr inbounds i8, ptr %9, i64 32
   store i32 -1, ptr %12, align 16
   %13 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #6
-  %14 = zext i8 %13 to i32
-  %15 = and i32 %14, 15
-  %16 = mul nuw nsw i32 %15, 10
-  %17 = lshr i32 %14, 4
-  %18 = add nuw nsw i32 %17, 100
-  %19 = add nuw nsw i32 %18, %16
-  %20 = getelementptr inbounds i8, ptr %9, i64 20
-  store i32 %19, ptr %20, align 4
-  %21 = add i32 %3, 1
-  %22 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %21) #6
-  %23 = zext i8 %22 to i32
-  %24 = and i32 %23, 15
-  %25 = mul nuw nsw i32 %24, 10
-  %26 = lshr i32 %23, 4
-  %27 = add nsw i32 %26, -1
-  %28 = add nsw i32 %27, %25
-  %29 = getelementptr inbounds i8, ptr %9, i64 16
-  store i32 %28, ptr %29, align 16
-  %30 = add i32 %3, 2
+  %14 = add i32 %3, 1
+  %15 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %14) #6
+  %16 = getelementptr inbounds i8, ptr %9, i64 16
+  %17 = insertelement <2 x i8> poison, i8 %15, i64 0
+  %18 = insertelement <2 x i8> %17, i8 %13, i64 1
+  %19 = zext <2 x i8> %18 to <2 x i16>
+  %20 = and <2 x i16> %19, <i16 15, i16 15>
+  %21 = mul nuw nsw <2 x i16> %20, <i16 10, i16 10>
+  %22 = lshr <2 x i16> %19, <i16 4, i16 4>
+  %23 = add nsw <2 x i16> %22, <i16 -1, i16 100>
+  %24 = add nsw <2 x i16> %23, %21
+  %25 = sext <2 x i16> %24 to <2 x i32>
+  store <2 x i32> %25, ptr %16, align 16
+  %26 = add i32 %3, 2
+  %27 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %26) #6
+  %28 = add i32 %3, 3
+  %29 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %28) #6
+  %30 = add i32 %3, 4
   %31 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %30) #6
-  %32 = add i32 %3, 3
+  %32 = add i32 %3, 5
   %33 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %32) #6
-  %34 = add i32 %3, 4
-  %35 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %34) #6
-  %36 = add i32 %3, 5
-  %37 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %36) #6
-  %38 = insertelement <4 x i8> poison, i8 %37, i64 0
-  %39 = insertelement <4 x i8> %38, i8 %35, i64 1
-  %40 = insertelement <4 x i8> %39, i8 %33, i64 2
-  %41 = insertelement <4 x i8> %40, i8 %31, i64 3
-  %42 = and <4 x i8> %41, <i8 15, i8 15, i8 15, i8 15>
-  %narrow = mul nuw <4 x i8> %42, <i8 10, i8 10, i8 10, i8 10>
-  %43 = zext <4 x i8> %narrow to <4 x i16>
-  %44 = lshr <4 x i8> %41, <i8 4, i8 4, i8 4, i8 4>
-  %45 = zext nneg <4 x i8> %44 to <4 x i16>
-  %46 = add nuw nsw <4 x i16> %43, %45
-  %47 = zext nneg <4 x i16> %46 to <4 x i32>
-  store <4 x i32> %47, ptr %9, align 16
-  %48 = call i64 @mktime(ptr noundef nonnull %9) #6
-  store i64 %48, ptr %8, align 8
-  %49 = getelementptr inbounds i8, ptr %8, i64 8
-  store i32 0, ptr %49, align 8
-  %50 = load i32, ptr @hf_gsm_a_dtap_time_zone_time, align 4
-  %51 = getelementptr inbounds i8, ptr %2, i64 408
-  %52 = load ptr, ptr %51, align 8
-  %53 = call ptr @abs_time_to_str_ex(ptr noundef %52, ptr noundef nonnull %8, i32 noundef 18, i32 noundef 0) #6
-  %54 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_time_format_value(ptr noundef %1, i32 noundef %50, ptr noundef %0, i32 noundef %3, i32 noundef 6, ptr noundef nonnull %8, ptr noundef nonnull @.str.150, ptr noundef %53) #6
-  %55 = add i32 %3, 6
-  %56 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %55) #6
-  %57 = and i8 %56, 8
-  %.not = icmp eq i8 %57, 0
-  %58 = select i1 %.not, i32 43, i32 45
-  %59 = lshr i8 %56, 4
-  %60 = and i8 %56, 7
-  %61 = mul nuw nsw i8 %60, 10
-  %62 = add nuw nsw i8 %61, %59
-  %63 = load i32, ptr @hf_gsm_a_dtap_timezone, align 4
-  %64 = zext nneg i8 %62 to i32
-  %65 = lshr i32 %64, 2
-  %66 = and i32 %64, 3
-  %67 = mul nuw nsw i32 %66, 15
-  %68 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1, i32 noundef %63, ptr noundef %0, i32 noundef %55, i32 noundef 1, i32 noundef %64, ptr noundef nonnull @.str.137, i32 noundef %58, i32 noundef %65, i32 noundef %67) #6
+  %34 = insertelement <4 x i8> poison, i8 %33, i64 0
+  %35 = insertelement <4 x i8> %34, i8 %31, i64 1
+  %36 = insertelement <4 x i8> %35, i8 %29, i64 2
+  %37 = insertelement <4 x i8> %36, i8 %27, i64 3
+  %38 = zext <4 x i8> %37 to <4 x i16>
+  %39 = and <4 x i16> %38, <i16 15, i16 15, i16 15, i16 15>
+  %40 = mul nuw nsw <4 x i16> %39, <i16 10, i16 10, i16 10, i16 10>
+  %41 = lshr <4 x i16> %38, <i16 4, i16 4, i16 4, i16 4>
+  %42 = add nuw nsw <4 x i16> %40, %41
+  %43 = zext nneg <4 x i16> %42 to <4 x i32>
+  store <4 x i32> %43, ptr %9, align 16
+  %44 = call i64 @mktime(ptr noundef nonnull %9) #6
+  store i64 %44, ptr %8, align 8
+  %45 = getelementptr inbounds i8, ptr %8, i64 8
+  store i32 0, ptr %45, align 8
+  %46 = load i32, ptr @hf_gsm_a_dtap_time_zone_time, align 4
+  %47 = getelementptr inbounds i8, ptr %2, i64 408
+  %48 = load ptr, ptr %47, align 8
+  %49 = call ptr @abs_time_to_str_ex(ptr noundef %48, ptr noundef nonnull %8, i32 noundef 18, i32 noundef 0) #6
+  %50 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_time_format_value(ptr noundef %1, i32 noundef %46, ptr noundef %0, i32 noundef %3, i32 noundef 6, ptr noundef nonnull %8, ptr noundef nonnull @.str.150, ptr noundef %49) #6
+  %51 = add i32 %3, 6
+  %52 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %51) #6
+  %53 = and i8 %52, 8
+  %.not = icmp eq i8 %53, 0
+  %54 = select i1 %.not, i32 43, i32 45
+  %55 = lshr i8 %52, 4
+  %56 = and i8 %52, 7
+  %57 = mul nuw nsw i8 %56, 10
+  %58 = add nuw nsw i8 %57, %55
+  %59 = load i32, ptr @hf_gsm_a_dtap_timezone, align 4
+  %60 = zext nneg i8 %58 to i32
+  %61 = lshr i32 %60, 2
+  %62 = and i32 %60, 3
+  %63 = mul nuw nsw i32 %62, 15
+  %64 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1, i32 noundef %59, ptr noundef %0, i32 noundef %51, i32 noundef 1, i32 noundef %60, ptr noundef nonnull @.str.137, i32 noundef %54, i32 noundef %61, i32 noundef %63) #6
   ret i16 7
 }
 
