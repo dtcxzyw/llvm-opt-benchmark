@@ -45088,43 +45088,31 @@ if.then774:                                       ; preds = %invoke.cont770, %in
 lor.lhs.false776:                                 ; preds = %if.then774
   %390 = load i64, ptr %start_buffer, align 8, !tbaa !895
   %391 = load i64, ptr %position_buffer57, align 8, !tbaa !894
-  %cmp779.not = icmp eq i64 %390, %391
-  %cmp779.not.not = xor i1 %cmp779.not, true
-  %brmerge1073 = or i1 %cmp779.not.not, %try_add_line
-  br i1 %brmerge1073, label %if.then790, label %lor.lhs.false782
+  %cmp779.not = icmp ne i64 %390, %391
+  %brmerge1073 = or i1 %cmp779.not, %try_add_line
+  br i1 %brmerge1073, label %if.then790, label %if.end886
 
-lor.lhs.false782:                                 ; preds = %lor.lhs.false776
-  %_M_finish.i1692 = getelementptr inbounds i8, ptr %insert_chunk, i64 8
-  %392 = load ptr, ptr %_M_finish.i1692, align 8, !tbaa !173
-  %393 = load ptr, ptr %insert_chunk, align 8, !tbaa !174
-  %sub.ptr.lhs.cast.i1693 = ptrtoint ptr %392 to i64
-  %sub.ptr.rhs.cast.i1694 = ptrtoint ptr %393 to i64
-  %sub.ptr.sub.i1695 = sub i64 %sub.ptr.lhs.cast.i1693, %sub.ptr.rhs.cast.i1694
-  %cmp785 = icmp ne i64 %sub.ptr.sub.i1695, 104
-  %brmerge1785 = or i1 %cmp779.not, %cmp785
-  br i1 %brmerge1785, label %if.end886, label %if.then790
-
-if.then790:                                       ; preds = %lor.lhs.false782, %lor.lhs.false776, %if.then774
+if.then790:                                       ; preds = %lor.lhs.false776, %if.then774
   %call794 = invoke noundef ptr @_ZNK6duckdb10unique_ptrINS_13CSVBufferReadESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %buffer40)
           to label %invoke.cont793 unwind label %lpad792
 
 invoke.cont793:                                   ; preds = %if.then790
-  %394 = load i64, ptr %start_buffer, align 8, !tbaa !895
-  %395 = load i64, ptr %position_buffer57, align 8, !tbaa !894
-  %call798 = invoke { i64, ptr } @_ZN6duckdb13CSVBufferRead8GetValueEmmm(ptr noundef nonnull align 8 dereferenceable(88) %call794, i64 noundef %394, i64 noundef %395, i64 noundef %offset.6)
+  %392 = load i64, ptr %start_buffer, align 8, !tbaa !895
+  %393 = load i64, ptr %position_buffer57, align 8, !tbaa !894
+  %call798 = invoke { i64, ptr } @_ZN6duckdb13CSVBufferRead8GetValueEmmm(ptr noundef nonnull align 8 dereferenceable(88) %call794, i64 noundef %392, i64 noundef %393, i64 noundef %offset.6)
           to label %invoke.cont797 unwind label %lpad792
 
 invoke.cont797:                                   ; preds = %invoke.cont793
-  %396 = extractvalue { i64, ptr } %call798, 0
-  %397 = extractvalue { i64, ptr } %call798, 1
+  %394 = extractvalue { i64, ptr } %call798, 0
+  %395 = extractvalue { i64, ptr } %call798, 1
   %_M_finish.i1697 = getelementptr inbounds i8, ptr %insert_chunk, i64 8
-  %398 = load ptr, ptr %_M_finish.i1697, align 8, !tbaa !173
-  %399 = load ptr, ptr %insert_chunk, align 8, !tbaa !174
-  %sub.ptr.lhs.cast.i1698 = ptrtoint ptr %398 to i64
-  %sub.ptr.rhs.cast.i1699 = ptrtoint ptr %399 to i64
+  %396 = load ptr, ptr %_M_finish.i1697, align 8, !tbaa !173
+  %397 = load ptr, ptr %insert_chunk, align 8, !tbaa !174
+  %sub.ptr.lhs.cast.i1698 = ptrtoint ptr %396 to i64
+  %sub.ptr.rhs.cast.i1699 = ptrtoint ptr %397 to i64
   %sub.ptr.sub.i1700 = sub i64 %sub.ptr.lhs.cast.i1698, %sub.ptr.rhs.cast.i1699
   %sub.ptr.div.i1701 = sdiv exact i64 %sub.ptr.sub.i1700, 104
-  %call805 = invoke noundef zeroext i1 @_ZN6duckdb10AllNewLineENS_8string_tEm(i64 %396, ptr %397, i64 noundef %sub.ptr.div.i1701)
+  %call805 = invoke noundef zeroext i1 @_ZN6duckdb10AllNewLineENS_8string_tEm(i64 %394, ptr %395, i64 noundef %sub.ptr.div.i1701)
           to label %invoke.cont804 unwind label %lpad792
 
 invoke.cont804:                                   ; preds = %invoke.cont797
@@ -45137,36 +45125,36 @@ if.then808:                                       ; preds = %invoke.cont804
 
 invoke.cont812:                                   ; preds = %if.then808
   %local_batch_index814 = getelementptr inbounds i8, ptr %call813, i64 72
-  %400 = load i64, ptr %local_batch_index814, align 8, !tbaa !906
-  invoke void @_ZN6duckdb13BaseCSVReader8AddValueENS_8string_tERmRNS_6vectorImLb1EEEbm(ptr noundef nonnull align 8 dereferenceable(1266) %this, i64 %396, ptr %397, ptr noundef nonnull align 8 dereferenceable(8) %column, ptr noundef nonnull align 8 dereferenceable(24) %escape_positions, i1 noundef zeroext %tobool810, i64 noundef %400)
+  %398 = load i64, ptr %local_batch_index814, align 8, !tbaa !906
+  invoke void @_ZN6duckdb13BaseCSVReader8AddValueENS_8string_tERmRNS_6vectorImLb1EEEbm(ptr noundef nonnull align 8 dereferenceable(1266) %this, i64 %394, ptr %395, ptr noundef nonnull align 8 dereferenceable(8) %column, ptr noundef nonnull align 8 dereferenceable(24) %escape_positions, i1 noundef zeroext %tobool810, i64 noundef %398)
           to label %invoke.cont815 unwind label %lpad792
 
 invoke.cont815:                                   ; preds = %invoke.cont812
   br i1 %try_add_line, label %if.then817, label %if.else850
 
 if.then817:                                       ; preds = %invoke.cont815
-  %401 = load i64, ptr %column, align 8, !tbaa !137
+  %399 = load i64, ptr %column, align 8, !tbaa !137
   %return_types = getelementptr inbounds i8, ptr %this, i64 960
   %_M_finish.i1702 = getelementptr inbounds i8, ptr %this, i64 968
-  %402 = load ptr, ptr %_M_finish.i1702, align 8, !tbaa !160
-  %403 = load ptr, ptr %return_types, align 8, !tbaa !159
-  %sub.ptr.lhs.cast.i1703 = ptrtoint ptr %402 to i64
-  %sub.ptr.rhs.cast.i1704 = ptrtoint ptr %403 to i64
+  %400 = load ptr, ptr %_M_finish.i1702, align 8, !tbaa !160
+  %401 = load ptr, ptr %return_types, align 8, !tbaa !159
+  %sub.ptr.lhs.cast.i1703 = ptrtoint ptr %400 to i64
+  %sub.ptr.rhs.cast.i1704 = ptrtoint ptr %401 to i64
   %sub.ptr.sub.i1705 = sub i64 %sub.ptr.lhs.cast.i1703, %sub.ptr.rhs.cast.i1704
   %sub.ptr.div.i1706 = sdiv exact i64 %sub.ptr.sub.i1705, 24
-  %cmp820 = icmp eq i64 %401, %sub.ptr.div.i1706
+  %cmp820 = icmp eq i64 %399, %sub.ptr.div.i1706
   br i1 %cmp820, label %if.then823, label %if.end842
 
 if.then823:                                       ; preds = %if.then817
   %linenr825 = getelementptr inbounds i8, ptr %this, i64 1176
-  %404 = load i64, ptr %linenr825, align 8, !tbaa !264
+  %402 = load i64, ptr %linenr825, align 8, !tbaa !264
   %call829 = invoke noundef ptr @_ZNK6duckdb10unique_ptrINS_13CSVBufferReadESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %buffer40)
           to label %invoke.cont828 unwind label %lpad827
 
 invoke.cont828:                                   ; preds = %if.then823
   %local_batch_index830 = getelementptr inbounds i8, ptr %call829, i64 72
-  %405 = load i64, ptr %local_batch_index830, align 8, !tbaa !906
-  %call832 = invoke noundef zeroext i1 @_ZN6duckdb13BaseCSVReader6AddRowERNS_9DataChunkERmRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef nonnull align 8 dereferenceable(1266) %this, ptr noundef nonnull align 8 dereferenceable(64) %insert_chunk, ptr noundef nonnull align 8 dereferenceable(8) %column, ptr noundef nonnull align 8 dereferenceable(32) %error_message, i64 noundef %405)
+  %403 = load i64, ptr %local_batch_index830, align 8, !tbaa !906
+  %call832 = invoke noundef zeroext i1 @_ZN6duckdb13BaseCSVReader6AddRowERNS_9DataChunkERmRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef nonnull align 8 dereferenceable(1266) %this, ptr noundef nonnull align 8 dereferenceable(64) %insert_chunk, ptr noundef nonnull align 8 dereferenceable(8) %column, ptr noundef nonnull align 8 dereferenceable(32) %error_message, i64 noundef %403)
           to label %invoke.cont831 unwind label %lpad827
 
 invoke.cont831:                                   ; preds = %invoke.cont828
@@ -45175,21 +45163,21 @@ invoke.cont831:                                   ; preds = %invoke.cont828
 
 invoke.cont834:                                   ; preds = %invoke.cont831
   %local_batch_index836 = getelementptr inbounds i8, ptr %call835, i64 72
-  %406 = load i64, ptr %local_batch_index836, align 8, !tbaa !906
-  %call838 = invoke noundef zeroext i1 @_ZN6duckdb13BaseCSVReader5FlushERNS_9DataChunkEmb(ptr noundef nonnull align 8 dereferenceable(1266) %this, ptr noundef nonnull align 8 dereferenceable(64) %insert_chunk, i64 noundef %406, i1 noundef zeroext false)
+  %404 = load i64, ptr %local_batch_index836, align 8, !tbaa !906
+  %call838 = invoke noundef zeroext i1 @_ZN6duckdb13BaseCSVReader5FlushERNS_9DataChunkEmb(ptr noundef nonnull align 8 dereferenceable(1266) %this, ptr noundef nonnull align 8 dereferenceable(64) %insert_chunk, i64 noundef %404, i1 noundef zeroext false)
           to label %invoke.cont837 unwind label %lpad827
 
 invoke.cont837:                                   ; preds = %invoke.cont834
-  store i64 %404, ptr %linenr825, align 8, !tbaa !264
+  store i64 %402, ptr %linenr825, align 8, !tbaa !264
   br label %if.end842
 
 lpad792:                                          ; preds = %if.then872, %invoke.cont860, %invoke.cont857, %invoke.cont854, %if.else850, %invoke.cont812, %if.then808, %invoke.cont797, %invoke.cont793, %if.then790
-  %407 = landingpad { ptr, i32 }
+  %405 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup961
 
 lpad827:                                          ; preds = %invoke.cont834, %invoke.cont831, %invoke.cont828, %if.then823
-  %408 = landingpad { ptr, i32 }
+  %406 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup961
 
@@ -45203,20 +45191,20 @@ invoke.cont845:                                   ; preds = %if.end842
   br label %cleanup960
 
 lpad844:                                          ; preds = %if.end842
-  %409 = landingpad { ptr, i32 }
+  %407 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup961
 
 if.else850:                                       ; preds = %invoke.cont815
-  %410 = load i64, ptr %position_buffer57, align 8, !tbaa !894
+  %408 = load i64, ptr %position_buffer57, align 8, !tbaa !894
   %call855 = invoke noundef ptr @_ZNK6duckdb10unique_ptrINS_13CSVBufferReadESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %buffer40)
           to label %invoke.cont854 unwind label %lpad792
 
 invoke.cont854:                                   ; preds = %if.else850
-  %sub852 = sub i64 %410, %line_start.2
+  %sub852 = sub i64 %408, %line_start.2
   %batch_index856 = getelementptr inbounds i8, ptr %call855, i64 64
-  %411 = load i64, ptr %batch_index856, align 8, !tbaa !900
-  invoke void @_ZN6duckdb13BaseCSVReader16VerifyLineLengthEmm(ptr noundef nonnull align 8 dereferenceable(1266) %this, i64 noundef %sub852, i64 noundef %411)
+  %409 = load i64, ptr %batch_index856, align 8, !tbaa !900
+  invoke void @_ZN6duckdb13BaseCSVReader16VerifyLineLengthEmm(ptr noundef nonnull align 8 dereferenceable(1266) %this, i64 noundef %sub852, i64 noundef %409)
           to label %invoke.cont857 unwind label %lpad792
 
 invoke.cont857:                                   ; preds = %invoke.cont854
@@ -45225,16 +45213,16 @@ invoke.cont857:                                   ; preds = %invoke.cont854
 
 invoke.cont860:                                   ; preds = %invoke.cont857
   %local_batch_index862 = getelementptr inbounds i8, ptr %call861, i64 72
-  %412 = load i64, ptr %local_batch_index862, align 8, !tbaa !906
-  %call864 = invoke noundef zeroext i1 @_ZN6duckdb13BaseCSVReader6AddRowERNS_9DataChunkERmRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef nonnull align 8 dereferenceable(1266) %this, ptr noundef nonnull align 8 dereferenceable(64) %insert_chunk, ptr noundef nonnull align 8 dereferenceable(8) %column, ptr noundef nonnull align 8 dereferenceable(32) %error_message, i64 noundef %412)
+  %410 = load i64, ptr %local_batch_index862, align 8, !tbaa !906
+  %call864 = invoke noundef zeroext i1 @_ZN6duckdb13BaseCSVReader6AddRowERNS_9DataChunkERmRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef nonnull align 8 dereferenceable(1266) %this, ptr noundef nonnull align 8 dereferenceable(64) %insert_chunk, ptr noundef nonnull align 8 dereferenceable(8) %column, ptr noundef nonnull align 8 dereferenceable(32) %error_message, i64 noundef %410)
           to label %invoke.cont863 unwind label %lpad792
 
 invoke.cont863:                                   ; preds = %invoke.cont860
-  %413 = load i64, ptr %position_buffer57, align 8, !tbaa !894
-  %414 = load i64, ptr %end_of_last_line, align 8, !tbaa !899
-  %sub868 = sub i64 %413, %414
-  %415 = load i64, ptr %buffer_size364, align 8, !tbaa !907
-  %cmp871 = icmp ugt i64 %sub868, %415
+  %411 = load i64, ptr %position_buffer57, align 8, !tbaa !894
+  %412 = load i64, ptr %end_of_last_line, align 8, !tbaa !899
+  %sub868 = sub i64 %411, %412
+  %413 = load i64, ptr %buffer_size364, align 8, !tbaa !907
+  %cmp871 = icmp ugt i64 %sub868, %413
   br i1 %cmp871, label %if.then872, label %if.end875
 
 if.then872:                                       ; preds = %invoke.cont863
@@ -45242,13 +45230,13 @@ if.then872:                                       ; preds = %invoke.cont863
           to label %cleanup960 unwind label %lpad792
 
 if.end875:                                        ; preds = %invoke.cont863
-  store i64 %413, ptr %end_of_last_line, align 8, !tbaa !899
+  store i64 %411, ptr %end_of_last_line, align 8, !tbaa !899
   br label %if.end886
 
-if.end886:                                        ; preds = %if.end875, %invoke.cont804, %lor.lhs.false782, %invoke.cont770, %invoke.cont761, %if.end743
+if.end886:                                        ; preds = %lor.lhs.false776, %if.end875, %invoke.cont804, %invoke.cont770, %invoke.cont761, %if.end743
   %mode = getelementptr inbounds i8, ptr %this, i64 1264
-  %416 = load i8, ptr %mode, align 8, !tbaa !344
-  %cmp887 = icmp eq i8 %416, 0
+  %414 = load i8, ptr %mode, align 8, !tbaa !344
+  %cmp887 = icmp eq i8 %414, 0
   br i1 %cmp887, label %if.then888, label %if.end902
 
 if.then888:                                       ; preds = %if.end886
@@ -45257,29 +45245,29 @@ if.then888:                                       ; preds = %if.end886
 
 invoke.cont890:                                   ; preds = %if.then888
   %local_batch_index892 = getelementptr inbounds i8, ptr %call891, i64 72
-  %417 = load i64, ptr %local_batch_index892, align 8, !tbaa !906
-  %call894 = invoke noundef zeroext i1 @_ZN6duckdb13BaseCSVReader5FlushERNS_9DataChunkEmb(ptr noundef nonnull align 8 dereferenceable(1266) %this, ptr noundef nonnull align 8 dereferenceable(64) %insert_chunk, i64 noundef %417, i1 noundef zeroext false)
+  %415 = load i64, ptr %local_batch_index892, align 8, !tbaa !906
+  %call894 = invoke noundef zeroext i1 @_ZN6duckdb13BaseCSVReader5FlushERNS_9DataChunkEmb(ptr noundef nonnull align 8 dereferenceable(1266) %this, ptr noundef nonnull align 8 dereferenceable(64) %insert_chunk, i64 noundef %415, i1 noundef zeroext false)
           to label %invoke.cont893 unwind label %lpad70.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont893:                                   ; preds = %invoke.cont890
   %count.i1707 = getelementptr inbounds i8, ptr %insert_chunk, i64 24
-  %418 = load i64, ptr %count.i1707, align 8, !tbaa !261
+  %416 = load i64, ptr %count.i1707, align 8, !tbaa !261
   %call899 = invoke noundef ptr @_ZNK6duckdb10unique_ptrINS_13CSVBufferReadESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %buffer40)
           to label %invoke.cont898 unwind label %lpad70.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont898:                                   ; preds = %invoke.cont893
   %lines_read900 = getelementptr inbounds i8, ptr %call899, i64 80
-  %419 = load i64, ptr %lines_read900, align 8, !tbaa !908
-  %add901 = add i64 %419, %418
+  %417 = load i64, ptr %lines_read900, align 8, !tbaa !908
+  %add901 = add i64 %417, %416
   store i64 %add901, ptr %lines_read900, align 8, !tbaa !908
   br label %if.end902
 
 if.end902:                                        ; preds = %invoke.cont898, %if.end886
-  %420 = load i64, ptr %position_buffer57, align 8, !tbaa !894
-  %421 = load i64, ptr %end_of_last_line, align 8, !tbaa !899
-  %sub906 = sub i64 %420, %421
-  %422 = load i64, ptr %buffer_size364, align 8, !tbaa !907
-  %cmp909 = icmp ugt i64 %sub906, %422
+  %418 = load i64, ptr %position_buffer57, align 8, !tbaa !894
+  %419 = load i64, ptr %end_of_last_line, align 8, !tbaa !899
+  %sub906 = sub i64 %418, %419
+  %420 = load i64, ptr %buffer_size364, align 8, !tbaa !907
+  %cmp909 = icmp ugt i64 %sub906, %420
   br i1 %cmp909, label %if.then910, label %if.end913
 
 if.then910:                                       ; preds = %if.end902
@@ -45287,8 +45275,8 @@ if.then910:                                       ; preds = %if.end902
           to label %cleanup960 unwind label %lpad70.loopexit.split-lp.loopexit.split-lp
 
 if.end913:                                        ; preds = %if.end902
-  %423 = load i64, ptr %buffer_size, align 8, !tbaa !885
-  store i64 %423, ptr %end_buffer.i, align 8, !tbaa !875
+  %421 = load i64, ptr %buffer_size, align 8, !tbaa !885
+  store i64 %421, ptr %end_buffer.i, align 8, !tbaa !875
   %call917 = invoke noundef zeroext i1 @_ZN6duckdb17ParallelCSVReader14SkipEmptyLinesEv(ptr noundef nonnull align 8 dereferenceable(1352) %this)
           to label %invoke.cont916 unwind label %lpad70.loopexit.split-lp.loopexit.split-lp
 
@@ -45298,15 +45286,15 @@ invoke.cont916:                                   ; preds = %if.end913
 
 invoke.cont919:                                   ; preds = %invoke.cont916
   %buffer_end921 = getelementptr inbounds i8, ptr %call920, i64 56
-  %424 = load i64, ptr %buffer_end921, align 8, !tbaa !896
-  store i64 %424, ptr %end_buffer.i, align 8, !tbaa !875
-  %425 = load i64, ptr %position_buffer57, align 8, !tbaa !894
-  store i64 %425, ptr %end_of_last_line, align 8, !tbaa !899
-  %cmp928.not = icmp ult i64 %425, %424
+  %422 = load i64, ptr %buffer_end921, align 8, !tbaa !896
+  store i64 %422, ptr %end_buffer.i, align 8, !tbaa !875
+  %423 = load i64, ptr %position_buffer57, align 8, !tbaa !894
+  store i64 %423, ptr %end_of_last_line, align 8, !tbaa !899
+  %cmp928.not = icmp ult i64 %423, %422
   br i1 %cmp928.not, label %cleanup960, label %if.then933
 
 if.then933:                                       ; preds = %invoke.cont919
-  %cmp936 = icmp eq i64 %425, %424
+  %cmp936 = icmp eq i64 %423, %422
   br i1 %cmp936, label %land.lhs.true937, label %if.else953
 
 land.lhs.true937:                                 ; preds = %if.then933
@@ -45314,22 +45302,22 @@ land.lhs.true937:                                 ; preds = %if.then933
           to label %invoke.cont939 unwind label %lpad70.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont939:                                   ; preds = %land.lhs.true937
-  %426 = load i64, ptr %position_buffer57, align 8, !tbaa !894
-  %sub942 = add i64 %426, -1
+  %424 = load i64, ptr %position_buffer57, align 8, !tbaa !894
+  %sub942 = add i64 %424, -1
   %call944 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNK6duckdb13CSVBufferReadixEm(ptr noundef nonnull align 8 dereferenceable(88) %call940, i64 noundef %sub942)
           to label %invoke.cont943 unwind label %lpad70.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont943:                                   ; preds = %invoke.cont939
-  %427 = load i8, ptr %call944, align 1, !tbaa !3
-  switch i8 %427, label %if.else953 [
+  %425 = load i8, ptr %call944, align 1, !tbaa !3
+  switch i8 %425, label %if.else953 [
     i8 13, label %land.lhs.true947
     i8 10, label %land.lhs.true947
   ]
 
 land.lhs.true947:                                 ; preds = %invoke.cont943, %invoke.cont943
-  %428 = load i64, ptr %position_buffer57, align 8, !tbaa !894
-  %429 = load i64, ptr %buffer_size, align 8, !tbaa !885
-  %cmp950 = icmp ult i64 %428, %429
+  %426 = load i64, ptr %position_buffer57, align 8, !tbaa !894
+  %427 = load i64, ptr %buffer_size, align 8, !tbaa !885
+  %cmp950 = icmp ult i64 %426, %427
   br i1 %cmp950, label %if.then951, label %if.else953
 
 if.then951:                                       ; preds = %land.lhs.true947
@@ -45344,12 +45332,12 @@ if.else953:                                       ; preds = %land.lhs.true947, %
 
 cleanup960:                                       ; preds = %invoke.cont115, %invoke.cont140, %if.else953, %if.then951, %invoke.cont919, %if.then910, %if.then872, %invoke.cont845, %invoke.cont740, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1663, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1559, %cleanup576.thread, %if.then436, %if.then291.invoke, %if.end243, %if.then60, %if.then53
   %retval.12 = phi i1 [ true, %if.then60 ], [ true, %if.then53 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1559 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1663 ], [ true, %invoke.cont740 ], [ false, %if.then436 ], [ false, %if.then910 ], [ true, %if.else953 ], [ true, %if.then951 ], [ true, %invoke.cont919 ], [ false, %cleanup576.thread ], [ %success818.0.in, %invoke.cont845 ], [ false, %if.then872 ], [ %success.0.in, %if.end243 ], [ false, %if.then291.invoke ], [ false, %invoke.cont140 ], [ false, %invoke.cont115 ]
-  %430 = load ptr, ptr %escape_positions, align 8, !tbaa !155
-  %tobool.not.i.i.i = icmp eq ptr %430, null
+  %428 = load ptr, ptr %escape_positions, align 8, !tbaa !155
+  %tobool.not.i.i.i = icmp eq ptr %428, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorImSaImEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %cleanup960
-  call void @_ZdlPv(ptr noundef nonnull %430) #27
+  call void @_ZdlPv(ptr noundef nonnull %428) #27
   br label %_ZNSt6vectorImSaImEED2Ev.exit
 
 _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %if.then.i.i.i, %cleanup960
@@ -45358,13 +45346,13 @@ _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %if.then.i.i.i, %cle
   br label %return
 
 ehcleanup961:                                     ; preds = %lpad844, %lpad827, %lpad792, %ehcleanup693, %ehcleanup630, %ehcleanup573, %lpad519.loopexit.split-lp, %lpad519.loopexit, %lpad483, %cleanup.action, %ehcleanup469, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i1380, %lpad414.loopexit.split-lp, %lpad414.loopexit, %lpad390, %lpad229, %lpad221, %lpad194.loopexit.split-lp, %lpad194.loopexit, %lpad90.loopexit.split-lp, %lpad90.loopexit, %lpad70.loopexit.split-lp.loopexit.split-lp, %lpad70.loopexit.split-lp.loopexit, %lpad70.loopexit, %lpad
-  %.pn1047.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %42, %lpad ], [ %.pn1047.pn.pn.pn, %ehcleanup630 ], [ %.pn1042.pn.pn.pn, %ehcleanup693 ], [ %.pn.pn.pn.pn1752, %cleanup.action ], [ %.pn.pn, %ehcleanup469 ], [ %133, %lpad221 ], [ %134, %lpad229 ], [ %407, %lpad792 ], [ %409, %lpad844 ], [ %408, %lpad827 ], [ %182, %lpad390 ], [ %.pn.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i1380 ], [ %.pn1052.pn.pn.pn, %ehcleanup573 ], [ %239, %lpad483 ], [ %lpad.loopexit1790, %lpad70.loopexit ], [ %lpad.loopexit1798, %lpad70.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp1799, %lpad70.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit, %lpad90.loopexit ], [ %lpad.loopexit.split-lp, %lpad90.loopexit.split-lp ], [ %lpad.loopexit1802, %lpad194.loopexit ], [ %lpad.loopexit.split-lp1803, %lpad194.loopexit.split-lp ], [ %lpad.loopexit1787, %lpad414.loopexit ], [ %lpad.loopexit.split-lp1788, %lpad414.loopexit.split-lp ], [ %lpad.loopexit1793, %lpad519.loopexit ], [ %lpad.loopexit.split-lp1794, %lpad519.loopexit.split-lp ]
-  %431 = load ptr, ptr %escape_positions, align 8, !tbaa !155
-  %tobool.not.i.i.i1710 = icmp eq ptr %431, null
+  %.pn1047.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %42, %lpad ], [ %.pn1047.pn.pn.pn, %ehcleanup630 ], [ %.pn1042.pn.pn.pn, %ehcleanup693 ], [ %.pn.pn.pn.pn1752, %cleanup.action ], [ %.pn.pn, %ehcleanup469 ], [ %133, %lpad221 ], [ %134, %lpad229 ], [ %405, %lpad792 ], [ %407, %lpad844 ], [ %406, %lpad827 ], [ %182, %lpad390 ], [ %.pn.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i1380 ], [ %.pn1052.pn.pn.pn, %ehcleanup573 ], [ %239, %lpad483 ], [ %lpad.loopexit1790, %lpad70.loopexit ], [ %lpad.loopexit1798, %lpad70.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp1799, %lpad70.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit, %lpad90.loopexit ], [ %lpad.loopexit.split-lp, %lpad90.loopexit.split-lp ], [ %lpad.loopexit1802, %lpad194.loopexit ], [ %lpad.loopexit.split-lp1803, %lpad194.loopexit.split-lp ], [ %lpad.loopexit1787, %lpad414.loopexit ], [ %lpad.loopexit.split-lp1788, %lpad414.loopexit.split-lp ], [ %lpad.loopexit1793, %lpad519.loopexit ], [ %lpad.loopexit.split-lp1794, %lpad519.loopexit.split-lp ]
+  %429 = load ptr, ptr %escape_positions, align 8, !tbaa !155
+  %tobool.not.i.i.i1710 = icmp eq ptr %429, null
   br i1 %tobool.not.i.i.i1710, label %_ZNSt6vectorImSaImEED2Ev.exit1712, label %if.then.i.i.i1711
 
 if.then.i.i.i1711:                                ; preds = %ehcleanup961
-  call void @_ZdlPv(ptr noundef nonnull %431) #27
+  call void @_ZdlPv(ptr noundef nonnull %429) #27
   br label %_ZNSt6vectorImSaImEED2Ev.exit1712
 
 _ZNSt6vectorImSaImEED2Ev.exit1712:                ; preds = %if.then.i.i.i1711, %ehcleanup961

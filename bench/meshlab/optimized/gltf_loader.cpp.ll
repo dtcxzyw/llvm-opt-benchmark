@@ -24806,9 +24806,7 @@ _ZL21stbi__mad3sizes_validiiii.exit._crit_edge:   ; preds = %39, %_ZL21stbi__mul
   br i1 %304, label %.preheader698, label %466
 
 ._crit_edge823.thread:                            ; preds = %.preheader735
-  %.not1014 = xor i1 %9, true
-  %brmerge = or i1 %49, %.not1014
-  br i1 %brmerge, label %.loopexit699, label %.thread
+  br i1 %9, label %.thread, label %.loopexit699
 
 .preheader698:                                    ; preds = %._crit_edge823
   br i1 %20, label %.loopexit699, label %.lr.ph860

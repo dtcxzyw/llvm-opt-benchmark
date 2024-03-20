@@ -1565,8 +1565,6 @@ if.then14:                                        ; preds = %_ZNK20b3ConvexHullI
   br label %if.end51
 
 if.else:                                          ; preds = %sw.bb2
-  %cmp.not.i.not = xor i1 %cmp.not.i, true
-  %cmp4.not.i.mux = select i1 %cmp.not.i.not, i1 %cmp4.not.i, i1 false
   store ptr %add.ptr, ptr %1, align 8
   %prev25 = getelementptr inbounds i8, ptr %1, i64 8
   store ptr %add.ptr, ptr %prev25, align 8
@@ -1582,7 +1580,7 @@ if.else:                                          ; preds = %sw.bb2
   store ptr %spec.select136, ptr %result, align 8
   %11 = getelementptr inbounds i8, ptr %result, i64 8
   store ptr %spec.select137, ptr %11, align 8
-  %or.cond2 = and i1 %cmp28, %cmp4.not.i.mux
+  %or.cond2 = select i1 %cmp28, i1 %cmp4.not.i, i1 false
   %or.cond95 = or i1 %or.cond2, %cmp31
   %.add.ptr = select i1 %or.cond95, ptr %1, ptr %add.ptr
   %add.ptr. = select i1 %or.cond95, ptr %add.ptr, ptr %1
@@ -1856,7 +1854,7 @@ if.then4.i:                                       ; preds = %if.then.i
   %conv11.i38.i = sext i32 %sub10.i37.i to i64
   %mul.i45.i = mul nsw i64 %conv.i34.i, %conv.i
   %mul4.i48.i = mul nsw i64 %conv11.i38.i, %conv11.i
-  %add7.i.i = add i64 %mul.i45.i, %mul4.i48.i
+  %add7.i.i = add nsw i64 %mul.i45.i, %mul4.i48.i
   %cmp12.i = icmp sgt i64 %add7.i.i, 0
   br i1 %cmp12.i, label %if.end25, label %if.then23
 
@@ -1967,7 +1965,7 @@ if.then4.i247:                                    ; preds = %if.then.i246
   %conv11.i38.i290 = sext i32 %sub10.i37.i289 to i64
   %mul.i45.i295 = mul nsw i64 %conv.i34.i286, %conv.i
   %mul4.i48.i296 = mul nsw i64 %conv11.i38.i290, %conv11.i
-  %add7.i.i299 = add i64 %mul.i45.i295, %mul4.i48.i296
+  %add7.i.i299 = add nsw i64 %mul.i45.i295, %mul4.i48.i296
   %cmp12.i300 = icmp sgt i64 %add7.i.i299, 0
   br i1 %cmp12.i300, label %if.then53, label %if.end55
 

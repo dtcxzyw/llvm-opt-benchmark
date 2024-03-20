@@ -3394,26 +3394,26 @@ for.inc:                                          ; preds = %land.lhs.true, %if.
 
 for.end:                                          ; preds = %for.inc, %entry
   %sameset.0.lcssa = phi i32 [ 0, %entry ], [ %sameset.1, %for.inc ]
-  %cmp20 = icmp eq i32 %op, 1
-  br i1 %cmp20, label %land.lhs.true22, label %if.end57
+  %cmp20 = icmp ne i32 %op, 1
+  br i1 %cmp20, label %if.end57, label %land.lhs.true22
 
 land.lhs.true22:                                  ; preds = %for.end
   %3 = load ptr, ptr %call, align 8
   %tobool24 = icmp ne ptr %3, null
   %tobool26 = icmp eq i32 %sameset.0.lcssa, 0
-  %or.cond.not392 = select i1 %tobool24, i1 %tobool26, i1 false
-  %brmerge391.not = and i1 %or.cond.not392, %cmp278
-  br i1 %brmerge391.not, label %for.body31.preheader, label %if.else.sink.split
+  %or.cond.not394 = select i1 %tobool24, i1 %tobool26, i1 false
+  %brmerge393.not = and i1 %or.cond.not394, %cmp278
+  br i1 %brmerge393.not, label %for.body31.preheader, label %if.else.sink.split
 
 for.body31.preheader:                             ; preds = %land.lhs.true22
-  %wide.trip.count353 = zext nneg i32 %setnum to i64
+  %wide.trip.count354 = zext nneg i32 %setnum to i64
   br label %for.body31
 
 for.body31:                                       ; preds = %for.body31.preheader, %for.inc44
-  %indvars.iv350 = phi i64 [ 0, %for.body31.preheader ], [ %indvars.iv.next351, %for.inc44 ]
+  %indvars.iv351 = phi i64 [ 0, %for.body31.preheader ], [ %indvars.iv.next352, %for.inc44 ]
   %algo_two_work.0284 = phi i64 [ 0, %for.body31.preheader ], [ %algo_two_work.1, %for.inc44 ]
   %algo_one_work.0283 = phi i64 [ 0, %for.body31.preheader ], [ %algo_one_work.1, %for.inc44 ]
-  %arrayidx33 = getelementptr inbounds ptr, ptr %call, i64 %indvars.iv350
+  %arrayidx33 = getelementptr inbounds ptr, ptr %call, i64 %indvars.iv351
   %4 = load ptr, ptr %arrayidx33, align 8
   %cmp34 = icmp eq ptr %4, null
   br i1 %cmp34, label %for.inc44, label %if.end37
@@ -3506,9 +3506,9 @@ setTypeSize.exit137:                              ; preds = %if.then.i131, %if.t
 for.inc44:                                        ; preds = %for.body31, %setTypeSize.exit137
   %algo_one_work.1 = phi i64 [ %algo_one_work.0283, %for.body31 ], [ %add, %setTypeSize.exit137 ]
   %algo_two_work.1 = phi i64 [ %algo_two_work.0284, %for.body31 ], [ %add43, %setTypeSize.exit137 ]
-  %indvars.iv.next351 = add nuw nsw i64 %indvars.iv350, 1
-  %exitcond354.not = icmp eq i64 %indvars.iv.next351, %wide.trip.count353
-  br i1 %exitcond354.not, label %for.end46, label %for.body31, !llvm.loop !25
+  %indvars.iv.next352 = add nuw nsw i64 %indvars.iv351, 1
+  %exitcond355.not = icmp eq i64 %indvars.iv.next352, %wide.trip.count354
+  br i1 %exitcond355.not, label %for.end46, label %for.body31, !llvm.loop !25
 
 for.end46:                                        ; preds = %for.inc44
   %div = sdiv i64 %algo_one_work.1, 2
@@ -3532,18 +3532,18 @@ if.end57:                                         ; preds = %for.end46, %if.then
   br i1 %cmp59, label %for.cond62.preheader, label %if.else
 
 for.cond62.preheader:                             ; preds = %if.end57
-  br i1 %cmp278, label %for.body65.preheader, label %if.end193.loopexit267
+  br i1 %cmp278, label %for.body65.preheader, label %if.end193.loopexit
 
 for.body65.preheader:                             ; preds = %for.cond62.preheader
-  %wide.trip.count358 = zext nneg i32 %setnum to i64
+  %wide.trip.count369 = zext nneg i32 %setnum to i64
   br label %for.body65
 
 for.body65:                                       ; preds = %for.body65.preheader, %for.inc81
-  %indvars.iv355 = phi i64 [ 0, %for.body65.preheader ], [ %indvars.iv.next356, %for.inc81 ]
-  %cardinality.0309 = phi i32 [ 0, %for.body65.preheader ], [ %cardinality.2, %for.inc81 ]
-  %call3.i152287.lcssa295307 = phi ptr [ undef, %for.body65.preheader ], [ %call3.i152287.lcssa294, %for.inc81 ]
-  %retval.0.i.i291.lcssa301306 = phi i64 [ undef, %for.body65.preheader ], [ %retval.0.i.i291.lcssa300, %for.inc81 ]
-  %arrayidx67 = getelementptr inbounds ptr, ptr %call, i64 %indvars.iv355
+  %indvars.iv366 = phi i64 [ 0, %for.body65.preheader ], [ %indvars.iv.next367, %for.inc81 ]
+  %cardinality.0330 = phi i32 [ 0, %for.body65.preheader ], [ %cardinality.2, %for.inc81 ]
+  %call3.i152308.lcssa316328 = phi ptr [ undef, %for.body65.preheader ], [ %call3.i152308.lcssa315, %for.inc81 ]
+  %retval.0.i.i312.lcssa322327 = phi i64 [ undef, %for.body65.preheader ], [ %retval.0.i.i312.lcssa321, %for.inc81 ]
+  %arrayidx67 = getelementptr inbounds ptr, ptr %call, i64 %indvars.iv366
   %17 = load ptr, ptr %arrayidx67, align 8
   %tobool68.not = icmp eq ptr %17, null
   br i1 %tobool68.not, label %for.inc81, label %if.end70
@@ -3592,9 +3592,9 @@ setTypeInitIterator.exit:                         ; preds = %if.then.i142, %if.t
   br label %while.cond
 
 while.cond:                                       ; preds = %while.body, %setTypeInitIterator.exit
-  %retval.0.i.i290 = phi i64 [ %retval.0.i.i291.lcssa301306, %setTypeInitIterator.exit ], [ %retval.0.i.i291, %while.body ]
-  %call3.i152288 = phi ptr [ %call3.i152287.lcssa295307, %setTypeInitIterator.exit ], [ %call3.i152287, %while.body ]
-  %cardinality.1 = phi i32 [ %cardinality.0309, %setTypeInitIterator.exit ], [ %add80, %while.body ]
+  %retval.0.i.i311 = phi i64 [ %retval.0.i.i312.lcssa322327, %setTypeInitIterator.exit ], [ %retval.0.i.i312, %while.body ]
+  %call3.i152309 = phi ptr [ %call3.i152308.lcssa316328, %setTypeInitIterator.exit ], [ %call3.i152308, %while.body ]
+  %cardinality.1 = phi i32 [ %cardinality.0330, %setTypeInitIterator.exit ], [ %add80, %while.body ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %l.i)
   %19 = load i32, ptr %encoding.i, align 8
   switch i32 %19, label %if.else29.i [
@@ -3701,8 +3701,8 @@ if.else29.i:                                      ; preds = %while.cond
   unreachable
 
 setTypeNext.exit:                                 ; preds = %if.then7.i, %sdslen.exit.i, %if.end26.i
-  %retval.0.i.i291 = phi i64 [ %retval.0.i.i, %sdslen.exit.i ], [ %conv.i145, %if.end26.i ], [ %retval.0.i.i290, %if.then7.i ]
-  %call3.i152287 = phi ptr [ %call3.i152, %sdslen.exit.i ], [ %call28.i, %if.end26.i ], [ null, %if.then7.i ]
+  %retval.0.i.i312 = phi i64 [ %retval.0.i.i, %sdslen.exit.i ], [ %conv.i145, %if.end26.i ], [ %retval.0.i.i311, %if.then7.i ]
+  %call3.i152308 = phi ptr [ %call3.i152, %sdslen.exit.i ], [ %call28.i, %if.end26.i ], [ null, %if.then7.i ]
   %33 = load i32, ptr %encoding.i, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %l.i)
   %cmp75.not = icmp eq i32 %33, -1
@@ -3712,7 +3712,7 @@ while.body:                                       ; preds = %setTypeNext.exit
   %34 = load i64, ptr %llval, align 8
   %cmp77 = icmp eq i32 %33, 2
   %conv78 = zext i1 %cmp77 to i32
-  %call79 = call i32 @setTypeAddAux(ptr noundef %call58, ptr noundef %call3.i152287, i64 noundef %retval.0.i.i291, i64 noundef %34, i32 noundef %conv78), !range !9
+  %call79 = call i32 @setTypeAddAux(ptr noundef %call58, ptr noundef %call3.i152308, i64 noundef %retval.0.i.i312, i64 noundef %34, i32 noundef %conv78), !range !9
   %add80 = add nsw i32 %call79, %cardinality.1
   br label %while.cond, !llvm.loop !26
 
@@ -3728,30 +3728,28 @@ if.then.i155:                                     ; preds = %while.end
   br label %setTypeReleaseIterator.exit
 
 setTypeReleaseIterator.exit:                      ; preds = %setTypeNext.exit, %while.end, %if.then.i155
-  %retval.0.i.i291.lcssa302 = phi i64 [ %retval.0.i.i290, %while.end ], [ %retval.0.i.i290, %if.then.i155 ], [ %retval.0.i.i291, %setTypeNext.exit ]
-  %call3.i152287.lcssa296 = phi ptr [ %call3.i152288, %while.end ], [ %call3.i152288, %if.then.i155 ], [ %call3.i152287, %setTypeNext.exit ]
+  %retval.0.i.i312.lcssa323 = phi i64 [ %retval.0.i.i311, %while.end ], [ %retval.0.i.i311, %if.then.i155 ], [ %retval.0.i.i312, %setTypeNext.exit ]
+  %call3.i152308.lcssa317 = phi ptr [ %call3.i152309, %while.end ], [ %call3.i152309, %if.then.i155 ], [ %call3.i152308, %setTypeNext.exit ]
   call void @zfree(ptr noundef nonnull %call.i138) #10
   br label %for.inc81
 
 for.inc81:                                        ; preds = %for.body65, %setTypeReleaseIterator.exit
-  %retval.0.i.i291.lcssa300 = phi i64 [ %retval.0.i.i291.lcssa302, %setTypeReleaseIterator.exit ], [ %retval.0.i.i291.lcssa301306, %for.body65 ]
-  %call3.i152287.lcssa294 = phi ptr [ %call3.i152287.lcssa296, %setTypeReleaseIterator.exit ], [ %call3.i152287.lcssa295307, %for.body65 ]
-  %cardinality.2 = phi i32 [ %cardinality.1, %setTypeReleaseIterator.exit ], [ %cardinality.0309, %for.body65 ]
-  %indvars.iv.next356 = add nuw nsw i64 %indvars.iv355, 1
-  %exitcond359.not = icmp eq i64 %indvars.iv.next356, %wide.trip.count358
-  br i1 %exitcond359.not, label %if.end193.loopexit267, label %for.body65, !llvm.loop !27
+  %retval.0.i.i312.lcssa321 = phi i64 [ %retval.0.i.i312.lcssa323, %setTypeReleaseIterator.exit ], [ %retval.0.i.i312.lcssa322327, %for.body65 ]
+  %call3.i152308.lcssa315 = phi ptr [ %call3.i152308.lcssa317, %setTypeReleaseIterator.exit ], [ %call3.i152308.lcssa316328, %for.body65 ]
+  %cardinality.2 = phi i32 [ %cardinality.1, %setTypeReleaseIterator.exit ], [ %cardinality.0330, %for.body65 ]
+  %indvars.iv.next367 = add nuw nsw i64 %indvars.iv366, 1
+  %exitcond370.not = icmp eq i64 %indvars.iv.next367, %wide.trip.count369
+  br i1 %exitcond370.not, label %if.end193.loopexit, label %for.body65, !llvm.loop !27
 
 if.else.sink.split:                               ; preds = %land.lhs.true22
-  %call58379 = tail call ptr @createIntsetObject() #10
+  %call58380 = tail call ptr @createIntsetObject() #10
   br label %if.else
 
 if.else:                                          ; preds = %if.else.sink.split, %if.end57
-  %call58261 = phi ptr [ %call58, %if.end57 ], [ %call58379, %if.else.sink.split ]
+  %call58261 = phi ptr [ %call58, %if.end57 ], [ %call58380, %if.else.sink.split ]
   %diff_algo.0259 = phi i32 [ %diff_algo.0, %if.end57 ], [ 1, %if.else.sink.split ]
   %tobool87 = icmp ne i32 %sameset.0.lcssa, 0
-  %or.cond2 = select i1 %cmp20, i1 %tobool87, i1 false
-  %cmp20.not = xor i1 %cmp20, true
-  %brmerge = or i1 %or.cond2, %cmp20.not
+  %brmerge = select i1 %cmp20, i1 true, i1 %tobool87
   br i1 %brmerge, label %if.end193, label %land.lhs.true92
 
 land.lhs.true92:                                  ; preds = %if.else
@@ -3799,30 +3797,30 @@ if.else11.i170:                                   ; preds = %if.then98
   unreachable
 
 setTypeInitIterator.exit171:                      ; preds = %if.then.i166, %if.then6.i164, %if.then10.i162
-  %call102329 = call i32 @setTypeNext(ptr noundef nonnull %call.i157, ptr noundef nonnull %str, ptr noundef nonnull %len, ptr noundef nonnull %llval)
-  %cmp103.not330 = icmp eq i32 %call102329, -1
-  br i1 %cmp103.not330, label %while.end141, label %for.cond106.preheader.lr.ph
+  %call102303 = call i32 @setTypeNext(ptr noundef nonnull %call.i157, ptr noundef nonnull %str, ptr noundef nonnull %len, ptr noundef nonnull %llval)
+  %cmp103.not304 = icmp eq i32 %call102303, -1
+  br i1 %cmp103.not304, label %while.end141, label %for.cond106.preheader.lr.ph
 
 for.cond106.preheader.lr.ph:                      ; preds = %setTypeInitIterator.exit171
-  %cmp107324 = icmp sgt i32 %setnum, 1
-  %wide.trip.count368 = zext nneg i32 %setnum to i64
+  %cmp107298 = icmp sgt i32 %setnum, 1
+  %wide.trip.count364 = zext nneg i32 %setnum to i64
   br label %for.cond106.preheader
 
 for.cond106.preheader:                            ; preds = %for.cond106.preheader.lr.ph, %if.end140
-  %call102332 = phi i32 [ %call102329, %for.cond106.preheader.lr.ph ], [ %call102, %if.end140 ]
-  %cardinality.3331 = phi i32 [ 0, %for.cond106.preheader.lr.ph ], [ %cardinality.4, %if.end140 ]
-  br i1 %cmp107324, label %for.body109.lr.ph, label %for.end132
+  %call102306 = phi i32 [ %call102303, %for.cond106.preheader.lr.ph ], [ %call102, %if.end140 ]
+  %cardinality.3305 = phi i32 [ 0, %for.cond106.preheader.lr.ph ], [ %cardinality.4, %if.end140 ]
+  br i1 %cmp107298, label %for.body109.lr.ph, label %for.end132
 
 for.body109.lr.ph:                                ; preds = %for.cond106.preheader
   %38 = load ptr, ptr %str, align 8
   %39 = load i64, ptr %len, align 8
-  %cmp124 = icmp eq i32 %call102332, 2
+  %cmp124 = icmp eq i32 %call102306, 2
   %conv125 = zext i1 %cmp124 to i32
   br label %for.body109
 
 for.body109:                                      ; preds = %for.body109.lr.ph, %for.inc130
-  %indvars.iv365 = phi i64 [ 1, %for.body109.lr.ph ], [ %indvars.iv.next366, %for.inc130 ]
-  %arrayidx111 = getelementptr inbounds ptr, ptr %call, i64 %indvars.iv365
+  %indvars.iv361 = phi i64 [ 1, %for.body109.lr.ph ], [ %indvars.iv.next362, %for.inc130 ]
+  %arrayidx111 = getelementptr inbounds ptr, ptr %call, i64 %indvars.iv361
   %40 = load ptr, ptr %arrayidx111, align 8
   %tobool112.not = icmp eq ptr %40, null
   br i1 %tobool112.not, label %for.inc130, label %if.end114
@@ -3839,12 +3837,12 @@ if.end121:                                        ; preds = %if.end114
   br i1 %tobool127.not, label %for.inc130, label %for.end132.loopexit
 
 for.inc130:                                       ; preds = %if.end121, %for.body109
-  %indvars.iv.next366 = add nuw nsw i64 %indvars.iv365, 1
-  %exitcond369.not = icmp eq i64 %indvars.iv.next366, %wide.trip.count368
-  br i1 %exitcond369.not, label %if.then135, label %for.body109, !llvm.loop !28
+  %indvars.iv.next362 = add nuw nsw i64 %indvars.iv361, 1
+  %exitcond365.not = icmp eq i64 %indvars.iv.next362, %wide.trip.count364
+  br i1 %exitcond365.not, label %if.then135, label %for.body109, !llvm.loop !28
 
 for.end132.loopexit:                              ; preds = %if.end121, %if.end114
-  %43 = trunc i64 %indvars.iv365 to i32
+  %43 = trunc i64 %indvars.iv361 to i32
   br label %for.end132
 
 for.end132:                                       ; preds = %for.end132.loopexit, %for.cond106.preheader
@@ -3856,14 +3854,14 @@ if.then135:                                       ; preds = %for.inc130, %for.en
   %44 = load ptr, ptr %str, align 8
   %45 = load i64, ptr %len, align 8
   %46 = load i64, ptr %llval, align 8
-  %cmp136 = icmp eq i32 %call102332, 2
+  %cmp136 = icmp eq i32 %call102306, 2
   %conv137 = zext i1 %cmp136 to i32
   %call138 = call i32 @setTypeAddAux(ptr noundef %call58261, ptr noundef %44, i64 noundef %45, i64 noundef %46, i32 noundef %conv137), !range !9
-  %add139 = add nsw i32 %call138, %cardinality.3331
+  %add139 = add nsw i32 %call138, %cardinality.3305
   br label %if.end140
 
 if.end140:                                        ; preds = %if.then135, %for.end132
-  %cardinality.4 = phi i32 [ %add139, %if.then135 ], [ %cardinality.3331, %for.end132 ]
+  %cardinality.4 = phi i32 [ %add139, %if.then135 ], [ %cardinality.3305, %for.end132 ]
   %call102 = call i32 @setTypeNext(ptr noundef nonnull %call.i157, ptr noundef nonnull %str, ptr noundef nonnull %len, ptr noundef nonnull %llval)
   %cmp103.not = icmp eq i32 %call102, -1
   br i1 %cmp103.not, label %while.end141, label %for.cond106.preheader, !llvm.loop !29
@@ -3891,13 +3889,13 @@ land.lhs.true145:                                 ; preds = %land.lhs.true92
   br i1 %or.cond336, label %for.body155.preheader, label %if.end193
 
 for.body155.preheader:                            ; preds = %land.lhs.true145
-  %wide.trip.count363 = zext nneg i32 %setnum to i64
+  %wide.trip.count359 = zext nneg i32 %setnum to i64
   br label %for.body155
 
 for.body155:                                      ; preds = %for.body155.preheader, %for.inc187
-  %indvars.iv360 = phi i64 [ 0, %for.body155.preheader ], [ %indvars.iv.next361, %for.inc187 ]
-  %cardinality.5321 = phi i32 [ 0, %for.body155.preheader ], [ %cardinality.8, %for.inc187 ]
-  %arrayidx157 = getelementptr inbounds ptr, ptr %call, i64 %indvars.iv360
+  %indvars.iv356 = phi i64 [ 0, %for.body155.preheader ], [ %indvars.iv.next357, %for.inc187 ]
+  %cardinality.5295 = phi i32 [ 0, %for.body155.preheader ], [ %cardinality.8, %for.inc187 ]
+  %arrayidx157 = getelementptr inbounds ptr, ptr %call, i64 %indvars.iv356
   %50 = load ptr, ptr %arrayidx157, align 8
   %tobool158.not = icmp eq ptr %50, null
   br i1 %tobool158.not, label %for.inc187, label %if.end160
@@ -3940,44 +3938,44 @@ if.else11.i191:                                   ; preds = %if.end160
   unreachable
 
 setTypeInitIterator.exit192:                      ; preds = %if.then.i187, %if.then6.i185, %if.then10.i183
-  %call165313 = call i32 @setTypeNext(ptr noundef nonnull %call.i178, ptr noundef nonnull %str, ptr noundef nonnull %len, ptr noundef nonnull %llval)
-  %cmp166.not314 = icmp eq i32 %call165313, -1
-  br i1 %cmp166.not314, label %while.end182, label %while.body168.lr.ph
+  %call165287 = call i32 @setTypeNext(ptr noundef nonnull %call.i178, ptr noundef nonnull %str, ptr noundef nonnull %len, ptr noundef nonnull %llval)
+  %cmp166.not288 = icmp eq i32 %call165287, -1
+  br i1 %cmp166.not288, label %while.end182, label %while.body168.lr.ph
 
 while.body168.lr.ph:                              ; preds = %setTypeInitIterator.exit192
-  %cmp169 = icmp eq i64 %indvars.iv360, 0
+  %cmp169 = icmp eq i64 %indvars.iv356, 0
   br i1 %cmp169, label %while.body168.us, label %while.body168
 
 while.body168.us:                                 ; preds = %while.body168.lr.ph, %while.body168.us
-  %call165316.us = phi i32 [ %call165.us, %while.body168.us ], [ %call165313, %while.body168.lr.ph ]
-  %cardinality.6315.us = phi i32 [ %add175.us, %while.body168.us ], [ %cardinality.5321, %while.body168.lr.ph ]
+  %call165290.us = phi i32 [ %call165.us, %while.body168.us ], [ %call165287, %while.body168.lr.ph ]
+  %cardinality.6289.us = phi i32 [ %add175.us, %while.body168.us ], [ %cardinality.5295, %while.body168.lr.ph ]
   %52 = load ptr, ptr %str, align 8
   %53 = load i64, ptr %len, align 8
   %54 = load i64, ptr %llval, align 8
-  %cmp172.us = icmp eq i32 %call165316.us, 2
+  %cmp172.us = icmp eq i32 %call165290.us, 2
   %conv173.us = zext i1 %cmp172.us to i32
   %call174.us = call i32 @setTypeAddAux(ptr noundef %call58261, ptr noundef %52, i64 noundef %53, i64 noundef %54, i32 noundef %conv173.us), !range !9
-  %add175.us = add nsw i32 %call174.us, %cardinality.6315.us
+  %add175.us = add nsw i32 %call174.us, %cardinality.6289.us
   %call165.us = call i32 @setTypeNext(ptr noundef nonnull %call.i178, ptr noundef nonnull %str, ptr noundef nonnull %len, ptr noundef nonnull %llval)
   %cmp166.not.us = icmp eq i32 %call165.us, -1
   br i1 %cmp166.not.us, label %while.end182, label %while.body168.us, !llvm.loop !30
 
 while.body168:                                    ; preds = %while.body168.lr.ph, %while.body168
-  %call165316 = phi i32 [ %call165, %while.body168 ], [ %call165313, %while.body168.lr.ph ]
-  %cardinality.6315 = phi i32 [ %sub180, %while.body168 ], [ %cardinality.5321, %while.body168.lr.ph ]
+  %call165290 = phi i32 [ %call165, %while.body168 ], [ %call165287, %while.body168.lr.ph ]
+  %cardinality.6289 = phi i32 [ %sub180, %while.body168 ], [ %cardinality.5295, %while.body168.lr.ph ]
   %55 = load ptr, ptr %str, align 8
   %56 = load i64, ptr %len, align 8
   %57 = load i64, ptr %llval, align 8
-  %cmp177 = icmp eq i32 %call165316, 2
+  %cmp177 = icmp eq i32 %call165290, 2
   %conv178 = zext i1 %cmp177 to i32
   %call179 = call i32 @setTypeRemoveAux(ptr noundef %call58261, ptr noundef %55, i64 noundef %56, i64 noundef %57, i32 noundef %conv178)
-  %sub180 = sub nsw i32 %cardinality.6315, %call179
+  %sub180 = sub nsw i32 %cardinality.6289, %call179
   %call165 = call i32 @setTypeNext(ptr noundef nonnull %call.i178, ptr noundef nonnull %str, ptr noundef nonnull %len, ptr noundef nonnull %llval)
   %cmp166.not = icmp eq i32 %call165, -1
   br i1 %cmp166.not, label %while.end182, label %while.body168, !llvm.loop !30
 
 while.end182:                                     ; preds = %while.body168, %while.body168.us, %setTypeInitIterator.exit192
-  %cardinality.6.lcssa = phi i32 [ %cardinality.5321, %setTypeInitIterator.exit192 ], [ %add175.us, %while.body168.us ], [ %sub180, %while.body168 ]
+  %cardinality.6.lcssa = phi i32 [ %cardinality.5295, %setTypeInitIterator.exit192 ], [ %add175.us, %while.body168.us ], [ %sub180, %while.body168 ]
   %58 = load i32, ptr %encoding.i182, align 8
   %cmp.i194 = icmp eq i32 %58, 2
   br i1 %cmp.i194, label %if.then.i196, label %setTypeReleaseIterator.exit198
@@ -3994,23 +3992,23 @@ setTypeReleaseIterator.exit198:                   ; preds = %while.end182, %if.t
   br i1 %cmp183, label %if.end193, label %for.inc187
 
 for.inc187:                                       ; preds = %setTypeReleaseIterator.exit198, %for.body155
-  %cardinality.8 = phi i32 [ %cardinality.6.lcssa, %setTypeReleaseIterator.exit198 ], [ %cardinality.5321, %for.body155 ]
-  %indvars.iv.next361 = add nuw nsw i64 %indvars.iv360, 1
-  %exitcond364.not = icmp eq i64 %indvars.iv.next361, %wide.trip.count363
-  br i1 %exitcond364.not, label %if.end193, label %for.body155, !llvm.loop !31
+  %cardinality.8 = phi i32 [ %cardinality.6.lcssa, %setTypeReleaseIterator.exit198 ], [ %cardinality.5295, %for.body155 ]
+  %indvars.iv.next357 = add nuw nsw i64 %indvars.iv356, 1
+  %exitcond360.not = icmp eq i64 %indvars.iv.next357, %wide.trip.count359
+  br i1 %exitcond360.not, label %if.end193, label %for.body155, !llvm.loop !31
 
-if.end193.loopexit267:                            ; preds = %for.inc81, %for.cond62.preheader
-  %retval.0.i.i291.lcssa301.lcssa = phi i64 [ undef, %for.cond62.preheader ], [ %retval.0.i.i291.lcssa300, %for.inc81 ]
-  %call3.i152287.lcssa295.lcssa = phi ptr [ undef, %for.cond62.preheader ], [ %call3.i152287.lcssa294, %for.inc81 ]
+if.end193.loopexit:                               ; preds = %for.inc81, %for.cond62.preheader
+  %retval.0.i.i312.lcssa322.lcssa = phi i64 [ undef, %for.cond62.preheader ], [ %retval.0.i.i312.lcssa321, %for.inc81 ]
+  %call3.i152308.lcssa316.lcssa = phi ptr [ undef, %for.cond62.preheader ], [ %call3.i152308.lcssa315, %for.inc81 ]
   %cardinality.0.lcssa = phi i32 [ 0, %for.cond62.preheader ], [ %cardinality.2, %for.inc81 ]
-  store ptr %call3.i152287.lcssa295.lcssa, ptr %str, align 8
-  store i64 %retval.0.i.i291.lcssa301.lcssa, ptr %len, align 8
+  store ptr %call3.i152308.lcssa316.lcssa, ptr %str, align 8
+  store i64 %retval.0.i.i312.lcssa322.lcssa, ptr %len, align 8
   br label %if.end193
 
-if.end193:                                        ; preds = %for.inc187, %setTypeReleaseIterator.exit198, %if.end193.loopexit267, %if.else, %land.lhs.true145, %setTypeReleaseIterator.exit177
-  %cmp59262 = phi ptr [ @.str.22, %if.else ], [ @.str.22, %setTypeReleaseIterator.exit177 ], [ @.str.22, %land.lhs.true145 ], [ @.str.21, %if.end193.loopexit267 ], [ @.str.22, %setTypeReleaseIterator.exit198 ], [ @.str.22, %for.inc187 ]
-  %call58260 = phi ptr [ %call58261, %if.else ], [ %call58261, %setTypeReleaseIterator.exit177 ], [ %call58261, %land.lhs.true145 ], [ %call58, %if.end193.loopexit267 ], [ %call58261, %setTypeReleaseIterator.exit198 ], [ %call58261, %for.inc187 ]
-  %cardinality.9 = phi i32 [ 0, %if.else ], [ %cardinality.3.lcssa, %setTypeReleaseIterator.exit177 ], [ 0, %land.lhs.true145 ], [ %cardinality.0.lcssa, %if.end193.loopexit267 ], [ %cardinality.8, %for.inc187 ], [ 0, %setTypeReleaseIterator.exit198 ]
+if.end193:                                        ; preds = %for.inc187, %setTypeReleaseIterator.exit198, %if.end193.loopexit, %if.else, %land.lhs.true145, %setTypeReleaseIterator.exit177
+  %cmp59262 = phi ptr [ @.str.22, %if.else ], [ @.str.22, %setTypeReleaseIterator.exit177 ], [ @.str.22, %land.lhs.true145 ], [ @.str.21, %if.end193.loopexit ], [ @.str.22, %setTypeReleaseIterator.exit198 ], [ @.str.22, %for.inc187 ]
+  %call58260 = phi ptr [ %call58261, %if.else ], [ %call58261, %setTypeReleaseIterator.exit177 ], [ %call58261, %land.lhs.true145 ], [ %call58, %if.end193.loopexit ], [ %call58261, %setTypeReleaseIterator.exit198 ], [ %call58261, %for.inc187 ]
+  %cardinality.9 = phi i32 [ 0, %if.else ], [ %cardinality.3.lcssa, %setTypeReleaseIterator.exit177 ], [ 0, %land.lhs.true145 ], [ %cardinality.0.lcssa, %if.end193.loopexit ], [ %cardinality.8, %for.inc187 ], [ 0, %setTypeReleaseIterator.exit198 ]
   %tobool194.not = icmp eq ptr %dstkey, null
   br i1 %tobool194.not, label %if.then195, label %if.else209
 

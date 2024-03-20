@@ -1690,9 +1690,7 @@ define internal i32 @dissect_qnet6(ptr noundef %0, ptr nocapture noundef readonl
   br i1 %89, label %140, label %90
 
 90:                                               ; preds = %88
-  %.not.not = xor i1 %.not, true
-  %brmerge = or i1 %or.cond144.not, %.not.not
-  br i1 %brmerge, label %95, label %91
+  br i1 %.not, label %91, label %95
 
 91:                                               ; preds = %90
   %92 = load ptr, ptr %10, align 8
@@ -1813,8 +1811,7 @@ switch.lookup:                                    ; preds = %120
   br label %dissect_qnet6_qos.exit
 
 dissect_qnet6_qos.exit:                           ; preds = %.sink.split.i, %99, %97, %124, %134, %127, %125, %130, %128, %133, %131
-  %brmerge148 = or i1 %or.cond144.not, %.not
-  br i1 %brmerge148, label %138, label %136
+  br i1 %or.cond144.not, label %138, label %136
 
 136:                                              ; preds = %dissect_qnet6_qos.exit
   %137 = load ptr, ptr %10, align 8

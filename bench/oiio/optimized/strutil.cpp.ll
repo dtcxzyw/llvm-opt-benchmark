@@ -10192,8 +10192,8 @@ while.body.i:                                     ; preds = %land.rhs.i, %land.r
 
 if.end45.thread:                                  ; preds = %while.body.i
   store ptr %scevgep, ptr %val, align 8
-  %ref.tmp41.sroa.2.0.val.sroa_idx164 = getelementptr inbounds i8, ptr %val, i64 8
-  store i64 0, ptr %ref.tmp41.sroa.2.0.val.sroa_idx164, align 8
+  %ref.tmp41.sroa.2.0.val.sroa_idx160 = getelementptr inbounds i8, ptr %val, i64 8
+  store i64 0, ptr %ref.tmp41.sroa.2.0.val.sroa_idx160, align 8
   br label %if.end60
 
 land.rhs.i.ithread-pre-split:                     ; preds = %while.body.i.i
@@ -10305,7 +10305,7 @@ if.end20:                                         ; preds = %_ZN18OpenImageIO_v2
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !209
 
 while.end:                                        ; preds = %if.end12.us.us, %while.body.us.us, %while.body.us.us, %while.body.us.us, %while.body.us.us, %if.end20, %_ZN18OpenImageIO_v2_6_07Strutil7isspaceEc.exit, %if.end12, %lor.end
-  %p.sroa.17.4139 = phi i64 [ 0, %lor.end ], [ %p.sroa.17.4, %if.end12 ], [ %p.sroa.17.4, %_ZN18OpenImageIO_v2_6_07Strutil7isspaceEc.exit ], [ %p.sroa.17.4, %if.end20 ], [ %p.sroa.17.4, %while.body.us.us ], [ %p.sroa.17.4, %while.body.us.us ], [ %p.sroa.17.4, %while.body.us.us ], [ %p.sroa.17.4, %while.body.us.us ], [ %p.sroa.17.4, %if.end12.us.us ]
+  %p.sroa.17.4135 = phi i64 [ 0, %lor.end ], [ %p.sroa.17.4, %if.end12 ], [ %p.sroa.17.4, %_ZN18OpenImageIO_v2_6_07Strutil7isspaceEc.exit ], [ %p.sroa.17.4, %if.end20 ], [ %p.sroa.17.4, %while.body.us.us ], [ %p.sroa.17.4, %while.body.us.us ], [ %p.sroa.17.4, %while.body.us.us ], [ %p.sroa.17.4, %while.body.us.us ], [ %p.sroa.17.4, %if.end12.us.us ]
   %end.0.lcssa = phi ptr [ %p.sroa.0.4, %lor.end ], [ %add.ptr.i, %if.end20 ], [ %end.093, %_ZN18OpenImageIO_v2_6_07Strutil7isspaceEc.exit ], [ %end.093, %if.end12 ], [ %add.ptr.i, %if.end12.us.us ], [ %end.093.us.us, %while.body.us.us ], [ %end.093.us.us, %while.body.us.us ], [ %end.093.us.us, %while.body.us.us ], [ %end.093.us.us, %while.body.us.us ]
   %cmp27 = icmp eq i32 %keep_quotes, 1
   %or.cond = and i1 %cmp27, %5
@@ -10320,9 +10320,9 @@ if.then28:                                        ; preds = %while.end
   %reass.sub120 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   store ptr %add.ptr, ptr %val, align 8
   %ref.tmp.sroa.2.0.val.sroa_idx = getelementptr inbounds i8, ptr %val, i64 8
-  %spec.select.i150 = tail call i64 @llvm.umin.i64(i64 %p.sroa.17.4139, i64 %reass.sub120)
-  %add.ptr.i55151 = getelementptr inbounds i8, ptr %p.sroa.0.4, i64 %spec.select.i150
-  %sub.i152 = sub i64 %p.sroa.17.4139, %spec.select.i150
+  %spec.select.i146 = tail call i64 @llvm.umin.i64(i64 %p.sroa.17.4135, i64 %reass.sub120)
+  %add.ptr.i55147 = getelementptr inbounds i8, ptr %p.sroa.0.4, i64 %spec.select.i146
+  %sub.i148 = sub i64 %p.sroa.17.4135, %spec.select.i146
   br i1 %cmp31, label %if.then32, label %if.else
 
 if.then32:                                        ; preds = %if.then28
@@ -10342,31 +10342,31 @@ if.end45:                                         ; preds = %while.end
   store ptr %p.sroa.0.4, ptr %val, align 8
   %ref.tmp41.sroa.2.0.val.sroa_idx = getelementptr inbounds i8, ptr %val, i64 8
   store i64 %sub.ptr.sub44, ptr %ref.tmp41.sroa.2.0.val.sroa_idx, align 8
-  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %p.sroa.17.4139, i64 %sub.ptr.sub44)
+  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %p.sroa.17.4135, i64 %sub.ptr.sub44)
   %add.ptr.i55 = getelementptr inbounds i8, ptr %p.sroa.0.4, i64 %spec.select.i
-  %sub.i = sub i64 %p.sroa.17.4139, %spec.select.i
+  %sub.i = sub i64 %p.sroa.17.4135, %spec.select.i
   br i1 %5, label %land.lhs.true50, label %if.end60
 
 land.lhs.true50:                                  ; preds = %if.else, %if.then32, %if.end45
-  %sub.i154 = phi i64 [ %sub.i152, %if.then32 ], [ %sub.i, %if.end45 ], [ %sub.i152, %if.else ]
-  %add.ptr.i55153 = phi ptr [ %add.ptr.i55151, %if.then32 ], [ %add.ptr.i55, %if.end45 ], [ %add.ptr.i55151, %if.else ]
-  %tobool52.not = icmp eq i64 %sub.i154, 0
+  %sub.i150 = phi i64 [ %sub.i148, %if.then32 ], [ %sub.i, %if.end45 ], [ %sub.i148, %if.else ]
+  %add.ptr.i55149 = phi ptr [ %add.ptr.i55147, %if.then32 ], [ %add.ptr.i55, %if.end45 ], [ %add.ptr.i55147, %if.else ]
+  %tobool52.not = icmp eq i64 %sub.i150, 0
   br i1 %tobool52.not, label %if.end60, label %land.lhs.true53
 
 land.lhs.true53:                                  ; preds = %land.lhs.true50
-  %10 = load i8, ptr %add.ptr.i55153, align 1
+  %10 = load i8, ptr %add.ptr.i55149, align 1
   %cmp58 = icmp eq i8 %10, %2
   br i1 %cmp58, label %if.then59, label %if.end60
 
 if.then59:                                        ; preds = %land.lhs.true53
-  %add.ptr.i59 = getelementptr inbounds i8, ptr %add.ptr.i55153, i64 1
-  %sub.i60 = add i64 %sub.i154, -1
+  %add.ptr.i59 = getelementptr inbounds i8, ptr %add.ptr.i55149, i64 1
+  %sub.i60 = add i64 %sub.i150, -1
   br label %if.end60
 
 if.end60:                                         ; preds = %if.end45.thread, %if.else, %if.then32, %if.then59, %land.lhs.true53, %land.lhs.true50, %if.end45
   %11 = phi i1 [ true, %land.lhs.true50 ], [ true, %if.then59 ], [ true, %land.lhs.true53 ], [ false, %if.end45 ], [ false, %if.then32 ], [ false, %if.else ], [ false, %if.end45.thread ]
-  %p.sroa.0.5 = phi ptr [ %add.ptr.i55153, %land.lhs.true50 ], [ %add.ptr.i59, %if.then59 ], [ %add.ptr.i55153, %land.lhs.true53 ], [ %add.ptr.i55, %if.end45 ], [ %add.ptr.i55151, %if.then32 ], [ %add.ptr.i55151, %if.else ], [ %scevgep, %if.end45.thread ]
-  %p.sroa.17.5 = phi i64 [ 0, %land.lhs.true50 ], [ %sub.i60, %if.then59 ], [ %sub.i154, %land.lhs.true53 ], [ %sub.i, %if.end45 ], [ %sub.i152, %if.then32 ], [ %sub.i152, %if.else ], [ 0, %if.end45.thread ]
+  %p.sroa.0.5 = phi ptr [ %add.ptr.i55149, %land.lhs.true50 ], [ %add.ptr.i59, %if.then59 ], [ %add.ptr.i55149, %land.lhs.true53 ], [ %add.ptr.i55, %if.end45 ], [ %add.ptr.i55147, %if.then32 ], [ %add.ptr.i55147, %if.else ], [ %scevgep, %if.end45.thread ]
+  %p.sroa.17.5 = phi i64 [ 0, %land.lhs.true50 ], [ %sub.i60, %if.then59 ], [ %sub.i150, %land.lhs.true53 ], [ %sub.i, %if.end45 ], [ %sub.i148, %if.then32 ], [ %sub.i148, %if.else ], [ 0, %if.end45.thread ]
   br i1 %eat, label %if.then62, label %if.end63
 
 if.then62:                                        ; preds = %if.end60
@@ -11429,8 +11429,8 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %cond.true.i
   %cmp5.not.i.i = icmp ne i32 %bcmp.i, 0
   %eat.not = xor i1 %eat, true
   %brmerge = or i1 %cmp5.not.i.i, %eat.not
+  %not.cmp5.not.i.i = xor i1 %cmp5.not.i.i, true
   %brmerge44 = or i1 %tobool.not6.i.i, %brmerge
-  %.mux.mux = xor i1 %cmp5.not.i.i, true
   br i1 %brmerge44, label %return, label %land.rhs.i.i7.preheader
 
 _ZN18OpenImageIO_v2_6_0eqENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit: ; preds = %cond.true.i
@@ -11505,7 +11505,7 @@ while.end.i29:                                    ; preds = %while.body.i26, %lo
   br label %return
 
 return:                                           ; preds = %while.body.i.i10, %_ZN18OpenImageIO_v2_6_0eqENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %_ZN18OpenImageIO_v2_6_07Strutil16parse_identifierERNS_17basic_string_viewIcSt11char_traitsIcEEEb.exit, %while.end.i29, %invoke.cont3.i15
-  %cond.i43 = phi i1 [ true, %_ZN18OpenImageIO_v2_6_0eqENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit ], [ true, %invoke.cont3.i15 ], [ true, %while.end.i29 ], [ false, %_ZN18OpenImageIO_v2_6_07Strutil16parse_identifierERNS_17basic_string_viewIcSt11char_traitsIcEEEb.exit ], [ %.mux.mux, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ true, %while.body.i.i10 ]
+  %cond.i43 = phi i1 [ true, %_ZN18OpenImageIO_v2_6_0eqENS_17basic_string_viewIcSt11char_traitsIcEEES3_.exit ], [ true, %invoke.cont3.i15 ], [ true, %while.end.i29 ], [ false, %_ZN18OpenImageIO_v2_6_07Strutil16parse_identifierERNS_17basic_string_viewIcSt11char_traitsIcEEEb.exit ], [ %not.cmp5.not.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ true, %while.body.i.i10 ]
   ret i1 %cond.i43
 }
 

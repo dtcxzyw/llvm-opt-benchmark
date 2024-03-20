@@ -257,7 +257,7 @@ land.lhs.true32:                                  ; preds = %if.else29
   %cmp39 = icmp eq i64 %indvars.iv, %2
   %or.cond26 = select i1 %cmp36, i1 %cmp39, i1 false
   %cmp36.not = xor i1 %cmp36, true
-  %brmerge = or i1 %or.cond26, %cmp36.not
+  %brmerge = select i1 %cmp36.not, i1 true, i1 %cmp39
   %.mux27 = select i1 %or.cond26, i32 -2, i32 %s.033
   br i1 %brmerge, label %for.inc, label %if.then51
 

@@ -14878,9 +14878,7 @@ for.end542:                                       ; preds = %for.inc540
   br i1 %cmp543, label %for.cond545.preheader, label %if.else869
 
 for.end542.thread:                                ; preds = %for.cond.preheader
-  %cmp.not = xor i1 %cmp, true
-  %brmerge = or i1 %cmp543794, %cmp.not
-  br i1 %brmerge, label %return, label %if.then871
+  br i1 %cmp, label %if.then871, label %return
 
 for.cond545.preheader:                            ; preds = %for.end542
   br i1 %cmp2.i.i.i, label %return, label %for.body547.lr.ph

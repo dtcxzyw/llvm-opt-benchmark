@@ -92,85 +92,83 @@ define internal fastcc i32 @ps2_do_sendbyte(ptr noundef %0, i8 noundef zeroext %
   %24 = call i32 @__SCT__might_resched() #7
   %25 = load i64, ptr %7, align 8
   %26 = and i64 %25, 1
-  %27 = icmp ne i64 %26, 0
-  %28 = xor i1 %27, true
-  %29 = icmp eq i64 %23, 0
-  %30 = select i1 %27, i1 %29, i1 false
-  %31 = select i1 %28, i1 true, i1 %30
-  br i1 %31, label %.thread, label %32
+  %.not = icmp eq i64 %26, 0
+  %27 = icmp eq i64 %23, 0
+  %28 = select i1 %.not, i1 true, i1 %27
+  br i1 %28, label %.thread, label %29
 
-32:                                               ; preds = %22
+29:                                               ; preds = %22
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false), !annotation !5
-  %33 = call i64 @__msecs_to_jiffies(i32 noundef %2) #7
+  %30 = call i64 @__msecs_to_jiffies(i32 noundef %2) #7
   call void @init_wait_entry(ptr noundef nonnull %5, i32 noundef 0) #7
-  %34 = call i64 @prepare_to_wait_event(ptr noundef %8, ptr noundef nonnull %5, i32 noundef 2) #7
-  %35 = load i64, ptr %7, align 8
-  %36 = and i64 %35, 1
-  %37 = icmp ne i64 %36, 0
-  %38 = icmp ne i64 %33, 0
-  %39 = select i1 %37, i1 true, i1 %38
-  %40 = select i1 %39, i64 %33, i64 1
-  %41 = icmp ne i64 %40, 0
-  %42 = select i1 %37, i1 %41, i1 false
-  br i1 %42, label %.lr.ph, label %._crit_edge
+  %31 = call i64 @prepare_to_wait_event(ptr noundef %8, ptr noundef nonnull %5, i32 noundef 2) #7
+  %32 = load i64, ptr %7, align 8
+  %33 = and i64 %32, 1
+  %34 = icmp ne i64 %33, 0
+  %35 = icmp ne i64 %30, 0
+  %36 = select i1 %34, i1 true, i1 %35
+  %37 = select i1 %36, i64 %30, i64 1
+  %38 = icmp ne i64 %37, 0
+  %39 = select i1 %34, i1 %38, i1 false
+  br i1 %39, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %32, %.lr.ph
-  %43 = phi i64 [ %51, %.lr.ph ], [ %40, %32 ]
-  %44 = call i64 @schedule_timeout(i64 noundef %43) #7
-  %45 = call i64 @prepare_to_wait_event(ptr noundef %8, ptr noundef nonnull %5, i32 noundef 2) #7
-  %46 = load i64, ptr %7, align 8
-  %47 = and i64 %46, 1
-  %48 = icmp ne i64 %47, 0
-  %49 = icmp ne i64 %44, 0
-  %50 = select i1 %48, i1 true, i1 %49
-  %51 = select i1 %50, i64 %44, i64 1
-  %52 = icmp ne i64 %51, 0
-  %53 = select i1 %48, i1 %52, i1 false
-  br i1 %53, label %.lr.ph, label %._crit_edge
+.lr.ph:                                           ; preds = %29, %.lr.ph
+  %40 = phi i64 [ %48, %.lr.ph ], [ %37, %29 ]
+  %41 = call i64 @schedule_timeout(i64 noundef %40) #7
+  %42 = call i64 @prepare_to_wait_event(ptr noundef %8, ptr noundef nonnull %5, i32 noundef 2) #7
+  %43 = load i64, ptr %7, align 8
+  %44 = and i64 %43, 1
+  %45 = icmp ne i64 %44, 0
+  %46 = icmp ne i64 %41, 0
+  %47 = select i1 %45, i1 true, i1 %46
+  %48 = select i1 %47, i64 %41, i64 1
+  %49 = icmp ne i64 %48, 0
+  %50 = select i1 %45, i1 %49, i1 false
+  br i1 %50, label %.lr.ph, label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph, %32
+._crit_edge:                                      ; preds = %.lr.ph, %29
   call void @finish_wait(ptr noundef %8, ptr noundef nonnull %5) #7
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #7
   br label %.thread
 
 .thread:                                          ; preds = %9, %._crit_edge, %22, %19
-  %54 = phi i1 [ true, %._crit_edge ], [ true, %22 ], [ false, %19 ], [ false, %9 ]
-  %55 = phi i32 [ 0, %._crit_edge ], [ 0, %22 ], [ %20, %19 ], [ -1, %9 ]
-  %56 = load ptr, ptr %0, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 208
-  call void @_raw_spin_lock_irq(ptr noundef %57) #7
-  %58 = load i8, ptr %6, align 1
-  %59 = icmp eq i8 %58, -2
-  %60 = icmp ult i32 %10, %3
-  %61 = and i1 %60, %59
-  br i1 %61, label %9, label %62, !llvm.loop !6
+  %51 = phi i1 [ true, %._crit_edge ], [ true, %22 ], [ false, %19 ], [ false, %9 ]
+  %52 = phi i32 [ 0, %._crit_edge ], [ 0, %22 ], [ %20, %19 ], [ -1, %9 ]
+  %53 = load ptr, ptr %0, align 8
+  %54 = getelementptr inbounds i8, ptr %53, i64 208
+  call void @_raw_spin_lock_irq(ptr noundef %54) #7
+  %55 = load i8, ptr %6, align 1
+  %56 = icmp eq i8 %55, -2
+  %57 = icmp ult i32 %10, %3
+  %58 = and i1 %57, %56
+  br i1 %58, label %9, label %59, !llvm.loop !6
 
-62:                                               ; preds = %.thread
-  %63 = load i64, ptr %7, align 8
-  %64 = and i64 %63, -2
-  store i64 %64, ptr %7, align 8
-  br i1 %54, label %65, label %69
+59:                                               ; preds = %.thread
+  %60 = load i64, ptr %7, align 8
+  %61 = and i64 %60, -2
+  store i64 %61, ptr %7, align 8
+  br i1 %51, label %62, label %66
 
-65:                                               ; preds = %62
-  switch i8 %58, label %68 [
-    i8 0, label %69
-    i8 -2, label %66
-    i8 -4, label %67
+62:                                               ; preds = %59
+  switch i8 %55, label %65 [
+    i8 0, label %66
+    i8 -2, label %63
+    i8 -4, label %64
   ]
 
-66:                                               ; preds = %65
-  br label %69
+63:                                               ; preds = %62
+  br label %66
 
-67:                                               ; preds = %65
-  br label %69
+64:                                               ; preds = %62
+  br label %66
 
-68:                                               ; preds = %65
-  br label %69
+65:                                               ; preds = %62
+  br label %66
 
-69:                                               ; preds = %68, %67, %66, %65, %62
-  %70 = phi i32 [ %55, %62 ], [ -5, %68 ], [ -71, %67 ], [ -11, %66 ], [ 0, %65 ]
-  ret i32 %70
+66:                                               ; preds = %65, %64, %63, %62, %59
+  %67 = phi i32 [ %52, %59 ], [ -5, %65 ], [ -71, %64 ], [ -11, %63 ], [ 0, %62 ]
+  ret i32 %67
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -242,56 +240,54 @@ define dso_local void @ps2_drain(ptr noundef %0, i64 noundef %1, i32 noundef %2)
   %23 = tail call i32 @__SCT__might_resched() #7
   %24 = load i64, ptr %17, align 8
   %25 = and i64 %24, 2
-  %26 = icmp ne i64 %25, 0
-  %27 = xor i1 %26, true
-  %28 = icmp eq i64 %22, 0
-  %29 = select i1 %26, i1 %28, i1 false
-  %30 = select i1 %27, i1 true, i1 %29
-  br i1 %30, label %54, label %31
+  %.not = icmp eq i64 %25, 0
+  %26 = icmp eq i64 %22, 0
+  %27 = select i1 %.not, i1 true, i1 %26
+  br i1 %27, label %51, label %28
 
-31:                                               ; preds = %7
+28:                                               ; preds = %7
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false), !annotation !5
-  %32 = tail call i64 @__msecs_to_jiffies(i32 noundef %2) #7
+  %29 = tail call i64 @__msecs_to_jiffies(i32 noundef %2) #7
   call void @init_wait_entry(ptr noundef nonnull %4, i32 noundef 0) #7
-  %33 = getelementptr inbounds i8, ptr %0, i64 40
-  %34 = call i64 @prepare_to_wait_event(ptr noundef %33, ptr noundef nonnull %4, i32 noundef 2) #7
-  %35 = load i64, ptr %17, align 8
-  %36 = and i64 %35, 2
-  %37 = icmp ne i64 %36, 0
-  %38 = icmp ne i64 %32, 0
-  %39 = select i1 %37, i1 true, i1 %38
-  %40 = select i1 %39, i64 %32, i64 1
-  %41 = icmp ne i64 %40, 0
-  %42 = select i1 %37, i1 %41, i1 false
-  br i1 %42, label %.lr.ph, label %._crit_edge
+  %30 = getelementptr inbounds i8, ptr %0, i64 40
+  %31 = call i64 @prepare_to_wait_event(ptr noundef %30, ptr noundef nonnull %4, i32 noundef 2) #7
+  %32 = load i64, ptr %17, align 8
+  %33 = and i64 %32, 2
+  %34 = icmp ne i64 %33, 0
+  %35 = icmp ne i64 %29, 0
+  %36 = select i1 %34, i1 true, i1 %35
+  %37 = select i1 %36, i64 %29, i64 1
+  %38 = icmp ne i64 %37, 0
+  %39 = select i1 %34, i1 %38, i1 false
+  br i1 %39, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %31, %.lr.ph
-  %43 = phi i64 [ %51, %.lr.ph ], [ %40, %31 ]
-  %44 = call i64 @schedule_timeout(i64 noundef %43) #7
-  %45 = call i64 @prepare_to_wait_event(ptr noundef %33, ptr noundef nonnull %4, i32 noundef 2) #7
-  %46 = load i64, ptr %17, align 8
-  %47 = and i64 %46, 2
-  %48 = icmp ne i64 %47, 0
-  %49 = icmp ne i64 %44, 0
-  %50 = select i1 %48, i1 true, i1 %49
-  %51 = select i1 %50, i64 %44, i64 1
-  %52 = icmp ne i64 %51, 0
-  %53 = select i1 %48, i1 %52, i1 false
-  br i1 %53, label %.lr.ph, label %._crit_edge
+.lr.ph:                                           ; preds = %28, %.lr.ph
+  %40 = phi i64 [ %48, %.lr.ph ], [ %37, %28 ]
+  %41 = call i64 @schedule_timeout(i64 noundef %40) #7
+  %42 = call i64 @prepare_to_wait_event(ptr noundef %30, ptr noundef nonnull %4, i32 noundef 2) #7
+  %43 = load i64, ptr %17, align 8
+  %44 = and i64 %43, 2
+  %45 = icmp ne i64 %44, 0
+  %46 = icmp ne i64 %41, 0
+  %47 = select i1 %45, i1 true, i1 %46
+  %48 = select i1 %47, i64 %41, i64 1
+  %49 = icmp ne i64 %48, 0
+  %50 = select i1 %45, i1 %49, i1 false
+  br i1 %50, label %.lr.ph, label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph, %31
-  call void @finish_wait(ptr noundef %33, ptr noundef nonnull %4) #7
+._crit_edge:                                      ; preds = %.lr.ph, %28
+  call void @finish_wait(ptr noundef %30, ptr noundef nonnull %4) #7
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #7
-  br label %54
+  br label %51
 
-54:                                               ; preds = %._crit_edge, %7
-  %55 = load ptr, ptr %0, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 1088
-  %57 = load ptr, ptr %56, align 8
-  %58 = icmp eq ptr %57, null
-  %59 = select i1 %58, ptr %13, ptr %57
-  call void @mutex_unlock(ptr noundef %59) #7
+51:                                               ; preds = %._crit_edge, %7
+  %52 = load ptr, ptr %0, align 8
+  %53 = getelementptr inbounds i8, ptr %52, i64 1088
+  %54 = load ptr, ptr %53, align 8
+  %55 = icmp eq ptr %54, null
+  %56 = select i1 %55, ptr %13, ptr %54
+  call void @mutex_unlock(ptr noundef %56) #7
   ret void
 }
 

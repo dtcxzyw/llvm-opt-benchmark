@@ -1715,12 +1715,12 @@ BufferGetPage.exit305.i:                          ; preds = %368, %362
   %410 = icmp ne i8 %409, 0
   %411 = load i16, ptr %402, align 4
   %412 = icmp eq i16 %411, 0
-  %or.cond.i = select i1 %410, i1 %412, i1 false
   %.not327.i = xor i1 %412, true
-  %brmerge.i = select i1 %or.cond.i, i1 true, i1 %.not327.i
+  %brmerge.i = select i1 %410, i1 true, i1 %.not327.i
   br i1 %brmerge.i, label %.sink.split.i, label %414
 
 .sink.split.i:                                    ; preds = %407
+  %or.cond.i = select i1 %410, i1 %412, i1 false
   %.mux.i = select i1 %or.cond.i, ptr %.0, ptr %.0139
   %413 = trunc i64 %7 to i32
   call void @XLogRegisterBufData(i8 noundef zeroext 0, ptr noundef %.mux.i, i32 noundef %413) #9

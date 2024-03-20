@@ -1042,8 +1042,8 @@ if.end.i398:                                      ; preds = %_ZNK2v820FunctionCa
   %sub.i.i = add i64 %65, 11
   %66 = inttoptr i64 %sub.i.i to ptr
   %67 = load i16, ptr %66, align 2
-  %cmp.i399 = icmp ult i16 %67, 128
-  br i1 %cmp.i399, label %lor.lhs.false.i, label %do.body88
+  %cmp.i399 = icmp ugt i16 %67, 127
+  br i1 %cmp.i399, label %do.body88, label %lor.lhs.false.i
 
 do.body88:                                        ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit207, %if.end.i398
   call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node4i18n15ConverterObject6DecodeERKN2v820FunctionCallbackInfoINS2_5ValueEEEE4args_0) #21
@@ -1241,56 +1241,56 @@ if.end154:                                        ; preds = %if.end144, %.thread
   %97 = load ptr, ptr %isolate_.i88, align 8
   %call156 = call ptr @_ZN4node11StringBytes6EncodeEPN2v87IsolateEPKcmNS_8encodingEPNS1_5LocalINS1_5ValueEEE(ptr noundef %97, ptr noundef %add.ptr151, i64 noundef %94, i32 noundef 3, ptr noundef nonnull %error) #21
   %cmp.i.i.not = icmp eq ptr %call156, null
-  br i1 %cmp.i.i.not, label %if.end171, label %if.then162
+  br i1 %cmp.i.i.not, label %if.end171, label %if.else.i
 
-if.then162:                                       ; preds = %if.end154
+if.else.i:                                        ; preds = %if.end154
   %98 = load ptr, ptr %args, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %98, i64 24
-  %storemerge = load i64, ptr %call156, align 8
-  store i64 %storemerge, ptr %arrayidx.i, align 8
+  %99 = load i64, ptr %call156, align 8
+  store i64 %99, ptr %arrayidx.i, align 8
   br label %if.then.i97
 
 if.end171:                                        ; preds = %if.end154, %if.end115
   %isolate_.i89 = getelementptr inbounds i8, ptr %retval.0.i.i, i64 88
-  %99 = load ptr, ptr %isolate_.i89, align 8
-  call void @_ZN4node9Utf8ValueC1EPN2v87IsolateENS1_5LocalINS1_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(1048) %ref.tmp174, ptr noundef %99, ptr %retval.i.sroa.0.0) #21
+  %100 = load ptr, ptr %isolate_.i89, align 8
+  call void @_ZN4node9Utf8ValueC1EPN2v87IsolateENS1_5LocalINS1_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(1048) %ref.tmp174, ptr noundef %100, ptr %retval.i.sroa.0.0) #21
   %buf_.i91 = getelementptr inbounds i8, ptr %ref.tmp174, i64 16
-  %100 = load ptr, ptr %buf_.i91, align 8
-  store ptr %100, ptr %ref.tmp173, align 8
-  %call.i92 = call ptr @_ZN4node33ERR_ENCODING_INVALID_ENCODED_DATAIJPcEEEN2v85LocalINS2_5ValueEEEPNS2_7IsolateEPKcDpOT_(ptr noundef %99, ptr noundef nonnull @.str.23, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp173)
-  %call6.i93 = call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %99, ptr %call.i92) #21
   %101 = load ptr, ptr %buf_.i91, align 8
-  %cmp.i.i.i.i94 = icmp ne ptr %101, null
+  store ptr %101, ptr %ref.tmp173, align 8
+  %call.i92 = call ptr @_ZN4node33ERR_ENCODING_INVALID_ENCODED_DATAIJPcEEEN2v85LocalINS2_5ValueEEEPNS2_7IsolateEPKcDpOT_(ptr noundef %100, ptr noundef nonnull @.str.23, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp173)
+  %call6.i93 = call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %100, ptr %call.i92) #21
+  %102 = load ptr, ptr %buf_.i91, align 8
+  %cmp.i.i.i.i94 = icmp ne ptr %102, null
   %buf_st_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp174, i64 24
-  %cmp.i.i.i95 = icmp ne ptr %101, %buf_st_.i.i.i
-  %102 = select i1 %cmp.i.i.i.i94, i1 %cmp.i.i.i95, i1 false
-  br i1 %102, label %if.then.i.i96, label %if.then.i97
+  %cmp.i.i.i95 = icmp ne ptr %102, %buf_st_.i.i.i
+  %103 = select i1 %cmp.i.i.i.i94, i1 %cmp.i.i.i95, i1 false
+  br i1 %103, label %if.then.i.i96, label %if.then.i97
 
 if.then.i.i96:                                    ; preds = %if.end171
-  call void @free(ptr noundef nonnull %101) #21
+  call void @free(ptr noundef nonnull %102) #21
   br label %if.then.i97
 
-if.then.i97:                                      ; preds = %if.then162, %if.end171, %if.then.i.i96
+if.then.i97:                                      ; preds = %if.else.i, %if.end171, %if.then.i.i96
   br i1 %tobool.not, label %"_ZN4node16OnScopeLeaveImplIZNS_4i18n15ConverterObject6DecodeERKN2v820FunctionCallbackInfoINS3_5ValueEEEE3$_0ED2Ev.exit", label %if.then.i.i98
 
 if.then.i.i98:                                    ; preds = %if.then.i97
   %flags_.i.i.i = getelementptr inbounds i8, ptr %retval.i11.0.i, i64 40
-  %103 = load i32, ptr %flags_.i.i.i, align 8
-  %and.i.i.i = and i32 %103, -17
+  %104 = load i32, ptr %flags_.i.i.i, align 8
+  %and.i.i.i = and i32 %104, -17
   store i32 %and.i.i.i, ptr %flags_.i.i.i, align 8
-  %104 = load ptr, ptr %add.ptr, align 8
-  call void @ucnv_reset_74(ptr noundef %104) #21
+  %105 = load ptr, ptr %add.ptr, align 8
+  call void @ucnv_reset_74(ptr noundef %105) #21
   br label %"_ZN4node16OnScopeLeaveImplIZNS_4i18n15ConverterObject6DecodeERKN2v820FunctionCallbackInfoINS3_5ValueEEEE3$_0ED2Ev.exit"
 
 "_ZN4node16OnScopeLeaveImplIZNS_4i18n15ConverterObject6DecodeERKN2v820FunctionCallbackInfoINS3_5ValueEEEE3$_0ED2Ev.exit": ; preds = %if.then.i97, %if.then.i.i98
-  %105 = load ptr, ptr %buf_.i, align 8
-  %cmp.i.i.i100 = icmp ne ptr %105, null
-  %cmp.i.i102 = icmp ne ptr %105, %buf_st_.i
-  %106 = and i1 %cmp.i.i.i100, %cmp.i.i102
-  br i1 %106, label %if.then.i104, label %cleanup.cont
+  %106 = load ptr, ptr %buf_.i, align 8
+  %cmp.i.i.i100 = icmp ne ptr %106, null
+  %cmp.i.i102 = icmp ne ptr %106, %buf_st_.i
+  %107 = and i1 %cmp.i.i.i100, %cmp.i.i102
+  br i1 %107, label %if.then.i104, label %cleanup.cont
 
 if.then.i104:                                     ; preds = %"_ZN4node16OnScopeLeaveImplIZNS_4i18n15ConverterObject6DecodeERKN2v820FunctionCallbackInfoINS3_5ValueEEEE3$_0ED2Ev.exit"
-  call void @free(ptr noundef nonnull %105) #21
+  call void @free(ptr noundef nonnull %106) #21
   br label %cleanup.cont
 
 cleanup.cont:                                     ; preds = %if.then.i104, %"_ZN4node16OnScopeLeaveImplIZNS_4i18n15ConverterObject6DecodeERKN2v820FunctionCallbackInfoINS3_5ValueEEEE3$_0ED2Ev.exit", %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %if.then48

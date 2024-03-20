@@ -1947,8 +1947,8 @@ define dso_local noundef i64 @chr(ptr nocapture noundef readonly %0) local_unnam
 
 26:                                               ; preds = %20
   %27 = icmp ult i32 %4, 65536
-  %28 = icmp ult i32 %4, 2048
-  %.55 = select i1 %28, i32 2, i32 3
+  %28 = icmp ugt i32 %4, 2047
+  %.55 = select i1 %28, i32 3, i32 2
   %.051 = select i1 %27, i32 %.55, i32 4
   %29 = add nuw nsw i32 %.051, 4
   %30 = zext nneg i32 %29 to i64
@@ -1956,7 +1956,7 @@ define dso_local noundef i64 @chr(ptr nocapture noundef readonly %0) local_unnam
   %32 = shl nuw nsw i32 %29, 2
   store i32 %32, ptr %31, align 4
   %33 = getelementptr inbounds i8, ptr %31, i64 4
-  br i1 %28, label %34, label %42
+  br i1 %28, label %42, label %34
 
 34:                                               ; preds = %26
   %35 = lshr i64 %3, 6

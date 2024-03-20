@@ -324,12 +324,10 @@ define noundef zeroext i1 @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$15close_p_element7implied17ha43732a0661dc04fE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #2 {
   %3 = load i64, ptr %0, align 8, !noundef !5
-  %4 = icmp eq i64 %3, 30064771074
+  %4 = icmp ne i64 %3, 30064771074
   %5 = load i64, ptr %1, align 8
   %6 = icmp eq i64 %5, 158913789954
-  %or.cond = select i1 %4, i1 %6, i1 false
-  %.not = xor i1 %4, true
-  %brmerge = or i1 %or.cond, %.not
+  %brmerge = select i1 %4, i1 true, i1 %6
   br i1 %brmerge, label %_ZN9html5ever12tree_builder8tag_sets19cursory_implied_end17h067a0af057a6909fE.exit, label %7
 
 7:                                                ; preds = %2
@@ -339,11 +337,10 @@ define noundef zeroext i1 @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C
     i64 2701534429186, label %10
     i64 3358664425474, label %11
     i64 3904125272066, label %12
-    i64 158913789954, label %13
-    i64 3285649981442, label %14
-    i64 3869765533698, label %15
-    i64 1657857376258, label %16
-    i64 1271310319618, label %17
+    i64 1271310319618, label %16
+    i64 3285649981442, label %13
+    i64 3869765533698, label %14
+    i64 1657857376258, label %15
   ]
 
 8:                                                ; preds = %7
@@ -373,11 +370,8 @@ define noundef zeroext i1 @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C
 16:                                               ; preds = %7
   br label %_ZN9html5ever12tree_builder8tag_sets19cursory_implied_end17h067a0af057a6909fE.exit
 
-17:                                               ; preds = %7
-  br label %_ZN9html5ever12tree_builder8tag_sets19cursory_implied_end17h067a0af057a6909fE.exit
-
-_ZN9html5ever12tree_builder8tag_sets19cursory_implied_end17h067a0af057a6909fE.exit: ; preds = %2, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7
-  %.0 = phi i1 [ false, %2 ], [ true, %17 ], [ true, %16 ], [ true, %15 ], [ true, %14 ], [ true, %13 ], [ true, %12 ], [ true, %11 ], [ true, %10 ], [ true, %9 ], [ true, %8 ], [ false, %7 ]
+_ZN9html5ever12tree_builder8tag_sets19cursory_implied_end17h067a0af057a6909fE.exit: ; preds = %2, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7
+  %.0 = phi i1 [ false, %2 ], [ true, %16 ], [ true, %15 ], [ true, %14 ], [ true, %13 ], [ true, %12 ], [ true, %11 ], [ true, %10 ], [ true, %9 ], [ true, %8 ], [ false, %7 ]
   ret i1 %.0
 }
 
@@ -468,12 +462,10 @@ define noundef zeroext i1 @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$14insert_element6listed17h25b175aafe715b9cE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #2 {
   %3 = load i64, ptr %0, align 8, !noundef !5
-  %4 = icmp eq i64 %3, 30064771074
+  %4 = icmp ne i64 %3, 30064771074
   %5 = load i64, ptr %1, align 8
   %6 = icmp eq i64 %5, 4084513898498
-  %or.cond = select i1 %4, i1 %6, i1 false
-  %.not = xor i1 %4, true
-  %brmerge = or i1 %or.cond, %.not
+  %brmerge = select i1 %4, i1 true, i1 %6
   br i1 %brmerge, label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$14insert_element17form_associatable17hb9fc853713609ba3E.exit", label %7
 
 7:                                                ; preds = %2
@@ -485,7 +477,6 @@ define noundef zeroext i1 @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C
     i64 4625679777794, label %12
     i64 773094113282, label %13
     i64 2117418876930, label %14
-    i64 4084513898498, label %15
   ]
 
 8:                                                ; preds = %7
@@ -509,11 +500,8 @@ define noundef zeroext i1 @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C
 14:                                               ; preds = %7
   br label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$14insert_element17form_associatable17hb9fc853713609ba3E.exit"
 
-15:                                               ; preds = %7
-  br label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$14insert_element17form_associatable17hb9fc853713609ba3E.exit"
-
-"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$14insert_element17form_associatable17hb9fc853713609ba3E.exit": ; preds = %2, %15, %14, %13, %12, %11, %10, %9, %8, %7
-  %.0 = phi i1 [ false, %2 ], [ true, %15 ], [ true, %14 ], [ true, %13 ], [ true, %12 ], [ true, %11 ], [ true, %10 ], [ true, %9 ], [ true, %8 ], [ false, %7 ]
+"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$14insert_element17form_associatable17hb9fc853713609ba3E.exit": ; preds = %2, %14, %13, %12, %11, %10, %9, %8, %7
+  %.0 = phi i1 [ false, %2 ], [ true, %14 ], [ true, %13 ], [ true, %12 ], [ true, %11 ], [ true, %10 ], [ true, %9 ], [ true, %8 ], [ false, %7 ]
   ret i1 %.0
 }
 
