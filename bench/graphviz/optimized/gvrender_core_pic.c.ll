@@ -196,9 +196,10 @@ define internal void @pic_begin_page(ptr noundef %0) #0 {
 
 27:                                               ; preds = %8, %21
   %storemerge = phi double [ %26, %21 ], [ 3.000000e+00, %8 ]
-  %28 = tail call double @pow(double noundef 1.000000e+01, double noundef %storemerge) #7
-  store double %28, ptr @Fontscale, align 8
-  tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.9, double noundef %28, double noundef %28) #7
+  store double %storemerge, ptr @Fontscale, align 8
+  %__exp10 = tail call double @__exp10(double %storemerge) #7
+  store double %__exp10, ptr @Fontscale, align 8
+  tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.9, double noundef %__exp10, double noundef %__exp10) #7
   tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.10, ptr noundef nonnull @pic_comments) #7
   tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.11, ptr noundef nonnull @pic_comments) #7
   tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.12, ptr noundef nonnull @pic_comments) #7
@@ -548,9 +549,6 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
 declare double @log10(double noundef) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @pow(double noundef, double noundef) local_unnamed_addr #3
-
 declare i32 @agerr(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
@@ -578,6 +576,8 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
 declare i32 @gvputs(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare { double, double } @Bezier(ptr noundef, double noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare double @__exp10(double) local_unnamed_addr
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #6

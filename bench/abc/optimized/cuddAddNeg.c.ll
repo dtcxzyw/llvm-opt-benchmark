@@ -28,11 +28,11 @@ define ptr @cuddAddNegateRecur(ptr noundef %0, ptr noundef %1) local_unnamed_add
   %6 = getelementptr inbounds i8, ptr %1, i64 16
   %7 = load double, ptr %6, align 8
   %8 = fneg double %7
-  %9 = tail call ptr @cuddUniqueConst(ptr noundef %0, double noundef %8) #4
+  %9 = tail call ptr @cuddUniqueConst(ptr noundef %0, double noundef %8) #3
   br label %47
 
 10:                                               ; preds = %2
-  %11 = tail call ptr @cuddCacheLookup1(ptr noundef %0, ptr noundef nonnull @Cudd_addNegate, ptr noundef nonnull %1) #4
+  %11 = tail call ptr @cuddCacheLookup1(ptr noundef %0, ptr noundef nonnull @Cudd_addNegate, ptr noundef nonnull %1) #3
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %12, label %47
 
@@ -58,7 +58,7 @@ define ptr @cuddAddNegateRecur(ptr noundef %0, ptr noundef %1) local_unnamed_add
   br i1 %27, label %28, label %29
 
 28:                                               ; preds = %19
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %17) #4
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %17) #3
   br label %47
 
 29:                                               ; preds = %19
@@ -74,13 +74,13 @@ define ptr @cuddAddNegateRecur(ptr noundef %0, ptr noundef %1) local_unnamed_add
 
 37:                                               ; preds = %29
   %38 = load i32, ptr %1, align 8
-  %39 = tail call ptr @cuddUniqueInter(ptr noundef %0, i32 noundef %38, ptr noundef nonnull %17, ptr noundef nonnull %26) #4
+  %39 = tail call ptr @cuddUniqueInter(ptr noundef %0, i32 noundef %38, ptr noundef nonnull %17, ptr noundef nonnull %26) #3
   %40 = icmp eq ptr %39, null
   br i1 %40, label %41, label %.thread
 
 41:                                               ; preds = %37
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %17) #4
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %26) #4
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %17) #3
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %26) #3
   br label %47
 
 .thread:                                          ; preds = %29, %37
@@ -91,7 +91,7 @@ define ptr @cuddAddNegateRecur(ptr noundef %0, ptr noundef %1) local_unnamed_add
   %45 = load i32, ptr %33, align 4
   %46 = add i32 %45, -1
   store i32 %46, ptr %33, align 4
-  tail call void @cuddCacheInsert1(ptr noundef %0, ptr noundef nonnull @Cudd_addNegate, ptr noundef nonnull %1, ptr noundef nonnull %42) #4
+  tail call void @cuddCacheInsert1(ptr noundef %0, ptr noundef nonnull @Cudd_addNegate, ptr noundef nonnull %1, ptr noundef nonnull %42) #3
   br label %47
 
 47:                                               ; preds = %12, %10, %.thread, %41, %28, %5
@@ -102,22 +102,19 @@ define ptr @cuddAddNegateRecur(ptr noundef %0, ptr noundef %1) local_unnamed_add
 ; Function Attrs: nounwind uwtable
 define ptr @Cudd_addRoundOff(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = sitofp i32 %2 to double
-  %5 = tail call double @pow(double noundef 1.000000e+01, double noundef %4) #4
-  %6 = getelementptr inbounds i8, ptr %0, i64 448
-  br label %7
+  %__exp10 = tail call double @__exp10(double %4) #3
+  %5 = getelementptr inbounds i8, ptr %0, i64 448
+  br label %6
 
-7:                                                ; preds = %7, %3
-  %8 = tail call ptr @cuddAddRoundOffRecur(ptr noundef %0, ptr noundef %1, double noundef %5)
-  %9 = load i32, ptr %6, align 8
-  %10 = icmp eq i32 %9, 1
-  br i1 %10, label %7, label %11, !llvm.loop !6
+6:                                                ; preds = %6, %3
+  %7 = tail call ptr @cuddAddRoundOffRecur(ptr noundef %0, ptr noundef %1, double noundef %__exp10)
+  %8 = load i32, ptr %5, align 8
+  %9 = icmp eq i32 %8, 1
+  br i1 %9, label %6, label %10, !llvm.loop !6
 
-11:                                               ; preds = %7
-  ret ptr %8
+10:                                               ; preds = %6
+  ret ptr %7
 }
-
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @pow(double noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @cuddAddRoundOffRecur(ptr noundef %0, ptr noundef %1, double noundef %2) local_unnamed_addr #0 {
@@ -131,11 +128,11 @@ define ptr @cuddAddRoundOffRecur(ptr noundef %0, ptr noundef %1, double noundef 
   %9 = fmul double %8, %2
   %10 = tail call double @llvm.ceil.f64(double %9)
   %11 = fdiv double %10, %2
-  %12 = tail call ptr @cuddUniqueConst(ptr noundef %0, double noundef %11) #4
+  %12 = tail call ptr @cuddUniqueConst(ptr noundef %0, double noundef %11) #3
   br label %50
 
 13:                                               ; preds = %3
-  %14 = tail call ptr @cuddCacheLookup1(ptr noundef %0, ptr noundef nonnull @Cudd_addRoundOff, ptr noundef nonnull %1) #4
+  %14 = tail call ptr @cuddCacheLookup1(ptr noundef %0, ptr noundef nonnull @Cudd_addRoundOff, ptr noundef nonnull %1) #3
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %15, label %50
 
@@ -161,7 +158,7 @@ define ptr @cuddAddRoundOffRecur(ptr noundef %0, ptr noundef %1, double noundef 
   br i1 %30, label %31, label %32
 
 31:                                               ; preds = %22
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %20) #4
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %20) #3
   br label %50
 
 32:                                               ; preds = %22
@@ -177,13 +174,13 @@ define ptr @cuddAddRoundOffRecur(ptr noundef %0, ptr noundef %1, double noundef 
 
 40:                                               ; preds = %32
   %41 = load i32, ptr %1, align 8
-  %42 = tail call ptr @cuddUniqueInter(ptr noundef %0, i32 noundef %41, ptr noundef nonnull %20, ptr noundef nonnull %29) #4
+  %42 = tail call ptr @cuddUniqueInter(ptr noundef %0, i32 noundef %41, ptr noundef nonnull %20, ptr noundef nonnull %29) #3
   %43 = icmp eq ptr %42, null
   br i1 %43, label %44, label %.thread
 
 44:                                               ; preds = %40
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %20) #4
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %29) #4
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %20) #3
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %29) #3
   br label %50
 
 .thread:                                          ; preds = %32, %40
@@ -194,7 +191,7 @@ define ptr @cuddAddRoundOffRecur(ptr noundef %0, ptr noundef %1, double noundef 
   %48 = load i32, ptr %36, align 4
   %49 = add i32 %48, -1
   store i32 %49, ptr %36, align 4
-  tail call void @cuddCacheInsert1(ptr noundef %0, ptr noundef nonnull @Cudd_addRoundOff, ptr noundef nonnull %1, ptr noundef nonnull %45) #4
+  tail call void @cuddCacheInsert1(ptr noundef %0, ptr noundef nonnull @Cudd_addRoundOff, ptr noundef nonnull %1, ptr noundef nonnull %45) #3
   br label %50
 
 50:                                               ; preds = %15, %13, %.thread, %44, %31, %6
@@ -202,24 +199,25 @@ define ptr @cuddAddRoundOffRecur(ptr noundef %0, ptr noundef %1, double noundef 
   ret ptr %.0
 }
 
-declare ptr @cuddUniqueConst(ptr noundef, double noundef) local_unnamed_addr #2
+declare ptr @cuddUniqueConst(ptr noundef, double noundef) local_unnamed_addr #1
 
-declare ptr @cuddCacheLookup1(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @cuddCacheLookup1(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @Cudd_RecursiveDeref(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @Cudd_RecursiveDeref(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @cuddUniqueInter(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @cuddUniqueInter(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @cuddCacheInsert1(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @cuddCacheInsert1(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.ceil.f64(double) #3
+declare double @llvm.ceil.f64(double) #2
+
+declare double @__exp10(double) local_unnamed_addr
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { nounwind }
+attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

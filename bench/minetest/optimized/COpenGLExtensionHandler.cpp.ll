@@ -732,7 +732,7 @@ define void @_ZNK3irr5video23COpenGLExtensionHandler4dumpENS_10ELOG_LEVELE(ptr n
   %10 = load i8, ptr %9, align 1, !tbaa !20, !range !23, !noundef !24
   %11 = icmp eq i8 %10, 0
   %12 = select i1 %11, ptr @.str.1, ptr @.str
-  tail call void @_ZN3irr2os7Printer3logEPKcS3_NS_10ELOG_LEVELE(ptr noundef %8, ptr noundef nonnull %12, i32 noundef %1) #15
+  tail call void @_ZN3irr2os7Printer3logEPKcS3_NS_10ELOG_LEVELE(ptr noundef %8, ptr noundef nonnull %12, i32 noundef %1) #14
   %13 = add nuw nsw i64 %6, 1
   %14 = icmp eq i64 %13, 479
   br i1 %14, label %4, label %5, !llvm.loop !25
@@ -1029,11 +1029,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %288 = alloca %"class.std::__cxx11::basic_string", align 8
   %289 = alloca i32, align 4
   %290 = zext i1 %2 to i8
-  %291 = tail call ptr @glGetString(i32 noundef 7938) #15
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %125) #15
+  %291 = tail call ptr @glGetString(i32 noundef 7938) #14
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %125) #14
   %292 = call noundef ptr @_ZN3irr4core14fast_atof_moveEPKcRf(ptr noundef %291, ptr noundef nonnull align 4 dereferenceable(4) %125)
   %293 = load float, ptr %125, align 4, !tbaa !21
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %125) #15
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %125) #14
   %294 = call float @llvm.floor.f32(float %293)
   %295 = fptosi float %294 to i32
   %296 = mul nsw i32 %295, 100
@@ -1051,22 +1051,22 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br i1 %306, label %307, label %308
 
 307:                                              ; preds = %3
-  call void @_ZN3irr2os7Printer3logEPKcNS_10ELOG_LEVELE(ptr noundef nonnull @.str.2, i32 noundef 1) #15
+  call void @_ZN3irr2os7Printer3logEPKcNS_10ELOG_LEVELE(ptr noundef nonnull @.str.2, i32 noundef 1) #14
   br label %309
 
 308:                                              ; preds = %3
-  call void @_ZN3irr2os7Printer3logEPKcNS_10ELOG_LEVELE(ptr noundef nonnull @.str.3, i32 noundef 2) #15
+  call void @_ZN3irr2os7Printer3logEPKcNS_10ELOG_LEVELE(ptr noundef nonnull @.str.3, i32 noundef 2) #14
   br label %309
 
 309:                                              ; preds = %308, %307
-  %310 = call ptr @glGetString(i32 noundef 7939) #15
+  %310 = call ptr @glGetString(i32 noundef 7939) #14
   %311 = icmp eq ptr %310, null
   br i1 %311, label %345, label %312
 
 312:                                              ; preds = %309
-  %313 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %310) #16
+  %313 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %310) #15
   %314 = add i64 %313, 1
-  %315 = call noalias noundef nonnull ptr @_Znam(i64 noundef %314) #17
+  %315 = call noalias noundef nonnull ptr @_Znam(i64 noundef %314) #16
   %316 = icmp eq i64 %313, 0
   br i1 %316, label %.loopexit169, label %317
 
@@ -1097,7 +1097,7 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %331 = phi i64 [ 0, %326 ], [ %328, %327 ]
   %332 = getelementptr inbounds [479 x ptr], ptr @_ZN3irr5videoL20OpenGLFeatureStringsE, i64 0, i64 %331
   %333 = load ptr, ptr %332, align 8, !tbaa !22
-  %334 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %333, ptr noundef nonnull dereferenceable(1) %320) #16
+  %334 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %333, ptr noundef nonnull dereferenceable(1) %320) #15
   %335 = icmp eq i32 %334, 0
   br i1 %335, label %336, label %327
 
@@ -1107,7 +1107,7 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %.loopexit
 
 .loopexit:                                        ; preds = %327, %336
-  %338 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %320) #16
+  %338 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %320) #15
   %339 = getelementptr inbounds i8, ptr %320, i64 %338
   %340 = getelementptr inbounds i8, ptr %339, i64 1
   br label %341
@@ -1119,7 +1119,7 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br i1 %344, label %.loopexit169, label %319, !llvm.loop !29
 
 .loopexit169:                                     ; preds = %341, %312
-  call void @_ZdaPv(ptr noundef nonnull %315) #18
+  call void @_ZdaPv(ptr noundef nonnull %315) #17
   br label %345
 
 345:                                              ; preds = %.loopexit169, %309
@@ -1128,17 +1128,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %348 = getelementptr inbounds i8, ptr %0, i64 1
   store i8 %347, ptr %348, align 1, !tbaa !30
   store i8 %290, ptr %0, align 8, !tbaa !31
-  %349 = call ptr @glGetString(i32 noundef 7937) #15
+  %349 = call ptr @glGetString(i32 noundef 7937) #14
   %350 = icmp eq ptr %349, null
   br i1 %350, label %361, label %351
 
 351:                                              ; preds = %345
-  %352 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %349, ptr noundef nonnull dereferenceable(13) @.str.4, i64 noundef 12) #16
+  %352 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %349, ptr noundef nonnull dereferenceable(13) @.str.4, i64 noundef 12) #15
   %353 = icmp eq i32 %352, 0
   br i1 %353, label %357, label %354
 
 354:                                              ; preds = %351
-  %355 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %349, ptr noundef nonnull dereferenceable(22) @.str.5, i64 noundef 21) #16
+  %355 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %349, ptr noundef nonnull dereferenceable(22) @.str.5, i64 noundef 21) #15
   %356 = icmp eq i32 %355, 0
   br label %357
 
@@ -1150,12 +1150,12 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %361
 
 361:                                              ; preds = %357, %345
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %126) #15
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %126) #14
   %362 = getelementptr inbounds i8, ptr %126, i64 16
   store ptr %362, ptr %126, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %124) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %124) #14
   store i64 18, ptr %124, align 8, !tbaa !35
-  %363 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %126, ptr noundef nonnull align 8 dereferenceable(8) %124, i64 noundef 0) #15
+  %363 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %126, ptr noundef nonnull align 8 dereferenceable(8) %124, i64 noundef 0) #14
   store ptr %363, ptr %126, align 8, !tbaa !37
   %364 = load i64, ptr %124, align 8, !tbaa !35
   store i64 %364, ptr %362, align 8, !tbaa !3
@@ -1165,11 +1165,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %366 = load ptr, ptr %126, align 8, !tbaa !37
   %367 = getelementptr inbounds i8, ptr %366, i64 %364
   store i8 0, ptr %367, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %124) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %124) #14
   %368 = load ptr, ptr %1, align 8, !tbaa !18
   %369 = getelementptr inbounds i8, ptr %368, i64 64
   %370 = load ptr, ptr %369, align 8
-  %371 = call noundef ptr %370(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %126) #15
+  %371 = call noundef ptr %370(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %126) #14
   %372 = getelementptr inbounds i8, ptr %0, i64 568
   store ptr %371, ptr %372, align 8, !tbaa !40
   %373 = load ptr, ptr %126, align 8, !tbaa !37
@@ -1183,17 +1183,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %379
 
 378:                                              ; preds = %361
-  call void @_ZdlPv(ptr noundef %373) #18
+  call void @_ZdlPv(ptr noundef %373) #17
   br label %379
 
 379:                                              ; preds = %378, %375
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %126) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %127) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %126) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %127) #14
   %380 = getelementptr inbounds i8, ptr %127, i64 16
   store ptr %380, ptr %127, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %123) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %123) #14
   store i64 24, ptr %123, align 8, !tbaa !35
-  %381 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %127, ptr noundef nonnull align 8 dereferenceable(8) %123, i64 noundef 0) #15
+  %381 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %127, ptr noundef nonnull align 8 dereferenceable(8) %123, i64 noundef 0) #14
   store ptr %381, ptr %127, align 8, !tbaa !37
   %382 = load i64, ptr %123, align 8, !tbaa !35
   store i64 %382, ptr %380, align 8, !tbaa !3
@@ -1203,11 +1203,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %384 = load ptr, ptr %127, align 8, !tbaa !37
   %385 = getelementptr inbounds i8, ptr %384, i64 %382
   store i8 0, ptr %385, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %123) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %123) #14
   %386 = load ptr, ptr %1, align 8, !tbaa !18
   %387 = getelementptr inbounds i8, ptr %386, i64 64
   %388 = load ptr, ptr %387, align 8
-  %389 = call noundef ptr %388(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %127) #15
+  %389 = call noundef ptr %388(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %127) #14
   %390 = getelementptr inbounds i8, ptr %0, i64 576
   store ptr %389, ptr %390, align 8, !tbaa !41
   %391 = load ptr, ptr %127, align 8, !tbaa !37
@@ -1221,17 +1221,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %397
 
 396:                                              ; preds = %379
-  call void @_ZdlPv(ptr noundef %391) #18
+  call void @_ZdlPv(ptr noundef %391) #17
   br label %397
 
 397:                                              ; preds = %396, %393
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %127) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %128) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %127) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %128) #14
   %398 = getelementptr inbounds i8, ptr %128, i64 16
   store ptr %398, ptr %128, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %122) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %122) #14
   store i64 16, ptr %122, align 8, !tbaa !35
-  %399 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %128, ptr noundef nonnull align 8 dereferenceable(8) %122, i64 noundef 0) #15
+  %399 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %128, ptr noundef nonnull align 8 dereferenceable(8) %122, i64 noundef 0) #14
   store ptr %399, ptr %128, align 8, !tbaa !37
   %400 = load i64, ptr %122, align 8, !tbaa !35
   store i64 %400, ptr %398, align 8, !tbaa !3
@@ -1241,11 +1241,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %402 = load ptr, ptr %128, align 8, !tbaa !37
   %403 = getelementptr inbounds i8, ptr %402, i64 %400
   store i8 0, ptr %403, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %122) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %122) #14
   %404 = load ptr, ptr %1, align 8, !tbaa !18
   %405 = getelementptr inbounds i8, ptr %404, i64 64
   %406 = load ptr, ptr %405, align 8
-  %407 = call noundef ptr %406(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %128) #15
+  %407 = call noundef ptr %406(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %128) #14
   %408 = getelementptr inbounds i8, ptr %0, i64 584
   store ptr %407, ptr %408, align 8, !tbaa !42
   %409 = load ptr, ptr %128, align 8, !tbaa !37
@@ -1259,12 +1259,12 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %415
 
 414:                                              ; preds = %397
-  call void @_ZdlPv(ptr noundef %409) #18
+  call void @_ZdlPv(ptr noundef %409) #17
   br label %415
 
 415:                                              ; preds = %414, %411
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %128) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %129) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %128) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %129) #14
   %416 = getelementptr inbounds i8, ptr %129, i64 16
   store ptr %416, ptr %129, align 8, !tbaa !33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %416, ptr noundef nonnull align 1 dereferenceable(15) @.str.9, i64 15, i1 false)
@@ -1275,7 +1275,7 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %419 = load ptr, ptr %1, align 8, !tbaa !18
   %420 = getelementptr inbounds i8, ptr %419, i64 64
   %421 = load ptr, ptr %420, align 8
-  %422 = call noundef ptr %421(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %129) #15
+  %422 = call noundef ptr %421(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %129) #14
   %423 = getelementptr inbounds i8, ptr %0, i64 592
   store ptr %422, ptr %423, align 8, !tbaa !43
   %424 = load ptr, ptr %129, align 8, !tbaa !37
@@ -1289,17 +1289,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %430
 
 429:                                              ; preds = %415
-  call void @_ZdlPv(ptr noundef %424) #18
+  call void @_ZdlPv(ptr noundef %424) #17
   br label %430
 
 430:                                              ; preds = %429, %426
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %129) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %130) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %129) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %130) #14
   %431 = getelementptr inbounds i8, ptr %130, i64 16
   store ptr %431, ptr %130, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %121) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %121) #14
   store i64 16, ptr %121, align 8, !tbaa !35
-  %432 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %130, ptr noundef nonnull align 8 dereferenceable(8) %121, i64 noundef 0) #15
+  %432 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %130, ptr noundef nonnull align 8 dereferenceable(8) %121, i64 noundef 0) #14
   store ptr %432, ptr %130, align 8, !tbaa !37
   %433 = load i64, ptr %121, align 8, !tbaa !35
   store i64 %433, ptr %431, align 8, !tbaa !3
@@ -1309,11 +1309,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %435 = load ptr, ptr %130, align 8, !tbaa !37
   %436 = getelementptr inbounds i8, ptr %435, i64 %433
   store i8 0, ptr %436, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %121) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %121) #14
   %437 = load ptr, ptr %1, align 8, !tbaa !18
   %438 = getelementptr inbounds i8, ptr %437, i64 64
   %439 = load ptr, ptr %438, align 8
-  %440 = call noundef ptr %439(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %130) #15
+  %440 = call noundef ptr %439(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %130) #14
   %441 = getelementptr inbounds i8, ptr %0, i64 600
   store ptr %440, ptr %441, align 8, !tbaa !44
   %442 = load ptr, ptr %130, align 8, !tbaa !37
@@ -1327,12 +1327,12 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %448
 
 447:                                              ; preds = %430
-  call void @_ZdlPv(ptr noundef %442) #18
+  call void @_ZdlPv(ptr noundef %442) #17
   br label %448
 
 448:                                              ; preds = %447, %444
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %130) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %131) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %130) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %131) #14
   %449 = getelementptr inbounds i8, ptr %131, i64 16
   store ptr %449, ptr %131, align 8, !tbaa !33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %449, ptr noundef nonnull align 1 dereferenceable(15) @.str.11, i64 15, i1 false)
@@ -1343,7 +1343,7 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %452 = load ptr, ptr %1, align 8, !tbaa !18
   %453 = getelementptr inbounds i8, ptr %452, i64 64
   %454 = load ptr, ptr %453, align 8
-  %455 = call noundef ptr %454(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %131) #15
+  %455 = call noundef ptr %454(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %131) #14
   %456 = getelementptr inbounds i8, ptr %0, i64 608
   store ptr %455, ptr %456, align 8, !tbaa !45
   %457 = load ptr, ptr %131, align 8, !tbaa !37
@@ -1357,17 +1357,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %463
 
 462:                                              ; preds = %448
-  call void @_ZdlPv(ptr noundef %457) #18
+  call void @_ZdlPv(ptr noundef %457) #17
   br label %463
 
 463:                                              ; preds = %462, %459
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %131) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %132) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %131) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %132) #14
   %464 = getelementptr inbounds i8, ptr %132, i64 16
   store ptr %464, ptr %132, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %120) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %120) #14
   store i64 18, ptr %120, align 8, !tbaa !35
-  %465 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %132, ptr noundef nonnull align 8 dereferenceable(8) %120, i64 noundef 0) #15
+  %465 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %132, ptr noundef nonnull align 8 dereferenceable(8) %120, i64 noundef 0) #14
   store ptr %465, ptr %132, align 8, !tbaa !37
   %466 = load i64, ptr %120, align 8, !tbaa !35
   store i64 %466, ptr %464, align 8, !tbaa !3
@@ -1377,11 +1377,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %468 = load ptr, ptr %132, align 8, !tbaa !37
   %469 = getelementptr inbounds i8, ptr %468, i64 %466
   store i8 0, ptr %469, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %120) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %120) #14
   %470 = load ptr, ptr %1, align 8, !tbaa !18
   %471 = getelementptr inbounds i8, ptr %470, i64 64
   %472 = load ptr, ptr %471, align 8
-  %473 = call noundef ptr %472(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %132) #15
+  %473 = call noundef ptr %472(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %132) #14
   %474 = getelementptr inbounds i8, ptr %0, i64 632
   store ptr %473, ptr %474, align 8, !tbaa !46
   %475 = load ptr, ptr %132, align 8, !tbaa !37
@@ -1395,12 +1395,12 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %481
 
 480:                                              ; preds = %463
-  call void @_ZdlPv(ptr noundef %475) #18
+  call void @_ZdlPv(ptr noundef %475) #17
   br label %481
 
 481:                                              ; preds = %480, %477
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %132) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %133) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %132) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %133) #14
   %482 = getelementptr inbounds i8, ptr %133, i64 16
   store ptr %482, ptr %133, align 8, !tbaa !33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %482, ptr noundef nonnull align 1 dereferenceable(15) @.str.13, i64 15, i1 false)
@@ -1411,7 +1411,7 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %485 = load ptr, ptr %1, align 8, !tbaa !18
   %486 = getelementptr inbounds i8, ptr %485, i64 64
   %487 = load ptr, ptr %486, align 8
-  %488 = call noundef ptr %487(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %133) #15
+  %488 = call noundef ptr %487(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %133) #14
   %489 = getelementptr inbounds i8, ptr %0, i64 640
   store ptr %488, ptr %489, align 8, !tbaa !47
   %490 = load ptr, ptr %133, align 8, !tbaa !37
@@ -1425,17 +1425,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %496
 
 495:                                              ; preds = %481
-  call void @_ZdlPv(ptr noundef %490) #18
+  call void @_ZdlPv(ptr noundef %490) #17
   br label %496
 
 496:                                              ; preds = %495, %492
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %133) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %134) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %133) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %134) #14
   %497 = getelementptr inbounds i8, ptr %134, i64 16
   store ptr %497, ptr %134, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %119) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %119) #14
   store i64 19, ptr %119, align 8, !tbaa !35
-  %498 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %134, ptr noundef nonnull align 8 dereferenceable(8) %119, i64 noundef 0) #15
+  %498 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %134, ptr noundef nonnull align 8 dereferenceable(8) %119, i64 noundef 0) #14
   store ptr %498, ptr %134, align 8, !tbaa !37
   %499 = load i64, ptr %119, align 8, !tbaa !35
   store i64 %499, ptr %497, align 8, !tbaa !3
@@ -1445,11 +1445,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %501 = load ptr, ptr %134, align 8, !tbaa !37
   %502 = getelementptr inbounds i8, ptr %501, i64 %499
   store i8 0, ptr %502, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %119) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %119) #14
   %503 = load ptr, ptr %1, align 8, !tbaa !18
   %504 = getelementptr inbounds i8, ptr %503, i64 64
   %505 = load ptr, ptr %504, align 8
-  %506 = call noundef ptr %505(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %134) #15
+  %506 = call noundef ptr %505(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %134) #14
   %507 = getelementptr inbounds i8, ptr %0, i64 616
   store ptr %506, ptr %507, align 8, !tbaa !48
   %508 = load ptr, ptr %134, align 8, !tbaa !37
@@ -1463,17 +1463,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %514
 
 513:                                              ; preds = %496
-  call void @_ZdlPv(ptr noundef %508) #18
+  call void @_ZdlPv(ptr noundef %508) #17
   br label %514
 
 514:                                              ; preds = %513, %510
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %134) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %135) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %134) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %135) #14
   %515 = getelementptr inbounds i8, ptr %135, i64 16
   store ptr %515, ptr %135, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %118) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %118) #14
   store i64 18, ptr %118, align 8, !tbaa !35
-  %516 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %135, ptr noundef nonnull align 8 dereferenceable(8) %118, i64 noundef 0) #15
+  %516 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %135, ptr noundef nonnull align 8 dereferenceable(8) %118, i64 noundef 0) #14
   store ptr %516, ptr %135, align 8, !tbaa !37
   %517 = load i64, ptr %118, align 8, !tbaa !35
   store i64 %517, ptr %515, align 8, !tbaa !3
@@ -1483,11 +1483,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %519 = load ptr, ptr %135, align 8, !tbaa !37
   %520 = getelementptr inbounds i8, ptr %519, i64 %517
   store i8 0, ptr %520, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %118) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %118) #14
   %521 = load ptr, ptr %1, align 8, !tbaa !18
   %522 = getelementptr inbounds i8, ptr %521, i64 64
   %523 = load ptr, ptr %522, align 8
-  %524 = call noundef ptr %523(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %135) #15
+  %524 = call noundef ptr %523(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %135) #14
   %525 = getelementptr inbounds i8, ptr %0, i64 624
   store ptr %524, ptr %525, align 8, !tbaa !49
   %526 = load ptr, ptr %135, align 8, !tbaa !37
@@ -1501,17 +1501,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %532
 
 531:                                              ; preds = %514
-  call void @_ZdlPv(ptr noundef %526) #18
+  call void @_ZdlPv(ptr noundef %526) #17
   br label %532
 
 532:                                              ; preds = %531, %528
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %135) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %136) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %135) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %136) #14
   %533 = getelementptr inbounds i8, ptr %136, i64 16
   store ptr %533, ptr %136, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %117) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %117) #14
   store i64 29, ptr %117, align 8, !tbaa !35
-  %534 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %136, ptr noundef nonnull align 8 dereferenceable(8) %117, i64 noundef 0) #15
+  %534 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %136, ptr noundef nonnull align 8 dereferenceable(8) %117, i64 noundef 0) #14
   store ptr %534, ptr %136, align 8, !tbaa !37
   %535 = load i64, ptr %117, align 8, !tbaa !35
   store i64 %535, ptr %533, align 8, !tbaa !3
@@ -1521,11 +1521,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %537 = load ptr, ptr %136, align 8, !tbaa !37
   %538 = getelementptr inbounds i8, ptr %537, i64 %535
   store i8 0, ptr %538, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %117) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %117) #14
   %539 = load ptr, ptr %1, align 8, !tbaa !18
   %540 = getelementptr inbounds i8, ptr %539, i64 64
   %541 = load ptr, ptr %540, align 8
-  %542 = call noundef ptr %541(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %136) #15
+  %542 = call noundef ptr %541(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %136) #14
   %543 = getelementptr inbounds i8, ptr %0, i64 648
   store ptr %542, ptr %543, align 8, !tbaa !50
   %544 = load ptr, ptr %136, align 8, !tbaa !37
@@ -1539,17 +1539,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %550
 
 549:                                              ; preds = %532
-  call void @_ZdlPv(ptr noundef %544) #18
+  call void @_ZdlPv(ptr noundef %544) #17
   br label %550
 
 550:                                              ; preds = %549, %546
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %136) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %137) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %136) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %137) #14
   %551 = getelementptr inbounds i8, ptr %137, i64 16
   store ptr %551, ptr %137, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %116) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %116) #14
   store i64 23, ptr %116, align 8, !tbaa !35
-  %552 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %137, ptr noundef nonnull align 8 dereferenceable(8) %116, i64 noundef 0) #15
+  %552 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %137, ptr noundef nonnull align 8 dereferenceable(8) %116, i64 noundef 0) #14
   store ptr %552, ptr %137, align 8, !tbaa !37
   %553 = load i64, ptr %116, align 8, !tbaa !35
   store i64 %553, ptr %551, align 8, !tbaa !3
@@ -1559,11 +1559,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %555 = load ptr, ptr %137, align 8, !tbaa !37
   %556 = getelementptr inbounds i8, ptr %555, i64 %553
   store i8 0, ptr %556, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %116) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %116) #14
   %557 = load ptr, ptr %1, align 8, !tbaa !18
   %558 = getelementptr inbounds i8, ptr %557, i64 64
   %559 = load ptr, ptr %558, align 8
-  %560 = call noundef ptr %559(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %137) #15
+  %560 = call noundef ptr %559(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %137) #14
   %561 = getelementptr inbounds i8, ptr %0, i64 656
   store ptr %560, ptr %561, align 8, !tbaa !51
   %562 = load ptr, ptr %137, align 8, !tbaa !37
@@ -1577,12 +1577,12 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %568
 
 567:                                              ; preds = %550
-  call void @_ZdlPv(ptr noundef %562) #18
+  call void @_ZdlPv(ptr noundef %562) #17
   br label %568
 
 568:                                              ; preds = %567, %564
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %137) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %138) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %137) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %138) #14
   %569 = getelementptr inbounds i8, ptr %138, i64 16
   store ptr %569, ptr %138, align 8, !tbaa !33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %569, ptr noundef nonnull align 1 dereferenceable(14) @.str.18, i64 14, i1 false)
@@ -1593,7 +1593,7 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %572 = load ptr, ptr %1, align 8, !tbaa !18
   %573 = getelementptr inbounds i8, ptr %572, i64 64
   %574 = load ptr, ptr %573, align 8
-  %575 = call noundef ptr %574(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %138) #15
+  %575 = call noundef ptr %574(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %138) #14
   %576 = getelementptr inbounds i8, ptr %0, i64 768
   store ptr %575, ptr %576, align 8, !tbaa !52
   %577 = load ptr, ptr %138, align 8, !tbaa !37
@@ -1607,17 +1607,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %583
 
 582:                                              ; preds = %568
-  call void @_ZdlPv(ptr noundef %577) #18
+  call void @_ZdlPv(ptr noundef %577) #17
   br label %583
 
 583:                                              ; preds = %582, %579
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %138) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %139) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %138) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %139) #14
   %584 = getelementptr inbounds i8, ptr %139, i64 16
   store ptr %584, ptr %139, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %115) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %115) #14
   store i64 17, ptr %115, align 8, !tbaa !35
-  %585 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %139, ptr noundef nonnull align 8 dereferenceable(8) %115, i64 noundef 0) #15
+  %585 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %139, ptr noundef nonnull align 8 dereferenceable(8) %115, i64 noundef 0) #14
   store ptr %585, ptr %139, align 8, !tbaa !37
   %586 = load i64, ptr %115, align 8, !tbaa !35
   store i64 %586, ptr %584, align 8, !tbaa !3
@@ -1627,11 +1627,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %588 = load ptr, ptr %139, align 8, !tbaa !37
   %589 = getelementptr inbounds i8, ptr %588, i64 %586
   store i8 0, ptr %589, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %115) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %115) #14
   %590 = load ptr, ptr %1, align 8, !tbaa !18
   %591 = getelementptr inbounds i8, ptr %590, i64 64
   %592 = load ptr, ptr %591, align 8
-  %593 = call noundef ptr %592(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %139) #15
+  %593 = call noundef ptr %592(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %139) #14
   %594 = getelementptr inbounds i8, ptr %0, i64 664
   store ptr %593, ptr %594, align 8, !tbaa !53
   %595 = load ptr, ptr %139, align 8, !tbaa !37
@@ -1645,12 +1645,12 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %601
 
 600:                                              ; preds = %583
-  call void @_ZdlPv(ptr noundef %595) #18
+  call void @_ZdlPv(ptr noundef %595) #17
   br label %601
 
 601:                                              ; preds = %600, %597
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %139) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %140) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %139) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %140) #14
   %602 = getelementptr inbounds i8, ptr %140, i64 16
   store ptr %602, ptr %140, align 8, !tbaa !33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %602, ptr noundef nonnull align 1 dereferenceable(14) @.str.20, i64 14, i1 false)
@@ -1661,7 +1661,7 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %605 = load ptr, ptr %1, align 8, !tbaa !18
   %606 = getelementptr inbounds i8, ptr %605, i64 64
   %607 = load ptr, ptr %606, align 8
-  %608 = call noundef ptr %607(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %140) #15
+  %608 = call noundef ptr %607(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %140) #14
   %609 = getelementptr inbounds i8, ptr %0, i64 776
   store ptr %608, ptr %609, align 8, !tbaa !54
   %610 = load ptr, ptr %140, align 8, !tbaa !37
@@ -1675,17 +1675,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %616
 
 615:                                              ; preds = %601
-  call void @_ZdlPv(ptr noundef %610) #18
+  call void @_ZdlPv(ptr noundef %610) #17
   br label %616
 
 616:                                              ; preds = %615, %612
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %140) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %141) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %140) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %141) #14
   %617 = getelementptr inbounds i8, ptr %141, i64 16
   store ptr %617, ptr %141, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %114) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %114) #14
   store i64 18, ptr %114, align 8, !tbaa !35
-  %618 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %141, ptr noundef nonnull align 8 dereferenceable(8) %114, i64 noundef 0) #15
+  %618 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %141, ptr noundef nonnull align 8 dereferenceable(8) %114, i64 noundef 0) #14
   store ptr %618, ptr %141, align 8, !tbaa !37
   %619 = load i64, ptr %114, align 8, !tbaa !35
   store i64 %619, ptr %617, align 8, !tbaa !3
@@ -1695,11 +1695,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %621 = load ptr, ptr %141, align 8, !tbaa !37
   %622 = getelementptr inbounds i8, ptr %621, i64 %619
   store i8 0, ptr %622, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %114) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %114) #14
   %623 = load ptr, ptr %1, align 8, !tbaa !18
   %624 = getelementptr inbounds i8, ptr %623, i64 64
   %625 = load ptr, ptr %624, align 8
-  %626 = call noundef ptr %625(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %141) #15
+  %626 = call noundef ptr %625(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %141) #14
   %627 = getelementptr inbounds i8, ptr %0, i64 672
   store ptr %626, ptr %627, align 8, !tbaa !55
   %628 = load ptr, ptr %141, align 8, !tbaa !37
@@ -1713,12 +1713,12 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %634
 
 633:                                              ; preds = %616
-  call void @_ZdlPv(ptr noundef %628) #18
+  call void @_ZdlPv(ptr noundef %628) #17
   br label %634
 
 634:                                              ; preds = %633, %630
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %141) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %142) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %141) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %142) #14
   %635 = getelementptr inbounds i8, ptr %142, i64 16
   store ptr %635, ptr %142, align 8, !tbaa !33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %635, ptr noundef nonnull align 1 dereferenceable(15) @.str.22, i64 15, i1 false)
@@ -1729,7 +1729,7 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %638 = load ptr, ptr %1, align 8, !tbaa !18
   %639 = getelementptr inbounds i8, ptr %638, i64 64
   %640 = load ptr, ptr %639, align 8
-  %641 = call noundef ptr %640(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %142) #15
+  %641 = call noundef ptr %640(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %142) #14
   %642 = getelementptr inbounds i8, ptr %0, i64 784
   store ptr %641, ptr %642, align 8, !tbaa !56
   %643 = load ptr, ptr %142, align 8, !tbaa !37
@@ -1743,17 +1743,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %649
 
 648:                                              ; preds = %634
-  call void @_ZdlPv(ptr noundef %643) #18
+  call void @_ZdlPv(ptr noundef %643) #17
   br label %649
 
 649:                                              ; preds = %648, %645
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %142) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %143) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %142) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %143) #14
   %650 = getelementptr inbounds i8, ptr %143, i64 16
   store ptr %650, ptr %143, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %113) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %113) #14
   store i64 24, ptr %113, align 8, !tbaa !35
-  %651 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %143, ptr noundef nonnull align 8 dereferenceable(8) %113, i64 noundef 0) #15
+  %651 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %143, ptr noundef nonnull align 8 dereferenceable(8) %113, i64 noundef 0) #14
   store ptr %651, ptr %143, align 8, !tbaa !37
   %652 = load i64, ptr %113, align 8, !tbaa !35
   store i64 %652, ptr %650, align 8, !tbaa !3
@@ -1763,11 +1763,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %654 = load ptr, ptr %143, align 8, !tbaa !37
   %655 = getelementptr inbounds i8, ptr %654, i64 %652
   store i8 0, ptr %655, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %113) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %113) #14
   %656 = load ptr, ptr %1, align 8, !tbaa !18
   %657 = getelementptr inbounds i8, ptr %656, i64 64
   %658 = load ptr, ptr %657, align 8
-  %659 = call noundef ptr %658(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %143) #15
+  %659 = call noundef ptr %658(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %143) #14
   %660 = getelementptr inbounds i8, ptr %0, i64 680
   store ptr %659, ptr %660, align 8, !tbaa !57
   %661 = load ptr, ptr %143, align 8, !tbaa !37
@@ -1781,12 +1781,12 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %667
 
 666:                                              ; preds = %649
-  call void @_ZdlPv(ptr noundef %661) #18
+  call void @_ZdlPv(ptr noundef %661) #17
   br label %667
 
 667:                                              ; preds = %666, %663
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %143) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %144) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %143) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %144) #14
   %668 = getelementptr inbounds i8, ptr %144, i64 16
   store ptr %668, ptr %144, align 8, !tbaa !33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %668, ptr noundef nonnull align 1 dereferenceable(15) @.str.24, i64 15, i1 false)
@@ -1797,7 +1797,7 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %671 = load ptr, ptr %1, align 8, !tbaa !18
   %672 = getelementptr inbounds i8, ptr %671, i64 64
   %673 = load ptr, ptr %672, align 8
-  %674 = call noundef ptr %673(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %144) #15
+  %674 = call noundef ptr %673(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %144) #14
   %675 = getelementptr inbounds i8, ptr %0, i64 720
   store ptr %674, ptr %675, align 8, !tbaa !58
   %676 = load ptr, ptr %144, align 8, !tbaa !37
@@ -1811,17 +1811,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %682
 
 681:                                              ; preds = %667
-  call void @_ZdlPv(ptr noundef %676) #18
+  call void @_ZdlPv(ptr noundef %676) #17
   br label %682
 
 682:                                              ; preds = %681, %678
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %144) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %145) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %144) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %145) #14
   %683 = getelementptr inbounds i8, ptr %145, i64 16
   store ptr %683, ptr %145, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %112) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %112) #14
   store i64 17, ptr %112, align 8, !tbaa !35
-  %684 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %145, ptr noundef nonnull align 8 dereferenceable(8) %112, i64 noundef 0) #15
+  %684 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %145, ptr noundef nonnull align 8 dereferenceable(8) %112, i64 noundef 0) #14
   store ptr %684, ptr %145, align 8, !tbaa !37
   %685 = load i64, ptr %112, align 8, !tbaa !35
   store i64 %685, ptr %683, align 8, !tbaa !3
@@ -1831,11 +1831,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %687 = load ptr, ptr %145, align 8, !tbaa !37
   %688 = getelementptr inbounds i8, ptr %687, i64 %685
   store i8 0, ptr %688, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %112) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %112) #14
   %689 = load ptr, ptr %1, align 8, !tbaa !18
   %690 = getelementptr inbounds i8, ptr %689, i64 64
   %691 = load ptr, ptr %690, align 8
-  %692 = call noundef ptr %691(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %145) #15
+  %692 = call noundef ptr %691(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %145) #14
   %693 = getelementptr inbounds i8, ptr %0, i64 688
   store ptr %692, ptr %693, align 8, !tbaa !59
   %694 = load ptr, ptr %145, align 8, !tbaa !37
@@ -1849,12 +1849,12 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %700
 
 699:                                              ; preds = %682
-  call void @_ZdlPv(ptr noundef %694) #18
+  call void @_ZdlPv(ptr noundef %694) #17
   br label %700
 
 700:                                              ; preds = %699, %696
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %145) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %146) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %145) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %146) #14
   %701 = getelementptr inbounds i8, ptr %146, i64 16
   store ptr %701, ptr %146, align 8, !tbaa !33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %701, ptr noundef nonnull align 1 dereferenceable(14) @.str.26, i64 14, i1 false)
@@ -1865,7 +1865,7 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %704 = load ptr, ptr %1, align 8, !tbaa !18
   %705 = getelementptr inbounds i8, ptr %704, i64 64
   %706 = load ptr, ptr %705, align 8
-  %707 = call noundef ptr %706(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %146) #15
+  %707 = call noundef ptr %706(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %146) #14
   %708 = getelementptr inbounds i8, ptr %0, i64 792
   store ptr %707, ptr %708, align 8, !tbaa !60
   %709 = load ptr, ptr %146, align 8, !tbaa !37
@@ -1879,17 +1879,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %715
 
 714:                                              ; preds = %700
-  call void @_ZdlPv(ptr noundef %709) #18
+  call void @_ZdlPv(ptr noundef %709) #17
   br label %715
 
 715:                                              ; preds = %714, %711
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %146) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %147) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %146) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %147) #14
   %716 = getelementptr inbounds i8, ptr %147, i64 16
   store ptr %716, ptr %147, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %111) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %111) #14
   store i64 16, ptr %111, align 8, !tbaa !35
-  %717 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %147, ptr noundef nonnull align 8 dereferenceable(8) %111, i64 noundef 0) #15
+  %717 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %147, ptr noundef nonnull align 8 dereferenceable(8) %111, i64 noundef 0) #14
   store ptr %717, ptr %147, align 8, !tbaa !37
   %718 = load i64, ptr %111, align 8, !tbaa !35
   store i64 %718, ptr %716, align 8, !tbaa !3
@@ -1899,11 +1899,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %720 = load ptr, ptr %147, align 8, !tbaa !37
   %721 = getelementptr inbounds i8, ptr %720, i64 %718
   store i8 0, ptr %721, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %111) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %111) #14
   %722 = load ptr, ptr %1, align 8, !tbaa !18
   %723 = getelementptr inbounds i8, ptr %722, i64 64
   %724 = load ptr, ptr %723, align 8
-  %725 = call noundef ptr %724(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %147) #15
+  %725 = call noundef ptr %724(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %147) #14
   %726 = getelementptr inbounds i8, ptr %0, i64 696
   store ptr %725, ptr %726, align 8, !tbaa !61
   %727 = load ptr, ptr %147, align 8, !tbaa !37
@@ -1917,12 +1917,12 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %733
 
 732:                                              ; preds = %715
-  call void @_ZdlPv(ptr noundef %727) #18
+  call void @_ZdlPv(ptr noundef %727) #17
   br label %733
 
 733:                                              ; preds = %732, %729
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %147) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %148) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %147) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %148) #14
   %734 = getelementptr inbounds i8, ptr %148, i64 16
   store ptr %734, ptr %148, align 8, !tbaa !33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %734, ptr noundef nonnull align 1 dereferenceable(13) @.str.28, i64 13, i1 false)
@@ -1933,7 +1933,7 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %737 = load ptr, ptr %1, align 8, !tbaa !18
   %738 = getelementptr inbounds i8, ptr %737, i64 64
   %739 = load ptr, ptr %738, align 8
-  %740 = call noundef ptr %739(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %148) #15
+  %740 = call noundef ptr %739(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %148) #14
   %741 = getelementptr inbounds i8, ptr %0, i64 800
   store ptr %740, ptr %741, align 8, !tbaa !62
   %742 = load ptr, ptr %148, align 8, !tbaa !37
@@ -1947,17 +1947,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %748
 
 747:                                              ; preds = %733
-  call void @_ZdlPv(ptr noundef %742) #18
+  call void @_ZdlPv(ptr noundef %742) #17
   br label %748
 
 748:                                              ; preds = %747, %744
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %148) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %149) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %148) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %149) #14
   %749 = getelementptr inbounds i8, ptr %149, i64 16
   store ptr %749, ptr %149, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %110) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %110) #14
   store i64 21, ptr %110, align 8, !tbaa !35
-  %750 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %149, ptr noundef nonnull align 8 dereferenceable(8) %110, i64 noundef 0) #15
+  %750 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %149, ptr noundef nonnull align 8 dereferenceable(8) %110, i64 noundef 0) #14
   store ptr %750, ptr %149, align 8, !tbaa !37
   %751 = load i64, ptr %110, align 8, !tbaa !35
   store i64 %751, ptr %749, align 8, !tbaa !3
@@ -1967,11 +1967,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %753 = load ptr, ptr %149, align 8, !tbaa !37
   %754 = getelementptr inbounds i8, ptr %753, i64 %751
   store i8 0, ptr %754, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %110) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %110) #14
   %755 = load ptr, ptr %1, align 8, !tbaa !18
   %756 = getelementptr inbounds i8, ptr %755, i64 64
   %757 = load ptr, ptr %756, align 8
-  %758 = call noundef ptr %757(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %149) #15
+  %758 = call noundef ptr %757(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %149) #14
   %759 = getelementptr inbounds i8, ptr %0, i64 704
   store ptr %758, ptr %759, align 8, !tbaa !63
   %760 = load ptr, ptr %149, align 8, !tbaa !37
@@ -1985,12 +1985,12 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %766
 
 765:                                              ; preds = %748
-  call void @_ZdlPv(ptr noundef %760) #18
+  call void @_ZdlPv(ptr noundef %760) #17
   br label %766
 
 766:                                              ; preds = %765, %762
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %149) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %150) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %149) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %150) #14
   %767 = getelementptr inbounds i8, ptr %150, i64 16
   store ptr %767, ptr %150, align 8, !tbaa !33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %767, ptr noundef nonnull align 1 dereferenceable(12) @.str.30, i64 12, i1 false)
@@ -2001,7 +2001,7 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %770 = load ptr, ptr %1, align 8, !tbaa !18
   %771 = getelementptr inbounds i8, ptr %770, i64 64
   %772 = load ptr, ptr %771, align 8
-  %773 = call noundef ptr %772(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %150) #15
+  %773 = call noundef ptr %772(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %150) #14
   %774 = getelementptr inbounds i8, ptr %0, i64 728
   store ptr %773, ptr %774, align 8, !tbaa !64
   %775 = load ptr, ptr %150, align 8, !tbaa !37
@@ -2015,17 +2015,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %781
 
 780:                                              ; preds = %766
-  call void @_ZdlPv(ptr noundef %775) #18
+  call void @_ZdlPv(ptr noundef %775) #17
   br label %781
 
 781:                                              ; preds = %780, %777
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %150) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %151) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %150) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %151) #14
   %782 = getelementptr inbounds i8, ptr %151, i64 16
   store ptr %782, ptr %151, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %109) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %109) #14
   store i64 17, ptr %109, align 8, !tbaa !35
-  %783 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %151, ptr noundef nonnull align 8 dereferenceable(8) %109, i64 noundef 0) #15
+  %783 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %151, ptr noundef nonnull align 8 dereferenceable(8) %109, i64 noundef 0) #14
   store ptr %783, ptr %151, align 8, !tbaa !37
   %784 = load i64, ptr %109, align 8, !tbaa !35
   store i64 %784, ptr %782, align 8, !tbaa !3
@@ -2035,11 +2035,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %786 = load ptr, ptr %151, align 8, !tbaa !37
   %787 = getelementptr inbounds i8, ptr %786, i64 %784
   store i8 0, ptr %787, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %109) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %109) #14
   %788 = load ptr, ptr %1, align 8, !tbaa !18
   %789 = getelementptr inbounds i8, ptr %788, i64 64
   %790 = load ptr, ptr %789, align 8
-  %791 = call noundef ptr %790(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %151) #15
+  %791 = call noundef ptr %790(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %151) #14
   %792 = getelementptr inbounds i8, ptr %0, i64 712
   store ptr %791, ptr %792, align 8, !tbaa !65
   %793 = load ptr, ptr %151, align 8, !tbaa !37
@@ -2053,12 +2053,12 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %799
 
 798:                                              ; preds = %781
-  call void @_ZdlPv(ptr noundef %793) #18
+  call void @_ZdlPv(ptr noundef %793) #17
   br label %799
 
 799:                                              ; preds = %798, %795
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %151) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %152) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %151) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %152) #14
   %800 = getelementptr inbounds i8, ptr %152, i64 16
   store ptr %800, ptr %152, align 8, !tbaa !33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %800, ptr noundef nonnull align 1 dereferenceable(15) @.str.32, i64 15, i1 false)
@@ -2069,7 +2069,7 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %803 = load ptr, ptr %1, align 8, !tbaa !18
   %804 = getelementptr inbounds i8, ptr %803, i64 64
   %805 = load ptr, ptr %804, align 8
-  %806 = call noundef ptr %805(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %152) #15
+  %806 = call noundef ptr %805(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %152) #14
   %807 = getelementptr inbounds i8, ptr %0, i64 736
   store ptr %806, ptr %807, align 8, !tbaa !66
   %808 = load ptr, ptr %152, align 8, !tbaa !37
@@ -2083,12 +2083,12 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %814
 
 813:                                              ; preds = %799
-  call void @_ZdlPv(ptr noundef %808) #18
+  call void @_ZdlPv(ptr noundef %808) #17
   br label %814
 
 814:                                              ; preds = %813, %810
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %152) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %153) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %152) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %153) #14
   %815 = getelementptr inbounds i8, ptr %153, i64 16
   store ptr %815, ptr %153, align 8, !tbaa !33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %815, ptr noundef nonnull align 1 dereferenceable(14) @.str.33, i64 14, i1 false)
@@ -2099,7 +2099,7 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %818 = load ptr, ptr %1, align 8, !tbaa !18
   %819 = getelementptr inbounds i8, ptr %818, i64 64
   %820 = load ptr, ptr %819, align 8
-  %821 = call noundef ptr %820(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %153) #15
+  %821 = call noundef ptr %820(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %153) #14
   %822 = getelementptr inbounds i8, ptr %0, i64 744
   store ptr %821, ptr %822, align 8, !tbaa !67
   %823 = load ptr, ptr %153, align 8, !tbaa !37
@@ -2113,17 +2113,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %829
 
 828:                                              ; preds = %814
-  call void @_ZdlPv(ptr noundef %823) #18
+  call void @_ZdlPv(ptr noundef %823) #17
   br label %829
 
 829:                                              ; preds = %828, %825
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %153) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %154) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %153) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %154) #14
   %830 = getelementptr inbounds i8, ptr %154, i64 16
   store ptr %830, ptr %154, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %108) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %108) #14
   store i64 20, ptr %108, align 8, !tbaa !35
-  %831 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %154, ptr noundef nonnull align 8 dereferenceable(8) %108, i64 noundef 0) #15
+  %831 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %154, ptr noundef nonnull align 8 dereferenceable(8) %108, i64 noundef 0) #14
   store ptr %831, ptr %154, align 8, !tbaa !37
   %832 = load i64, ptr %108, align 8, !tbaa !35
   store i64 %832, ptr %830, align 8, !tbaa !3
@@ -2133,11 +2133,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %834 = load ptr, ptr %154, align 8, !tbaa !37
   %835 = getelementptr inbounds i8, ptr %834, i64 %832
   store i8 0, ptr %835, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %108) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %108) #14
   %836 = load ptr, ptr %1, align 8, !tbaa !18
   %837 = getelementptr inbounds i8, ptr %836, i64 64
   %838 = load ptr, ptr %837, align 8
-  %839 = call noundef ptr %838(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %154) #15
+  %839 = call noundef ptr %838(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %154) #14
   %840 = getelementptr inbounds i8, ptr %0, i64 760
   store ptr %839, ptr %840, align 8, !tbaa !68
   %841 = load ptr, ptr %154, align 8, !tbaa !37
@@ -2151,17 +2151,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %847
 
 846:                                              ; preds = %829
-  call void @_ZdlPv(ptr noundef %841) #18
+  call void @_ZdlPv(ptr noundef %841) #17
   br label %847
 
 847:                                              ; preds = %846, %843
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %154) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %155) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %154) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %155) #14
   %848 = getelementptr inbounds i8, ptr %155, i64 16
   store ptr %848, ptr %155, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %107) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %107) #14
   store i64 23, ptr %107, align 8, !tbaa !35
-  %849 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %155, ptr noundef nonnull align 8 dereferenceable(8) %107, i64 noundef 0) #15
+  %849 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %155, ptr noundef nonnull align 8 dereferenceable(8) %107, i64 noundef 0) #14
   store ptr %849, ptr %155, align 8, !tbaa !37
   %850 = load i64, ptr %107, align 8, !tbaa !35
   store i64 %850, ptr %848, align 8, !tbaa !3
@@ -2171,11 +2171,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %852 = load ptr, ptr %155, align 8, !tbaa !37
   %853 = getelementptr inbounds i8, ptr %852, i64 %850
   store i8 0, ptr %853, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %107) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %107) #14
   %854 = load ptr, ptr %1, align 8, !tbaa !18
   %855 = getelementptr inbounds i8, ptr %854, i64 64
   %856 = load ptr, ptr %855, align 8
-  %857 = call noundef ptr %856(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %155) #15
+  %857 = call noundef ptr %856(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %155) #14
   %858 = getelementptr inbounds i8, ptr %0, i64 752
   store ptr %857, ptr %858, align 8, !tbaa !69
   %859 = load ptr, ptr %155, align 8, !tbaa !37
@@ -2189,12 +2189,12 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %865
 
 864:                                              ; preds = %847
-  call void @_ZdlPv(ptr noundef %859) #18
+  call void @_ZdlPv(ptr noundef %859) #17
   br label %865
 
 865:                                              ; preds = %864, %861
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %155) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %156) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %155) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %156) #14
   %866 = getelementptr inbounds i8, ptr %156, i64 16
   store ptr %866, ptr %156, align 8, !tbaa !33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %866, ptr noundef nonnull align 1 dereferenceable(15) @.str.36, i64 15, i1 false)
@@ -2205,7 +2205,7 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %869 = load ptr, ptr %1, align 8, !tbaa !18
   %870 = getelementptr inbounds i8, ptr %869, i64 64
   %871 = load ptr, ptr %870, align 8
-  %872 = call noundef ptr %871(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %156) #15
+  %872 = call noundef ptr %871(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %156) #14
   %873 = getelementptr inbounds i8, ptr %0, i64 808
   store ptr %872, ptr %873, align 8, !tbaa !70
   %874 = load ptr, ptr %156, align 8, !tbaa !37
@@ -2219,17 +2219,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %880
 
 879:                                              ; preds = %865
-  call void @_ZdlPv(ptr noundef %874) #18
+  call void @_ZdlPv(ptr noundef %874) #17
   br label %880
 
 880:                                              ; preds = %879, %876
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %156) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %157) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %156) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %157) #14
   %881 = getelementptr inbounds i8, ptr %157, i64 16
   store ptr %881, ptr %157, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %106) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %106) #14
   store i64 18, ptr %106, align 8, !tbaa !35
-  %882 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %157, ptr noundef nonnull align 8 dereferenceable(8) %106, i64 noundef 0) #15
+  %882 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %157, ptr noundef nonnull align 8 dereferenceable(8) %106, i64 noundef 0) #14
   store ptr %882, ptr %157, align 8, !tbaa !37
   %883 = load i64, ptr %106, align 8, !tbaa !35
   store i64 %883, ptr %881, align 8, !tbaa !3
@@ -2239,11 +2239,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %885 = load ptr, ptr %157, align 8, !tbaa !37
   %886 = getelementptr inbounds i8, ptr %885, i64 %883
   store i8 0, ptr %886, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %106) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %106) #14
   %887 = load ptr, ptr %1, align 8, !tbaa !18
   %888 = getelementptr inbounds i8, ptr %887, i64 64
   %889 = load ptr, ptr %888, align 8
-  %890 = call noundef ptr %889(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %157) #15
+  %890 = call noundef ptr %889(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %157) #14
   %891 = getelementptr inbounds i8, ptr %0, i64 816
   store ptr %890, ptr %891, align 8, !tbaa !71
   %892 = load ptr, ptr %157, align 8, !tbaa !37
@@ -2257,17 +2257,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %898
 
 897:                                              ; preds = %880
-  call void @_ZdlPv(ptr noundef %892) #18
+  call void @_ZdlPv(ptr noundef %892) #17
   br label %898
 
 898:                                              ; preds = %897, %894
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %157) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %158) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %157) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %158) #14
   %899 = getelementptr inbounds i8, ptr %158, i64 16
   store ptr %899, ptr %158, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %105) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %105) #14
   store i64 19, ptr %105, align 8, !tbaa !35
-  %900 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %158, ptr noundef nonnull align 8 dereferenceable(8) %105, i64 noundef 0) #15
+  %900 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %158, ptr noundef nonnull align 8 dereferenceable(8) %105, i64 noundef 0) #14
   store ptr %900, ptr %158, align 8, !tbaa !37
   %901 = load i64, ptr %105, align 8, !tbaa !35
   store i64 %901, ptr %899, align 8, !tbaa !3
@@ -2277,11 +2277,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %903 = load ptr, ptr %158, align 8, !tbaa !37
   %904 = getelementptr inbounds i8, ptr %903, i64 %901
   store i8 0, ptr %904, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %105) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %105) #14
   %905 = load ptr, ptr %1, align 8, !tbaa !18
   %906 = getelementptr inbounds i8, ptr %905, i64 64
   %907 = load ptr, ptr %906, align 8
-  %908 = call noundef ptr %907(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %158) #15
+  %908 = call noundef ptr %907(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %158) #14
   %909 = getelementptr inbounds i8, ptr %0, i64 824
   store ptr %908, ptr %909, align 8, !tbaa !72
   %910 = load ptr, ptr %158, align 8, !tbaa !37
@@ -2295,17 +2295,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %916
 
 915:                                              ; preds = %898
-  call void @_ZdlPv(ptr noundef %910) #18
+  call void @_ZdlPv(ptr noundef %910) #17
   br label %916
 
 916:                                              ; preds = %915, %912
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %158) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %159) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %158) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %159) #14
   %917 = getelementptr inbounds i8, ptr %159, i64 16
   store ptr %917, ptr %159, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %104) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %104) #14
   store i64 25, ptr %104, align 8, !tbaa !35
-  %918 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %159, ptr noundef nonnull align 8 dereferenceable(8) %104, i64 noundef 0) #15
+  %918 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %159, ptr noundef nonnull align 8 dereferenceable(8) %104, i64 noundef 0) #14
   store ptr %918, ptr %159, align 8, !tbaa !37
   %919 = load i64, ptr %104, align 8, !tbaa !35
   store i64 %919, ptr %917, align 8, !tbaa !3
@@ -2315,11 +2315,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %921 = load ptr, ptr %159, align 8, !tbaa !37
   %922 = getelementptr inbounds i8, ptr %921, i64 %919
   store i8 0, ptr %922, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %104) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %104) #14
   %923 = load ptr, ptr %1, align 8, !tbaa !18
   %924 = getelementptr inbounds i8, ptr %923, i64 64
   %925 = load ptr, ptr %924, align 8
-  %926 = call noundef ptr %925(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %159) #15
+  %926 = call noundef ptr %925(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %159) #14
   %927 = getelementptr inbounds i8, ptr %0, i64 832
   store ptr %926, ptr %927, align 8, !tbaa !73
   %928 = load ptr, ptr %159, align 8, !tbaa !37
@@ -2333,12 +2333,12 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %934
 
 933:                                              ; preds = %916
-  call void @_ZdlPv(ptr noundef %928) #18
+  call void @_ZdlPv(ptr noundef %928) #17
   br label %934
 
 934:                                              ; preds = %933, %930
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %159) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %160) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %159) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %160) #14
   %935 = getelementptr inbounds i8, ptr %160, i64 16
   store ptr %935, ptr %160, align 8, !tbaa !33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %935, ptr noundef nonnull align 1 dereferenceable(13) @.str.40, i64 13, i1 false)
@@ -2349,7 +2349,7 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %938 = load ptr, ptr %1, align 8, !tbaa !18
   %939 = getelementptr inbounds i8, ptr %938, i64 64
   %940 = load ptr, ptr %939, align 8
-  %941 = call noundef ptr %940(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %160) #15
+  %941 = call noundef ptr %940(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %160) #14
   %942 = getelementptr inbounds i8, ptr %0, i64 840
   store ptr %941, ptr %942, align 8, !tbaa !74
   %943 = load ptr, ptr %160, align 8, !tbaa !37
@@ -2363,12 +2363,12 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %949
 
 948:                                              ; preds = %934
-  call void @_ZdlPv(ptr noundef %943) #18
+  call void @_ZdlPv(ptr noundef %943) #17
   br label %949
 
 949:                                              ; preds = %948, %945
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %160) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %161) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %160) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %161) #14
   %950 = getelementptr inbounds i8, ptr %161, i64 16
   store ptr %950, ptr %161, align 8, !tbaa !33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %950, ptr noundef nonnull align 1 dereferenceable(14) @.str.41, i64 14, i1 false)
@@ -2379,7 +2379,7 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %953 = load ptr, ptr %1, align 8, !tbaa !18
   %954 = getelementptr inbounds i8, ptr %953, i64 64
   %955 = load ptr, ptr %954, align 8
-  %956 = call noundef ptr %955(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %161) #15
+  %956 = call noundef ptr %955(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %161) #14
   %957 = getelementptr inbounds i8, ptr %0, i64 848
   store ptr %956, ptr %957, align 8, !tbaa !75
   %958 = load ptr, ptr %161, align 8, !tbaa !37
@@ -2393,17 +2393,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %964
 
 963:                                              ; preds = %949
-  call void @_ZdlPv(ptr noundef %958) #18
+  call void @_ZdlPv(ptr noundef %958) #17
   br label %964
 
 964:                                              ; preds = %963, %960
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %161) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %162) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %161) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %162) #14
   %965 = getelementptr inbounds i8, ptr %162, i64 16
   store ptr %965, ptr %162, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %103) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %103) #14
   store i64 23, ptr %103, align 8, !tbaa !35
-  %966 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %162, ptr noundef nonnull align 8 dereferenceable(8) %103, i64 noundef 0) #15
+  %966 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %162, ptr noundef nonnull align 8 dereferenceable(8) %103, i64 noundef 0) #14
   store ptr %966, ptr %162, align 8, !tbaa !37
   %967 = load i64, ptr %103, align 8, !tbaa !35
   store i64 %967, ptr %965, align 8, !tbaa !3
@@ -2413,11 +2413,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %969 = load ptr, ptr %162, align 8, !tbaa !37
   %970 = getelementptr inbounds i8, ptr %969, i64 %967
   store i8 0, ptr %970, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %103) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %103) #14
   %971 = load ptr, ptr %1, align 8, !tbaa !18
   %972 = getelementptr inbounds i8, ptr %971, i64 64
   %973 = load ptr, ptr %972, align 8
-  %974 = call noundef ptr %973(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %162) #15
+  %974 = call noundef ptr %973(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %162) #14
   %975 = getelementptr inbounds i8, ptr %0, i64 856
   store ptr %974, ptr %975, align 8, !tbaa !76
   %976 = load ptr, ptr %162, align 8, !tbaa !37
@@ -2431,17 +2431,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %982
 
 981:                                              ; preds = %964
-  call void @_ZdlPv(ptr noundef %976) #18
+  call void @_ZdlPv(ptr noundef %976) #17
   br label %982
 
 982:                                              ; preds = %981, %978
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %162) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %163) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %162) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %163) #14
   %983 = getelementptr inbounds i8, ptr %163, i64 16
   store ptr %983, ptr %163, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %102) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %102) #14
   store i64 20, ptr %102, align 8, !tbaa !35
-  %984 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %163, ptr noundef nonnull align 8 dereferenceable(8) %102, i64 noundef 0) #15
+  %984 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %163, ptr noundef nonnull align 8 dereferenceable(8) %102, i64 noundef 0) #14
   store ptr %984, ptr %163, align 8, !tbaa !37
   %985 = load i64, ptr %102, align 8, !tbaa !35
   store i64 %985, ptr %983, align 8, !tbaa !3
@@ -2451,11 +2451,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %987 = load ptr, ptr %163, align 8, !tbaa !37
   %988 = getelementptr inbounds i8, ptr %987, i64 %985
   store i8 0, ptr %988, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %102) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %102) #14
   %989 = load ptr, ptr %1, align 8, !tbaa !18
   %990 = getelementptr inbounds i8, ptr %989, i64 64
   %991 = load ptr, ptr %990, align 8
-  %992 = call noundef ptr %991(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %163) #15
+  %992 = call noundef ptr %991(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %163) #14
   %993 = getelementptr inbounds i8, ptr %0, i64 864
   store ptr %992, ptr %993, align 8, !tbaa !77
   %994 = load ptr, ptr %163, align 8, !tbaa !37
@@ -2469,12 +2469,12 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %1000
 
 999:                                              ; preds = %982
-  call void @_ZdlPv(ptr noundef %994) #18
+  call void @_ZdlPv(ptr noundef %994) #17
   br label %1000
 
 1000:                                             ; preds = %999, %996
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %163) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %164) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %163) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %164) #14
   %1001 = getelementptr inbounds i8, ptr %164, i64 16
   store ptr %1001, ptr %164, align 8, !tbaa !33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %1001, ptr noundef nonnull align 1 dereferenceable(15) @.str.44, i64 15, i1 false)
@@ -2485,7 +2485,7 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %1004 = load ptr, ptr %1, align 8, !tbaa !18
   %1005 = getelementptr inbounds i8, ptr %1004, i64 64
   %1006 = load ptr, ptr %1005, align 8
-  %1007 = call noundef ptr %1006(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %164) #15
+  %1007 = call noundef ptr %1006(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %164) #14
   %1008 = getelementptr inbounds i8, ptr %0, i64 872
   store ptr %1007, ptr %1008, align 8, !tbaa !78
   %1009 = load ptr, ptr %164, align 8, !tbaa !37
@@ -2499,12 +2499,12 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %1015
 
 1014:                                             ; preds = %1000
-  call void @_ZdlPv(ptr noundef %1009) #18
+  call void @_ZdlPv(ptr noundef %1009) #17
   br label %1015
 
 1015:                                             ; preds = %1014, %1011
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %164) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %165) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %164) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %165) #14
   %1016 = getelementptr inbounds i8, ptr %165, i64 16
   store ptr %1016, ptr %165, align 8, !tbaa !33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %1016, ptr noundef nonnull align 1 dereferenceable(15) @.str.45, i64 15, i1 false)
@@ -2515,7 +2515,7 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %1019 = load ptr, ptr %1, align 8, !tbaa !18
   %1020 = getelementptr inbounds i8, ptr %1019, i64 64
   %1021 = load ptr, ptr %1020, align 8
-  %1022 = call noundef ptr %1021(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %165) #15
+  %1022 = call noundef ptr %1021(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %165) #14
   %1023 = getelementptr inbounds i8, ptr %0, i64 880
   store ptr %1022, ptr %1023, align 8, !tbaa !79
   %1024 = load ptr, ptr %165, align 8, !tbaa !37
@@ -2529,12 +2529,12 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %1030
 
 1029:                                             ; preds = %1015
-  call void @_ZdlPv(ptr noundef %1024) #18
+  call void @_ZdlPv(ptr noundef %1024) #17
   br label %1030
 
 1030:                                             ; preds = %1029, %1026
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %165) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %166) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %165) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %166) #14
   %1031 = getelementptr inbounds i8, ptr %166, i64 16
   store ptr %1031, ptr %166, align 8, !tbaa !33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %1031, ptr noundef nonnull align 1 dereferenceable(15) @.str.46, i64 15, i1 false)
@@ -2545,7 +2545,7 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %1034 = load ptr, ptr %1, align 8, !tbaa !18
   %1035 = getelementptr inbounds i8, ptr %1034, i64 64
   %1036 = load ptr, ptr %1035, align 8
-  %1037 = call noundef ptr %1036(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %166) #15
+  %1037 = call noundef ptr %1036(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %166) #14
   %1038 = getelementptr inbounds i8, ptr %0, i64 888
   store ptr %1037, ptr %1038, align 8, !tbaa !80
   %1039 = load ptr, ptr %166, align 8, !tbaa !37
@@ -2559,12 +2559,12 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %1045
 
 1044:                                             ; preds = %1030
-  call void @_ZdlPv(ptr noundef %1039) #18
+  call void @_ZdlPv(ptr noundef %1039) #17
   br label %1045
 
 1045:                                             ; preds = %1044, %1041
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %166) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %167) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %166) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %167) #14
   %1046 = getelementptr inbounds i8, ptr %167, i64 16
   store ptr %1046, ptr %167, align 8, !tbaa !33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %1046, ptr noundef nonnull align 1 dereferenceable(15) @.str.47, i64 15, i1 false)
@@ -2575,7 +2575,7 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %1049 = load ptr, ptr %1, align 8, !tbaa !18
   %1050 = getelementptr inbounds i8, ptr %1049, i64 64
   %1051 = load ptr, ptr %1050, align 8
-  %1052 = call noundef ptr %1051(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %167) #15
+  %1052 = call noundef ptr %1051(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %167) #14
   %1053 = getelementptr inbounds i8, ptr %0, i64 896
   store ptr %1052, ptr %1053, align 8, !tbaa !81
   %1054 = load ptr, ptr %167, align 8, !tbaa !37
@@ -2589,12 +2589,12 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %1060
 
 1059:                                             ; preds = %1045
-  call void @_ZdlPv(ptr noundef %1054) #18
+  call void @_ZdlPv(ptr noundef %1054) #17
   br label %1060
 
 1060:                                             ; preds = %1059, %1056
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %167) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %168) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %167) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %168) #14
   %1061 = getelementptr inbounds i8, ptr %168, i64 16
   store ptr %1061, ptr %168, align 8, !tbaa !33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %1061, ptr noundef nonnull align 1 dereferenceable(15) @.str.48, i64 15, i1 false)
@@ -2605,7 +2605,7 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %1064 = load ptr, ptr %1, align 8, !tbaa !18
   %1065 = getelementptr inbounds i8, ptr %1064, i64 64
   %1066 = load ptr, ptr %1065, align 8
-  %1067 = call noundef ptr %1066(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %168) #15
+  %1067 = call noundef ptr %1066(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %168) #14
   %1068 = getelementptr inbounds i8, ptr %0, i64 904
   store ptr %1067, ptr %1068, align 8, !tbaa !82
   %1069 = load ptr, ptr %168, align 8, !tbaa !37
@@ -2619,12 +2619,12 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %1075
 
 1074:                                             ; preds = %1060
-  call void @_ZdlPv(ptr noundef %1069) #18
+  call void @_ZdlPv(ptr noundef %1069) #17
   br label %1075
 
 1075:                                             ; preds = %1074, %1071
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %168) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %169) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %168) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %169) #14
   %1076 = getelementptr inbounds i8, ptr %169, i64 16
   store ptr %1076, ptr %169, align 8, !tbaa !33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %1076, ptr noundef nonnull align 1 dereferenceable(15) @.str.49, i64 15, i1 false)
@@ -2635,7 +2635,7 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %1079 = load ptr, ptr %1, align 8, !tbaa !18
   %1080 = getelementptr inbounds i8, ptr %1079, i64 64
   %1081 = load ptr, ptr %1080, align 8
-  %1082 = call noundef ptr %1081(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %169) #15
+  %1082 = call noundef ptr %1081(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %169) #14
   %1083 = getelementptr inbounds i8, ptr %0, i64 912
   store ptr %1082, ptr %1083, align 8, !tbaa !83
   %1084 = load ptr, ptr %169, align 8, !tbaa !37
@@ -2649,12 +2649,12 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %1090
 
 1089:                                             ; preds = %1075
-  call void @_ZdlPv(ptr noundef %1084) #18
+  call void @_ZdlPv(ptr noundef %1084) #17
   br label %1090
 
 1090:                                             ; preds = %1089, %1086
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %169) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %170) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %169) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %170) #14
   %1091 = getelementptr inbounds i8, ptr %170, i64 16
   store ptr %1091, ptr %170, align 8, !tbaa !33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %1091, ptr noundef nonnull align 1 dereferenceable(15) @.str.50, i64 15, i1 false)
@@ -2665,7 +2665,7 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %1094 = load ptr, ptr %1, align 8, !tbaa !18
   %1095 = getelementptr inbounds i8, ptr %1094, i64 64
   %1096 = load ptr, ptr %1095, align 8
-  %1097 = call noundef ptr %1096(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %170) #15
+  %1097 = call noundef ptr %1096(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %170) #14
   %1098 = getelementptr inbounds i8, ptr %0, i64 920
   store ptr %1097, ptr %1098, align 8, !tbaa !84
   %1099 = load ptr, ptr %170, align 8, !tbaa !37
@@ -2679,12 +2679,12 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %1105
 
 1104:                                             ; preds = %1090
-  call void @_ZdlPv(ptr noundef %1099) #18
+  call void @_ZdlPv(ptr noundef %1099) #17
   br label %1105
 
 1105:                                             ; preds = %1104, %1101
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %170) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %171) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %170) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %171) #14
   %1106 = getelementptr inbounds i8, ptr %171, i64 16
   store ptr %1106, ptr %171, align 8, !tbaa !33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %1106, ptr noundef nonnull align 1 dereferenceable(15) @.str.51, i64 15, i1 false)
@@ -2695,7 +2695,7 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %1109 = load ptr, ptr %1, align 8, !tbaa !18
   %1110 = getelementptr inbounds i8, ptr %1109, i64 64
   %1111 = load ptr, ptr %1110, align 8
-  %1112 = call noundef ptr %1111(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %171) #15
+  %1112 = call noundef ptr %1111(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %171) #14
   %1113 = getelementptr inbounds i8, ptr %0, i64 928
   store ptr %1112, ptr %1113, align 8, !tbaa !85
   %1114 = load ptr, ptr %171, align 8, !tbaa !37
@@ -2709,12 +2709,12 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %1120
 
 1119:                                             ; preds = %1105
-  call void @_ZdlPv(ptr noundef %1114) #18
+  call void @_ZdlPv(ptr noundef %1114) #17
   br label %1120
 
 1120:                                             ; preds = %1119, %1116
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %171) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %172) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %171) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %172) #14
   %1121 = getelementptr inbounds i8, ptr %172, i64 16
   store ptr %1121, ptr %172, align 8, !tbaa !33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %1121, ptr noundef nonnull align 1 dereferenceable(13) @.str.52, i64 13, i1 false)
@@ -2725,7 +2725,7 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %1124 = load ptr, ptr %1, align 8, !tbaa !18
   %1125 = getelementptr inbounds i8, ptr %1124, i64 64
   %1126 = load ptr, ptr %1125, align 8
-  %1127 = call noundef ptr %1126(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %172) #15
+  %1127 = call noundef ptr %1126(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %172) #14
   %1128 = getelementptr inbounds i8, ptr %0, i64 936
   store ptr %1127, ptr %1128, align 8, !tbaa !86
   %1129 = load ptr, ptr %172, align 8, !tbaa !37
@@ -2739,12 +2739,12 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %1135
 
 1134:                                             ; preds = %1120
-  call void @_ZdlPv(ptr noundef %1129) #18
+  call void @_ZdlPv(ptr noundef %1129) #17
   br label %1135
 
 1135:                                             ; preds = %1134, %1131
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %172) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %173) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %172) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %173) #14
   %1136 = getelementptr inbounds i8, ptr %173, i64 16
   store ptr %1136, ptr %173, align 8, !tbaa !33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %1136, ptr noundef nonnull align 1 dereferenceable(13) @.str.53, i64 13, i1 false)
@@ -2755,7 +2755,7 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %1139 = load ptr, ptr %1, align 8, !tbaa !18
   %1140 = getelementptr inbounds i8, ptr %1139, i64 64
   %1141 = load ptr, ptr %1140, align 8
-  %1142 = call noundef ptr %1141(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %173) #15
+  %1142 = call noundef ptr %1141(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %173) #14
   %1143 = getelementptr inbounds i8, ptr %0, i64 944
   store ptr %1142, ptr %1143, align 8, !tbaa !87
   %1144 = load ptr, ptr %173, align 8, !tbaa !37
@@ -2769,12 +2769,12 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %1150
 
 1149:                                             ; preds = %1135
-  call void @_ZdlPv(ptr noundef %1144) #18
+  call void @_ZdlPv(ptr noundef %1144) #17
   br label %1150
 
 1150:                                             ; preds = %1149, %1146
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %173) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %174) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %173) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %174) #14
   %1151 = getelementptr inbounds i8, ptr %174, i64 16
   store ptr %1151, ptr %174, align 8, !tbaa !33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %1151, ptr noundef nonnull align 1 dereferenceable(13) @.str.54, i64 13, i1 false)
@@ -2785,7 +2785,7 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %1154 = load ptr, ptr %1, align 8, !tbaa !18
   %1155 = getelementptr inbounds i8, ptr %1154, i64 64
   %1156 = load ptr, ptr %1155, align 8
-  %1157 = call noundef ptr %1156(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %174) #15
+  %1157 = call noundef ptr %1156(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %174) #14
   %1158 = getelementptr inbounds i8, ptr %0, i64 952
   store ptr %1157, ptr %1158, align 8, !tbaa !88
   %1159 = load ptr, ptr %174, align 8, !tbaa !37
@@ -2799,12 +2799,12 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %1165
 
 1164:                                             ; preds = %1150
-  call void @_ZdlPv(ptr noundef %1159) #18
+  call void @_ZdlPv(ptr noundef %1159) #17
   br label %1165
 
 1165:                                             ; preds = %1164, %1161
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %174) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %175) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %174) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %175) #14
   %1166 = getelementptr inbounds i8, ptr %175, i64 16
   store ptr %1166, ptr %175, align 8, !tbaa !33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %1166, ptr noundef nonnull align 1 dereferenceable(13) @.str.55, i64 13, i1 false)
@@ -2815,7 +2815,7 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %1169 = load ptr, ptr %1, align 8, !tbaa !18
   %1170 = getelementptr inbounds i8, ptr %1169, i64 64
   %1171 = load ptr, ptr %1170, align 8
-  %1172 = call noundef ptr %1171(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %175) #15
+  %1172 = call noundef ptr %1171(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %175) #14
   %1173 = getelementptr inbounds i8, ptr %0, i64 960
   store ptr %1172, ptr %1173, align 8, !tbaa !89
   %1174 = load ptr, ptr %175, align 8, !tbaa !37
@@ -2829,17 +2829,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %1180
 
 1179:                                             ; preds = %1165
-  call void @_ZdlPv(ptr noundef %1174) #18
+  call void @_ZdlPv(ptr noundef %1174) #17
   br label %1180
 
 1180:                                             ; preds = %1179, %1176
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %175) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %176) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %175) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %176) #14
   %1181 = getelementptr inbounds i8, ptr %176, i64 16
   store ptr %1181, ptr %176, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %101) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %101) #14
   store i64 21, ptr %101, align 8, !tbaa !35
-  %1182 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %176, ptr noundef nonnull align 8 dereferenceable(8) %101, i64 noundef 0) #15
+  %1182 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %176, ptr noundef nonnull align 8 dereferenceable(8) %101, i64 noundef 0) #14
   store ptr %1182, ptr %176, align 8, !tbaa !37
   %1183 = load i64, ptr %101, align 8, !tbaa !35
   store i64 %1183, ptr %1181, align 8, !tbaa !3
@@ -2849,11 +2849,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %1185 = load ptr, ptr %176, align 8, !tbaa !37
   %1186 = getelementptr inbounds i8, ptr %1185, i64 %1183
   store i8 0, ptr %1186, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %101) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %101) #14
   %1187 = load ptr, ptr %1, align 8, !tbaa !18
   %1188 = getelementptr inbounds i8, ptr %1187, i64 64
   %1189 = load ptr, ptr %1188, align 8
-  %1190 = call noundef ptr %1189(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %176) #15
+  %1190 = call noundef ptr %1189(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %176) #14
   %1191 = getelementptr inbounds i8, ptr %0, i64 968
   store ptr %1190, ptr %1191, align 8, !tbaa !90
   %1192 = load ptr, ptr %176, align 8, !tbaa !37
@@ -2867,17 +2867,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %1198
 
 1197:                                             ; preds = %1180
-  call void @_ZdlPv(ptr noundef %1192) #18
+  call void @_ZdlPv(ptr noundef %1192) #17
   br label %1198
 
 1198:                                             ; preds = %1197, %1194
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %176) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %177) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %176) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %177) #14
   %1199 = getelementptr inbounds i8, ptr %177, i64 16
   store ptr %1199, ptr %177, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %100) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %100) #14
   store i64 20, ptr %100, align 8, !tbaa !35
-  %1200 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %177, ptr noundef nonnull align 8 dereferenceable(8) %100, i64 noundef 0) #15
+  %1200 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %177, ptr noundef nonnull align 8 dereferenceable(8) %100, i64 noundef 0) #14
   store ptr %1200, ptr %177, align 8, !tbaa !37
   %1201 = load i64, ptr %100, align 8, !tbaa !35
   store i64 %1201, ptr %1199, align 8, !tbaa !3
@@ -2887,11 +2887,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %1203 = load ptr, ptr %177, align 8, !tbaa !37
   %1204 = getelementptr inbounds i8, ptr %1203, i64 %1201
   store i8 0, ptr %1204, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %100) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %100) #14
   %1205 = load ptr, ptr %1, align 8, !tbaa !18
   %1206 = getelementptr inbounds i8, ptr %1205, i64 64
   %1207 = load ptr, ptr %1206, align 8
-  %1208 = call noundef ptr %1207(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %177) #15
+  %1208 = call noundef ptr %1207(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %177) #14
   %1209 = getelementptr inbounds i8, ptr %0, i64 976
   store ptr %1208, ptr %1209, align 8, !tbaa !91
   %1210 = load ptr, ptr %177, align 8, !tbaa !37
@@ -2905,17 +2905,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %1216
 
 1215:                                             ; preds = %1198
-  call void @_ZdlPv(ptr noundef %1210) #18
+  call void @_ZdlPv(ptr noundef %1210) #17
   br label %1216
 
 1216:                                             ; preds = %1215, %1212
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %177) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %178) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %177) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %178) #14
   %1217 = getelementptr inbounds i8, ptr %178, i64 16
   store ptr %1217, ptr %178, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %99) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %99) #14
   store i64 20, ptr %99, align 8, !tbaa !35
-  %1218 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %178, ptr noundef nonnull align 8 dereferenceable(8) %99, i64 noundef 0) #15
+  %1218 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %178, ptr noundef nonnull align 8 dereferenceable(8) %99, i64 noundef 0) #14
   store ptr %1218, ptr %178, align 8, !tbaa !37
   %1219 = load i64, ptr %99, align 8, !tbaa !35
   store i64 %1219, ptr %1217, align 8, !tbaa !3
@@ -2925,11 +2925,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %1221 = load ptr, ptr %178, align 8, !tbaa !37
   %1222 = getelementptr inbounds i8, ptr %1221, i64 %1219
   store i8 0, ptr %1222, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %99) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %99) #14
   %1223 = load ptr, ptr %1, align 8, !tbaa !18
   %1224 = getelementptr inbounds i8, ptr %1223, i64 64
   %1225 = load ptr, ptr %1224, align 8
-  %1226 = call noundef ptr %1225(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %178) #15
+  %1226 = call noundef ptr %1225(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %178) #14
   %1227 = getelementptr inbounds i8, ptr %0, i64 984
   store ptr %1226, ptr %1227, align 8, !tbaa !92
   %1228 = load ptr, ptr %178, align 8, !tbaa !37
@@ -2943,17 +2943,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %1234
 
 1233:                                             ; preds = %1216
-  call void @_ZdlPv(ptr noundef %1228) #18
+  call void @_ZdlPv(ptr noundef %1228) #17
   br label %1234
 
 1234:                                             ; preds = %1233, %1230
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %178) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %179) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %178) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %179) #14
   %1235 = getelementptr inbounds i8, ptr %179, i64 16
   store ptr %1235, ptr %179, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %98) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %98) #14
   store i64 20, ptr %98, align 8, !tbaa !35
-  %1236 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %179, ptr noundef nonnull align 8 dereferenceable(8) %98, i64 noundef 0) #15
+  %1236 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %179, ptr noundef nonnull align 8 dereferenceable(8) %98, i64 noundef 0) #14
   store ptr %1236, ptr %179, align 8, !tbaa !37
   %1237 = load i64, ptr %98, align 8, !tbaa !35
   store i64 %1237, ptr %1235, align 8, !tbaa !3
@@ -2963,11 +2963,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %1239 = load ptr, ptr %179, align 8, !tbaa !37
   %1240 = getelementptr inbounds i8, ptr %1239, i64 %1237
   store i8 0, ptr %1240, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %98) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %98) #14
   %1241 = load ptr, ptr %1, align 8, !tbaa !18
   %1242 = getelementptr inbounds i8, ptr %1241, i64 64
   %1243 = load ptr, ptr %1242, align 8
-  %1244 = call noundef ptr %1243(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %179) #15
+  %1244 = call noundef ptr %1243(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %179) #14
   %1245 = getelementptr inbounds i8, ptr %0, i64 992
   store ptr %1244, ptr %1245, align 8, !tbaa !93
   %1246 = load ptr, ptr %179, align 8, !tbaa !37
@@ -2981,17 +2981,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %1252
 
 1251:                                             ; preds = %1234
-  call void @_ZdlPv(ptr noundef %1246) #18
+  call void @_ZdlPv(ptr noundef %1246) #17
   br label %1252
 
 1252:                                             ; preds = %1251, %1248
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %179) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %180) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %179) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %180) #14
   %1253 = getelementptr inbounds i8, ptr %180, i64 16
   store ptr %1253, ptr %180, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %97) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %97) #14
   store i64 21, ptr %97, align 8, !tbaa !35
-  %1254 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %180, ptr noundef nonnull align 8 dereferenceable(8) %97, i64 noundef 0) #15
+  %1254 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %180, ptr noundef nonnull align 8 dereferenceable(8) %97, i64 noundef 0) #14
   store ptr %1254, ptr %180, align 8, !tbaa !37
   %1255 = load i64, ptr %97, align 8, !tbaa !35
   store i64 %1255, ptr %1253, align 8, !tbaa !3
@@ -3001,11 +3001,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %1257 = load ptr, ptr %180, align 8, !tbaa !37
   %1258 = getelementptr inbounds i8, ptr %1257, i64 %1255
   store i8 0, ptr %1258, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %97) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %97) #14
   %1259 = load ptr, ptr %1, align 8, !tbaa !18
   %1260 = getelementptr inbounds i8, ptr %1259, i64 64
   %1261 = load ptr, ptr %1260, align 8
-  %1262 = call noundef ptr %1261(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %180) #15
+  %1262 = call noundef ptr %1261(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %180) #14
   %1263 = getelementptr inbounds i8, ptr %0, i64 1000
   store ptr %1262, ptr %1263, align 8, !tbaa !94
   %1264 = load ptr, ptr %180, align 8, !tbaa !37
@@ -3019,17 +3019,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %1270
 
 1269:                                             ; preds = %1252
-  call void @_ZdlPv(ptr noundef %1264) #18
+  call void @_ZdlPv(ptr noundef %1264) #17
   br label %1270
 
 1270:                                             ; preds = %1269, %1266
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %180) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %181) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %180) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %181) #14
   %1271 = getelementptr inbounds i8, ptr %181, i64 16
   store ptr %1271, ptr %181, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %96) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %96) #14
   store i64 20, ptr %96, align 8, !tbaa !35
-  %1272 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %181, ptr noundef nonnull align 8 dereferenceable(8) %96, i64 noundef 0) #15
+  %1272 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %181, ptr noundef nonnull align 8 dereferenceable(8) %96, i64 noundef 0) #14
   store ptr %1272, ptr %181, align 8, !tbaa !37
   %1273 = load i64, ptr %96, align 8, !tbaa !35
   store i64 %1273, ptr %1271, align 8, !tbaa !3
@@ -3039,11 +3039,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %1275 = load ptr, ptr %181, align 8, !tbaa !37
   %1276 = getelementptr inbounds i8, ptr %1275, i64 %1273
   store i8 0, ptr %1276, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %96) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %96) #14
   %1277 = load ptr, ptr %1, align 8, !tbaa !18
   %1278 = getelementptr inbounds i8, ptr %1277, i64 64
   %1279 = load ptr, ptr %1278, align 8
-  %1280 = call noundef ptr %1279(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %181) #15
+  %1280 = call noundef ptr %1279(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %181) #14
   %1281 = getelementptr inbounds i8, ptr %0, i64 1008
   store ptr %1280, ptr %1281, align 8, !tbaa !95
   %1282 = load ptr, ptr %181, align 8, !tbaa !37
@@ -3057,17 +3057,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %1288
 
 1287:                                             ; preds = %1270
-  call void @_ZdlPv(ptr noundef %1282) #18
+  call void @_ZdlPv(ptr noundef %1282) #17
   br label %1288
 
 1288:                                             ; preds = %1287, %1284
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %181) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %182) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %181) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %182) #14
   %1289 = getelementptr inbounds i8, ptr %182, i64 16
   store ptr %1289, ptr %182, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %95) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %95) #14
   store i64 20, ptr %95, align 8, !tbaa !35
-  %1290 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %182, ptr noundef nonnull align 8 dereferenceable(8) %95, i64 noundef 0) #15
+  %1290 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %182, ptr noundef nonnull align 8 dereferenceable(8) %95, i64 noundef 0) #14
   store ptr %1290, ptr %182, align 8, !tbaa !37
   %1291 = load i64, ptr %95, align 8, !tbaa !35
   store i64 %1291, ptr %1289, align 8, !tbaa !3
@@ -3077,11 +3077,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %1293 = load ptr, ptr %182, align 8, !tbaa !37
   %1294 = getelementptr inbounds i8, ptr %1293, i64 %1291
   store i8 0, ptr %1294, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %95) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %95) #14
   %1295 = load ptr, ptr %1, align 8, !tbaa !18
   %1296 = getelementptr inbounds i8, ptr %1295, i64 64
   %1297 = load ptr, ptr %1296, align 8
-  %1298 = call noundef ptr %1297(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %182) #15
+  %1298 = call noundef ptr %1297(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %182) #14
   %1299 = getelementptr inbounds i8, ptr %0, i64 1016
   store ptr %1298, ptr %1299, align 8, !tbaa !96
   %1300 = load ptr, ptr %182, align 8, !tbaa !37
@@ -3095,17 +3095,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %1306
 
 1305:                                             ; preds = %1288
-  call void @_ZdlPv(ptr noundef %1300) #18
+  call void @_ZdlPv(ptr noundef %1300) #17
   br label %1306
 
 1306:                                             ; preds = %1305, %1302
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %182) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %183) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %182) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %183) #14
   %1307 = getelementptr inbounds i8, ptr %183, i64 16
   store ptr %1307, ptr %183, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %94) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %94) #14
   store i64 20, ptr %94, align 8, !tbaa !35
-  %1308 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %183, ptr noundef nonnull align 8 dereferenceable(8) %94, i64 noundef 0) #15
+  %1308 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %183, ptr noundef nonnull align 8 dereferenceable(8) %94, i64 noundef 0) #14
   store ptr %1308, ptr %183, align 8, !tbaa !37
   %1309 = load i64, ptr %94, align 8, !tbaa !35
   store i64 %1309, ptr %1307, align 8, !tbaa !3
@@ -3115,11 +3115,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %1311 = load ptr, ptr %183, align 8, !tbaa !37
   %1312 = getelementptr inbounds i8, ptr %1311, i64 %1309
   store i8 0, ptr %1312, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %94) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %94) #14
   %1313 = load ptr, ptr %1, align 8, !tbaa !18
   %1314 = getelementptr inbounds i8, ptr %1313, i64 64
   %1315 = load ptr, ptr %1314, align 8
-  %1316 = call noundef ptr %1315(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %183) #15
+  %1316 = call noundef ptr %1315(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %183) #14
   %1317 = getelementptr inbounds i8, ptr %0, i64 1024
   store ptr %1316, ptr %1317, align 8, !tbaa !97
   %1318 = load ptr, ptr %183, align 8, !tbaa !37
@@ -3133,17 +3133,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %1324
 
 1323:                                             ; preds = %1306
-  call void @_ZdlPv(ptr noundef %1318) #18
+  call void @_ZdlPv(ptr noundef %1318) #17
   br label %1324
 
 1324:                                             ; preds = %1323, %1320
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %183) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %184) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %183) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %184) #14
   %1325 = getelementptr inbounds i8, ptr %184, i64 16
   store ptr %1325, ptr %184, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %93) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %93) #14
   store i64 21, ptr %93, align 8, !tbaa !35
-  %1326 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %184, ptr noundef nonnull align 8 dereferenceable(8) %93, i64 noundef 0) #15
+  %1326 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %184, ptr noundef nonnull align 8 dereferenceable(8) %93, i64 noundef 0) #14
   store ptr %1326, ptr %184, align 8, !tbaa !37
   %1327 = load i64, ptr %93, align 8, !tbaa !35
   store i64 %1327, ptr %1325, align 8, !tbaa !3
@@ -3153,11 +3153,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %1329 = load ptr, ptr %184, align 8, !tbaa !37
   %1330 = getelementptr inbounds i8, ptr %1329, i64 %1327
   store i8 0, ptr %1330, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %93) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %93) #14
   %1331 = load ptr, ptr %1, align 8, !tbaa !18
   %1332 = getelementptr inbounds i8, ptr %1331, i64 64
   %1333 = load ptr, ptr %1332, align 8
-  %1334 = call noundef ptr %1333(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %184) #15
+  %1334 = call noundef ptr %1333(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %184) #14
   %1335 = getelementptr inbounds i8, ptr %0, i64 1032
   store ptr %1334, ptr %1335, align 8, !tbaa !98
   %1336 = load ptr, ptr %184, align 8, !tbaa !37
@@ -3171,17 +3171,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %1342
 
 1341:                                             ; preds = %1324
-  call void @_ZdlPv(ptr noundef %1336) #18
+  call void @_ZdlPv(ptr noundef %1336) #17
   br label %1342
 
 1342:                                             ; preds = %1341, %1338
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %184) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %185) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %184) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %185) #14
   %1343 = getelementptr inbounds i8, ptr %185, i64 16
   store ptr %1343, ptr %185, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %92) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %92) #14
   store i64 21, ptr %92, align 8, !tbaa !35
-  %1344 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %185, ptr noundef nonnull align 8 dereferenceable(8) %92, i64 noundef 0) #15
+  %1344 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %185, ptr noundef nonnull align 8 dereferenceable(8) %92, i64 noundef 0) #14
   store ptr %1344, ptr %185, align 8, !tbaa !37
   %1345 = load i64, ptr %92, align 8, !tbaa !35
   store i64 %1345, ptr %1343, align 8, !tbaa !3
@@ -3191,11 +3191,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %1347 = load ptr, ptr %185, align 8, !tbaa !37
   %1348 = getelementptr inbounds i8, ptr %1347, i64 %1345
   store i8 0, ptr %1348, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %92) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %92) #14
   %1349 = load ptr, ptr %1, align 8, !tbaa !18
   %1350 = getelementptr inbounds i8, ptr %1349, i64 64
   %1351 = load ptr, ptr %1350, align 8
-  %1352 = call noundef ptr %1351(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %185) #15
+  %1352 = call noundef ptr %1351(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %185) #14
   %1353 = getelementptr inbounds i8, ptr %0, i64 1040
   store ptr %1352, ptr %1353, align 8, !tbaa !99
   %1354 = load ptr, ptr %185, align 8, !tbaa !37
@@ -3209,17 +3209,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %1360
 
 1359:                                             ; preds = %1342
-  call void @_ZdlPv(ptr noundef %1354) #18
+  call void @_ZdlPv(ptr noundef %1354) #17
   br label %1360
 
 1360:                                             ; preds = %1359, %1356
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %185) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %186) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %185) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %186) #14
   %1361 = getelementptr inbounds i8, ptr %186, i64 16
   store ptr %1361, ptr %186, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %91) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %91) #14
   store i64 18, ptr %91, align 8, !tbaa !35
-  %1362 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %186, ptr noundef nonnull align 8 dereferenceable(8) %91, i64 noundef 0) #15
+  %1362 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %186, ptr noundef nonnull align 8 dereferenceable(8) %91, i64 noundef 0) #14
   store ptr %1362, ptr %186, align 8, !tbaa !37
   %1363 = load i64, ptr %91, align 8, !tbaa !35
   store i64 %1363, ptr %1361, align 8, !tbaa !3
@@ -3229,11 +3229,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %1365 = load ptr, ptr %186, align 8, !tbaa !37
   %1366 = getelementptr inbounds i8, ptr %1365, i64 %1363
   store i8 0, ptr %1366, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %91) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %91) #14
   %1367 = load ptr, ptr %1, align 8, !tbaa !18
   %1368 = getelementptr inbounds i8, ptr %1367, i64 64
   %1369 = load ptr, ptr %1368, align 8
-  %1370 = call noundef ptr %1369(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %186) #15
+  %1370 = call noundef ptr %1369(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %186) #14
   %1371 = getelementptr inbounds i8, ptr %0, i64 1048
   store ptr %1370, ptr %1371, align 8, !tbaa !100
   %1372 = load ptr, ptr %186, align 8, !tbaa !37
@@ -3247,17 +3247,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %1378
 
 1377:                                             ; preds = %1360
-  call void @_ZdlPv(ptr noundef %1372) #18
+  call void @_ZdlPv(ptr noundef %1372) #17
   br label %1378
 
 1378:                                             ; preds = %1377, %1374
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %186) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %187) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %186) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %187) #14
   %1379 = getelementptr inbounds i8, ptr %187, i64 16
   store ptr %1379, ptr %187, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %90) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %90) #14
   store i64 20, ptr %90, align 8, !tbaa !35
-  %1380 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %187, ptr noundef nonnull align 8 dereferenceable(8) %90, i64 noundef 0) #15
+  %1380 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %187, ptr noundef nonnull align 8 dereferenceable(8) %90, i64 noundef 0) #14
   store ptr %1380, ptr %187, align 8, !tbaa !37
   %1381 = load i64, ptr %90, align 8, !tbaa !35
   store i64 %1381, ptr %1379, align 8, !tbaa !3
@@ -3267,11 +3267,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %1383 = load ptr, ptr %187, align 8, !tbaa !37
   %1384 = getelementptr inbounds i8, ptr %1383, i64 %1381
   store i8 0, ptr %1384, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %90) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %90) #14
   %1385 = load ptr, ptr %1, align 8, !tbaa !18
   %1386 = getelementptr inbounds i8, ptr %1385, i64 64
   %1387 = load ptr, ptr %1386, align 8
-  %1388 = call noundef ptr %1387(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %187) #15
+  %1388 = call noundef ptr %1387(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %187) #14
   %1389 = getelementptr inbounds i8, ptr %0, i64 1056
   store ptr %1388, ptr %1389, align 8, !tbaa !101
   %1390 = load ptr, ptr %187, align 8, !tbaa !37
@@ -3285,17 +3285,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %1396
 
 1395:                                             ; preds = %1378
-  call void @_ZdlPv(ptr noundef %1390) #18
+  call void @_ZdlPv(ptr noundef %1390) #17
   br label %1396
 
 1396:                                             ; preds = %1395, %1392
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %187) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %188) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %187) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %188) #14
   %1397 = getelementptr inbounds i8, ptr %188, i64 16
   store ptr %1397, ptr %188, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %89) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %89) #14
   store i64 21, ptr %89, align 8, !tbaa !35
-  %1398 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %188, ptr noundef nonnull align 8 dereferenceable(8) %89, i64 noundef 0) #15
+  %1398 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %188, ptr noundef nonnull align 8 dereferenceable(8) %89, i64 noundef 0) #14
   store ptr %1398, ptr %188, align 8, !tbaa !37
   %1399 = load i64, ptr %89, align 8, !tbaa !35
   store i64 %1399, ptr %1397, align 8, !tbaa !3
@@ -3305,11 +3305,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %1401 = load ptr, ptr %188, align 8, !tbaa !37
   %1402 = getelementptr inbounds i8, ptr %1401, i64 %1399
   store i8 0, ptr %1402, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %89) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %89) #14
   %1403 = load ptr, ptr %1, align 8, !tbaa !18
   %1404 = getelementptr inbounds i8, ptr %1403, i64 64
   %1405 = load ptr, ptr %1404, align 8
-  %1406 = call noundef ptr %1405(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %188) #15
+  %1406 = call noundef ptr %1405(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %188) #14
   %1407 = getelementptr inbounds i8, ptr %0, i64 1064
   store ptr %1406, ptr %1407, align 8, !tbaa !102
   %1408 = load ptr, ptr %188, align 8, !tbaa !37
@@ -3323,17 +3323,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %1414
 
 1413:                                             ; preds = %1396
-  call void @_ZdlPv(ptr noundef %1408) #18
+  call void @_ZdlPv(ptr noundef %1408) #17
   br label %1414
 
 1414:                                             ; preds = %1413, %1410
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %188) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %189) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %188) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %189) #14
   %1415 = getelementptr inbounds i8, ptr %189, i64 16
   store ptr %1415, ptr %189, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %88) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %88) #14
   store i64 21, ptr %88, align 8, !tbaa !35
-  %1416 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %189, ptr noundef nonnull align 8 dereferenceable(8) %88, i64 noundef 0) #15
+  %1416 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %189, ptr noundef nonnull align 8 dereferenceable(8) %88, i64 noundef 0) #14
   store ptr %1416, ptr %189, align 8, !tbaa !37
   %1417 = load i64, ptr %88, align 8, !tbaa !35
   store i64 %1417, ptr %1415, align 8, !tbaa !3
@@ -3343,11 +3343,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %1419 = load ptr, ptr %189, align 8, !tbaa !37
   %1420 = getelementptr inbounds i8, ptr %1419, i64 %1417
   store i8 0, ptr %1420, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %88) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %88) #14
   %1421 = load ptr, ptr %1, align 8, !tbaa !18
   %1422 = getelementptr inbounds i8, ptr %1421, i64 64
   %1423 = load ptr, ptr %1422, align 8
-  %1424 = call noundef ptr %1423(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %189) #15
+  %1424 = call noundef ptr %1423(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %189) #14
   %1425 = getelementptr inbounds i8, ptr %0, i64 1072
   store ptr %1424, ptr %1425, align 8, !tbaa !103
   %1426 = load ptr, ptr %189, align 8, !tbaa !37
@@ -3361,17 +3361,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %1432
 
 1431:                                             ; preds = %1414
-  call void @_ZdlPv(ptr noundef %1426) #18
+  call void @_ZdlPv(ptr noundef %1426) #17
   br label %1432
 
 1432:                                             ; preds = %1431, %1428
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %189) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %190) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %189) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %190) #14
   %1433 = getelementptr inbounds i8, ptr %190, i64 16
   store ptr %1433, ptr %190, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %87) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %87) #14
   store i64 19, ptr %87, align 8, !tbaa !35
-  %1434 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %190, ptr noundef nonnull align 8 dereferenceable(8) %87, i64 noundef 0) #15
+  %1434 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %190, ptr noundef nonnull align 8 dereferenceable(8) %87, i64 noundef 0) #14
   store ptr %1434, ptr %190, align 8, !tbaa !37
   %1435 = load i64, ptr %87, align 8, !tbaa !35
   store i64 %1435, ptr %1433, align 8, !tbaa !3
@@ -3381,11 +3381,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %1437 = load ptr, ptr %190, align 8, !tbaa !37
   %1438 = getelementptr inbounds i8, ptr %1437, i64 %1435
   store i8 0, ptr %1438, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %87) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %87) #14
   %1439 = load ptr, ptr %1, align 8, !tbaa !18
   %1440 = getelementptr inbounds i8, ptr %1439, i64 64
   %1441 = load ptr, ptr %1440, align 8
-  %1442 = call noundef ptr %1441(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %190) #15
+  %1442 = call noundef ptr %1441(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %190) #14
   %1443 = getelementptr inbounds i8, ptr %0, i64 1080
   store ptr %1442, ptr %1443, align 8, !tbaa !104
   %1444 = load ptr, ptr %190, align 8, !tbaa !37
@@ -3399,17 +3399,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %1450
 
 1449:                                             ; preds = %1432
-  call void @_ZdlPv(ptr noundef %1444) #18
+  call void @_ZdlPv(ptr noundef %1444) #17
   br label %1450
 
 1450:                                             ; preds = %1449, %1446
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %190) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %191) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %190) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %191) #14
   %1451 = getelementptr inbounds i8, ptr %191, i64 16
   store ptr %1451, ptr %191, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %86) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %86) #14
   store i64 24, ptr %86, align 8, !tbaa !35
-  %1452 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %191, ptr noundef nonnull align 8 dereferenceable(8) %86, i64 noundef 0) #15
+  %1452 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %191, ptr noundef nonnull align 8 dereferenceable(8) %86, i64 noundef 0) #14
   store ptr %1452, ptr %191, align 8, !tbaa !37
   %1453 = load i64, ptr %86, align 8, !tbaa !35
   store i64 %1453, ptr %1451, align 8, !tbaa !3
@@ -3419,11 +3419,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %1455 = load ptr, ptr %191, align 8, !tbaa !37
   %1456 = getelementptr inbounds i8, ptr %1455, i64 %1453
   store i8 0, ptr %1456, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %86) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %86) #14
   %1457 = load ptr, ptr %1, align 8, !tbaa !18
   %1458 = getelementptr inbounds i8, ptr %1457, i64 64
   %1459 = load ptr, ptr %1458, align 8
-  %1460 = call noundef ptr %1459(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %191) #15
+  %1460 = call noundef ptr %1459(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %191) #14
   %1461 = getelementptr inbounds i8, ptr %0, i64 1088
   store ptr %1460, ptr %1461, align 8, !tbaa !105
   %1462 = load ptr, ptr %191, align 8, !tbaa !37
@@ -3437,17 +3437,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %1468
 
 1467:                                             ; preds = %1450
-  call void @_ZdlPv(ptr noundef %1462) #18
+  call void @_ZdlPv(ptr noundef %1462) #17
   br label %1468
 
 1468:                                             ; preds = %1467, %1464
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %191) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %192) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %191) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %192) #14
   %1469 = getelementptr inbounds i8, ptr %192, i64 16
   store ptr %1469, ptr %192, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %85) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %85) #14
   store i64 22, ptr %85, align 8, !tbaa !35
-  %1470 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %192, ptr noundef nonnull align 8 dereferenceable(8) %85, i64 noundef 0) #15
+  %1470 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %192, ptr noundef nonnull align 8 dereferenceable(8) %85, i64 noundef 0) #14
   store ptr %1470, ptr %192, align 8, !tbaa !37
   %1471 = load i64, ptr %85, align 8, !tbaa !35
   store i64 %1471, ptr %1469, align 8, !tbaa !3
@@ -3457,11 +3457,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %1473 = load ptr, ptr %192, align 8, !tbaa !37
   %1474 = getelementptr inbounds i8, ptr %1473, i64 %1471
   store i8 0, ptr %1474, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %85) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %85) #14
   %1475 = load ptr, ptr %1, align 8, !tbaa !18
   %1476 = getelementptr inbounds i8, ptr %1475, i64 64
   %1477 = load ptr, ptr %1476, align 8
-  %1478 = call noundef ptr %1477(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %192) #15
+  %1478 = call noundef ptr %1477(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %192) #14
   %1479 = getelementptr inbounds i8, ptr %0, i64 1096
   store ptr %1478, ptr %1479, align 8, !tbaa !106
   %1480 = load ptr, ptr %192, align 8, !tbaa !37
@@ -3475,17 +3475,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %1486
 
 1485:                                             ; preds = %1468
-  call void @_ZdlPv(ptr noundef %1480) #18
+  call void @_ZdlPv(ptr noundef %1480) #17
   br label %1486
 
 1486:                                             ; preds = %1485, %1482
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %192) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %193) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %192) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %193) #14
   %1487 = getelementptr inbounds i8, ptr %193, i64 16
   store ptr %1487, ptr %193, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %84) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %84) #14
   store i64 22, ptr %84, align 8, !tbaa !35
-  %1488 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %193, ptr noundef nonnull align 8 dereferenceable(8) %84, i64 noundef 0) #15
+  %1488 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %193, ptr noundef nonnull align 8 dereferenceable(8) %84, i64 noundef 0) #14
   store ptr %1488, ptr %193, align 8, !tbaa !37
   %1489 = load i64, ptr %84, align 8, !tbaa !35
   store i64 %1489, ptr %1487, align 8, !tbaa !3
@@ -3495,11 +3495,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %1491 = load ptr, ptr %193, align 8, !tbaa !37
   %1492 = getelementptr inbounds i8, ptr %1491, i64 %1489
   store i8 0, ptr %1492, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %84) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %84) #14
   %1493 = load ptr, ptr %1, align 8, !tbaa !18
   %1494 = getelementptr inbounds i8, ptr %1493, i64 64
   %1495 = load ptr, ptr %1494, align 8
-  %1496 = call noundef ptr %1495(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %193) #15
+  %1496 = call noundef ptr %1495(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %193) #14
   %1497 = getelementptr inbounds i8, ptr %0, i64 1104
   store ptr %1496, ptr %1497, align 8, !tbaa !107
   %1498 = load ptr, ptr %193, align 8, !tbaa !37
@@ -3513,17 +3513,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %1504
 
 1503:                                             ; preds = %1486
-  call void @_ZdlPv(ptr noundef %1498) #18
+  call void @_ZdlPv(ptr noundef %1498) #17
   br label %1504
 
 1504:                                             ; preds = %1503, %1500
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %193) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %194) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %193) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %194) #14
   %1505 = getelementptr inbounds i8, ptr %194, i64 16
   store ptr %1505, ptr %194, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %83) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %83) #14
   store i64 25, ptr %83, align 8, !tbaa !35
-  %1506 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %194, ptr noundef nonnull align 8 dereferenceable(8) %83, i64 noundef 0) #15
+  %1506 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %194, ptr noundef nonnull align 8 dereferenceable(8) %83, i64 noundef 0) #14
   store ptr %1506, ptr %194, align 8, !tbaa !37
   %1507 = load i64, ptr %83, align 8, !tbaa !35
   store i64 %1507, ptr %1505, align 8, !tbaa !3
@@ -3533,11 +3533,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %1509 = load ptr, ptr %194, align 8, !tbaa !37
   %1510 = getelementptr inbounds i8, ptr %1509, i64 %1507
   store i8 0, ptr %1510, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %83) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %83) #14
   %1511 = load ptr, ptr %1, align 8, !tbaa !18
   %1512 = getelementptr inbounds i8, ptr %1511, i64 64
   %1513 = load ptr, ptr %1512, align 8
-  %1514 = call noundef ptr %1513(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %194) #15
+  %1514 = call noundef ptr %1513(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %194) #14
   %1515 = getelementptr inbounds i8, ptr %0, i64 1112
   store ptr %1514, ptr %1515, align 8, !tbaa !108
   %1516 = load ptr, ptr %194, align 8, !tbaa !37
@@ -3551,17 +3551,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %1522
 
 1521:                                             ; preds = %1504
-  call void @_ZdlPv(ptr noundef %1516) #18
+  call void @_ZdlPv(ptr noundef %1516) #17
   br label %1522
 
 1522:                                             ; preds = %1521, %1518
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %194) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %195) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %194) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %195) #14
   %1523 = getelementptr inbounds i8, ptr %195, i64 16
   store ptr %1523, ptr %195, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %82) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %82) #14
   store i64 17, ptr %82, align 8, !tbaa !35
-  %1524 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %195, ptr noundef nonnull align 8 dereferenceable(8) %82, i64 noundef 0) #15
+  %1524 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %195, ptr noundef nonnull align 8 dereferenceable(8) %82, i64 noundef 0) #14
   store ptr %1524, ptr %195, align 8, !tbaa !37
   %1525 = load i64, ptr %82, align 8, !tbaa !35
   store i64 %1525, ptr %1523, align 8, !tbaa !3
@@ -3571,11 +3571,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %1527 = load ptr, ptr %195, align 8, !tbaa !37
   %1528 = getelementptr inbounds i8, ptr %1527, i64 %1525
   store i8 0, ptr %1528, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %82) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %82) #14
   %1529 = load ptr, ptr %1, align 8, !tbaa !18
   %1530 = getelementptr inbounds i8, ptr %1529, i64 64
   %1531 = load ptr, ptr %1530, align 8
-  %1532 = call noundef ptr %1531(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %195) #15
+  %1532 = call noundef ptr %1531(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %195) #14
   %1533 = getelementptr inbounds i8, ptr %0, i64 1120
   store ptr %1532, ptr %1533, align 8, !tbaa !109
   %1534 = load ptr, ptr %195, align 8, !tbaa !37
@@ -3589,17 +3589,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %1540
 
 1539:                                             ; preds = %1522
-  call void @_ZdlPv(ptr noundef %1534) #18
+  call void @_ZdlPv(ptr noundef %1534) #17
   br label %1540
 
 1540:                                             ; preds = %1539, %1536
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %195) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %196) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %195) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %196) #14
   %1541 = getelementptr inbounds i8, ptr %196, i64 16
   store ptr %1541, ptr %196, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %81) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %81) #14
   store i64 20, ptr %81, align 8, !tbaa !35
-  %1542 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %196, ptr noundef nonnull align 8 dereferenceable(8) %81, i64 noundef 0) #15
+  %1542 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %196, ptr noundef nonnull align 8 dereferenceable(8) %81, i64 noundef 0) #14
   store ptr %1542, ptr %196, align 8, !tbaa !37
   %1543 = load i64, ptr %81, align 8, !tbaa !35
   store i64 %1543, ptr %1541, align 8, !tbaa !3
@@ -3609,11 +3609,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %1545 = load ptr, ptr %196, align 8, !tbaa !37
   %1546 = getelementptr inbounds i8, ptr %1545, i64 %1543
   store i8 0, ptr %1546, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %81) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %81) #14
   %1547 = load ptr, ptr %1, align 8, !tbaa !18
   %1548 = getelementptr inbounds i8, ptr %1547, i64 64
   %1549 = load ptr, ptr %1548, align 8
-  %1550 = call noundef ptr %1549(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %196) #15
+  %1550 = call noundef ptr %1549(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %196) #14
   %1551 = getelementptr inbounds i8, ptr %0, i64 1128
   store ptr %1550, ptr %1551, align 8, !tbaa !110
   %1552 = load ptr, ptr %196, align 8, !tbaa !37
@@ -3627,17 +3627,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %1558
 
 1557:                                             ; preds = %1540
-  call void @_ZdlPv(ptr noundef %1552) #18
+  call void @_ZdlPv(ptr noundef %1552) #17
   br label %1558
 
 1558:                                             ; preds = %1557, %1554
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %196) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %197) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %196) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %197) #14
   %1559 = getelementptr inbounds i8, ptr %197, i64 16
   store ptr %1559, ptr %197, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %80) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %80) #14
   store i64 17, ptr %80, align 8, !tbaa !35
-  %1560 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %197, ptr noundef nonnull align 8 dereferenceable(8) %80, i64 noundef 0) #15
+  %1560 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %197, ptr noundef nonnull align 8 dereferenceable(8) %80, i64 noundef 0) #14
   store ptr %1560, ptr %197, align 8, !tbaa !37
   %1561 = load i64, ptr %80, align 8, !tbaa !35
   store i64 %1561, ptr %1559, align 8, !tbaa !3
@@ -3647,11 +3647,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %1563 = load ptr, ptr %197, align 8, !tbaa !37
   %1564 = getelementptr inbounds i8, ptr %1563, i64 %1561
   store i8 0, ptr %1564, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %80) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %80) #14
   %1565 = load ptr, ptr %1, align 8, !tbaa !18
   %1566 = getelementptr inbounds i8, ptr %1565, i64 64
   %1567 = load ptr, ptr %1566, align 8
-  %1568 = call noundef ptr %1567(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %197) #15
+  %1568 = call noundef ptr %1567(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %197) #14
   %1569 = getelementptr inbounds i8, ptr %0, i64 1136
   store ptr %1568, ptr %1569, align 8, !tbaa !111
   %1570 = load ptr, ptr %197, align 8, !tbaa !37
@@ -3665,17 +3665,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %1576
 
 1575:                                             ; preds = %1558
-  call void @_ZdlPv(ptr noundef %1570) #18
+  call void @_ZdlPv(ptr noundef %1570) #17
   br label %1576
 
 1576:                                             ; preds = %1575, %1572
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %197) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %198) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %197) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %198) #14
   %1577 = getelementptr inbounds i8, ptr %198, i64 16
   store ptr %1577, ptr %198, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %79) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %79) #14
   store i64 24, ptr %79, align 8, !tbaa !35
-  %1578 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %198, ptr noundef nonnull align 8 dereferenceable(8) %79, i64 noundef 0) #15
+  %1578 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %198, ptr noundef nonnull align 8 dereferenceable(8) %79, i64 noundef 0) #14
   store ptr %1578, ptr %198, align 8, !tbaa !37
   %1579 = load i64, ptr %79, align 8, !tbaa !35
   store i64 %1579, ptr %1577, align 8, !tbaa !3
@@ -3685,11 +3685,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %1581 = load ptr, ptr %198, align 8, !tbaa !37
   %1582 = getelementptr inbounds i8, ptr %1581, i64 %1579
   store i8 0, ptr %1582, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %79) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %79) #14
   %1583 = load ptr, ptr %1, align 8, !tbaa !18
   %1584 = getelementptr inbounds i8, ptr %1583, i64 64
   %1585 = load ptr, ptr %1584, align 8
-  %1586 = call noundef ptr %1585(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %198) #15
+  %1586 = call noundef ptr %1585(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %198) #14
   %1587 = getelementptr inbounds i8, ptr %0, i64 1144
   store ptr %1586, ptr %1587, align 8, !tbaa !112
   %1588 = load ptr, ptr %198, align 8, !tbaa !37
@@ -3703,17 +3703,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %1594
 
 1593:                                             ; preds = %1576
-  call void @_ZdlPv(ptr noundef %1588) #18
+  call void @_ZdlPv(ptr noundef %1588) #17
   br label %1594
 
 1594:                                             ; preds = %1593, %1590
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %198) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %199) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %198) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %199) #14
   %1595 = getelementptr inbounds i8, ptr %199, i64 16
   store ptr %1595, ptr %199, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %78) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %78) #14
   store i64 22, ptr %78, align 8, !tbaa !35
-  %1596 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %199, ptr noundef nonnull align 8 dereferenceable(8) %78, i64 noundef 0) #15
+  %1596 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %199, ptr noundef nonnull align 8 dereferenceable(8) %78, i64 noundef 0) #14
   store ptr %1596, ptr %199, align 8, !tbaa !37
   %1597 = load i64, ptr %78, align 8, !tbaa !35
   store i64 %1597, ptr %1595, align 8, !tbaa !3
@@ -3723,11 +3723,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %1599 = load ptr, ptr %199, align 8, !tbaa !37
   %1600 = getelementptr inbounds i8, ptr %1599, i64 %1597
   store i8 0, ptr %1600, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %78) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %78) #14
   %1601 = load ptr, ptr %1, align 8, !tbaa !18
   %1602 = getelementptr inbounds i8, ptr %1601, i64 64
   %1603 = load ptr, ptr %1602, align 8
-  %1604 = call noundef ptr %1603(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %199) #15
+  %1604 = call noundef ptr %1603(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %199) #14
   %1605 = getelementptr inbounds i8, ptr %0, i64 1152
   store ptr %1604, ptr %1605, align 8, !tbaa !113
   %1606 = load ptr, ptr %199, align 8, !tbaa !37
@@ -3741,17 +3741,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %1612
 
 1611:                                             ; preds = %1594
-  call void @_ZdlPv(ptr noundef %1606) #18
+  call void @_ZdlPv(ptr noundef %1606) #17
   br label %1612
 
 1612:                                             ; preds = %1611, %1608
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %199) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %200) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %199) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %200) #14
   %1613 = getelementptr inbounds i8, ptr %200, i64 16
   store ptr %1613, ptr %200, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %77) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %77) #14
   store i64 18, ptr %77, align 8, !tbaa !35
-  %1614 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %200, ptr noundef nonnull align 8 dereferenceable(8) %77, i64 noundef 0) #15
+  %1614 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %200, ptr noundef nonnull align 8 dereferenceable(8) %77, i64 noundef 0) #14
   store ptr %1614, ptr %200, align 8, !tbaa !37
   %1615 = load i64, ptr %77, align 8, !tbaa !35
   store i64 %1615, ptr %1613, align 8, !tbaa !3
@@ -3761,11 +3761,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %1617 = load ptr, ptr %200, align 8, !tbaa !37
   %1618 = getelementptr inbounds i8, ptr %1617, i64 %1615
   store i8 0, ptr %1618, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %77) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %77) #14
   %1619 = load ptr, ptr %1, align 8, !tbaa !18
   %1620 = getelementptr inbounds i8, ptr %1619, i64 64
   %1621 = load ptr, ptr %1620, align 8
-  %1622 = call noundef ptr %1621(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %200) #15
+  %1622 = call noundef ptr %1621(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %200) #14
   %1623 = getelementptr inbounds i8, ptr %0, i64 1160
   store ptr %1622, ptr %1623, align 8, !tbaa !114
   %1624 = load ptr, ptr %200, align 8, !tbaa !37
@@ -3779,17 +3779,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %1630
 
 1629:                                             ; preds = %1612
-  call void @_ZdlPv(ptr noundef %1624) #18
+  call void @_ZdlPv(ptr noundef %1624) #17
   br label %1630
 
 1630:                                             ; preds = %1629, %1626
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %200) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %201) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %200) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %201) #14
   %1631 = getelementptr inbounds i8, ptr %201, i64 16
   store ptr %1631, ptr %201, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %76) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %76) #14
   store i64 21, ptr %76, align 8, !tbaa !35
-  %1632 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %201, ptr noundef nonnull align 8 dereferenceable(8) %76, i64 noundef 0) #15
+  %1632 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %201, ptr noundef nonnull align 8 dereferenceable(8) %76, i64 noundef 0) #14
   store ptr %1632, ptr %201, align 8, !tbaa !37
   %1633 = load i64, ptr %76, align 8, !tbaa !35
   store i64 %1633, ptr %1631, align 8, !tbaa !3
@@ -3799,11 +3799,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %1635 = load ptr, ptr %201, align 8, !tbaa !37
   %1636 = getelementptr inbounds i8, ptr %1635, i64 %1633
   store i8 0, ptr %1636, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %76) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %76) #14
   %1637 = load ptr, ptr %1, align 8, !tbaa !18
   %1638 = getelementptr inbounds i8, ptr %1637, i64 64
   %1639 = load ptr, ptr %1638, align 8
-  %1640 = call noundef ptr %1639(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %201) #15
+  %1640 = call noundef ptr %1639(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %201) #14
   %1641 = getelementptr inbounds i8, ptr %0, i64 1168
   store ptr %1640, ptr %1641, align 8, !tbaa !115
   %1642 = load ptr, ptr %201, align 8, !tbaa !37
@@ -3817,17 +3817,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %1648
 
 1647:                                             ; preds = %1630
-  call void @_ZdlPv(ptr noundef %1642) #18
+  call void @_ZdlPv(ptr noundef %1642) #17
   br label %1648
 
 1648:                                             ; preds = %1647, %1644
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %201) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %202) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %201) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %202) #14
   %1649 = getelementptr inbounds i8, ptr %202, i64 16
   store ptr %1649, ptr %202, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %75) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %75) #14
   store i64 18, ptr %75, align 8, !tbaa !35
-  %1650 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %202, ptr noundef nonnull align 8 dereferenceable(8) %75, i64 noundef 0) #15
+  %1650 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %202, ptr noundef nonnull align 8 dereferenceable(8) %75, i64 noundef 0) #14
   store ptr %1650, ptr %202, align 8, !tbaa !37
   %1651 = load i64, ptr %75, align 8, !tbaa !35
   store i64 %1651, ptr %1649, align 8, !tbaa !3
@@ -3837,11 +3837,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %1653 = load ptr, ptr %202, align 8, !tbaa !37
   %1654 = getelementptr inbounds i8, ptr %1653, i64 %1651
   store i8 0, ptr %1654, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %75) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %75) #14
   %1655 = load ptr, ptr %1, align 8, !tbaa !18
   %1656 = getelementptr inbounds i8, ptr %1655, i64 64
   %1657 = load ptr, ptr %1656, align 8
-  %1658 = call noundef ptr %1657(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %202) #15
+  %1658 = call noundef ptr %1657(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %202) #14
   %1659 = getelementptr inbounds i8, ptr %0, i64 1176
   store ptr %1658, ptr %1659, align 8, !tbaa !116
   %1660 = load ptr, ptr %202, align 8, !tbaa !37
@@ -3855,17 +3855,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %1666
 
 1665:                                             ; preds = %1648
-  call void @_ZdlPv(ptr noundef %1660) #18
+  call void @_ZdlPv(ptr noundef %1660) #17
   br label %1666
 
 1666:                                             ; preds = %1665, %1662
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %202) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %203) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %202) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %203) #14
   %1667 = getelementptr inbounds i8, ptr %203, i64 16
   store ptr %1667, ptr %203, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %74) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %74) #14
   store i64 21, ptr %74, align 8, !tbaa !35
-  %1668 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %203, ptr noundef nonnull align 8 dereferenceable(8) %74, i64 noundef 0) #15
+  %1668 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %203, ptr noundef nonnull align 8 dereferenceable(8) %74, i64 noundef 0) #14
   store ptr %1668, ptr %203, align 8, !tbaa !37
   %1669 = load i64, ptr %74, align 8, !tbaa !35
   store i64 %1669, ptr %1667, align 8, !tbaa !3
@@ -3875,11 +3875,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %1671 = load ptr, ptr %203, align 8, !tbaa !37
   %1672 = getelementptr inbounds i8, ptr %1671, i64 %1669
   store i8 0, ptr %1672, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %74) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %74) #14
   %1673 = load ptr, ptr %1, align 8, !tbaa !18
   %1674 = getelementptr inbounds i8, ptr %1673, i64 64
   %1675 = load ptr, ptr %1674, align 8
-  %1676 = call noundef ptr %1675(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %203) #15
+  %1676 = call noundef ptr %1675(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %203) #14
   %1677 = getelementptr inbounds i8, ptr %0, i64 1184
   store ptr %1676, ptr %1677, align 8, !tbaa !117
   %1678 = load ptr, ptr %203, align 8, !tbaa !37
@@ -3893,17 +3893,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %1684
 
 1683:                                             ; preds = %1666
-  call void @_ZdlPv(ptr noundef %1678) #18
+  call void @_ZdlPv(ptr noundef %1678) #17
   br label %1684
 
 1684:                                             ; preds = %1683, %1680
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %203) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %204) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %203) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %204) #14
   %1685 = getelementptr inbounds i8, ptr %204, i64 16
   store ptr %1685, ptr %204, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %73) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %73) #14
   store i64 25, ptr %73, align 8, !tbaa !35
-  %1686 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %204, ptr noundef nonnull align 8 dereferenceable(8) %73, i64 noundef 0) #15
+  %1686 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %204, ptr noundef nonnull align 8 dereferenceable(8) %73, i64 noundef 0) #14
   store ptr %1686, ptr %204, align 8, !tbaa !37
   %1687 = load i64, ptr %73, align 8, !tbaa !35
   store i64 %1687, ptr %1685, align 8, !tbaa !3
@@ -3913,11 +3913,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %1689 = load ptr, ptr %204, align 8, !tbaa !37
   %1690 = getelementptr inbounds i8, ptr %1689, i64 %1687
   store i8 0, ptr %1690, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %73) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %73) #14
   %1691 = load ptr, ptr %1, align 8, !tbaa !18
   %1692 = getelementptr inbounds i8, ptr %1691, i64 64
   %1693 = load ptr, ptr %1692, align 8
-  %1694 = call noundef ptr %1693(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %204) #15
+  %1694 = call noundef ptr %1693(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %204) #14
   %1695 = getelementptr inbounds i8, ptr %0, i64 1192
   store ptr %1694, ptr %1695, align 8, !tbaa !118
   %1696 = load ptr, ptr %204, align 8, !tbaa !37
@@ -3931,17 +3931,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %1702
 
 1701:                                             ; preds = %1684
-  call void @_ZdlPv(ptr noundef %1696) #18
+  call void @_ZdlPv(ptr noundef %1696) #17
   br label %1702
 
 1702:                                             ; preds = %1701, %1698
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %204) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %205) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %204) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %205) #14
   %1703 = getelementptr inbounds i8, ptr %205, i64 16
   store ptr %1703, ptr %205, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %72) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %72) #14
   store i64 16, ptr %72, align 8, !tbaa !35
-  %1704 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %205, ptr noundef nonnull align 8 dereferenceable(8) %72, i64 noundef 0) #15
+  %1704 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %205, ptr noundef nonnull align 8 dereferenceable(8) %72, i64 noundef 0) #14
   store ptr %1704, ptr %205, align 8, !tbaa !37
   %1705 = load i64, ptr %72, align 8, !tbaa !35
   store i64 %1705, ptr %1703, align 8, !tbaa !3
@@ -3951,11 +3951,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %1707 = load ptr, ptr %205, align 8, !tbaa !37
   %1708 = getelementptr inbounds i8, ptr %1707, i64 %1705
   store i8 0, ptr %1708, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %72) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %72) #14
   %1709 = load ptr, ptr %1, align 8, !tbaa !18
   %1710 = getelementptr inbounds i8, ptr %1709, i64 64
   %1711 = load ptr, ptr %1710, align 8
-  %1712 = call noundef ptr %1711(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %205) #15
+  %1712 = call noundef ptr %1711(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %205) #14
   %1713 = getelementptr inbounds i8, ptr %0, i64 1200
   store ptr %1712, ptr %1713, align 8, !tbaa !119
   %1714 = load ptr, ptr %205, align 8, !tbaa !37
@@ -3969,17 +3969,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %1720
 
 1719:                                             ; preds = %1702
-  call void @_ZdlPv(ptr noundef %1714) #18
+  call void @_ZdlPv(ptr noundef %1714) #17
   br label %1720
 
 1720:                                             ; preds = %1719, %1716
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %205) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %206) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %205) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %206) #14
   %1721 = getelementptr inbounds i8, ptr %206, i64 16
   store ptr %1721, ptr %206, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %71) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %71) #14
   store i64 20, ptr %71, align 8, !tbaa !35
-  %1722 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %206, ptr noundef nonnull align 8 dereferenceable(8) %71, i64 noundef 0) #15
+  %1722 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %206, ptr noundef nonnull align 8 dereferenceable(8) %71, i64 noundef 0) #14
   store ptr %1722, ptr %206, align 8, !tbaa !37
   %1723 = load i64, ptr %71, align 8, !tbaa !35
   store i64 %1723, ptr %1721, align 8, !tbaa !3
@@ -3989,11 +3989,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %1725 = load ptr, ptr %206, align 8, !tbaa !37
   %1726 = getelementptr inbounds i8, ptr %1725, i64 %1723
   store i8 0, ptr %1726, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %71) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %71) #14
   %1727 = load ptr, ptr %1, align 8, !tbaa !18
   %1728 = getelementptr inbounds i8, ptr %1727, i64 64
   %1729 = load ptr, ptr %1728, align 8
-  %1730 = call noundef ptr %1729(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %206) #15
+  %1730 = call noundef ptr %1729(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %206) #14
   %1731 = getelementptr inbounds i8, ptr %0, i64 1208
   store ptr %1730, ptr %1731, align 8, !tbaa !120
   %1732 = load ptr, ptr %206, align 8, !tbaa !37
@@ -4007,17 +4007,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %1738
 
 1737:                                             ; preds = %1720
-  call void @_ZdlPv(ptr noundef %1732) #18
+  call void @_ZdlPv(ptr noundef %1732) #17
   br label %1738
 
 1738:                                             ; preds = %1737, %1734
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %206) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %207) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %206) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %207) #14
   %1739 = getelementptr inbounds i8, ptr %207, i64 16
   store ptr %1739, ptr %207, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %70) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %70) #14
   store i64 23, ptr %70, align 8, !tbaa !35
-  %1740 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %207, ptr noundef nonnull align 8 dereferenceable(8) %70, i64 noundef 0) #15
+  %1740 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %207, ptr noundef nonnull align 8 dereferenceable(8) %70, i64 noundef 0) #14
   store ptr %1740, ptr %207, align 8, !tbaa !37
   %1741 = load i64, ptr %70, align 8, !tbaa !35
   store i64 %1741, ptr %1739, align 8, !tbaa !3
@@ -4027,11 +4027,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %1743 = load ptr, ptr %207, align 8, !tbaa !37
   %1744 = getelementptr inbounds i8, ptr %1743, i64 %1741
   store i8 0, ptr %1744, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %70) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %70) #14
   %1745 = load ptr, ptr %1, align 8, !tbaa !18
   %1746 = getelementptr inbounds i8, ptr %1745, i64 64
   %1747 = load ptr, ptr %1746, align 8
-  %1748 = call noundef ptr %1747(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %207) #15
+  %1748 = call noundef ptr %1747(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %207) #14
   %1749 = getelementptr inbounds i8, ptr %0, i64 1216
   store ptr %1748, ptr %1749, align 8, !tbaa !121
   %1750 = load ptr, ptr %207, align 8, !tbaa !37
@@ -4045,17 +4045,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %1756
 
 1755:                                             ; preds = %1738
-  call void @_ZdlPv(ptr noundef %1750) #18
+  call void @_ZdlPv(ptr noundef %1750) #17
   br label %1756
 
 1756:                                             ; preds = %1755, %1752
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %207) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %208) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %207) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %208) #14
   %1757 = getelementptr inbounds i8, ptr %208, i64 16
   store ptr %1757, ptr %208, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %69) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %69) #14
   store i64 20, ptr %69, align 8, !tbaa !35
-  %1758 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %208, ptr noundef nonnull align 8 dereferenceable(8) %69, i64 noundef 0) #15
+  %1758 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %208, ptr noundef nonnull align 8 dereferenceable(8) %69, i64 noundef 0) #14
   store ptr %1758, ptr %208, align 8, !tbaa !37
   %1759 = load i64, ptr %69, align 8, !tbaa !35
   store i64 %1759, ptr %1757, align 8, !tbaa !3
@@ -4065,11 +4065,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %1761 = load ptr, ptr %208, align 8, !tbaa !37
   %1762 = getelementptr inbounds i8, ptr %1761, i64 %1759
   store i8 0, ptr %1762, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %69) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %69) #14
   %1763 = load ptr, ptr %1, align 8, !tbaa !18
   %1764 = getelementptr inbounds i8, ptr %1763, i64 64
   %1765 = load ptr, ptr %1764, align 8
-  %1766 = call noundef ptr %1765(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %208) #15
+  %1766 = call noundef ptr %1765(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %208) #14
   %1767 = getelementptr inbounds i8, ptr %0, i64 1224
   store ptr %1766, ptr %1767, align 8, !tbaa !122
   %1768 = load ptr, ptr %208, align 8, !tbaa !37
@@ -4083,17 +4083,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %1774
 
 1773:                                             ; preds = %1756
-  call void @_ZdlPv(ptr noundef %1768) #18
+  call void @_ZdlPv(ptr noundef %1768) #17
   br label %1774
 
 1774:                                             ; preds = %1773, %1770
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %208) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %209) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %208) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %209) #14
   %1775 = getelementptr inbounds i8, ptr %209, i64 16
   store ptr %1775, ptr %209, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %68) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %68) #14
   store i64 27, ptr %68, align 8, !tbaa !35
-  %1776 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %209, ptr noundef nonnull align 8 dereferenceable(8) %68, i64 noundef 0) #15
+  %1776 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %209, ptr noundef nonnull align 8 dereferenceable(8) %68, i64 noundef 0) #14
   store ptr %1776, ptr %209, align 8, !tbaa !37
   %1777 = load i64, ptr %68, align 8, !tbaa !35
   store i64 %1777, ptr %1775, align 8, !tbaa !3
@@ -4103,11 +4103,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %1779 = load ptr, ptr %209, align 8, !tbaa !37
   %1780 = getelementptr inbounds i8, ptr %1779, i64 %1777
   store i8 0, ptr %1780, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %68) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %68) #14
   %1781 = load ptr, ptr %1, align 8, !tbaa !18
   %1782 = getelementptr inbounds i8, ptr %1781, i64 64
   %1783 = load ptr, ptr %1782, align 8
-  %1784 = call noundef ptr %1783(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %209) #15
+  %1784 = call noundef ptr %1783(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %209) #14
   %1785 = getelementptr inbounds i8, ptr %0, i64 1232
   store ptr %1784, ptr %1785, align 8, !tbaa !123
   %1786 = load ptr, ptr %209, align 8, !tbaa !37
@@ -4121,17 +4121,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %1792
 
 1791:                                             ; preds = %1774
-  call void @_ZdlPv(ptr noundef %1786) #18
+  call void @_ZdlPv(ptr noundef %1786) #17
   br label %1792
 
 1792:                                             ; preds = %1791, %1788
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %209) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %210) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %209) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %210) #14
   %1793 = getelementptr inbounds i8, ptr %210, i64 16
   store ptr %1793, ptr %210, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %67) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %67) #14
   store i64 25, ptr %67, align 8, !tbaa !35
-  %1794 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %210, ptr noundef nonnull align 8 dereferenceable(8) %67, i64 noundef 0) #15
+  %1794 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %210, ptr noundef nonnull align 8 dereferenceable(8) %67, i64 noundef 0) #14
   store ptr %1794, ptr %210, align 8, !tbaa !37
   %1795 = load i64, ptr %67, align 8, !tbaa !35
   store i64 %1795, ptr %1793, align 8, !tbaa !3
@@ -4141,11 +4141,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %1797 = load ptr, ptr %210, align 8, !tbaa !37
   %1798 = getelementptr inbounds i8, ptr %1797, i64 %1795
   store i8 0, ptr %1798, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %67) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %67) #14
   %1799 = load ptr, ptr %1, align 8, !tbaa !18
   %1800 = getelementptr inbounds i8, ptr %1799, i64 64
   %1801 = load ptr, ptr %1800, align 8
-  %1802 = call noundef ptr %1801(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %210) #15
+  %1802 = call noundef ptr %1801(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %210) #14
   %1803 = getelementptr inbounds i8, ptr %0, i64 1240
   store ptr %1802, ptr %1803, align 8, !tbaa !124
   %1804 = load ptr, ptr %210, align 8, !tbaa !37
@@ -4159,17 +4159,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %1810
 
 1809:                                             ; preds = %1792
-  call void @_ZdlPv(ptr noundef %1804) #18
+  call void @_ZdlPv(ptr noundef %1804) #17
   br label %1810
 
 1810:                                             ; preds = %1809, %1806
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %210) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %211) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %210) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %211) #14
   %1811 = getelementptr inbounds i8, ptr %211, i64 16
   store ptr %1811, ptr %211, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %66) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %66) #14
   store i64 21, ptr %66, align 8, !tbaa !35
-  %1812 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %211, ptr noundef nonnull align 8 dereferenceable(8) %66, i64 noundef 0) #15
+  %1812 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %211, ptr noundef nonnull align 8 dereferenceable(8) %66, i64 noundef 0) #14
   store ptr %1812, ptr %211, align 8, !tbaa !37
   %1813 = load i64, ptr %66, align 8, !tbaa !35
   store i64 %1813, ptr %1811, align 8, !tbaa !3
@@ -4179,11 +4179,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %1815 = load ptr, ptr %211, align 8, !tbaa !37
   %1816 = getelementptr inbounds i8, ptr %1815, i64 %1813
   store i8 0, ptr %1816, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %66) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %66) #14
   %1817 = load ptr, ptr %1, align 8, !tbaa !18
   %1818 = getelementptr inbounds i8, ptr %1817, i64 64
   %1819 = load ptr, ptr %1818, align 8
-  %1820 = call noundef ptr %1819(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %211) #15
+  %1820 = call noundef ptr %1819(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %211) #14
   %1821 = getelementptr inbounds i8, ptr %0, i64 1248
   store ptr %1820, ptr %1821, align 8, !tbaa !125
   %1822 = load ptr, ptr %211, align 8, !tbaa !37
@@ -4197,17 +4197,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %1828
 
 1827:                                             ; preds = %1810
-  call void @_ZdlPv(ptr noundef %1822) #18
+  call void @_ZdlPv(ptr noundef %1822) #17
   br label %1828
 
 1828:                                             ; preds = %1827, %1824
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %211) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %212) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %211) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %212) #14
   %1829 = getelementptr inbounds i8, ptr %212, i64 16
   store ptr %1829, ptr %212, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %65) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %65) #14
   store i64 24, ptr %65, align 8, !tbaa !35
-  %1830 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %212, ptr noundef nonnull align 8 dereferenceable(8) %65, i64 noundef 0) #15
+  %1830 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %212, ptr noundef nonnull align 8 dereferenceable(8) %65, i64 noundef 0) #14
   store ptr %1830, ptr %212, align 8, !tbaa !37
   %1831 = load i64, ptr %65, align 8, !tbaa !35
   store i64 %1831, ptr %1829, align 8, !tbaa !3
@@ -4217,11 +4217,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %1833 = load ptr, ptr %212, align 8, !tbaa !37
   %1834 = getelementptr inbounds i8, ptr %1833, i64 %1831
   store i8 0, ptr %1834, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %65) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %65) #14
   %1835 = load ptr, ptr %1, align 8, !tbaa !18
   %1836 = getelementptr inbounds i8, ptr %1835, i64 64
   %1837 = load ptr, ptr %1836, align 8
-  %1838 = call noundef ptr %1837(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %212) #15
+  %1838 = call noundef ptr %1837(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %212) #14
   %1839 = getelementptr inbounds i8, ptr %0, i64 1256
   store ptr %1838, ptr %1839, align 8, !tbaa !126
   %1840 = load ptr, ptr %212, align 8, !tbaa !37
@@ -4235,17 +4235,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %1846
 
 1845:                                             ; preds = %1828
-  call void @_ZdlPv(ptr noundef %1840) #18
+  call void @_ZdlPv(ptr noundef %1840) #17
   br label %1846
 
 1846:                                             ; preds = %1845, %1842
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %212) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %213) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %212) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %213) #14
   %1847 = getelementptr inbounds i8, ptr %213, i64 16
   store ptr %1847, ptr %213, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %64) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %64) #14
   store i64 21, ptr %64, align 8, !tbaa !35
-  %1848 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %213, ptr noundef nonnull align 8 dereferenceable(8) %64, i64 noundef 0) #15
+  %1848 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %213, ptr noundef nonnull align 8 dereferenceable(8) %64, i64 noundef 0) #14
   store ptr %1848, ptr %213, align 8, !tbaa !37
   %1849 = load i64, ptr %64, align 8, !tbaa !35
   store i64 %1849, ptr %1847, align 8, !tbaa !3
@@ -4255,11 +4255,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %1851 = load ptr, ptr %213, align 8, !tbaa !37
   %1852 = getelementptr inbounds i8, ptr %1851, i64 %1849
   store i8 0, ptr %1852, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %64) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %64) #14
   %1853 = load ptr, ptr %1, align 8, !tbaa !18
   %1854 = getelementptr inbounds i8, ptr %1853, i64 64
   %1855 = load ptr, ptr %1854, align 8
-  %1856 = call noundef ptr %1855(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %213) #15
+  %1856 = call noundef ptr %1855(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %213) #14
   %1857 = getelementptr inbounds i8, ptr %0, i64 1264
   store ptr %1856, ptr %1857, align 8, !tbaa !127
   %1858 = load ptr, ptr %213, align 8, !tbaa !37
@@ -4273,17 +4273,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %1864
 
 1863:                                             ; preds = %1846
-  call void @_ZdlPv(ptr noundef %1858) #18
+  call void @_ZdlPv(ptr noundef %1858) #17
   br label %1864
 
 1864:                                             ; preds = %1863, %1860
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %213) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %214) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %213) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %214) #14
   %1865 = getelementptr inbounds i8, ptr %214, i64 16
   store ptr %1865, ptr %214, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %63) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %63) #14
   store i64 24, ptr %63, align 8, !tbaa !35
-  %1866 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %214, ptr noundef nonnull align 8 dereferenceable(8) %63, i64 noundef 0) #15
+  %1866 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %214, ptr noundef nonnull align 8 dereferenceable(8) %63, i64 noundef 0) #14
   store ptr %1866, ptr %214, align 8, !tbaa !37
   %1867 = load i64, ptr %63, align 8, !tbaa !35
   store i64 %1867, ptr %1865, align 8, !tbaa !3
@@ -4293,11 +4293,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %1869 = load ptr, ptr %214, align 8, !tbaa !37
   %1870 = getelementptr inbounds i8, ptr %1869, i64 %1867
   store i8 0, ptr %1870, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %63) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %63) #14
   %1871 = load ptr, ptr %1, align 8, !tbaa !18
   %1872 = getelementptr inbounds i8, ptr %1871, i64 64
   %1873 = load ptr, ptr %1872, align 8
-  %1874 = call noundef ptr %1873(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %214) #15
+  %1874 = call noundef ptr %1873(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %214) #14
   %1875 = getelementptr inbounds i8, ptr %0, i64 1272
   store ptr %1874, ptr %1875, align 8, !tbaa !128
   %1876 = load ptr, ptr %214, align 8, !tbaa !37
@@ -4311,17 +4311,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %1882
 
 1881:                                             ; preds = %1864
-  call void @_ZdlPv(ptr noundef %1876) #18
+  call void @_ZdlPv(ptr noundef %1876) #17
   br label %1882
 
 1882:                                             ; preds = %1881, %1878
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %214) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %215) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %214) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %215) #14
   %1883 = getelementptr inbounds i8, ptr %215, i64 16
   store ptr %1883, ptr %215, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %62) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %62) #14
   store i64 28, ptr %62, align 8, !tbaa !35
-  %1884 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %215, ptr noundef nonnull align 8 dereferenceable(8) %62, i64 noundef 0) #15
+  %1884 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %215, ptr noundef nonnull align 8 dereferenceable(8) %62, i64 noundef 0) #14
   store ptr %1884, ptr %215, align 8, !tbaa !37
   %1885 = load i64, ptr %62, align 8, !tbaa !35
   store i64 %1885, ptr %1883, align 8, !tbaa !3
@@ -4331,11 +4331,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %1887 = load ptr, ptr %215, align 8, !tbaa !37
   %1888 = getelementptr inbounds i8, ptr %1887, i64 %1885
   store i8 0, ptr %1888, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %62) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %62) #14
   %1889 = load ptr, ptr %1, align 8, !tbaa !18
   %1890 = getelementptr inbounds i8, ptr %1889, i64 64
   %1891 = load ptr, ptr %1890, align 8
-  %1892 = call noundef ptr %1891(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %215) #15
+  %1892 = call noundef ptr %1891(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %215) #14
   %1893 = getelementptr inbounds i8, ptr %0, i64 1280
   store ptr %1892, ptr %1893, align 8, !tbaa !129
   %1894 = load ptr, ptr %215, align 8, !tbaa !37
@@ -4349,17 +4349,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %1900
 
 1899:                                             ; preds = %1882
-  call void @_ZdlPv(ptr noundef %1894) #18
+  call void @_ZdlPv(ptr noundef %1894) #17
   br label %1900
 
 1900:                                             ; preds = %1899, %1896
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %215) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %216) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %215) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %216) #14
   %1901 = getelementptr inbounds i8, ptr %216, i64 16
   store ptr %1901, ptr %216, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %61) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %61) #14
   store i64 19, ptr %61, align 8, !tbaa !35
-  %1902 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %216, ptr noundef nonnull align 8 dereferenceable(8) %61, i64 noundef 0) #15
+  %1902 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %216, ptr noundef nonnull align 8 dereferenceable(8) %61, i64 noundef 0) #14
   store ptr %1902, ptr %216, align 8, !tbaa !37
   %1903 = load i64, ptr %61, align 8, !tbaa !35
   store i64 %1903, ptr %1901, align 8, !tbaa !3
@@ -4369,11 +4369,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %1905 = load ptr, ptr %216, align 8, !tbaa !37
   %1906 = getelementptr inbounds i8, ptr %1905, i64 %1903
   store i8 0, ptr %1906, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %61) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %61) #14
   %1907 = load ptr, ptr %1, align 8, !tbaa !18
   %1908 = getelementptr inbounds i8, ptr %1907, i64 64
   %1909 = load ptr, ptr %1908, align 8
-  %1910 = call noundef ptr %1909(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %216) #15
+  %1910 = call noundef ptr %1909(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %216) #14
   %1911 = getelementptr inbounds i8, ptr %0, i64 1288
   store ptr %1910, ptr %1911, align 8, !tbaa !130
   %1912 = load ptr, ptr %216, align 8, !tbaa !37
@@ -4387,17 +4387,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %1918
 
 1917:                                             ; preds = %1900
-  call void @_ZdlPv(ptr noundef %1912) #18
+  call void @_ZdlPv(ptr noundef %1912) #17
   br label %1918
 
 1918:                                             ; preds = %1917, %1914
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %216) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %217) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %216) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %217) #14
   %1919 = getelementptr inbounds i8, ptr %217, i64 16
   store ptr %1919, ptr %217, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %60) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %60) #14
   store i64 16, ptr %60, align 8, !tbaa !35
-  %1920 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %217, ptr noundef nonnull align 8 dereferenceable(8) %60, i64 noundef 0) #15
+  %1920 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %217, ptr noundef nonnull align 8 dereferenceable(8) %60, i64 noundef 0) #14
   store ptr %1920, ptr %217, align 8, !tbaa !37
   %1921 = load i64, ptr %60, align 8, !tbaa !35
   store i64 %1921, ptr %1919, align 8, !tbaa !3
@@ -4407,11 +4407,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %1923 = load ptr, ptr %217, align 8, !tbaa !37
   %1924 = getelementptr inbounds i8, ptr %1923, i64 %1921
   store i8 0, ptr %1924, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %60) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %60) #14
   %1925 = load ptr, ptr %1, align 8, !tbaa !18
   %1926 = getelementptr inbounds i8, ptr %1925, i64 64
   %1927 = load ptr, ptr %1926, align 8
-  %1928 = call noundef ptr %1927(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %217) #15
+  %1928 = call noundef ptr %1927(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %217) #14
   %1929 = getelementptr inbounds i8, ptr %0, i64 1304
   store ptr %1928, ptr %1929, align 8, !tbaa !131
   %1930 = load ptr, ptr %217, align 8, !tbaa !37
@@ -4425,17 +4425,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %1936
 
 1935:                                             ; preds = %1918
-  call void @_ZdlPv(ptr noundef %1930) #18
+  call void @_ZdlPv(ptr noundef %1930) #17
   br label %1936
 
 1936:                                             ; preds = %1935, %1932
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %217) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %218) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %217) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %218) #14
   %1937 = getelementptr inbounds i8, ptr %218, i64 16
   store ptr %1937, ptr %218, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %59) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %59) #14
   store i64 16, ptr %59, align 8, !tbaa !35
-  %1938 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %218, ptr noundef nonnull align 8 dereferenceable(8) %59, i64 noundef 0) #15
+  %1938 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %218, ptr noundef nonnull align 8 dereferenceable(8) %59, i64 noundef 0) #14
   store ptr %1938, ptr %218, align 8, !tbaa !37
   %1939 = load i64, ptr %59, align 8, !tbaa !35
   store i64 %1939, ptr %1937, align 8, !tbaa !3
@@ -4445,11 +4445,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %1941 = load ptr, ptr %218, align 8, !tbaa !37
   %1942 = getelementptr inbounds i8, ptr %1941, i64 %1939
   store i8 0, ptr %1942, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %59) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %59) #14
   %1943 = load ptr, ptr %1, align 8, !tbaa !18
   %1944 = getelementptr inbounds i8, ptr %1943, i64 64
   %1945 = load ptr, ptr %1944, align 8
-  %1946 = call noundef ptr %1945(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %218) #15
+  %1946 = call noundef ptr %1945(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %218) #14
   %1947 = getelementptr inbounds i8, ptr %0, i64 1312
   store ptr %1946, ptr %1947, align 8, !tbaa !132
   %1948 = load ptr, ptr %218, align 8, !tbaa !37
@@ -4463,12 +4463,12 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %1954
 
 1953:                                             ; preds = %1936
-  call void @_ZdlPv(ptr noundef %1948) #18
+  call void @_ZdlPv(ptr noundef %1948) #17
   br label %1954
 
 1954:                                             ; preds = %1953, %1950
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %218) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %219) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %218) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %219) #14
   %1955 = getelementptr inbounds i8, ptr %219, i64 16
   store ptr %1955, ptr %219, align 8, !tbaa !33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %1955, ptr noundef nonnull align 1 dereferenceable(15) @.str.99, i64 15, i1 false)
@@ -4479,7 +4479,7 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %1958 = load ptr, ptr %1, align 8, !tbaa !18
   %1959 = getelementptr inbounds i8, ptr %1958, i64 64
   %1960 = load ptr, ptr %1959, align 8
-  %1961 = call noundef ptr %1960(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %219) #15
+  %1961 = call noundef ptr %1960(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %219) #14
   %1962 = getelementptr inbounds i8, ptr %0, i64 1320
   store ptr %1961, ptr %1962, align 8, !tbaa !133
   %1963 = load ptr, ptr %219, align 8, !tbaa !37
@@ -4493,12 +4493,12 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %1969
 
 1968:                                             ; preds = %1954
-  call void @_ZdlPv(ptr noundef %1963) #18
+  call void @_ZdlPv(ptr noundef %1963) #17
   br label %1969
 
 1969:                                             ; preds = %1968, %1965
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %219) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %220) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %219) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %220) #14
   %1970 = getelementptr inbounds i8, ptr %220, i64 16
   store ptr %1970, ptr %220, align 8, !tbaa !33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %1970, ptr noundef nonnull align 1 dereferenceable(15) @.str.100, i64 15, i1 false)
@@ -4509,7 +4509,7 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %1973 = load ptr, ptr %1, align 8, !tbaa !18
   %1974 = getelementptr inbounds i8, ptr %1973, i64 64
   %1975 = load ptr, ptr %1974, align 8
-  %1976 = call noundef ptr %1975(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %220) #15
+  %1976 = call noundef ptr %1975(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %220) #14
   %1977 = getelementptr inbounds i8, ptr %0, i64 1328
   store ptr %1976, ptr %1977, align 8, !tbaa !134
   %1978 = load ptr, ptr %220, align 8, !tbaa !37
@@ -4523,12 +4523,12 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %1984
 
 1983:                                             ; preds = %1969
-  call void @_ZdlPv(ptr noundef %1978) #18
+  call void @_ZdlPv(ptr noundef %1978) #17
   br label %1984
 
 1984:                                             ; preds = %1983, %1980
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %220) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %221) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %220) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %221) #14
   %1985 = getelementptr inbounds i8, ptr %221, i64 16
   store ptr %1985, ptr %221, align 8, !tbaa !33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %1985, ptr noundef nonnull align 1 dereferenceable(15) @.str.101, i64 15, i1 false)
@@ -4539,7 +4539,7 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %1988 = load ptr, ptr %1, align 8, !tbaa !18
   %1989 = getelementptr inbounds i8, ptr %1988, i64 64
   %1990 = load ptr, ptr %1989, align 8
-  %1991 = call noundef ptr %1990(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %221) #15
+  %1991 = call noundef ptr %1990(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %221) #14
   %1992 = getelementptr inbounds i8, ptr %0, i64 1336
   store ptr %1991, ptr %1992, align 8, !tbaa !135
   %1993 = load ptr, ptr %221, align 8, !tbaa !37
@@ -4553,17 +4553,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %1999
 
 1998:                                             ; preds = %1984
-  call void @_ZdlPv(ptr noundef %1993) #18
+  call void @_ZdlPv(ptr noundef %1993) #17
   br label %1999
 
 1999:                                             ; preds = %1998, %1995
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %221) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %222) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %221) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %222) #14
   %2000 = getelementptr inbounds i8, ptr %222, i64 16
   store ptr %2000, ptr %222, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %58) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %58) #14
   store i64 18, ptr %58, align 8, !tbaa !35
-  %2001 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %222, ptr noundef nonnull align 8 dereferenceable(8) %58, i64 noundef 0) #15
+  %2001 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %222, ptr noundef nonnull align 8 dereferenceable(8) %58, i64 noundef 0) #14
   store ptr %2001, ptr %222, align 8, !tbaa !37
   %2002 = load i64, ptr %58, align 8, !tbaa !35
   store i64 %2002, ptr %2000, align 8, !tbaa !3
@@ -4573,11 +4573,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %2004 = load ptr, ptr %222, align 8, !tbaa !37
   %2005 = getelementptr inbounds i8, ptr %2004, i64 %2002
   store i8 0, ptr %2005, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %58) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %58) #14
   %2006 = load ptr, ptr %1, align 8, !tbaa !18
   %2007 = getelementptr inbounds i8, ptr %2006, i64 64
   %2008 = load ptr, ptr %2007, align 8
-  %2009 = call noundef ptr %2008(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %222) #15
+  %2009 = call noundef ptr %2008(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %222) #14
   %2010 = getelementptr inbounds i8, ptr %0, i64 1344
   store ptr %2009, ptr %2010, align 8, !tbaa !136
   %2011 = load ptr, ptr %222, align 8, !tbaa !37
@@ -4591,17 +4591,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %2017
 
 2016:                                             ; preds = %1999
-  call void @_ZdlPv(ptr noundef %2011) #18
+  call void @_ZdlPv(ptr noundef %2011) #17
   br label %2017
 
 2017:                                             ; preds = %2016, %2013
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %222) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %223) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %222) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %223) #14
   %2018 = getelementptr inbounds i8, ptr %223, i64 16
   store ptr %2018, ptr %223, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %57) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %57) #14
   store i64 18, ptr %57, align 8, !tbaa !35
-  %2019 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %223, ptr noundef nonnull align 8 dereferenceable(8) %57, i64 noundef 0) #15
+  %2019 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %223, ptr noundef nonnull align 8 dereferenceable(8) %57, i64 noundef 0) #14
   store ptr %2019, ptr %223, align 8, !tbaa !37
   %2020 = load i64, ptr %57, align 8, !tbaa !35
   store i64 %2020, ptr %2018, align 8, !tbaa !3
@@ -4611,11 +4611,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %2022 = load ptr, ptr %223, align 8, !tbaa !37
   %2023 = getelementptr inbounds i8, ptr %2022, i64 %2020
   store i8 0, ptr %2023, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %57) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %57) #14
   %2024 = load ptr, ptr %1, align 8, !tbaa !18
   %2025 = getelementptr inbounds i8, ptr %2024, i64 64
   %2026 = load ptr, ptr %2025, align 8
-  %2027 = call noundef ptr %2026(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %223) #15
+  %2027 = call noundef ptr %2026(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %223) #14
   %2028 = getelementptr inbounds i8, ptr %0, i64 1352
   store ptr %2027, ptr %2028, align 8, !tbaa !137
   %2029 = load ptr, ptr %223, align 8, !tbaa !37
@@ -4629,17 +4629,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %2035
 
 2034:                                             ; preds = %2017
-  call void @_ZdlPv(ptr noundef %2029) #18
+  call void @_ZdlPv(ptr noundef %2029) #17
   br label %2035
 
 2035:                                             ; preds = %2034, %2031
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %223) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %224) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %223) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %224) #14
   %2036 = getelementptr inbounds i8, ptr %224, i64 16
   store ptr %2036, ptr %224, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %56) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %56) #14
   store i64 21, ptr %56, align 8, !tbaa !35
-  %2037 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %224, ptr noundef nonnull align 8 dereferenceable(8) %56, i64 noundef 0) #15
+  %2037 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %224, ptr noundef nonnull align 8 dereferenceable(8) %56, i64 noundef 0) #14
   store ptr %2037, ptr %224, align 8, !tbaa !37
   %2038 = load i64, ptr %56, align 8, !tbaa !35
   store i64 %2038, ptr %2036, align 8, !tbaa !3
@@ -4649,11 +4649,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %2040 = load ptr, ptr %224, align 8, !tbaa !37
   %2041 = getelementptr inbounds i8, ptr %2040, i64 %2038
   store i8 0, ptr %2041, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %56) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %56) #14
   %2042 = load ptr, ptr %1, align 8, !tbaa !18
   %2043 = getelementptr inbounds i8, ptr %2042, i64 64
   %2044 = load ptr, ptr %2043, align 8
-  %2045 = call noundef ptr %2044(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %224) #15
+  %2045 = call noundef ptr %2044(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %224) #14
   %2046 = getelementptr inbounds i8, ptr %0, i64 1360
   store ptr %2045, ptr %2046, align 8, !tbaa !138
   %2047 = load ptr, ptr %224, align 8, !tbaa !37
@@ -4667,12 +4667,12 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %2053
 
 2052:                                             ; preds = %2035
-  call void @_ZdlPv(ptr noundef %2047) #18
+  call void @_ZdlPv(ptr noundef %2047) #17
   br label %2053
 
 2053:                                             ; preds = %2052, %2049
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %224) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %225) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %224) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %225) #14
   %2054 = getelementptr inbounds i8, ptr %225, i64 16
   store ptr %2054, ptr %225, align 8, !tbaa !33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %2054, ptr noundef nonnull align 1 dereferenceable(14) @.str.105, i64 14, i1 false)
@@ -4683,7 +4683,7 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %2057 = load ptr, ptr %1, align 8, !tbaa !18
   %2058 = getelementptr inbounds i8, ptr %2057, i64 64
   %2059 = load ptr, ptr %2058, align 8
-  %2060 = call noundef ptr %2059(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %225) #15
+  %2060 = call noundef ptr %2059(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %225) #14
   %2061 = getelementptr inbounds i8, ptr %0, i64 1368
   store ptr %2060, ptr %2061, align 8, !tbaa !139
   %2062 = load ptr, ptr %225, align 8, !tbaa !37
@@ -4697,17 +4697,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %2068
 
 2067:                                             ; preds = %2053
-  call void @_ZdlPv(ptr noundef %2062) #18
+  call void @_ZdlPv(ptr noundef %2062) #17
   br label %2068
 
 2068:                                             ; preds = %2067, %2064
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %225) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %226) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %225) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %226) #14
   %2069 = getelementptr inbounds i8, ptr %226, i64 16
   store ptr %2069, ptr %226, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %55) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %55) #14
   store i64 16, ptr %55, align 8, !tbaa !35
-  %2070 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %226, ptr noundef nonnull align 8 dereferenceable(8) %55, i64 noundef 0) #15
+  %2070 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %226, ptr noundef nonnull align 8 dereferenceable(8) %55, i64 noundef 0) #14
   store ptr %2070, ptr %226, align 8, !tbaa !37
   %2071 = load i64, ptr %55, align 8, !tbaa !35
   store i64 %2071, ptr %2069, align 8, !tbaa !3
@@ -4717,11 +4717,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %2073 = load ptr, ptr %226, align 8, !tbaa !37
   %2074 = getelementptr inbounds i8, ptr %2073, i64 %2071
   store i8 0, ptr %2074, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %55) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %55) #14
   %2075 = load ptr, ptr %1, align 8, !tbaa !18
   %2076 = getelementptr inbounds i8, ptr %2075, i64 64
   %2077 = load ptr, ptr %2076, align 8
-  %2078 = call noundef ptr %2077(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %226) #15
+  %2078 = call noundef ptr %2077(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %226) #14
   %2079 = getelementptr inbounds i8, ptr %0, i64 1376
   store ptr %2078, ptr %2079, align 8, !tbaa !140
   %2080 = load ptr, ptr %226, align 8, !tbaa !37
@@ -4735,12 +4735,12 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %2086
 
 2085:                                             ; preds = %2068
-  call void @_ZdlPv(ptr noundef %2080) #18
+  call void @_ZdlPv(ptr noundef %2080) #17
   br label %2086
 
 2086:                                             ; preds = %2085, %2082
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %226) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %227) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %226) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %227) #14
   %2087 = getelementptr inbounds i8, ptr %227, i64 16
   store ptr %2087, ptr %227, align 8, !tbaa !33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %2087, ptr noundef nonnull align 1 dereferenceable(13) @.str.107, i64 13, i1 false)
@@ -4751,7 +4751,7 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %2090 = load ptr, ptr %1, align 8, !tbaa !18
   %2091 = getelementptr inbounds i8, ptr %2090, i64 64
   %2092 = load ptr, ptr %2091, align 8
-  %2093 = call noundef ptr %2092(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %227) #15
+  %2093 = call noundef ptr %2092(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %227) #14
   %2094 = getelementptr inbounds i8, ptr %0, i64 1384
   store ptr %2093, ptr %2094, align 8, !tbaa !141
   %2095 = load ptr, ptr %227, align 8, !tbaa !37
@@ -4765,17 +4765,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %2101
 
 2100:                                             ; preds = %2086
-  call void @_ZdlPv(ptr noundef %2095) #18
+  call void @_ZdlPv(ptr noundef %2095) #17
   br label %2101
 
 2101:                                             ; preds = %2100, %2097
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %227) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %228) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %227) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %228) #14
   %2102 = getelementptr inbounds i8, ptr %228, i64 16
   store ptr %2102, ptr %228, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %54) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %54) #14
   store i64 25, ptr %54, align 8, !tbaa !35
-  %2103 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %228, ptr noundef nonnull align 8 dereferenceable(8) %54, i64 noundef 0) #15
+  %2103 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %228, ptr noundef nonnull align 8 dereferenceable(8) %54, i64 noundef 0) #14
   store ptr %2103, ptr %228, align 8, !tbaa !37
   %2104 = load i64, ptr %54, align 8, !tbaa !35
   store i64 %2104, ptr %2102, align 8, !tbaa !3
@@ -4785,11 +4785,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %2106 = load ptr, ptr %228, align 8, !tbaa !37
   %2107 = getelementptr inbounds i8, ptr %2106, i64 %2104
   store i8 0, ptr %2107, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %54) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %54) #14
   %2108 = load ptr, ptr %1, align 8, !tbaa !18
   %2109 = getelementptr inbounds i8, ptr %2108, i64 64
   %2110 = load ptr, ptr %2109, align 8
-  %2111 = call noundef ptr %2110(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %228) #15
+  %2111 = call noundef ptr %2110(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %228) #14
   %2112 = getelementptr inbounds i8, ptr %0, i64 1392
   store ptr %2111, ptr %2112, align 8, !tbaa !142
   %2113 = load ptr, ptr %228, align 8, !tbaa !37
@@ -4803,17 +4803,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %2119
 
 2118:                                             ; preds = %2101
-  call void @_ZdlPv(ptr noundef %2113) #18
+  call void @_ZdlPv(ptr noundef %2113) #17
   br label %2119
 
 2119:                                             ; preds = %2118, %2115
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %228) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %229) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %228) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %229) #14
   %2120 = getelementptr inbounds i8, ptr %229, i64 16
   store ptr %2120, ptr %229, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %53) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %53) #14
   store i64 22, ptr %53, align 8, !tbaa !35
-  %2121 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %229, ptr noundef nonnull align 8 dereferenceable(8) %53, i64 noundef 0) #15
+  %2121 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %229, ptr noundef nonnull align 8 dereferenceable(8) %53, i64 noundef 0) #14
   store ptr %2121, ptr %229, align 8, !tbaa !37
   %2122 = load i64, ptr %53, align 8, !tbaa !35
   store i64 %2122, ptr %2120, align 8, !tbaa !3
@@ -4823,11 +4823,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %2124 = load ptr, ptr %229, align 8, !tbaa !37
   %2125 = getelementptr inbounds i8, ptr %2124, i64 %2122
   store i8 0, ptr %2125, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %53) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %53) #14
   %2126 = load ptr, ptr %1, align 8, !tbaa !18
   %2127 = getelementptr inbounds i8, ptr %2126, i64 64
   %2128 = load ptr, ptr %2127, align 8
-  %2129 = call noundef ptr %2128(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %229) #15
+  %2129 = call noundef ptr %2128(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %229) #14
   %2130 = getelementptr inbounds i8, ptr %0, i64 1400
   store ptr %2129, ptr %2130, align 8, !tbaa !143
   %2131 = load ptr, ptr %229, align 8, !tbaa !37
@@ -4841,17 +4841,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %2137
 
 2136:                                             ; preds = %2119
-  call void @_ZdlPv(ptr noundef %2131) #18
+  call void @_ZdlPv(ptr noundef %2131) #17
   br label %2137
 
 2137:                                             ; preds = %2136, %2133
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %229) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %230) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %229) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %230) #14
   %2138 = getelementptr inbounds i8, ptr %230, i64 16
   store ptr %2138, ptr %230, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %52) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %52) #14
   store i64 17, ptr %52, align 8, !tbaa !35
-  %2139 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %230, ptr noundef nonnull align 8 dereferenceable(8) %52, i64 noundef 0) #15
+  %2139 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %230, ptr noundef nonnull align 8 dereferenceable(8) %52, i64 noundef 0) #14
   store ptr %2139, ptr %230, align 8, !tbaa !37
   %2140 = load i64, ptr %52, align 8, !tbaa !35
   store i64 %2140, ptr %2138, align 8, !tbaa !3
@@ -4861,11 +4861,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %2142 = load ptr, ptr %230, align 8, !tbaa !37
   %2143 = getelementptr inbounds i8, ptr %2142, i64 %2140
   store i8 0, ptr %2143, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %52) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %52) #14
   %2144 = load ptr, ptr %1, align 8, !tbaa !18
   %2145 = getelementptr inbounds i8, ptr %2144, i64 64
   %2146 = load ptr, ptr %2145, align 8
-  %2147 = call noundef ptr %2146(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %230) #15
+  %2147 = call noundef ptr %2146(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %230) #14
   %2148 = getelementptr inbounds i8, ptr %0, i64 1408
   store ptr %2147, ptr %2148, align 8, !tbaa !144
   %2149 = load ptr, ptr %230, align 8, !tbaa !37
@@ -4879,17 +4879,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %2155
 
 2154:                                             ; preds = %2137
-  call void @_ZdlPv(ptr noundef %2149) #18
+  call void @_ZdlPv(ptr noundef %2149) #17
   br label %2155
 
 2155:                                             ; preds = %2154, %2151
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %230) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %231) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %230) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %231) #14
   %2156 = getelementptr inbounds i8, ptr %231, i64 16
   store ptr %2156, ptr %231, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %51) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %51) #14
   store i64 20, ptr %51, align 8, !tbaa !35
-  %2157 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %231, ptr noundef nonnull align 8 dereferenceable(8) %51, i64 noundef 0) #15
+  %2157 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %231, ptr noundef nonnull align 8 dereferenceable(8) %51, i64 noundef 0) #14
   store ptr %2157, ptr %231, align 8, !tbaa !37
   %2158 = load i64, ptr %51, align 8, !tbaa !35
   store i64 %2158, ptr %2156, align 8, !tbaa !3
@@ -4899,11 +4899,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %2160 = load ptr, ptr %231, align 8, !tbaa !37
   %2161 = getelementptr inbounds i8, ptr %2160, i64 %2158
   store i8 0, ptr %2161, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %51) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %51) #14
   %2162 = load ptr, ptr %1, align 8, !tbaa !18
   %2163 = getelementptr inbounds i8, ptr %2162, i64 64
   %2164 = load ptr, ptr %2163, align 8
-  %2165 = call noundef ptr %2164(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %231) #15
+  %2165 = call noundef ptr %2164(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %231) #14
   %2166 = getelementptr inbounds i8, ptr %0, i64 1416
   store ptr %2165, ptr %2166, align 8, !tbaa !145
   %2167 = load ptr, ptr %231, align 8, !tbaa !37
@@ -4917,17 +4917,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %2173
 
 2172:                                             ; preds = %2155
-  call void @_ZdlPv(ptr noundef %2167) #18
+  call void @_ZdlPv(ptr noundef %2167) #17
   br label %2173
 
 2173:                                             ; preds = %2172, %2169
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %231) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %232) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %231) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %232) #14
   %2174 = getelementptr inbounds i8, ptr %232, i64 16
   store ptr %2174, ptr %232, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %50) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %50) #14
   store i64 22, ptr %50, align 8, !tbaa !35
-  %2175 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %232, ptr noundef nonnull align 8 dereferenceable(8) %50, i64 noundef 0) #15
+  %2175 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %232, ptr noundef nonnull align 8 dereferenceable(8) %50, i64 noundef 0) #14
   store ptr %2175, ptr %232, align 8, !tbaa !37
   %2176 = load i64, ptr %50, align 8, !tbaa !35
   store i64 %2176, ptr %2174, align 8, !tbaa !3
@@ -4937,11 +4937,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %2178 = load ptr, ptr %232, align 8, !tbaa !37
   %2179 = getelementptr inbounds i8, ptr %2178, i64 %2176
   store i8 0, ptr %2179, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %50) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %50) #14
   %2180 = load ptr, ptr %1, align 8, !tbaa !18
   %2181 = getelementptr inbounds i8, ptr %2180, i64 64
   %2182 = load ptr, ptr %2181, align 8
-  %2183 = call noundef ptr %2182(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %232) #15
+  %2183 = call noundef ptr %2182(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %232) #14
   %2184 = getelementptr inbounds i8, ptr %0, i64 1424
   store ptr %2183, ptr %2184, align 8, !tbaa !146
   %2185 = load ptr, ptr %232, align 8, !tbaa !37
@@ -4955,17 +4955,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %2191
 
 2190:                                             ; preds = %2173
-  call void @_ZdlPv(ptr noundef %2185) #18
+  call void @_ZdlPv(ptr noundef %2185) #17
   br label %2191
 
 2191:                                             ; preds = %2190, %2187
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %232) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %233) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %232) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %233) #14
   %2192 = getelementptr inbounds i8, ptr %233, i64 16
   store ptr %2192, ptr %233, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %49) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %49) #14
   store i64 22, ptr %49, align 8, !tbaa !35
-  %2193 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %233, ptr noundef nonnull align 8 dereferenceable(8) %49, i64 noundef 0) #15
+  %2193 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %233, ptr noundef nonnull align 8 dereferenceable(8) %49, i64 noundef 0) #14
   store ptr %2193, ptr %233, align 8, !tbaa !37
   %2194 = load i64, ptr %49, align 8, !tbaa !35
   store i64 %2194, ptr %2192, align 8, !tbaa !3
@@ -4975,11 +4975,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %2196 = load ptr, ptr %233, align 8, !tbaa !37
   %2197 = getelementptr inbounds i8, ptr %2196, i64 %2194
   store i8 0, ptr %2197, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %49) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %49) #14
   %2198 = load ptr, ptr %1, align 8, !tbaa !18
   %2199 = getelementptr inbounds i8, ptr %2198, i64 64
   %2200 = load ptr, ptr %2199, align 8
-  %2201 = call noundef ptr %2200(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %233) #15
+  %2201 = call noundef ptr %2200(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %233) #14
   %2202 = getelementptr inbounds i8, ptr %0, i64 1432
   store ptr %2201, ptr %2202, align 8, !tbaa !147
   %2203 = load ptr, ptr %233, align 8, !tbaa !37
@@ -4993,12 +4993,12 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %2209
 
 2208:                                             ; preds = %2191
-  call void @_ZdlPv(ptr noundef %2203) #18
+  call void @_ZdlPv(ptr noundef %2203) #17
   br label %2209
 
 2209:                                             ; preds = %2208, %2205
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %233) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %234) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %233) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %234) #14
   %2210 = getelementptr inbounds i8, ptr %234, i64 16
   store ptr %2210, ptr %234, align 8, !tbaa !33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %2210, ptr noundef nonnull align 1 dereferenceable(15) @.str.114, i64 15, i1 false)
@@ -5009,7 +5009,7 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %2213 = load ptr, ptr %1, align 8, !tbaa !18
   %2214 = getelementptr inbounds i8, ptr %2213, i64 64
   %2215 = load ptr, ptr %2214, align 8
-  %2216 = call noundef ptr %2215(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %234) #15
+  %2216 = call noundef ptr %2215(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %234) #14
   %2217 = getelementptr inbounds i8, ptr %0, i64 1440
   store ptr %2216, ptr %2217, align 8, !tbaa !148
   %2218 = load ptr, ptr %234, align 8, !tbaa !37
@@ -5023,17 +5023,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %2224
 
 2223:                                             ; preds = %2209
-  call void @_ZdlPv(ptr noundef %2218) #18
+  call void @_ZdlPv(ptr noundef %2218) #17
   br label %2224
 
 2224:                                             ; preds = %2223, %2220
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %234) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %235) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %234) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %235) #14
   %2225 = getelementptr inbounds i8, ptr %235, i64 16
   store ptr %2225, ptr %235, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %48) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %48) #14
   store i64 18, ptr %48, align 8, !tbaa !35
-  %2226 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %235, ptr noundef nonnull align 8 dereferenceable(8) %48, i64 noundef 0) #15
+  %2226 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %235, ptr noundef nonnull align 8 dereferenceable(8) %48, i64 noundef 0) #14
   store ptr %2226, ptr %235, align 8, !tbaa !37
   %2227 = load i64, ptr %48, align 8, !tbaa !35
   store i64 %2227, ptr %2225, align 8, !tbaa !3
@@ -5043,11 +5043,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %2229 = load ptr, ptr %235, align 8, !tbaa !37
   %2230 = getelementptr inbounds i8, ptr %2229, i64 %2227
   store i8 0, ptr %2230, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %48) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %48) #14
   %2231 = load ptr, ptr %1, align 8, !tbaa !18
   %2232 = getelementptr inbounds i8, ptr %2231, i64 64
   %2233 = load ptr, ptr %2232, align 8
-  %2234 = call noundef ptr %2233(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %235) #15
+  %2234 = call noundef ptr %2233(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %235) #14
   %2235 = getelementptr inbounds i8, ptr %0, i64 1448
   store ptr %2234, ptr %2235, align 8, !tbaa !149
   %2236 = load ptr, ptr %235, align 8, !tbaa !37
@@ -5061,12 +5061,12 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %2242
 
 2241:                                             ; preds = %2224
-  call void @_ZdlPv(ptr noundef %2236) #18
+  call void @_ZdlPv(ptr noundef %2236) #17
   br label %2242
 
 2242:                                             ; preds = %2241, %2238
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %235) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %236) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %235) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %236) #14
   %2243 = getelementptr inbounds i8, ptr %236, i64 16
   store ptr %2243, ptr %236, align 8, !tbaa !33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %2243, ptr noundef nonnull align 1 dereferenceable(12) @.str.116, i64 12, i1 false)
@@ -5077,7 +5077,7 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %2246 = load ptr, ptr %1, align 8, !tbaa !18
   %2247 = getelementptr inbounds i8, ptr %2246, i64 64
   %2248 = load ptr, ptr %2247, align 8
-  %2249 = call noundef ptr %2248(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %236) #15
+  %2249 = call noundef ptr %2248(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %236) #14
   %2250 = getelementptr inbounds i8, ptr %0, i64 1456
   store ptr %2249, ptr %2250, align 8, !tbaa !150
   %2251 = load ptr, ptr %236, align 8, !tbaa !37
@@ -5091,12 +5091,12 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %2257
 
 2256:                                             ; preds = %2242
-  call void @_ZdlPv(ptr noundef %2251) #18
+  call void @_ZdlPv(ptr noundef %2251) #17
   br label %2257
 
 2257:                                             ; preds = %2256, %2253
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %236) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %237) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %236) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %237) #14
   %2258 = getelementptr inbounds i8, ptr %237, i64 16
   store ptr %2258, ptr %237, align 8, !tbaa !33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %2258, ptr noundef nonnull align 1 dereferenceable(15) @.str.117, i64 15, i1 false)
@@ -5107,7 +5107,7 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %2261 = load ptr, ptr %1, align 8, !tbaa !18
   %2262 = getelementptr inbounds i8, ptr %2261, i64 64
   %2263 = load ptr, ptr %2262, align 8
-  %2264 = call noundef ptr %2263(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %237) #15
+  %2264 = call noundef ptr %2263(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %237) #14
   %2265 = getelementptr inbounds i8, ptr %0, i64 1464
   store ptr %2264, ptr %2265, align 8, !tbaa !151
   %2266 = load ptr, ptr %237, align 8, !tbaa !37
@@ -5121,12 +5121,12 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %2272
 
 2271:                                             ; preds = %2257
-  call void @_ZdlPv(ptr noundef %2266) #18
+  call void @_ZdlPv(ptr noundef %2266) #17
   br label %2272
 
 2272:                                             ; preds = %2271, %2268
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %237) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %238) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %237) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %238) #14
   %2273 = getelementptr inbounds i8, ptr %238, i64 16
   store ptr %2273, ptr %238, align 8, !tbaa !33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %2273, ptr noundef nonnull align 1 dereferenceable(13) @.str.118, i64 13, i1 false)
@@ -5137,7 +5137,7 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %2276 = load ptr, ptr %1, align 8, !tbaa !18
   %2277 = getelementptr inbounds i8, ptr %2276, i64 64
   %2278 = load ptr, ptr %2277, align 8
-  %2279 = call noundef ptr %2278(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %238) #15
+  %2279 = call noundef ptr %2278(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %238) #14
   %2280 = getelementptr inbounds i8, ptr %0, i64 1472
   store ptr %2279, ptr %2280, align 8, !tbaa !152
   %2281 = load ptr, ptr %238, align 8, !tbaa !37
@@ -5151,12 +5151,12 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %2287
 
 2286:                                             ; preds = %2272
-  call void @_ZdlPv(ptr noundef %2281) #18
+  call void @_ZdlPv(ptr noundef %2281) #17
   br label %2287
 
 2287:                                             ; preds = %2286, %2283
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %238) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %239) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %238) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %239) #14
   %2288 = getelementptr inbounds i8, ptr %239, i64 16
   store ptr %2288, ptr %239, align 8, !tbaa !33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %2288, ptr noundef nonnull align 1 dereferenceable(15) @.str.119, i64 15, i1 false)
@@ -5167,7 +5167,7 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %2291 = load ptr, ptr %1, align 8, !tbaa !18
   %2292 = getelementptr inbounds i8, ptr %2291, i64 64
   %2293 = load ptr, ptr %2292, align 8
-  %2294 = call noundef ptr %2293(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %239) #15
+  %2294 = call noundef ptr %2293(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %239) #14
   %2295 = getelementptr inbounds i8, ptr %0, i64 1480
   store ptr %2294, ptr %2295, align 8, !tbaa !153
   %2296 = load ptr, ptr %239, align 8, !tbaa !37
@@ -5181,17 +5181,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %2302
 
 2301:                                             ; preds = %2287
-  call void @_ZdlPv(ptr noundef %2296) #18
+  call void @_ZdlPv(ptr noundef %2296) #17
   br label %2302
 
 2302:                                             ; preds = %2301, %2298
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %239) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %240) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %239) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %240) #14
   %2303 = getelementptr inbounds i8, ptr %240, i64 16
   store ptr %2303, ptr %240, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %47) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %47) #14
   store i64 21, ptr %47, align 8, !tbaa !35
-  %2304 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %240, ptr noundef nonnull align 8 dereferenceable(8) %47, i64 noundef 0) #15
+  %2304 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %240, ptr noundef nonnull align 8 dereferenceable(8) %47, i64 noundef 0) #14
   store ptr %2304, ptr %240, align 8, !tbaa !37
   %2305 = load i64, ptr %47, align 8, !tbaa !35
   store i64 %2305, ptr %2303, align 8, !tbaa !3
@@ -5201,11 +5201,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %2307 = load ptr, ptr %240, align 8, !tbaa !37
   %2308 = getelementptr inbounds i8, ptr %2307, i64 %2305
   store i8 0, ptr %2308, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %47) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %47) #14
   %2309 = load ptr, ptr %1, align 8, !tbaa !18
   %2310 = getelementptr inbounds i8, ptr %2309, i64 64
   %2311 = load ptr, ptr %2310, align 8
-  %2312 = call noundef ptr %2311(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %240) #15
+  %2312 = call noundef ptr %2311(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %240) #14
   %2313 = getelementptr inbounds i8, ptr %0, i64 1488
   store ptr %2312, ptr %2313, align 8, !tbaa !154
   %2314 = load ptr, ptr %240, align 8, !tbaa !37
@@ -5219,17 +5219,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %2320
 
 2319:                                             ; preds = %2302
-  call void @_ZdlPv(ptr noundef %2314) #18
+  call void @_ZdlPv(ptr noundef %2314) #17
   br label %2320
 
 2320:                                             ; preds = %2319, %2316
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %240) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %241) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %240) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %241) #14
   %2321 = getelementptr inbounds i8, ptr %241, i64 16
   store ptr %2321, ptr %241, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %46) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %46) #14
   store i64 22, ptr %46, align 8, !tbaa !35
-  %2322 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %241, ptr noundef nonnull align 8 dereferenceable(8) %46, i64 noundef 0) #15
+  %2322 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %241, ptr noundef nonnull align 8 dereferenceable(8) %46, i64 noundef 0) #14
   store ptr %2322, ptr %241, align 8, !tbaa !37
   %2323 = load i64, ptr %46, align 8, !tbaa !35
   store i64 %2323, ptr %2321, align 8, !tbaa !3
@@ -5239,11 +5239,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %2325 = load ptr, ptr %241, align 8, !tbaa !37
   %2326 = getelementptr inbounds i8, ptr %2325, i64 %2323
   store i8 0, ptr %2326, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %46) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %46) #14
   %2327 = load ptr, ptr %1, align 8, !tbaa !18
   %2328 = getelementptr inbounds i8, ptr %2327, i64 64
   %2329 = load ptr, ptr %2328, align 8
-  %2330 = call noundef ptr %2329(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %241) #15
+  %2330 = call noundef ptr %2329(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %241) #14
   %2331 = getelementptr inbounds i8, ptr %0, i64 1496
   store ptr %2330, ptr %2331, align 8, !tbaa !155
   %2332 = load ptr, ptr %241, align 8, !tbaa !37
@@ -5257,17 +5257,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %2338
 
 2337:                                             ; preds = %2320
-  call void @_ZdlPv(ptr noundef %2332) #18
+  call void @_ZdlPv(ptr noundef %2332) #17
   br label %2338
 
 2338:                                             ; preds = %2337, %2334
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %241) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %242) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %241) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %242) #14
   %2339 = getelementptr inbounds i8, ptr %242, i64 16
   store ptr %2339, ptr %242, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %45) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %45) #14
   store i64 23, ptr %45, align 8, !tbaa !35
-  %2340 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %242, ptr noundef nonnull align 8 dereferenceable(8) %45, i64 noundef 0) #15
+  %2340 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %242, ptr noundef nonnull align 8 dereferenceable(8) %45, i64 noundef 0) #14
   store ptr %2340, ptr %242, align 8, !tbaa !37
   %2341 = load i64, ptr %45, align 8, !tbaa !35
   store i64 %2341, ptr %2339, align 8, !tbaa !3
@@ -5277,11 +5277,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %2343 = load ptr, ptr %242, align 8, !tbaa !37
   %2344 = getelementptr inbounds i8, ptr %2343, i64 %2341
   store i8 0, ptr %2344, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %45) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %45) #14
   %2345 = load ptr, ptr %1, align 8, !tbaa !18
   %2346 = getelementptr inbounds i8, ptr %2345, i64 64
   %2347 = load ptr, ptr %2346, align 8
-  %2348 = call noundef ptr %2347(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %242) #15
+  %2348 = call noundef ptr %2347(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %242) #14
   %2349 = getelementptr inbounds i8, ptr %0, i64 1504
   store ptr %2348, ptr %2349, align 8, !tbaa !156
   %2350 = load ptr, ptr %242, align 8, !tbaa !37
@@ -5295,17 +5295,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %2356
 
 2355:                                             ; preds = %2338
-  call void @_ZdlPv(ptr noundef %2350) #18
+  call void @_ZdlPv(ptr noundef %2350) #17
   br label %2356
 
 2356:                                             ; preds = %2355, %2352
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %242) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %243) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %242) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %243) #14
   %2357 = getelementptr inbounds i8, ptr %243, i64 16
   store ptr %2357, ptr %243, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %44) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %44) #14
   store i64 26, ptr %44, align 8, !tbaa !35
-  %2358 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %243, ptr noundef nonnull align 8 dereferenceable(8) %44, i64 noundef 0) #15
+  %2358 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %243, ptr noundef nonnull align 8 dereferenceable(8) %44, i64 noundef 0) #14
   store ptr %2358, ptr %243, align 8, !tbaa !37
   %2359 = load i64, ptr %44, align 8, !tbaa !35
   store i64 %2359, ptr %2357, align 8, !tbaa !3
@@ -5315,11 +5315,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %2361 = load ptr, ptr %243, align 8, !tbaa !37
   %2362 = getelementptr inbounds i8, ptr %2361, i64 %2359
   store i8 0, ptr %2362, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %44) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %44) #14
   %2363 = load ptr, ptr %1, align 8, !tbaa !18
   %2364 = getelementptr inbounds i8, ptr %2363, i64 64
   %2365 = load ptr, ptr %2364, align 8
-  %2366 = call noundef ptr %2365(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %243) #15
+  %2366 = call noundef ptr %2365(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %243) #14
   %2367 = getelementptr inbounds i8, ptr %0, i64 1512
   store ptr %2366, ptr %2367, align 8, !tbaa !157
   %2368 = load ptr, ptr %243, align 8, !tbaa !37
@@ -5333,17 +5333,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %2374
 
 2373:                                             ; preds = %2356
-  call void @_ZdlPv(ptr noundef %2368) #18
+  call void @_ZdlPv(ptr noundef %2368) #17
   br label %2374
 
 2374:                                             ; preds = %2373, %2370
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %243) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %244) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %243) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %244) #14
   %2375 = getelementptr inbounds i8, ptr %244, i64 16
   store ptr %2375, ptr %244, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %43) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %43) #14
   store i64 20, ptr %43, align 8, !tbaa !35
-  %2376 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %244, ptr noundef nonnull align 8 dereferenceable(8) %43, i64 noundef 0) #15
+  %2376 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %244, ptr noundef nonnull align 8 dereferenceable(8) %43, i64 noundef 0) #14
   store ptr %2376, ptr %244, align 8, !tbaa !37
   %2377 = load i64, ptr %43, align 8, !tbaa !35
   store i64 %2377, ptr %2375, align 8, !tbaa !3
@@ -5353,11 +5353,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %2379 = load ptr, ptr %244, align 8, !tbaa !37
   %2380 = getelementptr inbounds i8, ptr %2379, i64 %2377
   store i8 0, ptr %2380, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %43) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %43) #14
   %2381 = load ptr, ptr %1, align 8, !tbaa !18
   %2382 = getelementptr inbounds i8, ptr %2381, i64 64
   %2383 = load ptr, ptr %2382, align 8
-  %2384 = call noundef ptr %2383(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %244) #15
+  %2384 = call noundef ptr %2383(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %244) #14
   %2385 = getelementptr inbounds i8, ptr %0, i64 1520
   store ptr %2384, ptr %2385, align 8, !tbaa !158
   %2386 = load ptr, ptr %244, align 8, !tbaa !37
@@ -5371,17 +5371,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %2392
 
 2391:                                             ; preds = %2374
-  call void @_ZdlPv(ptr noundef %2386) #18
+  call void @_ZdlPv(ptr noundef %2386) #17
   br label %2392
 
 2392:                                             ; preds = %2391, %2388
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %244) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %245) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %244) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %245) #14
   %2393 = getelementptr inbounds i8, ptr %245, i64 16
   store ptr %2393, ptr %245, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %42) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %42) #14
   store i64 23, ptr %42, align 8, !tbaa !35
-  %2394 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %245, ptr noundef nonnull align 8 dereferenceable(8) %42, i64 noundef 0) #15
+  %2394 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %245, ptr noundef nonnull align 8 dereferenceable(8) %42, i64 noundef 0) #14
   store ptr %2394, ptr %245, align 8, !tbaa !37
   %2395 = load i64, ptr %42, align 8, !tbaa !35
   store i64 %2395, ptr %2393, align 8, !tbaa !3
@@ -5391,11 +5391,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %2397 = load ptr, ptr %245, align 8, !tbaa !37
   %2398 = getelementptr inbounds i8, ptr %2397, i64 %2395
   store i8 0, ptr %2398, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %42) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %42) #14
   %2399 = load ptr, ptr %1, align 8, !tbaa !18
   %2400 = getelementptr inbounds i8, ptr %2399, i64 64
   %2401 = load ptr, ptr %2400, align 8
-  %2402 = call noundef ptr %2401(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %245) #15
+  %2402 = call noundef ptr %2401(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %245) #14
   %2403 = getelementptr inbounds i8, ptr %0, i64 1528
   store ptr %2402, ptr %2403, align 8, !tbaa !159
   %2404 = load ptr, ptr %245, align 8, !tbaa !37
@@ -5409,17 +5409,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %2410
 
 2409:                                             ; preds = %2392
-  call void @_ZdlPv(ptr noundef %2404) #18
+  call void @_ZdlPv(ptr noundef %2404) #17
   br label %2410
 
 2410:                                             ; preds = %2409, %2406
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %245) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %246) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %245) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %246) #14
   %2411 = getelementptr inbounds i8, ptr %246, i64 16
   store ptr %2411, ptr %246, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %41) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %41) #14
   store i64 21, ptr %41, align 8, !tbaa !35
-  %2412 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %246, ptr noundef nonnull align 8 dereferenceable(8) %41, i64 noundef 0) #15
+  %2412 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %246, ptr noundef nonnull align 8 dereferenceable(8) %41, i64 noundef 0) #14
   store ptr %2412, ptr %246, align 8, !tbaa !37
   %2413 = load i64, ptr %41, align 8, !tbaa !35
   store i64 %2413, ptr %2411, align 8, !tbaa !3
@@ -5429,11 +5429,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %2415 = load ptr, ptr %246, align 8, !tbaa !37
   %2416 = getelementptr inbounds i8, ptr %2415, i64 %2413
   store i8 0, ptr %2416, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %41) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %41) #14
   %2417 = load ptr, ptr %1, align 8, !tbaa !18
   %2418 = getelementptr inbounds i8, ptr %2417, i64 64
   %2419 = load ptr, ptr %2418, align 8
-  %2420 = call noundef ptr %2419(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %246) #15
+  %2420 = call noundef ptr %2419(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %246) #14
   %2421 = getelementptr inbounds i8, ptr %0, i64 1536
   store ptr %2420, ptr %2421, align 8, !tbaa !160
   %2422 = load ptr, ptr %246, align 8, !tbaa !37
@@ -5447,17 +5447,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %2428
 
 2427:                                             ; preds = %2410
-  call void @_ZdlPv(ptr noundef %2422) #18
+  call void @_ZdlPv(ptr noundef %2422) #17
   br label %2428
 
 2428:                                             ; preds = %2427, %2424
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %246) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %247) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %246) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %247) #14
   %2429 = getelementptr inbounds i8, ptr %247, i64 16
   store ptr %2429, ptr %247, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %40) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %40) #14
   store i64 23, ptr %40, align 8, !tbaa !35
-  %2430 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %247, ptr noundef nonnull align 8 dereferenceable(8) %40, i64 noundef 0) #15
+  %2430 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %247, ptr noundef nonnull align 8 dereferenceable(8) %40, i64 noundef 0) #14
   store ptr %2430, ptr %247, align 8, !tbaa !37
   %2431 = load i64, ptr %40, align 8, !tbaa !35
   store i64 %2431, ptr %2429, align 8, !tbaa !3
@@ -5467,11 +5467,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %2433 = load ptr, ptr %247, align 8, !tbaa !37
   %2434 = getelementptr inbounds i8, ptr %2433, i64 %2431
   store i8 0, ptr %2434, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %40) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %40) #14
   %2435 = load ptr, ptr %1, align 8, !tbaa !18
   %2436 = getelementptr inbounds i8, ptr %2435, i64 64
   %2437 = load ptr, ptr %2436, align 8
-  %2438 = call noundef ptr %2437(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %247) #15
+  %2438 = call noundef ptr %2437(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %247) #14
   %2439 = getelementptr inbounds i8, ptr %0, i64 1544
   store ptr %2438, ptr %2439, align 8, !tbaa !161
   %2440 = load ptr, ptr %247, align 8, !tbaa !37
@@ -5485,17 +5485,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %2446
 
 2445:                                             ; preds = %2428
-  call void @_ZdlPv(ptr noundef %2440) #18
+  call void @_ZdlPv(ptr noundef %2440) #17
   br label %2446
 
 2446:                                             ; preds = %2445, %2442
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %247) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %248) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %247) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %248) #14
   %2447 = getelementptr inbounds i8, ptr %248, i64 16
   store ptr %2447, ptr %248, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %39) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %39) #14
   store i64 24, ptr %39, align 8, !tbaa !35
-  %2448 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %248, ptr noundef nonnull align 8 dereferenceable(8) %39, i64 noundef 0) #15
+  %2448 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %248, ptr noundef nonnull align 8 dereferenceable(8) %39, i64 noundef 0) #14
   store ptr %2448, ptr %248, align 8, !tbaa !37
   %2449 = load i64, ptr %39, align 8, !tbaa !35
   store i64 %2449, ptr %2447, align 8, !tbaa !3
@@ -5505,11 +5505,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %2451 = load ptr, ptr %248, align 8, !tbaa !37
   %2452 = getelementptr inbounds i8, ptr %2451, i64 %2449
   store i8 0, ptr %2452, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %39) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %39) #14
   %2453 = load ptr, ptr %1, align 8, !tbaa !18
   %2454 = getelementptr inbounds i8, ptr %2453, i64 64
   %2455 = load ptr, ptr %2454, align 8
-  %2456 = call noundef ptr %2455(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %248) #15
+  %2456 = call noundef ptr %2455(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %248) #14
   %2457 = getelementptr inbounds i8, ptr %0, i64 1552
   store ptr %2456, ptr %2457, align 8, !tbaa !162
   %2458 = load ptr, ptr %248, align 8, !tbaa !37
@@ -5523,17 +5523,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %2464
 
 2463:                                             ; preds = %2446
-  call void @_ZdlPv(ptr noundef %2458) #18
+  call void @_ZdlPv(ptr noundef %2458) #17
   br label %2464
 
 2464:                                             ; preds = %2463, %2460
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %248) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %249) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %248) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %249) #14
   %2465 = getelementptr inbounds i8, ptr %249, i64 16
   store ptr %2465, ptr %249, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %38) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %38) #14
   store i64 22, ptr %38, align 8, !tbaa !35
-  %2466 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %249, ptr noundef nonnull align 8 dereferenceable(8) %38, i64 noundef 0) #15
+  %2466 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %249, ptr noundef nonnull align 8 dereferenceable(8) %38, i64 noundef 0) #14
   store ptr %2466, ptr %249, align 8, !tbaa !37
   %2467 = load i64, ptr %38, align 8, !tbaa !35
   store i64 %2467, ptr %2465, align 8, !tbaa !3
@@ -5543,11 +5543,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %2469 = load ptr, ptr %249, align 8, !tbaa !37
   %2470 = getelementptr inbounds i8, ptr %2469, i64 %2467
   store i8 0, ptr %2470, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %38) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %38) #14
   %2471 = load ptr, ptr %1, align 8, !tbaa !18
   %2472 = getelementptr inbounds i8, ptr %2471, i64 64
   %2473 = load ptr, ptr %2472, align 8
-  %2474 = call noundef ptr %2473(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %249) #15
+  %2474 = call noundef ptr %2473(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %249) #14
   %2475 = getelementptr inbounds i8, ptr %0, i64 1560
   store ptr %2474, ptr %2475, align 8, !tbaa !163
   %2476 = load ptr, ptr %249, align 8, !tbaa !37
@@ -5561,17 +5561,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %2482
 
 2481:                                             ; preds = %2464
-  call void @_ZdlPv(ptr noundef %2476) #18
+  call void @_ZdlPv(ptr noundef %2476) #17
   br label %2482
 
 2482:                                             ; preds = %2481, %2478
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %249) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %250) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %249) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %250) #14
   %2483 = getelementptr inbounds i8, ptr %250, i64 16
   store ptr %2483, ptr %250, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %37) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %37) #14
   store i64 19, ptr %37, align 8, !tbaa !35
-  %2484 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %250, ptr noundef nonnull align 8 dereferenceable(8) %37, i64 noundef 0) #15
+  %2484 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %250, ptr noundef nonnull align 8 dereferenceable(8) %37, i64 noundef 0) #14
   store ptr %2484, ptr %250, align 8, !tbaa !37
   %2485 = load i64, ptr %37, align 8, !tbaa !35
   store i64 %2485, ptr %2483, align 8, !tbaa !3
@@ -5581,11 +5581,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %2487 = load ptr, ptr %250, align 8, !tbaa !37
   %2488 = getelementptr inbounds i8, ptr %2487, i64 %2485
   store i8 0, ptr %2488, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %37) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %37) #14
   %2489 = load ptr, ptr %1, align 8, !tbaa !18
   %2490 = getelementptr inbounds i8, ptr %2489, i64 64
   %2491 = load ptr, ptr %2490, align 8
-  %2492 = call noundef ptr %2491(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %250) #15
+  %2492 = call noundef ptr %2491(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %250) #14
   %2493 = getelementptr inbounds i8, ptr %0, i64 1568
   store ptr %2492, ptr %2493, align 8, !tbaa !164
   %2494 = load ptr, ptr %250, align 8, !tbaa !37
@@ -5599,17 +5599,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %2500
 
 2499:                                             ; preds = %2482
-  call void @_ZdlPv(ptr noundef %2494) #18
+  call void @_ZdlPv(ptr noundef %2494) #17
   br label %2500
 
 2500:                                             ; preds = %2499, %2496
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %250) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %251) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %250) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %251) #14
   %2501 = getelementptr inbounds i8, ptr %251, i64 16
   store ptr %2501, ptr %251, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %36) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %36) #14
   store i64 18, ptr %36, align 8, !tbaa !35
-  %2502 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %251, ptr noundef nonnull align 8 dereferenceable(8) %36, i64 noundef 0) #15
+  %2502 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %251, ptr noundef nonnull align 8 dereferenceable(8) %36, i64 noundef 0) #14
   store ptr %2502, ptr %251, align 8, !tbaa !37
   %2503 = load i64, ptr %36, align 8, !tbaa !35
   store i64 %2503, ptr %2501, align 8, !tbaa !3
@@ -5619,11 +5619,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %2505 = load ptr, ptr %251, align 8, !tbaa !37
   %2506 = getelementptr inbounds i8, ptr %2505, i64 %2503
   store i8 0, ptr %2506, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %36) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %36) #14
   %2507 = load ptr, ptr %1, align 8, !tbaa !18
   %2508 = getelementptr inbounds i8, ptr %2507, i64 64
   %2509 = load ptr, ptr %2508, align 8
-  %2510 = call noundef ptr %2509(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %251) #15
+  %2510 = call noundef ptr %2509(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %251) #14
   %2511 = getelementptr inbounds i8, ptr %0, i64 1576
   store ptr %2510, ptr %2511, align 8, !tbaa !165
   %2512 = load ptr, ptr %251, align 8, !tbaa !37
@@ -5637,12 +5637,12 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %2518
 
 2517:                                             ; preds = %2500
-  call void @_ZdlPv(ptr noundef %2512) #18
+  call void @_ZdlPv(ptr noundef %2512) #17
   br label %2518
 
 2518:                                             ; preds = %2517, %2514
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %251) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %252) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %251) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %252) #14
   %2519 = getelementptr inbounds i8, ptr %252, i64 16
   store ptr %2519, ptr %252, align 8, !tbaa !33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %2519, ptr noundef nonnull align 1 dereferenceable(15) @.str.132, i64 15, i1 false)
@@ -5653,7 +5653,7 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %2522 = load ptr, ptr %1, align 8, !tbaa !18
   %2523 = getelementptr inbounds i8, ptr %2522, i64 64
   %2524 = load ptr, ptr %2523, align 8
-  %2525 = call noundef ptr %2524(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %252) #15
+  %2525 = call noundef ptr %2524(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %252) #14
   %2526 = getelementptr inbounds i8, ptr %0, i64 1584
   store ptr %2525, ptr %2526, align 8, !tbaa !166
   %2527 = load ptr, ptr %252, align 8, !tbaa !37
@@ -5667,17 +5667,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %2533
 
 2532:                                             ; preds = %2518
-  call void @_ZdlPv(ptr noundef %2527) #18
+  call void @_ZdlPv(ptr noundef %2527) #17
   br label %2533
 
 2533:                                             ; preds = %2532, %2529
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %252) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %253) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %252) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %253) #14
   %2534 = getelementptr inbounds i8, ptr %253, i64 16
   store ptr %2534, ptr %253, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %35) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %35) #14
   store i64 26, ptr %35, align 8, !tbaa !35
-  %2535 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %253, ptr noundef nonnull align 8 dereferenceable(8) %35, i64 noundef 0) #15
+  %2535 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %253, ptr noundef nonnull align 8 dereferenceable(8) %35, i64 noundef 0) #14
   store ptr %2535, ptr %253, align 8, !tbaa !37
   %2536 = load i64, ptr %35, align 8, !tbaa !35
   store i64 %2536, ptr %2534, align 8, !tbaa !3
@@ -5687,11 +5687,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %2538 = load ptr, ptr %253, align 8, !tbaa !37
   %2539 = getelementptr inbounds i8, ptr %2538, i64 %2536
   store i8 0, ptr %2539, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %35) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %35) #14
   %2540 = load ptr, ptr %1, align 8, !tbaa !18
   %2541 = getelementptr inbounds i8, ptr %2540, i64 64
   %2542 = load ptr, ptr %2541, align 8
-  %2543 = call noundef ptr %2542(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %253) #15
+  %2543 = call noundef ptr %2542(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %253) #14
   %2544 = getelementptr inbounds i8, ptr %0, i64 1592
   store ptr %2543, ptr %2544, align 8, !tbaa !167
   %2545 = load ptr, ptr %253, align 8, !tbaa !37
@@ -5705,17 +5705,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %2551
 
 2550:                                             ; preds = %2533
-  call void @_ZdlPv(ptr noundef %2545) #18
+  call void @_ZdlPv(ptr noundef %2545) #17
   br label %2551
 
 2551:                                             ; preds = %2550, %2547
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %253) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %254) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %253) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %254) #14
   %2552 = getelementptr inbounds i8, ptr %254, i64 16
   store ptr %2552, ptr %254, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %34) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %34) #14
   store i64 23, ptr %34, align 8, !tbaa !35
-  %2553 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %254, ptr noundef nonnull align 8 dereferenceable(8) %34, i64 noundef 0) #15
+  %2553 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %254, ptr noundef nonnull align 8 dereferenceable(8) %34, i64 noundef 0) #14
   store ptr %2553, ptr %254, align 8, !tbaa !37
   %2554 = load i64, ptr %34, align 8, !tbaa !35
   store i64 %2554, ptr %2552, align 8, !tbaa !3
@@ -5725,11 +5725,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %2556 = load ptr, ptr %254, align 8, !tbaa !37
   %2557 = getelementptr inbounds i8, ptr %2556, i64 %2554
   store i8 0, ptr %2557, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %34) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %34) #14
   %2558 = load ptr, ptr %1, align 8, !tbaa !18
   %2559 = getelementptr inbounds i8, ptr %2558, i64 64
   %2560 = load ptr, ptr %2559, align 8
-  %2561 = call noundef ptr %2560(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %254) #15
+  %2561 = call noundef ptr %2560(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %254) #14
   %2562 = getelementptr inbounds i8, ptr %0, i64 1600
   store ptr %2561, ptr %2562, align 8, !tbaa !168
   %2563 = load ptr, ptr %254, align 8, !tbaa !37
@@ -5743,17 +5743,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %2569
 
 2568:                                             ; preds = %2551
-  call void @_ZdlPv(ptr noundef %2563) #18
+  call void @_ZdlPv(ptr noundef %2563) #17
   br label %2569
 
 2569:                                             ; preds = %2568, %2565
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %254) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %255) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %254) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %255) #14
   %2570 = getelementptr inbounds i8, ptr %255, i64 16
   store ptr %2570, ptr %255, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %33) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %33) #14
   store i64 18, ptr %33, align 8, !tbaa !35
-  %2571 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %255, ptr noundef nonnull align 8 dereferenceable(8) %33, i64 noundef 0) #15
+  %2571 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %255, ptr noundef nonnull align 8 dereferenceable(8) %33, i64 noundef 0) #14
   store ptr %2571, ptr %255, align 8, !tbaa !37
   %2572 = load i64, ptr %33, align 8, !tbaa !35
   store i64 %2572, ptr %2570, align 8, !tbaa !3
@@ -5763,11 +5763,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %2574 = load ptr, ptr %255, align 8, !tbaa !37
   %2575 = getelementptr inbounds i8, ptr %2574, i64 %2572
   store i8 0, ptr %2575, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %33) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %33) #14
   %2576 = load ptr, ptr %1, align 8, !tbaa !18
   %2577 = getelementptr inbounds i8, ptr %2576, i64 64
   %2578 = load ptr, ptr %2577, align 8
-  %2579 = call noundef ptr %2578(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %255) #15
+  %2579 = call noundef ptr %2578(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %255) #14
   %2580 = getelementptr inbounds i8, ptr %0, i64 1608
   store ptr %2579, ptr %2580, align 8, !tbaa !169
   %2581 = load ptr, ptr %255, align 8, !tbaa !37
@@ -5781,17 +5781,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %2587
 
 2586:                                             ; preds = %2569
-  call void @_ZdlPv(ptr noundef %2581) #18
+  call void @_ZdlPv(ptr noundef %2581) #17
   br label %2587
 
 2587:                                             ; preds = %2586, %2583
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %255) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %256) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %255) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %256) #14
   %2588 = getelementptr inbounds i8, ptr %256, i64 16
   store ptr %2588, ptr %256, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %32) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %32) #14
   store i64 19, ptr %32, align 8, !tbaa !35
-  %2589 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %256, ptr noundef nonnull align 8 dereferenceable(8) %32, i64 noundef 0) #15
+  %2589 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %256, ptr noundef nonnull align 8 dereferenceable(8) %32, i64 noundef 0) #14
   store ptr %2589, ptr %256, align 8, !tbaa !37
   %2590 = load i64, ptr %32, align 8, !tbaa !35
   store i64 %2590, ptr %2588, align 8, !tbaa !3
@@ -5801,11 +5801,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %2592 = load ptr, ptr %256, align 8, !tbaa !37
   %2593 = getelementptr inbounds i8, ptr %2592, i64 %2590
   store i8 0, ptr %2593, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32) #14
   %2594 = load ptr, ptr %1, align 8, !tbaa !18
   %2595 = getelementptr inbounds i8, ptr %2594, i64 64
   %2596 = load ptr, ptr %2595, align 8
-  %2597 = call noundef ptr %2596(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %256) #15
+  %2597 = call noundef ptr %2596(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %256) #14
   %2598 = getelementptr inbounds i8, ptr %0, i64 1616
   store ptr %2597, ptr %2598, align 8, !tbaa !170
   %2599 = load ptr, ptr %256, align 8, !tbaa !37
@@ -5819,17 +5819,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %2605
 
 2604:                                             ; preds = %2587
-  call void @_ZdlPv(ptr noundef %2599) #18
+  call void @_ZdlPv(ptr noundef %2599) #17
   br label %2605
 
 2605:                                             ; preds = %2604, %2601
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %256) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %257) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %256) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %257) #14
   %2606 = getelementptr inbounds i8, ptr %257, i64 16
   store ptr %2606, ptr %257, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %31) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %31) #14
   store i64 21, ptr %31, align 8, !tbaa !35
-  %2607 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %257, ptr noundef nonnull align 8 dereferenceable(8) %31, i64 noundef 0) #15
+  %2607 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %257, ptr noundef nonnull align 8 dereferenceable(8) %31, i64 noundef 0) #14
   store ptr %2607, ptr %257, align 8, !tbaa !37
   %2608 = load i64, ptr %31, align 8, !tbaa !35
   store i64 %2608, ptr %2606, align 8, !tbaa !3
@@ -5839,11 +5839,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %2610 = load ptr, ptr %257, align 8, !tbaa !37
   %2611 = getelementptr inbounds i8, ptr %2610, i64 %2608
   store i8 0, ptr %2611, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31) #14
   %2612 = load ptr, ptr %1, align 8, !tbaa !18
   %2613 = getelementptr inbounds i8, ptr %2612, i64 64
   %2614 = load ptr, ptr %2613, align 8
-  %2615 = call noundef ptr %2614(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %257) #15
+  %2615 = call noundef ptr %2614(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %257) #14
   %2616 = getelementptr inbounds i8, ptr %0, i64 1624
   store ptr %2615, ptr %2616, align 8, !tbaa !171
   %2617 = load ptr, ptr %257, align 8, !tbaa !37
@@ -5857,17 +5857,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %2623
 
 2622:                                             ; preds = %2605
-  call void @_ZdlPv(ptr noundef %2617) #18
+  call void @_ZdlPv(ptr noundef %2617) #17
   br label %2623
 
 2623:                                             ; preds = %2622, %2619
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %257) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %258) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %257) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %258) #14
   %2624 = getelementptr inbounds i8, ptr %258, i64 16
   store ptr %2624, ptr %258, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %30) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %30) #14
   store i64 21, ptr %30, align 8, !tbaa !35
-  %2625 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %258, ptr noundef nonnull align 8 dereferenceable(8) %30, i64 noundef 0) #15
+  %2625 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %258, ptr noundef nonnull align 8 dereferenceable(8) %30, i64 noundef 0) #14
   store ptr %2625, ptr %258, align 8, !tbaa !37
   %2626 = load i64, ptr %30, align 8, !tbaa !35
   store i64 %2626, ptr %2624, align 8, !tbaa !3
@@ -5877,11 +5877,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %2628 = load ptr, ptr %258, align 8, !tbaa !37
   %2629 = getelementptr inbounds i8, ptr %2628, i64 %2626
   store i8 0, ptr %2629, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30) #14
   %2630 = load ptr, ptr %1, align 8, !tbaa !18
   %2631 = getelementptr inbounds i8, ptr %2630, i64 64
   %2632 = load ptr, ptr %2631, align 8
-  %2633 = call noundef ptr %2632(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %258) #15
+  %2633 = call noundef ptr %2632(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %258) #14
   %2634 = getelementptr inbounds i8, ptr %0, i64 1632
   store ptr %2633, ptr %2634, align 8, !tbaa !172
   %2635 = load ptr, ptr %258, align 8, !tbaa !37
@@ -5895,12 +5895,12 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %2641
 
 2640:                                             ; preds = %2623
-  call void @_ZdlPv(ptr noundef %2635) #18
+  call void @_ZdlPv(ptr noundef %2635) #17
   br label %2641
 
 2641:                                             ; preds = %2640, %2637
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %258) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %259) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %258) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %259) #14
   %2642 = getelementptr inbounds i8, ptr %259, i64 16
   store ptr %2642, ptr %259, align 8, !tbaa !33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %2642, ptr noundef nonnull align 1 dereferenceable(15) @.str.139, i64 15, i1 false)
@@ -5911,7 +5911,7 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %2645 = load ptr, ptr %1, align 8, !tbaa !18
   %2646 = getelementptr inbounds i8, ptr %2645, i64 64
   %2647 = load ptr, ptr %2646, align 8
-  %2648 = call noundef ptr %2647(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %259) #15
+  %2648 = call noundef ptr %2647(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %259) #14
   %2649 = getelementptr inbounds i8, ptr %0, i64 1640
   store ptr %2648, ptr %2649, align 8, !tbaa !173
   %2650 = load ptr, ptr %259, align 8, !tbaa !37
@@ -5925,17 +5925,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %2656
 
 2655:                                             ; preds = %2641
-  call void @_ZdlPv(ptr noundef %2650) #18
+  call void @_ZdlPv(ptr noundef %2650) #17
   br label %2656
 
 2656:                                             ; preds = %2655, %2652
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %259) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %260) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %259) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %260) #14
   %2657 = getelementptr inbounds i8, ptr %260, i64 16
   store ptr %2657, ptr %260, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29) #14
   store i64 29, ptr %29, align 8, !tbaa !35
-  %2658 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %260, ptr noundef nonnull align 8 dereferenceable(8) %29, i64 noundef 0) #15
+  %2658 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %260, ptr noundef nonnull align 8 dereferenceable(8) %29, i64 noundef 0) #14
   store ptr %2658, ptr %260, align 8, !tbaa !37
   %2659 = load i64, ptr %29, align 8, !tbaa !35
   store i64 %2659, ptr %2657, align 8, !tbaa !3
@@ -5945,11 +5945,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %2661 = load ptr, ptr %260, align 8, !tbaa !37
   %2662 = getelementptr inbounds i8, ptr %2661, i64 %2659
   store i8 0, ptr %2662, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29) #14
   %2663 = load ptr, ptr %1, align 8, !tbaa !18
   %2664 = getelementptr inbounds i8, ptr %2663, i64 64
   %2665 = load ptr, ptr %2664, align 8
-  %2666 = call noundef ptr %2665(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %260) #15
+  %2666 = call noundef ptr %2665(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %260) #14
   %2667 = getelementptr inbounds i8, ptr %0, i64 1648
   store ptr %2666, ptr %2667, align 8, !tbaa !174
   %2668 = load ptr, ptr %260, align 8, !tbaa !37
@@ -5963,17 +5963,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %2674
 
 2673:                                             ; preds = %2656
-  call void @_ZdlPv(ptr noundef %2668) #18
+  call void @_ZdlPv(ptr noundef %2668) #17
   br label %2674
 
 2674:                                             ; preds = %2673, %2670
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %260) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %261) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %260) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %261) #14
   %2675 = getelementptr inbounds i8, ptr %261, i64 16
   store ptr %2675, ptr %261, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28) #14
   store i64 23, ptr %28, align 8, !tbaa !35
-  %2676 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %261, ptr noundef nonnull align 8 dereferenceable(8) %28, i64 noundef 0) #15
+  %2676 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %261, ptr noundef nonnull align 8 dereferenceable(8) %28, i64 noundef 0) #14
   store ptr %2676, ptr %261, align 8, !tbaa !37
   %2677 = load i64, ptr %28, align 8, !tbaa !35
   store i64 %2677, ptr %2675, align 8, !tbaa !3
@@ -5983,11 +5983,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %2679 = load ptr, ptr %261, align 8, !tbaa !37
   %2680 = getelementptr inbounds i8, ptr %2679, i64 %2677
   store i8 0, ptr %2680, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28) #14
   %2681 = load ptr, ptr %1, align 8, !tbaa !18
   %2682 = getelementptr inbounds i8, ptr %2681, i64 64
   %2683 = load ptr, ptr %2682, align 8
-  %2684 = call noundef ptr %2683(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %261) #15
+  %2684 = call noundef ptr %2683(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %261) #14
   %2685 = getelementptr inbounds i8, ptr %0, i64 1656
   store ptr %2684, ptr %2685, align 8, !tbaa !175
   %2686 = load ptr, ptr %261, align 8, !tbaa !37
@@ -6001,17 +6001,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %2692
 
 2691:                                             ; preds = %2674
-  call void @_ZdlPv(ptr noundef %2686) #18
+  call void @_ZdlPv(ptr noundef %2686) #17
   br label %2692
 
 2692:                                             ; preds = %2691, %2688
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %261) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %262) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %261) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %262) #14
   %2693 = getelementptr inbounds i8, ptr %262, i64 16
   store ptr %2693, ptr %262, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27) #14
   store i64 25, ptr %27, align 8, !tbaa !35
-  %2694 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %262, ptr noundef nonnull align 8 dereferenceable(8) %27, i64 noundef 0) #15
+  %2694 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %262, ptr noundef nonnull align 8 dereferenceable(8) %27, i64 noundef 0) #14
   store ptr %2694, ptr %262, align 8, !tbaa !37
   %2695 = load i64, ptr %27, align 8, !tbaa !35
   store i64 %2695, ptr %2693, align 8, !tbaa !3
@@ -6021,11 +6021,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %2697 = load ptr, ptr %262, align 8, !tbaa !37
   %2698 = getelementptr inbounds i8, ptr %2697, i64 %2695
   store i8 0, ptr %2698, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27) #14
   %2699 = load ptr, ptr %1, align 8, !tbaa !18
   %2700 = getelementptr inbounds i8, ptr %2699, i64 64
   %2701 = load ptr, ptr %2700, align 8
-  %2702 = call noundef ptr %2701(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %262) #15
+  %2702 = call noundef ptr %2701(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %262) #14
   %2703 = getelementptr inbounds i8, ptr %0, i64 1664
   store ptr %2702, ptr %2703, align 8, !tbaa !176
   %2704 = load ptr, ptr %262, align 8, !tbaa !37
@@ -6039,17 +6039,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %2710
 
 2709:                                             ; preds = %2692
-  call void @_ZdlPv(ptr noundef %2704) #18
+  call void @_ZdlPv(ptr noundef %2704) #17
   br label %2710
 
 2710:                                             ; preds = %2709, %2706
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %262) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %263) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %262) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %263) #14
   %2711 = getelementptr inbounds i8, ptr %263, i64 16
   store ptr %2711, ptr %263, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26) #14
   store i64 19, ptr %26, align 8, !tbaa !35
-  %2712 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %263, ptr noundef nonnull align 8 dereferenceable(8) %26, i64 noundef 0) #15
+  %2712 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %263, ptr noundef nonnull align 8 dereferenceable(8) %26, i64 noundef 0) #14
   store ptr %2712, ptr %263, align 8, !tbaa !37
   %2713 = load i64, ptr %26, align 8, !tbaa !35
   store i64 %2713, ptr %2711, align 8, !tbaa !3
@@ -6059,11 +6059,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %2715 = load ptr, ptr %263, align 8, !tbaa !37
   %2716 = getelementptr inbounds i8, ptr %2715, i64 %2713
   store i8 0, ptr %2716, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26) #14
   %2717 = load ptr, ptr %1, align 8, !tbaa !18
   %2718 = getelementptr inbounds i8, ptr %2717, i64 64
   %2719 = load ptr, ptr %2718, align 8
-  %2720 = call noundef ptr %2719(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %263) #15
+  %2720 = call noundef ptr %2719(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %263) #14
   %2721 = getelementptr inbounds i8, ptr %0, i64 1672
   store ptr %2720, ptr %2721, align 8, !tbaa !177
   %2722 = load ptr, ptr %263, align 8, !tbaa !37
@@ -6077,17 +6077,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %2728
 
 2727:                                             ; preds = %2710
-  call void @_ZdlPv(ptr noundef %2722) #18
+  call void @_ZdlPv(ptr noundef %2722) #17
   br label %2728
 
 2728:                                             ; preds = %2727, %2724
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %263) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %264) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %263) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %264) #14
   %2729 = getelementptr inbounds i8, ptr %264, i64 16
   store ptr %2729, ptr %264, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25) #14
   store i64 33, ptr %25, align 8, !tbaa !35
-  %2730 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %264, ptr noundef nonnull align 8 dereferenceable(8) %25, i64 noundef 0) #15
+  %2730 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %264, ptr noundef nonnull align 8 dereferenceable(8) %25, i64 noundef 0) #14
   store ptr %2730, ptr %264, align 8, !tbaa !37
   %2731 = load i64, ptr %25, align 8, !tbaa !35
   store i64 %2731, ptr %2729, align 8, !tbaa !3
@@ -6096,11 +6096,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   store i64 %2731, ptr %2732, align 8, !tbaa !39
   %2733 = getelementptr inbounds i8, ptr %2730, i64 %2731
   store i8 0, ptr %2733, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #14
   %2734 = load ptr, ptr %1, align 8, !tbaa !18
   %2735 = getelementptr inbounds i8, ptr %2734, i64 64
   %2736 = load ptr, ptr %2735, align 8
-  %2737 = call noundef ptr %2736(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %264) #15
+  %2737 = call noundef ptr %2736(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %264) #14
   %2738 = getelementptr inbounds i8, ptr %0, i64 1680
   store ptr %2737, ptr %2738, align 8, !tbaa !178
   %2739 = load ptr, ptr %264, align 8, !tbaa !37
@@ -6114,17 +6114,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %2745
 
 2744:                                             ; preds = %2728
-  call void @_ZdlPv(ptr noundef %2739) #18
+  call void @_ZdlPv(ptr noundef %2739) #17
   br label %2745
 
 2745:                                             ; preds = %2744, %2741
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %264) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %265) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %264) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %265) #14
   %2746 = getelementptr inbounds i8, ptr %265, i64 16
   store ptr %2746, ptr %265, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24) #14
   store i64 27, ptr %24, align 8, !tbaa !35
-  %2747 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %265, ptr noundef nonnull align 8 dereferenceable(8) %24, i64 noundef 0) #15
+  %2747 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %265, ptr noundef nonnull align 8 dereferenceable(8) %24, i64 noundef 0) #14
   store ptr %2747, ptr %265, align 8, !tbaa !37
   %2748 = load i64, ptr %24, align 8, !tbaa !35
   store i64 %2748, ptr %2746, align 8, !tbaa !3
@@ -6134,11 +6134,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %2750 = load ptr, ptr %265, align 8, !tbaa !37
   %2751 = getelementptr inbounds i8, ptr %2750, i64 %2748
   store i8 0, ptr %2751, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #14
   %2752 = load ptr, ptr %1, align 8, !tbaa !18
   %2753 = getelementptr inbounds i8, ptr %2752, i64 64
   %2754 = load ptr, ptr %2753, align 8
-  %2755 = call noundef ptr %2754(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %265) #15
+  %2755 = call noundef ptr %2754(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %265) #14
   %2756 = getelementptr inbounds i8, ptr %0, i64 1688
   store ptr %2755, ptr %2756, align 8, !tbaa !179
   %2757 = load ptr, ptr %265, align 8, !tbaa !37
@@ -6152,17 +6152,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %2763
 
 2762:                                             ; preds = %2745
-  call void @_ZdlPv(ptr noundef %2757) #18
+  call void @_ZdlPv(ptr noundef %2757) #17
   br label %2763
 
 2763:                                             ; preds = %2762, %2759
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %265) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %266) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %265) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %266) #14
   %2764 = getelementptr inbounds i8, ptr %266, i64 16
   store ptr %2764, ptr %266, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23) #14
   store i64 18, ptr %23, align 8, !tbaa !35
-  %2765 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %266, ptr noundef nonnull align 8 dereferenceable(8) %23, i64 noundef 0) #15
+  %2765 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %266, ptr noundef nonnull align 8 dereferenceable(8) %23, i64 noundef 0) #14
   store ptr %2765, ptr %266, align 8, !tbaa !37
   %2766 = load i64, ptr %23, align 8, !tbaa !35
   store i64 %2766, ptr %2764, align 8, !tbaa !3
@@ -6172,11 +6172,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %2768 = load ptr, ptr %266, align 8, !tbaa !37
   %2769 = getelementptr inbounds i8, ptr %2768, i64 %2766
   store i8 0, ptr %2769, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #14
   %2770 = load ptr, ptr %1, align 8, !tbaa !18
   %2771 = getelementptr inbounds i8, ptr %2770, i64 64
   %2772 = load ptr, ptr %2771, align 8
-  %2773 = call noundef ptr %2772(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %266) #15
+  %2773 = call noundef ptr %2772(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %266) #14
   %2774 = getelementptr inbounds i8, ptr %0, i64 1696
   store ptr %2773, ptr %2774, align 8, !tbaa !180
   %2775 = load ptr, ptr %266, align 8, !tbaa !37
@@ -6190,17 +6190,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %2781
 
 2780:                                             ; preds = %2763
-  call void @_ZdlPv(ptr noundef %2775) #18
+  call void @_ZdlPv(ptr noundef %2775) #17
   br label %2781
 
 2781:                                             ; preds = %2780, %2777
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %266) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %267) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %266) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %267) #14
   %2782 = getelementptr inbounds i8, ptr %267, i64 16
   store ptr %2782, ptr %267, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #14
   store i64 18, ptr %22, align 8, !tbaa !35
-  %2783 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %267, ptr noundef nonnull align 8 dereferenceable(8) %22, i64 noundef 0) #15
+  %2783 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %267, ptr noundef nonnull align 8 dereferenceable(8) %22, i64 noundef 0) #14
   store ptr %2783, ptr %267, align 8, !tbaa !37
   %2784 = load i64, ptr %22, align 8, !tbaa !35
   store i64 %2784, ptr %2782, align 8, !tbaa !3
@@ -6210,11 +6210,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %2786 = load ptr, ptr %267, align 8, !tbaa !37
   %2787 = getelementptr inbounds i8, ptr %2786, i64 %2784
   store i8 0, ptr %2787, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #14
   %2788 = load ptr, ptr %1, align 8, !tbaa !18
   %2789 = getelementptr inbounds i8, ptr %2788, i64 64
   %2790 = load ptr, ptr %2789, align 8
-  %2791 = call noundef ptr %2790(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %267) #15
+  %2791 = call noundef ptr %2790(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %267) #14
   %2792 = getelementptr inbounds i8, ptr %0, i64 1704
   store ptr %2791, ptr %2792, align 8, !tbaa !181
   %2793 = load ptr, ptr %267, align 8, !tbaa !37
@@ -6228,17 +6228,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %2799
 
 2798:                                             ; preds = %2781
-  call void @_ZdlPv(ptr noundef %2793) #18
+  call void @_ZdlPv(ptr noundef %2793) #17
   br label %2799
 
 2799:                                             ; preds = %2798, %2795
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %267) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %268) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %267) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %268) #14
   %2800 = getelementptr inbounds i8, ptr %268, i64 16
   store ptr %2800, ptr %268, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #14
   store i64 19, ptr %21, align 8, !tbaa !35
-  %2801 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %268, ptr noundef nonnull align 8 dereferenceable(8) %21, i64 noundef 0) #15
+  %2801 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %268, ptr noundef nonnull align 8 dereferenceable(8) %21, i64 noundef 0) #14
   store ptr %2801, ptr %268, align 8, !tbaa !37
   %2802 = load i64, ptr %21, align 8, !tbaa !35
   store i64 %2802, ptr %2800, align 8, !tbaa !3
@@ -6248,11 +6248,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %2804 = load ptr, ptr %268, align 8, !tbaa !37
   %2805 = getelementptr inbounds i8, ptr %2804, i64 %2802
   store i8 0, ptr %2805, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #14
   %2806 = load ptr, ptr %1, align 8, !tbaa !18
   %2807 = getelementptr inbounds i8, ptr %2806, i64 64
   %2808 = load ptr, ptr %2807, align 8
-  %2809 = call noundef ptr %2808(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %268) #15
+  %2809 = call noundef ptr %2808(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %268) #14
   %2810 = getelementptr inbounds i8, ptr %0, i64 1712
   store ptr %2809, ptr %2810, align 8, !tbaa !182
   %2811 = load ptr, ptr %268, align 8, !tbaa !37
@@ -6266,17 +6266,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %2817
 
 2816:                                             ; preds = %2799
-  call void @_ZdlPv(ptr noundef %2811) #18
+  call void @_ZdlPv(ptr noundef %2811) #17
   br label %2817
 
 2817:                                             ; preds = %2816, %2813
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %268) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %269) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %268) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %269) #14
   %2818 = getelementptr inbounds i8, ptr %269, i64 16
   store ptr %2818, ptr %269, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #14
   store i64 17, ptr %20, align 8, !tbaa !35
-  %2819 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %269, ptr noundef nonnull align 8 dereferenceable(8) %20, i64 noundef 0) #15
+  %2819 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %269, ptr noundef nonnull align 8 dereferenceable(8) %20, i64 noundef 0) #14
   store ptr %2819, ptr %269, align 8, !tbaa !37
   %2820 = load i64, ptr %20, align 8, !tbaa !35
   store i64 %2820, ptr %2818, align 8, !tbaa !3
@@ -6286,11 +6286,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %2822 = load ptr, ptr %269, align 8, !tbaa !37
   %2823 = getelementptr inbounds i8, ptr %2822, i64 %2820
   store i8 0, ptr %2823, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #14
   %2824 = load ptr, ptr %1, align 8, !tbaa !18
   %2825 = getelementptr inbounds i8, ptr %2824, i64 64
   %2826 = load ptr, ptr %2825, align 8
-  %2827 = call noundef ptr %2826(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %269) #15
+  %2827 = call noundef ptr %2826(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %269) #14
   %2828 = getelementptr inbounds i8, ptr %0, i64 1720
   store ptr %2827, ptr %2828, align 8, !tbaa !183
   %2829 = load ptr, ptr %269, align 8, !tbaa !37
@@ -6304,17 +6304,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %2835
 
 2834:                                             ; preds = %2817
-  call void @_ZdlPv(ptr noundef %2829) #18
+  call void @_ZdlPv(ptr noundef %2829) #17
   br label %2835
 
 2835:                                             ; preds = %2834, %2831
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %269) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %270) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %269) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %270) #14
   %2836 = getelementptr inbounds i8, ptr %270, i64 16
   store ptr %2836, ptr %270, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #14
   store i64 25, ptr %19, align 8, !tbaa !35
-  %2837 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %270, ptr noundef nonnull align 8 dereferenceable(8) %19, i64 noundef 0) #15
+  %2837 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %270, ptr noundef nonnull align 8 dereferenceable(8) %19, i64 noundef 0) #14
   store ptr %2837, ptr %270, align 8, !tbaa !37
   %2838 = load i64, ptr %19, align 8, !tbaa !35
   store i64 %2838, ptr %2836, align 8, !tbaa !3
@@ -6324,11 +6324,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %2840 = load ptr, ptr %270, align 8, !tbaa !37
   %2841 = getelementptr inbounds i8, ptr %2840, i64 %2838
   store i8 0, ptr %2841, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #14
   %2842 = load ptr, ptr %1, align 8, !tbaa !18
   %2843 = getelementptr inbounds i8, ptr %2842, i64 64
   %2844 = load ptr, ptr %2843, align 8
-  %2845 = call noundef ptr %2844(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %270) #15
+  %2845 = call noundef ptr %2844(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %270) #14
   %2846 = getelementptr inbounds i8, ptr %0, i64 1728
   store ptr %2845, ptr %2846, align 8, !tbaa !184
   %2847 = load ptr, ptr %270, align 8, !tbaa !37
@@ -6342,17 +6342,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %2853
 
 2852:                                             ; preds = %2835
-  call void @_ZdlPv(ptr noundef %2847) #18
+  call void @_ZdlPv(ptr noundef %2847) #17
   br label %2853
 
 2853:                                             ; preds = %2852, %2849
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %270) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %271) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %270) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %271) #14
   %2854 = getelementptr inbounds i8, ptr %271, i64 16
   store ptr %2854, ptr %271, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #14
   store i64 19, ptr %18, align 8, !tbaa !35
-  %2855 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %271, ptr noundef nonnull align 8 dereferenceable(8) %18, i64 noundef 0) #15
+  %2855 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %271, ptr noundef nonnull align 8 dereferenceable(8) %18, i64 noundef 0) #14
   store ptr %2855, ptr %271, align 8, !tbaa !37
   %2856 = load i64, ptr %18, align 8, !tbaa !35
   store i64 %2856, ptr %2854, align 8, !tbaa !3
@@ -6362,11 +6362,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %2858 = load ptr, ptr %271, align 8, !tbaa !37
   %2859 = getelementptr inbounds i8, ptr %2858, i64 %2856
   store i8 0, ptr %2859, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #14
   %2860 = load ptr, ptr %1, align 8, !tbaa !18
   %2861 = getelementptr inbounds i8, ptr %2860, i64 64
   %2862 = load ptr, ptr %2861, align 8
-  %2863 = call noundef ptr %2862(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %271) #15
+  %2863 = call noundef ptr %2862(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %271) #14
   %2864 = getelementptr inbounds i8, ptr %0, i64 1736
   store ptr %2863, ptr %2864, align 8, !tbaa !185
   %2865 = load ptr, ptr %271, align 8, !tbaa !37
@@ -6380,17 +6380,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %2871
 
 2870:                                             ; preds = %2853
-  call void @_ZdlPv(ptr noundef %2865) #18
+  call void @_ZdlPv(ptr noundef %2865) #17
   br label %2871
 
 2871:                                             ; preds = %2870, %2867
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %271) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %272) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %271) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %272) #14
   %2872 = getelementptr inbounds i8, ptr %272, i64 16
   store ptr %2872, ptr %272, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #14
   store i64 19, ptr %17, align 8, !tbaa !35
-  %2873 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %272, ptr noundef nonnull align 8 dereferenceable(8) %17, i64 noundef 0) #15
+  %2873 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %272, ptr noundef nonnull align 8 dereferenceable(8) %17, i64 noundef 0) #14
   store ptr %2873, ptr %272, align 8, !tbaa !37
   %2874 = load i64, ptr %17, align 8, !tbaa !35
   store i64 %2874, ptr %2872, align 8, !tbaa !3
@@ -6400,11 +6400,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %2876 = load ptr, ptr %272, align 8, !tbaa !37
   %2877 = getelementptr inbounds i8, ptr %2876, i64 %2874
   store i8 0, ptr %2877, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #14
   %2878 = load ptr, ptr %1, align 8, !tbaa !18
   %2879 = getelementptr inbounds i8, ptr %2878, i64 64
   %2880 = load ptr, ptr %2879, align 8
-  %2881 = call noundef ptr %2880(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %272) #15
+  %2881 = call noundef ptr %2880(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %272) #14
   %2882 = getelementptr inbounds i8, ptr %0, i64 1744
   store ptr %2881, ptr %2882, align 8, !tbaa !186
   %2883 = load ptr, ptr %272, align 8, !tbaa !37
@@ -6418,17 +6418,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %2889
 
 2888:                                             ; preds = %2871
-  call void @_ZdlPv(ptr noundef %2883) #18
+  call void @_ZdlPv(ptr noundef %2883) #17
   br label %2889
 
 2889:                                             ; preds = %2888, %2885
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %272) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %273) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %272) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %273) #14
   %2890 = getelementptr inbounds i8, ptr %273, i64 16
   store ptr %2890, ptr %273, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #14
   store i64 20, ptr %16, align 8, !tbaa !35
-  %2891 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %273, ptr noundef nonnull align 8 dereferenceable(8) %16, i64 noundef 0) #15
+  %2891 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %273, ptr noundef nonnull align 8 dereferenceable(8) %16, i64 noundef 0) #14
   store ptr %2891, ptr %273, align 8, !tbaa !37
   %2892 = load i64, ptr %16, align 8, !tbaa !35
   store i64 %2892, ptr %2890, align 8, !tbaa !3
@@ -6438,11 +6438,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %2894 = load ptr, ptr %273, align 8, !tbaa !37
   %2895 = getelementptr inbounds i8, ptr %2894, i64 %2892
   store i8 0, ptr %2895, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #14
   %2896 = load ptr, ptr %1, align 8, !tbaa !18
   %2897 = getelementptr inbounds i8, ptr %2896, i64 64
   %2898 = load ptr, ptr %2897, align 8
-  %2899 = call noundef ptr %2898(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %273) #15
+  %2899 = call noundef ptr %2898(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %273) #14
   %2900 = getelementptr inbounds i8, ptr %0, i64 1752
   store ptr %2899, ptr %2900, align 8, !tbaa !187
   %2901 = load ptr, ptr %273, align 8, !tbaa !37
@@ -6456,17 +6456,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %2907
 
 2906:                                             ; preds = %2889
-  call void @_ZdlPv(ptr noundef %2901) #18
+  call void @_ZdlPv(ptr noundef %2901) #17
   br label %2907
 
 2907:                                             ; preds = %2906, %2903
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %273) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %274) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %273) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %274) #14
   %2908 = getelementptr inbounds i8, ptr %274, i64 16
   store ptr %2908, ptr %274, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #14
   store i64 20, ptr %15, align 8, !tbaa !35
-  %2909 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %274, ptr noundef nonnull align 8 dereferenceable(8) %15, i64 noundef 0) #15
+  %2909 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %274, ptr noundef nonnull align 8 dereferenceable(8) %15, i64 noundef 0) #14
   store ptr %2909, ptr %274, align 8, !tbaa !37
   %2910 = load i64, ptr %15, align 8, !tbaa !35
   store i64 %2910, ptr %2908, align 8, !tbaa !3
@@ -6476,11 +6476,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %2912 = load ptr, ptr %274, align 8, !tbaa !37
   %2913 = getelementptr inbounds i8, ptr %2912, i64 %2910
   store i8 0, ptr %2913, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #14
   %2914 = load ptr, ptr %1, align 8, !tbaa !18
   %2915 = getelementptr inbounds i8, ptr %2914, i64 64
   %2916 = load ptr, ptr %2915, align 8
-  %2917 = call noundef ptr %2916(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %274) #15
+  %2917 = call noundef ptr %2916(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %274) #14
   %2918 = getelementptr inbounds i8, ptr %0, i64 1760
   store ptr %2917, ptr %2918, align 8, !tbaa !188
   %2919 = load ptr, ptr %274, align 8, !tbaa !37
@@ -6494,17 +6494,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %2925
 
 2924:                                             ; preds = %2907
-  call void @_ZdlPv(ptr noundef %2919) #18
+  call void @_ZdlPv(ptr noundef %2919) #17
   br label %2925
 
 2925:                                             ; preds = %2924, %2921
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %274) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %275) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %274) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %275) #14
   %2926 = getelementptr inbounds i8, ptr %275, i64 16
   store ptr %2926, ptr %275, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #14
   store i64 16, ptr %14, align 8, !tbaa !35
-  %2927 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %275, ptr noundef nonnull align 8 dereferenceable(8) %14, i64 noundef 0) #15
+  %2927 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %275, ptr noundef nonnull align 8 dereferenceable(8) %14, i64 noundef 0) #14
   store ptr %2927, ptr %275, align 8, !tbaa !37
   %2928 = load i64, ptr %14, align 8, !tbaa !35
   store i64 %2928, ptr %2926, align 8, !tbaa !3
@@ -6514,11 +6514,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %2930 = load ptr, ptr %275, align 8, !tbaa !37
   %2931 = getelementptr inbounds i8, ptr %2930, i64 %2928
   store i8 0, ptr %2931, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #14
   %2932 = load ptr, ptr %1, align 8, !tbaa !18
   %2933 = getelementptr inbounds i8, ptr %2932, i64 64
   %2934 = load ptr, ptr %2933, align 8
-  %2935 = call noundef ptr %2934(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %275) #15
+  %2935 = call noundef ptr %2934(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %275) #14
   %2936 = getelementptr inbounds i8, ptr %0, i64 1768
   store ptr %2935, ptr %2936, align 8, !tbaa !189
   %2937 = load ptr, ptr %275, align 8, !tbaa !37
@@ -6532,17 +6532,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %2943
 
 2942:                                             ; preds = %2925
-  call void @_ZdlPv(ptr noundef %2937) #18
+  call void @_ZdlPv(ptr noundef %2937) #17
   br label %2943
 
 2943:                                             ; preds = %2942, %2939
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %275) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %276) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %275) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %276) #14
   %2944 = getelementptr inbounds i8, ptr %276, i64 16
   store ptr %2944, ptr %276, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #14
   store i64 20, ptr %13, align 8, !tbaa !35
-  %2945 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %276, ptr noundef nonnull align 8 dereferenceable(8) %13, i64 noundef 0) #15
+  %2945 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %276, ptr noundef nonnull align 8 dereferenceable(8) %13, i64 noundef 0) #14
   store ptr %2945, ptr %276, align 8, !tbaa !37
   %2946 = load i64, ptr %13, align 8, !tbaa !35
   store i64 %2946, ptr %2944, align 8, !tbaa !3
@@ -6552,11 +6552,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %2948 = load ptr, ptr %276, align 8, !tbaa !37
   %2949 = getelementptr inbounds i8, ptr %2948, i64 %2946
   store i8 0, ptr %2949, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #14
   %2950 = load ptr, ptr %1, align 8, !tbaa !18
   %2951 = getelementptr inbounds i8, ptr %2950, i64 64
   %2952 = load ptr, ptr %2951, align 8
-  %2953 = call noundef ptr %2952(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %276) #15
+  %2953 = call noundef ptr %2952(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %276) #14
   %2954 = getelementptr inbounds i8, ptr %0, i64 1776
   store ptr %2953, ptr %2954, align 8, !tbaa !190
   %2955 = load ptr, ptr %276, align 8, !tbaa !37
@@ -6570,12 +6570,12 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %2961
 
 2960:                                             ; preds = %2943
-  call void @_ZdlPv(ptr noundef %2955) #18
+  call void @_ZdlPv(ptr noundef %2955) #17
   br label %2961
 
 2961:                                             ; preds = %2960, %2957
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %276) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %277) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %276) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %277) #14
   %2962 = getelementptr inbounds i8, ptr %277, i64 16
   store ptr %2962, ptr %277, align 8, !tbaa !33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %2962, ptr noundef nonnull align 1 dereferenceable(14) @.str.157, i64 14, i1 false)
@@ -6586,7 +6586,7 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %2965 = load ptr, ptr %1, align 8, !tbaa !18
   %2966 = getelementptr inbounds i8, ptr %2965, i64 64
   %2967 = load ptr, ptr %2966, align 8
-  %2968 = call noundef ptr %2967(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %277) #15
+  %2968 = call noundef ptr %2967(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %277) #14
   %2969 = getelementptr inbounds i8, ptr %0, i64 1784
   store ptr %2968, ptr %2969, align 8, !tbaa !191
   %2970 = load ptr, ptr %277, align 8, !tbaa !37
@@ -6600,17 +6600,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %2976
 
 2975:                                             ; preds = %2961
-  call void @_ZdlPv(ptr noundef %2970) #18
+  call void @_ZdlPv(ptr noundef %2970) #17
   br label %2976
 
 2976:                                             ; preds = %2975, %2972
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %277) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %278) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %277) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %278) #14
   %2977 = getelementptr inbounds i8, ptr %278, i64 16
   store ptr %2977, ptr %278, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #14
   store i64 23, ptr %12, align 8, !tbaa !35
-  %2978 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %278, ptr noundef nonnull align 8 dereferenceable(8) %12, i64 noundef 0) #15
+  %2978 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %278, ptr noundef nonnull align 8 dereferenceable(8) %12, i64 noundef 0) #14
   store ptr %2978, ptr %278, align 8, !tbaa !37
   %2979 = load i64, ptr %12, align 8, !tbaa !35
   store i64 %2979, ptr %2977, align 8, !tbaa !3
@@ -6620,11 +6620,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %2981 = load ptr, ptr %278, align 8, !tbaa !37
   %2982 = getelementptr inbounds i8, ptr %2981, i64 %2979
   store i8 0, ptr %2982, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #14
   %2983 = load ptr, ptr %1, align 8, !tbaa !18
   %2984 = getelementptr inbounds i8, ptr %2983, i64 64
   %2985 = load ptr, ptr %2984, align 8
-  %2986 = call noundef ptr %2985(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %278) #15
+  %2986 = call noundef ptr %2985(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %278) #14
   %2987 = getelementptr inbounds i8, ptr %0, i64 1792
   store ptr %2986, ptr %2987, align 8, !tbaa !192
   %2988 = load ptr, ptr %278, align 8, !tbaa !37
@@ -6638,17 +6638,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %2994
 
 2993:                                             ; preds = %2976
-  call void @_ZdlPv(ptr noundef %2988) #18
+  call void @_ZdlPv(ptr noundef %2988) #17
   br label %2994
 
 2994:                                             ; preds = %2993, %2990
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %278) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %279) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %278) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %279) #14
   %2995 = getelementptr inbounds i8, ptr %279, i64 16
   store ptr %2995, ptr %279, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #14
   store i64 21, ptr %11, align 8, !tbaa !35
-  %2996 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %279, ptr noundef nonnull align 8 dereferenceable(8) %11, i64 noundef 0) #15
+  %2996 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %279, ptr noundef nonnull align 8 dereferenceable(8) %11, i64 noundef 0) #14
   store ptr %2996, ptr %279, align 8, !tbaa !37
   %2997 = load i64, ptr %11, align 8, !tbaa !35
   store i64 %2997, ptr %2995, align 8, !tbaa !3
@@ -6658,11 +6658,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %2999 = load ptr, ptr %279, align 8, !tbaa !37
   %3000 = getelementptr inbounds i8, ptr %2999, i64 %2997
   store i8 0, ptr %3000, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #14
   %3001 = load ptr, ptr %1, align 8, !tbaa !18
   %3002 = getelementptr inbounds i8, ptr %3001, i64 64
   %3003 = load ptr, ptr %3002, align 8
-  %3004 = call noundef ptr %3003(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %279) #15
+  %3004 = call noundef ptr %3003(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %279) #14
   %3005 = getelementptr inbounds i8, ptr %0, i64 1800
   store ptr %3004, ptr %3005, align 8, !tbaa !193
   %3006 = load ptr, ptr %279, align 8, !tbaa !37
@@ -6676,12 +6676,12 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %3012
 
 3011:                                             ; preds = %2994
-  call void @_ZdlPv(ptr noundef %3006) #18
+  call void @_ZdlPv(ptr noundef %3006) #17
   br label %3012
 
 3012:                                             ; preds = %3011, %3008
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %279) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %280) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %279) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %280) #14
   %3013 = getelementptr inbounds i8, ptr %280, i64 16
   store ptr %3013, ptr %280, align 8, !tbaa !33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %3013, ptr noundef nonnull align 1 dereferenceable(14) @.str.160, i64 14, i1 false)
@@ -6692,7 +6692,7 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %3016 = load ptr, ptr %1, align 8, !tbaa !18
   %3017 = getelementptr inbounds i8, ptr %3016, i64 64
   %3018 = load ptr, ptr %3017, align 8
-  %3019 = call noundef ptr %3018(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %280) #15
+  %3019 = call noundef ptr %3018(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %280) #14
   %3020 = getelementptr inbounds i8, ptr %0, i64 1808
   store ptr %3019, ptr %3020, align 8, !tbaa !194
   %3021 = load ptr, ptr %280, align 8, !tbaa !37
@@ -6706,17 +6706,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %3027
 
 3026:                                             ; preds = %3012
-  call void @_ZdlPv(ptr noundef %3021) #18
+  call void @_ZdlPv(ptr noundef %3021) #17
   br label %3027
 
 3027:                                             ; preds = %3026, %3023
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %280) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %281) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %280) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %281) #14
   %3028 = getelementptr inbounds i8, ptr %281, i64 16
   store ptr %3028, ptr %281, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #14
   store i64 21, ptr %10, align 8, !tbaa !35
-  %3029 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %281, ptr noundef nonnull align 8 dereferenceable(8) %10, i64 noundef 0) #15
+  %3029 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %281, ptr noundef nonnull align 8 dereferenceable(8) %10, i64 noundef 0) #14
   store ptr %3029, ptr %281, align 8, !tbaa !37
   %3030 = load i64, ptr %10, align 8, !tbaa !35
   store i64 %3030, ptr %3028, align 8, !tbaa !3
@@ -6726,11 +6726,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %3032 = load ptr, ptr %281, align 8, !tbaa !37
   %3033 = getelementptr inbounds i8, ptr %3032, i64 %3030
   store i8 0, ptr %3033, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #14
   %3034 = load ptr, ptr %1, align 8, !tbaa !18
   %3035 = getelementptr inbounds i8, ptr %3034, i64 64
   %3036 = load ptr, ptr %3035, align 8
-  %3037 = call noundef ptr %3036(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %281) #15
+  %3037 = call noundef ptr %3036(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %281) #14
   %3038 = getelementptr inbounds i8, ptr %0, i64 1816
   store ptr %3037, ptr %3038, align 8, !tbaa !195
   %3039 = load ptr, ptr %281, align 8, !tbaa !37
@@ -6744,12 +6744,12 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %3045
 
 3044:                                             ; preds = %3027
-  call void @_ZdlPv(ptr noundef %3039) #18
+  call void @_ZdlPv(ptr noundef %3039) #17
   br label %3045
 
 3045:                                             ; preds = %3044, %3041
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %281) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %282) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %281) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %282) #14
   %3046 = getelementptr inbounds i8, ptr %282, i64 16
   store ptr %3046, ptr %282, align 8, !tbaa !33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %3046, ptr noundef nonnull align 1 dereferenceable(14) @.str.162, i64 14, i1 false)
@@ -6760,7 +6760,7 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %3049 = load ptr, ptr %1, align 8, !tbaa !18
   %3050 = getelementptr inbounds i8, ptr %3049, i64 64
   %3051 = load ptr, ptr %3050, align 8
-  %3052 = call noundef ptr %3051(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %282) #15
+  %3052 = call noundef ptr %3051(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %282) #14
   %3053 = getelementptr inbounds i8, ptr %0, i64 1824
   store ptr %3052, ptr %3053, align 8, !tbaa !196
   %3054 = load ptr, ptr %282, align 8, !tbaa !37
@@ -6774,17 +6774,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %3060
 
 3059:                                             ; preds = %3045
-  call void @_ZdlPv(ptr noundef %3054) #18
+  call void @_ZdlPv(ptr noundef %3054) #17
   br label %3060
 
 3060:                                             ; preds = %3059, %3056
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %282) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %283) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %282) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %283) #14
   %3061 = getelementptr inbounds i8, ptr %283, i64 16
   store ptr %3061, ptr %283, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #14
   store i64 22, ptr %9, align 8, !tbaa !35
-  %3062 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %283, ptr noundef nonnull align 8 dereferenceable(8) %9, i64 noundef 0) #15
+  %3062 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %283, ptr noundef nonnull align 8 dereferenceable(8) %9, i64 noundef 0) #14
   store ptr %3062, ptr %283, align 8, !tbaa !37
   %3063 = load i64, ptr %9, align 8, !tbaa !35
   store i64 %3063, ptr %3061, align 8, !tbaa !3
@@ -6794,11 +6794,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %3065 = load ptr, ptr %283, align 8, !tbaa !37
   %3066 = getelementptr inbounds i8, ptr %3065, i64 %3063
   store i8 0, ptr %3066, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #14
   %3067 = load ptr, ptr %1, align 8, !tbaa !18
   %3068 = getelementptr inbounds i8, ptr %3067, i64 64
   %3069 = load ptr, ptr %3068, align 8
-  %3070 = call noundef ptr %3069(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %283) #15
+  %3070 = call noundef ptr %3069(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %283) #14
   %3071 = getelementptr inbounds i8, ptr %0, i64 1832
   store ptr %3070, ptr %3071, align 8, !tbaa !197
   %3072 = load ptr, ptr %283, align 8, !tbaa !37
@@ -6812,17 +6812,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %3078
 
 3077:                                             ; preds = %3060
-  call void @_ZdlPv(ptr noundef %3072) #18
+  call void @_ZdlPv(ptr noundef %3072) #17
   br label %3078
 
 3078:                                             ; preds = %3077, %3074
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %283) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %284) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %283) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %284) #14
   %3079 = getelementptr inbounds i8, ptr %284, i64 16
   store ptr %3079, ptr %284, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #14
   store i64 20, ptr %8, align 8, !tbaa !35
-  %3080 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %284, ptr noundef nonnull align 8 dereferenceable(8) %8, i64 noundef 0) #15
+  %3080 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %284, ptr noundef nonnull align 8 dereferenceable(8) %8, i64 noundef 0) #14
   store ptr %3080, ptr %284, align 8, !tbaa !37
   %3081 = load i64, ptr %8, align 8, !tbaa !35
   store i64 %3081, ptr %3079, align 8, !tbaa !3
@@ -6832,11 +6832,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %3083 = load ptr, ptr %284, align 8, !tbaa !37
   %3084 = getelementptr inbounds i8, ptr %3083, i64 %3081
   store i8 0, ptr %3084, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #14
   %3085 = load ptr, ptr %1, align 8, !tbaa !18
   %3086 = getelementptr inbounds i8, ptr %3085, i64 64
   %3087 = load ptr, ptr %3086, align 8
-  %3088 = call noundef ptr %3087(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %284) #15
+  %3088 = call noundef ptr %3087(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %284) #14
   %3089 = getelementptr inbounds i8, ptr %0, i64 1840
   store ptr %3088, ptr %3089, align 8, !tbaa !198
   %3090 = load ptr, ptr %284, align 8, !tbaa !37
@@ -6850,17 +6850,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %3096
 
 3095:                                             ; preds = %3078
-  call void @_ZdlPv(ptr noundef %3090) #18
+  call void @_ZdlPv(ptr noundef %3090) #17
   br label %3096
 
 3096:                                             ; preds = %3095, %3092
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %284) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %285) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %284) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %285) #14
   %3097 = getelementptr inbounds i8, ptr %285, i64 16
   store ptr %3097, ptr %285, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #14
   store i64 28, ptr %7, align 8, !tbaa !35
-  %3098 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %285, ptr noundef nonnull align 8 dereferenceable(8) %7, i64 noundef 0) #15
+  %3098 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %285, ptr noundef nonnull align 8 dereferenceable(8) %7, i64 noundef 0) #14
   store ptr %3098, ptr %285, align 8, !tbaa !37
   %3099 = load i64, ptr %7, align 8, !tbaa !35
   store i64 %3099, ptr %3097, align 8, !tbaa !3
@@ -6870,11 +6870,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %3101 = load ptr, ptr %285, align 8, !tbaa !37
   %3102 = getelementptr inbounds i8, ptr %3101, i64 %3099
   store i8 0, ptr %3102, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #14
   %3103 = load ptr, ptr %1, align 8, !tbaa !18
   %3104 = getelementptr inbounds i8, ptr %3103, i64 64
   %3105 = load ptr, ptr %3104, align 8
-  %3106 = call noundef ptr %3105(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %285) #15
+  %3106 = call noundef ptr %3105(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %285) #14
   %3107 = getelementptr inbounds i8, ptr %0, i64 1848
   store ptr %3106, ptr %3107, align 8, !tbaa !199
   %3108 = load ptr, ptr %285, align 8, !tbaa !37
@@ -6888,17 +6888,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %3114
 
 3113:                                             ; preds = %3096
-  call void @_ZdlPv(ptr noundef %3108) #18
+  call void @_ZdlPv(ptr noundef %3108) #17
   br label %3114
 
 3114:                                             ; preds = %3113, %3110
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %285) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %286) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %285) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %286) #14
   %3115 = getelementptr inbounds i8, ptr %286, i64 16
   store ptr %3115, ptr %286, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #14
   store i64 20, ptr %6, align 8, !tbaa !35
-  %3116 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %286, ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef 0) #15
+  %3116 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %286, ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef 0) #14
   store ptr %3116, ptr %286, align 8, !tbaa !37
   %3117 = load i64, ptr %6, align 8, !tbaa !35
   store i64 %3117, ptr %3115, align 8, !tbaa !3
@@ -6908,11 +6908,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %3119 = load ptr, ptr %286, align 8, !tbaa !37
   %3120 = getelementptr inbounds i8, ptr %3119, i64 %3117
   store i8 0, ptr %3120, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #14
   %3121 = load ptr, ptr %1, align 8, !tbaa !18
   %3122 = getelementptr inbounds i8, ptr %3121, i64 64
   %3123 = load ptr, ptr %3122, align 8
-  %3124 = call noundef ptr %3123(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %286) #15
+  %3124 = call noundef ptr %3123(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %286) #14
   %3125 = getelementptr inbounds i8, ptr %0, i64 1856
   store ptr %3124, ptr %3125, align 8, !tbaa !200
   %3126 = load ptr, ptr %286, align 8, !tbaa !37
@@ -6926,12 +6926,12 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %3132
 
 3131:                                             ; preds = %3114
-  call void @_ZdlPv(ptr noundef %3126) #18
+  call void @_ZdlPv(ptr noundef %3126) #17
   br label %3132
 
 3132:                                             ; preds = %3131, %3128
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %286) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %287) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %286) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %287) #14
   %3133 = getelementptr inbounds i8, ptr %287, i64 16
   store ptr %3133, ptr %287, align 8, !tbaa !33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %3133, ptr noundef nonnull align 1 dereferenceable(15) @.str.167, i64 15, i1 false)
@@ -6942,7 +6942,7 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %3136 = load ptr, ptr %1, align 8, !tbaa !18
   %3137 = getelementptr inbounds i8, ptr %3136, i64 64
   %3138 = load ptr, ptr %3137, align 8
-  %3139 = call noundef ptr %3138(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %287) #15
+  %3139 = call noundef ptr %3138(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %287) #14
   %3140 = getelementptr inbounds i8, ptr %0, i64 560
   store ptr %3139, ptr %3140, align 8, !tbaa !201
   %3141 = load ptr, ptr %287, align 8, !tbaa !37
@@ -6956,17 +6956,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %3147
 
 3146:                                             ; preds = %3132
-  call void @_ZdlPv(ptr noundef %3141) #18
+  call void @_ZdlPv(ptr noundef %3141) #17
   br label %3147
 
 3147:                                             ; preds = %3146, %3143
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %287) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %288) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %287) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %288) #14
   %3148 = getelementptr inbounds i8, ptr %288, i64 16
   store ptr %3148, ptr %288, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
   store i64 26, ptr %5, align 8, !tbaa !35
-  %3149 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %288, ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef 0) #15
+  %3149 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %288, ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef 0) #14
   store ptr %3149, ptr %288, align 8, !tbaa !37
   %3150 = load i64, ptr %5, align 8, !tbaa !35
   store i64 %3150, ptr %3148, align 8, !tbaa !3
@@ -6976,11 +6976,11 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %3152 = load ptr, ptr %288, align 8, !tbaa !37
   %3153 = getelementptr inbounds i8, ptr %3152, i64 %3150
   store i8 0, ptr %3153, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
   %3154 = load ptr, ptr %1, align 8, !tbaa !18
   %3155 = getelementptr inbounds i8, ptr %3154, i64 64
   %3156 = load ptr, ptr %3155, align 8
-  %3157 = call noundef ptr %3156(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %288) #15
+  %3157 = call noundef ptr %3156(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %288) #14
   %3158 = getelementptr inbounds i8, ptr %0, i64 1864
   store ptr %3157, ptr %3158, align 8, !tbaa !202
   %3159 = load ptr, ptr %288, align 8, !tbaa !37
@@ -6994,12 +6994,12 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %3165
 
 3164:                                             ; preds = %3147
-  call void @_ZdlPv(ptr noundef %3159) #18
+  call void @_ZdlPv(ptr noundef %3159) #17
   br label %3165
 
 3165:                                             ; preds = %3164, %3161
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %288) #15
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %289) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %288) #14
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %289) #14
   store i32 0, ptr %289, align 4, !tbaa !203
   %3166 = load i16, ptr %304, align 8, !tbaa !27
   %3167 = icmp ult i16 %3166, 103
@@ -7010,7 +7010,7 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br i1 %3171, label %3178, label %3172
 
 3172:                                             ; preds = %3165
-  call void @glGetIntegerv(i32 noundef 34018, ptr noundef nonnull %289) #15
+  call void @glGetIntegerv(i32 noundef 34018, ptr noundef nonnull %289) #14
   %3173 = load i32, ptr %289, align 4, !tbaa !203
   %3174 = trunc i32 %3173 to i8
   %3175 = getelementptr inbounds i8, ptr %0, i64 555
@@ -7029,7 +7029,7 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
 
 3184:                                             ; preds = %3178
   store i32 0, ptr %289, align 4, !tbaa !203
-  call void @glGetIntegerv(i32 noundef 35661, ptr noundef nonnull %289) #15
+  call void @glGetIntegerv(i32 noundef 35661, ptr noundef nonnull %289) #14
   %3185 = getelementptr inbounds i8, ptr %0, i64 555
   %3186 = load i32, ptr %289, align 4, !tbaa !203
   %3187 = trunc i32 %3186 to i8
@@ -7039,7 +7039,7 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br label %3190
 
 3190:                                             ; preds = %3184, %3178
-  call void @glGetIntegerv(i32 noundef 3377, ptr noundef nonnull %289) #15
+  call void @glGetIntegerv(i32 noundef 3377, ptr noundef nonnull %289) #14
   %3191 = load i32, ptr %289, align 4, !tbaa !203
   %3192 = trunc i32 %3191 to i8
   %3193 = getelementptr inbounds i8, ptr %0, i64 2
@@ -7050,7 +7050,7 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br i1 %3196, label %3201, label %3197
 
 3197:                                             ; preds = %3190
-  call void @glGetIntegerv(i32 noundef 34047, ptr noundef nonnull %289) #15
+  call void @glGetIntegerv(i32 noundef 34047, ptr noundef nonnull %289) #14
   %3198 = load i32, ptr %289, align 4, !tbaa !203
   %3199 = trunc i32 %3198 to i8
   %3200 = getelementptr inbounds i8, ptr %0, i64 3
@@ -7063,14 +7063,14 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br i1 %3203, label %3204, label %3207
 
 3204:                                             ; preds = %3201
-  call void @glGetIntegerv(i32 noundef 33001, ptr noundef nonnull %289) #15
+  call void @glGetIntegerv(i32 noundef 33001, ptr noundef nonnull %289) #14
   %3205 = load i32, ptr %289, align 4, !tbaa !203
   %3206 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %3205, ptr %3206, align 8, !tbaa !15
   br label %3207
 
 3207:                                             ; preds = %3204, %3201
-  call void @glGetIntegerv(i32 noundef 3379, ptr noundef nonnull %289) #15
+  call void @glGetIntegerv(i32 noundef 3379, ptr noundef nonnull %289) #14
   %3208 = load i32, ptr %289, align 4, !tbaa !203
   %3209 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 %3208, ptr %3209, align 4, !tbaa !16
@@ -7092,7 +7092,7 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br i1 %3224, label %3225, label %3228
 
 3225:                                             ; preds = %3207
-  call void @glGetIntegerv(i32 noundef 36320, ptr noundef nonnull %289) #15
+  call void @glGetIntegerv(i32 noundef 36320, ptr noundef nonnull %289) #14
   %3226 = load i32, ptr %289, align 4, !tbaa !203
   %3227 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 %3226, ptr %3227, align 8, !tbaa !17
@@ -7106,16 +7106,16 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
 
 3232:                                             ; preds = %3228
   %3233 = getelementptr inbounds i8, ptr %0, i64 20
-  call void @glGetFloatv(i32 noundef 34045, ptr noundef nonnull %3233) #15
+  call void @glGetFloatv(i32 noundef 34045, ptr noundef nonnull %3233) #14
   br label %3234
 
 3234:                                             ; preds = %3232, %3228
-  call void @glGetIntegerv(i32 noundef 3378, ptr noundef nonnull %289) #15
+  call void @glGetIntegerv(i32 noundef 3378, ptr noundef nonnull %289) #14
   %3235 = load i32, ptr %289, align 4, !tbaa !203
   %3236 = trunc i32 %3235 to i8
   %3237 = getelementptr inbounds i8, ptr %0, i64 4
   store i8 %3236, ptr %3237, align 4, !tbaa !6
-  call void @glGetIntegerv(i32 noundef 3072, ptr noundef nonnull %289) #15
+  call void @glGetIntegerv(i32 noundef 3072, ptr noundef nonnull %289) #14
   %3238 = load i32, ptr %289, align 4, !tbaa !203
   %3239 = trunc i32 %3238 to i8
   %3240 = getelementptr inbounds i8, ptr %0, i64 5
@@ -7130,7 +7130,7 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br i1 %3247, label %3252, label %3248
 
 3248:                                             ; preds = %3234
-  call void @glGetIntegerv(i32 noundef 34852, ptr noundef nonnull %289) #15
+  call void @glGetIntegerv(i32 noundef 34852, ptr noundef nonnull %289) #14
   %3249 = load i32, ptr %289, align 4, !tbaa !203
   %3250 = trunc i32 %3249 to i8
   %3251 = getelementptr inbounds i8, ptr %0, i64 554
@@ -7148,7 +7148,7 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br i1 %3259, label %3264, label %3260
 
 3260:                                             ; preds = %3252
-  call void @glGetIntegerv(i32 noundef 36063, ptr noundef nonnull %289) #15
+  call void @glGetIntegerv(i32 noundef 36063, ptr noundef nonnull %289) #14
   %3261 = load i32, ptr %289, align 4, !tbaa !203
   %3262 = trunc i32 %3261 to i8
   %3263 = getelementptr inbounds i8, ptr %0, i64 553
@@ -7157,13 +7157,13 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
 
 3264:                                             ; preds = %3260, %3252
   %3265 = getelementptr inbounds i8, ptr %0, i64 24
-  call void @glGetFloatv(i32 noundef 33902, ptr noundef nonnull %3265) #15
+  call void @glGetFloatv(i32 noundef 33902, ptr noundef nonnull %3265) #14
   %3266 = getelementptr inbounds i8, ptr %0, i64 32
-  call void @glGetFloatv(i32 noundef 33901, ptr noundef nonnull %3266) #15
+  call void @glGetFloatv(i32 noundef 33901, ptr noundef nonnull %3266) #14
   %3267 = getelementptr inbounds i8, ptr %0, i64 40
-  call void @glGetFloatv(i32 noundef 2850, ptr noundef nonnull %3267) #15
+  call void @glGetFloatv(i32 noundef 2850, ptr noundef nonnull %3267) #14
   %3268 = getelementptr inbounds i8, ptr %0, i64 48
-  call void @glGetFloatv(i32 noundef 2834, ptr noundef nonnull %3268) #15
+  call void @glGetFloatv(i32 noundef 2834, ptr noundef nonnull %3268) #14
   %3269 = getelementptr inbounds i8, ptr %0, i64 190
   %3270 = load i8, ptr %3269, align 2, !tbaa !20, !range !23, !noundef !24
   %3271 = icmp ne i8 %3270, 0
@@ -7173,17 +7173,17 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br i1 %3274, label %3275, label %3296
 
 3275:                                             ; preds = %3264
-  %3276 = call i32 @glGetError() #15
-  %3277 = call ptr @glGetString(i32 noundef 35724) #15
-  %3278 = call i32 @glGetError() #15
+  %3276 = call i32 @glGetError() #14
+  %3277 = call ptr @glGetString(i32 noundef 35724) #14
+  %3278 = call i32 @glGetError() #14
   %3279 = icmp eq i32 %3278, 1280
   br i1 %3279, label %3293, label %3280
 
 3280:                                             ; preds = %3275
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #14
   %3281 = call noundef ptr @_ZN3irr4core14fast_atof_moveEPKcRf(ptr noundef %3277, ptr noundef nonnull align 4 dereferenceable(4) %4)
   %3282 = load float, ptr %4, align 4, !tbaa !21
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #14
   %3283 = call float @llvm.floor.f32(float %3282)
   %3284 = fptosi float %3283 to i32
   %3285 = mul nsw i32 %3284, 100
@@ -7213,7 +7213,7 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
 
 3303:                                             ; preds = %3296
   store i8 1, ptr %3302, align 1, !tbaa !204
-  call void @_ZN3irr2os7Printer3logEPKcNS_10ELOG_LEVELE(ptr noundef nonnull @.str.169, i32 noundef 2) #15
+  call void @_ZN3irr2os7Printer3logEPKcNS_10ELOG_LEVELE(ptr noundef nonnull @.str.169, i32 noundef 2) #14
   br label %3307
 
 3304:                                             ; preds = %3296
@@ -7234,7 +7234,7 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br i1 %3313, label %3315, label %3314
 
 3314:                                             ; preds = %3311
-  call void %3312(i32 noundef 35092, i32 noundef 34916, ptr noundef nonnull %289) #15
+  call void %3312(i32 noundef 35092, i32 noundef 34916, ptr noundef nonnull %289) #14
   br label %3315
 
 3315:                                             ; preds = %3314, %3311
@@ -7252,7 +7252,7 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   br i1 %3323, label %3329, label %3324
 
 3324:                                             ; preds = %3320
-  call void @glGetIntegerv(i32 noundef 34916, ptr noundef nonnull %289) #15
+  call void @glGetIntegerv(i32 noundef 34916, ptr noundef nonnull %289) #14
   %3325 = load i32, ptr %289, align 4, !tbaa !203
   %3326 = icmp sgt i32 %3325, 0
   %3327 = getelementptr inbounds i8, ptr %0, i64 60
@@ -7281,7 +7281,7 @@ define void @_ZN3irr5video23COpenGLExtensionHandler14initExtensionsEPNS0_15ICont
   %3344 = select i1 %3341, i8 %3343, i8 1
   %3345 = getelementptr inbounds i8, ptr %0, i64 552
   store i8 %3344, ptr %3345, align 8, !tbaa !211
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %289) #15
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %289) #14
   ret void
 }
 
@@ -7571,7 +7571,7 @@ define linkonce_odr void @_ZN3irr5video18COpenGLCoreFeatureD2Ev(ptr noundef nonn
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3irr5video18COpenGLCoreFeatureD0Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #2 comdat align 2 {
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #18
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #17
   ret void
 }
 
@@ -7582,7 +7582,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 define linkonce_odr noundef ptr @_ZN3irr4core14fast_atof_moveEPKcRf(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(4) %1) local_unnamed_addr #9 comdat {
   store float 0.000000e+00, ptr %1, align 4, !tbaa !21
   %3 = icmp eq ptr %0, null
-  br i1 %3, label %155, label %4
+  br i1 %3, label %153, label %4
 
 4:                                                ; preds = %2
   %5 = load i8, ptr %0, align 1, !tbaa !3
@@ -7601,9 +7601,9 @@ define linkonce_odr noundef ptr @_ZN3irr4core14fast_atof_moveEPKcRf(ptr noundef 
   %11 = phi i8 [ %9, %7 ], [ %5, %4 ]
   %12 = phi ptr [ %8, %7 ], [ %0, %4 ]
   %13 = icmp sgt i8 %11, 47
-  br i1 %13, label %.preheader18, label %.preheader58
+  br i1 %13, label %.preheader19, label %.preheader59
 
-.preheader18:                                     ; preds = %10, %20
+.preheader19:                                     ; preds = %10, %20
   %14 = phi i8 [ %26, %20 ], [ %11, %10 ]
   %15 = phi i32 [ %24, %20 ], [ 0, %10 ]
   %16 = phi ptr [ %25, %20 ], [ %12, %10 ]
@@ -7612,7 +7612,7 @@ define linkonce_odr noundef ptr @_ZN3irr4core14fast_atof_moveEPKcRf(ptr noundef 
   %19 = select i1 %17, i1 true, i1 %18
   br i1 %19, label %28, label %20
 
-20:                                               ; preds = %.preheader18
+20:                                               ; preds = %.preheader19
   %21 = mul nuw i32 %15, 10
   %22 = add nsw i8 %14, -48
   %23 = zext nneg i8 %22 to i32
@@ -7620,22 +7620,22 @@ define linkonce_odr noundef ptr @_ZN3irr4core14fast_atof_moveEPKcRf(ptr noundef 
   %25 = getelementptr inbounds i8, ptr %16, i64 1
   %26 = load i8, ptr %25, align 1, !tbaa !3
   %27 = icmp sgt i8 %26, 47
-  br i1 %27, label %.preheader18, label %28, !llvm.loop !212
+  br i1 %27, label %.preheader19, label %28, !llvm.loop !212
 
-28:                                               ; preds = %20, %.preheader18
-  %29 = phi ptr [ %16, %.preheader18 ], [ %25, %20 ]
-  %30 = phi i32 [ %15, %.preheader18 ], [ %24, %20 ]
+28:                                               ; preds = %20, %.preheader19
+  %29 = phi ptr [ %16, %.preheader19 ], [ %25, %20 ]
+  %30 = phi i32 [ %15, %.preheader19 ], [ %24, %20 ]
   %31 = uitofp i32 %30 to float
-  br label %.preheader58
+  br label %.preheader59
 
-.preheader58:                                     ; preds = %28, %10
-  %.ph59 = phi ptr [ %12, %10 ], [ %29, %28 ]
-  %.ph60 = phi float [ 0.000000e+00, %10 ], [ %31, %28 ]
+.preheader59:                                     ; preds = %28, %10
+  %.ph60 = phi ptr [ %12, %10 ], [ %29, %28 ]
+  %.ph61 = phi float [ 0.000000e+00, %10 ], [ %31, %28 ]
   br label %32
 
-32:                                               ; preds = %.preheader58, %38
-  %33 = phi ptr [ %41, %38 ], [ %.ph59, %.preheader58 ]
-  %34 = phi float [ %40, %38 ], [ %.ph60, %.preheader58 ]
+32:                                               ; preds = %.preheader59, %38
+  %33 = phi ptr [ %41, %38 ], [ %.ph60, %.preheader59 ]
+  %34 = phi float [ %40, %38 ], [ %.ph61, %.preheader59 ]
   %35 = load i8, ptr %33, align 1, !tbaa !3
   %36 = add i8 %35, -48
   %37 = icmp ult i8 %36, 10
@@ -7657,15 +7657,15 @@ define linkonce_odr noundef ptr @_ZN3irr4core14fast_atof_moveEPKcRf(ptr noundef 
   %46 = phi ptr [ %41, %43 ], [ %33, %32 ]
   %47 = phi float [ %40, %43 ], [ %34, %32 ]
   %48 = icmp eq i8 %45, 46
-  br i1 %48, label %49, label %100
+  br i1 %48, label %49, label %99
 
 49:                                               ; preds = %.loopexit
   %50 = getelementptr inbounds i8, ptr %46, i64 1
   %51 = load i8, ptr %50, align 1, !tbaa !3
   %52 = icmp sgt i8 %51, 47
-  br i1 %52, label %.preheader17, label %.preheader56
+  br i1 %52, label %.preheader18, label %.preheader57
 
-.preheader17:                                     ; preds = %49, %59
+.preheader18:                                     ; preds = %49, %59
   %53 = phi i8 [ %65, %59 ], [ %51, %49 ]
   %54 = phi i32 [ %63, %59 ], [ 0, %49 ]
   %55 = phi ptr [ %64, %59 ], [ %50, %49 ]
@@ -7674,7 +7674,7 @@ define linkonce_odr noundef ptr @_ZN3irr4core14fast_atof_moveEPKcRf(ptr noundef 
   %58 = select i1 %56, i1 true, i1 %57
   br i1 %58, label %67, label %59
 
-59:                                               ; preds = %.preheader17
+59:                                               ; preds = %.preheader18
   %60 = mul nuw i32 %54, 10
   %61 = add nsw i8 %53, -48
   %62 = zext nneg i8 %61 to i32
@@ -7682,22 +7682,22 @@ define linkonce_odr noundef ptr @_ZN3irr4core14fast_atof_moveEPKcRf(ptr noundef 
   %64 = getelementptr inbounds i8, ptr %55, i64 1
   %65 = load i8, ptr %64, align 1, !tbaa !3
   %66 = icmp sgt i8 %65, 47
-  br i1 %66, label %.preheader17, label %67, !llvm.loop !212
+  br i1 %66, label %.preheader18, label %67, !llvm.loop !212
 
-67:                                               ; preds = %59, %.preheader17
-  %68 = phi ptr [ %55, %.preheader17 ], [ %64, %59 ]
-  %69 = phi i32 [ %54, %.preheader17 ], [ %63, %59 ]
+67:                                               ; preds = %59, %.preheader18
+  %68 = phi ptr [ %55, %.preheader18 ], [ %64, %59 ]
+  %69 = phi i32 [ %54, %.preheader18 ], [ %63, %59 ]
   %70 = uitofp i32 %69 to float
-  br label %.preheader56
+  br label %.preheader57
 
-.preheader56:                                     ; preds = %67, %49
+.preheader57:                                     ; preds = %67, %49
   %.ph = phi ptr [ %50, %49 ], [ %68, %67 ]
-  %.ph57 = phi float [ 0.000000e+00, %49 ], [ %70, %67 ]
+  %.ph58 = phi float [ 0.000000e+00, %49 ], [ %70, %67 ]
   br label %71
 
-71:                                               ; preds = %.preheader56, %77
-  %72 = phi ptr [ %80, %77 ], [ %.ph, %.preheader56 ]
-  %73 = phi float [ %79, %77 ], [ %.ph57, %.preheader56 ]
+71:                                               ; preds = %.preheader57, %77
+  %72 = phi ptr [ %80, %77 ], [ %.ph, %.preheader57 ]
+  %73 = phi float [ %79, %77 ], [ %.ph58, %.preheader57 ]
   %74 = load i8, ptr %72, align 1, !tbaa !3
   %75 = add i8 %74, -48
   %76 = icmp ult i8 %75, 10
@@ -7723,103 +7723,100 @@ define linkonce_odr noundef ptr @_ZN3irr4core14fast_atof_moveEPKcRf(ptr noundef 
   %90 = getelementptr inbounds [17 x float], ptr @_ZN3irr4coreL15fast_atof_tableE, i64 0, i64 %87
   %91 = load float, ptr %90, align 4, !tbaa !21
   %92 = tail call float @llvm.fmuladd.f32(float %84, float %91, float %47)
-  br label %100
+  br label %99
 
 93:                                               ; preds = %82
   %94 = uitofp i64 %87 to float
   %95 = fneg float %94
   %96 = fpext float %95 to double
-  %97 = tail call double @pow(double noundef 1.000000e+01, double noundef %96) #15
-  %98 = fptrunc double %97 to float
-  %99 = tail call float @llvm.fmuladd.f32(float %84, float %98, float %47)
-  br label %100
+  %__exp10 = tail call double @__exp10(double %96) #14
+  %97 = fptrunc double %__exp10 to float
+  %98 = tail call float @llvm.fmuladd.f32(float %84, float %97, float %47)
+  br label %99
 
-100:                                              ; preds = %93, %89, %.loopexit
-  %101 = phi ptr [ %46, %.loopexit ], [ %83, %93 ], [ %83, %89 ]
-  %102 = phi float [ %47, %.loopexit ], [ %99, %93 ], [ %92, %89 ]
-  %103 = load i8, ptr %101, align 1, !tbaa !3
-  switch i8 %103, label %150 [
-    i8 101, label %104
-    i8 69, label %104
+99:                                               ; preds = %93, %89, %.loopexit
+  %100 = phi ptr [ %46, %.loopexit ], [ %83, %93 ], [ %83, %89 ]
+  %101 = phi float [ %47, %.loopexit ], [ %98, %93 ], [ %92, %89 ]
+  %102 = load i8, ptr %100, align 1, !tbaa !3
+  switch i8 %102, label %148 [
+    i8 101, label %103
+    i8 69, label %103
   ]
 
-104:                                              ; preds = %100, %100
-  %105 = getelementptr inbounds i8, ptr %101, i64 1
-  %106 = load i8, ptr %105, align 1, !tbaa !3
-  %107 = icmp eq i8 %106, 45
-  %108 = icmp eq i8 %106, 43
-  %109 = or i1 %107, %108
-  %110 = zext i1 %109 to i64
-  %111 = getelementptr inbounds i8, ptr %105, i64 %110
-  %112 = load i8, ptr %111, align 1, !tbaa !3
-  %113 = add i8 %112, -48
-  %114 = icmp ult i8 %113, 10
-  br i1 %114, label %.preheader, label %137
+103:                                              ; preds = %99, %99
+  %104 = getelementptr inbounds i8, ptr %100, i64 1
+  %105 = load i8, ptr %104, align 1, !tbaa !3
+  %106 = icmp eq i8 %105, 45
+  %107 = icmp eq i8 %105, 43
+  %108 = or i1 %106, %107
+  %109 = zext i1 %108 to i64
+  %110 = getelementptr inbounds i8, ptr %104, i64 %109
+  %111 = load i8, ptr %110, align 1, !tbaa !3
+  %112 = add i8 %111, -48
+  %113 = icmp ult i8 %112, 10
+  br i1 %113, label %.preheader, label %136
 
-.preheader:                                       ; preds = %104, %.preheader
-  %115 = phi i8 [ %130, %.preheader ], [ %112, %104 ]
-  %116 = phi i32 [ %128, %.preheader ], [ 0, %104 ]
-  %117 = phi i8 [ %124, %.preheader ], [ 0, %104 ]
-  %118 = phi ptr [ %129, %.preheader ], [ %111, %104 ]
-  %119 = mul i32 %116, 10
-  %120 = add nsw i8 %115, -48
-  %121 = zext nneg i8 %120 to i32
-  %122 = add i32 %119, %121
-  %123 = icmp ult i32 %122, %116
-  %124 = select i1 %123, i8 1, i8 %117
-  %125 = select i1 %123, i32 -1, i32 %116
-  %126 = and i8 %124, 1
-  %127 = icmp eq i8 %126, 0
-  %128 = select i1 %127, i32 %122, i32 %125
-  %129 = getelementptr inbounds i8, ptr %118, i64 1
-  %130 = load i8, ptr %129, align 1, !tbaa !3
-  %131 = add i8 %130, -48
-  %132 = icmp ult i8 %131, 10
-  br i1 %132, label %.preheader, label %133, !llvm.loop !214
+.preheader:                                       ; preds = %103, %.preheader
+  %114 = phi i8 [ %129, %.preheader ], [ %111, %103 ]
+  %115 = phi i32 [ %127, %.preheader ], [ 0, %103 ]
+  %116 = phi i8 [ %123, %.preheader ], [ 0, %103 ]
+  %117 = phi ptr [ %128, %.preheader ], [ %110, %103 ]
+  %118 = mul i32 %115, 10
+  %119 = add nsw i8 %114, -48
+  %120 = zext nneg i8 %119 to i32
+  %121 = add i32 %118, %120
+  %122 = icmp ult i32 %121, %115
+  %123 = select i1 %122, i8 1, i8 %116
+  %124 = select i1 %122, i32 -1, i32 %115
+  %125 = and i8 %123, 1
+  %126 = icmp eq i8 %125, 0
+  %127 = select i1 %126, i32 %121, i32 %124
+  %128 = getelementptr inbounds i8, ptr %117, i64 1
+  %129 = load i8, ptr %128, align 1, !tbaa !3
+  %130 = add i8 %129, -48
+  %131 = icmp ult i8 %130, 10
+  br i1 %131, label %.preheader, label %132, !llvm.loop !214
 
-133:                                              ; preds = %.preheader
-  %134 = icmp slt i32 %128, 0
-  br i1 %134, label %135, label %137
+132:                                              ; preds = %.preheader
+  %133 = icmp slt i32 %127, 0
+  br i1 %133, label %134, label %136
 
-135:                                              ; preds = %133
-  %136 = select i1 %107, i32 -2147483648, i32 2147483647
-  br label %142
+134:                                              ; preds = %132
+  %135 = select i1 %106, i32 -2147483648, i32 2147483647
+  br label %141
 
-137:                                              ; preds = %133, %104
-  %138 = phi i32 [ %128, %133 ], [ 0, %104 ]
-  %139 = phi ptr [ %129, %133 ], [ %111, %104 ]
-  %140 = sub nsw i32 0, %138
-  %141 = select i1 %107, i32 %140, i32 %138
-  br label %142
+136:                                              ; preds = %132, %103
+  %137 = phi i32 [ %127, %132 ], [ 0, %103 ]
+  %138 = phi ptr [ %128, %132 ], [ %110, %103 ]
+  %139 = sub nsw i32 0, %137
+  %140 = select i1 %106, i32 %139, i32 %137
+  br label %141
 
-142:                                              ; preds = %137, %135
-  %143 = phi ptr [ %129, %135 ], [ %139, %137 ]
-  %144 = phi i32 [ %136, %135 ], [ %141, %137 ]
-  %145 = sitofp i32 %144 to float
-  %146 = fpext float %145 to double
-  %147 = tail call double @pow(double noundef 1.000000e+01, double noundef %146) #15
-  %148 = fptrunc double %147 to float
-  %149 = fmul float %102, %148
-  br label %150
+141:                                              ; preds = %136, %134
+  %142 = phi ptr [ %128, %134 ], [ %138, %136 ]
+  %143 = phi i32 [ %135, %134 ], [ %140, %136 ]
+  %144 = sitofp i32 %143 to float
+  %145 = fpext float %144 to double
+  %__exp1017 = tail call double @__exp10(double %145) #14
+  %146 = fptrunc double %__exp1017 to float
+  %147 = fmul float %101, %146
+  br label %148
 
-150:                                              ; preds = %142, %100
-  %151 = phi ptr [ %101, %100 ], [ %143, %142 ]
-  %152 = phi float [ %102, %100 ], [ %149, %142 ]
-  %153 = fneg float %152
-  %154 = select i1 %6, float %153, float %152
-  store float %154, ptr %1, align 4, !tbaa !21
-  br label %155
+148:                                              ; preds = %141, %99
+  %149 = phi ptr [ %100, %99 ], [ %142, %141 ]
+  %150 = phi float [ %101, %99 ], [ %147, %141 ]
+  %151 = fneg float %150
+  %152 = select i1 %6, float %151, float %150
+  store float %152, ptr %1, align 4, !tbaa !21
+  br label %153
 
-155:                                              ; preds = %150, %2
-  %156 = phi ptr [ %151, %150 ], [ null, %2 ]
-  ret ptr %156
+153:                                              ; preds = %148, %2
+  %154 = phi ptr [ %149, %148 ], [ null, %2 ]
+  ret ptr %154
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fmuladd.f32(float, float, float) #10
-
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @pow(double noundef, double noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.floor.f32(float) #10
@@ -7827,19 +7824,21 @@ declare float @llvm.floor.f32(float) #10
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #13
+declare void @llvm.assume(i1 noundef) #12
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.umax.i8(i8, i8) #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.umin.i8(i8, i8) #10
+
+declare double @__exp10(double) local_unnamed_addr
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
@@ -7852,14 +7851,13 @@ attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { mustprogress nofree nounwind willreturn memory(write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #15 = { nounwind }
-attributes #16 = { nounwind willreturn memory(read) }
-attributes #17 = { builtin nounwind allocsize(0) }
-attributes #18 = { builtin nounwind }
+attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #14 = { nounwind }
+attributes #15 = { nounwind willreturn memory(read) }
+attributes #16 = { builtin nounwind allocsize(0) }
+attributes #17 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

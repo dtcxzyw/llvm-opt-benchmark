@@ -381,17 +381,17 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden void @proto_register_zbee_zcl_illum_meas() local_unnamed_addr #0 {
   %1 = alloca [1 x ptr], align 8
   store i64 ptrtoint (ptr @ett_zbee_zcl_illum_meas to i64), ptr %1, align 8
-  %2 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14) #7
+  %2 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14) #6
   store i32 %2, ptr @proto_zbee_zcl_illum_meas, align 4
-  tail call void @proto_register_field_array(i32 noundef %2, ptr noundef nonnull @proto_register_zbee_zcl_illum_meas.hf, i32 noundef 6) #7
-  call void @proto_register_subtree_array(ptr noundef nonnull %1, i32 noundef 1) #7
+  tail call void @proto_register_field_array(i32 noundef %2, ptr noundef nonnull @proto_register_zbee_zcl_illum_meas.hf, i32 noundef 6) #6
+  call void @proto_register_subtree_array(ptr noundef nonnull %1, i32 noundef 1) #6
   %3 = load i32, ptr @proto_zbee_zcl_illum_meas, align 4
-  %4 = call ptr @register_dissector(ptr noundef nonnull @.str.14, ptr noundef nonnull @dissect_zbee_zcl_illum_meas, i32 noundef %3) #7
+  %4 = call ptr @register_dissector(ptr noundef nonnull @.str.14, ptr noundef nonnull @dissect_zbee_zcl_illum_meas, i32 noundef %3) #6
   ret void
 }
 
-; Function Attrs: nofree nounwind uwtable
-define internal void @decode_illum_meas_value(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1) #1 {
+; Function Attrs: nounwind uwtable
+define internal void @decode_illum_meas_value(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1) #0 {
   switch i16 %1, label %5 [
     i16 0, label %3
     i16 -32768, label %4
@@ -399,68 +399,68 @@ define internal void @decode_illum_meas_value(ptr nocapture noundef writeonly %0
 
 3:                                                ; preds = %2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(29) %0, ptr noundef nonnull align 1 dereferenceable(29) @.str.100, i64 29, i1 false)
-  br label %12
+  br label %11
 
 4:                                                ; preds = %2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(14) %0, ptr noundef nonnull align 1 dereferenceable(14) @.str.101, i64 14, i1 false)
-  br label %12
+  br label %11
 
 5:                                                ; preds = %2
   %6 = zext i16 %1 to i32
   %7 = uitofp i16 %1 to double
   %8 = fdiv double %7, 1.000000e+04
-  %9 = tail call double @pow(double noundef 1.000000e+01, double noundef %8) #7
-  %10 = fadd double %9, -1.000000e+00
-  %11 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.102, i32 noundef %6, double noundef %10) #7
-  br label %12
+  %__exp10 = tail call double @__exp10(double %8) #6
+  %9 = fadd double %__exp10, -1.000000e+00
+  %10 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.102, i32 noundef %6, double noundef %9) #6
+  br label %11
 
-12:                                               ; preds = %4, %5, %3
+11:                                               ; preds = %4, %5, %3
   ret void
 }
 
-; Function Attrs: nofree nounwind uwtable
-define internal void @decode_illum_meas_min_value(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1) #1 {
+; Function Attrs: nounwind uwtable
+define internal void @decode_illum_meas_min_value(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1) #0 {
   %3 = add i16 %1, 2
   %or.cond = icmp ult i16 %3, 4
   br i1 %or.cond, label %4, label %5
 
 4:                                                ; preds = %2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %0, ptr noundef nonnull align 1 dereferenceable(13) @.str.103, i64 13, i1 false)
-  br label %12
+  br label %11
 
 5:                                                ; preds = %2
   %6 = zext i16 %1 to i32
   %7 = uitofp i16 %1 to double
   %8 = fdiv double %7, 1.000000e+04
-  %9 = tail call double @pow(double noundef 1.000000e+01, double noundef %8) #7
-  %10 = fadd double %9, -1.000000e+00
-  %11 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.102, i32 noundef %6, double noundef %10) #7
-  br label %12
+  %__exp10 = tail call double @__exp10(double %8) #6
+  %9 = fadd double %__exp10, -1.000000e+00
+  %10 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.102, i32 noundef %6, double noundef %9) #6
+  br label %11
 
-12:                                               ; preds = %5, %4
+11:                                               ; preds = %5, %4
   ret void
 }
 
-; Function Attrs: nofree nounwind uwtable
-define internal void @decode_illum_meas_max_value(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1) #1 {
+; Function Attrs: nounwind uwtable
+define internal void @decode_illum_meas_max_value(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1) #0 {
   %3 = add i16 %1, 1
   %or.cond = icmp ult i16 %3, 2
   br i1 %or.cond, label %4, label %5
 
 4:                                                ; preds = %2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %0, ptr noundef nonnull align 1 dereferenceable(13) @.str.103, i64 13, i1 false)
-  br label %12
+  br label %11
 
 5:                                                ; preds = %2
   %6 = zext i16 %1 to i32
   %7 = uitofp i16 %1 to double
   %8 = fdiv double %7, 1.000000e+04
-  %9 = tail call double @pow(double noundef 1.000000e+01, double noundef %8) #7
-  %10 = fadd double %9, -1.000000e+00
-  %11 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.102, i32 noundef %6, double noundef %10) #7
-  br label %12
+  %__exp10 = tail call double @__exp10(double %8) #6
+  %9 = fadd double %__exp10, -1.000000e+00
+  %10 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.102, i32 noundef %6, double noundef %9) #6
+  br label %11
 
-12:                                               ; preds = %5, %4
+11:                                               ; preds = %5, %4
   ret void
 }
 
@@ -475,7 +475,7 @@ define internal void @decode_illum_meas_tolerance(ptr nocapture noundef writeonl
 
 5:                                                ; preds = %2
   %6 = zext nneg i16 %1 to i32
-  %7 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.104, i32 noundef %6) #7
+  %7 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.104, i32 noundef %6) #6
   br label %8
 
 8:                                                ; preds = %5, %4
@@ -495,7 +495,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_zbee_zcl_illum_meas(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #0 {
-  %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #7
+  %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #6
   ret i32 %5
 }
 
@@ -504,7 +504,7 @@ define hidden void @proto_reg_handoff_zbee_zcl_illum_meas() local_unnamed_addr #
   %1 = load i32, ptr @proto_zbee_zcl_illum_meas, align 4
   %2 = load i32, ptr @ett_zbee_zcl_illum_meas, align 4
   %3 = load i32, ptr @hf_zbee_zcl_illum_meas_attr_id, align 4
-  tail call void @zbee_zcl_init_cluster(ptr noundef nonnull @.str.14, i32 noundef %1, i32 noundef %2, i16 noundef zeroext 1024, i16 noundef zeroext 0, i32 noundef %3, i32 noundef %3, i32 noundef -1, i32 noundef -1, ptr noundef nonnull @dissect_zcl_illum_meas_attr_data) #7
+  tail call void @zbee_zcl_init_cluster(ptr noundef nonnull @.str.14, i32 noundef %1, i32 noundef %2, i16 noundef zeroext 1024, i16 noundef zeroext 0, i32 noundef %3, i32 noundef %3, i32 noundef -1, i32 noundef -1, ptr noundef nonnull @dissect_zcl_illum_meas_attr_data) #6
   ret void
 }
 
@@ -523,7 +523,7 @@ define internal void @dissect_zcl_illum_meas_attr_data(ptr noundef %0, ptr nound
 7:                                                ; preds = %6
   %8 = load i32, ptr @hf_zbee_zcl_illum_meas_measured_value, align 4
   %9 = load i32, ptr %2, align 4
-  %10 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %8, ptr noundef %1, i32 noundef %9, i32 noundef 2, i32 noundef -2147483648) #7
+  %10 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %8, ptr noundef %1, i32 noundef %9, i32 noundef 2, i32 noundef -2147483648) #6
   %11 = load i32, ptr %2, align 4
   %12 = add i32 %11, 2
   store i32 %12, ptr %2, align 4
@@ -532,7 +532,7 @@ define internal void @dissect_zcl_illum_meas_attr_data(ptr noundef %0, ptr nound
 13:                                               ; preds = %6
   %14 = load i32, ptr @hf_zbee_zcl_illum_meas_min_measured_value, align 4
   %15 = load i32, ptr %2, align 4
-  %16 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %14, ptr noundef %1, i32 noundef %15, i32 noundef 2, i32 noundef -2147483648) #7
+  %16 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %14, ptr noundef %1, i32 noundef %15, i32 noundef 2, i32 noundef -2147483648) #6
   %17 = load i32, ptr %2, align 4
   %18 = add i32 %17, 2
   store i32 %18, ptr %2, align 4
@@ -541,7 +541,7 @@ define internal void @dissect_zcl_illum_meas_attr_data(ptr noundef %0, ptr nound
 19:                                               ; preds = %6
   %20 = load i32, ptr @hf_zbee_zcl_illum_meas_max_measured_value, align 4
   %21 = load i32, ptr %2, align 4
-  %22 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %20, ptr noundef %1, i32 noundef %21, i32 noundef 2, i32 noundef -2147483648) #7
+  %22 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %20, ptr noundef %1, i32 noundef %21, i32 noundef 2, i32 noundef -2147483648) #6
   %23 = load i32, ptr %2, align 4
   %24 = add i32 %23, 2
   store i32 %24, ptr %2, align 4
@@ -550,7 +550,7 @@ define internal void @dissect_zcl_illum_meas_attr_data(ptr noundef %0, ptr nound
 25:                                               ; preds = %6
   %26 = load i32, ptr @hf_zbee_zcl_illum_meas_tolerance, align 4
   %27 = load i32, ptr %2, align 4
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %26, ptr noundef %1, i32 noundef %27, i32 noundef 2, i32 noundef -2147483648) #7
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %26, ptr noundef %1, i32 noundef %27, i32 noundef 2, i32 noundef -2147483648) #6
   %29 = load i32, ptr %2, align 4
   %30 = add i32 %29, 2
   store i32 %30, ptr %2, align 4
@@ -559,14 +559,14 @@ define internal void @dissect_zcl_illum_meas_attr_data(ptr noundef %0, ptr nound
 31:                                               ; preds = %6
   %32 = load i32, ptr @hf_zbee_zcl_illum_meas_sensor_type, align 4
   %33 = load i32, ptr %2, align 4
-  %34 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %32, ptr noundef %1, i32 noundef %33, i32 noundef 1, i32 noundef -2147483648) #7
+  %34 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %32, ptr noundef %1, i32 noundef %33, i32 noundef 1, i32 noundef -2147483648) #6
   %35 = load i32, ptr %2, align 4
   %36 = add i32 %35, 1
   store i32 %36, ptr %2, align 4
   br label %38
 
 37:                                               ; preds = %6
-  tail call void @dissect_zcl_attr_data(ptr noundef %1, ptr noundef %0, ptr noundef %2, i32 noundef %4, i32 noundef %5) #7
+  tail call void @dissect_zcl_attr_data(ptr noundef %1, ptr noundef %0, ptr noundef %2, i32 noundef %4, i32 noundef %5) #6
   br label %38
 
 38:                                               ; preds = %37, %31, %25, %19, %13, %7
@@ -577,17 +577,17 @@ define internal void @dissect_zcl_illum_meas_attr_data(ptr noundef %0, ptr nound
 define hidden void @proto_register_zbee_zcl_illum_level_sen() local_unnamed_addr #0 {
   %1 = alloca [1 x ptr], align 8
   store i64 ptrtoint (ptr @ett_zbee_zcl_illum_level_sen to i64), ptr %1, align 8
-  %2 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.24) #7
+  %2 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.24) #6
   store i32 %2, ptr @proto_zbee_zcl_illum_level_sen, align 4
-  tail call void @proto_register_field_array(i32 noundef %2, ptr noundef nonnull @proto_register_zbee_zcl_illum_level_sen.hf, i32 noundef 4) #7
-  call void @proto_register_subtree_array(ptr noundef nonnull %1, i32 noundef 1) #7
+  tail call void @proto_register_field_array(i32 noundef %2, ptr noundef nonnull @proto_register_zbee_zcl_illum_level_sen.hf, i32 noundef 4) #6
+  call void @proto_register_subtree_array(ptr noundef nonnull %1, i32 noundef 1) #6
   %3 = load i32, ptr @proto_zbee_zcl_illum_level_sen, align 4
-  %4 = call ptr @register_dissector(ptr noundef nonnull @.str.24, ptr noundef nonnull @dissect_zbee_zcl_illum_level_sen, i32 noundef %3) #7
+  %4 = call ptr @register_dissector(ptr noundef nonnull @.str.24, ptr noundef nonnull @dissect_zbee_zcl_illum_level_sen, i32 noundef %3) #6
   ret void
 }
 
-; Function Attrs: nofree nounwind uwtable
-define internal void @decode_illum_level_sen_target_level(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1) #1 {
+; Function Attrs: nounwind uwtable
+define internal void @decode_illum_level_sen_target_level(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1) #0 {
   switch i16 %1, label %5 [
     i16 0, label %3
     i16 -32768, label %4
@@ -595,28 +595,28 @@ define internal void @decode_illum_level_sen_target_level(ptr nocapture noundef 
 
 3:                                                ; preds = %2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(29) %0, ptr noundef nonnull align 1 dereferenceable(29) @.str.100, i64 29, i1 false)
-  br label %12
+  br label %11
 
 4:                                                ; preds = %2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(14) %0, ptr noundef nonnull align 1 dereferenceable(14) @.str.101, i64 14, i1 false)
-  br label %12
+  br label %11
 
 5:                                                ; preds = %2
   %6 = zext i16 %1 to i32
   %7 = uitofp i16 %1 to double
   %8 = fdiv double %7, 1.000000e+04
-  %9 = tail call double @pow(double noundef 1.000000e+01, double noundef %8) #7
-  %10 = fadd double %9, -1.000000e+00
-  %11 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.102, i32 noundef %6, double noundef %10) #7
-  br label %12
+  %__exp10 = tail call double @__exp10(double %8) #6
+  %9 = fadd double %__exp10, -1.000000e+00
+  %10 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.102, i32 noundef %6, double noundef %9) #6
+  br label %11
 
-12:                                               ; preds = %4, %5, %3
+11:                                               ; preds = %4, %5, %3
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_zbee_zcl_illum_level_sen(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #0 {
-  %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #7
+  %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #6
   ret i32 %5
 }
 
@@ -625,7 +625,7 @@ define hidden void @proto_reg_handoff_zbee_zcl_illum_level_sen() local_unnamed_a
   %1 = load i32, ptr @proto_zbee_zcl_illum_level_sen, align 4
   %2 = load i32, ptr @ett_zbee_zcl_illum_level_sen, align 4
   %3 = load i32, ptr @hf_zbee_zcl_illum_level_sen_attr_id, align 4
-  tail call void @zbee_zcl_init_cluster(ptr noundef nonnull @.str.24, i32 noundef %1, i32 noundef %2, i16 noundef zeroext 1025, i16 noundef zeroext 0, i32 noundef %3, i32 noundef %3, i32 noundef -1, i32 noundef -1, ptr noundef nonnull @dissect_zcl_illum_level_sen_attr_data) #7
+  tail call void @zbee_zcl_init_cluster(ptr noundef nonnull @.str.24, i32 noundef %1, i32 noundef %2, i16 noundef zeroext 1025, i16 noundef zeroext 0, i32 noundef %3, i32 noundef %3, i32 noundef -1, i32 noundef -1, ptr noundef nonnull @dissect_zcl_illum_level_sen_attr_data) #6
   ret void
 }
 
@@ -640,7 +640,7 @@ define internal void @dissect_zcl_illum_level_sen_attr_data(ptr noundef %0, ptr 
 7:                                                ; preds = %6
   %8 = load i32, ptr @hf_zbee_zcl_illum_level_sen_level_status, align 4
   %9 = load i32, ptr %2, align 4
-  %10 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %8, ptr noundef %1, i32 noundef %9, i32 noundef 1, i32 noundef -2147483648) #7
+  %10 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %8, ptr noundef %1, i32 noundef %9, i32 noundef 1, i32 noundef -2147483648) #6
   %11 = load i32, ptr %2, align 4
   %12 = add i32 %11, 1
   store i32 %12, ptr %2, align 4
@@ -649,7 +649,7 @@ define internal void @dissect_zcl_illum_level_sen_attr_data(ptr noundef %0, ptr 
 13:                                               ; preds = %6
   %14 = load i32, ptr @hf_zbee_zcl_illum_level_sen_light_sensor_type, align 4
   %15 = load i32, ptr %2, align 4
-  %16 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %14, ptr noundef %1, i32 noundef %15, i32 noundef 1, i32 noundef -2147483648) #7
+  %16 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %14, ptr noundef %1, i32 noundef %15, i32 noundef 1, i32 noundef -2147483648) #6
   %17 = load i32, ptr %2, align 4
   %18 = add i32 %17, 1
   store i32 %18, ptr %2, align 4
@@ -658,14 +658,14 @@ define internal void @dissect_zcl_illum_level_sen_attr_data(ptr noundef %0, ptr 
 19:                                               ; preds = %6
   %20 = load i32, ptr @hf_zbee_zcl_illum_level_sen_illum_target_level, align 4
   %21 = load i32, ptr %2, align 4
-  %22 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %20, ptr noundef %1, i32 noundef %21, i32 noundef 2, i32 noundef -2147483648) #7
+  %22 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %20, ptr noundef %1, i32 noundef %21, i32 noundef 2, i32 noundef -2147483648) #6
   %23 = load i32, ptr %2, align 4
   %24 = add i32 %23, 2
   store i32 %24, ptr %2, align 4
   br label %26
 
 25:                                               ; preds = %6
-  tail call void @dissect_zcl_attr_data(ptr noundef %1, ptr noundef %0, ptr noundef %2, i32 noundef %4, i32 noundef %5) #7
+  tail call void @dissect_zcl_attr_data(ptr noundef %1, ptr noundef %0, ptr noundef %2, i32 noundef %4, i32 noundef %5) #6
   br label %26
 
 26:                                               ; preds = %25, %19, %13, %7
@@ -676,12 +676,12 @@ define internal void @dissect_zcl_illum_level_sen_attr_data(ptr noundef %0, ptr 
 define hidden void @proto_register_zbee_zcl_temp_meas() local_unnamed_addr #0 {
   %1 = alloca [1 x ptr], align 8
   store i64 ptrtoint (ptr @ett_zbee_zcl_temp_meas to i64), ptr %1, align 8
-  %2 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.32) #7
+  %2 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.32) #6
   store i32 %2, ptr @proto_zbee_zcl_temp_meas, align 4
-  tail call void @proto_register_field_array(i32 noundef %2, ptr noundef nonnull @proto_register_zbee_zcl_temp_meas.hf, i32 noundef 5) #7
-  call void @proto_register_subtree_array(ptr noundef nonnull %1, i32 noundef 1) #7
+  tail call void @proto_register_field_array(i32 noundef %2, ptr noundef nonnull @proto_register_zbee_zcl_temp_meas.hf, i32 noundef 5) #6
+  call void @proto_register_subtree_array(ptr noundef nonnull %1, i32 noundef 1) #6
   %3 = load i32, ptr @proto_zbee_zcl_temp_meas, align 4
-  %4 = call ptr @register_dissector(ptr noundef nonnull @.str.32, ptr noundef nonnull @dissect_zbee_zcl_temp_meas, i32 noundef %3) #7
+  %4 = call ptr @register_dissector(ptr noundef nonnull @.str.32, ptr noundef nonnull @dissect_zbee_zcl_temp_meas, i32 noundef %3) #6
   ret void
 }
 
@@ -697,7 +697,7 @@ define internal void @decode_temp_meas_value(ptr nocapture noundef writeonly %0,
 5:                                                ; preds = %2
   %6 = sitofp i16 %1 to double
   %7 = fdiv double %6, 1.000000e+02
-  %8 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.111, double noundef %7) #7
+  %8 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.111, double noundef %7) #6
   br label %9
 
 9:                                                ; preds = %5, %4
@@ -717,7 +717,7 @@ define internal void @decode_temp_meas_min_value(ptr nocapture noundef writeonly
 5:                                                ; preds = %2
   %6 = sitofp i16 %1 to double
   %7 = fdiv double %6, 1.000000e+02
-  %8 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.111, double noundef %7) #7
+  %8 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.111, double noundef %7) #6
   br label %9
 
 9:                                                ; preds = %5, %4
@@ -736,7 +736,7 @@ define internal void @decode_temp_meas_max_value(ptr nocapture noundef writeonly
 5:                                                ; preds = %2
   %6 = sitofp i16 %1 to double
   %7 = fdiv double %6, 1.000000e+02
-  %8 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.111, double noundef %7) #7
+  %8 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.111, double noundef %7) #6
   br label %9
 
 9:                                                ; preds = %5, %4
@@ -757,7 +757,7 @@ define internal void @decode_temp_meas_tolerance(ptr nocapture noundef writeonly
   %.zext = zext nneg i16 %6 to i32
   %7 = urem i16 %1, 100
   %.zext5 = zext nneg i16 %7 to i32
-  %8 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.112, i32 noundef %.zext, i32 noundef %.zext5) #7
+  %8 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.112, i32 noundef %.zext, i32 noundef %.zext5) #6
   br label %9
 
 9:                                                ; preds = %5, %4
@@ -766,7 +766,7 @@ define internal void @decode_temp_meas_tolerance(ptr nocapture noundef writeonly
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_zbee_zcl_temp_meas(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #0 {
-  %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #7
+  %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #6
   ret i32 %5
 }
 
@@ -775,7 +775,7 @@ define hidden void @proto_reg_handoff_zbee_zcl_temp_meas() local_unnamed_addr #0
   %1 = load i32, ptr @proto_zbee_zcl_temp_meas, align 4
   %2 = load i32, ptr @ett_zbee_zcl_temp_meas, align 4
   %3 = load i32, ptr @hf_zbee_zcl_temp_meas_attr_id, align 4
-  tail call void @zbee_zcl_init_cluster(ptr noundef nonnull @.str.32, i32 noundef %1, i32 noundef %2, i16 noundef zeroext 1026, i16 noundef zeroext 0, i32 noundef %3, i32 noundef %3, i32 noundef -1, i32 noundef -1, ptr noundef nonnull @dissect_zcl_temp_meas_attr_data) #7
+  tail call void @zbee_zcl_init_cluster(ptr noundef nonnull @.str.32, i32 noundef %1, i32 noundef %2, i16 noundef zeroext 1026, i16 noundef zeroext 0, i32 noundef %3, i32 noundef %3, i32 noundef -1, i32 noundef -1, ptr noundef nonnull @dissect_zcl_temp_meas_attr_data) #6
   ret void
 }
 
@@ -791,7 +791,7 @@ define internal void @dissect_zcl_temp_meas_attr_data(ptr noundef %0, ptr nounde
 7:                                                ; preds = %6
   %8 = load i32, ptr @hf_zbee_zcl_temp_meas_measured_value, align 4
   %9 = load i32, ptr %2, align 4
-  %10 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %8, ptr noundef %1, i32 noundef %9, i32 noundef 2, i32 noundef -2147483648) #7
+  %10 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %8, ptr noundef %1, i32 noundef %9, i32 noundef 2, i32 noundef -2147483648) #6
   %11 = load i32, ptr %2, align 4
   %12 = add i32 %11, 2
   store i32 %12, ptr %2, align 4
@@ -800,7 +800,7 @@ define internal void @dissect_zcl_temp_meas_attr_data(ptr noundef %0, ptr nounde
 13:                                               ; preds = %6
   %14 = load i32, ptr @hf_zbee_zcl_temp_meas_min_measured_value, align 4
   %15 = load i32, ptr %2, align 4
-  %16 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %14, ptr noundef %1, i32 noundef %15, i32 noundef 2, i32 noundef -2147483648) #7
+  %16 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %14, ptr noundef %1, i32 noundef %15, i32 noundef 2, i32 noundef -2147483648) #6
   %17 = load i32, ptr %2, align 4
   %18 = add i32 %17, 2
   store i32 %18, ptr %2, align 4
@@ -809,7 +809,7 @@ define internal void @dissect_zcl_temp_meas_attr_data(ptr noundef %0, ptr nounde
 19:                                               ; preds = %6
   %20 = load i32, ptr @hf_zbee_zcl_temp_meas_max_measured_value, align 4
   %21 = load i32, ptr %2, align 4
-  %22 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %20, ptr noundef %1, i32 noundef %21, i32 noundef 2, i32 noundef -2147483648) #7
+  %22 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %20, ptr noundef %1, i32 noundef %21, i32 noundef 2, i32 noundef -2147483648) #6
   %23 = load i32, ptr %2, align 4
   %24 = add i32 %23, 2
   store i32 %24, ptr %2, align 4
@@ -818,14 +818,14 @@ define internal void @dissect_zcl_temp_meas_attr_data(ptr noundef %0, ptr nounde
 25:                                               ; preds = %6
   %26 = load i32, ptr @hf_zbee_zcl_temp_meas_tolerance, align 4
   %27 = load i32, ptr %2, align 4
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %26, ptr noundef %1, i32 noundef %27, i32 noundef 2, i32 noundef -2147483648) #7
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %26, ptr noundef %1, i32 noundef %27, i32 noundef 2, i32 noundef -2147483648) #6
   %29 = load i32, ptr %2, align 4
   %30 = add i32 %29, 2
   store i32 %30, ptr %2, align 4
   br label %32
 
 31:                                               ; preds = %6
-  tail call void @dissect_zcl_attr_data(ptr noundef %1, ptr noundef %0, ptr noundef %2, i32 noundef %4, i32 noundef %5) #7
+  tail call void @dissect_zcl_attr_data(ptr noundef %1, ptr noundef %0, ptr noundef %2, i32 noundef %4, i32 noundef %5) #6
   br label %32
 
 32:                                               ; preds = %31, %25, %19, %13, %7
@@ -836,12 +836,12 @@ define internal void @dissect_zcl_temp_meas_attr_data(ptr noundef %0, ptr nounde
 define hidden void @proto_register_zbee_zcl_press_meas() local_unnamed_addr #0 {
   %1 = alloca [1 x ptr], align 8
   store i64 ptrtoint (ptr @ett_zbee_zcl_press_meas to i64), ptr %1, align 8
-  %2 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50) #7
+  %2 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50) #6
   store i32 %2, ptr @proto_zbee_zcl_press_meas, align 4
-  tail call void @proto_register_field_array(i32 noundef %2, ptr noundef nonnull @proto_register_zbee_zcl_press_meas.hf, i32 noundef 10) #7
-  call void @proto_register_subtree_array(ptr noundef nonnull %1, i32 noundef 1) #7
+  tail call void @proto_register_field_array(i32 noundef %2, ptr noundef nonnull @proto_register_zbee_zcl_press_meas.hf, i32 noundef 10) #6
+  call void @proto_register_subtree_array(ptr noundef nonnull %1, i32 noundef 1) #6
   %3 = load i32, ptr @proto_zbee_zcl_press_meas, align 4
-  %4 = call ptr @register_dissector(ptr noundef nonnull @.str.50, ptr noundef nonnull @dissect_zbee_zcl_press_meas, i32 noundef %3) #7
+  %4 = call ptr @register_dissector(ptr noundef nonnull @.str.50, ptr noundef nonnull @dissect_zbee_zcl_press_meas, i32 noundef %3) #6
   ret void
 }
 
@@ -860,7 +860,7 @@ define internal void @decode_press_meas_value(ptr nocapture noundef writeonly %0
   %.sext = sext i16 %5 to i32
   %6 = srem i16 %1, 10
   %.sext7 = sext i16 %6 to i32
-  %7 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.113, i32 noundef %.sext, i32 noundef %.sext7) #7
+  %7 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.113, i32 noundef %.sext, i32 noundef %.sext7) #6
   br label %8
 
 8:                                                ; preds = %4, %3
@@ -881,7 +881,7 @@ define internal void @decode_press_meas_min_value(ptr nocapture noundef writeonl
   %.sext = sext i16 %6 to i32
   %7 = srem i16 %1, 10
   %.sext5 = sext i16 %7 to i32
-  %8 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.113, i32 noundef %.sext, i32 noundef %.sext5) #7
+  %8 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.113, i32 noundef %.sext, i32 noundef %.sext5) #6
   br label %9
 
 9:                                                ; preds = %5, %4
@@ -902,7 +902,7 @@ define internal void @decode_press_meas_max_value(ptr nocapture noundef writeonl
   %.sext = sext i16 %6 to i32
   %7 = srem i16 %1, 10
   %.sext5 = sext i16 %7 to i32
-  %8 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.113, i32 noundef %.sext, i32 noundef %.sext5) #7
+  %8 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.113, i32 noundef %.sext, i32 noundef %.sext5) #6
   br label %9
 
 9:                                                ; preds = %5, %4
@@ -923,7 +923,7 @@ define internal void @decode_press_meas_tolerance(ptr nocapture noundef writeonl
   %.zext = zext nneg i16 %6 to i32
   %7 = urem i16 %1, 10
   %.zext5 = zext nneg i16 %7 to i32
-  %8 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.113, i32 noundef %.zext, i32 noundef %.zext5) #7
+  %8 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.113, i32 noundef %.zext, i32 noundef %.zext5) #6
   br label %9
 
 9:                                                ; preds = %5, %4
@@ -932,7 +932,7 @@ define internal void @decode_press_meas_tolerance(ptr nocapture noundef writeonl
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_zbee_zcl_press_meas(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #0 {
-  %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #7
+  %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #6
   ret i32 %5
 }
 
@@ -941,7 +941,7 @@ define hidden void @proto_reg_handoff_zbee_zcl_press_meas() local_unnamed_addr #
   %1 = load i32, ptr @proto_zbee_zcl_press_meas, align 4
   %2 = load i32, ptr @ett_zbee_zcl_press_meas, align 4
   %3 = load i32, ptr @hf_zbee_zcl_press_meas_attr_id, align 4
-  tail call void @zbee_zcl_init_cluster(ptr noundef nonnull @.str.50, i32 noundef %1, i32 noundef %2, i16 noundef zeroext 1027, i16 noundef zeroext 0, i32 noundef %3, i32 noundef %3, i32 noundef -1, i32 noundef -1, ptr noundef nonnull @dissect_zcl_press_meas_attr_data) #7
+  tail call void @zbee_zcl_init_cluster(ptr noundef nonnull @.str.50, i32 noundef %1, i32 noundef %2, i16 noundef zeroext 1027, i16 noundef zeroext 0, i32 noundef %3, i32 noundef %3, i32 noundef -1, i32 noundef -1, ptr noundef nonnull @dissect_zcl_press_meas_attr_data) #6
   ret void
 }
 
@@ -962,7 +962,7 @@ define internal void @dissect_zcl_press_meas_attr_data(ptr noundef %0, ptr nound
 7:                                                ; preds = %6
   %8 = load i32, ptr @hf_zbee_zcl_press_meas_measured_value, align 4
   %9 = load i32, ptr %2, align 4
-  %10 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %8, ptr noundef %1, i32 noundef %9, i32 noundef 2, i32 noundef -2147483648) #7
+  %10 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %8, ptr noundef %1, i32 noundef %9, i32 noundef 2, i32 noundef -2147483648) #6
   %11 = load i32, ptr %2, align 4
   %12 = add i32 %11, 2
   store i32 %12, ptr %2, align 4
@@ -971,7 +971,7 @@ define internal void @dissect_zcl_press_meas_attr_data(ptr noundef %0, ptr nound
 13:                                               ; preds = %6
   %14 = load i32, ptr @hf_zbee_zcl_press_meas_min_measured_value, align 4
   %15 = load i32, ptr %2, align 4
-  %16 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %14, ptr noundef %1, i32 noundef %15, i32 noundef 2, i32 noundef -2147483648) #7
+  %16 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %14, ptr noundef %1, i32 noundef %15, i32 noundef 2, i32 noundef -2147483648) #6
   %17 = load i32, ptr %2, align 4
   %18 = add i32 %17, 2
   store i32 %18, ptr %2, align 4
@@ -980,7 +980,7 @@ define internal void @dissect_zcl_press_meas_attr_data(ptr noundef %0, ptr nound
 19:                                               ; preds = %6
   %20 = load i32, ptr @hf_zbee_zcl_press_meas_max_measured_value, align 4
   %21 = load i32, ptr %2, align 4
-  %22 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %20, ptr noundef %1, i32 noundef %21, i32 noundef 2, i32 noundef -2147483648) #7
+  %22 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %20, ptr noundef %1, i32 noundef %21, i32 noundef 2, i32 noundef -2147483648) #6
   %23 = load i32, ptr %2, align 4
   %24 = add i32 %23, 2
   store i32 %24, ptr %2, align 4
@@ -989,7 +989,7 @@ define internal void @dissect_zcl_press_meas_attr_data(ptr noundef %0, ptr nound
 25:                                               ; preds = %6
   %26 = load i32, ptr @hf_zbee_zcl_press_meas_tolerance, align 4
   %27 = load i32, ptr %2, align 4
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %26, ptr noundef %1, i32 noundef %27, i32 noundef 2, i32 noundef -2147483648) #7
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %26, ptr noundef %1, i32 noundef %27, i32 noundef 2, i32 noundef -2147483648) #6
   %29 = load i32, ptr %2, align 4
   %30 = add i32 %29, 2
   store i32 %30, ptr %2, align 4
@@ -998,7 +998,7 @@ define internal void @dissect_zcl_press_meas_attr_data(ptr noundef %0, ptr nound
 31:                                               ; preds = %6
   %32 = load i32, ptr @hf_zbee_zcl_press_meas_scaled_value, align 4
   %33 = load i32, ptr %2, align 4
-  %34 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %32, ptr noundef %1, i32 noundef %33, i32 noundef 2, i32 noundef -2147483648) #7
+  %34 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %32, ptr noundef %1, i32 noundef %33, i32 noundef 2, i32 noundef -2147483648) #6
   %35 = load i32, ptr %2, align 4
   %36 = add i32 %35, 2
   store i32 %36, ptr %2, align 4
@@ -1007,7 +1007,7 @@ define internal void @dissect_zcl_press_meas_attr_data(ptr noundef %0, ptr nound
 37:                                               ; preds = %6
   %38 = load i32, ptr @hf_zbee_zcl_press_meas_min_scaled_value, align 4
   %39 = load i32, ptr %2, align 4
-  %40 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %38, ptr noundef %1, i32 noundef %39, i32 noundef 2, i32 noundef -2147483648) #7
+  %40 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %38, ptr noundef %1, i32 noundef %39, i32 noundef 2, i32 noundef -2147483648) #6
   %41 = load i32, ptr %2, align 4
   %42 = add i32 %41, 2
   store i32 %42, ptr %2, align 4
@@ -1016,7 +1016,7 @@ define internal void @dissect_zcl_press_meas_attr_data(ptr noundef %0, ptr nound
 43:                                               ; preds = %6
   %44 = load i32, ptr @hf_zbee_zcl_press_meas_max_scaled_value, align 4
   %45 = load i32, ptr %2, align 4
-  %46 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %44, ptr noundef %1, i32 noundef %45, i32 noundef 2, i32 noundef -2147483648) #7
+  %46 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %44, ptr noundef %1, i32 noundef %45, i32 noundef 2, i32 noundef -2147483648) #6
   %47 = load i32, ptr %2, align 4
   %48 = add i32 %47, 2
   store i32 %48, ptr %2, align 4
@@ -1025,7 +1025,7 @@ define internal void @dissect_zcl_press_meas_attr_data(ptr noundef %0, ptr nound
 49:                                               ; preds = %6
   %50 = load i32, ptr @hf_zbee_zcl_press_meas_scaled_tolerance, align 4
   %51 = load i32, ptr %2, align 4
-  %52 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %50, ptr noundef %1, i32 noundef %51, i32 noundef 2, i32 noundef -2147483648) #7
+  %52 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %50, ptr noundef %1, i32 noundef %51, i32 noundef 2, i32 noundef -2147483648) #6
   %53 = load i32, ptr %2, align 4
   %54 = add i32 %53, 2
   store i32 %54, ptr %2, align 4
@@ -1034,14 +1034,14 @@ define internal void @dissect_zcl_press_meas_attr_data(ptr noundef %0, ptr nound
 55:                                               ; preds = %6
   %56 = load i32, ptr @hf_zbee_zcl_press_meas_scale, align 4
   %57 = load i32, ptr %2, align 4
-  %58 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %56, ptr noundef %1, i32 noundef %57, i32 noundef 1, i32 noundef -2147483648) #7
+  %58 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %56, ptr noundef %1, i32 noundef %57, i32 noundef 1, i32 noundef -2147483648) #6
   %59 = load i32, ptr %2, align 4
   %60 = add i32 %59, 1
   store i32 %60, ptr %2, align 4
   br label %62
 
 61:                                               ; preds = %6
-  tail call void @dissect_zcl_attr_data(ptr noundef %1, ptr noundef %0, ptr noundef %2, i32 noundef %4, i32 noundef %5) #7
+  tail call void @dissect_zcl_attr_data(ptr noundef %1, ptr noundef %0, ptr noundef %2, i32 noundef %4, i32 noundef %5) #6
   br label %62
 
 62:                                               ; preds = %61, %55, %49, %43, %37, %31, %25, %19, %13, %7
@@ -1052,12 +1052,12 @@ define internal void @dissect_zcl_press_meas_attr_data(ptr noundef %0, ptr nound
 define hidden void @proto_register_zbee_zcl_flow_meas() local_unnamed_addr #0 {
   %1 = alloca [1 x ptr], align 8
   store i64 ptrtoint (ptr @ett_zbee_zcl_flow_meas to i64), ptr %1, align 8
-  %2 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.58) #7
+  %2 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.58) #6
   store i32 %2, ptr @proto_zbee_zcl_flow_meas, align 4
-  tail call void @proto_register_field_array(i32 noundef %2, ptr noundef nonnull @proto_register_zbee_zcl_flow_meas.hf, i32 noundef 5) #7
-  call void @proto_register_subtree_array(ptr noundef nonnull %1, i32 noundef 1) #7
+  tail call void @proto_register_field_array(i32 noundef %2, ptr noundef nonnull @proto_register_zbee_zcl_flow_meas.hf, i32 noundef 5) #6
+  call void @proto_register_subtree_array(ptr noundef nonnull %1, i32 noundef 1) #6
   %3 = load i32, ptr @proto_zbee_zcl_flow_meas, align 4
-  %4 = call ptr @register_dissector(ptr noundef nonnull @.str.58, ptr noundef nonnull @dissect_zbee_zcl_flow_meas, i32 noundef %3) #7
+  %4 = call ptr @register_dissector(ptr noundef nonnull @.str.58, ptr noundef nonnull @dissect_zbee_zcl_flow_meas, i32 noundef %3) #6
   ret void
 }
 
@@ -1080,7 +1080,7 @@ define internal void @decode_flow_meas_value(ptr nocapture noundef writeonly %0,
   %6 = zext i16 %1 to i32
   %7 = uitofp i16 %1 to double
   %8 = fdiv double %7, 1.000000e+01
-  %9 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.114, i32 noundef %6, double noundef %8) #7
+  %9 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.114, i32 noundef %6, double noundef %8) #6
   br label %10
 
 10:                                               ; preds = %4, %5, %3
@@ -1100,7 +1100,7 @@ define internal void @decode_flow_meas_min_value(ptr nocapture noundef writeonly
   %6 = zext i16 %1 to i32
   %7 = uitofp i16 %1 to double
   %8 = fdiv double %7, 1.000000e+01
-  %9 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.114, i32 noundef %6, double noundef %8) #7
+  %9 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.114, i32 noundef %6, double noundef %8) #6
   br label %10
 
 10:                                               ; preds = %5, %4
@@ -1121,7 +1121,7 @@ define internal void @decode_flow_meas_max_value(ptr nocapture noundef writeonly
   %6 = zext i16 %1 to i32
   %7 = uitofp i16 %1 to double
   %8 = fdiv double %7, 1.000000e+01
-  %9 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.114, i32 noundef %6, double noundef %8) #7
+  %9 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.114, i32 noundef %6, double noundef %8) #6
   br label %10
 
 10:                                               ; preds = %5, %4
@@ -1139,7 +1139,7 @@ define internal void @decode_flow_meas_tolerance(ptr nocapture noundef writeonly
 
 5:                                                ; preds = %2
   %6 = zext nneg i16 %1 to i32
-  %7 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.104, i32 noundef %6) #7
+  %7 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.104, i32 noundef %6) #6
   br label %8
 
 8:                                                ; preds = %5, %4
@@ -1148,7 +1148,7 @@ define internal void @decode_flow_meas_tolerance(ptr nocapture noundef writeonly
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_zbee_zcl_flow_meas(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #0 {
-  %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #7
+  %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #6
   ret i32 %5
 }
 
@@ -1157,7 +1157,7 @@ define hidden void @proto_reg_handoff_zbee_zcl_flow_meas() local_unnamed_addr #0
   %1 = load i32, ptr @proto_zbee_zcl_flow_meas, align 4
   %2 = load i32, ptr @ett_zbee_zcl_flow_meas, align 4
   %3 = load i32, ptr @hf_zbee_zcl_flow_meas_attr_id, align 4
-  tail call void @zbee_zcl_init_cluster(ptr noundef nonnull @.str.58, i32 noundef %1, i32 noundef %2, i16 noundef zeroext 1028, i16 noundef zeroext 0, i32 noundef %3, i32 noundef %3, i32 noundef -1, i32 noundef -1, ptr noundef nonnull @dissect_zcl_flow_meas_attr_data) #7
+  tail call void @zbee_zcl_init_cluster(ptr noundef nonnull @.str.58, i32 noundef %1, i32 noundef %2, i16 noundef zeroext 1028, i16 noundef zeroext 0, i32 noundef %3, i32 noundef %3, i32 noundef -1, i32 noundef -1, ptr noundef nonnull @dissect_zcl_flow_meas_attr_data) #6
   ret void
 }
 
@@ -1173,7 +1173,7 @@ define internal void @dissect_zcl_flow_meas_attr_data(ptr noundef %0, ptr nounde
 7:                                                ; preds = %6
   %8 = load i32, ptr @hf_zbee_zcl_flow_meas_measured_value, align 4
   %9 = load i32, ptr %2, align 4
-  %10 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %8, ptr noundef %1, i32 noundef %9, i32 noundef 2, i32 noundef -2147483648) #7
+  %10 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %8, ptr noundef %1, i32 noundef %9, i32 noundef 2, i32 noundef -2147483648) #6
   %11 = load i32, ptr %2, align 4
   %12 = add i32 %11, 2
   store i32 %12, ptr %2, align 4
@@ -1182,7 +1182,7 @@ define internal void @dissect_zcl_flow_meas_attr_data(ptr noundef %0, ptr nounde
 13:                                               ; preds = %6
   %14 = load i32, ptr @hf_zbee_zcl_flow_meas_min_measured_value, align 4
   %15 = load i32, ptr %2, align 4
-  %16 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %14, ptr noundef %1, i32 noundef %15, i32 noundef 2, i32 noundef -2147483648) #7
+  %16 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %14, ptr noundef %1, i32 noundef %15, i32 noundef 2, i32 noundef -2147483648) #6
   %17 = load i32, ptr %2, align 4
   %18 = add i32 %17, 2
   store i32 %18, ptr %2, align 4
@@ -1191,7 +1191,7 @@ define internal void @dissect_zcl_flow_meas_attr_data(ptr noundef %0, ptr nounde
 19:                                               ; preds = %6
   %20 = load i32, ptr @hf_zbee_zcl_flow_meas_max_measured_value, align 4
   %21 = load i32, ptr %2, align 4
-  %22 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %20, ptr noundef %1, i32 noundef %21, i32 noundef 2, i32 noundef -2147483648) #7
+  %22 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %20, ptr noundef %1, i32 noundef %21, i32 noundef 2, i32 noundef -2147483648) #6
   %23 = load i32, ptr %2, align 4
   %24 = add i32 %23, 2
   store i32 %24, ptr %2, align 4
@@ -1200,14 +1200,14 @@ define internal void @dissect_zcl_flow_meas_attr_data(ptr noundef %0, ptr nounde
 25:                                               ; preds = %6
   %26 = load i32, ptr @hf_zbee_zcl_flow_meas_tolerance, align 4
   %27 = load i32, ptr %2, align 4
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %26, ptr noundef %1, i32 noundef %27, i32 noundef 2, i32 noundef -2147483648) #7
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %26, ptr noundef %1, i32 noundef %27, i32 noundef 2, i32 noundef -2147483648) #6
   %29 = load i32, ptr %2, align 4
   %30 = add i32 %29, 2
   store i32 %30, ptr %2, align 4
   br label %32
 
 31:                                               ; preds = %6
-  tail call void @dissect_zcl_attr_data(ptr noundef %1, ptr noundef %0, ptr noundef %2, i32 noundef %4, i32 noundef %5) #7
+  tail call void @dissect_zcl_attr_data(ptr noundef %1, ptr noundef %0, ptr noundef %2, i32 noundef %4, i32 noundef %5) #6
   br label %32
 
 32:                                               ; preds = %31, %25, %19, %13, %7
@@ -1218,12 +1218,12 @@ define internal void @dissect_zcl_flow_meas_attr_data(ptr noundef %0, ptr nounde
 define hidden void @proto_register_zbee_zcl_relhum_meas() local_unnamed_addr #0 {
   %1 = alloca [1 x ptr], align 8
   store i64 ptrtoint (ptr @ett_zbee_zcl_relhum_meas to i64), ptr %1, align 8
-  %2 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.66) #7
+  %2 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.66) #6
   store i32 %2, ptr @proto_zbee_zcl_relhum_meas, align 4
-  tail call void @proto_register_field_array(i32 noundef %2, ptr noundef nonnull @proto_register_zbee_zcl_relhum_meas.hf, i32 noundef 5) #7
-  call void @proto_register_subtree_array(ptr noundef nonnull %1, i32 noundef 1) #7
+  tail call void @proto_register_field_array(i32 noundef %2, ptr noundef nonnull @proto_register_zbee_zcl_relhum_meas.hf, i32 noundef 5) #6
+  call void @proto_register_subtree_array(ptr noundef nonnull %1, i32 noundef 1) #6
   %3 = load i32, ptr @proto_zbee_zcl_relhum_meas, align 4
-  %4 = call ptr @register_dissector(ptr noundef nonnull @.str.66, ptr noundef nonnull @dissect_zbee_zcl_relhum_meas, i32 noundef %3) #7
+  %4 = call ptr @register_dissector(ptr noundef nonnull @.str.66, ptr noundef nonnull @dissect_zbee_zcl_relhum_meas, i32 noundef %3) #6
   ret void
 }
 
@@ -1241,7 +1241,7 @@ define internal void @decode_relhum_meas_value(ptr nocapture noundef writeonly %
   %.zext = zext nneg i16 %6 to i32
   %7 = urem i16 %1, 100
   %.zext5 = zext nneg i16 %7 to i32
-  %8 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.115, i32 noundef %.zext, i32 noundef %.zext5) #7
+  %8 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.115, i32 noundef %.zext, i32 noundef %.zext5) #6
   br label %9
 
 9:                                                ; preds = %5, %4
@@ -1262,7 +1262,7 @@ define internal void @decode_relhum_meas_min_value(ptr nocapture noundef writeon
   %.zext = zext nneg i16 %6 to i32
   %7 = urem i16 %1, 100
   %.zext5 = zext nneg i16 %7 to i32
-  %8 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.115, i32 noundef %.zext, i32 noundef %.zext5) #7
+  %8 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.115, i32 noundef %.zext, i32 noundef %.zext5) #6
   br label %9
 
 9:                                                ; preds = %5, %4
@@ -1283,7 +1283,7 @@ define internal void @decode_relhum_meas_max_value(ptr nocapture noundef writeon
   %.zext = zext nneg i16 %6 to i32
   %7 = urem i16 %1, 100
   %.zext5 = zext nneg i16 %7 to i32
-  %8 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.115, i32 noundef %.zext, i32 noundef %.zext5) #7
+  %8 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.115, i32 noundef %.zext, i32 noundef %.zext5) #6
   br label %9
 
 9:                                                ; preds = %5, %4
@@ -1304,7 +1304,7 @@ define internal void @decode_relhum_meas_tolerance(ptr nocapture noundef writeon
   %.zext = zext nneg i16 %6 to i32
   %7 = urem i16 %1, 100
   %.zext5 = zext nneg i16 %7 to i32
-  %8 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.115, i32 noundef %.zext, i32 noundef %.zext5) #7
+  %8 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.115, i32 noundef %.zext, i32 noundef %.zext5) #6
   br label %9
 
 9:                                                ; preds = %5, %4
@@ -1313,7 +1313,7 @@ define internal void @decode_relhum_meas_tolerance(ptr nocapture noundef writeon
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_zbee_zcl_relhum_meas(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #0 {
-  %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #7
+  %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #6
   ret i32 %5
 }
 
@@ -1322,7 +1322,7 @@ define hidden void @proto_reg_handoff_zbee_zcl_relhum_meas() local_unnamed_addr 
   %1 = load i32, ptr @proto_zbee_zcl_relhum_meas, align 4
   %2 = load i32, ptr @ett_zbee_zcl_relhum_meas, align 4
   %3 = load i32, ptr @hf_zbee_zcl_relhum_meas_attr_id, align 4
-  tail call void @zbee_zcl_init_cluster(ptr noundef nonnull @.str.66, i32 noundef %1, i32 noundef %2, i16 noundef zeroext 1029, i16 noundef zeroext 0, i32 noundef %3, i32 noundef %3, i32 noundef -1, i32 noundef -1, ptr noundef nonnull @dissect_zcl_relhum_meas_attr_data) #7
+  tail call void @zbee_zcl_init_cluster(ptr noundef nonnull @.str.66, i32 noundef %1, i32 noundef %2, i16 noundef zeroext 1029, i16 noundef zeroext 0, i32 noundef %3, i32 noundef %3, i32 noundef -1, i32 noundef -1, ptr noundef nonnull @dissect_zcl_relhum_meas_attr_data) #6
   ret void
 }
 
@@ -1338,7 +1338,7 @@ define internal void @dissect_zcl_relhum_meas_attr_data(ptr noundef %0, ptr noun
 7:                                                ; preds = %6
   %8 = load i32, ptr @hf_zbee_zcl_relhum_meas_measured_value, align 4
   %9 = load i32, ptr %2, align 4
-  %10 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %8, ptr noundef %1, i32 noundef %9, i32 noundef 2, i32 noundef -2147483648) #7
+  %10 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %8, ptr noundef %1, i32 noundef %9, i32 noundef 2, i32 noundef -2147483648) #6
   %11 = load i32, ptr %2, align 4
   %12 = add i32 %11, 2
   store i32 %12, ptr %2, align 4
@@ -1347,7 +1347,7 @@ define internal void @dissect_zcl_relhum_meas_attr_data(ptr noundef %0, ptr noun
 13:                                               ; preds = %6
   %14 = load i32, ptr @hf_zbee_zcl_relhum_meas_min_measured_value, align 4
   %15 = load i32, ptr %2, align 4
-  %16 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %14, ptr noundef %1, i32 noundef %15, i32 noundef 2, i32 noundef -2147483648) #7
+  %16 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %14, ptr noundef %1, i32 noundef %15, i32 noundef 2, i32 noundef -2147483648) #6
   %17 = load i32, ptr %2, align 4
   %18 = add i32 %17, 2
   store i32 %18, ptr %2, align 4
@@ -1356,7 +1356,7 @@ define internal void @dissect_zcl_relhum_meas_attr_data(ptr noundef %0, ptr noun
 19:                                               ; preds = %6
   %20 = load i32, ptr @hf_zbee_zcl_relhum_meas_max_measured_value, align 4
   %21 = load i32, ptr %2, align 4
-  %22 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %20, ptr noundef %1, i32 noundef %21, i32 noundef 2, i32 noundef -2147483648) #7
+  %22 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %20, ptr noundef %1, i32 noundef %21, i32 noundef 2, i32 noundef -2147483648) #6
   %23 = load i32, ptr %2, align 4
   %24 = add i32 %23, 2
   store i32 %24, ptr %2, align 4
@@ -1365,14 +1365,14 @@ define internal void @dissect_zcl_relhum_meas_attr_data(ptr noundef %0, ptr noun
 25:                                               ; preds = %6
   %26 = load i32, ptr @hf_zbee_zcl_relhum_meas_tolerance, align 4
   %27 = load i32, ptr %2, align 4
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %26, ptr noundef %1, i32 noundef %27, i32 noundef 2, i32 noundef -2147483648) #7
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %26, ptr noundef %1, i32 noundef %27, i32 noundef 2, i32 noundef -2147483648) #6
   %29 = load i32, ptr %2, align 4
   %30 = add i32 %29, 2
   store i32 %30, ptr %2, align 4
   br label %32
 
 31:                                               ; preds = %6
-  tail call void @dissect_zcl_attr_data(ptr noundef %1, ptr noundef %0, ptr noundef %2, i32 noundef %4, i32 noundef %5) #7
+  tail call void @dissect_zcl_attr_data(ptr noundef %1, ptr noundef %0, ptr noundef %2, i32 noundef %4, i32 noundef %5) #6
   br label %32
 
 32:                                               ; preds = %31, %25, %19, %13, %7
@@ -1383,18 +1383,18 @@ define internal void @dissect_zcl_relhum_meas_attr_data(ptr noundef %0, ptr noun
 define hidden void @proto_register_zbee_zcl_occ_sen() local_unnamed_addr #0 {
   store ptr @ett_zbee_zcl_occ_sen, ptr @proto_register_zbee_zcl_occ_sen.ett, align 16
   store ptr @ett_zbee_zcl_occ_sen_occupancy, ptr getelementptr inbounds ([2 x ptr], ptr @proto_register_zbee_zcl_occ_sen.ett, i64 0, i64 1), align 8
-  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.74, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.76) #7
+  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.74, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.76) #6
   store i32 %1, ptr @proto_zbee_zcl_occ_sen, align 4
-  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_zbee_zcl_occ_sen.hf, i32 noundef 4) #7
-  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_zbee_zcl_occ_sen.ett, i32 noundef 2) #7
+  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_zbee_zcl_occ_sen.hf, i32 noundef 4) #6
+  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_zbee_zcl_occ_sen.ett, i32 noundef 2) #6
   %2 = load i32, ptr @proto_zbee_zcl_occ_sen, align 4
-  %3 = tail call ptr @register_dissector(ptr noundef nonnull @.str.76, ptr noundef nonnull @dissect_zbee_zcl_occ_sen, i32 noundef %2) #7
+  %3 = tail call ptr @register_dissector(ptr noundef nonnull @.str.76, ptr noundef nonnull @dissect_zbee_zcl_occ_sen, i32 noundef %2) #6
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_zbee_zcl_occ_sen(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #0 {
-  %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #7
+  %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #6
   ret i32 %5
 }
 
@@ -1403,7 +1403,7 @@ define hidden void @proto_reg_handoff_zbee_zcl_occ_sen() local_unnamed_addr #0 {
   %1 = load i32, ptr @proto_zbee_zcl_occ_sen, align 4
   %2 = load i32, ptr @ett_zbee_zcl_occ_sen, align 4
   %3 = load i32, ptr @hf_zbee_zcl_occ_sen_attr_id, align 4
-  tail call void @zbee_zcl_init_cluster(ptr noundef nonnull @.str.76, i32 noundef %1, i32 noundef %2, i16 noundef zeroext 1030, i16 noundef zeroext 0, i32 noundef %3, i32 noundef %3, i32 noundef -1, i32 noundef -1, ptr noundef nonnull @dissect_zcl_occ_sen_attr_data) #7
+  tail call void @zbee_zcl_init_cluster(ptr noundef nonnull @.str.76, i32 noundef %1, i32 noundef %2, i16 noundef zeroext 1030, i16 noundef zeroext 0, i32 noundef %3, i32 noundef %3, i32 noundef -1, i32 noundef -1, ptr noundef nonnull @dissect_zcl_occ_sen_attr_data) #6
   ret void
 }
 
@@ -1418,7 +1418,7 @@ define internal void @dissect_zcl_occ_sen_attr_data(ptr noundef %0, ptr noundef 
   %8 = load i32, ptr %2, align 4
   %9 = load i32, ptr @hf_zbee_zcl_occ_sen_occupancy, align 4
   %10 = load i32, ptr @ett_zbee_zcl_occ_sen_occupancy, align 4
-  %11 = tail call ptr @proto_tree_add_bitmask(ptr noundef %0, ptr noundef %1, i32 noundef %8, i32 noundef %9, i32 noundef %10, ptr noundef nonnull @dissect_zcl_occ_sen_attr_data.occupancy, i32 noundef -2147483648) #7
+  %11 = tail call ptr @proto_tree_add_bitmask(ptr noundef %0, ptr noundef %1, i32 noundef %8, i32 noundef %9, i32 noundef %10, ptr noundef nonnull @dissect_zcl_occ_sen_attr_data.occupancy, i32 noundef -2147483648) #6
   %12 = load i32, ptr %2, align 4
   %13 = add i32 %12, 1
   store i32 %13, ptr %2, align 4
@@ -1427,14 +1427,14 @@ define internal void @dissect_zcl_occ_sen_attr_data(ptr noundef %0, ptr noundef 
 14:                                               ; preds = %6
   %15 = load i32, ptr @hf_zbee_zcl_occ_sen_occ_sensor_type, align 4
   %16 = load i32, ptr %2, align 4
-  %17 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %15, ptr noundef %1, i32 noundef %16, i32 noundef 1, i32 noundef -2147483648) #7
+  %17 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %15, ptr noundef %1, i32 noundef %16, i32 noundef 1, i32 noundef -2147483648) #6
   %18 = load i32, ptr %2, align 4
   %19 = add i32 %18, 1
   store i32 %19, ptr %2, align 4
   br label %21
 
 20:                                               ; preds = %6
-  tail call void @dissect_zcl_attr_data(ptr noundef %1, ptr noundef %0, ptr noundef %2, i32 noundef %4, i32 noundef %5) #7
+  tail call void @dissect_zcl_attr_data(ptr noundef %1, ptr noundef %0, ptr noundef %2, i32 noundef %4, i32 noundef %5) #6
   br label %21
 
 21:                                               ; preds = %20, %14, %7
@@ -1444,12 +1444,12 @@ define internal void @dissect_zcl_occ_sen_attr_data(ptr noundef %0, ptr noundef 
 ; Function Attrs: nounwind uwtable
 define hidden void @proto_register_zbee_zcl_elec_mes() local_unnamed_addr #0 {
   store ptr @ett_zbee_zcl_elec_mes, ptr @proto_register_zbee_zcl_elec_mes.ett, align 8
-  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.97, ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.99) #7
+  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.97, ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.99) #6
   store i32 %1, ptr @proto_zbee_zcl_elec_mes, align 4
-  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_zbee_zcl_elec_mes.hf, i32 noundef 11) #7
-  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_zbee_zcl_elec_mes.ett, i32 noundef 1) #7
+  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_zbee_zcl_elec_mes.hf, i32 noundef 11) #6
+  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_zbee_zcl_elec_mes.ett, i32 noundef 1) #6
   %2 = load i32, ptr @proto_zbee_zcl_elec_mes, align 4
-  %3 = tail call ptr @register_dissector(ptr noundef nonnull @.str.99, ptr noundef nonnull @dissect_zbee_zcl_elec_mes, i32 noundef %2) #7
+  %3 = tail call ptr @register_dissector(ptr noundef nonnull @.str.99, ptr noundef nonnull @dissect_zbee_zcl_elec_mes, i32 noundef %2) #6
   ret void
 }
 
@@ -1473,53 +1473,53 @@ define internal i32 @dissect_zbee_zcl_elec_mes(ptr noundef %0, ptr nocapture nou
   br i1 %13, label %18, label %40
 
 18:                                               ; preds = %8
-  %19 = tail call ptr @val_to_str_const(i32 noundef %16, ptr noundef nonnull @zbee_zcl_elec_mes_srv_rx_cmd_names, ptr noundef nonnull @.str.270) #7
+  %19 = tail call ptr @val_to_str_const(i32 noundef %16, ptr noundef nonnull @zbee_zcl_elec_mes_srv_rx_cmd_names, ptr noundef nonnull @.str.270) #6
   %20 = load i8, ptr %17, align 4
   %21 = zext i8 %20 to i32
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %15, i32 noundef 25, ptr noundef nonnull @.str.269, ptr noundef %19, i32 noundef %21) #7
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %15, i32 noundef 25, ptr noundef nonnull @.str.269, ptr noundef %19, i32 noundef %21) #6
   %22 = load i32, ptr @hf_zbee_zcl_elec_mes_srv_rx_cmd_id, align 4
-  %23 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %22, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %16) #7
-  %24 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 1) #7
+  %23 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %22, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %16) #6
+  %24 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 1) #6
   %25 = icmp sgt i32 %24, 0
   br i1 %25, label %26, label %dissect_zcl_elec_mes_get_profile_info_response.exit
 
 26:                                               ; preds = %18
   %27 = load i32, ptr @ett_zbee_zcl_elec_mes, align 4
-  %28 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef 1, i32 noundef %24, i32 noundef %27, ptr noundef null, ptr noundef nonnull @.str.271) #7
+  %28 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef 1, i32 noundef %24, i32 noundef %27, ptr noundef null, ptr noundef nonnull @.str.271) #6
   %cond = icmp eq i8 %10, 1
   br i1 %cond, label %29, label %dissect_zcl_elec_mes_get_profile_info_response.exit
 
 29:                                               ; preds = %26
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %30 = load i32, ptr @hf_zbee_zcl_elec_mes_attr_id, align 4
-  %31 = tail call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %30, ptr noundef %0, i32 noundef 1, i32 noundef 2, i32 noundef -2147483648) #7
-  %32 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 3) #7
+  %31 = tail call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %30, ptr noundef %0, i32 noundef 1, i32 noundef 2, i32 noundef -2147483648) #6
+  %32 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 3) #6
   %33 = zext i32 %32 to i64
   %34 = add nuw nsw i64 %33, 946684800
   store i64 %34, ptr %6, align 8
   %35 = getelementptr inbounds i8, ptr %6, i64 8
   store i32 0, ptr %35, align 8
   %36 = load i32, ptr @hf_zbee_zcl_elec_mes_start_time, align 4
-  %37 = call ptr @proto_tree_add_time(ptr noundef %28, i32 noundef %36, ptr noundef %0, i32 noundef 3, i32 noundef 4, ptr noundef nonnull %6) #7
+  %37 = call ptr @proto_tree_add_time(ptr noundef %28, i32 noundef %36, ptr noundef %0, i32 noundef 3, i32 noundef 4, ptr noundef nonnull %6) #6
   %38 = load i32, ptr @hf_zbee_zcl_elec_mes_number_of_intervals, align 4
-  %39 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %38, ptr noundef %0, i32 noundef 7, i32 noundef 1, i32 noundef 0) #7
+  %39 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %38, ptr noundef %0, i32 noundef 7, i32 noundef 1, i32 noundef 0) #6
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   br label %dissect_zcl_elec_mes_get_profile_info_response.exit
 
 40:                                               ; preds = %8
-  %41 = tail call ptr @val_to_str_const(i32 noundef %16, ptr noundef nonnull @zbee_zcl_elec_mes_srv_tx_cmd_names, ptr noundef nonnull @.str.270) #7
+  %41 = tail call ptr @val_to_str_const(i32 noundef %16, ptr noundef nonnull @zbee_zcl_elec_mes_srv_tx_cmd_names, ptr noundef nonnull @.str.270) #6
   %42 = load i8, ptr %17, align 4
   %43 = zext i8 %42 to i32
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %15, i32 noundef 25, ptr noundef nonnull @.str.269, ptr noundef %41, i32 noundef %43) #7
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %15, i32 noundef 25, ptr noundef nonnull @.str.269, ptr noundef %41, i32 noundef %43) #6
   %44 = load i32, ptr @hf_zbee_zcl_elec_mes_srv_tx_cmd_id, align 4
-  %45 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %44, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %16) #7
-  %46 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 1) #7
+  %45 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %44, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %16) #6
+  %46 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 1) #6
   %47 = icmp sgt i32 %46, 0
   br i1 %47, label %48, label %dissect_zcl_elec_mes_get_profile_info_response.exit
 
 48:                                               ; preds = %40
   %49 = load i32, ptr @ett_zbee_zcl_elec_mes, align 4
-  %50 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef 1, i32 noundef %46, i32 noundef %49, ptr noundef null, ptr noundef nonnull @.str.271) #7
+  %50 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef 1, i32 noundef %46, i32 noundef %49, ptr noundef null, ptr noundef nonnull @.str.271) #6
   switch i8 %10, label %dissect_zcl_elec_mes_get_profile_info_response.exit [
     i8 0, label %51
     i8 1, label %65
@@ -1527,50 +1527,50 @@ define internal i32 @dissect_zbee_zcl_elec_mes(ptr noundef %0, ptr nocapture nou
 
 51:                                               ; preds = %48
   %52 = load i32, ptr @hf_zbee_zcl_elec_mes_profile_count, align 4
-  %53 = tail call ptr @proto_tree_add_item(ptr noundef %50, i32 noundef %52, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #7
+  %53 = tail call ptr @proto_tree_add_item(ptr noundef %50, i32 noundef %52, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #6
   %54 = load i32, ptr @hf_zbee_zcl_elec_mes_profile_interval_period, align 4
-  %55 = tail call ptr @proto_tree_add_item(ptr noundef %50, i32 noundef %54, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #7
+  %55 = tail call ptr @proto_tree_add_item(ptr noundef %50, i32 noundef %54, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #6
   %56 = load i32, ptr @hf_zbee_zcl_elec_mes_max_number_of_intervals, align 4
-  %57 = tail call ptr @proto_tree_add_item(ptr noundef %50, i32 noundef %56, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #7
-  %58 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 4) #7
+  %57 = tail call ptr @proto_tree_add_item(ptr noundef %50, i32 noundef %56, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #6
+  %58 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 4) #6
   %59 = icmp sgt i32 %58, 0
   br i1 %59, label %.lr.ph.i, label %dissect_zcl_elec_mes_get_profile_info_response.exit
 
 .lr.ph.i:                                         ; preds = %51, %.lr.ph.i
   %.063 = phi i32 [ %62, %.lr.ph.i ], [ 4, %51 ]
   %60 = load i32, ptr @hf_zbee_zcl_elec_mes_attr_id, align 4
-  %61 = tail call ptr @proto_tree_add_item(ptr noundef %50, i32 noundef %60, ptr noundef %0, i32 noundef %.063, i32 noundef 2, i32 noundef -2147483648) #7
+  %61 = tail call ptr @proto_tree_add_item(ptr noundef %50, i32 noundef %60, ptr noundef %0, i32 noundef %.063, i32 noundef 2, i32 noundef -2147483648) #6
   %62 = add i32 %.063, 2
-  %63 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %62) #7
+  %63 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %62) #6
   %64 = icmp sgt i32 %63, 0
   br i1 %64, label %.lr.ph.i, label %dissect_zcl_elec_mes_get_profile_info_response.exit, !llvm.loop !4
 
 65:                                               ; preds = %48
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  %66 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 1) #7
+  %66 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 1) #6
   %67 = zext i32 %66 to i64
   %68 = add nuw nsw i64 %67, 946684800
   store i64 %68, ptr %5, align 8
   %69 = getelementptr inbounds i8, ptr %5, i64 8
   store i32 0, ptr %69, align 8
   %70 = load i32, ptr @hf_zbee_zcl_elec_mes_start_time, align 4
-  %71 = call ptr @proto_tree_add_time(ptr noundef %50, i32 noundef %70, ptr noundef %0, i32 noundef 1, i32 noundef 4, ptr noundef nonnull %5) #7
+  %71 = call ptr @proto_tree_add_time(ptr noundef %50, i32 noundef %70, ptr noundef %0, i32 noundef 1, i32 noundef 4, ptr noundef nonnull %5) #6
   %72 = load i32, ptr @hf_zbee_zcl_elec_mes_status, align 4
-  %73 = call ptr @proto_tree_add_item(ptr noundef %50, i32 noundef %72, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef 0) #7
+  %73 = call ptr @proto_tree_add_item(ptr noundef %50, i32 noundef %72, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef 0) #6
   %74 = load i32, ptr @hf_zbee_zcl_elec_mes_profile_interval_period, align 4
-  %75 = call ptr @proto_tree_add_item(ptr noundef %50, i32 noundef %74, ptr noundef %0, i32 noundef 6, i32 noundef 1, i32 noundef 0) #7
+  %75 = call ptr @proto_tree_add_item(ptr noundef %50, i32 noundef %74, ptr noundef %0, i32 noundef 6, i32 noundef 1, i32 noundef 0) #6
   %76 = load i32, ptr @hf_zbee_zcl_elec_mes_number_of_intervals_delivered, align 4
-  %77 = call ptr @proto_tree_add_item(ptr noundef %50, i32 noundef %76, ptr noundef %0, i32 noundef 7, i32 noundef 1, i32 noundef 0) #7
+  %77 = call ptr @proto_tree_add_item(ptr noundef %50, i32 noundef %76, ptr noundef %0, i32 noundef 7, i32 noundef 1, i32 noundef 0) #6
   %78 = load i32, ptr @hf_zbee_zcl_elec_mes_attr_id, align 4
-  %79 = call ptr @proto_tree_add_item(ptr noundef %50, i32 noundef %78, ptr noundef %0, i32 noundef 8, i32 noundef 2, i32 noundef -2147483648) #7
-  %80 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 10) #7
+  %79 = call ptr @proto_tree_add_item(ptr noundef %50, i32 noundef %78, ptr noundef %0, i32 noundef 8, i32 noundef 2, i32 noundef -2147483648) #6
+  %80 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 10) #6
   %81 = load i32, ptr @hf_zbee_zcl_elec_mes_intervals, align 4
-  %82 = call ptr @proto_tree_add_item(ptr noundef %50, i32 noundef %81, ptr noundef %0, i32 noundef 10, i32 noundef %80, i32 noundef 0) #7
+  %82 = call ptr @proto_tree_add_item(ptr noundef %50, i32 noundef %81, ptr noundef %0, i32 noundef 10, i32 noundef %80, i32 noundef 0) #6
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   br label %dissect_zcl_elec_mes_get_profile_info_response.exit
 
 dissect_zcl_elec_mes_get_profile_info_response.exit: ; preds = %.lr.ph.i, %51, %26, %40, %48, %65, %18, %29
-  %83 = call i32 @tvb_captured_length(ptr noundef %0) #7
+  %83 = call i32 @tvb_captured_length(ptr noundef %0) #6
   br label %84
 
 84:                                               ; preds = %4, %dissect_zcl_elec_mes_get_profile_info_response.exit
@@ -1585,21 +1585,18 @@ define hidden void @proto_reg_handoff_zbee_zcl_elec_mes() local_unnamed_addr #0 
   %3 = load i32, ptr @hf_zbee_zcl_elec_mes_attr_id, align 4
   %4 = load i32, ptr @hf_zbee_zcl_elec_mes_srv_rx_cmd_id, align 4
   %5 = load i32, ptr @hf_zbee_zcl_elec_mes_srv_tx_cmd_id, align 4
-  tail call void @zbee_zcl_init_cluster(ptr noundef nonnull @.str.99, i32 noundef %1, i32 noundef %2, i16 noundef zeroext 2820, i16 noundef zeroext 0, i32 noundef %3, i32 noundef -1, i32 noundef %4, i32 noundef %5, ptr noundef nonnull @dissect_zcl_elec_mes_attr_data) #7
+  tail call void @zbee_zcl_init_cluster(ptr noundef nonnull @.str.99, i32 noundef %1, i32 noundef %2, i16 noundef zeroext 2820, i16 noundef zeroext 0, i32 noundef %3, i32 noundef -1, i32 noundef %4, i32 noundef %5, ptr noundef nonnull @dissect_zcl_elec_mes_attr_data) #6
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @dissect_zcl_elec_mes_attr_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 zeroext %3, i32 noundef %4, i32 noundef %5) #0 {
-  tail call void @dissect_zcl_attr_data(ptr noundef %1, ptr noundef %0, ptr noundef %2, i32 noundef %4, i32 noundef %5) #7
+  tail call void @dissect_zcl_attr_data(ptr noundef %1, ptr noundef %0, ptr noundef %2, i32 noundef %4, i32 noundef %5) #6
   ret void
 }
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
-
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @pow(double noundef, double noundef) local_unnamed_addr #5
 
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #3
 
@@ -1625,20 +1622,21 @@ declare i32 @tvb_get_letohl(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 declare ptr @proto_tree_add_time(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare double @__exp10(double) local_unnamed_addr
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nounwind }
+attributes #5 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

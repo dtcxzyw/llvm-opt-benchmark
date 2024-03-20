@@ -160,7 +160,7 @@ define dso_local noundef i32 @nsvg__parseXML(ptr noundef %0, ptr noundef readonl
   br i1 %.not12.i, label %nsvg__parseContent.exit, label %23
 
 23:                                               ; preds = %.critedge.i
-  call void %3(ptr noundef %4, ptr noundef nonnull %.015.i) #31
+  call void %3(ptr noundef %4, ptr noundef nonnull %.015.i) #30
   br label %nsvg__parseContent.exit
 
 24:                                               ; preds = %9
@@ -352,7 +352,7 @@ define dso_local noundef i32 @nsvg__parseXML(ptr noundef %0, ptr noundef readonl
   br i1 %.not176.i, label %81, label %80
 
 80:                                               ; preds = %.critedge4.i
-  call void %1(ptr noundef %4, ptr noundef nonnull %.0.lcssa.i, ptr noundef nonnull %6) #31
+  call void %1(ptr noundef %4, ptr noundef nonnull %.0.lcssa.i, ptr noundef nonnull %6) #30
   br label %81
 
 81:                                               ; preds = %80, %.critedge4.i, %.critedge4.thread.i
@@ -361,7 +361,7 @@ define dso_local noundef i32 @nsvg__parseXML(ptr noundef %0, ptr noundef readonl
   br i1 %or.cond17.i, label %83, label %nsvg__parseElement.exit
 
 83:                                               ; preds = %81
-  call void %2(ptr noundef %4, ptr noundef nonnull %.1.i) #31
+  call void %2(ptr noundef %4, ptr noundef nonnull %.1.i) #30
   br label %nsvg__parseElement.exit
 
 nsvg__parseElement.exit:                          ; preds = %.critedge.i31, %.critedge.i31, %.critedge.i31, %81, %83
@@ -399,7 +399,7 @@ define dso_local ptr @nsvgParse(ptr noundef %0, ptr nocapture noundef readonly %
   br i1 %11, label %12, label %13
 
 12:                                               ; preds = %9
-  tail call void @free(ptr noundef nonnull %calloc30.i) #31
+  tail call void @free(ptr noundef nonnull %calloc30.i) #30
   br label %nsvg__createParser.exit.thread
 
 13:                                               ; preds = %9
@@ -1214,11 +1214,11 @@ nsvg__scaleToViewbox.exit:                        ; preds = %nsvg__scaleToViewbo
   br i1 %.not7.i.i, label %479, label %478
 
 478:                                              ; preds = %.lr.ph.i.i19
-  tail call void @free(ptr noundef nonnull %477) #31
+  tail call void @free(ptr noundef nonnull %477) #30
   br label %479
 
 479:                                              ; preds = %478, %.lr.ph.i.i19
-  tail call void @free(ptr noundef nonnull %.09.i.i) #31
+  tail call void @free(ptr noundef nonnull %.09.i.i) #30
   %.not.i.i20 = icmp eq ptr %476, null
   br i1 %.not.i.i20, label %nsvg__deletePaths.exit.i, label %.lr.ph.i.i19, !llvm.loop !20
 
@@ -1234,8 +1234,8 @@ nsvg__deletePaths.exit.i:                         ; preds = %479, %nsvg__scaleTo
   %483 = load ptr, ptr %482, align 8
   %484 = getelementptr inbounds i8, ptr %.06.i.i, i64 208
   %485 = load ptr, ptr %484, align 8
-  tail call void @free(ptr noundef %485) #31
-  tail call void @free(ptr noundef nonnull %.06.i.i) #31
+  tail call void @free(ptr noundef %485) #30
+  tail call void @free(ptr noundef nonnull %.06.i.i) #30
   %.not.i7.i = icmp eq ptr %483, null
   br i1 %.not.i7.i, label %nsvg__deleteParser.exit, label %.lr.ph.i6.i, !llvm.loop !21
 
@@ -1244,8 +1244,8 @@ nsvg__deleteParser.exit:                          ; preds = %.lr.ph.i6.i, %nsvg_
   tail call void @nsvgDelete(ptr noundef %486)
   %487 = getelementptr inbounds i8, ptr %calloc30.i, i64 39944
   %488 = load ptr, ptr %487, align 8
-  tail call void @free(ptr noundef %488) #31
-  tail call void @free(ptr noundef %calloc30.i) #31
+  tail call void @free(ptr noundef %488) #30
+  tail call void @free(ptr noundef %calloc30.i) #30
   br label %nsvg__createParser.exit.thread
 
 nsvg__createParser.exit.thread:                   ; preds = %12, %3, %nsvg__deleteParser.exit
@@ -1264,7 +1264,7 @@ define internal void @nsvg__startElement(ptr noundef %0, ptr nocapture noundef r
   br i1 %.not, label %21, label %9
 
 9:                                                ; preds = %3
-  %10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(15) @.str.12) #32
+  %10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(15) @.str.12) #31
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %13
 
@@ -1273,7 +1273,7 @@ define internal void @nsvg__startElement(ptr noundef %0, ptr nocapture noundef r
   br label %nsvg__popAttr.exit
 
 13:                                               ; preds = %9
-  %14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(15) @.str.13) #32
+  %14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(15) @.str.13) #31
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %17
 
@@ -1282,7 +1282,7 @@ define internal void @nsvg__startElement(ptr noundef %0, ptr nocapture noundef r
   br label %nsvg__popAttr.exit
 
 17:                                               ; preds = %13
-  %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(5) @.str.14) #32
+  %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(5) @.str.14) #31
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %20, label %nsvg__popAttr.exit
 
@@ -1291,7 +1291,7 @@ define internal void @nsvg__startElement(ptr noundef %0, ptr nocapture noundef r
   br label %nsvg__popAttr.exit
 
 21:                                               ; preds = %3
-  %22 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(2) @.str.15) #32
+  %22 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(2) @.str.15) #31
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %24, label %34
 
@@ -1316,7 +1316,7 @@ nsvg__pushAttr.exit:                              ; preds = %24, %28
   br label %nsvg__popAttr.exit
 
 34:                                               ; preds = %21
-  %35 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(5) @.str.16) #32
+  %35 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(5) @.str.16) #31
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %37, label %564
 
@@ -1359,7 +1359,7 @@ nsvg__pushAttr.exit66:                            ; preds = %40, %44
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %65 ]
   %54 = phi ptr [ %50, %.lr.ph.i ], [ %67, %65 ]
   %.096230.i = phi ptr [ null, %.lr.ph.i ], [ %.197.i, %65 ]
-  %55 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %54, ptr noundef nonnull dereferenceable(2) @.str.80) #32
+  %55 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %54, ptr noundef nonnull dereferenceable(2) @.str.80) #31
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %57, label %61
 
@@ -1621,7 +1621,7 @@ nsvg__isCoordinate.exit.i:                        ; preds = %108, %107
   %150 = shl nsw i32 %spec.select.i.i.i.i, 1
   %151 = sext i32 %150 to i64
   %152 = shl nsw i64 %151, 2
-  %153 = call ptr @realloc(ptr noundef %149, i64 noundef %152) #33
+  %153 = call ptr @realloc(ptr noundef %149, i64 noundef %152) #32
   store ptr %153, ptr %78, align 8
   %.not17.i.i.i.i = icmp eq ptr %153, null
   br i1 %.not17.i.i.i.i, label %nsvg__pathMoveTo.exit.i, label %._crit_edge18.i.i.i.i
@@ -1867,8 +1867,8 @@ nsvg__pathQuadBezTo.exit.i:                       ; preds = %244, %237
   %319 = load float, ptr %73, align 8
   %320 = fdiv float %319, 1.800000e+02
   %321 = fmul float %320, 0x400921FB60000000
-  %322 = call float @sinf(float noundef %321) #31
-  %323 = call float @cosf(float noundef %321) #31
+  %322 = call float @sinf(float noundef %321) #30
+  %323 = call float @cosf(float noundef %321) #30
   %324 = insertelement <2 x float> poison, float %323, i64 0
   %325 = insertelement <2 x float> %324, float %322, i64 1
   %326 = fmul <2 x float> %307, %325
@@ -1911,7 +1911,7 @@ nsvg__pathQuadBezTo.exit.i:                       ; preds = %244, %237
   %357 = fcmp olt float %356, 0.000000e+00
   %.0179.i.i = select i1 %357, float 0.000000e+00, float %356
   %358 = fdiv float %.0179.i.i, %349
-  %359 = call float @sqrtf(float noundef %358) #31
+  %359 = call float @sqrtf(float noundef %358) #30
   br label %360
 
 360:                                              ; preds = %351, %318
@@ -1978,7 +1978,7 @@ nsvg__pathQuadBezTo.exit.i:                       ; preds = %244, %237
   %418 = extractelement <2 x i1> %417, i64 1
   %419 = extractelement <2 x float> %416, i64 1
   %.1.i.i.i = select i1 %418, float 1.000000e+00, float %419
-  %420 = call float @acosf(float noundef %.1.i.i.i) #31
+  %420 = call float @acosf(float noundef %.1.i.i.i) #30
   %421 = fneg float %420
   %422 = select i1 %404, float %421, float %420
   %423 = extractelement <2 x i1> %417, i64 0
@@ -1987,7 +1987,7 @@ nsvg__pathQuadBezTo.exit.i:                       ; preds = %244, %237
   %425 = fmul float %398, %405
   %426 = fmul float %396, %407
   %427 = fcmp olt float %425, %426
-  %428 = call float @acosf(float noundef %.1.i193.i.i) #31
+  %428 = call float @acosf(float noundef %.1.i193.i.i) #30
   %429 = fneg float %428
   %430 = select i1 %427, float %429, float %428
   %431 = fcmp ule float %430, 0.000000e+00
@@ -2025,9 +2025,9 @@ nsvg__pathQuadBezTo.exit.i:                       ; preds = %244, %237
   br label %454
 
 449:                                              ; preds = %438
-  %450 = call float @cosf(float noundef %445) #31
+  %450 = call float @cosf(float noundef %445) #30
   %451 = fsub float 1.000000e+00, %450
-  %452 = call float @sinf(float noundef %445) #31
+  %452 = call float @sinf(float noundef %445) #30
   %453 = fdiv float %451, %452
   br label %454
 
@@ -2049,8 +2049,8 @@ nsvg__pathQuadBezTo.exit.i:                       ; preds = %244, %237
   %460 = sitofp i32 %.0169211.i.i to float
   %461 = fdiv float %460, %443
   %462 = call float @llvm.fmuladd.f32(float %.0177.i.i, float %461, float %422)
-  %463 = call float @cosf(float noundef %462) #31
-  %464 = call float @sinf(float noundef %462) #31
+  %463 = call float @cosf(float noundef %462) #30
+  %464 = call float @sinf(float noundef %462) #30
   %465 = fmul float %.0168.i.i, %463
   %466 = fmul float %.0170.i.i, %464
   %467 = insertelement <2 x float> poison, float %466, i64 0
@@ -2168,7 +2168,7 @@ nsvg__pathQuadBezTo.exit.i:                       ; preds = %244, %237
   %531 = shl nsw i32 %spec.select.i.i.i, 1
   %532 = sext i32 %531 to i64
   %533 = shl nsw i64 %532, 2
-  %534 = call ptr @realloc(ptr noundef %530, i64 noundef %533) #33
+  %534 = call ptr @realloc(ptr noundef %530, i64 noundef %533) #32
   store ptr %534, ptr %78, align 8
   %.not17.i.i.i = icmp eq ptr %534, null
   br i1 %.not17.i.i.i, label %nsvg__moveTo.exit.i, label %._crit_edge18.i.i.i
@@ -2243,7 +2243,7 @@ nsvg__parsePath.exit:                             ; preds = %nsvg__pushAttr.exit
   br label %nsvg__popAttr.exit
 
 564:                                              ; preds = %34
-  %565 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(5) @.str.17) #32
+  %565 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(5) @.str.17) #31
   %566 = icmp eq i32 %565, 0
   br i1 %566, label %567, label %930
 
@@ -2295,7 +2295,7 @@ nsvg__pushAttr.exit67:                            ; preds = %567, %571
 
 590:                                              ; preds = %583
   %591 = load ptr, ptr %585, align 8
-  %592 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %591, ptr noundef nonnull dereferenceable(2) @.str.81) #32
+  %592 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %591, ptr noundef nonnull dereferenceable(2) @.str.81) #31
   %593 = icmp eq i32 %592, 0
   br i1 %593, label %594, label %nsvg__parseCoordinate.exit.i
 
@@ -2372,7 +2372,7 @@ nsvg__pushAttr.exit67:                            ; preds = %567, %571
 nsvg__parseCoordinate.exit.i:                     ; preds = %629, %624, %620, %617, %613, %609, %605, %601, %594, %590
   %.1181.i = phi float [ %.0180230.i, %590 ], [ %631, %629 ], [ %628, %624 ], [ %623, %620 ], [ %619, %617 ], [ %616, %613 ], [ %612, %609 ], [ %608, %605 ], [ %604, %601 ], [ %597, %594 ]
   %632 = load ptr, ptr %585, align 8
-  %633 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %632, ptr noundef nonnull dereferenceable(2) @.str.82) #32
+  %633 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %632, ptr noundef nonnull dereferenceable(2) @.str.82) #31
   %634 = icmp eq i32 %633, 0
   br i1 %634, label %635, label %nsvg__parseCoordinate.exit198.i
 
@@ -2449,7 +2449,7 @@ nsvg__parseCoordinate.exit.i:                     ; preds = %629, %624, %620, %6
 nsvg__parseCoordinate.exit198.i:                  ; preds = %670, %665, %661, %658, %654, %650, %646, %642, %635, %nsvg__parseCoordinate.exit.i
   %.1178.i = phi float [ %.0177231.i, %nsvg__parseCoordinate.exit.i ], [ %672, %670 ], [ %669, %665 ], [ %664, %661 ], [ %660, %658 ], [ %657, %654 ], [ %653, %650 ], [ %649, %646 ], [ %645, %642 ], [ %638, %635 ]
   %673 = load ptr, ptr %585, align 8
-  %674 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %673, ptr noundef nonnull dereferenceable(6) @.str.83) #32
+  %674 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %673, ptr noundef nonnull dereferenceable(6) @.str.83) #31
   %675 = icmp eq i32 %674, 0
   br i1 %675, label %676, label %nsvg__parseCoordinate.exit203.i
 
@@ -2525,7 +2525,7 @@ nsvg__parseCoordinate.exit198.i:                  ; preds = %670, %665, %661, %6
 nsvg__parseCoordinate.exit203.i:                  ; preds = %711, %706, %702, %699, %695, %691, %687, %683, %676, %nsvg__parseCoordinate.exit198.i
   %.1175.i = phi float [ %.0174232.i, %nsvg__parseCoordinate.exit198.i ], [ %713, %711 ], [ %710, %706 ], [ %705, %702 ], [ %701, %699 ], [ %698, %695 ], [ %694, %691 ], [ %690, %687 ], [ %686, %683 ], [ %679, %676 ]
   %714 = load ptr, ptr %585, align 8
-  %715 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %714, ptr noundef nonnull dereferenceable(7) @.str.84) #32
+  %715 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %714, ptr noundef nonnull dereferenceable(7) @.str.84) #31
   %716 = icmp eq i32 %715, 0
   br i1 %716, label %717, label %nsvg__parseCoordinate.exit208.i
 
@@ -2601,7 +2601,7 @@ nsvg__parseCoordinate.exit203.i:                  ; preds = %711, %706, %702, %6
 nsvg__parseCoordinate.exit208.i:                  ; preds = %752, %747, %743, %740, %736, %732, %728, %724, %717, %nsvg__parseCoordinate.exit203.i
   %.1172.i = phi float [ %.0171233.i, %nsvg__parseCoordinate.exit203.i ], [ %754, %752 ], [ %751, %747 ], [ %746, %743 ], [ %742, %740 ], [ %739, %736 ], [ %735, %732 ], [ %731, %728 ], [ %727, %724 ], [ %720, %717 ]
   %755 = load ptr, ptr %585, align 8
-  %756 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %755, ptr noundef nonnull dereferenceable(3) @.str.85) #32
+  %756 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %755, ptr noundef nonnull dereferenceable(3) @.str.85) #31
   %757 = icmp eq i32 %756, 0
   br i1 %757, label %758, label %797
 
@@ -2683,7 +2683,7 @@ nsvg__parseCoordinate.exit213.i:                  ; preds = %793, %788, %784, %7
 797:                                              ; preds = %nsvg__parseCoordinate.exit213.i, %nsvg__parseCoordinate.exit208.i
   %798 = phi ptr [ %.pre.i89, %nsvg__parseCoordinate.exit213.i ], [ %755, %nsvg__parseCoordinate.exit208.i ]
   %.1167.i = phi float [ %796, %nsvg__parseCoordinate.exit213.i ], [ %.0166234.i, %nsvg__parseCoordinate.exit208.i ]
-  %799 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %798, ptr noundef nonnull dereferenceable(3) @.str.86) #32
+  %799 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %798, ptr noundef nonnull dereferenceable(3) @.str.86) #31
   %800 = icmp eq i32 %799, 0
   br i1 %800, label %801, label %840
 
@@ -2833,7 +2833,7 @@ nsvg__parseCoordinate.exit218.i:                  ; preds = %836, %831, %827, %8
   %866 = shl nsw i32 %spec.select.i.i.i82, 1
   %867 = sext i32 %866 to i64
   %868 = shl nsw i64 %867, 2
-  %869 = tail call ptr @realloc(ptr noundef %865, i64 noundef %868) #33
+  %869 = tail call ptr @realloc(ptr noundef %865, i64 noundef %868) #32
   store ptr %869, ptr %864, align 8
   %.not17.i.i.i83 = icmp eq ptr %869, null
   br i1 %.not17.i.i.i83, label %nsvg__moveTo.exit.i86, label %._crit_edge18.i.i.i84
@@ -2892,7 +2892,7 @@ nsvg__moveTo.exit.i86:                            ; preds = %872, %862
   %895 = shl nsw i32 %spec.select.i.i221.i, 1
   %896 = sext i32 %895 to i64
   %897 = shl nsw i64 %896, 2
-  %898 = tail call ptr @realloc(ptr noundef %894, i64 noundef %897) #33
+  %898 = tail call ptr @realloc(ptr noundef %894, i64 noundef %897) #32
   store ptr %898, ptr %893, align 8
   %.not17.i.i222.i = icmp eq ptr %898, null
   br i1 %.not17.i.i222.i, label %nsvg__moveTo.exit228.i, label %._crit_edge18.i.i223.i
@@ -2959,7 +2959,7 @@ nsvg__parseRect.exit:                             ; preds = %._crit_edge.i74, %9
   br label %nsvg__popAttr.exit
 
 930:                                              ; preds = %564
-  %931 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(7) @.str.18) #32
+  %931 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(7) @.str.18) #31
   %932 = icmp eq i32 %931, 0
   br i1 %932, label %933, label %1128
 
@@ -3008,7 +3008,7 @@ nsvg__pushAttr.exit92:                            ; preds = %933, %937
 
 956:                                              ; preds = %949
   %957 = load ptr, ptr %951, align 8
-  %958 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %957, ptr noundef nonnull dereferenceable(3) @.str.29) #32
+  %958 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %957, ptr noundef nonnull dereferenceable(3) @.str.29) #31
   %959 = icmp eq i32 %958, 0
   br i1 %959, label %960, label %nsvg__parseCoordinate.exit.i110
 
@@ -3085,7 +3085,7 @@ nsvg__pushAttr.exit92:                            ; preds = %933, %937
 nsvg__parseCoordinate.exit.i110:                  ; preds = %995, %990, %986, %983, %979, %975, %971, %967, %960, %956
   %.187.i = phi float [ %.086107.i, %956 ], [ %997, %995 ], [ %994, %990 ], [ %989, %986 ], [ %985, %983 ], [ %982, %979 ], [ %978, %975 ], [ %974, %971 ], [ %970, %967 ], [ %963, %960 ]
   %998 = load ptr, ptr %951, align 8
-  %999 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %998, ptr noundef nonnull dereferenceable(3) @.str.30) #32
+  %999 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %998, ptr noundef nonnull dereferenceable(3) @.str.30) #31
   %1000 = icmp eq i32 %999, 0
   br i1 %1000, label %1001, label %nsvg__parseCoordinate.exit100.i
 
@@ -3162,7 +3162,7 @@ nsvg__parseCoordinate.exit.i110:                  ; preds = %995, %990, %986, %9
 nsvg__parseCoordinate.exit100.i:                  ; preds = %1036, %1031, %1027, %1024, %1020, %1016, %1012, %1008, %1001, %nsvg__parseCoordinate.exit.i110
   %.185.i = phi float [ %.084108.i, %nsvg__parseCoordinate.exit.i110 ], [ %1038, %1036 ], [ %1035, %1031 ], [ %1030, %1027 ], [ %1026, %1024 ], [ %1023, %1020 ], [ %1019, %1016 ], [ %1015, %1012 ], [ %1011, %1008 ], [ %1004, %1001 ]
   %1039 = load ptr, ptr %951, align 8
-  %1040 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1039, ptr noundef nonnull dereferenceable(2) @.str.31) #32
+  %1040 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1039, ptr noundef nonnull dereferenceable(2) @.str.31) #31
   %1041 = icmp eq i32 %1040, 0
   br i1 %1041, label %1042, label %1084
 
@@ -3283,7 +3283,7 @@ nsvg__parseCoordinate.exit105.i:                  ; preds = %1077, %1072, %1068,
   %1097 = shl nsw i32 %spec.select.i.i.i102, 1
   %1098 = sext i32 %1097 to i64
   %1099 = shl nsw i64 %1098, 2
-  %1100 = tail call ptr @realloc(ptr noundef %1096, i64 noundef %1099) #33
+  %1100 = tail call ptr @realloc(ptr noundef %1096, i64 noundef %1099) #32
   store ptr %1100, ptr %1095, align 8
   %.not17.i.i.i103 = icmp eq ptr %1100, null
   br i1 %.not17.i.i.i103, label %nsvg__moveTo.exit.i106, label %._crit_edge18.i.i.i104
@@ -3340,7 +3340,7 @@ nsvg__parseCircle.exit:                           ; preds = %nsvg__pushAttr.exit
   br label %nsvg__popAttr.exit
 
 1128:                                             ; preds = %930
-  %1129 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(8) @.str.19) #32
+  %1129 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(8) @.str.19) #31
   %1130 = icmp eq i32 %1129, 0
   br i1 %1130, label %1131, label %1368
 
@@ -3390,7 +3390,7 @@ nsvg__pushAttr.exit117:                           ; preds = %1131, %1135
 
 1154:                                             ; preds = %1147
   %1155 = load ptr, ptr %1149, align 8
-  %1156 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1155, ptr noundef nonnull dereferenceable(3) @.str.29) #32
+  %1156 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1155, ptr noundef nonnull dereferenceable(3) @.str.29) #31
   %1157 = icmp eq i32 %1156, 0
   br i1 %1157, label %1158, label %nsvg__parseCoordinate.exit.i136
 
@@ -3467,7 +3467,7 @@ nsvg__pushAttr.exit117:                           ; preds = %1131, %1135
 nsvg__parseCoordinate.exit.i136:                  ; preds = %1193, %1188, %1184, %1181, %1177, %1173, %1169, %1165, %1158, %1154
   %.198.i = phi float [ %.097123.i, %1154 ], [ %1195, %1193 ], [ %1192, %1188 ], [ %1187, %1184 ], [ %1183, %1181 ], [ %1180, %1177 ], [ %1176, %1173 ], [ %1172, %1169 ], [ %1168, %1165 ], [ %1161, %1158 ]
   %1196 = load ptr, ptr %1149, align 8
-  %1197 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1196, ptr noundef nonnull dereferenceable(3) @.str.30) #32
+  %1197 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1196, ptr noundef nonnull dereferenceable(3) @.str.30) #31
   %1198 = icmp eq i32 %1197, 0
   br i1 %1198, label %1199, label %nsvg__parseCoordinate.exit111.i
 
@@ -3544,7 +3544,7 @@ nsvg__parseCoordinate.exit.i136:                  ; preds = %1193, %1188, %1184,
 nsvg__parseCoordinate.exit111.i:                  ; preds = %1234, %1229, %1225, %1222, %1218, %1214, %1210, %1206, %1199, %nsvg__parseCoordinate.exit.i136
   %.195.i = phi float [ %.094124.i, %nsvg__parseCoordinate.exit.i136 ], [ %1236, %1234 ], [ %1233, %1229 ], [ %1228, %1225 ], [ %1224, %1222 ], [ %1221, %1218 ], [ %1217, %1214 ], [ %1213, %1210 ], [ %1209, %1206 ], [ %1202, %1199 ]
   %1237 = load ptr, ptr %1149, align 8
-  %1238 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1237, ptr noundef nonnull dereferenceable(3) @.str.85) #32
+  %1238 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1237, ptr noundef nonnull dereferenceable(3) @.str.85) #31
   %1239 = icmp eq i32 %1238, 0
   br i1 %1239, label %1240, label %1279
 
@@ -3626,7 +3626,7 @@ nsvg__parseCoordinate.exit116.i:                  ; preds = %1275, %1270, %1266,
 1279:                                             ; preds = %nsvg__parseCoordinate.exit116.i, %nsvg__parseCoordinate.exit111.i
   %1280 = phi ptr [ %.pre.i137, %nsvg__parseCoordinate.exit116.i ], [ %1237, %nsvg__parseCoordinate.exit111.i ]
   %.193.i = phi float [ %1278, %nsvg__parseCoordinate.exit116.i ], [ %.092125.i, %nsvg__parseCoordinate.exit111.i ]
-  %1281 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1280, ptr noundef nonnull dereferenceable(3) @.str.86) #32
+  %1281 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1280, ptr noundef nonnull dereferenceable(3) @.str.86) #31
   %1282 = icmp eq i32 %1281, 0
   br i1 %1282, label %1283, label %1322
 
@@ -3745,7 +3745,7 @@ nsvg__parseCoordinate.exit121.i:                  ; preds = %1318, %1313, %1309,
   %1336 = shl nsw i32 %spec.select.i.i.i128, 1
   %1337 = sext i32 %1336 to i64
   %1338 = shl nsw i64 %1337, 2
-  %1339 = tail call ptr @realloc(ptr noundef %1335, i64 noundef %1338) #33
+  %1339 = tail call ptr @realloc(ptr noundef %1335, i64 noundef %1338) #32
   store ptr %1339, ptr %1334, align 8
   %.not17.i.i.i129 = icmp eq ptr %1339, null
   br i1 %.not17.i.i.i129, label %nsvg__moveTo.exit.i132, label %._crit_edge18.i.i.i130
@@ -3803,7 +3803,7 @@ nsvg__parseEllipse.exit:                          ; preds = %nsvg__pushAttr.exit
   br label %nsvg__popAttr.exit
 
 1368:                                             ; preds = %1128
-  %1369 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(5) @.str.20) #32
+  %1369 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(5) @.str.20) #31
   %1370 = icmp eq i32 %1369, 0
   br i1 %1370, label %1371, label %1385
 
@@ -3835,7 +3835,7 @@ nsvg__pushAttr.exit143:                           ; preds = %1371, %1375
   br label %nsvg__popAttr.exit
 
 1385:                                             ; preds = %1368
-  %1386 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(9) @.str.21) #32
+  %1386 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(9) @.str.21) #31
   %1387 = icmp eq i32 %1386, 0
   br i1 %1387, label %1388, label %1402
 
@@ -3867,7 +3867,7 @@ nsvg__pushAttr.exit145:                           ; preds = %1388, %1392
   br label %nsvg__popAttr.exit
 
 1402:                                             ; preds = %1385
-  %1403 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(8) @.str.22) #32
+  %1403 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(8) @.str.22) #31
   %1404 = icmp eq i32 %1403, 0
   br i1 %1404, label %1405, label %1419
 
@@ -3899,7 +3899,7 @@ nsvg__pushAttr.exit147:                           ; preds = %1405, %1409
   br label %nsvg__popAttr.exit
 
 1419:                                             ; preds = %1402
-  %1420 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(15) @.str.12) #32
+  %1420 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(15) @.str.12) #31
   %1421 = icmp eq i32 %1420, 0
   br i1 %1421, label %1422, label %1423
 
@@ -3908,7 +3908,7 @@ nsvg__pushAttr.exit147:                           ; preds = %1405, %1409
   br label %nsvg__popAttr.exit
 
 1423:                                             ; preds = %1419
-  %1424 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(15) @.str.13) #32
+  %1424 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(15) @.str.13) #31
   %1425 = icmp eq i32 %1424, 0
   br i1 %1425, label %1426, label %1427
 
@@ -3917,7 +3917,7 @@ nsvg__pushAttr.exit147:                           ; preds = %1405, %1409
   br label %nsvg__popAttr.exit
 
 1427:                                             ; preds = %1423
-  %1428 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(5) @.str.14) #32
+  %1428 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(5) @.str.14) #31
   %1429 = icmp eq i32 %1428, 0
   br i1 %1429, label %1430, label %1431
 
@@ -3926,7 +3926,7 @@ nsvg__pushAttr.exit147:                           ; preds = %1405, %1409
   br label %nsvg__popAttr.exit
 
 1431:                                             ; preds = %1427
-  %1432 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(5) @.str.23) #32
+  %1432 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(5) @.str.23) #31
   %1433 = icmp eq i32 %1432, 0
   br i1 %1433, label %1434, label %1435
 
@@ -3935,7 +3935,7 @@ nsvg__pushAttr.exit147:                           ; preds = %1405, %1409
   br label %nsvg__popAttr.exit
 
 1435:                                             ; preds = %1431
-  %1436 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(4) @.str.24) #32
+  %1436 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(4) @.str.24) #31
   %1437 = icmp eq i32 %1436, 0
   br i1 %1437, label %1438, label %nsvg__popAttr.exit
 
@@ -3949,7 +3949,7 @@ nsvg__popAttr.exit:                               ; preds = %1417, %nsvg__pushAt
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @nsvg__endElement(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) #1 {
-  %3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(2) @.str.15) #32
+  %3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(2) @.str.15) #31
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %5, label %11
 
@@ -3965,7 +3965,7 @@ define internal void @nsvg__endElement(ptr nocapture noundef %0, ptr nocapture n
   br label %nsvg__popAttr.exit
 
 11:                                               ; preds = %2
-  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(5) @.str.16) #32
+  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(5) @.str.16) #31
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %14, label %16
 
@@ -3975,7 +3975,7 @@ define internal void @nsvg__endElement(ptr nocapture noundef %0, ptr nocapture n
   br label %nsvg__popAttr.exit
 
 16:                                               ; preds = %11
-  %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(5) @.str.23) #32
+  %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(5) @.str.23) #31
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %19, label %nsvg__popAttr.exit
 
@@ -4004,7 +4004,7 @@ define dso_local ptr @nsvgParseFromFile(ptr nocapture noundef readonly %0, ptr n
   %7 = tail call i64 @ftell(ptr noundef nonnull %4)
   %8 = tail call i32 @fseek(ptr noundef nonnull %4, i64 noundef 0, i32 noundef 0)
   %9 = add i64 %7, 1
-  %10 = tail call noalias ptr @malloc(i64 noundef %9) #34
+  %10 = tail call noalias ptr @malloc(i64 noundef %9) #33
   %11 = icmp eq ptr %10, null
   br i1 %11, label %.thread38, label %13
 
@@ -4022,12 +4022,12 @@ define dso_local ptr @nsvgParseFromFile(ptr nocapture noundef readonly %0, ptr n
   store i8 0, ptr %16, align 1
   %17 = tail call i32 @fclose(ptr noundef nonnull %4)
   %18 = tail call ptr @nsvgParse(ptr noundef nonnull %10, ptr noundef %1, float noundef %2)
-  tail call void @free(ptr noundef nonnull %10) #31
+  tail call void @free(ptr noundef nonnull %10) #30
   br label %.thread35
 
 19:                                               ; preds = %13
   %20 = tail call i32 @fclose(ptr noundef nonnull %4)
-  tail call void @free(ptr noundef nonnull %10) #31
+  tail call void @free(ptr noundef nonnull %10) #30
   br label %.thread35
 
 .thread35:                                        ; preds = %3, %.thread38, %19, %15
@@ -4085,11 +4085,11 @@ define dso_local void @nsvgDelete(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not7.i, label %14, label %13
 
 13:                                               ; preds = %.lr.ph.i
-  tail call void @free(ptr noundef nonnull %12) #31
+  tail call void @free(ptr noundef nonnull %12) #30
   br label %14
 
 14:                                               ; preds = %13, %.lr.ph.i
-  tail call void @free(ptr noundef nonnull %.09.i) #31
+  tail call void @free(ptr noundef nonnull %.09.i) #30
   %.not.i = icmp eq ptr %11, null
   br i1 %.not.i, label %nsvg__deletePaths.exit, label %.lr.ph.i, !llvm.loop !20
 
@@ -4103,7 +4103,7 @@ nsvg__deletePaths.exit:                           ; preds = %14, %.lr.ph
 18:                                               ; preds = %nsvg__deletePaths.exit
   %19 = getelementptr inbounds i8, ptr %.014, i64 72
   %20 = load ptr, ptr %19, align 8
-  tail call void @free(ptr noundef %20) #31
+  tail call void @free(ptr noundef %20) #30
   br label %nsvg__deletePaint.exit
 
 nsvg__deletePaint.exit:                           ; preds = %nsvg__deletePaths.exit, %18
@@ -4116,16 +4116,16 @@ nsvg__deletePaint.exit:                           ; preds = %nsvg__deletePaths.e
 24:                                               ; preds = %nsvg__deletePaint.exit
   %25 = getelementptr inbounds i8, ptr %.014, i64 88
   %26 = load ptr, ptr %25, align 8
-  tail call void @free(ptr noundef %26) #31
+  tail call void @free(ptr noundef %26) #30
   br label %nsvg__deletePaint.exit12
 
 nsvg__deletePaint.exit12:                         ; preds = %nsvg__deletePaint.exit, %24
-  tail call void @free(ptr noundef nonnull %.014) #31
+  tail call void @free(ptr noundef nonnull %.014) #30
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %nsvg__deletePaint.exit12, %3
-  tail call void @free(ptr noundef %0) #31
+  tail call void @free(ptr noundef %0) #30
   br label %27
 
 27:                                               ; preds = %1, %._crit_edge
@@ -4148,7 +4148,7 @@ define dso_local noalias noundef ptr @nsvgDuplicatePath(ptr noundef readonly %0)
   %7 = shl nsw i32 %6, 1
   %8 = sext i32 %7 to i64
   %9 = shl nsw i64 %8, 2
-  %10 = tail call noalias ptr @malloc(i64 noundef %9) #34
+  %10 = tail call noalias ptr @malloc(i64 noundef %9) #33
   store ptr %10, ptr %calloc, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %22, label %12
@@ -4170,7 +4170,7 @@ define dso_local noalias noundef ptr @nsvgDuplicatePath(ptr noundef readonly %0)
   br label %23
 
 22:                                               ; preds = %4
-  tail call void @free(ptr noundef nonnull %calloc) #31
+  tail call void @free(ptr noundef nonnull %calloc) #30
   br label %23
 
 23:                                               ; preds = %3, %22, %1, %12
@@ -4214,7 +4214,7 @@ define dso_local void @nsvgDeleteRasterizer(ptr noundef %0) local_unnamed_addr #
   %.025 = phi ptr [ %7, %.lr.ph ], [ %5, %3 ]
   %6 = getelementptr inbounds i8, ptr %.025, i64 1032
   %7 = load ptr, ptr %6, align 8
-  tail call void @free(ptr noundef nonnull %.025) #31
+  tail call void @free(ptr noundef nonnull %.025) #30
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !34
 
@@ -4225,7 +4225,7 @@ define dso_local void @nsvgDeleteRasterizer(ptr noundef %0) local_unnamed_addr #
   br i1 %.not20, label %11, label %10
 
 10:                                               ; preds = %._crit_edge
-  tail call void @free(ptr noundef nonnull %9) #31
+  tail call void @free(ptr noundef nonnull %9) #30
   br label %11
 
 11:                                               ; preds = %10, %._crit_edge
@@ -4235,7 +4235,7 @@ define dso_local void @nsvgDeleteRasterizer(ptr noundef %0) local_unnamed_addr #
   br i1 %.not21, label %15, label %14
 
 14:                                               ; preds = %11
-  tail call void @free(ptr noundef nonnull %13) #31
+  tail call void @free(ptr noundef nonnull %13) #30
   br label %15
 
 15:                                               ; preds = %14, %11
@@ -4245,7 +4245,7 @@ define dso_local void @nsvgDeleteRasterizer(ptr noundef %0) local_unnamed_addr #
   br i1 %.not22, label %19, label %18
 
 18:                                               ; preds = %15
-  tail call void @free(ptr noundef nonnull %17) #31
+  tail call void @free(ptr noundef nonnull %17) #30
   br label %19
 
 19:                                               ; preds = %18, %15
@@ -4255,11 +4255,11 @@ define dso_local void @nsvgDeleteRasterizer(ptr noundef %0) local_unnamed_addr #
   br i1 %.not23, label %23, label %22
 
 22:                                               ; preds = %19
-  tail call void @free(ptr noundef nonnull %21) #31
+  tail call void @free(ptr noundef nonnull %21) #30
   br label %23
 
 23:                                               ; preds = %22, %19
-  tail call void @free(ptr noundef nonnull %0) #31
+  tail call void @free(ptr noundef nonnull %0) #30
   br label %24
 
 24:                                               ; preds = %1, %23
@@ -4294,7 +4294,7 @@ define dso_local void @nsvgRasterize(ptr noundef %0, ptr nocapture noundef reado
   %20 = getelementptr inbounds i8, ptr %0, i64 88
   %21 = load ptr, ptr %20, align 8
   %22 = sext i32 %6 to i64
-  %23 = tail call ptr @realloc(ptr noundef %21, i64 noundef %22) #33
+  %23 = tail call ptr @realloc(ptr noundef %21, i64 noundef %22) #32
   store ptr %23, ptr %20, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %834, label %25
@@ -4404,7 +4404,7 @@ nsvg__resetPool.exit:                             ; preds = %57, %._crit_edge.lo
 66:                                               ; preds = %.lr.ph71.i
   store i32 64, ptr %39, align 4
   %67 = load ptr, ptr %40, align 8
-  %68 = tail call dereferenceable_or_null(2048) ptr @realloc(ptr noundef %67, i64 noundef 2048) #33
+  %68 = tail call dereferenceable_or_null(2048) ptr @realloc(ptr noundef %67, i64 noundef 2048) #32
   store ptr %68, ptr %40, align 8
   %69 = icmp eq ptr %68, null
   br i1 %69, label %nsvg__addPathPoint.exit.i, label %._crit_edge30.i.i
@@ -4512,7 +4512,7 @@ nsvg__addPathPoint.exit.i:                        ; preds = %70, %66
   %138 = load ptr, ptr %40, align 8
   %139 = zext nneg i32 %spec.select.i51.i to i64
   %140 = shl nuw nsw i64 %139, 5
-  %141 = tail call ptr @realloc(ptr noundef %138, i64 noundef %140) #33
+  %141 = tail call ptr @realloc(ptr noundef %138, i64 noundef %140) #32
   store ptr %141, ptr %40, align 8
   %142 = icmp eq ptr %141, null
   %.pre.i113 = load i32, ptr %38, align 8
@@ -4573,7 +4573,7 @@ nsvg__addPathPoint.exit57.i:                      ; preds = %._crit_edge30.i52.i
   %169 = load ptr, ptr %43, align 8
   %170 = zext nneg i32 %spec.select.i58.i to i64
   %171 = shl nuw nsw i64 %170, 5
-  %172 = tail call ptr @realloc(ptr noundef %169, i64 noundef %171) #33
+  %172 = tail call ptr @realloc(ptr noundef %169, i64 noundef %171) #32
   store ptr %172, ptr %43, align 8
   %173 = icmp eq ptr %172, null
   br i1 %173, label %nsvg__addEdge.exit.i, label %._crit_edge36.i.i
@@ -4655,7 +4655,7 @@ nsvg__flattenShape.exit:                          ; preds = %._crit_edge66.i
 210:                                              ; preds = %._crit_edge158
   %211 = load ptr, ptr %43, align 8
   %212 = sext i32 %.lcssa to i64
-  tail call void @qsort(ptr noundef %211, i64 noundef %212, i64 noundef 32, ptr noundef nonnull @nsvg__cmpEdge) #31
+  tail call void @qsort(ptr noundef %211, i64 noundef %212, i64 noundef 32, ptr noundef nonnull @nsvg__cmpEdge) #30
   br label %._crit_edge158.thread
 
 ._crit_edge158.thread:                            ; preds = %nsvg__resetPool.exit, %210, %._crit_edge158
@@ -4750,7 +4750,7 @@ nsvg__resetPool.exit125:                          ; preds = %225, %._crit_edge.l
 250:                                              ; preds = %245
   store i32 64, ptr %39, align 4
   %251 = load ptr, ptr %40, align 8
-  %252 = tail call dereferenceable_or_null(2048) ptr @realloc(ptr noundef %251, i64 noundef 2048) #33
+  %252 = tail call dereferenceable_or_null(2048) ptr @realloc(ptr noundef %251, i64 noundef 2048) #32
   store ptr %252, ptr %40, align 8
   %253 = icmp eq ptr %252, null
   br i1 %253, label %nsvg__addPathPoint.exit.i129, label %._crit_edge30.i.i127
@@ -4877,7 +4877,7 @@ nsvg__addPathPoint.exit.i129:                     ; preds = %254, %250
   store i32 %spec.select.i179.i, ptr %39, align 4
   %330 = zext nneg i32 %spec.select.i179.i to i64
   %331 = shl nuw nsw i64 %330, 5
-  %332 = tail call ptr @realloc(ptr noundef nonnull %300, i64 noundef %331) #33
+  %332 = tail call ptr @realloc(ptr noundef nonnull %300, i64 noundef %331) #32
   store ptr %332, ptr %40, align 8
   %333 = icmp eq ptr %332, null
   %.pre340.pre.i = load i32, ptr %38, align 8
@@ -4914,7 +4914,7 @@ nsvg__appendPathPoint.exit.i:                     ; preds = %._crit_edge.i180.i,
   %344 = load ptr, ptr %.phi.trans.insert.i184.i, align 8
   %345 = sext i32 %341 to i64
   %346 = shl nsw i64 %345, 5
-  %347 = tail call ptr @realloc(ptr noundef %344, i64 noundef %346) #33
+  %347 = tail call ptr @realloc(ptr noundef %344, i64 noundef %346) #32
   store ptr %347, ptr %.phi.trans.insert.i184.i, align 8
   %348 = icmp ne ptr %347, null
   tail call void @llvm.assume(i1 %348)
@@ -4954,7 +4954,7 @@ nsvg__duplicatePoints.exit.i:                     ; preds = %._crit_edge13.i.i, 
 357:                                              ; preds = %nsvg__duplicatePoints.exit.i
   store i32 64, ptr %39, align 4
   %358 = load ptr, ptr %40, align 8
-  %359 = tail call dereferenceable_or_null(2048) ptr @realloc(ptr noundef %358, i64 noundef 2048) #33
+  %359 = tail call dereferenceable_or_null(2048) ptr @realloc(ptr noundef %358, i64 noundef 2048) #32
   store ptr %359, ptr %40, align 8
   %360 = icmp eq ptr %359, null
   br i1 %360, label %nsvg__appendPathPoint.exit193.i, label %._crit_edge12.i188.i
@@ -5009,7 +5009,7 @@ nsvg__appendPathPoint.exit193.i:                  ; preds = %361, %357
   %375 = fmul float %.0160.lcssa.i, 2.000000e+00
   %.1161.i = select i1 %.not178.i, float %.0160.lcssa.i, float %375
   %376 = load float, ptr %244, align 8
-  %377 = tail call float @fmodf(float noundef %376, float noundef %.1161.i) #31
+  %377 = tail call float @fmodf(float noundef %376, float noundef %.1161.i) #30
   %378 = fcmp olt float %377, 0.000000e+00
   %379 = fadd float %.1161.i, %377
   %.0158.i = select i1 %378, float %379, float %377
@@ -5123,7 +5123,7 @@ nsvg__appendPathPoint.exit193.i:                  ; preds = %361, %357
   %443 = load ptr, ptr %40, align 8
   %444 = zext nneg i32 %spec.select.i195.i to i64
   %445 = shl nuw nsw i64 %444, 5
-  %446 = tail call ptr @realloc(ptr noundef %443, i64 noundef %445) #33
+  %446 = tail call ptr @realloc(ptr noundef %443, i64 noundef %445) #32
   store ptr %446, ptr %40, align 8
   %447 = icmp eq ptr %446, null
   %.pre343.i = load i32, ptr %38, align 8
@@ -5319,7 +5319,7 @@ nsvg__prepareStroke.exit.i:                       ; preds = %536, %._crit_edge.i
 555:                                              ; preds = %543
   store i32 64, ptr %39, align 4
   %556 = load ptr, ptr %40, align 8
-  %557 = tail call dereferenceable_or_null(2048) ptr @realloc(ptr noundef %556, i64 noundef 2048) #33
+  %557 = tail call dereferenceable_or_null(2048) ptr @realloc(ptr noundef %556, i64 noundef 2048) #32
   store ptr %557, ptr %40, align 8
   %558 = icmp eq ptr %557, null
   br i1 %558, label %nsvg__appendPathPoint.exit213.i, label %._crit_edge12.i208.i
@@ -5373,7 +5373,7 @@ nsvg__prepareStroke.exit.i:                       ; preds = %536, %._crit_edge.i
   %572 = load ptr, ptr %40, align 8
   %573 = zext nneg i32 %spec.select.i215.i to i64
   %574 = shl nuw nsw i64 %573, 5
-  %575 = tail call ptr @realloc(ptr noundef %572, i64 noundef %574) #33
+  %575 = tail call ptr @realloc(ptr noundef %572, i64 noundef %574) #32
   store ptr %575, ptr %40, align 8
   %576 = icmp eq ptr %575, null
   br i1 %576, label %nsvg__appendPathPoint.exit221.i, label %._crit_edge12.i216.i
@@ -5628,7 +5628,7 @@ nsvg__flattenShapeStroke.exit:                    ; preds = %675
 696:                                              ; preds = %._crit_edge161
   %697 = load ptr, ptr %43, align 8
   %698 = sext i32 %.lcssa154 to i64
-  tail call void @qsort(ptr noundef %697, i64 noundef %698, i64 noundef 32, ptr noundef nonnull @nsvg__cmpEdge) #31
+  tail call void @qsort(ptr noundef %697, i64 noundef %698, i64 noundef 32, ptr noundef nonnull @nsvg__cmpEdge) #30
   br label %699
 
 699:                                              ; preds = %._crit_edge161.thread, %696, %._crit_edge161
@@ -7078,8 +7078,8 @@ nsvg__scanlineSolid.exit:                         ; preds = %454, %371, %312, %4
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #15
 
-; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @nsvg__parseGradient(ptr noundef %0, ptr nocapture noundef readonly %1, i8 noundef signext %2) unnamed_addr #14 {
+; Function Attrs: nounwind uwtable
+define internal fastcc void @nsvg__parseGradient(ptr noundef %0, ptr nocapture noundef readonly %1, i8 noundef signext %2) unnamed_addr #0 {
   %calloc = tail call dereferenceable_or_null(224) ptr @calloc(i64 1, i64 224)
   %4 = icmp eq ptr %calloc, null
   br i1 %4, label %134, label %5
@@ -7127,7 +7127,7 @@ define internal fastcc void @nsvg__parseGradient(ptr noundef %0, ptr nocapture n
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %128 ]
   %25 = phi ptr [ %17, %.lr.ph ], [ %130, %128 ]
   %26 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
-  %27 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(3) @.str.25) #32
+  %27 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(3) @.str.25) #31
   %28 = icmp eq i32 %27, 0
   %29 = or disjoint i64 %indvars.iv, 1
   %30 = getelementptr inbounds ptr, ptr %1, i64 %29
@@ -7135,7 +7135,7 @@ define internal fastcc void @nsvg__parseGradient(ptr noundef %0, ptr nocapture n
   br i1 %28, label %32, label %34
 
 32:                                               ; preds = %24
-  %33 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %calloc, ptr noundef nonnull dereferenceable(1) %31, i64 noundef 63) #31
+  %33 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %calloc, ptr noundef nonnull dereferenceable(1) %31, i64 noundef 63) #30
   store i8 0, ptr %23, align 1
   br label %128
 
@@ -7146,13 +7146,13 @@ define internal fastcc void @nsvg__parseGradient(ptr noundef %0, ptr nocapture n
 
 36:                                               ; preds = %34
   %37 = load ptr, ptr %26, align 8
-  %38 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(14) @.str.26) #32
+  %38 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(14) @.str.26) #31
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %40, label %46
 
 40:                                               ; preds = %36
   %41 = load ptr, ptr %30, align 8
-  %42 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %41, ptr noundef nonnull dereferenceable(18) @.str.27) #32
+  %42 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %41, ptr noundef nonnull dereferenceable(18) @.str.27) #31
   %43 = icmp eq i32 %42, 0
   br i1 %43, label %44, label %45
 
@@ -7165,7 +7165,7 @@ define internal fastcc void @nsvg__parseGradient(ptr noundef %0, ptr nocapture n
   br label %128
 
 46:                                               ; preds = %36
-  %47 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(18) @.str.28) #32
+  %47 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(18) @.str.28) #31
   %48 = icmp eq i32 %47, 0
   br i1 %48, label %49, label %51
 
@@ -7175,7 +7175,7 @@ define internal fastcc void @nsvg__parseGradient(ptr noundef %0, ptr nocapture n
   br label %128
 
 51:                                               ; preds = %46
-  %52 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(3) @.str.29) #32
+  %52 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(3) @.str.29) #31
   %53 = icmp eq i32 %52, 0
   br i1 %53, label %54, label %57
 
@@ -7186,7 +7186,7 @@ define internal fastcc void @nsvg__parseGradient(ptr noundef %0, ptr nocapture n
   br label %128
 
 57:                                               ; preds = %51
-  %58 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(3) @.str.30) #32
+  %58 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(3) @.str.30) #31
   %59 = icmp eq i32 %58, 0
   br i1 %59, label %60, label %63
 
@@ -7197,7 +7197,7 @@ define internal fastcc void @nsvg__parseGradient(ptr noundef %0, ptr nocapture n
   br label %128
 
 63:                                               ; preds = %57
-  %64 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(2) @.str.31) #32
+  %64 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(2) @.str.31) #31
   %65 = icmp eq i32 %64, 0
   br i1 %65, label %66, label %69
 
@@ -7208,7 +7208,7 @@ define internal fastcc void @nsvg__parseGradient(ptr noundef %0, ptr nocapture n
   br label %128
 
 69:                                               ; preds = %63
-  %70 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(3) @.str.32) #32
+  %70 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(3) @.str.32) #31
   %71 = icmp eq i32 %70, 0
   br i1 %71, label %72, label %75
 
@@ -7219,7 +7219,7 @@ define internal fastcc void @nsvg__parseGradient(ptr noundef %0, ptr nocapture n
   br label %128
 
 75:                                               ; preds = %69
-  %76 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(3) @.str.33) #32
+  %76 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(3) @.str.33) #31
   %77 = icmp eq i32 %76, 0
   br i1 %77, label %78, label %81
 
@@ -7230,7 +7230,7 @@ define internal fastcc void @nsvg__parseGradient(ptr noundef %0, ptr nocapture n
   br label %128
 
 81:                                               ; preds = %75
-  %82 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(3) @.str.34) #32
+  %82 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(3) @.str.34) #31
   %83 = icmp eq i32 %82, 0
   br i1 %83, label %84, label %87
 
@@ -7241,7 +7241,7 @@ define internal fastcc void @nsvg__parseGradient(ptr noundef %0, ptr nocapture n
   br label %128
 
 87:                                               ; preds = %81
-  %88 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(3) @.str.35) #32
+  %88 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(3) @.str.35) #31
   %89 = icmp eq i32 %88, 0
   br i1 %89, label %90, label %93
 
@@ -7252,7 +7252,7 @@ define internal fastcc void @nsvg__parseGradient(ptr noundef %0, ptr nocapture n
   br label %128
 
 93:                                               ; preds = %87
-  %94 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(3) @.str.36) #32
+  %94 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(3) @.str.36) #31
   %95 = icmp eq i32 %94, 0
   br i1 %95, label %96, label %99
 
@@ -7263,7 +7263,7 @@ define internal fastcc void @nsvg__parseGradient(ptr noundef %0, ptr nocapture n
   br label %128
 
 99:                                               ; preds = %93
-  %100 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(3) @.str.37) #32
+  %100 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(3) @.str.37) #31
   %101 = icmp eq i32 %100, 0
   br i1 %101, label %102, label %105
 
@@ -7274,13 +7274,13 @@ define internal fastcc void @nsvg__parseGradient(ptr noundef %0, ptr nocapture n
   br label %128
 
 105:                                              ; preds = %99
-  %106 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(13) @.str.38) #32
+  %106 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(13) @.str.38) #31
   %107 = icmp eq i32 %106, 0
   br i1 %107, label %108, label %121
 
 108:                                              ; preds = %105
   %109 = load ptr, ptr %30, align 8
-  %110 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %109, ptr noundef nonnull dereferenceable(4) @.str.39) #32
+  %110 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %109, ptr noundef nonnull dereferenceable(4) @.str.39) #31
   %111 = icmp eq i32 %110, 0
   br i1 %111, label %112, label %113
 
@@ -7289,7 +7289,7 @@ define internal fastcc void @nsvg__parseGradient(ptr noundef %0, ptr nocapture n
   br label %128
 
 113:                                              ; preds = %108
-  %114 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %109, ptr noundef nonnull dereferenceable(8) @.str.40) #32
+  %114 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %109, ptr noundef nonnull dereferenceable(8) @.str.40) #31
   %115 = icmp eq i32 %114, 0
   br i1 %115, label %116, label %117
 
@@ -7298,7 +7298,7 @@ define internal fastcc void @nsvg__parseGradient(ptr noundef %0, ptr nocapture n
   br label %128
 
 117:                                              ; preds = %113
-  %118 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %109, ptr noundef nonnull dereferenceable(7) @.str.41) #32
+  %118 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %109, ptr noundef nonnull dereferenceable(7) @.str.41) #31
   %119 = icmp eq i32 %118, 0
   br i1 %119, label %120, label %128
 
@@ -7307,14 +7307,14 @@ define internal fastcc void @nsvg__parseGradient(ptr noundef %0, ptr nocapture n
   br label %128
 
 121:                                              ; preds = %105
-  %122 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(11) @.str.42) #32
+  %122 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(11) @.str.42) #31
   %123 = icmp eq i32 %122, 0
   br i1 %123, label %124, label %128
 
 124:                                              ; preds = %121
   %125 = load ptr, ptr %30, align 8
   %126 = getelementptr inbounds i8, ptr %125, i64 1
-  %127 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(1) %126, i64 noundef 62) #31
+  %127 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(1) %126, i64 noundef 62) #30
   store i8 0, ptr %19, align 2
   br label %128
 
@@ -7380,7 +7380,7 @@ define internal fastcc void @nsvg__parseGradientStop(ptr noundef %0, ptr nocaptu
   %26 = load ptr, ptr %25, align 8
   %27 = sext i32 %24 to i64
   %28 = shl nsw i64 %27, 3
-  %29 = tail call ptr @realloc(ptr noundef %26, i64 noundef %28) #33
+  %29 = tail call ptr @realloc(ptr noundef %26, i64 noundef %28) #32
   store ptr %29, ptr %25, align 8
   %30 = icmp eq ptr %29, null
   br i1 %30, label %63, label %31
@@ -7457,8 +7457,8 @@ define internal fastcc void @nsvg__parseGradientStop(ptr noundef %0, ptr nocaptu
   ret void
 }
 
-; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @nsvg__parseAttribs(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #14 {
+; Function Attrs: nounwind uwtable
+define internal fastcc void @nsvg__parseAttribs(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = alloca [512 x i8], align 16
   %4 = alloca [512 x i8], align 16
   %5 = load ptr, ptr %1, align 8
@@ -7468,7 +7468,7 @@ define internal fastcc void @nsvg__parseAttribs(ptr noundef %0, ptr nocapture no
 .lr.ph:                                           ; preds = %2, %nsvg__parseStyle.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %nsvg__parseStyle.exit ], [ 0, %2 ]
   %6 = phi ptr [ %80, %nsvg__parseStyle.exit ], [ %5, %2 ]
-  %7 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(6) @.str.43) #32
+  %7 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(6) @.str.43) #31
   %8 = icmp eq i32 %7, 0
   %9 = or disjoint i64 %indvars.iv, 1
   %10 = getelementptr inbounds ptr, ptr %1, i64 %9
@@ -7739,7 +7739,7 @@ define internal fastcc void @nsvg__parseLine(ptr noundef %0, ptr nocapture nound
 
 17:                                               ; preds = %10
   %18 = load ptr, ptr %12, align 8
-  %19 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(3) @.str.34) #32
+  %19 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(3) @.str.34) #31
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %21, label %nsvg__parseCoordinate.exit
 
@@ -7816,7 +7816,7 @@ define internal fastcc void @nsvg__parseLine(ptr noundef %0, ptr nocapture nound
 nsvg__parseCoordinate.exit:                       ; preds = %56, %51, %47, %44, %40, %36, %32, %28, %21, %17
   %.151 = phi float [ %.05078, %17 ], [ %58, %56 ], [ %55, %51 ], [ %50, %47 ], [ %46, %44 ], [ %43, %40 ], [ %39, %36 ], [ %35, %32 ], [ %31, %28 ], [ %24, %21 ]
   %59 = load ptr, ptr %12, align 8
-  %60 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %59, ptr noundef nonnull dereferenceable(3) @.str.35) #32
+  %60 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %59, ptr noundef nonnull dereferenceable(3) @.str.35) #31
   %61 = icmp eq i32 %60, 0
   br i1 %61, label %62, label %nsvg__parseCoordinate.exit66
 
@@ -7893,7 +7893,7 @@ nsvg__parseCoordinate.exit:                       ; preds = %56, %51, %47, %44, 
 nsvg__parseCoordinate.exit66:                     ; preds = %97, %92, %88, %85, %81, %77, %73, %69, %62, %nsvg__parseCoordinate.exit
   %.148 = phi float [ %.04779, %nsvg__parseCoordinate.exit ], [ %99, %97 ], [ %96, %92 ], [ %91, %88 ], [ %87, %85 ], [ %84, %81 ], [ %80, %77 ], [ %76, %73 ], [ %72, %69 ], [ %65, %62 ]
   %100 = load ptr, ptr %12, align 8
-  %101 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %100, ptr noundef nonnull dereferenceable(3) @.str.36) #32
+  %101 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %100, ptr noundef nonnull dereferenceable(3) @.str.36) #31
   %102 = icmp eq i32 %101, 0
   br i1 %102, label %103, label %nsvg__parseCoordinate.exit71
 
@@ -7970,7 +7970,7 @@ nsvg__parseCoordinate.exit66:                     ; preds = %97, %92, %88, %85, 
 nsvg__parseCoordinate.exit71:                     ; preds = %138, %133, %129, %126, %122, %118, %114, %110, %103, %nsvg__parseCoordinate.exit66
   %.146 = phi float [ %.04580, %nsvg__parseCoordinate.exit66 ], [ %140, %138 ], [ %137, %133 ], [ %132, %129 ], [ %128, %126 ], [ %125, %122 ], [ %121, %118 ], [ %117, %114 ], [ %113, %110 ], [ %106, %103 ]
   %141 = load ptr, ptr %12, align 8
-  %142 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %141, ptr noundef nonnull dereferenceable(3) @.str.37) #32
+  %142 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %141, ptr noundef nonnull dereferenceable(3) @.str.37) #31
   %143 = icmp eq i32 %142, 0
   br i1 %143, label %144, label %nsvg__parseCoordinate.exit76
 
@@ -8082,7 +8082,7 @@ nsvg__parseCoordinate.exit76:                     ; preds = %179, %174, %170, %1
   %191 = shl nsw i32 %spec.select.i.i, 1
   %192 = sext i32 %191 to i64
   %193 = shl nsw i64 %192, 2
-  %194 = tail call ptr @realloc(ptr noundef %190, i64 noundef %193) #33
+  %194 = tail call ptr @realloc(ptr noundef %190, i64 noundef %193) #32
   store ptr %194, ptr %189, align 8
   %.not17.i.i = icmp eq ptr %194, null
   br i1 %.not17.i.i, label %nsvg__moveTo.exit, label %._crit_edge18.i.i
@@ -8138,7 +8138,7 @@ define internal fastcc void @nsvg__parsePoly(ptr noundef %0, ptr nocapture nound
 
 13:                                               ; preds = %.lr.ph43, %.loopexit
   %indvars.iv = phi i64 [ 0, %.lr.ph43 ], [ %indvars.iv.next, %.loopexit ]
-  %14 = phi ptr [ %8, %.lr.ph43 ], [ %135, %.loopexit ]
+  %14 = phi ptr [ %8, %.lr.ph43 ], [ %133, %.loopexit ]
   %.042 = phi i32 [ 0, %.lr.ph43 ], [ %.3, %.loopexit ]
   %15 = or disjoint i64 %indvars.iv, 1
   %16 = getelementptr inbounds ptr, ptr %1, i64 %15
@@ -8150,7 +8150,7 @@ define internal fastcc void @nsvg__parsePoly(ptr noundef %0, ptr nocapture nound
 19:                                               ; preds = %13
   %20 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8
-  %22 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(7) @.str.87) #32
+  %22 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(7) @.str.87) #31
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %24, label %.loopexit
 
@@ -8160,10 +8160,10 @@ define internal fastcc void @nsvg__parsePoly(ptr noundef %0, ptr nocapture nound
   %.not3036 = icmp eq i8 %26, 0
   br i1 %.not3036, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %24, %132
-  %.139 = phi i32 [ %.2, %132 ], [ %.042, %24 ]
-  %.02338 = phi i32 [ %.124, %132 ], [ 0, %24 ]
-  %.02537 = phi ptr [ %.0.i32, %132 ], [ %25, %24 ]
+.lr.ph:                                           ; preds = %24, %130
+  %.139 = phi i32 [ %.2, %130 ], [ %.042, %24 ]
+  %.02338 = phi i32 [ %.124, %130 ], [ 0, %24 ]
+  %.02537 = phi ptr [ %.0.i32, %130 ], [ %25, %24 ]
   store i8 0, ptr %6, align 16
   %27 = load i8, ptr %.02537, align 1
   %.not29.i = icmp eq i8 %27, 0
@@ -8247,7 +8247,7 @@ nsvg__getNextPathItem.exit:                       ; preds = %38, %40
   br i1 %48, label %52, label %thread-pre-split.i
 
 thread-pre-split.i:                               ; preds = %45
-  %49 = call i64 @strtoll(ptr noundef nonnull %.032.i, ptr noundef nonnull %4, i32 noundef 10) #31
+  %49 = call i64 @strtoll(ptr noundef nonnull %.032.i, ptr noundef nonnull %4, i32 noundef 10) #30
   %50 = load ptr, ptr %4, align 8
   %.not42.i = icmp ne ptr %.032.i, %50
   %51 = sitofp i64 %49 to double
@@ -8261,20 +8261,20 @@ thread-pre-split.i:                               ; preds = %45
   %.031.i = phi double [ %.031.ph.i, %thread-pre-split.i ], [ 0.000000e+00, %45 ]
   %54 = phi i1 [ %.not42.i, %thread-pre-split.i ], [ false, %45 ]
   %55 = icmp eq i8 %53, 46
-  br i1 %55, label %56, label %72
+  br i1 %55, label %56, label %71
 
 56:                                               ; preds = %52
   %57 = getelementptr inbounds i8, ptr %.133.i, i64 1
   %58 = load i8, ptr %57, align 1
   %59 = add i8 %58, -58
   %60 = icmp ult i8 %59, -10
-  br i1 %60, label %72, label %61
+  br i1 %60, label %71, label %61
 
 61:                                               ; preds = %56
-  %62 = call i64 @strtoll(ptr noundef nonnull %57, ptr noundef nonnull %4, i32 noundef 10) #31
+  %62 = call i64 @strtoll(ptr noundef nonnull %57, ptr noundef nonnull %4, i32 noundef 10) #30
   %63 = load ptr, ptr %4, align 8
   %.not44.i = icmp eq ptr %57, %63
-  br i1 %.not44.i, label %72, label %.thread.i
+  br i1 %.not44.i, label %71, label %.thread.i
 
 .thread.i:                                        ; preds = %61
   %64 = sitofp i64 %62 to double
@@ -8282,157 +8282,157 @@ thread-pre-split.i:                               ; preds = %45
   %66 = ptrtoint ptr %57 to i64
   %67 = sub i64 %65, %66
   %68 = sitofp i64 %67 to double
-  %69 = call double @pow(double noundef 1.000000e+01, double noundef %68) #31
-  %70 = fdiv double %64, %69
-  %71 = fadd double %.031.i, %70
-  br label %73
+  %__exp10.i = call double @__exp10(double %68) #30
+  %69 = fdiv double %64, %__exp10.i
+  %70 = fadd double %.031.i, %69
+  br label %72
 
-72:                                               ; preds = %61, %56, %52
+71:                                               ; preds = %61, %56, %52
   %.234.i = phi ptr [ %57, %61 ], [ %57, %56 ], [ %.133.i, %52 ]
-  br i1 %54, label %73, label %nsvg__atof.exit
+  br i1 %54, label %72, label %nsvg__atof.exit
 
-73:                                               ; preds = %72, %.thread.i
-  %.150.i = phi double [ %71, %.thread.i ], [ %.031.i, %72 ]
-  %.23449.i = phi ptr [ %63, %.thread.i ], [ %.234.i, %72 ]
-  %74 = load i8, ptr %.23449.i, align 1
-  switch i8 %74, label %83 [
-    i8 101, label %75
-    i8 69, label %75
+72:                                               ; preds = %71, %.thread.i
+  %.151.i = phi double [ %70, %.thread.i ], [ %.031.i, %71 ]
+  %.23450.i = phi ptr [ %63, %.thread.i ], [ %.234.i, %71 ]
+  %73 = load i8, ptr %.23450.i, align 1
+  switch i8 %73, label %81 [
+    i8 101, label %74
+    i8 69, label %74
   ]
 
-75:                                               ; preds = %73, %73
-  %76 = getelementptr inbounds i8, ptr %.23449.i, i64 1
-  %77 = call i64 @strtol(ptr noundef nonnull %76, ptr noundef nonnull %4, i32 noundef 10) #31
-  %78 = load ptr, ptr %4, align 8
-  %.not45.i = icmp eq ptr %76, %78
-  br i1 %.not45.i, label %83, label %79
+74:                                               ; preds = %72, %72
+  %75 = getelementptr inbounds i8, ptr %.23450.i, i64 1
+  %76 = call i64 @strtol(ptr noundef nonnull %75, ptr noundef nonnull %4, i32 noundef 10) #30
+  %77 = load ptr, ptr %4, align 8
+  %.not45.i = icmp eq ptr %75, %77
+  br i1 %.not45.i, label %81, label %78
 
-79:                                               ; preds = %75
-  %80 = sitofp i64 %77 to double
-  %81 = call double @pow(double noundef 1.000000e+01, double noundef %80) #31
-  %82 = fmul double %.150.i, %81
-  br label %83
+78:                                               ; preds = %74
+  %79 = sitofp i64 %76 to double
+  %__exp1046.i = call double @__exp10(double %79) #30
+  %80 = fmul double %.151.i, %__exp1046.i
+  br label %81
 
-83:                                               ; preds = %79, %75, %73
-  %.2.i = phi double [ %82, %79 ], [ %.150.i, %75 ], [ %.150.i, %73 ]
-  %84 = fmul double %.030.i, %.2.i
+81:                                               ; preds = %78, %74, %72
+  %.2.i = phi double [ %80, %78 ], [ %.151.i, %74 ], [ %.151.i, %72 ]
+  %82 = fmul double %.030.i, %.2.i
   br label %nsvg__atof.exit
 
-nsvg__atof.exit:                                  ; preds = %72, %83
-  %.035.i = phi double [ %84, %83 ], [ 0.000000e+00, %72 ]
+nsvg__atof.exit:                                  ; preds = %71, %81
+  %.035.i = phi double [ %82, %81 ], [ 0.000000e+00, %71 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %85 = fptrunc double %.035.i to float
-  %86 = zext nneg i32 %.02338 to i64
-  %87 = getelementptr inbounds [2 x float], ptr %5, i64 0, i64 %86
-  store float %85, ptr %87, align 4
+  %83 = fptrunc double %.035.i to float
+  %84 = zext nneg i32 %.02338 to i64
+  %85 = getelementptr inbounds [2 x float], ptr %5, i64 0, i64 %84
+  store float %83, ptr %85, align 4
   %.not49 = icmp eq i32 %.02338, 0
-  br i1 %.not49, label %132, label %88
+  br i1 %.not49, label %130, label %86
 
-88:                                               ; preds = %nsvg__atof.exit
-  %89 = icmp eq i32 %.139, 0
-  %90 = load float, ptr %5, align 4
-  %91 = load float, ptr %10, align 4
-  br i1 %89, label %92, label %130
+86:                                               ; preds = %nsvg__atof.exit
+  %87 = icmp eq i32 %.139, 0
+  %88 = load float, ptr %5, align 4
+  %89 = load float, ptr %10, align 4
+  br i1 %87, label %90, label %128
 
-92:                                               ; preds = %88
-  %93 = load i32, ptr %7, align 8
-  %94 = icmp sgt i32 %93, 0
-  br i1 %94, label %95, label %107
+90:                                               ; preds = %86
+  %91 = load i32, ptr %7, align 8
+  %92 = icmp sgt i32 %91, 0
+  br i1 %92, label %93, label %105
 
-95:                                               ; preds = %92
-  %96 = load ptr, ptr %12, align 8
-  %97 = shl nuw i32 %93, 1
-  %98 = add i32 %97, -2
-  %99 = sext i32 %98 to i64
-  %100 = getelementptr inbounds float, ptr %96, i64 %99
-  store float %90, ptr %100, align 4
-  %101 = load ptr, ptr %12, align 8
-  %102 = load i32, ptr %7, align 8
-  %103 = shl i32 %102, 1
-  %104 = add i32 %103, -1
-  %105 = sext i32 %104 to i64
-  %106 = getelementptr inbounds float, ptr %101, i64 %105
-  store float %91, ptr %106, align 4
+93:                                               ; preds = %90
+  %94 = load ptr, ptr %12, align 8
+  %95 = shl nuw i32 %91, 1
+  %96 = add i32 %95, -2
+  %97 = sext i32 %96 to i64
+  %98 = getelementptr inbounds float, ptr %94, i64 %97
+  store float %88, ptr %98, align 4
+  %99 = load ptr, ptr %12, align 8
+  %100 = load i32, ptr %7, align 8
+  %101 = shl i32 %100, 1
+  %102 = add i32 %101, -1
+  %103 = sext i32 %102 to i64
+  %104 = getelementptr inbounds float, ptr %99, i64 %103
+  store float %89, ptr %104, align 4
   br label %nsvg__moveTo.exit
 
-107:                                              ; preds = %92
-  %108 = load i32, ptr %11, align 4
-  %.not.i.i = icmp slt i32 %93, %108
-  br i1 %.not.i.i, label %._crit_edge.i.i, label %109
+105:                                              ; preds = %90
+  %106 = load i32, ptr %11, align 4
+  %.not.i.i = icmp slt i32 %91, %106
+  br i1 %.not.i.i, label %._crit_edge.i.i, label %107
 
-._crit_edge.i.i:                                  ; preds = %107
+._crit_edge.i.i:                                  ; preds = %105
   %.pre.i.i = load ptr, ptr %12, align 8
-  br label %116
+  br label %114
 
-109:                                              ; preds = %107
-  %.not16.i.i = icmp eq i32 %108, 0
-  %110 = shl nsw i32 %108, 1
-  %spec.select.i.i = select i1 %.not16.i.i, i32 8, i32 %110
+107:                                              ; preds = %105
+  %.not16.i.i = icmp eq i32 %106, 0
+  %108 = shl nsw i32 %106, 1
+  %spec.select.i.i = select i1 %.not16.i.i, i32 8, i32 %108
   store i32 %spec.select.i.i, ptr %11, align 4
-  %111 = load ptr, ptr %12, align 8
-  %112 = shl nsw i32 %spec.select.i.i, 1
-  %113 = sext i32 %112 to i64
-  %114 = shl nsw i64 %113, 2
-  %115 = call ptr @realloc(ptr noundef %111, i64 noundef %114) #33
-  store ptr %115, ptr %12, align 8
-  %.not17.i.i = icmp eq ptr %115, null
+  %109 = load ptr, ptr %12, align 8
+  %110 = shl nsw i32 %spec.select.i.i, 1
+  %111 = sext i32 %110 to i64
+  %112 = shl nsw i64 %111, 2
+  %113 = call ptr @realloc(ptr noundef %109, i64 noundef %112) #32
+  store ptr %113, ptr %12, align 8
+  %.not17.i.i = icmp eq ptr %113, null
   br i1 %.not17.i.i, label %nsvg__moveTo.exit, label %._crit_edge18.i.i
 
-._crit_edge18.i.i:                                ; preds = %109
+._crit_edge18.i.i:                                ; preds = %107
   %.pre19.i.i = load i32, ptr %7, align 8
-  br label %116
+  br label %114
 
-116:                                              ; preds = %._crit_edge18.i.i, %._crit_edge.i.i
-  %117 = phi i32 [ %93, %._crit_edge.i.i ], [ %.pre19.i.i, %._crit_edge18.i.i ]
-  %118 = phi ptr [ %.pre.i.i, %._crit_edge.i.i ], [ %115, %._crit_edge18.i.i ]
-  %119 = shl nsw i32 %117, 1
-  %120 = sext i32 %119 to i64
-  %121 = getelementptr inbounds float, ptr %118, i64 %120
-  store float %90, ptr %121, align 4
-  %122 = load ptr, ptr %12, align 8
-  %123 = load i32, ptr %7, align 8
-  %124 = shl nsw i32 %123, 1
-  %125 = or disjoint i32 %124, 1
-  %126 = sext i32 %125 to i64
-  %127 = getelementptr inbounds float, ptr %122, i64 %126
-  store float %91, ptr %127, align 4
-  %128 = load i32, ptr %7, align 8
-  %129 = add nsw i32 %128, 1
-  store i32 %129, ptr %7, align 8
+114:                                              ; preds = %._crit_edge18.i.i, %._crit_edge.i.i
+  %115 = phi i32 [ %91, %._crit_edge.i.i ], [ %.pre19.i.i, %._crit_edge18.i.i ]
+  %116 = phi ptr [ %.pre.i.i, %._crit_edge.i.i ], [ %113, %._crit_edge18.i.i ]
+  %117 = shl nsw i32 %115, 1
+  %118 = sext i32 %117 to i64
+  %119 = getelementptr inbounds float, ptr %116, i64 %118
+  store float %88, ptr %119, align 4
+  %120 = load ptr, ptr %12, align 8
+  %121 = load i32, ptr %7, align 8
+  %122 = shl nsw i32 %121, 1
+  %123 = or disjoint i32 %122, 1
+  %124 = sext i32 %123 to i64
+  %125 = getelementptr inbounds float, ptr %120, i64 %124
+  store float %89, ptr %125, align 4
+  %126 = load i32, ptr %7, align 8
+  %127 = add nsw i32 %126, 1
+  store i32 %127, ptr %7, align 8
   br label %nsvg__moveTo.exit
 
-130:                                              ; preds = %88
-  call fastcc void @nsvg__lineTo(ptr noundef %0, float noundef %90, float noundef %91)
+128:                                              ; preds = %86
+  call fastcc void @nsvg__lineTo(ptr noundef %0, float noundef %88, float noundef %89)
   br label %nsvg__moveTo.exit
 
-nsvg__moveTo.exit:                                ; preds = %116, %109, %95, %130
-  %131 = add nsw i32 %.139, 1
-  br label %132
+nsvg__moveTo.exit:                                ; preds = %114, %107, %93, %128
+  %129 = add nsw i32 %.139, 1
+  br label %130
 
-132:                                              ; preds = %nsvg__moveTo.exit, %nsvg__atof.exit
+130:                                              ; preds = %nsvg__moveTo.exit, %nsvg__atof.exit
   %.124 = phi i32 [ 0, %nsvg__moveTo.exit ], [ 1, %nsvg__atof.exit ]
-  %.2 = phi i32 [ %131, %nsvg__moveTo.exit ], [ %.139, %nsvg__atof.exit ]
-  %133 = load i8, ptr %.0.i32, align 1
-  %.not30 = icmp eq i8 %133, 0
+  %.2 = phi i32 [ %129, %nsvg__moveTo.exit ], [ %.139, %nsvg__atof.exit ]
+  %131 = load i8, ptr %.0.i32, align 1
+  %.not30 = icmp eq i8 %131, 0
   br i1 %.not30, label %.loopexit, label %.lr.ph, !llvm.loop !83
 
-.loopexit:                                        ; preds = %132, %24, %13, %19
-  %.3 = phi i32 [ %.042, %13 ], [ %.042, %19 ], [ %.042, %24 ], [ %.2, %132 ]
+.loopexit:                                        ; preds = %130, %24, %13, %19
+  %.3 = phi i32 [ %.042, %13 ], [ %.042, %19 ], [ %.042, %24 ], [ %.2, %130 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %134 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv.next
-  %135 = load ptr, ptr %134, align 8
-  %.not = icmp eq ptr %135, null
+  %132 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv.next
+  %133 = load ptr, ptr %132, align 8
+  %.not = icmp eq ptr %133, null
   br i1 %.not, label %._crit_edge, label %13, !llvm.loop !84
 
 ._crit_edge:                                      ; preds = %.loopexit, %3
-  %136 = trunc i32 %2 to i8
-  call fastcc void @nsvg__addPath(ptr noundef %0, i8 noundef signext %136)
+  %134 = trunc i32 %2 to i8
+  call fastcc void @nsvg__addPath(ptr noundef %0, i8 noundef signext %134)
   call fastcc void @nsvg__addShape(ptr noundef %0)
   ret void
 }
 
-; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @nsvg__parseSVG(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #14 {
+; Function Attrs: nounwind uwtable
+define internal fastcc void @nsvg__parseSVG(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = alloca [64 x i8], align 16
   %4 = load ptr, ptr %1, align 8
   %.not135 = icmp eq ptr %4, null
@@ -8464,7 +8464,7 @@ define internal fastcc void @nsvg__parseSVG(ptr noundef %0, ptr nocapture nounde
 21:                                               ; preds = %15
   %22 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8
-  %24 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(6) @.str.83) #32
+  %24 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(6) @.str.83) #31
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %26, label %65
 
@@ -8543,7 +8543,7 @@ nsvg__parseCoordinate.exit:                       ; preds = %26, %33, %37, %41, 
   br label %172
 
 65:                                               ; preds = %21
-  %66 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(7) @.str.84) #32
+  %66 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(7) @.str.84) #31
   %67 = icmp eq i32 %66, 0
   br i1 %67, label %68, label %108
 
@@ -8623,7 +8623,7 @@ nsvg__parseCoordinate.exit113:                    ; preds = %68, %75, %79, %83, 
   br label %172
 
 108:                                              ; preds = %65
-  %109 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(8) @.str.88) #32
+  %109 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(8) @.str.88) #31
   %110 = icmp eq i32 %109, 0
   br i1 %110, label %111, label %149
 
@@ -8732,13 +8732,13 @@ nsvg__parseCoordinate.exit113:                    ; preds = %68, %75, %79, %83, 
   br label %172
 
 149:                                              ; preds = %108
-  %150 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(20) @.str.89) #32
+  %150 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(20) @.str.89) #31
   %151 = icmp eq i32 %150, 0
   br i1 %151, label %152, label %172
 
 152:                                              ; preds = %149
   %153 = load ptr, ptr %18, align 8
-  %154 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %153, ptr noundef nonnull dereferenceable(1) @.str.45) #32
+  %154 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %153, ptr noundef nonnull dereferenceable(1) @.str.45) #31
   %.not92 = icmp eq ptr %154, null
   br i1 %.not92, label %156, label %155
 
@@ -8747,17 +8747,17 @@ nsvg__parseCoordinate.exit113:                    ; preds = %68, %75, %79, %83, 
   br label %172
 
 156:                                              ; preds = %152
-  %157 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %153, ptr noundef nonnull dereferenceable(1) @.str.90) #32
+  %157 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %153, ptr noundef nonnull dereferenceable(1) @.str.90) #31
   %.not93 = icmp eq ptr %157, null
   br i1 %.not93, label %158, label %.sink.split
 
 158:                                              ; preds = %156
-  %159 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %153, ptr noundef nonnull dereferenceable(1) @.str.91) #32
+  %159 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %153, ptr noundef nonnull dereferenceable(1) @.str.91) #31
   %.not94 = icmp eq ptr %159, null
   br i1 %.not94, label %160, label %.sink.split
 
 160:                                              ; preds = %158
-  %161 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %153, ptr noundef nonnull dereferenceable(1) @.str.92) #32
+  %161 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %153, ptr noundef nonnull dereferenceable(1) @.str.92) #31
   %.not95 = icmp eq ptr %161, null
   br i1 %.not95, label %162, label %.sink.split
 
@@ -8768,17 +8768,17 @@ nsvg__parseCoordinate.exit113:                    ; preds = %68, %75, %79, %83, 
 
 162:                                              ; preds = %.sink.split, %160
   %163 = load ptr, ptr %18, align 8
-  %164 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %163, ptr noundef nonnull dereferenceable(1) @.str.93) #32
+  %164 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %163, ptr noundef nonnull dereferenceable(1) @.str.93) #31
   %.not96 = icmp eq ptr %164, null
   br i1 %.not96, label %165, label %.sink.split151
 
 165:                                              ; preds = %162
-  %166 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %163, ptr noundef nonnull dereferenceable(1) @.str.94) #32
+  %166 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %163, ptr noundef nonnull dereferenceable(1) @.str.94) #31
   %.not97 = icmp eq ptr %166, null
   br i1 %.not97, label %167, label %.sink.split151
 
 167:                                              ; preds = %165
-  %168 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %163, ptr noundef nonnull dereferenceable(1) @.str.95) #32
+  %168 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %163, ptr noundef nonnull dereferenceable(1) @.str.95) #31
   %.not98 = icmp eq ptr %168, null
   br i1 %.not98, label %169, label %.sink.split151
 
@@ -8790,7 +8790,7 @@ nsvg__parseCoordinate.exit113:                    ; preds = %68, %75, %79, %83, 
 169:                                              ; preds = %.sink.split151, %167
   store i32 1, ptr %5, align 8
   %170 = load ptr, ptr %18, align 8
-  %171 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %170, ptr noundef nonnull dereferenceable(1) @.str.96) #32
+  %171 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %170, ptr noundef nonnull dereferenceable(1) @.str.96) #31
   %.not99 = icmp eq ptr %171, null
   %spec.store.select = select i1 %.not99, i32 1, i32 2
   store i32 %spec.store.select, ptr %5, align 8
@@ -8810,8 +8810,8 @@ nsvg__parseCoordinate.exit113:                    ; preds = %68, %75, %79, %83, 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
 declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #16
 
-; Function Attrs: nofree nounwind uwtable
-define internal fastcc noundef i32 @nsvg__parseAttr(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #14 {
+; Function Attrs: nounwind uwtable
+define internal fastcc noundef i32 @nsvg__parseAttr(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca [512 x i8], align 16
   %5 = alloca [512 x i8], align 16
   %6 = alloca [6 x float], align 16
@@ -8819,7 +8819,7 @@ define internal fastcc noundef i32 @nsvg__parseAttr(ptr noundef %0, ptr nocaptur
   %8 = load i32, ptr %7, align 8
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds [128 x %struct.NSVGattrib], ptr %0, i64 0, i64 %9
-  %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(6) @.str.43) #32
+  %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(6) @.str.43) #31
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %.preheader115, label %76
 
@@ -9031,12 +9031,12 @@ nsvg__parseNameValue.exit:                        ; preds = %.critedge6.i109.nsv
   br i1 %.not.i, label %nsvg__parseStyle.exit, label %.preheader.backedge
 
 76:                                               ; preds = %3
-  %77 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(8) @.str.44) #32
+  %77 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(8) @.str.44) #31
   %78 = icmp eq i32 %77, 0
   br i1 %78, label %79, label %84
 
 79:                                               ; preds = %76
-  %80 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(5) @.str.45) #32
+  %80 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(5) @.str.45) #31
   %81 = icmp eq i32 %80, 0
   br i1 %81, label %82, label %nsvg__parseStyle.exit
 
@@ -9046,12 +9046,12 @@ nsvg__parseNameValue.exit:                        ; preds = %.critedge6.i109.nsv
   br label %nsvg__parseStyle.exit
 
 84:                                               ; preds = %76
-  %85 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(5) @.str.46) #32
+  %85 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(5) @.str.46) #31
   %86 = icmp eq i32 %85, 0
   br i1 %86, label %87, label %111
 
 87:                                               ; preds = %84
-  %88 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(5) @.str.45) #32
+  %88 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(5) @.str.45) #31
   %89 = icmp eq i32 %88, 0
   br i1 %89, label %90, label %92
 
@@ -9061,7 +9061,7 @@ nsvg__parseNameValue.exit:                        ; preds = %.critedge6.i109.nsv
   br label %nsvg__parseStyle.exit
 
 92:                                               ; preds = %87
-  %93 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(5) @.str.47, i64 noundef 4) #32
+  %93 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(5) @.str.47, i64 noundef 4) #31
   %94 = icmp eq i32 %93, 0
   %95 = getelementptr inbounds i8, ptr %10, i64 308
   br i1 %94, label %96, label %108
@@ -9108,7 +9108,7 @@ nsvg__parseUrl.exit:                              ; preds = %101, %101, %103
   br label %nsvg__parseStyle.exit
 
 111:                                              ; preds = %84
-  %112 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(8) @.str.48) #32
+  %112 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(8) @.str.48) #31
   %113 = icmp eq i32 %112, 0
   br i1 %113, label %114, label %120
 
@@ -9124,7 +9124,7 @@ nsvg__parseUrl.exit:                              ; preds = %101, %101, %103
   br label %nsvg__parseStyle.exit
 
 120:                                              ; preds = %111
-  %121 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(13) @.str.49) #32
+  %121 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(13) @.str.49) #31
   %122 = icmp eq i32 %121, 0
   br i1 %122, label %123, label %129
 
@@ -9140,12 +9140,12 @@ nsvg__parseUrl.exit:                              ; preds = %101, %101, %103
   br label %nsvg__parseStyle.exit
 
 129:                                              ; preds = %120
-  %130 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(7) @.str.50) #32
+  %130 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(7) @.str.50) #31
   %131 = icmp eq i32 %130, 0
   br i1 %131, label %132, label %146
 
 132:                                              ; preds = %129
-  %133 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(5) @.str.45) #32
+  %133 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(5) @.str.45) #31
   %134 = icmp eq i32 %133, 0
   br i1 %134, label %135, label %137
 
@@ -9155,7 +9155,7 @@ nsvg__parseUrl.exit:                              ; preds = %101, %101, %103
   br label %nsvg__parseStyle.exit
 
 137:                                              ; preds = %132
-  %138 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(5) @.str.47, i64 noundef 4) #32
+  %138 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(5) @.str.47, i64 noundef 4) #31
   %139 = icmp eq i32 %138, 0
   %140 = getelementptr inbounds i8, ptr %10, i64 309
   br i1 %139, label %141, label %143
@@ -9174,7 +9174,7 @@ nsvg__parseUrl.exit:                              ; preds = %101, %101, %103
   br label %nsvg__parseStyle.exit
 
 146:                                              ; preds = %129
-  %147 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(13) @.str.51) #32
+  %147 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(13) @.str.51) #31
   %148 = icmp eq i32 %147, 0
   br i1 %148, label %149, label %197
 
@@ -9265,7 +9265,7 @@ nsvg__parseCoordinate.exit:                       ; preds = %149, %157, %162, %1
   br label %nsvg__parseStyle.exit
 
 197:                                              ; preds = %146
-  %198 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(17) @.str.52) #32
+  %198 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(17) @.str.52) #31
   %199 = icmp eq i32 %198, 0
   br i1 %199, label %200, label %204
 
@@ -9277,7 +9277,7 @@ nsvg__parseCoordinate.exit:                       ; preds = %149, %157, %162, %1
   br label %nsvg__parseStyle.exit
 
 204:                                              ; preds = %197
-  %205 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(18) @.str.53) #32
+  %205 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(18) @.str.53) #31
   %206 = icmp eq i32 %205, 0
   br i1 %206, label %207, label %215
 
@@ -9296,7 +9296,7 @@ nsvg__parseCoordinate.exit:                       ; preds = %149, %157, %162, %1
   br label %nsvg__parseStyle.exit
 
 215:                                              ; preds = %204
-  %216 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(15) @.str.54) #32
+  %216 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(15) @.str.54) #31
   %217 = icmp eq i32 %216, 0
   br i1 %217, label %218, label %224
 
@@ -9312,7 +9312,7 @@ nsvg__parseCoordinate.exit:                       ; preds = %149, %157, %162, %1
   br label %nsvg__parseStyle.exit
 
 224:                                              ; preds = %215
-  %225 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(15) @.str.55) #32
+  %225 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(15) @.str.55) #31
   %226 = icmp eq i32 %225, 0
   br i1 %226, label %227, label %230
 
@@ -9323,7 +9323,7 @@ nsvg__parseCoordinate.exit:                       ; preds = %149, %157, %162, %1
   br label %nsvg__parseStyle.exit
 
 230:                                              ; preds = %224
-  %231 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(16) @.str.56) #32
+  %231 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(16) @.str.56) #31
   %232 = icmp eq i32 %231, 0
   br i1 %232, label %233, label %236
 
@@ -9334,7 +9334,7 @@ nsvg__parseCoordinate.exit:                       ; preds = %149, %157, %162, %1
   br label %nsvg__parseStyle.exit
 
 236:                                              ; preds = %230
-  %237 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(18) @.str.57) #32
+  %237 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(18) @.str.57) #31
   %238 = icmp eq i32 %237, 0
   br i1 %238, label %239, label %244
 
@@ -9348,7 +9348,7 @@ nsvg__parseCoordinate.exit:                       ; preds = %149, %157, %162, %1
   br label %nsvg__parseStyle.exit
 
 244:                                              ; preds = %236
-  %245 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(10) @.str.58) #32
+  %245 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(10) @.str.58) #31
   %246 = icmp eq i32 %245, 0
   br i1 %246, label %247, label %250
 
@@ -9359,7 +9359,7 @@ nsvg__parseCoordinate.exit:                       ; preds = %149, %157, %162, %1
   br label %nsvg__parseStyle.exit
 
 250:                                              ; preds = %244
-  %251 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(10) @.str.59) #32
+  %251 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(10) @.str.59) #31
   %252 = icmp eq i32 %251, 0
   br i1 %252, label %253, label %261
 
@@ -9378,7 +9378,7 @@ nsvg__parseCoordinate.exit:                       ; preds = %149, %157, %162, %1
   br label %nsvg__parseStyle.exit
 
 261:                                              ; preds = %250
-  %262 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(10) @.str.60) #32
+  %262 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(10) @.str.60) #31
   %263 = icmp eq i32 %262, 0
   br i1 %263, label %264, label %266
 
@@ -9389,7 +9389,7 @@ nsvg__parseCoordinate.exit:                       ; preds = %149, %157, %162, %1
   br label %nsvg__parseStyle.exit
 
 266:                                              ; preds = %261
-  %267 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(11) @.str.61) #32
+  %267 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(11) @.str.61) #31
   %268 = icmp eq i32 %267, 0
   br i1 %268, label %269, label %272
 
@@ -9400,7 +9400,7 @@ nsvg__parseCoordinate.exit:                       ; preds = %149, %157, %162, %1
   br label %nsvg__parseStyle.exit
 
 272:                                              ; preds = %266
-  %273 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(13) @.str.62) #32
+  %273 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(13) @.str.62) #31
   %274 = icmp eq i32 %273, 0
   br i1 %274, label %275, label %281
 
@@ -9416,7 +9416,7 @@ nsvg__parseCoordinate.exit:                       ; preds = %149, %157, %162, %1
   br label %nsvg__parseStyle.exit
 
 281:                                              ; preds = %272
-  %282 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(7) @.str.63) #32
+  %282 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(7) @.str.63) #31
   %283 = icmp eq i32 %282, 0
   br i1 %283, label %284, label %287
 
@@ -9427,12 +9427,12 @@ nsvg__parseCoordinate.exit:                       ; preds = %149, %157, %162, %1
   br label %nsvg__parseStyle.exit
 
 287:                                              ; preds = %281
-  %288 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(3) @.str.25) #32
+  %288 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(3) @.str.25) #31
   %289 = icmp eq i32 %288, 0
   br i1 %289, label %290, label %nsvg__parseStyle.exit
 
 290:                                              ; preds = %287
-  %291 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %2, i64 noundef 63) #31
+  %291 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %2, i64 noundef 63) #30
   %292 = getelementptr inbounds i8, ptr %10, i64 63
   store i8 0, ptr %292, align 1
   br label %nsvg__parseStyle.exit
@@ -9442,8 +9442,8 @@ nsvg__parseStyle.exit:                            ; preds = %nsvg__parseNameValu
   ret i32 %.0
 }
 
-; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @nsvg__parseTransform(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #14 {
+; Function Attrs: nounwind uwtable
+define internal fastcc void @nsvg__parseTransform(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca [64 x i8], align 16
   %4 = alloca [64 x i8], align 16
   %5 = alloca [64 x i8], align 16
@@ -9483,7 +9483,7 @@ define internal fastcc void @nsvg__parseTransform(ptr nocapture noundef %0, ptr 
 23:                                               ; preds = %.lr.ph, %302
   %24 = phi i8 [ %19, %.lr.ph ], [ %304, %302 ]
   %.019158 = phi ptr [ %.019.ph166, %.lr.ph ], [ %303, %302 ]
-  %25 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.019158, ptr noundef nonnull dereferenceable(7) @.str.74, i64 noundef 6) #32
+  %25 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.019158, ptr noundef nonnull dereferenceable(7) @.str.74, i64 noundef 6) #31
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %27, label %67
 
@@ -9601,7 +9601,7 @@ nsvg__parseMatrix.exit:                           ; preds = %nsvg__parseTransfor
   br label %305
 
 67:                                               ; preds = %23
-  %68 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.019158, ptr noundef nonnull dereferenceable(10) @.str.75, i64 noundef 9) #32
+  %68 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.019158, ptr noundef nonnull dereferenceable(10) @.str.75, i64 noundef 9) #31
   %69 = icmp eq i32 %68, 0
   br i1 %69, label %70, label %106
 
@@ -9712,7 +9712,7 @@ nsvg__parseTranslate.exit:                        ; preds = %nsvg__parseTransfor
   br label %305
 
 106:                                              ; preds = %67
-  %107 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.019158, ptr noundef nonnull dereferenceable(6) @.str.76, i64 noundef 5) #32
+  %107 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.019158, ptr noundef nonnull dereferenceable(6) @.str.76, i64 noundef 5) #31
   %108 = icmp eq i32 %107, 0
   br i1 %108, label %109, label %148
 
@@ -9832,7 +9832,7 @@ nsvg__parseScale.exit:                            ; preds = %nsvg__parseTransfor
   br label %305
 
 148:                                              ; preds = %106
-  %149 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.019158, ptr noundef nonnull dereferenceable(7) @.str.77, i64 noundef 6) #32
+  %149 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.019158, ptr noundef nonnull dereferenceable(7) @.str.77, i64 noundef 6) #31
   %150 = icmp eq i32 %149, 0
   br i1 %150, label %151, label %234
 
@@ -9955,8 +9955,8 @@ nsvg__parseTransformArgs.exit.i70:                ; preds = %178
   %193 = load float, ptr %6, align 4
   %194 = fdiv float %193, 1.800000e+02
   %195 = fmul float %194, 0x400921FB60000000
-  %196 = call float @cosf(float noundef %195) #31
-  %197 = call float @sinf(float noundef %195) #31
+  %196 = call float @cosf(float noundef %195) #30
+  %197 = call float @sinf(float noundef %195) #30
   %198 = fneg float %197
   %199 = fmul float %197, 0.000000e+00
   %200 = fsub float %196, %199
@@ -10002,7 +10002,7 @@ nsvg__parseRotate.exit:                           ; preds = %.thread.i, %218
   br label %305
 
 234:                                              ; preds = %148
-  %235 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.019158, ptr noundef nonnull dereferenceable(6) @.str.78, i64 noundef 5) #32
+  %235 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.019158, ptr noundef nonnull dereferenceable(6) @.str.78, i64 noundef 5) #31
   %236 = icmp eq i32 %235, 0
   br i1 %236, label %237, label %268
 
@@ -10092,12 +10092,12 @@ nsvg__parseSkewX.exit:                            ; preds = %238, %.preheader37.
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
   %264 = fdiv float %.sroa.0.3.i, 1.800000e+02
   %265 = fmul float %264, 0x400921FB60000000
-  %266 = call float @tanf(float noundef %265) #31
+  %266 = call float @tanf(float noundef %265) #30
   %267 = insertelement <2 x float> <float 1.000000e+00, float poison>, float %266, i64 1
   br label %305
 
 268:                                              ; preds = %234
-  %269 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.019158, ptr noundef nonnull dereferenceable(6) @.str.79, i64 noundef 5) #32
+  %269 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.019158, ptr noundef nonnull dereferenceable(6) @.str.79, i64 noundef 5) #31
   %270 = icmp eq i32 %269, 0
   br i1 %270, label %271, label %302
 
@@ -10187,7 +10187,7 @@ nsvg__parseSkewY.exit:                            ; preds = %272, %.preheader37.
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
   %298 = fdiv float %.sroa.0.3.i100, 1.800000e+02
   %299 = fmul float %298, 0x400921FB60000000
-  %300 = call float @tanf(float noundef %299) #31
+  %300 = call float @tanf(float noundef %299) #30
   %301 = insertelement <2 x float> <float poison, float 1.000000e+00>, float %300, i64 0
   br label %305
 
@@ -10240,8 +10240,8 @@ nsvg__parseSkewY.exit:                            ; preds = %272, %.preheader37.
   ret void
 }
 
-; Function Attrs: nofree nounwind uwtable
-define internal fastcc i64 @nsvg__parseCoordinateRaw(ptr noundef %0) unnamed_addr #14 {
+; Function Attrs: nounwind uwtable
+define internal fastcc i64 @nsvg__parseCoordinateRaw(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca [64 x i8], align 16
   %3 = call fastcc ptr @nsvg__parseNumber(ptr noundef %0, ptr noundef nonnull %2)
   %4 = load i8, ptr %3, align 1
@@ -10346,8 +10346,8 @@ define internal fastcc void @nsvg__parseUrl(ptr nocapture noundef writeonly %0, 
   ret void
 }
 
-; Function Attrs: nofree nounwind uwtable
-define internal fastcc i32 @nsvg__parseColor(ptr noundef %0) unnamed_addr #14 {
+; Function Attrs: nounwind uwtable
+define internal fastcc i32 @nsvg__parseColor(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
@@ -10361,7 +10361,7 @@ define internal fastcc i32 @nsvg__parseColor(ptr noundef %0) unnamed_addr #14 {
   br i1 %7, label %5, label %9, !llvm.loop !96
 
 9:                                                ; preds = %5
-  %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0) #32
+  %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0) #31
   %.not = icmp ne i64 %10, 0
   %11 = icmp eq i8 %6, 35
   %or.cond = and i1 %11, %.not
@@ -10374,7 +10374,7 @@ define internal fastcc i32 @nsvg__parseColor(ptr noundef %0) unnamed_addr #14 {
   store i32 0, ptr %2, align 4
   store i32 0, ptr %3, align 4
   store i32 0, ptr %4, align 4
-  %13 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %.0, ptr noundef nonnull @.str.64, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) #31
+  %13 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %.0, ptr noundef nonnull @.str.64, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) #30
   %14 = icmp eq i32 %13, 3
   br i1 %14, label %15, label %23
 
@@ -10389,7 +10389,7 @@ define internal fastcc i32 @nsvg__parseColor(ptr noundef %0) unnamed_addr #14 {
   br label %nsvg__parseColorHex.exit
 
 23:                                               ; preds = %12
-  %24 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %.0, ptr noundef nonnull @.str.65, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) #31
+  %24 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %.0, ptr noundef nonnull @.str.65, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) #30
   %25 = icmp eq i32 %24, 3
   br i1 %25, label %26, label %nsvg__parseColorHex.exit
 
@@ -10450,7 +10450,7 @@ nsvg__parseColorHex.exit:                         ; preds = %15, %23, %26
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %51 ], [ 0, %.preheader ]
   %53 = getelementptr inbounds [10 x %struct.NSVGNamedColor], ptr @nsvg__colors, i64 0, i64 %indvars.iv.i
   %54 = load ptr, ptr %53, align 16
-  %55 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %54, ptr noundef nonnull dereferenceable(1) %.0) #32
+  %55 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %54, ptr noundef nonnull dereferenceable(1) %.0) #31
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %57, label %51
 
@@ -10464,8 +10464,8 @@ nsvg__parseColorName.exit:                        ; preds = %51, %57, %49, %nsvg
   ret i32 %.013
 }
 
-; Function Attrs: nofree nounwind uwtable
-define internal fastcc float @nsvg__parseCoordinate(ptr nocapture noundef readonly %0, ptr noundef %1, float noundef %2, float noundef %3) unnamed_addr #14 {
+; Function Attrs: nounwind uwtable
+define internal fastcc float @nsvg__parseCoordinate(ptr nocapture noundef readonly %0, ptr noundef %1, float noundef %2, float noundef %3) unnamed_addr #0 {
   %5 = tail call fastcc i64 @nsvg__parseCoordinateRaw(ptr noundef %1), !range !29
   %.sroa.0.0.extract.trunc.i = trunc i64 %5 to i32
   %6 = bitcast i32 %.sroa.0.0.extract.trunc.i to float
@@ -10543,8 +10543,8 @@ nsvg__convertToPixels.exit:                       ; preds = %4, %11, %16, %21, %
   ret float %.0.i
 }
 
-; Function Attrs: nofree nounwind uwtable
-define internal fastcc i32 @nsvg__parseStrokeDashArray(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) unnamed_addr #14 {
+; Function Attrs: nounwind uwtable
+define internal fastcc i32 @nsvg__parseStrokeDashArray(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) unnamed_addr #0 {
   %4 = alloca [64 x i8], align 16
   %5 = load i8, ptr %1, align 1
   switch i8 %5, label %.lr.ph [
@@ -10756,17 +10756,17 @@ nsvg__getNextDashItem.exit._crit_edge:            ; preds = %81, %nsvg__getNextD
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
 define internal fastcc signext i8 @nsvg__parseLineCap(ptr nocapture noundef readonly %0) unnamed_addr #18 {
-  %2 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str.67) #32
+  %2 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str.67) #31
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %10, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(6) @.str.68) #32
+  %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(6) @.str.68) #31
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %10, label %7
 
 7:                                                ; preds = %4
-  %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(7) @.str.69) #32
+  %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(7) @.str.69) #31
   %9 = icmp eq i32 %8, 0
   %. = select i1 %9, i8 2, i8 0
   br label %10
@@ -10778,17 +10778,17 @@ define internal fastcc signext i8 @nsvg__parseLineCap(ptr nocapture noundef read
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
 define internal fastcc signext i8 @nsvg__parseLineJoin(ptr nocapture noundef readonly %0) unnamed_addr #18 {
-  %2 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(6) @.str.70) #32
+  %2 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(6) @.str.70) #31
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %10, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(6) @.str.68) #32
+  %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(6) @.str.68) #31
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %10, label %7
 
 7:                                                ; preds = %4
-  %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(6) @.str.71) #32
+  %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(6) @.str.71) #31
   %9 = icmp eq i32 %8, 0
   %. = select i1 %9, i8 2, i8 0
   br label %10
@@ -10800,12 +10800,12 @@ define internal fastcc signext i8 @nsvg__parseLineJoin(ptr nocapture noundef rea
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
 define internal fastcc signext i8 @nsvg__parseFillRule(ptr nocapture noundef readonly %0) unnamed_addr #18 {
-  %2 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(8) @.str.72) #32
+  %2 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(8) @.str.72) #31
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %7, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(8) @.str.73) #32
+  %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(8) @.str.73) #31
   %6 = icmp eq i32 %5, 0
   %. = zext i1 %6 to i8
   br label %7
@@ -10858,13 +10858,13 @@ define internal fastcc void @nsvg__xformPremultiply(ptr nocapture noundef %0, pt
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #15
 
-; Function Attrs: nofree nounwind uwtable
-define internal fastcc i32 @nsvg__parseColorRGB(ptr noundef %0) unnamed_addr #14 {
+; Function Attrs: nounwind uwtable
+define internal fastcc i32 @nsvg__parseColorRGB(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca [3 x i32], align 8
   %3 = alloca [3 x float], align 8
   %4 = getelementptr inbounds i8, ptr %2, i64 4
   %5 = getelementptr inbounds i8, ptr %2, i64 8
-  %6 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %0, ptr noundef nonnull @.str.66, ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef nonnull %5) #31
+  %6 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %0, ptr noundef nonnull @.str.66, ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef nonnull %5) #30
   %.not = icmp eq i32 %6, 3
   br i1 %.not, label %.preheader113, label %7
 
@@ -11035,8 +11035,8 @@ define internal fastcc i32 @nsvg__parseColorRGB(ptr noundef %0) unnamed_addr #14
 ; Function Attrs: nofree nounwind
 declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define internal fastcc double @nsvg__atof(ptr noundef %0) unnamed_addr #20 {
+; Function Attrs: nounwind uwtable
+define internal fastcc double @nsvg__atof(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca ptr, align 8
   store ptr null, ptr %2, align 8
   %3 = load i8, ptr %0, align 1
@@ -11062,7 +11062,7 @@ define internal fastcc double @nsvg__atof(ptr noundef %0) unnamed_addr #20 {
   br i1 %11, label %15, label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %8
-  %12 = call i64 @strtoll(ptr noundef nonnull %.032, ptr noundef nonnull %2, i32 noundef 10) #31
+  %12 = call i64 @strtoll(ptr noundef nonnull %.032, ptr noundef nonnull %2, i32 noundef 10) #30
   %13 = load ptr, ptr %2, align 8
   %.not42 = icmp ne ptr %.032, %13
   %14 = sitofp i64 %12 to double
@@ -11076,20 +11076,20 @@ thread-pre-split:                                 ; preds = %8
   %.031 = phi double [ %.031.ph, %thread-pre-split ], [ 0.000000e+00, %8 ]
   %17 = phi i1 [ %.not42, %thread-pre-split ], [ false, %8 ]
   %18 = icmp eq i8 %16, 46
-  br i1 %18, label %19, label %35
+  br i1 %18, label %19, label %34
 
 19:                                               ; preds = %15
   %20 = getelementptr inbounds i8, ptr %.133, i64 1
   %21 = load i8, ptr %20, align 1
   %22 = add i8 %21, -58
   %23 = icmp ult i8 %22, -10
-  br i1 %23, label %35, label %24
+  br i1 %23, label %34, label %24
 
 24:                                               ; preds = %19
-  %25 = call i64 @strtoll(ptr noundef nonnull %20, ptr noundef nonnull %2, i32 noundef 10) #31
+  %25 = call i64 @strtoll(ptr noundef nonnull %20, ptr noundef nonnull %2, i32 noundef 10) #30
   %26 = load ptr, ptr %2, align 8
   %.not44 = icmp eq ptr %20, %26
-  br i1 %.not44, label %35, label %.thread
+  br i1 %.not44, label %34, label %.thread
 
 .thread:                                          ; preds = %24
   %27 = sitofp i64 %25 to double
@@ -11097,67 +11097,64 @@ thread-pre-split:                                 ; preds = %8
   %29 = ptrtoint ptr %20 to i64
   %30 = sub i64 %28, %29
   %31 = sitofp i64 %30 to double
-  %32 = tail call double @pow(double noundef 1.000000e+01, double noundef %31) #31
-  %33 = fdiv double %27, %32
-  %34 = fadd double %.031, %33
-  br label %36
+  %__exp10 = tail call double @__exp10(double %31) #30
+  %32 = fdiv double %27, %__exp10
+  %33 = fadd double %.031, %32
+  br label %35
 
-35:                                               ; preds = %19, %24, %15
+34:                                               ; preds = %19, %24, %15
   %.234 = phi ptr [ %20, %24 ], [ %20, %19 ], [ %.133, %15 ]
-  br i1 %17, label %36, label %48
+  br i1 %17, label %35, label %46
 
-36:                                               ; preds = %.thread, %35
-  %.150 = phi double [ %34, %.thread ], [ %.031, %35 ]
-  %.23449 = phi ptr [ %26, %.thread ], [ %.234, %35 ]
-  %37 = load i8, ptr %.23449, align 1
-  switch i8 %37, label %46 [
-    i8 101, label %38
-    i8 69, label %38
+35:                                               ; preds = %.thread, %34
+  %.151 = phi double [ %33, %.thread ], [ %.031, %34 ]
+  %.23450 = phi ptr [ %26, %.thread ], [ %.234, %34 ]
+  %36 = load i8, ptr %.23450, align 1
+  switch i8 %36, label %44 [
+    i8 101, label %37
+    i8 69, label %37
   ]
 
-38:                                               ; preds = %36, %36
-  %39 = getelementptr inbounds i8, ptr %.23449, i64 1
-  %40 = call i64 @strtol(ptr noundef nonnull %39, ptr noundef nonnull %2, i32 noundef 10) #31
-  %41 = load ptr, ptr %2, align 8
-  %.not45 = icmp eq ptr %39, %41
-  br i1 %.not45, label %46, label %42
+37:                                               ; preds = %35, %35
+  %38 = getelementptr inbounds i8, ptr %.23450, i64 1
+  %39 = call i64 @strtol(ptr noundef nonnull %38, ptr noundef nonnull %2, i32 noundef 10) #30
+  %40 = load ptr, ptr %2, align 8
+  %.not45 = icmp eq ptr %38, %40
+  br i1 %.not45, label %44, label %41
 
-42:                                               ; preds = %38
-  %43 = sitofp i64 %40 to double
-  %44 = tail call double @pow(double noundef 1.000000e+01, double noundef %43) #31
-  %45 = fmul double %.150, %44
+41:                                               ; preds = %37
+  %42 = sitofp i64 %39 to double
+  %__exp1046 = tail call double @__exp10(double %42) #30
+  %43 = fmul double %.151, %__exp1046
+  br label %44
+
+44:                                               ; preds = %35, %37, %41
+  %.2 = phi double [ %43, %41 ], [ %.151, %37 ], [ %.151, %35 ]
+  %45 = fmul double %.030, %.2
   br label %46
 
-46:                                               ; preds = %36, %38, %42
-  %.2 = phi double [ %45, %42 ], [ %.150, %38 ], [ %.150, %36 ]
-  %47 = fmul double %.030, %.2
-  br label %48
-
-48:                                               ; preds = %35, %46
-  %.035 = phi double [ %47, %46 ], [ 0.000000e+00, %35 ]
+46:                                               ; preds = %34, %44
+  %.035 = phi double [ %45, %44 ], [ 0.000000e+00, %34 ]
   ret double %.035
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.round.f32(float) #21
+declare float @llvm.round.f32(float) #20
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoll(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #22
-
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @pow(double noundef, double noundef) local_unnamed_addr #23
+declare i64 @strtoll(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #21
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #22
+declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #21
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #21
+declare float @llvm.fmuladd.f32(float, float, float) #20
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare float @sqrtf(float noundef) local_unnamed_addr #23
+declare float @sqrtf(float noundef) local_unnamed_addr #22
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fabs.f32(float) #21
+declare float @llvm.fabs.f32(float) #20
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal fastcc noundef ptr @nsvg__parseNumber(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) unnamed_addr #17 {
@@ -11348,13 +11345,13 @@ define internal fastcc noundef ptr @nsvg__parseNumber(ptr noundef readonly %0, p
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare float @cosf(float noundef) local_unnamed_addr #23
+declare float @cosf(float noundef) local_unnamed_addr #22
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare float @sinf(float noundef) local_unnamed_addr #23
+declare float @sinf(float noundef) local_unnamed_addr #22
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare float @tanf(float noundef) local_unnamed_addr #23
+declare float @tanf(float noundef) local_unnamed_addr #22
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define internal fastcc noundef i32 @nsvg__getArgsPerElement(i8 noundef signext %0) unnamed_addr #2 {
@@ -11444,7 +11441,7 @@ define internal fastcc void @nsvg__addPath(ptr nocapture noundef %0, i8 noundef 
   %22 = shl nsw i32 %18, 1
   %23 = sext i32 %22 to i64
   %24 = shl nsw i64 %23, 2
-  %25 = tail call noalias ptr @malloc(i64 noundef %24) #34
+  %25 = tail call noalias ptr @malloc(i64 noundef %24) #33
   store ptr %25, ptr %calloc, align 8
   %26 = icmp eq ptr %25, null
   br i1 %26, label %91, label %27
@@ -11556,7 +11553,7 @@ define internal fastcc void @nsvg__addPath(ptr nocapture noundef %0, i8 noundef 
   br label %92
 
 91:                                               ; preds = %21
-  tail call void @free(ptr noundef nonnull %calloc) #31
+  tail call void @free(ptr noundef nonnull %calloc) #30
   br label %92
 
 92:                                               ; preds = %20, %17, %2, %91, %._crit_edge
@@ -11575,7 +11572,7 @@ define internal fastcc void @nsvg__addShape(ptr nocapture noundef %0) unnamed_ad
   br i1 %8, label %145, label %9
 
 9:                                                ; preds = %1
-  %10 = tail call noalias dereferenceable_or_null(336) ptr @malloc(i64 noundef 336) #34
+  %10 = tail call noalias dereferenceable_or_null(336) ptr @malloc(i64 noundef 336) #33
   %11 = icmp eq ptr %10, null
   br i1 %11, label %145, label %12
 
@@ -11847,7 +11844,7 @@ define internal fastcc void @nsvg__lineTo(ptr nocapture noundef %0, float nounde
   %29 = shl nsw i32 %spec.select.i, 1
   %30 = sext i32 %29 to i64
   %31 = shl nsw i64 %30, 2
-  %32 = tail call ptr @realloc(ptr noundef nonnull %9, i64 noundef %31) #33
+  %32 = tail call ptr @realloc(ptr noundef nonnull %9, i64 noundef %31) #32
   store ptr %32, ptr %8, align 8
   %.not17.i = icmp eq ptr %32, null
   %.pre = load i32, ptr %4, align 8
@@ -11896,7 +11893,7 @@ nsvg__addPoint.exit:                              ; preds = %27, %._crit_edge.i
   %51 = shl nsw i32 %spec.select.i24, 1
   %52 = sext i32 %51 to i64
   %53 = shl nsw i64 %52, 2
-  %54 = tail call ptr @realloc(ptr noundef %50, i64 noundef %53) #33
+  %54 = tail call ptr @realloc(ptr noundef %50, i64 noundef %53) #32
   store ptr %54, ptr %8, align 8
   %.not17.i25 = icmp eq ptr %54, null
   %.pre42 = load i32, ptr %4, align 8
@@ -11940,7 +11937,7 @@ nsvg__addPoint.exit31:                            ; preds = %48, %._crit_edge18.
   %73 = shl nsw i32 %spec.select.i34, 1
   %74 = sext i32 %73 to i64
   %75 = shl nsw i64 %74, 2
-  %76 = tail call ptr @realloc(ptr noundef %72, i64 noundef %75) #33
+  %76 = tail call ptr @realloc(ptr noundef %72, i64 noundef %75) #32
   store ptr %76, ptr %8, align 8
   %.not17.i35 = icmp eq ptr %76, null
   br i1 %.not17.i35, label %nsvg__addPoint.exit41, label %._crit_edge18.i36
@@ -12000,7 +11997,7 @@ define internal fastcc void @nsvg__cubicBezTo(ptr nocapture noundef %0, float no
   %18 = shl nsw i32 %spec.select.i, 1
   %19 = sext i32 %18 to i64
   %20 = shl nsw i64 %19, 2
-  %21 = tail call ptr @realloc(ptr noundef %17, i64 noundef %20) #33
+  %21 = tail call ptr @realloc(ptr noundef %17, i64 noundef %20) #32
   store ptr %21, ptr %16, align 8
   %.not17.i = icmp eq ptr %21, null
   %.pre = load i32, ptr %8, align 8
@@ -12047,7 +12044,7 @@ nsvg__addPoint.exit:                              ; preds = %14, %._crit_edge18.
   %42 = shl nsw i32 %spec.select.i12, 1
   %43 = sext i32 %42 to i64
   %44 = shl nsw i64 %43, 2
-  %45 = tail call ptr @realloc(ptr noundef %41, i64 noundef %44) #33
+  %45 = tail call ptr @realloc(ptr noundef %41, i64 noundef %44) #32
   store ptr %45, ptr %40, align 8
   %.not17.i13 = icmp eq ptr %45, null
   %.pre30 = load i32, ptr %8, align 8
@@ -12094,7 +12091,7 @@ nsvg__addPoint.exit19:                            ; preds = %38, %._crit_edge18.
   %66 = shl nsw i32 %spec.select.i22, 1
   %67 = sext i32 %66 to i64
   %68 = shl nsw i64 %67, 2
-  %69 = tail call ptr @realloc(ptr noundef %65, i64 noundef %68) #33
+  %69 = tail call ptr @realloc(ptr noundef %65, i64 noundef %68) #32
   store ptr %69, ptr %64, align 8
   %.not17.i23 = icmp eq ptr %69, null
   br i1 %.not17.i23, label %nsvg__addPoint.exit29, label %._crit_edge18.i24
@@ -12128,10 +12125,10 @@ nsvg__addPoint.exit29:                            ; preds = %70, %62, %7
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare float @acosf(float noundef) local_unnamed_addr #23
+declare float @acosf(float noundef) local_unnamed_addr #22
 
 ; Function Attrs: nofree nounwind memory(write, argmem: readwrite) uwtable
-define internal fastcc void @nsvg__curveBounds(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #24 {
+define internal fastcc void @nsvg__curveBounds(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #23 {
   %3 = alloca [2 x double], align 16
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = getelementptr inbounds i8, ptr %1, i64 16
@@ -12253,7 +12250,7 @@ nsvg__ptInBounds.exit.thread:                     ; preds = %nsvg__ptInBounds.ex
 
 89:                                               ; preds = %83
   %90 = fneg double %86
-  %91 = tail call double @sqrt(double noundef %87) #31
+  %91 = tail call double @sqrt(double noundef %87) #30
   %92 = extractelement <2 x double> %67, i64 0
   %93 = fsub double %91, %92
   %94 = extractelement <2 x double> %67, i64 1
@@ -12270,7 +12267,7 @@ nsvg__ptInBounds.exit.thread:                     ; preds = %nsvg__ptInBounds.ex
 
 100:                                              ; preds = %99, %89
   %.094 = phi i32 [ 1, %99 ], [ 0, %89 ]
-  %101 = tail call double @sqrt(double noundef %87) #31
+  %101 = tail call double @sqrt(double noundef %87) #30
   %102 = fsub double %90, %101
   %103 = fdiv double %102, %95
   %104 = fcmp ogt double %103, 0x3D719799812DEA11
@@ -12345,19 +12342,19 @@ nsvg__ptInBounds.exit.thread:                     ; preds = %nsvg__ptInBounds.ex
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #21
+declare double @llvm.fmuladd.f64(double, double, double) #20
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #21
+declare double @llvm.fabs.f64(double) #20
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @sqrt(double noundef) local_unnamed_addr #23
+declare double @sqrt(double noundef) local_unnamed_addr #22
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @nsvg__xformInverse(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1) unnamed_addr #25 {
+define internal fastcc void @nsvg__xformInverse(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1) unnamed_addr #24 {
   %3 = load float, ptr %1, align 4
   %4 = fpext float %3 to double
   %5 = getelementptr inbounds i8, ptr %1, i64 12
@@ -12448,7 +12445,7 @@ define internal fastcc void @nsvg__xformInverse(ptr nocapture noundef writeonly 
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define internal fastcc void @nsvg__getLocalBounds(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #26 {
+define internal fastcc void @nsvg__getLocalBounds(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #25 {
   %4 = alloca [8 x float], align 16
   %5 = alloca [4 x float], align 16
   %6 = getelementptr inbounds i8, ptr %1, i64 320
@@ -12613,7 +12610,7 @@ define internal fastcc noalias noundef ptr @nsvg__createGradient(ptr noundef rea
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %13
   %.013.i = phi ptr [ %.0.i, %13 ], [ %.011.i, %.preheader.i ]
-  %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.013.i, ptr noundef nonnull dereferenceable(1) %1) #32
+  %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.013.i, ptr noundef nonnull dereferenceable(1) %1) #31
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %nsvg__findGradientData.exit, label %13
 
@@ -12639,7 +12636,7 @@ nsvg__findGradientData.exit:                      ; preds = %.lr.ph.i, %26
 
 .lr.ph.i136:                                      ; preds = %17, %23
   %.013.i137 = phi ptr [ %.0.i138, %23 ], [ %.011.i, %17 ]
-  %21 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.013.i137, ptr noundef nonnull dereferenceable(1) %18) #32
+  %21 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.013.i137, ptr noundef nonnull dereferenceable(1) %18) #31
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %nsvg__findGradientData.exit141, label %23
 
@@ -12668,7 +12665,7 @@ nsvg__findGradientData.exit141:                   ; preds = %.lr.ph.i136, %23, %
   %34 = sext i32 %33 to i64
   %35 = shl nsw i64 %34, 3
   %36 = add nsw i64 %35, 48
-  %37 = tail call noalias ptr @malloc(i64 noundef %36) #34
+  %37 = tail call noalias ptr @malloc(i64 noundef %36) #33
   %38 = icmp eq ptr %37, null
   br i1 %38, label %nsvg__findGradientData.exit.thread, label %39
 
@@ -13567,7 +13564,7 @@ define internal fastcc void @nsvg__flattenCubicBez(ptr nocapture noundef %0, flo
   %84 = load ptr, ptr %83, align 8
   %85 = zext nneg i32 %spec.select.i to i64
   %86 = shl nuw nsw i64 %85, 5
-  %87 = tail call ptr @realloc(ptr noundef %84, i64 noundef %86) #33
+  %87 = tail call ptr @realloc(ptr noundef %84, i64 noundef %86) #32
   store ptr %87, ptr %83, align 8
   %88 = icmp eq ptr %87, null
   br i1 %88, label %nsvg__addPathPoint.exit, label %._crit_edge30.i
@@ -13637,13 +13634,13 @@ nsvg__addPathPoint.exit:                          ; preds = %tailrecurse, %11, %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.floor.f32(float) #21
+declare float @llvm.floor.f32(float) #20
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.ceil.f32(float) #21
+declare float @llvm.ceil.f32(float) #20
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare float @fmodf(float noundef, float noundef) local_unnamed_addr #23
+declare float @fmodf(float noundef, float noundef) local_unnamed_addr #22
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @nsvg__expandStroke(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, float noundef %6) unnamed_addr #0 {
@@ -13652,7 +13649,7 @@ define internal fastcc void @nsvg__expandStroke(ptr noundef %0, ptr noundef read
   %10 = load float, ptr %9, align 8
   %11 = fadd float %8, %10
   %12 = fdiv float %8, %11
-  %13 = tail call float @acosf(float noundef %12) #31
+  %13 = tail call float @acosf(float noundef %12) #30
   %14 = fmul float %13, 2.000000e+00
   %15 = fdiv float 0x400921FB60000000, %14
   %16 = tail call float @llvm.ceil.f32(float %15)
@@ -13768,7 +13765,7 @@ nsvg__normalize.exit:                             ; preds = %7
   %98 = load ptr, ptr %97, align 8
   %99 = zext nneg i32 %spec.select.i.i to i64
   %100 = shl nuw nsw i64 %99, 5
-  %101 = tail call ptr @realloc(ptr noundef %98, i64 noundef %100) #33
+  %101 = tail call ptr @realloc(ptr noundef %98, i64 noundef %100) #32
   store ptr %101, ptr %97, align 8
   %102 = icmp eq ptr %101, null
   br i1 %102, label %nsvg__buttCap.exit, label %._crit_edge36.i.i
@@ -13832,7 +13829,7 @@ nsvg__normalize.exit:                             ; preds = %7
   %136 = load ptr, ptr %135, align 8
   %137 = zext nneg i32 %spec.select.i.i106 to i64
   %138 = shl nuw nsw i64 %137, 5
-  %139 = tail call ptr @realloc(ptr noundef %136, i64 noundef %138) #33
+  %139 = tail call ptr @realloc(ptr noundef %136, i64 noundef %138) #32
   store ptr %139, ptr %135, align 8
   %140 = icmp eq ptr %139, null
   br i1 %140, label %nsvg__buttCap.exit, label %._crit_edge36.i.i107
@@ -13878,9 +13875,9 @@ nsvg__normalize.exit:                             ; preds = %7
   %165 = sitofp i32 %.07.i to float
   %166 = fdiv float %165, %155
   %167 = fmul float %166, 0x400921FB60000000
-  %168 = tail call float @cosf(float noundef %167) #31
+  %168 = tail call float @cosf(float noundef %167) #30
   %169 = fmul float %8, %168
-  %170 = tail call float @sinf(float noundef %167) #31
+  %170 = tail call float @sinf(float noundef %167) #30
   %171 = fmul float %8, %170
   %172 = insertelement <2 x float> poison, float %169, i64 0
   %173 = shufflevector <2 x float> %172, <2 x float> poison, <2 x i32> zeroinitializer
@@ -13915,7 +13912,7 @@ nsvg__normalize.exit:                             ; preds = %7
   %188 = load ptr, ptr %159, align 8
   %189 = zext nneg i32 %spec.select.i.i119 to i64
   %190 = shl nuw nsw i64 %189, 5
-  %191 = tail call ptr @realloc(ptr noundef %188, i64 noundef %190) #33
+  %191 = tail call ptr @realloc(ptr noundef %188, i64 noundef %190) #32
   store ptr %191, ptr %159, align 8
   %192 = icmp eq ptr %191, null
   br i1 %192, label %nsvg__addEdge.exit.i, label %._crit_edge36.i.i120
@@ -14009,8 +14006,8 @@ nsvg__buttCap.exit:                               ; preds = %207, %.sink.split.i
   %236 = getelementptr inbounds i8, ptr %.1341, i64 8
   %237 = load float, ptr %236, align 4
   %238 = fneg float %237
-  %239 = tail call float @atan2f(float noundef %233, float noundef %.182.val100) #31
-  %240 = tail call float @atan2f(float noundef %238, float noundef %235) #31
+  %239 = tail call float @atan2f(float noundef %233, float noundef %.182.val100) #30
+  %240 = tail call float @atan2f(float noundef %238, float noundef %235) #30
   %241 = fsub float %240, %239
   %242 = fcmp olt float %241, 0x400921FB60000000
   %243 = fadd float %241, 0x401921FB60000000
@@ -14038,8 +14035,8 @@ nsvg__buttCap.exit:                               ; preds = %207, %.sink.split.i
   %258 = sitofp i32 %.05.i to float
   %259 = fdiv float %258, %254
   %260 = tail call float @llvm.fmuladd.f32(float %259, float %.1.i130, float %239)
-  %261 = tail call float @cosf(float noundef %260) #31
-  %262 = tail call float @sinf(float noundef %260) #31
+  %261 = tail call float @cosf(float noundef %260) #30
+  %262 = tail call float @sinf(float noundef %260) #30
   %263 = insertelement <2 x float> poison, float %261, i64 0
   %264 = insertelement <2 x float> %263, float %262, i64 1
   %265 = fmul <2 x float> %221, %264
@@ -14069,7 +14066,7 @@ nsvg__buttCap.exit:                               ; preds = %207, %.sink.split.i
   %278 = load ptr, ptr %219, align 8
   %279 = zext nneg i32 %spec.select.i.i133 to i64
   %280 = shl nuw nsw i64 %279, 5
-  %281 = tail call ptr @realloc(ptr noundef %278, i64 noundef %280) #33
+  %281 = tail call ptr @realloc(ptr noundef %278, i64 noundef %280) #32
   store ptr %281, ptr %219, align 8
   %282 = icmp eq ptr %281, null
   br i1 %282, label %nsvg__addEdge.exit.i142, label %._crit_edge36.i.i134
@@ -14122,7 +14119,7 @@ nsvg__addEdge.exit.i142:                          ; preds = %.sink.split.i.i136,
   %304 = load ptr, ptr %219, align 8
   %305 = zext nneg i32 %spec.select.i76.i to i64
   %306 = shl nuw nsw i64 %305, 5
-  %307 = tail call ptr @realloc(ptr noundef %304, i64 noundef %306) #33
+  %307 = tail call ptr @realloc(ptr noundef %304, i64 noundef %306) #32
   store ptr %307, ptr %219, align 8
   %308 = icmp eq ptr %307, null
   br i1 %308, label %nsvg__addEdge.exit88.i, label %._crit_edge36.i77.i
@@ -14210,7 +14207,7 @@ nsvg__addEdge.exit88.i:                           ; preds = %.sink.split.i79.i, 
   %357 = load ptr, ptr %219, align 8
   %358 = zext nneg i32 %spec.select.i.i147 to i64
   %359 = shl nuw nsw i64 %358, 5
-  %360 = tail call ptr @realloc(ptr noundef %357, i64 noundef %359) #33
+  %360 = tail call ptr @realloc(ptr noundef %357, i64 noundef %359) #32
   store ptr %360, ptr %219, align 8
   %361 = icmp eq ptr %360, null
   br i1 %361, label %nsvg__addEdge.exit.i156, label %._crit_edge36.i.i148
@@ -14261,7 +14258,7 @@ nsvg__addEdge.exit.i156:                          ; preds = %.sink.split.i.i150,
   %382 = load ptr, ptr %219, align 8
   %383 = zext nneg i32 %spec.select.i58.i to i64
   %384 = shl nuw nsw i64 %383, 5
-  %385 = tail call ptr @realloc(ptr noundef %382, i64 noundef %384) #33
+  %385 = tail call ptr @realloc(ptr noundef %382, i64 noundef %384) #32
   store ptr %385, ptr %219, align 8
   %386 = icmp eq ptr %385, null
   br i1 %386, label %nsvg__addEdge.exit70.i, label %._crit_edge36.i59.i
@@ -14314,7 +14311,7 @@ nsvg__addEdge.exit70.i:                           ; preds = %.sink.split.i61.i, 
   %408 = load ptr, ptr %219, align 8
   %409 = zext nneg i32 %spec.select.i72.i to i64
   %410 = shl nuw nsw i64 %409, 5
-  %411 = tail call ptr @realloc(ptr noundef %408, i64 noundef %410) #33
+  %411 = tail call ptr @realloc(ptr noundef %408, i64 noundef %410) #32
   store ptr %411, ptr %219, align 8
   %412 = icmp eq ptr %411, null
   br i1 %412, label %nsvg__addEdge.exit84.i, label %._crit_edge36.i73.i
@@ -14365,7 +14362,7 @@ nsvg__addEdge.exit84.i:                           ; preds = %.sink.split.i75.i, 
   %433 = load ptr, ptr %219, align 8
   %434 = zext nneg i32 %spec.select.i86.i to i64
   %435 = shl nuw nsw i64 %434, 5
-  %436 = tail call ptr @realloc(ptr noundef %433, i64 noundef %435) #33
+  %436 = tail call ptr @realloc(ptr noundef %433, i64 noundef %435) #32
   store ptr %436, ptr %219, align 8
   %437 = icmp eq ptr %436, null
   br i1 %437, label %nsvg__roundJoin.exit, label %._crit_edge36.i87.i
@@ -14438,7 +14435,7 @@ nsvg__addEdge.exit84.i:                           ; preds = %.sink.split.i75.i, 
   %475 = load ptr, ptr %219, align 8
   %476 = zext nneg i32 %spec.select.i.i161 to i64
   %477 = shl nuw nsw i64 %476, 5
-  %478 = tail call ptr @realloc(ptr noundef %475, i64 noundef %477) #33
+  %478 = tail call ptr @realloc(ptr noundef %475, i64 noundef %477) #32
   store ptr %478, ptr %219, align 8
   %479 = icmp eq ptr %478, null
   br i1 %479, label %nsvg__addEdge.exit.i170, label %._crit_edge36.i.i162
@@ -14497,7 +14494,7 @@ nsvg__addEdge.exit.i170:                          ; preds = %.sink.split.i.i164,
   %508 = load ptr, ptr %219, align 8
   %509 = zext nneg i32 %spec.select.i84.i to i64
   %510 = shl nuw nsw i64 %509, 5
-  %511 = tail call ptr @realloc(ptr noundef %508, i64 noundef %510) #33
+  %511 = tail call ptr @realloc(ptr noundef %508, i64 noundef %510) #32
   store ptr %511, ptr %219, align 8
   %512 = icmp eq ptr %511, null
   br i1 %512, label %nsvg__addEdge.exit96.i, label %._crit_edge36.i85.i
@@ -14548,7 +14545,7 @@ nsvg__addEdge.exit96.i:                           ; preds = %.sink.split.i87.i, 
   %533 = load ptr, ptr %219, align 8
   %534 = zext nneg i32 %spec.select.i98.i to i64
   %535 = shl nuw nsw i64 %534, 5
-  %536 = tail call ptr @realloc(ptr noundef %533, i64 noundef %535) #33
+  %536 = tail call ptr @realloc(ptr noundef %533, i64 noundef %535) #32
   store ptr %536, ptr %219, align 8
   %537 = icmp eq ptr %536, null
   br i1 %537, label %nsvg__roundJoin.exit, label %._crit_edge36.i99.i
@@ -14610,7 +14607,7 @@ nsvg__addEdge.exit96.i:                           ; preds = %.sink.split.i87.i, 
   %569 = load ptr, ptr %219, align 8
   %570 = zext nneg i32 %spec.select.i112.i to i64
   %571 = shl nuw nsw i64 %570, 5
-  %572 = tail call ptr @realloc(ptr noundef %569, i64 noundef %571) #33
+  %572 = tail call ptr @realloc(ptr noundef %569, i64 noundef %571) #32
   store ptr %572, ptr %219, align 8
   %573 = icmp eq ptr %572, null
   br i1 %573, label %nsvg__addEdge.exit124.i, label %._crit_edge36.i113.i
@@ -14661,7 +14658,7 @@ nsvg__addEdge.exit124.i:                          ; preds = %.sink.split.i115.i,
   %594 = load ptr, ptr %219, align 8
   %595 = zext nneg i32 %spec.select.i126.i to i64
   %596 = shl nuw nsw i64 %595, 5
-  %597 = tail call ptr @realloc(ptr noundef %594, i64 noundef %596) #33
+  %597 = tail call ptr @realloc(ptr noundef %594, i64 noundef %596) #32
   store ptr %597, ptr %219, align 8
   %598 = icmp eq ptr %597, null
   br i1 %598, label %nsvg__addEdge.exit138.i, label %._crit_edge36.i127.i
@@ -14718,7 +14715,7 @@ nsvg__addEdge.exit138.i:                          ; preds = %.sink.split.i129.i,
   %624 = load ptr, ptr %219, align 8
   %625 = zext nneg i32 %spec.select.i140.i to i64
   %626 = shl nuw nsw i64 %625, 5
-  %627 = tail call ptr @realloc(ptr noundef %624, i64 noundef %626) #33
+  %627 = tail call ptr @realloc(ptr noundef %624, i64 noundef %626) #32
   store ptr %627, ptr %219, align 8
   %628 = icmp eq ptr %627, null
   br i1 %628, label %nsvg__roundJoin.exit, label %._crit_edge36.i141.i
@@ -14776,7 +14773,7 @@ nsvg__addEdge.exit138.i:                          ; preds = %.sink.split.i129.i,
   %657 = load ptr, ptr %219, align 8
   %658 = zext nneg i32 %spec.select.i.i176 to i64
   %659 = shl nuw nsw i64 %658, 5
-  %660 = tail call ptr @realloc(ptr noundef %657, i64 noundef %659) #33
+  %660 = tail call ptr @realloc(ptr noundef %657, i64 noundef %659) #32
   store ptr %660, ptr %219, align 8
   %661 = icmp eq ptr %660, null
   br i1 %661, label %nsvg__addEdge.exit.i185, label %._crit_edge36.i.i177
@@ -14829,7 +14826,7 @@ nsvg__addEdge.exit.i185:                          ; preds = %.sink.split.i.i179,
   %683 = load ptr, ptr %219, align 8
   %684 = zext nneg i32 %spec.select.i32.i to i64
   %685 = shl nuw nsw i64 %684, 5
-  %686 = tail call ptr @realloc(ptr noundef %683, i64 noundef %685) #33
+  %686 = tail call ptr @realloc(ptr noundef %683, i64 noundef %685) #32
   store ptr %686, ptr %219, align 8
   %687 = icmp eq ptr %686, null
   br i1 %687, label %nsvg__roundJoin.exit, label %._crit_edge36.i33.i
@@ -14901,7 +14898,7 @@ nsvg__roundJoin.exit:                             ; preds = %nsvg__addEdge.exit8
   %719 = load ptr, ptr %718, align 8
   %720 = zext nneg i32 %spec.select.i to i64
   %721 = shl nuw nsw i64 %720, 5
-  %722 = tail call ptr @realloc(ptr noundef %719, i64 noundef %721) #33
+  %722 = tail call ptr @realloc(ptr noundef %719, i64 noundef %721) #32
   store ptr %722, ptr %718, align 8
   %723 = icmp eq ptr %722, null
   br i1 %723, label %nsvg__addEdge.exit, label %._crit_edge36.i
@@ -14958,7 +14955,7 @@ nsvg__addEdge.exit:                               ; preds = %706, %715, %.sink.s
   %748 = load ptr, ptr %747, align 8
   %749 = zext nneg i32 %spec.select.i191 to i64
   %750 = shl nuw nsw i64 %749, 5
-  %751 = tail call ptr @realloc(ptr noundef %748, i64 noundef %750) #33
+  %751 = tail call ptr @realloc(ptr noundef %748, i64 noundef %750) #32
   store ptr %751, ptr %747, align 8
   %752 = icmp eq ptr %751, null
   br i1 %752, label %nsvg__addEdge.exit203, label %._crit_edge36.i192
@@ -15050,7 +15047,7 @@ nsvg__normalize.exit205:                          ; preds = %._crit_edge
   %805 = load ptr, ptr %804, align 8
   %806 = zext nneg i32 %spec.select.i.i207 to i64
   %807 = shl nuw nsw i64 %806, 5
-  %808 = tail call ptr @realloc(ptr noundef %805, i64 noundef %807) #33
+  %808 = tail call ptr @realloc(ptr noundef %805, i64 noundef %807) #32
   store ptr %808, ptr %804, align 8
   %809 = icmp eq ptr %808, null
   br i1 %809, label %nsvg__addEdge.exit.i216, label %._crit_edge36.i.i208
@@ -15105,7 +15102,7 @@ nsvg__addEdge.exit.i216:                          ; preds = %.sink.split.i.i210,
   %833 = load ptr, ptr %832, align 8
   %834 = zext nneg i32 %spec.select.i41.i to i64
   %835 = shl nuw nsw i64 %834, 5
-  %836 = tail call ptr @realloc(ptr noundef %833, i64 noundef %835) #33
+  %836 = tail call ptr @realloc(ptr noundef %833, i64 noundef %835) #32
   store ptr %836, ptr %832, align 8
   %837 = icmp eq ptr %836, null
   br i1 %837, label %nsvg__addEdge.exit53.i, label %._crit_edge36.i42.i
@@ -15161,7 +15158,7 @@ nsvg__addEdge.exit53.i:                           ; preds = %.sink.split.i44.i, 
   %862 = load ptr, ptr %861, align 8
   %863 = zext nneg i32 %spec.select.i55.i to i64
   %864 = shl nuw nsw i64 %863, 5
-  %865 = tail call ptr @realloc(ptr noundef %862, i64 noundef %864) #33
+  %865 = tail call ptr @realloc(ptr noundef %862, i64 noundef %864) #32
   store ptr %865, ptr %861, align 8
   %866 = icmp eq ptr %865, null
   br i1 %866, label %nsvg__addEdge.exit203, label %._crit_edge36.i56.i
@@ -15230,7 +15227,7 @@ nsvg__addEdge.exit53.i:                           ; preds = %.sink.split.i44.i, 
   %905 = load ptr, ptr %904, align 8
   %906 = zext nneg i32 %spec.select.i.i222 to i64
   %907 = shl nuw nsw i64 %906, 5
-  %908 = tail call ptr @realloc(ptr noundef %905, i64 noundef %907) #33
+  %908 = tail call ptr @realloc(ptr noundef %905, i64 noundef %907) #32
   store ptr %908, ptr %904, align 8
   %909 = icmp eq ptr %908, null
   br i1 %909, label %nsvg__addEdge.exit.i231, label %._crit_edge36.i.i223
@@ -15285,7 +15282,7 @@ nsvg__addEdge.exit.i231:                          ; preds = %.sink.split.i.i225,
   %933 = load ptr, ptr %932, align 8
   %934 = zext nneg i32 %spec.select.i45.i to i64
   %935 = shl nuw nsw i64 %934, 5
-  %936 = tail call ptr @realloc(ptr noundef %933, i64 noundef %935) #33
+  %936 = tail call ptr @realloc(ptr noundef %933, i64 noundef %935) #32
   store ptr %936, ptr %932, align 8
   %937 = icmp eq ptr %936, null
   br i1 %937, label %nsvg__addEdge.exit57.i, label %._crit_edge36.i46.i
@@ -15341,7 +15338,7 @@ nsvg__addEdge.exit57.i:                           ; preds = %.sink.split.i48.i, 
   %961 = load ptr, ptr %960, align 8
   %962 = zext nneg i32 %spec.select.i59.i to i64
   %963 = shl nuw nsw i64 %962, 5
-  %964 = tail call ptr @realloc(ptr noundef %961, i64 noundef %963) #33
+  %964 = tail call ptr @realloc(ptr noundef %961, i64 noundef %963) #32
   store ptr %964, ptr %960, align 8
   %965 = icmp eq ptr %964, null
   br i1 %965, label %nsvg__addEdge.exit203, label %._crit_edge36.i60.i
@@ -15390,9 +15387,9 @@ nsvg__addEdge.exit57.i:                           ; preds = %.sink.split.i48.i, 
   %992 = sitofp i32 %.07.i236 to float
   %993 = fdiv float %992, %982
   %994 = fmul float %993, 0x400921FB60000000
-  %995 = tail call float @cosf(float noundef %994) #31
+  %995 = tail call float @cosf(float noundef %994) #30
   %996 = fmul float %8, %995
-  %997 = tail call float @sinf(float noundef %994) #31
+  %997 = tail call float @sinf(float noundef %994) #30
   %998 = fmul float %8, %997
   %999 = insertelement <2 x float> poison, float %996, i64 0
   %1000 = shufflevector <2 x float> %999, <2 x float> poison, <2 x i32> zeroinitializer
@@ -15427,7 +15424,7 @@ nsvg__addEdge.exit57.i:                           ; preds = %.sink.split.i48.i, 
   %1015 = load ptr, ptr %985, align 8
   %1016 = zext nneg i32 %spec.select.i.i245 to i64
   %1017 = shl nuw nsw i64 %1016, 5
-  %1018 = tail call ptr @realloc(ptr noundef %1015, i64 noundef %1017) #33
+  %1018 = tail call ptr @realloc(ptr noundef %1015, i64 noundef %1017) #32
   store ptr %1018, ptr %985, align 8
   %1019 = icmp eq ptr %1018, null
   br i1 %1019, label %nsvg__addEdge.exit.i254, label %._crit_edge36.i.i246
@@ -15494,7 +15491,7 @@ nsvg__addEdge.exit.i254:                          ; preds = %.sink.split.i.i248,
   %1047 = load ptr, ptr %985, align 8
   %1048 = zext nneg i32 %spec.select.i69.i to i64
   %1049 = shl nuw nsw i64 %1048, 5
-  %1050 = tail call ptr @realloc(ptr noundef %1047, i64 noundef %1049) #33
+  %1050 = tail call ptr @realloc(ptr noundef %1047, i64 noundef %1049) #32
   store ptr %1050, ptr %985, align 8
   %1051 = icmp eq ptr %1050, null
   br i1 %1051, label %nsvg__addEdge.exit81.i, label %._crit_edge36.i70.i
@@ -15547,7 +15544,7 @@ nsvg__addEdge.exit81.i:                           ; preds = %.sink.split.i72.i, 
   %1073 = load ptr, ptr %985, align 8
   %1074 = zext nneg i32 %spec.select.i83.i to i64
   %1075 = shl nuw nsw i64 %1074, 5
-  %1076 = tail call ptr @realloc(ptr noundef %1073, i64 noundef %1075) #33
+  %1076 = tail call ptr @realloc(ptr noundef %1073, i64 noundef %1075) #32
   store ptr %1076, ptr %985, align 8
   %1077 = icmp eq ptr %1076, null
   br i1 %1077, label %nsvg__addEdge.exit203, label %._crit_edge36.i84.i
@@ -15581,43 +15578,45 @@ nsvg__addEdge.exit203:                            ; preds = %.sink.split.i86.i, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare float @atan2f(float noundef, float noundef) local_unnamed_addr #23
+declare float @atan2f(float noundef, float noundef) local_unnamed_addr #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #27
+declare i32 @llvm.smin.i32(i32, i32) #26
+
+declare double @__exp10(double) local_unnamed_addr
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #27
+declare i32 @llvm.smax.i32(i32, i32) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #28
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #28
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #27
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #29
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #28
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.sqrt.f32(float) #27
+declare float @llvm.sqrt.f32(float) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #30
+declare void @llvm.assume(i1 noundef) #29
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x float> @llvm.fmuladd.v2f32(<2 x float>, <2 x float>, <2 x float>) #27
+declare <2 x float> @llvm.fmuladd.v2f32(<2 x float>, <2 x float>, <2 x float>) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <4 x float> @llvm.fmuladd.v4f32(<4 x float>, <4 x float>, <4 x float>) #27
+declare <4 x float> @llvm.fmuladd.v4f32(<4 x float>, <4 x float>, <4 x float>) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x float> @llvm.sqrt.v2f32(<2 x float>) #27
+declare <2 x float> @llvm.sqrt.v2f32(<2 x float>) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x float> @llvm.round.v2f32(<2 x float>) #27
+declare <2 x float> @llvm.round.v2f32(<2 x float>) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x double> @llvm.fmuladd.v2f64(<2 x double>, <2 x double>, <2 x double>) #27
+declare <2 x double> @llvm.fmuladd.v2f64(<2 x double>, <2 x double>, <2 x double>) #26
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -15639,21 +15638,20 @@ attributes #16 = { mustprogress nofree nounwind willreturn memory(argmem: readwr
 attributes #17 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { mustprogress nofree nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #19 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nofree nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #22 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #23 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #24 = { nofree nounwind memory(write, argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #25 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #26 = { nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #27 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #28 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #29 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
-attributes #30 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #31 = { nounwind }
-attributes #32 = { nounwind willreturn memory(read) }
-attributes #33 = { nounwind allocsize(1) }
-attributes #34 = { nounwind allocsize(0) }
+attributes #20 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #21 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #23 = { nofree nounwind memory(write, argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #24 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #25 = { nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #26 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #27 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #28 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
+attributes #29 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #30 = { nounwind }
+attributes #31 = { nounwind willreturn memory(read) }
+attributes #32 = { nounwind allocsize(1) }
+attributes #33 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

@@ -349,7 +349,7 @@ if.else.i:                                        ; preds = %cond.true
 if.then2.i:                                       ; preds = %if.else.i
   %sub.i = fadd float %3, 0xBFEAAF0400000000
   %div3.i = fdiv float %sub.i, 0x3FE19999A0000000
-  %call.i.i = tail call noundef float @powf(float noundef 1.000000e+01, float noundef %div3.i) #17
+  %__exp10f.i = tail call float @__exp10f(float %div3.i) #17
   br label %cond.end
 
 if.else4.i:                                       ; preds = %if.else.i
@@ -357,7 +357,7 @@ if.else4.i:                                       ; preds = %if.else.i
   br label %cond.end
 
 cond.end:                                         ; preds = %if.else4.i, %if.then2.i, %if.then.i, %entry
-  %cond = phi float [ %3, %entry ], [ %div.i, %if.then.i ], [ %call.i.i, %if.then2.i ], [ %square.i, %if.else4.i ]
+  %cond = phi float [ %3, %entry ], [ %div.i, %if.then.i ], [ %__exp10f.i, %if.then2.i ], [ %square.i, %if.else4.i ]
   ret float %cond
 }
 
@@ -638,17 +638,17 @@ arraydestroy.body13:                              ; preds = %arraydestroy.body13
 
 ehcleanup18:                                      ; preds = %arraydestroy.body13, %lpad6
   %.pn = phi { ptr, i32 } [ %8, %lpad6 ], [ %5, %arraydestroy.body13 ]
-  %cleanup.isactive.0 = phi i1 [ false, %lpad6 ], [ true, %arraydestroy.body13 ]
+  %9 = phi i1 [ false, %lpad6 ], [ true, %arraydestroy.body13 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #17
-  br i1 %cleanup.isactive.0, label %ehcleanup29, label %arraydestroy.body20.preheader
+  br i1 %9, label %ehcleanup29, label %arraydestroy.body20.preheader
 
 arraydestroy.body20.preheader:                    ; preds = %ehcleanup18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #17
   br label %ehcleanup29
 
 lpad25:                                           ; preds = %arraydestroy.done11
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
   %m_colorPicker = getelementptr inbounds i8, ptr %this, i64 112
   call void @_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev14ColorSpaceInfoEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_colorPicker) #17
@@ -656,7 +656,7 @@ lpad25:                                           ; preds = %arraydestroy.done11
   br label %ehcleanup29
 
 ehcleanup29:                                      ; preds = %arraydestroy.body20.preheader, %ehcleanup18.thread, %ehcleanup18, %lpad25
-  %.pn3 = phi { ptr, i32 } [ %9, %lpad25 ], [ %.pn, %ehcleanup18 ], [ %7, %ehcleanup18.thread ], [ %.pn, %arraydestroy.body20.preheader ]
+  %.pn3 = phi { ptr, i32 } [ %10, %lpad25 ], [ %.pn, %ehcleanup18 ], [ %7, %ehcleanup18.thread ], [ %.pn, %arraydestroy.body20.preheader ]
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_mixingSpaces) #17
   call void @_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6ConfigEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_config) #17
   resume { ptr, i32 } %.pn3
@@ -3690,7 +3690,7 @@ dynamic_cast.end:                                 ; preds = %entry
   ret ptr %os
 }
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #12
 
 declare void @__cxa_bad_cast() local_unnamed_addr
@@ -4187,6 +4187,8 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 ; Function Attrs: nounwind
 declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #9
 
+declare float @__exp10f(float) local_unnamed_addr
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #16
 
@@ -4205,7 +4207,7 @@ attributes #8 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="t
 attributes #9 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nofree nounwind memory(read) }
+attributes #12 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #13 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

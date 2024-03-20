@@ -52,234 +52,234 @@ target triple = "x86_64-pc-linux-gnu"
 define double @_php_math_round(double noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [40 x i8], align 16
   %or.cond = tail call i1 @llvm.is.fpclass.f64(double %0, i32 615)
-  br i1 %or.cond, label %136, label %5
+  br i1 %or.cond, label %135, label %5
 
 5:                                                ; preds = %3
   %6 = tail call i32 @llvm.smax.i32(i32 %1, i32 -2147483647)
   %7 = tail call i32 @llvm.abs.i32(i32 %6, i1 true)
   %8 = icmp ugt i32 %7, 22
-  br i1 %8, label %9, label %12
+  br i1 %8, label %9, label %11
 
 9:                                                ; preds = %5
   %10 = sitofp i32 %7 to double
-  %11 = tail call double @pow(double noundef 1.000000e+01, double noundef %10) #15
+  %__exp10.i = tail call double @__exp10(double %10) #15
   br label %php_intpow10.exit
 
-12:                                               ; preds = %5
-  %13 = zext nneg i32 %7 to i64
-  %14 = getelementptr inbounds [23 x double], ptr @php_intpow10.powers, i64 0, i64 %13
-  %15 = load double, ptr %14, align 8
+11:                                               ; preds = %5
+  %12 = zext nneg i32 %7 to i64
+  %13 = getelementptr inbounds [23 x double], ptr @php_intpow10.powers, i64 0, i64 %12
+  %14 = load double, ptr %13, align 8
   br label %php_intpow10.exit
 
-php_intpow10.exit:                                ; preds = %9, %12
-  %.0.i = phi double [ %11, %9 ], [ %15, %12 ]
-  %16 = tail call i32 @fegetround() #16
-  %17 = fcmp ult double %0, 0.000000e+00
-  %18 = icmp sgt i32 %1, 0
-  %19 = fmul double %.0.i, %0
-  %20 = fdiv double %0, %.0.i
-  %21 = select i1 %18, double %19, double %20
-  br i1 %17, label %25, label %22
+php_intpow10.exit:                                ; preds = %9, %11
+  %.0.i = phi double [ %__exp10.i, %9 ], [ %14, %11 ]
+  %15 = tail call i32 @fegetround() #16
+  %16 = fcmp ult double %0, 0.000000e+00
+  %17 = icmp sgt i32 %1, 0
+  %18 = fmul double %.0.i, %0
+  %19 = fdiv double %0, %.0.i
+  %20 = select i1 %17, double %18, double %19
+  br i1 %16, label %24, label %21
 
-22:                                               ; preds = %php_intpow10.exit
-  %23 = tail call i32 @fesetround(i32 noundef 2048) #15
-  %24 = tail call double @llvm.floor.f64(double %21)
-  br label %28
+21:                                               ; preds = %php_intpow10.exit
+  %22 = tail call i32 @fesetround(i32 noundef 2048) #15
+  %23 = tail call double @llvm.floor.f64(double %20)
+  br label %27
 
-25:                                               ; preds = %php_intpow10.exit
-  %26 = tail call i32 @fesetround(i32 noundef 1024) #15
-  %27 = tail call double @llvm.ceil.f64(double %21)
-  br label %28
+24:                                               ; preds = %php_intpow10.exit
+  %25 = tail call i32 @fesetround(i32 noundef 1024) #15
+  %26 = tail call double @llvm.ceil.f64(double %20)
+  br label %27
 
-28:                                               ; preds = %25, %22
-  %.038 = phi double [ %24, %22 ], [ %27, %25 ]
-  %29 = tail call i32 @fesetround(i32 noundef %16) #15
-  %30 = tail call double @llvm.fabs.f64(double %.038)
-  %31 = fcmp ult double %30, 1.000000e+16
-  br i1 %31, label %32, label %136
+27:                                               ; preds = %24, %21
+  %.038 = phi double [ %23, %21 ], [ %26, %24 ]
+  %28 = tail call i32 @fesetround(i32 noundef %15) #15
+  %29 = tail call double @llvm.fabs.f64(double %.038)
+  %30 = fcmp ult double %29, 1.000000e+16
+  br i1 %30, label %31, label %135
 
-32:                                               ; preds = %28
-  %33 = tail call double @llvm.fabs.f64(double %0)
-  switch i32 %2, label %121 [
-    i32 1, label %34
-    i32 2, label %45
-    i32 5, label %56
-    i32 6, label %65
+31:                                               ; preds = %27
+  %32 = tail call double @llvm.fabs.f64(double %0)
+  switch i32 %2, label %120 [
+    i32 1, label %33
+    i32 2, label %44
+    i32 5, label %55
+    i32 6, label %64
     i32 7, label %php_round_helper.exit
-    i32 8, label %74
-    i32 3, label %83
-    i32 4, label %102
+    i32 8, label %73
+    i32 3, label %82
+    i32 4, label %101
   ]
 
-34:                                               ; preds = %32
-  %35 = icmp sgt i32 %1, 0
-  %36 = tail call double @llvm.copysign.f64(double 5.000000e-01, double %.038)
-  %37 = fadd double %.038, %36
-  %38 = fmul double %.0.i, %37
-  %39 = fdiv double %37, %.0.i
-  %.sink.i = select i1 %35, double %39, double %38
-  %40 = tail call double @llvm.fabs.f64(double %.sink.i)
-  %41 = fcmp ult double %33, %40
-  br i1 %41, label %php_round_helper.exit, label %42
+33:                                               ; preds = %31
+  %34 = icmp sgt i32 %1, 0
+  %35 = tail call double @llvm.copysign.f64(double 5.000000e-01, double %.038)
+  %36 = fadd double %.038, %35
+  %37 = fmul double %.0.i, %36
+  %38 = fdiv double %36, %.0.i
+  %.sink.i = select i1 %34, double %38, double %37
+  %39 = tail call double @llvm.fabs.f64(double %.sink.i)
+  %40 = fcmp ult double %32, %39
+  br i1 %40, label %php_round_helper.exit, label %41
 
-42:                                               ; preds = %34
-  %43 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %.038)
-  %44 = fadd double %.038, %43
+41:                                               ; preds = %33
+  %42 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %.038)
+  %43 = fadd double %.038, %42
   br label %php_round_helper.exit
 
-45:                                               ; preds = %32
-  %46 = icmp sgt i32 %1, 0
-  %47 = tail call double @llvm.copysign.f64(double 5.000000e-01, double %.038)
-  %48 = fadd double %.038, %47
-  %49 = fmul double %.0.i, %48
-  %50 = fdiv double %48, %.0.i
-  %.sink118.i = select i1 %46, double %50, double %49
-  %51 = tail call double @llvm.fabs.f64(double %.sink118.i)
-  %52 = fcmp ogt double %33, %51
-  br i1 %52, label %53, label %php_round_helper.exit
+44:                                               ; preds = %31
+  %45 = icmp sgt i32 %1, 0
+  %46 = tail call double @llvm.copysign.f64(double 5.000000e-01, double %.038)
+  %47 = fadd double %.038, %46
+  %48 = fmul double %.0.i, %47
+  %49 = fdiv double %47, %.0.i
+  %.sink118.i = select i1 %45, double %49, double %48
+  %50 = tail call double @llvm.fabs.f64(double %.sink118.i)
+  %51 = fcmp ogt double %32, %50
+  br i1 %51, label %52, label %php_round_helper.exit
 
-53:                                               ; preds = %45
-  %54 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %.038)
-  %55 = fadd double %.038, %54
+52:                                               ; preds = %44
+  %53 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %.038)
+  %54 = fadd double %.038, %53
   br label %php_round_helper.exit
 
-56:                                               ; preds = %32
-  %57 = icmp sgt i32 %1, 0
-  %58 = fmul double %.0.i, %.038
-  %59 = fdiv double %.038, %.0.i
-  %.sink119.i = select i1 %57, double %59, double %58
-  %60 = tail call double @llvm.fabs.f64(double %.sink119.i)
-  %61 = fcmp ogt double %0, 0.000000e+00
-  %62 = fcmp ogt double %33, %60
-  %or.cond.i = and i1 %61, %62
-  br i1 %or.cond.i, label %63, label %php_round_helper.exit
+55:                                               ; preds = %31
+  %56 = icmp sgt i32 %1, 0
+  %57 = fmul double %.0.i, %.038
+  %58 = fdiv double %.038, %.0.i
+  %.sink119.i = select i1 %56, double %58, double %57
+  %59 = tail call double @llvm.fabs.f64(double %.sink119.i)
+  %60 = fcmp ogt double %0, 0.000000e+00
+  %61 = fcmp ogt double %32, %59
+  %or.cond.i = and i1 %60, %61
+  br i1 %or.cond.i, label %62, label %php_round_helper.exit
 
-63:                                               ; preds = %56
-  %64 = fadd double %.038, 1.000000e+00
+62:                                               ; preds = %55
+  %63 = fadd double %.038, 1.000000e+00
   br label %php_round_helper.exit
 
-65:                                               ; preds = %32
-  %66 = icmp sgt i32 %1, 0
-  %67 = fmul double %.0.i, %.038
-  %68 = fdiv double %.038, %.0.i
-  %.sink120.i = select i1 %66, double %68, double %67
-  %69 = tail call double @llvm.fabs.f64(double %.sink120.i)
-  %70 = fcmp olt double %0, 0.000000e+00
-  %71 = fcmp ogt double %33, %69
-  %or.cond117.i = and i1 %70, %71
-  br i1 %or.cond117.i, label %72, label %php_round_helper.exit
+64:                                               ; preds = %31
+  %65 = icmp sgt i32 %1, 0
+  %66 = fmul double %.0.i, %.038
+  %67 = fdiv double %.038, %.0.i
+  %.sink120.i = select i1 %65, double %67, double %66
+  %68 = tail call double @llvm.fabs.f64(double %.sink120.i)
+  %69 = fcmp olt double %0, 0.000000e+00
+  %70 = fcmp ogt double %32, %68
+  %or.cond117.i = and i1 %69, %70
+  br i1 %or.cond117.i, label %71, label %php_round_helper.exit
 
-72:                                               ; preds = %65
-  %73 = fadd double %.038, -1.000000e+00
+71:                                               ; preds = %64
+  %72 = fadd double %.038, -1.000000e+00
   br label %php_round_helper.exit
 
-74:                                               ; preds = %32
-  %75 = icmp sgt i32 %1, 0
-  %76 = fmul double %.0.i, %.038
-  %77 = fdiv double %.038, %.0.i
-  %.sink121.i = select i1 %75, double %77, double %76
-  %78 = tail call double @llvm.fabs.f64(double %.sink121.i)
-  %79 = fcmp ogt double %33, %78
-  br i1 %79, label %80, label %php_round_helper.exit
+73:                                               ; preds = %31
+  %74 = icmp sgt i32 %1, 0
+  %75 = fmul double %.0.i, %.038
+  %76 = fdiv double %.038, %.0.i
+  %.sink121.i = select i1 %74, double %76, double %75
+  %77 = tail call double @llvm.fabs.f64(double %.sink121.i)
+  %78 = fcmp ogt double %32, %77
+  br i1 %78, label %79, label %php_round_helper.exit
 
-80:                                               ; preds = %74
-  %81 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %.038)
-  %82 = fadd double %.038, %81
+79:                                               ; preds = %73
+  %80 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %.038)
+  %81 = fadd double %.038, %80
   br label %php_round_helper.exit
 
-83:                                               ; preds = %32
-  %84 = icmp sgt i32 %1, 0
-  %85 = tail call double @llvm.copysign.f64(double 5.000000e-01, double %.038)
-  %86 = fadd double %.038, %85
-  %87 = fmul double %.0.i, %86
-  %88 = fdiv double %86, %.0.i
-  %.sink122.i = select i1 %84, double %88, double %87
-  %89 = tail call double @llvm.fabs.f64(double %.sink122.i)
-  %90 = fcmp ogt double %33, %89
-  br i1 %90, label %91, label %94
+82:                                               ; preds = %31
+  %83 = icmp sgt i32 %1, 0
+  %84 = tail call double @llvm.copysign.f64(double 5.000000e-01, double %.038)
+  %85 = fadd double %.038, %84
+  %86 = fmul double %.0.i, %85
+  %87 = fdiv double %85, %.0.i
+  %.sink122.i = select i1 %83, double %87, double %86
+  %88 = tail call double @llvm.fabs.f64(double %.sink122.i)
+  %89 = fcmp ogt double %32, %88
+  br i1 %89, label %90, label %93
 
-91:                                               ; preds = %83
-  %92 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %.038)
-  %93 = fadd double %.038, %92
+90:                                               ; preds = %82
+  %91 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %.038)
+  %92 = fadd double %.038, %91
   br label %php_round_helper.exit
 
-94:                                               ; preds = %83
-  %95 = fcmp oeq double %33, %89
-  br i1 %95, label %96, label %php_round_helper.exit
+93:                                               ; preds = %82
+  %94 = fcmp oeq double %32, %88
+  br i1 %94, label %95, label %php_round_helper.exit
 
-96:                                               ; preds = %94
-  %97 = tail call double @fmod(double noundef %.038, double noundef 2.000000e+00) #15
-  %98 = fcmp oeq double %97, 0.000000e+00
-  br i1 %98, label %php_round_helper.exit, label %99
+95:                                               ; preds = %93
+  %96 = tail call double @fmod(double noundef %.038, double noundef 2.000000e+00) #15
+  %97 = fcmp oeq double %96, 0.000000e+00
+  br i1 %97, label %php_round_helper.exit, label %98
 
-99:                                               ; preds = %96
-  %100 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %.038)
-  %101 = fadd double %.038, %100
+98:                                               ; preds = %95
+  %99 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %.038)
+  %100 = fadd double %.038, %99
   br label %php_round_helper.exit
 
-102:                                              ; preds = %32
-  %103 = icmp sgt i32 %1, 0
-  %104 = tail call double @llvm.copysign.f64(double 5.000000e-01, double %.038)
-  %105 = fadd double %.038, %104
-  %106 = fmul double %.0.i, %105
-  %107 = fdiv double %105, %.0.i
-  %.sink123.i = select i1 %103, double %107, double %106
-  %108 = tail call double @llvm.fabs.f64(double %.sink123.i)
-  %109 = fcmp ogt double %33, %108
-  br i1 %109, label %110, label %113
+101:                                              ; preds = %31
+  %102 = icmp sgt i32 %1, 0
+  %103 = tail call double @llvm.copysign.f64(double 5.000000e-01, double %.038)
+  %104 = fadd double %.038, %103
+  %105 = fmul double %.0.i, %104
+  %106 = fdiv double %104, %.0.i
+  %.sink123.i = select i1 %102, double %106, double %105
+  %107 = tail call double @llvm.fabs.f64(double %.sink123.i)
+  %108 = fcmp ogt double %32, %107
+  br i1 %108, label %109, label %112
 
-110:                                              ; preds = %102
-  %111 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %.038)
-  %112 = fadd double %.038, %111
+109:                                              ; preds = %101
+  %110 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %.038)
+  %111 = fadd double %.038, %110
   br label %php_round_helper.exit
 
-113:                                              ; preds = %102
-  %114 = fcmp oeq double %33, %108
-  br i1 %114, label %115, label %php_round_helper.exit
+112:                                              ; preds = %101
+  %113 = fcmp oeq double %32, %107
+  br i1 %113, label %114, label %php_round_helper.exit
 
-115:                                              ; preds = %113
-  %116 = tail call double @fmod(double noundef %.038, double noundef 2.000000e+00) #15
-  %117 = fcmp oeq double %116, 0.000000e+00
-  br i1 %117, label %118, label %php_round_helper.exit
+114:                                              ; preds = %112
+  %115 = tail call double @fmod(double noundef %.038, double noundef 2.000000e+00) #15
+  %116 = fcmp oeq double %115, 0.000000e+00
+  br i1 %116, label %117, label %php_round_helper.exit
 
-118:                                              ; preds = %115
-  %119 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %.038)
-  %120 = fadd double %.038, %119
+117:                                              ; preds = %114
+  %118 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %.038)
+  %119 = fadd double %.038, %118
   br label %php_round_helper.exit
 
-121:                                              ; preds = %32
+120:                                              ; preds = %31
   unreachable
 
-php_round_helper.exit:                            ; preds = %32, %34, %42, %45, %53, %56, %63, %65, %72, %74, %80, %91, %94, %96, %99, %110, %113, %115, %118
-  %.0.i40 = phi double [ %112, %110 ], [ %120, %118 ], [ %93, %91 ], [ %101, %99 ], [ %82, %80 ], [ %73, %72 ], [ %64, %63 ], [ %55, %53 ], [ %44, %42 ], [ %.038, %34 ], [ %.038, %45 ], [ %.038, %56 ], [ %.038, %65 ], [ %.038, %32 ], [ %.038, %74 ], [ %.038, %94 ], [ %.038, %96 ], [ %.038, %113 ], [ %.038, %115 ]
-  %122 = icmp ult i32 %7, 23
-  br i1 %122, label %123, label %129
+php_round_helper.exit:                            ; preds = %31, %33, %41, %44, %52, %55, %62, %64, %71, %73, %79, %90, %93, %95, %98, %109, %112, %114, %117
+  %.0.i40 = phi double [ %111, %109 ], [ %119, %117 ], [ %92, %90 ], [ %100, %98 ], [ %81, %79 ], [ %72, %71 ], [ %63, %62 ], [ %54, %52 ], [ %43, %41 ], [ %.038, %33 ], [ %.038, %44 ], [ %.038, %55 ], [ %.038, %64 ], [ %.038, %31 ], [ %.038, %73 ], [ %.038, %93 ], [ %.038, %95 ], [ %.038, %112 ], [ %.038, %114 ]
+  %121 = icmp ult i32 %7, 23
+  br i1 %121, label %122, label %128
 
-123:                                              ; preds = %php_round_helper.exit
-  %124 = icmp sgt i32 %1, 0
-  br i1 %124, label %125, label %127
+122:                                              ; preds = %php_round_helper.exit
+  %123 = icmp sgt i32 %1, 0
+  br i1 %123, label %124, label %126
 
-125:                                              ; preds = %123
-  %126 = fdiv double %.0.i40, %.0.i
-  br label %136
+124:                                              ; preds = %122
+  %125 = fdiv double %.0.i40, %.0.i
+  br label %135
 
-127:                                              ; preds = %123
-  %128 = fmul double %.0.i, %.0.i40
-  br label %136
+126:                                              ; preds = %122
+  %127 = fmul double %.0.i, %.0.i40
+  br label %135
 
-129:                                              ; preds = %php_round_helper.exit
-  %130 = sub nsw i32 0, %6
-  %131 = call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef nonnull %4, i64 noundef 39, ptr noundef nonnull @.str, double noundef %.0.i40, i32 noundef %130) #15
-  %132 = getelementptr inbounds i8, ptr %4, i64 39
-  store i8 0, ptr %132, align 1
-  %133 = call double @zend_strtod(ptr noundef nonnull %4, ptr noundef null) #15
-  %134 = call double @llvm.fabs.f64(double %133)
-  %135 = fcmp ueq double %134, 0x7FF0000000000000
-  %. = select i1 %135, double %0, double %133
-  br label %136
+128:                                              ; preds = %php_round_helper.exit
+  %129 = sub nsw i32 0, %6
+  %130 = call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef nonnull %4, i64 noundef 39, ptr noundef nonnull @.str, double noundef %.0.i40, i32 noundef %129) #15
+  %131 = getelementptr inbounds i8, ptr %4, i64 39
+  store i8 0, ptr %131, align 1
+  %132 = call double @zend_strtod(ptr noundef nonnull %4, ptr noundef null) #15
+  %133 = call double @llvm.fabs.f64(double %132)
+  %134 = fcmp ueq double %133, 0x7FF0000000000000
+  %. = select i1 %134, double %0, double %132
+  br label %135
 
-136:                                              ; preds = %127, %125, %129, %28, %3
-  %.0 = phi double [ %0, %3 ], [ %0, %28 ], [ %126, %125 ], [ %128, %127 ], [ %., %129 ]
+135:                                              ; preds = %126, %124, %128, %27, %3
+  %.0 = phi double [ %0, %3 ], [ %0, %27 ], [ %125, %124 ], [ %127, %126 ], [ %., %128 ]
   ret double %.0
 }
 
@@ -4113,9 +4113,6 @@ define hidden void @zif_intdiv(ptr noundef %0, ptr nocapture noundef writeonly %
 
 declare ptr @zend_throw_exception_ex(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @pow(double noundef, double noundef) local_unnamed_addr #6
-
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.copysign.f64(double, double) #1
 
@@ -4144,6 +4141,8 @@ declare void @_efree(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #12
+
+declare double @__exp10(double) local_unnamed_addr
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #12

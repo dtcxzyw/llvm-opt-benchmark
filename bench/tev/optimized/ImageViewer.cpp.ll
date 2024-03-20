@@ -7119,9 +7119,10 @@ define dso_local void @_ZN3tev11ImageViewer11setExposureEf(ptr nocapture noundef
   %4 = alloca %"class.fmt::v9::basic_memory_buffer", align 8
   %5 = alloca %"class.fmt::v9::format_arg_store.1751", align 16
   %6 = alloca %"class.std::__1::basic_string", align 8
-  %7 = fmul float %1, 1.000000e+01
+  %__exp10f.i = tail call float @__exp10f(float 1.000000e+00) #39
+  %7 = fmul float %__exp10f.i, %1
   %8 = tail call noundef float @llvm.round.f32(float %7)
-  %9 = fdiv float %8, 1.000000e+01
+  %9 = fdiv float %8, %__exp10f.i
   %10 = getelementptr inbounds i8, ptr %0, i64 584
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 132
@@ -7206,9 +7207,10 @@ define dso_local void @_ZN3tev11ImageViewer9setOffsetEf(ptr nocapture noundef no
   %4 = alloca %"class.fmt::v9::basic_memory_buffer", align 8
   %5 = alloca %"class.fmt::v9::format_arg_store.1751", align 16
   %6 = alloca %"class.std::__1::basic_string", align 8
-  %7 = fmul float %1, 1.000000e+02
+  %__exp10f.i = tail call float @__exp10f(float 2.000000e+00) #39
+  %7 = fmul float %__exp10f.i, %1
   %8 = tail call noundef float @llvm.round.f32(float %7)
-  %9 = fdiv float %8, 1.000000e+02
+  %9 = fdiv float %8, %__exp10f.i
   %10 = getelementptr inbounds i8, ptr %0, i64 600
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 132
@@ -7293,9 +7295,10 @@ define dso_local void @_ZN3tev11ImageViewer8setGammaEf(ptr nocapture noundef non
   %4 = alloca %"class.fmt::v9::basic_memory_buffer", align 8
   %5 = alloca %"class.fmt::v9::format_arg_store.1751", align 16
   %6 = alloca %"class.std::__1::basic_string", align 8
-  %7 = fmul float %1, 1.000000e+02
+  %__exp10f.i = tail call float @__exp10f(float 2.000000e+00) #39
+  %7 = fmul float %__exp10f.i, %1
   %8 = tail call noundef float @llvm.round.f32(float %7)
-  %9 = fdiv float %8, 1.000000e+02
+  %9 = fdiv float %8, %__exp10f.i
   %10 = getelementptr inbounds i8, ptr %0, i64 616
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 132
@@ -67742,6 +67745,8 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #38
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #38
+
+declare float @__exp10f(float) local_unnamed_addr
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #36

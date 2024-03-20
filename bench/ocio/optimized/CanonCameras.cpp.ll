@@ -83,7 +83,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #12
+  call void @__clang_call_terminate(ptr %2) #10
   unreachable
 
 _ZNSt8functionIFvRN19OpenColorIO_v2_4dev10OpRcPtrVecEEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -108,7 +108,7 @@ terminate.lpad.i.i11:                             ; preds = %if.then.i.i9
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  call void @__clang_call_terminate(ptr %5) #12
+  call void @__clang_call_terminate(ptr %5) #10
   unreachable
 
 _ZNSt8functionIFvRN19OpenColorIO_v2_4dev10OpRcPtrVecEEED2Ev.exit12: ; preds = %invoke.cont2, %if.then.i.i9
@@ -133,7 +133,7 @@ terminate.lpad.i.i19:                             ; preds = %if.then.i.i17
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #12
+  call void @__clang_call_terminate(ptr %8) #10
   unreachable
 
 _ZNSt8functionIFvRN19OpenColorIO_v2_4dev10OpRcPtrVecEEED2Ev.exit20: ; preds = %invoke.cont4, %if.then.i.i17
@@ -158,7 +158,7 @@ terminate.lpad.i.i27:                             ; preds = %if.then.i.i25
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  call void @__clang_call_terminate(ptr %11) #12
+  call void @__clang_call_terminate(ptr %11) #10
   unreachable
 
 _ZNSt8functionIFvRN19OpenColorIO_v2_4dev10OpRcPtrVecEEED2Ev.exit28: ; preds = %invoke.cont6, %if.then.i.i25
@@ -168,7 +168,7 @@ terminate.lpad:                                   ; preds = %_ZNSt8functionIFvRN
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #12
+  call void @__clang_call_terminate(ptr %13) #10
   unreachable
 }
 
@@ -178,8 +178,8 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #4 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #13
-  tail call void @_ZSt9terminatev() #12
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #11
+  tail call void @_ZSt9terminatev() #10
   unreachable
 }
 
@@ -218,7 +218,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #12
+  call void @__clang_call_terminate(ptr %2) #10
   unreachable
 
 _ZNSt8functionIFfdEED2Ev.exit.i.i.i:              ; preds = %if.then.i.i.i.i.i, %invoke.cont.i.i.i
@@ -246,7 +246,7 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %3, align 8
   %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
-  call void %6(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
+  call void %6(ptr noundef nonnull align 8 dereferenceable(16) %3) #11
   br label %if.end8.sink.split.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i.i
@@ -272,7 +272,7 @@ if.then7.i.i.i.i.i.i.i:                           ; preds = %_ZN9__gnu_cxx27__ex
   %vtable.i.i.i.i.i.i.i.i.i = load ptr, ptr %3, align 8
   %vfn.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i, i64 16
   %9 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i, align 8
-  call void %9(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
+  call void %9(ptr noundef nonnull align 8 dereferenceable(16) %3) #11
   %_M_weak_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 12
   %10 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %10, 0
@@ -297,7 +297,7 @@ if.end8.sink.split.i.i.i.i.i.i.i:                 ; preds = %_ZN9__gnu_cxx27__ex
   %vtable2.i.i.i.i.i.i.i.i.i = load ptr, ptr %3, align 8
   %vfn3.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i.i, i64 24
   %13 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i.i, align 8
-  call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
+  call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #11
   br label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev6CAMERA5CANON11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_0JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESB_E4typeEOSE_DpOSF_.exit"
 
 lpad.i.i.i:                                       ; preds = %entry
@@ -315,13 +315,13 @@ terminate.lpad.i.i8.i.i.i:                        ; preds = %if.then.i.i6.i.i.i
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  call void @__clang_call_terminate(ptr %17) #12
+  call void @__clang_call_terminate(ptr %17) #10
   unreachable
 
 lpad2.i.i.i:                                      ; preds = %_ZNSt8functionIFfdEED2Ev.exit.i.i.i
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12MatrixOpData11MatrixArrayEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %matrix.i.i.i) #13
+  call void @_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12MatrixOpData11MatrixArrayEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %matrix.i.i.i) #11
   br label %eh.resume.i.i.i
 
 eh.resume.i.i.i:                                  ; preds = %lpad2.i.i.i, %if.then.i.i6.i.i.i, %lpad.i.i.i
@@ -382,7 +382,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   %vtable.i.i.i = load ptr, ptr %0, align 8
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #13
+  tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #11
   br label %if.end8.sink.split.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i
@@ -408,7 +408,7 @@ if.then7.i.i.i:                                   ; preds = %_ZN9__gnu_cxx27__ex
   %vtable.i.i.i.i.i = load ptr, ptr %0, align 8
   %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #13
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #11
   %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %7, 0
@@ -433,15 +433,15 @@ if.end8.sink.split.i.i.i:                         ; preds = %_ZN9__gnu_cxx27__ex
   %vtable2.i.i.i.i.i = load ptr, ptr %0, align 8
   %vfn3.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i, align 8
-  tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #13
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #11
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_4dev12MatrixOpData11MatrixArrayELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_4dev12MatrixOpData11MatrixArrayELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.end8.sink.split.i.i.i
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define internal noundef float @"_ZNSt17_Function_handlerIFfdEN19OpenColorIO_v2_4dev11CANON_CLOG23$_0EE9_M_invokeERKSt9_Any_dataOd"(ptr nocapture nonnull readnone align 8 %__functor, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args) #8 align 2 {
+; Function Attrs: mustprogress uwtable
+define internal noundef float @"_ZNSt17_Function_handlerIFfdEN19OpenColorIO_v2_4dev11CANON_CLOG23$_0EE9_M_invokeERKSt9_Any_dataOd"(ptr nocapture nonnull readnone align 8 %__functor, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args) #6 align 2 {
 entry:
   %__args.val = load double, ptr %__args, align 8
   %cmp.i.i.i = fcmp olt double %__args.val, 0x3FB7C5F17BD8BE73
@@ -450,8 +450,8 @@ entry:
   %sub4.sink.i.i.i = select i1 %cmp.i.i.i, double %sub.i.i.i, double %sub4.i.i.i
   %.sink.i.i.i = select i1 %cmp.i.i.i, double 0xC055C65C28F5C28F, double 0x4055C65C28F5C28F
   %div5.i.i.i = fdiv double %sub4.sink.i.i.i, 0x3FCEE4E8E2D7FC00
-  %call.i3.i.i.i = tail call noundef double @pow(double noundef 1.000000e+01, double noundef %div5.i.i.i) #13
-  %sub7.i.i.i = fadd double %call.i3.i.i.i, -1.000000e+00
+  %__exp10.i.i.i = tail call double @__exp10(double %div5.i.i.i)
+  %sub7.i.i.i = fadd double %__exp10.i.i.i, -1.000000e+00
   %div8.i.i.i = fdiv double %sub7.i.i.i, %.sink.i.i.i
   %mul.i.i.i = fmul double %div8.i.i.i, 9.000000e-01
   %conv.i.i.i = fptrunc double %mul.i.i.i to float
@@ -477,9 +477,6 @@ sw.epilog.sink.split:                             ; preds = %entry, %sw.bb1
 sw.epilog:                                        ; preds = %sw.epilog.sink.split, %entry
   ret i1 false
 }
-
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @pow(double noundef, double noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
 define internal void @"_ZNSt17_Function_handlerIFvRN19OpenColorIO_v2_4dev10OpRcPtrVecEEZNS0_6CAMERA5CANON11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_1E9_M_invokeERKSt9_Any_dataS2_"(ptr nocapture nonnull readnone align 8 %__functor, ptr noundef nonnull align 8 dereferenceable(144) %__args) #6 align 2 personality ptr @__gxx_personality_v0 {
@@ -507,7 +504,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #12
+  call void @__clang_call_terminate(ptr %2) #10
   unreachable
 
 lpad.i.i.i:                                       ; preds = %entry
@@ -525,7 +522,7 @@ terminate.lpad.i.i6.i.i.i:                        ; preds = %if.then.i.i4.i.i.i
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #12
+  call void @__clang_call_terminate(ptr %6) #10
   unreachable
 
 _ZNSt8functionIFfdEED2Ev.exit7.i.i.i:             ; preds = %if.then.i.i4.i.i.i, %lpad.i.i.i
@@ -584,7 +581,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #12
+  call void @__clang_call_terminate(ptr %2) #10
   unreachable
 
 _ZNSt8functionIFfdEED2Ev.exit.i.i.i:              ; preds = %if.then.i.i.i.i.i, %invoke.cont.i.i.i
@@ -612,7 +609,7 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %3, align 8
   %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
-  call void %6(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
+  call void %6(ptr noundef nonnull align 8 dereferenceable(16) %3) #11
   br label %if.end8.sink.split.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i.i
@@ -638,7 +635,7 @@ if.then7.i.i.i.i.i.i.i:                           ; preds = %_ZN9__gnu_cxx27__ex
   %vtable.i.i.i.i.i.i.i.i.i = load ptr, ptr %3, align 8
   %vfn.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i, i64 16
   %9 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i, align 8
-  call void %9(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
+  call void %9(ptr noundef nonnull align 8 dereferenceable(16) %3) #11
   %_M_weak_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 12
   %10 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %10, 0
@@ -663,7 +660,7 @@ if.end8.sink.split.i.i.i.i.i.i.i:                 ; preds = %_ZN9__gnu_cxx27__ex
   %vtable2.i.i.i.i.i.i.i.i.i = load ptr, ptr %3, align 8
   %vfn3.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i.i, i64 24
   %13 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i.i, align 8
-  call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
+  call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #11
   br label %"_ZSt10__invoke_rIvRZN19OpenColorIO_v2_4dev6CAMERA5CANON11RegisterAllERNS0_28BuiltinTransformRegistryImplEE3$_2JRNS0_10OpRcPtrVecEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESB_E4typeEOSE_DpOSF_.exit"
 
 lpad.i.i.i:                                       ; preds = %entry
@@ -681,13 +678,13 @@ terminate.lpad.i.i8.i.i.i:                        ; preds = %if.then.i.i6.i.i.i
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  call void @__clang_call_terminate(ptr %17) #12
+  call void @__clang_call_terminate(ptr %17) #10
   unreachable
 
 lpad2.i.i.i:                                      ; preds = %_ZNSt8functionIFfdEED2Ev.exit.i.i.i
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12MatrixOpData11MatrixArrayEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %matrix.i.i.i) #13
+  call void @_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12MatrixOpData11MatrixArrayEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %matrix.i.i.i) #11
   br label %eh.resume.i.i.i
 
 eh.resume.i.i.i:                                  ; preds = %lpad2.i.i.i, %if.then.i.i6.i.i.i, %lpad.i.i.i
@@ -720,8 +717,8 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
   ret i1 false
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define internal noundef float @"_ZNSt17_Function_handlerIFfdEN19OpenColorIO_v2_4dev11CANON_CLOG33$_3EE9_M_invokeERKSt9_Any_dataOd"(ptr nocapture nonnull readnone align 8 %__functor, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args) #8 align 2 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef float @"_ZNSt17_Function_handlerIFfdEN19OpenColorIO_v2_4dev11CANON_CLOG33$_3EE9_M_invokeERKSt9_Any_dataOd"(ptr nocapture nonnull readnone align 8 %__functor, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args) #3 align 2 {
 entry:
   %__args.val = load double, ptr %__args, align 8
   %cmp.i.i.i = fcmp olt double %__args.val, 0x3FB8F37F4B063012
@@ -730,8 +727,8 @@ entry:
 if.then.i.i.i:                                    ; preds = %entry
   %sub.i.i.i = fsub double 0x3FC05D07578D2FA9, %__args.val
   %div.i.i.i = fdiv double %sub.i.i.i, 0x3FD781538766912F
-  %call.i.i.i.i = tail call noundef double @pow(double noundef 1.000000e+01, double noundef %div.i.i.i) #13
-  %sub2.i.i.i = fadd double %call.i.i.i.i, -1.000000e+00
+  %__exp101.i.i.i = tail call double @__exp10(double %div.i.i.i) #11
+  %sub2.i.i.i = fadd double %__exp101.i.i.i, -1.000000e+00
   %div3.i.i.i = fdiv double %sub2.i.i.i, 0xC02DF76C8B439581
   br label %"_ZSt10__invoke_rIfRN19OpenColorIO_v2_4dev11CANON_CLOG33$_3EJdEENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeES7_EEE5valueES7_E4typeEOSC_DpOSD_.exit"
 
@@ -747,8 +744,8 @@ if.then5.i.i.i:                                   ; preds = %if.else.i.i.i
 if.else8.i.i.i:                                   ; preds = %if.else.i.i.i
   %sub9.i.i.i = fadd double %__args.val, 0xBFBF55F55501393B
   %div10.i.i.i = fdiv double %sub9.i.i.i, 0x3FD781538766912F
-  %call.i5.i.i.i = tail call noundef double @pow(double noundef 1.000000e+01, double noundef %div10.i.i.i) #13
-  %sub12.i.i.i = fadd double %call.i5.i.i.i, -1.000000e+00
+  %__exp10.i.i.i = tail call double @__exp10(double %div10.i.i.i) #11
+  %sub12.i.i.i = fadd double %__exp10.i.i.i, -1.000000e+00
   %div13.i.i.i = fdiv double %sub12.i.i.i, 0x402DF76C8B439581
   br label %"_ZSt10__invoke_rIfRN19OpenColorIO_v2_4dev11CANON_CLOG33$_3EJdEENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeES7_EEE5valueES7_E4typeEOSC_DpOSD_.exit"
 
@@ -805,7 +802,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #12
+  call void @__clang_call_terminate(ptr %2) #10
   unreachable
 
 lpad.i.i.i:                                       ; preds = %entry
@@ -823,7 +820,7 @@ terminate.lpad.i.i6.i.i.i:                        ; preds = %if.then.i.i4.i.i.i
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #12
+  call void @__clang_call_terminate(ptr %6) #10
   unreachable
 
 _ZNSt8functionIFfdEED2Ev.exit7.i.i.i:             ; preds = %if.then.i.i4.i.i.i, %lpad.i.i.i
@@ -855,10 +852,10 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
 }
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_CanonCameras.cpp() #10 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_CanonCameras.cpp() #8 section ".text.startup" {
 entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #13
+  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #11
   store <2 x double> <double 0x3FE7AE147AE147AE, double 2.700000e-01>, ptr @_ZN19OpenColorIO_v2_4dev12CANON_CGAMUTL9primariesE, align 16
   store <2 x double> <double 1.700000e-01, double 1.140000e+00>, ptr getelementptr inbounds (%"struct.OpenColorIO_v2_4dev::Primaries", ptr @_ZN19OpenColorIO_v2_4dev12CANON_CGAMUTL9primariesE, i64 0, i32 1, i32 0, i64 0), align 16
   store <2 x double> <double 8.000000e-02, double -1.000000e-01>, ptr getelementptr inbounds (%"struct.OpenColorIO_v2_4dev::Primaries", ptr @_ZN19OpenColorIO_v2_4dev12CANON_CGAMUTL9primariesE, i64 0, i32 2, i32 0, i64 0), align 16
@@ -866,11 +863,13 @@ entry:
   ret void
 }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare double @__exp10(double) local_unnamed_addr
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -880,12 +879,10 @@ attributes #4 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-m
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #6 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { noreturn nounwind }
-attributes #13 = { nounwind }
+attributes #8 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { noreturn nounwind }
+attributes #11 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -37,7 +37,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local i32 @grabbag__replaygain_is_valid_sample_frequency(i32 noundef %sample_frequency) local_unnamed_addr #0 {
 entry:
   %conv = zext i32 %sample_frequency to i64
-  %call = tail call i32 @ValidGainFrequency(i64 noundef %conv) #15
+  %call = tail call i32 @ValidGainFrequency(i64 noundef %conv) #13
   ret i32 %call
 }
 
@@ -49,7 +49,7 @@ entry:
   store double 0.000000e+00, ptr @album_peak_, align 8
   store double 0.000000e+00, ptr @title_peak_, align 8
   %conv = zext i32 %sample_frequency to i64
-  %call = tail call i32 @InitGainAnalysis(i64 noundef %conv) #15
+  %call = tail call i32 @InitGainAnalysis(i64 noundef %conv) #13
   %cmp = icmp eq i32 %call, 1
   %conv1 = zext i1 %cmp to i32
   ret i32 %conv1
@@ -111,7 +111,7 @@ for.body:                                         ; preds = %while.body, %for.bo
 
 for.end:                                          ; preds = %for.body
   %sub = sub i32 %samples.addr.0, %cond
-  %call = tail call i32 @AnalyzeSamples(ptr noundef nonnull @grabbag__replaygain_analyze.lbuffer, ptr noundef nonnull @grabbag__replaygain_analyze.rbuffer, i64 noundef %wide.trip.count142, i32 noundef 2) #15
+  %call = tail call i32 @AnalyzeSamples(ptr noundef nonnull @grabbag__replaygain_analyze.lbuffer, ptr noundef nonnull @grabbag__replaygain_analyze.rbuffer, i64 noundef %wide.trip.count142, i32 noundef 2) #13
   %cmp28.not = icmp eq i32 %call, 1
   br i1 %cmp28.not, label %while.cond, label %return, !llvm.loop !7
 
@@ -147,7 +147,7 @@ for.body45:                                       ; preds = %while.body34, %for.
 
 for.end61:                                        ; preds = %for.body45
   %sub62 = sub i32 %samples.addr.1, %cond41
-  %call64 = tail call i32 @AnalyzeSamples(ptr noundef nonnull @grabbag__replaygain_analyze.lbuffer, ptr noundef null, i64 noundef %wide.trip.count147, i32 noundef 1) #15
+  %call64 = tail call i32 @AnalyzeSamples(ptr noundef nonnull @grabbag__replaygain_analyze.lbuffer, ptr noundef null, i64 noundef %wide.trip.count147, i32 noundef 1) #13
   %cmp65.not = icmp eq i32 %call64, 1
   br i1 %cmp65.not, label %while.cond31, label %return, !llvm.loop !9
 
@@ -225,7 +225,7 @@ for.body99:                                       ; preds = %while.body88, %for.
 
 for.end142:                                       ; preds = %for.body99
   %sub143 = sub i32 %samples.addr.2, %cond95
-  %call145 = tail call i32 @AnalyzeSamples(ptr noundef nonnull @grabbag__replaygain_analyze.lbuffer, ptr noundef nonnull @grabbag__replaygain_analyze.rbuffer, i64 noundef %wide.trip.count, i32 noundef 2) #15
+  %call145 = tail call i32 @AnalyzeSamples(ptr noundef nonnull @grabbag__replaygain_analyze.lbuffer, ptr noundef nonnull @grabbag__replaygain_analyze.rbuffer, i64 noundef %wide.trip.count, i32 noundef 2) #13
   %cmp146.not = icmp eq i32 %call145, 1
   br i1 %cmp146.not, label %while.cond85, label %return, !llvm.loop !11
 
@@ -265,7 +265,7 @@ for.body166:                                      ; preds = %while.body155, %for
 
 for.end190:                                       ; preds = %for.body166
   %sub191 = sub i32 %samples.addr.3, %cond162
-  %call193 = tail call i32 @AnalyzeSamples(ptr noundef nonnull @grabbag__replaygain_analyze.lbuffer, ptr noundef null, i64 noundef %wide.trip.count137, i32 noundef 1) #15
+  %call193 = tail call i32 @AnalyzeSamples(ptr noundef nonnull @grabbag__replaygain_analyze.lbuffer, ptr noundef null, i64 noundef %wide.trip.count137, i32 noundef 1) #13
   %cmp194.not = icmp eq i32 %call193, 1
   br i1 %cmp194.not, label %while.cond152, label %return, !llvm.loop !13
 
@@ -306,7 +306,7 @@ declare i32 @AnalyzeSamples(ptr noundef, ptr noundef, i64 noundef, i32 noundef) 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @grabbag__replaygain_get_album(ptr nocapture noundef writeonly %gain, ptr nocapture noundef writeonly %peak) local_unnamed_addr #0 {
 entry:
-  %call = tail call float @GetAlbumGain() #15
+  %call = tail call float @GetAlbumGain() #13
   store float %call, ptr %gain, align 4
   %0 = load double, ptr @album_peak_, align 8
   %conv = fptrunc double %0 to float
@@ -320,7 +320,7 @@ declare float @GetAlbumGain() local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @grabbag__replaygain_get_title(ptr nocapture noundef writeonly %gain, ptr nocapture noundef writeonly %peak) local_unnamed_addr #0 {
 entry:
-  %call = tail call float @GetTitleGain() #15
+  %call = tail call float @GetTitleGain() #13
   store float %call, ptr %gain, align 4
   %0 = load double, ptr @title_peak_, align 8
   %conv = fptrunc double %0 to float
@@ -335,35 +335,35 @@ declare float @GetTitleGain() local_unnamed_addr #1
 define dso_local noundef ptr @grabbag__replaygain_analyze_file(ptr noundef %filename, ptr nocapture noundef writeonly %title_gain, ptr nocapture noundef writeonly %title_peak) local_unnamed_addr #0 {
 entry:
   %instance = alloca %struct.DecoderInstance, align 4
-  %call = tail call ptr @FLAC__stream_decoder_new() #15
+  %call = tail call ptr @FLAC__stream_decoder_new() #13
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %error = getelementptr inbounds i8, ptr %instance, i64 12
   store i32 0, ptr %error, align 4
-  %call1 = tail call i32 @FLAC__stream_decoder_set_md5_checking(ptr noundef nonnull %call, i32 noundef 0) #15
-  %call2 = tail call i32 @FLAC__stream_decoder_set_metadata_ignore_all(ptr noundef nonnull %call) #15
-  %call3 = tail call i32 @FLAC__stream_decoder_set_metadata_respond(ptr noundef nonnull %call, i32 noundef 0) #15
-  %call4 = call i32 @FLAC__stream_decoder_init_file(ptr noundef nonnull %call, ptr noundef %filename, ptr noundef nonnull @write_callback_, ptr noundef nonnull @metadata_callback_, ptr noundef nonnull @error_callback_, ptr noundef nonnull %instance) #15
+  %call1 = tail call i32 @FLAC__stream_decoder_set_md5_checking(ptr noundef nonnull %call, i32 noundef 0) #13
+  %call2 = tail call i32 @FLAC__stream_decoder_set_metadata_ignore_all(ptr noundef nonnull %call) #13
+  %call3 = tail call i32 @FLAC__stream_decoder_set_metadata_respond(ptr noundef nonnull %call, i32 noundef 0) #13
+  %call4 = call i32 @FLAC__stream_decoder_init_file(ptr noundef nonnull %call, ptr noundef %filename, ptr noundef nonnull @write_callback_, ptr noundef nonnull @metadata_callback_, ptr noundef nonnull @error_callback_, ptr noundef nonnull %instance) #13
   %cmp5.not = icmp eq i32 %call4, 0
   br i1 %cmp5.not, label %if.end7, label %if.then6
 
 if.then6:                                         ; preds = %if.end
-  call void @FLAC__stream_decoder_delete(ptr noundef nonnull %call) #15
+  call void @FLAC__stream_decoder_delete(ptr noundef nonnull %call) #13
   br label %return
 
 if.end7:                                          ; preds = %if.end
-  %call8 = call i32 @FLAC__stream_decoder_process_until_end_of_stream(ptr noundef nonnull %call) #15
+  %call8 = call i32 @FLAC__stream_decoder_process_until_end_of_stream(ptr noundef nonnull %call) #13
   %tobool = icmp eq i32 %call8, 0
   %0 = load i32, ptr %error, align 4
   %tobool10 = icmp ne i32 %0, 0
   %or.cond = select i1 %tobool, i1 true, i1 %tobool10
-  call void @FLAC__stream_decoder_delete(ptr noundef nonnull %call) #15
+  call void @FLAC__stream_decoder_delete(ptr noundef nonnull %call) #13
   br i1 %or.cond, label %return, label %if.end12
 
 if.end12:                                         ; preds = %if.end7
-  %call.i = call float @GetTitleGain() #15
+  %call.i = call float @GetTitleGain() #13
   store float %call.i, ptr %title_gain, align 4
   %1 = load double, ptr @title_peak_, align 8
   %conv.i = fptrunc double %1 to float
@@ -461,7 +461,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then
   %conv.i = zext i32 %3 to i64
-  %call.i = tail call i32 @ValidGainFrequency(i64 noundef %conv.i) #15
+  %call.i = tail call i32 @ValidGainFrequency(i64 noundef %conv.i) #13
   %tobool.not = icmp eq i32 %call.i, 0
   br i1 %tobool.not, label %if.end15.sink.split, label %if.end15
 
@@ -489,7 +489,7 @@ declare i32 @FLAC__stream_decoder_process_until_end_of_stream(ptr noundef) local
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @grabbag__replaygain_store_to_vorbiscomment(ptr noundef %block, float noundef %album_gain, float noundef %album_peak, float noundef %title_gain, float noundef %title_peak) local_unnamed_addr #0 {
 entry:
-  %call.i = tail call i32 @FLAC__metadata_object_vorbiscomment_remove_entries_matching(ptr noundef %block, ptr noundef nonnull @.str) #15
+  %call.i = tail call i32 @FLAC__metadata_object_vorbiscomment_remove_entries_matching(ptr noundef %block, ptr noundef nonnull @.str) #13
   %cmp.i = icmp slt i32 %call.i, 0
   br i1 %cmp.i, label %return, label %if.end.i
 
@@ -500,12 +500,12 @@ if.end.i:                                         ; preds = %entry
   br i1 %tobool.not.i, label %return, label %if.end
 
 if.end:                                           ; preds = %if.end.i
-  %call.i5 = tail call i32 @FLAC__metadata_object_vorbiscomment_remove_entries_matching(ptr noundef %block, ptr noundef nonnull @.str.1) #15
+  %call.i5 = tail call i32 @FLAC__metadata_object_vorbiscomment_remove_entries_matching(ptr noundef %block, ptr noundef nonnull @.str.1) #13
   %cmp.i6 = icmp slt i32 %call.i5, 0
   br i1 %cmp.i6, label %return, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end
-  %call1.i7 = tail call i32 @FLAC__metadata_object_vorbiscomment_remove_entries_matching(ptr noundef %block, ptr noundef nonnull @.str.2) #15
+  %call1.i7 = tail call i32 @FLAC__metadata_object_vorbiscomment_remove_entries_matching(ptr noundef %block, ptr noundef nonnull @.str.2) #13
   %cmp2.i = icmp slt i32 %call1.i7, 0
   br i1 %cmp2.i, label %return, label %if.end.i8
 
@@ -520,12 +520,12 @@ lor.lhs.false4.i:                                 ; preds = %if.end.i8
   br i1 %tobool6.not.i, label %return, label %if.end4
 
 if.end4:                                          ; preds = %lor.lhs.false4.i
-  %call.i11 = tail call i32 @FLAC__metadata_object_vorbiscomment_remove_entries_matching(ptr noundef %block, ptr noundef nonnull @.str.3) #15
+  %call.i11 = tail call i32 @FLAC__metadata_object_vorbiscomment_remove_entries_matching(ptr noundef %block, ptr noundef nonnull @.str.3) #13
   %cmp.i12 = icmp slt i32 %call.i11, 0
   br i1 %cmp.i12, label %return, label %lor.lhs.false.i13
 
 lor.lhs.false.i13:                                ; preds = %if.end4
-  %call1.i14 = tail call i32 @FLAC__metadata_object_vorbiscomment_remove_entries_matching(ptr noundef %block, ptr noundef nonnull @.str.4) #15
+  %call1.i14 = tail call i32 @FLAC__metadata_object_vorbiscomment_remove_entries_matching(ptr noundef %block, ptr noundef nonnull @.str.4) #13
   %cmp2.i15 = icmp slt i32 %call1.i14, 0
   br i1 %cmp2.i15, label %return, label %if.end.i16
 
@@ -548,7 +548,7 @@ return:                                           ; preds = %lor.lhs.false4.i19,
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @grabbag__replaygain_store_to_vorbiscomment_reference(ptr noundef %block) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @FLAC__metadata_object_vorbiscomment_remove_entries_matching(ptr noundef %block, ptr noundef nonnull @.str) #15
+  %call = tail call i32 @FLAC__metadata_object_vorbiscomment_remove_entries_matching(ptr noundef %block, ptr noundef nonnull @.str) #13
   %cmp = icmp slt i32 %call, 0
   br i1 %cmp, label %return, label %if.end
 
@@ -567,12 +567,12 @@ return:                                           ; preds = %if.end, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @grabbag__replaygain_store_to_vorbiscomment_title(ptr noundef %block, float noundef %title_gain, float noundef %title_peak) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @FLAC__metadata_object_vorbiscomment_remove_entries_matching(ptr noundef %block, ptr noundef nonnull @.str.1) #15
+  %call = tail call i32 @FLAC__metadata_object_vorbiscomment_remove_entries_matching(ptr noundef %block, ptr noundef nonnull @.str.1) #13
   %cmp = icmp slt i32 %call, 0
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %call1 = tail call i32 @FLAC__metadata_object_vorbiscomment_remove_entries_matching(ptr noundef %block, ptr noundef nonnull @.str.2) #15
+  %call1 = tail call i32 @FLAC__metadata_object_vorbiscomment_remove_entries_matching(ptr noundef %block, ptr noundef nonnull @.str.2) #13
   %cmp2 = icmp slt i32 %call1, 0
   br i1 %cmp2, label %return, label %if.end
 
@@ -595,12 +595,12 @@ return:                                           ; preds = %lor.lhs.false4, %if
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @grabbag__replaygain_store_to_vorbiscomment_album(ptr noundef %block, float noundef %album_gain, float noundef %album_peak) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @FLAC__metadata_object_vorbiscomment_remove_entries_matching(ptr noundef %block, ptr noundef nonnull @.str.3) #15
+  %call = tail call i32 @FLAC__metadata_object_vorbiscomment_remove_entries_matching(ptr noundef %block, ptr noundef nonnull @.str.3) #13
   %cmp = icmp slt i32 %call, 0
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %call1 = tail call i32 @FLAC__metadata_object_vorbiscomment_remove_entries_matching(ptr noundef %block, ptr noundef nonnull @.str.4) #15
+  %call1 = tail call i32 @FLAC__metadata_object_vorbiscomment_remove_entries_matching(ptr noundef %block, ptr noundef nonnull @.str.4) #13
   %cmp2 = icmp slt i32 %call1, 0
   br i1 %cmp2, label %return, label %if.end
 
@@ -628,20 +628,20 @@ entry:
   %buffer = alloca [256 x i8], align 16
   %arrayidx = getelementptr inbounds i8, ptr %buffer, i64 255
   store i8 0, ptr %arrayidx, align 1
-  %call = tail call ptr @setlocale(i32 noundef 6, ptr noundef null) #15
-  %call2 = tail call noalias ptr @strdup(ptr noundef %call) #15
+  %call = tail call ptr @setlocale(i32 noundef 6, ptr noundef null) #13
+  %call2 = tail call noalias ptr @strdup(ptr noundef %call) #13
   %cmp = icmp eq ptr %call2, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call3 = tail call ptr @setlocale(i32 noundef 6, ptr noundef nonnull @.str.8) #15
+  %call3 = tail call ptr @setlocale(i32 noundef 6, ptr noundef nonnull @.str.8) #13
   %conv = fpext float %value to double
-  %call4 = call i32 (ptr, i64, ptr, ...) @flac_snprintf(ptr noundef nonnull %buffer, i64 noundef 256, ptr noundef %format, ptr noundef %name, double noundef %conv) #15
-  %call5 = call ptr @setlocale(i32 noundef 6, ptr noundef nonnull %call2) #15
-  call void @free(ptr noundef nonnull %call2) #15
-  %call9 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buffer) #16
+  %call4 = call i32 (ptr, i64, ptr, ...) @flac_snprintf(ptr noundef nonnull %buffer, i64 noundef 256, ptr noundef %format, ptr noundef %name, double noundef %conv) #13
+  %call5 = call ptr @setlocale(i32 noundef 6, ptr noundef nonnull %call2) #13
+  call void @free(ptr noundef nonnull %call2) #13
+  %call9 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buffer) #14
   %conv10 = trunc i64 %call9 to i32
-  %call11 = call i32 @FLAC__metadata_object_vorbiscomment_append_comment(ptr noundef %block, i32 %conv10, ptr nonnull %buffer, i32 noundef 1) #15
+  %call11 = call i32 @FLAC__metadata_object_vorbiscomment_append_comment(ptr noundef %block, i32 %conv10, ptr nonnull %buffer, i32 noundef 1) #13
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -667,7 +667,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp2.not, label %if.end4, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  tail call void @FLAC__metadata_chain_delete(ptr noundef %1) #15
+  tail call void @FLAC__metadata_chain_delete(ptr noundef %1) #13
   br label %return
 
 if.end4:                                          ; preds = %if.end
@@ -682,88 +682,88 @@ return:                                           ; preds = %if.end4, %entry, %i
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc ptr @store_to_file_pre_(ptr noundef %filename, ptr nocapture noundef %chain, ptr nocapture noundef %block) unnamed_addr #0 {
 entry:
-  %call = tail call ptr @FLAC__metadata_chain_new() #15
+  %call = tail call ptr @FLAC__metadata_chain_new() #13
   store ptr %call, ptr %chain, align 8
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call i32 @FLAC__metadata_chain_read(ptr noundef nonnull %call, ptr noundef %filename) #15
+  %call1 = tail call i32 @FLAC__metadata_chain_read(ptr noundef nonnull %call, ptr noundef %filename) #13
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %if.then2, label %if.end4
 
 if.then2:                                         ; preds = %if.end
   %0 = load ptr, ptr %chain, align 8
-  %call3 = tail call i32 @FLAC__metadata_chain_status(ptr noundef %0) #15
+  %call3 = tail call i32 @FLAC__metadata_chain_status(ptr noundef %0) #13
   %idxprom = zext i32 %call3 to i64
   %arrayidx = getelementptr inbounds [0 x ptr], ptr @FLAC__Metadata_ChainStatusString, i64 0, i64 %idxprom
   %1 = load ptr, ptr %arrayidx, align 8
   %2 = load ptr, ptr %chain, align 8
-  tail call void @FLAC__metadata_chain_delete(ptr noundef %2) #15
+  tail call void @FLAC__metadata_chain_delete(ptr noundef %2) #13
   br label %return
 
 if.end4:                                          ; preds = %if.end
-  %call5 = tail call ptr @FLAC__metadata_iterator_new() #15
+  %call5 = tail call ptr @FLAC__metadata_iterator_new() #13
   %cmp6 = icmp eq ptr %call5, null
   %3 = load ptr, ptr %chain, align 8
   br i1 %cmp6, label %if.then7, label %if.end8
 
 if.then7:                                         ; preds = %if.end4
-  tail call void @FLAC__metadata_chain_delete(ptr noundef %3) #15
+  tail call void @FLAC__metadata_chain_delete(ptr noundef %3) #13
   br label %return
 
 if.end8:                                          ; preds = %if.end4
-  tail call void @FLAC__metadata_iterator_init(ptr noundef nonnull %call5, ptr noundef %3) #15
+  tail call void @FLAC__metadata_iterator_init(ptr noundef nonnull %call5, ptr noundef %3) #13
   br label %do.body
 
 do.body:                                          ; preds = %land.rhs, %if.end8
-  %call9 = tail call ptr @FLAC__metadata_iterator_get_block(ptr noundef nonnull %call5) #15
+  %call9 = tail call ptr @FLAC__metadata_iterator_get_block(ptr noundef nonnull %call5) #13
   store ptr %call9, ptr %block, align 8
   %4 = load i32, ptr %call9, align 8
   %cmp10.not = icmp eq i32 %4, 4
   br i1 %cmp10.not, label %if.end31, label %land.rhs
 
 land.rhs:                                         ; preds = %do.body
-  %call14 = tail call i32 @FLAC__metadata_iterator_next(ptr noundef nonnull %call5) #15
+  %call14 = tail call i32 @FLAC__metadata_iterator_next(ptr noundef nonnull %call5) #13
   %tobool15.not = icmp eq i32 %call14, 0
   br i1 %tobool15.not, label %if.then17, label %do.body, !llvm.loop !15
 
 if.then17:                                        ; preds = %land.rhs
-  %call18 = tail call ptr @FLAC__metadata_object_new(i32 noundef 4) #15
+  %call18 = tail call ptr @FLAC__metadata_object_new(i32 noundef 4) #13
   store ptr %call18, ptr %block, align 8
   %cmp19 = icmp eq ptr %call18, null
   br i1 %cmp19, label %if.then20, label %while.cond
 
 if.then20:                                        ; preds = %if.then17
   %5 = load ptr, ptr %chain, align 8
-  tail call void @FLAC__metadata_chain_delete(ptr noundef %5) #15
-  tail call void @FLAC__metadata_iterator_delete(ptr noundef nonnull %call5) #15
+  tail call void @FLAC__metadata_chain_delete(ptr noundef %5) #13
+  tail call void @FLAC__metadata_iterator_delete(ptr noundef nonnull %call5) #13
   br label %return
 
 while.cond:                                       ; preds = %if.then17, %while.cond
-  %call22 = tail call i32 @FLAC__metadata_iterator_next(ptr noundef nonnull %call5) #15
+  %call22 = tail call i32 @FLAC__metadata_iterator_next(ptr noundef nonnull %call5) #13
   %tobool23.not = icmp eq i32 %call22, 0
   br i1 %tobool23.not, label %while.end, label %while.cond, !llvm.loop !16
 
 while.end:                                        ; preds = %while.cond
   %6 = load ptr, ptr %block, align 8
-  %call24 = tail call i32 @FLAC__metadata_iterator_insert_block_after(ptr noundef nonnull %call5, ptr noundef %6) #15
+  %call24 = tail call i32 @FLAC__metadata_iterator_insert_block_after(ptr noundef nonnull %call5, ptr noundef %6) #13
   %tobool25.not = icmp eq i32 %call24, 0
   br i1 %tobool25.not, label %if.then26, label %if.end31
 
 if.then26:                                        ; preds = %while.end
   %7 = load ptr, ptr %chain, align 8
-  %call27 = tail call i32 @FLAC__metadata_chain_status(ptr noundef %7) #15
+  %call27 = tail call i32 @FLAC__metadata_chain_status(ptr noundef %7) #13
   %idxprom28 = zext i32 %call27 to i64
   %arrayidx29 = getelementptr inbounds [0 x ptr], ptr @FLAC__Metadata_ChainStatusString, i64 0, i64 %idxprom28
   %8 = load ptr, ptr %arrayidx29, align 8
   %9 = load ptr, ptr %chain, align 8
-  tail call void @FLAC__metadata_chain_delete(ptr noundef %9) #15
-  tail call void @FLAC__metadata_iterator_delete(ptr noundef nonnull %call5) #15
+  tail call void @FLAC__metadata_chain_delete(ptr noundef %9) #13
+  tail call void @FLAC__metadata_iterator_delete(ptr noundef nonnull %call5) #13
   br label %return
 
 if.end31:                                         ; preds = %do.body, %while.end
-  tail call void @FLAC__metadata_iterator_delete(ptr noundef nonnull %call5) #15
+  tail call void @FLAC__metadata_iterator_delete(ptr noundef nonnull %call5) #13
   br label %return
 
 return:                                           ; preds = %entry, %if.end31, %if.then26, %if.then20, %if.then7, %if.then2
@@ -777,30 +777,30 @@ declare void @FLAC__metadata_chain_delete(ptr noundef) local_unnamed_addr #1
 define internal fastcc ptr @store_to_file_post_(ptr noundef %filename, ptr noundef %chain, i32 noundef %preserve_modtime) unnamed_addr #0 {
 entry:
   %stats = alloca %struct.stat, align 8
-  %call.i = call i32 @stat64(ptr noundef %filename, ptr noundef nonnull %stats) #15
-  %call1 = tail call i32 @grabbag__file_change_stats(ptr noundef %filename, i32 noundef 0) #15
-  tail call void @FLAC__metadata_chain_sort_padding(ptr noundef %chain) #15
-  %call2 = tail call i32 @FLAC__metadata_chain_write(ptr noundef %chain, i32 noundef 1, i32 noundef %preserve_modtime) #15
+  %call.i = call i32 @stat64(ptr noundef %filename, ptr noundef nonnull %stats) #13
+  %call1 = tail call i32 @grabbag__file_change_stats(ptr noundef %filename, i32 noundef 0) #13
+  tail call void @FLAC__metadata_chain_sort_padding(ptr noundef %chain) #13
+  %call2 = tail call i32 @FLAC__metadata_chain_write(ptr noundef %chain, i32 noundef 1, i32 noundef %preserve_modtime) #13
   %tobool.not = icmp eq i32 %call2, 0
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %call3 = tail call i32 @FLAC__metadata_chain_status(ptr noundef %chain) #15
+  %call3 = tail call i32 @FLAC__metadata_chain_status(ptr noundef %chain) #13
   %idxprom = zext i32 %call3 to i64
   %arrayidx = getelementptr inbounds [0 x ptr], ptr @FLAC__Metadata_ChainStatusString, i64 0, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 8
-  tail call void @FLAC__metadata_chain_delete(ptr noundef %chain) #15
+  tail call void @FLAC__metadata_chain_delete(ptr noundef %chain) #13
   br label %return
 
 if.end:                                           ; preds = %entry
   %cmp.i.not = icmp eq i32 %call.i, 0
-  tail call void @FLAC__metadata_chain_delete(ptr noundef %chain) #15
+  tail call void @FLAC__metadata_chain_delete(ptr noundef %chain) #13
   br i1 %cmp.i.not, label %if.then5, label %return
 
 if.then5:                                         ; preds = %if.end
   %1 = getelementptr inbounds i8, ptr %stats, i64 24
   %stats.val = load i32, ptr %1, align 8
-  %call.i7 = tail call i32 @chmod(ptr noundef %filename, i32 noundef %stats.val) #15
+  %call.i7 = tail call i32 @chmod(ptr noundef %filename, i32 noundef %stats.val) #13
   br label %return
 
 return:                                           ; preds = %if.end, %if.then5, %if.then
@@ -820,7 +820,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %block, align 8
-  %call.i = tail call i32 @FLAC__metadata_object_vorbiscomment_remove_entries_matching(ptr noundef %0, ptr noundef nonnull @.str) #15
+  %call.i = tail call i32 @FLAC__metadata_object_vorbiscomment_remove_entries_matching(ptr noundef %0, ptr noundef nonnull @.str) #13
   %cmp.i = icmp slt i32 %call.i, 0
   br i1 %cmp.i, label %if.then3, label %if.end.i
 
@@ -832,7 +832,7 @@ if.end.i:                                         ; preds = %if.end
 
 if.then3:                                         ; preds = %if.end.i, %if.end
   %2 = load ptr, ptr %chain, align 8
-  tail call void @FLAC__metadata_chain_delete(ptr noundef %2) #15
+  tail call void @FLAC__metadata_chain_delete(ptr noundef %2) #13
   br label %return
 
 if.end4:                                          ; preds = %if.end.i
@@ -857,12 +857,12 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %block, align 8
-  %call.i = tail call i32 @FLAC__metadata_object_vorbiscomment_remove_entries_matching(ptr noundef %0, ptr noundef nonnull @.str.3) #15
+  %call.i = tail call i32 @FLAC__metadata_object_vorbiscomment_remove_entries_matching(ptr noundef %0, ptr noundef nonnull @.str.3) #13
   %cmp.i = icmp slt i32 %call.i, 0
   br i1 %cmp.i, label %if.then3, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end
-  %call1.i = tail call i32 @FLAC__metadata_object_vorbiscomment_remove_entries_matching(ptr noundef %0, ptr noundef nonnull @.str.4) #15
+  %call1.i = tail call i32 @FLAC__metadata_object_vorbiscomment_remove_entries_matching(ptr noundef %0, ptr noundef nonnull @.str.4) #13
   %cmp2.i = icmp slt i32 %call1.i, 0
   br i1 %cmp2.i, label %if.then3, label %if.end.i
 
@@ -878,7 +878,7 @@ lor.lhs.false4.i:                                 ; preds = %if.end.i
 
 if.then3:                                         ; preds = %lor.lhs.false4.i, %lor.lhs.false.i, %if.end, %if.end.i
   %1 = load ptr, ptr %chain, align 8
-  tail call void @FLAC__metadata_chain_delete(ptr noundef %1) #15
+  tail call void @FLAC__metadata_chain_delete(ptr noundef %1) #13
   br label %return
 
 if.end4:                                          ; preds = %lor.lhs.false4.i
@@ -903,12 +903,12 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %block, align 8
-  %call.i = tail call i32 @FLAC__metadata_object_vorbiscomment_remove_entries_matching(ptr noundef %0, ptr noundef nonnull @.str.1) #15
+  %call.i = tail call i32 @FLAC__metadata_object_vorbiscomment_remove_entries_matching(ptr noundef %0, ptr noundef nonnull @.str.1) #13
   %cmp.i = icmp slt i32 %call.i, 0
   br i1 %cmp.i, label %if.then3, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end
-  %call1.i = tail call i32 @FLAC__metadata_object_vorbiscomment_remove_entries_matching(ptr noundef %0, ptr noundef nonnull @.str.2) #15
+  %call1.i = tail call i32 @FLAC__metadata_object_vorbiscomment_remove_entries_matching(ptr noundef %0, ptr noundef nonnull @.str.2) #13
   %cmp2.i = icmp slt i32 %call1.i, 0
   br i1 %cmp2.i, label %if.then3, label %if.end.i
 
@@ -924,7 +924,7 @@ lor.lhs.false4.i:                                 ; preds = %if.end.i
 
 if.then3:                                         ; preds = %lor.lhs.false4.i, %lor.lhs.false.i, %if.end, %if.end.i
   %1 = load ptr, ptr %chain, align 8
-  tail call void @FLAC__metadata_chain_delete(ptr noundef %1) #15
+  tail call void @FLAC__metadata_chain_delete(ptr noundef %1) #13
   br label %return
 
 if.end4:                                          ; preds = %lor.lhs.false4.i
@@ -949,14 +949,14 @@ entry:
   %0 = load float, ptr @ReplayGainReferenceLoudness, align 4
   %conv = fpext float %0 to double
   store double %conv, ptr %reference, align 8
-  %call = tail call ptr @setlocale(i32 noundef 6, ptr noundef null) #15
-  %call1 = tail call noalias ptr @strdup(ptr noundef %call) #15
+  %call = tail call ptr @setlocale(i32 noundef 6, ptr noundef null) #13
+  %call1 = tail call noalias ptr @strdup(ptr noundef %call) #13
   %cmp = icmp eq ptr %call1, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call3 = tail call ptr @setlocale(i32 noundef 6, ptr noundef nonnull @.str.8) #15
-  %call4 = tail call i32 @FLAC__metadata_object_vorbiscomment_find_entry_from(ptr noundef %block, i32 noundef 0, ptr noundef nonnull @.str) #15
+  %call3 = tail call ptr @setlocale(i32 noundef 6, ptr noundef nonnull @.str.8) #13
+  %call4 = tail call i32 @FLAC__metadata_object_vorbiscomment_find_entry_from(ptr noundef %block, i32 noundef 0, ptr noundef nonnull @.str) #13
   %cmp5 = icmp sgt i32 %call4, -1
   br i1 %cmp5, label %if.then7, label %if.end9
 
@@ -969,7 +969,7 @@ if.then7:                                         ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i)
   %entry2.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
   %2 = load ptr, ptr %entry2.i, align 8
-  %call.i = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %2, i32 noundef 61) #16
+  %call.i = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %2, i32 noundef 61) #14
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %parse_double_.exit, label %if.end.i
 
@@ -987,13 +987,13 @@ if.end.i:                                         ; preds = %if.then7
 if.end.i.i:                                       ; preds = %if.end.i
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %sub.i, i64 32)
   %sub.i.i = add nsw i64 %spec.select.i, -1
-  %call.i.i = call ptr @strncpy(ptr noundef nonnull %s.i, ptr noundef nonnull %incdec.ptr.i, i64 noundef %sub.i.i) #15
+  %call.i.i = call ptr @strncpy(ptr noundef nonnull %s.i, ptr noundef nonnull %incdec.ptr.i, i64 noundef %sub.i.i) #13
   %arrayidx.i.i = getelementptr inbounds i8, ptr %s.i, i64 %sub.i.i
   store i8 0, ptr %arrayidx.i.i, align 1
   br label %safe_strncpy.exit.i
 
 safe_strncpy.exit.i:                              ; preds = %if.end.i.i, %if.end.i
-  %call13.i = call double @strtod(ptr noundef nonnull %s.i, ptr noundef nonnull %end.i) #15
+  %call13.i = call double @strtod(ptr noundef nonnull %s.i, ptr noundef nonnull %end.i) #13
   %4 = load ptr, ptr %end.i, align 8
   %cmp15.i = icmp eq ptr %4, %s.i
   br i1 %cmp15.i, label %parse_double_.exit, label %if.end18.i
@@ -1010,10 +1010,10 @@ parse_double_.exit:                               ; preds = %if.then7, %safe_str
 if.end9:                                          ; preds = %parse_double_.exit, %if.end
   %tobool.not = icmp eq i32 %album_mode, 0
   %cond = select i1 %tobool.not, ptr @.str.1, ptr @.str.3
-  %call10 = call i32 @FLAC__metadata_object_vorbiscomment_find_entry_from(ptr noundef %block, i32 noundef 0, ptr noundef nonnull %cond) #15
+  %call10 = call i32 @FLAC__metadata_object_vorbiscomment_find_entry_from(ptr noundef %block, i32 noundef 0, ptr noundef nonnull %cond) #13
   %cmp11 = icmp slt i32 %call10, 0
   %cond16 = select i1 %tobool.not, ptr @.str.2, ptr @.str.4
-  %call17 = call i32 @FLAC__metadata_object_vorbiscomment_find_entry_from(ptr noundef %block, i32 noundef 0, ptr noundef nonnull %cond16) #15
+  %call17 = call i32 @FLAC__metadata_object_vorbiscomment_find_entry_from(ptr noundef %block, i32 noundef 0, ptr noundef nonnull %cond16) #13
   %cmp18 = icmp slt i32 %call17, 0
   %narrow.not = select i1 %cmp18, i1 true, i1 %cmp11
   br i1 %narrow.not, label %if.end46, label %land.lhs.true
@@ -1027,7 +1027,7 @@ land.lhs.true:                                    ; preds = %if.end9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i23)
   %entry2.i24 = getelementptr inbounds i8, ptr %add.ptr26, i64 8
   %6 = load ptr, ptr %entry2.i24, align 8
-  %call.i25 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %6, i32 noundef 61) #16
+  %call.i25 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %6, i32 noundef 61) #14
   %cmp.i26 = icmp eq ptr %call.i25, null
   br i1 %cmp.i26, label %parse_double_.exit45.thread, label %if.end.i27
 
@@ -1045,13 +1045,13 @@ if.end.i27:                                       ; preds = %land.lhs.true
 if.end.i.i35:                                     ; preds = %if.end.i27
   %spec.select.i36 = call i64 @llvm.umin.i64(i64 %sub.i33, i64 32)
   %sub.i.i37 = add nsw i64 %spec.select.i36, -1
-  %call.i.i38 = call ptr @strncpy(ptr noundef nonnull %s.i22, ptr noundef nonnull %incdec.ptr.i28, i64 noundef %sub.i.i37) #15
+  %call.i.i38 = call ptr @strncpy(ptr noundef nonnull %s.i22, ptr noundef nonnull %incdec.ptr.i28, i64 noundef %sub.i.i37) #13
   %arrayidx.i.i39 = getelementptr inbounds i8, ptr %s.i22, i64 %sub.i.i37
   store i8 0, ptr %arrayidx.i.i39, align 1
   br label %safe_strncpy.exit.i40
 
 safe_strncpy.exit.i40:                            ; preds = %if.end.i.i35, %if.end.i27
-  %call13.i41 = call double @strtod(ptr noundef nonnull %s.i22, ptr noundef nonnull %end.i23) #15
+  %call13.i41 = call double @strtod(ptr noundef nonnull %s.i22, ptr noundef nonnull %end.i23) #13
   %8 = load ptr, ptr %end.i23, align 8
   %cmp15.i42 = icmp eq ptr %8, %s.i22
   br i1 %cmp15.i42, label %parse_double_.exit45.thread, label %land.lhs.true32
@@ -1072,7 +1072,7 @@ land.lhs.true32:                                  ; preds = %safe_strncpy.exit.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i47)
   %entry2.i48 = getelementptr inbounds i8, ptr %add.ptr36, i64 8
   %10 = load ptr, ptr %entry2.i48, align 8
-  %call.i49 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %10, i32 noundef 61) #16
+  %call.i49 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %10, i32 noundef 61) #14
   %cmp.i50 = icmp eq ptr %call.i49, null
   br i1 %cmp.i50, label %parse_double_.exit69.thread, label %if.end.i51
 
@@ -1090,13 +1090,13 @@ if.end.i51:                                       ; preds = %land.lhs.true32
 if.end.i.i59:                                     ; preds = %if.end.i51
   %spec.select.i60 = call i64 @llvm.umin.i64(i64 %sub.i57, i64 32)
   %sub.i.i61 = add nsw i64 %spec.select.i60, -1
-  %call.i.i62 = call ptr @strncpy(ptr noundef nonnull %s.i46, ptr noundef nonnull %incdec.ptr.i52, i64 noundef %sub.i.i61) #15
+  %call.i.i62 = call ptr @strncpy(ptr noundef nonnull %s.i46, ptr noundef nonnull %incdec.ptr.i52, i64 noundef %sub.i.i61) #13
   %arrayidx.i.i63 = getelementptr inbounds i8, ptr %s.i46, i64 %sub.i.i61
   store i8 0, ptr %arrayidx.i.i63, align 1
   br label %safe_strncpy.exit.i64
 
 safe_strncpy.exit.i64:                            ; preds = %if.end.i.i59, %if.end.i51
-  %call13.i65 = call double @strtod(ptr noundef nonnull %s.i46, ptr noundef nonnull %end.i47) #15
+  %call13.i65 = call double @strtod(ptr noundef nonnull %s.i46, ptr noundef nonnull %end.i47) #13
   %12 = load ptr, ptr %end.i47, align 8
   %cmp15.i66 = icmp eq ptr %12, %s.i46
   br i1 %cmp15.i66, label %parse_double_.exit69.thread, label %land.lhs.true42
@@ -1119,8 +1119,8 @@ if.then45:                                        ; preds = %land.lhs.true42
 if.end46:                                         ; preds = %parse_double_.exit69.thread, %parse_double_.exit45.thread, %if.end9, %if.then45, %land.lhs.true42
   %tobool48 = phi i1 [ false, %if.then45 ], [ true, %land.lhs.true42 ], [ false, %if.end9 ], [ false, %parse_double_.exit45.thread ], [ false, %parse_double_.exit69.thread ]
   %res.4 = phi i32 [ 0, %if.then45 ], [ 1, %land.lhs.true42 ], [ 0, %if.end9 ], [ 0, %parse_double_.exit45.thread ], [ 0, %parse_double_.exit69.thread ]
-  %call47 = call ptr @setlocale(i32 noundef 6, ptr noundef nonnull %call1) #15
-  call void @free(ptr noundef nonnull %call1) #15
+  %call47 = call ptr @setlocale(i32 noundef 6, ptr noundef nonnull %call1) #13
+  call void @free(ptr noundef nonnull %call1) #13
   %tobool50 = icmp ne i32 %strict, 0
   %or.cond = or i1 %tobool50, %tobool48
   br i1 %or.cond, label %return, label %if.then51
@@ -1146,13 +1146,13 @@ declare i32 @FLAC__metadata_object_vorbiscomment_find_entry_from(ptr noundef, i3
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
 
-; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(write) uwtable
-define dso_local double @grabbag__replaygain_compute_scale_factor(double noundef %peak, double noundef %gain, double noundef %preamp, i32 noundef %prevent_clipping) local_unnamed_addr #7 {
+; Function Attrs: nounwind sspstrong uwtable
+define dso_local double @grabbag__replaygain_compute_scale_factor(double noundef %peak, double noundef %gain, double noundef %preamp, i32 noundef %prevent_clipping) local_unnamed_addr #0 {
 entry:
   %add = fadd double %gain, %preamp
   %mul = fmul double %add, 5.000000e-02
-  %call = tail call double @pow(double noundef 1.000000e+01, double noundef %mul) #15
-  %conv = fptrunc double %call to float
+  %__exp10 = tail call double @__exp10(double %mul) #13
+  %conv = fptrunc double %__exp10 to float
   %tobool = icmp ne i32 %prevent_clipping, 0
   %cmp = fcmp ogt double %peak, 0.000000e+00
   %or.cond = and i1 %cmp, %tobool
@@ -1173,13 +1173,10 @@ if.end8:                                          ; preds = %if.then, %if.then7,
   ret double %scale.0
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @pow(double noundef, double noundef) local_unnamed_addr #8
-
 declare i32 @flac_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
 
 declare i32 @FLAC__metadata_object_vorbiscomment_append_comment(ptr noundef, i32, ptr, i32 noundef) local_unnamed_addr #1
 
@@ -1210,37 +1207,39 @@ declare void @FLAC__metadata_chain_sort_padding(ptr noundef) local_unnamed_addr 
 declare i32 @FLAC__metadata_chain_write(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat64(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #10
+declare noundef i32 @stat64(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @chmod(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #10
+declare noundef i32 @chmod(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #9
+declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare double @strtod(ptr noundef readonly, ptr nocapture noundef) local_unnamed_addr #11
+declare double @strtod(ptr noundef readonly, ptr nocapture noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #12
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #13
+declare i32 @llvm.umin.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #13
+declare i32 @llvm.smax.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #13
+declare i32 @llvm.umax.i32(i32, i32) #11
+
+declare double @__exp10(double) local_unnamed_addr
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #13
+declare i64 @llvm.umin.i64(i64, i64) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1249,16 +1248,14 @@ attributes #3 = { mustprogress nofree norecurse nosync nounwind sspstrong willre
 attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nounwind sspstrong willreturn memory(write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #14 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #15 = { nounwind }
-attributes #16 = { nounwind willreturn memory(read) }
+attributes #7 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #13 = { nounwind }
+attributes #14 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

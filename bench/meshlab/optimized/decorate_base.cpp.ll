@@ -9907,12 +9907,12 @@ declare float @llvm.ceil.f32(float) #14
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
 declare float @log10f(float noundef) local_unnamed_addr #17
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
-define noundef float @_ZN18DecorateBasePlugin9niceRoundEf(ptr nocapture noundef nonnull readnone align 8 dereferenceable(192) %0, float noundef %1) local_unnamed_addr #18 align 2 {
+; Function Attrs: mustprogress nounwind uwtable
+define noundef float @_ZN18DecorateBasePlugin9niceRoundEf(ptr nocapture noundef nonnull readnone align 8 dereferenceable(192) %0, float noundef %1) local_unnamed_addr #4 align 2 {
   %3 = tail call noundef float @log10f(float noundef %1) #27
   %4 = tail call noundef float @llvm.ceil.f32(float %3)
-  %5 = tail call float @powf(float noundef 1.000000e+01, float noundef %4) #27
-  ret float %5
+  %__exp10f = tail call float @__exp10f(float %4) #27
+  ret float %__exp10f
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -22694,6 +22694,8 @@ __cxx_global_var_init.5.exit:                     ; preds = %_ZNSt4pairIKN3vcg8C
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #22
+
+declare float @__exp10f(float) local_unnamed_addr
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #23

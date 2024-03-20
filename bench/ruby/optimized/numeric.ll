@@ -3078,7 +3078,7 @@ rb_float_value_inline.exit.thread:                ; preds = %6, %rb_float_value_
 
 39:                                               ; preds = %rb_float_value_inline.exit
   %40 = icmp sgt i32 %1, 0
-  br i1 %40, label %41, label %86
+  br i1 %40, label %41, label %85
 
 41:                                               ; preds = %39
   %42 = call double @frexp(double noundef %.0.i, ptr noundef nonnull %3) #23
@@ -3126,75 +3126,75 @@ float_round_underflow.exit:                       ; preds = %55, %57
 
 58:                                               ; preds = %float_round_underflow.exit, %52
   %59 = sitofp i32 %1 to double
-  %60 = tail call double @pow(double noundef 1.000000e+01, double noundef %59) #23
-  %61 = fmul double %.0.i, %60
-  %62 = tail call double @llvm.floor.f64(double %61)
-  %63 = fadd double %62, 1.000000e+00
-  %64 = fdiv double %63, %60
-  %65 = fcmp ogt double %64, %.0.i
-  %66 = fdiv double %62, %60
-  %.0 = select i1 %65, double %66, double %64
-  %67 = bitcast double %.0 to i64
-  %cond.i36 = icmp eq i64 %67, 3458764513820540928
-  br i1 %cond.i36, label %79, label %68
+  %__exp10 = tail call double @__exp10(double %59) #23
+  %60 = fmul double %.0.i, %__exp10
+  %61 = tail call double @llvm.floor.f64(double %60)
+  %62 = fadd double %61, 1.000000e+00
+  %63 = fdiv double %62, %__exp10
+  %64 = fcmp ogt double %63, %.0.i
+  %65 = fdiv double %61, %__exp10
+  %.0 = select i1 %64, double %65, double %63
+  %66 = bitcast double %.0 to i64
+  %cond.i36 = icmp eq i64 %66, 3458764513820540928
+  br i1 %cond.i36, label %78, label %67
 
-68:                                               ; preds = %58
-  %69 = lshr i64 %67, 60
-  %70 = trunc i64 %69 to i32
-  %71 = and i32 %70, 7
-  %72 = add nsw i32 %71, -3
-  %.not7.i37 = icmp ult i32 %72, 2
-  br i1 %.not7.i37, label %73, label %77
+67:                                               ; preds = %58
+  %68 = lshr i64 %66, 60
+  %69 = trunc i64 %68 to i32
+  %70 = and i32 %69, 7
+  %71 = add nsw i32 %70, -3
+  %.not7.i37 = icmp ult i32 %71, 2
+  br i1 %.not7.i37, label %72, label %76
 
-73:                                               ; preds = %68
-  %74 = tail call noundef i64 @llvm.fshl.i64(i64 %67, i64 %67, i64 3)
-  %75 = and i64 %74, -4
-  %76 = or disjoint i64 %75, 2
+72:                                               ; preds = %67
+  %73 = tail call noundef i64 @llvm.fshl.i64(i64 %66, i64 %66, i64 3)
+  %74 = and i64 %73, -4
+  %75 = or disjoint i64 %74, 2
   br label %rb_float_new_inline.exit
 
-77:                                               ; preds = %68
-  %78 = icmp eq i64 %67, 0
-  br i1 %78, label %rb_float_new_inline.exit, label %79
+76:                                               ; preds = %67
+  %77 = icmp eq i64 %66, 0
+  br i1 %77, label %rb_float_new_inline.exit, label %78
 
-79:                                               ; preds = %77, %58
-  %80 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
-  %81 = load ptr, ptr %80, align 8
-  %82 = load i64, ptr @rb_cFloat, align 8
-  %83 = tail call i64 @rb_wb_protected_newobj_of(ptr noundef %81, i64 noundef %82, i64 noundef 4, i64 noundef 24) #23
-  %84 = inttoptr i64 %83 to ptr
-  %85 = getelementptr inbounds i8, ptr %84, i64 16
-  store double %.0, ptr %85, align 8
-  tail call void @rb_obj_freeze_inline(i64 noundef %83) #23
+78:                                               ; preds = %76, %58
+  %79 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
+  %80 = load ptr, ptr %79, align 8
+  %81 = load i64, ptr @rb_cFloat, align 8
+  %82 = tail call i64 @rb_wb_protected_newobj_of(ptr noundef %80, i64 noundef %81, i64 noundef 4, i64 noundef 24) #23
+  %83 = inttoptr i64 %82 to ptr
+  %84 = getelementptr inbounds i8, ptr %83, i64 16
+  store double %.0, ptr %84, align 8
+  tail call void @rb_obj_freeze_inline(i64 noundef %82) #23
   br label %rb_float_new_inline.exit
 
-86:                                               ; preds = %39
-  %87 = tail call double @llvm.floor.f64(double %.0.i)
-  %88 = fcmp olt double %87, 0x43D0000000000000
-  %89 = fcmp oge double %87, 0xC3D0000000000000
-  %or.cond.i = and i1 %88, %89
-  br i1 %or.cond.i, label %90, label %94
+85:                                               ; preds = %39
+  %86 = tail call double @llvm.floor.f64(double %.0.i)
+  %87 = fcmp olt double %86, 0x43D0000000000000
+  %88 = fcmp oge double %86, 0xC3D0000000000000
+  %or.cond.i = and i1 %87, %88
+  br i1 %or.cond.i, label %89, label %93
 
-90:                                               ; preds = %86
-  %91 = fptosi double %87 to i64
-  %92 = shl i64 %91, 1
-  %93 = or disjoint i64 %92, 1
+89:                                               ; preds = %85
+  %90 = fptosi double %86 to i64
+  %91 = shl i64 %90, 1
+  %92 = or disjoint i64 %91, 1
   br label %dbl2ival.exit
 
-94:                                               ; preds = %86
-  %95 = tail call i64 @rb_dbl2big(double noundef %87) #23
+93:                                               ; preds = %85
+  %94 = tail call i64 @rb_dbl2big(double noundef %86) #23
   br label %dbl2ival.exit
 
-dbl2ival.exit:                                    ; preds = %90, %94
-  %.0.i40 = phi i64 [ %93, %90 ], [ %95, %94 ]
-  %96 = icmp slt i32 %1, 0
-  br i1 %96, label %97, label %rb_float_new_inline.exit
+dbl2ival.exit:                                    ; preds = %89, %93
+  %.0.i40 = phi i64 [ %92, %89 ], [ %94, %93 ]
+  %95 = icmp slt i32 %1, 0
+  br i1 %95, label %96, label %rb_float_new_inline.exit
 
-97:                                               ; preds = %dbl2ival.exit
-  %98 = tail call fastcc i64 @rb_int_floor(i64 noundef %.0.i40, i32 noundef %1)
+96:                                               ; preds = %dbl2ival.exit
+  %97 = tail call fastcc i64 @rb_int_floor(i64 noundef %.0.i40, i32 noundef %1)
   br label %rb_float_new_inline.exit
 
-rb_float_new_inline.exit:                         ; preds = %79, %77, %73, %float_round_underflow.exit, %32, %30, %26, %dbl2ival.exit, %97, %float_round_overflow.exit, %rb_float_value_inline.exit.thread
-  %.025 = phi i64 [ 1, %rb_float_value_inline.exit.thread ], [ %0, %float_round_overflow.exit ], [ %98, %97 ], [ %.0.i40, %dbl2ival.exit ], [ %36, %32 ], [ %29, %26 ], [ -9223372036854775806, %30 ], [ -9223372036854775806, %float_round_underflow.exit ], [ %83, %79 ], [ %76, %73 ], [ -9223372036854775806, %77 ]
+rb_float_new_inline.exit:                         ; preds = %78, %76, %72, %float_round_underflow.exit, %32, %30, %26, %dbl2ival.exit, %96, %float_round_overflow.exit, %rb_float_value_inline.exit.thread
+  %.025 = phi i64 [ 1, %rb_float_value_inline.exit.thread ], [ %0, %float_round_overflow.exit ], [ %97, %96 ], [ %.0.i40, %dbl2ival.exit ], [ %36, %32 ], [ %29, %26 ], [ -9223372036854775806, %30 ], [ -9223372036854775806, %float_round_underflow.exit ], [ %82, %78 ], [ %75, %72 ], [ -9223372036854775806, %76 ]
   ret i64 %.025
 }
 
@@ -3421,7 +3421,7 @@ rb_float_value_inline.exit.thread:                ; preds = %6, %rb_float_value_
 
 39:                                               ; preds = %rb_float_value_inline.exit
   %40 = icmp sgt i32 %1, 0
-  br i1 %40, label %41, label %83
+  br i1 %40, label %41, label %82
 
 41:                                               ; preds = %39
   %42 = call double @frexp(double noundef %.0.i, ptr noundef nonnull %3) #23
@@ -3469,71 +3469,71 @@ float_round_underflow.exit:                       ; preds = %55, %57
 
 58:                                               ; preds = %float_round_underflow.exit, %52
   %59 = sitofp i32 %1 to double
-  %60 = tail call double @pow(double noundef 1.000000e+01, double noundef %59) #23
-  %61 = fmul double %.0.i, %60
-  %62 = tail call double @llvm.ceil.f64(double %61)
-  %63 = fdiv double %62, %60
-  %64 = bitcast double %63 to i64
-  %cond.i29 = icmp eq i64 %64, 3458764513820540928
-  br i1 %cond.i29, label %76, label %65
+  %__exp10 = tail call double @__exp10(double %59) #23
+  %60 = fmul double %.0.i, %__exp10
+  %61 = tail call double @llvm.ceil.f64(double %60)
+  %62 = fdiv double %61, %__exp10
+  %63 = bitcast double %62 to i64
+  %cond.i29 = icmp eq i64 %63, 3458764513820540928
+  br i1 %cond.i29, label %75, label %64
 
-65:                                               ; preds = %58
-  %66 = lshr i64 %64, 60
-  %67 = trunc i64 %66 to i32
-  %68 = and i32 %67, 7
-  %69 = add nsw i32 %68, -3
-  %.not7.i30 = icmp ult i32 %69, 2
-  br i1 %.not7.i30, label %70, label %74
+64:                                               ; preds = %58
+  %65 = lshr i64 %63, 60
+  %66 = trunc i64 %65 to i32
+  %67 = and i32 %66, 7
+  %68 = add nsw i32 %67, -3
+  %.not7.i30 = icmp ult i32 %68, 2
+  br i1 %.not7.i30, label %69, label %73
 
-70:                                               ; preds = %65
-  %71 = tail call noundef i64 @llvm.fshl.i64(i64 %64, i64 %64, i64 3)
-  %72 = and i64 %71, -4
-  %73 = or disjoint i64 %72, 2
+69:                                               ; preds = %64
+  %70 = tail call noundef i64 @llvm.fshl.i64(i64 %63, i64 %63, i64 3)
+  %71 = and i64 %70, -4
+  %72 = or disjoint i64 %71, 2
   br label %rb_float_new_inline.exit
 
-74:                                               ; preds = %65
-  %75 = icmp eq i64 %64, 0
-  br i1 %75, label %rb_float_new_inline.exit, label %76
+73:                                               ; preds = %64
+  %74 = icmp eq i64 %63, 0
+  br i1 %74, label %rb_float_new_inline.exit, label %75
 
-76:                                               ; preds = %74, %58
-  %77 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
-  %78 = load ptr, ptr %77, align 8
-  %79 = load i64, ptr @rb_cFloat, align 8
-  %80 = tail call i64 @rb_wb_protected_newobj_of(ptr noundef %78, i64 noundef %79, i64 noundef 4, i64 noundef 24) #23
-  %81 = inttoptr i64 %80 to ptr
-  %82 = getelementptr inbounds i8, ptr %81, i64 16
-  store double %63, ptr %82, align 8
-  tail call void @rb_obj_freeze_inline(i64 noundef %80) #23
+75:                                               ; preds = %73, %58
+  %76 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
+  %77 = load ptr, ptr %76, align 8
+  %78 = load i64, ptr @rb_cFloat, align 8
+  %79 = tail call i64 @rb_wb_protected_newobj_of(ptr noundef %77, i64 noundef %78, i64 noundef 4, i64 noundef 24) #23
+  %80 = inttoptr i64 %79 to ptr
+  %81 = getelementptr inbounds i8, ptr %80, i64 16
+  store double %62, ptr %81, align 8
+  tail call void @rb_obj_freeze_inline(i64 noundef %79) #23
   br label %rb_float_new_inline.exit
 
-83:                                               ; preds = %39
-  %84 = tail call double @llvm.ceil.f64(double %.0.i)
-  %85 = fcmp olt double %84, 0x43D0000000000000
-  %86 = fcmp oge double %84, 0xC3D0000000000000
-  %or.cond.i = and i1 %85, %86
-  br i1 %or.cond.i, label %87, label %91
+82:                                               ; preds = %39
+  %83 = tail call double @llvm.ceil.f64(double %.0.i)
+  %84 = fcmp olt double %83, 0x43D0000000000000
+  %85 = fcmp oge double %83, 0xC3D0000000000000
+  %or.cond.i = and i1 %84, %85
+  br i1 %or.cond.i, label %86, label %90
 
-87:                                               ; preds = %83
-  %88 = fptosi double %84 to i64
-  %89 = shl i64 %88, 1
-  %90 = or disjoint i64 %89, 1
+86:                                               ; preds = %82
+  %87 = fptosi double %83 to i64
+  %88 = shl i64 %87, 1
+  %89 = or disjoint i64 %88, 1
   br label %dbl2ival.exit
 
-91:                                               ; preds = %83
-  %92 = tail call i64 @rb_dbl2big(double noundef %84) #23
+90:                                               ; preds = %82
+  %91 = tail call i64 @rb_dbl2big(double noundef %83) #23
   br label %dbl2ival.exit
 
-dbl2ival.exit:                                    ; preds = %87, %91
-  %.0.i33 = phi i64 [ %90, %87 ], [ %92, %91 ]
-  %93 = icmp slt i32 %1, 0
-  br i1 %93, label %94, label %rb_float_new_inline.exit
+dbl2ival.exit:                                    ; preds = %86, %90
+  %.0.i33 = phi i64 [ %89, %86 ], [ %91, %90 ]
+  %92 = icmp slt i32 %1, 0
+  br i1 %92, label %93, label %rb_float_new_inline.exit
 
-94:                                               ; preds = %dbl2ival.exit
-  %95 = tail call fastcc i64 @rb_int_ceil(i64 noundef %.0.i33, i32 noundef %1)
+93:                                               ; preds = %dbl2ival.exit
+  %94 = tail call fastcc i64 @rb_int_ceil(i64 noundef %.0.i33, i32 noundef %1)
   br label %rb_float_new_inline.exit
 
-rb_float_new_inline.exit:                         ; preds = %76, %74, %70, %float_round_underflow.exit, %32, %30, %26, %dbl2ival.exit, %94, %float_round_overflow.exit, %rb_float_value_inline.exit.thread
-  %.0 = phi i64 [ 1, %rb_float_value_inline.exit.thread ], [ %0, %float_round_overflow.exit ], [ %95, %94 ], [ %.0.i33, %dbl2ival.exit ], [ %36, %32 ], [ %29, %26 ], [ -9223372036854775806, %30 ], [ -9223372036854775806, %float_round_underflow.exit ], [ %80, %76 ], [ %73, %70 ], [ -9223372036854775806, %74 ]
+rb_float_new_inline.exit:                         ; preds = %75, %73, %69, %float_round_underflow.exit, %32, %30, %26, %dbl2ival.exit, %93, %float_round_overflow.exit, %rb_float_value_inline.exit.thread
+  %.0 = phi i64 [ 1, %rb_float_value_inline.exit.thread ], [ %0, %float_round_overflow.exit ], [ %94, %93 ], [ %.0.i33, %dbl2ival.exit ], [ %36, %32 ], [ %29, %26 ], [ -9223372036854775806, %30 ], [ -9223372036854775806, %float_round_underflow.exit ], [ %79, %75 ], [ %72, %69 ], [ -9223372036854775806, %73 ]
   ret i64 %.0
 }
 
@@ -13471,75 +13471,75 @@ float_round_underflow.exit:                       ; preds = %153, %.thread
 
 159:                                              ; preds = %155
   %160 = sitofp i32 %.038 to double
-  %161 = call double @pow(double noundef 1.000000e+01, double noundef %160) #23
-  switch i32 %23, label %180 [
-    i32 1, label %162
-    i32 0, label %164
+  %__exp10 = call double @__exp10(double %160) #23
+  switch i32 %23, label %179 [
+    i32 1, label %161
+    i32 0, label %163
   ]
 
-162:                                              ; preds = %159
-  %163 = call fastcc double @round_half_even(double noundef %.0.i44, double noundef %161)
+161:                                              ; preds = %159
+  %162 = call fastcc double @round_half_even(double noundef %.0.i44, double noundef %__exp10)
   br label %round_half_up.exit
 
-164:                                              ; preds = %159
-  %165 = fmul double %.0.i44, %161
-  %166 = call double @llvm.round.f64(double %165)
-  %167 = fcmp oeq double %161, 1.000000e+00
-  br i1 %167, label %round_half_up.exit, label %168
+163:                                              ; preds = %159
+  %164 = fmul double %.0.i44, %__exp10
+  %165 = call double @llvm.round.f64(double %164)
+  %166 = fcmp oeq double %__exp10, 1.000000e+00
+  br i1 %166, label %round_half_up.exit, label %167
 
-168:                                              ; preds = %164
-  %169 = fcmp ogt double %.0.i44, 0.000000e+00
-  br i1 %169, label %170, label %175
+167:                                              ; preds = %163
+  %168 = fcmp ogt double %.0.i44, 0.000000e+00
+  br i1 %168, label %169, label %174
 
-170:                                              ; preds = %168
-  %171 = fadd double %166, 5.000000e-01
-  %172 = fdiv double %171, %161
-  %173 = fcmp ugt double %172, %.0.i44
-  %174 = fadd double %166, 1.000000e+00
-  %.018.i = select i1 %173, double %166, double %174
+169:                                              ; preds = %167
+  %170 = fadd double %165, 5.000000e-01
+  %171 = fdiv double %170, %__exp10
+  %172 = fcmp ugt double %171, %.0.i44
+  %173 = fadd double %165, 1.000000e+00
+  %.018.i = select i1 %172, double %165, double %173
   br label %round_half_up.exit
 
-175:                                              ; preds = %168
-  %176 = fadd double %166, -5.000000e-01
-  %177 = fdiv double %176, %161
-  %178 = fcmp ult double %177, %.0.i44
-  %179 = fadd double %166, -1.000000e+00
-  %.1.i57 = select i1 %178, double %166, double %179
+174:                                              ; preds = %167
+  %175 = fadd double %165, -5.000000e-01
+  %176 = fdiv double %175, %__exp10
+  %177 = fcmp ult double %176, %.0.i44
+  %178 = fadd double %165, -1.000000e+00
+  %.1.i57 = select i1 %177, double %165, double %178
   br label %round_half_up.exit
 
-180:                                              ; preds = %159
-  %181 = fmul double %.0.i44, %161
-  %182 = call double @llvm.round.f64(double %181)
-  %183 = fcmp ogt double %.0.i44, 0.000000e+00
-  br i1 %183, label %184, label %188
+179:                                              ; preds = %159
+  %180 = fmul double %.0.i44, %__exp10
+  %181 = call double @llvm.round.f64(double %180)
+  %182 = fcmp ogt double %.0.i44, 0.000000e+00
+  br i1 %182, label %183, label %187
 
-184:                                              ; preds = %180
-  %185 = fadd double %182, -5.000000e-01
-  %186 = fdiv double %185, %161
-  %187 = fcmp ult double %186, %.0.i44
+183:                                              ; preds = %179
+  %184 = fadd double %181, -5.000000e-01
+  %185 = fdiv double %184, %__exp10
+  %186 = fcmp ult double %185, %.0.i44
   br label %round_half_down.exit62
 
-188:                                              ; preds = %180
-  %189 = fadd double %182, 5.000000e-01
-  %190 = fdiv double %189, %161
-  %191 = fcmp ugt double %190, %.0.i44
+187:                                              ; preds = %179
+  %188 = fadd double %181, 5.000000e-01
+  %189 = fdiv double %188, %__exp10
+  %190 = fcmp ugt double %189, %.0.i44
   br label %round_half_down.exit62
 
-round_half_down.exit62:                           ; preds = %184, %188
-  %.sink19.i59 = phi double [ 1.000000e+00, %188 ], [ -1.000000e+00, %184 ]
-  %.sink.i60 = phi i1 [ %191, %188 ], [ %187, %184 ]
-  %192 = fadd double %182, %.sink19.i59
-  %.1.i61 = select i1 %.sink.i60, double %182, double %192
+round_half_down.exit62:                           ; preds = %183, %187
+  %.sink19.i59 = phi double [ 1.000000e+00, %187 ], [ -1.000000e+00, %183 ]
+  %.sink.i60 = phi i1 [ %190, %187 ], [ %186, %183 ]
+  %191 = fadd double %181, %.sink19.i59
+  %.1.i61 = select i1 %.sink.i60, double %181, double %191
   br label %round_half_up.exit
 
-round_half_up.exit:                               ; preds = %175, %170, %164, %round_half_down.exit62, %162
-  %193 = phi double [ %163, %162 ], [ %.1.i61, %round_half_down.exit62 ], [ %166, %164 ], [ %.018.i, %170 ], [ %.1.i57, %175 ]
-  %194 = fdiv double %193, %161
-  %195 = call fastcc i64 @rb_float_new_inline(double noundef %194)
+round_half_up.exit:                               ; preds = %174, %169, %163, %round_half_down.exit62, %161
+  %192 = phi double [ %162, %161 ], [ %.1.i61, %round_half_down.exit62 ], [ %165, %163 ], [ %.018.i, %169 ], [ %.1.i57, %174 ]
+  %193 = fdiv double %192, %__exp10
+  %194 = call fastcc i64 @rb_float_new_inline(double noundef %193)
   br label %rb_float_new_inline.exit
 
 rb_float_new_inline.exit:                         ; preds = %float_round_underflow.exit, %float_round_overflow.exit.thread, %140, %136, %52, %50, %46, %142, %float_round_overflow.exit, %rb_float_value_inline.exit.thread, %round_half_up.exit, %157, %flo_to_i.exit
-  %.0 = phi i64 [ %85, %flo_to_i.exit ], [ %158, %157 ], [ %195, %round_half_up.exit ], [ 1, %rb_float_value_inline.exit.thread ], [ %2, %float_round_overflow.exit ], [ %2, %142 ], [ %56, %52 ], [ %49, %46 ], [ -9223372036854775806, %50 ], [ %139, %136 ], [ %141, %140 ], [ %2, %float_round_overflow.exit.thread ], [ -9223372036854775806, %float_round_underflow.exit ]
+  %.0 = phi i64 [ %85, %flo_to_i.exit ], [ %158, %157 ], [ %194, %round_half_up.exit ], [ 1, %rb_float_value_inline.exit.thread ], [ %2, %float_round_overflow.exit ], [ %2, %142 ], [ %56, %52 ], [ %49, %46 ], [ -9223372036854775806, %50 ], [ %139, %136 ], [ %141, %140 ], [ %2, %float_round_overflow.exit.thread ], [ -9223372036854775806, %float_round_underflow.exit ]
   ret i64 %.0
 }
 
@@ -16282,6 +16282,8 @@ int_neg_p.exit:                                   ; preds = %5, %17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.copysign.f64(double, double) #20
+
+declare double @__exp10(double) local_unnamed_addr
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.abs.i64(i64, i1 immarg) #20

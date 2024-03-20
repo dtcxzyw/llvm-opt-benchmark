@@ -61,7 +61,7 @@ define void @EpdFree(ptr noundef %0) local_unnamed_addr #3 {
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 
-; Function Attrs: nofree nounwind uwtable
+; Function Attrs: nounwind uwtable
 define void @EpdGetString(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #5 {
   %3 = alloca %struct.EpDoubleStruct, align 8
   %4 = alloca %struct.EpDoubleStruct, align 8
@@ -208,7 +208,7 @@ define noundef i32 @IsInfDouble(double noundef %0) local_unnamed_addr #6 {
   ret i32 %.0
 }
 
-; Function Attrs: nofree nounwind uwtable
+; Function Attrs: nounwind uwtable
 define void @EpdGetValueAndDecimalExponent(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #5 {
   %4 = alloca %struct.EpDoubleStruct, align 8
   %5 = alloca %struct.EpDoubleStruct, align 8
@@ -531,7 +531,7 @@ define void @EpdMultiply2(ptr nocapture noundef %0, ptr nocapture noundef readon
   ret void
 }
 
-; Function Attrs: nofree nounwind uwtable
+; Function Attrs: nounwind uwtable
 define void @EpdMultiply2Decimal(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #5 {
   %3 = load i64, ptr %0, align 8
   %or.cond.i.i = icmp ult i64 %3, -4503599627370496
@@ -589,7 +589,7 @@ define void @EpdMultiply2Decimal(ptr nocapture noundef %0, ptr nocapture noundef
   ret void
 }
 
-; Function Attrs: nofree nounwind uwtable
+; Function Attrs: nounwind uwtable
 define void @EpdNormalizeDecimal(ptr nocapture noundef %0) local_unnamed_addr #5 {
   %2 = alloca [24 x i8], align 16
   %3 = alloca i32, align 4
@@ -605,7 +605,7 @@ define void @EpdNormalizeDecimal(ptr nocapture noundef %0) local_unnamed_addr #5
 8:                                                ; preds = %1
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %9, align 8
-  br label %21
+  br label %20
 
 10:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
@@ -617,17 +617,17 @@ define void @EpdNormalizeDecimal(ptr nocapture noundef %0) local_unnamed_addr #5
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   %14 = sitofp i32 %13 to double
-  %15 = call double @pow(double noundef 1.000000e+01, double noundef %14) #19
-  %16 = load double, ptr %0, align 8
-  %17 = fdiv double %16, %15
-  store double %17, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
-  %19 = load i32, ptr %18, align 8
-  %20 = add nsw i32 %19, %13
-  store i32 %20, ptr %18, align 8
-  br label %21
+  %__exp10 = call double @__exp10(double %14) #19
+  %15 = load double, ptr %0, align 8
+  %16 = fdiv double %15, %__exp10
+  store double %16, ptr %0, align 8
+  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = load i32, ptr %17, align 8
+  %19 = add nsw i32 %18, %13
+  store i32 %19, ptr %17, align 8
+  br label %20
 
-21:                                               ; preds = %10, %8
+20:                                               ; preds = %10, %8
   ret void
 }
 
@@ -690,7 +690,7 @@ define void @EpdMultiply3(ptr nocapture noundef %0, ptr nocapture noundef readon
   ret void
 }
 
-; Function Attrs: nofree nounwind uwtable
+; Function Attrs: nounwind uwtable
 define void @EpdMultiply3Decimal(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) local_unnamed_addr #5 {
   %4 = load i64, ptr %0, align 8
   %or.cond.i.i = icmp ult i64 %4, -4503599627370496
@@ -1218,9 +1218,6 @@ define void @EpdCopy(ptr nocapture noundef readonly %0, ptr nocapture noundef wr
   store i32 %5, ptr %6, align 8
   ret void
 }
-
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @pow(double noundef, double noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
 define void @EpdAdd2(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #10 {
@@ -1860,7 +1857,7 @@ define void @EpdSubtract3(ptr nocapture noundef readonly %0, ptr nocapture nound
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @EpdPow2(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #5 {
+define void @EpdPow2(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #11 {
   %3 = alloca %struct.EpDoubleStruct, align 8
   %4 = alloca %struct.EpDoubleStruct, align 8
   %5 = icmp slt i32 %0, 1024
@@ -1975,7 +1972,7 @@ EpdConvert.exit:                                  ; preds = %19, %26, %34, %50, 
   ret void
 }
 
-; Function Attrs: nofree nounwind uwtable
+; Function Attrs: nounwind uwtable
 define void @EpdPow2Decimal(i32 noundef %0, ptr nocapture noundef %1) local_unnamed_addr #5 {
   %3 = alloca [24 x i8], align 16
   %4 = alloca i32, align 4
@@ -1984,7 +1981,7 @@ define void @EpdPow2Decimal(i32 noundef %0, ptr nocapture noundef %1) local_unna
   %7 = alloca %struct.EpDoubleStruct, align 8
   %8 = alloca %struct.EpDoubleStruct, align 8
   %9 = icmp slt i32 %0, 1024
-  br i1 %9, label %10, label %25
+  br i1 %9, label %10, label %24
 
 10:                                               ; preds = %2
   %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %0) #19
@@ -2009,96 +2006,96 @@ define void @EpdPow2Decimal(i32 noundef %0, ptr nocapture noundef %1) local_unna
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   %19 = sitofp i32 %18 to double
-  %20 = call double @pow(double noundef 1.000000e+01, double noundef %19) #19
-  %21 = load double, ptr %1, align 8
-  %22 = fdiv double %21, %20
-  store double %22, ptr %1, align 8
-  %23 = load i32, ptr %11, align 8
-  %24 = add nsw i32 %23, %18
-  store i32 %24, ptr %11, align 8
+  %__exp10.i = call double @__exp10(double %19) #19
+  %20 = load double, ptr %1, align 8
+  %21 = fdiv double %20, %__exp10.i
+  store double %21, ptr %1, align 8
+  %22 = load i32, ptr %11, align 8
+  %23 = add nsw i32 %22, %18
+  store i32 %23, ptr %11, align 8
   br label %EpdNormalizeDecimal.exit
 
-25:                                               ; preds = %2
-  %26 = lshr i32 %0, 1
-  %27 = sub nsw i32 %0, %26
-  call void @EpdPow2Decimal(i32 noundef %26, ptr noundef nonnull %7)
-  call void @EpdPow2Decimal(i32 noundef %27, ptr noundef nonnull %8)
-  %28 = load i64, ptr %7, align 8
-  %or.cond.i.i.i = icmp ult i64 %28, -4503599627370496
-  %29 = and i64 %28, 4503599627370495
-  %30 = icmp ne i64 %29, 2251799813685248
-  %or.cond10.i.i.not.i = or i1 %or.cond.i.i.i, %30
-  %31 = bitcast i64 %28 to double
-  br i1 %or.cond10.i.i.not.i, label %32, label %EpdNormalizeDecimal.exit
+24:                                               ; preds = %2
+  %25 = lshr i32 %0, 1
+  %26 = sub nsw i32 %0, %25
+  call void @EpdPow2Decimal(i32 noundef %25, ptr noundef nonnull %7)
+  call void @EpdPow2Decimal(i32 noundef %26, ptr noundef nonnull %8)
+  %27 = load i64, ptr %7, align 8
+  %or.cond.i.i.i = icmp ult i64 %27, -4503599627370496
+  %28 = and i64 %27, 4503599627370495
+  %29 = icmp ne i64 %28, 2251799813685248
+  %or.cond10.i.i.not.i = or i1 %or.cond.i.i.i, %29
+  %30 = bitcast i64 %27 to double
+  br i1 %or.cond10.i.i.not.i, label %31, label %EpdNormalizeDecimal.exit
 
-32:                                               ; preds = %25
-  %33 = load i64, ptr %8, align 8
-  %or.cond.i.i18.i = icmp ult i64 %33, -4503599627370496
-  %34 = and i64 %33, 4503599627370495
-  %35 = icmp ne i64 %34, 2251799813685248
-  %or.cond10.i.i19.not.i = or i1 %or.cond.i.i18.i, %35
-  %36 = bitcast i64 %33 to double
-  br i1 %or.cond10.i.i19.not.i, label %37, label %EpdNormalizeDecimal.exit
+31:                                               ; preds = %24
+  %32 = load i64, ptr %8, align 8
+  %or.cond.i.i18.i = icmp ult i64 %32, -4503599627370496
+  %33 = and i64 %32, 4503599627370495
+  %34 = icmp ne i64 %33, 2251799813685248
+  %or.cond10.i.i19.not.i = or i1 %or.cond.i.i18.i, %34
+  %35 = bitcast i64 %32 to double
+  br i1 %or.cond10.i.i19.not.i, label %36, label %EpdNormalizeDecimal.exit
 
-37:                                               ; preds = %32
-  %38 = tail call double @llvm.fabs.f64(double %31)
-  %or.cond6.i.i.i = fcmp une double %38, 0x7FF0000000000000
-  %39 = tail call double @llvm.fabs.f64(double %36)
-  %or.cond6.i.i22.i = fcmp une double %39, 0x7FF0000000000000
+36:                                               ; preds = %31
+  %37 = tail call double @llvm.fabs.f64(double %30)
+  %or.cond6.i.i.i = fcmp une double %37, 0x7FF0000000000000
+  %38 = tail call double @llvm.fabs.f64(double %35)
+  %or.cond6.i.i22.i = fcmp une double %38, 0x7FF0000000000000
   %or.cond.i = and i1 %or.cond6.i.i.i, %or.cond6.i.i22.i
-  br i1 %or.cond.i, label %45, label %40
+  br i1 %or.cond.i, label %44, label %39
 
-40:                                               ; preds = %37
-  %41 = xor i64 %33, %28
-  %42 = and i64 %41, -9223372036854775808
-  %43 = or disjoint i64 %42, 9218868437227405312
-  store i64 %43, ptr %1, align 8
-  %44 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 0, ptr %44, align 8
+39:                                               ; preds = %36
+  %40 = xor i64 %32, %27
+  %41 = and i64 %40, -9223372036854775808
+  %42 = or disjoint i64 %41, 9218868437227405312
+  store i64 %42, ptr %1, align 8
+  %43 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 0, ptr %43, align 8
   br label %EpdNormalizeDecimal.exit
 
-45:                                               ; preds = %37
-  %46 = fmul double %31, %36
-  store double %46, ptr %1, align 8
-  %47 = getelementptr inbounds i8, ptr %7, i64 8
-  %48 = load i32, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %8, i64 8
-  %50 = load i32, ptr %49, align 8
-  %51 = add nsw i32 %50, %48
-  %52 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 %51, ptr %52, align 8
-  %53 = bitcast double %46 to i64
-  %54 = and i64 %53, 9221120237041090559
-  %or.cond7.i.i10 = icmp ne i64 %54, 9218868437227405312
-  %55 = and i64 %53, -9221120237041090560
-  %or.cond9.not.i.i11 = icmp eq i64 %55, 2251799813685248
+44:                                               ; preds = %36
+  %45 = fmul double %30, %35
+  store double %45, ptr %1, align 8
+  %46 = getelementptr inbounds i8, ptr %7, i64 8
+  %47 = load i32, ptr %46, align 8
+  %48 = getelementptr inbounds i8, ptr %8, i64 8
+  %49 = load i32, ptr %48, align 8
+  %50 = add nsw i32 %49, %47
+  %51 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 %50, ptr %51, align 8
+  %52 = bitcast double %45 to i64
+  %53 = and i64 %52, 9221120237041090559
+  %or.cond7.i.i10 = icmp ne i64 %53, 9218868437227405312
+  %54 = and i64 %52, -9221120237041090560
+  %or.cond9.not.i.i11 = icmp eq i64 %54, 2251799813685248
   %or.cond.not.i.not.i12 = or i1 %or.cond7.i.i10, %or.cond9.not.i.i11
-  br i1 %or.cond.not.i.not.i12, label %57, label %56
+  br i1 %or.cond.not.i.not.i12, label %56, label %55
 
-56:                                               ; preds = %45
-  store i32 0, ptr %52, align 8
+55:                                               ; preds = %44
+  store i32 0, ptr %51, align 8
   br label %EpdNormalizeDecimal.exit
 
-57:                                               ; preds = %45
+56:                                               ; preds = %44
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  %58 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str.9, double noundef %46) #19
+  %57 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str.9, double noundef %45) #19
   %strchr.i.i13 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %3, i32 69)
-  %59 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %strchr.i.i13, ptr noundef nonnull @.str.11, ptr noundef nonnull %4) #19
-  %60 = load i32, ptr %4, align 4
+  %58 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %strchr.i.i13, ptr noundef nonnull @.str.11, ptr noundef nonnull %4) #19
+  %59 = load i32, ptr %4, align 4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  %61 = sitofp i32 %60 to double
-  %62 = call double @pow(double noundef 1.000000e+01, double noundef %61) #19
-  %63 = load double, ptr %1, align 8
-  %64 = fdiv double %63, %62
-  store double %64, ptr %1, align 8
-  %65 = load i32, ptr %52, align 8
-  %66 = add nsw i32 %65, %60
-  store i32 %66, ptr %52, align 8
+  %60 = sitofp i32 %59 to double
+  %__exp10.i14 = call double @__exp10(double %60) #19
+  %61 = load double, ptr %1, align 8
+  %62 = fdiv double %61, %__exp10.i14
+  store double %62, ptr %1, align 8
+  %63 = load i32, ptr %51, align 8
+  %64 = add nsw i32 %63, %59
+  store i32 %64, ptr %51, align 8
   br label %EpdNormalizeDecimal.exit
 
-EpdNormalizeDecimal.exit:                         ; preds = %25, %32, %10, %40, %56, %57, %15
+EpdNormalizeDecimal.exit:                         ; preds = %24, %31, %10, %39, %55, %56, %15
   ret void
 }
 
@@ -2124,7 +2121,7 @@ define noundef i32 @EpdGetExponent(double noundef %0) local_unnamed_addr #6 {
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define i32 @EpdGetExponentDecimal(double noundef %0) local_unnamed_addr #5 {
+define i32 @EpdGetExponentDecimal(double noundef %0) local_unnamed_addr #11 {
   %2 = alloca [24 x i8], align 16
   %3 = alloca i32, align 4
   %4 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) @.str.9, double noundef %0) #19
@@ -2163,6 +2160,8 @@ declare ptr @strchr(ptr, i32) local_unnamed_addr #12
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #13
 
+declare double @__exp10(double) local_unnamed_addr
+
 ; Function Attrs: nofree willreturn
 declare double @ldexp(double, i32) local_unnamed_addr #14
 
@@ -2183,13 +2182,13 @@ attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,unini
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nofree nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { nofree nounwind willreturn memory(argmem: read) }
 attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #14 = { nofree willreturn }
