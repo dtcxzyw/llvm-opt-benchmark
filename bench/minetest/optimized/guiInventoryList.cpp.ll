@@ -1599,7 +1599,7 @@ define dso_local void @_ZN16GUIInventoryList4drawEv(ptr noundef nonnull align 8 
 
 308:                                              ; preds = %302
   %309 = srem i32 %304, %303
-  %310 = uitofp i32 %309 to float
+  %310 = sitofp i32 %309 to float
   %311 = load float, ptr %260, align 4, !tbaa !215
   %312 = fmul nsz float %311, %310
   %313 = fptosi float %312 to i32

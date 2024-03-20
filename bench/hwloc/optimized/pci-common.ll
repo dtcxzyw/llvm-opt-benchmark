@@ -1593,7 +1593,7 @@ define noundef i32 @hwloc_pcidisc_find_linkspeed(ptr nocapture noundef readonly 
   %14 = icmp ult i32 %7, 6
   %15 = add nsw i32 %7, -3
   %16 = shl nuw nsw i32 1, %15
-  %17 = uitofp i32 %16 to float
+  %17 = sitofp i32 %16 to float
   %18 = fmul float %17, 8.000000e+00
   br i1 %14, label %19, label %22
 

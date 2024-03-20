@@ -620,7 +620,7 @@ _ZNSt10unique_ptrIN5ceres8internal12SparseMatrixESt14default_deleteIS2_EEaSINS1_
 .preheader:                                       ; preds = %_ZNSt10unique_ptrIN5ceres8internal12SparseMatrixESt14default_deleteIS2_EEaSINS1_19TripletSparseMatrixES3_IS7_EEENSt9enable_ifIXsr6__and_ISt6__and_IJSt14is_convertibleINS_IT_T0_E7pointerEPS2_ESt6__not_ISt8is_arrayISC_EEEESt13is_assignableIRS4_OSD_EEE5valueERS5_E4typeEOSE_.exit, %.preheader
   %indvars.iv137 = phi i64 [ %indvars.iv.next138, %.preheader ], [ 0, %_ZNSt10unique_ptrIN5ceres8internal12SparseMatrixESt14default_deleteIS2_EEaSINS1_19TripletSparseMatrixES3_IS7_EEENSt9enable_ifIXsr6__and_ISt6__and_IJSt14is_convertibleINS_IT_T0_E7pointerEPS2_ESt6__not_ISt8is_arrayISC_EEEESt13is_assignableIRS4_OSD_EEE5valueERS5_E4typeEOSE_.exit ]
   %92 = trunc i64 %indvars.iv137 to i32
-  %93 = uitofp i32 %92 to double
+  %93 = sitofp i32 %92 to double
   %94 = load ptr, ptr %11, align 8
   %95 = getelementptr inbounds double, ptr %94, i64 %indvars.iv137
   store double %93, ptr %95, align 8
@@ -2061,7 +2061,7 @@ _ZSt11make_uniqueIN5ceres8internal17BlockSparseMatrixEJRPNS1_27CompressedRowBloc
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv449 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next450, %.preheader ]
   %543 = trunc i64 %indvars.iv449 to i32
-  %544 = uitofp i32 %543 to double
+  %544 = sitofp i32 %543 to double
   %545 = load ptr, ptr %542, align 8
   %546 = getelementptr inbounds double, ptr %545, i64 %indvars.iv449
   store double %544, ptr %546, align 8
@@ -2853,7 +2853,7 @@ _ZSt11make_uniqueIN5ceres8internal17BlockSparseMatrixEJRPNS1_27CompressedRowBloc
 .preheader:                                       ; preds = %_ZSt11make_uniqueIN5ceres8internal17BlockSparseMatrixEJRPNS1_27CompressedRowBlockStructureEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit, %.preheader
   %indvars.iv222 = phi i64 [ 0, %_ZSt11make_uniqueIN5ceres8internal17BlockSparseMatrixEJRPNS1_27CompressedRowBlockStructureEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit ], [ %indvars.iv.next223, %.preheader ]
   %289 = trunc i64 %indvars.iv222 to i32
-  %290 = uitofp i32 %289 to double
+  %290 = sitofp i32 %289 to double
   %291 = load ptr, ptr %288, align 8
   %292 = getelementptr inbounds double, ptr %291, i64 %indvars.iv222
   store double %290, ptr %292, align 8
@@ -3476,7 +3476,7 @@ _ZSt11make_uniqueIN5ceres8internal17BlockSparseMatrixEJRPNS1_27CompressedRowBloc
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %219 = trunc i64 %indvars.iv.next to i32
   %220 = mul i32 %219, 100
-  %221 = uitofp i32 %220 to double
+  %221 = sitofp i32 %220 to double
   %222 = load ptr, ptr %217, align 8
   %223 = getelementptr inbounds double, ptr %222, i64 %indvars.iv
   store double %221, ptr %223, align 8
@@ -3500,7 +3500,7 @@ _ZSt11make_uniqueIN5ceres8internal17BlockSparseMatrixEJRPNS1_27CompressedRowBloc
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv229 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next230, %.preheader ]
   %228 = trunc i64 %indvars.iv229 to i32
-  %229 = uitofp i32 %228 to double
+  %229 = sitofp i32 %228 to double
   %230 = load ptr, ptr %224, align 8
   %231 = getelementptr inbounds double, ptr %230, i64 %indvars.iv229
   store double %229, ptr %231, align 8
@@ -4888,7 +4888,7 @@ _ZSt11make_uniqueIN5ceres8internal17BlockSparseMatrixEJRPNS1_27CompressedRowBloc
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv423 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next424, %.preheader ]
   %513 = trunc i64 %indvars.iv423 to i32
-  %514 = uitofp i32 %513 to double
+  %514 = sitofp i32 %513 to double
   %515 = load ptr, ptr %512, align 8
   %516 = getelementptr inbounds double, ptr %515, i64 %indvars.iv423
   store double %514, ptr %516, align 8
@@ -5708,7 +5708,7 @@ _ZSt11make_uniqueIN5ceres8internal17BlockSparseMatrixEJRPNS1_27CompressedRowBloc
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %297 = trunc i64 %indvars.iv.next to i32
   %298 = mul i32 %297, 100
-  %299 = uitofp i32 %298 to double
+  %299 = sitofp i32 %298 to double
   %300 = load ptr, ptr %295, align 8
   %301 = getelementptr inbounds double, ptr %300, i64 %indvars.iv
   store double %299, ptr %301, align 8
@@ -5732,7 +5732,7 @@ _ZSt11make_uniqueIN5ceres8internal17BlockSparseMatrixEJRPNS1_27CompressedRowBloc
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv301 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next302, %.preheader ]
   %306 = trunc i64 %indvars.iv301 to i32
-  %307 = uitofp i32 %306 to double
+  %307 = sitofp i32 %306 to double
   %308 = load ptr, ptr %302, align 8
   %309 = getelementptr inbounds double, ptr %308, i64 %indvars.iv301
   store double %307, ptr %309, align 8

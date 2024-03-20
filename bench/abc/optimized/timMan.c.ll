@@ -1253,7 +1253,7 @@ Tim_ManDelayTableNum.exit:                        ; preds = %Tim_ManPoNum.exit14
   %123 = shl nsw i64 %122, 2
   %124 = tail call noalias ptr @malloc(i64 noundef %123) #19
   %125 = trunc i64 %indvars.iv197 to i32
-  %126 = uitofp i32 %125 to float
+  %126 = sitofp i32 %125 to float
   store float %126, ptr %124, align 4
   %127 = load float, ptr %114, align 4
   %128 = fptosi float %127 to i32

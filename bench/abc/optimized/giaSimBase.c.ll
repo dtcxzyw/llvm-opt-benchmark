@@ -1148,7 +1148,7 @@ Abc_TtCountOnes2.exit.i:                          ; preds = %26, %.lr.ph.i18
   br i1 %exitcond.not.i21, label %Abc_TtCountOnesVec.exit.loopexit, label %.lr.ph.i18, !llvm.loop !21
 
 Abc_TtCountOnesVec.exit.loopexit:                 ; preds = %Abc_TtCountOnes2.exit.i
-  %47 = uitofp i32 %46 to double
+  %47 = sitofp i32 %46 to double
   %48 = fmul double %47, 1.000000e+02
   br label %Abc_TtCountOnesVec.exit
 
@@ -1482,7 +1482,7 @@ Abc_TtCountOnes2.exit.i:                          ; preds = %28, %.lr.ph.i31
   br i1 %exitcond.not.i34, label %Abc_TtCountOnesVec.exit.loopexit, label %.lr.ph.i31, !llvm.loop !21
 
 Abc_TtCountOnesVec.exit.loopexit:                 ; preds = %Abc_TtCountOnes2.exit.i
-  %49 = uitofp i32 %48 to double
+  %49 = sitofp i32 %48 to double
   %50 = fmul double %49, 1.000000e+02
   br label %Abc_TtCountOnesVec.exit
 
@@ -1536,7 +1536,7 @@ Abc_TtCountOnes2.exit.i42:                        ; preds = %56, %.lr.ph.i38
   br i1 %exitcond.not.i44, label %Abc_TtCountOnesVec.exit45.loopexit, label %.lr.ph.i38, !llvm.loop !21
 
 Abc_TtCountOnesVec.exit45.loopexit:               ; preds = %Abc_TtCountOnes2.exit.i42
-  %77 = uitofp i32 %76 to double
+  %77 = sitofp i32 %76 to double
   %78 = fmul double %77, 1.000000e+02
   br label %Abc_TtCountOnesVec.exit45
 
@@ -4210,7 +4210,7 @@ Abc_Clock.exit178:                                ; preds = %275, %278
   br i1 %284, label %285, label %289
 
 285:                                              ; preds = %Abc_Clock.exit178
-  %286 = uitofp i32 %.095206 to double
+  %286 = sitofp i32 %.095206 to double
   %287 = fdiv double %164, %286
   %288 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, double noundef %287)
   br label %289
@@ -20066,7 +20066,7 @@ Vec_IntFree.exit:                                 ; preds = %Vec_WrdFree.exit212
   %291 = add i32 %285, %.val.val.i215
   %292 = add i32 %291, %290
   %293 = call noundef i32 @llvm.smax.i32(i32 %292, i32 1)
-  %294 = uitofp i32 %293 to double
+  %294 = sitofp i32 %293 to double
   %295 = fdiv double %282, %294
   %296 = sitofp i32 %.sroa.5.0.lcssa to double
   %297 = fmul double %296, 1.000000e+02
@@ -20074,7 +20074,7 @@ Vec_IntFree.exit:                                 ; preds = %Vec_WrdFree.exit212
   %299 = sitofp i32 %.sroa.1.0.lcssa to double
   %300 = fmul double %299, 1.000000e+02
   %301 = call noundef i32 @llvm.smax.i32(i32 %.0100.lcssa, i32 1)
-  %302 = uitofp i32 %301 to double
+  %302 = sitofp i32 %301 to double
   %303 = fdiv double %300, %302
   %304 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.92, i32 noundef %.098.lcssa, double noundef %295, i32 noundef %.sroa.5.0.lcssa, double noundef %298, i32 noundef %.sroa.1.0.lcssa, double noundef %303)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)

@@ -1392,7 +1392,7 @@ Abc_SclObjCell.exit:                              ; preds = %.Abc_SclObjCell.exi
 .loopexit:                                        ; preds = %75, %70
   %.0.lcssa.i = phi float [ 0.000000e+00, %70 ], [ %87, %75 ]
   %100 = tail call noundef i32 @llvm.smax.i32(i32 %72, i32 1)
-  %101 = uitofp i32 %100 to float
+  %101 = sitofp i32 %100 to float
   %102 = fdiv float %.0.lcssa.i, %101
   %103 = fpext float %102 to double
   %104 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.51, double noundef %103)
@@ -1463,7 +1463,7 @@ Abc_SclObjCell.exit:                              ; preds = %.Abc_SclObjCell.exi
 SC_CellPinCapAve.exit62:                          ; preds = %138, %.loopexit
   %.0.lcssa.i54 = phi float [ 0.000000e+00, %.loopexit ], [ %150, %138 ]
   %151 = tail call noundef i32 @llvm.smax.i32(i32 %136, i32 1)
-  %152 = uitofp i32 %151 to float
+  %152 = sitofp i32 %151 to float
   %153 = fdiv float %.0.lcssa.i54, %152
   %154 = fpext float %153 to double
   %155 = fdiv double %135, %154
@@ -4986,7 +4986,7 @@ Vec_FltStart.exit.i:                              ; preds = %36, %Vec_IntStart.e
   br label %Vec_QuePrio.exit.i.i.i
 
 83:                                               ; preds = %72
-  %84 = uitofp i32 %.pre-phi to float
+  %84 = sitofp i32 %.pre-phi to float
   br label %Vec_QuePrio.exit.i.i.i
 
 Vec_QuePrio.exit.i.i.i:                           ; preds = %83, %80

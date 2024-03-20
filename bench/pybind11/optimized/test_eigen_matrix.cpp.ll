@@ -3134,7 +3134,7 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2IiiEERKT_RKT0_.exit: ; preds = %_ZN
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %16 ]
   %17 = add i64 %15, %indvars.iv.i
   %18 = trunc i64 %17 to i32
-  %19 = uitofp i32 %18 to double
+  %19 = sitofp i32 %18 to double
   %20 = load ptr, ptr %2, align 8
   %21 = load i64, ptr %5, align 8
   %22 = mul nsw i64 %21, %indvars.iv.i
@@ -3218,7 +3218,7 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi1ELin1ELin1EEC2IiiEERKT_RKT0_.exit: ; preds = %_ZN
   %17 = phi i64 [ %12, %.lr.ph.i ], [ %25, %16 ]
   %18 = add i64 %15, %indvars.iv.i
   %19 = trunc i64 %18 to i32
-  %20 = uitofp i32 %19 to double
+  %20 = sitofp i32 %19 to double
   %21 = load ptr, ptr %2, align 8
   %22 = mul nsw i64 %17, %indvars.iv19.i
   %23 = getelementptr double, ptr %21, i64 %22
@@ -3275,7 +3275,7 @@ define hidden void @_Z10reset_refsv() #1 personality ptr @__gxx_personality_v0 {
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %13 ]
   %14 = add i64 %12, %indvars.iv.i
   %15 = trunc i64 %14 to i32
-  %16 = uitofp i32 %15 to double
+  %16 = sitofp i32 %15 to double
   %17 = load ptr, ptr %1, align 8
   %18 = load i64, ptr %2, align 8
   %19 = mul nsw i64 %18, %indvars.iv.i
@@ -3328,7 +3328,7 @@ _Z9reset_refIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEvRT_.exit: ; preds = %._
   %40 = phi i64 [ %35, %.lr.ph.i6 ], [ %48, %39 ]
   %41 = add i64 %38, %indvars.iv.i7
   %42 = trunc i64 %41 to i32
-  %43 = uitofp i32 %42 to double
+  %43 = sitofp i32 %42 to double
   %44 = load ptr, ptr %27, align 8
   %45 = mul nsw i64 %40, %indvars.iv19.i3
   %46 = getelementptr double, ptr %44, i64 %45
@@ -21088,7 +21088,7 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2INS_3RefIKS1_Li0ENS_11OuterStrideIL
   %24 = mul nsw i64 %indvars.iv, 10
   %25 = add nuw nsw i64 %24, %17
   %26 = trunc i64 %25 to i32
-  %27 = uitofp i32 %26 to double
+  %27 = sitofp i32 %26 to double
   %28 = load double, ptr %23, align 8
   %29 = fadd double %28, %27
   store double %29, ptr %23, align 8
@@ -21320,7 +21320,7 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2INS_3RefIKNS0_IdLin1ELin1ELi1ELin1E
   %24 = mul nsw i64 %indvars.iv, 10
   %25 = add nuw nsw i64 %24, %17
   %26 = trunc i64 %25 to i32
-  %27 = uitofp i32 %26 to double
+  %27 = sitofp i32 %26 to double
   %28 = load double, ptr %23, align 8
   %29 = fadd double %28, %27
   store double %29, ptr %23, align 8

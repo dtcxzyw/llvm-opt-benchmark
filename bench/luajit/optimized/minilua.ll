@@ -9272,7 +9272,7 @@ if.then.i89.i:                                    ; preds = %while.body13.i
   br label %luaH_getnum.exit93.i
 
 if.else.i59.i:                                    ; preds = %while.body13.i
-  %conv.i60.i = uitofp i32 %div17.i to double
+  %conv.i60.i = sitofp i32 %div17.i to double
   %cmp.i.i61.i = icmp ult i32 %add.i, 2
   br i1 %cmp.i.i61.i, label %do.body.i76.i.preheader, label %if.end.i.i62.i
 
@@ -35138,7 +35138,7 @@ if.then.i9.i68:                                   ; preds = %for.body
 
 if.else.i.i37:                                    ; preds = %for.body
   %27 = trunc i64 %indvars.iv.next to i32
-  %conv.i6.i38 = uitofp i32 %27 to double
+  %conv.i6.i38 = sitofp i32 %27 to double
   %28 = bitcast double %conv.i6.i38 to i64
   %a.sroa.0.4.extract.shift.i.i.i40 = lshr i64 %28, 32
   %add.i.i.i41 = add i64 %a.sroa.0.4.extract.shift.i.i.i40, %28

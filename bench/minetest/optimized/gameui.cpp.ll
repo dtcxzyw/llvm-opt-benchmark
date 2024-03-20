@@ -2547,7 +2547,7 @@ define dso_local void @_ZN6GameUI6updateERK8RunStatsP6ClientP14MapDrawControlRK1
   br i1 %957, label %958, label %962
 
 958:                                              ; preds = %941
-  %959 = uitofp i32 %934 to float
+  %959 = sitofp i32 %934 to float
   %960 = fdiv nsz float %959, %953
   %961 = getelementptr inbounds i8, ptr %935, i64 128
   store float %960, ptr %961, align 8, !tbaa !148

@@ -34461,7 +34461,7 @@ if.else.i.i43:                                    ; preds = %_ZN3CFF14byte_str_r
 
 _ZN3CFF11arg_stack_tINS_8number_tEE8push_intEi.exit51: ; preds = %if.then.i.i46, %if.else.i.i43
   %retval.0.i.i44 = phi ptr [ %arrayidx.i.i50, %if.then.i.i46 ], [ @_hb_CrapPool, %if.else.i.i43 ]
-  %conv.i.i45 = uitofp i32 %conv14 to double
+  %conv.i.i45 = sitofp i32 %conv14 to double
   store double %conv.i.i45, ptr %retval.0.i.i44, align 8
   %add.i53 = add i32 %13, 1
   store i32 %add.i53, ptr %backwards_length.i.i31, align 4

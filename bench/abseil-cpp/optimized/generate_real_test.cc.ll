@@ -6481,7 +6481,7 @@ _ZN7testing15AssertionResultD2Ev.exit495:         ; preds = %if.end340, %_ZNKSt1
 for.body:                                         ; preds = %_ZN7testing15AssertionResultD2Ev.exit495, %_ZN7testing15AssertionResultD2Ev.exit523
   %indvars.iv = phi i64 [ 0, %_ZN7testing15AssertionResultD2Ev.exit495 ], [ %indvars.iv.next, %_ZN7testing15AssertionResultD2Ev.exit523 ]
   %176 = trunc i64 %indvars.iv to i32
-  %conv344 = uitofp i32 %176 to float
+  %conv344 = sitofp i32 %176 to float
   %mul346 = fmul float %conv344, 0x3BF0000000000000
   store float %mul346, ptr %ref.tmp343, align 4
   %cmp.i.i497 = icmp eq i64 %indvars.iv, 0
@@ -15451,7 +15451,7 @@ _ZN7testing15AssertionResultD2Ev.exit988:         ; preds = %if.end697, %_ZNKSt1
 for.body:                                         ; preds = %_ZN7testing15AssertionResultD2Ev.exit988, %_ZN7testing15AssertionResultD2Ev.exit1016
   %indvars.iv = phi i64 [ 0, %_ZN7testing15AssertionResultD2Ev.exit988 ], [ %indvars.iv.next, %_ZN7testing15AssertionResultD2Ev.exit1016 ]
   %363 = trunc i64 %indvars.iv to i32
-  %conv701 = uitofp i32 %363 to double
+  %conv701 = sitofp i32 %363 to double
   %mul703 = fmul double %conv701, 0x3BF0000000000000
   store double %mul703, ptr %ref.tmp700, align 8
   %cmp.i.i990 = icmp eq i64 %indvars.iv, 0
@@ -21219,7 +21219,7 @@ _ZN7testing15AssertionResultD2Ev.exit1271:        ; preds = %if.end971, %_ZNKSt1
 for.body:                                         ; preds = %_ZN7testing15AssertionResultD2Ev.exit1271, %_ZN7testing15AssertionResultD2Ev.exit1332
   %indvars.iv = phi i64 [ 1, %_ZN7testing15AssertionResultD2Ev.exit1271 ], [ %indvars.iv.next, %_ZN7testing15AssertionResultD2Ev.exit1332 ]
   %507 = trunc i64 %indvars.iv to i32
-  %conv975 = uitofp i32 %507 to double
+  %conv975 = sitofp i32 %507 to double
   %mul976 = fmul double %conv975, 0x3C00000000000000
   store double %mul976, ptr %ref.tmp974, align 8
   %508 = call i64 @llvm.ctlz.i64(i64 %indvars.iv, i1 true), !range !24

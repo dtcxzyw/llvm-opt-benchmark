@@ -1174,7 +1174,7 @@ getSegLen.exit:                                   ; preds = %35, %getSegLen.exit
   br i1 %.not, label %.thread99, label %.lr.ph131
 
 .lr.ph131:                                        ; preds = %70
-  %71 = uitofp i32 %.4 to double
+  %71 = sitofp i32 %.4 to double
   %72 = fdiv double %47, %71
   %73 = fptrunc double %72 to float
   %wide.trip.count145 = and i64 %indvars.iv.next, 4294967295

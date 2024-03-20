@@ -45485,7 +45485,7 @@ entry:
   %and1 = extractelement <2 x i32> %2, i64 0
   %xor = shl i32 %and1, 1
   %cond = and i32 %xor, 2
-  %conv = uitofp i32 %cond to double
+  %conv = sitofp i32 %cond to double
   ret double %conv
 }
 
@@ -45545,7 +45545,7 @@ init.end7:                                        ; preds = %init5, %init.check3
   %and1.i = xor i32 %conv2.i.i, %conv.i.i
   %xor.i = shl i32 %and1.i, 1
   %cond.i = and i32 %xor.i, 2
-  %conv.i = uitofp i32 %cond.i to double
+  %conv.i = sitofp i32 %cond.i to double
   %div = fdiv double %conv.i, 0x3FF0004800000000
   ret double %div
 }
@@ -45944,7 +45944,7 @@ for.cond49.preheader.us:                          ; preds = %for.cond49.preheade
   %indvars.iv359 = phi i64 [ %indvars.iv.next360, %for.cond49.for.inc86_crit_edge.us ], [ 0, %for.cond49.preheader.lr.ph ]
   %rng.sroa.0.0333.us = phi i64 [ %add.i.i71.us, %for.cond49.for.inc86_crit_edge.us ], [ -8846114313915602277, %for.cond49.preheader.lr.ph ]
   %31 = trunc i64 %indvars.iv359 to i32
-  %conv63.us = uitofp i32 %31 to float
+  %conv63.us = sitofp i32 %31 to float
   %agg.tmp77.sroa.2.0.insert.shift.us = shl nuw nsw i64 %indvars.iv359, 32
   br label %for.cond54.preheader.us
 
@@ -46006,7 +46006,7 @@ for.cond54.preheader.us:                          ; preds = %for.cond49.preheade
   %indvars.iv = phi i64 [ 0, %for.cond49.preheader.us ], [ %indvars.iv.next, %for.inc83.us ]
   %rng.sroa.0.1328.us = phi i64 [ %rng.sroa.0.0333.us, %for.cond49.preheader.us ], [ %add.i.i71.us, %for.inc83.us ]
   %49 = trunc i64 %indvars.iv to i32
-  %conv.us = uitofp i32 %49 to float
+  %conv.us = sitofp i32 %49 to float
   %50 = insertelement <2 x float> poison, float %conv.us, i64 0
   %51 = insertelement <2 x float> %50, float %conv63.us, i64 1
   br label %invoke.cont70.us
@@ -52743,7 +52743,7 @@ sw.bb:                                            ; preds = %entry
 for.body.i.i.i:                                   ; preds = %_ZN4pbrt21VisibleWavelengthsPDFEf.exit.i.i.i, %sw.bb
   %indvars.iv.i.i.i = phi i64 [ 0, %sw.bb ], [ %indvars.iv.next.i.i.i, %_ZN4pbrt21VisibleWavelengthsPDFEf.exit.i.i.i ]
   %2 = trunc i64 %indvars.iv.i.i.i to i32
-  %conv.i.i.i = uitofp i32 %2 to float
+  %conv.i.i.i = sitofp i32 %2 to float
   %div.i.i.i = fmul float %conv.i.i.i, 2.500000e-01
   %add.i.i.i = fadd float %1, %div.i.i.i
   %cmp1.i.i.i = fcmp ogt float %add.i.i.i, 1.000000e+00
@@ -52790,7 +52790,7 @@ sw.bb3:                                           ; preds = %entry
 for.body.i.i.i6:                                  ; preds = %_ZN4pbrt21VisibleWavelengthsPDFEf.exit.i.i.i29, %sw.bb3
   %indvars.iv.i.i.i7 = phi i64 [ 0, %sw.bb3 ], [ %indvars.iv.next.i.i.i32, %_ZN4pbrt21VisibleWavelengthsPDFEf.exit.i.i.i29 ]
   %5 = trunc i64 %indvars.iv.i.i.i7 to i32
-  %conv.i.i.i8 = uitofp i32 %5 to float
+  %conv.i.i.i8 = sitofp i32 %5 to float
   %div.i.i.i9 = fmul float %conv.i.i.i8, 2.500000e-01
   %add.i.i.i10 = fadd float %4, %div.i.i.i9
   %cmp1.i.i.i11 = fcmp ogt float %add.i.i.i10, 1.000000e+00
@@ -60369,13 +60369,13 @@ entry:
   %26 = getelementptr inbounds i8, ptr %this, i64 8
   %bf.load.i = load i32, ptr %26, align 4
   %bf.clear.i = and i32 %bf.load.i, 32767
-  %conv.i = uitofp i32 %bf.clear.i to float
+  %conv.i = sitofp i32 %bf.clear.i to float
   %div.i15 = fdiv float %conv.i, 3.276700e+04
   %mul.i = fmul float %div.i15, 2.000000e+00
   %sub.i = fadd float %mul.i, -1.000000e+00
   %bf.lshr.i = lshr i32 %bf.load.i, 15
   %bf.clear.i17 = and i32 %bf.lshr.i, 32767
-  %conv.i18 = uitofp i32 %bf.clear.i17 to float
+  %conv.i18 = sitofp i32 %bf.clear.i17 to float
   %div.i19 = fdiv float %conv.i18, 3.276700e+04
   %mul.i20 = fmul float %div.i19, 2.000000e+00
   %sub.i21 = fadd float %mul.i20, -1.000000e+00
@@ -97795,7 +97795,7 @@ for.cond14.preheader.us.i.i.i:                    ; preds = %for.cond14.for.inc3
   %v.042.us.i.i.i = phi float [ %conv31.us.i.i.i, %for.cond14.for.inc32_crit_edge.us.i.i.i ], [ 0.000000e+00, %for.cond14.preheader.us.preheader.i.i.i ]
   %x12.041.us.i.i.i = phi i32 [ %inc33.us.i.i.i, %for.cond14.for.inc32_crit_edge.us.i.i.i ], [ 0, %for.cond14.preheader.us.preheader.i.i.i ]
   %rng.sroa.0.040.us.i.i.i = phi i64 [ %add.i.i16.us.i.i.i, %for.cond14.for.inc32_crit_edge.us.i.i.i ], [ %add.i3.i.i.i.i.i, %for.cond14.preheader.us.preheader.i.i.i ]
-  %conv17.us.i.i.i = uitofp i32 %x12.041.us.i.i.i to float
+  %conv17.us.i.i.i = sitofp i32 %x12.041.us.i.i.i to float
   %18 = insertelement <2 x float> poison, float %conv17.us.i.i.i, i64 0
   br label %for.body16.us.i.i.i
 
@@ -97805,7 +97805,7 @@ for.body16.us.i.i.i:                              ; preds = %_ZNKSt8functionIFdN
   %rng.sroa.0.135.us.i.i.i = phi i64 [ %rng.sroa.0.040.us.i.i.i, %for.cond14.preheader.us.i.i.i ], [ %add.i.i16.us.i.i.i, %_ZNKSt8functionIFdN4pbrt6Point2IfEEEEclES2_.exit.us.i.i.i ]
   %mul.i.i.us.i.i.i = mul i64 %rng.sroa.0.135.us.i.i.i, 6364136223846793005
   %add.i.i11.us.i.i.i = add i64 %mul.i.i.us.i.i.i, %or.i.i.i.i.i
-  %conv22.us.i.i.i = uitofp i32 %y13.036.us.i.i.i to float
+  %conv22.us.i.i.i = sitofp i32 %y13.036.us.i.i.i to float
   %19 = insertelement <2 x i64> poison, i64 %rng.sroa.0.135.us.i.i.i, i64 0
   %20 = insertelement <2 x i64> %19, i64 %add.i.i11.us.i.i.i, i64 1
   %21 = lshr <2 x i64> %20, <i64 27, i64 45>

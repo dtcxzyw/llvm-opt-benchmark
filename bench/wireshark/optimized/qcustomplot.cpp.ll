@@ -16786,9 +16786,9 @@ define noundef zeroext i1 @_ZN13QCPLayoutGrid10addElementEP16QCPLayoutElement(pt
   %5 = icmp eq i32 %4, 1
   %6 = getelementptr inbounds i8, ptr %0, i64 184
   %7 = load i64, ptr %6, align 8
-  %.fr69 = freeze i64 %7
-  %8 = trunc i64 %.fr69 to i32
-  %9 = icmp sgt i64 %.fr69, 0
+  %.fr68 = freeze i64 %7
+  %8 = trunc i64 %.fr68 to i32
+  %9 = icmp sgt i64 %.fr68, 0
   %10 = getelementptr inbounds i8, ptr %0, i64 176
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 16
@@ -16816,8 +16816,8 @@ _ZNK13QCPLayoutGrid11columnCountEv.exit.i28.us.preheader: ; preds = %select.unfo
 select.unfold.preheader.split.us.split.us.preheader: ; preds = %select.unfold.preheader.split.us
   %smax = tail call i32 @llvm.smax.i32(i32 %8, i32 0)
   %wide.trip.count = zext nneg i32 %smax to i64
-  %exitcond.not91 = icmp slt i32 %8, 1
-  br i1 %exitcond.not91, label %_ZN13QCPLayoutGrid10hasElementEii.exit.thread, label %_ZNK13QCPLayoutGrid11columnCountEv.exit.i28.us.us.preheader
+  %exitcond.not87 = icmp slt i32 %8, 1
+  br i1 %exitcond.not87, label %_ZN13QCPLayoutGrid10hasElementEii.exit.thread, label %_ZNK13QCPLayoutGrid11columnCountEv.exit.i28.us.us.preheader
 
 _ZNK13QCPLayoutGrid11columnCountEv.exit.i28.us.us.preheader: ; preds = %select.unfold.preheader.split.us.split.us.preheader
   %19 = load i64, ptr %12, align 8
@@ -16826,30 +16826,30 @@ _ZNK13QCPLayoutGrid11columnCountEv.exit.i28.us.us.preheader: ; preds = %select.u
   br label %_ZNK13QCPLayoutGrid11columnCountEv.exit.i28.us.us
 
 _ZNK13QCPLayoutGrid11columnCountEv.exit.i28.us.us: ; preds = %_ZNK13QCPLayoutGrid11columnCountEv.exit.i28.us.us.preheader, %select.unfold.us.us
-  %indvars.iv92 = phi i64 [ %indvars.iv.next, %select.unfold.us.us ], [ 0, %_ZNK13QCPLayoutGrid11columnCountEv.exit.i28.us.us.preheader ]
-  br i1 %21, label %_ZN13QCPLayoutGrid10hasElementEii.exit29.us.us, label %_ZN13QCPLayoutGrid10hasElementEii.exit.thread.loopexit81.split.loop.exit82
+  %indvars.iv88 = phi i64 [ %indvars.iv.next, %select.unfold.us.us ], [ 0, %_ZNK13QCPLayoutGrid11columnCountEv.exit.i28.us.us.preheader ]
+  br i1 %21, label %_ZN13QCPLayoutGrid10hasElementEii.exit29.us.us, label %_ZN13QCPLayoutGrid10hasElementEii.exit.thread.loopexit77.split.loop.exit78
 
 _ZN13QCPLayoutGrid10hasElementEii.exit29.us.us:   ; preds = %_ZNK13QCPLayoutGrid11columnCountEv.exit.i28.us.us
-  %22 = getelementptr %class.QList.59, ptr %11, i64 %indvars.iv92, i32 0, i32 1
+  %22 = getelementptr %class.QList.59, ptr %11, i64 %indvars.iv88, i32 0, i32 1
   %23 = load ptr, ptr %22, align 8
   %24 = load ptr, ptr %23, align 8
   %.not36.us.us = icmp eq ptr %24, null
-  br i1 %.not36.us.us, label %_ZN13QCPLayoutGrid10hasElementEii.exit.thread.loopexit81.split.loop.exit, label %select.unfold.us.us
+  br i1 %.not36.us.us, label %_ZN13QCPLayoutGrid10hasElementEii.exit.thread.loopexit77.split.loop.exit, label %select.unfold.us.us
 
 select.unfold.us.us:                              ; preds = %_ZN13QCPLayoutGrid10hasElementEii.exit29.us.us
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv92, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv88, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %_ZN13QCPLayoutGrid10hasElementEii.exit.thread, label %_ZNK13QCPLayoutGrid11columnCountEv.exit.i28.us.us
 
 _ZNK13QCPLayoutGrid11columnCountEv.exit.i28.us:   ; preds = %_ZNK13QCPLayoutGrid11columnCountEv.exit.i28.us.preheader, %select.unfold.us
-  %.21539.us94 = phi i32 [ %spec.select66, %select.unfold.us ], [ 0, %_ZNK13QCPLayoutGrid11columnCountEv.exit.i28.us.preheader ]
-  %.240.us93 = phi i32 [ %spec.select35.us, %select.unfold.us ], [ 0, %_ZNK13QCPLayoutGrid11columnCountEv.exit.i28.us.preheader ]
-  %25 = icmp slt i32 %.240.us93, %18
+  %.21539.us90 = phi i32 [ %spec.select66, %select.unfold.us ], [ 0, %_ZNK13QCPLayoutGrid11columnCountEv.exit.i28.us.preheader ]
+  %.240.us89 = phi i32 [ %spec.select35.us, %select.unfold.us ], [ 0, %_ZNK13QCPLayoutGrid11columnCountEv.exit.i28.us.preheader ]
+  %25 = icmp slt i32 %.240.us89, %18
   br i1 %25, label %_ZN13QCPLayoutGrid10hasElementEii.exit29.us, label %_ZN13QCPLayoutGrid10hasElementEii.exit.thread
 
 _ZN13QCPLayoutGrid10hasElementEii.exit29.us:      ; preds = %_ZNK13QCPLayoutGrid11columnCountEv.exit.i28.us
-  %26 = zext nneg i32 %.21539.us94 to i64
-  %27 = zext nneg i32 %.240.us93 to i64
+  %26 = zext nneg i32 %.21539.us90 to i64
+  %27 = zext nneg i32 %.240.us89 to i64
   %28 = getelementptr %class.QList.59, ptr %11, i64 %26, i32 0, i32 1
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr ptr, ptr %29, i64 %27
@@ -16858,11 +16858,11 @@ _ZN13QCPLayoutGrid10hasElementEii.exit29.us:      ; preds = %_ZNK13QCPLayoutGrid
   br i1 %.not36.us, label %_ZN13QCPLayoutGrid10hasElementEii.exit.thread, label %select.unfold.us
 
 select.unfold.us:                                 ; preds = %_ZN13QCPLayoutGrid10hasElementEii.exit29.us
-  %32 = add nuw nsw i32 %.21539.us94, 1
+  %32 = add nuw nsw i32 %.21539.us90, 1
   %.not.us = icmp sge i32 %32, %.fr
   %spec.select66 = select i1 %.not.us, i32 0, i32 %32
   %33 = zext i1 %.not.us to i32
-  %spec.select35.us = add nuw nsw i32 %.240.us93, %33
+  %spec.select35.us = add nuw nsw i32 %.240.us89, %33
   %34 = icmp slt i32 %spec.select66, %8
   br i1 %34, label %_ZNK13QCPLayoutGrid11columnCountEv.exit.i28.us, label %_ZN13QCPLayoutGrid10hasElementEii.exit.thread
 
@@ -16878,14 +16878,14 @@ _ZNK13QCPLayoutGrid11columnCountEv.exit.i.us.preheader: ; preds = %select.unfold
   br label %_ZNK13QCPLayoutGrid11columnCountEv.exit.i.us
 
 _ZNK13QCPLayoutGrid11columnCountEv.exit.i.us:     ; preds = %_ZNK13QCPLayoutGrid11columnCountEv.exit.i.us.preheader, %select.unfold32.us
-  %.01361.us101 = phi i32 [ %spec.select.us, %select.unfold32.us ], [ 0, %_ZNK13QCPLayoutGrid11columnCountEv.exit.i.us.preheader ]
-  %.062.us100 = phi i32 [ %spec.select33.us, %select.unfold32.us ], [ 0, %_ZNK13QCPLayoutGrid11columnCountEv.exit.i.us.preheader ]
-  %39 = icmp slt i32 %.062.us100, %38
+  %.01361.us97 = phi i32 [ %spec.select.us, %select.unfold32.us ], [ 0, %_ZNK13QCPLayoutGrid11columnCountEv.exit.i.us.preheader ]
+  %.062.us96 = phi i32 [ %spec.select33.us, %select.unfold32.us ], [ 0, %_ZNK13QCPLayoutGrid11columnCountEv.exit.i.us.preheader ]
+  %39 = icmp slt i32 %.062.us96, %38
   br i1 %39, label %_ZN13QCPLayoutGrid10hasElementEii.exit.us, label %_ZN13QCPLayoutGrid10hasElementEii.exit.thread
 
 _ZN13QCPLayoutGrid10hasElementEii.exit.us:        ; preds = %_ZNK13QCPLayoutGrid11columnCountEv.exit.i.us
-  %40 = zext nneg i32 %.01361.us101 to i64
-  %41 = zext nneg i32 %.062.us100 to i64
+  %40 = zext nneg i32 %.01361.us97 to i64
+  %41 = zext nneg i32 %.062.us96 to i64
   %42 = getelementptr %class.QList.59, ptr %11, i64 %40, i32 0, i32 1
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr ptr, ptr %43, i64 %41
@@ -16894,26 +16894,26 @@ _ZN13QCPLayoutGrid10hasElementEii.exit.us:        ; preds = %_ZNK13QCPLayoutGrid
   br i1 %.not37.us, label %_ZN13QCPLayoutGrid10hasElementEii.exit.thread, label %select.unfold32.us
 
 select.unfold32.us:                               ; preds = %_ZN13QCPLayoutGrid10hasElementEii.exit.us
-  %46 = add nuw nsw i32 %.062.us100, 1
+  %46 = add nuw nsw i32 %.062.us96, 1
   %.not24.us = icmp sge i32 %46, %.fr
   %or.cond.us = and i1 %.not24.us, %35
   %47 = zext i1 %or.cond.us to i32
-  %spec.select.us = add nuw nsw i32 %.01361.us101, %47
+  %spec.select.us = add nuw nsw i32 %.01361.us97, %47
   %spec.select33.us = select i1 %or.cond.us, i32 0, i32 %46
   %48 = icmp slt i32 %spec.select.us, %8
   br i1 %48, label %_ZNK13QCPLayoutGrid11columnCountEv.exit.i.us, label %_ZN13QCPLayoutGrid10hasElementEii.exit.thread
 
-_ZN13QCPLayoutGrid10hasElementEii.exit.thread.loopexit81.split.loop.exit: ; preds = %_ZN13QCPLayoutGrid10hasElementEii.exit29.us.us
-  %49 = trunc i64 %indvars.iv92 to i32
+_ZN13QCPLayoutGrid10hasElementEii.exit.thread.loopexit77.split.loop.exit: ; preds = %_ZN13QCPLayoutGrid10hasElementEii.exit29.us.us
+  %49 = trunc i64 %indvars.iv88 to i32
   br label %_ZN13QCPLayoutGrid10hasElementEii.exit.thread
 
-_ZN13QCPLayoutGrid10hasElementEii.exit.thread.loopexit81.split.loop.exit82: ; preds = %_ZNK13QCPLayoutGrid11columnCountEv.exit.i28.us.us
-  %50 = trunc i64 %indvars.iv92 to i32
+_ZN13QCPLayoutGrid10hasElementEii.exit.thread.loopexit77.split.loop.exit78: ; preds = %_ZNK13QCPLayoutGrid11columnCountEv.exit.i28.us.us
+  %50 = trunc i64 %indvars.iv88 to i32
   br label %_ZN13QCPLayoutGrid10hasElementEii.exit.thread
 
-_ZN13QCPLayoutGrid10hasElementEii.exit.thread:    ; preds = %select.unfold.us.us, %_ZN13QCPLayoutGrid10hasElementEii.exit29.us, %_ZNK13QCPLayoutGrid11columnCountEv.exit.i28.us, %select.unfold.us, %select.unfold32.us, %_ZNK13QCPLayoutGrid11columnCountEv.exit.i.us, %_ZN13QCPLayoutGrid10hasElementEii.exit.us, %select.unfold.preheader.split.us.split.us.preheader, %select.unfold.preheader.split.us.split.preheader, %_ZN13QCPLayoutGrid10hasElementEii.exit.thread.loopexit81.split.loop.exit, %_ZN13QCPLayoutGrid10hasElementEii.exit.thread.loopexit81.split.loop.exit82, %select.unfold.preheader, %select.unfold32.preheader
-  %.417 = phi i32 [ 0, %select.unfold32.preheader ], [ 0, %select.unfold.preheader ], [ %49, %_ZN13QCPLayoutGrid10hasElementEii.exit.thread.loopexit81.split.loop.exit ], [ %50, %_ZN13QCPLayoutGrid10hasElementEii.exit.thread.loopexit81.split.loop.exit82 ], [ 0, %select.unfold.preheader.split.us.split.preheader ], [ %smax, %select.unfold.preheader.split.us.split.us.preheader ], [ %.01361.us101, %_ZN13QCPLayoutGrid10hasElementEii.exit.us ], [ %.01361.us101, %_ZNK13QCPLayoutGrid11columnCountEv.exit.i.us ], [ %spec.select.us, %select.unfold32.us ], [ %spec.select66, %select.unfold.us ], [ %.21539.us94, %_ZNK13QCPLayoutGrid11columnCountEv.exit.i28.us ], [ %.21539.us94, %_ZN13QCPLayoutGrid10hasElementEii.exit29.us ], [ %smax, %select.unfold.us.us ]
-  %.4 = phi i32 [ 0, %select.unfold32.preheader ], [ 0, %select.unfold.preheader ], [ 0, %_ZN13QCPLayoutGrid10hasElementEii.exit.thread.loopexit81.split.loop.exit ], [ 0, %_ZN13QCPLayoutGrid10hasElementEii.exit.thread.loopexit81.split.loop.exit82 ], [ 0, %select.unfold.preheader.split.us.split.preheader ], [ 0, %select.unfold.preheader.split.us.split.us.preheader ], [ %.062.us100, %_ZN13QCPLayoutGrid10hasElementEii.exit.us ], [ %.062.us100, %_ZNK13QCPLayoutGrid11columnCountEv.exit.i.us ], [ %spec.select33.us, %select.unfold32.us ], [ %spec.select35.us, %select.unfold.us ], [ %.240.us93, %_ZNK13QCPLayoutGrid11columnCountEv.exit.i28.us ], [ %.240.us93, %_ZN13QCPLayoutGrid10hasElementEii.exit29.us ], [ 0, %select.unfold.us.us ]
+_ZN13QCPLayoutGrid10hasElementEii.exit.thread:    ; preds = %select.unfold.us.us, %_ZN13QCPLayoutGrid10hasElementEii.exit29.us, %_ZNK13QCPLayoutGrid11columnCountEv.exit.i28.us, %select.unfold.us, %select.unfold32.us, %_ZNK13QCPLayoutGrid11columnCountEv.exit.i.us, %_ZN13QCPLayoutGrid10hasElementEii.exit.us, %select.unfold.preheader.split.us.split.us.preheader, %select.unfold.preheader.split.us.split.preheader, %_ZN13QCPLayoutGrid10hasElementEii.exit.thread.loopexit77.split.loop.exit, %_ZN13QCPLayoutGrid10hasElementEii.exit.thread.loopexit77.split.loop.exit78, %select.unfold.preheader, %select.unfold32.preheader
+  %.417 = phi i32 [ 0, %select.unfold32.preheader ], [ 0, %select.unfold.preheader ], [ %49, %_ZN13QCPLayoutGrid10hasElementEii.exit.thread.loopexit77.split.loop.exit ], [ %50, %_ZN13QCPLayoutGrid10hasElementEii.exit.thread.loopexit77.split.loop.exit78 ], [ 0, %select.unfold.preheader.split.us.split.preheader ], [ %smax, %select.unfold.preheader.split.us.split.us.preheader ], [ %.01361.us97, %_ZN13QCPLayoutGrid10hasElementEii.exit.us ], [ %.01361.us97, %_ZNK13QCPLayoutGrid11columnCountEv.exit.i.us ], [ %spec.select.us, %select.unfold32.us ], [ %spec.select66, %select.unfold.us ], [ %.21539.us90, %_ZNK13QCPLayoutGrid11columnCountEv.exit.i28.us ], [ %.21539.us90, %_ZN13QCPLayoutGrid10hasElementEii.exit29.us ], [ %smax, %select.unfold.us.us ]
+  %.4 = phi i32 [ 0, %select.unfold32.preheader ], [ 0, %select.unfold.preheader ], [ 0, %_ZN13QCPLayoutGrid10hasElementEii.exit.thread.loopexit77.split.loop.exit ], [ 0, %_ZN13QCPLayoutGrid10hasElementEii.exit.thread.loopexit77.split.loop.exit78 ], [ 0, %select.unfold.preheader.split.us.split.preheader ], [ 0, %select.unfold.preheader.split.us.split.us.preheader ], [ %.062.us96, %_ZN13QCPLayoutGrid10hasElementEii.exit.us ], [ %.062.us96, %_ZNK13QCPLayoutGrid11columnCountEv.exit.i.us ], [ %spec.select33.us, %select.unfold32.us ], [ %spec.select35.us, %select.unfold.us ], [ %.240.us89, %_ZNK13QCPLayoutGrid11columnCountEv.exit.i28.us ], [ %.240.us89, %_ZN13QCPLayoutGrid10hasElementEii.exit29.us ], [ 0, %select.unfold.us.us ]
   %51 = tail call noundef zeroext i1 @_ZN13QCPLayoutGrid10addElementEiiP16QCPLayoutElement(ptr noundef nonnull align 8 dereferenceable(256) %0, i32 noundef %.417, i32 noundef %.4, ptr noundef %1)
   ret i1 %51
 }
@@ -36188,7 +36188,7 @@ define void @_ZN16QCPAxisTickerLog16createTickVectorEdRK8QCPRange(ptr dead_on_un
 34:                                               ; preds = %25
   %35 = fptosi double %33 to i32
   %.sroa.speculated68 = tail call i32 @llvm.smax.i32(i32 %35, i32 1)
-  %36 = uitofp i32 %.sroa.speculated68 to double
+  %36 = sitofp i32 %.sroa.speculated68 to double
   %37 = tail call noundef double @pow(double noundef %32, double noundef %36) #47
   %38 = load double, ptr %3, align 8
   %39 = tail call noundef double @log(double noundef %38) #47
@@ -36267,7 +36267,7 @@ _ZN5QListIdE6appendEd.exit52:                     ; preds = %.lr.ph80
 80:                                               ; preds = %71
   %81 = fptosi double %79 to i32
   %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %81, i32 1)
-  %82 = uitofp i32 %.sroa.speculated to double
+  %82 = sitofp i32 %.sroa.speculated to double
   %83 = tail call noundef double @pow(double noundef %78, double noundef %82) #47
   %84 = load double, ptr %3, align 8
   %85 = fneg double %84
@@ -78519,16 +78519,16 @@ _ZNK17QArrayDataPointerIjE11needsDetachEv.exit.i.i.i.i141: ; preds = %_ZN5QListI
   %306 = call double @llvm.fmuladd.f64(double %281, double %302, double %305)
   %307 = lshr i32 %300, 16
   %308 = and i32 %307, 255
-  %309 = uitofp i32 %308 to double
+  %309 = sitofp i32 %308 to double
   %310 = fmul double %306, %309
   %311 = fptosi double %310 to i32
   %312 = lshr i32 %300, 8
   %313 = and i32 %312, 255
-  %314 = uitofp i32 %313 to double
+  %314 = sitofp i32 %313 to double
   %315 = fmul double %306, %314
   %316 = fptosi double %315 to i32
   %317 = and i32 %300, 255
-  %318 = uitofp i32 %317 to double
+  %318 = sitofp i32 %317 to double
   %319 = fmul double %306, %318
   %320 = fptosi double %319 to i32
   %321 = fmul double %306, 2.550000e+02
@@ -78624,16 +78624,16 @@ _ZNK4QMapId6QColorE10constBeginEv.exit167:        ; preds = %_ZNK4QMapId6QColorE
   %362 = fpext float %361 to double
   %363 = lshr i32 %356, 16
   %364 = and i32 %363, 255
-  %365 = uitofp i32 %364 to double
+  %365 = sitofp i32 %364 to double
   %366 = fmul double %365, %362
   %367 = fptosi double %366 to i32
   %368 = lshr i32 %356, 8
   %369 = and i32 %368, 255
-  %370 = uitofp i32 %369 to double
+  %370 = sitofp i32 %369 to double
   %371 = fmul double %370, %362
   %372 = fptosi double %371 to i32
   %373 = and i32 %356, 255
-  %374 = uitofp i32 %373 to double
+  %374 = sitofp i32 %373 to double
   %375 = fmul double %374, %362
   %376 = fptosi double %375 to i32
   %377 = fmul double %362, 2.550000e+02
@@ -78850,20 +78850,20 @@ define void @_ZN16QCPColorGradient8colorizeEPKdPKhRK8QCPRangePjiib(ptr noundef n
   %108 = fdiv float %107, 2.550000e+02
   %109 = lshr i32 %105, 16
   %110 = and i32 %109, 255
-  %111 = uitofp i32 %110 to float
+  %111 = sitofp i32 %110 to float
   %112 = fmul float %108, %111
   %113 = fptosi float %112 to i32
   %114 = lshr i32 %105, 8
   %115 = and i32 %114, 255
-  %116 = uitofp i32 %115 to float
+  %116 = sitofp i32 %115 to float
   %117 = fmul float %108, %116
   %118 = fptosi float %117 to i32
   %119 = and i32 %105, 255
-  %120 = uitofp i32 %119 to float
+  %120 = sitofp i32 %119 to float
   %121 = fmul float %108, %120
   %122 = fptosi float %121 to i32
   %123 = lshr i32 %105, 24
-  %124 = uitofp i32 %123 to float
+  %124 = sitofp i32 %123 to float
   %125 = fmul float %108, %124
   %126 = fptosi float %125 to i32
   %127 = shl i32 %126, 24
@@ -96614,7 +96614,7 @@ _ZNK17QArrayDataPointerIdE11needsDetachEv.exit.thread.i.i.i.i: ; preds = %_ZNK17
   %34 = load ptr, ptr %24, align 8
   %35 = getelementptr double, ptr %34, i64 %indvars.iv
   %36 = trunc i64 %indvars.iv to i32
-  %37 = uitofp i32 %36 to double
+  %37 = sitofp i32 %36 to double
   store double %37, ptr %35, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

@@ -1103,23 +1103,23 @@ define void @dlasq2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef write
   %698 = getelementptr i8, ptr %697, i64 16
   store double %691, ptr %698, align 8, !tbaa !7
   %699 = load i32, ptr %7, align 4, !tbaa !3
-  %700 = sitofp i32 %699 to double
-  %701 = getelementptr i8, ptr %697, i64 24
-  store double %700, ptr %701, align 8, !tbaa !7
-  %702 = load i32, ptr %6, align 4, !tbaa !3
-  %703 = sitofp i32 %702 to double
-  %704 = mul nsw i32 %679, %679
-  %705 = uitofp i32 %704 to double
-  %706 = getelementptr i8, ptr %697, i64 32
-  %707 = load i32, ptr %12, align 4, !tbaa !3
-  %708 = sitofp i32 %707 to double
-  %709 = fmul double %708, 1.000000e+02
-  %710 = insertelement <2 x double> poison, double %703, i64 0
-  %711 = insertelement <2 x double> %710, double %709, i64 1
-  %712 = insertelement <2 x double> poison, double %705, i64 0
-  %713 = insertelement <2 x double> %712, double %700, i64 1
-  %714 = fdiv <2 x double> %711, %713
-  store <2 x double> %714, ptr %706, align 8, !tbaa !7
+  %700 = getelementptr i8, ptr %697, i64 24
+  %701 = load i32, ptr %6, align 4, !tbaa !3
+  %702 = sitofp i32 %701 to double
+  %703 = mul nsw i32 %679, %679
+  %704 = getelementptr i8, ptr %697, i64 32
+  %705 = load i32, ptr %12, align 4, !tbaa !3
+  %706 = sitofp i32 %705 to double
+  %707 = fmul double %706, 1.000000e+02
+  %708 = insertelement <2 x i32> poison, i32 %703, i64 0
+  %709 = insertelement <2 x i32> %708, i32 %699, i64 1
+  %710 = sitofp <2 x i32> %709 to <2 x double>
+  %711 = extractelement <2 x double> %710, i64 1
+  store double %711, ptr %700, align 8, !tbaa !7
+  %712 = insertelement <2 x double> poison, double %702, i64 0
+  %713 = insertelement <2 x double> %712, double %707, i64 1
+  %714 = fdiv <2 x double> %713, %710
+  store <2 x double> %714, ptr %704, align 8, !tbaa !7
   br label %.loopexit45
 
 .loopexit45:                                      ; preds = %655, %.loopexit43, %.loopexit53, %633, %357, %170, %.loopexit, %138, %122, %114, %96, %54, %48, %42, %37, %34, %33, %31

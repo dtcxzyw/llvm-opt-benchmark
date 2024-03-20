@@ -270,7 +270,7 @@ define internal fastcc float @calc_rank(ptr nocapture noundef readonly %0, ptr n
   br i1 %93, label %word_distance.exit.us.us.us.i, label %94
 
 94:                                               ; preds = %83
-  %95 = uitofp i32 %spec.store.select.us.us.us.i to double
+  %95 = sitofp i32 %spec.store.select.us.us.us.i to double
   %96 = fdiv double %95, 1.500000e+00
   %97 = fadd double %96, -2.000000e+00
   %98 = call double @exp(double noundef %97) #11
@@ -1509,7 +1509,7 @@ fillQueryRepresentationData.exit72.i:             ; preds = %311, %.lr.ph89.i
   %355 = fdiv double %346, %354
   %356 = fadd double %.086, %355
   %357 = add nuw nsw i32 %326, %325
-  %358 = uitofp i32 %357 to double
+  %358 = sitofp i32 %357 to double
   %359 = fmul double %358, 5.000000e-01
   %360 = icmp sgt i32 %.090, 0
   %361 = fcmp ogt double %359, %.089

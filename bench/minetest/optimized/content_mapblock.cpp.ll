@@ -5245,7 +5245,7 @@ define dso_local void @_ZN21MapblockMeshGenerator21getLiquidNeighborhoodEv(ptr n
   %54 = getelementptr inbounds i8, ptr %0, i64 530
   %55 = sub nuw nsw i32 8, %44
   %56 = trunc i32 %55 to i8
-  %57 = uitofp i32 %44 to float
+  %57 = sitofp i32 %44 to float
   %58 = getelementptr inbounds i8, ptr %2, i64 6
   %59 = getelementptr inbounds i8, ptr %2, i64 12
   br label %60
@@ -14423,7 +14423,7 @@ define dso_local void @_ZN21MapblockMeshGenerator12drawMeshNodeEv(ptr noundef no
   br i1 %56, label %61, label %57
 
 57:                                               ; preds = %55
-  %58 = uitofp i32 %31 to float
+  %58 = sitofp i32 %31 to float
   %59 = fmul nsz float %58, 1.500000e+00
   %60 = fpext float %59 to double
   tail call void @_Z14rotateMeshXZbyPN3irr5scene5IMeshEd(ptr noundef %51, double noundef %60)

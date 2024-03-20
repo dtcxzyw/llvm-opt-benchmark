@@ -1776,7 +1776,7 @@ for.cond118.preheader.us.i:                       ; preds = %for.cond118.for.inc
   %points.sroa.0.10935.us.i = phi ptr [ %points.sroa.30.0.i413424, %for.cond118.preheader.lr.ph.i ], [ %points.sroa.0.12.us.i, %for.cond118.for.inc132_crit_edge.us.i ]
   %points.sroa.30.9934.us.i = phi ptr [ %points.sroa.30.0.i413424, %for.cond118.preheader.lr.ph.i ], [ %points.sroa.30.11.us.i, %for.cond118.for.inc132_crit_edge.us.i ]
   %points.sroa.75.8933.us.i = phi ptr [ %points.sroa.75.0.i411426, %for.cond118.preheader.lr.ph.i ], [ %points.sroa.75.10.us.i, %for.cond118.for.inc132_crit_edge.us.i ]
-  %conv122.us.i = uitofp i32 %i114.0936.us.i to float
+  %conv122.us.i = sitofp i32 %i114.0936.us.i to float
   %div.us.i = fdiv float %conv122.us.i, %conv123.i
   br label %invoke.cont127.us.i
 
@@ -1785,7 +1785,7 @@ invoke.cont127.us.i:                              ; preds = %for.inc129.us.i, %f
   %points.sroa.0.11927.us.i = phi ptr [ %points.sroa.0.10935.us.i, %for.cond118.preheader.us.i ], [ %points.sroa.0.12.us.i, %for.inc129.us.i ]
   %points.sroa.30.10926.us.i = phi ptr [ %points.sroa.30.9934.us.i, %for.cond118.preheader.us.i ], [ %points.sroa.30.11.us.i, %for.inc129.us.i ]
   %points.sroa.75.9925.us.i = phi ptr [ %points.sroa.75.8933.us.i, %for.cond118.preheader.us.i ], [ %points.sroa.75.10.us.i, %for.inc129.us.i ]
-  %conv124.us.i = uitofp i32 %j.0928.us.i to float
+  %conv124.us.i = sitofp i32 %j.0928.us.i to float
   %div126.us.i = fdiv float %conv124.us.i, %conv123.i
   %cmp.not.i.i163.us.i = icmp eq ptr %points.sroa.30.10926.us.i, %points.sroa.75.9925.us.i
   br i1 %cmp.not.i.i163.us.i, label %if.else.i.i166.us.i, label %if.then.i.i164.us.i
@@ -1909,7 +1909,7 @@ invoke.cont158.i:                                 ; preds = %invoke.cont158.i.pr
   %points.sroa.0.13914.i = phi ptr [ %points.sroa.0.14.i, %for.inc160.i ], [ %points.sroa.30.0.i413424, %invoke.cont158.i.preheader ]
   %points.sroa.30.12913.i = phi ptr [ %points.sroa.30.13.i, %for.inc160.i ], [ %points.sroa.30.0.i413424, %invoke.cont158.i.preheader ]
   %points.sroa.75.11912.i = phi ptr [ %points.sroa.75.12.i, %for.inc160.i ], [ %points.sroa.75.0.i411426, %invoke.cont158.i.preheader ]
-  %conv147.i = uitofp i32 %i142.0915.i to float
+  %conv147.i = sitofp i32 %i142.0915.i to float
   %mul.i.i.i = mul i64 %rng.sroa.0.0916.i, 6364136223846793005
   %add.i.i205.i = add i64 %mul.i.i.i, %or.i.i.i
   %135 = lshr i64 %rng.sroa.0.0916.i, 45
@@ -2665,7 +2665,7 @@ invoke.cont283.i:                                 ; preds = %if.then269.i
 for.cond287.preheader.i:                          ; preds = %invoke.cont283.i
   %shl.i = shl nuw nsw i32 1, %div278710711712.i
   %cmp300859.not.i = icmp eq i32 %div2811068.i, 0
-  %conv310.i = uitofp i32 %shl.i to float
+  %conv310.i = sitofp i32 %shl.i to float
   %204 = add nsw i32 %shl.i, -1
   %wide.trip.count1049.i = zext nneg i32 %shl.i to i64
   %agg.tmp294.sroa.0.0.insert.ext.le.i = zext nneg i32 %204 to i64
@@ -2710,7 +2710,7 @@ for.cond291.preheader.i:                          ; preds = %for.inc326.i, %for.
   %and13.i.i.i.i = or i64 %207, %208
   %shl.i.i547.i = and i64 %and13.i.i.i.i, 3074457345618258602
   %209 = trunc i64 %indvars.iv1045.i to i32
-  %conv312.i = uitofp i32 %209 to float
+  %conv312.i = sitofp i32 %209 to float
   br i1 %cmp300859.not.i, label %invoke.cont295.preheader.i, label %invoke.cont295.us.i
 
 invoke.cont295.preheader.i:                       ; preds = %for.cond291.preheader.i
@@ -2749,7 +2749,7 @@ invoke.cont295.us.i:                              ; preds = %for.cond291.prehead
   %shl.i.us.i = shl i64 %or.i.i548.us.i, %sh_prom.i.us.i
   store i64 %shl.i.us.i, ptr %mortonIndex.i.i, align 8, !noalias !7
   %212 = trunc i64 %indvars.iv.i to i32
-  %conv306.us.i = uitofp i32 %212 to float
+  %conv306.us.i = sitofp i32 %212 to float
   %213 = insertelement <2 x float> poison, float %conv306.us.i, i64 0
   %214 = insertelement <2 x float> %213, float %conv312.i, i64 1
   br label %for.body301.us.i

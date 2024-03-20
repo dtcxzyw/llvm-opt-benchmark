@@ -8435,11 +8435,11 @@ define internal fastcc noundef ptr @_ZL19createExtrusionMeshii(i32 noundef %0, i
 
 184:                                              ; preds = %184, %83
   %185 = phi i32 [ 0, %83 ], [ %200, %184 ]
-  %186 = uitofp i32 %185 to float
+  %186 = sitofp i32 %185 to float
   %187 = fmul nsz float %79, %186
   %188 = fadd nsz float %187, -5.000000e-01
   %189 = fadd nsz float %79, %188
-  %190 = uitofp i32 %185 to double
+  %190 = sitofp i32 %185 to double
   %191 = fadd nsz double %190, 1.000000e-01
   %192 = fmul nsz double %191, %84
   %193 = fptrunc double %192 to float
@@ -8510,11 +8510,11 @@ define internal fastcc noundef ptr @_ZL19createExtrusionMeshii(i32 noundef %0, i
 
 202:                                              ; preds = %202, %134
   %203 = phi i32 [ 0, %134 ], [ %218, %202 ]
-  %204 = uitofp i32 %203 to float
+  %204 = sitofp i32 %203 to float
   %205 = fmul nsz float %81, %204
   %206 = fsub nsz float 5.000000e-01, %205
   %207 = fsub nsz float %206, %81
-  %208 = uitofp i32 %203 to double
+  %208 = sitofp i32 %203 to double
   %209 = fadd nsz double %208, 1.000000e-01
   %210 = fmul nsz double %209, %135
   %211 = fptrunc double %210 to float

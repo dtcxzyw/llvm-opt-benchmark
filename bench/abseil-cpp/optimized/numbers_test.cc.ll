@@ -2232,7 +2232,7 @@ _ZN7testing15AssertionResultD2Ev.exit127:         ; preds = %if.end120, %_ZNKSt1
 
 for.cond126.preheader:                            ; preds = %_ZN7testing15AssertionResultD2Ev.exit127, %for.inc153
   %i.0151 = phi i32 [ 0, %_ZN7testing15AssertionResultD2Ev.exit127 ], [ %inc, %for.inc153 ]
-  %conv = uitofp i32 %i.0151 to double
+  %conv = sitofp i32 %i.0151 to double
   br label %for.body128
 
 for.body128:                                      ; preds = %for.cond126.preheader, %_ZN7testing15AssertionResultD2Ev.exit148
@@ -76834,7 +76834,7 @@ for.body83.lr.ph.i:                               ; preds = %invoke.cont67.i
   %div.i = udiv i64 5000000, %31
   %conv70.i = trunc i64 %div.i to i32
   %spec.store.select.i = call i32 @llvm.umax.i32(i32 %conv70.i, i32 1)
-  %conv103.i = uitofp i32 %spec.store.select.i to double
+  %conv103.i = sitofp i32 %spec.store.select.i to double
   br label %for.body83.i
 
 for.body83.i:                                     ; preds = %for.inc140.i, %for.body83.lr.ph.i

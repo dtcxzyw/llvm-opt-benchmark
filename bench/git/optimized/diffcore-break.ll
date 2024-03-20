@@ -36,7 +36,7 @@ entry:
 for.body.lr.ph:                                   ; preds = %entry
   %missing_object_cb.i = getelementptr inbounds i8, ptr %options.i, i64 8
   %missing_object_data.i = getelementptr inbounds i8, ptr %options.i, i64 16
-  %conv82.i = uitofp i32 %spec.store.select to double
+  %conv82.i = sitofp i32 %spec.store.select to double
   %conv88.i = zext nneg i32 %spec.store.select to i64
   br label %for.body
 

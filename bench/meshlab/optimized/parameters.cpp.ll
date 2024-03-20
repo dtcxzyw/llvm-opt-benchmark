@@ -640,7 +640,7 @@ _ZNK3vcg4ShotIfNS_8Matrix44IfEEE31ConvertWorldToCameraCoordinatesERKNS_6Point3If
   %.02125.i = phi i32 [ 0, %31 ], [ %257, %.noexc ]
   %33 = load float, ptr %7, align 8
   %.zext.i = and i32 %.02125.i, 1
-  %34 = uitofp i32 %.zext.i to float
+  %34 = sitofp i32 %.zext.i to float
   %35 = load float, ptr %8, align 4
   %36 = fsub float %35, %33
   %37 = call float @llvm.fmuladd.f32(float %34, float %36, float %33)
@@ -784,7 +784,7 @@ _ZNK3vcg4ShotIfNS_8Matrix44IfEEE31ConvertWorldToCameraCoordinatesERKNS_6Point3If
 139:                                              ; preds = %131
   %140 = fptosi float %136 to i32
   %141 = call i32 @llvm.abs.i32(i32 %140, i1 true)
-  %142 = uitofp i32 %141 to double
+  %142 = sitofp i32 %141 to double
   %143 = call noundef double @pow(double noundef %142, double noundef 0x3FD5555560000000) #25
   %144 = fptrunc double %143 to float
   %145 = fneg float %144
@@ -1662,67 +1662,60 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt4endlIcSt11char_trai
 define noundef double @_ZN10Parameters9pixelDiffERN3vcg4ShotIfNS0_8Matrix44IfEEEE(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef nonnull align 4 dereferenceable(132) %1) local_unnamed_addr #11 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 248
   %4 = getelementptr inbounds i8, ptr %0, i64 260
-  %5 = getelementptr inbounds i8, ptr %0, i64 252
-  %6 = getelementptr inbounds i8, ptr %0, i64 264
-  %7 = getelementptr inbounds i8, ptr %0, i64 256
-  %8 = getelementptr inbounds i8, ptr %0, i64 268
-  br label %9
+  %5 = getelementptr inbounds i8, ptr %0, i64 256
+  %6 = getelementptr inbounds i8, ptr %0, i64 268
+  br label %7
 
-9:                                                ; preds = %2, %9
-  %.01827 = phi double [ 0.000000e+00, %2 ], [ %.1, %9 ]
-  %.01926 = phi double [ 0.000000e+00, %2 ], [ %33, %9 ]
-  %.02125 = phi i32 [ 0, %2 ], [ %34, %9 ]
-  %10 = load float, ptr %3, align 8
+7:                                                ; preds = %2, %7
+  %.01827 = phi double [ 0.000000e+00, %2 ], [ %.1, %7 ]
+  %.01926 = phi double [ 0.000000e+00, %2 ], [ %28, %7 ]
+  %.02125 = phi i32 [ 0, %2 ], [ %29, %7 ]
   %.zext = and i32 %.02125, 1
-  %11 = uitofp i32 %.zext to float
-  %12 = load float, ptr %4, align 4
-  %13 = fsub float %12, %10
-  %14 = tail call float @llvm.fmuladd.f32(float %11, float %13, float %10)
-  %15 = load float, ptr %5, align 4
   %.zext24 = lshr i32 %.02125, 1
   %.urem = add nsw i32 %.zext24, -2
   %.cmp = icmp ult i32 %.02125, 4
-  %16 = select i1 %.cmp, i32 %.zext24, i32 %.urem
-  %17 = sitofp i32 %16 to float
-  %18 = load float, ptr %6, align 8
-  %19 = fsub float %18, %15
-  %20 = tail call float @llvm.fmuladd.f32(float %17, float %19, float %15)
-  %21 = load float, ptr %7, align 8
-  %22 = icmp ugt i32 %.02125, 3
-  %23 = uitofp i1 %22 to float
-  %24 = load float, ptr %8, align 4
-  %25 = fsub float %24, %21
-  %26 = tail call float @llvm.fmuladd.f32(float %23, float %25, float %21)
-  %.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %14, i64 0
-  %.sroa.0.4.vec.insert.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i, float %20, i64 1
-  %27 = tail call <2 x float> @_ZN10Parameters9pixelDiffERN3vcg4ShotIfNS0_8Matrix44IfEEEENS0_6Point3IfEE(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef nonnull align 4 dereferenceable(132) %1, <2 x float> %.sroa.0.4.vec.insert.i, float %26)
-  %.sroa.0.0.vec.extract = extractelement <2 x float> %27, i64 0
-  %28 = fmul <2 x float> %27, %27
-  %29 = extractelement <2 x float> %28, i64 1
-  %30 = tail call float @llvm.fmuladd.f32(float %.sroa.0.0.vec.extract, float %.sroa.0.0.vec.extract, float %29)
-  %sqrt.i = tail call noundef float @llvm.sqrt.f32(float %30)
-  %31 = fpext float %sqrt.i to double
-  %32 = fcmp olt double %.01827, %31
-  %.1 = select i1 %32, double %31, double %.01827
-  %33 = tail call double @llvm.fmuladd.f64(double %31, double %31, double %.01926)
-  %34 = add nuw nsw i32 %.02125, 1
-  %exitcond.not = icmp eq i32 %34, 8
-  br i1 %exitcond.not, label %35, label %9, !llvm.loop !12
+  %8 = select i1 %.cmp, i32 %.zext24, i32 %.urem
+  %9 = load <2 x float>, ptr %3, align 8
+  %10 = insertelement <2 x i32> poison, i32 %.zext, i64 0
+  %11 = insertelement <2 x i32> %10, i32 %8, i64 1
+  %12 = sitofp <2 x i32> %11 to <2 x float>
+  %13 = load <2 x float>, ptr %4, align 4
+  %14 = fsub <2 x float> %13, %9
+  %15 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %12, <2 x float> %14, <2 x float> %9)
+  %16 = load float, ptr %5, align 8
+  %17 = icmp ugt i32 %.02125, 3
+  %18 = uitofp i1 %17 to float
+  %19 = load float, ptr %6, align 4
+  %20 = fsub float %19, %16
+  %21 = tail call float @llvm.fmuladd.f32(float %18, float %20, float %16)
+  %22 = tail call <2 x float> @_ZN10Parameters9pixelDiffERN3vcg4ShotIfNS0_8Matrix44IfEEEENS0_6Point3IfEE(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef nonnull align 4 dereferenceable(132) %1, <2 x float> %15, float %21)
+  %.sroa.0.0.vec.extract = extractelement <2 x float> %22, i64 0
+  %23 = fmul <2 x float> %22, %22
+  %24 = extractelement <2 x float> %23, i64 1
+  %25 = tail call float @llvm.fmuladd.f32(float %.sroa.0.0.vec.extract, float %.sroa.0.0.vec.extract, float %24)
+  %sqrt.i = tail call noundef float @llvm.sqrt.f32(float %25)
+  %26 = fpext float %sqrt.i to double
+  %27 = fcmp olt double %.01827, %26
+  %.1 = select i1 %27, double %26, double %.01827
+  %28 = tail call double @llvm.fmuladd.f64(double %26, double %26, double %.01926)
+  %29 = add nuw nsw i32 %.02125, 1
+  %exitcond.not = icmp eq i32 %29, 8
+  br i1 %exitcond.not, label %30, label %7, !llvm.loop !12
 
-35:                                               ; preds = %9
-  %36 = getelementptr inbounds i8, ptr %0, i64 113
-  %37 = load i8, ptr %36, align 1
-  %38 = and i8 %37, 1
-  %.not = icmp eq i8 %38, 0
-  br i1 %.not, label %39, label %42
+30:                                               ; preds = %7
+  %31 = getelementptr inbounds i8, ptr %0, i64 113
+  %32 = load i8, ptr %31, align 1
+  %33 = and i8 %32, 1
+  %.not = icmp eq i8 %33, 0
+  br i1 %.not, label %34, label %37
 
-39:                                               ; preds = %35
-  %40 = fmul double %33, 1.250000e-01
-  %41 = tail call double @sqrt(double noundef %40) #25
-  br label %42
+34:                                               ; preds = %30
+  %35 = fmul double %28, 1.250000e-01
+  %36 = tail call double @sqrt(double noundef %35) #25
+  br label %37
 
-42:                                               ; preds = %35, %39
-  %.0 = phi double [ %41, %39 ], [ %.1, %35 ]
+37:                                               ; preds = %30, %34
+  %.0 = phi double [ %36, %34 ], [ %.1, %30 ]
   ret double %.0
 }
 
@@ -1994,67 +1987,60 @@ define noundef double @_ZN10Parameters9pixelDiffEv(ptr noundef nonnull align 8 d
   call void @_ZN10Parameters6toShotEb(ptr dead_on_unwind nonnull writable sret(%"class.vcg::Shot") align 4 %2, ptr noundef nonnull align 8 dereferenceable(288) %0, i1 noundef zeroext true)
   %3 = getelementptr inbounds i8, ptr %0, i64 248
   %4 = getelementptr inbounds i8, ptr %0, i64 260
-  %5 = getelementptr inbounds i8, ptr %0, i64 252
-  %6 = getelementptr inbounds i8, ptr %0, i64 264
-  %7 = getelementptr inbounds i8, ptr %0, i64 256
-  %8 = getelementptr inbounds i8, ptr %0, i64 268
+  %5 = getelementptr inbounds i8, ptr %0, i64 256
+  %6 = getelementptr inbounds i8, ptr %0, i64 268
   br label %.noexc
 
 .noexc:                                           ; preds = %.noexc, %1
   %.01827.i = phi double [ 0.000000e+00, %1 ], [ %.1.i, %.noexc ]
-  %.01926.i = phi double [ 0.000000e+00, %1 ], [ %32, %.noexc ]
-  %.02125.i = phi i32 [ 0, %1 ], [ %33, %.noexc ]
-  %9 = load float, ptr %3, align 8
+  %.01926.i = phi double [ 0.000000e+00, %1 ], [ %27, %.noexc ]
+  %.02125.i = phi i32 [ 0, %1 ], [ %28, %.noexc ]
   %.zext.i = and i32 %.02125.i, 1
-  %10 = uitofp i32 %.zext.i to float
-  %11 = load float, ptr %4, align 4
-  %12 = fsub float %11, %9
-  %13 = call float @llvm.fmuladd.f32(float %10, float %12, float %9)
-  %14 = load float, ptr %5, align 4
   %.zext24.i = lshr i32 %.02125.i, 1
   %.urem.i = add nsw i32 %.zext24.i, -2
   %.cmp.i = icmp ult i32 %.02125.i, 4
-  %15 = select i1 %.cmp.i, i32 %.zext24.i, i32 %.urem.i
-  %16 = sitofp i32 %15 to float
-  %17 = load float, ptr %6, align 8
-  %18 = fsub float %17, %14
-  %19 = call float @llvm.fmuladd.f32(float %16, float %18, float %14)
-  %20 = load float, ptr %7, align 8
-  %21 = icmp ugt i32 %.02125.i, 3
-  %22 = uitofp i1 %21 to float
-  %23 = load float, ptr %8, align 4
-  %24 = fsub float %23, %20
-  %25 = call float @llvm.fmuladd.f32(float %22, float %24, float %20)
-  %.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %13, i64 0
-  %.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i, float %19, i64 1
-  %26 = call <2 x float> @_ZN10Parameters9pixelDiffERN3vcg4ShotIfNS0_8Matrix44IfEEEENS0_6Point3IfEE(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef nonnull align 4 dereferenceable(132) %2, <2 x float> %.sroa.0.4.vec.insert.i.i, float %25)
-  %.sroa.0.0.vec.extract.i = extractelement <2 x float> %26, i64 0
-  %27 = fmul <2 x float> %26, %26
-  %28 = extractelement <2 x float> %27, i64 1
-  %29 = call float @llvm.fmuladd.f32(float %.sroa.0.0.vec.extract.i, float %.sroa.0.0.vec.extract.i, float %28)
-  %sqrt.i.i = call noundef float @llvm.sqrt.f32(float %29)
-  %30 = fpext float %sqrt.i.i to double
-  %31 = fcmp olt double %.01827.i, %30
-  %.1.i = select i1 %31, double %30, double %.01827.i
-  %32 = call double @llvm.fmuladd.f64(double %30, double %30, double %.01926.i)
-  %33 = add nuw nsw i32 %.02125.i, 1
-  %exitcond.not.i = icmp eq i32 %33, 8
-  br i1 %exitcond.not.i, label %34, label %.noexc, !llvm.loop !12
+  %7 = select i1 %.cmp.i, i32 %.zext24.i, i32 %.urem.i
+  %8 = load <2 x float>, ptr %3, align 8
+  %9 = insertelement <2 x i32> poison, i32 %.zext.i, i64 0
+  %10 = insertelement <2 x i32> %9, i32 %7, i64 1
+  %11 = sitofp <2 x i32> %10 to <2 x float>
+  %12 = load <2 x float>, ptr %4, align 4
+  %13 = fsub <2 x float> %12, %8
+  %14 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %11, <2 x float> %13, <2 x float> %8)
+  %15 = load float, ptr %5, align 8
+  %16 = icmp ugt i32 %.02125.i, 3
+  %17 = uitofp i1 %16 to float
+  %18 = load float, ptr %6, align 4
+  %19 = fsub float %18, %15
+  %20 = call float @llvm.fmuladd.f32(float %17, float %19, float %15)
+  %21 = call <2 x float> @_ZN10Parameters9pixelDiffERN3vcg4ShotIfNS0_8Matrix44IfEEEENS0_6Point3IfEE(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef nonnull align 4 dereferenceable(132) %2, <2 x float> %14, float %20)
+  %.sroa.0.0.vec.extract.i = extractelement <2 x float> %21, i64 0
+  %22 = fmul <2 x float> %21, %21
+  %23 = extractelement <2 x float> %22, i64 1
+  %24 = call float @llvm.fmuladd.f32(float %.sroa.0.0.vec.extract.i, float %.sroa.0.0.vec.extract.i, float %23)
+  %sqrt.i.i = call noundef float @llvm.sqrt.f32(float %24)
+  %25 = fpext float %sqrt.i.i to double
+  %26 = fcmp olt double %.01827.i, %25
+  %.1.i = select i1 %26, double %25, double %.01827.i
+  %27 = call double @llvm.fmuladd.f64(double %25, double %25, double %.01926.i)
+  %28 = add nuw nsw i32 %.02125.i, 1
+  %exitcond.not.i = icmp eq i32 %28, 8
+  br i1 %exitcond.not.i, label %29, label %.noexc, !llvm.loop !12
 
-34:                                               ; preds = %.noexc
-  %35 = getelementptr inbounds i8, ptr %0, i64 113
-  %36 = load i8, ptr %35, align 1
-  %37 = and i8 %36, 1
-  %.not.i = icmp eq i8 %37, 0
-  br i1 %.not.i, label %38, label %_ZN10Parameters9pixelDiffERN3vcg4ShotIfNS0_8Matrix44IfEEEE.exit
+29:                                               ; preds = %.noexc
+  %30 = getelementptr inbounds i8, ptr %0, i64 113
+  %31 = load i8, ptr %30, align 1
+  %32 = and i8 %31, 1
+  %.not.i = icmp eq i8 %32, 0
+  br i1 %.not.i, label %33, label %_ZN10Parameters9pixelDiffERN3vcg4ShotIfNS0_8Matrix44IfEEEE.exit
 
-38:                                               ; preds = %34
-  %39 = fmul double %32, 1.250000e-01
-  %40 = call double @sqrt(double noundef %39) #25
+33:                                               ; preds = %29
+  %34 = fmul double %27, 1.250000e-01
+  %35 = call double @sqrt(double noundef %34) #25
   br label %_ZN10Parameters9pixelDiffERN3vcg4ShotIfNS0_8Matrix44IfEEEE.exit
 
-_ZN10Parameters9pixelDiffERN3vcg4ShotIfNS0_8Matrix44IfEEEE.exit: ; preds = %38, %34
-  %.0.i = phi double [ %40, %38 ], [ %.1.i, %34 ]
+_ZN10Parameters9pixelDiffERN3vcg4ShotIfNS0_8Matrix44IfEEEE.exit: ; preds = %33, %29
+  %.0.i = phi double [ %35, %33 ], [ %.1.i, %29 ]
   ret double %.0.i
 }
 
@@ -2123,7 +2109,7 @@ define linkonce_odr <2 x float> @_ZNK3vcg6CameraIfE22UndistortedToDistortedENS_6
 50:                                               ; preds = %42
   %51 = fptosi float %47 to i32
   %52 = tail call i32 @llvm.abs.i32(i32 %51, i1 true)
-  %53 = uitofp i32 %52 to double
+  %53 = sitofp i32 %52 to double
   %54 = tail call noundef double @pow(double noundef %53, double noundef 0x3FD5555560000000) #25
   %55 = fptrunc double %54 to float
   %56 = fneg float %55

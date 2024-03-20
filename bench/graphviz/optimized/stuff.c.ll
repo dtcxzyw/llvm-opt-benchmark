@@ -538,7 +538,7 @@ gv_calloc.exit119:                                ; preds = %125
 
 164:                                              ; preds = %158, %.loopexit
   %165 = tail call i32 @llvm.smax.i32(i32 %78, i32 1)
-  %166 = uitofp i32 %165 to double
+  %166 = sitofp i32 %165 to double
   %167 = fdiv double %.3, %166
   %168 = sitofp i32 %77 to double
   %169 = tail call double @sqrt(double noundef %168) #19

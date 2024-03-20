@@ -11172,7 +11172,7 @@ if.then98:                                        ; preds = %for.end
 
 if.end100:                                        ; preds = %if.then98, %for.end
   %.b62 = phi i1 [ %.b.i.pre, %if.then98 ], [ %.b, %for.end ]
-  %conv101 = uitofp i32 %count.0.lcssa to double
+  %conv101 = sitofp i32 %count.0.lcssa to double
   %div = fdiv double %conv101, %call.i72
   %17 = load i32, ptr %arrayidx46, align 4
   %conv104 = sitofp i32 %17 to double

@@ -55,7 +55,7 @@ init.check.i.i:                                   ; preds = %for.body
 for.body.i.i.i:                                   ; preds = %init.check.i.i, %for.body.i.i.i
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %for.body.i.i.i ], [ 0, %init.check.i.i ]
   %2 = trunc i64 %indvars.iv.i.i.i to i32
-  %conv.i.i.i = uitofp i32 %2 to double
+  %conv.i.i.i = sitofp i32 %2 to double
   %call.i.i.i = tail call double @pow(double noundef 0x3FE5555555555555, double noundef %conv.i.i.i) #8
   %arrayidx.i.i.i.i.i = getelementptr inbounds [60 x double], ptr @_ZZN8facebook5velox9functions3kll6detail12_GLOBAL__N_116powerOfTwoThirdsEiE5kMemo, i64 0, i64 %indvars.iv.i.i.i
   store double %call.i.i.i, ptr %arrayidx.i.i.i.i.i, align 8
@@ -100,7 +100,7 @@ init.check.i:                                     ; preds = %entry
 for.body.i.i:                                     ; preds = %init.check.i, %for.body.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.body.i.i ], [ 0, %init.check.i ]
   %2 = trunc i64 %indvars.iv.i.i to i32
-  %conv.i.i = uitofp i32 %2 to double
+  %conv.i.i = sitofp i32 %2 to double
   %call.i.i = tail call double @pow(double noundef 0x3FE5555555555555, double noundef %conv.i.i) #8
   %arrayidx.i.i.i.i = getelementptr inbounds [60 x double], ptr @_ZZN8facebook5velox9functions3kll6detail12_GLOBAL__N_116powerOfTwoThirdsEiE5kMemo, i64 0, i64 %indvars.iv.i.i
   store double %call.i.i, ptr %arrayidx.i.i.i.i, align 8

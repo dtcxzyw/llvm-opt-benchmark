@@ -11332,7 +11332,7 @@ Vox_AllocArray.exit:                              ; preds = %.preheader102, %Vox
   %153 = lshr i32 %152, 4
   %154 = shl i32 %152, 8
   %155 = and i32 %154, 3840
-  %156 = uitofp i32 %.077120 to float
+  %156 = sitofp i32 %.077120 to float
   %157 = load i32, ptr %135, align 4
   %158 = icmp slt i32 %157, 0
   br i1 %158, label %._crit_edge118, label %.preheader.preheader
@@ -11372,7 +11372,7 @@ Vox_AllocArray.exit:                              ; preds = %.preheader102, %Vox
   %176 = shl i32 %174, 4
   %177 = and i32 %176, 240
   %178 = or disjoint i32 %177, %147
-  %179 = uitofp i32 %.075117 to float
+  %179 = sitofp i32 %.075117 to float
   br label %180
 
 180:                                              ; preds = %.lr.ph114, %Vox_GetVoxel.exit.thread
@@ -11585,7 +11585,7 @@ Vox_CalcFacesVisible.exit.i:                      ; preds = %286, %279, %Vox_Get
   %300 = zext nneg i8 %.in.i to i32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) %4, i8 0, i64 96, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %5, i8 0, i64 32, i1 false)
-  %301 = uitofp i32 %.076112 to float
+  %301 = sitofp i32 %.076112 to float
   %302 = insertelement <2 x float> %159, float %301, i64 1
   br label %305
 
@@ -24056,14 +24056,14 @@ define hidden noalias noundef ptr @par_shapes_create_cylinder(i32 noundef %0, i3
 .lr.ph.i:                                         ; preds = %.lr.ph96.i, %._crit_edge.i
   %.094.i = phi ptr [ %29, %._crit_edge.i ], [ %13, %.lr.ph96.i ]
   %.08393.i = phi i32 [ %31, %._crit_edge.i ], [ 0, %.lr.ph96.i ]
-  %16 = uitofp i32 %.08393.i to float
+  %16 = sitofp i32 %.08393.i to float
   %17 = fdiv float %16, %14
   br label %18
 
 18:                                               ; preds = %18, %.lr.ph.i
   %.191.i = phi ptr [ %.094.i, %.lr.ph.i ], [ %29, %18 ]
   %.08290.i = phi i32 [ 0, %.lr.ph.i ], [ %30, %18 ]
-  %19 = uitofp i32 %.08290.i to float
+  %19 = sitofp i32 %.08290.i to float
   %20 = fdiv float %19, %15
   %21 = fmul float %20, 2.000000e+00
   %22 = fpext float %21 to double
@@ -24099,14 +24099,14 @@ define hidden noalias noundef ptr @par_shapes_create_cylinder(i32 noundef %0, i3
 .lr.ph103.i:                                      ; preds = %.lr.ph110.i, %._crit_edge104.i
   %.079108.i = phi i32 [ %45, %._crit_edge104.i ], [ 0, %.lr.ph110.i ]
   %.080107.i = phi ptr [ %43, %._crit_edge104.i ], [ %35, %.lr.ph110.i ]
-  %37 = uitofp i32 %.079108.i to float
+  %37 = sitofp i32 %.079108.i to float
   %38 = fdiv float %37, %14
   br label %39
 
 39:                                               ; preds = %39, %.lr.ph103.i
   %.078101.i = phi i32 [ 0, %.lr.ph103.i ], [ %44, %39 ]
   %.181100.i = phi ptr [ %.080107.i, %.lr.ph103.i ], [ %43, %39 ]
-  %40 = uitofp i32 %.078101.i to float
+  %40 = sitofp i32 %.078101.i to float
   %41 = fdiv float %40, %15
   %42 = getelementptr inbounds i8, ptr %.181100.i, i64 4
   store float %38, ptr %.181100.i, align 4
@@ -24211,41 +24211,40 @@ define hidden noundef ptr @par_shapes_create_parametric(ptr nocapture noundef re
   br i1 %.not8889, label %.lr.ph96.split.us.preheader, label %.lr.ph
 
 .lr.ph96.split.us.preheader:                      ; preds = %.lr.ph96
-  %21 = uitofp i32 %2 to float
-  %22 = fdiv float %21, %16
-  store float %22, ptr %5, align 4
+  %21 = fdiv float %16, %16
+  store float %21, ptr %5, align 4
   br label %._crit_edge97
 
 .lr.ph:                                           ; preds = %.lr.ph96, %._crit_edge
-  %.094 = phi ptr [ %33, %._crit_edge ], [ %15, %.lr.ph96 ]
-  %.08393 = phi i32 [ %35, %._crit_edge ], [ 0, %.lr.ph96 ]
-  %23 = uitofp i32 %.08393 to float
-  %24 = fdiv float %23, %16
-  store float %24, ptr %5, align 4
-  br label %25
+  %.094 = phi ptr [ %32, %._crit_edge ], [ %15, %.lr.ph96 ]
+  %.08393 = phi i32 [ %34, %._crit_edge ], [ 0, %.lr.ph96 ]
+  %22 = sitofp i32 %.08393 to float
+  %23 = fdiv float %22, %16
+  store float %23, ptr %5, align 4
+  br label %24
 
-25:                                               ; preds = %.lr.ph, %25
-  %.191 = phi ptr [ %.094, %.lr.ph ], [ %33, %25 ]
-  %.08290 = phi i32 [ 0, %.lr.ph ], [ %34, %25 ]
-  %26 = uitofp i32 %.08290 to float
-  %27 = fdiv float %26, %17
-  store float %27, ptr %18, align 4
+24:                                               ; preds = %.lr.ph, %24
+  %.191 = phi ptr [ %.094, %.lr.ph ], [ %32, %24 ]
+  %.08290 = phi i32 [ 0, %.lr.ph ], [ %33, %24 ]
+  %25 = sitofp i32 %.08290 to float
+  %26 = fdiv float %25, %17
+  store float %26, ptr %18, align 4
   call void %0(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef %3) #53
-  %28 = load float, ptr %6, align 4
-  %29 = getelementptr inbounds i8, ptr %.191, i64 4
-  store float %28, ptr %.191, align 4
-  %30 = load float, ptr %19, align 4
-  %31 = getelementptr inbounds i8, ptr %.191, i64 8
-  store float %30, ptr %29, align 4
-  %32 = load float, ptr %20, align 4
-  %33 = getelementptr inbounds i8, ptr %.191, i64 12
-  store float %32, ptr %31, align 4
-  %34 = add nuw i32 %.08290, 1
+  %27 = load float, ptr %6, align 4
+  %28 = getelementptr inbounds i8, ptr %.191, i64 4
+  store float %27, ptr %.191, align 4
+  %29 = load float, ptr %19, align 4
+  %30 = getelementptr inbounds i8, ptr %.191, i64 8
+  store float %29, ptr %28, align 4
+  %31 = load float, ptr %20, align 4
+  %32 = getelementptr inbounds i8, ptr %.191, i64 12
+  store float %31, ptr %30, align 4
+  %33 = add nuw i32 %.08290, 1
   %exitcond.not = icmp eq i32 %.08290, %1
-  br i1 %exitcond.not, label %._crit_edge, label %25
+  br i1 %exitcond.not, label %._crit_edge, label %24
 
-._crit_edge:                                      ; preds = %25
-  %35 = add nuw i32 %.08393, 1
+._crit_edge:                                      ; preds = %24
+  %34 = add nuw i32 %.08393, 1
   %exitcond125.not = icmp eq i32 %.08393, %2
   br i1 %exitcond125.not, label %._crit_edge97.loopexit, label %.lr.ph
 
@@ -24254,111 +24253,110 @@ define hidden noundef ptr @par_shapes_create_parametric(ptr nocapture noundef re
   br label %._crit_edge97
 
 ._crit_edge97:                                    ; preds = %._crit_edge97.loopexit, %.lr.ph96.split.us.preheader, %4
-  %36 = phi i32 [ %.pre, %._crit_edge97.loopexit ], [ %10, %.lr.ph96.split.us.preheader ], [ %10, %4 ]
-  %37 = shl nsw i32 %36, 1
-  %38 = sext i32 %37 to i64
-  %39 = shl nsw i64 %38, 2
-  %40 = call noalias ptr @calloc(i64 noundef %39, i64 noundef 1) #56
-  %41 = getelementptr inbounds i8, ptr %7, i64 40
-  store ptr %40, ptr %41, align 8
+  %35 = phi i32 [ %.pre, %._crit_edge97.loopexit ], [ %10, %.lr.ph96.split.us.preheader ], [ %10, %4 ]
+  %36 = shl nsw i32 %35, 1
+  %37 = sext i32 %36 to i64
+  %38 = shl nsw i64 %37, 2
+  %39 = call noalias ptr @calloc(i64 noundef %38, i64 noundef 1) #56
+  %40 = getelementptr inbounds i8, ptr %7, i64 40
+  store ptr %39, ptr %40, align 8
   br i1 %.not92, label %._crit_edge111, label %.lr.ph110
 
 .lr.ph110:                                        ; preds = %._crit_edge97
-  %42 = sitofp i32 %2 to float
+  %41 = sitofp i32 %2 to float
   %.not8799 = icmp slt i32 %1, 0
-  %43 = sitofp i32 %1 to float
-  %44 = getelementptr inbounds i8, ptr %5, i64 4
+  %42 = sitofp i32 %1 to float
+  %43 = getelementptr inbounds i8, ptr %5, i64 4
   br i1 %.not8799, label %.lr.ph110.split.us.preheader, label %.lr.ph103
 
 .lr.ph110.split.us.preheader:                     ; preds = %.lr.ph110
-  %45 = uitofp i32 %2 to float
-  %46 = fdiv float %45, %42
-  store float %46, ptr %5, align 4
+  %44 = fdiv float %41, %41
+  store float %44, ptr %5, align 4
   br label %._crit_edge111
 
 .lr.ph103:                                        ; preds = %.lr.ph110, %._crit_edge104
-  %.079108 = phi i32 [ %56, %._crit_edge104 ], [ 0, %.lr.ph110 ]
-  %.080107 = phi ptr [ %54, %._crit_edge104 ], [ %40, %.lr.ph110 ]
-  %47 = uitofp i32 %.079108 to float
-  %48 = fdiv float %47, %42
-  store float %48, ptr %5, align 4
-  br label %49
+  %.079108 = phi i32 [ %54, %._crit_edge104 ], [ 0, %.lr.ph110 ]
+  %.080107 = phi ptr [ %52, %._crit_edge104 ], [ %39, %.lr.ph110 ]
+  %45 = sitofp i32 %.079108 to float
+  %46 = fdiv float %45, %41
+  store float %46, ptr %5, align 4
+  br label %47
 
-49:                                               ; preds = %.lr.ph103, %49
-  %.078101 = phi i32 [ 0, %.lr.ph103 ], [ %55, %49 ]
-  %.181100 = phi ptr [ %.080107, %.lr.ph103 ], [ %54, %49 ]
-  %50 = uitofp i32 %.078101 to float
-  %51 = fdiv float %50, %43
-  store float %51, ptr %44, align 4
-  %52 = getelementptr inbounds i8, ptr %.181100, i64 4
-  store float %48, ptr %.181100, align 4
-  %53 = load float, ptr %44, align 4
-  %54 = getelementptr inbounds i8, ptr %.181100, i64 8
-  store float %53, ptr %52, align 4
-  %55 = add nuw i32 %.078101, 1
+47:                                               ; preds = %.lr.ph103, %47
+  %.078101 = phi i32 [ 0, %.lr.ph103 ], [ %53, %47 ]
+  %.181100 = phi ptr [ %.080107, %.lr.ph103 ], [ %52, %47 ]
+  %48 = sitofp i32 %.078101 to float
+  %49 = fdiv float %48, %42
+  store float %49, ptr %43, align 4
+  %50 = getelementptr inbounds i8, ptr %.181100, i64 4
+  store float %46, ptr %.181100, align 4
+  %51 = load float, ptr %43, align 4
+  %52 = getelementptr inbounds i8, ptr %.181100, i64 8
+  store float %51, ptr %50, align 4
+  %53 = add nuw i32 %.078101, 1
   %exitcond126.not = icmp eq i32 %.078101, %1
-  br i1 %exitcond126.not, label %._crit_edge104, label %49
+  br i1 %exitcond126.not, label %._crit_edge104, label %47
 
-._crit_edge104:                                   ; preds = %49
-  %56 = add nuw i32 %.079108, 1
+._crit_edge104:                                   ; preds = %47
+  %54 = add nuw i32 %.079108, 1
   %exitcond127.not = icmp eq i32 %.079108, %2
   br i1 %exitcond127.not, label %._crit_edge111, label %.lr.ph103
 
 ._crit_edge111:                                   ; preds = %._crit_edge104, %.lr.ph110.split.us.preheader, %._crit_edge97
-  %57 = shl nsw i32 %1, 1
-  %58 = mul nsw i32 %57, %2
-  %59 = getelementptr inbounds i8, ptr %7, i64 24
-  store i32 %58, ptr %59, align 8
-  %60 = mul nsw i32 %58, 3
-  %61 = sext i32 %60 to i64
-  %62 = shl nsw i64 %61, 1
-  %63 = call noalias ptr @calloc(i64 noundef %62, i64 noundef 1) #56
-  %64 = getelementptr inbounds i8, ptr %7, i64 16
-  store ptr %63, ptr %64, align 8
-  %65 = icmp sgt i32 %2, 0
-  %66 = icmp sgt i32 %1, 0
-  %or.cond = and i1 %65, %66
+  %55 = shl nsw i32 %1, 1
+  %56 = mul nsw i32 %55, %2
+  %57 = getelementptr inbounds i8, ptr %7, i64 24
+  store i32 %56, ptr %57, align 8
+  %58 = mul nsw i32 %56, 3
+  %59 = sext i32 %58 to i64
+  %60 = shl nsw i64 %59, 1
+  %61 = call noalias ptr @calloc(i64 noundef %60, i64 noundef 1) #56
+  %62 = getelementptr inbounds i8, ptr %7, i64 16
+  store ptr %61, ptr %62, align 8
+  %63 = icmp sgt i32 %2, 0
+  %64 = icmp sgt i32 %1, 0
+  %or.cond = and i1 %63, %64
   br i1 %or.cond, label %.preheader.us, label %._crit_edge121
 
 .preheader.us:                                    ; preds = %._crit_edge111, %._crit_edge116.us
-  %.074120.us = phi i32 [ %86, %._crit_edge116.us ], [ 0, %._crit_edge111 ]
-  %.075119.us = phi ptr [ %84, %._crit_edge116.us ], [ %63, %._crit_edge111 ]
-  %.077118.us = phi i32 [ %85, %._crit_edge116.us ], [ 0, %._crit_edge111 ]
-  br label %67
+  %.074120.us = phi i32 [ %84, %._crit_edge116.us ], [ 0, %._crit_edge111 ]
+  %.075119.us = phi ptr [ %82, %._crit_edge116.us ], [ %61, %._crit_edge111 ]
+  %.077118.us = phi i32 [ %83, %._crit_edge116.us ], [ 0, %._crit_edge111 ]
+  br label %65
 
-67:                                               ; preds = %.preheader.us, %67
-  %.073114.us = phi i32 [ 0, %.preheader.us ], [ %68, %67 ]
-  %.176113.us = phi ptr [ %.075119.us, %.preheader.us ], [ %84, %67 ]
-  %68 = add nuw nsw i32 %.073114.us, 1
-  %69 = add nuw nsw i32 %.073114.us, %.077118.us
-  %70 = add nuw nsw i32 %69, %1
-  %71 = trunc i32 %70 to i16
-  %72 = add i16 %71, 1
-  %73 = getelementptr inbounds i8, ptr %.176113.us, i64 2
-  store i16 %72, ptr %.176113.us, align 2
-  %74 = add nuw nsw i32 %68, %.077118.us
-  %75 = trunc i32 %74 to i16
-  %76 = getelementptr inbounds i8, ptr %.176113.us, i64 4
-  store i16 %75, ptr %73, align 2
-  %77 = trunc i32 %69 to i16
-  %78 = getelementptr inbounds i8, ptr %.176113.us, i64 6
-  store i16 %77, ptr %76, align 2
-  %79 = getelementptr inbounds i8, ptr %.176113.us, i64 8
-  store i16 %72, ptr %78, align 2
-  %80 = add nuw nsw i32 %74, %1
-  %81 = trunc i32 %80 to i16
-  %82 = add i16 %81, 1
-  %83 = getelementptr inbounds i8, ptr %.176113.us, i64 10
-  store i16 %82, ptr %79, align 2
-  %84 = getelementptr inbounds i8, ptr %.176113.us, i64 12
-  store i16 %75, ptr %83, align 2
-  %exitcond128.not = icmp eq i32 %68, %1
-  br i1 %exitcond128.not, label %._crit_edge116.us, label %67
+65:                                               ; preds = %.preheader.us, %65
+  %.073114.us = phi i32 [ 0, %.preheader.us ], [ %66, %65 ]
+  %.176113.us = phi ptr [ %.075119.us, %.preheader.us ], [ %82, %65 ]
+  %66 = add nuw nsw i32 %.073114.us, 1
+  %67 = add nuw nsw i32 %.073114.us, %.077118.us
+  %68 = add nuw nsw i32 %67, %1
+  %69 = trunc i32 %68 to i16
+  %70 = add i16 %69, 1
+  %71 = getelementptr inbounds i8, ptr %.176113.us, i64 2
+  store i16 %70, ptr %.176113.us, align 2
+  %72 = add nuw nsw i32 %66, %.077118.us
+  %73 = trunc i32 %72 to i16
+  %74 = getelementptr inbounds i8, ptr %.176113.us, i64 4
+  store i16 %73, ptr %71, align 2
+  %75 = trunc i32 %67 to i16
+  %76 = getelementptr inbounds i8, ptr %.176113.us, i64 6
+  store i16 %75, ptr %74, align 2
+  %77 = getelementptr inbounds i8, ptr %.176113.us, i64 8
+  store i16 %70, ptr %76, align 2
+  %78 = add nuw nsw i32 %72, %1
+  %79 = trunc i32 %78 to i16
+  %80 = add i16 %79, 1
+  %81 = getelementptr inbounds i8, ptr %.176113.us, i64 10
+  store i16 %80, ptr %77, align 2
+  %82 = getelementptr inbounds i8, ptr %.176113.us, i64 12
+  store i16 %73, ptr %81, align 2
+  %exitcond128.not = icmp eq i32 %66, %1
+  br i1 %exitcond128.not, label %._crit_edge116.us, label %65
 
-._crit_edge116.us:                                ; preds = %67
-  %85 = add nuw nsw i32 %.077118.us, %8
-  %86 = add nuw nsw i32 %.074120.us, 1
-  %exitcond129.not = icmp eq i32 %86, %2
+._crit_edge116.us:                                ; preds = %65
+  %83 = add nuw nsw i32 %.077118.us, %8
+  %84 = add nuw nsw i32 %.074120.us, 1
+  %exitcond129.not = icmp eq i32 %84, %2
   br i1 %exitcond129.not, label %._crit_edge121, label %.preheader.us
 
 ._crit_edge121:                                   ; preds = %._crit_edge116.us, %._crit_edge111
@@ -24392,7 +24390,7 @@ define hidden noalias noundef ptr @par_shapes_create_cone(i32 noundef %0, i32 no
 .lr.ph.i:                                         ; preds = %.lr.ph96.i, %._crit_edge.i
   %.094.i = phi ptr [ %34, %._crit_edge.i ], [ %13, %.lr.ph96.i ]
   %.08393.i = phi i32 [ %36, %._crit_edge.i ], [ 0, %.lr.ph96.i ]
-  %16 = uitofp i32 %.08393.i to float
+  %16 = sitofp i32 %.08393.i to float
   %17 = fdiv float %16, %14
   %18 = fsub float 1.000000e+00, %17
   %19 = insertelement <2 x float> poison, float %18, i64 0
@@ -24402,7 +24400,7 @@ define hidden noalias noundef ptr @par_shapes_create_cone(i32 noundef %0, i32 no
 21:                                               ; preds = %21, %.lr.ph.i
   %.191.i = phi ptr [ %.094.i, %.lr.ph.i ], [ %34, %21 ]
   %.08290.i = phi i32 [ 0, %.lr.ph.i ], [ %35, %21 ]
-  %22 = uitofp i32 %.08290.i to float
+  %22 = sitofp i32 %.08290.i to float
   %23 = fdiv float %22, %15
   %24 = fmul float %23, 2.000000e+00
   %25 = fpext float %24 to double
@@ -24439,14 +24437,14 @@ define hidden noalias noundef ptr @par_shapes_create_cone(i32 noundef %0, i32 no
 .lr.ph103.i:                                      ; preds = %.lr.ph110.i, %._crit_edge104.i
   %.079108.i = phi i32 [ %50, %._crit_edge104.i ], [ 0, %.lr.ph110.i ]
   %.080107.i = phi ptr [ %48, %._crit_edge104.i ], [ %40, %.lr.ph110.i ]
-  %42 = uitofp i32 %.079108.i to float
+  %42 = sitofp i32 %.079108.i to float
   %43 = fdiv float %42, %14
   br label %44
 
 44:                                               ; preds = %44, %.lr.ph103.i
   %.078101.i = phi i32 [ 0, %.lr.ph103.i ], [ %49, %44 ]
   %.181100.i = phi ptr [ %.080107.i, %.lr.ph103.i ], [ %48, %44 ]
-  %45 = uitofp i32 %.078101.i to float
+  %45 = sitofp i32 %.078101.i to float
   %46 = fdiv float %45, %15
   %47 = getelementptr inbounds i8, ptr %.181100.i, i64 4
   store float %43, ptr %.181100.i, align 4
@@ -24744,7 +24742,7 @@ define hidden noalias noundef ptr @par_shapes_create_parametric_sphere(i32 nound
 .lr.ph.i:                                         ; preds = %.lr.ph96.i, %._crit_edge.i
   %.094.i = phi ptr [ %39, %._crit_edge.i ], [ %13, %.lr.ph96.i ]
   %.08393.i = phi i32 [ %41, %._crit_edge.i ], [ 0, %.lr.ph96.i ]
-  %16 = uitofp i32 %.08393.i to float
+  %16 = sitofp i32 %.08393.i to float
   %17 = fdiv float %16, %14
   %18 = fpext float %17 to double
   %19 = fmul double %18, 0x400921FB54442EEA
@@ -24754,7 +24752,7 @@ define hidden noalias noundef ptr @par_shapes_create_parametric_sphere(i32 nound
 21:                                               ; preds = %21, %.lr.ph.i
   %.191.i = phi ptr [ %.094.i, %.lr.ph.i ], [ %39, %21 ]
   %.08290.i = phi i32 [ 0, %.lr.ph.i ], [ %40, %21 ]
-  %22 = uitofp i32 %.08290.i to float
+  %22 = sitofp i32 %.08290.i to float
   %23 = fdiv float %22, %15
   %24 = fmul float %23, 2.000000e+00
   %25 = fpext float %24 to double
@@ -24796,14 +24794,14 @@ define hidden noalias noundef ptr @par_shapes_create_parametric_sphere(i32 nound
 .lr.ph103.i:                                      ; preds = %.lr.ph110.i, %._crit_edge104.i
   %.079108.i = phi i32 [ %55, %._crit_edge104.i ], [ 0, %.lr.ph110.i ]
   %.080107.i = phi ptr [ %53, %._crit_edge104.i ], [ %45, %.lr.ph110.i ]
-  %47 = uitofp i32 %.079108.i to float
+  %47 = sitofp i32 %.079108.i to float
   %48 = fdiv float %47, %14
   br label %49
 
 49:                                               ; preds = %49, %.lr.ph103.i
   %.078101.i = phi i32 [ 0, %.lr.ph103.i ], [ %54, %49 ]
   %.181100.i = phi ptr [ %.080107.i, %.lr.ph103.i ], [ %53, %49 ]
-  %50 = uitofp i32 %.078101.i to float
+  %50 = sitofp i32 %.078101.i to float
   %51 = fdiv float %50, %15
   %52 = getelementptr inbounds i8, ptr %.181100.i, i64 4
   store float %48, ptr %.181100.i, align 4
@@ -25015,7 +25013,7 @@ define hidden noalias noundef ptr @par_shapes_create_hemisphere(i32 noundef %0, 
 .lr.ph.i:                                         ; preds = %.lr.ph96.i, %._crit_edge.i
   %.094.i = phi ptr [ %38, %._crit_edge.i ], [ %13, %.lr.ph96.i ]
   %.08393.i = phi i32 [ %40, %._crit_edge.i ], [ 0, %.lr.ph96.i ]
-  %16 = uitofp i32 %.08393.i to float
+  %16 = sitofp i32 %.08393.i to float
   %17 = fdiv float %16, %14
   %18 = fpext float %17 to double
   %19 = fmul double %18, 0x400921FB54442EEA
@@ -25025,7 +25023,7 @@ define hidden noalias noundef ptr @par_shapes_create_hemisphere(i32 noundef %0, 
 21:                                               ; preds = %21, %.lr.ph.i
   %.191.i = phi ptr [ %.094.i, %.lr.ph.i ], [ %38, %21 ]
   %.08290.i = phi i32 [ 0, %.lr.ph.i ], [ %39, %21 ]
-  %22 = uitofp i32 %.08290.i to float
+  %22 = sitofp i32 %.08290.i to float
   %23 = fdiv float %22, %15
   %24 = fpext float %23 to double
   %25 = fmul double %24, 0x400921FB54442EEA
@@ -25066,14 +25064,14 @@ define hidden noalias noundef ptr @par_shapes_create_hemisphere(i32 noundef %0, 
 .lr.ph103.i:                                      ; preds = %.lr.ph110.i, %._crit_edge104.i
   %.079108.i = phi i32 [ %54, %._crit_edge104.i ], [ 0, %.lr.ph110.i ]
   %.080107.i = phi ptr [ %52, %._crit_edge104.i ], [ %44, %.lr.ph110.i ]
-  %46 = uitofp i32 %.079108.i to float
+  %46 = sitofp i32 %.079108.i to float
   %47 = fdiv float %46, %14
   br label %48
 
 48:                                               ; preds = %48, %.lr.ph103.i
   %.078101.i = phi i32 [ 0, %.lr.ph103.i ], [ %53, %48 ]
   %.181100.i = phi ptr [ %.080107.i, %.lr.ph103.i ], [ %52, %48 ]
-  %49 = uitofp i32 %.078101.i to float
+  %49 = sitofp i32 %.078101.i to float
   %50 = fdiv float %49, %15
   %51 = getelementptr inbounds i8, ptr %.181100.i, i64 4
   store float %47, ptr %.181100.i, align 4
@@ -25178,7 +25176,7 @@ define hidden noalias noundef ptr @par_shapes_create_torus(i32 noundef %0, i32 n
 .lr.ph.i:                                         ; preds = %.lr.ph96.i, %._crit_edge.i
   %.094.i = phi ptr [ %42, %._crit_edge.i ], [ %14, %.lr.ph96.i ]
   %.08393.i = phi i32 [ %44, %._crit_edge.i ], [ 0, %.lr.ph96.i ]
-  %17 = uitofp i32 %.08393.i to float
+  %17 = sitofp i32 %.08393.i to float
   %18 = fdiv float %17, %15
   %19 = fmul float %18, 2.000000e+00
   %20 = fpext float %19 to double
@@ -25189,7 +25187,7 @@ define hidden noalias noundef ptr @par_shapes_create_torus(i32 noundef %0, i32 n
 23:                                               ; preds = %23, %.lr.ph.i
   %.191.i = phi ptr [ %.094.i, %.lr.ph.i ], [ %42, %23 ]
   %.08290.i = phi i32 [ 0, %.lr.ph.i ], [ %43, %23 ]
-  %24 = uitofp i32 %.08290.i to float
+  %24 = sitofp i32 %.08290.i to float
   %25 = fdiv float %24, %16
   %26 = fmul float %25, 2.000000e+00
   %27 = fpext float %26 to double
@@ -25232,14 +25230,14 @@ define hidden noalias noundef ptr @par_shapes_create_torus(i32 noundef %0, i32 n
 .lr.ph103.i:                                      ; preds = %.lr.ph110.i, %._crit_edge104.i
   %.079108.i = phi i32 [ %58, %._crit_edge104.i ], [ 0, %.lr.ph110.i ]
   %.080107.i = phi ptr [ %56, %._crit_edge104.i ], [ %48, %.lr.ph110.i ]
-  %50 = uitofp i32 %.079108.i to float
+  %50 = sitofp i32 %.079108.i to float
   %51 = fdiv float %50, %15
   br label %52
 
 52:                                               ; preds = %52, %.lr.ph103.i
   %.078101.i = phi i32 [ 0, %.lr.ph103.i ], [ %57, %52 ]
   %.181100.i = phi ptr [ %.080107.i, %.lr.ph103.i ], [ %56, %52 ]
-  %53 = uitofp i32 %.078101.i to float
+  %53 = sitofp i32 %.078101.i to float
   %54 = fdiv float %53, %16
   %55 = getelementptr inbounds i8, ptr %.181100.i, i64 4
   store float %51, ptr %.181100.i, align 4
@@ -25667,14 +25665,14 @@ define hidden noalias noundef ptr @par_shapes_create_plane(i32 noundef %0, i32 n
 .lr.ph.i:                                         ; preds = %.lr.ph96.i, %._crit_edge.i
   %.094.i = phi ptr [ %23, %._crit_edge.i ], [ %13, %.lr.ph96.i ]
   %.08393.i = phi i32 [ %25, %._crit_edge.i ], [ 0, %.lr.ph96.i ]
-  %16 = uitofp i32 %.08393.i to float
+  %16 = sitofp i32 %.08393.i to float
   %17 = fdiv float %16, %14
   br label %18
 
 18:                                               ; preds = %18, %.lr.ph.i
   %.191.i = phi ptr [ %.094.i, %.lr.ph.i ], [ %23, %18 ]
   %.08290.i = phi i32 [ 0, %.lr.ph.i ], [ %24, %18 ]
-  %19 = uitofp i32 %.08290.i to float
+  %19 = sitofp i32 %.08290.i to float
   %20 = fdiv float %19, %15
   %21 = getelementptr inbounds i8, ptr %.191.i, i64 4
   store float %17, ptr %.191.i, align 4
@@ -25704,14 +25702,14 @@ define hidden noalias noundef ptr @par_shapes_create_plane(i32 noundef %0, i32 n
 .lr.ph103.i:                                      ; preds = %.lr.ph110.i, %._crit_edge104.i
   %.079108.i = phi i32 [ %39, %._crit_edge104.i ], [ 0, %.lr.ph110.i ]
   %.080107.i = phi ptr [ %37, %._crit_edge104.i ], [ %29, %.lr.ph110.i ]
-  %31 = uitofp i32 %.079108.i to float
+  %31 = sitofp i32 %.079108.i to float
   %32 = fdiv float %31, %14
   br label %33
 
 33:                                               ; preds = %33, %.lr.ph103.i
   %.078101.i = phi i32 [ 0, %.lr.ph103.i ], [ %38, %33 ]
   %.181100.i = phi ptr [ %.080107.i, %.lr.ph103.i ], [ %37, %33 ]
-  %34 = uitofp i32 %.078101.i to float
+  %34 = sitofp i32 %.078101.i to float
   %35 = fdiv float %34, %15
   %36 = getelementptr inbounds i8, ptr %.181100.i, i64 4
   store float %32, ptr %.181100.i, align 4
@@ -26233,7 +26231,7 @@ define hidden noalias noundef ptr @par_shapes_create_disk(float noundef %0, i32 
   %.pn68 = phi ptr [ %12, %.lr.ph ], [ %.054, %17 ]
   %.05567 = phi i32 [ 0, %.lr.ph ], [ %32, %17 ]
   %.054 = getelementptr inbounds i8, ptr %.pn68, i64 12
-  %18 = uitofp i32 %.05567 to double
+  %18 = sitofp i32 %.05567 to double
   %19 = fmul double %18, 0x400921FB54442EEA
   %20 = fmul double %19, 2.000000e+00
   %21 = fdiv double %20, %15
@@ -28514,7 +28512,7 @@ define void @DrawCircle3D(<2 x float> %0, float %1, float noundef %2, <2 x float
 8:                                                ; preds = %7, %8
   %.018 = phi i32 [ 0, %7 ], [ %15, %8 ]
   tail call void @rlColor4ub(i8 noundef zeroext %.sroa.0.0.extract.trunc, i8 noundef zeroext %.sroa.2.0.extract.trunc, i8 noundef zeroext %.sroa.3.0.extract.trunc, i8 noundef zeroext %.sroa.4.0.extract.trunc) #53
-  %9 = uitofp i32 %.018 to float
+  %9 = sitofp i32 %.018 to float
   %10 = fmul float %9, 0x3F91DF46A0000000
   %11 = tail call float @sinf(float noundef %10) #53
   %12 = fmul float %11, %2
@@ -28522,7 +28520,7 @@ define void @DrawCircle3D(<2 x float> %0, float %1, float noundef %2, <2 x float
   %14 = fmul float %13, %2
   tail call void @rlVertex3f(float noundef %12, float noundef %14, float noundef 0.000000e+00) #53
   %15 = add nuw nsw i32 %.018, 10
-  %16 = uitofp i32 %15 to float
+  %16 = sitofp i32 %15 to float
   %17 = fmul float %16, 0x3F91DF46A0000000
   %18 = tail call float @sinf(float noundef %17) #53
   %19 = fmul float %18, %2
@@ -28799,11 +28797,11 @@ define void @DrawSphereEx(<2 x float> %0, float %1, float noundef %2, i32 nounde
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
   %.07275.us = phi i32 [ %17, %._crit_edge.us ], [ 0, %.preheader.us.preheader ]
-  %14 = uitofp i32 %.07275.us to float
+  %14 = sitofp i32 %.07275.us to float
   %15 = tail call float @llvm.fmuladd.f32(float %12, float %14, float 2.700000e+02)
   %16 = fmul float %15, 0x3F91DF46A0000000
   %17 = add nuw nsw i32 %.07275.us, 1
-  %18 = uitofp i32 %17 to float
+  %18 = sitofp i32 %17 to float
   %19 = tail call float @llvm.fmuladd.f32(float %12, float %18, float 2.700000e+02)
   %20 = fmul float %19, 0x3F91DF46A0000000
   br label %21
@@ -28811,7 +28809,7 @@ define void @DrawSphereEx(<2 x float> %0, float %1, float noundef %2, i32 nounde
 21:                                               ; preds = %.preheader.us, %21
   %.074.us = phi i32 [ 0, %.preheader.us ], [ %34, %21 ]
   %22 = tail call float @cosf(float noundef %16) #53
-  %23 = uitofp i32 %.074.us to float
+  %23 = sitofp i32 %.074.us to float
   %24 = fmul float %23, 3.600000e+02
   %25 = fdiv float %24, %13
   %26 = fmul float %25, 0x3F91DF46A0000000
@@ -28824,7 +28822,7 @@ define void @DrawSphereEx(<2 x float> %0, float %1, float noundef %2, i32 nounde
   tail call void @rlVertex3f(float noundef %28, float noundef %29, float noundef %32) #53
   %33 = tail call float @cosf(float noundef %20) #53
   %34 = add nuw nsw i32 %.074.us, 1
-  %35 = uitofp i32 %34 to float
+  %35 = sitofp i32 %34 to float
   %36 = fmul float %35, 3.600000e+02
   %37 = fdiv float %36, %13
   %38 = fmul float %37, 0x3F91DF46A0000000
@@ -28916,11 +28914,11 @@ define void @DrawSphereWires(<2 x float> %0, float %1, float noundef %2, i32 nou
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
   %.07275.us = phi i32 [ %17, %._crit_edge.us ], [ 0, %.preheader.us.preheader ]
-  %14 = uitofp i32 %.07275.us to float
+  %14 = sitofp i32 %.07275.us to float
   %15 = tail call float @llvm.fmuladd.f32(float %12, float %14, float 2.700000e+02)
   %16 = fmul float %15, 0x3F91DF46A0000000
   %17 = add nuw nsw i32 %.07275.us, 1
-  %18 = uitofp i32 %17 to float
+  %18 = sitofp i32 %17 to float
   %19 = tail call float @llvm.fmuladd.f32(float %12, float %18, float 2.700000e+02)
   %20 = fmul float %19, 0x3F91DF46A0000000
   br label %21
@@ -28928,7 +28926,7 @@ define void @DrawSphereWires(<2 x float> %0, float %1, float noundef %2, i32 nou
 21:                                               ; preds = %.preheader.us, %21
   %.074.us = phi i32 [ 0, %.preheader.us ], [ %34, %21 ]
   %22 = tail call float @cosf(float noundef %16) #53
-  %23 = uitofp i32 %.074.us to float
+  %23 = sitofp i32 %.074.us to float
   %24 = fmul float %23, 3.600000e+02
   %25 = fdiv float %24, %13
   %26 = fmul float %25, 0x3F91DF46A0000000
@@ -28941,7 +28939,7 @@ define void @DrawSphereWires(<2 x float> %0, float %1, float noundef %2, i32 nou
   tail call void @rlVertex3f(float noundef %28, float noundef %29, float noundef %32) #53
   %33 = tail call float @cosf(float noundef %20) #53
   %34 = add nuw nsw i32 %.074.us, 1
-  %35 = uitofp i32 %34 to float
+  %35 = sitofp i32 %34 to float
   %36 = fmul float %35, 3.600000e+02
   %37 = fdiv float %36, %13
   %38 = fmul float %37, 0x3F91DF46A0000000
@@ -29014,13 +29012,13 @@ define void @DrawCylinder(<2 x float> %0, float %1, float noundef %2, float noun
   tail call void @rlBegin(i32 noundef 4) #53
   tail call void @rlColor4ub(i8 noundef zeroext %.sroa.0.0.extract.trunc, i8 noundef zeroext %.sroa.2.0.extract.trunc, i8 noundef zeroext %.sroa.3.0.extract.trunc, i8 noundef zeroext %.sroa.4.0.extract.trunc) #53
   %8 = fcmp ogt float %2, 0.000000e+00
-  %9 = uitofp i32 %spec.store.select to float
+  %9 = sitofp i32 %spec.store.select to float
   %10 = fdiv float 3.600000e+02, %9
   br i1 %8, label %.preheader88, label %.preheader89
 
 .preheader88:                                     ; preds = %7, %.preheader88
   %.08692 = phi i32 [ %40, %.preheader88 ], [ 0, %7 ]
-  %11 = uitofp i32 %.08692 to float
+  %11 = sitofp i32 %.08692 to float
   %12 = fmul float %11, 0x3F91DF46A0000000
   %13 = tail call float @sinf(float noundef %12) #53
   %14 = fmul float %13, %3
@@ -29062,7 +29060,7 @@ define void @DrawCylinder(<2 x float> %0, float %1, float noundef %2, float noun
 .preheader:                                       ; preds = %.preheader88, %.preheader
   %.08593 = phi i32 [ %54, %.preheader ], [ 0, %.preheader88 ]
   tail call void @rlVertex3f(float noundef 0.000000e+00, float noundef %4, float noundef 0.000000e+00) #53
-  %42 = uitofp i32 %.08593 to float
+  %42 = sitofp i32 %.08593 to float
   %43 = fmul float %42, 0x3F91DF46A0000000
   %44 = tail call float @sinf(float noundef %43) #53
   %45 = fmul float %44, %2
@@ -29083,7 +29081,7 @@ define void @DrawCylinder(<2 x float> %0, float %1, float noundef %2, float noun
 .preheader89:                                     ; preds = %7, %.preheader89
   %.08491 = phi i32 [ %69, %.preheader89 ], [ 0, %7 ]
   tail call void @rlVertex3f(float noundef 0.000000e+00, float noundef %4, float noundef 0.000000e+00) #53
-  %56 = uitofp i32 %.08491 to float
+  %56 = sitofp i32 %.08491 to float
   %57 = fmul float %56, 0x3F91DF46A0000000
   %58 = tail call float @sinf(float noundef %57) #53
   %59 = fmul float %58, %3
@@ -29108,7 +29106,7 @@ define void @DrawCylinder(<2 x float> %0, float %1, float noundef %2, float noun
 .loopexit:                                        ; preds = %.loopexit.preheader, %.loopexit
   %.094 = phi i32 [ %84, %.loopexit ], [ 0, %.loopexit.preheader ]
   tail call void @rlVertex3f(float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00) #53
-  %71 = uitofp i32 %.094 to float
+  %71 = sitofp i32 %.094 to float
   %72 = fadd float %10, %71
   %73 = fmul float %72, 0x3F91DF46A0000000
   %74 = tail call float @sinf(float noundef %73) #53
@@ -29171,7 +29169,7 @@ define void @DrawCylinderEx(<2 x float> %0, float %1, <2 x float> %2, float %3, 
   %24 = tail call { <2 x float>, float } @Vector3Normalize(<2 x float> %.fca.0.extract74, float %.fca.1.extract75) #53
   %.fca.0.extract = extractvalue { <2 x float>, float } %24, 0
   %.fca.1.extract = extractvalue { <2 x float>, float } %24, 1
-  %25 = uitofp i32 %spec.store.select to float
+  %25 = sitofp i32 %spec.store.select to float
   %26 = fdiv float 0x401921FB60000000, %25
   tail call void @rlBegin(i32 noundef 4) #53
   tail call void @rlColor4ub(i8 noundef zeroext %.sroa.0150.0.extract.trunc, i8 noundef zeroext %.sroa.2151.0.extract.trunc, i8 noundef zeroext %.sroa.3152.0.extract.trunc, i8 noundef zeroext %.sroa.4153.0.extract.trunc) #53
@@ -29185,7 +29183,7 @@ define void @DrawCylinderEx(<2 x float> %0, float %1, <2 x float> %2, float %3, 
 
 29:                                               ; preds = %20, %78
   %.0192 = phi i32 [ 0, %20 ], [ %42, %78 ]
-  %30 = uitofp i32 %.0192 to float
+  %30 = sitofp i32 %.0192 to float
   %31 = fmul float %26, %30
   %32 = tail call float @sinf(float noundef %31) #53
   %33 = fmul float %32, %4
@@ -29198,7 +29196,7 @@ define void @DrawCylinderEx(<2 x float> %0, float %1, <2 x float> %2, float %3, 
   %40 = tail call float @llvm.fmuladd.f32(float %33, float %.fca.1.extract101, float %1)
   %41 = tail call float @llvm.fmuladd.f32(float %35, float %.fca.1.extract, float %40)
   %42 = add nuw nsw i32 %.0192, 1
-  %43 = uitofp i32 %42 to float
+  %43 = sitofp i32 %42 to float
   %44 = fmul float %26, %43
   %45 = tail call float @sinf(float noundef %44) #53
   %46 = fmul float %45, %4
@@ -29287,13 +29285,13 @@ define void @DrawCylinderWires(<2 x float> %0, float %1, float noundef %2, float
   tail call void @rlTranslatef(float noundef %.sroa.049.0.vec.extract, float noundef %.sroa.049.4.vec.extract, float noundef %1) #53
   tail call void @rlBegin(i32 noundef 1) #53
   tail call void @rlColor4ub(i8 noundef zeroext %.sroa.0.0.extract.trunc, i8 noundef zeroext %.sroa.2.0.extract.trunc, i8 noundef zeroext %.sroa.3.0.extract.trunc, i8 noundef zeroext %.sroa.4.0.extract.trunc) #53
-  %8 = uitofp i32 %spec.store.select to float
+  %8 = sitofp i32 %spec.store.select to float
   %9 = fdiv float 3.600000e+02, %8
   br label %10
 
 10:                                               ; preds = %7, %10
   %.051 = phi i32 [ 0, %7 ], [ %48, %10 ]
-  %11 = uitofp i32 %.051 to float
+  %11 = sitofp i32 %.051 to float
   %12 = fmul float %11, 0x3F91DF46A0000000
   %13 = tail call float @sinf(float noundef %12) #53
   %14 = fmul float %13, %3
@@ -29386,7 +29384,7 @@ define void @DrawCylinderWiresEx(<2 x float> %0, float %1, <2 x float> %2, float
   %24 = tail call { <2 x float>, float } @Vector3Normalize(<2 x float> %.fca.0.extract63, float %.fca.1.extract64) #53
   %.fca.0.extract = extractvalue { <2 x float>, float } %24, 0
   %.fca.1.extract = extractvalue { <2 x float>, float } %24, 1
-  %25 = uitofp i32 %spec.store.select to float
+  %25 = sitofp i32 %spec.store.select to float
   %26 = fdiv float 0x401921FB60000000, %25
   tail call void @rlBegin(i32 noundef 1) #53
   tail call void @rlColor4ub(i8 noundef zeroext %.sroa.0137.0.extract.trunc, i8 noundef zeroext %.sroa.2138.0.extract.trunc, i8 noundef zeroext %.sroa.3139.0.extract.trunc, i8 noundef zeroext %.sroa.4140.0.extract.trunc) #53
@@ -29398,7 +29396,7 @@ define void @DrawCylinderWiresEx(<2 x float> %0, float %1, <2 x float> %2, float
 
 27:                                               ; preds = %20, %27
   %.0168 = phi i32 [ 0, %20 ], [ %40, %27 ]
-  %28 = uitofp i32 %.0168 to float
+  %28 = sitofp i32 %.0168 to float
   %29 = fmul float %26, %28
   %30 = tail call float @sinf(float noundef %29) #53
   %31 = fmul float %30, %4
@@ -29411,7 +29409,7 @@ define void @DrawCylinderWiresEx(<2 x float> %0, float %1, <2 x float> %2, float
   %38 = tail call float @llvm.fmuladd.f32(float %31, float %.fca.1.extract90, float %1)
   %39 = tail call float @llvm.fmuladd.f32(float %33, float %.fca.1.extract, float %38)
   %40 = add nuw nsw i32 %.0168, 1
-  %41 = uitofp i32 %40 to float
+  %41 = sitofp i32 %40 to float
   %42 = fmul float %26, %41
   %43 = tail call float @sinf(float noundef %42) #53
   %44 = fmul float %43, %4
@@ -29498,7 +29496,7 @@ define void @DrawCapsule(<2 x float> %0, float %1, <2 x float> %2, float %3, flo
   %24 = tail call { <2 x float>, float } @Vector3Normalize(<2 x float> %.fca.0.extract206, float %.fca.1.extract207) #53
   %.fca.0.extract200 = extractvalue { <2 x float>, float } %24, 0
   %.fca.1.extract201 = extractvalue { <2 x float>, float } %24, 1
-  %25 = uitofp i32 %spec.store.select to float
+  %25 = sitofp i32 %spec.store.select to float
   %26 = fdiv float 0x401921FB60000000, %25
   %27 = sitofp i32 %6 to float
   %28 = fdiv float 0x3FF921FB60000000, %27
@@ -29530,7 +29528,7 @@ define void @DrawCapsule(<2 x float> %0, float %1, <2 x float> %2, float %3, flo
 
 32:                                               ; preds = %.preheader411.us, %124
   %.0408413.us = phi i32 [ 0, %.preheader411.us ], [ %56, %124 ]
-  %33 = uitofp i32 %.0408413.us to float
+  %33 = sitofp i32 %.0408413.us to float
   %34 = fmul float %26, %33
   %35 = tail call float @sinf(float noundef %34) #53
   %36 = tail call float @cosf(float noundef %126) #53
@@ -29554,7 +29552,7 @@ define void @DrawCapsule(<2 x float> %0, float %1, <2 x float> %2, float %3, flo
   %54 = tail call float @llvm.fmuladd.f32(float %40, float %.fca.1.extract201, float %53)
   %55 = tail call float @llvm.fmuladd.f32(float %54, float %4, float %.sroa.10194.0420.us)
   %56 = add nuw nsw i32 %.0408413.us, 1
-  %57 = uitofp i32 %56 to float
+  %57 = sitofp i32 %56 to float
   %58 = fmul float %26, %57
   %59 = tail call float @sinf(float noundef %58) #53
   %60 = tail call float @cosf(float noundef %126) #53
@@ -29644,10 +29642,10 @@ define void @DrawCapsule(<2 x float> %0, float %1, <2 x float> %2, float %3, flo
 
 .preheader411.us:                                 ; preds = %.preheader412.us, %31
   %.0407414.us = phi i32 [ 0, %.preheader412.us ], [ %127, %31 ]
-  %125 = uitofp i32 %.0407414.us to float
+  %125 = sitofp i32 %.0407414.us to float
   %126 = fmul float %28, %125
   %127 = add nuw nsw i32 %.0407414.us, 1
-  %128 = uitofp i32 %127 to float
+  %128 = sitofp i32 %127 to float
   %129 = fmul float %28, %128
   br label %32
 
@@ -29671,7 +29669,7 @@ define void @DrawCapsule(<2 x float> %0, float %1, <2 x float> %2, float %3, flo
 
 .preheader:                                       ; preds = %.split424.us, %.preheader
   %.0409425 = phi i32 [ %145, %.preheader ], [ 0, %.split424.us ]
-  %133 = uitofp i32 %.0409425 to float
+  %133 = sitofp i32 %.0409425 to float
   %134 = fmul float %26, %133
   %135 = tail call float @sinf(float noundef %134) #53
   %136 = fmul float %135, %4
@@ -29684,7 +29682,7 @@ define void @DrawCapsule(<2 x float> %0, float %1, <2 x float> %2, float %3, flo
   %143 = tail call float @llvm.fmuladd.f32(float %136, float %.fca.1.extract253, float %1)
   %144 = tail call float @llvm.fmuladd.f32(float %138, float %.fca.1.extract201, float %143)
   %145 = add nuw nsw i32 %.0409425, 1
-  %146 = uitofp i32 %145 to float
+  %146 = sitofp i32 %145 to float
   %147 = fmul float %26, %146
   %148 = tail call float @sinf(float noundef %147) #53
   %149 = fmul float %148, %4
@@ -29770,7 +29768,7 @@ define void @DrawCapsuleWires(<2 x float> %0, float %1, <2 x float> %2, float %3
   %24 = tail call { <2 x float>, float } @Vector3Normalize(<2 x float> %.fca.0.extract199, float %.fca.1.extract200) #53
   %.fca.0.extract193 = extractvalue { <2 x float>, float } %24, 0
   %.fca.1.extract194 = extractvalue { <2 x float>, float } %24, 1
-  %25 = uitofp i32 %spec.store.select to float
+  %25 = sitofp i32 %spec.store.select to float
   %26 = fdiv float 0x401921FB60000000, %25
   %27 = sitofp i32 %6 to float
   %28 = fdiv float 0x3FF921FB60000000, %27
@@ -29802,7 +29800,7 @@ define void @DrawCapsuleWires(<2 x float> %0, float %1, <2 x float> %2, float %3
 
 32:                                               ; preds = %.preheader404.us, %32
   %.0401406.us = phi i32 [ 0, %.preheader404.us ], [ %56, %32 ]
-  %33 = uitofp i32 %.0401406.us to float
+  %33 = sitofp i32 %.0401406.us to float
   %34 = fmul float %26, %33
   %35 = tail call float @sinf(float noundef %34) #53
   %36 = tail call float @cosf(float noundef %123) #53
@@ -29826,7 +29824,7 @@ define void @DrawCapsuleWires(<2 x float> %0, float %1, <2 x float> %2, float %3
   %54 = tail call float @llvm.fmuladd.f32(float %40, float %.fca.1.extract194, float %53)
   %55 = tail call float @llvm.fmuladd.f32(float %54, float %4, float %.sroa.10.0413.us)
   %56 = add nuw nsw i32 %.0401406.us, 1
-  %57 = uitofp i32 %56 to float
+  %57 = sitofp i32 %56 to float
   %58 = fmul float %26, %57
   %59 = tail call float @sinf(float noundef %58) #53
   %60 = tail call float @cosf(float noundef %123) #53
@@ -29906,10 +29904,10 @@ define void @DrawCapsuleWires(<2 x float> %0, float %1, <2 x float> %2, float %3
 
 .preheader404.us:                                 ; preds = %.preheader405.us, %31
   %.0400407.us = phi i32 [ 0, %.preheader405.us ], [ %124, %31 ]
-  %122 = uitofp i32 %.0400407.us to float
+  %122 = sitofp i32 %.0400407.us to float
   %123 = fmul float %28, %122
   %124 = add nuw nsw i32 %.0400407.us, 1
-  %125 = uitofp i32 %124 to float
+  %125 = sitofp i32 %124 to float
   %126 = fmul float %28, %125
   br label %32
 
@@ -29933,7 +29931,7 @@ define void @DrawCapsuleWires(<2 x float> %0, float %1, <2 x float> %2, float %3
 
 .preheader:                                       ; preds = %.split417.us, %.preheader
   %.0402418 = phi i32 [ %142, %.preheader ], [ 0, %.split417.us ]
-  %130 = uitofp i32 %.0402418 to float
+  %130 = sitofp i32 %.0402418 to float
   %131 = fmul float %26, %130
   %132 = tail call float @sinf(float noundef %131) #53
   %133 = fmul float %132, %4
@@ -29946,7 +29944,7 @@ define void @DrawCapsuleWires(<2 x float> %0, float %1, <2 x float> %2, float %3
   %140 = tail call float @llvm.fmuladd.f32(float %133, float %.fca.1.extract246, float %1)
   %141 = tail call float @llvm.fmuladd.f32(float %135, float %.fca.1.extract194, float %140)
   %142 = add nuw nsw i32 %.0402418, 1
-  %143 = uitofp i32 %142 to float
+  %143 = sitofp i32 %142 to float
   %144 = fmul float %26, %143
   %145 = tail call float @sinf(float noundef %144) #53
   %146 = fmul float %145, %4
@@ -38962,7 +38960,7 @@ cgltf_accessor_read_float.exit.thread167.us.i:    ; preds = %731
   %788 = getelementptr inbounds ptr, ptr %787, i64 %indvars.iv198.i
   store ptr %786, ptr %788, align 8
   %789 = trunc i64 %indvars.iv198.i to i32
-  %790 = uitofp i32 %789 to float
+  %790 = sitofp i32 %789 to float
   %791 = fmul float %790, 1.700000e+01
   %792 = fdiv float %791, 1.000000e+03
   %793 = load i32, ptr %669, align 8
@@ -39724,7 +39722,7 @@ define void @GenMeshPlane(ptr dead_on_unwind noalias nocapture writable sret(%st
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %._crit_edge
   %indvars.iv175 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next176, %._crit_edge ]
   %14 = trunc i64 %indvars.iv175 to i32
-  %15 = uitofp i32 %14 to float
+  %15 = sitofp i32 %14 to float
   %16 = fdiv float %15, %12
   %17 = fadd float %16, -5.000000e-01
   %18 = fmul float %17, %2
@@ -39737,7 +39735,7 @@ define void @GenMeshPlane(ptr dead_on_unwind noalias nocapture writable sret(%st
 22:                                               ; preds = %.lr.ph, %22
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %22 ]
   %23 = trunc i64 %indvars.iv to i32
-  %24 = uitofp i32 %23 to float
+  %24 = sitofp i32 %23 to float
   %25 = fdiv float %24, %13
   %26 = fadd float %25, -5.000000e-01
   %27 = fmul float %26, %1
@@ -39794,7 +39792,7 @@ define void @GenMeshPlane(ptr dead_on_unwind noalias nocapture writable sret(%st
 .preheader138:                                    ; preds = %.preheader138.preheader, %._crit_edge153
   %indvars.iv190 = phi i64 [ 0, %.preheader138.preheader ], [ %indvars.iv.next191, %._crit_edge153 ]
   %35 = trunc i64 %indvars.iv190 to i32
-  %36 = uitofp i32 %35 to float
+  %36 = sitofp i32 %35 to float
   %37 = fdiv float %36, %34
   %38 = trunc i64 %indvars.iv190 to i32
   %39 = mul i32 %6, %38
@@ -39806,7 +39804,7 @@ define void @GenMeshPlane(ptr dead_on_unwind noalias nocapture writable sret(%st
   %indvars.iv185 = phi i64 [ 0, %.preheader138 ], [ %indvars.iv.next186, %41 ]
   %gep222 = getelementptr %struct.Vector2, ptr %invariant.gep221, i64 %indvars.iv185
   %42 = trunc i64 %indvars.iv185 to i32
-  %43 = uitofp i32 %42 to float
+  %43 = sitofp i32 %42 to float
   %44 = fdiv float %43, %33
   store float %44, ptr %gep222, align 4
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %gep222, i64 4
@@ -41300,11 +41298,11 @@ define void @GenMeshHeightmap(ptr dead_on_unwind noalias nocapture writable sret
   %.0230270.us = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next280, %._crit_edge.us ]
   %.0232269.us = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next282, %._crit_edge.us ]
   %37 = trunc i64 %indvars.iv292 to i32
-  %38 = uitofp i32 %37 to float
+  %38 = sitofp i32 %37 to float
   %39 = fmul float %34, %38
   %indvars.iv.next293 = add nuw nsw i64 %indvars.iv292, 1
   %40 = trunc i64 %indvars.iv.next293 to i32
-  %41 = uitofp i32 %40 to float
+  %41 = sitofp i32 %40 to float
   %42 = fmul float %34, %41
   %43 = fdiv float %38, %33
   %44 = fdiv float %41, %33
@@ -41332,7 +41330,7 @@ define void @GenMeshHeightmap(ptr dead_on_unwind noalias nocapture writable sret
   %indvars.iv279 = phi i64 [ %46, %.preheader.us ], [ %indvars.iv.next280, %135 ]
   %indvars.iv277 = phi i64 [ %45, %.preheader.us ], [ %indvars.iv.next278, %135 ]
   %55 = trunc i64 %indvars.iv283 to i32
-  %56 = uitofp i32 %55 to float
+  %56 = sitofp i32 %55 to float
   %57 = fmul float %31, %56
   %58 = getelementptr inbounds float, ptr %20, i64 %indvars.iv277
   store float %57, ptr %58, align 4
@@ -41347,7 +41345,7 @@ define void @GenMeshHeightmap(ptr dead_on_unwind noalias nocapture writable sret
   %66 = load i8, ptr %65, align 1
   %67 = zext i8 %66 to i32
   %68 = add nuw nsw i32 %64, %67
-  %69 = uitofp i32 %68 to float
+  %69 = sitofp i32 %68 to float
   %70 = fdiv float %69, 3.000000e+00
   %71 = fmul float %32, %70
   %72 = getelementptr i8, ptr %58, i64 4
@@ -41367,7 +41365,7 @@ define void @GenMeshHeightmap(ptr dead_on_unwind noalias nocapture writable sret
   %81 = load i8, ptr %80, align 1
   %82 = zext i8 %81 to i32
   %83 = add nuw nsw i32 %79, %82
-  %84 = uitofp i32 %83 to float
+  %84 = sitofp i32 %83 to float
   %85 = fdiv float %84, 3.000000e+00
   %86 = fmul float %32, %85
   %gep239.us = getelementptr float, ptr %invariant.gep238, i64 %indvars.iv277
@@ -41376,7 +41374,7 @@ define void @GenMeshHeightmap(ptr dead_on_unwind noalias nocapture writable sret
   store float %42, ptr %gep241.us, align 4
   %indvars.iv.next284 = add nuw nsw i64 %indvars.iv283, 1
   %87 = trunc i64 %indvars.iv.next284 to i32
-  %88 = uitofp i32 %87 to float
+  %88 = sitofp i32 %87 to float
   %89 = fmul float %31, %88
   %gep243.us = getelementptr float, ptr %invariant.gep242, i64 %indvars.iv277
   store float %89, ptr %gep243.us, align 4
@@ -41391,7 +41389,7 @@ define void @GenMeshHeightmap(ptr dead_on_unwind noalias nocapture writable sret
   %97 = load i8, ptr %96, align 1
   %98 = zext i8 %97 to i32
   %99 = add nuw nsw i32 %95, %98
-  %100 = uitofp i32 %99 to float
+  %100 = sitofp i32 %99 to float
   %101 = fdiv float %100, 3.000000e+00
   %102 = fmul float %32, %101
   %gep245.us = getelementptr float, ptr %invariant.gep244, i64 %indvars.iv277
@@ -41423,7 +41421,7 @@ define void @GenMeshHeightmap(ptr dead_on_unwind noalias nocapture writable sret
   %117 = load i8, ptr %116, align 1
   %118 = zext i8 %117 to i32
   %119 = add nuw nsw i32 %115, %118
-  %120 = uitofp i32 %119 to float
+  %120 = sitofp i32 %119 to float
   %121 = fdiv float %120, 3.000000e+00
   %122 = fmul float %32, %121
   %123 = getelementptr i8, ptr %58, i64 64
@@ -41569,7 +41567,7 @@ define void @GenMeshCubicmap(ptr dead_on_unwind noalias nocapture writable sret(
   br label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader1058
-  %24 = uitofp i32 %.010501070 to float
+  %24 = sitofp i32 %.010501070 to float
   %25 = fadd float %24, -5.000000e-01
   %26 = fmul float %25, %3
   %27 = fadd float %24, 5.000000e-01
@@ -41586,7 +41584,7 @@ define void @GenMeshCubicmap(ptr dead_on_unwind noalias nocapture writable sret(
   %.110391066 = phi i32 [ %.010381072, %.lr.ph ], [ %.51043, %.thread ]
   %.110451065 = phi i32 [ %.010441071, %.lr.ph ], [ %.51049, %.thread ]
   %.010511061 = phi i32 [ 0, %.lr.ph ], [ %318, %.thread ]
-  %34 = uitofp i32 %.010511061 to float
+  %34 = sitofp i32 %.010511061 to float
   %35 = fadd float %34, -5.000000e-01
   %36 = fmul float %.sroa.01030.0.vec.extract, %35
   %37 = fadd float %34, 5.000000e-01

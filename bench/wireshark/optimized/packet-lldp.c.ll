@@ -5165,19 +5165,19 @@ define internal fastcc void @dissect_hytec_tlv(ptr noundef %0, ptr noundef %1, p
 110:                                              ; preds = %107
   %111 = xor i32 %108, -1
   %112 = lshr i32 %111, 8
-  %113 = uitofp i32 %112 to float
+  %113 = sitofp i32 %112 to float
   %114 = fneg float %113
   br label %118
 
 115:                                              ; preds = %107
   %116 = lshr i32 %108, 8
-  %117 = uitofp i32 %116 to float
+  %117 = sitofp i32 %116 to float
   br label %118
 
 118:                                              ; preds = %115, %110
   %.0 = phi float [ %114, %110 ], [ %117, %115 ]
   %119 = and i32 %108, 255
-  %120 = uitofp i32 %119 to float
+  %120 = sitofp i32 %119 to float
   %121 = tail call float @llvm.fmuladd.f32(float %120, float 3.906250e-03, float %.0)
   %122 = load i32, ptr @hf_hytec_rx_input_snr, align 4
   %123 = tail call ptr @proto_tree_add_float(ptr noundef %2, i32 noundef %122, ptr noundef %0, i32 noundef 2, i32 noundef 4, float noundef %121) #8
@@ -5206,19 +5206,19 @@ define internal fastcc void @dissect_hytec_tlv(ptr noundef %0, ptr noundef %1, p
 135:                                              ; preds = %132
   %136 = xor i32 %133, -1
   %137 = lshr i32 %136, 8
-  %138 = uitofp i32 %137 to float
+  %138 = sitofp i32 %137 to float
   %139 = fneg float %138
   br label %143
 
 140:                                              ; preds = %132
   %141 = lshr i32 %133, 8
-  %142 = uitofp i32 %141 to float
+  %142 = sitofp i32 %141 to float
   br label %143
 
 143:                                              ; preds = %140, %135
   %.1 = phi float [ %139, %135 ], [ %142, %140 ]
   %144 = and i32 %133, 255
-  %145 = uitofp i32 %144 to float
+  %145 = sitofp i32 %144 to float
   %146 = tail call float @llvm.fmuladd.f32(float %145, float 3.906250e-03, float %.1)
   %147 = load i32, ptr @hf_hytec_lineloss, align 4
   %148 = tail call ptr @proto_tree_add_float(ptr noundef %2, i32 noundef %147, ptr noundef %0, i32 noundef 2, i32 noundef 4, float noundef %146) #8

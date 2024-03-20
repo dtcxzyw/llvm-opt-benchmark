@@ -2359,14 +2359,14 @@ split:                                            ; preds = %.lr.ph
 
 .lr.ph65.preheader:                               ; preds = %split
   %50 = fsub double %41, %28
-  %51 = uitofp i32 %.05058 to double
+  %51 = sitofp i32 %.05058 to double
   %52 = fdiv double %50, %51
   br label %.lr.ph65
 
 .lr.ph65:                                         ; preds = %.lr.ph65.preheader, %.lr.ph65
   %.064 = phi i32 [ %57, %.lr.ph65 ], [ 1, %.lr.ph65.preheader ]
   %.04763 = phi ptr [ %58, %.lr.ph65 ], [ %23, %.lr.ph65.preheader ]
-  %53 = uitofp i32 %.064 to double
+  %53 = sitofp i32 %.064 to double
   %54 = load ptr, ptr %.04763, align 8
   %55 = load double, ptr %54, align 8
   %56 = tail call double @llvm.fmuladd.f64(double %53, double %52, double %55)

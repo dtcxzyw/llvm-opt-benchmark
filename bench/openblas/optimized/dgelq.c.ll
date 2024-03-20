@@ -227,7 +227,7 @@ thread-pre-split:                                 ; preds = %17, %.thread
   %140 = getelementptr inbounds i8, ptr %4, i64 16
   store double %139, ptr %140, align 8, !tbaa !7
   %141 = select i1 %29, i32 %107, i32 %70
-  %142 = uitofp i32 %141 to double
+  %142 = sitofp i32 %141 to double
   store double %142, ptr %6, align 8, !tbaa !7
   %143 = icmp eq i32 %.pre-phi, 0
   %or.cond = or i1 %27, %143
@@ -260,7 +260,7 @@ thread-pre-split:                                 ; preds = %17, %.thread
   br label %157
 
 157:                                              ; preds = %155, %153
-  %158 = uitofp i32 %107 to double
+  %158 = sitofp i32 %107 to double
   store double %158, ptr %6, align 8, !tbaa !7
   br label %159
 

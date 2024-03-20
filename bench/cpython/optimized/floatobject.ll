@@ -5942,7 +5942,7 @@ for.body288:                                      ; preds = %for.cond285
   br i1 %cmp301.not, label %for.cond285, label %if.then310, !llvm.loop !23
 
 if.then310:                                       ; preds = %for.body288, %land.lhs.true263, %if.then250
-  %conv312 = uitofp i32 %mul243 to double
+  %conv312 = sitofp i32 %mul243 to double
   %add313 = fadd double %25, %conv312
   %cmp314 = icmp eq i64 %top_exp.0.lcssa, 1024
   br i1 %cmp314, label %land.lhs.true316, label %if.end325

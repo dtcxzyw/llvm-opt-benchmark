@@ -3430,7 +3430,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i23
 
 _ZN6icu_753LSRD2Ev.exit:                          ; preds = %invoke.cont7, %if.then.i23
   %and.i.i = and i32 %call8, 1023
-  %conv.i24 = uitofp i32 %and.i.i to double
+  %conv.i24 = sitofp i32 %and.i.i to double
   %div.i = fmul double %conv.i24, 1.250000e-01
   %sub = fsub double 1.000000e+02, %div.i
   %div = fdiv double %sub, 1.000000e+02

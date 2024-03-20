@@ -230,7 +230,7 @@ Bmc_CexBitCount.exit48:                           ; preds = %46, %.preheader.i40
   br i1 %exitcond.not.i55, label %Bmc_CexBitCount.exit57.loopexit, label %69, !llvm.loop !4
 
 Bmc_CexBitCount.exit57.loopexit:                  ; preds = %69
-  %82 = uitofp i32 %.1.i54 to double
+  %82 = sitofp i32 %.1.i54 to double
   %83 = fmul double %82, 1.000000e+02
   br label %Bmc_CexBitCount.exit57
 

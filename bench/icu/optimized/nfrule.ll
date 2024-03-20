@@ -3003,7 +3003,7 @@ invoke.cont51.invoke:                             ; preds = %if.then47, %if.then
 
 if.end54:                                         ; preds = %if.end
   %spec.select = call i64 @llvm.smax.i64(i64 %30, i64 0)
-  %conv = uitofp i64 %spec.select to double
+  %conv = sitofp i64 %spec.select to double
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %temp, align 8
   %fUnion2.i78 = getelementptr inbounds i8, ptr %temp, i64 8
   store i16 2, ptr %fUnion2.i78, align 8

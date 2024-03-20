@@ -2258,7 +2258,7 @@ for.body129:                                      ; preds = %for.body129.lr.ph, 
 for.end136:                                       ; preds = %for.body129, %for.body105
   %dirty = getelementptr inbounds i8, ptr %33, i64 80
   store i32 1, ptr %dirty, align 8
-  %add137 = add nsw i64 %last.1, 1
+  %add137 = add nuw nsw i64 %last.1, 1
   %indvars.iv.next427 = add nuw nsw i64 %indvars.iv426, 1
   %exitcond430.not = icmp eq i64 %indvars.iv.next427, %wide.trip.count429
   br i1 %exitcond430.not, label %for.end141, label %for.body105, !llvm.loop !20
@@ -23303,7 +23303,7 @@ if.end43:                                         ; preds = %if.end28
 
 while.end50:                                      ; preds = %while.cond
   call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 4, ptr noundef nonnull @.str.359, i64 noundef %keys.0.ph.ph, i32 noundef %masters.0.ph.ph)
-  %conv = uitofp i64 %keys.0.ph.ph to float
+  %conv = sitofp i64 %keys.0.ph.ph to float
   %div = fmul float %conv, 0x3F10000000000000
   %conv51 = fpext float %div to double
   %call52 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.360, double noundef %conv51)

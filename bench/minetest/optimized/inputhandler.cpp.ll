@@ -7017,7 +7017,7 @@ define dso_local void @_ZN18RandomInputHandler4stepEf(ptr noundef nonnull align 
   %135 = call noundef i32 @_Z6myrandv()
   %136 = urem i32 %135, 20
   %137 = add nuw nsw i32 %136, 1
-  %138 = uitofp i32 %137 to double
+  %138 = sitofp i32 %137 to double
   %139 = fmul nsz double %138, 1.000000e-01
   %140 = fptrunc double %139 to float
   store float %140, ptr @_ZZN18RandomInputHandler4stepEfE8counter1, align 4, !tbaa !63
@@ -7079,13 +7079,13 @@ define dso_local void @_ZN18RandomInputHandler4stepEf(ptr noundef nonnull align 
   %177 = call noundef i32 @_Z6myrandv()
   %178 = urem i32 %177, 40
   %179 = add nuw nsw i32 %178, 1
-  %180 = uitofp i32 %179 to double
+  %180 = sitofp i32 %179 to double
   %181 = fmul nsz double %180, 1.000000e-01
   %182 = fptrunc double %181 to float
   store float %182, ptr @_ZZN18RandomInputHandler4stepEfE15counterMovement, align 4, !tbaa !63
   %183 = call noundef i32 @_Z6myrandv()
   %184 = urem i32 %183, 101
-  %185 = uitofp i32 %184 to double
+  %185 = sitofp i32 %184 to double
   %186 = fmul nsz double %185, 1.000000e-02
   %187 = fptrunc double %186 to float
   %188 = getelementptr inbounds i8, ptr %0, i64 3632

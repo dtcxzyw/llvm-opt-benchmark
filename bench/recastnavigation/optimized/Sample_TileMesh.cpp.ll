@@ -1848,15 +1848,15 @@ _ZN9rcContext10startTimerE12rcTimerLabel.exit:    ; preds = %10, %35
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %._crit_edge.us
   %.045.us = phi i32 [ %51, %._crit_edge.us ], [ 0, %.preheader.lr.ph ]
-  %50 = uitofp i32 %.045.us to float
+  %50 = sitofp i32 %.045.us to float
   %51 = add nuw nsw i32 %.045.us, 1
-  %52 = uitofp i32 %51 to float
+  %52 = sitofp i32 %51 to float
   br label %53
 
 53:                                               ; preds = %.preheader.us, %77
   %.03444.us = phi i32 [ 0, %.preheader.us ], [ %61, %77 ]
   %54 = load float, ptr %14, align 4
-  %55 = uitofp i32 %.03444.us to float
+  %55 = sitofp i32 %.03444.us to float
   %56 = call float @llvm.fmuladd.f32(float %55, float %29, float %54)
   store float %56, ptr %41, align 8
   %57 = load float, ptr %42, align 4
@@ -1866,7 +1866,7 @@ _ZN9rcContext10startTimerE12rcTimerLabel.exit:    ; preds = %10, %35
   store float %59, ptr %45, align 8
   %60 = load float, ptr %14, align 4
   %61 = add nuw nsw i32 %.03444.us, 1
-  %62 = uitofp i32 %61 to float
+  %62 = sitofp i32 %61 to float
   %63 = call float @llvm.fmuladd.f32(float %62, float %29, float %60)
   store float %63, ptr %46, align 4
   %64 = load float, ptr %47, align 4

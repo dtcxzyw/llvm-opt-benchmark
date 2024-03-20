@@ -720,8 +720,8 @@ entry:
   %and21 = lshr i32 %i, 2
   %shr22 = and i32 %and21, 1
   %sub23 = xor i32 %shr22, 1
-  %conv24 = uitofp i32 %sub23 to float
-  %conv28 = uitofp i32 %shr22 to float
+  %conv24 = sitofp i32 %sub23 to float
+  %conv28 = sitofp i32 %shr22 to float
   %3 = fneg float %add13.i.i
   %neg30 = fmul float %conv28, %3
   %4 = tail call float @llvm.fmuladd.f32(float %add13.i.i, float %conv24, float %neg30)
@@ -732,8 +732,8 @@ entry:
   %9 = insertelement <2 x i32> %8, i32 %and10, i64 1
   %10 = and <2 x i32> %9, <i32 1, i32 1>
   %11 = xor <2 x i32> %10, <i32 1, i32 1>
-  %12 = uitofp <2 x i32> %11 to <2 x float>
-  %13 = uitofp <2 x i32> %10 to <2 x float>
+  %12 = sitofp <2 x i32> %11 to <2 x float>
+  %13 = sitofp <2 x i32> %10 to <2 x float>
   %14 = fneg <2 x float> %7
   %15 = fmul <2 x float> %13, %14
   %16 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %7, <2 x float> %12, <2 x float> %15)

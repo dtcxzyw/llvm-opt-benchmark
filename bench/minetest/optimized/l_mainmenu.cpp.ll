@@ -3377,7 +3377,7 @@ define dso_local noundef i32 @_ZN14ModApiMainMenu11l_get_gamesEP9lua_State(ptr n
 .preheader7:                                      ; preds = %80, %97
   %90 = phi ptr [ %99, %97 ], [ %82, %80 ]
   %91 = phi i32 [ %98, %97 ], [ 1, %80 ]
-  %92 = uitofp i32 %91 to double
+  %92 = sitofp i32 %91 to double
   invoke void @lua_pushnumber(ptr noundef %0, double noundef %92)
           to label %93 unwind label %101
 

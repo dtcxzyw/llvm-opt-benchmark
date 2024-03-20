@@ -2445,7 +2445,7 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_16Hamm
   %15 = load i32, ptr %6, align 8
   %16 = xor i32 %15, %14
   %17 = tail call noundef i32 @llvm.ctpop.i32(i32 %16), !range !28
-  %18 = uitofp i32 %17 to float
+  %18 = sitofp i32 %17 to float
   ret float %18
 }
 
@@ -2836,7 +2836,7 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_16Hamm
   %16 = xor i64 %15, %14
   %17 = tail call i64 @llvm.ctpop.i64(i64 %16), !range !29
   %18 = trunc i64 %17 to i32
-  %19 = uitofp i32 %18 to float
+  %19 = sitofp i32 %18 to float
   ret float %19
 }
 
@@ -2927,7 +2927,7 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_17Hamm
   %shift = shufflevector <2 x i32> %18, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
   %19 = add nuw nsw <2 x i32> %shift, %18
   %20 = extractelement <2 x i32> %19, i64 0
-  %21 = uitofp i32 %20 to float
+  %21 = sitofp i32 %20 to float
   ret float %21
 }
 
@@ -3030,7 +3030,7 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_17Hamm
   %25 = xor i32 %24, %22
   %26 = tail call i32 @llvm.ctpop.i32(i32 %25), !range !28
   %27 = add nuw nsw i32 %20, %26
-  %28 = uitofp i32 %27 to float
+  %28 = sitofp i32 %27 to float
   ret float %28
 }
 
@@ -3127,7 +3127,7 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_114FlatHammingDisINS_17Hamm
   %17 = tail call <4 x i64> @llvm.ctpop.v4i64(<4 x i64> %16), !range !29
   %18 = tail call i64 @llvm.vector.reduce.add.v4i64(<4 x i64> %17)
   %19 = trunc i64 %18 to i32
-  %20 = uitofp i32 %19 to float
+  %20 = sitofp i32 %19 to float
   ret float %20
 }
 

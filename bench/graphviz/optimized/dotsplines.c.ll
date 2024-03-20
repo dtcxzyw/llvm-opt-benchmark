@@ -3469,7 +3469,7 @@ makeSimpleFlat.exit:                              ; preds = %.lr.ph.split.us.i, 
   %1896 = load i32, ptr %183, align 4
   %1897 = sitofp i32 %1896 to double
   %1898 = add nuw nsw i32 %.0327.lcssa, 1
-  %1899 = uitofp i32 %1898 to double
+  %1899 = sitofp i32 %1898 to double
   %1900 = insertelement <2 x double> poison, double %.099.i, i64 0
   %1901 = insertelement <2 x double> %1900, double %1897, i64 1
   %1902 = insertelement <2 x double> poison, double %1899, i64 0
@@ -3584,7 +3584,7 @@ makeBottomFlatEnd.exit112.i:                      ; preds = %1948, %makeBottomFl
   store double %.sroa.0.0.copyload.i503, ptr %18, align 16
   %indvars.iv.next125.i = add nuw nsw i64 %indvars.iv124.i, 1
   %1959 = trunc i64 %indvars.iv.next125.i to i32
-  %1960 = uitofp i32 %1959 to double
+  %1960 = sitofp i32 %1959 to double
   %1961 = fneg double %1960
   %1962 = load <2 x double>, ptr %.sroa.4.0..sroa_idx.i, align 8
   %1963 = extractelement <2 x double> %1962, i64 0
@@ -3762,7 +3762,7 @@ make_flat_bottom_edges.exit:                      ; preds = %1998, %1997
   %2052 = load i32, ptr %183, align 4
   %2053 = sitofp i32 %2052 to double
   %2054 = add nuw nsw i32 %.0327.lcssa, 1
-  %2055 = uitofp i32 %2054 to double
+  %2055 = sitofp i32 %2054 to double
   %2056 = insertelement <2 x double> poison, double %2053, i64 0
   %2057 = insertelement <2 x double> %2056, double %.0183.i, i64 1
   %2058 = insertelement <2 x double> poison, double %2055, i64 0
@@ -3789,7 +3789,7 @@ make_flat_bottom_edges.exit:                      ; preds = %1998, %1997
   store double %.sroa.0.0.copyload.i463, ptr %42, align 16
   %indvars.iv.next1088 = add nuw nsw i64 %indvars.iv1087, 1
   %2070 = trunc i64 %indvars.iv.next1088 to i32
-  %2071 = uitofp i32 %2070 to double
+  %2071 = sitofp i32 %2070 to double
   %2072 = load <2 x double>, ptr %.sroa.431.0..sroa_idx.i, align 8
   %2073 = extractelement <2 x double> %2072, i64 1
   store double %2073, ptr %567, align 8

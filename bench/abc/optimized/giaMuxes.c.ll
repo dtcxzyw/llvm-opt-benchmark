@@ -4515,7 +4515,7 @@ Vec_IntCountPositive.exit:                        ; preds = %.lr.ph.i
 
 Vec_IntFree.exit:                                 ; preds = %53
   %57 = sitofp i32 %56 to double
-  %58 = uitofp i32 %32 to double
+  %58 = sitofp i32 %32 to double
   %59 = fdiv double %57, %58
   %60 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.19, double noundef %59)
   %putchar = tail call i32 @putchar(i32 10)

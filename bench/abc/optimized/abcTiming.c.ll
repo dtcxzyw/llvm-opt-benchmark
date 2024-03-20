@@ -3978,7 +3978,7 @@ define i32 @Abc_ObjLevelNew(ptr nocapture noundef readonly %0) local_unnamed_add
   %14 = getelementptr i8, ptr %12, i64 20
   %.val12 = load i32, ptr %14, align 4
   %15 = lshr i32 %.val12, 12
-  %16 = uitofp i32 %15 to float
+  %16 = sitofp i32 %15 to float
   %17 = fcmp ogt float %13, %16
   %18 = select i1 %17, float %13, float %16
   %19 = fptosi float %18 to i32
@@ -4500,7 +4500,7 @@ define void @Abc_NtkUpdateLevel(ptr noundef %0, ptr nocapture noundef %1) local_
   %17 = getelementptr i8, ptr %15, i64 20
   %.val12.i = load i32, ptr %17, align 4
   %18 = lshr i32 %.val12.i, 12
-  %19 = uitofp i32 %18 to float
+  %19 = sitofp i32 %18 to float
   %20 = fcmp ogt float %16, %19
   %21 = select i1 %20, float %16, float %19
   %22 = fptosi float %21 to i32
@@ -4604,7 +4604,7 @@ Vec_VecClear.exit:                                ; preds = %30, %26
   %65 = getelementptr i8, ptr %63, i64 20
   %.val12.i64 = load i32, ptr %65, align 4
   %66 = lshr i32 %.val12.i64, 12
-  %67 = uitofp i32 %66 to float
+  %67 = sitofp i32 %66 to float
   %68 = fcmp ogt float %64, %67
   %69 = select i1 %68, float %64, float %67
   %70 = fptosi float %69 to i32

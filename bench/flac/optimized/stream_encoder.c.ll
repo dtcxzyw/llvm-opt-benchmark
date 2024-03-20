@@ -6098,7 +6098,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %idxprom318 = zext i32 %7 to i64
   %parameters320 = getelementptr inbounds [32 x %struct.FLAC__ApodizationSpecification], ptr %apodizations315, i64 0, i64 %idxprom318, i32 1
   store float %cond286, ptr %parameters320, align 4
-  %conv322 = uitofp i32 %m.0217 to float
+  %conv322 = sitofp i32 %m.0217 to float
   %8 = fmul reassoc nsz arcp float %conv322, %4
   %9 = load ptr, ptr %encoder, align 8
   %apodizations327 = getelementptr inbounds i8, ptr %9, i64 44
@@ -6108,7 +6108,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %start = getelementptr inbounds [32 x %struct.FLAC__ApodizationSpecification], ptr %apodizations327, i64 0, i64 %idxprom330, i32 1, i32 0, i32 1
   store float %8, ptr %start, align 4
   %add333 = add nuw nsw i32 %m.0217, 1
-  %conv334 = uitofp i32 %add333 to float
+  %conv334 = sitofp i32 %add333 to float
   %add335 = fadd reassoc nsz arcp float %sub271, %conv334
   %11 = fmul reassoc nsz arcp float %add335, %5
   %12 = load ptr, ptr %encoder, align 8
@@ -6205,7 +6205,7 @@ for.body440:                                      ; preds = %for.body440.lr.ph, 
   %idxprom445 = zext i32 %21 to i64
   %parameters447 = getelementptr inbounds [32 x %struct.FLAC__ApodizationSpecification], ptr %apodizations442, i64 0, i64 %idxprom445, i32 1
   store float %cond409, ptr %parameters447, align 4
-  %conv449 = uitofp i32 %m436.0215 to float
+  %conv449 = sitofp i32 %m436.0215 to float
   %22 = fmul reassoc nsz arcp float %conv449, %18
   %23 = load ptr, ptr %encoder, align 8
   %apodizations454 = getelementptr inbounds i8, ptr %23, i64 44
@@ -6215,7 +6215,7 @@ for.body440:                                      ; preds = %for.body440.lr.ph, 
   %start460 = getelementptr inbounds [32 x %struct.FLAC__ApodizationSpecification], ptr %apodizations454, i64 0, i64 %idxprom457, i32 1, i32 0, i32 1
   store float %22, ptr %start460, align 4
   %add461 = add nuw nsw i32 %m436.0215, 1
-  %conv462 = uitofp i32 %add461 to float
+  %conv462 = sitofp i32 %add461 to float
   %add463 = fadd reassoc nsz arcp float %sub392, %conv462
   %25 = fmul reassoc nsz arcp float %add463, %19
   %26 = load ptr, ptr %encoder, align 8

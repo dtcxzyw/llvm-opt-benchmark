@@ -9758,7 +9758,7 @@ for.body.lr.ph:                                   ; preds = %arraydestroy.done13
 for.body:                                         ; preds = %for.body.lr.ph, %invoke.cont49
   %14 = phi i32 [ %13, %for.body.lr.ph ], [ %22, %invoke.cont49 ]
   %i.0100 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %invoke.cont49 ]
-  %conv = uitofp i32 %i.0100 to float
+  %conv = sitofp i32 %i.0100 to float
   %add = fadd float %conv, 5.000000e-01
   %conv31 = sitofp i32 %14 to float
   %div = fdiv float %add, %conv31
@@ -21196,7 +21196,7 @@ invoke.cont45:                                    ; preds = %for.inc38
 for.body.i:                                       ; preds = %call3.i.i11.i.noexc, %invoke.cont45
   %lambda.013.int.i = phi i32 [ 360, %invoke.cont45 ], [ %inc.int.i, %call3.i.i11.i.noexc ]
   %integral.012.i = phi float [ 0.000000e+00, %invoke.cont45 ], [ %add.i, %call3.i.i11.i.noexc ]
-  %indvar.conv.i = uitofp i32 %lambda.013.int.i to float
+  %indvar.conv.i = sitofp i32 %lambda.013.int.i to float
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %lambda.addr.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %op.i.i)
   store float %indvar.conv.i, ptr %lambda.addr.i.i, align 4
@@ -21243,7 +21243,7 @@ invoke.cont52:                                    ; preds = %call3.i.i11.i.noexc
 for.body.i29:                                     ; preds = %call3.i.i11.i.noexc47, %invoke.cont52
   %lambda.013.int.i30 = phi i32 [ 360, %invoke.cont52 ], [ %inc.int.i43, %call3.i.i11.i.noexc47 ]
   %integral.012.i31 = phi float [ 0.000000e+00, %invoke.cont52 ], [ %add.i42, %call3.i.i11.i.noexc47 ]
-  %indvar.conv.i32 = uitofp i32 %lambda.013.int.i30 to float
+  %indvar.conv.i32 = sitofp i32 %lambda.013.int.i30 to float
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %lambda.addr.i.i27)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %op.i.i28)
   store float %indvar.conv.i32, ptr %lambda.addr.i.i27, align 4
@@ -21415,7 +21415,7 @@ for.body:                                         ; preds = %entry, %for.body
   %lambda.095.int = phi i32 [ 360, %entry ], [ %inc.int, %for.body ]
   %result.sroa.0.094 = phi <2 x float> [ zeroinitializer, %entry ], [ %24, %for.body ]
   %result.sroa.7.093 = phi float [ 0.000000e+00, %entry ], [ %add22, %for.body ]
-  %indvar.conv = uitofp i32 %lambda.095.int to float
+  %indvar.conv = sitofp i32 %lambda.095.int to float
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %lambda.addr.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %op.i)
   store float %indvar.conv, ptr %lambda.addr.i, align 4
@@ -21619,7 +21619,7 @@ for.body:                                         ; preds = %entry, %for.body
   %lambda.095.int = phi i32 [ 360, %entry ], [ %inc.int, %for.body ]
   %result.sroa.0.094 = phi <2 x float> [ zeroinitializer, %entry ], [ %24, %for.body ]
   %result.sroa.7.093 = phi float [ 0.000000e+00, %entry ], [ %add22, %for.body ]
-  %indvar.conv = uitofp i32 %lambda.095.int to float
+  %indvar.conv = sitofp i32 %lambda.095.int to float
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %lambda.addr.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %op.i)
   store float %indvar.conv, ptr %lambda.addr.i, align 4

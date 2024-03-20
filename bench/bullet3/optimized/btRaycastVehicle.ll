@@ -2447,7 +2447,7 @@ for.body.lr.ph:                                   ; preds = %_ZN20btAlignedObjec
   br label %for.body
 
 for.cond16.preheader:                             ; preds = %for.body
-  %32 = uitofp i32 %spec.select to float
+  %32 = sitofp i32 %spec.select to float
   %cmp18470 = icmp sgt i32 %37, 0
   br i1 %cmp18470, label %for.body19.lr.ph, label %for.end245
 

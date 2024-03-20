@@ -4176,18 +4176,18 @@ define dso_local noundef i64 @path_inter(ptr nocapture noundef readonly %0) loca
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %float8_min.exit60
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %float8_min.exit60 ]
-  %.sroa.073.094 = phi double [ %17, %.lr.ph.preheader ], [ %26, %float8_min.exit60 ]
-  %.sroa.475.093 = phi double [ %18, %.lr.ph.preheader ], [ %34, %float8_min.exit60 ]
-  %.sroa.877.092 = phi double [ %17, %.lr.ph.preheader ], [ %40, %float8_min.exit60 ]
-  %.sroa.1279.091 = phi double [ %18, %.lr.ph.preheader ], [ %46, %float8_min.exit60 ]
+  %.sroa.073.097 = phi double [ %17, %.lr.ph.preheader ], [ %26, %float8_min.exit60 ]
+  %.sroa.475.096 = phi double [ %18, %.lr.ph.preheader ], [ %34, %float8_min.exit60 ]
+  %.sroa.877.095 = phi double [ %17, %.lr.ph.preheader ], [ %40, %float8_min.exit60 ]
+  %.sroa.1279.094 = phi double [ %18, %.lr.ph.preheader ], [ %46, %float8_min.exit60 ]
   %19 = getelementptr [0 x %struct.Point], ptr %12, i64 0, i64 %indvars.iv
   %20 = load double, ptr %19, align 8
-  %21 = fcmp uno double %.sroa.073.094, 0.000000e+00
+  %21 = fcmp uno double %.sroa.073.097, 0.000000e+00
   br i1 %21, label %float8_max.exit, label %float8_gt.exit.i
 
 float8_gt.exit.i:                                 ; preds = %.lr.ph
   %22 = fcmp uno double %20, 0.000000e+00
-  %23 = fcmp ogt double %20, %.sroa.073.094
+  %23 = fcmp ogt double %20, %.sroa.073.097
   %24 = or i1 %22, %23
   br i1 %24, label %25, label %float8_max.exit
 
@@ -4195,15 +4195,15 @@ float8_gt.exit.i:                                 ; preds = %.lr.ph
   br label %float8_max.exit
 
 float8_max.exit:                                  ; preds = %.lr.ph, %float8_gt.exit.i, %25
-  %26 = phi double [ %20, %25 ], [ %.sroa.073.094, %float8_gt.exit.i ], [ %.sroa.073.094, %.lr.ph ]
+  %26 = phi double [ %20, %25 ], [ %.sroa.073.097, %float8_gt.exit.i ], [ %.sroa.073.097, %.lr.ph ]
   %27 = getelementptr inbounds i8, ptr %19, i64 8
   %28 = load double, ptr %27, align 8
-  %29 = fcmp uno double %.sroa.475.093, 0.000000e+00
+  %29 = fcmp uno double %.sroa.475.096, 0.000000e+00
   br i1 %29, label %float8_max.exit58, label %float8_gt.exit.i57
 
 float8_gt.exit.i57:                               ; preds = %float8_max.exit
   %30 = fcmp uno double %28, 0.000000e+00
-  %31 = fcmp ogt double %28, %.sroa.475.093
+  %31 = fcmp ogt double %28, %.sroa.475.096
   %32 = or i1 %30, %31
   br i1 %32, label %33, label %float8_max.exit58
 
@@ -4211,13 +4211,13 @@ float8_gt.exit.i57:                               ; preds = %float8_max.exit
   br label %float8_max.exit58
 
 float8_max.exit58:                                ; preds = %float8_max.exit, %float8_gt.exit.i57, %33
-  %34 = phi double [ %28, %33 ], [ %.sroa.475.093, %float8_gt.exit.i57 ], [ %.sroa.475.093, %float8_max.exit ]
+  %34 = phi double [ %28, %33 ], [ %.sroa.475.096, %float8_gt.exit.i57 ], [ %.sroa.475.096, %float8_max.exit ]
   %35 = fcmp uno double %20, 0.000000e+00
   br i1 %35, label %float8_min.exit, label %float8_lt.exit.i
 
 float8_lt.exit.i:                                 ; preds = %float8_max.exit58
-  %36 = fcmp uno double %.sroa.877.092, 0.000000e+00
-  %37 = fcmp olt double %20, %.sroa.877.092
+  %36 = fcmp uno double %.sroa.877.095, 0.000000e+00
+  %37 = fcmp olt double %20, %.sroa.877.095
   %38 = or i1 %36, %37
   br i1 %38, label %39, label %float8_min.exit
 
@@ -4225,13 +4225,13 @@ float8_lt.exit.i:                                 ; preds = %float8_max.exit58
   br label %float8_min.exit
 
 float8_min.exit:                                  ; preds = %float8_max.exit58, %float8_lt.exit.i, %39
-  %40 = phi double [ %20, %39 ], [ %.sroa.877.092, %float8_lt.exit.i ], [ %.sroa.877.092, %float8_max.exit58 ]
+  %40 = phi double [ %20, %39 ], [ %.sroa.877.095, %float8_lt.exit.i ], [ %.sroa.877.095, %float8_max.exit58 ]
   %41 = fcmp uno double %28, 0.000000e+00
   br i1 %41, label %float8_min.exit60, label %float8_lt.exit.i59
 
 float8_lt.exit.i59:                               ; preds = %float8_min.exit
-  %42 = fcmp uno double %.sroa.1279.091, 0.000000e+00
-  %43 = fcmp olt double %28, %.sroa.1279.091
+  %42 = fcmp uno double %.sroa.1279.094, 0.000000e+00
+  %43 = fcmp olt double %28, %.sroa.1279.094
   %44 = or i1 %42, %43
   br i1 %44, label %45, label %float8_min.exit60
 
@@ -4239,7 +4239,7 @@ float8_lt.exit.i59:                               ; preds = %float8_min.exit
   br label %float8_min.exit60
 
 float8_min.exit60:                                ; preds = %float8_min.exit, %float8_lt.exit.i59, %45
-  %46 = phi double [ %28, %45 ], [ %.sroa.1279.091, %float8_lt.exit.i59 ], [ %.sroa.1279.091, %float8_min.exit ]
+  %46 = phi double [ %28, %45 ], [ %.sroa.1279.094, %float8_lt.exit.i59 ], [ %.sroa.1279.094, %float8_min.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !25
@@ -4261,42 +4261,42 @@ float8_min.exit60:                                ; preds = %float8_min.exit, %f
   %57 = getelementptr inbounds i8, ptr %11, i64 4
   %58 = load i32, ptr %57, align 4
   %59 = icmp sgt i32 %58, 1
-  br i1 %59, label %.lr.ph105.preheader, label %._crit_edge106
+  br i1 %59, label %.lr.ph108.preheader, label %._crit_edge109
 
-.lr.ph105.preheader:                              ; preds = %._crit_edge
-  %wide.trip.count129 = zext nneg i32 %58 to i64
-  br label %.lr.ph105
+.lr.ph108.preheader:                              ; preds = %._crit_edge
+  %wide.trip.count132 = zext nneg i32 %58 to i64
+  br label %.lr.ph108
 
-.lr.ph105:                                        ; preds = %.lr.ph105.preheader, %float8_min.exit68
-  %indvars.iv126 = phi i64 [ 1, %.lr.ph105.preheader ], [ %indvars.iv.next127, %float8_min.exit68 ]
-  %.sroa.0.0102 = phi double [ %54, %.lr.ph105.preheader ], [ %67, %float8_min.exit68 ]
-  %.sroa.4.0101 = phi double [ %56, %.lr.ph105.preheader ], [ %75, %float8_min.exit68 ]
-  %.sroa.8.0100 = phi double [ %54, %.lr.ph105.preheader ], [ %81, %float8_min.exit68 ]
-  %.sroa.12.099 = phi double [ %56, %.lr.ph105.preheader ], [ %87, %float8_min.exit68 ]
-  %60 = getelementptr [0 x %struct.Point], ptr %53, i64 0, i64 %indvars.iv126
+.lr.ph108:                                        ; preds = %.lr.ph108.preheader, %float8_min.exit68
+  %indvars.iv129 = phi i64 [ 1, %.lr.ph108.preheader ], [ %indvars.iv.next130, %float8_min.exit68 ]
+  %.sroa.0.0105 = phi double [ %54, %.lr.ph108.preheader ], [ %67, %float8_min.exit68 ]
+  %.sroa.4.0104 = phi double [ %56, %.lr.ph108.preheader ], [ %75, %float8_min.exit68 ]
+  %.sroa.8.0103 = phi double [ %54, %.lr.ph108.preheader ], [ %81, %float8_min.exit68 ]
+  %.sroa.12.0102 = phi double [ %56, %.lr.ph108.preheader ], [ %87, %float8_min.exit68 ]
+  %60 = getelementptr [0 x %struct.Point], ptr %53, i64 0, i64 %indvars.iv129
   %61 = load double, ptr %60, align 8
-  %62 = fcmp uno double %.sroa.0.0102, 0.000000e+00
+  %62 = fcmp uno double %.sroa.0.0105, 0.000000e+00
   br i1 %62, label %float8_max.exit62, label %float8_gt.exit.i61
 
-float8_gt.exit.i61:                               ; preds = %.lr.ph105
+float8_gt.exit.i61:                               ; preds = %.lr.ph108
   %63 = fcmp uno double %61, 0.000000e+00
-  %64 = fcmp ogt double %61, %.sroa.0.0102
+  %64 = fcmp ogt double %61, %.sroa.0.0105
   %65 = or i1 %63, %64
   br i1 %65, label %66, label %float8_max.exit62
 
 66:                                               ; preds = %float8_gt.exit.i61
   br label %float8_max.exit62
 
-float8_max.exit62:                                ; preds = %.lr.ph105, %float8_gt.exit.i61, %66
-  %67 = phi double [ %61, %66 ], [ %.sroa.0.0102, %float8_gt.exit.i61 ], [ %.sroa.0.0102, %.lr.ph105 ]
+float8_max.exit62:                                ; preds = %.lr.ph108, %float8_gt.exit.i61, %66
+  %67 = phi double [ %61, %66 ], [ %.sroa.0.0105, %float8_gt.exit.i61 ], [ %.sroa.0.0105, %.lr.ph108 ]
   %68 = getelementptr inbounds i8, ptr %60, i64 8
   %69 = load double, ptr %68, align 8
-  %70 = fcmp uno double %.sroa.4.0101, 0.000000e+00
+  %70 = fcmp uno double %.sroa.4.0104, 0.000000e+00
   br i1 %70, label %float8_max.exit64, label %float8_gt.exit.i63
 
 float8_gt.exit.i63:                               ; preds = %float8_max.exit62
   %71 = fcmp uno double %69, 0.000000e+00
-  %72 = fcmp ogt double %69, %.sroa.4.0101
+  %72 = fcmp ogt double %69, %.sroa.4.0104
   %73 = or i1 %71, %72
   br i1 %73, label %74, label %float8_max.exit64
 
@@ -4304,13 +4304,13 @@ float8_gt.exit.i63:                               ; preds = %float8_max.exit62
   br label %float8_max.exit64
 
 float8_max.exit64:                                ; preds = %float8_max.exit62, %float8_gt.exit.i63, %74
-  %75 = phi double [ %69, %74 ], [ %.sroa.4.0101, %float8_gt.exit.i63 ], [ %.sroa.4.0101, %float8_max.exit62 ]
+  %75 = phi double [ %69, %74 ], [ %.sroa.4.0104, %float8_gt.exit.i63 ], [ %.sroa.4.0104, %float8_max.exit62 ]
   %76 = fcmp uno double %61, 0.000000e+00
   br i1 %76, label %float8_min.exit66, label %float8_lt.exit.i65
 
 float8_lt.exit.i65:                               ; preds = %float8_max.exit64
-  %77 = fcmp uno double %.sroa.8.0100, 0.000000e+00
-  %78 = fcmp olt double %61, %.sroa.8.0100
+  %77 = fcmp uno double %.sroa.8.0103, 0.000000e+00
+  %78 = fcmp olt double %61, %.sroa.8.0103
   %79 = or i1 %77, %78
   br i1 %79, label %80, label %float8_min.exit66
 
@@ -4318,13 +4318,13 @@ float8_lt.exit.i65:                               ; preds = %float8_max.exit64
   br label %float8_min.exit66
 
 float8_min.exit66:                                ; preds = %float8_max.exit64, %float8_lt.exit.i65, %80
-  %81 = phi double [ %61, %80 ], [ %.sroa.8.0100, %float8_lt.exit.i65 ], [ %.sroa.8.0100, %float8_max.exit64 ]
+  %81 = phi double [ %61, %80 ], [ %.sroa.8.0103, %float8_lt.exit.i65 ], [ %.sroa.8.0103, %float8_max.exit64 ]
   %82 = fcmp uno double %69, 0.000000e+00
   br i1 %82, label %float8_min.exit68, label %float8_lt.exit.i67
 
 float8_lt.exit.i67:                               ; preds = %float8_min.exit66
-  %83 = fcmp uno double %.sroa.12.099, 0.000000e+00
-  %84 = fcmp olt double %69, %.sroa.12.099
+  %83 = fcmp uno double %.sroa.12.0102, 0.000000e+00
+  %84 = fcmp olt double %69, %.sroa.12.0102
   %85 = or i1 %83, %84
   br i1 %85, label %86, label %float8_min.exit68
 
@@ -4332,12 +4332,12 @@ float8_lt.exit.i67:                               ; preds = %float8_min.exit66
   br label %float8_min.exit68
 
 float8_min.exit68:                                ; preds = %float8_min.exit66, %float8_lt.exit.i67, %86
-  %87 = phi double [ %69, %86 ], [ %.sroa.12.099, %float8_lt.exit.i67 ], [ %.sroa.12.099, %float8_min.exit66 ]
-  %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
-  %exitcond130.not = icmp eq i64 %indvars.iv.next127, %wide.trip.count129
-  br i1 %exitcond130.not, label %._crit_edge106, label %.lr.ph105, !llvm.loop !26
+  %87 = phi double [ %69, %86 ], [ %.sroa.12.0102, %float8_lt.exit.i67 ], [ %.sroa.12.0102, %float8_min.exit66 ]
+  %indvars.iv.next130 = add nuw nsw i64 %indvars.iv129, 1
+  %exitcond133.not = icmp eq i64 %indvars.iv.next130, %wide.trip.count132
+  br i1 %exitcond133.not, label %._crit_edge109, label %.lr.ph108, !llvm.loop !26
 
-._crit_edge106:                                   ; preds = %float8_min.exit68, %._crit_edge
+._crit_edge109:                                   ; preds = %float8_min.exit68, %._crit_edge
   %.sroa.12.0.lcssa = phi double [ %56, %._crit_edge ], [ %87, %float8_min.exit68 ]
   %.sroa.8.0.lcssa = phi double [ %54, %._crit_edge ], [ %81, %float8_min.exit68 ]
   %.sroa.4.0.lcssa = phi double [ %56, %._crit_edge ], [ %75, %float8_min.exit68 ]
@@ -4355,23 +4355,23 @@ float8_min.exit68:                                ; preds = %float8_min.exit66, 
   %98 = bitcast <4 x i1> %97 to i4
   %99 = icmp eq i4 %98, -1
   %op.rdx = and i1 %99, %96
-  br i1 %op.rdx, label %.lr.ph116, label %box_ov.exit.thread
+  br i1 %op.rdx, label %.lr.ph119, label %box_ov.exit.thread
 
-.lr.ph116:                                        ; preds = %._crit_edge106
+.lr.ph119:                                        ; preds = %._crit_edge109
   %100 = getelementptr inbounds i8, ptr %7, i64 8
   %101 = getelementptr inbounds i8, ptr %11, i64 8
   %102 = getelementptr inbounds i8, ptr %2, i64 16
   %103 = getelementptr inbounds i8, ptr %3, i64 16
   br label %104
 
-104:                                              ; preds = %.lr.ph116, %.loopexit
-  %105 = phi i32 [ %15, %.lr.ph116 ], [ %135, %.loopexit ]
-  %106 = phi i32 [ %58, %.lr.ph116 ], [ %136, %.loopexit ]
-  %107 = phi i32 [ %58, %.lr.ph116 ], [ %137, %.loopexit ]
-  %indvars.iv134 = phi i64 [ 0, %.lr.ph116 ], [ %indvars.iv.next135, %.loopexit ]
-  %.not139 = icmp eq i64 %indvars.iv134, 0
-  %108 = trunc i64 %indvars.iv134 to i32
-  br i1 %.not139, label %109, label %111
+104:                                              ; preds = %.lr.ph119, %.loopexit
+  %105 = phi i32 [ %15, %.lr.ph119 ], [ %135, %.loopexit ]
+  %106 = phi i32 [ %58, %.lr.ph119 ], [ %136, %.loopexit ]
+  %107 = phi i32 [ %58, %.lr.ph119 ], [ %137, %.loopexit ]
+  %indvars.iv137 = phi i64 [ 0, %.lr.ph119 ], [ %indvars.iv.next138, %.loopexit ]
+  %.not142 = icmp eq i64 %indvars.iv137, 0
+  %108 = trunc i64 %indvars.iv137 to i32
+  br i1 %.not142, label %109, label %111
 
 109:                                              ; preds = %104
   %110 = load i32, ptr %100, align 8
@@ -4381,22 +4381,22 @@ float8_min.exit68:                                ; preds = %float8_min.exit66, 
 111:                                              ; preds = %109, %104
   %.050.in = phi i32 [ %108, %104 ], [ %105, %109 ]
   %112 = icmp sgt i32 %107, 0
-  br i1 %112, label %.lr.ph113, label %.loopexit
+  br i1 %112, label %.lr.ph116, label %.loopexit
 
-.lr.ph113:                                        ; preds = %111
+.lr.ph116:                                        ; preds = %111
   %.050 = add nsw i32 %.050.in, -1
   %113 = sext i32 %.050 to i64
   %114 = getelementptr [0 x %struct.Point], ptr %12, i64 0, i64 %113
-  %115 = getelementptr [0 x %struct.Point], ptr %12, i64 0, i64 %indvars.iv134
+  %115 = getelementptr [0 x %struct.Point], ptr %12, i64 0, i64 %indvars.iv137
   br label %116
 
-116:                                              ; preds = %.lr.ph113, %131
-  %117 = phi i32 [ %106, %.lr.ph113 ], [ %132, %131 ]
-  %indvars.iv131 = phi i64 [ 0, %.lr.ph113 ], [ %indvars.iv.next132, %131 ]
-  %118 = phi i32 [ %107, %.lr.ph113 ], [ %132, %131 ]
-  %.not88 = icmp eq i64 %indvars.iv131, 0
-  %119 = trunc i64 %indvars.iv131 to i32
-  br i1 %.not88, label %120, label %122
+116:                                              ; preds = %.lr.ph116, %131
+  %117 = phi i32 [ %106, %.lr.ph116 ], [ %132, %131 ]
+  %indvars.iv134 = phi i64 [ 0, %.lr.ph116 ], [ %indvars.iv.next135, %131 ]
+  %118 = phi i32 [ %107, %.lr.ph116 ], [ %132, %131 ]
+  %.not91 = icmp eq i64 %indvars.iv134, 0
+  %119 = trunc i64 %indvars.iv134 to i32
+  br i1 %.not91, label %120, label %122
 
 120:                                              ; preds = %116
   %121 = load i32, ptr %101, align 8
@@ -4412,40 +4412,40 @@ float8_min.exit68:                                ; preds = %float8_min.exit66, 
   store <2 x double> %124, ptr %102, align 16
   %125 = sext i32 %.0 to i64
   %126 = getelementptr [0 x %struct.Point], ptr %53, i64 0, i64 %125
-  %127 = getelementptr [0 x %struct.Point], ptr %53, i64 0, i64 %indvars.iv131
+  %127 = getelementptr [0 x %struct.Point], ptr %53, i64 0, i64 %indvars.iv134
   %128 = load <2 x double>, ptr %126, align 8
   store <2 x double> %128, ptr %3, align 16
   %129 = load <2 x double>, ptr %127, align 8
   store <2 x double> %129, ptr %103, align 16
   %130 = call fastcc zeroext i1 @lseg_interpt_lseg(ptr noundef null, ptr noundef nonnull %2, ptr noundef nonnull %3)
-  br i1 %130, label %box_ov.exit.thread, label %._crit_edge137
+  br i1 %130, label %box_ov.exit.thread, label %._crit_edge140
 
-._crit_edge137:                                   ; preds = %122
+._crit_edge140:                                   ; preds = %122
   %.pre = load i32, ptr %57, align 4
   br label %131
 
-131:                                              ; preds = %._crit_edge137, %120
-  %132 = phi i32 [ %.pre, %._crit_edge137 ], [ %117, %120 ]
-  %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
+131:                                              ; preds = %._crit_edge140, %120
+  %132 = phi i32 [ %.pre, %._crit_edge140 ], [ %117, %120 ]
+  %indvars.iv.next135 = add nuw nsw i64 %indvars.iv134, 1
   %133 = sext i32 %132 to i64
-  %134 = icmp slt i64 %indvars.iv.next132, %133
+  %134 = icmp slt i64 %indvars.iv.next135, %133
   br i1 %134, label %116, label %.loopexit.loopexit, !llvm.loop !27
 
 .loopexit.loopexit:                               ; preds = %131
-  %.pre138 = load i32, ptr %14, align 4
+  %.pre141 = load i32, ptr %14, align 4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %111, %109
-  %135 = phi i32 [ %.pre138, %.loopexit.loopexit ], [ %105, %111 ], [ %105, %109 ]
+  %135 = phi i32 [ %.pre141, %.loopexit.loopexit ], [ %105, %111 ], [ %105, %109 ]
   %136 = phi i32 [ %132, %.loopexit.loopexit ], [ %106, %111 ], [ %106, %109 ]
   %137 = phi i32 [ %132, %.loopexit.loopexit ], [ %107, %111 ], [ %107, %109 ]
-  %indvars.iv.next135 = add nuw nsw i64 %indvars.iv134, 1
+  %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
   %138 = sext i32 %135 to i64
-  %139 = icmp slt i64 %indvars.iv.next135, %138
+  %139 = icmp slt i64 %indvars.iv.next138, %138
   br i1 %139, label %104, label %box_ov.exit.thread, !llvm.loop !28
 
-box_ov.exit.thread:                               ; preds = %.loopexit, %122, %._crit_edge106
-  %.053 = phi i64 [ 0, %._crit_edge106 ], [ 1, %122 ], [ 0, %.loopexit ]
+box_ov.exit.thread:                               ; preds = %.loopexit, %122, %._crit_edge109
+  %.053 = phi i64 [ 0, %._crit_edge109 ], [ 1, %122 ], [ 0, %.loopexit ]
   ret i64 %.053
 }
 
@@ -19953,7 +19953,7 @@ define dso_local noundef i64 @circle_poly(ptr nocapture noundef readonly %0) loc
 45:                                               ; preds = %.lr.ph, %float8_pl.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %float8_pl.exit ]
   %46 = trunc i64 %indvars.iv to i32
-  %47 = uitofp i32 %46 to double
+  %47 = sitofp i32 %46 to double
   %48 = fmul double %36, %47
   %49 = tail call double @llvm.fabs.f64(double %48)
   %50 = fcmp une double %49, 0x7FF0000000000000

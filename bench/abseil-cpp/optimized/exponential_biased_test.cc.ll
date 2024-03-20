@@ -470,7 +470,7 @@ for.body11:                                       ; preds = %for.end, %for.body1
   br i1 %cmp10, label %for.body11, label %for.end17, !llvm.loop !8
 
 for.end17:                                        ; preds = %for.body11
-  %conv18 = uitofp i32 %inc12 to double
+  %conv18 = sitofp i32 %inc12 to double
   %mul = fmul double %conv18, 1.000000e+02
   %div = fdiv double %mul, 1.000000e+07
   %call19 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, i32 noundef %inc12, double noundef %div)
@@ -864,7 +864,7 @@ if.then6.i.i.i:                                   ; preds = %if.end.i3.i.i
   %27 = call double @llvm.fmuladd.f64(double %div7.i.i.i, double 4.900000e+01, double -1.020000e+02)
   %mul9.i.i.i = fmul double %27, %mul.i6.i.i
   %mul10.i.i.i = mul nsw i32 %conv.i, %conv.i
-  %conv11.i.i.i = uitofp i32 %mul10.i.i.i to double
+  %conv11.i.i.i = sitofp i32 %mul10.i.i.i to double
   %28 = insertelement <2 x double> poison, double %conv3.i.i.i, i64 0
   %29 = insertelement <2 x double> %28, double %conv11.i.i.i, i64 1
   %30 = fdiv <2 x double> <double 7.800000e-04, double 3.700000e-03>, %29

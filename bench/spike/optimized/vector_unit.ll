@@ -2708,13 +2708,13 @@ define noundef i64 @_ZN12vectorUnit_t6set_vlEiimm(ptr nocapture noundef nonnull 
 
 23:                                               ; preds = %12
   %24 = shl nuw nsw i32 1, %21
-  %25 = uitofp i32 %24 to double
+  %25 = sitofp i32 %24 to double
   br label %31
 
 26:                                               ; preds = %12
   %27 = sub nsw i32 0, %21
   %28 = shl nuw nsw i32 1, %27
-  %29 = uitofp i32 %28 to double
+  %29 = sitofp i32 %28 to double
   %30 = fdiv double 1.000000e+00, %29
   br label %31
 

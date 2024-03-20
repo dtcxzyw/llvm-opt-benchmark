@@ -18579,7 +18579,7 @@ _ZNK6casadi13GenericMatrixINS_6MatrixIdEEE5size2Ev.exit: ; preds = %244
   br i1 %246, label %.preheader, label %_ZNSt6vectorIxSaIxEED2Ev.exit321
 
 .preheader:                                       ; preds = %_ZNK6casadi13GenericMatrixINS_6MatrixIdEEE5size2Ev.exit
-  %247 = uitofp i64 %storemerge175 to double
+  %247 = sitofp i64 %storemerge175 to double
   %248 = getelementptr i64, ptr %200, i64 %storemerge175
   %249 = getelementptr i8, ptr %248, i64 8
   br label %250
@@ -18701,7 +18701,7 @@ _ZN6casadi6MatrixIxED2Ev.exit.i:                  ; preds = %260, %258
           to label %272 unwind label %280
 
 272:                                              ; preds = %.noexc340
-  %273 = uitofp i64 %storemerge176 to double
+  %273 = sitofp i64 %storemerge176 to double
   invoke void @_ZN6casadi6MatrixIxEC1Ed(ptr noundef nonnull align 8 dereferenceable(40) %15, double noundef %273)
           to label %274 unwind label %282
 
@@ -19294,7 +19294,7 @@ _ZN6casadi6MatrixIxED2Ev.exit.i229:               ; preds = %437, %435
           to label %449 unwind label %457
 
 449:                                              ; preds = %.noexc366
-  %450 = uitofp i64 %storemerge167 to double
+  %450 = sitofp i64 %storemerge167 to double
   invoke void @_ZN6casadi6MatrixIxEC1Ed(ptr noundef nonnull align 8 dereferenceable(40) %9, double noundef %450)
           to label %451 unwind label %459
 
@@ -21783,7 +21783,7 @@ _ZNK6casadi13GenericMatrixINS_6MatrixIdEEE5size2Ev.exit: ; preds = %184
   store ptr %1, ptr %106, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %107, ptr noundef nonnull align 8 dereferenceable(24) %33, i64 24, i1 false)
   store i64 %storemerge55280, ptr %108, align 8
-  %189 = uitofp i64 %storemerge55280 to double
+  %189 = sitofp i64 %storemerge55280 to double
   invoke void @_ZN6casadi6MatrixIxEC1Ed(ptr noundef nonnull align 8 dereferenceable(40) %10, double noundef %189)
           to label %190 unwind label %208
 
@@ -24568,7 +24568,7 @@ _ZNK6casadi13GenericMatrixINS_6MatrixIdEEE3dimB5cxx11Eb.exit: ; preds = %76
 
 126:                                              ; preds = %.lr.ph, %_ZN6casadi6MatrixIdED2Ev.exit95
   %.0103 = phi i64 [ 0, %.lr.ph ], [ %146, %_ZN6casadi6MatrixIdED2Ev.exit95 ]
-  %127 = uitofp i64 %.0103 to double
+  %127 = sitofp i64 %.0103 to double
   invoke void @_ZN6casadi6MatrixIdEC1Ed(ptr noundef nonnull align 8 dereferenceable(40) %29, double noundef %127)
           to label %128 unwind label %154
 
@@ -26875,7 +26875,7 @@ define weak_odr void @_ZN6casadi6MatrixIdE3adjERKS1_(ptr dead_on_unwind noalias 
 
 .preheader.us:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph
   %storemerge68.us = phi i64 [ 0, %.preheader.lr.ph ], [ %116, %._crit_edge.us ]
-  %79 = uitofp i64 %storemerge68.us to double
+  %79 = sitofp i64 %storemerge68.us to double
   br label %80
 
 80:                                               ; preds = %.preheader.us, %_ZNK6casadi6MatrixIdE7is_zeroEv.exit.thread.us
@@ -26924,7 +26924,7 @@ _ZNK6casadi6MatrixIdE7is_zeroEv.exit.us:          ; preds = %.lr.ph.i.us
   store ptr %18, ptr %68, align 8
   store i64 %storemerge3767.us, ptr %69, align 8
   store i64 %storemerge68.us, ptr %70, align 8
-  %90 = uitofp i64 %storemerge3767.us to double
+  %90 = sitofp i64 %storemerge3767.us to double
   invoke void @_ZN6casadi6MatrixIxEC1Ed(ptr noundef nonnull align 8 dereferenceable(40) %3, double noundef %90)
           to label %91 unwind label %.split72.us
 

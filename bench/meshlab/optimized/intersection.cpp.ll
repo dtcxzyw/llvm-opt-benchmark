@@ -649,7 +649,7 @@ _ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit:        ; preds = %127, %122, %121
 
 149:                                              ; preds = %147
   %150 = fmul double %139, %140
-  %151 = uitofp i64 %145 to double
+  %151 = sitofp i64 %145 to double
   %152 = fdiv double %151, %150
   %153 = call double @pow(double noundef %152, double noundef 5.000000e-01) #20
   %154 = fmul double %139, %153
@@ -671,9 +671,9 @@ _ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit:        ; preds = %127, %122, %121
   %164 = phi i32 [ %159, %158 ], [ 1, %160 ], [ %155, %149 ]
   %.sroa.speculated32.i = call i32 @llvm.smax.i32(i32 %164, i32 1)
   %.sroa.speculated.i = call i32 @llvm.smax.i32(i32 %163, i32 1)
-  %165 = uitofp i32 %.sroa.speculated32.i to double
+  %165 = sitofp i32 %.sroa.speculated32.i to double
   %166 = fdiv double %139, %165
-  %167 = uitofp i32 %.sroa.speculated.i to double
+  %167 = sitofp i32 %.sroa.speculated.i to double
   %168 = fdiv double %140, %167
   store ptr %1, ptr %5, align 16
   %169 = getelementptr inbounds i8, ptr %5, i64 8
@@ -1936,7 +1936,7 @@ _ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit10.i:    ; preds = %_ZN3vcg4Box2IdE3Add
 
 75:                                               ; preds = %73
   %76 = fmul double %65, %66
-  %77 = uitofp i64 %71 to double
+  %77 = sitofp i64 %71 to double
   %78 = fdiv double %77, %76
   %79 = call double @pow(double noundef %78, double noundef 5.000000e-01) #20
   %80 = fmul double %65, %79
@@ -1962,9 +1962,9 @@ _ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit10.i:    ; preds = %_ZN3vcg4Box2IdE3Add
   %92 = phi i32 [ %85, %84 ], [ 1, %86 ], [ %81, %75 ]
   %.sroa.speculated32.i = call i32 @llvm.smax.i32(i32 %92, i32 1)
   %.sroa.speculated.i = call i32 @llvm.smax.i32(i32 %91, i32 1)
-  %93 = uitofp i32 %.sroa.speculated32.i to double
+  %93 = sitofp i32 %.sroa.speculated32.i to double
   %94 = fdiv double %65, %93
-  %95 = uitofp i32 %.sroa.speculated.i to double
+  %95 = sitofp i32 %.sroa.speculated.i to double
   %96 = fdiv double %66, %95
   %.not238 = icmp eq ptr %90, %89
   br i1 %.not238, label %._crit_edge225, label %.lr.ph

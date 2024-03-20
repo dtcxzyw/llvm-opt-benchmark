@@ -19920,7 +19920,7 @@ _ZNSt6vectorIN10ClipperLib8IntPointESaIS1_EE9push_backEOS1_.exit: ; preds = %if.
   %70 = shufflevector <2 x double> %50, <2 x double> poison, <2 x i32> <i32 1, i32 1>
   %71 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %70, <2 x double> %63, <2 x double> %69)
   %inc110 = add nuw nsw i64 %j.0828, 1
-  %conv85 = uitofp i64 %inc110 to double
+  %conv85 = sitofp i64 %inc110 to double
   %cmp86 = fcmp ult double %steps.0, %conv85
   br i1 %cmp86, label %if.end144, label %for.body87, !llvm.loop !187
 

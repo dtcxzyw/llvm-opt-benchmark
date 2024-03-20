@@ -1085,7 +1085,7 @@ entry:
 for.body9:                                        ; preds = %entry, %for.inc58
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc58 ]
   %4 = trunc i64 %indvars.iv to i32
-  %conv = uitofp i32 %4 to float
+  %conv = sitofp i32 %4 to float
   %5 = load float, ptr %arrayidx22, align 4
   %cmp23 = fcmp ugt float %5, %conv
   br i1 %cmp23, label %if.end, label %for.inc58
@@ -1251,7 +1251,7 @@ for.body75:                                       ; preds = %for.end60, %for.bod
   %center.sroa.14.8.vec.insert = insertelement <2 x float> %center.sroa.14.0243, float %add8.i100, i64 0
   %indvars.iv.next251 = add nuw nsw i64 %indvars.iv250, 1
   %90 = trunc i64 %indvars.iv.next251 to i32
-  %conv70 = uitofp i32 %90 to float
+  %conv70 = sitofp i32 %90 to float
   %cmp74 = fcmp ogt float %86, %conv70
   br i1 %cmp74, label %for.body75, label %for.end82, !llvm.loop !8
 
@@ -1437,7 +1437,7 @@ if.end125:                                        ; preds = %for.end124, %for.en
 for.body129:                                      ; preds = %if.end125, %for.inc149
   %indvars.iv256 = phi i64 [ 0, %if.end125 ], [ %indvars.iv.next257, %for.inc149 ]
   %175 = trunc i64 %indvars.iv256 to i32
-  %conv130 = uitofp i32 %175 to float
+  %conv130 = sitofp i32 %175 to float
   %176 = load float, ptr %arrayidx22, align 4
   %cmp134 = fcmp ogt float %176, %conv130
   br i1 %cmp134, label %if.then135, label %if.else

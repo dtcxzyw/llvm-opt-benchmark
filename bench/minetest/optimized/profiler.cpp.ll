@@ -2065,7 +2065,7 @@ define dso_local void @_ZN8Profiler7getPageERSt3mapINSt7__cxx1112basic_stringIcS
           to label %112 unwind label %119
 
 112:                                              ; preds = %109
-  %113 = uitofp i32 %110 to float
+  %113 = sitofp i32 %110 to float
   %114 = fdiv nsz float %53, %113
   store float %114, ptr %111, align 4, !tbaa !26
   br label %115

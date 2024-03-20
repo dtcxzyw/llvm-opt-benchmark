@@ -4500,7 +4500,7 @@ rb_float_new_inline.exit177:                      ; preds = %192, %196, %198
 
 210:                                              ; preds = %.lr.ph223, %rb_float_new_inline.exit181
   %.1222 = phi i64 [ 0, %.lr.ph223 ], [ %234, %rb_float_new_inline.exit181 ]
-  %211 = uitofp i64 %.1222 to double
+  %211 = sitofp i64 %.1222 to double
   %212 = tail call double @llvm.fmuladd.f64(double %211, double %146, double %147)
   br i1 %209, label %215, label %213
 

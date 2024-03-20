@@ -1269,7 +1269,7 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %12, %16
   %indvars.iv167 = phi i64 [ %100, %.preheader.us145.preheader ], [ %indvars.iv.next168, %._crit_edge142.split.us.us ]
   %103 = mul nsw i64 %indvars.iv167, %101
   %104 = trunc i64 %indvars.iv167 to i32
-  %105 = uitofp i32 %104 to float
+  %105 = sitofp i32 %104 to float
   %106 = fadd float %105, 5.000000e-01
   br label %107
 
@@ -1292,7 +1292,7 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %12, %16
   %113 = lshr i32 %111, 24
   %114 = add nuw nsw i32 %112, %113
   %115 = trunc i64 %indvars.iv162 to i32
-  %116 = uitofp i32 %115 to float
+  %116 = sitofp i32 %115 to float
   %117 = fadd float %116, 5.000000e-01
   %118 = and i32 %111, 16777215
   %119 = zext nneg i32 %118 to i64
@@ -1705,7 +1705,7 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %11, %15
   %indvars.iv136 = phi i64 [ %82, %.preheader122.preheader ], [ %indvars.iv.next137, %._crit_edge ]
   %85 = mul nsw i64 %indvars.iv136, %83
   %86 = trunc i64 %indvars.iv136 to i32
-  %87 = uitofp i32 %86 to float
+  %87 = sitofp i32 %86 to float
   %88 = fadd float %87, 5.000000e-01
   br label %89
 
@@ -1718,7 +1718,7 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %11, %15
   %94 = load <4 x float>, ptr %25, align 4
   %95 = shufflevector <4 x float> %94, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
   %96 = trunc i64 %indvars.iv133 to i32
-  %97 = uitofp i32 %96 to float
+  %97 = sitofp i32 %96 to float
   %98 = fadd float %97, 5.000000e-01
   %99 = load <4 x float>, ptr %28, align 4
   %100 = load float, ptr %37, align 4

@@ -170,7 +170,7 @@ do.body10:                                        ; preds = %if.end, %if.else
   br i1 %cmp13.not, label %if.else16, label %do.end20
 
 if.else16:                                        ; preds = %do.body10
-  %conv17 = uitofp i64 %and to x86_fp80
+  %conv17 = sitofp i64 %and to x86_fp80
   %conv18 = sitofp i64 %size to x86_fp80
   tail call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 265, ptr noundef nonnull @__func__.guest_alloc, ptr noundef nonnull @.str.5, x86_fp80 noundef %conv17, ptr noundef nonnull @.str.6, x86_fp80 noundef %conv18, i8 noundef signext 105) #11
   br label %do.end20
@@ -205,7 +205,7 @@ if.end.i:                                         ; preds = %for.body.i.i
 
 if.else4.i.i:                                     ; preds = %if.end.i
   %conv.i.i = sitofp i64 %4 to x86_fp80
-  %conv5.i.i = uitofp i64 %and to x86_fp80
+  %conv5.i.i = sitofp i64 %and to x86_fp80
   tail call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 134, ptr noundef nonnull @__func__.mlist_fulfill, ptr noundef nonnull @.str.12, x86_fp80 noundef %conv.i.i, ptr noundef nonnull @.str.6, x86_fp80 noundef %conv5.i.i, i8 noundef signext 105) #11
   %.pre.i.i = load i64, ptr %size1.i.i.le, align 8
   br label %do.end7.i.i

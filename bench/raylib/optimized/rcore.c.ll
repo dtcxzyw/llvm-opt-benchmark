@@ -31711,14 +31711,14 @@ define hidden noundef i32 @msf_gif_frame(ptr nocapture noundef %0, ptr nocapture
   %72 = sub nsw i32 8, %56
   %notmask294.i = shl nsw i32 -1, %72
   %73 = xor i32 %notmask294.i, -1
-  %74 = uitofp i32 %73 to float
+  %74 = sitofp i32 %73 to float
   %75 = fsub float 2.550000e+02, %74
   %76 = fdiv float %75, 2.550000e+02
   %77 = fmul float %76, 2.570000e+02
   %78 = fptosi float %77 to i16
   %79 = shl nsw <2 x i32> <i32 -1, i32 -1>, %71
   %80 = xor <2 x i32> %79, <i32 -1, i32 -1>
-  %81 = uitofp <2 x i32> %80 to <2 x float>
+  %81 = sitofp <2 x i32> %80 to <2 x float>
   %82 = fsub <2 x float> <float 2.550000e+02, float 2.550000e+02>, %81
   %83 = fdiv <2 x float> %82, <float 2.550000e+02, float 2.550000e+02>
   %84 = fmul <2 x float> %83, <float 2.570000e+02, float 2.570000e+02>
@@ -37401,7 +37401,7 @@ define void @EnableCursor() local_unnamed_addr #0 {
   tail call void @glfwSetInputMode(ptr noundef %1, i32 noundef 208897, i32 noundef 212993) #55
   %2 = load <2 x i32>, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 11), align 4
   %3 = lshr <2 x i32> %2, <i32 1, i32 1>
-  %4 = uitofp <2 x i32> %3 to <2 x float>
+  %4 = sitofp <2 x i32> %3 to <2 x float>
   store <2 x float> %4, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 1, i32 2), align 4
   store <2 x float> %4, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 1, i32 3), align 4
   %5 = load ptr, ptr @platform.0, align 8
@@ -37435,7 +37435,7 @@ define void @DisableCursor() local_unnamed_addr #0 {
   tail call void @glfwSetInputMode(ptr noundef %1, i32 noundef 208897, i32 noundef 212995) #55
   %2 = load <2 x i32>, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 11), align 4
   %3 = lshr <2 x i32> %2, <i32 1, i32 1>
-  %4 = uitofp <2 x i32> %3 to <2 x float>
+  %4 = sitofp <2 x i32> %3 to <2 x float>
   store <2 x float> %4, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 1, i32 2), align 4
   store <2 x float> %4, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 2, i32 1, i32 3), align 4
   %5 = load ptr, ptr @platform.0, align 8

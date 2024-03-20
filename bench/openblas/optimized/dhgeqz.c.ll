@@ -166,7 +166,7 @@ define void @dhgeqz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 0, ptr %19, align 4, !tbaa !3
   %110 = load i32, ptr %3, align 4, !tbaa !3
   %111 = tail call i32 @llvm.smax.i32(i32 %110, i32 1)
-  %112 = uitofp i32 %111 to double
+  %112 = sitofp i32 %111 to double
   store double %112, ptr %17, align 8, !tbaa !7
   %113 = load i32, ptr %18, align 4, !tbaa !3
   %114 = icmp eq i32 %113, -1

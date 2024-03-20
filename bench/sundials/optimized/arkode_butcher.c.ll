@@ -7191,7 +7191,7 @@ __dot.exit:                                       ; preds = %.preheader.i.us
   br label %97
 
 25:                                               ; preds = %.preheader170
-  %26 = uitofp i32 %.078148 to double
+  %26 = sitofp i32 %.078148 to double
   %27 = fdiv double 1.000000e+00, %26
   %28 = fsub double %27, %24
   %29 = tail call double @llvm.fabs.f64(double %28)
@@ -7213,7 +7213,7 @@ __dot.exit:                                       ; preds = %.preheader.i.us
   %.075151.us = phi i32 [ %62, %..critedge_crit_edge.us ], [ 1, %34 ]
   %.081150.us = phi i32 [ %61, %..critedge_crit_edge.us ], [ 0, %34 ]
   %36 = add nsw i32 %.075151.us, -1
-  %37 = uitofp i32 %.075151.us to double
+  %37 = sitofp i32 %.075151.us to double
   br label %.preheader.preheader.i98.us
 
 38:                                               ; preds = %53
@@ -7282,7 +7282,7 @@ __dot.exit113:                                    ; preds = %43
   %.176160.us = phi i32 [ %90, %..critedge92_crit_edge.split.us.us ], [ 1, %.split158 ]
   %.080159.us = phi i32 [ %89, %..critedge92_crit_edge.split.us.us ], [ 0, %.split158 ]
   %63 = add nsw i32 %.176160.us, -1
-  %64 = uitofp i32 %.176160.us to double
+  %64 = sitofp i32 %.176160.us to double
   br label %.preheader.us.us
 
 .preheader.us.us:                                 ; preds = %77, %.preheader133.us

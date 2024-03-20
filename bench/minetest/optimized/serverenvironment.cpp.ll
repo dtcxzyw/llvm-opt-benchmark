@@ -4096,7 +4096,7 @@ define dso_local void @_Z15fillRadiusBlockN3irr4core8vector3dIsEEsRSt3setIS2_St4
   %44 = sext i16 %43 to i32
   %45 = mul nsw i32 %44, %44
   %46 = add nuw nsw i32 %40, %45
-  %47 = uitofp i32 %46 to float
+  %47 = sitofp i32 %46 to float
   %48 = tail call nsz noundef float @llvm.sqrt.f32(float %47)
   %49 = fptosi float %48 to i32
   %50 = trunc i32 %49 to i16

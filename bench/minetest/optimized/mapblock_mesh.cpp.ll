@@ -2017,7 +2017,7 @@ define dso_local void @_ZN15MapBlockBspTree9buildTreeEPKSt6vectorI12MeshTriangle
 108:                                              ; preds = %39
   %109 = zext i16 %2 to i32
   %110 = add nuw nsw i32 %109, 1
-  %111 = uitofp i32 %110 to float
+  %111 = sitofp i32 %110 to float
   %112 = fmul nsz float %111, 5.000000e-01
   %113 = fmul nsz float %112, 1.000000e+01
   %114 = insertelement <2 x float> poison, float %113, i64 0

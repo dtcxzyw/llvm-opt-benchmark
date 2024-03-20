@@ -1000,7 +1000,7 @@ _ZNK3vcg4ShotIfNS_8Matrix44IfEEE7ProjectERKNS_6Point3IfEE.exit: ; preds = %_ZNK3
 
 ._crit_edge.loopexit:                             ; preds = %_ZNK3vcg4ShotIfNS_8Matrix44IfEEE7ProjectERKNS_6Point3IfEE.exit
   %indvars = trunc i64 %indvars.iv.next to i32
-  %191 = uitofp i32 %indvars to double
+  %191 = sitofp i32 %indvars to double
   %192 = fdiv double %182, %191
   br label %._crit_edge
 
@@ -2446,7 +2446,7 @@ define linkonce_odr noundef double @_Z10min_newuoaId6SolverET_iPS1_RT0_S1_S1_i(i
   %.138595.i.i.i = phi double [ %.0384106.i.i.i, %._crit_edge87.i.i.i ], [ %.2386.i.i.i, %665 ]
   %.040894.i.i.i = phi i32 [ 0, %._crit_edge87.i.i.i ], [ %.1409.i.i.i, %665 ]
   %.893.i.i.i = phi i32 [ 1, %._crit_edge87.i.i.i ], [ %666, %665 ]
-  %650 = uitofp i32 %.893.i.i.i to double
+  %650 = sitofp i32 %.893.i.i.i to double
   %651 = fmul double %650, 0x3FC015BF9217271A
   %652 = call double @cos(double noundef %651) #21
   %653 = call double @sin(double noundef %651) #21
@@ -3500,7 +3500,7 @@ _ZL7biglag_Id6SolverEiiiPT_S2_S2_S2_PiS3_S3_S2_S2_S2_S2_S2_S2_S2_S2_RT0_.exit.i.
   %.61110.i.i.i = phi double [ %1188, %1132 ], [ %1215, %1224 ]
   %.08761109.i.i.i = phi i32 [ 0, %1132 ], [ %.1877.i.i.i, %1224 ]
   %.109081108.i.i.i = phi i32 [ 1, %1132 ], [ %1225, %1224 ]
-  %1190 = uitofp i32 %.109081108.i.i.i to double
+  %1190 = sitofp i32 %.109081108.i.i.i to double
   %1191 = fmul double %1190, 0x3FC015BF9217271A
   %1192 = call double @cos(double noundef %1191) #21
   store double %1192, ptr %160, align 8
@@ -5186,7 +5186,7 @@ define linkonce_odr noundef i32 @_Z7trsapp_IdEiiiPT_S1_S1_S1_S1_S1_S1_S1_S1_S1_S
   %.0393532 = phi i32 [ 0, %._crit_edge527 ], [ %.1394, %206 ]
   %.7531 = phi i32 [ 1, %._crit_edge527 ], [ %208, %206 ]
   %190 = phi <2 x double> [ %261, %._crit_edge527 ], [ %207, %206 ]
-  %191 = uitofp i32 %.7531 to double
+  %191 = sitofp i32 %.7531 to double
   %192 = fmul double %191, 0x3FC015BF9217271A
   %193 = tail call double @cos(double noundef %192) #21
   %194 = tail call double @sin(double noundef %192) #21
@@ -5933,7 +5933,7 @@ define linkonce_odr <2 x float> @_ZNK3vcg6CameraIfE22UndistortedToDistortedENS_6
 50:                                               ; preds = %42
   %51 = fptosi float %47 to i32
   %52 = tail call i32 @llvm.abs.i32(i32 %51, i1 true)
-  %53 = uitofp i32 %52 to double
+  %53 = sitofp i32 %52 to double
   %54 = tail call noundef double @pow(double noundef %53, double noundef 0x3FD5555560000000) #21
   %55 = fptrunc double %54 to float
   %56 = fneg float %55

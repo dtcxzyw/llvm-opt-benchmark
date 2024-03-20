@@ -8265,7 +8265,7 @@ _ZN10aiVector3tIfEixEj.exit135:                   ; preds = %if.end165, %sw.bb2.
 
 for.end174:                                       ; preds = %_ZN10aiVector3tIfEixEj.exit135
   %arrayidx122 = getelementptr inbounds %struct.aiQuatKey, ptr %55, i64 %indvars.iv182
-  %conv175 = uitofp i32 %56 to double
+  %conv175 = sitofp i32 %56 to double
   store double %conv175, ptr %arrayidx122, align 8
   store double %conv175, ptr %arrayidx119, align 8
   %angle1.sroa.4.0.angle1.sroa.4.0.angle1.sroa.4.0.angle1.sroa.4.4. = load float, ptr %angle1.sroa.4, align 4

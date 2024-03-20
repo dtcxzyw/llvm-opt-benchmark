@@ -1342,7 +1342,7 @@ GetLine.exit133.i:                                ; preds = %101, %.split.loop.e
   %162 = sitofp i32 %161 to float
   %.sroa.319.12.vec.insert.i = insertelement <2 x float> %.sroa.319.8.vec.insert.i, float %162, i64 1
   %163 = trunc i64 %indvars.iv196.i to i32
-  %164 = uitofp i32 %163 to float
+  %164 = sitofp i32 %163 to float
   %165 = fmul float %164, %162
   %.sroa.013.4.vec.insert.i = insertelement <2 x float> <float 0.000000e+00, float poison>, float %165, i64 1
   %166 = getelementptr inbounds %struct.Image, ptr %115, i64 %indvars.iv196.i
@@ -1844,7 +1844,7 @@ define void @LoadFontFromImage(ptr dead_on_unwind noalias nocapture writable wri
 .preheader193.lr.ph:                              ; preds = %.preheader194
   %99 = trunc i64 %indvars.iv288 to i32
   %100 = icmp slt i32 %.1.lcssa.us, %72
-  %101 = uitofp i32 %99 to float
+  %101 = sitofp i32 %99 to float
   br i1 %100, label %.preheader193.us, label %.preheader193
 
 .preheader193.us:                                 ; preds = %.preheader193.lr.ph, %.critedge.us
@@ -1852,7 +1852,7 @@ define void @LoadFontFromImage(ptr dead_on_unwind noalias nocapture writable wri
   %.0181261.us = phi i32 [ %155, %.critedge.us ], [ 0, %.preheader193.lr.ph ]
   %.0182260.us = phi i64 [ %.1183.lcssa.us.in, %.critedge.us ], [ 0, %.preheader193.lr.ph ]
   %103 = mul nsw i32 %102, %72
-  %104 = uitofp i32 %102 to float
+  %104 = sitofp i32 %102 to float
   %sext = shl i64 %.0182260.us, 32
   %105 = ashr exact i64 %sext, 32
   br label %106
@@ -1933,7 +1933,7 @@ define void @LoadFontFromImage(ptr dead_on_unwind noalias nocapture writable wri
 
 148:                                              ; preds = %143
   %149 = trunc i64 %indvars.iv291 to i32
-  %150 = uitofp i32 %149 to float
+  %150 = sitofp i32 %149 to float
   %151 = getelementptr inbounds i8, ptr %129, i64 8
   store float %150, ptr %151, align 8
   %indvars.iv.next295 = add nsw i64 %indvars.iv294, 1
@@ -5114,10 +5114,10 @@ stbtt__new_active.exit.thread.i.i.i.i.i.i:        ; preds = %1072, %1032, %1020
 1355:                                             ; preds = %stbtt__handle_clipped_edge.exit379.i.i.i.i.i.i.i, %.lr.ph.i.i93.i.i.i.i.i
   %indvars.iv.i.i94.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i93.i.i.i.i.i ], [ %indvars.iv.next.i.i95.i.i.i.i.i, %stbtt__handle_clipped_edge.exit379.i.i.i.i.i.i.i ]
   %1356 = trunc i64 %indvars.iv.i.i94.i.i.i.i.i to i32
-  %1357 = uitofp i32 %1356 to float
+  %1357 = sitofp i32 %1356 to float
   %indvars.iv.next.i.i95.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i94.i.i.i.i.i, 1
   %1358 = trunc i64 %indvars.iv.next.i.i95.i.i.i.i.i to i32
-  %1359 = uitofp i32 %1358 to float
+  %1359 = sitofp i32 %1358 to float
   %1360 = fsub float %1357, %1084
   %1361 = fdiv float %1360, %1081
   %1362 = fadd float %1361, %1005
@@ -7641,7 +7641,7 @@ define void @GenImageFontAtlas(ptr dead_on_unwind noalias nocapture writable wri
   %31 = fptosi float %exp2f to i32
   %32 = mul nsw i32 %31, %31
   %33 = lshr i32 %32, 1
-  %34 = uitofp i32 %33 to float
+  %34 = sitofp i32 %33 to float
   %35 = fcmp olt float %26, %34
   br i1 %35, label %36, label %38
 
@@ -9046,8 +9046,8 @@ define void @DrawText(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 nounde
   %9 = sitofp <2 x i32> %8 to <2 x float>
   %spec.select = tail call i32 @llvm.smax.i32(i32 %3, i32 10)
   %10 = udiv i32 %spec.select, 10
-  %11 = uitofp i32 %spec.select to float
-  %12 = uitofp i32 %10 to float
+  %11 = sitofp i32 %spec.select to float
+  %12 = sitofp i32 %10 to float
   tail call void @DrawTextEx(ptr noundef nonnull byval(%struct.Font) align 8 @defaultFont, ptr noundef %0, <2 x float> %9, float noundef %11, float noundef %12, i32 %4)
   br label %13
 
@@ -9852,8 +9852,8 @@ define i32 @MeasureText(ptr noundef %0, i32 noundef %1) local_unnamed_addr #22 {
 3:                                                ; preds = %2
   %spec.select = tail call i32 @llvm.smax.i32(i32 %1, i32 10)
   %4 = udiv i32 %spec.select, 10
-  %5 = uitofp i32 %spec.select to float
-  %6 = uitofp i32 %4 to float
+  %5 = sitofp i32 %spec.select to float
+  %6 = sitofp i32 %4 to float
   %7 = tail call <2 x float> @MeasureTextEx(ptr noundef nonnull byval(%struct.Font) align 8 @defaultFont, ptr noundef %0, float noundef %5, float noundef %6)
   br label %8
 

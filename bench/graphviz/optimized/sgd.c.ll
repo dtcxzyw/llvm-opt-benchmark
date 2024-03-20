@@ -830,7 +830,7 @@ gv_calloc.exit:                                   ; preds = %363
 
 fisheryates_shuffle.exit:                         ; preds = %.lr.ph.i169, %401
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  %407 = uitofp i32 %.0153203 to float
+  %407 = sitofp i32 %.0153203 to float
   %408 = fmul float %399, %407
   %409 = fpext float %408 to double
   %410 = tail call double @exp(double noundef %409) #15

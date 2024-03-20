@@ -894,7 +894,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   store i32 %34, ptr %23, align 4
   %35 = sub nuw nsw i32 -2, %notmask.i.i.i.i.i
   store i32 %35, ptr %24, align 4
-  %36 = uitofp i32 %35 to float
+  %36 = sitofp i32 %35 to float
   %37 = fdiv float 2.000000e+00, %36
   store float %37, ptr %25, align 4
   %38 = lshr i32 %35, 1
@@ -3403,12 +3403,12 @@ _ZNSt6vectorIiSaIiEE6assignIN9__gnu_cxx17__normal_iteratorIPiS1_EEvEEvT_S7_.exit
   %.sroa.5.2 = phi i8 [ %.sroa.5.3, %_ZSt16next_permutationIPbEbT_S1_.exit ], [ %.sroa.5.1535, %.lr.ph.preheader.i.i.i ]
   br i1 %.not.i.i.i.i, label %.lr.ph520.preheader, label %.lr.ph514.preheader
 
+.lr.ph520.preheader:                              ; preds = %.lr.ph514.preheader, %.preheader419
+  br label %.lr.ph520
+
 .lr.ph514.preheader:                              ; preds = %.preheader419
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %.sroa.0381.0, i8 0, i64 %105, i1 false)
   br label %.lr.ph520.preheader
-
-.lr.ph520.preheader:                              ; preds = %.preheader419, %.lr.ph514.preheader
-  br label %.lr.ph520
 
 .preheader417:                                    ; preds = %342
   br i1 %.not.i.i.i.i, label %._crit_edge524.thread, label %.lr.ph523
@@ -6310,7 +6310,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco42MeshPredictionSchemeGeometric
   %22 = sub nuw nsw i32 -2, %notmask.i.i
   %23 = getelementptr inbounds i8, ptr %0, i64 144
   store i32 %22, ptr %23, align 8
-  %24 = uitofp i32 %22 to float
+  %24 = sitofp i32 %22 to float
   %25 = fdiv float 2.000000e+00, %24
   %26 = getelementptr inbounds i8, ptr %0, i64 148
   store float %25, ptr %26, align 4
@@ -8748,12 +8748,12 @@ _ZNSt6vectorIiSaIiEE6assignIN9__gnu_cxx17__normal_iteratorIPiS1_EEvEEvT_S7_.exit
   %.sroa.5.2 = phi i8 [ %.sroa.5.3, %_ZSt16next_permutationIPbEbT_S1_.exit ], [ %.sroa.5.1529, %.lr.ph.preheader.i.i.i ]
   br i1 %.not.i.i.i.i, label %.lr.ph514.preheader, label %.lr.ph.preheader
 
+.lr.ph514.preheader:                              ; preds = %.lr.ph.preheader, %.preheader412
+  br label %.lr.ph514
+
 .lr.ph.preheader:                                 ; preds = %.preheader412
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %.sroa.0374.0, i8 0, i64 %104, i1 false)
   br label %.lr.ph514.preheader
-
-.lr.ph514.preheader:                              ; preds = %.preheader412, %.lr.ph.preheader
-  br label %.lr.ph514
 
 .preheader410:                                    ; preds = %305
   br i1 %.not.i.i.i.i, label %._crit_edge518.thread, label %.lr.ph517
@@ -10403,7 +10403,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco42MeshPredictionSchemeGeometric
   %22 = sub nuw nsw i32 -2, %notmask.i.i
   %23 = getelementptr inbounds i8, ptr %0, i64 144
   store i32 %22, ptr %23, align 8
-  %24 = uitofp i32 %22 to float
+  %24 = sitofp i32 %22 to float
   %25 = fdiv float 2.000000e+00, %24
   %26 = getelementptr inbounds i8, ptr %0, i64 148
   store float %25, ptr %26, align 4

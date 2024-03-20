@@ -1318,7 +1318,7 @@ _ZNK11dtTileCache10getTilesAtEiiPji.exit:         ; preds = %87
   %111 = load i8, ptr %110, align 1
   %112 = zext i8 %111 to i32
   %113 = add nuw nsw i32 %112, 1
-  %114 = uitofp i32 %113 to float
+  %114 = sitofp i32 %113 to float
   %115 = tail call float @llvm.fmuladd.f32(float %114, float %99, float %101)
   %116 = getelementptr inbounds i8, ptr %98, i64 36
   %117 = load float, ptr %116, align 4
@@ -1326,7 +1326,7 @@ _ZNK11dtTileCache10getTilesAtEiiPji.exit:         ; preds = %87
   %119 = load i8, ptr %118, align 1
   %120 = zext i8 %119 to i32
   %121 = add nuw nsw i32 %120, 1
-  %122 = uitofp i32 %121 to float
+  %122 = sitofp i32 %121 to float
   %123 = tail call float @llvm.fmuladd.f32(float %122, float %99, float %105)
   %124 = load float, ptr %1, align 4
   %125 = fcmp ogt float %124, %115
@@ -1430,7 +1430,7 @@ define void @_ZNK11dtTileCache19calcTightTileBoundsEPK22dtTileCacheLayerHeaderPf
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i32
   %27 = add nuw nsw i32 %26, 1
-  %28 = uitofp i32 %27 to float
+  %28 = sitofp i32 %27 to float
   %29 = tail call float @llvm.fmuladd.f32(float %28, float %6, float %23)
   store float %29, ptr %3, align 4
   %30 = getelementptr inbounds i8, ptr %1, i64 36
@@ -1442,7 +1442,7 @@ define void @_ZNK11dtTileCache19calcTightTileBoundsEPK22dtTileCacheLayerHeaderPf
   %35 = load i8, ptr %34, align 1
   %36 = zext i8 %35 to i32
   %37 = add nuw nsw i32 %36, 1
-  %38 = uitofp i32 %37 to float
+  %38 = sitofp i32 %37 to float
   %39 = tail call float @llvm.fmuladd.f32(float %38, float %6, float %33)
   %40 = getelementptr inbounds i8, ptr %3, i64 8
   store float %39, ptr %40, align 4

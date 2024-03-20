@@ -148,7 +148,7 @@ define dso_local void @_Z19drawGraphBackgroundPK11GraphParams(ptr noundef %0) lo
 36:                                               ; preds = %.lr.ph, %36
   %37 = phi i32 [ %34, %.lr.ph ], [ %66, %36 ]
   %.039 = phi i32 [ 0, %.lr.ph ], [ %65, %36 ]
-  %38 = uitofp i32 %.039 to float
+  %38 = sitofp i32 %.039 to float
   %39 = sitofp i32 %37 to float
   %40 = fdiv float %38, %39
   %41 = load float, ptr %24, align 4
@@ -236,7 +236,7 @@ define dso_local void @_Z9drawGraphPK11GraphParamsPK12ValueHistoryiPKcj(ptr noun
   %.050 = phi float [ 0.000000e+00, %5 ], [ %38, %47 ]
   %.04549 = phi float [ 0.000000e+00, %5 ], [ %45, %47 ]
   %.04648 = phi i32 [ 0, %5 ], [ %48, %47 ]
-  %37 = uitofp i32 %.04648 to float
+  %37 = sitofp i32 %.04648 to float
   %38 = tail call float @llvm.fmuladd.f32(float %37, float %14, float %28)
   %39 = load i32, ptr %35, align 4
   %40 = add nsw i32 %39, %.04648

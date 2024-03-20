@@ -2788,7 +2788,7 @@ ffi_checkctype.exit:                              ; preds = %if.end9.i, %cond.tr
   %shr = lshr i32 %call2, 16
   %and = and i32 %shr, 15
   %shl = shl nuw nsw i32 1, %and
-  %conv.i = uitofp i32 %shl to double
+  %conv.i = sitofp i32 %shl to double
   store double %conv.i, ptr %add.ptr, align 8
   ret i32 1
 }
@@ -2913,7 +2913,7 @@ if.then14:                                        ; preds = %if.then6
   store ptr %incdec.ptr, ptr %top.i, align 8
   %18 = load i32, ptr %call5, align 8
   %and = and i32 %18, 127
-  %conv.i28 = uitofp i32 %and to double
+  %conv.i28 = sitofp i32 %and to double
   store double %conv.i28, ptr %17, align 8
   %19 = load ptr, ptr %top.i, align 8
   %incdec.ptr19 = getelementptr inbounds i8, ptr %19, i64 8
@@ -2921,7 +2921,7 @@ if.then14:                                        ; preds = %if.then6
   %20 = load i32, ptr %call5, align 8
   %shr21 = lshr i32 %20, 8
   %and22 = and i32 %shr21, 127
-  %conv.i = uitofp i32 %and22 to double
+  %conv.i = sitofp i32 %and22 to double
   store double %conv.i, ptr %19, align 8
   br label %return
 

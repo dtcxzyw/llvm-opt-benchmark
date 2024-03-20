@@ -2972,7 +2972,7 @@ while.body68:                                     ; preds = %while.cond66.prehea
 while.end70:                                      ; preds = %while.body68, %while.cond66.preheader
   %d.1.lcssa = phi i64 [ %d.0.lcssa, %while.cond66.preheader ], [ %mul69, %while.body68 ]
   %conv71 = sitofp i32 %call60 to double
-  %conv72 = uitofp i64 %d.1.lcssa to double
+  %conv72 = sitofp i64 %d.1.lcssa to double
   %div = fdiv double %conv71, %conv72
   invoke void @_ZN6icu_7511Formattable9setDoubleEd(ptr noundef nonnull align 8 dereferenceable(112) %result, double noundef %div)
           to label %if.end74 unwind label %lpad

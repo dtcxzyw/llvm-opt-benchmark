@@ -1971,7 +1971,7 @@ define dso_local noundef i32 @_ZN7treegen10make_ltreeER8MMVManipN3irr4core8vecto
   store i32 %56, ptr %6, align 4, !tbaa !58
   %57 = sdiv i32 %56, 65536
   %58 = and i32 %57, 1
-  %59 = uitofp i32 %58 to double
+  %59 = sitofp i32 %58 to double
   %60 = fmul nsz double %59, 0x400921FB54442D18
   %61 = fdiv nsz double %60, 1.800000e+02
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #24

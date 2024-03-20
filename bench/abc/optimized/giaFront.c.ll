@@ -244,7 +244,7 @@ Gia_ManFrontFindNext.exit:                        ; preds = %14, %Abc_UtilStrsav
   %19 = phi ptr [ %17, %14 ], [ null, %Abc_UtilStrsav.exit ]
   %20 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %19, ptr %20, align 8
-  %21 = uitofp i32 %2 to float
+  %21 = sitofp i32 %2 to float
   %22 = fmul float %21, 0x3FF19999A0000000
   %23 = fptosi float %22 to i32
   %24 = add nsw i32 %23, 1

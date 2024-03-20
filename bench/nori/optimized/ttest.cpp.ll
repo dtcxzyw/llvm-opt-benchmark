@@ -1624,7 +1624,7 @@ define linkonce_odr hidden void @_ZN4nori13StudentsTTest8activateEv(ptr noundef 
   %130 = fpext float %129 to double
   %131 = fsub double %130, %.077132
   %132 = add nuw nsw i32 %.080130, 1
-  %133 = uitofp i32 %132 to double
+  %133 = sitofp i32 %132 to double
   %134 = fdiv double %131, %133
   %135 = fadd double %.077132, %134
   %136 = fsub double %130, %135
@@ -1872,7 +1872,7 @@ _ZN4nori12PropertyListD2Ev.exit:                  ; preds = %200
   %264 = fpext float %263 to double
   %265 = fsub double %264, %.069157
   %266 = add nuw nsw i32 %.067159, 1
-  %267 = uitofp i32 %266 to double
+  %267 = sitofp i32 %266 to double
   %268 = fdiv double %265, %267
   %269 = fadd double %.069157, %268
   %270 = fsub double %264, %269

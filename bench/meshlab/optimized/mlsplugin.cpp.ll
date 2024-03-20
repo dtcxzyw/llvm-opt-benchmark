@@ -26867,7 +26867,7 @@ _ZN3vcg4face3PosI6CFaceOE5NextBEv.exit:           ; preds = %_ZNK3vcg4face3PosI6
 
 238:                                              ; preds = %226, %225
   %239 = icmp ugt i32 %.0, 2
-  %240 = uitofp i32 %35 to float
+  %240 = sitofp i32 %35 to float
   br i1 %239, label %241, label %_ZN3vcg3tri10LoopWeightIfE4betaEi.exit
 
 241:                                              ; preds = %238
@@ -32423,7 +32423,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit22:             ; preds = %37, %39, %41, %43
   %57 = load float, ptr %16, align 8
   %58 = fpext float %57 to double
   %59 = trunc i64 %indvars.iv32 to i32
-  %60 = uitofp i32 %59 to float
+  %60 = sitofp i32 %59 to float
   %61 = fpext float %60 to double
   %62 = fmul double %53, %61
   %63 = sitofp i32 %56 to double
@@ -32445,7 +32445,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit22:             ; preds = %37, %39, %41, %43
   %72 = load float, ptr %16, align 8
   %73 = fpext float %72 to double
   %74 = trunc i64 %indvars.iv to i32
-  %75 = uitofp i32 %74 to float
+  %75 = sitofp i32 %74 to float
   %76 = sitofp i32 %71 to float
   %77 = fdiv float %75, %76
   %78 = tail call noundef float @powf(float noundef %77, float noundef %4) #28
@@ -32919,14 +32919,14 @@ define linkonce_odr void @_ZN3vcg3tri9MlsWalkerI6CMeshON7GaelMls10MlsSurfaceIS2_
   %.092242.us.us = phi i32 [ %.3.lcssa.us.us.us278, %._crit_edge226.split.us.us.us ], [ 0, %.lr.ph ]
   %storemerge240.us.us = phi i32 [ %250, %._crit_edge226.split.us.us.us ], [ 0, %.lr.ph ]
   store i32 0, ptr %93, align 4
-  %100 = uitofp i32 %storemerge240.us.us to float
+  %100 = sitofp i32 %storemerge240.us.us to float
   br label %.preheader200.us.us.us
 
 .preheader200.us.us.us:                           ; preds = %._crit_edge222.us.us.us, %.preheader200.lr.ph.us.us
   %.1225.us.us.us = phi i32 [ %.092242.us.us, %.preheader200.lr.ph.us.us ], [ %.3.lcssa.us.us.us278, %._crit_edge222.us.us.us ]
   %storemerge195224.us.us.us = phi i32 [ 0, %.preheader200.lr.ph.us.us ], [ %249, %._crit_edge222.us.us.us ]
   store i32 0, ptr %10, align 4
-  %101 = uitofp i32 %storemerge195224.us.us.us to float
+  %101 = sitofp i32 %storemerge195224.us.us.us to float
   br label %102
 
 102:                                              ; preds = %._crit_edge218.us.us.us, %.preheader200.us.us.us
@@ -32946,7 +32946,7 @@ define linkonce_odr void @_ZN3vcg3tri9MlsWalkerI6CMeshON7GaelMls10MlsSurfaceIS2_
   br label %215
 
 108:                                              ; preds = %215
-  %109 = uitofp i32 %storemerge196219.us.us.us to float
+  %109 = sitofp i32 %storemerge196219.us.us.us to float
   %110 = load i32, ptr %16, align 8
   %111 = add nsw i32 %110, -1
   %112 = sitofp i32 %111 to float
@@ -33108,7 +33108,7 @@ define linkonce_odr void @_ZN3vcg3tri9MlsWalkerI6CMeshON7GaelMls10MlsSurfaceIS2_
   %193 = add nsw i32 %192, %.sroa.0158.0206.us.us.us
   %194 = sext i32 %193 to i64
   %195 = getelementptr inbounds %"struct.vcg::tri::MlsWalker<CMeshO, GaelMls::MlsSurface<CMeshO>>::GridElement", ptr %188, i64 %194
-  %196 = uitofp i32 %.sroa.26.0203.us.us.us to float
+  %196 = sitofp i32 %.sroa.26.0203.us.us.us to float
   %197 = fmul float %67, %196
   %198 = fadd float %122, %197
   store <2 x float> %.sroa.0.4.vec.insert.i130.us.us.us, ptr %195, align 4
@@ -33189,14 +33189,14 @@ define linkonce_odr void @_ZN3vcg3tri9MlsWalkerI6CMeshON7GaelMls10MlsSurfaceIS2_
   br i1 %or.cond288, label %.preheader198.us232.us.us, label %._crit_edge218.us.us.us
 
 .lr.ph.us.us.us:                                  ; preds = %.preheader197.us230.us.us
-  %241 = uitofp i32 %.sroa.13.0204.us231.us.us to float
+  %241 = sitofp i32 %.sroa.13.0204.us231.us.us to float
   %242 = fmul float %67, %241
   %243 = fadd float %120, %242
   %.sroa.0.4.vec.insert.i130.us.us.us = insertelement <2 x float> %.sroa.0.0.vec.insert.i129.us.us.us, float %243, i64 1
   br label %187
 
 .preheader197.lr.ph.us.us.us:                     ; preds = %177
-  %244 = uitofp i32 %.sroa.0158.0206.us.us.us to float
+  %244 = sitofp i32 %.sroa.0158.0206.us.us.us to float
   %245 = fmul float %67, %244
   %246 = fadd float %118, %245
   %.sroa.0.0.vec.insert.i129.us.us.us = insertelement <2 x float> poison, float %246, i64 0

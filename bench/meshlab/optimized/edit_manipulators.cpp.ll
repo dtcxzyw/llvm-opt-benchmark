@@ -5062,7 +5062,7 @@ define void @_ZN22EditManipulatorsPlugin10DrawCircleEfff(ptr nocapture noundef n
 
 5:                                                ; preds = %4, %5
   %.02337.int = phi i32 [ 0, %4 ], [ %.int, %5 ]
-  %indvar.conv = uitofp i32 %.02337.int to double
+  %indvar.conv = sitofp i32 %.02337.int to double
   %6 = fmul double %indvar.conv, 0x401921FB53C8D4F1
   %7 = fmul double %6, 3.125000e-02
   %8 = tail call double @cos(double noundef %7) #23

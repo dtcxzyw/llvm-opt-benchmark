@@ -43,7 +43,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %4 = xor i32 %y.021, -1
   %sub2 = add i32 %1, %4
   %cond = select i1 %tobool.not, i32 %y.021, i32 %sub2
-  %conv = uitofp i32 %y.021 to double
+  %conv = sitofp i32 %y.021 to double
   %add = fadd double %conv, 5.000000e-01
   %call = invoke noundef double @_ZNK7msdfgen10Projection10unprojectYEd(ptr noundef nonnull align 8 dereferenceable(32) %projection, double noundef %add)
           to label %invoke.cont unwind label %lpad.loopexit.split-lp
@@ -59,7 +59,7 @@ for.cond4.preheader:                              ; preds = %invoke.cont
 
 for.body6:                                        ; preds = %for.cond4.preheader, %invoke.cont11
   %x.019 = phi i32 [ %inc, %invoke.cont11 ], [ 0, %for.cond4.preheader ]
-  %conv7 = uitofp i32 %x.019 to double
+  %conv7 = sitofp i32 %x.019 to double
   %add8 = fadd double %conv7, 5.000000e-01
   %call10 = invoke noundef double @_ZNK7msdfgen10Projection10unprojectXEd(ptr noundef nonnull align 8 dereferenceable(32) %projection, double noundef %add8)
           to label %invoke.cont9 unwind label %lpad.loopexit
@@ -160,7 +160,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %4 = xor i32 %y.023, -1
   %sub2 = add i32 %1, %4
   %cond = select i1 %tobool.not, i32 %y.023, i32 %sub2
-  %conv = uitofp i32 %y.023 to double
+  %conv = sitofp i32 %y.023 to double
   %add = fadd double %conv, 5.000000e-01
   %call = invoke noundef double @_ZNK7msdfgen10Projection10unprojectYEd(ptr noundef nonnull align 8 dereferenceable(32) %projection, double noundef %add)
           to label %invoke.cont unwind label %lpad.loopexit.split-lp
@@ -176,7 +176,7 @@ for.cond4.preheader:                              ; preds = %invoke.cont
 
 for.body6:                                        ; preds = %for.cond4.preheader, %for.inc
   %x.021 = phi i32 [ %inc, %for.inc ], [ 0, %for.cond4.preheader ]
-  %conv7 = uitofp i32 %x.021 to double
+  %conv7 = sitofp i32 %x.021 to double
   %add8 = fadd double %conv7, 5.000000e-01
   %call10 = invoke noundef double @_ZNK7msdfgen10Projection10unprojectXEd(ptr noundef nonnull align 8 dereferenceable(32) %projection, double noundef %add8)
           to label %invoke.cont9 unwind label %lpad.loopexit
@@ -322,7 +322,7 @@ for.body.us.i:                                    ; preds = %for.body.lr.ph.i, %
   %4 = xor i32 %y.089.us.i, -1
   %sub3.us.i = add nsw i32 %1, %4
   %cond.us.i = select i1 %tobool2.not.us.i, i32 %y.089.us.i, i32 %sub3.us.i
-  %conv4.us.i = uitofp i32 %y.089.us.i to double
+  %conv4.us.i = sitofp i32 %y.089.us.i to double
   %add.us.i = fadd double %conv4.us.i, 5.000000e-01
   %call6.us.i = invoke noundef double @_ZNK7msdfgen10Projection10unprojectYEd(ptr noundef nonnull align 8 dereferenceable(32) %projection, double noundef %add.us.i)
           to label %invoke.cont5.us.i unwind label %lpad.loopexit.split-lp.loopexit.split.us.i
@@ -335,7 +335,7 @@ for.body10.us.i:                                  ; preds = %invoke.cont5.us.i, 
   %ambiguous.186.us.i = phi i8 [ %ambiguous.2.us.i, %if.end42.us.i ], [ %ambiguous.091.us.i, %invoke.cont5.us.i ]
   %match.185.us.i = phi ptr [ %incdec.ptr.us.i, %if.end42.us.i ], [ %match.090.us.i, %invoke.cont5.us.i ]
   %x.084.us.i = phi i32 [ %inc.us.i, %if.end42.us.i ], [ 0, %invoke.cont5.us.i ]
-  %conv11.us.i = uitofp i32 %x.084.us.i to double
+  %conv11.us.i = sitofp i32 %x.084.us.i to double
   %add12.us.i = fadd double %conv11.us.i, 5.000000e-01
   %call14.us.i = invoke noundef double @_ZNK7msdfgen10Projection10unprojectXEd(ptr noundef nonnull align 8 dereferenceable(32) %projection, double noundef %add12.us.i)
           to label %invoke.cont13.us.i unwind label %lpad.loopexit.split.us.i
@@ -409,7 +409,7 @@ lpad.loopexit.split.us.i:                         ; preds = %invoke.cont13.us.i,
 
 for.body.i:                                       ; preds = %for.body.lr.ph.i, %for.cond8.preheader.i
   %y.089.i = phi i32 [ %inc44.i, %for.cond8.preheader.i ], [ 0, %for.body.lr.ph.i ]
-  %conv4.i = uitofp i32 %y.089.i to double
+  %conv4.i = sitofp i32 %y.089.i to double
   %add.i = fadd double %conv4.i, 5.000000e-01
   %call6.i = invoke noundef double @_ZNK7msdfgen10Projection10unprojectYEd(ptr noundef nonnull align 8 dereferenceable(32) %projection, double noundef %add.i)
           to label %invoke.cont5.i unwind label %lpad.loopexit.split-lp.loopexit.split.i
@@ -716,7 +716,7 @@ for.body.us.i:                                    ; preds = %for.body.lr.ph.i, %
   %4 = xor i32 %y.093.us.i, -1
   %sub3.us.i = add nsw i32 %1, %4
   %cond.us.i = select i1 %tobool2.not.us.i, i32 %y.093.us.i, i32 %sub3.us.i
-  %conv4.us.i = uitofp i32 %y.093.us.i to double
+  %conv4.us.i = sitofp i32 %y.093.us.i to double
   %add.us.i = fadd double %conv4.us.i, 5.000000e-01
   %call6.us.i = invoke noundef double @_ZNK7msdfgen10Projection10unprojectYEd(ptr noundef nonnull align 8 dereferenceable(32) %projection, double noundef %add.us.i)
           to label %invoke.cont5.us.i unwind label %lpad.loopexit.split-lp.loopexit.split.us.i
@@ -729,7 +729,7 @@ for.body10.us.i:                                  ; preds = %invoke.cont5.us.i, 
   %ambiguous.190.us.i = phi i8 [ %ambiguous.2.us.i, %if.end53.us.i ], [ %ambiguous.095.us.i, %invoke.cont5.us.i ]
   %match.189.us.i = phi ptr [ %incdec.ptr.us.i, %if.end53.us.i ], [ %match.094.us.i, %invoke.cont5.us.i ]
   %x.088.us.i = phi i32 [ %inc.us.i, %if.end53.us.i ], [ 0, %invoke.cont5.us.i ]
-  %conv11.us.i = uitofp i32 %x.088.us.i to double
+  %conv11.us.i = sitofp i32 %x.088.us.i to double
   %add12.us.i = fadd double %conv11.us.i, 5.000000e-01
   %call14.us.i = invoke noundef double @_ZNK7msdfgen10Projection10unprojectXEd(ptr noundef nonnull align 8 dereferenceable(32) %projection, double noundef %add12.us.i)
           to label %invoke.cont13.us.i unwind label %lpad.loopexit.split.us.i
@@ -815,7 +815,7 @@ lpad.loopexit.split.us.i:                         ; preds = %invoke.cont13.us.i,
 
 for.body.i:                                       ; preds = %for.body.lr.ph.i, %for.cond8.preheader.i
   %y.093.i = phi i32 [ %inc55.i, %for.cond8.preheader.i ], [ 0, %for.body.lr.ph.i ]
-  %conv4.i = uitofp i32 %y.093.i to double
+  %conv4.i = sitofp i32 %y.093.i to double
   %add.i = fadd double %conv4.i, 5.000000e-01
   %call6.i = invoke noundef double @_ZNK7msdfgen10Projection10unprojectYEd(ptr noundef nonnull align 8 dereferenceable(32) %projection, double noundef %add.i)
           to label %invoke.cont5.i unwind label %lpad.loopexit.split-lp.loopexit.split.i

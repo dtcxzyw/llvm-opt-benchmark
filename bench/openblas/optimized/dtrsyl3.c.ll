@@ -142,11 +142,11 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
 111:                                              ; preds = %.thread, %106
   store i32 2, ptr %15, align 4, !tbaa !3
   %112 = tail call i32 @llvm.umax.i32(i32 %97, i32 %101)
-  %113 = uitofp i32 %112 to double
+  %113 = sitofp i32 %112 to double
   store double %113, ptr %14, align 8, !tbaa !7
   %114 = shl nuw nsw i32 %101, 1
   %115 = add nuw nsw i32 %114, %97
-  %116 = uitofp i32 %115 to double
+  %116 = sitofp i32 %115 to double
   %117 = sext i32 %85 to i64
   %118 = getelementptr double, ptr %88, i64 %117
   %119 = getelementptr i8, ptr %118, i64 16

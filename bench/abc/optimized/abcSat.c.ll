@@ -2369,7 +2369,7 @@ define i32 @Abc_NtkNodeFactor(ptr nocapture noundef readonly %0, i32 noundef %1)
   %3 = getelementptr inbounds i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4
   %5 = lshr i32 %4, 12
-  %6 = uitofp i32 %5 to double
+  %6 = sitofp i32 %5 to double
   %7 = tail call double @llvm.fmuladd.f64(double %6, double 1.000000e-02, double 1.000000e+00)
   %8 = fmul double %7, 1.000000e+08
   %9 = fptosi double %8 to i32

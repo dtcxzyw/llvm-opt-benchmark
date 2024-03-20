@@ -636,12 +636,12 @@ define void @dgesvdq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
 
 405:                                              ; preds = %.thread137
   store i32 %110, ptr %15, align 4, !tbaa !3
-  %406 = uitofp i32 %392 to double
+  %406 = sitofp i32 %392 to double
   store double %406, ptr %17, align 8, !tbaa !7
-  %407 = uitofp i32 %391 to double
+  %407 = sitofp i32 %391 to double
   %408 = getelementptr inbounds i8, ptr %17, i64 8
   store double %407, ptr %408, align 8, !tbaa !7
-  %409 = uitofp i32 %111 to double
+  %409 = sitofp i32 %111 to double
   store double %409, ptr %19, align 8, !tbaa !7
   br label %1778
 

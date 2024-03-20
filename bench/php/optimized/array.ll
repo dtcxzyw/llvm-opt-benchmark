@@ -10084,7 +10084,7 @@ define hidden void @zif_range(ptr noundef %0, ptr nocapture noundef %1) local_un
   %spec.select = call i64 @llvm.abs.i64(i64 %67, i1 true)
   %.lobit = lshr i64 %67, 63
   %spec.select543 = trunc i64 %.lobit to i8
-  %68 = uitofp i64 %spec.select to double
+  %68 = sitofp i64 %spec.select to double
   br label %69
 
 69:                                               ; preds = %62, %65, %66

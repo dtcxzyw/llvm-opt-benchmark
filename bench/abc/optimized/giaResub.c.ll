@@ -1424,12 +1424,12 @@ define void @Gia_ManPrintDivStats(ptr nocapture noundef readonly %0, ptr nocaptu
   %35 = add i32 %26, %34
   %36 = sitofp i32 %35 to double
   %37 = fdiv double %24, %36
-  %38 = uitofp i32 %.0.lcssa to double
+  %38 = sitofp i32 %.0.lcssa to double
   %39 = fmul double %38, 1.000000e+02
   %40 = fdiv double %39, %36
   %41 = sub nsw i32 %.val34, %.0.lcssa
   %42 = tail call noundef i32 @llvm.smax.i32(i32 %41, i32 1)
-  %43 = uitofp i32 %42 to double
+  %43 = sitofp i32 %42 to double
   %44 = fdiv double %.027.lcssa, %43
   %45 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %.val34, double noundef %37, i32 noundef %.0.lcssa, double noundef %40, double noundef %44)
   %.val12.i = load i32, ptr %1, align 8

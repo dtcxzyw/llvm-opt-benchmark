@@ -263,7 +263,7 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %153 = add nsw i32 %137, %134
   %154 = sitofp i32 %153 to double
   %155 = tail call i32 @llvm.smax.i32(i32 %152, i32 1)
-  %156 = uitofp i32 %155 to double
+  %156 = sitofp i32 %155 to double
   %157 = fmul double %156, 3.000000e-01
   %158 = fcmp ogt double %157, %154
   br i1 %158, label %159, label %164
@@ -850,7 +850,7 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %519, ptr %21, align 4, !tbaa !3
   %520 = call i32 @llvm.smax.i32(i32 %519, i32 1)
   %521 = add nuw nsw i32 %482, 2
-  %522 = sub i32 %521, %520
+  %522 = sub nsw i32 %521, %520
   store i32 %522, ptr %35, align 4, !tbaa !3
   store double 0.000000e+00, ptr %32, align 8, !tbaa !7
   %523 = icmp sgt i32 %481, %451

@@ -22685,7 +22685,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_120hamming_range_searchINS_16Hamming
   br i1 %36, label %37, label %39
 
 37:                                               ; preds = %.lr.ph
-  %38 = uitofp i32 %34 to float
+  %38 = sitofp i32 %34 to float
   invoke void @_ZN5faiss16RangeQueryResult3addEfl(ptr noundef nonnull align 8 dereferenceable(24) %29, float noundef %38, i64 noundef %.02734)
           to label %._crit_edge40 unwind label %.loopexit
 
@@ -22827,7 +22827,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_120hamming_range_searchINS_16Hamming
   br i1 %37, label %38, label %40
 
 38:                                               ; preds = %.lr.ph
-  %39 = uitofp i32 %35 to float
+  %39 = sitofp i32 %35 to float
   invoke void @_ZN5faiss16RangeQueryResult3addEfl(ptr noundef nonnull align 8 dereferenceable(24) %29, float noundef %39, i64 noundef %.02734)
           to label %._crit_edge40 unwind label %.loopexit
 
@@ -22958,7 +22958,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_120hamming_range_searchINS_17Hamming
   br i1 %39, label %40, label %42
 
 40:                                               ; preds = %.lr.ph
-  %41 = uitofp i32 %37 to float
+  %41 = sitofp i32 %37 to float
   invoke void @_ZN5faiss16RangeQueryResult3addEfl(ptr noundef nonnull align 8 dereferenceable(24) %29, float noundef %41, i64 noundef %.02734)
           to label %._crit_edge40 unwind label %.loopexit
 
@@ -23097,7 +23097,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_120hamming_range_searchINS_17Hamming
   br i1 %47, label %48, label %50
 
 48:                                               ; preds = %.lr.ph
-  %49 = uitofp i32 %45 to float
+  %49 = sitofp i32 %45 to float
   invoke void @_ZN5faiss16RangeQueryResult3addEfl(ptr noundef nonnull align 8 dereferenceable(24) %32, float noundef %49, i64 noundef %.02734)
           to label %._crit_edge40 unwind label %.loopexit
 
@@ -23226,7 +23226,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_120hamming_range_searchINS_17Hamming
   br i1 %38, label %39, label %41
 
 39:                                               ; preds = %.lr.ph
-  %40 = uitofp i32 %36 to float
+  %40 = sitofp i32 %36 to float
   invoke void @_ZN5faiss16RangeQueryResult3addEfl(ptr noundef nonnull align 8 dereferenceable(24) %29, float noundef %40, i64 noundef %.02734)
           to label %._crit_edge40 unwind label %.loopexit
 

@@ -3594,7 +3594,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_110IVFScannerINS_16Hamming
   %5 = load i32, ptr %3, align 8
   %6 = xor i32 %5, %4
   %7 = tail call noundef i32 @llvm.ctpop.i32(i32 %6), !range !25
-  %8 = uitofp i32 %7 to float
+  %8 = sitofp i32 %7 to float
   ret float %8
 }
 
@@ -3622,7 +3622,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_110IVFScannerINS_16HammingCo
   %16 = load i32, ptr %8, align 8
   %17 = xor i32 %16, %15
   %18 = tail call noundef i32 @llvm.ctpop.i32(i32 %17), !range !25
-  %19 = uitofp i32 %18 to float
+  %19 = sitofp i32 %18 to float
   %20 = load float, ptr %4, align 4
   %21 = fcmp ogt float %20, %19
   br i1 %21, label %22, label %34
@@ -3667,7 +3667,7 @@ _ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit.us: ; preds = %29, %25
   %39 = load i32, ptr %8, align 8
   %40 = xor i32 %39, %38
   %41 = tail call noundef i32 @llvm.ctpop.i32(i32 %40), !range !25
-  %42 = uitofp i32 %41 to float
+  %42 = sitofp i32 %41 to float
   %43 = load float, ptr %4, align 4
   %44 = fcmp ogt float %43, %42
   br i1 %44, label %45, label %94
@@ -3802,7 +3802,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_110IVFScannerINS_16HammingComputer4
   %13 = load i32, ptr %7, align 8
   %14 = xor i32 %13, %12
   %15 = tail call noundef i32 @llvm.ctpop.i32(i32 %14), !range !25
-  %16 = uitofp i32 %15 to float
+  %16 = sitofp i32 %15 to float
   %17 = fcmp olt float %16, %4
   br i1 %17, label %18, label %30
 
@@ -4153,7 +4153,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_110IVFScannerINS_16Hamming
   %6 = xor i64 %5, %4
   %7 = tail call i64 @llvm.ctpop.i64(i64 %6), !range !13
   %8 = trunc i64 %7 to i32
-  %9 = uitofp i32 %8 to float
+  %9 = sitofp i32 %8 to float
   ret float %9
 }
 
@@ -4182,7 +4182,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_110IVFScannerINS_16HammingCo
   %17 = xor i64 %16, %15
   %18 = tail call i64 @llvm.ctpop.i64(i64 %17), !range !13
   %19 = trunc i64 %18 to i32
-  %20 = uitofp i32 %19 to float
+  %20 = sitofp i32 %19 to float
   %21 = load float, ptr %4, align 4
   %22 = fcmp ogt float %21, %20
   br i1 %22, label %23, label %35
@@ -4228,7 +4228,7 @@ _ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit.us: ; preds = %30, %26
   %41 = xor i64 %40, %39
   %42 = tail call i64 @llvm.ctpop.i64(i64 %41), !range !13
   %43 = trunc i64 %42 to i32
-  %44 = uitofp i32 %43 to float
+  %44 = sitofp i32 %43 to float
   %45 = load float, ptr %4, align 4
   %46 = fcmp ogt float %45, %44
   br i1 %46, label %47, label %96
@@ -4362,7 +4362,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_110IVFScannerINS_16HammingComputer8
   %14 = xor i64 %13, %12
   %15 = tail call i64 @llvm.ctpop.i64(i64 %14), !range !13
   %16 = trunc i64 %15 to i32
-  %17 = uitofp i32 %16 to float
+  %17 = sitofp i32 %16 to float
   %18 = fcmp olt float %17, %4
   br i1 %18, label %19, label %31
 
@@ -4717,7 +4717,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_110IVFScannerINS_17Hamming
   %shift = shufflevector <2 x i32> %8, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
   %9 = add nuw nsw <2 x i32> %shift, %8
   %10 = extractelement <2 x i32> %9, i64 0
-  %11 = uitofp i32 %10 to float
+  %11 = sitofp i32 %10 to float
   ret float %11
 }
 
@@ -4749,7 +4749,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_110IVFScannerINS_17HammingCo
   %shift = shufflevector <2 x i32> %20, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
   %21 = add nuw nsw <2 x i32> %shift, %20
   %22 = extractelement <2 x i32> %21, i64 0
-  %23 = uitofp i32 %22 to float
+  %23 = sitofp i32 %22 to float
   %24 = load float, ptr %4, align 4
   %25 = fcmp ogt float %24, %23
   br i1 %25, label %26, label %76
@@ -4886,7 +4886,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_110IVFScannerINS_17HammingComputer1
   %shift = shufflevector <2 x i32> %16, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
   %17 = add nuw nsw <2 x i32> %shift, %16
   %18 = extractelement <2 x i32> %17, i64 0
-  %19 = uitofp i32 %18 to float
+  %19 = sitofp i32 %18 to float
   %20 = fcmp olt float %19, %4
   br i1 %20, label %21, label %33
 
@@ -5258,7 +5258,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_110IVFScannerINS_17Hamming
   %15 = xor i32 %14, %12
   %16 = tail call i32 @llvm.ctpop.i32(i32 %15), !range !25
   %17 = add nuw nsw i32 %10, %16
-  %18 = uitofp i32 %17 to float
+  %18 = sitofp i32 %17 to float
   ret float %18
 }
 
@@ -5297,7 +5297,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_110IVFScannerINS_17HammingCo
   %27 = xor i32 %26, %25
   %28 = tail call i32 @llvm.ctpop.i32(i32 %27), !range !25
   %29 = add nuw nsw i32 %23, %28
-  %30 = uitofp i32 %29 to float
+  %30 = sitofp i32 %29 to float
   %31 = load float, ptr %4, align 4
   %32 = fcmp ogt float %31, %30
   br i1 %32, label %33, label %83
@@ -5441,7 +5441,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_110IVFScannerINS_17HammingComputer2
   %23 = xor i32 %22, %21
   %24 = tail call i32 @llvm.ctpop.i32(i32 %23), !range !25
   %25 = add nuw nsw i32 %19, %24
-  %26 = uitofp i32 %25 to float
+  %26 = sitofp i32 %25 to float
   %27 = fcmp olt float %26, %4
   br i1 %27, label %28, label %40
 
@@ -5810,7 +5810,7 @@ define internal noundef float @_ZNK5faiss12_GLOBAL__N_110IVFScannerINS_17Hamming
   %7 = tail call <4 x i64> @llvm.ctpop.v4i64(<4 x i64> %6), !range !13
   %8 = tail call i64 @llvm.vector.reduce.add.v4i64(<4 x i64> %7)
   %9 = trunc i64 %8 to i32
-  %10 = uitofp i32 %9 to float
+  %10 = sitofp i32 %9 to float
   ret float %10
 }
 
@@ -5840,7 +5840,7 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_110IVFScannerINS_17HammingCo
   %19 = tail call <4 x i64> @llvm.ctpop.v4i64(<4 x i64> %18), !range !13
   %20 = tail call i64 @llvm.vector.reduce.add.v4i64(<4 x i64> %19)
   %21 = trunc i64 %20 to i32
-  %22 = uitofp i32 %21 to float
+  %22 = sitofp i32 %21 to float
   %23 = load float, ptr %4, align 4
   %24 = fcmp ogt float %23, %22
   br i1 %24, label %25, label %75
@@ -5975,7 +5975,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_110IVFScannerINS_17HammingComputer3
   %15 = tail call <4 x i64> @llvm.ctpop.v4i64(<4 x i64> %14), !range !13
   %16 = tail call i64 @llvm.vector.reduce.add.v4i64(<4 x i64> %15)
   %17 = trunc i64 %16 to i32
-  %18 = uitofp i32 %17 to float
+  %18 = sitofp i32 %17 to float
   %19 = fcmp olt float %18, %4
   br i1 %19, label %20, label %32
 

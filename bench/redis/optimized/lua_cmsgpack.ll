@@ -1612,7 +1612,7 @@ while.body.lr.ph:                                 ; preds = %entry
 while.body:                                       ; preds = %if.end, %while.body.lr.ph
   %dec10.in = phi i64 [ %len, %while.body.lr.ph ], [ %dec10, %if.end ]
   %index.09 = phi i32 [ 1, %while.body.lr.ph ], [ %inc, %if.end ]
-  %conv = uitofp i32 %index.09 to double
+  %conv = sitofp i32 %index.09 to double
   tail call void @lua_pushnumber(ptr noundef %L, double noundef %conv) #9
   tail call void @mp_decode_to_lua_type(ptr noundef %L, ptr noundef %c)
   %0 = load i32, ptr %err, align 8, !tbaa !22

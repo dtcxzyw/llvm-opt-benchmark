@@ -105,7 +105,7 @@ gv_calloc.exit.i:                                 ; preds = %14
 
 getInfo.exit.us.i:                                ; preds = %29
   %indvars112.i = trunc i64 %.06992.us.i to i32
-  %40 = uitofp i32 %indvars112.i to double
+  %40 = sitofp i32 %indvars112.i to double
   %41 = fmul double %26, %40
   %42 = sext i32 %.07491.us.i to i64
   %43 = getelementptr inbounds %struct.posinfo_t, ptr %15, i64 %42
@@ -145,7 +145,7 @@ getInfo.exit.us.i:                                ; preds = %29
 
 .lr.ph.i.preheader.i:                             ; preds = %.lr.ph.split.i
   %indvars111.i = trunc i64 %.06992.i to i32
-  %60 = uitofp i32 %indvars111.i to double
+  %60 = sitofp i32 %indvars111.i to double
   %61 = fmul double %26, %60
   %62 = sext i32 %.07491.i to i64
   %63 = getelementptr inbounds %struct.posinfo_t, ptr %15, i64 %62

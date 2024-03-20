@@ -19093,7 +19093,7 @@ define noundef zeroext i1 @_ZN15RtpPlayerDialog11eventFilterEP7QObjectP6QEvent(p
   %62 = getelementptr inbounds i8, ptr %53, i64 304
   %.sroa.0.0.copyload.i.i = load double, ptr %62, align 8
   %63 = fsub double %.sroa.2.0.copyload.i.i, %.sroa.0.0.copyload.i.i
-  %64 = uitofp i32 %47 to double
+  %64 = sitofp i32 %47 to double
   %65 = fmul double %63, %64
   %66 = sitofp i32 %61 to double
   %67 = fdiv double %65, %66

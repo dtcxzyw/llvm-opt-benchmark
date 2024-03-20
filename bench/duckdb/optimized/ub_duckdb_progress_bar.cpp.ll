@@ -870,7 +870,7 @@ entry:
   %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %result, i64 8
   store i64 0, ptr %_M_string_length.i.i.i, align 8, !tbaa !23
   store i8 0, ptr %0, align 8, !tbaa !74
-  %conv = uitofp i32 %spec.store.select66 to double
+  %conv = sitofp i32 %spec.store.select66 to double
   %div = fdiv double %conv, 1.000000e+02
   %mul = fmul double %div, 6.000000e+01
   %call3.i.i85 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %result, i64 noundef 0, i64 noundef 0, ptr noundef nonnull @.str.1, i64 noundef 1)

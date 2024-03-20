@@ -21597,7 +21597,7 @@ if.end35.i:                                       ; preds = %if.then31.i, %lor.l
   %n_gradient_accumulation.i = getelementptr inbounds i8, ptr %params18, i64 36
   %33 = load i32, ptr %n_gradient_accumulation.i, align 4
   %cond.i = tail call i32 @llvm.smax.i32(i32 %33, i32 1)
-  %conv.i = uitofp i32 %cond.i to float
+  %conv.i = sitofp i32 %cond.i to float
   %div.i = fdiv float 1.000000e+00, %conv.i
   %adam53.i = getelementptr inbounds i8, ptr %opt, i64 160
   %34 = load ptr, ptr %adam53.i, align 8
@@ -22355,7 +22355,7 @@ cond.end.i:                                       ; preds = %cond.true.i, %if.en
   %n_gradient_accumulation.i35 = getelementptr inbounds i8, ptr %params19, i64 36
   %167 = load i32, ptr %n_gradient_accumulation.i35, align 4
   %cond87.i = tail call i32 @llvm.smax.i32(i32 %167, i32 1)
-  %conv88.i = uitofp i32 %cond87.i to float
+  %conv88.i = sitofp i32 %cond87.i to float
   %div.i36 = fdiv float 1.000000e+00, %conv88.i
   %cmp10.i.i37 = icmp sgt i32 %np.0.lcssa.i27, 0
   %wide.trip.count.i.i70 = zext nneg i32 %np.0.lcssa.i27 to i64
@@ -46941,7 +46941,7 @@ for.cond49.preheader.us.us.i:                     ; preds = %for.cond49.for.inc9
   %indvars.iv27.i = phi i64 [ 0, %for.cond49.preheader.us.us.preheader.i ], [ %indvars.iv.next28.i, %for.cond49.for.inc92_crit_edge.split.us.us.us.i ]
   %17 = shl nuw nsw i64 %indvars.iv27.i, 1
   %18 = trunc i64 %indvars.iv27.i to i32
-  %conv84.us.us.i = uitofp i32 %18 to float
+  %conv84.us.us.i = sitofp i32 %18 to float
   br label %for.cond53.preheader.us.us.us.i
 
 for.cond53.preheader.us.us.us.i:                  ; preds = %for.cond53.for.inc89_crit_edge.us.us.us.i, %for.cond49.preheader.us.us.i
@@ -46976,7 +46976,7 @@ if.else.us.us.us.i:                               ; preds = %for.body56.us.us.us
 if.then76.us.us.us.i:                             ; preds = %for.body56.us.us.us.i
   %26 = add nuw nsw i64 %indvars.iv.i, 1
   %27 = trunc i64 %26 to i32
-  %conv77.us.us.us.i = uitofp i32 %27 to float
+  %conv77.us.us.us.i = sitofp i32 %27 to float
   %call78.us.us.us.i = tail call float @powf(float noundef %exp2f.i, float noundef %conv77.us.us.us.i) #45
   br label %if.end83.us.us.us.i
 
@@ -47085,7 +47085,7 @@ for.cond41.preheader.lr.ph.i:                     ; preds = %do.end27.i
 for.cond41.preheader.us.us.i:                     ; preds = %for.cond41.preheader.lr.ph.i, %for.cond41.for.inc80_crit_edge.split.us.us.us.i
   %i.06.us.us.i = phi i64 [ %inc81.us.us.i, %for.cond41.for.inc80_crit_edge.split.us.us.us.i ], [ 0, %for.cond41.preheader.lr.ph.i ]
   %mul.us.us.i = shl i64 %i.06.us.us.i, 2
-  %conv73.us.us.i = uitofp i64 %i.06.us.us.i to float
+  %conv73.us.us.i = sitofp i64 %i.06.us.us.i to float
   br label %for.cond45.preheader.us.us.us.i
 
 for.cond45.preheader.us.us.us.i:                  ; preds = %for.cond45.for.inc77_crit_edge.us.us.us.i, %for.cond41.preheader.us.us.i
@@ -47118,7 +47118,7 @@ if.else.us.us.us.i26:                             ; preds = %for.body48.us.us.us
 
 if.then64.us.us.us.i:                             ; preds = %for.body48.us.us.us.i
   %add.us.us.us.i = add nuw nsw i64 %k.02.us.us.us.i, 1
-  %conv65.us.us.us.i = uitofp i64 %add.us.us.us.i to float
+  %conv65.us.us.us.i = sitofp i64 %add.us.us.us.i to float
   %call66.us.us.us.i = tail call float @powf(float noundef %exp2f.i21, float noundef %conv65.us.us.us.i) #45
   br label %if.end72.us.us.us.i
 
@@ -58531,7 +58531,7 @@ for.cond305.for.inc379_crit_edge.split.us268.us.us.us.us.us.us: ; preds = %for.b
 for.cond305.preheader.us.us.us.us.us.us.us.us:    ; preds = %for.cond305.preheader.lr.ph.split.us.us.us.us.us.us.us, %for.cond305.for.inc379_crit_edge.split.us.us.us.us.us.us.us.us.us
   %theta_base.2231.us.us.us.us.us.us.us.us = phi float [ %mul319.us.us.us.us.us.us.us.us.us, %for.cond305.for.inc379_crit_edge.split.us.us.us.us.us.us.us.us.us ], [ %mul298.us.us.us.us.us, %for.cond305.preheader.lr.ph.split.us.us.us.us.us.us.us ]
   %ib.0230.us.us.us.us.us.us.us.us = phi i64 [ %inc380.us.us.us.us.us.us.us.us, %for.cond305.for.inc379_crit_edge.split.us.us.us.us.us.us.us.us.us ], [ 0, %for.cond305.preheader.lr.ph.split.us.us.us.us.us.us.us ]
-  %conv312.us.us.us.us.us.us.us.us = uitofp i64 %ib.0230.us.us.us.us.us.us.us.us to float
+  %conv312.us.us.us.us.us.us.us.us = sitofp i64 %ib.0230.us.us.us.us.us.us.us.us to float
   %neg313.us.us.us.us.us.us.us.us = fneg float %conv312.us.us.us.us.us.us.us.us
   %mul322.us.us.us.us.us.us.us.us = mul nsw i64 %ib.0230.us.us.us.us.us.us.us.us, %conv67
   br label %for.body309.us.us.us.us.us.us.us.us.us
@@ -58540,7 +58540,7 @@ for.body309.us.us.us.us.us.us.us.us.us:           ; preds = %for.body309.us.us.u
   %theta_base.3228.us.us.us.us.us.us.us.us.us = phi float [ %theta_base.2231.us.us.us.us.us.us.us.us, %for.cond305.preheader.us.us.us.us.us.us.us.us ], [ %mul319.us.us.us.us.us.us.us.us.us, %for.body309.us.us.us.us.us.us.us.us.us ]
   %ic.0227.us.us.us.us.us.us.us.us.us = phi i64 [ 0, %for.cond305.preheader.us.us.us.us.us.us.us.us ], [ %add377.us.us.us.us.us.us.us.us.us, %for.body309.us.us.us.us.us.us.us.us.us ]
   %mul.i181.us.us.us.us.us.us.us.us.us = fmul float %freq_scale.0.copyload, %theta_base.3228.us.us.us.us.us.us.us.us.us
-  %conv310.us.us.us.us.us.us.us.us.us = uitofp i64 %ic.0227.us.us.us.us.us.us.us.us.us to float
+  %conv310.us.us.us.us.us.us.us.us.us = sitofp i64 %ic.0227.us.us.us.us.us.us.us.us.us to float
   %73 = tail call float @llvm.fmuladd.f32(float %div91, float %conv310.us.us.us.us.us.us.us.us.us, float %neg313.us.us.us.us.us.us.us.us)
   %conv317.us.us.us.us.us.us.us.us.us = fptosi float %73 to i64
   %conv.i190.us.us.us.us.us.us.us.us.us = trunc i64 %conv317.us.us.us.us.us.us.us.us.us to i32
@@ -58641,7 +58641,7 @@ for.body105.us.us.us.us414.us:                    ; preds = %for.inc387.us.us.us
   %conv133.us.us.us.us420.us = sitofp i64 %cond132.us.us.us.us419.us to float
   %sub136.us.us.us.us421.us = sub nsw i64 %conv107.us.us.us.us418.us, %conv124
   %spec.select.us.us.us.us422.us = tail call i64 @llvm.smax.i64(i64 %sub136.us.us.us.us421.us, i64 0)
-  %conv146.us.us.us.us423.us = uitofp i64 %spec.select.us.us.us.us422.us to float
+  %conv146.us.us.us.us423.us = sitofp i64 %spec.select.us.us.us.us422.us to float
   %mul163.us.us.us.us424.us = mul i64 %i2.0349.us.us.us.us416.us, %7
   %mul172.us.us.us.us425.us = mul i64 %i2.0349.us.us.us.us416.us, %15
   %89 = add i32 %ir.1350.us.us.us.us415.us, %87
@@ -59015,7 +59015,7 @@ for.body219.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us: ; preds
   %call10.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = tail call float @sinf(float noundef %33) #45
   %mul11.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = fmul float %mul7.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %call10.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
   %mul223.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = fmul float %cond105, %mul11.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
-  %conv227.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = uitofp i64 %i0215.0260.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us to float
+  %conv227.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = sitofp i64 %i0215.0260.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us to float
   %35 = tail call float @llvm.fmuladd.f32(float %conv228, float 0x3FD99999A0000000, float %conv227.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us)
   %div232.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = fdiv float %35, %mul231
   %call235.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = tail call float @powf(float noundef %div232.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, float noundef %div234.us.us.us.us.us.us.us.us.us.us.us.us.us) #45
@@ -59224,7 +59224,7 @@ for.body219.us.us.us298.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us: ; pr
   %call10.i.us.us.us304.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = tail call float @sinf(float noundef %mul.i181.us.us.us301.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us) #45
   %mul11.i.us.us.us305.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = fmul float %attn_factor.0.copyload, %call10.i.us.us.us304.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
   %mul223.us.us.us306.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = fmul float %cond105, %mul11.i.us.us.us305.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
-  %conv227.us.us.us308.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = uitofp i64 %i0215.0260.us.us.us300.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us to float
+  %conv227.us.us.us308.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = sitofp i64 %i0215.0260.us.us.us300.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us to float
   %57 = tail call float @llvm.fmuladd.f32(float %conv228, float 0x3FD99999A0000000, float %conv227.us.us.us308.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us)
   %div232.us.us.us309.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = fdiv float %57, %mul231
   %call235.us.us.us310.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = tail call float @powf(float noundef %div232.us.us.us309.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, float noundef %div234.us.us.us.us.us.us.us.us615.us.us.us.us.us) #45
@@ -59320,7 +59320,7 @@ for.body219.us.us.us298.us.us.us.us.us.us.us.us.us543.us.us.us.us: ; preds = %fo
   %call10.i.us.us.us304.us.us.us.us.us.us.us.us.us549.us.us.us.us = tail call float @sinf(float noundef %mul.i181.us.us.us301.us.us.us.us.us.us.us.us.us546.us.us.us.us) #45
   %mul11.i.us.us.us305.us.us.us.us.us.us.us.us.us550.us.us.us.us = fmul float %attn_factor.0.copyload, %call10.i.us.us.us304.us.us.us.us.us.us.us.us.us549.us.us.us.us
   %mul223.us.us.us306.us.us.us.us.us.us.us.us.us551.us.us.us.us = fmul float %cond105, %mul11.i.us.us.us305.us.us.us.us.us.us.us.us.us550.us.us.us.us
-  %conv227.us.us.us308.us.us.us.us.us.us.us.us.us552.us.us.us.us = uitofp i64 %i0215.0260.us.us.us300.us.us.us.us.us.us.us.us.us545.us.us.us.us to float
+  %conv227.us.us.us308.us.us.us.us.us.us.us.us.us552.us.us.us.us = sitofp i64 %i0215.0260.us.us.us300.us.us.us.us.us.us.us.us.us545.us.us.us.us to float
   %68 = tail call float @llvm.fmuladd.f32(float %conv228, float 0x3FD99999A0000000, float %conv227.us.us.us308.us.us.us.us.us.us.us.us.us552.us.us.us.us)
   %div232.us.us.us309.us.us.us.us.us.us.us.us.us553.us.us.us.us = fdiv float %68, %mul231
   %call235.us.us.us310.us.us.us.us.us.us.us.us.us554.us.us.us.us = tail call float @powf(float noundef %div232.us.us.us309.us.us.us.us.us.us.us.us.us553.us.us.us.us, float noundef %div234.us.us.us.us.us.us.us.us615.us.us.us) #45
@@ -59557,7 +59557,7 @@ for.cond290.for.inc348_crit_edge.split.us256.us.us.us.us.us.us: ; preds = %for.b
 for.cond290.preheader.us.us.us.us.us.us.us.us:    ; preds = %for.cond290.preheader.lr.ph.split.us.us.us.us.us.us.us, %for.cond290.for.inc348_crit_edge.split.us.us.us.us.us.us.us.us.us
   %theta_base.2227.us.us.us.us.us.us.us.us = phi float [ %mul304.us.us.us.us.us.us.us.us.us, %for.cond290.for.inc348_crit_edge.split.us.us.us.us.us.us.us.us.us ], [ %mul283.us.us.us.us.us, %for.cond290.preheader.lr.ph.split.us.us.us.us.us.us.us ]
   %ib.0226.us.us.us.us.us.us.us.us = phi i64 [ %inc349.us.us.us.us.us.us.us.us, %for.cond290.for.inc348_crit_edge.split.us.us.us.us.us.us.us.us.us ], [ 0, %for.cond290.preheader.lr.ph.split.us.us.us.us.us.us.us ]
-  %conv297.us.us.us.us.us.us.us.us = uitofp i64 %ib.0226.us.us.us.us.us.us.us.us to float
+  %conv297.us.us.us.us.us.us.us.us = sitofp i64 %ib.0226.us.us.us.us.us.us.us.us to float
   %neg298.us.us.us.us.us.us.us.us = fneg float %conv297.us.us.us.us.us.us.us.us
   %mul307.us.us.us.us.us.us.us.us = mul nsw i64 %ib.0226.us.us.us.us.us.us.us.us, %conv73
   br label %for.body294.us.us.us.us.us.us.us.us.us
@@ -59566,7 +59566,7 @@ for.body294.us.us.us.us.us.us.us.us.us:           ; preds = %for.body294.us.us.u
   %theta_base.3224.us.us.us.us.us.us.us.us.us = phi float [ %theta_base.2227.us.us.us.us.us.us.us.us, %for.cond290.preheader.us.us.us.us.us.us.us.us ], [ %mul304.us.us.us.us.us.us.us.us.us, %for.body294.us.us.us.us.us.us.us.us.us ]
   %ic.0223.us.us.us.us.us.us.us.us.us = phi i64 [ 0, %for.cond290.preheader.us.us.us.us.us.us.us.us ], [ %add346.us.us.us.us.us.us.us.us.us, %for.body294.us.us.us.us.us.us.us.us.us ]
   %mul.i182.us.us.us.us.us.us.us.us.us = fmul float %freq_scale.0.copyload, %theta_base.3224.us.us.us.us.us.us.us.us.us
-  %conv295.us.us.us.us.us.us.us.us.us = uitofp i64 %ic.0223.us.us.us.us.us.us.us.us.us to float
+  %conv295.us.us.us.us.us.us.us.us.us = sitofp i64 %ic.0223.us.us.us.us.us.us.us.us.us to float
   %95 = tail call float @llvm.fmuladd.f32(float %div97, float %conv295.us.us.us.us.us.us.us.us.us, float %neg298.us.us.us.us.us.us.us.us)
   %conv302.us.us.us.us.us.us.us.us.us = fptosi float %95 to i64
   %conv.i191.us.us.us.us.us.us.us.us.us = trunc i64 %conv302.us.us.us.us.us.us.us.us.us to i32
@@ -59655,7 +59655,7 @@ for.body111.us.us.us.us405.us:                    ; preds = %for.inc356.us.us.us
   %conv139.us.us.us.us411.us = sitofp i64 %cond138.us.us.us.us410.us to float
   %sub142.us.us.us.us412.us = sub nsw i64 %conv113.us.us.us.us409.us, %conv130
   %spec.select.us.us.us.us413.us = tail call i64 @llvm.smax.i64(i64 %sub142.us.us.us.us412.us, i64 0)
-  %conv152.us.us.us.us414.us = uitofp i64 %spec.select.us.us.us.us413.us to float
+  %conv152.us.us.us.us414.us = sitofp i64 %spec.select.us.us.us.us413.us to float
   %mul169.us.us.us.us415.us = mul i64 %i2.0340.us.us.us.us407.us, %7
   %mul178.us.us.us.us416.us = mul i64 %i2.0340.us.us.us.us407.us, %15
   %107 = add i32 %ir.1341.us.us.us.us406.us, %105

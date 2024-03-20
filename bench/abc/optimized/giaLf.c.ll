@@ -667,7 +667,7 @@ define float @Lf_CutRef_rec(ptr nocapture noundef readonly %0, ptr nocapture nou
   br i1 %exitcond.not.i.i, label %Lf_CutSwitches.exit.i, label %16, !llvm.loop !11
 
 Lf_CutSwitches.exit.i:                            ; preds = %16
-  %23 = uitofp i32 %6 to double
+  %23 = sitofp i32 %6 to double
   %24 = fpext float %22 to double
   %25 = fadd double %23, %24
   %26 = fptrunc double %25 to float
@@ -712,7 +712,7 @@ Lf_CutSwitches.exit.i:                            ; preds = %16
   %50 = sdiv i32 %49, 2
   %51 = icmp sgt i32 %6, %50
   %52 = select i1 %51, i32 2, i32 1
-  %53 = uitofp i32 %52 to float
+  %53 = sitofp i32 %52 to float
   br label %.lr.ph
 
 Lf_CutArea.exit:                                  ; preds = %2, %Lf_CutSwitches.exit.i
@@ -1037,7 +1037,7 @@ define float @Lf_CutDeref_rec(ptr nocapture noundef readonly %0, ptr nocapture n
   br i1 %exitcond.not.i.i, label %Lf_CutSwitches.exit.i, label %16, !llvm.loop !11
 
 Lf_CutSwitches.exit.i:                            ; preds = %16
-  %23 = uitofp i32 %6 to double
+  %23 = sitofp i32 %6 to double
   %24 = fpext float %22 to double
   %25 = fadd double %23, %24
   %26 = fptrunc double %25 to float
@@ -1082,7 +1082,7 @@ Lf_CutSwitches.exit.i:                            ; preds = %16
   %50 = sdiv i32 %49, 2
   %51 = icmp sgt i32 %6, %50
   %52 = select i1 %51, i32 2, i32 1
-  %53 = uitofp i32 %52 to float
+  %53 = sitofp i32 %52 to float
   br label %.lr.ph
 
 Lf_CutArea.exit:                                  ; preds = %2, %Lf_CutSwitches.exit.i
@@ -1749,7 +1749,7 @@ Lf_ManPrepareSet.exit451:                         ; preds = %Lf_ManPrepareSet.ex
   %.0.i446 = phi i32 [ 1, %299 ], [ 0, %306 ], [ %320, %Lf_ManPrepareSet.exit451.loopexit ]
   %321 = mul nsw i32 %.0.i421.fr, %.0.i
   %322 = mul nsw i32 %321, %.0.i446
-  %323 = uitofp i32 %322 to double
+  %323 = sitofp i32 %322 to double
   %324 = getelementptr inbounds i8, ptr %0, i64 288
   %325 = load double, ptr %324, align 8
   %326 = fadd double %325, %323
@@ -2377,7 +2377,7 @@ Gia_ObjIsMuxId.exit.thread:                       ; preds = %.loopexit569, %Gia_
 Gia_ObjIsXor.exit:                                ; preds = %Gia_ObjIsMuxId.exit.thread, %639
   %.not.i502 = phi i1 [ true, %Gia_ObjIsMuxId.exit.thread ], [ %645, %639 ]
   %646 = mul nsw i32 %.0.i421.fr, %.0.i
-  %647 = uitofp i32 %646 to double
+  %647 = sitofp i32 %646 to double
   %648 = getelementptr inbounds i8, ptr %0, i64 288
   %649 = load double, ptr %648, align 8
   %650 = fadd double %649, %647
@@ -4168,7 +4168,7 @@ Lf_ObjArrival_rec.exit:                           ; preds = %Lf_ObjArrival_rec.e
   br i1 %exitcond.not.i.i, label %Lf_CutSwitches.exit.i, label %123, !llvm.loop !11
 
 Lf_CutSwitches.exit.i:                            ; preds = %123
-  %130 = uitofp i32 %113 to double
+  %130 = sitofp i32 %113 to double
   %131 = fpext float %129 to double
   %132 = fadd double %130, %131
   %133 = fptrunc double %132 to float
@@ -4213,7 +4213,7 @@ Lf_CutSwitches.exit.i:                            ; preds = %123
   %157 = sdiv i32 %156, 2
   %158 = icmp sgt i32 %113, %157
   %159 = select i1 %158, i32 2, i32 1
-  %160 = uitofp i32 %159 to float
+  %160 = sitofp i32 %159 to float
   br label %Lf_CutArea.exit
 
 Lf_CutArea.exit:                                  ; preds = %112, %Lf_CutSwitches.exit.i, %148, %152, %155

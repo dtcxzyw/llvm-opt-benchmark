@@ -778,13 +778,13 @@ define internal i32 @dissect_uftp(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 25:                                               ; preds = %21
   %26 = add nuw nsw i32 %23, 1
-  %27 = uitofp i32 %26 to double
+  %27 = sitofp i32 %26 to double
   %28 = fmul double %27, 0x3EB0C6F7A0B5ED8D
   br label %unquantize_grtt.exit
 
 29:                                               ; preds = %21
   %30 = xor i32 %23, 255
-  %31 = uitofp i32 %30 to double
+  %31 = sitofp i32 %30 to double
   %32 = fdiv double %31, 1.300000e+01
   %33 = tail call double @exp(double noundef %32) #4
   %34 = fdiv double 1.000000e+03, %33
@@ -796,7 +796,7 @@ unquantize_grtt.exit:                             ; preds = %25, %29
   %37 = zext i8 %36 to i32
   %38 = and i32 %37, 7
   %39 = lshr i32 %37, 3
-  %40 = uitofp i32 %39 to double
+  %40 = sitofp i32 %39 to double
   %41 = fmul double %40, 3.125000e-01
   %.not.i = icmp eq i32 %38, 0
   br i1 %.not.i, label %unquantize_gsize.exit, label %.lr.ph.i
@@ -1932,7 +1932,7 @@ define internal fastcc void @dissect_uftp_fileseg(ptr noundef %0, ptr noundef %1
   %63 = zext i16 %62 to i32
   %64 = and i32 %63, 15
   %65 = lshr i32 %63, 4
-  %66 = uitofp i32 %65 to double
+  %66 = sitofp i32 %65 to double
   %67 = fmul double %66, 0x3F64000000000000
   %.not.i.i = icmp eq i32 %64, 0
   br i1 %.not.i.i, label %unquantize_rate.exit.i, label %.lr.ph.i.i
@@ -1952,7 +1952,7 @@ unquantize_rate.exit.i:                           ; preds = %.lr.ph.i.i, %61
   %72 = zext i16 %71 to i32
   %73 = and i32 %72, 15
   %74 = lshr i32 %72, 4
-  %75 = uitofp i32 %74 to double
+  %75 = sitofp i32 %74 to double
   %76 = fmul double %75, 0x3F64000000000000
   %.not.i48.i = icmp eq i32 %73, 0
   br i1 %.not.i48.i, label %.loopexit, label %.lr.ph.i49.i
@@ -2671,7 +2671,7 @@ define internal fastcc void @dissect_uftp_congctrl(ptr noundef %0, ptr noundef %
   %22 = zext i16 %21 to i32
   %23 = and i32 %22, 15
   %24 = lshr i32 %22, 4
-  %25 = uitofp i32 %24 to double
+  %25 = sitofp i32 %24 to double
   %26 = fmul double %25, 0x3F64000000000000
   %.not.i = icmp eq i32 %23, 0
   br i1 %.not.i, label %unquantize_rate.exit, label %.lr.ph.i
@@ -2737,13 +2737,13 @@ unquantize_rate.exit:                             ; preds = %.lr.ph.i, %20
 
 64:                                               ; preds = %.lr.ph
   %65 = add nuw nsw i32 %62, 1
-  %66 = uitofp i32 %65 to double
+  %66 = sitofp i32 %65 to double
   %67 = fmul double %66, 0x3EB0C6F7A0B5ED8D
   br label %unquantize_grtt.exit
 
 68:                                               ; preds = %.lr.ph
   %69 = xor i32 %62, 255
-  %70 = uitofp i32 %69 to double
+  %70 = sitofp i32 %69 to double
   %71 = fdiv double %70, 1.300000e+01
   %72 = call double @exp(double noundef %71) #4
   %73 = fdiv double 1.000000e+03, %72
@@ -2756,7 +2756,7 @@ unquantize_grtt.exit:                             ; preds = %64, %68
   %77 = zext i16 %76 to i32
   %78 = and i32 %77, 15
   %79 = lshr i32 %77, 4
-  %80 = uitofp i32 %79 to double
+  %80 = sitofp i32 %79 to double
   %81 = fmul double %80, 0x3F64000000000000
   %.not.i92 = icmp eq i32 %78, 0
   br i1 %.not.i92, label %unquantize_rate.exit98, label %.lr.ph.i93
@@ -3090,7 +3090,7 @@ define internal fastcc noundef i32 @dissect_uftp_tfmccack(ptr noundef %0, ptr no
   %22 = zext i16 %21 to i32
   %23 = and i32 %22, 15
   %24 = lshr i32 %22, 4
-  %25 = uitofp i32 %24 to double
+  %25 = sitofp i32 %24 to double
   %26 = fmul double %25, 0x3F64000000000000
   %.not.i = icmp eq i32 %23, 0
   br i1 %.not.i, label %unquantize_rate.exit, label %.lr.ph.i

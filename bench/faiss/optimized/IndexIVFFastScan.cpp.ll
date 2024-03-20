@@ -582,7 +582,7 @@ define void @_ZN5faiss16IndexIVFFastScan12add_with_idsElPKfPKl(ptr noundef nonnu
   %43 = fsub double %42, %33
   %44 = fdiv double %43, 1.000000e+03
   %.not111 = icmp eq i64 %.088191, 0
-  %45 = uitofp i64 %.088191 to double
+  %45 = sitofp i64 %.088191 to double
   %46 = fdiv double %44, %45
   %47 = fmul double %46, %35
   %.090 = select i1 %.not111, double 0.000000e+00, double %47
@@ -853,7 +853,7 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEElEC
   %154 = load ptr, ptr %8, align 8
   %155 = getelementptr inbounds i64, ptr %154, i64 %153
   %156 = load i64, ptr %155, align 8
-  %157 = add nsw i64 %.091187, 1
+  %157 = add nuw nsw i64 %.091187, 1
   %smax198 = call i64 @llvm.smax.i64(i64 %1, i64 %157)
   %158 = add nsw i64 %smax198, -1
   br label %159
@@ -864,7 +864,7 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEElEC
   br i1 %exitcond199.not, label %.critedge, label %160
 
 160:                                              ; preds = %159
-  %.089 = add nsw i64 %.089.in, 1
+  %.089 = add nuw nsw i64 %.089.in, 1
   %161 = getelementptr inbounds i64, ptr %123, i64 %.089
   %162 = load i64, ptr %161, align 8
   %163 = getelementptr inbounds i64, ptr %154, i64 %162
@@ -934,7 +934,7 @@ _ZN5faiss12AlignedTableIhLi32EE14round_capacityEm.exit.i123: ; preds = %169
           to label %188 unwind label %.loopexit.split-lp
 
 188:                                              ; preds = %183
-  %189 = add i64 %.089.lcssa, %.091.neg188
+  %189 = add nsw i64 %.089.lcssa, %.091.neg188
   %190 = add i64 %189, %187
   %191 = load ptr, ptr %103, align 8
   %192 = getelementptr inbounds i8, ptr %191, i64 120

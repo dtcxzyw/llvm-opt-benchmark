@@ -10282,7 +10282,7 @@ if.else:                                          ; preds = %if.end
   %div = fdiv double 1.000000e+00, %3
   %sub14 = fsub double %div, %ldexp
   %div15 = fdiv double %sub14, %ldexp
-  %conv16 = uitofp i32 %add10 to double
+  %conv16 = sitofp i32 %add10 to double
   %sub17 = fsub double %conv16, %div15
   br label %if.end18
 

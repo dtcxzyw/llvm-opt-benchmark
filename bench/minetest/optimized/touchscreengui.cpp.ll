@@ -8416,7 +8416,7 @@ define dso_local void @_ZN14TouchScreenGUI14translateEventERKN3irr6SEventE(ptr n
   %621 = mul nsw i32 %533, %533
   %622 = mul nsw i32 %536, %536
   %623 = add nuw nsw i32 %622, %621
-  %624 = uitofp i32 %623 to double
+  %624 = sitofp i32 %623 to double
   %625 = fcmp nsz olt double %577, %624
   br i1 %625, label %626, label %642
 
@@ -8478,7 +8478,7 @@ define dso_local void @_ZN14TouchScreenGUI14translateEventERKN3irr6SEventE(ptr n
   %658 = mul nsw i32 %653, %653
   %659 = mul nsw i32 %654, %654
   %660 = add nuw nsw i32 %659, %658
-  %661 = uitofp i32 %660 to double
+  %661 = sitofp i32 %660 to double
   %662 = getelementptr inbounds i8, ptr %0, i64 232
   %663 = load i8, ptr %662, align 8, !tbaa !152, !range !81, !noundef !82
   %664 = icmp ne i8 %663, 0

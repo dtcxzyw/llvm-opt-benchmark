@@ -25369,7 +25369,7 @@ define dso_local void @_ZN6Server19sendMetadataChangedERKSt13unordered_setIN3irr
   %253 = add nuw nsw i32 %252, %249
   %254 = extractelement <2 x i32> %251, i64 1
   %255 = add nuw nsw i32 %253, %254
-  %256 = uitofp i32 %255 to float
+  %256 = sitofp i32 %255 to float
   %257 = call nsz noundef float @llvm.sqrt.f32(float %256)
   %258 = fptosi float %257 to i32
   %259 = trunc i32 %258 to i16

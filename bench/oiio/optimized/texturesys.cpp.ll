@@ -4288,15 +4288,15 @@ if.end:                                           ; preds = %invoke.cont32
   %aggregate.i.i = getelementptr inbounds i8, ptr %ict, i64 1
   %18 = load i8, ptr %aggregate.i.i, align 1
   %cmp7.i.i = icmp ne i8 %18, 1
-  %or.cond.not = select i1 %cmp.i.i, i1 true, i1 %cmp7.i.i
+  %or.cond.not24 = select i1 %cmp.i.i, i1 true, i1 %cmp7.i.i
   %vecsemantics.i.i = getelementptr inbounds i8, ptr %ict, i64 2
   %19 = load i8, ptr %vecsemantics.i.i, align 2
   %cmp12.i.i = icmp ne i8 %19, 0
-  %or.cond21 = select i1 %or.cond.not, i1 true, i1 %cmp12.i.i
+  %or.cond21.not23 = select i1 %or.cond.not24, i1 true, i1 %cmp12.i.i
   %arraylen.i.i = getelementptr inbounds i8, ptr %ict, i64 4
   %20 = load i32, ptr %arraylen.i.i, align 4
   %cmp14.i.i = icmp ne i32 %20, 0
-  %or.cond22 = select i1 %or.cond21, i1 true, i1 %cmp14.i.i
+  %or.cond22 = select i1 %or.cond21.not23, i1 true, i1 %cmp14.i.i
   %arraylen.i11 = getelementptr inbounds i8, ptr %agg.result, i64 4
   br i1 %or.cond22, label %if.then43, label %if.end44
 
@@ -7093,27 +7093,27 @@ if.then:                                          ; preds = %entry
   br label %while.body
 
 while.body:                                       ; preds = %if.then, %if.end
-  %result.addr.0241 = phi ptr [ %result, %if.then ], [ %add.ptr, %if.end ]
-  %dresultds.addr.0240 = phi ptr [ %dresultds, %if.then ], [ %spec.select, %if.end ]
-  %dresultdt.addr.0239 = phi ptr [ %dresultdt, %if.then ], [ %dresultdt.addr.1, %if.end ]
-  %nchannels.addr.0238 = phi i32 [ %nchannels, %if.then ], [ %sub, %if.end ]
-  %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %nchannels.addr.0238, i32 4)
-  %call2 = tail call noundef zeroext i1 @_ZN18OpenImageIO_v2_6_03pvt17TextureSystemImpl7textureEPNS_13TextureSystem13TextureHandleEPNS2_9PerthreadERNS_10TextureOptEffffffiPfS9_S9_(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef %texture_handle_, ptr noundef %thread_info_, ptr noundef nonnull align 8 dereferenceable(104) %options, float noundef %s, float noundef %t, float noundef %dsdx, float noundef %dtdx, float noundef %dsdy, float noundef %dtdy, i32 noundef %.sroa.speculated, ptr noundef %result.addr.0241, ptr noundef %dresultds.addr.0240, ptr noundef %dresultdt.addr.0239)
+  %result.addr.0243 = phi ptr [ %result, %if.then ], [ %add.ptr, %if.end ]
+  %dresultds.addr.0242 = phi ptr [ %dresultds, %if.then ], [ %spec.select, %if.end ]
+  %dresultdt.addr.0241 = phi ptr [ %dresultdt, %if.then ], [ %dresultdt.addr.1, %if.end ]
+  %nchannels.addr.0240 = phi i32 [ %nchannels, %if.then ], [ %sub, %if.end ]
+  %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %nchannels.addr.0240, i32 4)
+  %call2 = tail call noundef zeroext i1 @_ZN18OpenImageIO_v2_6_03pvt17TextureSystemImpl7textureEPNS_13TextureSystem13TextureHandleEPNS2_9PerthreadERNS_10TextureOptEffffffiPfS9_S9_(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef %texture_handle_, ptr noundef %thread_info_, ptr noundef nonnull align 8 dereferenceable(104) %options, float noundef %s, float noundef %t, float noundef %dsdx, float noundef %dtdx, float noundef %dsdy, float noundef %dtdy, i32 noundef %.sroa.speculated, ptr noundef %result.addr.0243, ptr noundef %dresultds.addr.0242, ptr noundef %dresultdt.addr.0241)
   br i1 %call2, label %if.end, label %return
 
 if.end:                                           ; preds = %while.body
   %idx.ext = sext i32 %.sroa.speculated to i64
-  %add.ptr = getelementptr inbounds float, ptr %result.addr.0241, i64 %idx.ext
-  %tobool5.not = icmp eq ptr %dresultds.addr.0240, null
-  %add.ptr8 = getelementptr inbounds float, ptr %dresultds.addr.0240, i64 %idx.ext
+  %add.ptr = getelementptr inbounds float, ptr %result.addr.0243, i64 %idx.ext
+  %tobool5.not = icmp eq ptr %dresultds.addr.0242, null
+  %add.ptr8 = getelementptr inbounds float, ptr %dresultds.addr.0242, i64 %idx.ext
   %spec.select = select i1 %tobool5.not, ptr null, ptr %add.ptr8
-  %tobool10.not = icmp eq ptr %dresultdt.addr.0239, null
-  %add.ptr13 = getelementptr inbounds float, ptr %dresultdt.addr.0239, i64 %idx.ext
+  %tobool10.not = icmp eq ptr %dresultdt.addr.0241, null
+  %add.ptr13 = getelementptr inbounds float, ptr %dresultdt.addr.0241, i64 %idx.ext
   %dresultdt.addr.1 = select i1 %tobool10.not, ptr null, ptr %add.ptr13
   %1 = load i32, ptr %options, align 8
   %add = add nsw i32 %1, %.sroa.speculated
   store i32 %add, ptr %options, align 8
-  %sub = sub nsw i32 %nchannels.addr.0238, %.sroa.speculated
+  %sub = sub nsw i32 %nchannels.addr.0240, %.sroa.speculated
   %tobool.not = icmp eq i32 %sub, 0
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !91
 
@@ -7286,18 +7286,18 @@ if.end80:                                         ; preds = %if.then78, %land.lh
   %37 = and i8 %36, 1
   %tobool81.not = icmp ne i8 %37, 0
   %cmp84.not = icmp ne i32 %28, 1
-  %or.cond191.not = and i1 %tobool81.not, %cmp84.not
+  %or.cond191.not232 = and i1 %tobool81.not, %cmp84.not
   %cmp87.not = icmp ne i32 %35, 1
-  %or.cond192 = and i1 %or.cond191.not, %cmp87.not
+  %or.cond192.not231 = and i1 %or.cond191.not232, %cmp87.not
   %colortransformid = getelementptr inbounds i8, ptr %options, i64 96
   %38 = load i32, ptr %colortransformid, align 8
   %cmp89 = icmp slt i32 %38, 1
-  %or.cond193 = select i1 %or.cond192, i1 %cmp89, i1 false
+  %or.cond193 = select i1 %or.cond192.not231, i1 %cmp89, i1 false
   br i1 %or.cond193, label %for.cond.preheader, label %if.end129
 
 for.cond.preheader:                               ; preds = %if.end80
-  %cmp91232 = icmp sgt i32 %val.i.1, 0
-  br i1 %cmp91232, label %for.body.lr.ph, label %for.cond99.preheader
+  %cmp91234 = icmp sgt i32 %val.i.1, 0
+  br i1 %cmp91234, label %for.body.lr.ph, label %for.cond99.preheader
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %average_color = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 48
@@ -7305,8 +7305,8 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   br label %for.body
 
 for.cond99.preheader:                             ; preds = %for.body, %for.cond.preheader
-  %cmp100234 = icmp slt i32 %spec.select190, %nchannels
-  br i1 %cmp100234, label %for.body101.lr.ph, label %for.end106
+  %cmp100236 = icmp slt i32 %spec.select190, %nchannels
+  br i1 %cmp100236, label %for.body101.lr.ph, label %for.end106
 
 for.body101.lr.ph:                                ; preds = %for.cond99.preheader
   %fill = getelementptr inbounds i8, ptr %options, i64 56
@@ -7335,38 +7335,38 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %exitcond.not, label %for.cond99.preheader, label %for.body, !llvm.loop !96
 
 for.body101:                                      ; preds = %for.body101.lr.ph, %for.body101
-  %indvars.iv244 = phi i64 [ %smin, %for.body101.lr.ph ], [ %indvars.iv.next245, %for.body101 ]
-  %arrayidx103 = getelementptr inbounds float, ptr %result, i64 %indvars.iv244
+  %indvars.iv246 = phi i64 [ %smin, %for.body101.lr.ph ], [ %indvars.iv.next247, %for.body101 ]
+  %arrayidx103 = getelementptr inbounds float, ptr %result, i64 %indvars.iv246
   store float %.pre, ptr %arrayidx103, align 4
-  %indvars.iv.next245 = add nsw i64 %indvars.iv244, 1
-  %lftr.wideiv = trunc i64 %indvars.iv.next245 to i32
-  %exitcond246.not = icmp eq i32 %43, %lftr.wideiv
-  br i1 %exitcond246.not, label %for.end106, label %for.body101, !llvm.loop !97
+  %indvars.iv.next247 = add nsw i64 %indvars.iv246, 1
+  %lftr.wideiv = trunc i64 %indvars.iv.next247 to i32
+  %exitcond248.not = icmp eq i32 %43, %lftr.wideiv
+  br i1 %exitcond248.not, label %for.end106, label %for.body101, !llvm.loop !97
 
 for.end106:                                       ; preds = %for.body101, %for.cond99.preheader
   %tobool107.not = icmp ne ptr %dresultds, null
-  %cmp111236 = icmp sgt i32 %nchannels, 0
-  %or.cond242 = and i1 %tobool107.not, %cmp111236
-  br i1 %or.cond242, label %for.body112.preheader, label %if.end120
+  %cmp111238 = icmp sgt i32 %nchannels, 0
+  %or.cond244 = and i1 %tobool107.not, %cmp111238
+  br i1 %or.cond244, label %for.body112.preheader, label %if.end120
 
 for.body112.preheader:                            ; preds = %for.end106
-  %wide.trip.count250 = zext nneg i32 %nchannels to i64
+  %wide.trip.count252 = zext nneg i32 %nchannels to i64
   br label %for.body112
 
 for.body112:                                      ; preds = %for.body112.preheader, %for.body112
-  %indvars.iv247 = phi i64 [ 0, %for.body112.preheader ], [ %indvars.iv.next248, %for.body112 ]
-  %arrayidx114 = getelementptr inbounds float, ptr %dresultds, i64 %indvars.iv247
+  %indvars.iv249 = phi i64 [ 0, %for.body112.preheader ], [ %indvars.iv.next250, %for.body112 ]
+  %arrayidx114 = getelementptr inbounds float, ptr %dresultds, i64 %indvars.iv249
   store float 0.000000e+00, ptr %arrayidx114, align 4
-  %arrayidx116 = getelementptr inbounds float, ptr %dresultdt, i64 %indvars.iv247
+  %arrayidx116 = getelementptr inbounds float, ptr %dresultdt, i64 %indvars.iv249
   store float 0.000000e+00, ptr %arrayidx116, align 4
-  %indvars.iv.next248 = add nuw nsw i64 %indvars.iv247, 1
-  %exitcond251.not = icmp eq i64 %indvars.iv.next248, %wide.trip.count250
-  br i1 %exitcond251.not, label %if.end120, label %for.body112, !llvm.loop !98
+  %indvars.iv.next250 = add nuw nsw i64 %indvars.iv249, 1
+  %exitcond253.not = icmp eq i64 %indvars.iv.next250, %wide.trip.count252
+  br i1 %exitcond253.not, label %if.end120, label %for.body112, !llvm.loop !98
 
 if.end120:                                        ; preds = %for.body112, %for.end106
   %48 = load i32, ptr %options, align 8
   %cmp124 = icmp eq i32 %48, 0
-  %or.cond194 = select i1 %cmp100234, i1 %cmp124, i1 false
+  %or.cond194 = select i1 %cmp100236, i1 %cmp124, i1 false
   br i1 %or.cond194, label %land.lhs.true125, label %return
 
 land.lhs.true125:                                 ; preds = %if.end120
@@ -9176,7 +9176,7 @@ _ZN18OpenImageIO_v2_6_012_GLOBAL__N_112uchar2float4EPKh.exit: ; preds = %if.end8
   %69 = bitcast <16 x i8> %shuffle.i.i to <8 x i16>
   %shuffle.i11.i = shufflevector <8 x i16> %69, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   %70 = bitcast <8 x i16> %shuffle.i11.i to <4 x i32>
-  %conv.i.i99 = uitofp <4 x i32> %70 to <4 x float>
+  %conv.i.i99 = sitofp <4 x i32> %70 to <4 x float>
   %71 = load <4 x float>, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_17u8scaleE.0, align 16
   %mul.i233 = fmul <4 x float> %71, %conv.i.i99
   br label %if.end143
@@ -9823,7 +9823,7 @@ _ZN18OpenImageIO_v2_6_012_GLOBAL__N_112uchar2float4EPKh.exit805: ; preds = %invo
   %120 = bitcast <16 x i8> %shuffle.i.i to <8 x i16>
   %shuffle.i11.i = shufflevector <8 x i16> %120, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   %121 = bitcast <8 x i16> %shuffle.i11.i to <4 x i32>
-  %conv.i.i277 = uitofp <4 x i32> %121 to <4 x float>
+  %conv.i.i277 = sitofp <4 x i32> %121 to <4 x float>
   %122 = load <4 x float>, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_17u8scaleE.0, align 16
   %mul.i1511 = fmul <4 x float> %122, %conv.i.i277
   store <4 x float> %mul.i1511, ptr %texel_simd, align 16
@@ -9835,7 +9835,7 @@ _ZN18OpenImageIO_v2_6_012_GLOBAL__N_112uchar2float4EPKh.exit805: ; preds = %invo
   %125 = bitcast <16 x i8> %shuffle.i.i279 to <8 x i16>
   %shuffle.i11.i280 = shufflevector <8 x i16> %125, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   %126 = bitcast <8 x i16> %shuffle.i11.i280 to <4 x i32>
-  %conv.i.i281 = uitofp <4 x i32> %126 to <4 x float>
+  %conv.i.i281 = sitofp <4 x i32> %126 to <4 x float>
   %mul.i1514 = fmul <4 x float> %122, %conv.i.i281
   store <4 x float> %mul.i1514, ptr %arrayidx308, align 16
   %127 = load i32, ptr %tile_width, align 8
@@ -9849,7 +9849,7 @@ _ZN18OpenImageIO_v2_6_012_GLOBAL__N_112uchar2float4EPKh.exit805: ; preds = %invo
   %130 = bitcast <16 x i8> %shuffle.i.i283 to <8 x i16>
   %shuffle.i11.i284 = shufflevector <8 x i16> %130, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   %131 = bitcast <8 x i16> %shuffle.i11.i284 to <4 x i32>
-  %conv.i.i285 = uitofp <4 x i32> %131 to <4 x float>
+  %conv.i.i285 = sitofp <4 x i32> %131 to <4 x float>
   %mul.i1517 = fmul <4 x float> %122, %conv.i.i285
   store <4 x float> %mul.i1517, ptr %arrayidx317, align 16
   %add.ptr253 = getelementptr inbounds i8, ptr %add.ptr244, i64 %conv.i269
@@ -9860,7 +9860,7 @@ _ZN18OpenImageIO_v2_6_012_GLOBAL__N_112uchar2float4EPKh.exit805: ; preds = %invo
   %134 = bitcast <16 x i8> %shuffle.i.i287 to <8 x i16>
   %shuffle.i11.i288 = shufflevector <8 x i16> %134, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   %135 = bitcast <8 x i16> %shuffle.i11.i288 to <4 x i32>
-  %conv.i.i289 = uitofp <4 x i32> %135 to <4 x float>
+  %conv.i.i289 = sitofp <4 x i32> %135 to <4 x float>
   %mul.i1520 = fmul <4 x float> %122, %conv.i.i289
   store <4 x float> %mul.i1520, ptr %arrayidx326, align 16
   br label %if.end509
@@ -10238,7 +10238,7 @@ _ZN18OpenImageIO_v2_6_012_GLOBAL__N_112uchar2float4EPKh.exit: ; preds = %if.end4
   %208 = bitcast <16 x i8> %shuffle.i.i392 to <8 x i16>
   %shuffle.i11.i393 = shufflevector <8 x i16> %208, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   %209 = bitcast <8 x i16> %shuffle.i11.i393 to <4 x i32>
-  %conv.i.i394 = uitofp <4 x i32> %209 to <4 x float>
+  %conv.i.i394 = sitofp <4 x i32> %209 to <4 x float>
   %210 = load <4 x float>, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_17u8scaleE.0, align 16
   %mul.i1523 = fmul <4 x float> %210, %conv.i.i394
   %arrayidx457 = getelementptr inbounds [2 x [2 x %"class.OpenImageIO_v2_6_0::simd::vfloat4"]], ptr %texel_simd, i64 0, i64 %indvars.iv515, i64 %indvars.iv512
@@ -11111,7 +11111,7 @@ _ZN18OpenImageIO_v2_6_012_GLOBAL__N_112uchar2float4EPKh.exit1525: ; preds = %for
   %102 = bitcast <16 x i8> %shuffle.i.i to <8 x i16>
   %shuffle.i11.i = shufflevector <8 x i16> %102, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   %103 = bitcast <8 x i16> %shuffle.i11.i to <4 x i32>
-  %conv.i.i411 = uitofp <4 x i32> %103 to <4 x float>
+  %conv.i.i411 = sitofp <4 x i32> %103 to <4 x float>
   %mul.i3327 = fmul <4 x float> %95, %conv.i.i411
   %arrayidx254 = getelementptr inbounds [4 x [4 x %"class.OpenImageIO_v2_6_0::simd::vfloat4"]], ptr %texel_simd, i64 0, i64 %indvars.iv768, i64 %indvars.iv762
   store <4 x float> %mul.i3327, ptr %arrayidx254, align 16
@@ -11410,7 +11410,7 @@ _ZN18OpenImageIO_v2_6_012_GLOBAL__N_112uchar2float4EPKh.exit: ; preds = %if.end4
   %154 = bitcast <16 x i8> %shuffle.i.i428 to <8 x i16>
   %shuffle.i11.i429 = shufflevector <8 x i16> %154, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   %155 = bitcast <8 x i16> %shuffle.i11.i429 to <4 x i32>
-  %conv.i.i430 = uitofp <4 x i32> %155 to <4 x float>
+  %conv.i.i430 = sitofp <4 x i32> %155 to <4 x float>
   %156 = load <4 x float>, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_17u8scaleE.0, align 16
   %mul.i3330 = fmul <4 x float> %156, %conv.i.i430
   %arrayidx493 = getelementptr inbounds [4 x [4 x %"class.OpenImageIO_v2_6_0::simd::vfloat4"]], ptr %texel_simd, i64 0, i64 %indvar, i64 %indvars.iv717
@@ -12416,7 +12416,7 @@ if.end:                                           ; preds = %entry
   %11 = tail call float @llvm.fmuladd.f32(float %aspect, float 2.000000e+00, float -1.000000e+00)
   %conv = fptosi float %11 to i32
   %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %conv, i32 1)
-  %conv11 = uitofp i32 %.sroa.speculated to float
+  %conv11 = sitofp i32 %.sroa.speculated to float
   %div = fdiv float 1.000000e+00, %conv11
   store float %div, ptr %invsamples, align 4
   switch i32 %.sroa.speculated, label %if.else21 [
@@ -12443,7 +12443,7 @@ for.body:                                         ; preds = %if.else21, %for.bod
   %indvars.iv = phi i64 [ 0, %if.else21 ], [ %indvars.iv.next, %for.body ]
   %sumw.0122 = phi float [ 0.000000e+00, %if.else21 ], [ %add33, %for.body ]
   %12 = trunc i64 %indvars.iv to i32
-  %conv24 = uitofp i32 %12 to float
+  %conv24 = sitofp i32 %12 to float
   %add = fadd float %conv24, 5.000000e-01
   %mul25 = fmul float %add, 2.000000e+00
   %13 = load float, ptr %invsamples, align 4
@@ -13840,7 +13840,7 @@ call.i244.noexc:                                  ; preds = %call.i232.noexc
   %add.i.i.i.i = sub i64 %28, %17
   %sub.i.i.i.i = add i64 %add.i.i.i.i, %reass.mul
   %cond.i.i.i.i = call noundef i64 @llvm.abs.i64(i64 %sub.i.i.i.i, i1 true)
-  %conv.i.i = uitofp i64 %cond.i.i.i.i to double
+  %conv.i.i = sitofp i64 %cond.i.i.i.i to double
   %29 = load double, ptr @_ZN18OpenImageIO_v2_6_05Timer16seconds_per_tickE, align 8
   %mul.i.i = fmul double %29, %conv.i.i
   %div68 = fdiv double 0x3FEFFB480A5ACCD5, %mul.i.i
@@ -49330,7 +49330,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %entry
   %indvars.iv.i.i.i = phi i64 [ 0, %entry ], [ %indvars.iv.next.i.i.i, %for.body.i.i.i ]
   %1 = trunc i64 %indvars.iv.i.i.i to i32
-  %conv.i.i.i = uitofp i32 %1 to float
+  %conv.i.i.i = sitofp i32 %1 to float
   %mul.i.i.i = fmul float %conv.i.i.i, 0x3F70101020000000
   %arrayidx.i.i.i = getelementptr inbounds [256 x float], ptr @_ZN18OpenImageIO_v2_6_03pvt17TextureSystemImpl11uchar2floatE, i64 0, i64 %indvars.iv.i.i.i
   store float %mul.i.i.i, ptr %arrayidx.i.i.i, align 4

@@ -190,7 +190,7 @@ define hidden double @rmt_decode_send_rate(i16 noundef zeroext %0) local_unnamed
   %5 = uitofp i32 %4 to double
   %6 = fmul double %5, 0x3F30000000000000
   %7 = and i32 %2, 15
-  %8 = uitofp i32 %7 to double
+  %8 = sitofp i32 %7 to double
   %9 = tail call double @pow(double noundef 1.000000e+01, double noundef %8) #4
   %10 = fmul double %6, %9
   ret double %10
@@ -344,7 +344,7 @@ define hidden i32 @lct_ext_decode(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %90 = uitofp i32 %89 to double
   %91 = fmul double %90, 0x3F30000000000000
   %92 = and i32 %87, 15
-  %93 = uitofp i32 %92 to double
+  %93 = sitofp i32 %92 to double
   %94 = tail call double @pow(double noundef 1.000000e+01, double noundef %93) #4
   %95 = fmul double %94, %91
   %96 = tail call ptr @proto_tree_add_double(ptr noundef %42, i32 noundef %84, ptr noundef %1, i32 noundef %85, i32 noundef 2, double noundef %95) #4

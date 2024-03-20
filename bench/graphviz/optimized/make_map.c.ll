@@ -2207,7 +2207,7 @@ define internal fastcc void @make_map_internal(i1 noundef zeroext %0, i32 nounde
 .preheader552.us601:                              ; preds = %.preheader552.us601.preheader, %133
   %indvars.iv714 = phi i64 [ %121, %.preheader552.us601.preheader ], [ %indvars.iv.next715, %133 ]
   %.0440593.us602 = phi i32 [ 0, %.preheader552.us601.preheader ], [ %135, %133 ]
-  %136 = uitofp i32 %.0440593.us602 to double
+  %136 = sitofp i32 %.0440593.us602 to double
   %137 = fdiv double %136, %100
   %138 = fcmp ogt double %137, 5.000000e-01
   br i1 %138, label %133, label %127
@@ -2221,7 +2221,7 @@ define internal fastcc void @make_map_internal(i1 noundef zeroext %0, i32 nounde
 .preheader552.us.us:                              ; preds = %150, %.preheader552.lr.ph.split.us.us
   %indvars.iv723 = phi i64 [ %indvars.iv.next724, %150 ], [ %141, %.preheader552.lr.ph.split.us.us ]
   %.0440593.us.us = phi i32 [ %152, %150 ], [ 0, %.preheader552.lr.ph.split.us.us ]
-  %142 = uitofp i32 %.0440593.us.us to double
+  %142 = sitofp i32 %.0440593.us.us to double
   %143 = fdiv double %142, %100
   %144 = fsub double 1.000000e+00, %143
   %145 = mul nsw i64 %indvars.iv723, %101

@@ -14004,7 +14004,7 @@ define dso_local noundef float @_ZN15RollbackManager18getSuspectNearnessEbN3irr4
   %39 = fptosi double %38 to i32
   %40 = select i1 %0, i32 %39, i32 %36
   %41 = tail call i32 @llvm.smax.i32(i32 %40, i32 0)
-  %42 = uitofp i32 %41 to float
+  %42 = sitofp i32 %41 to float
   br label %43
 
 43:                                               ; preds = %7, %5
@@ -14830,7 +14830,7 @@ define dso_local void @_ZN15RollbackManager10getSuspectB5cxx11EN3irr4core8vector
   %108 = fptosi double %107 to i32
   %109 = select i1 %83, i32 %105, i32 %108
   %110 = call i32 @llvm.smax.i32(i32 %109, i32 0)
-  %111 = uitofp i32 %110 to float
+  %111 = sitofp i32 %110 to float
   br label %112
 
 112:                                              ; preds = %80, %75

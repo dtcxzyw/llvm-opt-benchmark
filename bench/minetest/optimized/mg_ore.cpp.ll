@@ -1426,7 +1426,7 @@ define dso_local void @_ZN8OreSheet8generateEP8MMVManipijN3irr4core8vector3dIsEE
   %150 = fptosi float %149 to i32
   %151 = sitofp i32 %150 to float
   %152 = and i32 %148, 65535
-  %153 = uitofp i32 %152 to float
+  %153 = sitofp i32 %152 to float
   %154 = load float, ptr %75, align 4, !tbaa !104
   %155 = fsub nsz float 1.000000e+00, %154
   %156 = fneg nsz float %153

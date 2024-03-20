@@ -8642,7 +8642,7 @@ define internal fastcc double @rfc1867_size(ptr noundef %0, i32 noundef %1) unna
   %3 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1) #10
   %4 = zext i8 %3 to i32
   %5 = lshr i32 %4, 4
-  %6 = uitofp i32 %5 to double
+  %6 = sitofp i32 %5 to double
   %7 = and i32 %4, 15
   %.not8 = icmp eq i32 %7, 0
   br i1 %.not8, label %._crit_edge, label %.lr.ph

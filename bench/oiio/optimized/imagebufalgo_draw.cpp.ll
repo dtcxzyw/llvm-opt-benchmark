@@ -5626,8 +5626,8 @@ cond.end:                                         ; preds = %invoke.cont5
   %conv8 = sext i32 %call6 to i64
   %mul = shl nsw i64 %conv8, 2
   %6 = alloca i8, i64 %mul, align 16
-  %cmp9310 = icmp sgt i32 %call6, 0
-  br i1 %cmp9310, label %for.body.lr.ph, label %for.end
+  %cmp9312 = icmp sgt i32 %call6, 0
+  br i1 %cmp9312, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %cond.end
   %tobool21.not = icmp eq i64 %color.coerce1, 0
@@ -5671,27 +5671,27 @@ cond.end29:                                       ; preds = %cond.end29.sink.spl
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !24
 
 for.end:                                          ; preds = %cond.end29, %invoke.cont5, %cond.end
-  %cond317 = phi ptr [ %6, %cond.end ], [ null, %invoke.cont5 ], [ %6, %cond.end29 ]
-  %conv33314 = zext i32 %call6 to i64
+  %cond319 = phi ptr [ %6, %cond.end ], [ null, %invoke.cont5 ], [ %6, %cond.end29 ]
+  %conv33316 = zext i32 %call6 to i64
   br label %if.end36
 
 if.end36:                                         ; preds = %for.end, %invoke.cont2
-  %color.sroa.0.0 = phi ptr [ %cond317, %for.end ], [ %color.coerce0, %invoke.cont2 ]
-  %color.sroa.15.0 = phi i64 [ %conv33314, %for.end ], [ %color.coerce1, %invoke.cont2 ]
+  %color.sroa.0.0 = phi ptr [ %cond319, %for.end ], [ %color.coerce0, %invoke.cont2 ]
+  %color.sroa.15.0 = phi i64 [ %conv33316, %for.end ], [ %color.coerce1, %invoke.cont2 ]
   %9 = load i32, ptr %roi, align 8
   %cmp37 = icmp sle i32 %9, %x
   %xend = getelementptr inbounds i8, ptr %roi, i64 4
   %10 = load i32, ptr %xend, align 4
   %cmp38.not = icmp sgt i32 %10, %x
-  %or.cond.not309.not = select i1 %cmp37, i1 %cmp38.not, i1 false
+  %or.cond.not309.not311 = select i1 %cmp37, i1 %cmp38.not, i1 false
   %ybegin = getelementptr inbounds i8, ptr %roi, i64 8
   %11 = load i32, ptr %ybegin, align 8
   %cmp40 = icmp sle i32 %11, %y
-  %or.cond65 = select i1 %or.cond.not309.not, i1 %cmp40, i1 false
+  %or.cond65.not310 = select i1 %or.cond.not309.not311, i1 %cmp40, i1 false
   %yend = getelementptr inbounds i8, ptr %roi, i64 12
   %12 = load i32, ptr %yend, align 4
   %cmp42.not = icmp sgt i32 %12, %y
-  %or.cond66 = select i1 %or.cond65, i1 %cmp42.not, i1 false
+  %or.cond66 = select i1 %or.cond65.not310, i1 %cmp42.not, i1 false
   br i1 %or.cond66, label %if.end44, label %cleanup
 
 if.end44:                                         ; preds = %if.end36
@@ -50326,7 +50326,7 @@ entry:
   %3 = xor i32 %2, -1
   %sub.i.i.i = add i32 %1, %3
   %.sroa.speculated.i.i.i = tail call i32 @llvm.smax.i32(i32 %sub.i.i.i, i32 1)
-  %conv.i.i.i = uitofp i32 %.sroa.speculated.i.i.i to float
+  %conv.i.i.i = sitofp i32 %.sroa.speculated.i.i.i to float
   %4 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %5 = load ptr, ptr %4, align 8
   call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %p.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
@@ -50554,7 +50554,7 @@ entry:
   %3 = xor i32 %2, -1
   %sub.i.i.i = add i32 %1, %3
   %.sroa.speculated.i.i.i = tail call i32 @llvm.smax.i32(i32 %sub.i.i.i, i32 1)
-  %conv.i.i.i = uitofp i32 %.sroa.speculated.i.i.i to float
+  %conv.i.i.i = sitofp i32 %.sroa.speculated.i.i.i to float
   %4 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %5 = load ptr, ptr %4, align 8
   call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %p.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
@@ -50814,7 +50814,7 @@ entry:
   %3 = xor i32 %2, -1
   %sub.i.i.i = add i32 %1, %3
   %.sroa.speculated.i.i.i = tail call i32 @llvm.smax.i32(i32 %sub.i.i.i, i32 1)
-  %conv.i.i.i = uitofp i32 %.sroa.speculated.i.i.i to float
+  %conv.i.i.i = sitofp i32 %.sroa.speculated.i.i.i to float
   %4 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %5 = load ptr, ptr %4, align 8
   call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %p.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
@@ -51108,7 +51108,7 @@ entry:
   %3 = xor i32 %2, -1
   %sub.i.i.i = add i32 %1, %3
   %.sroa.speculated.i.i.i = tail call i32 @llvm.smax.i32(i32 %sub.i.i.i, i32 1)
-  %conv.i.i.i = uitofp i32 %.sroa.speculated.i.i.i to float
+  %conv.i.i.i = sitofp i32 %.sroa.speculated.i.i.i to float
   %4 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %5 = load ptr, ptr %4, align 8
   call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %p.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
@@ -51368,7 +51368,7 @@ entry:
   %3 = xor i32 %2, -1
   %sub.i.i.i = add i32 %1, %3
   %.sroa.speculated.i.i.i = tail call i32 @llvm.smax.i32(i32 %sub.i.i.i, i32 1)
-  %conv.i.i.i = uitofp i32 %.sroa.speculated.i.i.i to float
+  %conv.i.i.i = sitofp i32 %.sroa.speculated.i.i.i to float
   %4 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %5 = load ptr, ptr %4, align 8
   call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %p.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
@@ -51628,7 +51628,7 @@ entry:
   %3 = xor i32 %2, -1
   %sub.i.i.i = add i32 %1, %3
   %.sroa.speculated.i.i.i = tail call i32 @llvm.smax.i32(i32 %sub.i.i.i, i32 1)
-  %conv.i.i.i = uitofp i32 %.sroa.speculated.i.i.i to float
+  %conv.i.i.i = sitofp i32 %.sroa.speculated.i.i.i to float
   %4 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %5 = load ptr, ptr %4, align 8
   call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %p.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
@@ -51888,7 +51888,7 @@ entry:
   %3 = xor i32 %2, -1
   %sub.i.i.i = add i32 %1, %3
   %.sroa.speculated.i.i.i = tail call i32 @llvm.smax.i32(i32 %sub.i.i.i, i32 1)
-  %conv.i.i.i = uitofp i32 %.sroa.speculated.i.i.i to float
+  %conv.i.i.i = sitofp i32 %.sroa.speculated.i.i.i to float
   %4 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %5 = load ptr, ptr %4, align 8
   call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %p.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
@@ -52149,7 +52149,7 @@ entry:
   %3 = xor i32 %2, -1
   %sub.i.i.i = add i32 %1, %3
   %.sroa.speculated.i.i.i = tail call i32 @llvm.smax.i32(i32 %sub.i.i.i, i32 1)
-  %conv.i.i.i = uitofp i32 %.sroa.speculated.i.i.i to float
+  %conv.i.i.i = sitofp i32 %.sroa.speculated.i.i.i to float
   %4 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %5 = load ptr, ptr %4, align 8
   call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %p.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
@@ -52410,7 +52410,7 @@ entry:
   %3 = xor i32 %2, -1
   %sub.i.i.i = add i32 %1, %3
   %.sroa.speculated.i.i.i = tail call i32 @llvm.smax.i32(i32 %sub.i.i.i, i32 1)
-  %conv.i.i.i = uitofp i32 %.sroa.speculated.i.i.i to float
+  %conv.i.i.i = sitofp i32 %.sroa.speculated.i.i.i to float
   %4 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %5 = load ptr, ptr %4, align 8
   call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %p.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
@@ -52661,7 +52661,7 @@ entry:
   %3 = xor i32 %2, -1
   %sub.i.i.i = add i32 %1, %3
   %.sroa.speculated32.i.i.i = tail call i32 @llvm.smax.i32(i32 %sub.i.i.i, i32 1)
-  %conv.i.i.i = uitofp i32 %.sroa.speculated32.i.i.i to float
+  %conv.i.i.i = sitofp i32 %.sroa.speculated32.i.i.i to float
   %yend.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %4 = load i32, ptr %yend.i.i.i.i, align 4
   %ybegin.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
@@ -52669,7 +52669,7 @@ entry:
   %6 = xor i32 %5, -1
   %sub7.i.i.i = add i32 %4, %6
   %.sroa.speculated.i.i.i = tail call i32 @llvm.smax.i32(i32 %sub7.i.i.i, i32 1)
-  %conv9.i.i.i = uitofp i32 %.sroa.speculated.i.i.i to float
+  %conv9.i.i.i = sitofp i32 %.sroa.speculated.i.i.i to float
   %7 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %8 = load ptr, ptr %7, align 8
   call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %p.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
@@ -52919,7 +52919,7 @@ entry:
   %3 = xor i32 %2, -1
   %sub.i.i.i = add i32 %1, %3
   %.sroa.speculated32.i.i.i = tail call i32 @llvm.smax.i32(i32 %sub.i.i.i, i32 1)
-  %conv.i.i.i = uitofp i32 %.sroa.speculated32.i.i.i to float
+  %conv.i.i.i = sitofp i32 %.sroa.speculated32.i.i.i to float
   %yend.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %4 = load i32, ptr %yend.i.i.i.i, align 4
   %ybegin.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
@@ -52927,7 +52927,7 @@ entry:
   %6 = xor i32 %5, -1
   %sub7.i.i.i = add i32 %4, %6
   %.sroa.speculated.i.i.i = tail call i32 @llvm.smax.i32(i32 %sub7.i.i.i, i32 1)
-  %conv9.i.i.i = uitofp i32 %.sroa.speculated.i.i.i to float
+  %conv9.i.i.i = sitofp i32 %.sroa.speculated.i.i.i to float
   %7 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %8 = load ptr, ptr %7, align 8
   call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %p.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
@@ -53186,7 +53186,7 @@ entry:
   %3 = xor i32 %2, -1
   %sub.i.i.i = add i32 %1, %3
   %.sroa.speculated33.i.i.i = tail call i32 @llvm.smax.i32(i32 %sub.i.i.i, i32 1)
-  %conv.i.i.i = uitofp i32 %.sroa.speculated33.i.i.i to float
+  %conv.i.i.i = sitofp i32 %.sroa.speculated33.i.i.i to float
   %yend.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %4 = load i32, ptr %yend.i.i.i.i, align 4
   %ybegin.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
@@ -53194,7 +53194,7 @@ entry:
   %6 = xor i32 %5, -1
   %sub7.i.i.i = add i32 %4, %6
   %.sroa.speculated.i.i.i = tail call i32 @llvm.smax.i32(i32 %sub7.i.i.i, i32 1)
-  %conv9.i.i.i = uitofp i32 %.sroa.speculated.i.i.i to float
+  %conv9.i.i.i = sitofp i32 %.sroa.speculated.i.i.i to float
   %7 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %8 = load ptr, ptr %7, align 8
   call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %p.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
@@ -53487,7 +53487,7 @@ entry:
   %3 = xor i32 %2, -1
   %sub.i.i.i = add i32 %1, %3
   %.sroa.speculated32.i.i.i = tail call i32 @llvm.smax.i32(i32 %sub.i.i.i, i32 1)
-  %conv.i.i.i = uitofp i32 %.sroa.speculated32.i.i.i to float
+  %conv.i.i.i = sitofp i32 %.sroa.speculated32.i.i.i to float
   %yend.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %4 = load i32, ptr %yend.i.i.i.i, align 4
   %ybegin.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
@@ -53495,7 +53495,7 @@ entry:
   %6 = xor i32 %5, -1
   %sub7.i.i.i = add i32 %4, %6
   %.sroa.speculated.i.i.i = tail call i32 @llvm.smax.i32(i32 %sub7.i.i.i, i32 1)
-  %conv9.i.i.i = uitofp i32 %.sroa.speculated.i.i.i to float
+  %conv9.i.i.i = sitofp i32 %.sroa.speculated.i.i.i to float
   %7 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %8 = load ptr, ptr %7, align 8
   call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %p.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
@@ -53754,7 +53754,7 @@ entry:
   %3 = xor i32 %2, -1
   %sub.i.i.i = add i32 %1, %3
   %.sroa.speculated32.i.i.i = tail call i32 @llvm.smax.i32(i32 %sub.i.i.i, i32 1)
-  %conv.i.i.i = uitofp i32 %.sroa.speculated32.i.i.i to float
+  %conv.i.i.i = sitofp i32 %.sroa.speculated32.i.i.i to float
   %yend.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %4 = load i32, ptr %yend.i.i.i.i, align 4
   %ybegin.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
@@ -53762,7 +53762,7 @@ entry:
   %6 = xor i32 %5, -1
   %sub7.i.i.i = add i32 %4, %6
   %.sroa.speculated.i.i.i = tail call i32 @llvm.smax.i32(i32 %sub7.i.i.i, i32 1)
-  %conv9.i.i.i = uitofp i32 %.sroa.speculated.i.i.i to float
+  %conv9.i.i.i = sitofp i32 %.sroa.speculated.i.i.i to float
   %7 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %8 = load ptr, ptr %7, align 8
   call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %p.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
@@ -54021,7 +54021,7 @@ entry:
   %3 = xor i32 %2, -1
   %sub.i.i.i = add i32 %1, %3
   %.sroa.speculated32.i.i.i = tail call i32 @llvm.smax.i32(i32 %sub.i.i.i, i32 1)
-  %conv.i.i.i = uitofp i32 %.sroa.speculated32.i.i.i to float
+  %conv.i.i.i = sitofp i32 %.sroa.speculated32.i.i.i to float
   %yend.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %4 = load i32, ptr %yend.i.i.i.i, align 4
   %ybegin.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
@@ -54029,7 +54029,7 @@ entry:
   %6 = xor i32 %5, -1
   %sub7.i.i.i = add i32 %4, %6
   %.sroa.speculated.i.i.i = tail call i32 @llvm.smax.i32(i32 %sub7.i.i.i, i32 1)
-  %conv9.i.i.i = uitofp i32 %.sroa.speculated.i.i.i to float
+  %conv9.i.i.i = sitofp i32 %.sroa.speculated.i.i.i to float
   %7 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %8 = load ptr, ptr %7, align 8
   call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %p.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
@@ -54288,7 +54288,7 @@ entry:
   %3 = xor i32 %2, -1
   %sub.i.i.i = add i32 %1, %3
   %.sroa.speculated32.i.i.i = tail call i32 @llvm.smax.i32(i32 %sub.i.i.i, i32 1)
-  %conv.i.i.i = uitofp i32 %.sroa.speculated32.i.i.i to float
+  %conv.i.i.i = sitofp i32 %.sroa.speculated32.i.i.i to float
   %yend.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %4 = load i32, ptr %yend.i.i.i.i, align 4
   %ybegin.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
@@ -54296,7 +54296,7 @@ entry:
   %6 = xor i32 %5, -1
   %sub7.i.i.i = add i32 %4, %6
   %.sroa.speculated.i.i.i = tail call i32 @llvm.smax.i32(i32 %sub7.i.i.i, i32 1)
-  %conv9.i.i.i = uitofp i32 %.sroa.speculated.i.i.i to float
+  %conv9.i.i.i = sitofp i32 %.sroa.speculated.i.i.i to float
   %7 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %8 = load ptr, ptr %7, align 8
   call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %p.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
@@ -54556,7 +54556,7 @@ entry:
   %3 = xor i32 %2, -1
   %sub.i.i.i = add i32 %1, %3
   %.sroa.speculated32.i.i.i = tail call i32 @llvm.smax.i32(i32 %sub.i.i.i, i32 1)
-  %conv.i.i.i = uitofp i32 %.sroa.speculated32.i.i.i to float
+  %conv.i.i.i = sitofp i32 %.sroa.speculated32.i.i.i to float
   %yend.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %4 = load i32, ptr %yend.i.i.i.i, align 4
   %ybegin.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
@@ -54564,7 +54564,7 @@ entry:
   %6 = xor i32 %5, -1
   %sub7.i.i.i = add i32 %4, %6
   %.sroa.speculated.i.i.i = tail call i32 @llvm.smax.i32(i32 %sub7.i.i.i, i32 1)
-  %conv9.i.i.i = uitofp i32 %.sroa.speculated.i.i.i to float
+  %conv9.i.i.i = sitofp i32 %.sroa.speculated.i.i.i to float
   %7 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %8 = load ptr, ptr %7, align 8
   call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %p.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)
@@ -54824,7 +54824,7 @@ entry:
   %3 = xor i32 %2, -1
   %sub.i.i.i = add i32 %1, %3
   %.sroa.speculated32.i.i.i = tail call i32 @llvm.smax.i32(i32 %sub.i.i.i, i32 1)
-  %conv.i.i.i = uitofp i32 %.sroa.speculated32.i.i.i to float
+  %conv.i.i.i = sitofp i32 %.sroa.speculated32.i.i.i to float
   %yend.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %4 = load i32, ptr %yend.i.i.i.i, align 4
   %ybegin.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
@@ -54832,7 +54832,7 @@ entry:
   %6 = xor i32 %5, -1
   %sub7.i.i.i = add i32 %4, %6
   %.sroa.speculated.i.i.i = tail call i32 @llvm.smax.i32(i32 %sub7.i.i.i, i32 1)
-  %conv9.i.i.i = uitofp i32 %.sroa.speculated.i.i.i to float
+  %conv9.i.i.i = sitofp i32 %.sroa.speculated.i.i.i to float
   %7 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %8 = load ptr, ptr %7, align 8
   call void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %p.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(32) %agg.tmp1.i.i, i32 noundef 0, i1 noundef zeroext true)

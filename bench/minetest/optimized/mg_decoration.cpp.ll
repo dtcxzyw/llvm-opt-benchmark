@@ -215,7 +215,7 @@ define dso_local noundef i64 @_ZN10Decoration9placeDecoEP6MapgenjN3irr4core8vect
   %43 = getelementptr inbounds i8, ptr %0, i64 180
   %44 = getelementptr inbounds i8, ptr %0, i64 136
   %45 = getelementptr inbounds i8, ptr %0, i64 176
-  %46 = uitofp i32 %35 to float
+  %46 = sitofp i32 %35 to float
   %47 = getelementptr inbounds i8, ptr %1, i64 72
   %48 = getelementptr inbounds i8, ptr %0, i64 280
   %49 = getelementptr inbounds i8, ptr %0, i64 256

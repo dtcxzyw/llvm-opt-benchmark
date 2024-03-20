@@ -287,8 +287,8 @@ switch.lookup:                                    ; preds = %.lr.ph, %proto_item
   br label %proto_item_set_generated.exit
 
 proto_item_set_generated.exit:                    ; preds = %72, %95, %98
-  %102 = uitofp i32 %spec.select to double
-  %103 = uitofp i32 %63 to double
+  %102 = sitofp i32 %spec.select to double
+  %103 = sitofp i32 %63 to double
   %104 = fdiv double %102, %103
   %105 = fmul double %104, 1.000000e+03
   %106 = fadd double %.0202, %105

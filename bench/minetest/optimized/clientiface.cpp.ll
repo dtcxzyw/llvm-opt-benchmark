@@ -2203,7 +2203,7 @@ define dso_local void @_ZN12RemoteClient13GetNextBlocksEP17ServerEnvironmentP13E
   %340 = sext i16 %334 to i32
   %341 = mul nsw i32 %340, %340
   %342 = add nuw nsw i32 %339, %341
-  %343 = uitofp i32 %342 to float
+  %343 = sitofp i32 %342 to float
   %344 = call nsz noundef float @llvm.sqrt.f32(float %343)
   %345 = fptosi float %344 to i32
   %346 = trunc i32 %345 to i16

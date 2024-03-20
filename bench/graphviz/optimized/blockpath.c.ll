@@ -1677,7 +1677,7 @@ reduce_edge_crossings.exit:                       ; preds = %reduce.exit.i, %729
   %790 = load ptr, ptr %789, align 8
   %791 = getelementptr inbounds i8, ptr %790, i64 40
   store double 0.000000e+00, ptr %791, align 8
-  %792 = uitofp i32 %indvars139 to double
+  %792 = sitofp i32 %indvars139 to double
   %793 = fmul double %779, %792
   %794 = call double @cos(double noundef %793) #18
   %795 = fmul double %.052, %794

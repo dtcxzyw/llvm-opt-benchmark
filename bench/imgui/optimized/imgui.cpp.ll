@@ -2594,7 +2594,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %i_step.021 = phi i32 [ 1, %for.body.lr.ph ], [ %inc, %_Z18ImLineClosestPointRK6ImVec2S1_S1_.exit ]
   %retval.sroa.0.020 = phi <2 x float> [ zeroinitializer, %for.body.lr.ph ], [ %retval.sroa.0.1, %_Z18ImLineClosestPointRK6ImVec2S1_S1_.exit ]
   %p_last.sroa.0.019 = phi <2 x float> [ %0, %for.body.lr.ph ], [ %call, %_Z18ImLineClosestPointRK6ImVec2S1_S1_.exit ]
-  %conv1 = uitofp i32 %i_step.021 to float
+  %conv1 = sitofp i32 %i_step.021 to float
   %mul = fmul float %div, %conv1
   %call = tail call <2 x float> @_Z17ImBezierCubicCalcRK6ImVec2S1_S1_S1_f(ptr noundef nonnull align 4 dereferenceable(8) %p1, ptr noundef nonnull align 4 dereferenceable(8) %p2, ptr noundef nonnull align 4 dereferenceable(8) %p3, ptr noundef nonnull align 4 dereferenceable(8) %p4, float noundef %mul)
   %p.val.i = load float, ptr %p, align 4
@@ -4983,7 +4983,7 @@ entry:
   %div = fdiv float %conv, 2.550000e+02
   %and2 = and i32 %col_a, 255
   %and4 = and i32 %col_b, 255
-  %conv.i = uitofp i32 %and2 to float
+  %conv.i = sitofp i32 %and2 to float
   %sub.i = sub nsw i32 %and4, %and2
   %conv1.i = sitofp i32 %sub.i to float
   %0 = tail call float @llvm.fmuladd.f32(float %conv1.i, float %div, float %conv.i)
@@ -4992,7 +4992,7 @@ entry:
   %and6 = and i32 %shr5, 255
   %shr7 = lshr i32 %col_b, 8
   %and8 = and i32 %shr7, 255
-  %conv.i8 = uitofp i32 %and6 to float
+  %conv.i8 = sitofp i32 %and6 to float
   %sub.i9 = sub nsw i32 %and8, %and6
   %conv1.i10 = sitofp i32 %sub.i9 to float
   %1 = tail call float @llvm.fmuladd.f32(float %conv1.i10, float %div, float %conv.i8)
@@ -5001,7 +5001,7 @@ entry:
   %and11 = and i32 %shr10, 255
   %shr12 = lshr i32 %col_b, 16
   %and13 = and i32 %shr12, 255
-  %conv.i12 = uitofp i32 %and11 to float
+  %conv.i12 = sitofp i32 %and11 to float
   %sub.i13 = sub nsw i32 %and13, %and11
   %conv1.i14 = sitofp i32 %sub.i13 to float
   %2 = tail call float @llvm.fmuladd.f32(float %conv1.i14, float %div, float %conv.i12)

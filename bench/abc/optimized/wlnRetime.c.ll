@@ -5552,7 +5552,7 @@ Vec_IntPrint.exit206:                             ; preds = %.lr.ph.i201, %248
   %259 = sub nsw i32 %46, %.1115
   %260 = sitofp i32 %259 to double
   %261 = fmul double %260, 1.000000e+02
-  %262 = uitofp i32 %46 to double
+  %262 = sitofp i32 %46 to double
   %263 = fdiv double %261, %262
   %264 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.26, i32 noundef %46, i32 noundef %.1115, i32 noundef %259, double noundef %263)
   br label %265

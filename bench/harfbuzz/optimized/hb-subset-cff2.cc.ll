@@ -9737,7 +9737,7 @@ lor.rhs.i.i.i.i.i54:                              ; preds = %if.end.i.i.i.i51
   br label %_ZN3CFF11arg_stack_tINS_11blend_arg_tEE8push_intEi.exit61
 
 _ZN3CFF11arg_stack_tINS_11blend_arg_tEE8push_intEi.exit61: ; preds = %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EE4pushEv.exit.i44, %if.end.i.i.i.i51, %lor.rhs.i.i.i.i.i54
-  %conv.i.i.i53 = uitofp i32 %conv14 to double
+  %conv.i.i.i53 = sitofp i32 %conv14 to double
   store double %conv.i.i.i53, ptr %retval.0.i.i45, align 8
   %21 = load i32, ptr %backwards_length.i.i31, align 4
   %add.i63 = add i32 %21, 1
@@ -15474,7 +15474,7 @@ if.end24:                                         ; preds = %if.end.i3, %if.then
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %v.i, i8 0, i64 64, i1 false)
   store i32 0, ptr %arrayidx29, align 8
   %20 = load ptr, ptr %arrayZ.i.i, align 8
-  %idx.ext = zext i32 %storemerge.i.i.ph.sink.i.i.ph to i64
+  %idx.ext = zext nneg i32 %storemerge.i.i.ph.sink.i.i.ph to i64
   %add.ptr = getelementptr inbounds %"struct.hb_bit_set_t::page_map_t", ptr %20, i64 %idx.ext
   %add.ptr32 = getelementptr inbounds i8, ptr %add.ptr, i64 8
   %21 = load i32, ptr %length, align 4
@@ -17215,7 +17215,7 @@ if.then15:                                        ; preds = %_ZNK11hb_vector_tIN
 
 if.end19:                                         ; preds = %_ZNK11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5bfindIjLb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEbRKT_Pj14hb_not_found_tj.exit
   store atomic i32 %storemerge.i.i.ph.sink.i.i, ptr %last_page_lookup monotonic, align 8
-  %.pre = zext i32 %storemerge.i.i.ph.sink.i.i to i64
+  %.pre = zext nneg i32 %storemerge.i.i.ph.sink.i.i to i64
   %arrayidx22.phi.trans.insert = getelementptr inbounds %"struct.hb_bit_set_t::page_map_t", ptr %12, i64 %.pre
   %.pre89 = load i32, ptr %arrayidx22.phi.trans.insert, align 4
   %arrayZ20 = getelementptr inbounds i8, ptr %this, i64 40
@@ -21234,7 +21234,7 @@ if.else.i.i43:                                    ; preds = %_ZN3CFF14byte_str_r
 
 _ZN3CFF11arg_stack_tINS_8number_tEE8push_intEi.exit51: ; preds = %if.then.i.i46, %if.else.i.i43
   %retval.0.i.i44 = phi ptr [ %arrayidx.i.i50, %if.then.i.i46 ], [ @_hb_CrapPool, %if.else.i.i43 ]
-  %conv.i.i45 = uitofp i32 %conv14 to double
+  %conv.i.i45 = sitofp i32 %conv14 to double
   store double %conv.i.i45, ptr %retval.0.i.i44, align 8
   %add.i53 = add i32 %13, 1
   store i32 %add.i53, ptr %backwards_length.i.i31, align 4

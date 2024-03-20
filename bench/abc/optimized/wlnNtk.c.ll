@@ -1656,7 +1656,7 @@ Wln_NtkIncrementTravId.exit156:                   ; preds = %Wln_NtkIncrementTra
 91:                                               ; preds = %.critedge2._crit_edge
   tail call void @Wln_NtkCreateRefs(ptr noundef nonnull %0)
   %.val123 = load i32, ptr %68, align 4
-  %92 = uitofp i32 %90 to double
+  %92 = sitofp i32 %90 to double
   %93 = fmul double %92, 1.000000e+02
   %94 = sitofp i32 %.val123 to double
   %95 = fdiv double %93, %94

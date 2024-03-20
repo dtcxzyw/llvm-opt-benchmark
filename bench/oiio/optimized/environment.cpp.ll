@@ -1340,7 +1340,7 @@ if.end136:                                        ; preds = %if.then134, %_ZN18O
   %108 = call float @llvm.ceil.f32(float %sub139)
   %conv140 = fptosi float %108 to i32
   %.sroa.speculated = call i32 @llvm.smax.i32(i32 %conv140, i32 1)
-  %conv142 = uitofp i32 %.sroa.speculated to float
+  %conv142 = sitofp i32 %.sroa.speculated to float
   %div143 = fdiv float 1.000000e+00, %conv142
   br label %if.end147
 

@@ -1487,7 +1487,7 @@ define void @If_ManStop(ptr noundef %0) local_unnamed_addr #0 {
   %100 = sitofp i32 %96 to double
   %101 = fmul double %100, 1.000000e+02
   %102 = tail call noundef i32 @llvm.smax.i32(i32 %99, i32 1)
-  %103 = uitofp i32 %102 to double
+  %103 = sitofp i32 %102 to double
   %104 = fdiv double %101, %103
   %105 = trunc i64 %indvars.iv370 to i32
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.11, i32 noundef %105, i32 noundef %96, i32 noundef %99, double noundef %104)
@@ -1505,7 +1505,7 @@ define void @If_ManStop(ptr noundef %0) local_unnamed_addr #0 {
   %111 = sitofp i32 %108 to double
   %112 = fmul double %111, 1.000000e+02
   %113 = tail call noundef i32 @llvm.smax.i32(i32 %110, i32 1)
-  %114 = uitofp i32 %113 to double
+  %114 = sitofp i32 %113 to double
   %115 = fdiv double %112, %114
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.12, i32 noundef %108, i32 noundef %110, double noundef %115)
   br label %116

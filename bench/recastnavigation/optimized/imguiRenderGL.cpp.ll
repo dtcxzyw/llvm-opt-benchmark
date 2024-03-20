@@ -4554,10 +4554,10 @@ _ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.exit.thread.i.i: ; preds
 551:                                              ; preds = %_ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit365.i.i.i, %.lr.ph.i.i94.i
   %indvars.iv.i.i95.i = phi i64 [ 0, %.lr.ph.i.i94.i ], [ %indvars.iv.next.i.i96.i, %_ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit365.i.i.i ]
   %552 = trunc i64 %indvars.iv.i.i95.i to i32
-  %553 = uitofp i32 %552 to float
+  %553 = sitofp i32 %552 to float
   %indvars.iv.next.i.i96.i = add nuw nsw i64 %indvars.iv.i.i95.i, 1
   %554 = trunc i64 %indvars.iv.next.i.i96.i to i32
-  %555 = uitofp i32 %554 to float
+  %555 = sitofp i32 %554 to float
   %556 = fsub float %553, %284
   %557 = fdiv float %556, %281
   %558 = fadd float %557, %207
@@ -8885,7 +8885,7 @@ define dso_local noundef zeroext i1 @_Z17imguiRenderGLInitPKc(ptr nocapture noun
 2:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
   %3 = trunc i64 %indvars.iv to i32
-  %4 = uitofp i32 %3 to float
+  %4 = sitofp i32 %3 to float
   %5 = fmul float %4, 3.125000e-02
   %6 = fmul float %5, 0x400921FB60000000
   %7 = fmul float %6, 2.000000e+00

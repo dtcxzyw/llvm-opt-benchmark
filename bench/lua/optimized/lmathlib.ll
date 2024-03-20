@@ -656,7 +656,7 @@ entry:
 
 sw.bb:                                            ; preds = %entry
   %shr.i = lshr i64 %mul5.i, 11
-  %conv.i = uitofp i64 %shr.i to double
+  %conv.i = sitofp i64 %shr.i to double
   %mul.i17 = fmul double %conv.i, 0x3CA0000000000000
   tail call void @lua_pushnumber(ptr noundef %L, double noundef %mul.i17) #6
   br label %return

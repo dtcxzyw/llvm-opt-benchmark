@@ -2406,7 +2406,7 @@ Vec_IntStart.exit233:                             ; preds = %Vec_IntAlloc.exit.t
 
 263:                                              ; preds = %258
   %264 = udiv i32 %260, 10
-  %265 = uitofp i32 %264 to double
+  %265 = sitofp i32 %264 to double
   %266 = call double @pow(double noundef 1.000000e+01, double noundef %265) #26
   %267 = fptosi double %266 to i32
   %268 = urem i32 %260, 10

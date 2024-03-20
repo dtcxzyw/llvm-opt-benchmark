@@ -21312,13 +21312,13 @@ entry:
   %26 = getelementptr inbounds i8, ptr %this, i64 8
   %bf.load.i = load i32, ptr %26, align 4
   %bf.clear.i = and i32 %bf.load.i, 32767
-  %conv.i = uitofp i32 %bf.clear.i to float
+  %conv.i = sitofp i32 %bf.clear.i to float
   %div.i15 = fdiv float %conv.i, 3.276700e+04
   %mul.i = fmul float %div.i15, 2.000000e+00
   %sub.i = fadd float %mul.i, -1.000000e+00
   %bf.lshr.i = lshr i32 %bf.load.i, 15
   %bf.clear.i17 = and i32 %bf.lshr.i, 32767
-  %conv.i18 = uitofp i32 %bf.clear.i17 to float
+  %conv.i18 = sitofp i32 %bf.clear.i17 to float
   %div.i19 = fdiv float %conv.i18, 3.276700e+04
   %mul.i20 = fmul float %div.i19, 2.000000e+00
   %sub.i21 = fadd float %mul.i20, -1.000000e+00
@@ -21441,14 +21441,14 @@ land.lhs.true5.i.i.i:                             ; preds = %_ZNK4pbrt16Octahedr
   %cmp8.i.i.i = extractelement <2 x i1> %95, i64 0
   %96 = fcmp ole <2 x float> %53, %49
   %cmp13.i.i.i = extractelement <2 x i1> %96, i64 0
-  %or.cond11.i.not.i.i = select i1 %cmp8.i.i.i, i1 %cmp13.i.i.i, i1 false
+  %or.cond11.i.not10.i.i = select i1 %cmp8.i.i.i, i1 %cmp13.i.i.i, i1 false
   %97 = extractelement <2 x float> %53, i64 1
   %98 = fcmp ole <2 x float> %49, %53
   %cmp17.i.i.i = extractelement <2 x i1> %98, i64 1
-  %or.cond12.i.i.i = select i1 %or.cond11.i.not.i.i, i1 %cmp17.i.i.i, i1 false
+  %or.cond12.i.not9.i.i = select i1 %or.cond11.i.not10.i.i, i1 %cmp17.i.i.i, i1 false
   %99 = extractelement <2 x float> %51, i64 1
   %cmp21.i.i.i = fcmp oge float %99, %97
-  %or.cond.i.i = select i1 %or.cond12.i.i.i, i1 %cmp21.i.i.i, i1 false
+  %or.cond.i.i = select i1 %or.cond12.i.not9.i.i, i1 %cmp21.i.i.i, i1 false
   br i1 %or.cond.i.i, label %cond.true.i.i, label %_ZNK4pbrt7Bounds3IfE14BoundingSphereEPNS_6Point3IfEEPf.exit.i
 
 cond.true.i.i:                                    ; preds = %land.lhs.true5.i.i.i
