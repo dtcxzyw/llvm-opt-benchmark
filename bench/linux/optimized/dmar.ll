@@ -1478,11 +1478,11 @@ define dso_local noundef i32 @qi_submit_sync(ptr noundef %0, ptr nocapture nound
   %37 = trunc i64 %36 to i32
   %38 = and i32 %37, 1
   %39 = or disjoint i32 %38, 4
-  %.pre = shl nuw nsw i32 1, %39
-  %.pre29 = zext nneg i32 %.pre to i64
-  br i1 %14, label %.loopexit12, label %.preheader42
+  %.pre = shl nuw nsw i32 16, %38
+  %.pre33 = zext nneg i32 %.pre to i64
+  br i1 %14, label %.loopexit12, label %.preheader48
 
-.preheader42:                                     ; preds = %.loopexit14, %79
+.preheader48:                                     ; preds = %.loopexit14, %79
   %40 = phi i32 [ %80, %79 ], [ 0, %.loopexit14 ]
   %41 = add i32 %40, %32
   %42 = srem i32 %41, 256
@@ -1492,7 +1492,7 @@ define dso_local noundef i32 @qi_submit_sync(ptr noundef %0, ptr nocapture nound
   %46 = getelementptr i8, ptr %44, i64 %45
   %47 = sext i32 %40 to i64
   %48 = getelementptr %struct.qi_desc, ptr %1, i64 %47
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %46, ptr noundef align 8 %48, i64 %.pre29, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %46, ptr noundef align 8 %48, i64 %.pre33, i1 false)
   %49 = load ptr, ptr %16, align 8
   %50 = sext i32 %42 to i64
   %51 = getelementptr i32, ptr %49, i64 %50
@@ -1507,7 +1507,7 @@ define dso_local noundef i32 @qi_submit_sync(ptr noundef %0, ptr nocapture nound
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (%struct.tracepoint, ptr @__tracepoint_qi_submit, i64 0, i32 1), i32 2) #19
           to label %79 [label %59], !srcloc !34
 
-59:                                               ; preds = %.preheader42
+59:                                               ; preds = %.preheader48
   %60 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 2)) #19, !srcloc !35
   %61 = zext i32 %60 to i64
   %62 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_online_mask, i64 %61) #19, !srcloc !36
@@ -1543,10 +1543,10 @@ define dso_local noundef i32 @qi_submit_sync(ptr noundef %0, ptr nocapture nound
   tail call void @llvm.write_register.i64(metadata !0, i64 %78)
   br label %79
 
-79:                                               ; preds = %76, %72, %59, %.preheader42
+79:                                               ; preds = %76, %72, %59, %.preheader48
   %80 = add nuw i32 %40, 1
   %81 = icmp eq i32 %80, %2
-  br i1 %81, label %.loopexit12, label %.preheader42, !llvm.loop !42
+  br i1 %81, label %.loopexit12, label %.preheader48, !llvm.loop !42
 
 .loopexit12:                                      ; preds = %79, %.loopexit14
   %82 = load ptr, ptr %16, align 8
@@ -1570,7 +1570,7 @@ define dso_local noundef i32 @qi_submit_sync(ptr noundef %0, ptr nocapture nound
   %96 = load ptr, ptr %15, align 8
   %97 = zext nneg i32 %95 to i64
   %98 = getelementptr i8, ptr %96, i64 %97
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %98, ptr noundef nonnull align 8 dereferenceable(1) %5, i64 %.pre29, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %98, ptr noundef nonnull align 8 dereferenceable(1) %5, i64 %.pre33, i1 false)
   %99 = load i32, ptr %12, align 8
   %100 = add i32 %20, %99
   %101 = and i32 %100, 255
@@ -1843,7 +1843,7 @@ define dso_local noundef i32 @qi_submit_sync(ptr noundef %0, ptr nocapture nound
   %260 = shl nuw nsw i32 %34, %116
   %261 = zext nneg i32 %260 to i64
   %262 = getelementptr i8, ptr %257, i64 %261
-  %263 = shl nuw nsw i32 1, %116
+  %263 = shl nuw nsw i32 16, %115
   %264 = zext nneg i32 %263 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 %259, ptr noundef align 1 %262, i64 %264, i1 false)
   %265 = load ptr, ptr %0, align 8

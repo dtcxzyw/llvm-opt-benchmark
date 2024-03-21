@@ -7237,24 +7237,23 @@ define internal void @skl_ddi_dpll0_enable(ptr noundef %0, ptr nocapture noundef
   %10 = add i32 %7, 4
   %11 = shl nuw i32 1, %10
   %12 = or disjoint i32 %9, %11
-  %13 = or disjoint i32 %7, 1
-  %14 = shl i32 7, %13
-  %15 = or i32 %12, %14
-  %16 = getelementptr inbounds i8, ptr %1, i64 28
-  %17 = load i32, ptr %16, align 4
-  %18 = shl i32 %17, %7
-  %19 = getelementptr inbounds i8, ptr %0, i64 7368
-  %20 = getelementptr inbounds i8, ptr %0, i64 7512
-  %21 = load ptr, ptr %20, align 8
-  %22 = tail call i32 %21(ptr noundef %19, i32 442456, i1 noundef zeroext true) #13
-  %23 = xor i32 %15, -1
-  %24 = and i32 %22, %23
-  %25 = or i32 %24, %18
-  %26 = getelementptr inbounds i8, ptr %0, i64 7544
-  %27 = load ptr, ptr %26, align 8
-  tail call void %27(ptr noundef %19, i32 442456, i32 noundef %25, i1 noundef zeroext true) #13
-  %28 = load ptr, ptr %20, align 8
-  %29 = tail call i32 %28(ptr noundef %19, i32 442456, i1 noundef zeroext false) #13
+  %13 = shl i32 14, %7
+  %14 = or i32 %12, %13
+  %15 = getelementptr inbounds i8, ptr %1, i64 28
+  %16 = load i32, ptr %15, align 4
+  %17 = shl i32 %16, %7
+  %18 = getelementptr inbounds i8, ptr %0, i64 7368
+  %19 = getelementptr inbounds i8, ptr %0, i64 7512
+  %20 = load ptr, ptr %19, align 8
+  %21 = tail call i32 %20(ptr noundef %18, i32 442456, i1 noundef zeroext true) #13
+  %22 = xor i32 %14, -1
+  %23 = and i32 %21, %22
+  %24 = or i32 %23, %17
+  %25 = getelementptr inbounds i8, ptr %0, i64 7544
+  %26 = load ptr, ptr %25, align 8
+  tail call void %26(ptr noundef %18, i32 442456, i32 noundef %24, i1 noundef zeroext true) #13
+  %27 = load ptr, ptr %19, align 8
+  %28 = tail call i32 %27(ptr noundef %18, i32 442456, i1 noundef zeroext false) #13
   ret void
 }
 
@@ -7534,69 +7533,68 @@ define internal void @skl_ddi_pll_enable(ptr noundef %0, ptr nocapture noundef r
   %10 = add i32 %7, 4
   %11 = shl nuw i32 1, %10
   %12 = or disjoint i32 %9, %11
-  %13 = or disjoint i32 %7, 1
-  %14 = shl i32 7, %13
-  %15 = or i32 %12, %14
-  %16 = getelementptr inbounds i8, ptr %1, i64 28
-  %17 = load i32, ptr %16, align 4
-  %18 = shl i32 %17, %7
-  %19 = getelementptr inbounds i8, ptr %0, i64 7368
-  %20 = getelementptr inbounds i8, ptr %0, i64 7512
-  %21 = load ptr, ptr %20, align 8
-  %22 = tail call i32 %21(ptr noundef %19, i32 442456, i1 noundef zeroext true) #13
-  %23 = xor i32 %15, -1
-  %24 = and i32 %22, %23
-  %25 = or i32 %24, %18
-  %26 = getelementptr inbounds i8, ptr %0, i64 7544
-  %27 = load ptr, ptr %26, align 8
-  tail call void %27(ptr noundef %19, i32 442456, i32 noundef %25, i1 noundef zeroext true) #13
-  %28 = load ptr, ptr %20, align 8
-  %29 = tail call i32 %28(ptr noundef %19, i32 442456, i1 noundef zeroext false) #13
-  %30 = sext i32 %6 to i64
-  %31 = getelementptr %struct.skl_dpll_regs, ptr @skl_dpll_regs, i64 %30
-  %32 = getelementptr inbounds i8, ptr %31, i64 4
-  %33 = getelementptr inbounds i8, ptr %1, i64 32
-  %34 = load i32, ptr %33, align 4
-  %35 = load i32, ptr %32, align 4
-  %36 = load ptr, ptr %26, align 8
-  tail call void %36(ptr noundef %19, i32 %35, i32 noundef %34, i1 noundef zeroext true) #13
-  %37 = getelementptr inbounds i8, ptr %31, i64 8
-  %38 = getelementptr inbounds i8, ptr %1, i64 36
-  %39 = load i32, ptr %38, align 4
-  %40 = load i32, ptr %37, align 4
-  %41 = load ptr, ptr %26, align 8
-  tail call void %41(ptr noundef %19, i32 %40, i32 noundef %39, i1 noundef zeroext true) #13
-  %42 = load ptr, ptr %20, align 8
-  %43 = tail call i32 %42(ptr noundef %19, i32 %35, i1 noundef zeroext false) #13
-  %44 = load ptr, ptr %20, align 8
-  %45 = tail call i32 %44(ptr noundef %19, i32 %40, i1 noundef zeroext false) #13
-  %46 = load i32, ptr %31, align 4
-  %47 = load ptr, ptr %20, align 8
-  %48 = tail call i32 %47(ptr noundef %19, i32 %46, i1 noundef zeroext true) #13
-  %49 = or i32 %48, -2147483648
-  %50 = load ptr, ptr %26, align 8
-  tail call void %50(ptr noundef %19, i32 %46, i32 noundef %49, i1 noundef zeroext true) #13
-  %51 = shl i32 %6, 3
-  %52 = shl nuw i32 1, %51
-  %53 = tail call i32 @__intel_wait_for_register(ptr noundef %19, i32 442464, i32 noundef %52, i32 noundef %52, i32 noundef 2, i32 noundef 5, ptr noundef null) #13
-  %54 = icmp eq i32 %53, 0
-  br i1 %54, label %62, label %55
+  %13 = shl i32 14, %7
+  %14 = or i32 %12, %13
+  %15 = getelementptr inbounds i8, ptr %1, i64 28
+  %16 = load i32, ptr %15, align 4
+  %17 = shl i32 %16, %7
+  %18 = getelementptr inbounds i8, ptr %0, i64 7368
+  %19 = getelementptr inbounds i8, ptr %0, i64 7512
+  %20 = load ptr, ptr %19, align 8
+  %21 = tail call i32 %20(ptr noundef %18, i32 442456, i1 noundef zeroext true) #13
+  %22 = xor i32 %14, -1
+  %23 = and i32 %21, %22
+  %24 = or i32 %23, %17
+  %25 = getelementptr inbounds i8, ptr %0, i64 7544
+  %26 = load ptr, ptr %25, align 8
+  tail call void %26(ptr noundef %18, i32 442456, i32 noundef %24, i1 noundef zeroext true) #13
+  %27 = load ptr, ptr %19, align 8
+  %28 = tail call i32 %27(ptr noundef %18, i32 442456, i1 noundef zeroext false) #13
+  %29 = sext i32 %6 to i64
+  %30 = getelementptr %struct.skl_dpll_regs, ptr @skl_dpll_regs, i64 %29
+  %31 = getelementptr inbounds i8, ptr %30, i64 4
+  %32 = getelementptr inbounds i8, ptr %1, i64 32
+  %33 = load i32, ptr %32, align 4
+  %34 = load i32, ptr %31, align 4
+  %35 = load ptr, ptr %25, align 8
+  tail call void %35(ptr noundef %18, i32 %34, i32 noundef %33, i1 noundef zeroext true) #13
+  %36 = getelementptr inbounds i8, ptr %30, i64 8
+  %37 = getelementptr inbounds i8, ptr %1, i64 36
+  %38 = load i32, ptr %37, align 4
+  %39 = load i32, ptr %36, align 4
+  %40 = load ptr, ptr %25, align 8
+  tail call void %40(ptr noundef %18, i32 %39, i32 noundef %38, i1 noundef zeroext true) #13
+  %41 = load ptr, ptr %19, align 8
+  %42 = tail call i32 %41(ptr noundef %18, i32 %34, i1 noundef zeroext false) #13
+  %43 = load ptr, ptr %19, align 8
+  %44 = tail call i32 %43(ptr noundef %18, i32 %39, i1 noundef zeroext false) #13
+  %45 = load i32, ptr %30, align 4
+  %46 = load ptr, ptr %19, align 8
+  %47 = tail call i32 %46(ptr noundef %18, i32 %45, i1 noundef zeroext true) #13
+  %48 = or i32 %47, -2147483648
+  %49 = load ptr, ptr %25, align 8
+  tail call void %49(ptr noundef %18, i32 %45, i32 noundef %48, i1 noundef zeroext true) #13
+  %50 = shl i32 %6, 3
+  %51 = shl nuw i32 1, %50
+  %52 = tail call i32 @__intel_wait_for_register(ptr noundef %18, i32 442464, i32 noundef %51, i32 noundef %51, i32 noundef 2, i32 noundef 5, ptr noundef null) #13
+  %53 = icmp eq i32 %52, 0
+  br i1 %53, label %61, label %54
 
-55:                                               ; preds = %2
-  %56 = icmp eq ptr %0, null
-  br i1 %56, label %60, label %57
+54:                                               ; preds = %2
+  %55 = icmp eq ptr %0, null
+  br i1 %55, label %59, label %56
 
-57:                                               ; preds = %55
-  %58 = getelementptr inbounds i8, ptr %0, i64 8
-  %59 = load ptr, ptr %58, align 8
-  br label %60
+56:                                               ; preds = %54
+  %57 = getelementptr inbounds i8, ptr %0, i64 8
+  %58 = load ptr, ptr %57, align 8
+  br label %59
 
-60:                                               ; preds = %57, %55
-  %61 = phi ptr [ %59, %57 ], [ null, %55 ]
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %61, ptr noundef nonnull @.str.89, i32 noundef %6) #14
-  br label %62
+59:                                               ; preds = %56, %54
+  %60 = phi ptr [ %58, %56 ], [ null, %54 ]
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %60, ptr noundef nonnull @.str.89, i32 noundef %6) #14
+  br label %61
 
-62:                                               ; preds = %60, %2
+61:                                               ; preds = %59, %2
   ret void
 }
 

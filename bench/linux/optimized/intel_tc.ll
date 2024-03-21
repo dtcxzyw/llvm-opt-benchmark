@@ -3989,7 +3989,7 @@ define internal i32 @icl_tc_phy_hpd_live_status(ptr noundef %0) #0 align 16 {
   %41 = getelementptr inbounds i8, ptr %0, i64 240
   %42 = load ptr, ptr %41, align 8
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %40, i32 noundef 2, ptr noundef nonnull @.str.63, ptr noundef %42) #7
-  br label %64
+  br label %62
 
 .thread:                                          ; preds = %1, %17
   %43 = phi i32 [ %29, %17 ], [ 0, %1 ]
@@ -3998,26 +3998,24 @@ define internal i32 @icl_tc_phy_hpd_live_status(ptr noundef %0) #0 align 16 {
   %46 = load i8, ptr %45, align 4
   %47 = zext i8 %46 to i32
   %48 = shl nuw nsw i32 %47, 3
-  %49 = or disjoint i32 %48, 6
-  %50 = shl nuw i32 1, %49
-  %51 = and i32 %50, %44
-  %52 = icmp eq i32 %51, 0
-  %53 = select i1 %52, i32 0, i32 2
-  %54 = or disjoint i32 %48, 5
-  %55 = shl nuw i32 1, %54
-  %56 = and i32 %55, %44
-  %57 = icmp eq i32 %56, 0
-  %58 = or disjoint i32 %53, 4
-  %59 = select i1 %57, i32 %53, i32 %58
-  %60 = and i32 %43, %10
-  %61 = icmp eq i32 %60, 0
-  %62 = or disjoint i32 %59, 8
-  %63 = select i1 %61, i32 %59, i32 %62
-  br label %64
+  %49 = shl nuw i32 64, %48
+  %50 = and i32 %49, %44
+  %51 = icmp eq i32 %50, 0
+  %52 = select i1 %51, i32 0, i32 2
+  %53 = shl nuw i32 32, %48
+  %54 = and i32 %53, %44
+  %55 = icmp eq i32 %54, 0
+  %56 = or disjoint i32 %52, 4
+  %57 = select i1 %55, i32 %52, i32 %56
+  %58 = and i32 %43, %10
+  %59 = icmp eq i32 %58, 0
+  %60 = or disjoint i32 %57, 8
+  %61 = select i1 %59, i32 %57, i32 %60
+  br label %62
 
-64:                                               ; preds = %.thread, %39
-  %65 = phi i32 [ 0, %39 ], [ %63, %.thread ]
-  ret i32 %65
+62:                                               ; preds = %.thread, %39
+  %63 = phi i32 [ 0, %39 ], [ %61, %.thread ]
+  ret i32 %63
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

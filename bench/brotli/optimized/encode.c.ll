@@ -448,9 +448,8 @@ while.body.i:                                     ; preds = %if.then31, %if.end3
   %shl13.i = add nsw i32 %sub.i, -8
   %or.i = or disjoint i32 %shl.i, %shl13.i
   %mul.i54 = shl nuw nsw i32 %nibbles.0.i, 2
-  %add.i = or disjoint i32 %mul.i54, 19
-  %shl14.i = shl nuw nsw i32 1, %add.i
-  %or15.i = or i32 %shl14.i, %or.i
+  %shl14.i = shl nuw nsw i32 524288, %mul.i54
+  %or15.i = or i32 %or.i, %shl14.i
   %conv16.i = trunc i32 %or.i to i8
   %arrayidx18.i = getelementptr inbounds i8, ptr %encoded_buffer, i64 %result.036.i
   store i8 %conv16.i, ptr %arrayidx18.i, align 1

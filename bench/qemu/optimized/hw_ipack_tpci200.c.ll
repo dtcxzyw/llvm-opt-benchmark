@@ -246,15 +246,14 @@ for.body61:                                       ; preds = %for.cond58.preheade
   %cmp59 = phi i1 [ true, %for.cond58.preheader ], [ false, %for.body61 ]
   %indvars.iv = phi i64 [ 0, %for.cond58.preheader ], [ 1, %for.body61 ]
   %level_status.141 = phi i16 [ %level_status.043, %for.cond58.preheader ], [ %level_status.2, %for.body61 ]
-  %11 = or disjoint i64 %indvars.iv, 4
-  %shl68 = shl nuw nsw i64 1, %11
+  %shl68 = shl nuw nsw i64 16, %indvars.iv
   %and69 = and i64 %shl68, %conv65
   %tobool70.not = icmp eq i64 %and69, 0
-  %12 = or disjoint i64 %indvars.iv, %10
-  %shl75 = shl nuw nsw i64 1, %12
-  %13 = trunc i64 %shl75 to i16
-  %14 = xor i16 %13, -1
-  %conv79 = select i1 %tobool70.not, i16 -1, i16 %14
+  %11 = or disjoint i64 %indvars.iv, %10
+  %shl75 = shl nuw nsw i64 1, %11
+  %12 = trunc i64 %shl75 to i16
+  %13 = xor i16 %12, -1
+  %conv79 = select i1 %tobool70.not, i16 -1, i16 %13
   %level_status.2 = and i16 %level_status.141, %conv79
   br i1 %cmp59, label %for.body61, label %for.inc81, !llvm.loop !5
 
@@ -266,8 +265,8 @@ for.inc81:                                        ; preds = %for.body61
 for.end83:                                        ; preds = %for.inc81
   %cond = icmp eq i16 %level_status.2, 0
   %int_set95 = getelementptr inbounds i8, ptr %call.i39, i64 4394
-  %15 = load i8, ptr %int_set95, align 2
-  %tobool97.not = icmp eq i8 %15, 0
+  %14 = load i8, ptr %int_set95, align 2
+  %tobool97.not = icmp eq i8 %14, 0
   br i1 %cond, label %land.lhs.true94, label %land.lhs.true86
 
 land.lhs.true86:                                  ; preds = %for.end83
@@ -353,7 +352,7 @@ entry:
 
 if.then:                                          ; preds = %entry, %entry, %entry
   %sub = add nuw nsw i64 %addr, 17179869141
-  %div5 = lshr i64 %sub, 2
+  %div5 = lshr exact i64 %sub, 2
   %big_endian = getelementptr inbounds i8, ptr %opaque, i64 4384
   %idxprom = and i64 %div5, 4294967295
   %arrayidx = getelementptr [3 x i8], ptr %big_endian, i64 0, i64 %idxprom
@@ -466,32 +465,30 @@ do.end17:                                         ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %do.end17, %if.then
-  %7 = or disjoint i64 %4, 1
-  %shl22 = shl nuw nsw i64 1, %7
+  %shl22 = shl nuw nsw i64 2, %4
   %and23 = and i64 %shl22, %val.addr.0
   %tobool24.not = icmp eq i64 %and23, 0
   br i1 %tobool24.not, label %if.end31, label %do.end27
 
 do.end27:                                         ; preds = %if.end
   %irq28 = getelementptr inbounds i8, ptr %call11, i64 168
-  %8 = load ptr, ptr %irq28, align 8
-  %arrayidx29 = getelementptr i8, ptr %8, i64 8
-  %9 = load ptr, ptr %arrayidx29, align 8
-  tail call void @qemu_set_irq(ptr noundef %9, i32 noundef 0) #6
+  %7 = load ptr, ptr %irq28, align 8
+  %arrayidx29 = getelementptr i8, ptr %7, i64 8
+  %8 = load ptr, ptr %arrayidx29, align 8
+  tail call void @qemu_set_irq(ptr noundef %8, i32 noundef 0) #6
   br label %if.end31
 
 if.end31:                                         ; preds = %if.end, %do.end27, %for.body
-  %10 = or disjoint i64 %indvars.iv, 12
-  %shl34 = shl nuw nsw i64 1, %10
+  %shl34 = shl nuw nsw i64 4096, %indvars.iv
   %and35 = and i64 %shl34, %val.addr.0
   %tobool36.not = icmp eq i64 %and35, 0
   br i1 %tobool36.not, label %for.inc, label %do.end39
 
 do.end39:                                         ; preds = %if.end31
-  %11 = load i16, ptr %status, align 8
-  %12 = trunc i64 %shl34 to i16
-  %13 = xor i16 %12, -1
-  %conv45 = and i16 %11, %13
+  %9 = load i16, ptr %status, align 8
+  %10 = trunc i64 %shl34 to i16
+  %11 = xor i16 %10, -1
+  %conv45 = and i16 %9, %11
   store i16 %conv45, ptr %status, align 8
   br label %for.inc
 

@@ -669,20 +669,20 @@ define hidden noundef nonnull ptr @_Z18stbi_zlib_compressPhiPii(ptr noundef %0, 
 
 19:                                               ; preds = %9
   %20 = shl nsw i32 %18, 1
-  %21 = or disjoint i32 %20, 1
-  %22 = sext i32 %21 to i64
-  %23 = add nsw i64 %22, 8
-  %24 = tail call ptr @realloc(ptr noundef nonnull %15, i64 noundef %23) #25
-  %.not18.i193 = icmp eq ptr %24, null
-  br i1 %.not18.i193, label %_ZL17stbi__zlib_flushfPhPjPi.exit.thread, label %25
+  %21 = sext i32 %20 to i64
+  %22 = add nsw i64 %21, 9
+  %23 = tail call ptr @realloc(ptr noundef nonnull %15, i64 noundef %22) #25
+  %.not18.i193 = icmp eq ptr %23, null
+  br i1 %.not18.i193, label %_ZL17stbi__zlib_flushfPhPjPi.exit.thread, label %24
 
-25:                                               ; preds = %19
-  %26 = getelementptr inbounds i8, ptr %24, i64 8
-  store i32 %21, ptr %24, align 4
+24:                                               ; preds = %19
+  %25 = or disjoint i32 %20, 1
+  %26 = getelementptr inbounds i8, ptr %23, i64 8
+  store i32 %25, ptr %23, align 4
   br label %_ZL17stbi__zlib_flushfPhPjPi.exit.thread
 
-_ZL17stbi__zlib_flushfPhPjPi.exit.thread:         ; preds = %9, %19, %25
-  %.2537 = phi ptr [ %.0535, %9 ], [ %.0535, %19 ], [ %26, %25 ]
+_ZL17stbi__zlib_flushfPhPjPi.exit.thread:         ; preds = %9, %19, %24
+  %.2537 = phi ptr [ %.0535, %9 ], [ %.0535, %19 ], [ %26, %24 ]
   %27 = getelementptr inbounds i8, ptr %.2537, i64 -4
   %28 = load i32, ptr %27, align 4
   %29 = add nsw i32 %28, 1
@@ -2050,20 +2050,20 @@ _ZL17stbi__zlib_flushfPhPjPi.exit401:             ; preds = %_ZL13stbi__sbgrowfP
 
 668:                                              ; preds = %656
   %669 = shl nsw i32 %667, 1
-  %670 = or disjoint i32 %669, 1
-  %671 = sext i32 %670 to i64
-  %672 = add nsw i64 %671, 8
-  %673 = tail call ptr @realloc(ptr noundef nonnull %664, i64 noundef %672) #25
-  %.not18.i410 = icmp eq ptr %673, null
-  br i1 %.not18.i410, label %676, label %674
+  %670 = sext i32 %669 to i64
+  %671 = add nsw i64 %670, 9
+  %672 = tail call ptr @realloc(ptr noundef nonnull %664, i64 noundef %671) #25
+  %.not18.i410 = icmp eq ptr %672, null
+  br i1 %.not18.i410, label %676, label %673
 
-674:                                              ; preds = %668
-  %675 = getelementptr inbounds i8, ptr %673, i64 8
-  store i32 %670, ptr %673, align 4
+673:                                              ; preds = %668
+  %674 = or disjoint i32 %669, 1
+  %675 = getelementptr inbounds i8, ptr %672, i64 8
+  store i32 %674, ptr %672, align 4
   br label %676
 
-676:                                              ; preds = %656, %668, %674
-  %.11 = phi ptr [ %.9, %656 ], [ %.9, %668 ], [ %675, %674 ]
+676:                                              ; preds = %656, %668, %673
+  %.11 = phi ptr [ %.9, %656 ], [ %.9, %668 ], [ %675, %673 ]
   %677 = trunc i32 %.0137.lcssa to i8
   %678 = getelementptr inbounds i8, ptr %.11, i64 -4
   %679 = load i32, ptr %678, align 4
@@ -2081,20 +2081,20 @@ _ZL17stbi__zlib_flushfPhPjPi.exit401:             ; preds = %_ZL13stbi__sbgrowfP
 
 687:                                              ; preds = %676
   %688 = shl nsw i32 %686, 1
-  %689 = or disjoint i32 %688, 1
-  %690 = sext i32 %689 to i64
-  %691 = add nsw i64 %690, 8
-  %692 = tail call ptr @realloc(ptr noundef nonnull %683, i64 noundef %691) #25
-  %.not18.i416 = icmp eq ptr %692, null
-  br i1 %.not18.i416, label %695, label %693
+  %689 = sext i32 %688 to i64
+  %690 = add nsw i64 %689, 9
+  %691 = tail call ptr @realloc(ptr noundef nonnull %683, i64 noundef %690) #25
+  %.not18.i416 = icmp eq ptr %691, null
+  br i1 %.not18.i416, label %695, label %692
 
-693:                                              ; preds = %687
-  %694 = getelementptr inbounds i8, ptr %692, i64 8
-  store i32 %689, ptr %692, align 4
+692:                                              ; preds = %687
+  %693 = or disjoint i32 %688, 1
+  %694 = getelementptr inbounds i8, ptr %691, i64 8
+  store i32 %693, ptr %691, align 4
   br label %695
 
-695:                                              ; preds = %676, %687, %693
-  %.13 = phi ptr [ %.11, %676 ], [ %.11, %687 ], [ %694, %693 ]
+695:                                              ; preds = %676, %687, %692
+  %.13 = phi ptr [ %.11, %676 ], [ %.11, %687 ], [ %694, %692 ]
   %696 = lshr i32 %.0138.lcssa, 8
   %697 = trunc i32 %696 to i8
   %698 = getelementptr inbounds i8, ptr %.13, i64 -4
@@ -2113,20 +2113,20 @@ _ZL17stbi__zlib_flushfPhPjPi.exit401:             ; preds = %_ZL13stbi__sbgrowfP
 
 707:                                              ; preds = %695
   %708 = shl nsw i32 %706, 1
-  %709 = or disjoint i32 %708, 1
-  %710 = sext i32 %709 to i64
-  %711 = add nsw i64 %710, 8
-  %712 = tail call ptr @realloc(ptr noundef nonnull %703, i64 noundef %711) #25
-  %.not18.i422 = icmp eq ptr %712, null
-  br i1 %.not18.i422, label %_ZL13stbi__sbgrowfPPvii.exit425, label %713
+  %709 = sext i32 %708 to i64
+  %710 = add nsw i64 %709, 9
+  %711 = tail call ptr @realloc(ptr noundef nonnull %703, i64 noundef %710) #25
+  %.not18.i422 = icmp eq ptr %711, null
+  br i1 %.not18.i422, label %_ZL13stbi__sbgrowfPPvii.exit425, label %712
 
-713:                                              ; preds = %707
-  %714 = getelementptr inbounds i8, ptr %712, i64 8
-  store i32 %709, ptr %712, align 4
+712:                                              ; preds = %707
+  %713 = or disjoint i32 %708, 1
+  %714 = getelementptr inbounds i8, ptr %711, i64 8
+  store i32 %713, ptr %711, align 4
   br label %_ZL13stbi__sbgrowfPPvii.exit425
 
-_ZL13stbi__sbgrowfPPvii.exit425:                  ; preds = %713, %707, %695
-  %.15 = phi ptr [ %.13, %695 ], [ %.13, %707 ], [ %714, %713 ]
+_ZL13stbi__sbgrowfPPvii.exit425:                  ; preds = %712, %707, %695
+  %.15 = phi ptr [ %.13, %695 ], [ %.13, %707 ], [ %714, %712 ]
   %715 = trunc i32 %.0138.lcssa to i8
   %716 = getelementptr inbounds i8, ptr %.15, i64 -4
   %717 = load i32, ptr %716, align 4

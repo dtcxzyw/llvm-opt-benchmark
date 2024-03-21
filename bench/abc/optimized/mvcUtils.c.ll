@@ -255,7 +255,7 @@ define i32 @Mvc_CoverSupportSizeBinary(ptr noundef %0) local_unnamed_addr #1 {
 
 8:                                                ; preds = %.lr.ph, %8
   %.021 = phi i32 [ %5, %.lr.ph ], [ %spec.select, %8 ]
-  %.01920 = phi i32 [ 0, %.lr.ph ], [ %22, %8 ]
+  %.01920 = phi i32 [ 0, %.lr.ph ], [ %21, %8 ]
   %9 = shl nuw nsw i32 %.01920, 1
   %10 = lshr i32 %.01920, 4
   %11 = zext nneg i32 %10 to i64
@@ -263,16 +263,15 @@ define i32 @Mvc_CoverSupportSizeBinary(ptr noundef %0) local_unnamed_addr #1 {
   %13 = load i32, ptr %12, align 4
   %14 = and i32 %9, 30
   %15 = shl nuw nsw i32 1, %14
-  %16 = or disjoint i32 %14, 1
-  %17 = shl nuw i32 1, %16
-  %18 = freeze i32 %17
-  %19 = or i32 %18, %15
-  %20 = and i32 %13, %19
-  %or.cond = icmp eq i32 %20, %19
-  %21 = sext i1 %or.cond to i32
-  %spec.select = add nsw i32 %.021, %21
-  %22 = add nuw nsw i32 %.01920, 1
-  %exitcond.not = icmp eq i32 %22, %5
+  %16 = shl nuw i32 2, %14
+  %17 = freeze i32 %16
+  %18 = or i32 %17, %15
+  %19 = and i32 %13, %18
+  %or.cond = icmp eq i32 %19, %18
+  %20 = sext i1 %or.cond to i32
+  %spec.select = add nsw i32 %.021, %20
+  %21 = add nuw nsw i32 %.01920, 1
+  %exitcond.not = icmp eq i32 %21, %5
   br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %8, %1
@@ -297,15 +296,14 @@ define i32 @Mvc_CoverSupportVarBelongs(ptr noundef %0, i32 noundef %1) local_unn
   %9 = load i32, ptr %8, align 4
   %10 = and i32 %5, 30
   %11 = shl nuw nsw i32 1, %10
-  %12 = or disjoint i32 %10, 1
-  %13 = shl nuw i32 1, %12
-  %14 = freeze i32 %13
-  %15 = or i32 %14, %11
-  %16 = and i32 %9, %15
-  %17 = icmp ne i32 %16, %15
-  %18 = zext i1 %17 to i32
+  %12 = shl nuw i32 2, %10
+  %13 = freeze i32 %12
+  %14 = or i32 %13, %11
+  %15 = and i32 %9, %14
+  %16 = icmp ne i32 %15, %14
+  %17 = zext i1 %16 to i32
   tail call void @Mvc_CubeFree(ptr noundef %0, ptr noundef %3) #7
-  ret i32 %18
+  ret i32 %17
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable

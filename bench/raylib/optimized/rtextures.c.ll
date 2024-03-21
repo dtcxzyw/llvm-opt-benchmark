@@ -5837,20 +5837,20 @@ define hidden ptr @stbi_zlib_compress(ptr noundef %0, i32 noundef %1, ptr nocapt
 
 21:                                               ; preds = %11
   %22 = shl nsw i32 %20, 1
-  %23 = or disjoint i32 %22, 1
-  %24 = sext i32 %23 to i64
-  %25 = add nsw i64 %24, 8
-  %26 = tail call ptr @realloc(ptr noundef nonnull %17, i64 noundef %25) #51
-  %.not18.i247 = icmp eq ptr %26, null
-  br i1 %.not18.i247, label %stbiw__zlib_flushf.exit.thread, label %27
+  %23 = sext i32 %22 to i64
+  %24 = add nsw i64 %23, 9
+  %25 = tail call ptr @realloc(ptr noundef nonnull %17, i64 noundef %24) #51
+  %.not18.i247 = icmp eq ptr %25, null
+  br i1 %.not18.i247, label %stbiw__zlib_flushf.exit.thread, label %26
 
-27:                                               ; preds = %21
-  %28 = getelementptr inbounds i8, ptr %26, i64 8
-  store i32 %23, ptr %26, align 4
+26:                                               ; preds = %21
+  %27 = or disjoint i32 %22, 1
+  %28 = getelementptr inbounds i8, ptr %25, i64 8
+  store i32 %27, ptr %25, align 4
   br label %stbiw__zlib_flushf.exit.thread
 
-stbiw__zlib_flushf.exit.thread:                   ; preds = %11, %21, %27
-  %.3641 = phi ptr [ %.0638, %11 ], [ %.0638, %21 ], [ %28, %27 ]
+stbiw__zlib_flushf.exit.thread:                   ; preds = %11, %21, %26
+  %.3641 = phi ptr [ %.0638, %11 ], [ %.0638, %21 ], [ %28, %26 ]
   %29 = getelementptr inbounds i8, ptr %.3641, i64 -4
   %30 = load i32, ptr %29, align 4
   %31 = add nsw i32 %30, 1
@@ -7141,20 +7141,20 @@ stbiw__zlib_flushf.exit455:                       ; preds = %stbiw__sbgrowf.exit
 
 639:                                              ; preds = %.lr.ph791
   %640 = shl nsw i32 %638, 1
-  %641 = or disjoint i32 %640, 1
-  %642 = sext i32 %641 to i64
-  %643 = add nsw i64 %642, 8
-  %644 = tail call ptr @realloc(ptr noundef nonnull %636, i64 noundef %643) #51
-  %.not18.i458 = icmp eq ptr %644, null
-  br i1 %.not18.i458, label %647, label %645
+  %641 = sext i32 %640 to i64
+  %642 = add nsw i64 %641, 9
+  %643 = tail call ptr @realloc(ptr noundef nonnull %636, i64 noundef %642) #51
+  %.not18.i458 = icmp eq ptr %643, null
+  br i1 %.not18.i458, label %647, label %644
 
-645:                                              ; preds = %639
-  %646 = getelementptr inbounds i8, ptr %644, i64 8
-  store i32 %641, ptr %644, align 4
+644:                                              ; preds = %639
+  %645 = or disjoint i32 %640, 1
+  %646 = getelementptr inbounds i8, ptr %643, i64 8
+  store i32 %645, ptr %643, align 4
   br label %647
 
-647:                                              ; preds = %.lr.ph791, %639, %645
-  %.11 = phi ptr [ %.9788, %.lr.ph791 ], [ %.9788, %639 ], [ %646, %645 ]
+647:                                              ; preds = %.lr.ph791, %639, %644
+  %.11 = phi ptr [ %.9788, %.lr.ph791 ], [ %.9788, %639 ], [ %646, %644 ]
   %648 = icmp slt i32 %635, 32768
   %649 = zext i1 %648 to i8
   %650 = getelementptr inbounds i8, ptr %.11, i64 -4
@@ -7173,20 +7173,20 @@ stbiw__zlib_flushf.exit455:                       ; preds = %stbiw__sbgrowf.exit
 
 659:                                              ; preds = %647
   %660 = shl nsw i32 %658, 1
-  %661 = or disjoint i32 %660, 1
-  %662 = sext i32 %661 to i64
-  %663 = add nsw i64 %662, 8
-  %664 = tail call ptr @realloc(ptr noundef nonnull %655, i64 noundef %663) #51
-  %.not18.i464 = icmp eq ptr %664, null
-  br i1 %.not18.i464, label %667, label %665
+  %661 = sext i32 %660 to i64
+  %662 = add nsw i64 %661, 9
+  %663 = tail call ptr @realloc(ptr noundef nonnull %655, i64 noundef %662) #51
+  %.not18.i464 = icmp eq ptr %663, null
+  br i1 %.not18.i464, label %667, label %664
 
-665:                                              ; preds = %659
-  %666 = getelementptr inbounds i8, ptr %664, i64 8
-  store i32 %661, ptr %664, align 4
+664:                                              ; preds = %659
+  %665 = or disjoint i32 %660, 1
+  %666 = getelementptr inbounds i8, ptr %663, i64 8
+  store i32 %665, ptr %663, align 4
   br label %667
 
-667:                                              ; preds = %647, %659, %665
-  %.13 = phi ptr [ %.11, %647 ], [ %.11, %659 ], [ %666, %665 ]
+667:                                              ; preds = %647, %659, %664
+  %.13 = phi ptr [ %.11, %647 ], [ %.11, %659 ], [ %666, %664 ]
   %668 = trunc i32 %spec.store.select1 to i8
   %669 = getelementptr inbounds i8, ptr %.13, i64 -4
   %670 = load i32, ptr %669, align 4
@@ -7204,20 +7204,20 @@ stbiw__zlib_flushf.exit455:                       ; preds = %stbiw__sbgrowf.exit
 
 678:                                              ; preds = %667
   %679 = shl nsw i32 %677, 1
-  %680 = or disjoint i32 %679, 1
-  %681 = sext i32 %680 to i64
-  %682 = add nsw i64 %681, 8
-  %683 = tail call ptr @realloc(ptr noundef nonnull %674, i64 noundef %682) #51
-  %.not18.i470 = icmp eq ptr %683, null
-  br i1 %.not18.i470, label %686, label %684
+  %680 = sext i32 %679 to i64
+  %681 = add nsw i64 %680, 9
+  %682 = tail call ptr @realloc(ptr noundef nonnull %674, i64 noundef %681) #51
+  %.not18.i470 = icmp eq ptr %682, null
+  br i1 %.not18.i470, label %686, label %683
 
-684:                                              ; preds = %678
-  %685 = getelementptr inbounds i8, ptr %683, i64 8
-  store i32 %680, ptr %683, align 4
+683:                                              ; preds = %678
+  %684 = or disjoint i32 %679, 1
+  %685 = getelementptr inbounds i8, ptr %682, i64 8
+  store i32 %684, ptr %682, align 4
   br label %686
 
-686:                                              ; preds = %667, %678, %684
-  %.15 = phi ptr [ %.13, %667 ], [ %.13, %678 ], [ %685, %684 ]
+686:                                              ; preds = %667, %678, %683
+  %.15 = phi ptr [ %.13, %667 ], [ %.13, %678 ], [ %685, %683 ]
   %687 = lshr i32 %spec.store.select1, 8
   %688 = trunc i32 %687 to i8
   %689 = getelementptr inbounds i8, ptr %.15, i64 -4
@@ -7236,20 +7236,20 @@ stbiw__zlib_flushf.exit455:                       ; preds = %stbiw__sbgrowf.exit
 
 698:                                              ; preds = %686
   %699 = shl nsw i32 %697, 1
-  %700 = or disjoint i32 %699, 1
-  %701 = sext i32 %700 to i64
-  %702 = add nsw i64 %701, 8
-  %703 = tail call ptr @realloc(ptr noundef nonnull %694, i64 noundef %702) #51
-  %.not18.i476 = icmp eq ptr %703, null
-  br i1 %.not18.i476, label %706, label %704
+  %700 = sext i32 %699 to i64
+  %701 = add nsw i64 %700, 9
+  %702 = tail call ptr @realloc(ptr noundef nonnull %694, i64 noundef %701) #51
+  %.not18.i476 = icmp eq ptr %702, null
+  br i1 %.not18.i476, label %706, label %703
 
-704:                                              ; preds = %698
-  %705 = getelementptr inbounds i8, ptr %703, i64 8
-  store i32 %700, ptr %703, align 4
+703:                                              ; preds = %698
+  %704 = or disjoint i32 %699, 1
+  %705 = getelementptr inbounds i8, ptr %702, i64 8
+  store i32 %704, ptr %702, align 4
   br label %706
 
-706:                                              ; preds = %686, %698, %704
-  %.17 = phi ptr [ %.15, %686 ], [ %.15, %698 ], [ %705, %704 ]
+706:                                              ; preds = %686, %698, %703
+  %.17 = phi ptr [ %.15, %686 ], [ %.15, %698 ], [ %705, %703 ]
   %707 = xor i32 %spec.store.select1, -1
   %708 = trunc i32 %707 to i8
   %709 = getelementptr inbounds i8, ptr %.17, i64 -4
@@ -7268,20 +7268,20 @@ stbiw__zlib_flushf.exit455:                       ; preds = %stbiw__sbgrowf.exit
 
 718:                                              ; preds = %706
   %719 = shl nsw i32 %717, 1
-  %720 = or disjoint i32 %719, 1
-  %721 = sext i32 %720 to i64
-  %722 = add nsw i64 %721, 8
-  %723 = tail call ptr @realloc(ptr noundef nonnull %714, i64 noundef %722) #51
-  %.not18.i482 = icmp eq ptr %723, null
-  br i1 %.not18.i482, label %stbiw__sbgrowf.exit485, label %724
+  %720 = sext i32 %719 to i64
+  %721 = add nsw i64 %720, 9
+  %722 = tail call ptr @realloc(ptr noundef nonnull %714, i64 noundef %721) #51
+  %.not18.i482 = icmp eq ptr %722, null
+  br i1 %.not18.i482, label %stbiw__sbgrowf.exit485, label %723
 
-724:                                              ; preds = %718
-  %725 = getelementptr inbounds i8, ptr %723, i64 8
-  store i32 %720, ptr %723, align 4
+723:                                              ; preds = %718
+  %724 = or disjoint i32 %719, 1
+  %725 = getelementptr inbounds i8, ptr %722, i64 8
+  store i32 %724, ptr %722, align 4
   br label %stbiw__sbgrowf.exit485
 
-stbiw__sbgrowf.exit485:                           ; preds = %724, %718, %706
-  %.19 = phi ptr [ %.17, %706 ], [ %.17, %718 ], [ %725, %724 ]
+stbiw__sbgrowf.exit485:                           ; preds = %723, %718, %706
+  %.19 = phi ptr [ %.17, %706 ], [ %.17, %718 ], [ %725, %723 ]
   %726 = lshr i32 %707, 8
   %727 = trunc i32 %726 to i8
   %728 = getelementptr inbounds i8, ptr %.19, i64 -4
@@ -7420,20 +7420,20 @@ stbiw__sbgrowf.exit485:                           ; preds = %724, %718, %706
 
 786:                                              ; preds = %774
   %787 = shl nsw i32 %785, 1
-  %788 = or disjoint i32 %787, 1
-  %789 = sext i32 %788 to i64
-  %790 = add nsw i64 %789, 8
-  %791 = tail call ptr @realloc(ptr noundef nonnull %782, i64 noundef %790) #51
-  %.not18.i494 = icmp eq ptr %791, null
-  br i1 %.not18.i494, label %794, label %792
+  %788 = sext i32 %787 to i64
+  %789 = add nsw i64 %788, 9
+  %790 = tail call ptr @realloc(ptr noundef nonnull %782, i64 noundef %789) #51
+  %.not18.i494 = icmp eq ptr %790, null
+  br i1 %.not18.i494, label %794, label %791
 
-792:                                              ; preds = %786
-  %793 = getelementptr inbounds i8, ptr %791, i64 8
-  store i32 %788, ptr %791, align 4
+791:                                              ; preds = %786
+  %792 = or disjoint i32 %787, 1
+  %793 = getelementptr inbounds i8, ptr %790, i64 8
+  store i32 %792, ptr %790, align 4
   br label %794
 
-794:                                              ; preds = %774, %786, %792
-  %.24 = phi ptr [ %.22, %774 ], [ %.22, %786 ], [ %793, %792 ]
+794:                                              ; preds = %774, %786, %791
+  %.24 = phi ptr [ %.22, %774 ], [ %.22, %786 ], [ %793, %791 ]
   %795 = trunc i32 %.0176.lcssa895 to i8
   %796 = getelementptr inbounds i8, ptr %.24, i64 -4
   %797 = load i32, ptr %796, align 4
@@ -7451,20 +7451,20 @@ stbiw__sbgrowf.exit485:                           ; preds = %724, %718, %706
 
 805:                                              ; preds = %794
   %806 = shl nsw i32 %804, 1
-  %807 = or disjoint i32 %806, 1
-  %808 = sext i32 %807 to i64
-  %809 = add nsw i64 %808, 8
-  %810 = tail call ptr @realloc(ptr noundef nonnull %801, i64 noundef %809) #51
-  %.not18.i500 = icmp eq ptr %810, null
-  br i1 %.not18.i500, label %813, label %811
+  %807 = sext i32 %806 to i64
+  %808 = add nsw i64 %807, 9
+  %809 = tail call ptr @realloc(ptr noundef nonnull %801, i64 noundef %808) #51
+  %.not18.i500 = icmp eq ptr %809, null
+  br i1 %.not18.i500, label %813, label %810
 
-811:                                              ; preds = %805
-  %812 = getelementptr inbounds i8, ptr %810, i64 8
-  store i32 %807, ptr %810, align 4
+810:                                              ; preds = %805
+  %811 = or disjoint i32 %806, 1
+  %812 = getelementptr inbounds i8, ptr %809, i64 8
+  store i32 %811, ptr %809, align 4
   br label %813
 
-813:                                              ; preds = %794, %805, %811
-  %.26 = phi ptr [ %.24, %794 ], [ %.24, %805 ], [ %812, %811 ]
+813:                                              ; preds = %794, %805, %810
+  %.26 = phi ptr [ %.24, %794 ], [ %.24, %805 ], [ %812, %810 ]
   %814 = lshr i32 %.0177.lcssa892, 8
   %815 = trunc i32 %814 to i8
   %816 = getelementptr inbounds i8, ptr %.26, i64 -4
@@ -7483,20 +7483,20 @@ stbiw__sbgrowf.exit485:                           ; preds = %724, %718, %706
 
 825:                                              ; preds = %813
   %826 = shl nsw i32 %824, 1
-  %827 = or disjoint i32 %826, 1
-  %828 = sext i32 %827 to i64
-  %829 = add nsw i64 %828, 8
-  %830 = tail call ptr @realloc(ptr noundef nonnull %821, i64 noundef %829) #51
-  %.not18.i506 = icmp eq ptr %830, null
-  br i1 %.not18.i506, label %stbiw__sbgrowf.exit509, label %831
+  %827 = sext i32 %826 to i64
+  %828 = add nsw i64 %827, 9
+  %829 = tail call ptr @realloc(ptr noundef nonnull %821, i64 noundef %828) #51
+  %.not18.i506 = icmp eq ptr %829, null
+  br i1 %.not18.i506, label %stbiw__sbgrowf.exit509, label %830
 
-831:                                              ; preds = %825
-  %832 = getelementptr inbounds i8, ptr %830, i64 8
-  store i32 %827, ptr %830, align 4
+830:                                              ; preds = %825
+  %831 = or disjoint i32 %826, 1
+  %832 = getelementptr inbounds i8, ptr %829, i64 8
+  store i32 %831, ptr %829, align 4
   br label %stbiw__sbgrowf.exit509
 
-stbiw__sbgrowf.exit509:                           ; preds = %831, %825, %813
-  %.28 = phi ptr [ %.26, %813 ], [ %.26, %825 ], [ %832, %831 ]
+stbiw__sbgrowf.exit509:                           ; preds = %830, %825, %813
+  %.28 = phi ptr [ %.26, %813 ], [ %.26, %825 ], [ %832, %830 ]
   %833 = trunc i32 %.0177.lcssa892 to i8
   %834 = getelementptr inbounds i8, ptr %.28, i64 -4
   %835 = load i32, ptr %834, align 4

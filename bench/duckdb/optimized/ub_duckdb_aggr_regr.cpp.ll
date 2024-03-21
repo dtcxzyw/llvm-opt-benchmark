@@ -7870,9 +7870,8 @@ land.lhs.true7.us99.us.us:                        ; preds = %for.body.us87.us.us
   br label %for.inc.us102.us.us
 
 for.inc.us102.us.us:                              ; preds = %land.lhs.true7.us99.us.us, %for.body.us87.us.us
-  %rem.i.i.i.us.us.us.1 = or disjoint i64 %rem.i.i.i.us.us.us, 1
-  %shl.i.i.i.us.us.us.1 = shl nuw i64 1, %rem.i.i.i.us.us.us.1
-  %and.i.i.i.us.us.us.1 = and i64 %shl.i.i.i.us.us.us.1, %10
+  %shl.i.i.i.us.us.us.1 = shl nuw i64 2, %rem.i.i.i.us.us.us
+  %and.i.i.i.us.us.us.1 = and i64 %10, %shl.i.i.i.us.us.us.1
   %tobool.i.i.i.not.us.us.us.1 = icmp eq i64 %and.i.i.i.us.us.us.1, 0
   br i1 %tobool.i.i.i.not.us.us.us.1, label %for.inc.us102.us.us.1, label %land.lhs.true7.us99.us.us.1
 
@@ -7905,9 +7904,8 @@ land.lhs.true7.us99.us:                           ; preds = %for.body.us87.us
   br label %for.inc.us102.us
 
 for.inc.us102.us:                                 ; preds = %land.lhs.true7.us99.us, %for.body.us87.us
-  %rem.i.i.i.us.us.1 = or disjoint i64 %rem.i.i.i.us.us, 1
-  %shl.i.i.i.us.us.1 = shl nuw i64 1, %rem.i.i.i.us.us.1
-  %and.i.i.i.us.us.1 = and i64 %shl.i.i.i.us.us.1, %13
+  %shl.i.i.i.us.us.1 = shl nuw i64 2, %rem.i.i.i.us.us
+  %and.i.i.i.us.us.1 = and i64 %13, %shl.i.i.i.us.us.1
   %tobool.i.i.i.not.us.us.1 = icmp eq i64 %and.i.i.i.us.us.1, 0
   br i1 %tobool.i.i.i.not.us.us.1, label %for.inc.us102.us.1, label %land.lhs.true7.us99.us.1
 

@@ -2179,8 +2179,7 @@ if.then3.us.i:                                    ; preds = %for.body.us.i28
 if.end4.us.i:                                     ; preds = %if.then3.us.i, %for.body.us.i28
   %21 = phi i64 [ %.pre, %if.then3.us.i ], [ %20, %for.body.us.i28 ]
   %inc13.us.i = phi i64 [ %inc.us.i, %if.then3.us.i ], [ %inc1416.us.i, %for.body.us.i28 ]
-  %rem.i.i.i.us.i.1 = or disjoint i64 %rem.i.i.i.us.i, 1
-  %shl.i.i.i.us.i.1 = shl nuw i64 1, %rem.i.i.i.us.i.1
+  %shl.i.i.i.us.i.1 = shl nuw i64 2, %rem.i.i.i.us.i
   %and.i.i.i.us.i.1 = and i64 %21, %shl.i.i.i.us.i.1
   %tobool.i.i.i.not.us.i.1 = icmp eq i64 %and.i.i.i.us.i.1, 0
   br i1 %tobool.i.i.i.not.us.i.1, label %if.end4.us.i.1, label %if.then3.us.i.1

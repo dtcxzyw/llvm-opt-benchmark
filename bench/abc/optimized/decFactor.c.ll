@@ -18,7 +18,7 @@ define noundef ptr @Dec_Factor(ptr noundef %0) local_unnamed_addr #0 {
   store i32 1, ptr %calloc.i, align 8
   %4 = getelementptr inbounds i8, ptr %calloc.i, i64 24
   store i32 1, ptr %4, align 8
-  br label %93
+  br label %89
 
 5:                                                ; preds = %1
   %6 = tail call i32 @Abc_SopIsConst1(ptr noundef %0) #6
@@ -28,7 +28,7 @@ define noundef ptr @Dec_Factor(ptr noundef %0) local_unnamed_addr #0 {
 7:                                                ; preds = %5
   %calloc.i17 = tail call noalias noundef dereferenceable_or_null(32) ptr @calloc(i64 1, i64 32)
   store i32 1, ptr %calloc.i17, align 8
-  br label %93
+  br label %89
 
 8:                                                ; preds = %5
   %9 = tail call ptr (...) @Abc_FrameReadManDec() #6
@@ -49,7 +49,7 @@ define noundef ptr @Dec_Factor(ptr noundef %0) local_unnamed_addr #0 {
   br label %20
 
 20:                                               ; preds = %.critedge.i, %.lr.ph56.i
-  %.04755.i = phi ptr [ %0, %.lr.ph56.i ], [ %71, %.critedge.i ]
+  %.04755.i = phi ptr [ %0, %.lr.ph56.i ], [ %67, %.critedge.i ]
   %21 = tail call ptr @Mvc_CubeAlloc(ptr noundef %13) #6
   %22 = load ptr, ptr %15, align 8
   %23 = icmp eq ptr %22, null
@@ -111,92 +111,85 @@ define noundef ptr @Dec_Factor(ptr noundef %0) local_unnamed_addr #0 {
   %52 = getelementptr inbounds i8, ptr %21, i64 16
   br label %53
 
-53:                                               ; preds = %70, %.loopexit.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %70 ], [ 0, %.loopexit.i ]
+53:                                               ; preds = %66, %.loopexit.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %66 ], [ 0, %.loopexit.i ]
   %54 = getelementptr inbounds i8, ptr %.04755.i, i64 %indvars.iv.i
   %55 = load i8, ptr %54, align 1
-  switch i8 %55, label %70 [
+  switch i8 %55, label %66 [
     i8 32, label %.critedge.i
     i8 0, label %.critedge.i
-    i8 48, label %56
-    i8 49, label %60
+    i8 48, label %.sink.split.i
+    i8 49, label %56
   ]
 
 56:                                               ; preds = %53
-  %indvars.iv.tr60.i = trunc i64 %indvars.iv.i to i32
-  %57 = shl i32 %indvars.iv.tr60.i, 1
-  %58 = and i32 %57, 30
-  %59 = or disjoint i32 %58, 1
   br label %.sink.split.i
 
-60:                                               ; preds = %53
+.sink.split.i:                                    ; preds = %56, %53
+  %.sink69.i = phi i32 [ 1, %56 ], [ 2, %53 ]
   %indvars.iv.tr.i = trunc i64 %indvars.iv.i to i32
-  %61 = shl i32 %indvars.iv.tr.i, 1
-  %62 = and i32 %61, 30
-  br label %.sink.split.i
+  %57 = shl i32 %indvars.iv.tr.i, 1
+  %58 = and i32 %57, 30
+  %59 = shl nuw i32 %.sink69.i, %58
+  %60 = xor i32 %59, -1
+  %61 = lshr i64 %indvars.iv.i, 4
+  %62 = and i64 %61, 268435455
+  %63 = getelementptr inbounds [1 x i32], ptr %52, i64 0, i64 %62
+  %64 = load i32, ptr %63, align 4
+  %65 = and i32 %64, %60
+  store i32 %65, ptr %63, align 4
+  br label %66
 
-.sink.split.i:                                    ; preds = %60, %56
-  %.sink69.i = phi i32 [ %62, %60 ], [ %59, %56 ]
-  %63 = shl nuw i32 1, %.sink69.i
-  %64 = xor i32 %63, -1
-  %65 = lshr i64 %indvars.iv.i, 4
-  %66 = and i64 %65, 268435455
-  %67 = getelementptr inbounds [1 x i32], ptr %52, i64 0, i64 %66
-  %68 = load i32, ptr %67, align 4
-  %69 = and i32 %68, %64
-  store i32 %69, ptr %67, align 4
-  br label %70
-
-70:                                               ; preds = %.sink.split.i, %53
+66:                                               ; preds = %.sink.split.i, %53
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   br label %53, !llvm.loop !4
 
 .critedge.i:                                      ; preds = %53, %53
-  %71 = getelementptr inbounds i8, ptr %.04755.i, i64 %19
-  %72 = load i8, ptr %71, align 1
-  %.not.i = icmp eq i8 %72, 0
+  %67 = getelementptr inbounds i8, ptr %.04755.i, i64 %19
+  %68 = load i8, ptr %67, align 1
+  %.not.i = icmp eq i8 %68, 0
   br i1 %.not.i, label %Dec_ConvertSopToMvc.exit, label %20, !llvm.loop !6
 
 Dec_ConvertSopToMvc.exit:                         ; preds = %.critedge.i, %8
-  %73 = tail call i32 @Mvc_CoverContain(ptr noundef %13) #6
+  %69 = tail call i32 @Mvc_CoverContain(ptr noundef %13) #6
   tail call void @Mvc_CoverInverse(ptr noundef %13) #6
-  %74 = tail call i32 @Abc_SopGetVarNum(ptr noundef nonnull %0) #6
+  %70 = tail call i32 @Abc_SopGetVarNum(ptr noundef nonnull %0) #6
   %calloc.i18 = tail call dereferenceable_or_null(32) ptr @calloc(i64 1, i64 32)
-  %75 = getelementptr inbounds i8, ptr %calloc.i18, i64 4
+  %71 = getelementptr inbounds i8, ptr %calloc.i18, i64 4
+  store i32 %70, ptr %71, align 4
+  %72 = getelementptr inbounds i8, ptr %calloc.i18, i64 8
+  store i32 %70, ptr %72, align 8
+  %73 = shl nsw i32 %70, 1
+  %74 = add nsw i32 %73, 50
+  %75 = getelementptr inbounds i8, ptr %calloc.i18, i64 12
   store i32 %74, ptr %75, align 4
-  %76 = getelementptr inbounds i8, ptr %calloc.i18, i64 8
-  store i32 %74, ptr %76, align 8
-  %77 = shl nsw i32 %74, 1
-  %78 = add nsw i32 %77, 50
-  %79 = getelementptr inbounds i8, ptr %calloc.i18, i64 12
-  store i32 %78, ptr %79, align 4
-  %80 = sext i32 %78 to i64
+  %76 = sext i32 %74 to i64
+  %77 = mul nsw i64 %76, 24
+  %78 = tail call noalias ptr @malloc(i64 noundef %77) #7
+  %79 = getelementptr inbounds i8, ptr %calloc.i18, i64 16
+  store ptr %78, ptr %79, align 8
+  %80 = sext i32 %70 to i64
   %81 = mul nsw i64 %80, 24
-  %82 = tail call noalias ptr @malloc(i64 noundef %81) #7
-  %83 = getelementptr inbounds i8, ptr %calloc.i18, i64 16
-  store ptr %82, ptr %83, align 8
-  %84 = sext i32 %74 to i64
-  %85 = mul nsw i64 %84, 24
-  tail call void @llvm.memset.p0.i64(ptr align 8 %82, i8 0, i64 %85, i1 false)
-  %86 = tail call fastcc i32 @Dec_Factor_rec(ptr noundef %calloc.i18, ptr noundef %13)
-  %87 = getelementptr inbounds i8, ptr %calloc.i18, i64 24
-  store i32 %86, ptr %87, align 8
-  %88 = tail call i32 @Abc_SopIsComplement(ptr noundef nonnull %0) #6
-  %.not16 = icmp eq i32 %88, 0
-  br i1 %.not16, label %92, label %89
+  tail call void @llvm.memset.p0.i64(ptr align 8 %78, i8 0, i64 %81, i1 false)
+  %82 = tail call fastcc i32 @Dec_Factor_rec(ptr noundef %calloc.i18, ptr noundef %13)
+  %83 = getelementptr inbounds i8, ptr %calloc.i18, i64 24
+  store i32 %82, ptr %83, align 8
+  %84 = tail call i32 @Abc_SopIsComplement(ptr noundef nonnull %0) #6
+  %.not16 = icmp eq i32 %84, 0
+  br i1 %.not16, label %88, label %85
 
-89:                                               ; preds = %Dec_ConvertSopToMvc.exit
-  %90 = load i32, ptr %87, align 8
-  %91 = xor i32 %90, 1
-  store i32 %91, ptr %87, align 8
-  br label %92
+85:                                               ; preds = %Dec_ConvertSopToMvc.exit
+  %86 = load i32, ptr %83, align 8
+  %87 = xor i32 %86, 1
+  store i32 %87, ptr %83, align 8
+  br label %88
 
-92:                                               ; preds = %89, %Dec_ConvertSopToMvc.exit
+88:                                               ; preds = %85, %Dec_ConvertSopToMvc.exit
   tail call void @Mvc_CoverFree(ptr noundef %13) #6
-  br label %93
+  br label %89
 
-93:                                               ; preds = %92, %7, %3
-  %.0 = phi ptr [ %calloc.i, %3 ], [ %calloc.i17, %7 ], [ %calloc.i18, %92 ]
+89:                                               ; preds = %88, %7, %3
+  %.0 = phi ptr [ %calloc.i, %3 ], [ %calloc.i17, %7 ], [ %calloc.i18, %88 ]
   ret ptr %.0
 }
 
@@ -329,7 +322,7 @@ Dec_FactorTrivial.exit:                           ; preds = %8, %._crit_edge.loo
   br i1 %54, label %56, label %59
 
 56:                                               ; preds = %50
-  %57 = call fastcc i32 @Dec_FactorLF_rec(ptr noundef %0, ptr noundef %1, ptr noundef %55), !range !8
+  %57 = call fastcc i32 @Dec_FactorLF_rec(ptr noundef %0, ptr noundef %1, ptr noundef %55)
   %58 = load ptr, ptr %4, align 8
   call void @Mvc_CoverFree(ptr noundef %58) #6
   br label %150
@@ -490,7 +483,7 @@ Dec_GraphAddNodeOr.exit:                          ; preds = %109, %124
   call void @Mvc_CoverFree(ptr noundef %147) #6
   %148 = load ptr, ptr %5, align 8
   call void @Mvc_CoverFree(ptr noundef %148) #6
-  %149 = call fastcc i32 @Dec_FactorLF_rec(ptr noundef %0, ptr noundef %1, ptr noundef %145), !range !8
+  %149 = call fastcc i32 @Dec_FactorLF_rec(ptr noundef %0, ptr noundef %1, ptr noundef %145)
   call void @Mvc_CoverFree(ptr noundef %145) #6
   br label %150
 
@@ -771,7 +764,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %49 = phi i32 [ %11, %10 ], [ %.pre, %Vec_IntPush.exit ]
   %50 = add nuw nsw i32 %.015, 1
   %51 = icmp slt i32 %50, %49
-  br i1 %51, label %10, label %.critedge.loopexit, !llvm.loop !9
+  br i1 %51, label %10, label %.critedge.loopexit, !llvm.loop !8
 
 .critedge.loopexit:                               ; preds = %48
   %.pre16 = load i32, ptr %5, align 4
@@ -964,5 +957,4 @@ attributes #8 = { nounwind allocsize(1) }
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
-!8 = !{i32 0, i32 -2147483648}
-!9 = distinct !{!9, !5}
+!8 = distinct !{!8, !5}

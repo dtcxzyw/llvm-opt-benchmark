@@ -6967,8 +6967,7 @@ invoke.cont112.i.i.i:                             ; preds = %for.body106.i.i.i
   %arrayidx.i.i.i.i224.i.i.i = getelementptr inbounds [4 x i64], ptr %cr.i.i.i, i64 0, i64 %add.i.i.i.i183
   %367 = load i64, ptr %arrayidx.i.i.i.i224.i.i.i, align 8
   %conv.i222.i.i.i = and i64 %i99.0305.i.i.i, 31
-  %rem.i.i.i225.i.i.i = or disjoint i64 %conv.i222.i.i.i, 32
-  %shl.i.i.i226.i.i.i = shl nuw i64 1, %rem.i.i.i225.i.i.i
+  %shl.i.i.i226.i.i.i = shl nuw i64 4294967296, %conv.i222.i.i.i
   %and.i.i.i.i.i = and i64 %367, %shl.i.i.i226.i.i.i
   %tobool.i.i.not.i.i.i = icmp eq i64 %and.i.i.i.i.i, 0
   br i1 %tobool.i.i.not.i.i.i, label %land.end.i.i.i, label %if.end.i.i.i.i.i
