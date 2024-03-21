@@ -1382,7 +1382,7 @@ ehcleanup:                                        ; preds = %lpad2, %lpad
 define void @_ZN6google8protobuf10TextFormat7Printer24SetUseUtf8StringEscapingEb(ptr nocapture noundef nonnull align 8 dereferenceable(112) %this, i1 noundef zeroext %as_utf8) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #37
-  %. = select i1 %as_utf8, ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN6google8protobuf10TextFormat7Printer33FastFieldValuePrinterUtf8EscapingE, i64 0, i32 0, i64 2), ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN6google8protobuf10TextFormat7Printer28DebugStringFieldValuePrinterE, i64 0, inrange i32 0, i64 2)
+  %. = select i1 %as_utf8, ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN6google8protobuf10TextFormat7Printer33FastFieldValuePrinterUtf8EscapingE, i64 0, i32 0, i64 2), ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN6google8protobuf10TextFormat7Printer28DebugStringFieldValuePrinterE, i64 0, i32 0, i64 2)
   store ptr %., ptr %call, align 8
   %default_field_value_printer_.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %default_field_value_printer_.i, align 8

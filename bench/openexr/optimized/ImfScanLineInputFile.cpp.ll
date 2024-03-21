@@ -3243,7 +3243,7 @@ unreachable.i:                                    ; preds = %invoke.cont27.i, %i
   unreachable
 
 invoke.cont50:                                    ; preds = %if.else.i, %if.then34.i
-  %.sink.i = phi ptr [ getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Imf_3_212_GLOBAL__N_117LineBufferTaskIIFE, i64 0, i32 0, i64 2), %if.then34.i ], [ getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Imf_3_212_GLOBAL__N_114LineBufferTaskE, i64 0, inrange i32 0, i64 2), %if.else.i ]
+  %.sink.i = phi ptr [ getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Imf_3_212_GLOBAL__N_117LineBufferTaskIIFE, i64 0, i32 0, i64 2), %if.then34.i ], [ getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Imf_3_212_GLOBAL__N_114LineBufferTaskE, i64 0, i32 0, i64 2), %if.else.i ]
   %.sroa.speculated.i = call i32 @llvm.smin.i32(i32 %33, i32 %.sroa.speculated)
   %.sroa.speculated62.i = call i32 @llvm.smax.i32(i32 %32, i32 %.sroa.speculated42)
   store ptr %.sink.i, ptr %call38.i28, align 8

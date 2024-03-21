@@ -3463,7 +3463,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br label %22
 
 _ZN6casadi19DenseMultiplicationC2ERNS_19DeserializingStreamE.exit: ; preds = %19, %12
-  %.sink = phi ptr [ getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi19DenseMultiplicationE, i64 0, i32 0, i64 2), %12 ], [ getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi14MultiplicationE, i64 0, inrange i32 0, i64 2), %19 ]
+  %.sink = phi ptr [ getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi19DenseMultiplicationE, i64 0, i32 0, i64 2), %12 ], [ getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi14MultiplicationE, i64 0, i32 0, i64 2), %19 ]
   store ptr %.sink, ptr %11, align 8
   ret ptr %11
 

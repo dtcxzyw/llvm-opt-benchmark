@@ -500,7 +500,7 @@ $_ZTIN5folly6detail30StaticSingletonManagerWithRtti3SrcINS0_14UniqueInstance5Val
 $_ZN5folly6detail30StaticSingletonManagerWithRtti5debugINS0_14UniqueInstance5ValueENS3_5key_tINS_20SingletonThreadLocalEJNS_9hazptr_tcISt6atomicEENS_17hazptr_tc_tls_tagEEEEEE = comdat any
 
 @_ZTVN5folly16ThreadedExecutorE = unnamed_addr constant { [16 x ptr] } { [16 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @_ZTIN5folly16ThreadedExecutorE, ptr @_ZN5folly16ThreadedExecutorD1Ev, ptr @_ZN5folly16ThreadedExecutorD0Ev, ptr @_ZN5folly16ThreadedExecutor3addENS_8FunctionIFvvEEE, ptr @_ZN5folly8Executor15addWithPriorityENS_8FunctionIFvvEEEa, ptr @_ZNK5folly8Executor16getNumPrioritiesEv, ptr @_ZN5folly8Executor16keepAliveAcquireEv, ptr @_ZN5folly8Executor16keepAliveReleaseEv] }, align 8
-@_ZTTN5folly16ThreadedExecutorE = unnamed_addr constant [2 x ptr] [ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5folly16ThreadedExecutorE, i32 0, i32 0, i32 9), ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5folly16ThreadedExecutorE, i32 0, inrange i32 0, i32 9)], align 8
+@_ZTTN5folly16ThreadedExecutorE = unnamed_addr constant [2 x ptr] [ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5folly16ThreadedExecutorE, i32 0, i32 0, i32 9), ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5folly16ThreadedExecutorE, i32 0, i32 0, i32 9)], align 8
 @_ZTVN10__cxxabiv121__vmi_class_type_infoE = external global [0 x ptr]
 @_ZTSN5folly16ThreadedExecutorE = constant [27 x i8] c"N5folly16ThreadedExecutorE\00", align 1
 @_ZTIN5folly8ExecutorE = external constant ptr

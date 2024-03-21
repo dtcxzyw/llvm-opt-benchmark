@@ -31697,7 +31697,7 @@ define linkonce_odr hidden ptr @_ZZN8pybind1112cpp_function10initializeIZNS_6det
   %11 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #29
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   %12 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i.i.i, i64 24
-  %..i.i.i15.i = select i1 %10, ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN19exercise_trampoline10SimpleBaseE, i64 0, i32 0, i64 2), ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN19exercise_trampoline20SimpleBaseTrampolineE, i64 0, inrange i32 0, i64 2)
+  %..i.i.i15.i = select i1 %10, ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN19exercise_trampoline10SimpleBaseE, i64 0, i32 0, i64 2), ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN19exercise_trampoline20SimpleBaseTrampolineE, i64 0, i32 0, i64 2)
   store ptr %..i.i.i15.i, ptr %11, align 8
   %13 = load ptr, ptr %12, align 8
   store ptr %11, ptr %13, align 8

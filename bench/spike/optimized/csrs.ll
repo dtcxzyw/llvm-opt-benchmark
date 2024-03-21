@@ -11536,7 +11536,7 @@ define void @_ZNK18sscsrind_reg_csr_t18verify_permissionsE6insn_tb(ptr noundef n
   %20 = getelementptr inbounds i8, ptr %18, i64 16
   %21 = getelementptr inbounds i8, ptr %18, i64 24
   %. = select i1 %.not, i64 2, i64 22
-  %.12 = select i1 %.not, ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_illegal_instruction, i64 0, i32 0, i64 2), ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_virtual_instruction, i64 0, inrange i32 0, i64 2)
+  %.12 = select i1 %.not, ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_illegal_instruction, i64 0, i32 0, i64 2), ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_virtual_instruction, i64 0, i32 0, i64 2)
   %_ZTI24trap_illegal_instruction._ZTI24trap_virtual_instruction = select i1 %.not, ptr @_ZTI24trap_illegal_instruction, ptr @_ZTI24trap_virtual_instruction
   %_ZN24trap_illegal_instructionD2Ev._ZN24trap_virtual_instructionD2Ev = select i1 %.not, ptr @_ZN24trap_illegal_instructionD2Ev, ptr @_ZN24trap_virtual_instructionD2Ev
   store i64 %., ptr %19, align 8

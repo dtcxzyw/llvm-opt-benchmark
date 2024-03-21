@@ -4772,7 +4772,7 @@ if.else.i:                                        ; preds = %for.body
 
 if.end.sink.split.i:                              ; preds = %if.else.i, %if.then.i
   %switch.table._ZN7nlarith4util3imp15create_branch_lEjjRK6vectorI10ref_vectorI3app11ast_managerELb1EjERK7svectorINS_4compEjERNS_17branch_conditionsE.1.sink = phi ptr [ @switch.table._ZN7nlarith4util3imp10inf_branchERK6vectorI10ref_vectorI3app11ast_managerELb1EjERK7svectorINS_4compEjERNS_17branch_conditionsE, %if.then.i ], [ @switch.table._ZN7nlarith4util3imp10inf_branchERK6vectorI10ref_vectorI3app11ast_managerELb1EjERK7svectorINS_4compEjERNS_17branch_conditionsE, %if.else.i ]
-  %.sink = phi ptr [ getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7nlarith4util3imp14plus_eps_substE, i64 0, i32 0, i64 2), %if.then.i ], [ getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7nlarith4util3imp10sqrt_substE, i64 0, inrange i32 0, i64 2), %if.else.i ]
+  %.sink = phi ptr [ getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7nlarith4util3imp14plus_eps_substE, i64 0, i32 0, i64 2), %if.then.i ], [ getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7nlarith4util3imp10sqrt_substE, i64 0, i32 0, i64 2), %if.else.i ]
   %sub.sink.i = phi ptr [ %sub2.i, %if.then.i ], [ %sub.i, %if.else.i ]
   %67 = sext i32 %64 to i64
   %switch.gep534 = getelementptr inbounds [4 x i64], ptr %switch.table._ZN7nlarith4util3imp15create_branch_lEjjRK6vectorI10ref_vectorI3app11ast_managerELb1EjERK7svectorINS_4compEjERNS_17branch_conditionsE.1.sink, i64 0, i64 %67
@@ -5353,7 +5353,7 @@ if.else.i311:                                     ; preds = %for.body141
 
 if.end.sink.split.i316:                           ; preds = %if.else.i311, %if.then.i322
   %switch.table._ZN7nlarith4util3imp15create_branch_lEjjRK6vectorI10ref_vectorI3app11ast_managerELb1EjERK7svectorINS_4compEjERNS_17branch_conditionsE.3.sink = phi ptr [ @switch.table._ZN7nlarith4util3imp10inf_branchERK6vectorI10ref_vectorI3app11ast_managerELb1EjERK7svectorINS_4compEjERNS_17branch_conditionsE, %if.then.i322 ], [ @switch.table._ZN7nlarith4util3imp10inf_branchERK6vectorI10ref_vectorI3app11ast_managerELb1EjERK7svectorINS_4compEjERNS_17branch_conditionsE, %if.else.i311 ]
-  %.sink540 = phi ptr [ getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7nlarith4util3imp14plus_eps_substE, i64 0, i32 0, i64 2), %if.then.i322 ], [ getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7nlarith4util3imp10sqrt_substE, i64 0, inrange i32 0, i64 2), %if.else.i311 ]
+  %.sink540 = phi ptr [ getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7nlarith4util3imp14plus_eps_substE, i64 0, i32 0, i64 2), %if.then.i322 ], [ getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7nlarith4util3imp10sqrt_substE, i64 0, i32 0, i64 2), %if.else.i311 ]
   %sub.sink.i318 = phi ptr [ %sub2.i308, %if.then.i322 ], [ %sub.i307, %if.else.i311 ]
   %159 = sext i32 %156 to i64
   %switch.gep538 = getelementptr inbounds [4 x i64], ptr %switch.table._ZN7nlarith4util3imp15create_branch_lEjjRK6vectorI10ref_vectorI3app11ast_managerELb1EjERK7svectorINS_4compEjERNS_17branch_conditionsE.3.sink, i64 0, i64 %159
@@ -6478,7 +6478,7 @@ if.else.i:                                        ; preds = %for.body
 
 if.end.sink.split.i:                              ; preds = %if.else.i, %if.then.i
   %switch.table._ZN7nlarith4util3imp13create_branchEjRK6vectorI10ref_vectorI3app11ast_managerELb1EjERK7svectorINS_4compEjERNS_17branch_conditionsE.4.sink = phi ptr [ @switch.table._ZN7nlarith4util3imp10inf_branchERK6vectorI10ref_vectorI3app11ast_managerELb1EjERK7svectorINS_4compEjERNS_17branch_conditionsE, %if.then.i ], [ @switch.table._ZN7nlarith4util3imp10inf_branchERK6vectorI10ref_vectorI3app11ast_managerELb1EjERK7svectorINS_4compEjERNS_17branch_conditionsE, %if.else.i ]
-  %.sink = phi ptr [ getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7nlarith4util3imp14plus_eps_substE, i64 0, i32 0, i64 2), %if.then.i ], [ getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7nlarith4util3imp10sqrt_substE, i64 0, inrange i32 0, i64 2), %if.else.i ]
+  %.sink = phi ptr [ getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7nlarith4util3imp14plus_eps_substE, i64 0, i32 0, i64 2), %if.then.i ], [ getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7nlarith4util3imp10sqrt_substE, i64 0, i32 0, i64 2), %if.else.i ]
   %sub.sink.i = phi ptr [ %sub2.i, %if.then.i ], [ %sub.i, %if.else.i ]
   %89 = sext i32 %86 to i64
   %switch.gep922 = getelementptr inbounds [4 x i64], ptr %switch.table._ZN7nlarith4util3imp13create_branchEjRK6vectorI10ref_vectorI3app11ast_managerELb1EjERK7svectorINS_4compEjERNS_17branch_conditionsE.4.sink, i64 0, i64 %89
@@ -7206,7 +7206,7 @@ if.else.i466:                                     ; preds = %for.body164
 
 if.end.sink.split.i471:                           ; preds = %if.else.i466, %if.then.i477
   %switch.table._ZN7nlarith4util3imp13create_branchEjRK6vectorI10ref_vectorI3app11ast_managerELb1EjERK7svectorINS_4compEjERNS_17branch_conditionsE.6.sink = phi ptr [ @switch.table._ZN7nlarith4util3imp10inf_branchERK6vectorI10ref_vectorI3app11ast_managerELb1EjERK7svectorINS_4compEjERNS_17branch_conditionsE, %if.then.i477 ], [ @switch.table._ZN7nlarith4util3imp10inf_branchERK6vectorI10ref_vectorI3app11ast_managerELb1EjERK7svectorINS_4compEjERNS_17branch_conditionsE, %if.else.i466 ]
-  %.sink928 = phi ptr [ getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7nlarith4util3imp14plus_eps_substE, i64 0, i32 0, i64 2), %if.then.i477 ], [ getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7nlarith4util3imp10sqrt_substE, i64 0, inrange i32 0, i64 2), %if.else.i466 ]
+  %.sink928 = phi ptr [ getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7nlarith4util3imp14plus_eps_substE, i64 0, i32 0, i64 2), %if.then.i477 ], [ getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7nlarith4util3imp10sqrt_substE, i64 0, i32 0, i64 2), %if.else.i466 ]
   %sub.sink.i473 = phi ptr [ %sub2.i463, %if.then.i477 ], [ %sub.i462, %if.else.i466 ]
   %204 = sext i32 %201 to i64
   %switch.gep926 = getelementptr inbounds [4 x i64], ptr %switch.table._ZN7nlarith4util3imp13create_branchEjRK6vectorI10ref_vectorI3app11ast_managerELb1EjERK7svectorINS_4compEjERNS_17branch_conditionsE.6.sink, i64 0, i64 %204
@@ -7666,7 +7666,7 @@ if.else.i640:                                     ; preds = %for.body203
 
 if.end.sink.split.i645:                           ; preds = %if.else.i640, %if.then.i651
   %switch.table._ZN7nlarith4util3imp13create_branchEjRK6vectorI10ref_vectorI3app11ast_managerELb1EjERK7svectorINS_4compEjERNS_17branch_conditionsE.8.sink = phi ptr [ @switch.table._ZN7nlarith4util3imp10inf_branchERK6vectorI10ref_vectorI3app11ast_managerELb1EjERK7svectorINS_4compEjERNS_17branch_conditionsE, %if.then.i651 ], [ @switch.table._ZN7nlarith4util3imp10inf_branchERK6vectorI10ref_vectorI3app11ast_managerELb1EjERK7svectorINS_4compEjERNS_17branch_conditionsE, %if.else.i640 ]
-  %.sink933 = phi ptr [ getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7nlarith4util3imp14plus_eps_substE, i64 0, i32 0, i64 2), %if.then.i651 ], [ getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7nlarith4util3imp10sqrt_substE, i64 0, inrange i32 0, i64 2), %if.else.i640 ]
+  %.sink933 = phi ptr [ getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7nlarith4util3imp14plus_eps_substE, i64 0, i32 0, i64 2), %if.then.i651 ], [ getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7nlarith4util3imp10sqrt_substE, i64 0, i32 0, i64 2), %if.else.i640 ]
   %sub.sink.i647 = phi ptr [ %sub2.i637, %if.then.i651 ], [ %sub.i636, %if.else.i640 ]
   %265 = sext i32 %262 to i64
   %switch.gep931 = getelementptr inbounds [4 x i64], ptr %switch.table._ZN7nlarith4util3imp13create_branchEjRK6vectorI10ref_vectorI3app11ast_managerELb1EjERK7svectorINS_4compEjERNS_17branch_conditionsE.8.sink, i64 0, i64 %265

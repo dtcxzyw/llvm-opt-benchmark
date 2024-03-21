@@ -13877,14 +13877,14 @@ if.then:                                          ; preds = %entry
 
 if.then2:                                         ; preds = %if.then
   %.10.i = select i1 %nullAllowed, i32 2, i32 0
-  %.11.i = select i1 %nullAllowed, ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common6IsNullE, i64 0, i32 0, i64 2), ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common11AlwaysFalseE, i64 0, inrange i32 0, i64 2)
+  %.11.i = select i1 %nullAllowed, ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common6IsNullE, i64 0, i32 0, i64 2), ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common11AlwaysFalseE, i64 0, i32 0, i64 2)
   store i32 %.10.i, ptr %kind_.i.i.i.i33, align 4, !noalias !153
   store ptr %.11.i, ptr %call.i.i30, align 8, !noalias !153
   br label %return
 
 if.end:                                           ; preds = %if.then
   %.10.i35 = select i1 %nullAllowed, i32 1, i32 3
-  %.11.i36 = select i1 %nullAllowed, ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common10AlwaysTrueE, i64 0, i32 0, i64 2), ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common9IsNotNullE, i64 0, inrange i32 0, i64 2)
+  %.11.i36 = select i1 %nullAllowed, ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common10AlwaysTrueE, i64 0, i32 0, i64 2), ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common9IsNotNullE, i64 0, i32 0, i64 2)
   store i32 %.10.i35, ptr %kind_.i.i.i.i33, align 4, !noalias !156
   store ptr %.11.i36, ptr %call.i.i30, align 8, !noalias !156
   br label %return
@@ -15387,7 +15387,7 @@ _ZN8facebook5velox6common12_GLOBAL__N_111nullOrFalseEb.exit: ; preds = %if.then4
   %kind_.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i47, i64 12
   %35 = shl nuw nsw i8 %34, 1
   %.10.i = zext nneg i8 %35 to i32
-  %.11.i = select i1 %tobool.not, ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common11AlwaysFalseE, i64 0, i32 0, i64 2), ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common6IsNullE, i64 0, inrange i32 0, i64 2)
+  %.11.i = select i1 %tobool.not, ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common11AlwaysFalseE, i64 0, i32 0, i64 2), ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common6IsNullE, i64 0, i32 0, i64 2)
   store i8 %34, ptr %nullAllowed_.i.i.i.i, align 8, !noalias !203
   store i8 1, ptr %deterministic_.i.i.i.i, align 1, !noalias !203
   store i32 %.10.i, ptr %kind_.i.i.i.i, align 4, !noalias !203
@@ -17577,7 +17577,7 @@ _ZN8facebook5velox6common12_GLOBAL__N_111nullOrFalseEb.exit: ; preds = %if.then1
   %deterministic_.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i250, i64 9
   %kind_.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i250, i64 12
   %.10.i = select i1 %6, i32 2, i32 0
-  %.11.i = select i1 %6, ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common6IsNullE, i64 0, i32 0, i64 2), ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common11AlwaysFalseE, i64 0, inrange i32 0, i64 2)
+  %.11.i = select i1 %6, ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common6IsNullE, i64 0, i32 0, i64 2), ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common11AlwaysFalseE, i64 0, i32 0, i64 2)
   store i8 %frombool, ptr %nullAllowed_.i.i.i.i, align 8, !noalias !252
   store i8 1, ptr %deterministic_.i.i.i.i, align 1, !noalias !252
   store i32 %.10.i, ptr %kind_.i.i.i.i, align 4, !noalias !252
@@ -17745,7 +17745,7 @@ if.end:                                           ; preds = %entry
   %kind_.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   %. = zext i1 %call4 to i8
   %.5 = select i1 %call4, i32 2, i32 0
-  %.6 = select i1 %call4, ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common6IsNullE, i64 0, i32 0, i64 2), ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common11AlwaysFalseE, i64 0, inrange i32 0, i64 2)
+  %.6 = select i1 %call4, ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common6IsNullE, i64 0, i32 0, i64 2), ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common11AlwaysFalseE, i64 0, i32 0, i64 2)
   store i8 %., ptr %nullAllowed_.i.i.i.i, align 8, !noalias !152
   store i8 1, ptr %deterministic_.i.i.i.i, align 1, !noalias !152
   store i32 %.5, ptr %kind_.i.i.i.i, align 4, !noalias !152
@@ -17920,7 +17920,7 @@ if.end:                                           ; preds = %land.end
   %deterministic_.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 9
   %kind_.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   %.10.i = select i1 %tobool15.not, i32 0, i32 2
-  %.11.i = select i1 %tobool15.not, ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common11AlwaysFalseE, i64 0, i32 0, i64 2), ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common6IsNullE, i64 0, inrange i32 0, i64 2)
+  %.11.i = select i1 %tobool15.not, ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common11AlwaysFalseE, i64 0, i32 0, i64 2), ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common6IsNullE, i64 0, i32 0, i64 2)
   store i8 %frombool, ptr %nullAllowed_.i.i.i.i, align 8, !noalias !279
   store i8 1, ptr %deterministic_.i.i.i.i, align 1, !noalias !279
   store i32 %.10.i, ptr %kind_.i.i.i.i, align 4, !noalias !279
@@ -18082,7 +18082,7 @@ if.end:                                           ; preds = %land.end
   %deterministic_.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 9
   %kind_.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   %.10.i = select i1 %tobool15.not, i32 0, i32 2
-  %.11.i = select i1 %tobool15.not, ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common11AlwaysFalseE, i64 0, i32 0, i64 2), ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common6IsNullE, i64 0, inrange i32 0, i64 2)
+  %.11.i = select i1 %tobool15.not, ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common11AlwaysFalseE, i64 0, i32 0, i64 2), ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common6IsNullE, i64 0, i32 0, i64 2)
   store i8 %frombool, ptr %nullAllowed_.i.i.i.i, align 8, !noalias !288
   store i8 1, ptr %deterministic_.i.i.i.i, align 1, !noalias !288
   store i32 %.10.i, ptr %kind_.i.i.i.i, align 4, !noalias !288
@@ -18393,7 +18393,7 @@ if.then79:                                        ; preds = %land.end72
   %kind_.i.i.i.i90 = getelementptr inbounds i8, ptr %call.i.i87, i64 12
   %..i91 = zext i1 %50 to i8
   %.10.i92 = select i1 %50, i32 2, i32 0
-  %.11.i93 = select i1 %50, ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common6IsNullE, i64 0, i32 0, i64 2), ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common11AlwaysFalseE, i64 0, inrange i32 0, i64 2)
+  %.11.i93 = select i1 %50, ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common6IsNullE, i64 0, i32 0, i64 2), ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common11AlwaysFalseE, i64 0, i32 0, i64 2)
   store i8 %..i91, ptr %nullAllowed_.i.i.i.i88, align 8, !noalias !299
   store i8 1, ptr %deterministic_.i.i.i.i89, align 1, !noalias !299
   store i32 %.10.i92, ptr %kind_.i.i.i.i90, align 4, !noalias !299
@@ -18602,7 +18602,7 @@ if.then:                                          ; preds = %entry
   %deterministic_.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 9
   %kind_.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   %.10.i = select i1 %nullAllowed, i32 2, i32 0
-  %.11.i = select i1 %nullAllowed, ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common6IsNullE, i64 0, i32 0, i64 2), ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common11AlwaysFalseE, i64 0, inrange i32 0, i64 2)
+  %.11.i = select i1 %nullAllowed, ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common6IsNullE, i64 0, i32 0, i64 2), ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common11AlwaysFalseE, i64 0, i32 0, i64 2)
   store i8 %frombool, ptr %nullAllowed_.i.i.i.i, align 8, !noalias !308
   store i8 1, ptr %deterministic_.i.i.i.i, align 1, !noalias !308
   store i32 %.10.i, ptr %kind_.i.i.i.i, align 4, !noalias !308
@@ -19292,7 +19292,7 @@ if.end:                                           ; preds = %lor.rhs.i
   %deterministic_.i.i.i.i16 = getelementptr inbounds i8, ptr %call.i.i14, i64 9
   %kind_.i.i.i.i17 = getelementptr inbounds i8, ptr %call.i.i14, i64 12
   %.10.i = select i1 %tobool15.not, i32 0, i32 2
-  %.11.i = select i1 %tobool15.not, ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common11AlwaysFalseE, i64 0, i32 0, i64 2), ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common6IsNullE, i64 0, inrange i32 0, i64 2)
+  %.11.i = select i1 %tobool15.not, ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common11AlwaysFalseE, i64 0, i32 0, i64 2), ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common6IsNullE, i64 0, i32 0, i64 2)
   store i8 %frombool, ptr %nullAllowed_.i.i.i.i15, align 8, !noalias !342
   store i8 1, ptr %deterministic_.i.i.i.i16, align 1, !noalias !342
   store i32 %.10.i, ptr %kind_.i.i.i.i17, align 4, !noalias !342
@@ -21704,7 +21704,7 @@ if.then:                                          ; preds = %land.end
   %deterministic_.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 9
   %kind_.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   %.10.i = select i1 %3, i32 2, i32 0
-  %.11.i = select i1 %3, ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common6IsNullE, i64 0, i32 0, i64 2), ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common11AlwaysFalseE, i64 0, inrange i32 0, i64 2)
+  %.11.i = select i1 %3, ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common6IsNullE, i64 0, i32 0, i64 2), ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common11AlwaysFalseE, i64 0, i32 0, i64 2)
   store i8 %frombool, ptr %nullAllowed_.i.i.i.i, align 8, !noalias !436
   store i8 1, ptr %deterministic_.i.i.i.i, align 1, !noalias !436
   store i32 %.10.i, ptr %kind_.i.i.i.i, align 4, !noalias !436
@@ -21816,7 +21816,7 @@ if.end10:                                         ; preds = %for.cond.i, %for.bo
   %deterministic_.i.i.i.i10 = getelementptr inbounds i8, ptr %call.i.i8, i64 9
   %kind_.i.i.i.i11 = getelementptr inbounds i8, ptr %call.i.i8, i64 12
   %.10.i13 = select i1 %3, i32 2, i32 0
-  %.11.i14 = select i1 %3, ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common6IsNullE, i64 0, i32 0, i64 2), ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common11AlwaysFalseE, i64 0, inrange i32 0, i64 2)
+  %.11.i14 = select i1 %3, ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common6IsNullE, i64 0, i32 0, i64 2), ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common11AlwaysFalseE, i64 0, i32 0, i64 2)
   store i8 %frombool, ptr %nullAllowed_.i.i.i.i9, align 8, !noalias !442
   store i8 1, ptr %deterministic_.i.i.i.i10, align 1, !noalias !442
   store i32 %.10.i13, ptr %kind_.i.i.i.i11, align 4, !noalias !442
@@ -23858,7 +23858,7 @@ cleanup.thread:                                   ; preds = %if.then99
   %deterministic_.i.i.i.i116 = getelementptr inbounds i8, ptr %call.i.i119, i64 9
   %kind_.i.i.i.i117 = getelementptr inbounds i8, ptr %call.i.i119, i64 12
   %.10.i = select i1 %58, i32 2, i32 0
-  %.11.i = select i1 %58, ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common6IsNullE, i64 0, i32 0, i64 2), ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common11AlwaysFalseE, i64 0, inrange i32 0, i64 2)
+  %.11.i = select i1 %58, ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common6IsNullE, i64 0, i32 0, i64 2), ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common11AlwaysFalseE, i64 0, i32 0, i64 2)
   store i8 %frombool, ptr %nullAllowed_.i.i.i.i115, align 8, !noalias !505
   store i8 1, ptr %deterministic_.i.i.i.i116, align 1, !noalias !505
   store i32 %.10.i, ptr %kind_.i.i.i.i117, align 4, !noalias !505
@@ -24502,7 +24502,7 @@ _ZN8facebook5velox6common12_GLOBAL__N_111nullOrFalseEb.exit: ; preds = %if.then1
   %kind_.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i3940, i64 12
   %..i = zext i1 %6 to i8
   %.10.i = select i1 %6, i32 2, i32 0
-  %.11.i = select i1 %6, ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common6IsNullE, i64 0, i32 0, i64 2), ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common11AlwaysFalseE, i64 0, inrange i32 0, i64 2)
+  %.11.i = select i1 %6, ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common6IsNullE, i64 0, i32 0, i64 2), ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common11AlwaysFalseE, i64 0, i32 0, i64 2)
   store i8 %..i, ptr %nullAllowed_.i.i.i.i, align 8, !noalias !520
   store i8 1, ptr %deterministic_.i.i.i.i, align 1, !noalias !520
   store i32 %.10.i, ptr %kind_.i.i.i.i, align 4, !noalias !520
@@ -24822,7 +24822,7 @@ if.then:                                          ; preds = %lor.lhs.false, %lan
   %kind_.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   %..i = zext i1 %6 to i8
   %.10.i = select i1 %6, i32 2, i32 0
-  %.11.i = select i1 %6, ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common6IsNullE, i64 0, i32 0, i64 2), ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common11AlwaysFalseE, i64 0, inrange i32 0, i64 2)
+  %.11.i = select i1 %6, ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common6IsNullE, i64 0, i32 0, i64 2), ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common11AlwaysFalseE, i64 0, i32 0, i64 2)
   store i8 %..i, ptr %nullAllowed_.i.i.i.i, align 8, !noalias !538
   store i8 1, ptr %deterministic_.i.i.i.i, align 1, !noalias !538
   store i32 %.10.i, ptr %kind_.i.i.i.i, align 4, !noalias !538
@@ -25032,7 +25032,7 @@ _ZN8facebook5velox6common12_GLOBAL__N_111nullOrFalseEb.exit: ; preds = %if.then4
   %kind_.i.i.i.i76 = getelementptr inbounds i8, ptr %call.i.i7380, i64 12
   %..i77 = zext i1 %6 to i8
   %.10.i78 = select i1 %6, i32 2, i32 0
-  %.11.i79 = select i1 %6, ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common6IsNullE, i64 0, i32 0, i64 2), ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common11AlwaysFalseE, i64 0, inrange i32 0, i64 2)
+  %.11.i79 = select i1 %6, ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common6IsNullE, i64 0, i32 0, i64 2), ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common11AlwaysFalseE, i64 0, i32 0, i64 2)
   store i8 %..i77, ptr %nullAllowed_.i.i.i.i74, align 8, !noalias !541
   store i8 1, ptr %deterministic_.i.i.i.i75, align 1, !noalias !541
   store i32 %.10.i78, ptr %kind_.i.i.i.i76, align 4, !noalias !541
@@ -25200,7 +25200,7 @@ _ZN8facebook5velox6common12_GLOBAL__N_111nullOrFalseEb.exit154: ; preds = %if.th
   %kind_.i.i.i.i149 = getelementptr inbounds i8, ptr %call.i.i146153, i64 12
   %..i150 = zext i1 %frombool59 to i8
   %.10.i151 = select i1 %frombool59, i32 2, i32 0
-  %.11.i152 = select i1 %frombool59, ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common6IsNullE, i64 0, i32 0, i64 2), ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common11AlwaysFalseE, i64 0, inrange i32 0, i64 2)
+  %.11.i152 = select i1 %frombool59, ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common6IsNullE, i64 0, i32 0, i64 2), ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common11AlwaysFalseE, i64 0, i32 0, i64 2)
   store i8 %..i150, ptr %nullAllowed_.i.i.i.i147, align 8, !noalias !547
   store i8 1, ptr %deterministic_.i.i.i.i148, align 1, !noalias !547
   store i32 %.10.i151, ptr %kind_.i.i.i.i149, align 4, !noalias !547
@@ -25371,7 +25371,7 @@ if.then135:                                       ; preds = %_ZNSt8optionalINSt7
   %kind_.i.i.i.i200 = getelementptr inbounds i8, ptr %call.i.i197, i64 12
   %..i201 = zext i1 %frombool113 to i8
   %.10.i202 = select i1 %frombool113, i32 2, i32 0
-  %.11.i203 = select i1 %frombool113, ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common6IsNullE, i64 0, i32 0, i64 2), ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common11AlwaysFalseE, i64 0, inrange i32 0, i64 2)
+  %.11.i203 = select i1 %frombool113, ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common6IsNullE, i64 0, i32 0, i64 2), ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common11AlwaysFalseE, i64 0, i32 0, i64 2)
   store i8 %..i201, ptr %nullAllowed_.i.i.i.i198, align 8, !noalias !553
   store i8 1, ptr %deterministic_.i.i.i.i199, align 1, !noalias !553
   store i32 %.10.i202, ptr %kind_.i.i.i.i200, align 4, !noalias !553
@@ -25502,7 +25502,7 @@ _ZN8facebook5velox6common12_GLOBAL__N_111nullOrFalseEb.exit279: ; preds = %if.th
   %kind_.i.i.i.i274 = getelementptr inbounds i8, ptr %call.i.i271278, i64 12
   %..i275 = zext i1 %frombool113 to i8
   %.10.i276 = select i1 %frombool113, i32 2, i32 0
-  %.11.i277 = select i1 %frombool113, ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common6IsNullE, i64 0, i32 0, i64 2), ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common11AlwaysFalseE, i64 0, inrange i32 0, i64 2)
+  %.11.i277 = select i1 %frombool113, ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common6IsNullE, i64 0, i32 0, i64 2), ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common11AlwaysFalseE, i64 0, i32 0, i64 2)
   store i8 %..i275, ptr %nullAllowed_.i.i.i.i272, align 8, !noalias !556
   store i8 1, ptr %deterministic_.i.i.i.i273, align 1, !noalias !556
   store i32 %.10.i276, ptr %kind_.i.i.i.i274, align 4, !noalias !556
@@ -25666,7 +25666,7 @@ _ZN8facebook5velox6common12_GLOBAL__N_111nullOrFalseEb.exit370: ; preds = %if.th
   %kind_.i.i.i.i365 = getelementptr inbounds i8, ptr %call.i.i362369, i64 12
   %..i366 = zext i1 %frombool192 to i8
   %.10.i367 = select i1 %frombool192, i32 2, i32 0
-  %.11.i368 = select i1 %frombool192, ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common6IsNullE, i64 0, i32 0, i64 2), ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common11AlwaysFalseE, i64 0, inrange i32 0, i64 2)
+  %.11.i368 = select i1 %frombool192, ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common6IsNullE, i64 0, i32 0, i64 2), ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common11AlwaysFalseE, i64 0, i32 0, i64 2)
   store i8 %..i366, ptr %nullAllowed_.i.i.i.i363, align 8, !noalias !562
   store i8 1, ptr %deterministic_.i.i.i.i364, align 1, !noalias !562
   store i32 %.10.i367, ptr %kind_.i.i.i.i365, align 4, !noalias !562

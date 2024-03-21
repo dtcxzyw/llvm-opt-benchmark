@@ -7773,7 +7773,7 @@ lpad.i:                                           ; preds = %entry
   br label %common.resume
 
 _ZN5arrow14NumericBuilderINS_10UInt64TypeEEC2IS1_EENSt9enable_ifIXsr22is_parameter_free_typeIT_EE5valueEPNS_10MemoryPoolEE4typeEl.exit: ; preds = %call.i.noexc.i, %if.then.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i
-  %vtable.i = phi ptr [ getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5arrow14NumericBuilderINS_10UInt64TypeEEE, i64 0, i32 0, i64 2), %call.i.noexc.i ], [ getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5arrow14NumericBuilderINS_10UInt64TypeEEE, i64 0, inrange i32 0, i64 2), %if.then.i.i.i.i.i.i.i ], [ %vtable.i.pre, %if.else.i.i.i.i.i.i.i ]
+  %vtable.i = phi ptr [ getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5arrow14NumericBuilderINS_10UInt64TypeEEE, i64 0, i32 0, i64 2), %call.i.noexc.i ], [ getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5arrow14NumericBuilderINS_10UInt64TypeEEE, i64 0, i32 0, i64 2), %if.then.i.i.i.i.i.i.i ], [ %vtable.i.pre, %if.else.i.i.i.i.i.i.i ]
   %data_builder_.i = getelementptr inbounds i8, ptr %builder, i64 160
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %data_builder_.i, i8 0, i64 16, i1 false)
   %pool_.i.i.i = getelementptr inbounds i8, ptr %builder, i64 176

@@ -191,7 +191,7 @@ entry:
   %0 = load i32, ptr %m_useEpaPenetrationAlgorithm, align 4
   %tobool.not = icmp eq i32 %0, 0
   %call4 = tail call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef 8, i32 noundef 16)
-  %. = select i1 %tobool.not, ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV33btMinkowskiPenetrationDepthSolver, i64 0, i32 0, i64 2), ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV30btGjkEpaPenetrationDepthSolver, i64 0, inrange i32 0, i64 2)
+  %. = select i1 %tobool.not, ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV33btMinkowskiPenetrationDepthSolver, i64 0, i32 0, i64 2), ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV30btGjkEpaPenetrationDepthSolver, i64 0, i32 0, i64 2)
   store ptr %., ptr %call4, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 48
   store ptr %call4, ptr %1, align 8

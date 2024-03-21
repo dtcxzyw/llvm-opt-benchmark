@@ -8237,7 +8237,7 @@ invoke.cont5.loopexit:                            ; preds = %_ZN11delete_procIN3
   br label %invoke.cont5
 
 invoke.cont5:                                     ; preds = %entry, %invoke.cont5.loopexit, %invoke.cont3
-  %vtable = phi ptr [ %vtable.pre, %invoke.cont5.loopexit ], [ getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3smt2mf15quantifier_infoE, i64 0, i32 0, i64 2), %invoke.cont3 ], [ getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3smt2mf15quantifier_infoE, i64 0, inrange i32 0, i64 2), %entry ]
+  %vtable = phi ptr [ %vtable.pre, %invoke.cont5.loopexit ], [ getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3smt2mf15quantifier_infoE, i64 0, i32 0, i64 2), %invoke.cont3 ], [ getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3smt2mf15quantifier_infoE, i64 0, i32 0, i64 2), %entry ]
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %5 = load ptr, ptr %vfn, align 8
   invoke void %5(ptr noundef nonnull align 8 dereferenceable(128) %this)

@@ -4268,8 +4268,8 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox15LongDeci
   br label %common.resume.i
 
 _ZN8facebook5velox7DECIMALEhh.exit:               ; preds = %if.then.i, %if.end.i
-  %.sink46.i = phi ptr [ getelementptr inbounds ({ [18 x ptr], [5 x ptr] }, ptr @_ZTVN8facebook5velox16ShortDecimalTypeE, i64 0, i32 0, i64 2), %if.then.i ], [ getelementptr inbounds ({ [18 x ptr], [5 x ptr] }, ptr @_ZTVN8facebook5velox15LongDecimalTypeE, i64 0, inrange i32 0, i64 2), %if.end.i ]
-  %.sink.i = phi ptr [ getelementptr inbounds ({ [18 x ptr], [5 x ptr] }, ptr @_ZTVN8facebook5velox16ShortDecimalTypeE, i64 0, i32 1, i64 2), %if.then.i ], [ getelementptr inbounds ({ [18 x ptr], [5 x ptr] }, ptr @_ZTVN8facebook5velox15LongDecimalTypeE, i64 0, inrange i32 1, i64 2), %if.end.i ]
+  %.sink46.i = phi ptr [ getelementptr inbounds ({ [18 x ptr], [5 x ptr] }, ptr @_ZTVN8facebook5velox16ShortDecimalTypeE, i64 0, i32 0, i64 2), %if.then.i ], [ getelementptr inbounds ({ [18 x ptr], [5 x ptr] }, ptr @_ZTVN8facebook5velox15LongDecimalTypeE, i64 0, i32 0, i64 2), %if.end.i ]
+  %.sink.i = phi ptr [ getelementptr inbounds ({ [18 x ptr], [5 x ptr] }, ptr @_ZTVN8facebook5velox16ShortDecimalTypeE, i64 0, i32 1, i64 2), %if.then.i ], [ getelementptr inbounds ({ [18 x ptr], [5 x ptr] }, ptr @_ZTVN8facebook5velox15LongDecimalTypeE, i64 0, i32 1, i64 2), %if.end.i ]
   store ptr %.sink46.i, ptr %_M_impl.i.i.i.i.i.i.i, align 8, !noalias !11
   %add.ptr.i.i.i.i.i.i.i.i8.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i62, i64 24
   store ptr %.sink.i, ptr %add.ptr.i.i.i.i.i.i.i.i8.i, align 8, !noalias !11
@@ -5047,8 +5047,8 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox15LongDeci
   br label %common.resume
 
 return:                                           ; preds = %if.end, %if.then
-  %.sink46 = phi ptr [ getelementptr inbounds ({ [18 x ptr], [5 x ptr] }, ptr @_ZTVN8facebook5velox16ShortDecimalTypeE, i64 0, i32 0, i64 2), %if.then ], [ getelementptr inbounds ({ [18 x ptr], [5 x ptr] }, ptr @_ZTVN8facebook5velox15LongDecimalTypeE, i64 0, inrange i32 0, i64 2), %if.end ]
-  %.sink = phi ptr [ getelementptr inbounds ({ [18 x ptr], [5 x ptr] }, ptr @_ZTVN8facebook5velox16ShortDecimalTypeE, i64 0, i32 1, i64 2), %if.then ], [ getelementptr inbounds ({ [18 x ptr], [5 x ptr] }, ptr @_ZTVN8facebook5velox15LongDecimalTypeE, i64 0, inrange i32 1, i64 2), %if.end ]
+  %.sink46 = phi ptr [ getelementptr inbounds ({ [18 x ptr], [5 x ptr] }, ptr @_ZTVN8facebook5velox16ShortDecimalTypeE, i64 0, i32 0, i64 2), %if.then ], [ getelementptr inbounds ({ [18 x ptr], [5 x ptr] }, ptr @_ZTVN8facebook5velox15LongDecimalTypeE, i64 0, i32 0, i64 2), %if.end ]
+  %.sink = phi ptr [ getelementptr inbounds ({ [18 x ptr], [5 x ptr] }, ptr @_ZTVN8facebook5velox16ShortDecimalTypeE, i64 0, i32 1, i64 2), %if.then ], [ getelementptr inbounds ({ [18 x ptr], [5 x ptr] }, ptr @_ZTVN8facebook5velox15LongDecimalTypeE, i64 0, i32 1, i64 2), %if.end ]
   store ptr %.sink46, ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !30
   %add.ptr.i.i.i.i.i.i.i.i8 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   store ptr %.sink, ptr %add.ptr.i.i.i.i.i.i.i.i8, align 8, !noalias !30
@@ -30177,8 +30177,8 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox15LongDeci
   br label %common.resume.i
 
 _ZN8facebook5velox7DECIMALEhh.exit:               ; preds = %if.then.i, %if.end.i16
-  %.sink46.i = phi ptr [ getelementptr inbounds ({ [18 x ptr], [5 x ptr] }, ptr @_ZTVN8facebook5velox16ShortDecimalTypeE, i64 0, i32 0, i64 2), %if.then.i ], [ getelementptr inbounds ({ [18 x ptr], [5 x ptr] }, ptr @_ZTVN8facebook5velox15LongDecimalTypeE, i64 0, inrange i32 0, i64 2), %if.end.i16 ]
-  %.sink.i = phi ptr [ getelementptr inbounds ({ [18 x ptr], [5 x ptr] }, ptr @_ZTVN8facebook5velox16ShortDecimalTypeE, i64 0, i32 1, i64 2), %if.then.i ], [ getelementptr inbounds ({ [18 x ptr], [5 x ptr] }, ptr @_ZTVN8facebook5velox15LongDecimalTypeE, i64 0, inrange i32 1, i64 2), %if.end.i16 ]
+  %.sink46.i = phi ptr [ getelementptr inbounds ({ [18 x ptr], [5 x ptr] }, ptr @_ZTVN8facebook5velox16ShortDecimalTypeE, i64 0, i32 0, i64 2), %if.then.i ], [ getelementptr inbounds ({ [18 x ptr], [5 x ptr] }, ptr @_ZTVN8facebook5velox15LongDecimalTypeE, i64 0, i32 0, i64 2), %if.end.i16 ]
+  %.sink.i = phi ptr [ getelementptr inbounds ({ [18 x ptr], [5 x ptr] }, ptr @_ZTVN8facebook5velox16ShortDecimalTypeE, i64 0, i32 1, i64 2), %if.then.i ], [ getelementptr inbounds ({ [18 x ptr], [5 x ptr] }, ptr @_ZTVN8facebook5velox15LongDecimalTypeE, i64 0, i32 1, i64 2), %if.end.i16 ]
   store ptr %.sink46.i, ptr %_M_impl.i.i.i.i.i.i.i, align 8, !noalias !385
   %add.ptr.i.i.i.i.i.i.i.i8.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i, i64 24
   store ptr %.sink.i, ptr %add.ptr.i.i.i.i.i.i.i.i8.i, align 8, !noalias !385

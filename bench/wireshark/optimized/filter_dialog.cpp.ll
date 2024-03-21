@@ -3397,7 +3397,7 @@ define noundef ptr @_ZNK18FilterTreeDelegate12createEditorEP7QWidgetRK20QStyleOp
   br label %36
 
 .sink.split22:                                    ; preds = %32, %29
-  %.sink = phi ptr [ getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV18MacroNameValidator, i64 0, i32 0, i64 2), %29 ], [ getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV15FilterValidator, i64 0, inrange i32 0, i64 2), %32 ]
+  %.sink = phi ptr [ getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV18MacroNameValidator, i64 0, i32 0, i64 2), %29 ], [ getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV15FilterValidator, i64 0, i32 0, i64 2), %32 ]
   store ptr %.sink, ptr %28, align 8
   tail call void @_ZN9QLineEdit12setValidatorEPK10QValidator(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull %28)
   br label %35

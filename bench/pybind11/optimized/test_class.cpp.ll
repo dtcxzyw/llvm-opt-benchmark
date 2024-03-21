@@ -60782,7 +60782,7 @@ _ZN8pybind114noneD2Ev.exit.i:                     ; preds = %11
   %.val15.i = load i32, ptr %2, align 4
   %21 = call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #30
   %switch.selectcmp.i.i16.i = icmp eq i32 %.val15.i, 2
-  %switch.select.i.i17.i = select i1 %switch.selectcmp.i.i16.i, ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVZ21test_submodule_class_RN8pybind117module_EE13DerivedClass2, i64 0, i32 0, i64 2), ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVZ21test_submodule_class_RN8pybind117module_EE9BaseClass, i64 0, inrange i32 0, i64 2)
+  %switch.select.i.i17.i = select i1 %switch.selectcmp.i.i16.i, ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVZ21test_submodule_class_RN8pybind117module_EE13DerivedClass2, i64 0, i32 0, i64 2), ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVZ21test_submodule_class_RN8pybind117module_EE9BaseClass, i64 0, i32 0, i64 2)
   %switch.selectcmp1.i.i18.i = icmp eq i32 %.val15.i, 1
   %switch.select2.i.i19.i = select i1 %switch.selectcmp1.i.i18.i, ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVZ21test_submodule_class_RN8pybind117module_EE13DerivedClass1, i64 0, i32 0, i64 2), ptr %switch.select.i.i17.i
   store ptr %switch.select2.i.i19.i, ptr %21, align 8
@@ -70907,7 +70907,7 @@ define internal noundef nonnull ptr @_ZZN8pybind1112cpp_function10initializeIZNS
   %10 = icmp eq ptr %6, %9
   %11 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %11, i8 0, i64 16, i1 false)
-  %spec.select.i.i16.i = select i1 %10, ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVZ21test_submodule_class_RN8pybind117module_EE10ProtectedB, i64 0, i32 0, i64 2), ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVZ21test_submodule_class_RN8pybind117module_EE11TrampolineB, i64 0, inrange i32 0, i64 2)
+  %spec.select.i.i16.i = select i1 %10, ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVZ21test_submodule_class_RN8pybind117module_EE10ProtectedB, i64 0, i32 0, i64 2), ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVZ21test_submodule_class_RN8pybind117module_EE11TrampolineB, i64 0, i32 0, i64 2)
   store ptr %spec.select.i.i16.i, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 8
   store i32 42, ptr %12, align 8

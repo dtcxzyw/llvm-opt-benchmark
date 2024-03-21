@@ -1126,7 +1126,7 @@ if.end:                                           ; preds = %land.lhs.true, %lor
   %cmp.i5 = icmp eq ptr %2, %this
   %call7 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 16)
   %m_delta_union_fun.i6 = getelementptr inbounds i8, ptr %call7, i64 8
-  %. = select i1 %cmp.i5, ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7datalog27explanation_relation_plugin8union_fnE, i64 0, i32 0, i64 2), ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7datalog27explanation_relation_plugin16foreign_union_fnE, i64 0, inrange i32 0, i64 2)
+  %. = select i1 %cmp.i5, ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7datalog27explanation_relation_plugin8union_fnE, i64 0, i32 0, i64 2), ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7datalog27explanation_relation_plugin16foreign_union_fnE, i64 0, i32 0, i64 2)
   store ptr %., ptr %call7, align 8
   store ptr null, ptr %m_delta_union_fun.i6, align 8
   br label %return
