@@ -4788,60 +4788,50 @@ Abc_PrimeCudd.exit.i.i:                           ; preds = %.preheader.i.i.i, %
   %62 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #20
   %or.cond.i.i.i.i = icmp ult i32 %.012.i.i.i, 15
   %spec.store.select.i.i.i.i = select i1 %or.cond.i.i.i.i, i32 16, i32 %55
-  %63 = getelementptr inbounds i8, ptr %62, i64 4
   store i32 %spec.store.select.i.i.i.i, ptr %62, align 8
-  %.not.i.i.i.i = icmp eq i32 %spec.store.select.i.i.i.i, 0
-  br i1 %.not.i.i.i.i, label %Vec_IntAlloc.exit.thread.i.i.i, label %Vec_IntAlloc.exit.i.i.i
-
-Vec_IntAlloc.exit.thread.i.i.i:                   ; preds = %Abc_PrimeCudd.exit.i.i
-  %64 = getelementptr inbounds i8, ptr %62, i64 8
-  store ptr null, ptr %64, align 8
+  %63 = getelementptr inbounds i8, ptr %62, i64 4
+  %64 = sext i32 %spec.store.select.i.i.i.i to i64
+  %65 = shl nsw i64 %64, 2
+  %66 = call noalias ptr @malloc(i64 noundef %65) #20
+  %67 = getelementptr inbounds i8, ptr %62, i64 8
+  store ptr %66, ptr %67, align 8
   store i32 %55, ptr %63, align 4
+  %.not.i3.i.i = icmp eq ptr %66, null
+  br i1 %.not.i3.i.i, label %Vec_MemHashAlloc.exit.i, label %68
+
+68:                                               ; preds = %Abc_PrimeCudd.exit.i.i
+  %69 = sext i32 %55 to i64
+  %70 = shl nsw i64 %69, 2
+  call void @llvm.memset.p0.i64(ptr nonnull align 4 %66, i8 -1, i64 %70, i1 false)
   br label %Vec_MemHashAlloc.exit.i
 
-Vec_IntAlloc.exit.i.i.i:                          ; preds = %Abc_PrimeCudd.exit.i.i
-  %65 = sext i32 %spec.store.select.i.i.i.i to i64
-  %66 = shl nsw i64 %65, 2
-  %67 = call noalias ptr @malloc(i64 noundef %66) #20
-  %68 = getelementptr inbounds i8, ptr %62, i64 8
-  store ptr %67, ptr %68, align 8
-  store i32 %55, ptr %63, align 4
-  %.not.i3.i.i = icmp eq ptr %67, null
-  br i1 %.not.i3.i.i, label %Vec_MemHashAlloc.exit.i, label %69
-
-69:                                               ; preds = %Vec_IntAlloc.exit.i.i.i
-  %70 = sext i32 %55 to i64
-  %71 = shl nsw i64 %70, 2
-  call void @llvm.memset.p0.i64(ptr nonnull align 4 %67, i8 -1, i64 %71, i1 false)
-  br label %Vec_MemHashAlloc.exit.i
-
-Vec_MemHashAlloc.exit.i:                          ; preds = %69, %Vec_IntAlloc.exit.i.i.i, %Vec_IntAlloc.exit.thread.i.i.i
-  %72 = getelementptr inbounds i8, ptr %51, i64 32
-  store ptr %62, ptr %72, align 8
-  %73 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #20
-  %74 = getelementptr inbounds i8, ptr %73, i64 4
-  store i32 0, ptr %74, align 4
-  store i32 10000, ptr %73, align 8
-  %75 = call noalias dereferenceable_or_null(40000) ptr @malloc(i64 noundef 40000) #20
-  %76 = getelementptr inbounds i8, ptr %73, i64 8
-  store ptr %75, ptr %76, align 8
-  %77 = getelementptr inbounds i8, ptr %51, i64 40
-  store ptr %73, ptr %77, align 8
+Vec_MemHashAlloc.exit.i:                          ; preds = %68, %Abc_PrimeCudd.exit.i.i
+  %71 = getelementptr inbounds i8, ptr %51, i64 32
+  store ptr %62, ptr %71, align 8
+  %72 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #20
+  %73 = getelementptr inbounds i8, ptr %72, i64 4
+  store i32 0, ptr %73, align 4
+  store i32 10000, ptr %72, align 8
+  %74 = call noalias dereferenceable_or_null(40000) ptr @malloc(i64 noundef 40000) #20
+  %75 = getelementptr inbounds i8, ptr %72, i64 8
+  store ptr %74, ptr %75, align 8
+  %76 = getelementptr inbounds i8, ptr %51, i64 40
+  store ptr %72, ptr %76, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %50, i8 0, i64 %49, i1 false)
-  %78 = call fastcc i32 @Vec_MemHashInsert(ptr noundef nonnull %51, ptr noundef %50)
+  %77 = call fastcc i32 @Vec_MemHashInsert(ptr noundef nonnull %51, ptr noundef %50)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %50, i8 -86, i64 %49, i1 false)
-  %79 = call fastcc i32 @Vec_MemHashInsert(ptr noundef nonnull %51, ptr noundef %50)
+  %78 = call fastcc i32 @Vec_MemHashInsert(ptr noundef nonnull %51, ptr noundef %50)
   %.not.i21 = icmp eq ptr %50, null
-  br i1 %.not.i21, label %Vec_MemAllocForTT.exit, label %80
+  br i1 %.not.i21, label %Vec_MemAllocForTT.exit, label %79
 
-80:                                               ; preds = %Vec_MemHashAlloc.exit.i
+79:                                               ; preds = %Vec_MemHashAlloc.exit.i
   call void @free(ptr noundef nonnull %50) #21
   br label %Vec_MemAllocForTT.exit
 
-Vec_MemAllocForTT.exit:                           ; preds = %80, %Vec_MemHashAlloc.exit.i, %Vec_WecStart.exit
-  %81 = phi ptr [ null, %Vec_WecStart.exit ], [ %51, %Vec_MemHashAlloc.exit.i ], [ %51, %80 ]
-  %82 = getelementptr inbounds i8, ptr %8, i64 48
-  store ptr %81, ptr %82, align 8
+Vec_MemAllocForTT.exit:                           ; preds = %79, %Vec_MemHashAlloc.exit.i, %Vec_WecStart.exit
+  %80 = phi ptr [ null, %Vec_WecStart.exit ], [ %51, %Vec_MemHashAlloc.exit.i ], [ %51, %79 ]
+  %81 = getelementptr inbounds i8, ptr %8, i64 48
+  store ptr %80, ptr %81, align 8
   ret ptr %8
 }
 

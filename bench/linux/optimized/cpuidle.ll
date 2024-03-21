@@ -474,7 +474,7 @@ define dso_local i32 @cpuidle_enter_state(ptr noundef %0, ptr noundef %1, i32 no
   br label %26
 
 26:                                               ; preds = %23, %14, %3
-  %27 = phi i8 [ 0, %23 ], [ %13, %14 ], [ %13, %3 ]
+  %27 = phi i8 [ 0, %23 ], [ 1, %14 ], [ %13, %3 ]
   %28 = phi ptr [ %25, %23 ], [ %7, %14 ], [ %7, %3 ]
   %29 = phi i32 [ %20, %23 ], [ %2, %14 ], [ %2, %3 ]
   %30 = getelementptr inbounds i8, ptr %28, i64 64

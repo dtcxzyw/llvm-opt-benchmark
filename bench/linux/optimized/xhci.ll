@@ -846,7 +846,7 @@ define dso_local i32 @xhci_reset(ptr noundef %0, i64 noundef %1) local_unnamed_a
   br i1 %67, label %.loopexit5, label %53, !llvm.loop !10
 
 .loopexit5:                                       ; preds = %53, %62, %49, %.split.us, %60, %34, %27
-  %.pre-phi = phi i32 [ %.pre15, %60 ], [ %30, %34 ], [ %30, %27 ], [ %45, %.split.us ], [ %45, %49 ], [ %64, %62 ], [ %64, %53 ]
+  %.pre-phi = phi i32 [ %.pre15, %60 ], [ 1, %34 ], [ %30, %27 ], [ %45, %.split.us ], [ 1, %49 ], [ %64, %62 ], [ 1, %53 ]
   %68 = phi i32 [ %61, %60 ], [ %29, %34 ], [ %29, %27 ], [ %44, %.split.us ], [ %44, %49 ], [ %63, %62 ], [ %63, %53 ]
   %69 = icmp eq i32 %.pre-phi, 0
   %70 = icmp eq i32 %68, -1

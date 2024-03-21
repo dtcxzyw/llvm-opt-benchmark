@@ -550,7 +550,7 @@ define dso_local i32 @intel_context_migrate_copy(ptr noundef %0, ptr noundef %1,
   br label %.thread
 
 .thread:                                          ; preds = %74, %79, %123, %.loopexit64
-  %.pre-phi = phi i64 [ %.pre92, %79 ], [ %.pre92, %123 ], [ %48, %.loopexit64 ], [ %.pre92, %74 ]
+  %.pre-phi = phi i64 [ %.pre92, %79 ], [ 1, %123 ], [ %48, %.loopexit64 ], [ %.pre92, %74 ]
   %125 = phi i1 [ %54, %79 ], [ %54, %123 ], [ false, %.loopexit64 ], [ %54, %74 ]
   %126 = phi i1 [ %55, %79 ], [ %55, %123 ], [ false, %.loopexit64 ], [ %55, %74 ]
   %127 = phi i8 [ %75, %79 ], [ %75, %123 ], [ 0, %.loopexit64 ], [ %75, %74 ]

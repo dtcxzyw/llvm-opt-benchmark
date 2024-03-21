@@ -1637,74 +1637,64 @@ Abc_PrimeCudd.exit.i.i:                           ; preds = %.preheader.i.i.i, %
   %100 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #24
   %or.cond.i.i.i.i = icmp ult i32 %.012.i.i.i, 15
   %spec.store.select.i.i.i.i = select i1 %or.cond.i.i.i.i, i32 16, i32 %93
-  %101 = getelementptr inbounds i8, ptr %100, i64 4
   store i32 %spec.store.select.i.i.i.i, ptr %100, align 8
-  %.not.i.i.i.i = icmp eq i32 %spec.store.select.i.i.i.i, 0
-  br i1 %.not.i.i.i.i, label %Vec_IntAlloc.exit.thread.i.i.i, label %Vec_IntAlloc.exit.i.i.i
-
-Vec_IntAlloc.exit.thread.i.i.i:                   ; preds = %Abc_PrimeCudd.exit.i.i
-  %102 = getelementptr inbounds i8, ptr %100, i64 8
-  store ptr null, ptr %102, align 8
+  %101 = getelementptr inbounds i8, ptr %100, i64 4
+  %102 = sext i32 %spec.store.select.i.i.i.i to i64
+  %103 = shl nsw i64 %102, 2
+  %104 = call noalias ptr @malloc(i64 noundef %103) #24
+  %105 = getelementptr inbounds i8, ptr %100, i64 8
+  store ptr %104, ptr %105, align 8
   store i32 %93, ptr %101, align 4
+  %.not.i3.i.i = icmp eq ptr %104, null
+  br i1 %.not.i3.i.i, label %Vec_MemAllocForTT.exit, label %106
+
+106:                                              ; preds = %Abc_PrimeCudd.exit.i.i
+  %107 = sext i32 %93 to i64
+  %108 = shl nsw i64 %107, 2
+  call void @llvm.memset.p0.i64(ptr nonnull align 4 %104, i8 -1, i64 %108, i1 false)
   br label %Vec_MemAllocForTT.exit
 
-Vec_IntAlloc.exit.i.i.i:                          ; preds = %Abc_PrimeCudd.exit.i.i
-  %103 = sext i32 %spec.store.select.i.i.i.i to i64
-  %104 = shl nsw i64 %103, 2
-  %105 = call noalias ptr @malloc(i64 noundef %104) #24
-  %106 = getelementptr inbounds i8, ptr %100, i64 8
-  store ptr %105, ptr %106, align 8
-  store i32 %93, ptr %101, align 4
-  %.not.i3.i.i = icmp eq ptr %105, null
-  br i1 %.not.i3.i.i, label %Vec_MemAllocForTT.exit, label %107
-
-107:                                              ; preds = %Vec_IntAlloc.exit.i.i.i
-  %108 = sext i32 %93 to i64
-  %109 = shl nsw i64 %108, 2
-  call void @llvm.memset.p0.i64(ptr nonnull align 4 %105, i8 -1, i64 %109, i1 false)
-  br label %Vec_MemAllocForTT.exit
-
-Vec_MemAllocForTT.exit:                           ; preds = %Vec_IntAlloc.exit.thread.i.i.i, %Vec_IntAlloc.exit.i.i.i, %107
-  %110 = getelementptr inbounds i8, ptr %89, i64 32
-  store ptr %100, ptr %110, align 8
-  %111 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #24
-  %112 = getelementptr inbounds i8, ptr %111, i64 4
-  store i32 0, ptr %112, align 4
-  store i32 10000, ptr %111, align 8
-  %113 = call noalias dereferenceable_or_null(40000) ptr @malloc(i64 noundef 40000) #24
-  %114 = getelementptr inbounds i8, ptr %111, i64 8
-  store ptr %113, ptr %114, align 8
-  %115 = getelementptr inbounds i8, ptr %89, i64 40
-  store ptr %111, ptr %115, align 8
+Vec_MemAllocForTT.exit:                           ; preds = %Abc_PrimeCudd.exit.i.i, %106
+  %109 = getelementptr inbounds i8, ptr %89, i64 32
+  store ptr %100, ptr %109, align 8
+  %110 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #24
+  %111 = getelementptr inbounds i8, ptr %110, i64 4
+  store i32 0, ptr %111, align 4
+  store i32 10000, ptr %110, align 8
+  %112 = call noalias dereferenceable_or_null(40000) ptr @malloc(i64 noundef 40000) #24
+  %113 = getelementptr inbounds i8, ptr %110, i64 8
+  store ptr %112, ptr %113, align 8
+  %114 = getelementptr inbounds i8, ptr %89, i64 40
+  store ptr %110, ptr %114, align 8
   store i64 0, ptr %88, align 8
-  %116 = call fastcc i32 @Vec_MemHashInsert(ptr noundef nonnull %89, ptr noundef nonnull %88)
+  %115 = call fastcc i32 @Vec_MemHashInsert(ptr noundef nonnull %89, ptr noundef nonnull %88)
   store i64 -6148914691236517206, ptr %88, align 8
-  %117 = call fastcc i32 @Vec_MemHashInsert(ptr noundef nonnull %89, ptr noundef nonnull %88)
+  %116 = call fastcc i32 @Vec_MemHashInsert(ptr noundef nonnull %89, ptr noundef nonnull %88)
   call void @free(ptr noundef %88) #25
-  %118 = getelementptr inbounds i8, ptr %25, i64 16
-  store ptr %89, ptr %118, align 8
-  %119 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #24
-  %120 = getelementptr inbounds i8, ptr %119, i64 4
-  store i32 0, ptr %120, align 4
-  store i32 1000, ptr %119, align 8
-  %121 = call noalias dereferenceable_or_null(16000) ptr @calloc(i64 noundef 1000, i64 noundef 16) #26
-  %122 = getelementptr inbounds i8, ptr %119, i64 8
-  store ptr %121, ptr %122, align 8
-  %123 = getelementptr inbounds i8, ptr %25, i64 24
-  store ptr %119, ptr %123, align 8
-  call fastcc void @Vec_WecPushLevel(ptr noundef nonnull %119)
-  call fastcc void @Vec_WecPushLevel(ptr noundef nonnull %119)
+  %117 = getelementptr inbounds i8, ptr %25, i64 16
+  store ptr %89, ptr %117, align 8
+  %118 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #24
+  %119 = getelementptr inbounds i8, ptr %118, i64 4
+  store i32 0, ptr %119, align 4
+  store i32 1000, ptr %118, align 8
+  %120 = call noalias dereferenceable_or_null(16000) ptr @calloc(i64 noundef 1000, i64 noundef 16) #26
+  %121 = getelementptr inbounds i8, ptr %118, i64 8
+  store ptr %120, ptr %121, align 8
+  %122 = getelementptr inbounds i8, ptr %25, i64 24
+  store ptr %118, ptr %122, align 8
+  call fastcc void @Vec_WecPushLevel(ptr noundef nonnull %118)
+  call fastcc void @Vec_WecPushLevel(ptr noundef nonnull %118)
   call void @Pf_StoDeriveMatches(ptr noundef nonnull %25, i32 noundef 0)
-  %124 = getelementptr inbounds i8, ptr %25, i64 32
-  %125 = load ptr, ptr %124, align 8
-  %126 = getelementptr inbounds i8, ptr %125, i64 168
-  %127 = load float, ptr %126, align 8
-  %128 = getelementptr inbounds i8, ptr %25, i64 136
-  store float %127, ptr %128, align 8
-  %129 = getelementptr inbounds i8, ptr %125, i64 156
-  %130 = load float, ptr %129, align 4
-  %131 = getelementptr inbounds i8, ptr %25, i64 140
-  store float %130, ptr %131, align 4
+  %123 = getelementptr inbounds i8, ptr %25, i64 32
+  %124 = load ptr, ptr %123, align 8
+  %125 = getelementptr inbounds i8, ptr %124, i64 168
+  %126 = load float, ptr %125, align 8
+  %127 = getelementptr inbounds i8, ptr %25, i64 136
+  store float %126, ptr %127, align 8
+  %128 = getelementptr inbounds i8, ptr %124, i64 156
+  %129 = load float, ptr %128, align 4
+  %130 = getelementptr inbounds i8, ptr %25, i64 140
+  store float %129, ptr %130, align 4
   ret ptr %25
 }
 

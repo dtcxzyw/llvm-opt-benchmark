@@ -2663,7 +2663,7 @@ define dso_local ptr @inet_gso_segment(ptr noundef %0, i64 noundef %1) #0 align 
   br i1 %111, label %.thread, label %112
 
 112:                                              ; preds = %104, %90, %76
-  %113 = phi i8 [ %103, %104 ], [ %103, %90 ], [ 0, %76 ]
+  %113 = phi i8 [ 1, %104 ], [ %103, %90 ], [ 0, %76 ]
   %114 = phi i8 [ %99, %104 ], [ %99, %90 ], [ 0, %76 ]
   %115 = zext i8 %46 to i64
   %116 = getelementptr [256 x ptr], ptr @inet_offloads, i64 0, i64 %115

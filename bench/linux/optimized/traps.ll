@@ -863,50 +863,50 @@ define dso_local void @exc_debug(ptr noundef %0) local_unnamed_addr #2 section "
   %35 = getelementptr i8, ptr %0, i64 128
   %.val = load i64, ptr %35, align 8
   %36 = tail call fastcc zeroext i1 @is_sysenter_singlestep(i64 %.val)
-  br i1 %36, label %37, label %thread-pre-split
+  br i1 %36, label %37, label %thread-pre-split.thread
 
 37:                                               ; preds = %34
   %38 = and i64 %4, -16385
   store i64 %38, ptr %2, align 8
   br label %thread-pre-split
 
-thread-pre-split:                                 ; preds = %34, %37, %31
-  %39 = phi i64 [ %38, %37 ], [ %4, %31 ], [ %4, %34 ]
+thread-pre-split:                                 ; preds = %37, %31
+  %39 = phi i64 [ %38, %37 ], [ %4, %31 ]
   %40 = icmp eq i64 %39, 0
-  br i1 %40, label %51, label %41
+  br i1 %40, label %50, label %thread-pre-split.thread
 
-41:                                               ; preds = %thread-pre-split
-  %42 = call fastcc zeroext i1 @notify_debug(ptr noundef %0, ptr noundef nonnull %2)
-  br i1 %42, label %51, label %43
+thread-pre-split.thread:                          ; preds = %34, %thread-pre-split
+  %41 = call fastcc zeroext i1 @notify_debug(ptr noundef %0, ptr noundef nonnull %2)
+  br i1 %41, label %50, label %42
 
-43:                                               ; preds = %41
-  %44 = load i64, ptr %2, align 8
-  %45 = and i64 %44, 16384
-  %46 = icmp eq i64 %45, 0
-  br i1 %46, label %51, label %47, !prof !54
+42:                                               ; preds = %thread-pre-split.thread
+  %43 = load i64, ptr %2, align 8
+  %44 = and i64 %43, 16384
+  %45 = icmp eq i64 %44, 0
+  br i1 %45, label %50, label %46, !prof !54
 
-47:                                               ; preds = %43
+46:                                               ; preds = %42
   call void asm sideeffect "508: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 508b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 508) #18, !srcloc !59
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.8, i32 1003, i32 2307, i64 12) #18, !srcloc !60
   call void asm sideeffect "509: nop\0A\09.pushsection .discard.instr_end\0A\09.long 509b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 509) #18, !srcloc !61
-  %48 = getelementptr inbounds i8, ptr %0, i64 144
-  %49 = load i64, ptr %48, align 8
-  %50 = and i64 %49, -257
-  store i64 %50, ptr %48, align 8
-  br label %51
+  %47 = getelementptr inbounds i8, ptr %0, i64 144
+  %48 = load i64, ptr %47, align 8
+  %49 = and i64 %48, -257
+  store i64 %49, ptr %47, align 8
+  br label %50
 
-51:                                               ; preds = %47, %43, %41, %thread-pre-split
+50:                                               ; preds = %46, %42, %thread-pre-split.thread, %thread-pre-split
   call void asm sideeffect "510: nop\0A\09.pushsection .discard.instr_end\0A\09.long 510b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 510) #18, !srcloc !62
   call void @irqentry_nmi_exit(ptr noundef %0, i8 %17) #18
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !63
-  %52 = icmp eq i64 %16, 0
-  br i1 %52, label %54, label %53
+  %51 = icmp eq i64 %16, 0
+  br i1 %51, label %53, label %52
 
-53:                                               ; preds = %51
+52:                                               ; preds = %50
   call void asm sideeffect "mov $0, %db7", "r,*m,~{dirflag},~{fpsr},~{flags}"(i64 %16, ptr nonnull elementtype(i32) inttoptr (i64 4096 to ptr)) #18, !srcloc !51
-  br label %54
+  br label %53
 
-54:                                               ; preds = %53, %51
+53:                                               ; preds = %52, %50
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   ret void
 }

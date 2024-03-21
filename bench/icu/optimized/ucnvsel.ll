@@ -1134,6 +1134,8 @@ if.then12:                                        ; preds = %if.end8
   %cmp13 = icmp sgt i32 %length, -1
   %idx.ext = zext nneg i32 %length to i64
   %add.ptr = getelementptr inbounds i16, ptr %s, i64 %idx.ext
+  %limit.0 = select i1 %cmp13, ptr %add.ptr, ptr null
+  %cmp16 = icmp eq ptr %limit.0, null
   %pv = getelementptr inbounds i8, ptr %sel, i64 8
   %cmp5.i = icmp sgt i32 %1, 0
   %wide.trip.count.i = zext nneg i32 %div to i64
@@ -1141,7 +1143,7 @@ if.then12:                                        ; preds = %if.end8
 
 while.cond:                                       ; preds = %_ZL14intersectMasksPjPKji.exit, %if.then12
   %s.addr.0 = phi ptr [ %s, %if.then12 ], [ %s.addr.1, %_ZL14intersectMasksPjPKji.exit ]
-  br i1 %cmp13, label %cond.end, label %cond.true
+  br i1 %cmp16, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %while.cond
   %2 = load i16, ptr %s.addr.0, align 2
@@ -1149,7 +1151,7 @@ cond.true:                                        ; preds = %while.cond
   br i1 %cmp18.not, label %if.end95, label %do.body
 
 cond.end:                                         ; preds = %while.cond
-  %cmp19.not = icmp eq ptr %s.addr.0, %add.ptr
+  %cmp19.not = icmp eq ptr %s.addr.0, %limit.0
   br i1 %cmp19.not, label %if.end95, label %cond.end.do.body_crit_edge
 
 cond.end.do.body_crit_edge:                       ; preds = %cond.end
@@ -1180,8 +1182,7 @@ if.then22:                                        ; preds = %do.body
   br label %do.end
 
 if.else31:                                        ; preds = %do.body
-  %cmp3246 = icmp eq ptr %add.ptr, %incdec.ptr
-  %cmp32 = select i1 %cmp13, i1 %cmp3246, i1 false
+  %cmp32 = icmp eq ptr %incdec.ptr, %limit.0
   br i1 %cmp32, label %if.else31.if.then37_crit_edge, label %lor.lhs.false33
 
 if.else31.if.then37_crit_edge:                    ; preds = %if.else31

@@ -698,7 +698,7 @@ If_ManDsdTtElems.exit:                            ; preds = %.loopexit.i.i, %Vec
 .lr.ph65:                                         ; preds = %Vec_MemHashAlloc.exit
   %81 = getelementptr inbounds i8, ptr %5, i64 496
   %wide.trip.count78 = zext nneg i32 %0 to i64
-  br label %121
+  br label %120
 
 82:                                               ; preds = %.lr.ph, %Vec_MemHashAlloc.exit
   %indvars.iv = phi i64 [ 3, %.lr.ph ], [ %indvars.iv.next, %Vec_MemHashAlloc.exit ]
@@ -749,82 +749,72 @@ Abc_PrimeCudd.exit.i:                             ; preds = %.preheader.i.i52, %
   %100 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #40
   %or.cond.i.i.i = icmp ult i32 %.012.i.i, 15
   %spec.store.select.i.i.i = select i1 %or.cond.i.i.i, i32 16, i32 %93
-  %101 = getelementptr inbounds i8, ptr %100, i64 4
   store i32 %spec.store.select.i.i.i, ptr %100, align 8
-  %.not.i.i.i = icmp eq i32 %spec.store.select.i.i.i, 0
-  br i1 %.not.i.i.i, label %Vec_IntAlloc.exit.thread.i.i, label %Vec_IntAlloc.exit.i.i
-
-Vec_IntAlloc.exit.thread.i.i:                     ; preds = %Abc_PrimeCudd.exit.i
-  %102 = getelementptr inbounds i8, ptr %100, i64 8
-  store ptr null, ptr %102, align 8
+  %101 = getelementptr inbounds i8, ptr %100, i64 4
+  %102 = sext i32 %spec.store.select.i.i.i to i64
+  %103 = shl nsw i64 %102, 2
+  %104 = tail call noalias ptr @malloc(i64 noundef %103) #40
+  %105 = getelementptr inbounds i8, ptr %100, i64 8
+  store ptr %104, ptr %105, align 8
   store i32 %93, ptr %101, align 4
+  %.not.i3.i = icmp eq ptr %104, null
+  br i1 %.not.i3.i, label %Vec_MemHashAlloc.exit, label %106
+
+106:                                              ; preds = %Abc_PrimeCudd.exit.i
+  %107 = sext i32 %93 to i64
+  %108 = shl nsw i64 %107, 2
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %104, i8 -1, i64 %108, i1 false)
   br label %Vec_MemHashAlloc.exit
 
-Vec_IntAlloc.exit.i.i:                            ; preds = %Abc_PrimeCudd.exit.i
-  %103 = sext i32 %spec.store.select.i.i.i to i64
-  %104 = shl nsw i64 %103, 2
-  %105 = tail call noalias ptr @malloc(i64 noundef %104) #40
-  %106 = getelementptr inbounds i8, ptr %100, i64 8
-  store ptr %105, ptr %106, align 8
-  store i32 %93, ptr %101, align 4
-  %.not.i3.i = icmp eq ptr %105, null
-  br i1 %.not.i3.i, label %Vec_MemHashAlloc.exit, label %107
-
-107:                                              ; preds = %Vec_IntAlloc.exit.i.i
-  %108 = sext i32 %93 to i64
-  %109 = shl nsw i64 %108, 2
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %105, i8 -1, i64 %109, i1 false)
-  br label %Vec_MemHashAlloc.exit
-
-Vec_MemHashAlloc.exit:                            ; preds = %Vec_IntAlloc.exit.thread.i.i, %Vec_IntAlloc.exit.i.i, %107
-  %110 = getelementptr inbounds i8, ptr %88, i64 32
-  store ptr %100, ptr %110, align 8
-  %111 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #40
-  %112 = getelementptr inbounds i8, ptr %111, i64 4
-  store i32 0, ptr %112, align 4
-  store i32 10000, ptr %111, align 8
-  %113 = tail call noalias dereferenceable_or_null(40000) ptr @malloc(i64 noundef 40000) #40
-  %114 = getelementptr inbounds i8, ptr %111, i64 8
-  store ptr %113, ptr %114, align 8
-  %115 = getelementptr inbounds i8, ptr %88, i64 40
-  store ptr %111, ptr %115, align 8
-  %116 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #40
-  %117 = getelementptr inbounds i8, ptr %116, i64 4
-  store i32 0, ptr %117, align 4
-  store i32 1000, ptr %116, align 8
-  %118 = tail call noalias dereferenceable_or_null(8000) ptr @malloc(i64 noundef 8000) #40
-  %119 = getelementptr inbounds i8, ptr %116, i64 8
-  store ptr %118, ptr %119, align 8
-  %120 = getelementptr inbounds [16 x ptr], ptr %79, i64 0, i64 %indvars.iv
-  store ptr %116, ptr %120, align 8
+Vec_MemHashAlloc.exit:                            ; preds = %Abc_PrimeCudd.exit.i, %106
+  %109 = getelementptr inbounds i8, ptr %88, i64 32
+  store ptr %100, ptr %109, align 8
+  %110 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #40
+  %111 = getelementptr inbounds i8, ptr %110, i64 4
+  store i32 0, ptr %111, align 4
+  store i32 10000, ptr %110, align 8
+  %112 = tail call noalias dereferenceable_or_null(40000) ptr @malloc(i64 noundef 40000) #40
+  %113 = getelementptr inbounds i8, ptr %110, i64 8
+  store ptr %112, ptr %113, align 8
+  %114 = getelementptr inbounds i8, ptr %88, i64 40
+  store ptr %110, ptr %114, align 8
+  %115 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #40
+  %116 = getelementptr inbounds i8, ptr %115, i64 4
+  store i32 0, ptr %116, align 4
+  store i32 1000, ptr %115, align 8
+  %117 = tail call noalias dereferenceable_or_null(8000) ptr @malloc(i64 noundef 8000) #40
+  %118 = getelementptr inbounds i8, ptr %115, i64 8
+  store ptr %117, ptr %118, align 8
+  %119 = getelementptr inbounds [16 x ptr], ptr %79, i64 0, i64 %indvars.iv
+  store ptr %115, ptr %119, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.lr.ph65, label %82, !llvm.loop !12
 
-121:                                              ; preds = %.lr.ph65, %121
-  %indvars.iv75 = phi i64 [ 2, %.lr.ph65 ], [ %indvars.iv.next76, %121 ]
-  %122 = trunc i64 %indvars.iv75 to i32
-  %123 = tail call ptr @Extra_GreyCodeSchedule(i32 noundef %122) #38
-  %124 = getelementptr inbounds [16 x ptr], ptr %81, i64 0, i64 %indvars.iv75
-  store ptr %123, ptr %124, align 8
+120:                                              ; preds = %.lr.ph65, %120
+  %indvars.iv75 = phi i64 [ 2, %.lr.ph65 ], [ %indvars.iv.next76, %120 ]
+  %121 = trunc i64 %indvars.iv75 to i32
+  %122 = tail call ptr @Extra_GreyCodeSchedule(i32 noundef %121) #38
+  %123 = getelementptr inbounds [16 x ptr], ptr %81, i64 0, i64 %indvars.iv75
+  store ptr %122, ptr %123, align 8
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
   %exitcond79.not = icmp eq i64 %indvars.iv.next76, %wide.trip.count78
-  br i1 %exitcond79.not, label %._crit_edge, label %121, !llvm.loop !13
+  br i1 %exitcond79.not, label %._crit_edge, label %120, !llvm.loop !13
 
-._crit_edge:                                      ; preds = %121, %If_ManDsdTtElems.exit
+._crit_edge:                                      ; preds = %120, %If_ManDsdTtElems.exit
   %.not43 = icmp eq i32 %1, 0
-  br i1 %.not43, label %128, label %125
+  br i1 %.not43, label %127, label %124
 
-125:                                              ; preds = %._crit_edge
-  %126 = tail call ptr @If_ManSatBuildXY(i32 noundef %1) #38
-  %127 = getelementptr inbounds i8, ptr %5, i64 656
-  store ptr %126, ptr %127, align 8
-  br label %128
+124:                                              ; preds = %._crit_edge
+  %125 = tail call ptr @If_ManSatBuildXY(i32 noundef %1) #38
+  %126 = getelementptr inbounds i8, ptr %5, i64 656
+  store ptr %125, ptr %126, align 8
+  br label %127
 
-128:                                              ; preds = %125, %._crit_edge
+127:                                              ; preds = %124, %._crit_edge
   %calloc = tail call dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
-  %129 = getelementptr inbounds i8, ptr %5, i64 648
-  store ptr %calloc, ptr %129, align 8
+  %128 = getelementptr inbounds i8, ptr %5, i64 648
+  store ptr %calloc, ptr %128, align 8
   ret ptr %5
 }
 

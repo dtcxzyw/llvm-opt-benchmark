@@ -14528,152 +14528,122 @@ v2w.exit:                                         ; preds = %guess_local_offset.
 define internal fastcc i32 @month_arg(i64 noundef %0) unnamed_addr #1 {
   %2 = and i64 %0, 1
   %.not = icmp eq i64 %2, 0
-  br i1 %.not, label %20, label %3
+  br i1 %.not, label %7, label %.critedge.i.i
 
-3:                                                ; preds = %1
-  %4 = and i64 %0, 7
-  %.not30 = icmp eq i64 %4, 0
-  br i1 %.not30, label %5, label %.critedge.i.i
+.critedge.i.i:                                    ; preds = %1
+  %3 = tail call i64 @rb_fix2int(i64 noundef %0) #18
+  %4 = trunc i64 %3 to i32
+  %.not.not.not.i = icmp ult i32 %4, 16
+  br i1 %.not.not.not.i, label %obj2ubits.exit, label %5
 
-5:                                                ; preds = %3
-  %6 = inttoptr i64 %0 to ptr
-  %7 = load i64, ptr %6, align 8
-  %8 = and i64 %7, 31
-  %9 = icmp eq i64 %8, 5
-  br i1 %9, label %10, label %.critedge.i.i
-
-10:                                               ; preds = %5
-  %11 = tail call i64 @rb_str_to_inum(i64 noundef %0, i32 noundef 10, i32 noundef 1) #18
-  br label %.critedge.i.i
-
-.critedge.i.i:                                    ; preds = %10, %5, %3
-  %.0.i.i = phi i64 [ %11, %10 ], [ %0, %5 ], [ %0, %3 ]
-  %12 = and i64 %.0.i.i, 1
-  %.not.i.i.i = icmp eq i64 %12, 0
-  br i1 %.not.i.i.i, label %15, label %13
-
-13:                                               ; preds = %.critedge.i.i
-  %14 = tail call i64 @rb_fix2int(i64 noundef %.0.i.i) #18
-  br label %obj2int.exit.i
-
-15:                                               ; preds = %.critedge.i.i
-  %16 = tail call i64 @rb_num2int(i64 noundef %.0.i.i) #18
-  br label %obj2int.exit.i
-
-obj2int.exit.i:                                   ; preds = %15, %13
-  %.0.i.i.i = phi i64 [ %14, %13 ], [ %16, %15 ]
-  %17 = trunc i64 %.0.i.i.i to i32
-  %.not.not.not.i = icmp ult i32 %17, 16
-  br i1 %.not.not.not.i, label %obj2ubits.exit, label %18
-
-18:                                               ; preds = %obj2int.exit.i
-  %19 = load i64, ptr @rb_eArgError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %19, ptr noundef nonnull @.str.102) #19
+5:                                                ; preds = %.critedge.i.i
+  %6 = load i64, ptr @rb_eArgError, align 8
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %6, ptr noundef nonnull @.str.102) #19
   unreachable
 
-20:                                               ; preds = %1
-  %21 = tail call i64 @rb_check_string_type(i64 noundef %0) #18
-  %22 = icmp eq i64 %21, 4
-  br i1 %22, label %.loopexit, label %23
+7:                                                ; preds = %1
+  %8 = tail call i64 @rb_check_string_type(i64 noundef %0) #18
+  %9 = icmp eq i64 %8, 4
+  br i1 %9, label %.loopexit, label %10
 
-23:                                               ; preds = %20
-  %24 = inttoptr i64 %21 to ptr
-  %25 = getelementptr inbounds i8, ptr %24, i64 16
-  %26 = load i64, ptr %25, align 8
-  %27 = icmp sgt i64 %26, 0
-  br i1 %27, label %.preheader, label %.loopexit
+10:                                               ; preds = %7
+  %11 = inttoptr i64 %8 to ptr
+  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %13 = load i64, ptr %12, align 8
+  %14 = icmp sgt i64 %13, 0
+  br i1 %14, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %23
-  %28 = icmp eq i64 %26, 3
-  %29 = getelementptr inbounds i8, ptr %24, i64 24
-  br i1 %28, label %.preheader.split.us, label %.loopexit
+.preheader:                                       ; preds = %10
+  %15 = icmp eq i64 %13, 3
+  %16 = getelementptr inbounds i8, ptr %11, i64 24
+  br i1 %15, label %.preheader.split.us, label %.loopexit
 
 .preheader.split.us:                              ; preds = %.preheader
-  %30 = load i64, ptr %24, align 8, !noalias !45
-  %31 = and i64 %30, 8192
-  %.not.i.i.us = icmp eq i64 %31, 0
+  %17 = load i64, ptr %11, align 8, !noalias !45
+  %18 = and i64 %17, 8192
+  %.not.i.i.us = icmp eq i64 %18, 0
   br i1 %.not.i.i.us, label %RSTRING_PTR.exit.us.us, label %.preheader.split.us.split
 
-RSTRING_PTR.exit.us.us:                           ; preds = %.preheader.split.us, %35
-  %indvars.iv39 = phi i64 [ %indvars.iv.next40, %35 ], [ 0, %.preheader.split.us ]
-  %32 = getelementptr [12 x [4 x i8]], ptr @months, i64 0, i64 %indvars.iv39
-  %33 = tail call i32 @rb_st_locale_insensitive_strncasecmp(ptr noundef %32, ptr noundef nonnull %29, i64 noundef 3) #21
-  %34 = icmp eq i32 %33, 0
-  br i1 %34, label %.split.us, label %35
+RSTRING_PTR.exit.us.us:                           ; preds = %.preheader.split.us, %22
+  %indvars.iv38 = phi i64 [ %indvars.iv.next39, %22 ], [ 0, %.preheader.split.us ]
+  %19 = getelementptr [12 x [4 x i8]], ptr @months, i64 0, i64 %indvars.iv38
+  %20 = tail call i32 @rb_st_locale_insensitive_strncasecmp(ptr noundef %19, ptr noundef nonnull %16, i64 noundef 3) #21
+  %21 = icmp eq i32 %20, 0
+  br i1 %21, label %.split.us, label %22
 
-35:                                               ; preds = %RSTRING_PTR.exit.us.us
-  %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
-  %exitcond42.not = icmp eq i64 %indvars.iv.next40, 12
-  br i1 %exitcond42.not, label %.loopexit, label %RSTRING_PTR.exit.us.us, !llvm.loop !48
+22:                                               ; preds = %RSTRING_PTR.exit.us.us
+  %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
+  %exitcond41.not = icmp eq i64 %indvars.iv.next39, 12
+  br i1 %exitcond41.not, label %.loopexit, label %RSTRING_PTR.exit.us.us, !llvm.loop !48
 
 .preheader.split.us.split:                        ; preds = %.preheader.split.us
-  %.sroa.2.0.copyload.i.us = load ptr, ptr %29, align 8
+  %.sroa.2.0.copyload.i.us = load ptr, ptr %16, align 8
   br label %RSTRING_PTR.exit.us
 
-RSTRING_PTR.exit.us:                              ; preds = %39, %.preheader.split.us.split
-  %indvars.iv = phi i64 [ %indvars.iv.next, %39 ], [ 0, %.preheader.split.us.split ]
-  %36 = getelementptr [12 x [4 x i8]], ptr @months, i64 0, i64 %indvars.iv
-  %37 = tail call i32 @rb_st_locale_insensitive_strncasecmp(ptr noundef %36, ptr noundef %.sroa.2.0.copyload.i.us, i64 noundef 3) #21
-  %38 = icmp eq i32 %37, 0
-  br i1 %38, label %.split.us, label %39
+RSTRING_PTR.exit.us:                              ; preds = %26, %.preheader.split.us.split
+  %indvars.iv = phi i64 [ %indvars.iv.next, %26 ], [ 0, %.preheader.split.us.split ]
+  %23 = getelementptr [12 x [4 x i8]], ptr @months, i64 0, i64 %indvars.iv
+  %24 = tail call i32 @rb_st_locale_insensitive_strncasecmp(ptr noundef %23, ptr noundef %.sroa.2.0.copyload.i.us, i64 noundef 3) #21
+  %25 = icmp eq i32 %24, 0
+  br i1 %25, label %.split.us, label %26
 
-39:                                               ; preds = %RSTRING_PTR.exit.us
+26:                                               ; preds = %RSTRING_PTR.exit.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 12
   br i1 %exitcond.not, label %.loopexit, label %RSTRING_PTR.exit.us, !llvm.loop !48
 
 .split.us:                                        ; preds = %RSTRING_PTR.exit.us, %RSTRING_PTR.exit.us.us
-  %.us-phi.in = phi i64 [ %indvars.iv39, %RSTRING_PTR.exit.us.us ], [ %indvars.iv, %RSTRING_PTR.exit.us ]
+  %.us-phi.in = phi i64 [ %indvars.iv38, %RSTRING_PTR.exit.us.us ], [ %indvars.iv, %RSTRING_PTR.exit.us ]
   %.us-phi = trunc i64 %.us-phi.in to i32
-  %40 = add nuw nsw i32 %.us-phi, 1
+  %27 = add nuw nsw i32 %.us-phi, 1
   br label %obj2ubits.exit
 
-.loopexit:                                        ; preds = %39, %35, %.preheader, %20, %23
-  %.018.ph = phi i64 [ %0, %23 ], [ %0, %20 ], [ %21, %.preheader ], [ %21, %35 ], [ %21, %39 ]
-  %41 = and i64 %.018.ph, 7
-  %42 = icmp ne i64 %41, 0
-  %43 = icmp eq i64 %.018.ph, 0
-  %44 = or i1 %43, %42
-  br i1 %44, label %.critedge.i.i19, label %45
+.loopexit:                                        ; preds = %26, %22, %.preheader, %7, %10
+  %.018.ph = phi i64 [ %0, %10 ], [ %0, %7 ], [ %8, %.preheader ], [ %8, %22 ], [ %8, %26 ]
+  %28 = and i64 %.018.ph, 7
+  %29 = icmp ne i64 %28, 0
+  %30 = icmp eq i64 %.018.ph, 0
+  %31 = or i1 %30, %29
+  br i1 %31, label %.critedge.i.i19, label %32
 
-45:                                               ; preds = %.loopexit
-  %46 = inttoptr i64 %.018.ph to ptr
-  %47 = load i64, ptr %46, align 8
-  %48 = and i64 %47, 31
-  %49 = icmp eq i64 %48, 5
-  br i1 %49, label %50, label %.critedge.i.i19
+32:                                               ; preds = %.loopexit
+  %33 = inttoptr i64 %.018.ph to ptr
+  %34 = load i64, ptr %33, align 8
+  %35 = and i64 %34, 31
+  %36 = icmp eq i64 %35, 5
+  br i1 %36, label %37, label %.critedge.i.i19
 
-50:                                               ; preds = %45
-  %51 = tail call i64 @rb_str_to_inum(i64 noundef %.018.ph, i32 noundef 10, i32 noundef 1) #18
+37:                                               ; preds = %32
+  %38 = tail call i64 @rb_str_to_inum(i64 noundef %.018.ph, i32 noundef 10, i32 noundef 1) #18
   br label %.critedge.i.i19
 
-.critedge.i.i19:                                  ; preds = %50, %45, %.loopexit
-  %.0.i.i20 = phi i64 [ %51, %50 ], [ %.018.ph, %45 ], [ %.018.ph, %.loopexit ]
-  %52 = and i64 %.0.i.i20, 1
-  %.not.i.i.i21 = icmp eq i64 %52, 0
-  br i1 %.not.i.i.i21, label %55, label %53
+.critedge.i.i19:                                  ; preds = %37, %32, %.loopexit
+  %.0.i.i20 = phi i64 [ %38, %37 ], [ %.018.ph, %32 ], [ %.018.ph, %.loopexit ]
+  %39 = and i64 %.0.i.i20, 1
+  %.not.i.i.i21 = icmp eq i64 %39, 0
+  br i1 %.not.i.i.i21, label %42, label %40
 
-53:                                               ; preds = %.critedge.i.i19
-  %54 = tail call i64 @rb_fix2int(i64 noundef %.0.i.i20) #18
+40:                                               ; preds = %.critedge.i.i19
+  %41 = tail call i64 @rb_fix2int(i64 noundef %.0.i.i20) #18
   br label %obj2int.exit.i22
 
-55:                                               ; preds = %.critedge.i.i19
-  %56 = tail call i64 @rb_num2int(i64 noundef %.0.i.i20) #18
+42:                                               ; preds = %.critedge.i.i19
+  %43 = tail call i64 @rb_num2int(i64 noundef %.0.i.i20) #18
   br label %obj2int.exit.i22
 
-obj2int.exit.i22:                                 ; preds = %55, %53
-  %.0.i.i.i23 = phi i64 [ %54, %53 ], [ %56, %55 ]
-  %57 = trunc i64 %.0.i.i.i23 to i32
-  %.not.not.not.i25 = icmp ult i32 %57, 16
-  br i1 %.not.not.not.i25, label %obj2ubits.exit, label %58
+obj2int.exit.i22:                                 ; preds = %42, %40
+  %.0.i.i.i23 = phi i64 [ %41, %40 ], [ %43, %42 ]
+  %44 = trunc i64 %.0.i.i.i23 to i32
+  %.not.not.not.i25 = icmp ult i32 %44, 16
+  br i1 %.not.not.not.i25, label %obj2ubits.exit, label %45
 
-58:                                               ; preds = %obj2int.exit.i22
-  %59 = load i64, ptr @rb_eArgError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %59, ptr noundef nonnull @.str.102) #19
+45:                                               ; preds = %obj2int.exit.i22
+  %46 = load i64, ptr @rb_eArgError, align 8
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %46, ptr noundef nonnull @.str.102) #19
   unreachable
 
-obj2ubits.exit:                                   ; preds = %obj2int.exit.i22, %.split.us, %obj2int.exit.i
-  %.0 = phi i32 [ %40, %.split.us ], [ %17, %obj2int.exit.i ], [ %57, %obj2int.exit.i22 ]
+obj2ubits.exit:                                   ; preds = %obj2int.exit.i22, %.split.us, %.critedge.i.i
+  %.0 = phi i32 [ %27, %.split.us ], [ %4, %.critedge.i.i ], [ %44, %obj2int.exit.i22 ]
   ret i32 %.0
 }
 

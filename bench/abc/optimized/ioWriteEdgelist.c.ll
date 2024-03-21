@@ -1922,7 +1922,7 @@ define void @Io_NtkEdgelistWriteNodeIntStruct(ptr nocapture noundef %0, ptr noca
   br i1 %or.cond, label %17, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %4
-  %wide.trip.count = and i64 %14, 2147483647
+  %wide.trip.count = and i64 %14, 4294967295
   br label %.lr.ph
 
 17:                                               ; preds = %4
@@ -2473,7 +2473,7 @@ define void @Io_NtkEdgelistWriteModelIntStruct(ptr nocapture noundef %0, ptr noc
   br i1 %or.cond, label %17, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %4
-  %wide.trip.count = and i64 %14, 2147483647
+  %wide.trip.count = and i64 %14, 4294967295
   br label %.lr.ph
 
 17:                                               ; preds = %4

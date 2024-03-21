@@ -312,77 +312,67 @@ Abc_PrimeCudd.exit.i:                             ; preds = %.preheader.i.i, %10
   %109 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #18
   %or.cond.i.i.i = icmp ult i32 %.012.i.i, 15
   %spec.store.select.i.i.i = select i1 %or.cond.i.i.i, i32 16, i32 %102
-  %110 = getelementptr inbounds i8, ptr %109, i64 4
   store i32 %spec.store.select.i.i.i, ptr %109, align 8
-  %.not.i.i.i = icmp eq i32 %spec.store.select.i.i.i, 0
-  br i1 %.not.i.i.i, label %Vec_IntAlloc.exit.thread.i.i, label %Vec_IntAlloc.exit.i.i
-
-Vec_IntAlloc.exit.thread.i.i:                     ; preds = %Abc_PrimeCudd.exit.i
-  %111 = getelementptr inbounds i8, ptr %109, i64 8
-  store ptr null, ptr %111, align 8
+  %110 = getelementptr inbounds i8, ptr %109, i64 4
+  %111 = sext i32 %spec.store.select.i.i.i to i64
+  %112 = shl nsw i64 %111, 2
+  %113 = tail call noalias ptr @malloc(i64 noundef %112) #18
+  %114 = getelementptr inbounds i8, ptr %109, i64 8
+  store ptr %113, ptr %114, align 8
   store i32 %102, ptr %110, align 4
+  %.not.i7.i = icmp eq ptr %113, null
+  br i1 %.not.i7.i, label %Vec_IntGrow.exit.i.i, label %115
+
+115:                                              ; preds = %Abc_PrimeCudd.exit.i
+  %116 = sext i32 %102 to i64
+  %117 = shl nsw i64 %116, 2
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %113, i8 0, i64 %117, i1 false)
   br label %Vec_IntGrow.exit.i.i
 
-Vec_IntAlloc.exit.i.i:                            ; preds = %Abc_PrimeCudd.exit.i
-  %112 = sext i32 %spec.store.select.i.i.i to i64
-  %113 = shl nsw i64 %112, 2
-  %114 = tail call noalias ptr @malloc(i64 noundef %113) #18
-  %115 = getelementptr inbounds i8, ptr %109, i64 8
-  store ptr %114, ptr %115, align 8
-  store i32 %102, ptr %110, align 4
-  %.not.i7.i = icmp eq ptr %114, null
-  br i1 %.not.i7.i, label %Vec_IntGrow.exit.i.i, label %116
-
-116:                                              ; preds = %Vec_IntAlloc.exit.i.i
-  %117 = sext i32 %102 to i64
-  %118 = shl nsw i64 %117, 2
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %114, i8 0, i64 %118, i1 false)
-  br label %Vec_IntGrow.exit.i.i
-
-Vec_IntGrow.exit.i.i:                             ; preds = %116, %Vec_IntAlloc.exit.i.i, %Vec_IntAlloc.exit.thread.i.i
+Vec_IntGrow.exit.i.i:                             ; preds = %115, %Abc_PrimeCudd.exit.i
   store ptr %109, ptr %101, align 8
-  %119 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #18
-  store i32 4400, ptr %119, align 8
-  %120 = tail call noalias dereferenceable_or_null(17600) ptr @malloc(i64 noundef 17600) #18
-  %121 = getelementptr inbounds i8, ptr %119, i64 8
-  store ptr %120, ptr %121, align 8
-  %122 = getelementptr inbounds i8, ptr %101, i64 8
-  store ptr %119, ptr %122, align 8
-  br label %123
+  %118 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #18
+  store i32 4400, ptr %118, align 8
+  %119 = tail call noalias dereferenceable_or_null(17600) ptr @malloc(i64 noundef 17600) #18
+  %120 = getelementptr inbounds i8, ptr %118, i64 8
+  store ptr %119, ptr %120, align 8
+  %121 = getelementptr inbounds i8, ptr %101, i64 8
+  store ptr %118, ptr %121, align 8
+  br label %122
 
-123:                                              ; preds = %123, %Vec_IntGrow.exit.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %Vec_IntGrow.exit.i.i ], [ %indvars.iv.next.i.i, %123 ]
-  %124 = load ptr, ptr %121, align 8
-  %125 = getelementptr inbounds i32, ptr %124, i64 %indvars.iv.i.i
-  store i32 0, ptr %125, align 4
+122:                                              ; preds = %122, %Vec_IntGrow.exit.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %Vec_IntGrow.exit.i.i ], [ %indvars.iv.next.i.i, %122 ]
+  %123 = load ptr, ptr %120, align 8
+  %124 = getelementptr inbounds i32, ptr %123, i64 %indvars.iv.i.i
+  store i32 0, ptr %124, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
-  br i1 %exitcond.not.i.i, label %Hash_IntManStart.exit, label %123, !llvm.loop !7
+  br i1 %exitcond.not.i.i, label %Hash_IntManStart.exit, label %122, !llvm.loop !7
 
-Hash_IntManStart.exit:                            ; preds = %123
-  %126 = getelementptr inbounds i8, ptr %119, i64 4
-  store i32 4, ptr %126, align 4
-  %127 = getelementptr inbounds i8, ptr %101, i64 16
-  store i32 1, ptr %127, align 8
-  %128 = getelementptr inbounds i8, ptr %3, i64 112
-  store ptr %101, ptr %128, align 8
-  br label %129
+Hash_IntManStart.exit:                            ; preds = %122
+  %125 = getelementptr inbounds i8, ptr %118, i64 4
+  store i32 4, ptr %125, align 4
+  %126 = getelementptr inbounds i8, ptr %101, i64 16
+  store i32 1, ptr %126, align 8
+  %127 = getelementptr inbounds i8, ptr %3, i64 112
+  store ptr %101, ptr %127, align 8
+  br label %128
 
-129:                                              ; preds = %Hash_IntManStart.exit, %129
-  %.057 = phi i32 [ 0, %Hash_IntManStart.exit ], [ %130, %129 ]
+128:                                              ; preds = %Hash_IntManStart.exit, %128
+  %.057 = phi i32 [ 0, %Hash_IntManStart.exit ], [ %129, %128 ]
   tail call fastcc void @Hash_Int2ManInsert(ptr noundef nonnull %101, i32 noundef %.057, i32 noundef %.057)
-  %130 = add nuw nsw i32 %.057, 1
-  %exitcond.not = icmp eq i32 %130, 65
-  br i1 %exitcond.not, label %.preheader, label %129, !llvm.loop !8
+  %129 = add nuw nsw i32 %.057, 1
+  %exitcond.not = icmp eq i32 %129, 65
+  br i1 %exitcond.not, label %.preheader, label %128, !llvm.loop !8
 
-.preheader:                                       ; preds = %129, %.preheader
-  %.158 = phi i32 [ %131, %.preheader ], [ 1, %129 ]
+.preheader:                                       ; preds = %128, %.preheader
+  %.158 = phi i32 [ %130, %.preheader ], [ 1, %128 ]
   tail call fastcc void @Hash_Int2ManInsert(ptr noundef nonnull %101, i32 noundef %.158, i32 noundef 0)
-  %131 = add nuw nsw i32 %.158, 1
-  %exitcond63.not = icmp eq i32 %131, 64
-  br i1 %exitcond63.not, label %132, label %.preheader, !llvm.loop !9
+  %130 = add nuw nsw i32 %.158, 1
+  %exitcond63.not = icmp eq i32 %130, 64
+  br i1 %exitcond63.not, label %131, label %.preheader, !llvm.loop !9
 
-132:                                              ; preds = %.preheader
+131:                                              ; preds = %.preheader
   ret ptr %3
 }
 

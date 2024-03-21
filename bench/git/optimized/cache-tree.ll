@@ -892,8 +892,8 @@ if.then16:                                        ; preds = %land.lhs.true12
 if.end18:                                         ; preds = %land.lhs.true12, %if.end8
   %subtree_nr = getelementptr inbounds i8, ptr %it, i64 40
   %7 = load i32, ptr %subtree_nr, align 8
-  %cmp19150 = icmp sgt i32 %7, 0
-  br i1 %cmp19150, label %for.body.lr.ph, label %while.cond.preheader
+  %cmp19149 = icmp sgt i32 %7, 0
+  br i1 %cmp19149, label %for.body.lr.ph, label %while.cond.preheader
 
 for.body.lr.ph:                                   ; preds = %if.end18
   %down = getelementptr inbounds i8, ptr %it, i64 48
@@ -922,8 +922,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp19, label %for.body, label %while.cond.preheader, !llvm.loop !12
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.cond.backedge
-  %i.1153 = phi i32 [ 0, %while.body.lr.ph ], [ %i.1.be, %while.cond.backedge ]
-  %idxprom25 = sext i32 %i.1153 to i64
+  %i.1152 = phi i32 [ 0, %while.body.lr.ph ], [ %i.1.be, %while.cond.backedge ]
+  %idxprom25 = sext i32 %i.1152 to i64
   %arrayidx26 = getelementptr inbounds ptr, ptr %cache, i64 %idxprom25
   %13 = load ptr, ptr %arrayidx26, align 8
   %name27 = getelementptr inbounds i8, ptr %13, i64 108
@@ -944,7 +944,7 @@ if.end36:                                         ; preds = %lor.lhs.false
   br i1 %tobool38.not, label %if.then39, label %if.end41
 
 if.then39:                                        ; preds = %if.end36
-  %inc40 = add nsw i32 %i.1153, 1
+  %inc40 = add nsw i32 %i.1152, 1
   br label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %if.then39, %if.end65
@@ -970,7 +970,7 @@ if.then49:                                        ; preds = %if.end41
 
 if.end52:                                         ; preds = %if.then49, %if.end41
   %16 = phi ptr [ %call.i, %if.then49 ], [ %15, %if.end41 ]
-  %sub56 = sub nsw i32 %entries, %i.1153
+  %sub56 = sub nsw i32 %entries, %i.1152
   %add57 = add i32 %add, %conv44
   %call58 = call fastcc i32 @update_one(ptr noundef nonnull %16, ptr noundef nonnull %arrayidx26, i32 noundef %sub56, ptr noundef nonnull %name27, i32 noundef %add57, ptr noundef nonnull %subskip, i32 noundef %flags)
   %cmp59 = icmp slt i32 %call58, 0
@@ -985,7 +985,7 @@ if.then64:                                        ; preds = %if.end62
   unreachable
 
 if.end65:                                         ; preds = %if.end62
-  %add66 = add nsw i32 %call58, %i.1153
+  %add66 = add nsw i32 %call58, %i.1152
   %count = getelementptr inbounds i8, ptr %call47, i64 8
   store i32 %call58, ptr %count, align 8
   %17 = load i32, ptr %subskip, align 4
@@ -1052,9 +1052,9 @@ while.body72.lr.ph:                               ; preds = %discard_unused_subt
   br label %while.body72
 
 while.body72:                                     ; preds = %while.body72.lr.ph, %while.cond69.backedge
-  %to_invalidate.0156 = phi i32 [ 0, %while.body72.lr.ph ], [ %to_invalidate.0.be, %while.cond69.backedge ]
-  %i.2155 = phi i32 [ 0, %while.body72.lr.ph ], [ %i.3, %while.cond69.backedge ]
-  %idxprom74 = sext i32 %i.2155 to i64
+  %to_invalidate.0155 = phi i32 [ 0, %while.body72.lr.ph ], [ %to_invalidate.0.be, %while.cond69.backedge ]
+  %i.2154 = phi i32 [ 0, %while.body72.lr.ph ], [ %i.3, %while.cond69.backedge ]
+  %idxprom74 = sext i32 %i.2154 to i64
   %arrayidx75 = getelementptr inbounds ptr, ptr %cache, i64 %idxprom74
   %24 = load ptr, ptr %arrayidx75, align 8
   %name81 = getelementptr inbounds i8, ptr %24, i64 108
@@ -1133,8 +1133,8 @@ cache_tree_subtree_pos.exit.i:                    ; preds = %subtree_name_cmp.ex
 
 find_subtree.exit:                                ; preds = %cache_tree_subtree_pos.exit.i
   %idxprom.i = zext nneg i32 %retval.0.i.i to i64
-  %arrayidx.i112 = getelementptr inbounds ptr, ptr %26, i64 %idxprom.i
-  %31 = load ptr, ptr %arrayidx.i112, align 8
+  %arrayidx.i111 = getelementptr inbounds ptr, ptr %26, i64 %idxprom.i
+  %31 = load ptr, ptr %arrayidx.i111, align 8
   %tobool106.not = icmp eq ptr %31, null
   br i1 %tobool106.not, label %if.then107, label %if.end110
 
@@ -1148,9 +1148,11 @@ if.end110:                                        ; preds = %find_subtree.exit
   %33 = load ptr, ptr %31, align 8
   %oid114 = getelementptr inbounds i8, ptr %33, i64 4
   %34 = load i32, ptr %33, align 8
-  %cmp117 = icmp sgt i32 %34, -1
+  %cmp117 = icmp slt i32 %34, 0
   %.lobit = lshr i32 %34, 31
-  %spec.select = select i1 %cmp117, i32 %to_invalidate.0156, i32 1
+  br i1 %cmp117, label %if.then120, label %if.end126
+
+if.then120:                                       ; preds = %if.end110
   br label %if.end126
 
 if.else:                                          ; preds = %if.end91
@@ -1160,24 +1162,24 @@ if.else:                                          ; preds = %if.end91
   %sub124 = sub nsw i32 %25, %baselen
   br label %if.end126
 
-if.end126:                                        ; preds = %if.end110, %if.else
-  %.pn = phi i32 [ 1, %if.else ], [ %32, %if.end110 ]
-  %to_invalidate.1 = phi i32 [ %to_invalidate.0156, %if.else ], [ %spec.select, %if.end110 ]
-  %entlen.0 = phi i32 [ %sub124, %if.else ], [ %conv102, %if.end110 ]
-  %oid80.0 = phi ptr [ %oid122, %if.else ], [ %oid114, %if.end110 ]
-  %mode.0 = phi i32 [ %35, %if.else ], [ 16384, %if.end110 ]
-  %tobool141.not = phi i1 [ true, %if.else ], [ %cmp117, %if.end110 ]
-  %contains_ita.0 = phi i32 [ 0, %if.else ], [ %.lobit, %if.end110 ]
-  %i.3 = add nsw i32 %.pn, %i.2155
+if.end126:                                        ; preds = %if.end110, %if.then120, %if.else
+  %.pn = phi i32 [ %32, %if.then120 ], [ %32, %if.end110 ], [ 1, %if.else ]
+  %to_invalidate.1 = phi i32 [ 1, %if.then120 ], [ %to_invalidate.0155, %if.end110 ], [ %to_invalidate.0155, %if.else ]
+  %entlen.0 = phi i32 [ %conv102, %if.then120 ], [ %conv102, %if.end110 ], [ %sub124, %if.else ]
+  %oid80.0 = phi ptr [ %oid114, %if.then120 ], [ %oid114, %if.end110 ], [ %oid122, %if.else ]
+  %mode.0 = phi i32 [ 16384, %if.then120 ], [ 16384, %if.end110 ], [ %35, %if.else ]
+  %tobool141.not = phi i1 [ false, %if.then120 ], [ true, %if.end110 ], [ true, %if.else ]
+  %contains_ita.0 = phi i32 [ 1, %if.then120 ], [ %.lobit, %if.end110 ], [ 0, %if.else ]
+  %i.3 = add nsw i32 %.pn, %i.2154
   %cmp127 = icmp eq i32 %mode.0, 57344
   %or.cond = or i1 %tobool130, %cmp127
   br i1 %or.cond, label %lor.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %if.end126
   %36 = load ptr, ptr @the_repository, align 8
-  %call.i113 = call i32 @repo_has_promisor_remote(ptr noundef %36) #14
-  %tobool.not.i114 = icmp eq i32 %call.i113, 0
-  br i1 %tobool.not.i114, label %must_check_existence.exit, label %land.rhs.i
+  %call.i112 = call i32 @repo_has_promisor_remote(ptr noundef %36) #14
+  %tobool.not.i113 = icmp eq i32 %call.i112, 0
+  br i1 %tobool.not.i113, label %must_check_existence.exit, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %lor.rhs
   %ce_flags.i = getelementptr inbounds i8, ptr %24, i64 56
@@ -1194,40 +1196,40 @@ must_check_existence.exit:                        ; preds = %lor.rhs, %land.rhs.
 
 lor.end:                                          ; preds = %must_check_existence.exit, %if.end126
   %39 = phi i1 [ true, %if.end126 ], [ %tobool132.not, %must_check_existence.exit ]
-  %call.i115 = call ptr @null_oid() #14
+  %call.i114 = call ptr @null_oid() #14
   %algo.i.i = getelementptr inbounds i8, ptr %oid80.0, i64 32
   %40 = load i32, ptr %algo.i.i, align 4
-  %tobool.not.i.i116 = icmp eq i32 %40, 0
-  br i1 %tobool.not.i.i116, label %if.then.i.i, label %if.else.i.i
+  %tobool.not.i.i115 = icmp eq i32 %40, 0
+  br i1 %tobool.not.i.i115, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %lor.end
   %41 = load ptr, ptr @the_repository, align 8
   %hash_algo.i.i = getelementptr inbounds i8, ptr %41, i64 256
   %42 = load ptr, ptr %hash_algo.i.i, align 8
-  br label %if.end.i.i119
+  br label %if.end.i.i118
 
 if.else.i.i:                                      ; preds = %lor.end
-  %idxprom.i.i117 = sext i32 %40 to i64
-  %arrayidx.i.i118 = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i.i117
-  br label %if.end.i.i119
+  %idxprom.i.i116 = sext i32 %40 to i64
+  %arrayidx.i.i117 = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i.i116
+  br label %if.end.i.i118
 
-if.end.i.i119:                                    ; preds = %if.else.i.i, %if.then.i.i
-  %algop.0.i.i = phi ptr [ %arrayidx.i.i118, %if.else.i.i ], [ %42, %if.then.i.i ]
+if.end.i.i118:                                    ; preds = %if.else.i.i, %if.then.i.i
+  %algop.0.i.i = phi ptr [ %arrayidx.i.i117, %if.else.i.i ], [ %42, %if.then.i.i ]
   %43 = getelementptr i8, ptr %algop.0.i.i, i64 16
   %algop.0.val.i.i = load i64, ptr %43, align 8
-  %cmp.i.i.i120 = icmp eq i64 %algop.0.val.i.i, 32
-  br i1 %cmp.i.i.i120, label %if.then.i.i.i, label %if.end.i.i.i121
+  %cmp.i.i.i119 = icmp eq i64 %algop.0.val.i.i, 32
+  br i1 %cmp.i.i.i119, label %if.then.i.i.i, label %if.end.i.i.i120
 
-if.then.i.i.i:                                    ; preds = %if.end.i.i119
-  %bcmp3.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %oid80.0, ptr noundef nonnull dereferenceable(32) %call.i115, i64 32)
+if.then.i.i.i:                                    ; preds = %if.end.i.i118
+  %bcmp3.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %oid80.0, ptr noundef nonnull dereferenceable(32) %call.i114, i64 32)
   br label %is_null_oid.exit
 
-if.end.i.i.i121:                                  ; preds = %if.end.i.i119
-  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %oid80.0, ptr noundef nonnull dereferenceable(20) %call.i115, i64 20)
+if.end.i.i.i120:                                  ; preds = %if.end.i.i118
+  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %oid80.0, ptr noundef nonnull dereferenceable(20) %call.i114, i64 20)
   br label %is_null_oid.exit
 
-is_null_oid.exit:                                 ; preds = %if.then.i.i.i, %if.end.i.i.i121
-  %retval.0.in.in.i.i.i = phi i32 [ %bcmp3.i.i.i, %if.then.i.i.i ], [ %bcmp.i.i.i, %if.end.i.i.i121 ]
+is_null_oid.exit:                                 ; preds = %if.then.i.i.i, %if.end.i.i.i120
+  %retval.0.in.in.i.i.i = phi i32 [ %bcmp3.i.i.i, %if.then.i.i.i ], [ %bcmp.i.i.i, %if.end.i.i.i120 ]
   %retval.0.in.i.i.i.not = icmp eq i32 %retval.0.in.in.i.i.i, 0
   br i1 %retval.0.in.i.i.i.not, label %if.then140, label %lor.lhs.false135
 
@@ -1271,8 +1273,8 @@ while.cond69.backedge:                            ; preds = %if.then151, %if.end
 if.end153:                                        ; preds = %if.end148
   %and157 = and i32 %45, 536870912
   %tobool158.not = icmp eq i32 %and157, 0
-  %or.cond110 = or i1 %tobool95.not, %tobool158.not
-  br i1 %or.cond110, label %if.end160, label %while.cond69.backedge
+  %or.cond109 = or i1 %tobool95.not, %tobool158.not
+  br i1 %or.cond109, label %if.end160, label %while.cond69.backedge
 
 if.end160:                                        ; preds = %if.end153
   %tobool161.not = icmp eq i32 %contains_ita.0, 0
@@ -1285,27 +1287,27 @@ land.lhs.true162:                                 ; preds = %if.end160
   %empty_tree.i = getelementptr inbounds i8, ptr %48, i64 80
   %49 = load ptr, ptr %empty_tree.i, align 8
   %50 = load i32, ptr %algo.i.i, align 4
-  %tobool.not.i.i123 = icmp eq i32 %50, 0
-  %idxprom.i.i124 = sext i32 %50 to i64
-  %arrayidx.i.i125 = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i.i124
-  %algop.0.i.i126 = select i1 %tobool.not.i.i123, ptr %48, ptr %arrayidx.i.i125
-  %51 = getelementptr i8, ptr %algop.0.i.i126, i64 16
-  %algop.0.val.i.i127 = load i64, ptr %51, align 8
-  %cmp.i.i.i128 = icmp eq i64 %algop.0.val.i.i127, 32
-  br i1 %cmp.i.i.i128, label %if.then.i.i.i134, label %if.end.i.i.i129
+  %tobool.not.i.i122 = icmp eq i32 %50, 0
+  %idxprom.i.i123 = sext i32 %50 to i64
+  %arrayidx.i.i124 = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i.i123
+  %algop.0.i.i125 = select i1 %tobool.not.i.i122, ptr %48, ptr %arrayidx.i.i124
+  %51 = getelementptr i8, ptr %algop.0.i.i125, i64 16
+  %algop.0.val.i.i126 = load i64, ptr %51, align 8
+  %cmp.i.i.i127 = icmp eq i64 %algop.0.val.i.i126, 32
+  br i1 %cmp.i.i.i127, label %if.then.i.i.i133, label %if.end.i.i.i128
 
-if.then.i.i.i134:                                 ; preds = %land.lhs.true162
-  %bcmp3.i.i.i135 = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %oid80.0, ptr noundef nonnull dereferenceable(32) %49, i64 32)
+if.then.i.i.i133:                                 ; preds = %land.lhs.true162
+  %bcmp3.i.i.i134 = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %oid80.0, ptr noundef nonnull dereferenceable(32) %49, i64 32)
   br label %is_empty_tree_oid.exit
 
-if.end.i.i.i129:                                  ; preds = %land.lhs.true162
-  %bcmp.i.i.i130 = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %oid80.0, ptr noundef nonnull dereferenceable(20) %49, i64 20)
+if.end.i.i.i128:                                  ; preds = %land.lhs.true162
+  %bcmp.i.i.i129 = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %oid80.0, ptr noundef nonnull dereferenceable(20) %49, i64 20)
   br label %is_empty_tree_oid.exit
 
-is_empty_tree_oid.exit:                           ; preds = %if.then.i.i.i134, %if.end.i.i.i129
-  %retval.0.in.in.i.i.i131 = phi i32 [ %bcmp3.i.i.i135, %if.then.i.i.i134 ], [ %bcmp.i.i.i130, %if.end.i.i.i129 ]
-  %retval.0.in.i.i.i132.not = icmp eq i32 %retval.0.in.in.i.i.i131, 0
-  br i1 %retval.0.in.i.i.i132.not, label %while.cond69.backedge, label %if.end166
+is_empty_tree_oid.exit:                           ; preds = %if.then.i.i.i133, %if.end.i.i.i128
+  %retval.0.in.in.i.i.i130 = phi i32 [ %bcmp3.i.i.i134, %if.then.i.i.i133 ], [ %bcmp.i.i.i129, %if.end.i.i.i128 ]
+  %retval.0.in.i.i.i131.not = icmp eq i32 %retval.0.in.in.i.i.i130, 0
+  br i1 %retval.0.in.i.i.i131.not, label %while.cond69.backedge, label %if.end166
 
 if.end166:                                        ; preds = %is_empty_tree_oid.exit, %if.end160
   %add167 = add nsw i32 %entlen.0, 100
@@ -1321,8 +1323,8 @@ if.end166:                                        ; preds = %is_empty_tree_oid.e
   br label %while.cond69.backedge
 
 while.end172.loopexit:                            ; preds = %while.body72, %lor.lhs.false86, %while.cond69.backedge
-  %i.2.lcssa.ph = phi i32 [ %i.3, %while.cond69.backedge ], [ %i.2155, %lor.lhs.false86 ], [ %i.2155, %while.body72 ]
-  %to_invalidate.0.lcssa.ph = phi i32 [ %to_invalidate.0.be, %while.cond69.backedge ], [ %to_invalidate.0156, %lor.lhs.false86 ], [ %to_invalidate.0156, %while.body72 ]
+  %i.2.lcssa.ph = phi i32 [ %i.3, %while.cond69.backedge ], [ %i.2154, %lor.lhs.false86 ], [ %i.2154, %while.body72 ]
+  %to_invalidate.0.lcssa.ph = phi i32 [ %to_invalidate.0.be, %while.cond69.backedge ], [ %to_invalidate.0155, %lor.lhs.false86 ], [ %to_invalidate.0155, %while.body72 ]
   %55 = icmp eq i32 %to_invalidate.0.lcssa.ph, 0
   br label %while.end172
 
@@ -1353,10 +1355,10 @@ if.end201.thread:                                 ; preds = %if.then174
 if.then179:                                       ; preds = %if.then174
   %oid180 = getelementptr inbounds i8, ptr %it, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %oid180, ptr noundef nonnull align 4 dereferenceable(32) %oid175, i64 32, i1 false)
-  %algo.i136 = getelementptr inbounds i8, ptr %oid175, i64 32
-  %61 = load i32, ptr %algo.i136, align 4
-  %algo3.i137 = getelementptr inbounds i8, ptr %it, i64 36
-  store i32 %61, ptr %algo3.i137, align 4
+  %algo.i135 = getelementptr inbounds i8, ptr %oid175, i64 32
+  %61 = load i32, ptr %algo.i135, align 4
+  %algo3.i136 = getelementptr inbounds i8, ptr %it, i64 36
+  store i32 %61, ptr %algo3.i136, align 4
   br label %if.end201
 
 if.else183:                                       ; preds = %while.end172

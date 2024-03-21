@@ -679,7 +679,7 @@ Abc_TtMinBase.exit:                               ; preds = %Abc_TtHasVar.exit.t
   br i1 %or.cond, label %187, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %Abc_TtMinBase.exit
-  %wide.trip.count = and i64 %184, 2147483647
+  %wide.trip.count = and i64 %184, 4294967295
   br label %.lr.ph
 
 187:                                              ; preds = %Abc_TtMinBase.exit

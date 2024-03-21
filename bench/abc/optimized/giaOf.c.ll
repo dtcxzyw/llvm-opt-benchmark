@@ -420,7 +420,7 @@ Vec_IntGrow.exit:                                 ; preds = %Vec_IntFill.exit66,
   %98 = getelementptr inbounds i8, ptr %1, i64 88
   %99 = load i32, ptr %98, align 8
   %.not41 = icmp eq i32 %99, 0
-  br i1 %.not41, label %132, label %100
+  br i1 %.not41, label %131, label %100
 
 100:                                              ; preds = %Vec_IntGrow.exit
   %101 = call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #25
@@ -464,59 +464,49 @@ Abc_PrimeCudd.exit.i.i:                           ; preds = %.preheader.i.i.i, %
   %113 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #25
   %or.cond.i.i.i.i = icmp ult i32 %.012.i.i.i, 15
   %spec.store.select.i.i.i.i = select i1 %or.cond.i.i.i.i, i32 16, i32 %106
-  %114 = getelementptr inbounds i8, ptr %113, i64 4
   store i32 %spec.store.select.i.i.i.i, ptr %113, align 8
-  %.not.i.i.i.i = icmp eq i32 %spec.store.select.i.i.i.i, 0
-  br i1 %.not.i.i.i.i, label %Vec_IntAlloc.exit.thread.i.i.i, label %Vec_IntAlloc.exit.i.i.i
-
-Vec_IntAlloc.exit.thread.i.i.i:                   ; preds = %Abc_PrimeCudd.exit.i.i
-  %115 = getelementptr inbounds i8, ptr %113, i64 8
-  store ptr null, ptr %115, align 8
+  %114 = getelementptr inbounds i8, ptr %113, i64 4
+  %115 = sext i32 %spec.store.select.i.i.i.i to i64
+  %116 = shl nsw i64 %115, 2
+  %117 = call noalias ptr @malloc(i64 noundef %116) #25
+  %118 = getelementptr inbounds i8, ptr %113, i64 8
+  store ptr %117, ptr %118, align 8
   store i32 %106, ptr %114, align 4
+  %.not.i3.i.i = icmp eq ptr %117, null
+  br i1 %.not.i3.i.i, label %Vec_MemAllocForTT.exit, label %119
+
+119:                                              ; preds = %Abc_PrimeCudd.exit.i.i
+  %120 = sext i32 %106 to i64
+  %121 = shl nsw i64 %120, 2
+  call void @llvm.memset.p0.i64(ptr nonnull align 4 %117, i8 -1, i64 %121, i1 false)
   br label %Vec_MemAllocForTT.exit
 
-Vec_IntAlloc.exit.i.i.i:                          ; preds = %Abc_PrimeCudd.exit.i.i
-  %116 = sext i32 %spec.store.select.i.i.i.i to i64
-  %117 = shl nsw i64 %116, 2
-  %118 = call noalias ptr @malloc(i64 noundef %117) #25
-  %119 = getelementptr inbounds i8, ptr %113, i64 8
-  store ptr %118, ptr %119, align 8
-  store i32 %106, ptr %114, align 4
-  %.not.i3.i.i = icmp eq ptr %118, null
-  br i1 %.not.i3.i.i, label %Vec_MemAllocForTT.exit, label %120
-
-120:                                              ; preds = %Vec_IntAlloc.exit.i.i.i
-  %121 = sext i32 %106 to i64
-  %122 = shl nsw i64 %121, 2
-  call void @llvm.memset.p0.i64(ptr nonnull align 4 %118, i8 -1, i64 %122, i1 false)
-  br label %Vec_MemAllocForTT.exit
-
-Vec_MemAllocForTT.exit:                           ; preds = %Vec_IntAlloc.exit.thread.i.i.i, %Vec_IntAlloc.exit.i.i.i, %120
-  %123 = getelementptr inbounds i8, ptr %102, i64 32
-  store ptr %113, ptr %123, align 8
-  %124 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #25
-  %125 = getelementptr inbounds i8, ptr %124, i64 4
-  store i32 0, ptr %125, align 4
-  store i32 10000, ptr %124, align 8
-  %126 = call noalias dereferenceable_or_null(40000) ptr @malloc(i64 noundef 40000) #25
-  %127 = getelementptr inbounds i8, ptr %124, i64 8
-  store ptr %126, ptr %127, align 8
-  %128 = getelementptr inbounds i8, ptr %102, i64 40
-  store ptr %124, ptr %128, align 8
+Vec_MemAllocForTT.exit:                           ; preds = %Abc_PrimeCudd.exit.i.i, %119
+  %122 = getelementptr inbounds i8, ptr %102, i64 32
+  store ptr %113, ptr %122, align 8
+  %123 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #25
+  %124 = getelementptr inbounds i8, ptr %123, i64 4
+  store i32 0, ptr %124, align 4
+  store i32 10000, ptr %123, align 8
+  %125 = call noalias dereferenceable_or_null(40000) ptr @malloc(i64 noundef 40000) #25
+  %126 = getelementptr inbounds i8, ptr %123, i64 8
+  store ptr %125, ptr %126, align 8
+  %127 = getelementptr inbounds i8, ptr %102, i64 40
+  store ptr %123, ptr %127, align 8
   store i64 0, ptr %101, align 8
-  %129 = call fastcc i32 @Vec_MemHashInsert(ptr noundef nonnull %102, ptr noundef nonnull %101)
+  %128 = call fastcc i32 @Vec_MemHashInsert(ptr noundef nonnull %102, ptr noundef nonnull %101)
   store i64 -6148914691236517206, ptr %101, align 8
-  %130 = call fastcc i32 @Vec_MemHashInsert(ptr noundef nonnull %102, ptr noundef nonnull %101)
+  %129 = call fastcc i32 @Vec_MemHashInsert(ptr noundef nonnull %102, ptr noundef nonnull %101)
   call void @free(ptr noundef %101) #23
-  %131 = getelementptr inbounds i8, ptr %25, i64 16
-  store ptr %102, ptr %131, align 8
-  br label %132
+  %130 = getelementptr inbounds i8, ptr %25, i64 16
+  store ptr %102, ptr %130, align 8
+  br label %131
 
-132:                                              ; preds = %Vec_MemAllocForTT.exit, %Vec_IntGrow.exit
-  %133 = load ptr, ptr %4, align 8
+131:                                              ; preds = %Vec_MemAllocForTT.exit, %Vec_IntGrow.exit
+  %132 = load ptr, ptr %4, align 8
   store ptr null, ptr %4, align 8
   call void @Of_ManAreaFlow(ptr noundef nonnull %25)
-  store ptr %133, ptr %4, align 8
+  store ptr %132, ptr %4, align 8
   ret ptr %25
 }
 

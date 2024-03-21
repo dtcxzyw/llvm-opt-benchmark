@@ -57,19 +57,18 @@ cond.end15:                                       ; preds = %cond.end10
   br i1 %cmp6, label %if.then18, label %if.else90
 
 if.then18:                                        ; preds = %cond.end15
-  br i1 %cmp19.not, label %if.else, label %if.then20
+  br i1 %cmp19.not, label %while.body51.preheader, label %for.cond.preheader.preheader
 
-if.then20:                                        ; preds = %if.then18
+for.cond.preheader.preheader:                     ; preds = %if.then18
   %add.ptr = getelementptr inbounds i8, ptr %ivec, i64 16
-  %tobool21.not119 = icmp ult i64 %length, 16
-  br i1 %tobool21.not119, label %while.end, label %for.cond.preheader
+  br label %for.cond.preheader
 
-for.cond.preheader:                               ; preds = %if.then20, %for.cond.preheader
-  %in.addr.0124 = phi ptr [ %add.ptr41, %for.cond.preheader ], [ %in, %if.then20 ]
-  %out.addr.0123 = phi ptr [ %add.ptr42, %for.cond.preheader ], [ %out, %if.then20 ]
-  %len.0122 = phi i64 [ %dec, %for.cond.preheader ], [ %div101, %if.then20 ]
-  %iv2p.0121 = phi ptr [ %in.addr.0124, %for.cond.preheader ], [ %add.ptr, %if.then20 ]
-  %ivp.0120 = phi ptr [ %out.addr.0123, %for.cond.preheader ], [ %ivec, %if.then20 ]
+for.cond.preheader:                               ; preds = %for.cond.preheader.preheader, %for.cond.preheader
+  %in.addr.0124 = phi ptr [ %add.ptr41, %for.cond.preheader ], [ %in, %for.cond.preheader.preheader ]
+  %out.addr.0123 = phi ptr [ %add.ptr42, %for.cond.preheader ], [ %out, %for.cond.preheader.preheader ]
+  %len.0122 = phi i64 [ %dec, %for.cond.preheader ], [ %div101, %for.cond.preheader.preheader ]
+  %iv2p.0121 = phi ptr [ %in.addr.0124, %for.cond.preheader ], [ %add.ptr, %for.cond.preheader.preheader ]
+  %ivp.0120 = phi ptr [ %out.addr.0123, %for.cond.preheader ], [ %ivec, %for.cond.preheader.preheader ]
   %7 = load i64, ptr %in.addr.0124, align 1
   %8 = load i64, ptr %ivp.0120, align 1
   %xor = xor i64 %8, %7
@@ -98,26 +97,23 @@ for.cond.preheader:                               ; preds = %if.then20, %for.con
   %tobool21.not = icmp eq i64 %dec, 0
   br i1 %tobool21.not, label %while.end, label %for.cond.preheader, !llvm.loop !4
 
-while.end:                                        ; preds = %for.cond.preheader, %if.then20
-  %ivp.0.lcssa = phi ptr [ %ivec, %if.then20 ], [ %out.addr.0123, %for.cond.preheader ]
-  %iv2p.0.lcssa = phi ptr [ %add.ptr, %if.then20 ], [ %in.addr.0124, %for.cond.preheader ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %ivec, ptr noundef nonnull align 1 dereferenceable(16) %ivp.0.lcssa, i64 16, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %add.ptr, ptr noundef nonnull align 1 dereferenceable(16) %iv2p.0.lcssa, i64 16, i1 false)
+while.end:                                        ; preds = %for.cond.preheader
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %ivec, ptr noundef nonnull align 1 dereferenceable(16) %out.addr.0123, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %add.ptr, ptr noundef nonnull align 1 dereferenceable(16) %in.addr.0124, i64 16, i1 false)
   br label %if.end184
 
-if.else:                                          ; preds = %if.then18
-  %iv.sroa.0.0.copyload = load <2 x i64>, ptr %ivec, align 1
+while.body51.preheader:                           ; preds = %if.then18
   %add.ptr48 = getelementptr inbounds i8, ptr %ivec, i64 16
   %iv2.sroa.0.0.copyload = load <2 x i64>, ptr %add.ptr48, align 1
-  %tobool50.not129 = icmp ult i64 %length, 16
-  br i1 %tobool50.not129, label %while.end83, label %while.body51
+  br label %while.body51
 
-while.body51:                                     ; preds = %if.else, %while.body51
-  %iv2.sroa.0.0 = phi <2 x i64> [ %tmp.sroa.0.0.copyload, %while.body51 ], [ %iv2.sroa.0.0.copyload, %if.else ]
-  %iv.sroa.0.0 = phi <2 x i64> [ %17, %while.body51 ], [ %iv.sroa.0.0.copyload, %if.else ]
-  %in.addr.1132 = phi ptr [ %add.ptr81, %while.body51 ], [ %in, %if.else ]
-  %out.addr.1131 = phi ptr [ %add.ptr82, %while.body51 ], [ %in, %if.else ]
-  %len.1130 = phi i64 [ %dec80, %while.body51 ], [ %div101, %if.else ]
+while.body51:                                     ; preds = %while.body51.preheader, %while.body51
+  %iv2.sroa.0.0 = phi <2 x i64> [ %iv2.sroa.0.0.copyload, %while.body51.preheader ], [ %tmp.sroa.0.0.copyload, %while.body51 ]
+  %iv.sroa.0.0.in = phi ptr [ %ivec, %while.body51.preheader ], [ %tmp2, %while.body51 ]
+  %in.addr.1132 = phi ptr [ %in, %while.body51.preheader ], [ %add.ptr81, %while.body51 ]
+  %out.addr.1131 = phi ptr [ %in, %while.body51.preheader ], [ %add.ptr82, %while.body51 ]
+  %len.1130 = phi i64 [ %div101, %while.body51.preheader ], [ %dec80, %while.body51 ]
+  %iv.sroa.0.0 = load <2 x i64>, ptr %iv.sroa.0.0.in, align 1
   %tmp.sroa.0.0.copyload = load <2 x i64>, ptr %in.addr.1132, align 1
   %15 = xor <2 x i64> %iv.sroa.0.0, %tmp.sroa.0.0.copyload
   store <2 x i64> %15, ptr %tmp2, align 16
@@ -132,27 +128,24 @@ while.body51:                                     ; preds = %if.else, %while.bod
   %tobool50.not = icmp eq i64 %dec80, 0
   br i1 %tobool50.not, label %while.end83, label %while.body51, !llvm.loop !6
 
-while.end83:                                      ; preds = %while.body51, %if.else
-  %iv2.sroa.0.1 = phi <2 x i64> [ %iv2.sroa.0.0.copyload, %if.else ], [ %tmp.sroa.0.0.copyload, %while.body51 ]
-  %iv.sroa.0.1 = phi <2 x i64> [ %iv.sroa.0.0.copyload, %if.else ], [ %17, %while.body51 ]
-  store <2 x i64> %iv.sroa.0.1, ptr %ivec, align 1
-  store <2 x i64> %iv2.sroa.0.1, ptr %add.ptr48, align 1
+while.end83:                                      ; preds = %while.body51
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %ivec, ptr noundef nonnull align 16 dereferenceable(16) %tmp2, i64 16, i1 false)
+  store <2 x i64> %tmp.sroa.0.0.copyload, ptr %add.ptr48, align 1
   br label %if.end184
 
 if.else90:                                        ; preds = %cond.end15
-  br i1 %cmp19.not, label %if.else139, label %if.then92
+  br i1 %cmp19.not, label %while.body147.preheader, label %for.cond102.preheader.preheader
 
-if.then92:                                        ; preds = %if.else90
+for.cond102.preheader.preheader:                  ; preds = %if.else90
   %add.ptr95 = getelementptr inbounds i8, ptr %ivec, i64 16
-  %tobool97.not104 = icmp ult i64 %length, 16
-  br i1 %tobool97.not104, label %while.end133, label %for.cond102.preheader
+  br label %for.cond102.preheader
 
-for.cond102.preheader:                            ; preds = %if.then92, %for.cond102.preheader
-  %in.addr.2109 = phi ptr [ %add.ptr131, %for.cond102.preheader ], [ %in, %if.then92 ]
-  %out.addr.2108 = phi ptr [ %add.ptr132, %for.cond102.preheader ], [ %out, %if.then92 ]
-  %iv2p94.0107 = phi ptr [ %out.addr.2108, %for.cond102.preheader ], [ %add.ptr95, %if.then92 ]
-  %ivp93.0106 = phi ptr [ %in.addr.2109, %for.cond102.preheader ], [ %ivec, %if.then92 ]
-  %len.2105 = phi i64 [ %dec130, %for.cond102.preheader ], [ %div101, %if.then92 ]
+for.cond102.preheader:                            ; preds = %for.cond102.preheader.preheader, %for.cond102.preheader
+  %in.addr.2109 = phi ptr [ %add.ptr131, %for.cond102.preheader ], [ %in, %for.cond102.preheader.preheader ]
+  %out.addr.2108 = phi ptr [ %add.ptr132, %for.cond102.preheader ], [ %out, %for.cond102.preheader.preheader ]
+  %iv2p94.0107 = phi ptr [ %out.addr.2108, %for.cond102.preheader ], [ %add.ptr95, %for.cond102.preheader.preheader ]
+  %ivp93.0106 = phi ptr [ %in.addr.2109, %for.cond102.preheader ], [ %ivec, %for.cond102.preheader.preheader ]
+  %len.2105 = phi i64 [ %dec130, %for.cond102.preheader ], [ %div101, %for.cond102.preheader.preheader ]
   %18 = load <2 x i64>, ptr %in.addr.2109, align 1
   %19 = load <2 x i64>, ptr %iv2p94.0107, align 1
   %20 = xor <2 x i64> %19, %18
@@ -174,26 +167,23 @@ for.cond102.preheader:                            ; preds = %if.then92, %for.con
   %tobool97.not = icmp eq i64 %dec130, 0
   br i1 %tobool97.not, label %while.end133, label %for.cond102.preheader, !llvm.loop !7
 
-while.end133:                                     ; preds = %for.cond102.preheader, %if.then92
-  %ivp93.0.lcssa = phi ptr [ %ivec, %if.then92 ], [ %in.addr.2109, %for.cond102.preheader ]
-  %iv2p94.0.lcssa = phi ptr [ %add.ptr95, %if.then92 ], [ %out.addr.2108, %for.cond102.preheader ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %ivec, ptr noundef nonnull align 1 dereferenceable(16) %ivp93.0.lcssa, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %add.ptr95, ptr noundef nonnull align 1 dereferenceable(16) %iv2p94.0.lcssa, i64 16, i1 false)
+while.end133:                                     ; preds = %for.cond102.preheader
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %ivec, ptr noundef nonnull align 1 dereferenceable(16) %in.addr.2109, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %add.ptr95, ptr noundef nonnull align 1 dereferenceable(16) %out.addr.2108, i64 16, i1 false)
   br label %if.end184
 
-if.else139:                                       ; preds = %if.else90
+while.body147.preheader:                          ; preds = %if.else90
   %iv142.sroa.0.0.copyload = load <2 x i64>, ptr %ivec, align 1
   %add.ptr144 = getelementptr inbounds i8, ptr %ivec, i64 16
-  %iv2143.sroa.0.0.copyload = load <2 x i64>, ptr %add.ptr144, align 1
-  %tobool146.not113 = icmp ult i64 %length, 16
-  br i1 %tobool146.not113, label %while.end177, label %while.body147
+  br label %while.body147
 
-while.body147:                                    ; preds = %if.else139, %while.body147
-  %iv142.sroa.0.0 = phi <2 x i64> [ %tmp2141.sroa.0.sroa.0.0.copyload, %while.body147 ], [ %iv142.sroa.0.0.copyload, %if.else139 ]
-  %iv2143.sroa.0.0 = phi <2 x i64> [ %28, %while.body147 ], [ %iv2143.sroa.0.0.copyload, %if.else139 ]
-  %in.addr.3116 = phi ptr [ %add.ptr175, %while.body147 ], [ %in, %if.else139 ]
-  %out.addr.3115 = phi ptr [ %add.ptr176, %while.body147 ], [ %in, %if.else139 ]
-  %len.3114 = phi i64 [ %dec174, %while.body147 ], [ %div101, %if.else139 ]
+while.body147:                                    ; preds = %while.body147.preheader, %while.body147
+  %iv142.sroa.0.0 = phi <2 x i64> [ %iv142.sroa.0.0.copyload, %while.body147.preheader ], [ %tmp2141.sroa.0.sroa.0.0.copyload, %while.body147 ]
+  %iv2143.sroa.0.0.in = phi ptr [ %add.ptr144, %while.body147.preheader ], [ %tmp140, %while.body147 ]
+  %in.addr.3116 = phi ptr [ %in, %while.body147.preheader ], [ %add.ptr175, %while.body147 ]
+  %out.addr.3115 = phi ptr [ %in, %while.body147.preheader ], [ %add.ptr176, %while.body147 ]
+  %len.3114 = phi i64 [ %div101, %while.body147.preheader ], [ %dec174, %while.body147 ]
+  %iv2143.sroa.0.0 = load <2 x i64>, ptr %iv2143.sroa.0.0.in, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %tmp140, ptr noundef nonnull align 1 dereferenceable(16) %in.addr.3116, i64 16, i1 false)
   %tmp2141.sroa.0.sroa.0.0.copyload = load <2 x i64>, ptr %in.addr.3116, align 1
   %25 = load <2 x i64>, ptr %tmp140, align 16
@@ -210,11 +200,9 @@ while.body147:                                    ; preds = %if.else139, %while.
   %tobool146.not = icmp eq i64 %dec174, 0
   br i1 %tobool146.not, label %while.end177, label %while.body147, !llvm.loop !8
 
-while.end177:                                     ; preds = %while.body147, %if.else139
-  %iv142.sroa.0.1 = phi <2 x i64> [ %iv142.sroa.0.0.copyload, %if.else139 ], [ %tmp2141.sroa.0.sroa.0.0.copyload, %while.body147 ]
-  %iv2143.sroa.0.1 = phi <2 x i64> [ %iv2143.sroa.0.0.copyload, %if.else139 ], [ %28, %while.body147 ]
-  store <2 x i64> %iv142.sroa.0.1, ptr %ivec, align 1
-  store <2 x i64> %iv2143.sroa.0.1, ptr %add.ptr144, align 1
+while.end177:                                     ; preds = %while.body147
+  store <2 x i64> %tmp2141.sroa.0.sroa.0.0.copyload, ptr %ivec, align 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %add.ptr144, ptr noundef nonnull align 16 dereferenceable(16) %tmp140, i64 16, i1 false)
   br label %if.end184
 
 if.end184:                                        ; preds = %while.end133, %while.end177, %while.end, %while.end83, %entry

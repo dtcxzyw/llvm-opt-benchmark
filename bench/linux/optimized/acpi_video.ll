@@ -731,12 +731,12 @@ define internal fastcc void @acpi_video_bus_register_backlight(ptr noundef %0) u
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   %10 = load i8, ptr %9, align 8, !range !13, !noundef !14
   %11 = icmp eq i8 %10, 0
-  br i1 %11, label %12, label %385
+  br i1 %11, label %12, label %381
 
 12:                                               ; preds = %1
   %13 = tail call i32 @__acpi_video_get_backlight_type(i1 noundef zeroext false, ptr noundef null) #18
   %14 = icmp eq i32 %13, 1
-  br i1 %14, label %15, label %385
+  br i1 %14, label %15, label %381
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds i8, ptr %0, i64 48
@@ -751,8 +751,8 @@ define internal fastcc void @acpi_video_bus_register_backlight(ptr noundef %0) u
   %22 = getelementptr inbounds i8, ptr %7, i64 4
   br label %23
 
-23:                                               ; preds = %379, %20
-  %24 = phi ptr [ %18, %20 ], [ %380, %379 ]
+23:                                               ; preds = %375, %20
+  %24 = phi ptr [ %18, %20 ], [ %376, %375 ]
   %25 = getelementptr i8, ptr %24, i64 -16
   %26 = getelementptr i8, ptr %24, i64 112
   %27 = load ptr, ptr %26, align 8
@@ -788,7 +788,7 @@ define internal fastcc void @acpi_video_bus_register_backlight(ptr noundef %0) u
   br i1 %50, label %51, label %41, !llvm.loop !15
 
 51:                                               ; preds = %41
-  br i1 %47, label %52, label %379
+  br i1 %47, label %52, label %375
 
 52:                                               ; preds = %51, %31, %23
   %53 = load i32, ptr @only_lcd, align 4
@@ -800,7 +800,7 @@ define internal fastcc void @acpi_video_bus_register_backlight(ptr noundef %0) u
   %57 = load i8, ptr %56, align 8
   %58 = and i8 %57, 2
   %59 = icmp eq i8 %58, 0
-  br i1 %59, label %379, label %60
+  br i1 %59, label %375, label %60
 
 60:                                               ; preds = %55, %52
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %7) #18
@@ -817,7 +817,7 @@ define internal fastcc void @acpi_video_bus_register_backlight(ptr noundef %0) u
   %62 = load ptr, ptr %61, align 8
   %63 = call i32 @acpi_video_get_levels(ptr noundef %62, ptr noundef nonnull %6, ptr noundef nonnull %4), !range !16
   %64 = icmp eq i32 %63, 0
-  br i1 %64, label %65, label %377
+  br i1 %64, label %65, label %373
 
 65:                                               ; preds = %60
   %66 = load ptr, ptr %6, align 8
@@ -830,532 +830,524 @@ define internal fastcc void @acpi_video_bus_register_backlight(ptr noundef %0) u
   %71 = load i8, ptr %70, align 1
   %72 = and i8 %71, 8
   %73 = icmp eq i8 %72, 0
-  br i1 %73, label %255, label %74
+  br i1 %73, label %251, label %74
 
 74:                                               ; preds = %65
-  %75 = and i8 %71, 24
-  %76 = icmp eq i8 %75, 0
-  br i1 %76, label %89, label %77
+  %75 = load ptr, ptr %61, align 8
+  %76 = getelementptr inbounds i8, ptr %75, i64 8
+  %77 = load ptr, ptr %76, align 8
+  %78 = call i32 @acpi_evaluate_integer(ptr noundef %77, ptr noundef nonnull @.str.41, ptr noundef null, ptr noundef nonnull %5) #18
+  %79 = icmp eq i32 %78, 0
+  br i1 %79, label %._crit_edge, label %80
 
-77:                                               ; preds = %74
-  %78 = load ptr, ptr %61, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 8
-  %80 = load ptr, ptr %79, align 8
-  %81 = call i32 @acpi_evaluate_integer(ptr noundef %80, ptr noundef nonnull @.str.41, ptr noundef null, ptr noundef nonnull %5) #18
-  %82 = icmp eq i32 %81, 0
-  br i1 %82, label %._crit_edge, label %83
-
-._crit_edge:                                      ; preds = %77
+._crit_edge:                                      ; preds = %74
   %.pre = load i64, ptr %5, align 8
-  br label %93
-
-83:                                               ; preds = %77
-  %84 = load ptr, ptr %61, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 8
-  %86 = load ptr, ptr %85, align 8
-  call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str, ptr noundef %86, ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.41) #18
-  %87 = load i8, ptr %70, align 1
-  %88 = and i8 %87, -25
-  store i8 %88, ptr %70, align 1
   br label %89
 
-89:                                               ; preds = %83, %74
-  %90 = load ptr, ptr %67, align 8
-  %91 = load i32, ptr %90, align 8
-  %92 = sext i32 %91 to i64
-  store i64 %92, ptr %5, align 8
-  br label %93
+80:                                               ; preds = %74
+  %81 = load ptr, ptr %61, align 8
+  %82 = getelementptr inbounds i8, ptr %81, i64 8
+  %83 = load ptr, ptr %82, align 8
+  call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str, ptr noundef %83, ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.41) #18
+  %84 = load i8, ptr %70, align 1
+  %85 = and i8 %84, -25
+  store i8 %85, ptr %70, align 1
+  %86 = load ptr, ptr %67, align 8
+  %87 = load i32, ptr %86, align 8
+  %88 = sext i32 %87 to i64
+  store i64 %88, ptr %5, align 8
+  br label %89
 
-93:                                               ; preds = %._crit_edge, %89
-  %94 = phi i64 [ %.pre, %._crit_edge ], [ %92, %89 ]
-  %95 = load i32, ptr %4, align 4
-  %96 = load ptr, ptr %67, align 8
+89:                                               ; preds = %._crit_edge, %80
+  %90 = phi i64 [ %.pre, %._crit_edge ], [ %88, %80 ]
+  %91 = load i32, ptr %4, align 4
+  %92 = load ptr, ptr %67, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #18
   store i64 0, ptr %3, align 8, !annotation !10
-  %97 = load i1, ptr @bqc_offset_aml_bug_workaround, align 4
-  br i1 %97, label %196, label %98
+  %93 = load i1, ptr @bqc_offset_aml_bug_workaround, align 4
+  br i1 %93, label %192, label %94
 
-98:                                               ; preds = %93
-  %99 = trunc i64 %94 to i32
-  %100 = icmp eq i32 %95, %99
-  br i1 %100, label %101, label %106
+94:                                               ; preds = %89
+  %95 = trunc i64 %90 to i32
+  %96 = icmp eq i32 %91, %95
+  br i1 %96, label %97, label %102
 
-101:                                              ; preds = %98
-  %102 = getelementptr inbounds i8, ptr %96, i64 8
-  %103 = load ptr, ptr %102, align 8
-  %104 = getelementptr i8, ptr %103, i64 12
-  %105 = load i32, ptr %104, align 4
-  br label %106
+97:                                               ; preds = %94
+  %98 = getelementptr inbounds i8, ptr %92, i64 8
+  %99 = load ptr, ptr %98, align 8
+  %100 = getelementptr i8, ptr %99, i64 12
+  %101 = load i32, ptr %100, align 4
+  br label %102
 
-106:                                              ; preds = %101, %98
-  %107 = phi i32 [ %105, %101 ], [ %95, %98 ]
-  %108 = load ptr, ptr %61, align 8
-  %109 = getelementptr inbounds i8, ptr %108, i64 8
-  %110 = load ptr, ptr %109, align 8
-  %111 = sext i32 %107 to i64
-  %112 = call i32 @acpi_execute_simple_method(ptr noundef %110, ptr noundef nonnull @.str.45, i64 noundef %111) #18
-  %113 = icmp eq i32 %112, 0
-  br i1 %113, label %114, label %acpi_video_device_lcd_set_level.exit
+102:                                              ; preds = %97, %94
+  %103 = phi i32 [ %101, %97 ], [ %91, %94 ]
+  %104 = load ptr, ptr %61, align 8
+  %105 = getelementptr inbounds i8, ptr %104, i64 8
+  %106 = load ptr, ptr %105, align 8
+  %107 = sext i32 %103 to i64
+  %108 = call i32 @acpi_execute_simple_method(ptr noundef %106, ptr noundef nonnull @.str.45, i64 noundef %107) #18
+  %109 = icmp eq i32 %108, 0
+  br i1 %109, label %110, label %acpi_video_device_lcd_set_level.exit
 
-114:                                              ; preds = %106
-  %115 = load ptr, ptr %67, align 8
-  store i32 %107, ptr %115, align 8
-  %116 = load ptr, ptr %67, align 8
-  %117 = getelementptr inbounds i8, ptr %116, i64 4
-  %118 = load i32, ptr %117, align 4
-  %119 = icmp sgt i32 %118, 2
-  br i1 %119, label %120, label %acpi_video_device_lcd_set_level.exit
+110:                                              ; preds = %102
+  %111 = load ptr, ptr %67, align 8
+  store i32 %103, ptr %111, align 8
+  %112 = load ptr, ptr %67, align 8
+  %113 = getelementptr inbounds i8, ptr %112, i64 4
+  %114 = load i32, ptr %113, align 4
+  %115 = icmp sgt i32 %114, 2
+  br i1 %115, label %116, label %acpi_video_device_lcd_set_level.exit
 
-120:                                              ; preds = %114
-  %121 = getelementptr inbounds i8, ptr %116, i64 8
-  %122 = load ptr, ptr %121, align 8
-  %123 = zext nneg i32 %118 to i64
-  br label %124
+116:                                              ; preds = %110
+  %117 = getelementptr inbounds i8, ptr %112, i64 8
+  %118 = load ptr, ptr %117, align 8
+  %119 = zext nneg i32 %114 to i64
+  br label %120
 
-124:                                              ; preds = %135, %120
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %135 ], [ 2, %120 ]
-  %125 = getelementptr i32, ptr %122, i64 %indvars.iv.i
-  %126 = load i32, ptr %125, align 4
-  %127 = icmp eq i32 %126, %107
-  br i1 %127, label %128, label %135
+120:                                              ; preds = %131, %116
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %131 ], [ 2, %116 ]
+  %121 = getelementptr i32, ptr %118, i64 %indvars.iv.i
+  %122 = load i32, ptr %121, align 4
+  %123 = icmp eq i32 %122, %103
+  br i1 %123, label %124, label %131
+
+124:                                              ; preds = %120
+  %125 = getelementptr i8, ptr %24, i64 136
+  %126 = load ptr, ptr %125, align 8
+  %127 = icmp eq ptr %126, null
+  br i1 %127, label %133, label %128
 
 128:                                              ; preds = %124
-  %129 = getelementptr i8, ptr %24, i64 136
-  %130 = load ptr, ptr %129, align 8
-  %131 = icmp eq ptr %130, null
-  br i1 %131, label %137, label %132
+  %129 = trunc i64 %indvars.iv.i to i32
+  %130 = add nsw i32 %129, -2
+  store i32 %130, ptr %126, align 8
+  br label %133
 
-132:                                              ; preds = %128
-  %133 = trunc i64 %indvars.iv.i to i32
-  %134 = add nsw i32 %133, -2
-  store i32 %134, ptr %130, align 8
-  br label %137
-
-135:                                              ; preds = %124
+131:                                              ; preds = %120
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %136 = icmp eq i64 %indvars.iv.next.i, %123
-  br i1 %136, label %acpi_video_device_lcd_set_level.exit, label %124, !llvm.loop !17
+  %132 = icmp eq i64 %indvars.iv.next.i, %119
+  br i1 %132, label %acpi_video_device_lcd_set_level.exit, label %120, !llvm.loop !17
 
-137:                                              ; preds = %132, %128
-  %138 = load i8, ptr %70, align 1
-  %139 = and i8 %138, 24
-  %140 = icmp eq i8 %139, 0
-  br i1 %140, label %156, label %141
+133:                                              ; preds = %128, %124
+  %134 = load i8, ptr %70, align 1
+  %135 = and i8 %134, 24
+  %136 = icmp eq i8 %135, 0
+  br i1 %136, label %152, label %137
 
-141:                                              ; preds = %137
-  %142 = and i8 %138, 8
-  %143 = icmp eq i8 %142, 0
-  %144 = select i1 %143, ptr @.str.42, ptr @.str.41
-  %145 = load ptr, ptr %61, align 8
-  %146 = getelementptr inbounds i8, ptr %145, i64 8
-  %147 = load ptr, ptr %146, align 8
-  %148 = call i32 @acpi_evaluate_integer(ptr noundef %147, ptr noundef nonnull %144, ptr noundef null, ptr noundef nonnull %3) #18
-  %149 = icmp eq i32 %148, 0
-  br i1 %149, label %._crit_edge32, label %150
+137:                                              ; preds = %133
+  %138 = and i8 %134, 8
+  %139 = icmp eq i8 %138, 0
+  %140 = select i1 %139, ptr @.str.42, ptr @.str.41
+  %141 = load ptr, ptr %61, align 8
+  %142 = getelementptr inbounds i8, ptr %141, i64 8
+  %143 = load ptr, ptr %142, align 8
+  %144 = call i32 @acpi_evaluate_integer(ptr noundef %143, ptr noundef nonnull %140, ptr noundef null, ptr noundef nonnull %3) #18
+  %145 = icmp eq i32 %144, 0
+  br i1 %145, label %._crit_edge32, label %146
 
-._crit_edge32:                                    ; preds = %141
+._crit_edge32:                                    ; preds = %137
   %.pre33 = load i64, ptr %3, align 8
-  br label %160
-
-150:                                              ; preds = %141
-  %151 = load ptr, ptr %61, align 8
-  %152 = getelementptr inbounds i8, ptr %151, i64 8
-  %153 = load ptr, ptr %152, align 8
-  call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str, ptr noundef %153, ptr noundef nonnull @.str.44, ptr noundef nonnull %144) #18
-  %154 = load i8, ptr %70, align 1
-  %155 = and i8 %154, -25
-  store i8 %155, ptr %70, align 1
   br label %156
 
-156:                                              ; preds = %150, %137
-  %157 = load ptr, ptr %67, align 8
-  %158 = load i32, ptr %157, align 8
-  %159 = sext i32 %158 to i64
-  store i64 %159, ptr %3, align 8
-  br label %160
+146:                                              ; preds = %137
+  %147 = load ptr, ptr %61, align 8
+  %148 = getelementptr inbounds i8, ptr %147, i64 8
+  %149 = load ptr, ptr %148, align 8
+  call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str, ptr noundef %149, ptr noundef nonnull @.str.44, ptr noundef nonnull %140) #18
+  %150 = load i8, ptr %70, align 1
+  %151 = and i8 %150, -25
+  store i8 %151, ptr %70, align 1
+  br label %152
 
-160:                                              ; preds = %._crit_edge32, %156
-  %161 = phi i64 [ %.pre33, %._crit_edge32 ], [ %159, %156 ]
-  %162 = icmp eq i64 %161, %111
-  br i1 %162, label %196, label %163
+152:                                              ; preds = %146, %133
+  %153 = load ptr, ptr %67, align 8
+  %154 = load i32, ptr %153, align 8
+  %155 = sext i32 %154 to i64
+  store i64 %155, ptr %3, align 8
+  br label %156
 
-163:                                              ; preds = %160
-  %164 = getelementptr inbounds i8, ptr %96, i64 4
-  %165 = load i32, ptr %164, align 4
-  %166 = sext i32 %165 to i64
-  %167 = icmp ult i64 %161, %166
-  %168 = getelementptr inbounds i8, ptr %96, i64 16
-  %169 = load i8, ptr %168, align 8
-  br i1 %167, label %170, label %._crit_edge34
+156:                                              ; preds = %._crit_edge32, %152
+  %157 = phi i64 [ %.pre33, %._crit_edge32 ], [ %155, %152 ]
+  %158 = icmp eq i64 %157, %107
+  br i1 %158, label %192, label %159
 
-170:                                              ; preds = %163
-  %171 = and i8 %169, 2
-  %172 = icmp eq i8 %171, 0
-  br i1 %172, label %177, label %173
+159:                                              ; preds = %156
+  %160 = getelementptr inbounds i8, ptr %92, i64 4
+  %161 = load i32, ptr %160, align 4
+  %162 = sext i32 %161 to i64
+  %163 = icmp ult i64 %157, %162
+  %164 = getelementptr inbounds i8, ptr %92, i64 16
+  %165 = load i8, ptr %164, align 8
+  br i1 %163, label %166, label %._crit_edge34
 
-173:                                              ; preds = %170
-  %174 = add i32 %165, -3
-  %175 = sext i32 %174 to i64
-  %176 = sub i64 %175, %161
-  store i64 %176, ptr %3, align 8
-  br label %177
+166:                                              ; preds = %159
+  %167 = and i8 %165, 2
+  %168 = icmp eq i8 %167, 0
+  br i1 %168, label %173, label %169
 
-177:                                              ; preds = %173, %170
-  %178 = phi i64 [ %176, %173 ], [ %161, %170 ]
-  %179 = getelementptr inbounds i8, ptr %96, i64 8
-  %180 = load ptr, ptr %179, align 8
-  %181 = getelementptr i32, ptr %180, i64 %178
-  %182 = getelementptr i8, ptr %181, i64 8
-  %183 = load i32, ptr %182, align 4
-  %184 = icmp eq i32 %183, %107
-  br i1 %184, label %185, label %._crit_edge34
+169:                                              ; preds = %166
+  %170 = add i32 %161, -3
+  %171 = sext i32 %170 to i64
+  %172 = sub i64 %171, %157
+  store i64 %172, ptr %3, align 8
+  br label %173
 
-185:                                              ; preds = %177
-  %186 = or i8 %169, 4
-  store i8 %186, ptr %168, align 8
+173:                                              ; preds = %169, %166
+  %174 = phi i64 [ %172, %169 ], [ %157, %166 ]
+  %175 = getelementptr inbounds i8, ptr %92, i64 8
+  %176 = load ptr, ptr %175, align 8
+  %177 = getelementptr i32, ptr %176, i64 %174
+  %178 = getelementptr i8, ptr %177, i64 8
+  %179 = load i32, ptr %178, align 4
+  %180 = icmp eq i32 %179, %103
+  br i1 %180, label %181, label %._crit_edge34
+
+181:                                              ; preds = %173
+  %182 = or i8 %165, 4
+  store i8 %182, ptr %164, align 8
   br label %._crit_edge34
 
-._crit_edge34:                                    ; preds = %163, %185, %177
-  %187 = phi i8 [ %186, %185 ], [ %169, %177 ], [ %169, %163 ]
-  %188 = and i8 %187, 4
-  %189 = icmp eq i8 %188, 0
-  br i1 %189, label %190, label %196
+._crit_edge34:                                    ; preds = %159, %181, %173
+  %183 = phi i8 [ %182, %181 ], [ %165, %173 ], [ %165, %159 ]
+  %184 = and i8 %183, 4
+  %185 = icmp eq i8 %184, 0
+  br i1 %185, label %186, label %192
 
-190:                                              ; preds = %._crit_edge34
-  %191 = load i8, ptr %70, align 1
-  %192 = and i8 %191, -25
-  store i8 %192, ptr %70, align 1
-  br label %196
+186:                                              ; preds = %._crit_edge34
+  %187 = load i8, ptr %70, align 1
+  %188 = and i8 %187, -25
+  store i8 %188, ptr %70, align 1
+  br label %192
 
-acpi_video_device_lcd_set_level.exit:             ; preds = %135, %114, %106
-  %.str.47.sink = phi ptr [ @.str.46, %106 ], [ @.str.47, %114 ], [ @.str.47, %135 ]
-  %193 = load ptr, ptr %61, align 8
-  %194 = getelementptr inbounds i8, ptr %193, i64 8
-  %195 = load ptr, ptr %194, align 8
-  call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str, ptr noundef %195, ptr noundef nonnull %.str.47.sink) #18
+acpi_video_device_lcd_set_level.exit:             ; preds = %131, %110, %102
+  %.str.47.sink = phi ptr [ @.str.46, %102 ], [ @.str.47, %110 ], [ @.str.47, %131 ]
+  %189 = load ptr, ptr %61, align 8
+  %190 = getelementptr inbounds i8, ptr %189, i64 8
+  %191 = load ptr, ptr %190, align 8
+  call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str, ptr noundef %191, ptr noundef nonnull %.str.47.sink) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #18
   br label %acpi_video_device_lcd_set_level.exit18
 
-196:                                              ; preds = %190, %._crit_edge34, %160, %93
+192:                                              ; preds = %186, %._crit_edge34, %156, %89
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #18
-  %197 = load i8, ptr %70, align 1
-  %198 = and i8 %197, 8
-  %199 = icmp eq i8 %198, 0
-  br i1 %199, label %255, label %200
+  %193 = load i8, ptr %70, align 1
+  %194 = and i8 %193, 8
+  %195 = icmp eq i8 %194, 0
+  br i1 %195, label %251, label %196
 
-200:                                              ; preds = %196
-  %201 = load i64, ptr %5, align 8
-  %202 = load ptr, ptr %67, align 8
-  %203 = getelementptr inbounds i8, ptr %202, i64 16
-  %204 = load i8, ptr %203, align 8
-  %205 = and i8 %204, 4
-  %206 = icmp eq i8 %205, 0
-  br i1 %206, label %224, label %207
+196:                                              ; preds = %192
+  %197 = load i64, ptr %5, align 8
+  %198 = load ptr, ptr %67, align 8
+  %199 = getelementptr inbounds i8, ptr %198, i64 16
+  %200 = load i8, ptr %199, align 8
+  %201 = and i8 %200, 4
+  %202 = icmp eq i8 %201, 0
+  br i1 %202, label %220, label %203
 
-207:                                              ; preds = %200
-  %208 = and i8 %204, 2
-  %209 = icmp eq i8 %208, 0
-  br i1 %209, label %216, label %210
+203:                                              ; preds = %196
+  %204 = and i8 %200, 2
+  %205 = icmp eq i8 %204, 0
+  br i1 %205, label %212, label %206
 
-210:                                              ; preds = %207
-  %211 = getelementptr inbounds i8, ptr %202, i64 4
-  %212 = load i32, ptr %211, align 4
-  %213 = add i32 %212, -3
-  %214 = sext i32 %213 to i64
-  %215 = sub i64 %214, %201
-  br label %216
+206:                                              ; preds = %203
+  %207 = getelementptr inbounds i8, ptr %198, i64 4
+  %208 = load i32, ptr %207, align 4
+  %209 = add i32 %208, -3
+  %210 = sext i32 %209 to i64
+  %211 = sub i64 %210, %197
+  br label %212
 
-216:                                              ; preds = %210, %207
-  %217 = phi i64 [ %215, %210 ], [ %201, %207 ]
-  %218 = getelementptr inbounds i8, ptr %202, i64 8
-  %219 = load ptr, ptr %218, align 8
-  %220 = getelementptr i32, ptr %219, i64 %217
-  %221 = getelementptr i8, ptr %220, i64 8
-  %222 = load i32, ptr %221, align 4
-  %223 = sext i32 %222 to i64
-  br label %224
+212:                                              ; preds = %206, %203
+  %213 = phi i64 [ %211, %206 ], [ %197, %203 ]
+  %214 = getelementptr inbounds i8, ptr %198, i64 8
+  %215 = load ptr, ptr %214, align 8
+  %216 = getelementptr i32, ptr %215, i64 %213
+  %217 = getelementptr i8, ptr %216, i64 8
+  %218 = load i32, ptr %217, align 4
+  %219 = sext i32 %218 to i64
+  br label %220
 
-224:                                              ; preds = %216, %200
-  %225 = phi i64 [ %223, %216 ], [ %201, %200 ]
-  %226 = load i1, ptr @bqc_offset_aml_bug_workaround, align 4
-  %227 = select i1 %226, i64 9, i64 0
-  %228 = add i64 %227, %225
-  %229 = load ptr, ptr %6, align 8
-  %230 = getelementptr inbounds i8, ptr %229, i64 4
-  %231 = load i32, ptr %230, align 4
-  %232 = icmp sgt i32 %231, 2
-  br i1 %232, label %233, label %248
+220:                                              ; preds = %212, %196
+  %221 = phi i64 [ %219, %212 ], [ %197, %196 ]
+  %222 = load i1, ptr @bqc_offset_aml_bug_workaround, align 4
+  %223 = select i1 %222, i64 9, i64 0
+  %224 = add i64 %223, %221
+  %225 = load ptr, ptr %6, align 8
+  %226 = getelementptr inbounds i8, ptr %225, i64 4
+  %227 = load i32, ptr %226, align 4
+  %228 = icmp sgt i32 %227, 2
+  br i1 %228, label %229, label %244
 
-233:                                              ; preds = %224
-  %234 = getelementptr inbounds i8, ptr %229, i64 8
-  %235 = load ptr, ptr %234, align 8
-  %236 = zext nneg i32 %231 to i64
-  br label %237
+229:                                              ; preds = %220
+  %230 = getelementptr inbounds i8, ptr %225, i64 8
+  %231 = load ptr, ptr %230, align 8
+  %232 = zext nneg i32 %227 to i64
+  br label %233
 
-237:                                              ; preds = %243, %233
-  %238 = phi i64 [ %244, %243 ], [ 2, %233 ]
-  %239 = getelementptr i32, ptr %235, i64 %238
-  %240 = load i32, ptr %239, align 4
-  %241 = sext i32 %240 to i64
-  %242 = icmp eq i64 %228, %241
-  br i1 %242, label %246, label %243
+233:                                              ; preds = %239, %229
+  %234 = phi i64 [ %240, %239 ], [ 2, %229 ]
+  %235 = getelementptr i32, ptr %231, i64 %234
+  %236 = load i32, ptr %235, align 4
+  %237 = sext i32 %236 to i64
+  %238 = icmp eq i64 %224, %237
+  br i1 %238, label %242, label %239
 
-243:                                              ; preds = %237
-  %244 = add nuw nsw i64 %238, 1
-  %245 = icmp eq i64 %244, %236
-  br i1 %245, label %.thread, label %237, !llvm.loop !18
+239:                                              ; preds = %233
+  %240 = add nuw nsw i64 %234, 1
+  %241 = icmp eq i64 %240, %232
+  br i1 %241, label %.thread, label %233, !llvm.loop !18
 
-246:                                              ; preds = %237
-  %247 = trunc i64 %238 to i32
-  br label %248
+242:                                              ; preds = %233
+  %243 = trunc i64 %234 to i32
+  br label %244
 
-248:                                              ; preds = %246, %224
-  %249 = phi i32 [ 2, %224 ], [ %247, %246 ]
-  %250 = icmp ne i32 %249, %231
-  %251 = icmp ne i64 %228, 0
-  %252 = select i1 %250, i1 %251, i1 false
-  br i1 %252, label %255, label %.thread
+244:                                              ; preds = %242, %220
+  %245 = phi i32 [ 2, %220 ], [ %243, %242 ]
+  %246 = icmp ne i32 %245, %227
+  %247 = icmp ne i64 %224, 0
+  %248 = select i1 %246, i1 %247, i1 false
+  br i1 %248, label %251, label %.thread
 
-.thread:                                          ; preds = %243, %248
-  %253 = load i32, ptr %4, align 4
-  %254 = zext i32 %253 to i64
-  br label %255
+.thread:                                          ; preds = %239, %244
+  %249 = load i32, ptr %4, align 4
+  %250 = zext i32 %249 to i64
+  br label %251
 
-255:                                              ; preds = %.thread, %248, %196, %65
-  %256 = phi i64 [ %228, %248 ], [ %254, %.thread ], [ %69, %196 ], [ %69, %65 ]
-  %257 = trunc i64 %256 to i32
-  %258 = load ptr, ptr %61, align 8
-  %259 = getelementptr inbounds i8, ptr %258, i64 8
-  %260 = load ptr, ptr %259, align 8
-  %sext = shl i64 %256, 32
-  %261 = ashr exact i64 %sext, 32
-  %262 = call i32 @acpi_execute_simple_method(ptr noundef %260, ptr noundef nonnull @.str.45, i64 noundef %261) #18
-  %263 = icmp eq i32 %262, 0
-  br i1 %263, label %268, label %264
+251:                                              ; preds = %.thread, %244, %192, %65
+  %252 = phi i64 [ %224, %244 ], [ %250, %.thread ], [ %69, %192 ], [ %69, %65 ]
+  %253 = trunc i64 %252 to i32
+  %254 = load ptr, ptr %61, align 8
+  %255 = getelementptr inbounds i8, ptr %254, i64 8
+  %256 = load ptr, ptr %255, align 8
+  %sext = shl i64 %252, 32
+  %257 = ashr exact i64 %sext, 32
+  %258 = call i32 @acpi_execute_simple_method(ptr noundef %256, ptr noundef nonnull @.str.45, i64 noundef %257) #18
+  %259 = icmp eq i32 %258, 0
+  br i1 %259, label %264, label %260
 
-264:                                              ; preds = %255
-  %265 = load ptr, ptr %61, align 8
-  %266 = getelementptr inbounds i8, ptr %265, i64 8
-  %267 = load ptr, ptr %266, align 8
-  call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str, ptr noundef %267, ptr noundef nonnull @.str.46) #18
+260:                                              ; preds = %251
+  %261 = load ptr, ptr %61, align 8
+  %262 = getelementptr inbounds i8, ptr %261, i64 8
+  %263 = load ptr, ptr %262, align 8
+  call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str, ptr noundef %263, ptr noundef nonnull @.str.46) #18
   br label %acpi_video_device_lcd_set_level.exit18
 
-268:                                              ; preds = %255
-  %269 = load ptr, ptr %67, align 8
-  store i32 %257, ptr %269, align 8
-  %270 = load ptr, ptr %67, align 8
-  %271 = getelementptr inbounds i8, ptr %270, i64 4
-  %272 = load i32, ptr %271, align 4
-  %273 = icmp sgt i32 %272, 2
-  br i1 %273, label %274, label %.loopexit.i15
+264:                                              ; preds = %251
+  %265 = load ptr, ptr %67, align 8
+  store i32 %253, ptr %265, align 8
+  %266 = load ptr, ptr %67, align 8
+  %267 = getelementptr inbounds i8, ptr %266, i64 4
+  %268 = load i32, ptr %267, align 4
+  %269 = icmp sgt i32 %268, 2
+  br i1 %269, label %270, label %.loopexit.i15
 
-274:                                              ; preds = %268
-  %275 = getelementptr inbounds i8, ptr %270, i64 8
-  %276 = load ptr, ptr %275, align 8
-  %277 = zext nneg i32 %272 to i64
-  br label %278
+270:                                              ; preds = %264
+  %271 = getelementptr inbounds i8, ptr %266, i64 8
+  %272 = load ptr, ptr %271, align 8
+  %273 = zext nneg i32 %268 to i64
+  br label %274
 
-278:                                              ; preds = %289, %274
-  %indvars.iv.i16 = phi i64 [ %indvars.iv.next.i17, %289 ], [ 2, %274 ]
-  %279 = getelementptr i32, ptr %276, i64 %indvars.iv.i16
-  %280 = load i32, ptr %279, align 4
-  %281 = icmp eq i32 %280, %257
-  br i1 %281, label %282, label %289
+274:                                              ; preds = %285, %270
+  %indvars.iv.i16 = phi i64 [ %indvars.iv.next.i17, %285 ], [ 2, %270 ]
+  %275 = getelementptr i32, ptr %272, i64 %indvars.iv.i16
+  %276 = load i32, ptr %275, align 4
+  %277 = icmp eq i32 %276, %253
+  br i1 %277, label %278, label %285
+
+278:                                              ; preds = %274
+  %279 = getelementptr i8, ptr %24, i64 136
+  %280 = load ptr, ptr %279, align 8
+  %281 = icmp eq ptr %280, null
+  br i1 %281, label %293, label %282
 
 282:                                              ; preds = %278
-  %283 = getelementptr i8, ptr %24, i64 136
-  %284 = load ptr, ptr %283, align 8
-  %285 = icmp eq ptr %284, null
-  br i1 %285, label %297, label %286
+  %283 = trunc i64 %indvars.iv.i16 to i32
+  %284 = add nsw i32 %283, -2
+  store i32 %284, ptr %280, align 8
+  br label %293
 
-286:                                              ; preds = %282
-  %287 = trunc i64 %indvars.iv.i16 to i32
-  %288 = add nsw i32 %287, -2
-  store i32 %288, ptr %284, align 8
-  br label %297
-
-289:                                              ; preds = %278
+285:                                              ; preds = %274
   %indvars.iv.next.i17 = add nuw nsw i64 %indvars.iv.i16, 1
-  %290 = icmp eq i64 %indvars.iv.next.i17, %277
-  br i1 %290, label %.loopexit.i15, label %278, !llvm.loop !17
+  %286 = icmp eq i64 %indvars.iv.next.i17, %273
+  br i1 %286, label %.loopexit.i15, label %274, !llvm.loop !17
 
-.loopexit.i15:                                    ; preds = %289, %268
-  %291 = load ptr, ptr %61, align 8
-  %292 = getelementptr inbounds i8, ptr %291, i64 8
-  %293 = load ptr, ptr %292, align 8
-  call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str, ptr noundef %293, ptr noundef nonnull @.str.47) #18
+.loopexit.i15:                                    ; preds = %285, %264
+  %287 = load ptr, ptr %61, align 8
+  %288 = getelementptr inbounds i8, ptr %287, i64 8
+  %289 = load ptr, ptr %288, align 8
+  call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str, ptr noundef %289, ptr noundef nonnull @.str.47) #18
   br label %acpi_video_device_lcd_set_level.exit18
 
-acpi_video_device_lcd_set_level.exit18:           ; preds = %.loopexit.i15, %264, %acpi_video_device_lcd_set_level.exit
-  %294 = load ptr, ptr %6, align 8
-  %295 = getelementptr inbounds i8, ptr %294, i64 8
-  %296 = load ptr, ptr %295, align 8
-  call void @kfree(ptr noundef %296) #18
-  call void @kfree(ptr noundef %294) #18
+acpi_video_device_lcd_set_level.exit18:           ; preds = %.loopexit.i15, %260, %acpi_video_device_lcd_set_level.exit
+  %290 = load ptr, ptr %6, align 8
+  %291 = getelementptr inbounds i8, ptr %290, i64 8
+  %292 = load ptr, ptr %291, align 8
+  call void @kfree(ptr noundef %292) #18
+  call void @kfree(ptr noundef %290) #18
   store ptr null, ptr %67, align 8
-  br label %377
+  br label %373
 
-297:                                              ; preds = %286, %282
+293:                                              ; preds = %282, %278
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #18
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #18
+  %294 = load i32, ptr @acpi_video_dev_register_backlight.count, align 4
+  %295 = call noalias ptr (i32, ptr, ...) @kasprintf(i32 noundef 3264, ptr noundef nonnull @.str.53, i32 noundef %294) #18
+  %296 = icmp eq ptr %295, null
+  br i1 %296, label %374, label %297
+
+297:                                              ; preds = %293
   %298 = load i32, ptr @acpi_video_dev_register_backlight.count, align 4
-  %299 = call noalias ptr (i32, ptr, ...) @kasprintf(i32 noundef 3264, ptr noundef nonnull @.str.53, i32 noundef %298) #18
-  %300 = icmp eq ptr %299, null
-  br i1 %300, label %378, label %301
+  %299 = add i32 %298, 1
+  store i32 %299, ptr @acpi_video_dev_register_backlight.count, align 4
+  %300 = load ptr, ptr %61, align 8
+  %301 = getelementptr inbounds i8, ptr %300, i64 8
+  %302 = load ptr, ptr %301, align 8
+  %303 = call i32 @acpi_get_parent(ptr noundef %302, ptr noundef nonnull %8) #18
+  %304 = icmp eq i32 %303, 0
+  br i1 %304, label %305, label %311
 
-301:                                              ; preds = %297
-  %302 = load i32, ptr @acpi_video_dev_register_backlight.count, align 4
-  %303 = add i32 %302, 1
-  store i32 %303, ptr @acpi_video_dev_register_backlight.count, align 4
-  %304 = load ptr, ptr %61, align 8
-  %305 = getelementptr inbounds i8, ptr %304, i64 8
-  %306 = load ptr, ptr %305, align 8
-  %307 = call i32 @acpi_get_parent(ptr noundef %306, ptr noundef nonnull %8) #18
-  %308 = icmp eq i32 %307, 0
-  br i1 %308, label %309, label %315
+305:                                              ; preds = %297
+  %306 = load ptr, ptr %8, align 8
+  %307 = call ptr @acpi_get_pci_dev(ptr noundef %306) #18
+  %308 = icmp eq ptr %307, null
+  br i1 %308, label %311, label %309
 
-309:                                              ; preds = %301
-  %310 = load ptr, ptr %8, align 8
-  %311 = call ptr @acpi_get_pci_dev(ptr noundef %310) #18
-  %312 = icmp eq ptr %311, null
-  br i1 %312, label %315, label %313
+309:                                              ; preds = %305
+  %310 = getelementptr inbounds i8, ptr %307, i64 184
+  call void @pci_dev_put(ptr noundef nonnull %307) #18
+  br label %311
 
-313:                                              ; preds = %309
-  %314 = getelementptr inbounds i8, ptr %311, i64 184
-  call void @pci_dev_put(ptr noundef nonnull %311) #18
-  br label %315
-
-315:                                              ; preds = %313, %309, %301
-  %316 = phi ptr [ null, %301 ], [ %314, %313 ], [ null, %309 ]
+311:                                              ; preds = %309, %305, %297
+  %312 = phi ptr [ null, %297 ], [ %310, %309 ], [ null, %305 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %7, i8 0, i64 28, i1 false)
   store i32 3, ptr %21, align 4
-  %317 = load ptr, ptr %67, align 8
-  %318 = getelementptr inbounds i8, ptr %317, i64 4
-  %319 = load i32, ptr %318, align 4
-  %320 = add i32 %319, -3
-  store i32 %320, ptr %22, align 4
-  %321 = call ptr @backlight_device_register(ptr noundef nonnull %299, ptr noundef %316, ptr noundef %25, ptr noundef nonnull @acpi_backlight_ops, ptr noundef nonnull %7) #18
-  store ptr %321, ptr %283, align 8
-  call void @kfree(ptr noundef nonnull %299) #18
-  %322 = load ptr, ptr %283, align 8
-  %323 = icmp ugt ptr %322, inttoptr (i64 -4096 to ptr)
-  br i1 %323, label %324, label %325
+  %313 = load ptr, ptr %67, align 8
+  %314 = getelementptr inbounds i8, ptr %313, i64 4
+  %315 = load i32, ptr %314, align 4
+  %316 = add i32 %315, -3
+  store i32 %316, ptr %22, align 4
+  %317 = call ptr @backlight_device_register(ptr noundef nonnull %295, ptr noundef %312, ptr noundef %25, ptr noundef nonnull @acpi_backlight_ops, ptr noundef nonnull %7) #18
+  store ptr %317, ptr %279, align 8
+  call void @kfree(ptr noundef nonnull %295) #18
+  %318 = load ptr, ptr %279, align 8
+  %319 = icmp ugt ptr %318, inttoptr (i64 -4096 to ptr)
+  br i1 %319, label %320, label %321
 
-324:                                              ; preds = %315
-  store ptr null, ptr %283, align 8
-  br label %378
+320:                                              ; preds = %311
+  store ptr null, ptr %279, align 8
+  br label %374
 
-325:                                              ; preds = %315
+321:                                              ; preds = %311
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #18
   store i64 0, ptr %2, align 8, !annotation !10
-  %326 = getelementptr inbounds i8, ptr %322, i64 264
-  %327 = load ptr, ptr %326, align 8
-  call fastcc void @acpi_video_device_lcd_get_level_current(ptr noundef %327, ptr noundef nonnull %2)
-  %328 = getelementptr inbounds i8, ptr %327, i64 144
-  %329 = load ptr, ptr %328, align 8
-  %330 = getelementptr inbounds i8, ptr %329, i64 4
-  %331 = load i32, ptr %330, align 4
-  %332 = icmp sgt i32 %331, 2
-  br i1 %332, label %333, label %.loopexit
+  %322 = getelementptr inbounds i8, ptr %318, i64 264
+  %323 = load ptr, ptr %322, align 8
+  call fastcc void @acpi_video_device_lcd_get_level_current(ptr noundef %323, ptr noundef nonnull %2)
+  %324 = getelementptr inbounds i8, ptr %323, i64 144
+  %325 = load ptr, ptr %324, align 8
+  %326 = getelementptr inbounds i8, ptr %325, i64 4
+  %327 = load i32, ptr %326, align 4
+  %328 = icmp sgt i32 %327, 2
+  br i1 %328, label %329, label %.loopexit
 
-333:                                              ; preds = %325
-  %334 = getelementptr inbounds i8, ptr %329, i64 8
-  %335 = load ptr, ptr %334, align 8
-  %336 = load i64, ptr %2, align 8
-  %337 = zext nneg i32 %331 to i64
-  br label %338
+329:                                              ; preds = %321
+  %330 = getelementptr inbounds i8, ptr %325, i64 8
+  %331 = load ptr, ptr %330, align 8
+  %332 = load i64, ptr %2, align 8
+  %333 = zext nneg i32 %327 to i64
+  br label %334
 
-338:                                              ; preds = %347, %333
-  %339 = phi i64 [ %348, %347 ], [ 2, %333 ]
-  %340 = getelementptr i32, ptr %335, i64 %339
-  %341 = load i32, ptr %340, align 4
-  %342 = sext i32 %341 to i64
-  %343 = icmp eq i64 %336, %342
-  br i1 %343, label %344, label %347
+334:                                              ; preds = %343, %329
+  %335 = phi i64 [ %344, %343 ], [ 2, %329 ]
+  %336 = getelementptr i32, ptr %331, i64 %335
+  %337 = load i32, ptr %336, align 4
+  %338 = sext i32 %337 to i64
+  %339 = icmp eq i64 %332, %338
+  br i1 %339, label %340, label %343
 
-344:                                              ; preds = %338
-  %345 = trunc i64 %339 to i32
-  %346 = add nsw i32 %345, -2
+340:                                              ; preds = %334
+  %341 = trunc i64 %335 to i32
+  %342 = add nsw i32 %341, -2
   br label %.loopexit
 
-347:                                              ; preds = %338
-  %348 = add nuw nsw i64 %339, 1
-  %349 = icmp eq i64 %348, %337
-  br i1 %349, label %.loopexit, label %338, !llvm.loop !19
+343:                                              ; preds = %334
+  %344 = add nuw nsw i64 %335, 1
+  %345 = icmp eq i64 %344, %333
+  br i1 %345, label %.loopexit, label %334, !llvm.loop !19
 
-.loopexit:                                        ; preds = %347, %344, %325
-  %350 = phi i32 [ %346, %344 ], [ 0, %325 ], [ 0, %347 ]
+.loopexit:                                        ; preds = %343, %340, %321
+  %346 = phi i32 [ %342, %340 ], [ 0, %321 ], [ 0, %343 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #18
-  %351 = load ptr, ptr %283, align 8
-  store i32 %350, ptr %351, align 8
-  %352 = call ptr @thermal_cooling_device_register(ptr noundef nonnull @.str.54, ptr noundef %25, ptr noundef nonnull @video_cooling_ops) #18
-  %353 = getelementptr i8, ptr %24, i64 144
-  store ptr %352, ptr %353, align 8
-  %354 = icmp ugt ptr %352, inttoptr (i64 -4096 to ptr)
-  br i1 %354, label %355, label %356
+  %347 = load ptr, ptr %279, align 8
+  store i32 %346, ptr %347, align 8
+  %348 = call ptr @thermal_cooling_device_register(ptr noundef nonnull @.str.54, ptr noundef %25, ptr noundef nonnull @video_cooling_ops) #18
+  %349 = getelementptr i8, ptr %24, i64 144
+  store ptr %348, ptr %349, align 8
+  %350 = icmp ugt ptr %348, inttoptr (i64 -4096 to ptr)
+  br i1 %350, label %351, label %352
 
-355:                                              ; preds = %.loopexit
-  store ptr null, ptr %353, align 8
-  br label %378
+351:                                              ; preds = %.loopexit
+  store ptr null, ptr %349, align 8
+  br label %374
 
-356:                                              ; preds = %.loopexit
-  %357 = load ptr, ptr %61, align 8
-  %358 = getelementptr inbounds i8, ptr %357, i64 616
-  %359 = load i32, ptr %352, align 8
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %358, ptr noundef nonnull @.str.55, i32 noundef %359) #21
-  %360 = load ptr, ptr %61, align 8
-  %361 = getelementptr inbounds i8, ptr %360, i64 616
-  %362 = load ptr, ptr %353, align 8
-  %363 = getelementptr inbounds i8, ptr %362, i64 24
-  %364 = call i32 @sysfs_create_link(ptr noundef %361, ptr noundef %363, ptr noundef nonnull @.str.51) #18
-  %365 = icmp eq i32 %364, 0
-  br i1 %365, label %368, label %366
+352:                                              ; preds = %.loopexit
+  %353 = load ptr, ptr %61, align 8
+  %354 = getelementptr inbounds i8, ptr %353, i64 616
+  %355 = load i32, ptr %348, align 8
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %354, ptr noundef nonnull @.str.55, i32 noundef %355) #21
+  %356 = load ptr, ptr %61, align 8
+  %357 = getelementptr inbounds i8, ptr %356, i64 616
+  %358 = load ptr, ptr %349, align 8
+  %359 = getelementptr inbounds i8, ptr %358, i64 24
+  %360 = call i32 @sysfs_create_link(ptr noundef %357, ptr noundef %359, ptr noundef nonnull @.str.51) #18
+  %361 = icmp eq i32 %360, 0
+  br i1 %361, label %364, label %362
 
-366:                                              ; preds = %356
-  %367 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.56) #21
-  br label %368
+362:                                              ; preds = %352
+  %363 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.56) #21
+  br label %364
 
-368:                                              ; preds = %366, %356
-  %369 = load ptr, ptr %353, align 8
-  %370 = getelementptr inbounds i8, ptr %369, i64 24
-  %371 = load ptr, ptr %61, align 8
-  %372 = getelementptr inbounds i8, ptr %371, i64 616
-  %373 = call i32 @sysfs_create_link(ptr noundef %370, ptr noundef %372, ptr noundef nonnull @.str.52) #18
-  %374 = icmp eq i32 %373, 0
-  br i1 %374, label %378, label %375
+364:                                              ; preds = %362, %352
+  %365 = load ptr, ptr %349, align 8
+  %366 = getelementptr inbounds i8, ptr %365, i64 24
+  %367 = load ptr, ptr %61, align 8
+  %368 = getelementptr inbounds i8, ptr %367, i64 616
+  %369 = call i32 @sysfs_create_link(ptr noundef %366, ptr noundef %368, ptr noundef nonnull @.str.52) #18
+  %370 = icmp eq i32 %369, 0
+  br i1 %370, label %374, label %371
 
-375:                                              ; preds = %368
-  %376 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.57) #21
-  br label %378
+371:                                              ; preds = %364
+  %372 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.57) #21
+  br label %374
 
-377:                                              ; preds = %acpi_video_device_lcd_set_level.exit18, %60
+373:                                              ; preds = %acpi_video_device_lcd_set_level.exit18, %60
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #18
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #18
-  br label %378
+  br label %374
 
-378:                                              ; preds = %377, %375, %368, %355, %324, %297
+374:                                              ; preds = %373, %371, %364, %351, %320, %293
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #18
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %7) #18
-  br label %379
+  br label %375
 
-379:                                              ; preds = %378, %55, %51
-  %380 = load ptr, ptr %24, align 8
-  %381 = icmp eq ptr %380, %17
-  br i1 %381, label %.loopexit19, label %23, !llvm.loop !20
+375:                                              ; preds = %374, %55, %51
+  %376 = load ptr, ptr %24, align 8
+  %377 = icmp eq ptr %376, %17
+  br i1 %377, label %.loopexit19, label %23, !llvm.loop !20
 
-.loopexit19:                                      ; preds = %379, %15
+.loopexit19:                                      ; preds = %375, %15
   call void @mutex_unlock(ptr noundef %16) #18
   store i8 1, ptr %9, align 8
-  %382 = getelementptr inbounds i8, ptr %0, i64 136
-  store ptr @acpi_video_resume, ptr %382, align 8
-  %383 = getelementptr inbounds i8, ptr %0, i64 152
-  store i32 0, ptr %383, align 8
-  %384 = call i32 @register_pm_notifier(ptr noundef %382) #18
-  br label %385
+  %378 = getelementptr inbounds i8, ptr %0, i64 136
+  store ptr @acpi_video_resume, ptr %378, align 8
+  %379 = getelementptr inbounds i8, ptr %0, i64 152
+  store i32 0, ptr %379, align 8
+  %380 = call i32 @register_pm_notifier(ptr noundef %378) #18
+  br label %381
 
-385:                                              ; preds = %.loopexit19, %12, %1
+381:                                              ; preds = %.loopexit19, %12, %1
   ret void
 }
 

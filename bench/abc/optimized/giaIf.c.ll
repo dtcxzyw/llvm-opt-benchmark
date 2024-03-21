@@ -5542,7 +5542,7 @@ Vec_IntFree.exit:                                 ; preds = %214, %217
   br i1 %or.cond3, label %226, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %222
-  %wide.trip.count = and i64 %223, 2147483647
+  %wide.trip.count = and i64 %223, 4294967295
   br label %.lr.ph
 
 226:                                              ; preds = %222

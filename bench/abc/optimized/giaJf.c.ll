@@ -1617,7 +1617,7 @@ Vec_IntFreeP.exit:                                ; preds = %2, %10, %.thread.i
   %19 = getelementptr inbounds i8, ptr %1, i64 92
   %20 = load i32, ptr %19, align 4
   %.not34 = icmp eq i32 %20, 0
-  br i1 %.not34, label %21, label %61
+  br i1 %.not34, label %21, label %60
 
 21:                                               ; preds = %18
   %22 = load i32, ptr %1, align 8
@@ -1668,289 +1668,279 @@ Abc_PrimeCudd.exit.i.i:                           ; preds = %.preheader.i.i.i, %
   %41 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #28
   %or.cond.i.i.i.i = icmp ult i32 %.012.i.i.i, 15
   %spec.store.select.i.i.i.i = select i1 %or.cond.i.i.i.i, i32 16, i32 %34
-  %42 = getelementptr inbounds i8, ptr %41, i64 4
   store i32 %spec.store.select.i.i.i.i, ptr %41, align 8
-  %.not.i.i.i.i = icmp eq i32 %spec.store.select.i.i.i.i, 0
-  br i1 %.not.i.i.i.i, label %Vec_IntAlloc.exit.thread.i.i.i, label %Vec_IntAlloc.exit.i.i.i
-
-Vec_IntAlloc.exit.thread.i.i.i:                   ; preds = %Abc_PrimeCudd.exit.i.i
-  %43 = getelementptr inbounds i8, ptr %41, i64 8
-  store ptr null, ptr %43, align 8
+  %42 = getelementptr inbounds i8, ptr %41, i64 4
+  %43 = sext i32 %spec.store.select.i.i.i.i to i64
+  %44 = shl nsw i64 %43, 2
+  %45 = tail call noalias ptr @malloc(i64 noundef %44) #28
+  %46 = getelementptr inbounds i8, ptr %41, i64 8
+  store ptr %45, ptr %46, align 8
   store i32 %34, ptr %42, align 4
+  %.not.i3.i.i = icmp eq ptr %45, null
+  br i1 %.not.i3.i.i, label %Vec_MemHashAlloc.exit.i, label %47
+
+47:                                               ; preds = %Abc_PrimeCudd.exit.i.i
+  %48 = sext i32 %34 to i64
+  %49 = shl nsw i64 %48, 2
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %45, i8 -1, i64 %49, i1 false)
   br label %Vec_MemHashAlloc.exit.i
 
-Vec_IntAlloc.exit.i.i.i:                          ; preds = %Abc_PrimeCudd.exit.i.i
-  %44 = sext i32 %spec.store.select.i.i.i.i to i64
-  %45 = shl nsw i64 %44, 2
-  %46 = tail call noalias ptr @malloc(i64 noundef %45) #28
-  %47 = getelementptr inbounds i8, ptr %41, i64 8
-  store ptr %46, ptr %47, align 8
-  store i32 %34, ptr %42, align 4
-  %.not.i3.i.i = icmp eq ptr %46, null
-  br i1 %.not.i3.i.i, label %Vec_MemHashAlloc.exit.i, label %48
-
-48:                                               ; preds = %Vec_IntAlloc.exit.i.i.i
-  %49 = sext i32 %34 to i64
-  %50 = shl nsw i64 %49, 2
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %46, i8 -1, i64 %50, i1 false)
-  br label %Vec_MemHashAlloc.exit.i
-
-Vec_MemHashAlloc.exit.i:                          ; preds = %48, %Vec_IntAlloc.exit.i.i.i, %Vec_IntAlloc.exit.thread.i.i.i
-  %51 = getelementptr inbounds i8, ptr %30, i64 32
-  store ptr %41, ptr %51, align 8
-  %52 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #28
-  %53 = getelementptr inbounds i8, ptr %52, i64 4
-  store i32 0, ptr %53, align 4
-  store i32 10000, ptr %52, align 8
-  %54 = tail call noalias dereferenceable_or_null(40000) ptr @malloc(i64 noundef 40000) #28
-  %55 = getelementptr inbounds i8, ptr %52, i64 8
-  store ptr %54, ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %30, i64 40
-  store ptr %52, ptr %56, align 8
+Vec_MemHashAlloc.exit.i:                          ; preds = %47, %Abc_PrimeCudd.exit.i.i
+  %50 = getelementptr inbounds i8, ptr %30, i64 32
+  store ptr %41, ptr %50, align 8
+  %51 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #28
+  %52 = getelementptr inbounds i8, ptr %51, i64 4
+  store i32 0, ptr %52, align 4
+  store i32 10000, ptr %51, align 8
+  %53 = tail call noalias dereferenceable_or_null(40000) ptr @malloc(i64 noundef 40000) #28
+  %54 = getelementptr inbounds i8, ptr %51, i64 8
+  store ptr %53, ptr %54, align 8
+  %55 = getelementptr inbounds i8, ptr %30, i64 40
+  store ptr %51, ptr %55, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %29, i8 0, i64 %28, i1 false)
-  %57 = tail call fastcc i32 @Vec_MemHashInsert(ptr noundef nonnull %30, ptr noundef %29)
+  %56 = tail call fastcc i32 @Vec_MemHashInsert(ptr noundef nonnull %30, ptr noundef %29)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %29, i8 -86, i64 %28, i1 false)
-  %58 = tail call fastcc i32 @Vec_MemHashInsert(ptr noundef nonnull %30, ptr noundef %29)
+  %57 = tail call fastcc i32 @Vec_MemHashInsert(ptr noundef nonnull %30, ptr noundef %29)
   %.not.i44 = icmp eq ptr %29, null
-  br i1 %.not.i44, label %Vec_MemAllocForTT.exit, label %59
+  br i1 %.not.i44, label %Vec_MemAllocForTT.exit, label %58
 
-59:                                               ; preds = %Vec_MemHashAlloc.exit.i
+58:                                               ; preds = %Vec_MemHashAlloc.exit.i
   tail call void @free(ptr noundef nonnull %29) #29
   br label %Vec_MemAllocForTT.exit
 
-Vec_MemAllocForTT.exit:                           ; preds = %Vec_MemHashAlloc.exit.i, %59
-  %60 = getelementptr inbounds i8, ptr %14, i64 32
-  store ptr %30, ptr %60, align 8
+Vec_MemAllocForTT.exit:                           ; preds = %Vec_MemHashAlloc.exit.i, %58
+  %59 = getelementptr inbounds i8, ptr %14, i64 32
+  store ptr %30, ptr %59, align 8
   br label %.thread
 
-61:                                               ; preds = %18
-  %62 = tail call ptr (...) @Sdm_ManRead() #29
-  %63 = getelementptr inbounds i8, ptr %14, i64 16
-  store ptr %62, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %1, i64 96
-  %65 = load i32, ptr %64, align 8
-  %.not37 = icmp eq i32 %65, 0
+60:                                               ; preds = %18
+  %61 = tail call ptr (...) @Sdm_ManRead() #29
+  %62 = getelementptr inbounds i8, ptr %14, i64 16
+  store ptr %61, ptr %62, align 8
+  %63 = getelementptr inbounds i8, ptr %1, i64 96
+  %64 = load i32, ptr %63, align 8
+  %.not37 = icmp eq i32 %64, 0
   br i1 %.not37, label %.thread, label %Vec_IntStart.exit
 
-Vec_IntStart.exit:                                ; preds = %61
-  %66 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #28
-  %67 = getelementptr inbounds i8, ptr %66, i64 4
-  store i32 595, ptr %66, align 8
+Vec_IntStart.exit:                                ; preds = %60
+  %65 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #28
+  %66 = getelementptr inbounds i8, ptr %65, i64 4
+  store i32 595, ptr %65, align 8
   %calloc = tail call dereferenceable_or_null(2380) ptr @calloc(i64 1, i64 2380)
-  %68 = getelementptr inbounds i8, ptr %66, i64 8
-  store ptr %calloc, ptr %68, align 8
-  store i32 595, ptr %67, align 4
-  %69 = getelementptr inbounds i8, ptr %14, i64 24
-  store ptr %66, ptr %69, align 8
-  tail call void @Sdm_ManReadCnfCosts(ptr noundef %62, ptr noundef %calloc, i32 noundef 595) #29
+  %67 = getelementptr inbounds i8, ptr %65, i64 8
+  store ptr %calloc, ptr %67, align 8
+  store i32 595, ptr %66, align 4
+  %68 = getelementptr inbounds i8, ptr %14, i64 24
+  store ptr %65, ptr %68, align 8
+  tail call void @Sdm_ManReadCnfCosts(ptr noundef %61, ptr noundef %calloc, i32 noundef 595) #29
   br label %.thread
 
-.thread:                                          ; preds = %Vec_IntFreeP.exit, %Vec_IntStart.exit, %61, %Vec_MemAllocForTT.exit
-  %70 = getelementptr i8, ptr %0, i64 24
-  %.val42 = load i32, ptr %70, align 8
+.thread:                                          ; preds = %Vec_IntFreeP.exit, %Vec_IntStart.exit, %60, %Vec_MemAllocForTT.exit
+  %69 = getelementptr i8, ptr %0, i64 24
+  %.val42 = load i32, ptr %69, align 8
   %.not.i.i = icmp sgt i32 %.val42, 0
   br i1 %.not.i.i, label %.lr.ph.i, label %Vec_IntFill.exit
 
 .lr.ph.i:                                         ; preds = %.thread
-  %71 = getelementptr inbounds i8, ptr %14, i64 40
-  %72 = getelementptr inbounds i8, ptr %14, i64 48
-  %73 = zext nneg i32 %.val42 to i64
-  %74 = shl nuw nsw i64 %73, 2
-  %75 = tail call noalias ptr @malloc(i64 noundef %74) #28
-  store ptr %75, ptr %72, align 8
-  store i32 %.val42, ptr %71, align 8
+  %70 = getelementptr inbounds i8, ptr %14, i64 40
+  %71 = getelementptr inbounds i8, ptr %14, i64 48
+  %72 = zext nneg i32 %.val42 to i64
+  %73 = shl nuw nsw i64 %72, 2
+  %74 = tail call noalias ptr @malloc(i64 noundef %73) #28
+  store ptr %74, ptr %71, align 8
+  store i32 %.val42, ptr %70, align 8
   %wide.trip.count.i = zext nneg i32 %.val42 to i64
-  %76 = shl nuw nsw i64 %wide.trip.count.i, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %75, i8 0, i64 %76, i1 false)
-  %.val41.pre = load i32, ptr %70, align 8
+  %75 = shl nuw nsw i64 %wide.trip.count.i, 2
+  tail call void @llvm.memset.p0.i64(ptr align 4 %74, i8 0, i64 %75, i1 false)
+  %.val41.pre = load i32, ptr %69, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %14, i64 56
   %.pre = load i32, ptr %.phi.trans.insert, align 8
   br label %Vec_IntFill.exit
 
 Vec_IntFill.exit:                                 ; preds = %.thread, %.lr.ph.i
-  %77 = phi i32 [ %.pre, %.lr.ph.i ], [ 0, %.thread ]
+  %76 = phi i32 [ %.pre, %.lr.ph.i ], [ 0, %.thread ]
   %.val41 = phi i32 [ %.val41.pre, %.lr.ph.i ], [ %.val42, %.thread ]
-  %78 = getelementptr inbounds i8, ptr %14, i64 44
-  store i32 %.val42, ptr %78, align 4
-  %79 = getelementptr inbounds i8, ptr %14, i64 56
-  %.not.i.i46 = icmp slt i32 %77, %.val41
-  br i1 %.not.i.i46, label %80, label %Vec_IntGrow.exit.i47
+  %77 = getelementptr inbounds i8, ptr %14, i64 44
+  store i32 %.val42, ptr %77, align 4
+  %78 = getelementptr inbounds i8, ptr %14, i64 56
+  %.not.i.i46 = icmp slt i32 %76, %.val41
+  br i1 %.not.i.i46, label %79, label %Vec_IntGrow.exit.i47
 
-80:                                               ; preds = %Vec_IntFill.exit
-  %81 = getelementptr inbounds i8, ptr %14, i64 64
-  %82 = load ptr, ptr %81, align 8
-  %.not9.i.i53 = icmp eq ptr %82, null
-  %83 = sext i32 %.val41 to i64
-  %84 = shl nsw i64 %83, 2
-  br i1 %.not9.i.i53, label %87, label %85
+79:                                               ; preds = %Vec_IntFill.exit
+  %80 = getelementptr inbounds i8, ptr %14, i64 64
+  %81 = load ptr, ptr %80, align 8
+  %.not9.i.i53 = icmp eq ptr %81, null
+  %82 = sext i32 %.val41 to i64
+  %83 = shl nsw i64 %82, 2
+  br i1 %.not9.i.i53, label %86, label %84
 
-85:                                               ; preds = %80
-  %86 = tail call ptr @realloc(ptr noundef nonnull %82, i64 noundef %84) #27
-  br label %89
+84:                                               ; preds = %79
+  %85 = tail call ptr @realloc(ptr noundef nonnull %81, i64 noundef %83) #27
+  br label %88
 
-87:                                               ; preds = %80
-  %88 = tail call noalias ptr @malloc(i64 noundef %84) #28
-  br label %89
+86:                                               ; preds = %79
+  %87 = tail call noalias ptr @malloc(i64 noundef %83) #28
+  br label %88
 
-89:                                               ; preds = %87, %85
-  %90 = phi ptr [ %86, %85 ], [ %88, %87 ]
-  store ptr %90, ptr %81, align 8
-  store i32 %.val41, ptr %79, align 8
+88:                                               ; preds = %86, %84
+  %89 = phi ptr [ %85, %84 ], [ %87, %86 ]
+  store ptr %89, ptr %80, align 8
+  store i32 %.val41, ptr %78, align 8
   br label %Vec_IntGrow.exit.i47
 
-Vec_IntGrow.exit.i47:                             ; preds = %89, %Vec_IntFill.exit
-  %91 = icmp sgt i32 %.val41, 0
-  br i1 %91, label %.lr.ph.i48, label %Vec_IntFill.exit54
+Vec_IntGrow.exit.i47:                             ; preds = %88, %Vec_IntFill.exit
+  %90 = icmp sgt i32 %.val41, 0
+  br i1 %90, label %.lr.ph.i48, label %Vec_IntFill.exit54
 
 .lr.ph.i48:                                       ; preds = %Vec_IntGrow.exit.i47
-  %92 = getelementptr inbounds i8, ptr %14, i64 64
+  %91 = getelementptr inbounds i8, ptr %14, i64 64
   %wide.trip.count.i49 = zext nneg i32 %.val41 to i64
-  %93 = load ptr, ptr %92, align 8
-  %94 = shl nuw nsw i64 %wide.trip.count.i49, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %93, i8 0, i64 %94, i1 false)
+  %92 = load ptr, ptr %91, align 8
+  %93 = shl nuw nsw i64 %wide.trip.count.i49, 2
+  tail call void @llvm.memset.p0.i64(ptr align 4 %92, i8 0, i64 %93, i1 false)
   br label %Vec_IntFill.exit54
 
 Vec_IntFill.exit54:                               ; preds = %.lr.ph.i48, %Vec_IntGrow.exit.i47
-  %95 = getelementptr inbounds i8, ptr %14, i64 60
-  store i32 %.val41, ptr %95, align 4
-  %96 = getelementptr inbounds i8, ptr %14, i64 72
-  %.val40 = load i32, ptr %70, align 8
-  %97 = load i32, ptr %96, align 8
-  %.not.i.i55 = icmp slt i32 %97, %.val40
-  br i1 %.not.i.i55, label %98, label %Vec_IntGrow.exit.i56
+  %94 = getelementptr inbounds i8, ptr %14, i64 60
+  store i32 %.val41, ptr %94, align 4
+  %95 = getelementptr inbounds i8, ptr %14, i64 72
+  %.val40 = load i32, ptr %69, align 8
+  %96 = load i32, ptr %95, align 8
+  %.not.i.i55 = icmp slt i32 %96, %.val40
+  br i1 %.not.i.i55, label %97, label %Vec_IntGrow.exit.i56
 
-98:                                               ; preds = %Vec_IntFill.exit54
-  %99 = getelementptr inbounds i8, ptr %14, i64 80
-  %100 = load ptr, ptr %99, align 8
-  %.not9.i.i62 = icmp eq ptr %100, null
-  %101 = sext i32 %.val40 to i64
-  %102 = shl nsw i64 %101, 2
-  br i1 %.not9.i.i62, label %105, label %103
+97:                                               ; preds = %Vec_IntFill.exit54
+  %98 = getelementptr inbounds i8, ptr %14, i64 80
+  %99 = load ptr, ptr %98, align 8
+  %.not9.i.i62 = icmp eq ptr %99, null
+  %100 = sext i32 %.val40 to i64
+  %101 = shl nsw i64 %100, 2
+  br i1 %.not9.i.i62, label %104, label %102
 
-103:                                              ; preds = %98
-  %104 = tail call ptr @realloc(ptr noundef nonnull %100, i64 noundef %102) #27
-  br label %107
+102:                                              ; preds = %97
+  %103 = tail call ptr @realloc(ptr noundef nonnull %99, i64 noundef %101) #27
+  br label %106
 
-105:                                              ; preds = %98
-  %106 = tail call noalias ptr @malloc(i64 noundef %102) #28
-  br label %107
+104:                                              ; preds = %97
+  %105 = tail call noalias ptr @malloc(i64 noundef %101) #28
+  br label %106
 
-107:                                              ; preds = %105, %103
-  %108 = phi ptr [ %104, %103 ], [ %106, %105 ]
-  store ptr %108, ptr %99, align 8
-  store i32 %.val40, ptr %96, align 8
+106:                                              ; preds = %104, %102
+  %107 = phi ptr [ %103, %102 ], [ %105, %104 ]
+  store ptr %107, ptr %98, align 8
+  store i32 %.val40, ptr %95, align 8
   br label %Vec_IntGrow.exit.i56
 
-Vec_IntGrow.exit.i56:                             ; preds = %107, %Vec_IntFill.exit54
-  %109 = icmp sgt i32 %.val40, 0
-  br i1 %109, label %.lr.ph.i57, label %Vec_IntFill.exit63
+Vec_IntGrow.exit.i56:                             ; preds = %106, %Vec_IntFill.exit54
+  %108 = icmp sgt i32 %.val40, 0
+  br i1 %108, label %.lr.ph.i57, label %Vec_IntFill.exit63
 
 .lr.ph.i57:                                       ; preds = %Vec_IntGrow.exit.i56
-  %110 = getelementptr inbounds i8, ptr %14, i64 80
+  %109 = getelementptr inbounds i8, ptr %14, i64 80
   %wide.trip.count.i58 = zext nneg i32 %.val40 to i64
-  %111 = load ptr, ptr %110, align 8
-  %112 = shl nuw nsw i64 %wide.trip.count.i58, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %111, i8 0, i64 %112, i1 false)
+  %110 = load ptr, ptr %109, align 8
+  %111 = shl nuw nsw i64 %wide.trip.count.i58, 2
+  tail call void @llvm.memset.p0.i64(ptr align 4 %110, i8 0, i64 %111, i1 false)
   br label %Vec_IntFill.exit63
 
 Vec_IntFill.exit63:                               ; preds = %.lr.ph.i57, %Vec_IntGrow.exit.i56
-  %113 = getelementptr inbounds i8, ptr %14, i64 76
-  store i32 %.val40, ptr %113, align 4
-  %114 = getelementptr inbounds i8, ptr %14, i64 88
-  %.val39 = load i32, ptr %70, align 8
-  %115 = load i32, ptr %114, align 8
-  %.not.i.i64 = icmp slt i32 %115, %.val39
-  br i1 %.not.i.i64, label %116, label %Vec_FltGrow.exit.i
+  %112 = getelementptr inbounds i8, ptr %14, i64 76
+  store i32 %.val40, ptr %112, align 4
+  %113 = getelementptr inbounds i8, ptr %14, i64 88
+  %.val39 = load i32, ptr %69, align 8
+  %114 = load i32, ptr %113, align 8
+  %.not.i.i64 = icmp slt i32 %114, %.val39
+  br i1 %.not.i.i64, label %115, label %Vec_FltGrow.exit.i
 
-116:                                              ; preds = %Vec_IntFill.exit63
-  %117 = getelementptr inbounds i8, ptr %14, i64 96
-  %118 = load ptr, ptr %117, align 8
-  %.not9.i.i70 = icmp eq ptr %118, null
-  %119 = sext i32 %.val39 to i64
-  %120 = shl nsw i64 %119, 2
-  br i1 %.not9.i.i70, label %123, label %121
+115:                                              ; preds = %Vec_IntFill.exit63
+  %116 = getelementptr inbounds i8, ptr %14, i64 96
+  %117 = load ptr, ptr %116, align 8
+  %.not9.i.i70 = icmp eq ptr %117, null
+  %118 = sext i32 %.val39 to i64
+  %119 = shl nsw i64 %118, 2
+  br i1 %.not9.i.i70, label %122, label %120
 
-121:                                              ; preds = %116
-  %122 = tail call ptr @realloc(ptr noundef nonnull %118, i64 noundef %120) #27
-  br label %125
+120:                                              ; preds = %115
+  %121 = tail call ptr @realloc(ptr noundef nonnull %117, i64 noundef %119) #27
+  br label %124
 
-123:                                              ; preds = %116
-  %124 = tail call noalias ptr @malloc(i64 noundef %120) #28
-  br label %125
+122:                                              ; preds = %115
+  %123 = tail call noalias ptr @malloc(i64 noundef %119) #28
+  br label %124
 
-125:                                              ; preds = %123, %121
-  %126 = phi ptr [ %122, %121 ], [ %124, %123 ]
-  store ptr %126, ptr %117, align 8
-  store i32 %.val39, ptr %114, align 8
+124:                                              ; preds = %122, %120
+  %125 = phi ptr [ %121, %120 ], [ %123, %122 ]
+  store ptr %125, ptr %116, align 8
+  store i32 %.val39, ptr %113, align 8
   br label %Vec_FltGrow.exit.i
 
-Vec_FltGrow.exit.i:                               ; preds = %125, %Vec_IntFill.exit63
-  %127 = icmp sgt i32 %.val39, 0
-  br i1 %127, label %.lr.ph.i65, label %Vec_FltFill.exit
+Vec_FltGrow.exit.i:                               ; preds = %124, %Vec_IntFill.exit63
+  %126 = icmp sgt i32 %.val39, 0
+  br i1 %126, label %.lr.ph.i65, label %Vec_FltFill.exit
 
 .lr.ph.i65:                                       ; preds = %Vec_FltGrow.exit.i
-  %128 = getelementptr inbounds i8, ptr %14, i64 96
+  %127 = getelementptr inbounds i8, ptr %14, i64 96
   %wide.trip.count.i66 = zext nneg i32 %.val39 to i64
-  %129 = load ptr, ptr %128, align 8
-  %130 = shl nuw nsw i64 %wide.trip.count.i66, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %129, i8 0, i64 %130, i1 false)
+  %128 = load ptr, ptr %127, align 8
+  %129 = shl nuw nsw i64 %wide.trip.count.i66, 2
+  tail call void @llvm.memset.p0.i64(ptr align 4 %128, i8 0, i64 %129, i1 false)
   br label %Vec_FltFill.exit
 
 Vec_FltFill.exit:                                 ; preds = %.lr.ph.i65, %Vec_FltGrow.exit.i
-  %131 = getelementptr inbounds i8, ptr %14, i64 92
-  store i32 %.val39, ptr %131, align 4
-  %.val38 = load i32, ptr %70, align 8
-  %132 = getelementptr inbounds i8, ptr %14, i64 104
-  %133 = getelementptr inbounds i8, ptr %14, i64 108
-  store i32 %.val38, ptr %133, align 4
-  store i32 %.val38, ptr %132, align 8
-  %134 = tail call ptr @Jf_ManInitRefs(ptr noundef nonnull %14)
-  %135 = getelementptr inbounds i8, ptr %14, i64 112
-  store ptr %134, ptr %135, align 8
-  %136 = getelementptr inbounds i8, ptr %14, i64 120
-  %137 = getelementptr inbounds i8, ptr %14, i64 128
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %137, i8 0, i64 16, i1 false)
-  store i32 20, ptr %136, align 8
-  %138 = getelementptr inbounds i8, ptr %14, i64 124
-  store i32 1048575, ptr %138, align 4
-  %139 = getelementptr inbounds i8, ptr %14, i64 140
-  store i32 256, ptr %139, align 4
-  %140 = tail call noalias dereferenceable_or_null(2048) ptr @calloc(i64 noundef 256, i64 noundef 8) #30
-  %141 = getelementptr inbounds i8, ptr %14, i64 144
-  store ptr %140, ptr %141, align 8
-  %142 = tail call noalias dereferenceable_or_null(8388608) ptr @malloc(i64 noundef 8388608) #28
-  store ptr %142, ptr %140, align 8
-  %143 = getelementptr inbounds i8, ptr %142, i64 8
-  store i64 -1, ptr %143, align 8
-  store i64 2, ptr %142, align 8
-  %144 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #28
-  %145 = getelementptr inbounds i8, ptr %144, i64 4
-  store i32 0, ptr %145, align 4
-  store i32 1000, ptr %144, align 8
-  %146 = tail call noalias dereferenceable_or_null(4000) ptr @malloc(i64 noundef 4000) #28
-  %147 = getelementptr inbounds i8, ptr %144, i64 8
-  store ptr %146, ptr %147, align 8
-  %148 = getelementptr inbounds i8, ptr %14, i64 152
-  store ptr %144, ptr %148, align 8
+  %130 = getelementptr inbounds i8, ptr %14, i64 92
+  store i32 %.val39, ptr %130, align 4
+  %.val38 = load i32, ptr %69, align 8
+  %131 = getelementptr inbounds i8, ptr %14, i64 104
+  %132 = getelementptr inbounds i8, ptr %14, i64 108
+  store i32 %.val38, ptr %132, align 4
+  store i32 %.val38, ptr %131, align 8
+  %133 = tail call ptr @Jf_ManInitRefs(ptr noundef nonnull %14)
+  %134 = getelementptr inbounds i8, ptr %14, i64 112
+  store ptr %133, ptr %134, align 8
+  %135 = getelementptr inbounds i8, ptr %14, i64 120
+  %136 = getelementptr inbounds i8, ptr %14, i64 128
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %136, i8 0, i64 16, i1 false)
+  store i32 20, ptr %135, align 8
+  %137 = getelementptr inbounds i8, ptr %14, i64 124
+  store i32 1048575, ptr %137, align 4
+  %138 = getelementptr inbounds i8, ptr %14, i64 140
+  store i32 256, ptr %138, align 4
+  %139 = tail call noalias dereferenceable_or_null(2048) ptr @calloc(i64 noundef 256, i64 noundef 8) #30
+  %140 = getelementptr inbounds i8, ptr %14, i64 144
+  store ptr %139, ptr %140, align 8
+  %141 = tail call noalias dereferenceable_or_null(8388608) ptr @malloc(i64 noundef 8388608) #28
+  store ptr %141, ptr %139, align 8
+  %142 = getelementptr inbounds i8, ptr %141, i64 8
+  store i64 -1, ptr %142, align 8
+  store i64 2, ptr %141, align 8
+  %143 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #28
+  %144 = getelementptr inbounds i8, ptr %143, i64 4
+  store i32 0, ptr %144, align 4
+  store i32 1000, ptr %143, align 8
+  %145 = tail call noalias dereferenceable_or_null(4000) ptr @malloc(i64 noundef 4000) #28
+  %146 = getelementptr inbounds i8, ptr %143, i64 8
+  store ptr %145, ptr %146, align 8
+  %147 = getelementptr inbounds i8, ptr %14, i64 152
+  store ptr %143, ptr %147, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %149 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #29
-  %150 = icmp slt i32 %149, 0
-  br i1 %150, label %Abc_Clock.exit, label %151
+  %148 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #29
+  %149 = icmp slt i32 %148, 0
+  br i1 %149, label %Abc_Clock.exit, label %150
 
-151:                                              ; preds = %Vec_FltFill.exit
-  %152 = load i64, ptr %3, align 8
-  %153 = mul nsw i64 %152, 1000000
-  %154 = getelementptr inbounds i8, ptr %3, i64 8
-  %155 = load i64, ptr %154, align 8
-  %156 = sdiv i64 %155, 1000
-  %157 = add nsw i64 %156, %153
+150:                                              ; preds = %Vec_FltFill.exit
+  %151 = load i64, ptr %3, align 8
+  %152 = mul nsw i64 %151, 1000000
+  %153 = getelementptr inbounds i8, ptr %3, i64 8
+  %154 = load i64, ptr %153, align 8
+  %155 = sdiv i64 %154, 1000
+  %156 = add nsw i64 %155, %152
   br label %Abc_Clock.exit
 
-Abc_Clock.exit:                                   ; preds = %Vec_FltFill.exit, %151
-  %.0.i = phi i64 [ %157, %151 ], [ -1, %Vec_FltFill.exit ]
+Abc_Clock.exit:                                   ; preds = %Vec_FltFill.exit, %150
+  %.0.i = phi i64 [ %156, %150 ], [ -1, %Vec_FltFill.exit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  %158 = getelementptr inbounds i8, ptr %14, i64 168
-  store i64 %.0.i, ptr %158, align 8
+  %157 = getelementptr inbounds i8, ptr %14, i64 168
+  store i64 %.0.i, ptr %157, align 8
   ret ptr %14
 }
 

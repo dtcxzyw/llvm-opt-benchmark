@@ -3566,15 +3566,11 @@ if.then73.i:                                      ; preds = %if.end69.i
   br label %if.end84.i
 
 if.end84.i:                                       ; preds = %for.cond54.i, %if.then73.i
-  %cmp8773.not.i = icmp eq i32 %num_langs.25892.i, 0
-  br i1 %cmp8773.not.i, label %write_accept_language.exit, label %for.body89.preheader.i
-
-for.body89.preheader.i:                           ; preds = %if.end84.i
   %wide.trip.count84.i = zext nneg i32 %num_langs.25892.i to i64
   br label %for.body89.i
 
-for.body89.i:                                     ; preds = %for.body89.i, %for.body89.preheader.i
-  %indvars.iv81.i = phi i64 [ 0, %for.body89.preheader.i ], [ %indvars.iv.next82.i, %for.body89.i ]
+for.body89.i:                                     ; preds = %for.body89.i, %if.end84.i
+  %indvars.iv81.i = phi i64 [ 0, %if.end84.i ], [ %indvars.iv.next82.i, %for.body89.i ]
   %arrayidx91.i = getelementptr inbounds ptr, ptr %call38.i, i64 %indvars.iv81.i
   %22 = load ptr, ptr %arrayidx91.i, align 8
   call void @free(ptr noundef %22) #21
@@ -3582,8 +3578,8 @@ for.body89.i:                                     ; preds = %for.body89.i, %for.
   %exitcond85.not.i = icmp eq i64 %indvars.iv.next82.i, %wide.trip.count84.i
   br i1 %exitcond85.not.i, label %write_accept_language.exit, label %for.body89.i, !llvm.loop !33
 
-write_accept_language.exit:                       ; preds = %for.body89.i, %do.end.i, %for.end52.i, %if.end84.i
-  %language_tags.399.i = phi ptr [ %call38.i, %if.end84.i ], [ %call38.i, %for.end52.i ], [ %language_tags.1.i, %do.end.i ], [ %call38.i, %for.body89.i ]
+write_accept_language.exit:                       ; preds = %for.body89.i, %do.end.i, %for.end52.i
+  %language_tags.399.i = phi ptr [ %call38.i, %for.end52.i ], [ %language_tags.1.i, %do.end.i ], [ %call38.i, %for.body89.i ]
   call void @free(ptr noundef %language_tags.399.i) #21
   %len.phi.trans.insert = getelementptr inbounds i8, ptr %buf, i64 8
   %.pre = load i64, ptr %len.phi.trans.insert, align 8

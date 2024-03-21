@@ -1627,13 +1627,13 @@ _ZNK3ue214RoseLiteralMap2atEj.exit.i.i.i:         ; preds = %cond.end.i.i.i.i.i.
   %storemerge.i.i.i.i.i.i.i.i.i = phi ptr [ %add.ptr15.i.i.i.i.i.i.i.i.i, %cond.end.i.i.i.i.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i34.i.i ]
   %_M_string_length.i.i93.i.i.i = getelementptr inbounds i8, ptr %storemerge.i.i.i.i.i.i.i.i.i, i64 8
   %141 = load i64, ptr %_M_string_length.i.i93.i.i.i, align 8
-  %conv45.i.i.i = zext nneg i32 %conv17.i.i.i to i64
-  %sub.i.i.i242 = sub nuw nsw i64 8, %conv45.i.i.i
-  %.sroa.speculated.i.i.i243 = call i64 @llvm.umin.i64(i64 %sub.i.i.i242, i64 %141)
-  %cmp.i.i.i.not118.i.i.i = icmp eq i64 %.sroa.speculated.i.i.i243, 0
+  %cmp.i.i.i.not118.i.i.i = icmp eq i64 %141, 0
   br i1 %cmp.i.i.i.not118.i.i.i, label %_ZN3ue2L13maskFromPredsERKNS_13RoseBuildImplERKNS_15rose_literal_idENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEERSt6vectorIhSaIhEESH_.exit.i.i, label %for.body.lr.ph.i.i.i
 
 for.body.lr.ph.i.i.i:                             ; preds = %_ZNK3ue214RoseLiteralMap2atEj.exit.i.i.i
+  %conv45.i.i.i = zext nneg i32 %conv17.i.i.i to i64
+  %sub.i.i.i242 = sub nuw nsw i64 8, %conv45.i.i.i
+  %.sroa.speculated.i.i.i243 = call i64 @llvm.umin.i64(i64 %sub.i.i.i242, i64 %141)
   %sub54.i.i.i = sub i64 %141, %.sroa.speculated.i.i.i243
   %142 = add nuw nsw i64 %.sroa.speculated.i.i.i243, %conv45.i.i.i
   %sub49.i.i.i = sub nsw i64 8, %142

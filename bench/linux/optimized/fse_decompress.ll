@@ -107,10 +107,10 @@ define internal fastcc noundef i64 @FSE_buildDTable_internal(ptr nocapture nound
   %64 = shl nuw nsw i64 %62, 1
   br label %.critedge
 
-65:                                               ; preds = %55, %.loopexit12
-  %66 = phi i64 [ %82, %.loopexit12 ], [ 0, %55 ]
-  %67 = phi i64 [ %83, %.loopexit12 ], [ 0, %55 ]
-  %68 = phi i64 [ %81, %.loopexit12 ], [ 0, %55 ]
+65:                                               ; preds = %.loopexit12, %55
+  %66 = phi i64 [ 0, %55 ], [ %82, %.loopexit12 ]
+  %67 = phi i64 [ 0, %55 ], [ %83, %.loopexit12 ]
+  %68 = phi i64 [ 0, %55 ], [ %81, %.loopexit12 ]
   %69 = getelementptr i16, ptr %1, i64 %66
   %70 = load i16, ptr %69, align 2
   %71 = getelementptr i8, ptr %10, i64 %68

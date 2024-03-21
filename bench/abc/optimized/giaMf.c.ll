@@ -196,57 +196,47 @@ Abc_PrimeCudd.exit.i:                             ; preds = %.preheader.i.i, %15
   %20 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #25
   %or.cond.i.i.i = icmp ult i32 %.012.i.i, 15
   %spec.store.select.i.i.i = select i1 %or.cond.i.i.i, i32 16, i32 %13
-  %21 = getelementptr inbounds i8, ptr %20, i64 4
   store i32 %spec.store.select.i.i.i, ptr %20, align 8
-  %.not.i.i.i = icmp eq i32 %spec.store.select.i.i.i, 0
-  br i1 %.not.i.i.i, label %Vec_IntAlloc.exit.thread.i.i, label %Vec_IntAlloc.exit.i.i
-
-Vec_IntAlloc.exit.thread.i.i:                     ; preds = %Abc_PrimeCudd.exit.i
-  %22 = getelementptr inbounds i8, ptr %20, i64 8
-  store ptr null, ptr %22, align 8
+  %21 = getelementptr inbounds i8, ptr %20, i64 4
+  %22 = sext i32 %spec.store.select.i.i.i to i64
+  %23 = shl nsw i64 %22, 2
+  %24 = tail call noalias ptr @malloc(i64 noundef %23) #25
+  %25 = getelementptr inbounds i8, ptr %20, i64 8
+  store ptr %24, ptr %25, align 8
   store i32 %13, ptr %21, align 4
+  %.not.i3.i = icmp eq ptr %24, null
+  br i1 %.not.i3.i, label %Vec_MemHashAlloc.exit, label %26
+
+26:                                               ; preds = %Abc_PrimeCudd.exit.i
+  %27 = sext i32 %13 to i64
+  %28 = shl nsw i64 %27, 2
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %24, i8 -1, i64 %28, i1 false)
   br label %Vec_MemHashAlloc.exit
 
-Vec_IntAlloc.exit.i.i:                            ; preds = %Abc_PrimeCudd.exit.i
-  %23 = sext i32 %spec.store.select.i.i.i to i64
-  %24 = shl nsw i64 %23, 2
-  %25 = tail call noalias ptr @malloc(i64 noundef %24) #25
-  %26 = getelementptr inbounds i8, ptr %20, i64 8
-  store ptr %25, ptr %26, align 8
-  store i32 %13, ptr %21, align 4
-  %.not.i3.i = icmp eq ptr %25, null
-  br i1 %.not.i3.i, label %Vec_MemHashAlloc.exit, label %27
-
-27:                                               ; preds = %Vec_IntAlloc.exit.i.i
-  %28 = sext i32 %13 to i64
-  %29 = shl nsw i64 %28, 2
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %25, i8 -1, i64 %29, i1 false)
-  br label %Vec_MemHashAlloc.exit
-
-Vec_MemHashAlloc.exit:                            ; preds = %Vec_IntAlloc.exit.thread.i.i, %Vec_IntAlloc.exit.i.i, %27
-  %30 = getelementptr inbounds i8, ptr %9, i64 32
-  store ptr %20, ptr %30, align 8
-  %31 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #25
-  %32 = getelementptr inbounds i8, ptr %31, i64 4
-  store i32 0, ptr %32, align 4
-  store i32 10000, ptr %31, align 8
-  %33 = tail call noalias dereferenceable_or_null(40000) ptr @malloc(i64 noundef 40000) #25
-  %34 = getelementptr inbounds i8, ptr %31, i64 8
-  store ptr %33, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %9, i64 40
-  store ptr %31, ptr %35, align 8
+Vec_MemHashAlloc.exit:                            ; preds = %Abc_PrimeCudd.exit.i, %26
+  %29 = getelementptr inbounds i8, ptr %9, i64 32
+  store ptr %20, ptr %29, align 8
+  %30 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #25
+  %31 = getelementptr inbounds i8, ptr %30, i64 4
+  store i32 0, ptr %31, align 4
+  store i32 10000, ptr %30, align 8
+  %32 = tail call noalias dereferenceable_or_null(40000) ptr @malloc(i64 noundef 40000) #25
+  %33 = getelementptr inbounds i8, ptr %30, i64 8
+  store ptr %32, ptr %33, align 8
+  %34 = getelementptr inbounds i8, ptr %9, i64 40
+  store ptr %30, ptr %34, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %8, i8 0, i64 %7, i1 false)
-  %36 = tail call fastcc i32 @Vec_MemHashInsert(ptr noundef nonnull %9, ptr noundef %8)
+  %35 = tail call fastcc i32 @Vec_MemHashInsert(ptr noundef nonnull %9, ptr noundef %8)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %8, i8 -86, i64 %7, i1 false)
-  %37 = tail call fastcc i32 @Vec_MemHashInsert(ptr noundef nonnull %9, ptr noundef %8)
+  %36 = tail call fastcc i32 @Vec_MemHashInsert(ptr noundef nonnull %9, ptr noundef %8)
   %.not = icmp eq ptr %8, null
-  br i1 %.not, label %39, label %38
+  br i1 %.not, label %38, label %37
 
-38:                                               ; preds = %Vec_MemHashAlloc.exit
+37:                                               ; preds = %Vec_MemHashAlloc.exit
   tail call void @free(ptr noundef nonnull %8) #27
-  br label %39
+  br label %38
 
-39:                                               ; preds = %Vec_MemHashAlloc.exit, %38
+38:                                               ; preds = %Vec_MemHashAlloc.exit, %37
   ret ptr %9
 }
 

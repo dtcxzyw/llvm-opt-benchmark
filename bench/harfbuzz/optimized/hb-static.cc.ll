@@ -3764,13 +3764,13 @@ if.end15:                                         ; preds = %_ZN2OT18TupleVariat
   %mul.i345 = mul nuw nsw i64 %conv.i344, 12
   %sub113 = add i32 %points.sroa.5.8.extract.trunc, -4
   %cond116 = select i1 %phantom_only, i32 %sub113, i32 0
-  %cmp117886 = icmp uge i32 %cond116, %points.sroa.5.8.extract.trunc
-  %cmp219892 = icmp ult i32 %cond116, %points.sroa.5.8.extract.trunc
+  %cmp117872 = icmp uge i32 %cond116, %points.sroa.5.8.extract.trunc
+  %cmp219878 = icmp ult i32 %cond116, %points.sroa.5.8.extract.trunc
   %41 = zext i32 %cond116 to i64
   %wide.trip.count = and i64 %points.coerce1, 4294967295
-  %wide.trip.count1026 = and i64 %points.coerce1, 4294967295
-  %wide.trip.count1031 = and i64 %points.coerce1, 4294967295
-  %wide.trip.count1036 = and i64 %points.coerce1, 4294967295
+  %wide.trip.count998 = and i64 %points.coerce1, 4294967295
+  %wide.trip.count1003 = and i64 %points.coerce1, 4294967295
+  %wide.trip.count1008 = and i64 %points.coerce1, 4294967295
   br label %do.body
 
 do.body:                                          ; preds = %_ZN2OT18TupleVariationData16tuple_iterator_t12move_to_nextEv.exit, %if.end15
@@ -4088,7 +4088,7 @@ while.body.i.i248:                                ; preds = %if.end.i.i242, %whi
 
 lor.rhs.i.i254:                                   ; preds = %while.body.i.i248
   %69 = icmp ugt i32 %add15.i.i252, 1073741823
-  br i1 %69, label %_ZN11hb_vector_tIiLb0EE5allocEjb.exit.thread17.i266, label %if.end23.i.i255
+  br i1 %69, label %if.then.i.i500, label %if.end23.i.i255
 
 if.end23.i.i255:                                  ; preds = %lor.rhs.i.i254
   %tobool.not.i.i.i256 = icmp eq i32 %add15.i.i252, 0
@@ -4107,11 +4107,7 @@ _ZN11hb_vector_tIiLb0EE14realloc_vectorIiTnPN12hb_enable_ifIXsr3std28is_triviall
 
 if.then28.i.i264:                                 ; preds = %_ZN11hb_vector_tIiLb0EE14realloc_vectorIiTnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPij11hb_priorityILj0EE.exit.i.i258
   %cmp30.not.i.i265 = icmp ugt i32 %add15.i.i252, %y_deltas.sroa.0.0
-  br i1 %cmp30.not.i.i265, label %_ZN11hb_vector_tIiLb0EE5allocEjb.exit.thread17.i266, label %if.end93
-
-_ZN11hb_vector_tIiLb0EE5allocEjb.exit.thread17.i266: ; preds = %if.then28.i.i264, %lor.rhs.i.i254
-  %new_allocated.128.sink.i.ph.i268 = xor i32 %y_deltas.sroa.0.0, -1
-  br label %cleanup
+  br i1 %cmp30.not.i.i265, label %if.then.i.i500, label %if.end93
 
 if.end93:                                         ; preds = %_ZN11hb_vector_tIiLb0EE14realloc_vectorIiTnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPij11hb_priorityILj0EE.exit.thread.i.i269, %_ZN11hb_vector_tIiLb0EE14realloc_vectorIiTnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPij11hb_priorityILj0EE.exit.i.i258, %if.then28.i.i264, %if.end.i.i242
   %y_deltas.sroa.0.2.ph = phi i32 [ 0, %_ZN11hb_vector_tIiLb0EE14realloc_vectorIiTnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPij11hb_priorityILj0EE.exit.thread.i.i269 ], [ %add15.i.i252, %_ZN11hb_vector_tIiLb0EE14realloc_vectorIiTnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPij11hb_priorityILj0EE.exit.i.i258 ], [ %y_deltas.sroa.0.0, %if.end.i.i242 ], [ %y_deltas.sroa.0.0, %if.then28.i.i264 ]
@@ -4147,10 +4143,10 @@ for.body.preheader.i292:                          ; preds = %for.cond.preheader.
   %74 = zext i32 %i.043.i276 to i64
   %wide.trip.count.i293 = zext i32 %add2.i282 to i64
   %75 = shl nuw nsw i64 %74, 2
-  %scevgep1011 = getelementptr i8, ptr %y_deltas.sroa.11.2.ph, i64 %75
+  %scevgep983 = getelementptr i8, ptr %y_deltas.sroa.11.2.ph, i64 %75
   %76 = sub nsw i64 %wide.trip.count.i293, %74
   %77 = shl nsw i64 %76, 2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep1011, i8 0, i64 %77, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep983, i8 0, i64 %77, i1 false)
   br label %if.end45.i288
 
 if.else.i299:                                     ; preds = %if.end5.i284
@@ -4305,8 +4301,8 @@ if.end108:                                        ; preds = %_ZN22contour_point_
   %orig_points.sroa.0.1 = phi ptr [ %orig_points.sroa.0.0, %if.then98 ], [ %orig_points_vec.sroa.13.2, %_ZN22contour_point_vector_t6extendERK10hb_array_tI15contour_point_tE.exit ]
   %87 = and i8 %flush.0, 1
   %tobool109.not = icmp eq i8 %87, 0
-  %brmerge915 = select i1 %tobool109.not, i1 true, i1 %cmp117886
-  br i1 %brmerge915, label %if.end122, label %for.body
+  %brmerge901 = select i1 %tobool109.not, i1 true, i1 %cmp117872
+  br i1 %brmerge901, label %if.end122, label %for.body
 
 for.body:                                         ; preds = %if.end108, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ %41, %if.end108 ]
@@ -4336,7 +4332,7 @@ if.end.i359:                                      ; preds = %if.end122
 
 if.end141:                                        ; preds = %if.end.i359, %if.end122
   %cmp142 = fcmp une float %call32, 1.000000e+00
-  %cmp174890.not = icmp eq i32 %cond84, 0
+  %cmp174876.not = icmp eq i32 %cond84, 0
   br i1 %cmp142, label %for.cond173.preheader, label %for.cond242.preheader
 
 if.end141.thread:                                 ; preds = %if.end96
@@ -4344,39 +4340,39 @@ if.end141.thread:                                 ; preds = %if.end96
   br i1 %cmp142710, label %if.then145, label %if.then210
 
 for.cond173.preheader:                            ; preds = %if.end141
-  br i1 %cmp174890.not, label %if.end278, label %for.body175.preheader
+  br i1 %cmp174876.not, label %if.end278, label %for.body175.preheader
 
 for.body175.preheader:                            ; preds = %for.cond173.preheader
   %92 = zext i32 %51 to i64
-  %wide.trip.count1021 = zext i32 %cond84 to i64
+  %wide.trip.count993 = zext i32 %cond84 to i64
   br label %for.body175
 
 if.then145:                                       ; preds = %if.end141.thread
-  br i1 %cmp219892, label %for.body155, label %do.cond
+  br i1 %cmp219878, label %for.body155, label %do.cond
 
 for.body155:                                      ; preds = %if.then145, %for.body155
-  %indvars.iv1028 = phi i64 [ %indvars.iv.next1029, %for.body155 ], [ %41, %if.then145 ]
-  %arrayidx158 = getelementptr inbounds %struct.contour_point_t, ptr %deltas.sroa.0.1, i64 %indvars.iv1028
-  %arrayidx161 = getelementptr inbounds i32, ptr %x_deltas.sroa.11.2.ph, i64 %indvars.iv1028
+  %indvars.iv1000 = phi i64 [ %indvars.iv.next1001, %for.body155 ], [ %41, %if.then145 ]
+  %arrayidx158 = getelementptr inbounds %struct.contour_point_t, ptr %deltas.sroa.0.1, i64 %indvars.iv1000
+  %arrayidx161 = getelementptr inbounds i32, ptr %x_deltas.sroa.11.2.ph, i64 %indvars.iv1000
   %93 = load i32, ptr %arrayidx161, align 4
   %conv162 = sitofp i32 %93 to float
   %94 = load float, ptr %arrayidx158, align 4
   %95 = call float @llvm.fmuladd.f32(float %conv162, float %call32, float %94)
   store float %95, ptr %arrayidx158, align 4
-  %arrayidx166 = getelementptr inbounds i32, ptr %y_deltas.sroa.11.2.ph, i64 %indvars.iv1028
+  %arrayidx166 = getelementptr inbounds i32, ptr %y_deltas.sroa.11.2.ph, i64 %indvars.iv1000
   %96 = load i32, ptr %arrayidx166, align 4
   %conv167 = sitofp i32 %96 to float
   %y = getelementptr inbounds i8, ptr %arrayidx158, i64 4
   %97 = load float, ptr %y, align 4
   %98 = call float @llvm.fmuladd.f32(float %conv167, float %call32, float %97)
   store float %98, ptr %y, align 4
-  %indvars.iv.next1029 = add nuw nsw i64 %indvars.iv1028, 1
-  %exitcond1032.not = icmp eq i64 %indvars.iv.next1029, %wide.trip.count1031
-  br i1 %exitcond1032.not, label %if.end278, label %for.body155, !llvm.loop !35
+  %indvars.iv.next1001 = add nuw nsw i64 %indvars.iv1000, 1
+  %exitcond1004.not = icmp eq i64 %indvars.iv.next1001, %wide.trip.count1003
+  br i1 %exitcond1004.not, label %if.end278, label %for.body155, !llvm.loop !35
 
 for.body175:                                      ; preds = %for.body175.preheader, %for.inc204
-  %indvars.iv1018 = phi i64 [ 0, %for.body175.preheader ], [ %indvars.iv.next1019, %for.inc204 ]
-  %cmp.not.i.i = icmp ult i64 %indvars.iv1018, %92
+  %indvars.iv990 = phi i64 [ 0, %for.body175.preheader ], [ %indvars.iv.next991, %for.inc204 ]
+  %cmp.not.i.i = icmp ult i64 %indvars.iv990, %92
   br i1 %cmp.not.i.i, label %if.end.i.i363, label %if.then.i.i362
 
 if.then.i.i362:                                   ; preds = %for.body175
@@ -4384,30 +4380,30 @@ if.then.i.i362:                                   ; preds = %for.body175
   br label %_ZNK9hb_iter_tI10hb_array_tIjERjEixEj.exit
 
 if.end.i.i363:                                    ; preds = %for.body175
-  %arrayidx.i.i = getelementptr inbounds i32, ptr %50, i64 %indvars.iv1018
-  %.pre1048 = load i32, ptr %arrayidx.i.i, align 4
+  %arrayidx.i.i = getelementptr inbounds i32, ptr %50, i64 %indvars.iv990
+  %.pre1020 = load i32, ptr %arrayidx.i.i, align 4
   br label %_ZNK9hb_iter_tI10hb_array_tIjERjEixEj.exit
 
 _ZNK9hb_iter_tI10hb_array_tIjERjEixEj.exit:       ; preds = %if.then.i.i362, %if.end.i.i363
-  %99 = phi i32 [ 0, %if.then.i.i362 ], [ %.pre1048, %if.end.i.i363 ]
+  %99 = phi i32 [ 0, %if.then.i.i362 ], [ %.pre1020, %if.end.i.i363 ]
   %cmp179.not = icmp uge i32 %99, %deltas.sroa.16.1
   %cmp185 = icmp ult i32 %99, %sub113
   %or.cond = select i1 %phantom_only, i1 %cmp185, i1 false
-  %or.cond913 = select i1 %cmp179.not, i1 true, i1 %or.cond
-  br i1 %or.cond913, label %for.inc204, label %if.end187
+  %or.cond899 = select i1 %cmp179.not, i1 true, i1 %or.cond
+  br i1 %or.cond899, label %for.inc204, label %if.end187
 
 if.end187:                                        ; preds = %_ZNK9hb_iter_tI10hb_array_tIjERjEixEj.exit
   %idxprom190 = zext i32 %99 to i64
   %arrayidx191 = getelementptr inbounds %struct.contour_point_t, ptr %deltas.sroa.0.1, i64 %idxprom190
   %flag = getelementptr inbounds i8, ptr %arrayidx191, i64 8
   store i8 1, ptr %flag, align 4
-  %arrayidx194 = getelementptr inbounds i32, ptr %x_deltas.sroa.11.2.ph, i64 %indvars.iv1018
+  %arrayidx194 = getelementptr inbounds i32, ptr %x_deltas.sroa.11.2.ph, i64 %indvars.iv990
   %100 = load i32, ptr %arrayidx194, align 4
   %conv195 = sitofp i32 %100 to float
   %101 = load float, ptr %arrayidx191, align 4
   %102 = call float @llvm.fmuladd.f32(float %conv195, float %call32, float %101)
   store float %102, ptr %arrayidx191, align 4
-  %arrayidx200 = getelementptr inbounds i32, ptr %y_deltas.sroa.11.2.ph, i64 %indvars.iv1018
+  %arrayidx200 = getelementptr inbounds i32, ptr %y_deltas.sroa.11.2.ph, i64 %indvars.iv990
   %103 = load i32, ptr %arrayidx200, align 4
   %conv201 = sitofp i32 %103 to float
   %y203 = getelementptr inbounds i8, ptr %arrayidx191, i64 4
@@ -4417,44 +4413,44 @@ if.end187:                                        ; preds = %_ZNK9hb_iter_tI10hb
   br label %for.inc204
 
 for.inc204:                                       ; preds = %_ZNK9hb_iter_tI10hb_array_tIjERjEixEj.exit, %if.end187
-  %indvars.iv.next1019 = add nuw nsw i64 %indvars.iv1018, 1
-  %exitcond1022.not = icmp eq i64 %indvars.iv.next1019, %wide.trip.count1021
-  br i1 %exitcond1022.not, label %if.end278, label %for.body175, !llvm.loop !36
+  %indvars.iv.next991 = add nuw nsw i64 %indvars.iv990, 1
+  %exitcond994.not = icmp eq i64 %indvars.iv.next991, %wide.trip.count993
+  br i1 %exitcond994.not, label %if.end278, label %for.body175, !llvm.loop !36
 
 for.cond242.preheader:                            ; preds = %if.end141
-  br i1 %cmp174890.not, label %if.end278, label %for.body244.preheader
+  br i1 %cmp174876.not, label %if.end278, label %for.body244.preheader
 
 for.body244.preheader:                            ; preds = %for.cond242.preheader
   %106 = zext i32 %51 to i64
-  %wide.trip.count1016 = zext i32 %cond84 to i64
+  %wide.trip.count988 = zext i32 %cond84 to i64
   br label %for.body244
 
 if.then210:                                       ; preds = %if.end141.thread
-  br i1 %cmp219892, label %for.body220, label %do.cond
+  br i1 %cmp219878, label %for.body220, label %do.cond
 
 for.body220:                                      ; preds = %if.then210, %for.body220
-  %indvars.iv1023 = phi i64 [ %indvars.iv.next1024, %for.body220 ], [ %41, %if.then210 ]
-  %arrayidx225 = getelementptr inbounds %struct.contour_point_t, ptr %deltas.sroa.0.1, i64 %indvars.iv1023
-  %arrayidx228 = getelementptr inbounds i32, ptr %x_deltas.sroa.11.2.ph, i64 %indvars.iv1023
+  %indvars.iv995 = phi i64 [ %indvars.iv.next996, %for.body220 ], [ %41, %if.then210 ]
+  %arrayidx225 = getelementptr inbounds %struct.contour_point_t, ptr %deltas.sroa.0.1, i64 %indvars.iv995
+  %arrayidx228 = getelementptr inbounds i32, ptr %x_deltas.sroa.11.2.ph, i64 %indvars.iv995
   %107 = load i32, ptr %arrayidx228, align 4
   %conv229 = sitofp i32 %107 to float
   %108 = load float, ptr %arrayidx225, align 4
   %add = fadd float %108, %conv229
   store float %add, ptr %arrayidx225, align 4
-  %arrayidx233 = getelementptr inbounds i32, ptr %y_deltas.sroa.11.2.ph, i64 %indvars.iv1023
+  %arrayidx233 = getelementptr inbounds i32, ptr %y_deltas.sroa.11.2.ph, i64 %indvars.iv995
   %109 = load i32, ptr %arrayidx233, align 4
   %conv234 = sitofp i32 %109 to float
   %y235 = getelementptr inbounds i8, ptr %arrayidx225, i64 4
   %110 = load float, ptr %y235, align 4
   %add236 = fadd float %110, %conv234
   store float %add236, ptr %y235, align 4
-  %indvars.iv.next1024 = add nuw nsw i64 %indvars.iv1023, 1
-  %exitcond1027.not = icmp eq i64 %indvars.iv.next1024, %wide.trip.count1026
-  br i1 %exitcond1027.not, label %if.end278, label %for.body220, !llvm.loop !37
+  %indvars.iv.next996 = add nuw nsw i64 %indvars.iv995, 1
+  %exitcond999.not = icmp eq i64 %indvars.iv.next996, %wide.trip.count998
+  br i1 %exitcond999.not, label %if.end278, label %for.body220, !llvm.loop !37
 
 for.body244:                                      ; preds = %for.body244.preheader, %for.inc274
-  %indvars.iv1013 = phi i64 [ 0, %for.body244.preheader ], [ %indvars.iv.next1014, %for.inc274 ]
-  %cmp.not.i.i365 = icmp ult i64 %indvars.iv1013, %106
+  %indvars.iv985 = phi i64 [ 0, %for.body244.preheader ], [ %indvars.iv.next986, %for.inc274 ]
+  %cmp.not.i.i365 = icmp ult i64 %indvars.iv985, %106
   br i1 %cmp.not.i.i365, label %if.end.i.i368, label %if.then.i.i366
 
 if.then.i.i366:                                   ; preds = %for.body244
@@ -4462,7 +4458,7 @@ if.then.i.i366:                                   ; preds = %for.body244
   br label %_ZNK9hb_iter_tI10hb_array_tIjERjEixEj.exit371
 
 if.end.i.i368:                                    ; preds = %for.body244
-  %arrayidx.i.i370 = getelementptr inbounds i32, ptr %50, i64 %indvars.iv1013
+  %arrayidx.i.i370 = getelementptr inbounds i32, ptr %50, i64 %indvars.iv985
   %.pre = load i32, ptr %arrayidx.i.i370, align 4
   br label %_ZNK9hb_iter_tI10hb_array_tIjERjEixEj.exit371
 
@@ -4471,21 +4467,21 @@ _ZNK9hb_iter_tI10hb_array_tIjERjEixEj.exit371:    ; preds = %if.then.i.i366, %if
   %cmp248.not = icmp uge i32 %111, %deltas.sroa.16.1
   %cmp254 = icmp ult i32 %111, %sub113
   %or.cond125 = select i1 %phantom_only, i1 %cmp254, i1 false
-  %or.cond914 = select i1 %cmp248.not, i1 true, i1 %or.cond125
-  br i1 %or.cond914, label %for.inc274, label %if.end256
+  %or.cond900 = select i1 %cmp248.not, i1 true, i1 %or.cond125
+  br i1 %or.cond900, label %for.inc274, label %if.end256
 
 if.end256:                                        ; preds = %_ZNK9hb_iter_tI10hb_array_tIjERjEixEj.exit371
   %idxprom259 = zext i32 %111 to i64
   %arrayidx260 = getelementptr inbounds %struct.contour_point_t, ptr %deltas.sroa.0.1, i64 %idxprom259
   %flag261 = getelementptr inbounds i8, ptr %arrayidx260, i64 8
   store i8 1, ptr %flag261, align 4
-  %arrayidx264 = getelementptr inbounds i32, ptr %x_deltas.sroa.11.2.ph, i64 %indvars.iv1013
+  %arrayidx264 = getelementptr inbounds i32, ptr %x_deltas.sroa.11.2.ph, i64 %indvars.iv985
   %112 = load i32, ptr %arrayidx264, align 4
   %conv265 = sitofp i32 %112 to float
   %113 = load float, ptr %arrayidx260, align 4
   %add267 = fadd float %113, %conv265
   store float %add267, ptr %arrayidx260, align 4
-  %arrayidx270 = getelementptr inbounds i32, ptr %y_deltas.sroa.11.2.ph, i64 %indvars.iv1013
+  %arrayidx270 = getelementptr inbounds i32, ptr %y_deltas.sroa.11.2.ph, i64 %indvars.iv985
   %114 = load i32, ptr %arrayidx270, align 4
   %conv271 = sitofp i32 %114 to float
   %y272 = getelementptr inbounds i8, ptr %arrayidx260, i64 4
@@ -4495,9 +4491,9 @@ if.end256:                                        ; preds = %_ZNK9hb_iter_tI10hb
   br label %for.inc274
 
 for.inc274:                                       ; preds = %_ZNK9hb_iter_tI10hb_array_tIjERjEixEj.exit371, %if.end256
-  %indvars.iv.next1014 = add nuw nsw i64 %indvars.iv1013, 1
-  %exitcond1017.not = icmp eq i64 %indvars.iv.next1014, %wide.trip.count1016
-  br i1 %exitcond1017.not, label %if.end278, label %for.body244, !llvm.loop !38
+  %indvars.iv.next986 = add nuw nsw i64 %indvars.iv985, 1
+  %exitcond989.not = icmp eq i64 %indvars.iv.next986, %wide.trip.count988
+  br i1 %exitcond989.not, label %if.end278, label %for.body244, !llvm.loop !38
 
 if.end278:                                        ; preds = %for.inc274, %for.inc204, %for.body220, %for.body155, %for.cond242.preheader, %for.cond173.preheader
   %orig_points.sroa.0.2726 = phi ptr [ %orig_points.sroa.0.1, %for.cond173.preheader ], [ %orig_points.sroa.0.1, %for.cond242.preheader ], [ %orig_points.sroa.0.0, %for.body155 ], [ %orig_points.sroa.0.0, %for.body220 ], [ %orig_points.sroa.0.1, %for.inc204 ], [ %orig_points.sroa.0.1, %for.inc274 ]
@@ -4513,43 +4509,43 @@ if.then282:                                       ; preds = %if.end278
   br i1 %tobool.i373.not, label %for.cond286.preheader, label %if.end302.thread
 
 if.end302.thread:                                 ; preds = %if.then282
-  %idx.ext.i4041061 = zext i32 %end_points.sroa.8.0 to i64
-  %add.ptr.i4051062 = getelementptr inbounds i32, ptr %end_points.sroa.14.0, i64 %idx.ext.i4041061
+  %idx.ext.i4041033 = zext i32 %end_points.sroa.8.0 to i64
+  %add.ptr.i4051034 = getelementptr inbounds i32, ptr %end_points.sroa.14.0, i64 %idx.ext.i4041033
   br label %for.body307.preheader
 
 for.cond286.preheader:                            ; preds = %if.then282
   br i1 %tobool.not.i.i, label %for.end298, label %for.body288
 
 for.body288:                                      ; preds = %for.cond286.preheader, %for.inc296
-  %indvars.iv1033 = phi i64 [ %indvars.iv.next1034, %for.inc296 ], [ 0, %for.cond286.preheader ]
-  %end_points.sroa.14.1899 = phi ptr [ %end_points.sroa.14.4, %for.inc296 ], [ %end_points.sroa.14.0, %for.cond286.preheader ]
-  %end_points.sroa.8.1898 = phi i32 [ %end_points.sroa.8.3, %for.inc296 ], [ 0, %for.cond286.preheader ]
-  %end_points.sroa.0.1897 = phi i32 [ %end_points.sroa.0.5, %for.inc296 ], [ %end_points.sroa.0.0, %for.cond286.preheader ]
-  %is_end_point = getelementptr inbounds %struct.contour_point_t, ptr %points.coerce0, i64 %indvars.iv1033, i32 3
+  %indvars.iv1005 = phi i64 [ %indvars.iv.next1006, %for.inc296 ], [ 0, %for.cond286.preheader ]
+  %end_points.sroa.14.1885 = phi ptr [ %end_points.sroa.14.4, %for.inc296 ], [ %end_points.sroa.14.0, %for.cond286.preheader ]
+  %end_points.sroa.8.1884 = phi i32 [ %end_points.sroa.8.3, %for.inc296 ], [ 0, %for.cond286.preheader ]
+  %end_points.sroa.0.1883 = phi i32 [ %end_points.sroa.0.5, %for.inc296 ], [ %end_points.sroa.0.0, %for.cond286.preheader ]
+  %is_end_point = getelementptr inbounds %struct.contour_point_t, ptr %points.coerce0, i64 %indvars.iv1005, i32 3
   %116 = load i8, ptr %is_end_point, align 1
   %117 = and i8 %116, 1
   %tobool292.not = icmp eq i8 %117, 0
   br i1 %tobool292.not, label %for.inc296, label %if.then293
 
 if.then293:                                       ; preds = %for.body288
-  %cmp.not.i375 = icmp slt i32 %end_points.sroa.8.1898, %end_points.sroa.0.1897
-  %.pre1051 = add i32 %end_points.sroa.8.1898, 1
+  %cmp.not.i375 = icmp slt i32 %end_points.sroa.8.1884, %end_points.sroa.0.1883
+  %.pre1023 = add i32 %end_points.sroa.8.1884, 1
   br i1 %cmp.not.i375, label %if.end.i381, label %land.lhs.true.i376
 
 land.lhs.true.i376:                               ; preds = %if.then293
-  %cmp.i.i.i378 = icmp slt i32 %end_points.sroa.0.1897, 0
+  %cmp.i.i.i378 = icmp slt i32 %end_points.sroa.0.1883, 0
   br i1 %cmp.i.i.i378, label %if.then.i, label %if.end.i.i379
 
 if.end.i.i379:                                    ; preds = %land.lhs.true.i376
-  %cmp9.not.i.i380 = icmp ult i32 %end_points.sroa.0.1897, %.pre1051
+  %cmp9.not.i.i380 = icmp ult i32 %end_points.sroa.0.1883, %.pre1023
   br i1 %cmp9.not.i.i380, label %while.body.i.i385, label %if.end.i381
 
 while.body.i.i385:                                ; preds = %if.end.i.i379, %while.body.i.i385
-  %new_allocated.033.i.i386 = phi i32 [ %add15.i.i389, %while.body.i.i385 ], [ %end_points.sroa.0.1897, %if.end.i.i379 ]
+  %new_allocated.033.i.i386 = phi i32 [ %add15.i.i389, %while.body.i.i385 ], [ %end_points.sroa.0.1883, %if.end.i.i379 ]
   %shr14.i.i387 = lshr i32 %new_allocated.033.i.i386, 1
   %add.i.i388 = add i32 %new_allocated.033.i.i386, 8
   %add15.i.i389 = add i32 %add.i.i388, %shr14.i.i387
-  %cmp13.i.i390 = icmp ult i32 %add15.i.i389, %.pre1051
+  %cmp13.i.i390 = icmp ult i32 %add15.i.i389, %.pre1023
   br i1 %cmp13.i.i390, label %while.body.i.i385, label %lor.rhs.i.i391, !llvm.loop !39
 
 lor.rhs.i.i391:                                   ; preds = %while.body.i.i385
@@ -4559,35 +4555,35 @@ lor.rhs.i.i391:                                   ; preds = %while.body.i.i385
 _ZN11hb_vector_tIjLb0EE14realloc_vectorIjTnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPjj11hb_priorityILj0EE.exit.i.i: ; preds = %lor.rhs.i.i391
   %119 = shl nuw i32 %add15.i.i389, 2
   %mul.i.i.i393 = zext i32 %119 to i64
-  %call.i.i.i394 = call ptr @realloc(ptr noundef %end_points.sroa.14.1899, i64 noundef %mul.i.i.i393) #15
+  %call.i.i.i394 = call ptr @realloc(ptr noundef %end_points.sroa.14.1885, i64 noundef %mul.i.i.i393) #15
   %tobool27.not.i.i395 = icmp eq ptr %call.i.i.i394, null
   br i1 %tobool27.not.i.i395, label %_ZN11hb_vector_tIjLb0EE5allocEjb.exit.thread5.i, label %if.end.i381
 
 _ZN11hb_vector_tIjLb0EE5allocEjb.exit.thread5.i:  ; preds = %_ZN11hb_vector_tIjLb0EE14realloc_vectorIjTnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPjj11hb_priorityILj0EE.exit.i.i, %lor.rhs.i.i391
-  %new_allocated.128.sink.i.ph.i399 = xor i32 %end_points.sroa.0.1897, -1
+  %new_allocated.128.sink.i.ph.i399 = xor i32 %end_points.sroa.0.1883, -1
   br label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN11hb_vector_tIjLb0EE5allocEjb.exit.thread5.i, %land.lhs.true.i376
-  %end_points.sroa.0.2 = phi i32 [ %end_points.sroa.0.1897, %land.lhs.true.i376 ], [ %new_allocated.128.sink.i.ph.i399, %_ZN11hb_vector_tIjLb0EE5allocEjb.exit.thread5.i ]
+  %end_points.sroa.0.2 = phi i32 [ %end_points.sroa.0.1883, %land.lhs.true.i376 ], [ %new_allocated.128.sink.i.ph.i399, %_ZN11hb_vector_tIjLb0EE5allocEjb.exit.thread5.i ]
   store i32 0, ptr @_hb_CrapPool, align 16
   br label %for.inc296
 
 if.end.i381:                                      ; preds = %if.then293, %_ZN11hb_vector_tIjLb0EE14realloc_vectorIjTnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPjj11hb_priorityILj0EE.exit.i.i, %if.end.i.i379
-  %end_points.sroa.0.3 = phi i32 [ %add15.i.i389, %_ZN11hb_vector_tIjLb0EE14realloc_vectorIjTnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPjj11hb_priorityILj0EE.exit.i.i ], [ %end_points.sroa.0.1897, %if.end.i.i379 ], [ %end_points.sroa.0.1897, %if.then293 ]
-  %end_points.sroa.14.2 = phi ptr [ %call.i.i.i394, %_ZN11hb_vector_tIjLb0EE14realloc_vectorIjTnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPjj11hb_priorityILj0EE.exit.i.i ], [ %end_points.sroa.14.1899, %if.end.i.i379 ], [ %end_points.sroa.14.1899, %if.then293 ]
-  %idxprom.i = zext i32 %end_points.sroa.8.1898 to i64
+  %end_points.sroa.0.3 = phi i32 [ %add15.i.i389, %_ZN11hb_vector_tIjLb0EE14realloc_vectorIjTnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPjj11hb_priorityILj0EE.exit.i.i ], [ %end_points.sroa.0.1883, %if.end.i.i379 ], [ %end_points.sroa.0.1883, %if.then293 ]
+  %end_points.sroa.14.2 = phi ptr [ %call.i.i.i394, %_ZN11hb_vector_tIjLb0EE14realloc_vectorIjTnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPjj11hb_priorityILj0EE.exit.i.i ], [ %end_points.sroa.14.1885, %if.end.i.i379 ], [ %end_points.sroa.14.1885, %if.then293 ]
+  %idxprom.i = zext i32 %end_points.sroa.8.1884 to i64
   %arrayidx.i383 = getelementptr inbounds i32, ptr %end_points.sroa.14.2, i64 %idxprom.i
-  %120 = trunc i64 %indvars.iv1033 to i32
+  %120 = trunc i64 %indvars.iv1005 to i32
   store i32 %120, ptr %arrayidx.i383, align 4
   br label %for.inc296
 
 for.inc296:                                       ; preds = %if.end.i381, %if.then.i, %for.body288
-  %end_points.sroa.0.5 = phi i32 [ %end_points.sroa.0.1897, %for.body288 ], [ %end_points.sroa.0.3, %if.end.i381 ], [ %end_points.sroa.0.2, %if.then.i ]
-  %end_points.sroa.8.3 = phi i32 [ %end_points.sroa.8.1898, %for.body288 ], [ %.pre1051, %if.end.i381 ], [ %end_points.sroa.8.1898, %if.then.i ]
-  %end_points.sroa.14.4 = phi ptr [ %end_points.sroa.14.1899, %for.body288 ], [ %end_points.sroa.14.2, %if.end.i381 ], [ %end_points.sroa.14.1899, %if.then.i ]
-  %indvars.iv.next1034 = add nuw nsw i64 %indvars.iv1033, 1
-  %exitcond1037.not = icmp eq i64 %indvars.iv.next1034, %wide.trip.count1036
-  br i1 %exitcond1037.not, label %for.end298, label %for.body288, !llvm.loop !40
+  %end_points.sroa.0.5 = phi i32 [ %end_points.sroa.0.1883, %for.body288 ], [ %end_points.sroa.0.3, %if.end.i381 ], [ %end_points.sroa.0.2, %if.then.i ]
+  %end_points.sroa.8.3 = phi i32 [ %end_points.sroa.8.1884, %for.body288 ], [ %.pre1023, %if.end.i381 ], [ %end_points.sroa.8.1884, %if.then.i ]
+  %end_points.sroa.14.4 = phi ptr [ %end_points.sroa.14.1885, %for.body288 ], [ %end_points.sroa.14.2, %if.end.i381 ], [ %end_points.sroa.14.1885, %if.then.i ]
+  %indvars.iv.next1006 = add nuw nsw i64 %indvars.iv1005, 1
+  %exitcond1009.not = icmp eq i64 %indvars.iv.next1006, %wide.trip.count1008
+  br i1 %exitcond1009.not, label %for.end298, label %for.body288, !llvm.loop !40
 
 for.end298:                                       ; preds = %for.inc296, %for.cond286.preheader
   %end_points.sroa.0.1.lcssa = phi i32 [ %end_points.sroa.0.0, %for.cond286.preheader ], [ %end_points.sroa.0.5, %for.inc296 ]
@@ -4599,43 +4595,43 @@ for.end298:                                       ; preds = %for.inc296, %for.co
 if.end302:                                        ; preds = %for.end298
   %idx.ext.i404 = zext i32 %end_points.sroa.8.1.lcssa to i64
   %add.ptr.i405 = getelementptr inbounds i32, ptr %end_points.sroa.14.1.lcssa, i64 %idx.ext.i404
-  %cmp306.not908 = icmp eq i32 %end_points.sroa.8.1.lcssa, 0
-  br i1 %cmp306.not908, label %do.cond, label %for.body307.preheader
+  %cmp306.not894 = icmp eq i32 %end_points.sroa.8.1.lcssa, 0
+  br i1 %cmp306.not894, label %do.cond, label %for.body307.preheader
 
 for.body307.preheader:                            ; preds = %if.end302.thread, %if.end302
-  %add.ptr.i4051067 = phi ptr [ %add.ptr.i4051062, %if.end302.thread ], [ %add.ptr.i405, %if.end302 ]
-  %end_points.sroa.14.51066 = phi ptr [ %end_points.sroa.14.0, %if.end302.thread ], [ %end_points.sroa.14.1.lcssa, %if.end302 ]
-  %end_points.sroa.8.41065 = phi i32 [ %end_points.sroa.8.0, %if.end302.thread ], [ %end_points.sroa.8.1.lcssa, %if.end302 ]
-  %end_points.sroa.0.61064 = phi i32 [ %end_points.sroa.0.0, %if.end302.thread ], [ %end_points.sroa.0.1.lcssa, %if.end302 ]
+  %add.ptr.i4051039 = phi ptr [ %add.ptr.i4051034, %if.end302.thread ], [ %add.ptr.i405, %if.end302 ]
+  %end_points.sroa.14.51038 = phi ptr [ %end_points.sroa.14.0, %if.end302.thread ], [ %end_points.sroa.14.1.lcssa, %if.end302 ]
+  %end_points.sroa.8.41037 = phi i32 [ %end_points.sroa.8.0, %if.end302.thread ], [ %end_points.sroa.8.1.lcssa, %if.end302 ]
+  %end_points.sroa.0.61036 = phi i32 [ %end_points.sroa.0.0, %if.end302.thread ], [ %end_points.sroa.0.1.lcssa, %if.end302 ]
   br label %for.body307
 
 for.body307:                                      ; preds = %for.body307.preheader, %no_more_gaps
-  %start_point.0910 = phi i32 [ %add310, %no_more_gaps ], [ 0, %for.body307.preheader ]
-  %__begin4.0909 = phi ptr [ %incdec.ptr, %no_more_gaps ], [ %end_points.sroa.14.51066, %for.body307.preheader ]
-  %121 = load i32, ptr %__begin4.0909, align 4
+  %start_point.0896 = phi i32 [ %add310, %no_more_gaps ], [ 0, %for.body307.preheader ]
+  %__begin4.0895 = phi ptr [ %incdec.ptr, %no_more_gaps ], [ %end_points.sroa.14.51038, %for.body307.preheader ]
+  %121 = load i32, ptr %__begin4.0895, align 4
   %add310 = add i32 %121, 1
-  %cmp311903 = icmp ult i32 %start_point.0910, %add310
-  br i1 %cmp311903, label %for.body312.preheader, label %for.end321
+  %cmp311889 = icmp ult i32 %start_point.0896, %add310
+  br i1 %cmp311889, label %for.body312.preheader, label %for.end321
 
 for.body312.preheader:                            ; preds = %for.body307
-  %122 = zext i32 %start_point.0910 to i64
-  %wide.trip.count1041 = zext i32 %add310 to i64
+  %122 = zext i32 %start_point.0896 to i64
+  %wide.trip.count1013 = zext i32 %add310 to i64
   br label %for.body312
 
 for.body312:                                      ; preds = %for.body312.preheader, %for.body312
-  %indvars.iv1038 = phi i64 [ %122, %for.body312.preheader ], [ %indvars.iv.next1039, %for.body312 ]
-  %unref_count.0904 = phi i32 [ 0, %for.body312.preheader ], [ %add318, %for.body312 ]
-  %flag316 = getelementptr inbounds %struct.contour_point_t, ptr %deltas.sroa.0.1, i64 %indvars.iv1038, i32 2
+  %indvars.iv1010 = phi i64 [ %122, %for.body312.preheader ], [ %indvars.iv.next1011, %for.body312 ]
+  %unref_count.0890 = phi i32 [ 0, %for.body312.preheader ], [ %add318, %for.body312 ]
+  %flag316 = getelementptr inbounds %struct.contour_point_t, ptr %deltas.sroa.0.1, i64 %indvars.iv1010, i32 2
   %123 = load i8, ptr %flag316, align 4
   %conv317 = zext i8 %123 to i32
-  %add318 = add i32 %unref_count.0904, %conv317
-  %indvars.iv.next1039 = add nuw nsw i64 %indvars.iv1038, 1
-  %exitcond1042.not = icmp eq i64 %indvars.iv.next1039, %wide.trip.count1041
-  br i1 %exitcond1042.not, label %for.end321, label %for.body312, !llvm.loop !41
+  %add318 = add i32 %unref_count.0890, %conv317
+  %indvars.iv.next1011 = add nuw nsw i64 %indvars.iv1010, 1
+  %exitcond1014.not = icmp eq i64 %indvars.iv.next1011, %wide.trip.count1013
+  br i1 %exitcond1014.not, label %for.end321, label %for.body312, !llvm.loop !41
 
 for.end321:                                       ; preds = %for.body312, %for.body307
   %unref_count.0.lcssa = phi i32 [ 0, %for.body307 ], [ %add318, %for.body312 ]
-  %sub322 = sub i32 %121, %start_point.0910
+  %sub322 = sub i32 %121, %start_point.0896
   %add323 = add i32 %sub322, 1
   %sub324 = sub i32 %add323, %unref_count.0.lcssa
   %124 = add i32 %sub324, -1
@@ -4644,14 +4640,14 @@ for.end321:                                       ; preds = %for.body312, %for.b
 
 for.cond330:                                      ; preds = %for.cond364, %for.end321
   %unref_count.1 = phi i32 [ %sub324, %for.end321 ], [ %unref_count.2, %for.cond364 ]
-  %j.0 = phi i32 [ %start_point.0910, %for.end321 ], [ %cond.i411, %for.cond364 ]
+  %j.0 = phi i32 [ %start_point.0896, %for.end321 ], [ %cond.i411, %for.cond364 ]
   br label %for.cond332
 
 for.cond332:                                      ; preds = %for.cond332.backedge, %for.cond330
   %j.1 = phi i32 [ %j.0, %for.cond330 ], [ %cond.i408, %for.cond332.backedge ]
   %cmp.not.i406 = icmp ult i32 %j.1, %121
   %add.i407 = add i32 %j.1, 1
-  %cond.i408 = select i1 %cmp.not.i406, i32 %add.i407, i32 %start_point.0910
+  %cond.i408 = select i1 %cmp.not.i406, i32 %add.i407, i32 %start_point.0896
   %idxprom335 = zext i32 %j.1 to i64
   %flag337 = getelementptr inbounds %struct.contour_point_t, ptr %deltas.sroa.0.1, i64 %idxprom335, i32 2
   %125 = load i8, ptr %flag337, align 4
@@ -4673,7 +4669,7 @@ for.cond348:                                      ; preds = %land.lhs.true339, %
   %j.2 = phi i32 [ %cond.i411, %for.cond348.backedge ], [ %j.1, %land.lhs.true339 ]
   %cmp.not.i409 = icmp ult i32 %j.2, %121
   %add.i410 = add i32 %j.2, 1
-  %cond.i411 = select i1 %cmp.not.i409, i32 %add.i410, i32 %start_point.0910
+  %cond.i411 = select i1 %cmp.not.i409, i32 %add.i410, i32 %start_point.0896
   %tobool354.not = icmp eq i8 %127, 0
   %idxprom357 = zext i32 %cond.i411 to i64
   %flag359 = getelementptr inbounds %struct.contour_point_t, ptr %deltas.sroa.0.1, i64 %idxprom357, i32 2
@@ -4704,7 +4700,7 @@ for.cond364:                                      ; preds = %for.cond364.prehead
   %i331.0 = phi i32 [ %cond.i414, %_ZN2OT4gvar13accelerator_t11infer_deltaE10hb_array_tI15contour_point_tES4_jjjMS3_f.exit455 ], [ %j.1, %for.cond364.preheader ]
   %cmp.not.i412 = icmp ult i32 %i331.0, %121
   %add.i413 = add i32 %i331.0, 1
-  %cond.i414 = select i1 %cmp.not.i412, i32 %add.i413, i32 %start_point.0910
+  %cond.i414 = select i1 %cmp.not.i412, i32 %add.i413, i32 %start_point.0896
   %cmp366 = icmp eq i32 %cond.i414, %cond.i411
   br i1 %cmp366, label %for.cond330, label %if.end368, !llvm.loop !44
 
@@ -4811,8 +4807,8 @@ _ZN2OT4gvar13accelerator_t11infer_deltaE10hb_array_tI15contour_point_tES4_jjjMS3
   br i1 %cmp383, label %no_more_gaps, label %for.cond364, !llvm.loop !45
 
 no_more_gaps:                                     ; preds = %_ZN2OT4gvar13accelerator_t11infer_deltaE10hb_array_tI15contour_point_tES4_jjjMS3_f.exit455, %for.end321
-  %incdec.ptr = getelementptr inbounds i8, ptr %__begin4.0909, i64 4
-  %cmp306.not = icmp eq ptr %incdec.ptr, %add.ptr.i4051067
+  %incdec.ptr = getelementptr inbounds i8, ptr %__begin4.0895, i64 4
+  %cmp306.not = icmp eq ptr %incdec.ptr, %add.ptr.i4051039
   br i1 %cmp306.not, label %do.cond, label %for.body307
 
 do.cond:                                          ; preds = %no_more_gaps, %if.then145, %if.then210, %if.end302, %if.end278, %do.body
@@ -4825,9 +4821,9 @@ do.cond:                                          ; preds = %no_more_gaps, %if.t
   %deltas_vec.sroa.12.4 = phi ptr [ %deltas_vec.sroa.12.0, %do.body ], [ %deltas_vec.sroa.12.3, %if.end278 ], [ %deltas_vec.sroa.12.3, %if.end302 ], [ %deltas_vec.sroa.12.3, %if.then210 ], [ %deltas_vec.sroa.12.3, %if.then145 ], [ %deltas_vec.sroa.12.3, %no_more_gaps ]
   %deltas.sroa.16.2 = phi i32 [ %deltas.sroa.16.0, %do.body ], [ %deltas.sroa.16.1, %if.end278 ], [ %deltas.sroa.16.1, %if.end302 ], [ %deltas.sroa.16.1, %if.then210 ], [ %deltas.sroa.16.1, %if.then145 ], [ %deltas.sroa.16.1, %no_more_gaps ]
   %deltas.sroa.0.2 = phi ptr [ %deltas.sroa.0.0, %do.body ], [ %deltas.sroa.0.1, %if.end278 ], [ %deltas.sroa.0.1, %if.end302 ], [ %deltas.sroa.0.1, %if.then210 ], [ %deltas.sroa.0.1, %if.then145 ], [ %deltas.sroa.0.1, %no_more_gaps ]
-  %end_points.sroa.0.7 = phi i32 [ %end_points.sroa.0.0, %do.body ], [ %end_points.sroa.0.0, %if.end278 ], [ %end_points.sroa.0.1.lcssa, %if.end302 ], [ %end_points.sroa.0.0, %if.then210 ], [ %end_points.sroa.0.0, %if.then145 ], [ %end_points.sroa.0.61064, %no_more_gaps ]
-  %end_points.sroa.8.5 = phi i32 [ %end_points.sroa.8.0, %do.body ], [ %end_points.sroa.8.0, %if.end278 ], [ 0, %if.end302 ], [ %end_points.sroa.8.0, %if.then210 ], [ %end_points.sroa.8.0, %if.then145 ], [ %end_points.sroa.8.41065, %no_more_gaps ]
-  %end_points.sroa.14.6 = phi ptr [ %end_points.sroa.14.0, %do.body ], [ %end_points.sroa.14.0, %if.end278 ], [ %end_points.sroa.14.1.lcssa, %if.end302 ], [ %end_points.sroa.14.0, %if.then210 ], [ %end_points.sroa.14.0, %if.then145 ], [ %end_points.sroa.14.51066, %no_more_gaps ]
+  %end_points.sroa.0.7 = phi i32 [ %end_points.sroa.0.0, %do.body ], [ %end_points.sroa.0.0, %if.end278 ], [ %end_points.sroa.0.1.lcssa, %if.end302 ], [ %end_points.sroa.0.0, %if.then210 ], [ %end_points.sroa.0.0, %if.then145 ], [ %end_points.sroa.0.61036, %no_more_gaps ]
+  %end_points.sroa.8.5 = phi i32 [ %end_points.sroa.8.0, %do.body ], [ %end_points.sroa.8.0, %if.end278 ], [ 0, %if.end302 ], [ %end_points.sroa.8.0, %if.then210 ], [ %end_points.sroa.8.0, %if.then145 ], [ %end_points.sroa.8.41037, %no_more_gaps ]
+  %end_points.sroa.14.6 = phi ptr [ %end_points.sroa.14.0, %do.body ], [ %end_points.sroa.14.0, %if.end278 ], [ %end_points.sroa.14.1.lcssa, %if.end302 ], [ %end_points.sroa.14.0, %if.then210 ], [ %end_points.sroa.14.0, %if.then145 ], [ %end_points.sroa.14.51038, %no_more_gaps ]
   %x_deltas.sroa.0.3 = phi i32 [ %x_deltas.sroa.0.0, %do.body ], [ %x_deltas.sroa.0.2.ph, %if.end278 ], [ %x_deltas.sroa.0.2.ph, %if.end302 ], [ %x_deltas.sroa.0.2.ph, %if.then210 ], [ %x_deltas.sroa.0.2.ph, %if.then145 ], [ %x_deltas.sroa.0.2.ph, %no_more_gaps ]
   %x_deltas.sroa.11.3 = phi ptr [ %x_deltas.sroa.11.0, %do.body ], [ %x_deltas.sroa.11.2.ph, %if.end278 ], [ %x_deltas.sroa.11.2.ph, %if.end302 ], [ %x_deltas.sroa.11.2.ph, %if.then210 ], [ %x_deltas.sroa.11.2.ph, %if.then145 ], [ %x_deltas.sroa.11.2.ph, %no_more_gaps ]
   %y_deltas.sroa.0.3 = phi i32 [ %y_deltas.sroa.0.0, %do.body ], [ %y_deltas.sroa.0.2.ph, %if.end278 ], [ %y_deltas.sroa.0.2.ph, %if.end302 ], [ %y_deltas.sroa.0.2.ph, %if.then210 ], [ %y_deltas.sroa.0.2.ph, %if.then145 ], [ %y_deltas.sroa.0.2.ph, %no_more_gaps ]
@@ -4902,16 +4898,16 @@ do.end:                                           ; preds = %land.lhs.true.i.i.i
   br i1 %tobool392.not, label %cleanup, label %if.then393
 
 if.then393:                                       ; preds = %do.end
-  br i1 %cmp219892, label %for.body403.preheader, label %cleanup
+  br i1 %cmp219878, label %for.body403.preheader, label %cleanup
 
 for.body403.preheader:                            ; preds = %if.then393
-  %wide.trip.count1046 = and i64 %points.coerce1, 4294967295
+  %wide.trip.count1018 = and i64 %points.coerce1, 4294967295
   br label %for.body403
 
 for.body403:                                      ; preds = %for.body403.preheader, %for.body403
-  %indvars.iv1043 = phi i64 [ %41, %for.body403.preheader ], [ %indvars.iv.next1044, %for.body403 ]
-  %arrayidx406 = getelementptr inbounds %struct.contour_point_t, ptr %points.coerce0, i64 %indvars.iv1043
-  %arrayidx409 = getelementptr inbounds %struct.contour_point_t, ptr %deltas.sroa.0.2, i64 %indvars.iv1043
+  %indvars.iv1015 = phi i64 [ %41, %for.body403.preheader ], [ %indvars.iv.next1016, %for.body403 ]
+  %arrayidx406 = getelementptr inbounds %struct.contour_point_t, ptr %points.coerce0, i64 %indvars.iv1015
+  %arrayidx409 = getelementptr inbounds %struct.contour_point_t, ptr %deltas.sroa.0.2, i64 %indvars.iv1015
   %155 = load float, ptr %arrayidx409, align 4
   %156 = load float, ptr %arrayidx406, align 4
   %add.i = fadd float %155, %156
@@ -4922,36 +4918,36 @@ for.body403:                                      ; preds = %for.body403.prehead
   %158 = load float, ptr %y3.i, align 4
   %add4.i = fadd float %157, %158
   store float %add4.i, ptr %y3.i, align 4
-  %indvars.iv.next1044 = add nuw nsw i64 %indvars.iv1043, 1
-  %exitcond1047.not = icmp eq i64 %indvars.iv.next1044, %wide.trip.count1046
-  br i1 %exitcond1047.not, label %cleanup, label %for.body403, !llvm.loop !47
+  %indvars.iv.next1016 = add nuw nsw i64 %indvars.iv1015, 1
+  %exitcond1019.not = icmp eq i64 %indvars.iv.next1016, %wide.trip.count1018
+  br i1 %exitcond1019.not, label %cleanup, label %for.body403, !llvm.loop !47
 
-cleanup:                                          ; preds = %if.then102, %if.end35, %land.lhs.true.i, %if.end68, %if.then45, %for.end298, %_ZN22contour_point_vector_t6extendERK10hb_array_tI15contour_point_tE.exit, %land.lhs.true, %while.body.i, %if.end.i229, %if.then11.i, %if.else27.i, %while.body.i275, %if.end.i279, %if.then11.i301, %if.else27.i322, %for.body403, %if.then393, %_ZN11hb_vector_tIiLb0EE5allocEjb.exit.thread17.i266, %_ZN11hb_vector_tIiLb0EE5allocEjb.exit.thread17.i, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread18.i, %do.end
-  %orig_points_vec.sroa.0.6 = phi i32 [ %orig_points_vec.sroa.0.5, %do.end ], [ %orig_points_vec.sroa.0.0, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread18.i ], [ %orig_points_vec.sroa.0.0, %_ZN11hb_vector_tIiLb0EE5allocEjb.exit.thread17.i ], [ %orig_points_vec.sroa.0.0, %_ZN11hb_vector_tIiLb0EE5allocEjb.exit.thread17.i266 ], [ %orig_points_vec.sroa.0.5, %if.then393 ], [ %orig_points_vec.sroa.0.5, %for.body403 ], [ %orig_points_vec.sroa.0.0, %if.else27.i322 ], [ %orig_points_vec.sroa.0.0, %if.then11.i301 ], [ %orig_points_vec.sroa.0.0, %if.end.i279 ], [ %orig_points_vec.sroa.0.0, %while.body.i275 ], [ %orig_points_vec.sroa.0.0, %if.else27.i ], [ %orig_points_vec.sroa.0.0, %if.then11.i ], [ %orig_points_vec.sroa.0.0, %if.end.i229 ], [ %orig_points_vec.sroa.0.0, %while.body.i ], [ %orig_points_vec.sroa.0.0, %if.then102 ], [ %orig_points_vec.sroa.0.0, %if.end35 ], [ %orig_points_vec.sroa.0.0, %land.lhs.true.i ], [ %orig_points_vec.sroa.0.0, %if.end68 ], [ %orig_points_vec.sroa.0.0, %if.then45 ], [ %orig_points_vec.sroa.0.0, %land.lhs.true ], [ %orig_points_vec.sroa.0.2, %_ZN22contour_point_vector_t6extendERK10hb_array_tI15contour_point_tE.exit ], [ %orig_points_vec.sroa.0.4711, %for.end298 ]
-  %orig_points_vec.sroa.13.6 = phi ptr [ %orig_points_vec.sroa.13.5, %do.end ], [ %orig_points_vec.sroa.13.0, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread18.i ], [ %orig_points_vec.sroa.13.0, %_ZN11hb_vector_tIiLb0EE5allocEjb.exit.thread17.i ], [ %orig_points_vec.sroa.13.0, %_ZN11hb_vector_tIiLb0EE5allocEjb.exit.thread17.i266 ], [ %orig_points_vec.sroa.13.5, %if.then393 ], [ %orig_points_vec.sroa.13.5, %for.body403 ], [ %orig_points_vec.sroa.13.0, %if.else27.i322 ], [ %orig_points_vec.sroa.13.0, %if.then11.i301 ], [ %orig_points_vec.sroa.13.0, %if.end.i279 ], [ %orig_points_vec.sroa.13.0, %while.body.i275 ], [ %orig_points_vec.sroa.13.0, %if.else27.i ], [ %orig_points_vec.sroa.13.0, %if.then11.i ], [ %orig_points_vec.sroa.13.0, %if.end.i229 ], [ %orig_points_vec.sroa.13.0, %while.body.i ], [ %orig_points_vec.sroa.13.0, %if.then102 ], [ %orig_points_vec.sroa.13.0, %if.end35 ], [ %orig_points_vec.sroa.13.0, %land.lhs.true.i ], [ %orig_points_vec.sroa.13.0, %if.end68 ], [ %orig_points_vec.sroa.13.0, %if.then45 ], [ %orig_points_vec.sroa.13.0, %land.lhs.true ], [ %orig_points_vec.sroa.13.2, %_ZN22contour_point_vector_t6extendERK10hb_array_tI15contour_point_tE.exit ], [ %orig_points_vec.sroa.13.4717, %for.end298 ]
-  %deltas_vec.sroa.0.5 = phi i32 [ %deltas_vec.sroa.0.4, %do.end ], [ %new_allocated.128.sink.i.ph.i, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread18.i ], [ %deltas_vec.sroa.0.3, %_ZN11hb_vector_tIiLb0EE5allocEjb.exit.thread17.i ], [ %deltas_vec.sroa.0.3, %_ZN11hb_vector_tIiLb0EE5allocEjb.exit.thread17.i266 ], [ %deltas_vec.sroa.0.4, %if.then393 ], [ %deltas_vec.sroa.0.4, %for.body403 ], [ %deltas_vec.sroa.0.3, %if.else27.i322 ], [ %deltas_vec.sroa.0.3, %if.then11.i301 ], [ %deltas_vec.sroa.0.3, %if.end.i279 ], [ %deltas_vec.sroa.0.3, %while.body.i275 ], [ %deltas_vec.sroa.0.3, %if.else27.i ], [ %deltas_vec.sroa.0.3, %if.then11.i ], [ %deltas_vec.sroa.0.3, %if.end.i229 ], [ %deltas_vec.sroa.0.3, %while.body.i ], [ %deltas_vec.sroa.0.3, %if.then102 ], [ %deltas_vec.sroa.0.0, %if.end35 ], [ %deltas_vec.sroa.0.0, %land.lhs.true.i ], [ %deltas_vec.sroa.0.3, %if.end68 ], [ %deltas_vec.sroa.0.0, %if.then45 ], [ %deltas_vec.sroa.0.3, %land.lhs.true ], [ %deltas_vec.sroa.0.3, %_ZN22contour_point_vector_t6extendERK10hb_array_tI15contour_point_tE.exit ], [ %deltas_vec.sroa.0.3, %for.end298 ]
-  %deltas_vec.sroa.12.5 = phi ptr [ %deltas_vec.sroa.12.4, %do.end ], [ %deltas_vec.sroa.12.0, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread18.i ], [ %deltas_vec.sroa.12.3, %_ZN11hb_vector_tIiLb0EE5allocEjb.exit.thread17.i ], [ %deltas_vec.sroa.12.3, %_ZN11hb_vector_tIiLb0EE5allocEjb.exit.thread17.i266 ], [ %deltas_vec.sroa.12.4, %if.then393 ], [ %deltas_vec.sroa.12.4, %for.body403 ], [ %deltas_vec.sroa.12.3, %if.else27.i322 ], [ %deltas_vec.sroa.12.3, %if.then11.i301 ], [ %deltas_vec.sroa.12.3, %if.end.i279 ], [ %deltas_vec.sroa.12.3, %while.body.i275 ], [ %deltas_vec.sroa.12.3, %if.else27.i ], [ %deltas_vec.sroa.12.3, %if.then11.i ], [ %deltas_vec.sroa.12.3, %if.end.i229 ], [ %deltas_vec.sroa.12.3, %while.body.i ], [ %deltas_vec.sroa.12.3, %if.then102 ], [ %deltas_vec.sroa.12.0, %if.end35 ], [ %deltas_vec.sroa.12.0, %land.lhs.true.i ], [ %deltas_vec.sroa.12.3, %if.end68 ], [ %deltas_vec.sroa.12.0, %if.then45 ], [ %deltas_vec.sroa.12.3, %land.lhs.true ], [ %deltas_vec.sroa.12.3, %_ZN22contour_point_vector_t6extendERK10hb_array_tI15contour_point_tE.exit ], [ %deltas_vec.sroa.12.3, %for.end298 ]
-  %end_points.sroa.0.8 = phi i32 [ %end_points.sroa.0.7, %do.end ], [ %end_points.sroa.0.0, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread18.i ], [ %end_points.sroa.0.0, %_ZN11hb_vector_tIiLb0EE5allocEjb.exit.thread17.i ], [ %end_points.sroa.0.0, %_ZN11hb_vector_tIiLb0EE5allocEjb.exit.thread17.i266 ], [ %end_points.sroa.0.7, %if.then393 ], [ %end_points.sroa.0.7, %for.body403 ], [ %end_points.sroa.0.0, %if.else27.i322 ], [ %end_points.sroa.0.0, %if.then11.i301 ], [ %end_points.sroa.0.0, %if.end.i279 ], [ %end_points.sroa.0.0, %while.body.i275 ], [ %end_points.sroa.0.0, %if.else27.i ], [ %end_points.sroa.0.0, %if.then11.i ], [ %end_points.sroa.0.0, %if.end.i229 ], [ %end_points.sroa.0.0, %while.body.i ], [ %end_points.sroa.0.0, %if.then102 ], [ %end_points.sroa.0.0, %if.end35 ], [ %end_points.sroa.0.0, %land.lhs.true.i ], [ %end_points.sroa.0.0, %if.end68 ], [ %end_points.sroa.0.0, %if.then45 ], [ %end_points.sroa.0.0, %land.lhs.true ], [ %end_points.sroa.0.0, %_ZN22contour_point_vector_t6extendERK10hb_array_tI15contour_point_tE.exit ], [ %end_points.sroa.0.1.lcssa, %for.end298 ]
-  %end_points.sroa.14.7 = phi ptr [ %end_points.sroa.14.6, %do.end ], [ %end_points.sroa.14.0, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread18.i ], [ %end_points.sroa.14.0, %_ZN11hb_vector_tIiLb0EE5allocEjb.exit.thread17.i ], [ %end_points.sroa.14.0, %_ZN11hb_vector_tIiLb0EE5allocEjb.exit.thread17.i266 ], [ %end_points.sroa.14.6, %if.then393 ], [ %end_points.sroa.14.6, %for.body403 ], [ %end_points.sroa.14.0, %if.else27.i322 ], [ %end_points.sroa.14.0, %if.then11.i301 ], [ %end_points.sroa.14.0, %if.end.i279 ], [ %end_points.sroa.14.0, %while.body.i275 ], [ %end_points.sroa.14.0, %if.else27.i ], [ %end_points.sroa.14.0, %if.then11.i ], [ %end_points.sroa.14.0, %if.end.i229 ], [ %end_points.sroa.14.0, %while.body.i ], [ %end_points.sroa.14.0, %if.then102 ], [ %end_points.sroa.14.0, %if.end35 ], [ %end_points.sroa.14.0, %land.lhs.true.i ], [ %end_points.sroa.14.0, %if.end68 ], [ %end_points.sroa.14.0, %if.then45 ], [ %end_points.sroa.14.0, %land.lhs.true ], [ %end_points.sroa.14.0, %_ZN22contour_point_vector_t6extendERK10hb_array_tI15contour_point_tE.exit ], [ %end_points.sroa.14.1.lcssa, %for.end298 ]
-  %x_deltas.sroa.0.4 = phi i32 [ %x_deltas.sroa.0.3, %do.end ], [ %x_deltas.sroa.0.0, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread18.i ], [ %new_allocated.128.sink.i.ph.i225, %_ZN11hb_vector_tIiLb0EE5allocEjb.exit.thread17.i ], [ %x_deltas.sroa.0.2.ph, %_ZN11hb_vector_tIiLb0EE5allocEjb.exit.thread17.i266 ], [ %x_deltas.sroa.0.3, %if.then393 ], [ %x_deltas.sroa.0.3, %for.body403 ], [ %x_deltas.sroa.0.2.ph, %if.else27.i322 ], [ %x_deltas.sroa.0.2.ph, %if.then11.i301 ], [ %x_deltas.sroa.0.2.ph, %if.end.i279 ], [ %x_deltas.sroa.0.2.ph, %while.body.i275 ], [ %x_deltas.sroa.0.2.ph, %if.else27.i ], [ %x_deltas.sroa.0.2.ph, %if.then11.i ], [ %x_deltas.sroa.0.2.ph, %if.end.i229 ], [ %x_deltas.sroa.0.2.ph, %while.body.i ], [ %x_deltas.sroa.0.2.ph, %if.then102 ], [ %x_deltas.sroa.0.0, %if.end35 ], [ %x_deltas.sroa.0.0, %land.lhs.true.i ], [ %x_deltas.sroa.0.0, %if.end68 ], [ %x_deltas.sroa.0.0, %if.then45 ], [ %x_deltas.sroa.0.0, %land.lhs.true ], [ %x_deltas.sroa.0.2.ph, %_ZN22contour_point_vector_t6extendERK10hb_array_tI15contour_point_tE.exit ], [ %x_deltas.sroa.0.2.ph, %for.end298 ]
-  %x_deltas.sroa.11.4 = phi ptr [ %x_deltas.sroa.11.3, %do.end ], [ %x_deltas.sroa.11.0, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread18.i ], [ %x_deltas.sroa.11.0, %_ZN11hb_vector_tIiLb0EE5allocEjb.exit.thread17.i ], [ %x_deltas.sroa.11.2.ph, %_ZN11hb_vector_tIiLb0EE5allocEjb.exit.thread17.i266 ], [ %x_deltas.sroa.11.3, %if.then393 ], [ %x_deltas.sroa.11.3, %for.body403 ], [ %x_deltas.sroa.11.2.ph, %if.else27.i322 ], [ %x_deltas.sroa.11.2.ph, %if.then11.i301 ], [ %x_deltas.sroa.11.2.ph, %if.end.i279 ], [ %x_deltas.sroa.11.2.ph, %while.body.i275 ], [ %x_deltas.sroa.11.2.ph, %if.else27.i ], [ %x_deltas.sroa.11.2.ph, %if.then11.i ], [ %x_deltas.sroa.11.2.ph, %if.end.i229 ], [ %x_deltas.sroa.11.2.ph, %while.body.i ], [ %x_deltas.sroa.11.2.ph, %if.then102 ], [ %x_deltas.sroa.11.0, %if.end35 ], [ %x_deltas.sroa.11.0, %land.lhs.true.i ], [ %x_deltas.sroa.11.0, %if.end68 ], [ %x_deltas.sroa.11.0, %if.then45 ], [ %x_deltas.sroa.11.0, %land.lhs.true ], [ %x_deltas.sroa.11.2.ph, %_ZN22contour_point_vector_t6extendERK10hb_array_tI15contour_point_tE.exit ], [ %x_deltas.sroa.11.2.ph, %for.end298 ]
-  %y_deltas.sroa.0.4 = phi i32 [ %y_deltas.sroa.0.3, %do.end ], [ %y_deltas.sroa.0.0, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread18.i ], [ %y_deltas.sroa.0.0, %_ZN11hb_vector_tIiLb0EE5allocEjb.exit.thread17.i ], [ %new_allocated.128.sink.i.ph.i268, %_ZN11hb_vector_tIiLb0EE5allocEjb.exit.thread17.i266 ], [ %y_deltas.sroa.0.3, %if.then393 ], [ %y_deltas.sroa.0.3, %for.body403 ], [ %y_deltas.sroa.0.2.ph, %if.else27.i322 ], [ %y_deltas.sroa.0.2.ph, %if.then11.i301 ], [ %y_deltas.sroa.0.2.ph, %if.end.i279 ], [ %y_deltas.sroa.0.2.ph, %while.body.i275 ], [ %y_deltas.sroa.0.0, %if.else27.i ], [ %y_deltas.sroa.0.0, %if.then11.i ], [ %y_deltas.sroa.0.0, %if.end.i229 ], [ %y_deltas.sroa.0.0, %while.body.i ], [ %y_deltas.sroa.0.2.ph, %if.then102 ], [ %y_deltas.sroa.0.0, %if.end35 ], [ %y_deltas.sroa.0.0, %land.lhs.true.i ], [ %y_deltas.sroa.0.0, %if.end68 ], [ %y_deltas.sroa.0.0, %if.then45 ], [ %y_deltas.sroa.0.0, %land.lhs.true ], [ %y_deltas.sroa.0.2.ph, %_ZN22contour_point_vector_t6extendERK10hb_array_tI15contour_point_tE.exit ], [ %y_deltas.sroa.0.2.ph, %for.end298 ]
-  %y_deltas.sroa.11.4 = phi ptr [ %y_deltas.sroa.11.3, %do.end ], [ %y_deltas.sroa.11.0, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread18.i ], [ %y_deltas.sroa.11.0, %_ZN11hb_vector_tIiLb0EE5allocEjb.exit.thread17.i ], [ %y_deltas.sroa.11.0, %_ZN11hb_vector_tIiLb0EE5allocEjb.exit.thread17.i266 ], [ %y_deltas.sroa.11.3, %if.then393 ], [ %y_deltas.sroa.11.3, %for.body403 ], [ %y_deltas.sroa.11.2.ph, %if.else27.i322 ], [ %y_deltas.sroa.11.2.ph, %if.then11.i301 ], [ %y_deltas.sroa.11.2.ph, %if.end.i279 ], [ %y_deltas.sroa.11.2.ph, %while.body.i275 ], [ %y_deltas.sroa.11.0, %if.else27.i ], [ %y_deltas.sroa.11.0, %if.then11.i ], [ %y_deltas.sroa.11.0, %if.end.i229 ], [ %y_deltas.sroa.11.0, %while.body.i ], [ %y_deltas.sroa.11.2.ph, %if.then102 ], [ %y_deltas.sroa.11.0, %if.end35 ], [ %y_deltas.sroa.11.0, %land.lhs.true.i ], [ %y_deltas.sroa.11.0, %if.end68 ], [ %y_deltas.sroa.11.0, %if.then45 ], [ %y_deltas.sroa.11.0, %land.lhs.true ], [ %y_deltas.sroa.11.2.ph, %_ZN22contour_point_vector_t6extendERK10hb_array_tI15contour_point_tE.exit ], [ %y_deltas.sroa.11.2.ph, %for.end298 ]
-  %retval.0 = phi i1 [ true, %do.end ], [ false, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread18.i ], [ false, %_ZN11hb_vector_tIiLb0EE5allocEjb.exit.thread17.i ], [ false, %_ZN11hb_vector_tIiLb0EE5allocEjb.exit.thread17.i266 ], [ true, %if.then393 ], [ true, %for.body403 ], [ false, %if.else27.i322 ], [ false, %if.then11.i301 ], [ false, %if.end.i279 ], [ false, %while.body.i275 ], [ false, %if.else27.i ], [ false, %if.then11.i ], [ false, %if.end.i229 ], [ false, %while.body.i ], [ false, %land.lhs.true ], [ false, %_ZN22contour_point_vector_t6extendERK10hb_array_tI15contour_point_tE.exit ], [ false, %for.end298 ], [ false, %if.then45 ], [ false, %if.end68 ], [ false, %land.lhs.true.i ], [ false, %if.end35 ], [ false, %if.then102 ]
+cleanup:                                          ; preds = %if.then102, %if.end35, %land.lhs.true.i, %if.end68, %if.then45, %for.end298, %_ZN22contour_point_vector_t6extendERK10hb_array_tI15contour_point_tE.exit, %land.lhs.true, %while.body.i, %if.end.i229, %if.then11.i, %if.else27.i, %while.body.i275, %if.end.i279, %if.then11.i301, %if.else27.i322, %for.body403, %if.then393, %_ZN11hb_vector_tIiLb0EE5allocEjb.exit.thread17.i, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread18.i, %do.end
+  %orig_points_vec.sroa.0.6 = phi i32 [ %orig_points_vec.sroa.0.5, %do.end ], [ %orig_points_vec.sroa.0.0, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread18.i ], [ %orig_points_vec.sroa.0.0, %_ZN11hb_vector_tIiLb0EE5allocEjb.exit.thread17.i ], [ %orig_points_vec.sroa.0.5, %if.then393 ], [ %orig_points_vec.sroa.0.5, %for.body403 ], [ %orig_points_vec.sroa.0.0, %if.else27.i322 ], [ %orig_points_vec.sroa.0.0, %if.then11.i301 ], [ %orig_points_vec.sroa.0.0, %if.end.i279 ], [ %orig_points_vec.sroa.0.0, %while.body.i275 ], [ %orig_points_vec.sroa.0.0, %if.else27.i ], [ %orig_points_vec.sroa.0.0, %if.then11.i ], [ %orig_points_vec.sroa.0.0, %if.end.i229 ], [ %orig_points_vec.sroa.0.0, %while.body.i ], [ %orig_points_vec.sroa.0.0, %if.then102 ], [ %orig_points_vec.sroa.0.0, %if.end35 ], [ %orig_points_vec.sroa.0.0, %land.lhs.true.i ], [ %orig_points_vec.sroa.0.0, %if.end68 ], [ %orig_points_vec.sroa.0.0, %if.then45 ], [ %orig_points_vec.sroa.0.0, %land.lhs.true ], [ %orig_points_vec.sroa.0.2, %_ZN22contour_point_vector_t6extendERK10hb_array_tI15contour_point_tE.exit ], [ %orig_points_vec.sroa.0.4711, %for.end298 ]
+  %orig_points_vec.sroa.13.6 = phi ptr [ %orig_points_vec.sroa.13.5, %do.end ], [ %orig_points_vec.sroa.13.0, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread18.i ], [ %orig_points_vec.sroa.13.0, %_ZN11hb_vector_tIiLb0EE5allocEjb.exit.thread17.i ], [ %orig_points_vec.sroa.13.5, %if.then393 ], [ %orig_points_vec.sroa.13.5, %for.body403 ], [ %orig_points_vec.sroa.13.0, %if.else27.i322 ], [ %orig_points_vec.sroa.13.0, %if.then11.i301 ], [ %orig_points_vec.sroa.13.0, %if.end.i279 ], [ %orig_points_vec.sroa.13.0, %while.body.i275 ], [ %orig_points_vec.sroa.13.0, %if.else27.i ], [ %orig_points_vec.sroa.13.0, %if.then11.i ], [ %orig_points_vec.sroa.13.0, %if.end.i229 ], [ %orig_points_vec.sroa.13.0, %while.body.i ], [ %orig_points_vec.sroa.13.0, %if.then102 ], [ %orig_points_vec.sroa.13.0, %if.end35 ], [ %orig_points_vec.sroa.13.0, %land.lhs.true.i ], [ %orig_points_vec.sroa.13.0, %if.end68 ], [ %orig_points_vec.sroa.13.0, %if.then45 ], [ %orig_points_vec.sroa.13.0, %land.lhs.true ], [ %orig_points_vec.sroa.13.2, %_ZN22contour_point_vector_t6extendERK10hb_array_tI15contour_point_tE.exit ], [ %orig_points_vec.sroa.13.4717, %for.end298 ]
+  %deltas_vec.sroa.0.5 = phi i32 [ %deltas_vec.sroa.0.4, %do.end ], [ %new_allocated.128.sink.i.ph.i, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread18.i ], [ %deltas_vec.sroa.0.3, %_ZN11hb_vector_tIiLb0EE5allocEjb.exit.thread17.i ], [ %deltas_vec.sroa.0.4, %if.then393 ], [ %deltas_vec.sroa.0.4, %for.body403 ], [ %deltas_vec.sroa.0.3, %if.else27.i322 ], [ %deltas_vec.sroa.0.3, %if.then11.i301 ], [ %deltas_vec.sroa.0.3, %if.end.i279 ], [ %deltas_vec.sroa.0.3, %while.body.i275 ], [ %deltas_vec.sroa.0.3, %if.else27.i ], [ %deltas_vec.sroa.0.3, %if.then11.i ], [ %deltas_vec.sroa.0.3, %if.end.i229 ], [ %deltas_vec.sroa.0.3, %while.body.i ], [ %deltas_vec.sroa.0.3, %if.then102 ], [ %deltas_vec.sroa.0.0, %if.end35 ], [ %deltas_vec.sroa.0.0, %land.lhs.true.i ], [ %deltas_vec.sroa.0.3, %if.end68 ], [ %deltas_vec.sroa.0.0, %if.then45 ], [ %deltas_vec.sroa.0.3, %land.lhs.true ], [ %deltas_vec.sroa.0.3, %_ZN22contour_point_vector_t6extendERK10hb_array_tI15contour_point_tE.exit ], [ %deltas_vec.sroa.0.3, %for.end298 ]
+  %deltas_vec.sroa.12.5 = phi ptr [ %deltas_vec.sroa.12.4, %do.end ], [ %deltas_vec.sroa.12.0, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread18.i ], [ %deltas_vec.sroa.12.3, %_ZN11hb_vector_tIiLb0EE5allocEjb.exit.thread17.i ], [ %deltas_vec.sroa.12.4, %if.then393 ], [ %deltas_vec.sroa.12.4, %for.body403 ], [ %deltas_vec.sroa.12.3, %if.else27.i322 ], [ %deltas_vec.sroa.12.3, %if.then11.i301 ], [ %deltas_vec.sroa.12.3, %if.end.i279 ], [ %deltas_vec.sroa.12.3, %while.body.i275 ], [ %deltas_vec.sroa.12.3, %if.else27.i ], [ %deltas_vec.sroa.12.3, %if.then11.i ], [ %deltas_vec.sroa.12.3, %if.end.i229 ], [ %deltas_vec.sroa.12.3, %while.body.i ], [ %deltas_vec.sroa.12.3, %if.then102 ], [ %deltas_vec.sroa.12.0, %if.end35 ], [ %deltas_vec.sroa.12.0, %land.lhs.true.i ], [ %deltas_vec.sroa.12.3, %if.end68 ], [ %deltas_vec.sroa.12.0, %if.then45 ], [ %deltas_vec.sroa.12.3, %land.lhs.true ], [ %deltas_vec.sroa.12.3, %_ZN22contour_point_vector_t6extendERK10hb_array_tI15contour_point_tE.exit ], [ %deltas_vec.sroa.12.3, %for.end298 ]
+  %end_points.sroa.0.8 = phi i32 [ %end_points.sroa.0.7, %do.end ], [ %end_points.sroa.0.0, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread18.i ], [ %end_points.sroa.0.0, %_ZN11hb_vector_tIiLb0EE5allocEjb.exit.thread17.i ], [ %end_points.sroa.0.7, %if.then393 ], [ %end_points.sroa.0.7, %for.body403 ], [ %end_points.sroa.0.0, %if.else27.i322 ], [ %end_points.sroa.0.0, %if.then11.i301 ], [ %end_points.sroa.0.0, %if.end.i279 ], [ %end_points.sroa.0.0, %while.body.i275 ], [ %end_points.sroa.0.0, %if.else27.i ], [ %end_points.sroa.0.0, %if.then11.i ], [ %end_points.sroa.0.0, %if.end.i229 ], [ %end_points.sroa.0.0, %while.body.i ], [ %end_points.sroa.0.0, %if.then102 ], [ %end_points.sroa.0.0, %if.end35 ], [ %end_points.sroa.0.0, %land.lhs.true.i ], [ %end_points.sroa.0.0, %if.end68 ], [ %end_points.sroa.0.0, %if.then45 ], [ %end_points.sroa.0.0, %land.lhs.true ], [ %end_points.sroa.0.0, %_ZN22contour_point_vector_t6extendERK10hb_array_tI15contour_point_tE.exit ], [ %end_points.sroa.0.1.lcssa, %for.end298 ]
+  %end_points.sroa.14.7 = phi ptr [ %end_points.sroa.14.6, %do.end ], [ %end_points.sroa.14.0, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread18.i ], [ %end_points.sroa.14.0, %_ZN11hb_vector_tIiLb0EE5allocEjb.exit.thread17.i ], [ %end_points.sroa.14.6, %if.then393 ], [ %end_points.sroa.14.6, %for.body403 ], [ %end_points.sroa.14.0, %if.else27.i322 ], [ %end_points.sroa.14.0, %if.then11.i301 ], [ %end_points.sroa.14.0, %if.end.i279 ], [ %end_points.sroa.14.0, %while.body.i275 ], [ %end_points.sroa.14.0, %if.else27.i ], [ %end_points.sroa.14.0, %if.then11.i ], [ %end_points.sroa.14.0, %if.end.i229 ], [ %end_points.sroa.14.0, %while.body.i ], [ %end_points.sroa.14.0, %if.then102 ], [ %end_points.sroa.14.0, %if.end35 ], [ %end_points.sroa.14.0, %land.lhs.true.i ], [ %end_points.sroa.14.0, %if.end68 ], [ %end_points.sroa.14.0, %if.then45 ], [ %end_points.sroa.14.0, %land.lhs.true ], [ %end_points.sroa.14.0, %_ZN22contour_point_vector_t6extendERK10hb_array_tI15contour_point_tE.exit ], [ %end_points.sroa.14.1.lcssa, %for.end298 ]
+  %x_deltas.sroa.0.4 = phi i32 [ %x_deltas.sroa.0.3, %do.end ], [ %x_deltas.sroa.0.0, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread18.i ], [ %new_allocated.128.sink.i.ph.i225, %_ZN11hb_vector_tIiLb0EE5allocEjb.exit.thread17.i ], [ %x_deltas.sroa.0.3, %if.then393 ], [ %x_deltas.sroa.0.3, %for.body403 ], [ %x_deltas.sroa.0.2.ph, %if.else27.i322 ], [ %x_deltas.sroa.0.2.ph, %if.then11.i301 ], [ %x_deltas.sroa.0.2.ph, %if.end.i279 ], [ %x_deltas.sroa.0.2.ph, %while.body.i275 ], [ %x_deltas.sroa.0.2.ph, %if.else27.i ], [ %x_deltas.sroa.0.2.ph, %if.then11.i ], [ %x_deltas.sroa.0.2.ph, %if.end.i229 ], [ %x_deltas.sroa.0.2.ph, %while.body.i ], [ %x_deltas.sroa.0.2.ph, %if.then102 ], [ %x_deltas.sroa.0.0, %if.end35 ], [ %x_deltas.sroa.0.0, %land.lhs.true.i ], [ %x_deltas.sroa.0.0, %if.end68 ], [ %x_deltas.sroa.0.0, %if.then45 ], [ %x_deltas.sroa.0.0, %land.lhs.true ], [ %x_deltas.sroa.0.2.ph, %_ZN22contour_point_vector_t6extendERK10hb_array_tI15contour_point_tE.exit ], [ %x_deltas.sroa.0.2.ph, %for.end298 ]
+  %x_deltas.sroa.11.4 = phi ptr [ %x_deltas.sroa.11.3, %do.end ], [ %x_deltas.sroa.11.0, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread18.i ], [ %x_deltas.sroa.11.0, %_ZN11hb_vector_tIiLb0EE5allocEjb.exit.thread17.i ], [ %x_deltas.sroa.11.3, %if.then393 ], [ %x_deltas.sroa.11.3, %for.body403 ], [ %x_deltas.sroa.11.2.ph, %if.else27.i322 ], [ %x_deltas.sroa.11.2.ph, %if.then11.i301 ], [ %x_deltas.sroa.11.2.ph, %if.end.i279 ], [ %x_deltas.sroa.11.2.ph, %while.body.i275 ], [ %x_deltas.sroa.11.2.ph, %if.else27.i ], [ %x_deltas.sroa.11.2.ph, %if.then11.i ], [ %x_deltas.sroa.11.2.ph, %if.end.i229 ], [ %x_deltas.sroa.11.2.ph, %while.body.i ], [ %x_deltas.sroa.11.2.ph, %if.then102 ], [ %x_deltas.sroa.11.0, %if.end35 ], [ %x_deltas.sroa.11.0, %land.lhs.true.i ], [ %x_deltas.sroa.11.0, %if.end68 ], [ %x_deltas.sroa.11.0, %if.then45 ], [ %x_deltas.sroa.11.0, %land.lhs.true ], [ %x_deltas.sroa.11.2.ph, %_ZN22contour_point_vector_t6extendERK10hb_array_tI15contour_point_tE.exit ], [ %x_deltas.sroa.11.2.ph, %for.end298 ]
+  %y_deltas.sroa.0.4 = phi i32 [ %y_deltas.sroa.0.3, %do.end ], [ %y_deltas.sroa.0.0, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread18.i ], [ %y_deltas.sroa.0.0, %_ZN11hb_vector_tIiLb0EE5allocEjb.exit.thread17.i ], [ %y_deltas.sroa.0.3, %if.then393 ], [ %y_deltas.sroa.0.3, %for.body403 ], [ %y_deltas.sroa.0.2.ph, %if.else27.i322 ], [ %y_deltas.sroa.0.2.ph, %if.then11.i301 ], [ %y_deltas.sroa.0.2.ph, %if.end.i279 ], [ %y_deltas.sroa.0.2.ph, %while.body.i275 ], [ %y_deltas.sroa.0.0, %if.else27.i ], [ %y_deltas.sroa.0.0, %if.then11.i ], [ %y_deltas.sroa.0.0, %if.end.i229 ], [ %y_deltas.sroa.0.0, %while.body.i ], [ %y_deltas.sroa.0.2.ph, %if.then102 ], [ %y_deltas.sroa.0.0, %if.end35 ], [ %y_deltas.sroa.0.0, %land.lhs.true.i ], [ %y_deltas.sroa.0.0, %if.end68 ], [ %y_deltas.sroa.0.0, %if.then45 ], [ %y_deltas.sroa.0.0, %land.lhs.true ], [ %y_deltas.sroa.0.2.ph, %_ZN22contour_point_vector_t6extendERK10hb_array_tI15contour_point_tE.exit ], [ %y_deltas.sroa.0.2.ph, %for.end298 ]
+  %y_deltas.sroa.11.4 = phi ptr [ %y_deltas.sroa.11.3, %do.end ], [ %y_deltas.sroa.11.0, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread18.i ], [ %y_deltas.sroa.11.0, %_ZN11hb_vector_tIiLb0EE5allocEjb.exit.thread17.i ], [ %y_deltas.sroa.11.3, %if.then393 ], [ %y_deltas.sroa.11.3, %for.body403 ], [ %y_deltas.sroa.11.2.ph, %if.else27.i322 ], [ %y_deltas.sroa.11.2.ph, %if.then11.i301 ], [ %y_deltas.sroa.11.2.ph, %if.end.i279 ], [ %y_deltas.sroa.11.2.ph, %while.body.i275 ], [ %y_deltas.sroa.11.0, %if.else27.i ], [ %y_deltas.sroa.11.0, %if.then11.i ], [ %y_deltas.sroa.11.0, %if.end.i229 ], [ %y_deltas.sroa.11.0, %while.body.i ], [ %y_deltas.sroa.11.2.ph, %if.then102 ], [ %y_deltas.sroa.11.0, %if.end35 ], [ %y_deltas.sroa.11.0, %land.lhs.true.i ], [ %y_deltas.sroa.11.0, %if.end68 ], [ %y_deltas.sroa.11.0, %if.then45 ], [ %y_deltas.sroa.11.0, %land.lhs.true ], [ %y_deltas.sroa.11.2.ph, %_ZN22contour_point_vector_t6extendERK10hb_array_tI15contour_point_tE.exit ], [ %y_deltas.sroa.11.2.ph, %for.end298 ]
+  %retval.0 = phi i1 [ true, %do.end ], [ false, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread18.i ], [ false, %_ZN11hb_vector_tIiLb0EE5allocEjb.exit.thread17.i ], [ true, %if.then393 ], [ true, %for.body403 ], [ false, %if.else27.i322 ], [ false, %if.then11.i301 ], [ false, %if.end.i279 ], [ false, %while.body.i275 ], [ false, %if.else27.i ], [ false, %if.then11.i ], [ false, %if.end.i229 ], [ false, %while.body.i ], [ false, %land.lhs.true ], [ false, %_ZN22contour_point_vector_t6extendERK10hb_array_tI15contour_point_tE.exit ], [ false, %for.end298 ], [ false, %if.then45 ], [ false, %if.end68 ], [ false, %land.lhs.true.i ], [ false, %if.end35 ], [ false, %if.then102 ]
   %tobool.not.i.i499 = icmp eq i32 %y_deltas.sroa.0.4, 0
   br i1 %tobool.not.i.i499, label %_ZN11hb_vector_tIiLb0EED2Ev.exit, label %if.then.i.i500
 
-if.then.i.i500:                                   ; preds = %if.end90, %cleanup
-  %retval.0786 = phi i1 [ %retval.0, %cleanup ], [ false, %if.end90 ]
-  %y_deltas.sroa.11.4785 = phi ptr [ %y_deltas.sroa.11.4, %cleanup ], [ %y_deltas.sroa.11.0, %if.end90 ]
-  %x_deltas.sroa.11.4783 = phi ptr [ %x_deltas.sroa.11.4, %cleanup ], [ %x_deltas.sroa.11.2.ph, %if.end90 ]
-  %x_deltas.sroa.0.4781 = phi i32 [ %x_deltas.sroa.0.4, %cleanup ], [ %x_deltas.sroa.0.2.ph, %if.end90 ]
-  %end_points.sroa.14.7779 = phi ptr [ %end_points.sroa.14.7, %cleanup ], [ %end_points.sroa.14.0, %if.end90 ]
-  %end_points.sroa.0.8777 = phi i32 [ %end_points.sroa.0.8, %cleanup ], [ %end_points.sroa.0.0, %if.end90 ]
-  %deltas_vec.sroa.12.5775 = phi ptr [ %deltas_vec.sroa.12.5, %cleanup ], [ %deltas_vec.sroa.12.3, %if.end90 ]
-  %deltas_vec.sroa.0.5773 = phi i32 [ %deltas_vec.sroa.0.5, %cleanup ], [ %deltas_vec.sroa.0.3, %if.end90 ]
-  %orig_points_vec.sroa.13.6771 = phi ptr [ %orig_points_vec.sroa.13.6, %cleanup ], [ %orig_points_vec.sroa.13.0, %if.end90 ]
-  %orig_points_vec.sroa.0.6769 = phi i32 [ %orig_points_vec.sroa.0.6, %cleanup ], [ %orig_points_vec.sroa.0.0, %if.end90 ]
+if.then.i.i500:                                   ; preds = %lor.rhs.i.i254, %if.then28.i.i264, %if.end90, %cleanup
+  %retval.0786 = phi i1 [ %retval.0, %cleanup ], [ false, %if.end90 ], [ false, %if.then28.i.i264 ], [ false, %lor.rhs.i.i254 ]
+  %y_deltas.sroa.11.4785 = phi ptr [ %y_deltas.sroa.11.4, %cleanup ], [ %y_deltas.sroa.11.0, %if.end90 ], [ %y_deltas.sroa.11.0, %if.then28.i.i264 ], [ %y_deltas.sroa.11.0, %lor.rhs.i.i254 ]
+  %x_deltas.sroa.11.4783 = phi ptr [ %x_deltas.sroa.11.4, %cleanup ], [ %x_deltas.sroa.11.2.ph, %if.end90 ], [ %x_deltas.sroa.11.2.ph, %if.then28.i.i264 ], [ %x_deltas.sroa.11.2.ph, %lor.rhs.i.i254 ]
+  %x_deltas.sroa.0.4781 = phi i32 [ %x_deltas.sroa.0.4, %cleanup ], [ %x_deltas.sroa.0.2.ph, %if.end90 ], [ %x_deltas.sroa.0.2.ph, %if.then28.i.i264 ], [ %x_deltas.sroa.0.2.ph, %lor.rhs.i.i254 ]
+  %end_points.sroa.14.7779 = phi ptr [ %end_points.sroa.14.7, %cleanup ], [ %end_points.sroa.14.0, %if.end90 ], [ %end_points.sroa.14.0, %if.then28.i.i264 ], [ %end_points.sroa.14.0, %lor.rhs.i.i254 ]
+  %end_points.sroa.0.8777 = phi i32 [ %end_points.sroa.0.8, %cleanup ], [ %end_points.sroa.0.0, %if.end90 ], [ %end_points.sroa.0.0, %if.then28.i.i264 ], [ %end_points.sroa.0.0, %lor.rhs.i.i254 ]
+  %deltas_vec.sroa.12.5775 = phi ptr [ %deltas_vec.sroa.12.5, %cleanup ], [ %deltas_vec.sroa.12.3, %if.end90 ], [ %deltas_vec.sroa.12.3, %if.then28.i.i264 ], [ %deltas_vec.sroa.12.3, %lor.rhs.i.i254 ]
+  %deltas_vec.sroa.0.5773 = phi i32 [ %deltas_vec.sroa.0.5, %cleanup ], [ %deltas_vec.sroa.0.3, %if.end90 ], [ %deltas_vec.sroa.0.3, %if.then28.i.i264 ], [ %deltas_vec.sroa.0.3, %lor.rhs.i.i254 ]
+  %orig_points_vec.sroa.13.6771 = phi ptr [ %orig_points_vec.sroa.13.6, %cleanup ], [ %orig_points_vec.sroa.13.0, %if.end90 ], [ %orig_points_vec.sroa.13.0, %if.then28.i.i264 ], [ %orig_points_vec.sroa.13.0, %lor.rhs.i.i254 ]
+  %orig_points_vec.sroa.0.6769 = phi i32 [ %orig_points_vec.sroa.0.6, %cleanup ], [ %orig_points_vec.sroa.0.0, %if.end90 ], [ %orig_points_vec.sroa.0.0, %if.then28.i.i264 ], [ %orig_points_vec.sroa.0.0, %lor.rhs.i.i254 ]
   call void @free(ptr noundef %y_deltas.sroa.11.4785) #13
   br label %_ZN11hb_vector_tIiLb0EED2Ev.exit
 

@@ -8149,7 +8149,7 @@ _node_changeable_features.exit:                   ; preds = %177, %._crit_edge45
   br label %461
 
 461:                                              ; preds = %429, %454, %458
-  %.0378 = phi i8 [ %434, %458 ], [ %434, %454 ], [ 0, %429 ]
+  %.0378 = phi i8 [ 1, %458 ], [ %434, %454 ], [ 0, %429 ]
   %.1377 = phi i8 [ %.0376, %458 ], [ %.0376, %454 ], [ 0, %429 ]
   %462 = getelementptr inbounds i8, ptr %20, i64 72
   %463 = load ptr, ptr %462, align 8
